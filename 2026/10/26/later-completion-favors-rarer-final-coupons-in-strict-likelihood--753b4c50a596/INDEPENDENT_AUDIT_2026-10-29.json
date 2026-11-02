@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T12:03:34.660360Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md fce363e839f26b27194fb2694a038a2bef5baacc",
+        "verify.py 586e81fdb9af7f8c867457a6b117864fa2d368f9",
+        "Independent exact Fraction EGF-vs-subset DP for five weight vectors through n=m+8 and all pairwise odds"
+      ],
+      "rationale": "The joint EGF expression J_i(n)=p_i(n−1)![z^(n−1)]∏_{h≠i}(e^(p_h z)−1) is exact for iid positive categorical sampling. For p_i<p_j, strip the remaining m−2 factors to c_t. Each q^u/u!, u>=1, is log concave, and TP2 Toeplitz convolution preserves log concavity; a_u/b_u=(p_j/p_i)^u rises strictly. Pairwise determinant A_(k+1)B_k−A_kB_(k+1) decomposes into nonnegative cross terms, and the term u=k−(m−2)+1,v=1 has strict c_(m−2)c_(k−1)>0 for m>=3. m=2 ratio geometric; equal masses symmetric; J_i(m) independent of i. Thus all n>=m odds strictly increase, and normalized conditional law gives likelihood ratio and usual stochastic ordering. Independent rational subset-DP vs coefficient test confirmed five vectors incl equality cases through m+8; unrestricted theorem is analytical.",
+      "residual_risks": [
+        "Requires iid time-homogeneous positive probabilities, only first appearance stopping."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brown et al. Proposition 1(f) gives the complete conditional/joint law by inclusion–exclusion, from which a monotonicity test can be computed but not read off as a standard corollary.",
+          "Aki–Hirano derives general joint waiting-rank formulas, including more models, but does not in inspected theorem assert pairwise strict MLR for arbitrary categorical p."
+        ],
+        "reasoning": "More general *distribution formulas* include the joint numerical probabilities, yet do not directly imply the globally quantified strict inequality without a distinct log-concavity/TP2 argument. Mathematical implication not mere absence of identical wording.",
+        "searches": [
+          "coupon collector later completion rarest last coupon strict monotone likelihood ratio last observed type",
+          "Brown Pekoz Ross 2008 Prop 1f joint coupon collector last coupon distribution",
+          "Aki Hirano 2013 joint waiting times rankings"
+        ]
+      },
+      "checked_sources": [
+        "Brown–Peköz–Ross, Coupon Collecting (2008), full author-uploaded manuscript, Proposition 1(f) and Section 4 conditional last-coupon timing",
+        "Aki–Hirano, Coupon collector problems with statistical applications to rankings (2013), full OA PDF, Theorem 1 and Eqs.5,8 with different likelihood-ratio testing",
+        "Boneh–Hofri 1989 Purdue report technical summary only",
+        "Anceaume–Busnel–Sericola arXiv:1402.5245 Markov chain waiting-time distribution",
+        "Resultary query coupon collector later completion rarest last coupon strict monotone likelihood ratio last observed type nearest SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed studies a different reset model"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "J_i(n)=p_i(n−1)![z^(n−1)]∏_{h≠i}(e^(p_h z)−1) is a classical joint law. For i,j compare convolution of c_t with p_j^u/u! and p_i^u/u!, use strict TP2 determinant and log concavity of c_t.",
+          "Full primary comparison finds conditional tail simulation and exact joint formulas but no independently established global strict ratio from the cited statements."
+        ],
+        "reasoning": "The new inequality follows by adding a substantive TP2 convolution argument; its proof is not equivalent to numerically substituting an old formula.",
+        "searches": [
+          "coupon collector later completion rarest last coupon strict monotone likelihood ratio last observed type",
+          "Brown Pekoz Ross last coupon conditional waiting-time distribution Section 4",
+          "Aki Hirano likelihood ratio tests conditional last coupon"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The property is strict TP2 of joint matrix J_i(n) ordered by increasing rarity, equivalent to strict MLR order of N|L=i.",
+          "Aki–Hirano likelihood-ratio tests compare fitted parameter hypotheses and not stochastic order across L labels."
+        ],
+        "reasoning": "Checked the statistical testing/ordering naming collision; the prior ranking paper is not a stated TP2 final-coupon time theorem.",
+        "searches": [
+          "coupon collector later completion rarest last coupon strict monotone likelihood ratio last observed type",
+          "coupon collector likelihood ratio final coupon identity stopping time MLR stochastic order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact distribution J_i(n) formulas are known: the source does NOT invent the joint probability model.",
+          "Source theorem is an infinite m,n strict ratio inequality; any finite table of numerical probabilities could not establish it."
+        ],
+        "reasoning": "The joint law is covered as input, but the claimed strict structural order is not known to be a database lookup. Full access comparison showed the distinction.",
+        "searches": [
+          "coupon collector later completion rarest last coupon strict monotone likelihood ratio last observed type",
+          "Brown Ross coupon collecting table last coupon completion times",
+          "generalized coupon collector completion time joint probability table"
+        ]
+      },
+      "rationale": "Exact joint law is clearly known from Brown–Peköz–Ross and Aki–Hirano. The original claim is the strict pairwise TP2/MLR ordering, which is not a direct numerical formula restatement and was not stated or automatically implied by the inspected source results. Best-of-knowledge O PASS subject to older unindexed ordering results.",
+      "residual_risks": [
+        "Boneh–Hofri old report and wider total-positivity literature may contain the same MLR order; report not read in full.",
+        "Classical joint formulas cover mathematical inputs but not the structural comparison; priority cannot be certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "JOINT_DISTRIBUTION_KNOWN_MLR_ORDER_NOT_COVERED",
+          "evidence": "Distribution already known; conditional simulation discussed. Strict universal monotone likelihood ratio in n across final-coupon labels not stated in inspected results.",
+          "identifier_or_url": "https://doi.org/10.1017/S0269964808000132",
+          "material_read": "Full author-uploaded manuscript inspected, Proposition 1(f) exact joint law and Section 4 conditional sampling/tails",
+          "method": "lawful public author upload, primary full text",
+          "title": "Coupon Collecting",
+          "trigger": "Canonical previous joint completion/final-coupon distribution"
+        },
+        {
+          "assessment": "RELATED_DISTRIBUTION_DISTINCT_LR_TEST",
+          "evidence": "Likelihood ratio refers to testing between probability parameter hypotheses, not ordering N|L=i by i.",
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/10463_2012_Article_382.pdf",
+          "material_read": "Complete primary PDF accessed; theorem/equations in Section 2 and hypothesis test discussions inspected, screenshot",
+          "method": "lawful OA institutional PDF",
+          "title": "Coupon collector's problems with statistical applications to rankings",
+          "trigger": "Published more general ranking/waiting-time joint formula and term likelihood ratio"
+        },
+        {
+          "assessment": "POTENTIAL_COVERAGE_UNREAD",
+          "evidence": "Full report not inspected in this run; possible monotonicity hidden.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/cstech/807/",
+          "material_read": "Technical-report metadata/abstract only",
+          "method": "Purdue institutional catalogue",
+          "title": "The Coupon-Collector Problem Revisited",
+          "trigger": "Classical nonuniform coupon collector generating functions"
+        },
+        {
+          "assessment": "RELATED_WAITING_TIME_MODEL",
+          "evidence": "Markov chain completion distribution, not a demonstrated strict MLR order on last identity.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.5245",
+          "material_read": "Abstract/topical sections accessible, not complete full text",
+          "method": "arXiv abstract",
+          "title": "New Results on a Generalized Coupon Collector Problem Using Markov Chains",
+          "trigger": "Modern complete-time distribution in nonuniform model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Strict MLR implies stochastic order of N conditional on L",
+        "All positive masses and unrestricted m>=2; finite checks corroborate"
+      ],
+      "rationale": "A universal order comparison for completion time conditioned on which type comes last is a natural probabilistic dependence theorem; it gives testable stochastic comparison for arbitrary nonuniform populations and clarifies behavior beyond classical mean completion time.",
+      "residual_risks": [
+        "Does not claim monotonicity of each middle-type posterior separately or group draws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md fce363e839f26b27194fb2694a038a2bef5baacc",
+    "verify.py 586e81fdb9af7f8c867457a6b117864fa2d368f9",
+    "Independent exact Fraction EGF-vs-subset DP for five weight vectors through n=m+8 and all pairwise odds",
+    "Brown–Peköz–Ross, Coupon Collecting (2008), full author-uploaded manuscript, Proposition 1(f) and Section 4 conditional last-coupon timing",
+    "Aki–Hirano, Coupon collector problems with statistical applications to rankings (2013), full OA PDF, Theorem 1 and Eqs.5,8 with different likelihood-ratio testing",
+    "Boneh–Hofri 1989 Purdue report technical summary only",
+    "Anceaume–Busnel–Sericola arXiv:1402.5245 Markov chain waiting-time distribution",
+    "Resultary query coupon collector later completion rarest last coupon strict monotone likelihood ratio last observed type nearest SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed studies a different reset model"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Does not claim monotonicity of each middle-type posterior separately or group draws.",
+    "Requires iid time-homogeneous positive probabilities, only first appearance stopping."
+  ],
+  "residual_risks": [
+    "Boneh–Hofri old report and wider total-positivity literature may contain the same MLR order; report not read in full.",
+    "Classical joint formulas cover mathematical inputs but not the structural comparison; priority cannot be certified.",
+    "Does not claim monotonicity of each middle-type posterior separately or group draws."
+  ],
+  "schema_version": 1
+}
