@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T07:16:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/sharp-multi-vaccine-path-layouts-for-mean-and-threshold-epidemic--201e633bac83/RESULT.md",
+        "2026/10/25/sharp-multi-vaccine-path-layouts-for-mean-and-threshold-epidemic--201e633bac83/VERIFICATION.md",
+        "independent_checks.py"
+      ],
+      "rationale": "Every vaccination set corresponds uniquely to b=k+1 nonnegative gap lengths summing N. In a gap L, exact expected number of seeds with an outbreak of size >=t is 0 for L<t and p^(t-1)[(t-(t-1)p)L-t(t-1)(1-p)] for L>=t, via weighted counts of maximal edge-open runs. Merging two active gaps into one while setting other t-1 strictly decreases risk by (t-1)p^t; filling inactive gaps toward t-1 decreases by positive slope. Hence zero-risk case N<=b(t-1) has exactly all gaps <=t-1, otherwise threshold optimizer unique multiset (N-(b-1)(t-1), t-1,...). Mean cost H(L)=L+2∑(L-d)p^d has strict second differences 2p^(L+1)>0, giving exactly balanced gaps. Both sets intersect iff N<=b(t-1)+1. Independently exhaustively evaluated rational open-edge cases and compositions with N<=9; all matched. Endpoint p=0,1 excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General-network heuristic/message-passing optimization does not give exact all-k all-t path min-tail placement. Aspnes deterministic reachability corresponds to p=1 outside stated strict domain and sum-of-squares cost."
+        ],
+        "reasoning": "Neither dominates the exact homogeneous percolation mean/tail incompatibility theorem.",
+        "searches": [
+          "Altarelli et al arXiv:1309.2805 §II–III",
+          "Aspnes et al virus inoculation report",
+          "path graph vaccination percolation uniform seed mean outbreak size exceed threshold optimal k vaccine balanced gap"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1309.2805",
+        "Yale TR YALEU/DCS/TR-1295",
+        "arXiv:1407.3215",
+        "Resultary semantic search: path graph vaccination percolation uniform seed mean outbreak size exceed threshold optimal k vaccine balanced gap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expectation minimization via convexity does not settle tail exceedance; threshold tail is piecewise linear with nonconvex jump at t-1, so its optimizer is intentionally different."
+        ],
+        "reasoning": "General SIR/percolation representation alone insufficient; new cost identity and strict improving moves prove sharp switch.",
+        "searches": [
+          "Altarelli et al 2013 vaccination message-passing equations",
+          "Aspnes et al 2004 sum-of-squares partition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Path SIR model is equivalent to bond percolation with a uniform susceptible seed. General immunization message passing, and deterministic inoculation sum-of-squares partition, use different objectives/probability regimes."
+        ],
+        "reasoning": "No equivalent strict stochastic tail-profile minimizer classification established by these published objectives.",
+        "searches": [
+          "path graph vaccination percolation uniform seed mean outbreak size exceed threshold optimal k vaccine balanced gap",
+          "Altarelli et al arXiv:1309.2805",
+          "Aspnes–Chang–Yampolskiy Yale TR 1295"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact classification table across all N,k,t,p found; small exact examples checked by finite calculation, but infinite family is analytically established."
+        ],
+        "reasoning": "Natural exact extremum with all minimizing profiles, not a predetermined data lookup.",
+        "searches": [
+          "path graph vaccination percolation uniform seed mean outbreak size exceed threshold optimal k vaccine balanced gap",
+          "path vaccination percolation mean threshold optimal placements"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after independent statement/implication comparisons with primary literature and published semantic records. Known starting theorems explicitly credited; absence of matching search results not treated as proof of priority.",
+      "residual_risks": [
+        "Equivalent results under network interdiction, separator placement or path bond-percolation terminology could exist in unsurveyed literature.",
+        "Homogeneous independent edges, uniform single seed, perfect vaccines only; no heterogeneous or multi-source claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_MODEL_DIFFERENT_FINITE_PATH_OPTIMUM",
+          "evidence": "Broad probabilistic network immunization framework, not all higher-tail exact path layouts.",
+          "identifier_or_url": "arXiv:1309.2805",
+          "material_read": "Primary full PDF sections II–III including outbreak/reliability optimization and approximations",
+          "method": "Read relevant source and compare objective and exactness",
+          "title": "Containing epidemic outbreaks by message-passing techniques",
+          "trigger": "Same immunization and percolation representation"
+        },
+        {
+          "assessment": "DIFFERENT_TRANSMISSION_AND_RISK",
+          "evidence": "Deterministic reachability inoculation optimizes a sum-of-squares objective, not stochastic p in (0,1) high-tail exceedance.",
+          "identifier_or_url": "Yale TR YALEU/DCS/TR-1295 (2004)",
+          "material_read": "Primary report setting and deterministic sum-of-squares objective (relevant passages); whole-document read not claimed",
+          "method": "Examined relevant definitions and objective",
+          "title": "Inoculation strategies for victims of viruses and the sum-of-squares partition problem",
+          "trigger": "Possible partition optimization covering path vaccination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/sharp-multi-vaccine-path-layouts-for-mean-and-threshold-epidemic--201e633bac83/RESULT.md"
+      ],
+      "rationale": "Complete optimal vaccination layouts for two naturally conflicting risk objectives, including exact sharp population/budget threshold when mean-optimal prevention cannot also minimize a clinical capacity exceedance probability. Tail cost affine above threshold while expected cost strictly convex; this is a substantial exact path-percolation optimization classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent results under network interdiction, separator placement or path bond-percolation terminology could exist in unsurveyed literature.",
+    "Homogeneous independent edges, uniform single seed, perfect vaccines only; no heterogeneous or multi-source claims."
+  ],
+  "schema_version": 1
+}
