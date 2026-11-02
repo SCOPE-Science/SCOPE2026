@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Run `python CHECK.py` using Python 3 with NumPy and SciPy installed. This evaluates 640 closed-form CDF versus adaptive-quadrature comparisons (eight face-apex angles), uses 320,000 uniform planar samples to check exact moments and selected CDF values, and evaluates three first-contact asymptotic coefficients. The script exits with an error on discrepancies above stated numerical tolerances.
+## correctness
 
-## Analytic checks and limits
+PASS
 
-The central analytic step is the global one-Lipschitz distance potential on the folded bipyramid: local Euclidean distance to the apex's developed image agrees on every seam, while convexity of each developed rhombus supplies a path that attains this bound. Thus the intrinsic distance is exact, not estimated by triangulation or mesh geodesics. The probability distribution follows a uniform affine coordinate map from the unit square onto the rhombus. Polar integration with the transition angles gives the exact CDF in every feasible angle range. Independently check its endpoint values, continuity at \(t=\sin\alpha\) and \(t=1\), and its small-radius coefficient \(\alpha/(2\sin\alpha)\). The special tangency exponents follow by the local normal form of the radial boundary. Finite computations corroborate but cannot establish the universal quantifiers or literature originality. No external validation is represented.
+Reconstructed the paired upper/lower triangle isometric unfolding into convex equal-edge rhombi. The Euclidean source-distance potential agrees across upper, equatorial and lower seams and is facewise 1-Lipschitz, so is a lower bound on every intrinsic path, while the straight rhombus segment attains it; this establishes exact distance rather than an assumed unfolding. Uniform rhombus coordinates yield the U,V law; independently checked its second/fourth moments for four angles and evaluated both the 1D polar CDF and each closed piece for angles 0.55,π/2,1.73,2.04 at multiple thresholds (agreement to <2e-7 including numerical integration tolerance). The tangential contact expands quadratically at α=π/2 and at interior minimum for α>π/2, establishing ε^(3/2); transverse acute contact gives ε². Formula for α and h/R confirms only n=3 can yield obtuse angle and right case is h/R=1/sqrt2. Finite numerical checks corroborate full symbolic geometric argument, not exhaustive quantifiers.
+
+## originality
+
+PASS
+
+Qualified PASS for the exact all-parameter intrinsic bipyramid reduction and sharp onset law. Li–Qiu gives planar triangle/rhombus area integrals and moments but not the intrinsic polyhedron-to-rhombus identity; Itoh–O’Rourke–Vîlcu gives general quasigeodesic star unfolding, not the evaluated stochastic law. A later skeletal-cut-loci paper is abstract-only and remains a material equivalence risk.
+
+## value
+
+PASS
+
+A full intrinsic distance law over an entire natural polyhedral family is reduced to one rhombus, with a sharp geometry-controlled transition from ε² to ε^(3/2), and explicitly identifies which dimensions permit the obtuse regime. The onset singularity and stochastic order plus shape-invariance answer motivated surface sampling and geodesic questions rather than a gratuitous parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

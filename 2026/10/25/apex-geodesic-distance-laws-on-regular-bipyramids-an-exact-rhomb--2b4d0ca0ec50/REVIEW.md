@@ -1,11 +1,21 @@
-# Research review: apex geodesic-distance law on regular bipyramids
+# Independent mathematical audit
 
-**Correctness — PASS.** A piecewise planar distance potential is consistent on equator, north radial and south radial edges. Since it is locally 1-Lipschitz, every surface path has length at least the potential difference; a straight radial segment in one convex developed rhombus realizes the lower bound. Uniform surface area pushes forward to uniform rhombus area, yielding the explicit two-uniform representation. Direct polar integration, branch analysis and Taylor expansions establish all CDF and cusp regimes; a monomial calculation proves the stated moments and stochastic order. Reproducibility computations are supporting checks, not the proof.
+## correctness
 
-**Originality — PASS (best-knowledge; limitations stated).** The closest general source, Itoh–O'Rourke–Vîlcu (arXiv:0812.2257, read in full HTML), is an unfolding theorem and supplies no explicit intrinsic-distance law on the regular-bipyramid family. Li–Qiu (DOI 10.1155/2016/8371750, read in full HTML) gives general planar triangular-distance distributions, an important part of what is used after the new reduction. Neither source derives the all-bipyramid radial equivalence, cusp transition or shape parameter reconstruction. O'Rourke–Vîlcu (arXiv:2312.01534) is plausibly relevant for the skeletal cut-locus observation; only its abstract could be inspected, so equivalence in unexamined details remains a concrete risk. Searches of published research summaries found no directly covering result. Nonappearance is not a proof of novelty.
+PASS
 
-**Value — PASS.** Intrinsic shortest-path distances on polyhedral surfaces normally require nonlocal unfolding choices. This family admits an exact global reduction to a rhombus, enabling a complete law for infinitely many nonisometric polyhedral surfaces. The first-contact singularity distinguishes ordinary polygon-corner clipping from interior tangency, with a sharp right-angle transition possible precisely in the triangular-bipyramid family. The inverse formula exhibits what the distance distribution can and cannot identify. This is a natural global geometric-statistics question, not a recomputation of an arbitrary small example.
+Reconstructed the paired upper/lower triangle isometric unfolding into convex equal-edge rhombi. The Euclidean source-distance potential agrees across upper, equatorial and lower seams and is facewise 1-Lipschitz, so is a lower bound on every intrinsic path, while the straight rhombus segment attains it; this establishes exact distance rather than an assumed unfolding. Uniform rhombus coordinates yield the U,V law; independently checked its second/fourth moments for four angles and evaluated both the 1D polar CDF and each closed piece for angles 0.55,π/2,1.73,2.04 at multiple thresholds (agreement to <2e-7 including numerical integration tolerance). The tangential contact expands quadratically at α=π/2 and at interior minimum for α>π/2, establishing ε^(3/2); transverse acute contact gives ε². Formula for α and h/R confirms only n=3 can yield obtuse angle and right case is h/R=1/sqrt2. Finite numerical checks corroborate full symbolic geometric argument, not exhaustive quantifiers.
 
-**Limitations.** Only symmetric right regular bipyramids, apex sources and surface-area sampling are covered. General shortest-path methods and planar polygon distance integration already exist. The 2023 skeletal-cut-locus paper was only accessible at abstract level and remains a bibliographic risk, particularly for the cut-locus corollary. The probability law and cusp formula were derived independently of any inaccessible text. No assertion is made of an exhaustive global literature census.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the exact all-parameter intrinsic bipyramid reduction and sharp onset law. Li–Qiu gives planar triangle/rhombus area integrals and moments but not the intrinsic polyhedron-to-rhombus identity; Itoh–O’Rourke–Vîlcu gives general quasigeodesic star unfolding, not the evaluated stochastic law. A later skeletal-cut-loci paper is abstract-only and remains a material equivalence risk.
+
+## value
+
+PASS
+
+A full intrinsic distance law over an entire natural polyhedral family is reduced to one rhombus, with a sharp geometry-controlled transition from ε² to ε^(3/2), and explicitly identifies which dimensions permit the obtuse regime. The onset singularity and stochastic order plus shape-invariance answer motivated surface sampling and geodesic questions rather than a gratuitous parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
