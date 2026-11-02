@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof's exact coefficient identity follows by acting on \(e^{tz}\) with both Toeplitz orders, then collecting pairs \((a,b)\). The finite-exponential boundedness lemma is established analytically by positive exposed growth and long-interval Fourier mean squares. Weyl unitarity, weak escape, compact perturbation limits, and unit-circle spectrum complete the infinite-dimensional verification.
+## correctness
 
-The accompanying `checker.py` is an executable standard-library-only diagnostic. Executing `python checker.py` produced: `PASS: 1775 deterministic finite diagnostic assertions; no infinite-dimensional conclusion inferred from tests.` It checks random complex frequencies and coefficients, simultaneous four-symbol cancellations, anti-diagonal Weyl normalization, and the two-term coefficient identity.
+PASS
 
-No finite test certifies the infinite-dimensional essential norm, and no attempt was made to solve norms with at least three surviving Weyl frequencies. Independent mathematical assessment has not been performed.
+On the dense kernel domain Fock analytic exponentials multiply and coanalytic exponentials translate, giving [T_{e^{az}},T_{overline{e^{bz}}}]u=(1-e^{a overline b})e^{az}u(z+overline b). After collecting repeated frequency pairs, coefficient q_ab=(1-e^{a overline b})(f_a overline g_b-h_a overline k_b). The normalized coherent-state diagonal equals finite exponential P(w)=sum q_ab exp(a w+overline b overline w). For bounded C, P is bounded: a generic exposed nonzero vertex of the convex hull of s=a+b gives positive exponential growth and a nonzero leading trigonometric sum with positive mean-square, so each off-anti-diagonal q vanishes. Remaining b=-a pieces equal e^{|a|²/2}q_a,-a W_overline a, a finite Weyl-unitary sum, proving sufficiency. Weyl displacements of fixed vectors weakly tend to 0 at infinity, while unitary conjugates of C have phase-subsequential norm limits; compact perturbations vanish on displaced vectors. Hence essential norm=ordinary norm, compact iff C=0. For <=2 Weyl frequencies factor one displacement and use full-circle spectrum of a nontrivial Weyl unitary to get exact sum of coefficient moduli, including example 2sinh(|a|²/2)+2sinh(|b|²/2). Independently checked 320 random complex test-kernel coefficient identities and Weyl normalization; these experiments do not establish the infinite-dimensional lemmas, which were reconstructed analytically.
+
+## originality
+
+PASS
+
+Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. A complete boundedness classification for nonzero commutators of unbounded Toeplitz operators with finite exponential symbols, with exact essential-norm identity and compactness dichotomy. Four-symbol cancellation is not captured by bounded single products or zero-commutator theorems; the explicit two-frequency norm and nontrivial bounded example make the classification substantial.
+
+## value
+
+PASS
+
+A complete boundedness classification for nonzero commutators of unbounded Toeplitz operators with finite exponential symbols, with exact essential-norm identity and compactness dichotomy. Four-symbol cancellation is not captured by bounded single products or zero-commutator theorems; the explicit two-frequency norm and nontrivial bounded example make the classification substantial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
