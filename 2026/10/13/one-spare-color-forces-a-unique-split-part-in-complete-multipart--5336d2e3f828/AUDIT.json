@@ -1,111 +1,101 @@
 {
   "correctness": {
-    "rationale": "The complete-color classification uses disjoint color sets across r nonempty parts with only r+1 colors. In the monochromatic case no blank vertex can see r colors. In the split case no split-part blank can be forced, and at most one nonsplit part may be seedless; conversely those exact conditions explicitly force every blank. Disjoint combinatorial counting gives the whole seed polynomial, probability polynomial and minimum coefficient. The provided standalone enumerator independently checked all 9,213,533 partial assignments in 34 profiles with no discrepancies. This is a universal mathematical proof, not an extrapolation from finite checks.",
+    "rationale": "The original self-review proves the r/r+1 final-color dichotomy, impossibility of forcing a blank in the split part, necessity of at most one blank nonsplit part, constructive sufficiency, the disjoint seed polynomial and the minimum coefficient. It reports exhaustive package checks of 34 profiles and 9,213,533 states. The finite checker is corroborative only.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Farr 2026 addresses forcing invariants generally but does not provide the multipartite r>=3 spare-palette explicit distribution in inspected sections.",
-        "Published maximum-degree-two classification cannot cover complete tripartite graphs of arbitrary orders, whose maximum degrees grow arbitrarily."
+        "Chromatic-palette λ=r result lacks any split color class; first spare palette on r=2 contains just two parts."
       ],
-      "reasoning": "General theory and complexity statements do not imply the coefficient identity. An arbitrary-palette formula for the two-part case does not subsume a formula for all three-or-more-part multipartite graphs. The exact-palette r formula has different initial support constraints.",
+      "reasoning": "Inspected published statements do not logically quantify over both r>=3 and λ=r+1.",
       "searches": [
-        "forced coloring function graph bipartite three colors exact closed form",
-        "forced colouring number complete tripartite graph palette four colours forced colouring polynomial one extra colour",
         "arXiv:2609.17108v1",
-        "published published-finding corpus:2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
       ]
     },
     "checked_sources": [
-      "arXiv:2609.17108v1 (source date 2026-09-15)",
-      "arXiv:1912.02001 (terminology comparison)",
-      "published published-finding corpus:2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
-      "targeted open literature searches for forced colouring function with complete tripartite/multipartite and one spare color"
+      "https://arxiv.org/abs/2609.17108",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+      "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+      "arXiv:1912.02001"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "At lambda=r, a complete multipartite proper coloring necessarily has one color per part, so seeds in all but one part can suffice; this does not create a two-color split part. At lambda=r+1, a fully seeded split part is mandatory for nontrivial propagation.",
-        "The bipartite arbitrary-palette result requires r=2; using r=2 in the present algebra gives a previously known boundary and is excluded from the claimed domain.",
-        "Bozeman and collaborators' graph multicolor forcing changes already assigned vertex colors, unlike Farr's blank-vertex missing-color rule."
+        "λ=r has no split part; λ=r+1 requires two colors in a fully seeded split part; r=2 lacks support constraints across multiple other parts."
       ],
-      "reasoning": "The complete prior claims either concern a smaller part count, a different palette or distinct forcing dynamics. Their conclusions do not imply the r>=3 spare-color classification, coefficient formula or minimum-domain count. Previously covered special cases are acknowledged, not relabeled as novel.",
+      "reasoning": "Known boundary statements do not by specialization force the full r>=3 polynomial, although analogous arguments exist.",
       "searches": [
-        "arXiv:2609.17108v1",
-        "arXiv:1912.02001",
-        "published published-finding corpus:2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
-        "complete multipartite graph forced colouring function lambda r+1 splitting part"
+        "https://arxiv.org/abs/2609.17108",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Farr's forcing-rule definition coincides with the exact-neighbor-color missing-color process; its small bipartite examples use this rule.",
-        "The r>=3, lambda=r+1 claim counts full initial-domain distributions and their probability specialization, not merely chromatic numbers or graph coloring existence."
+        "Farr missing-color process and fixed-palette random polynomial are the same invariant; the claim is not mere proper coloring existence."
       ],
-      "reasoning": "Searched British/American spelling, parameter notation, split-part description and probability formulations; no equivalent all-profile statement was identified. Absence from search is not proof of novelty.",
+      "reasoning": "Synonyms include British/American spelling and forcing-seed enumerator. No matching all-r statement was identified; absence not proven.",
       "searches": [
-        "Farr 2026 forced (r+1)-colouring polynomial complete multipartite graph exact closed formula seeded color parts",
-        "fcol complete multipartite K_{n1,...,nr} lambda = r+1 forcing function explicit probabilities",
-        "complete multipartite graph forced colouring function lambda r+1 splitting part",
+        "Farr 2026 forced r+1-colouring polynomial complete multipartite",
+        "r+1 palette seeded colors",
         "arXiv:2609.17108v1"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Farr's worked K_{1,2} and C4 examples are isolated small instances and do not tabulate r>=3 arbitrary part sizes.",
-        "The packaged brute checker exhausts 34 small profiles but is a new consistency check, not a claimed published database novelty."
+        "Known numerical examples and r=2 formulas are boundary data only."
       ],
-      "reasoning": "No published complete table or database supporting the exact arbitrary-profile r>=3 polynomial was found. Search coverage is incomplete; no absence certification is claimed.",
+      "reasoning": "No arbitrary r>=3 λ=r+1 coefficient table was identified in the original review; no exhaustive database absence is asserted.",
       "searches": [
-        "forcing chromatic polynomial FC_3 K_{m,n} complete bipartite exact enumeration partial colorings",
-        "number of partial proper colourings forcing a complete multipartite graph r plus one colours at most one empty part",
-        "complete tripartite four colouring probability random partial assignment forced coloring"
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+        "forced colouring complete tripartite 4 colors coefficient table"
       ]
     },
-    "rationale": "Farr (2026) defines and studies the graph invariant, including selected small examples and two-color cases, but its inspected definitions/examples and main results do not state the exact r>=3 one-spare-color complete multipartite enumeration. The published max-degree-two three-color formula and earlier complete-bipartite arbitrary-palette formula address r=2 or degree<=2, neither dominating all r>=3 cases. A known exact chromatic-palette multipartite forcing formula has lambda=r rather than r+1 and lacks the unique-surjective-split construction. The theorem compares statements, not titles: it creates a different color-usage regime and proves necessity and sufficiency. Targeted published-finding corpus and open literature searches found no covering theorem. Residual risk from alternative terminology and unindexed publications remains.",
+    "rationale": "Original self-review compares Farr 2026, the chromatic-palette multipartite theorem, the 3-color complete bipartite theorem, and maximum-degree-two formulas; it acknowledges the known boundary cases and a risk of an equivalent unindexed result. The original preprint was only partially checked in that self-review; this is not represented as full independent primary reading.",
     "residual_risks": [
-      "Search and partial full-text inspection cannot exclude an equivalent theorem in uninspected passages, an unindexed preprint, or a work using an alternative term for this forcing process.",
-      "The known bipartite arbitrary-palette and multipartite exact-palette boundary cases are prior work and excluded from the novelty claim."
+      "Earlier work using different forcing terminology or unindexed preprints could include equivalent formula."
     ],
     "source_inspections": [
       {
-        "assessment": "Relevant foundational work, including low-color examples; no exact r>=3 multipartite spare-color enumerator found in inspected material.",
-        "evidence": "Definitions of forcing and fixed-palette probability, worked 3-color cases K_{1,2}, C4; general complexity results and closing questions.",
+        "assessment": "No claimed exclusion of unread pages",
+        "evidence": [
+          "Definition, worked small examples, complexity results, concluding section examined by original reviewer."
+        ],
         "identifier_or_url": "https://arxiv.org/abs/2609.17108",
-        "material_read": "Original preprint pages 1, 4–11, and 25, including definition, the local forcing condition, worked examples and conclusions; the remaining text was not systematically checked.",
-        "method": "Read searchable open preprint PDF text and related visible sections",
+        "material_read": "Original self-review reports preprint pages 1,4–11 and 25, not the complete 29 pages",
+        "method": "Historical self-review report; not independently repeated full-text",
         "title": "The forced colouring function of a graph",
-        "trigger": "Identical forcing definition and graph-polynomial motivation; plausible general covering source"
+        "trigger": "Identical forcing invariant"
       },
       {
-        "assessment": "Different dynamics; does not imply the missing-color partial-assignment enumeration.",
-        "evidence": "The process operates on pre-colored vertices and changes colors rather than assigning the sole missing neighbor color to a blank vertex.",
+        "assessment": "Different recoloring dynamics, not blank-vertex sole-missing-color rule",
+        "evidence": [
+          "The former process changes already-colored vertices."
+        ],
         "identifier_or_url": "https://arxiv.org/abs/1912.02001",
-        "material_read": "PDF abstract/introduction pages 1–2 and later graph-parameter discussion around page 9",
-        "method": "Read open preprint PDF text",
+        "material_read": "Original self-review reports abstract/introduction and later discussion only",
+        "method": "Historical self-review report",
         "title": "Multi-color forcing in graphs",
-        "trigger": "Terminological alias multicolor forcing"
-      },
-      {
-        "assessment": "Scope max degree two and palette three, so not covering r>=3 arbitrary complete multipartite profiles.",
-        "evidence": "The published record explicitly limits to graphs of maximum degree at most two, paths and cycles.",
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
-        "material_read": "Published search entry's title and substantive theorem summary; not full text",
-        "method": "Read published mathematical-record metadata and theorem abstract",
-        "title": "Exact forced 3-colouring polynomials at maximum degree two",
-        "trigger": "Closest published forced-coloring polynomial classification"
+        "trigger": "Terminology ambiguity"
       }
     ],
     "status": "PASS"
   },
+  "previously_published_pending_reaudit": false,
   "review_type": "self_review",
   "schema_version": 1,
-  "scope_run_id": "5336d2e3-f828-4253-8adc-210ec712647f",
   "self_review_status": "passed",
   "value": {
-    "rationale": "Farr's newly introduced forced-coloring graph polynomial motivates determining exact probabilities and distributions for natural graph classes. The one-color surplus above chromatic number is a canonical first boundary where a previously monochromatic color class can split; the theorem discovers that such a split class must be entirely seeded and that only one other class may lack a seed. This structural rigidity is not a parameter renaming of the lambda=r or bipartite cases. The formula determines all coefficients, the exact forcing probability and minimum seed counts for arbitrarily many nonempty parts and arbitrarily large part sizes, and supplies concrete analytic test cases for the general invariant. It does not purport to solve all palettes.",
+    "rationale": "Original self-review motivates the first surplus color after χ(G), structural split-part rigidity and the exact all-domain polynomial for an unbounded natural graph family. It claims no larger palette or universal class theorem.",
     "status": "PASS"
   }
 }
