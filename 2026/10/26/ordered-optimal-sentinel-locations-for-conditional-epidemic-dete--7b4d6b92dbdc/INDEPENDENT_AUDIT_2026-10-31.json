@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:50:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. In the exact independent-Bernoulli-bond path model with one uniform nonsentinel seed and deterministic unit travel times, the probability of eventual detection at monitor j is F_j/(n-1), F_j=Σ_{i≠j}p^{|i−j|}; the conditional mean is G_j/F_j=pF′_j/F_j with G_j=Σ_{i≠j}|i−j|p^{|i−j|}. Reflection reduces positions to the left half. The adjacent monitor difference is controlled by comparison with M_j=j−(n−2j)p^{n−2j}/(1−p^{n−2j}); μ_j increases in p by the positive variance of the distance distribution, while M_j decreases, yielding one root per noncentral adjacent comparison. The monotonicity of h(x)=x/(exp(λx)−1) plus x/2, λ=−log p>0, orders the roots strictly, so all left interior locations appear successively and no endpoint minimizes. Detection probability instead maximizes at the center(s). The n=5 first switch is the positive root p²+2p−1, namely √2−1. Independent rational calculations checked conditional objectives and center/nonendpoint behavior at 28 (n,p) pairs, and the actual finite certificate/program enumerates every bond pattern through n=9 and brackets thresholds through n=24. None of these finite tests substitutes for the all-n monotonicity proof; all boundaries 0<p<1, n≥5, n=2–4 special cases, and symmetry were checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2017 preprint computes importance of nodes on graphs of at most seven vertices under continuous-time SIR.",
+          "2018 article compares time-to-detection, time-to-detection-or-extinction and detection frequency on empirical SIR networks."
+        ],
+        "reasoning": "Neither inspected statement provides an all-n path threshold ordering for the claimed deterministic-delay percolation model; finite/empirical ranking changes cannot imply the universal theorem.",
+        "searches": [
+          "Petter Holme 2017 arXiv:1708.06456 full preprint",
+          "Petter Holme 2018 arXiv:1803.10637 and DOI 10.1103/PhysRevE.98.022313",
+          "Resultary: epidemic sensor sentinel optimal detection time conditioned on detection on paths percolation threshold locations"
+        ]
+      },
+      "checked_sources": [
+        "Full frozen RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py and certificate.json; AUDIT.json and METADATA.json privacy-checked",
+        "Holme 2017 arXiv:1708.06456 primary full text with figure/§II screenshots",
+        "Holme 2018 DOI 10.1103/PhysRevE.98.022313 abstract and primary publisher description",
+        "Christakis–Fowler 2010 sentinel-surveillance literature; Bai et al. 2017 network study context",
+        "Resultary: epidemic sensor sentinel optimal detection time conditioned on detection on paths percolation threshold locations",
+        "Independent exact-fraction calculation of F_j,G_j and optimum for n=3..9 and four rational p"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier discovery-time ranking allows different objectives to disagree.",
+          "The candidate establishes uniqueness and strict order of n-dependent roots of explicit rational function differences."
+        ],
+        "reasoning": "Neither general qualitative disagreement nor finitely many exact rankings implies strict one-by-one transitions for every path length; no dominating implication was established.",
+        "searches": [
+          "Holme 2017 arXiv:1708.06456 §II",
+          "Holme 2018 arXiv:1803.10637",
+          "Resultary: epidemic sensor sentinel optimal detection time conditioned on detection on paths percolation threshold locations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holme 2017 §II.A explicitly defines conditioning on outbreaks reaching a sentinel; that objective predates this record.",
+          "The assigned model is independent single-pass bond transmission with unit edge delays, not exponentially distributed SIR infection and recovery times."
+        ],
+        "reasoning": "Conditional discovery time is a prior-equivalent MOTIVATION but not an equivalent formulation of the all-path threshold theorem. Exclude the objective and elementary F_j,G_j formulas from originality; compare the stronger strict ordering result.",
+        "searches": [
+          "Resultary: epidemic sensor sentinel optimal detection time conditioned on detection on paths percolation threshold locations",
+          "arXiv:1708.06456 Section II.A conditioned discovery-time τ′",
+          "doi:10.1103/PhysRevE.98.022313"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Directly relevant papers report small-graph rankings or empirical surveillance effects, not the parameterized infinite family of strict switching thresholds.",
+          "Resultary nearest endpoint-optimal dynamic sampling result concerns a spectral Gramian objective, not epidemic detection."
+        ],
+        "reasoning": "No exact table inspected contains the full (n,j,p) phase diagram. Failure to find a table is not proof of novelty; the all-n proof supplies the claim.",
+        "searches": [
+          "Resultary: epidemic sensor sentinel optimal detection time conditioned on detection on paths percolation threshold locations",
+          "Holme 2017 exact connected graphs size 3 to 7",
+          "Christakis–Fowler 2010 sentinel surveillance publication"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge only, for the exact all-path ordered threshold theorem, NOT for the conditional-detection-time objective. Holme (2017) explicitly introduces conditional sentinel discovery time and exact finite-graph SIR analysis, and Holme (2018) studies its distinction from detection frequency. Those earlier statements are acknowledged and involve continuous-time SIR, rather than deterministic travel time on Bernoulli-open path edges, and do not imply a unique strictly ordered sequence of all-n transition thresholds. Resultary comparisons found other path sampling and epidemic detection problems but no stronger coverage of the stated model and theorem. A general theorem about logarithmic derivatives of truncated geometric sums could implicitly cover it; full priority is not certified.",
+      "residual_risks": [
+        "Search not exhaustive for an exponential-family/sum-of-geometric-powers ranking theorem which could imply the ordered roots.",
+        "Conditional time and elementary F_j/G_j are established background, explicitly not independently original.",
+        "The infection model excludes reinfection, recovery, latent periods, repeated attempts and random traversal durations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR: conditional τ′ objective already exists, but no all-n Bernoulli path phase ordering",
+          "evidence": "§II.A explicitly conditions τ on reaching a sentinel; finite size 3–7 continuous-time SIR model.",
+          "identifier_or_url": "arXiv:1708.06456v3; doi:10.1103/PhysRevE.96.062305",
+          "material_read": "Full 8-page preprint: introduction, §II.A/B/C model and objectives, results and discussion",
+          "method": "arXiv primary PDF, including screenshot of page 2",
+          "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+          "trigger": "Same conditional detection objective and exact importance rankings"
+        },
+        {
+          "assessment": "BACKGROUND: distinguishes time-to-detection and detection-frequency objectives; not an all-path ordering theorem",
+          "evidence": "Models static and temporal empirical networks with SIR infection; reports parameter-dependent rankings.",
+          "identifier_or_url": "arXiv:1803.10637; doi:10.1103/PhysRevE.98.022313",
+          "material_read": "Publisher article abstract, stated objectives, references and model; full preprint access did not succeed",
+          "method": "Publisher article and bibliographic/abstract comparison",
+          "title": "Objective measures for sentinel surveillance in network epidemiology",
+          "trigger": "Same speed versus detection probability objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Conditional speed and reliability are competing natural surveillance objectives. The proof gives a complete phase diagram over every path length, with an explicit first nontrivial threshold and every intermediate monitor realized on a nonempty parameter interval, whereas optimizing detection probability remains central. This is not just a finite example or a reformulation of the expected detection time.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full frozen RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py and certificate.json; AUDIT.json and METADATA.json privacy-checked",
+    "Holme 2017 arXiv:1708.06456 primary full text with figure/§II screenshots",
+    "Holme 2018 DOI 10.1103/PhysRevE.98.022313 abstract and primary publisher description",
+    "Christakis–Fowler 2010 sentinel-surveillance literature; Bai et al. 2017 network study context",
+    "Resultary: epidemic sensor sentinel optimal detection time conditioned on detection on paths percolation threshold locations",
+    "Independent exact-fraction calculation of F_j,G_j and optimum for n=3..9 and four rational p"
+  ],
+  "disposition": "passed",
+  "limitations": "Applies only to independent one-shot Bernoulli path edges, uniformly selected nonsentinel index, one monitored vertex, conditional mean delay of successful detections, and 0<p<1. The expected conditional delay is not an unconditional epidemic detection guarantee.",
+  "residual_risks": [
+    "Search not exhaustive for an exponential-family/sum-of-geometric-powers ranking theorem which could imply the ordered roots.",
+    "Conditional time and elementary F_j/G_j are established background, explicitly not independently original.",
+    "The infection model excludes reinfection, recovery, latent periods, repeated attempts and random traversal durations."
+  ],
+  "schema_version": 1
+}

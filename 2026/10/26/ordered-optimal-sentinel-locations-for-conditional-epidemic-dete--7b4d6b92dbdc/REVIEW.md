@@ -1,19 +1,21 @@
-# Scientific review: conditional epidemic detection on paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact path-distance law gives unconditional detection probability \(F_j/(n-1)\) and conditional mean \(pF_j'/F_j\). A one-step inward sentinel relocation changes only two distance terms, producing an explicit sign test. Its comparison function is strictly decreasing while the conditional mean is strictly increasing, so each nontrivial adjacent comparison switches exactly once. A strict hyperbolic-cotangent inequality orders every switch, proving a global centerward progression on all path lengths. The endpoint exception, reflection symmetry, full range \(0<p<1\), and the five-vertex square-root threshold are covered. The bundled verifier checks finite examples with exact rational state enumeration; it is corroboration, not the proof of the infinite statement.
+PASS
 
-## Originality — PASS, with residual risk
+PASS. In the exact independent-Bernoulli-bond path model with one uniform nonsentinel seed and deterministic unit travel times, the probability of eventual detection at monitor j is F_j/(n-1), F_j=Σ_{i≠j}p^{|i−j|}; the conditional mean is G_j/F_j=pF′_j/F_j with G_j=Σ_{i≠j}|i−j|p^{|i−j|}. Reflection reduces positions to the left half. The adjacent monitor difference is controlled by comparison with M_j=j−(n−2j)p^{n−2j}/(1−p^{n−2j}); μ_j increases in p by the positive variance of the distance distribution, while M_j decreases, yielding one root per noncentral adjacent comparison. The monotonicity of h(x)=x/(exp(λx)−1) plus x/2, λ=−log p>0, orders the roots strictly, so all left interior locations appear successively and no endpoint minimizes. Detection probability instead maximizes at the center(s). The n=5 first switch is the positive root p²+2p−1, namely √2−1. Independent rational calculations checked conditional objectives and center/nonendpoint behavior at 28 (n,p) pairs, and the actual finite certificate/program enumerates every bond pattern through n=9 and brackets thresholds through n=24. None of these finite tests substitutes for the all-n monotonicity proof; all boundaries 0<p<1, n≥5, n=2–4 special cases, and symmetry were checked.
 
-The exact all-path phase ordering is not established in the inspected Christakis–Fowler 2010 empirical sentinel study, Sun et al. 2014 network simulation, Ciccolini et al. 2014 multi-hospital optimization, or Holme 2017 small-graph continuous-time SIR analysis. Holme already introduced a *conditional* discovery-time objective, and this antecedent is explicitly acknowledged rather than presented as novel. Its distinct timing dynamics and finite-graph analysis do not imply the independent-edge deterministic-delay all-path threshold theorem. Related earlier path vaccination and two-seed influence results have different objectives. There is residual risk of the same phase ordering existing under logarithmic derivatives of exponential distance sums, and independent bibliographic review remains appropriate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a complete decision diagram for the conditional speed-versus-coverage conflict at every path size, including exact uniqueness and ordering of all thresholds, nonempty intervals for every possible intermediate location, and a sharp minimum size. This is a structural classification of a practically motivated early-warning statistic, not an arbitrary finite calculation. It also warns that a conditional-latency measure alone can favor a lower-probability surveillance site.
+PASS, best-of-knowledge only, for the exact all-path ordered threshold theorem, NOT for the conditional-detection-time objective. Holme (2017) explicitly introduces conditional sentinel discovery time and exact finite-graph SIR analysis, and Holme (2018) studies its distinction from detection frequency. Those earlier statements are acknowledged and involve continuous-time SIR, rather than deterministic travel time on Bernoulli-open path edges, and do not imply a unique strictly ordered sequence of all-n transition thresholds. Resultary comparisons found other path sampling and epidemic detection problems but no stronger coverage of the stated model and theorem. A general theorem about logarithmic derivatives of truncated geometric sums could implicitly cover it; full priority is not certified.
 
-## Scope and risks
+## value
 
-Independent homogeneous contacts; one uniformly located nonsentinel source; fixed unit traversal time; no repeated attempts or latent/recovery delays. This is not a statistical or empirical performance guarantee. The literature comparison is strong for the cited directly relevant sources, but an unlocated exact exponential-family optimality result is possible. No independent scientific audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Conditional speed and reliability are competing natural surveillance objectives. The proof gives a complete phase diagram over every path length, with an explicit first nontrivial threshold and every intermediate monitor realized on a nonempty parameter interval, whereas optimizing detection probability remains central. This is not just a finite example or a reformulation of the expected detection time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
