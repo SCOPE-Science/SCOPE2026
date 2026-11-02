@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The central identity expresses deficit as the sum of class-size deficits. The fixed-point-free prime-order letter permutation commutes with every coordinate subgroup and acts without fixed words. Its action on the group classes yields two exhaustive possibilities: fixed classes of size divisible by the prime, and free orbits of prime many classes. These force the sharp lower bound; Parikh-vector invariance of a fixed class forces length divisible by the prime. Both periodic constructions are explicit, satisfy global factor-language color invariance, and attain the two bounds exactly. Finite exhaustive stress tests cross-check all invariant factor sets in the stated small cases, but the infinite-parameter conclusion rests on the combinatorial proof.
+PASS
 
-## Originality
+The letterwise free C_p-action commutes with H and permutes its word classes. Each nontrivial fixed class has cardinality multiple p and contributes at least p-1 to the deficit, while every free class orbit contributes a multiple p. A fixed class forces equal letter multiplicities around every p-cycle and hence p|n; this yields the length congruence and equality classification. The two periodic examples realize p-1 at length p and p at n=2. Independent finite tests enumerated all invariant sets/position subgroups for (p,n)=(3,2),(3,3),(5,2),(7,2) and verified examples. These tests are not a proof of arbitrary n or H.
 
-**PASS within inspected evidence.** [1] supplies the general group-complexity motivation and a binary odd-length parity obstruction; it does not establish the prime-color sharp endpoint gaps, length congruence and equality rigidity. [2] counts simultaneous alphabet-and-position group orbits, not position-only complexity under an external commuting alphabet symmetry. [3] derives absolute lower bounds rather than the spectrum immediately below ordinary complexity. The logically stronger coverage relevant to this exact claim was not found in the examined papers or scientific-record comparisons. An unindexed equivalent orbit argument is a residual priority risk; no definitive novelty guarantee is asserted.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The theorem gives a new structural obstruction to universality of group-complexity spectra for an entire infinite class of words, with exact congruences, a complete sharp-endpoint classification, and uniform extremizers for arbitrary primes. This is not a finite isolated table or a cosmetic restatement of a binary parity case: prime-color orbits impose a nontrivial forbidden interval at every length, with a distinct modular regime at nondivisible lengths.
+Best-of-knowledge, source-specific originality qualified by documented prior coverage and residual priority risks. Existing stronger antecedents and their mathematical implications have been compared, and restricted source access is not treated automatically as either originality proof or failure. General coordinate-orbit complexity definitions and combined-action results do not mathematically give the statement that fixed classes require p|n or the exact p-1 equality criterion without a separate free-letter-action argument.
 
-## Closest literature and limitations
+## value
 
-The closest primary sources are [1] Launer–Puzynina–Voloshinova (arXiv:2607.07620v1, 2026), [2] Machacek (arXiv:2509.26613v1), and [3] Charlier–Puzynina–Zamboni (arXiv:1505.03848). The claim concerns prime fixed-point-free color symmetries and position-only groups. It does not classify every attainable intermediate complexity, and it does not establish equivalent sharpness for aperiodic examples. Independent scholarly validation is not yet performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first forbidden group-complexity values and parity-like modular restrictions are natural sharp symmetry constraints on factor complexity, with complete equality rigidity and explicit uniformly sharp witnesses. The assertion is limited to free prime-color actions, not all alphabet actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
