@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The forced Neumann Green kernel yields a normalized baseline; the homogeneous response fixes the unique stationary current and both endpoint densities. Substitution gives the interfacial entropy exactly as a strictly concave scalar function. Strict concavity, an explicit derivative inequality and limiting roots establish all claimed uniqueness, constants and strict inequalities. Hyperbolic identities and two Taylor limits establish the point-reset laws, while convexity of the Jeffreys divergence controls arbitrary reset distributions. The executable boundary-value reconstruction matched 110 point-reset and 70 mixed-reset cases, as well as direct optimization and limit tests. Finite tests are supporting evidence, not an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Bressloff (arXiv:2402.16403v1; 2024) already established the ring stationary equations, interfacial entropy and qualitative nonmonotonic response. That model and its explicit solutions are **not** claimed as new. The assessed result is the complete, sharply bounded and distribution-uniform optimization theorem, source-contrast monotonicity, its two physical limiting coefficients and endpoint-source envelope. The complete relevant sections of the primary article and relevant material from neighboring membrane studies were compared; no explicit covering global theorem was found. Since the original exact stationary formula enables these deductions, equivalent earlier or unindexed derivations remain possible; this is the main originality risk.
+PASS
 
-## Mathematical value — PASS
-A tunable membrane permeability is a natural control parameter in a Brownian nonequilibrium steady state. Exactly classifying the entropy-maximizing value for every fixed reset law, and providing sharp parameter-free limits and source-design constraints, materially strengthens qualitative examples. The result provides a necessary zero-contrast exception and a universal scale to compare experiments and calculations across ring sizes, diffusion and resetting rates. It makes no claim about total thermodynamic optimization or membrane systems outside its hypotheses.
+The Neumann Green kernel produces the exact positive baseline endpoint densities U,V and the homogeneous flux solution p=p_N+J h has endpoint difference zδ and stationary current J=−κzδ, with z=(1+bκ)^{-1}. The interface entropy is (2|δ|/b)(1−z)atanh(tz). For every 0<t<1, its second derivative is −2t(1−t²z)/(1−t²z²)²<0, forcing a unique interior maximum; at t=0 entropy vanishes identically. The critical-point equation and implicit derivative give 1/2<z*(t)<s, monotone z*, with atanh(s)=1/(1+s), and the sharp bound (1−s)/s < bκ* <1. Hyperbolic point-reset identities yield κ*(r)=D/L+rL/12+O(r²) at small r and κ*/sqrt(Dr)→(1−s)/(2s) at large r. The joint convexity of Jeffreys divergence and monotone point-source location dependence establish the endpoint-source envelope for arbitrary μ. I independently simplified the F formula, checked the critical root s≈0.564376588560400 and strict optimum shape at multiple contrasts. The analytic proof, not finite tests, covers all asserted parameters.
 
-## Relationship to sources and limits
-The closest reference is Bressloff, *Entropy production for diffusion processes across a semipermeable interface*, arXiv:2402.16403v1, section III. Related comparisons concern arXiv:2211.12468v1 (absorbing target with screened resetting) and arXiv:2406.07142 (local-time crossing statistics and periodic asymmetric barriers). The proof uses the preceding stationary equations as an acknowledged starting point. Residual risks concern mathematically equivalent consequences of already published formulas and uninspected equivalent full-text derivations, not a hidden assertion of independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the precise optimization theorem, not the stationary model. Bressloff 2024 already gives this ring model, its entropy expression and qualitative nonmonotone permeability plots. Reading full relevant sections found no stated all-reset-distributions unique optimizer, sharp universal contrast interval, fixed-source reset-rate coefficients or Jensen extremal-source bound. These are further nontrivial quantitative deductions, while possible equivalent closed-form implications of the prior solution remain a material originality risk.
+
+## value
+
+PASS
+
+Optimal interface permeability is a natural transport-control variable and the interfacial entropy has a physically motivated observable definition. The theorem supplies a mathematically complete sharp parameter-independent optimizer interval, the precise degeneracy at balanced source laws, monotonic contrast control and asymptotic design scales. This goes beyond merely plotting a known nonmonotone profile and could be used without reoptimizing over all physical parameters; no claim about total thermodynamic cost is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
