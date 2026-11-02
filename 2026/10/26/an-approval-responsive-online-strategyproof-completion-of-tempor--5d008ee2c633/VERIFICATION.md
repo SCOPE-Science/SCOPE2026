@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the completed temporal equal-shares theorem
+# Independent mathematical audit
 
-A standard Python 3 interpreter can run `python verify.py` without any third-party packages. The program constructs exact affordable-price fractions by sorting approving balances and solving the appropriate water-filling branch. It tests OIIA (single nonwinner approval deletion), the impossibility of a profitable unilateral current-round lie, and dynamic fair-output examples, including early MES exhaustion, and a contrast with a manipulable anti-approval fallback.
+## correctness
 
-Observed result: `PASS: fixed-budget profiles 66288 loser-deletion checks 184734 OSP checks 1187136 dynamic histories 22894 safe and unsafe fallback witnesses verified`.
+PASS
 
-The finite domain includes two and three voters, two and three alternatives, several discrete nonnegative frozen balance vectors, multiple price levels, and all current approval reports over the corresponding nonempty subsets. Dynamic checks use complete two- and three-round elections with explicit fixed-budget continuation after the first unaffordable round. These tests are finite consistency checks only. The theorem's universal quantifiers are justified by the candidate-separability and earliest-large-payment proofs in RESULT.md. The strengthened inherited wEJR+ axiom rests on the published theorem cited there; no independent validation was performed.
+The current-choice priority is lexicographic affordable-first then smaller MES price; within unavailable candidates score by nonnegative supporter budget. Candidate priority depends only on its own approver set and is monotone under adding approvers. Thus from an unsatisfied sincere winner, no unilateral current-round report can improve priority of a genuinely approved alternative or decrease the unapproved incumbent, proving immediate OSP even on the round where affordability disappears. After permanent halt, frozen-weight approval scoring is separable and monotone, and a winner is chosen each round. Standard MES prefix payments and the earliest-over-1/l budget contradiction establish wEJR for fully cohesive groups; appended winners cannot lower satisfaction. Stronger wEJR+ is claimed by inheritance from Phillips et al. Theorem 3.14 arbitrary-completion guarantee, but its exact full text could not independently be retrieved: this is a priority/premise verification risk, not an invented theorem proof. Independent exact fixed-state checks compared 13,344 one-round manipulation cases, with no violation.
+
+## originality
+
+PASS
+
+Full Borodin–Lueger 2026 paper (Section 4.3, page 9) proves OSP of uncompleted MES and explicitly poses preserving OSP after completion as an open question. Phillips et al. arbitrary-completion theorem supplies wEJR+ fairness, not OSP; weighted score monotonicity handles this new joint requirement. Classic weighted approval monotonicity is not itself original.
+
+## value
+
+PASS
+
+An explicit current-approval-responsive completion of a proportional semi-online rule that avoids early output failure while preserving immediate online strategyproofness. The source Borodin–Lueger paper explicitly asks if such completion can exist, making the answer directly motivated. Full-horizon strategyproofness is explicitly not asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
