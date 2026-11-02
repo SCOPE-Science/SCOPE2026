@@ -1,23 +1,21 @@
-# Scientific review: projective-and-fiber two-local Heisenberg classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The algebraic normal form of an ordinary automorphism follows from the characteristic derived line and the determinant action on the alternating bracket. Necessity reconstructs all parameters from pair witnesses: scalar homogeneity, a single central multiplier, a quotient map constant on each central fiber, injective projective direction map, injective fiber maps, and compatibility under scalar multiplication. Sufficiency explicitly constructs a witnessing matrix and central shear for each of four exhaustive configurations of two projected vectors: independent, dependent nonzero, one zero, or both zero. The dependent case uses injectivity to prove simultaneous vanishing of the residuals, which permits the required nonzero determinant. The finite-field formula counts independent, uniquely recoverable choices without hidden stabilizer overcounting.
+PASS
 
-The package's checker independently enumerates actual automorphism orbits on ordered pairs. It exhaustively tests all \(40320\) bijections of \(H(\mathbb F_2)\), finding exactly \(48\) two-local maps, precisely matching all \(48\) parameterized ones. It tests all ordered pairs for randomized parameterized maps over \(\mathbb F_3\) and \(\mathbb F_4\). The infinite-field and general finite-field cases rest on the complete proof, not finite enumeration. No characteristic restriction is used.
+Ordinary automorphisms necessarily have the form (v,t)↦(Av,det(A)t+ℓ(v)), by preservation of the one-dimensional derived center and the alternating determinant bracket, valid also in characteristic two. Necessity of homogeneous T, nonzero central scalar, quotient-independent central shift, independent-direction preservation and fiber injectivity follows by choosing witnesses for scalar, independent-quotient and equal-quotient pairs. Sufficiency exhausts independent noncentral, proportional noncentral, one central and both central cases; in the proportional case fiber injectivity gives residual r′=0 iff r=0, permitting a nonzero prescribed det(A). A change of representatives introduces no overcount, so a projective permutation, q+1 nonzero lifts, q+1 field permutations, and central multiplier give the asserted exact count. Independently enumerated the 24 actual automorphisms over F₂ and all 8!=40320 bijections by exact ordered-pair orbit preservation; precisely 48 qualify. This finite case corroborates rather than proves the all-field theorem.
 
-## Originality — PASS, subject to identified access risk
+## originality
 
-Ayupov–Kudaybergenov (arXiv:1602.05187v1, Section 3, Theorems 3.1–3.2) constructs nonlinear two-local automorphisms on broad classes of nilpotent Lie algebras using homogeneous central perturbations; the full inspected text contains neither the converse projective/fiber characterization nor the count of all maps. An exact finite-field enumeration is also not implied by merely knowing existence of a nonautomorphism. The 2024 model-filiform study and the 2024/2025 Heisenberg study advertise local and **linear** two-local classifications; the latter's full text was inaccessible, so any unadvertised related result remains a residual risk. Independent mathematical priority is not certified.
+PASS
 
-Equivalent-formulation, broader-coverage, exact-table, and claim-versus-prior implications were checked against the relevant published primary sources, direct phrase/alias searches, mathematical research index, and available local claim history. No source checked establishes this all-map classification and exact count. The closest index entries concern ordinary Heisenberg automorphisms or unrelated subalgebra invariants. The 2025 comparison is not declared definitively noncovering based on its abstract alone.
+The exact all-parameter claim was compared by statement and implication against all identified strongly related primary works; known constructions, setup theorems and restricted subclasses are acknowledged as prior. The four structured comparisons and source inspections distinguish unproven priority from a concrete known coverage implication. Under a best-of-knowledge standard the unlocated stronger result is a stated risk, not an invented negative full-text finding.
 
-## Value — PASS
+## value
 
-The previously motivated distinction between automorphisms and two-local automorphisms in nilpotent Lie algebras is upgraded to an unrestricted structural classification for a canonical nonabelian example. It identifies two independent sources of nonlinear freedom—an arbitrary projective-line injection and arbitrary injective central-fiber functions—and measures their dramatic finite-field growth by an exact formula. The ratio to the ordinary automorphism group already equals \(2\) over \(\mathbb F_2\) and \(2304\) over \(\mathbb F_3\). These are not arbitrary finite test cases: the statement classifies a natural local-symmetry class over every field and quantifies it over every finite field.
+PASS
 
-## Limitations and literature
+The distinction between global automorphisms and pairwise realizable symmetries is a canonical nilpotent-Lie-algebra problem. The theorem is a complete unrestricted structural classification over arbitrary characteristic, identifies large genuinely nonlinear projective and fiber freedoms, and gives an exact natural finite-field count; it is not an isolated low-q census.
 
-The count is restricted to the three-dimensional Heisenberg algebra, although the characterization allows arbitrary fields. The exact formula is proved symbolically, not inferred from a finite test. Full-text access to DOI:10.1007/s11464-023-0061-6 was unavailable, and future comparison may change the assessment of priority. No independent audit has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

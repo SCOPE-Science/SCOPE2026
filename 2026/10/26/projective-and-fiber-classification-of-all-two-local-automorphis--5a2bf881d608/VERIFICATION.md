@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 check_2local.py` with Python 3.8 or later; only the standard library is used. Successful execution prints `HEISENBERG_TWO_LOCAL_OK` after the displayed checks. The actual packaged script was executed and returned this success marker.
+## correctness
 
-For the prime field \(\mathbb F_2\), the checker constructs all \(24\) genuine Lie automorphisms of the eight-element Heisenberg Lie algebra, enumerates their \(11\) orbits on ordered pairs, then checks all \(8!=40320\) bijections against exact orbit preservation. The \(48\) that pass are exactly the \(48\) independently generated classification maps, a complete finite-case check.
+PASS
 
-For \(\mathbb F_3\), all \(432\) ordinary automorphisms and \(14\) ordered-pair orbits are constructed. All \(729\) ordered-pair conditions are tested for each of \(120\) pseudorandom parameterized maps. For the genuine extension field \(\mathbb F_4\), defined by adjoining a root of \(u^2+u+1\), the checker enumerates all \(2880\) automorphisms and \(17\) pair orbits; it tests all \(4096\) ordered-pair conditions for \(100\) parameterized maps. A fixed seed makes the randomized cases reproducible.
+Ordinary automorphisms necessarily have the form (v,t)↦(Av,det(A)t+ℓ(v)), by preservation of the one-dimensional derived center and the alternating determinant bracket, valid also in characteristic two. Necessity of homogeneous T, nonzero central scalar, quotient-independent central shift, independent-direction preservation and fiber injectivity follows by choosing witnesses for scalar, independent-quotient and equal-quotient pairs. Sufficiency exhausts independent noncentral, proportional noncentral, one central and both central cases; in the proportional case fiber injectivity gives residual r′=0 iff r=0, permitting a nonzero prescribed det(A). A change of representatives introduces no overcount, so a projective permutation, q+1 nonzero lifts, q+1 field permutations, and central multiplier give the asserted exact count. Independently enumerated the 24 actual automorphisms over F₂ and all 8!=40320 bijections by exact ordered-pair orbit preservation; precisely 48 qualify. This finite case corroborates rather than proves the all-field theorem.
 
-The general finite-field formula and arbitrary-field classification are established by the proof in `RESULT.md`: no finite test is presented as an infinite certificate. The literature comparison does not establish absolute publication priority. The independent audit is not performed.
+## originality
+
+PASS
+
+The exact all-parameter claim was compared by statement and implication against all identified strongly related primary works; known constructions, setup theorems and restricted subclasses are acknowledged as prior. The four structured comparisons and source inspections distinguish unproven priority from a concrete known coverage implication. Under a best-of-knowledge standard the unlocated stronger result is a stated risk, not an invented negative full-text finding.
+
+## value
+
+PASS
+
+The distinction between global automorphisms and pairwise realizable symmetries is a canonical nilpotent-Lie-algebra problem. The theorem is a complete unrestricted structural classification over arbitrary characteristic, identifies large genuinely nonlinear projective and fiber freedoms, and gives an exact natural finite-field count; it is not an isolated low-q census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
