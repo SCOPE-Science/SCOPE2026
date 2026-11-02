@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Edge-set overlap enumeration gives the five stated exact moments. The resulting rational expression factors into a strictly negative product because \(K_{n,m}>0\) throughout the nondegenerate domain; the boundary cases are deterministic. Separate one-edge overlap enumeration gives the independent-edge threshold. Exact rational enumeration through six vertices and symbolic factorization/leading-coefficient checks were executed using the supplied standalone verifier. The unlimited result is justified by counting and polynomial identities, not finite testing.
+## correctness
 
-**Originality — PASS on the inspected evidence.** The nearest papers of Goldschmidt–Griffiths–Scott (2019, arXiv:1902.06830, including the complete discussion of martingale-increment covariances in Section 7) and Alvarado–Gonçalves de Oliveira–Griffiths (2023, arXiv:2305.04326, notably Section 1.3 on cherries) study marginal counts or increment covariances. They do not state an all-size exact negative covariance for induced open wedges versus triangles or the opposite sign region in the independent-edge model. Janson's broader random-graph statistic limit theory remains a plausible source of antecedent asymptotic implications, but does not by its published abstract establish the finite universal sign. Historical-priority uncertainty is explicitly retained.
+PASS
 
-**Value — PASS.** Open triples and closed triples are the two basic three-vertex configurations underlying network transitivity. Showing an unconditional positive covariance below a sharp density threshold but an all-parameter negative covariance after fixing edge count is a structural diagnostic for how network null models affect dependence. Exact finite expressions and a nonzero fixed-density correlation limit prevent this from being a merely asymptotic or normalization observation.
+Let C=binom(n,3), B=3C, a_j=(m)_j/(N)_j. The identity W=P-3T converts induced-wedge count into centered cherry P and triangle T. Direct overlap enumeration yields exact E[T],E[P],E[T^2],E[P^2],E[TP] with common-edge or fully disjoint edge-set union probabilities a_j. Independent rational graph enumeration of ALL labelled simple graphs for n=4,5,6 across all 34 edge-count strata reproduced the finite covariance and boundaries. A separate symbolic SymPy simplification verified for arbitrary n,m the factor -C*a3*6(N-m)(N-m-1)K/((n+1)(n+2)(N-5)(N-4)(N-2)). K>0 for n>=5; n=4 gives K=24-4m>0 for 3<=m<=4. When m<=2 no triangle; when m>=N-1 counts deterministic. In G(n,p), overlap on one edge gives 3 C p^4(1-p)[2(n-3)-(3n-8)p], with positive/negative transition threshold 2(n-3)/(3n-8). Symbolic dense-limit calculations independently recovered -p^4(1-p)^2 covariance coefficient and both variance constants, giving the stated correlation. The general result follows from overlap algebra and positivity, not extrapolation.
 
-The result does not establish generic negative association or any claim about other motifs. Independent historical-priority assessment and external mathematical validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published work on moderate deviations for non-induced cherries and triangles and Janson subgraph statistics provide general covariance frameworks and may already cover some asymptotic constants, but the inspected results do not assert the all-n,m strictly negative induced triangle–open-wedge finite sign and the exact positive-to-negative G(n,p) contrast. Best-of-knowledge PASS with genuine risk of an unindexed exact cross-covariance identity in older joint induced-subgraph literature.
+
+## value
+
+PASS
+
+The all-parameter strict sign versus edge-count conditioning and explicit model reversal supply a natural interpretable random-graph dependence phenomenon. Exact finite boundaries and a nontrivial factored positivity polynomial go beyond computing an arbitrary isolated moment; known marginal concentration and asymptotic covariance alone do not establish this sign classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
