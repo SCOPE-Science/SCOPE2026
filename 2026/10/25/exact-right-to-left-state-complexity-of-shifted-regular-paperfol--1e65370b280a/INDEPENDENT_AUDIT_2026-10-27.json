@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T16:01:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For LSD-first binary prefix x at level k, the exact residual z↦p(2^k z+c+x) is classified by r=(c+x+1) mod2^k: r=0 yields shift p(z+floor(c/2^k)), r=2^(k-1) yields parity z+floor((c+2^(k-1))/2^k) mod2, and all other residues yield constants. k=0 is treated separately and k=1 has no constant case; constants do occur from k=2. The attainable shifts are c,floor(c/2),...,0 (one when c=0, m+2 when c≥1 with m=floor(log2c)); both parities occur iff c≥1, both constants always. The proof by shifting 2^k−1 and 3·2^k−1 establishes non-eventual periodicity of p, ruling out residual collisions. Thus exactly 4 states at c=0 and 6+floor(log2c) for c≥1, with both reachability and distinguishability. Independent direct residual signature enumeration covered 39 shifts and 19096 prefix signatures; finite tests are corroboration of all-shift proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their explicit evaluated shifts are c=0 (4) and c=1 (6), and general bounds/constructions are not an exact evaluation for all c."
+        ],
+        "reasoning": "Neither those endpoints nor upper bounds imply equality of minimal state counts for every shift.",
+        "searches": [
+          "Resultary semantic query: paperfolding sequence shifted right-to-left binary automaton minimal state complexity 6 floor log2 c",
+          "Zantema Bosma Theorem 16 and Example 3; general automatic shift bounds"
+        ]
+      },
+      "checked_sources": [
+        "Zantema and Bosma, Complexity of Automatic Sequences, Information and Computation 288 (2022) 104710, primary full PDF relevant Example 3 and Theorem 16",
+        "Moradi, Popoli, Shallit and Vukusic, State Complexity of Shifts of the Fibonacci Word, arXiv:2603.18858, different numeration and word",
+        "Moradi, Rampersad and Shallit, arXiv:2512.10017, k-automatic linear subsequences",
+        "Resultary 2026-09-08 SCOPE079 paperfolding prefix attractor result, different invariant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known c=0,1 correspond to the theorem, but do not imply c=2 onward; Fibonacci word uses different automatic kernel."
+        ],
+        "reasoning": "The all-shift function is not covered by these more restricted statements, with residual risk from other literature.",
+        "searches": [
+          "Resultary semantic query: paperfolding sequence shifted right-to-left binary automaton minimal state complexity 6 floor log2 c",
+          "Zantema Bosma 2022 c0 and c1, Theorem 16; Moradi et al Fibonacci shifts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Residual functions are exactly p(z+floor(c/2^k)), constants and parity functions with reachable states as in the proof."
+        ],
+        "reasoning": "This translates shifted automatic sequence complexity into kernel cardinality, showing exact distinctness rather than merely producing a DFA construction.",
+        "searches": [
+          "Resultary semantic query: paperfolding sequence shifted right-to-left binary automaton minimal state complexity 6 floor log2 c",
+          "binary 2-kernel of translated paperfolding sequence, DFAO Myhill–Nerode residual counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary paperfolding attractor finite-prefix sizes concern string attractors, not DFAO size. Published paperfolding c=0/1 numbers coincide with the current theorem as special cases."
+        ],
+        "reasoning": "The first two state counts are known but the exact all-c staircase is not simply a lookup of a known table.",
+        "searches": [
+          "Resultary semantic query: paperfolding sequence shifted right-to-left binary automaton minimal state complexity 6 floor log2 c",
+          "Resultary exact paperfolding shift states query; Zantema Bosma 4/6 published small values"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS: Zantema–Bosma already give reversed complexity 4 for unshifted regular paperfolding and 6 for its 1-step tail and general shift upper bounds. The complete dyadic staircase for arbitrary c≥1 and exact residual family are not obtained directly from those two special-case evaluations or the Fibonacci-word shift theorem.",
+      "residual_risks": [
+        "An exact general-shift formula may exist in less-indexed literature on paperfolding kernels beyond inspected primary sources.",
+        "This is LSD-first with redundant high zeros and a specified p(n) convention; MSB-first automata need not share count.",
+        "Residue classification proves infinite claim; finite residual signatures alone would not show uniqueness for every input."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes 4 (c=0), 6 (c=1) and general constructions/bounds; not the inspected all-c dyadic staircase",
+          "evidence": [
+            "Example 3 gives reversed state complexity 4 for paperfolding; post-Theorem 16 discusses 6 for one-step tail."
+          ],
+          "identifier_or_url": "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+          "material_read": "Primary complete 17-page PDF accessed; specifically Example 3, Theorem 16, discussion after Theorem 16 and example of six-state one-step tail",
+          "method": "Full PDF relevant section reading and page screenshot",
+          "title": "Complexity of Automatic Sequences",
+          "trigger": "Most directly overlapping unshifted and one-step regular paperfolding complexities"
+        },
+        {
+          "assessment": "Fibonacci word with Zeckendorf numeration is mathematically distinct from binary regular paperfolding",
+          "evidence": [
+            "Studies shifts of Fibonacci word; cannot substitute regular paperfolding and LSD binary input."
+          ],
+          "identifier_or_url": "arXiv:2603.18858",
+          "material_read": "Abstract and available theorem framing, not full manuscript",
+          "method": "arXiv indexed record comparison",
+          "title": "State Complexity of Shifts of the Fibonacci Word",
+          "trigger": "Same shift state complexity question but different automatic word"
+        },
+        {
+          "assessment": "General transformed-sequence setting does not directly provide exact arbitrary-c minimal residual count in inspected material",
+          "evidence": [
+            "Concerns k-automatic subsequences and complexity bounds."
+          ],
+          "identifier_or_url": "arXiv:2512.10017",
+          "material_read": "Indexed abstract and metadata, not full proof",
+          "method": "Bibliographic comparison",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "General automatic-subsequence complexity comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-shift minimal-state complexity is a natural automata invariant of a canonical automatic sequence. A sharp logarithmic dyadic staircase separates true minimality from generic existence of an automatic transducer, filling the gap between c=0,1 benchmarks and general shifts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zantema and Bosma, Complexity of Automatic Sequences, Information and Computation 288 (2022) 104710, primary full PDF relevant Example 3 and Theorem 16",
+    "Moradi, Popoli, Shallit and Vukusic, State Complexity of Shifts of the Fibonacci Word, arXiv:2603.18858, different numeration and word",
+    "Moradi, Rampersad and Shallit, arXiv:2512.10017, k-automatic linear subsequences",
+    "Resultary 2026-09-08 SCOPE079 paperfolding prefix attractor result, different invariant"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An exact general-shift formula may exist in less-indexed literature on paperfolding kernels beyond inspected primary sources.",
+    "This is LSD-first with redundant high zeros and a specified p(n) convention; MSB-first automata need not share count.",
+    "Residue classification proves infinite claim; finite residual signatures alone would not show uniqueness for every input."
+  ],
+  "residual_risks": [
+    "An exact general-shift formula may exist in less-indexed literature on paperfolding kernels beyond inspected primary sources.",
+    "This is LSD-first with redundant high zeros and a specified p(n) convention; MSB-first automata need not share count.",
+    "Residue classification proves infinite claim; finite residual signatures alone would not show uniqueness for every input."
+  ],
+  "schema_version": 1
+}

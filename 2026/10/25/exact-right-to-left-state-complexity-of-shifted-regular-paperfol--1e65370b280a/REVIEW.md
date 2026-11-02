@@ -1,19 +1,21 @@
-# Review of exact right-to-left paperfolding-tail state counts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete residual family is derived for every shift and every finite low-bit prefix, including the empty prefix. For positive prefix length, division of \(c+x+1\) by a power of two exhausts all cases: a smaller translated paperfolding tail, one of two parity functions, or a constant function. Every counted family is reachable. The non-eventual-periodicity argument separates distinct translated tails from each other and from periodic functions, so the residual count is exactly the minimal DFAO state count. Exhaustive finite checks agree but are not used to prove the infinite range.
+PASS
 
-## Originality — PASS within inspected evidence
+For LSD-first binary prefix x at level k, the exact residual z↦p(2^k z+c+x) is classified by r=(c+x+1) mod2^k: r=0 yields shift p(z+floor(c/2^k)), r=2^(k-1) yields parity z+floor((c+2^(k-1))/2^k) mod2, and all other residues yield constants. k=0 is treated separately and k=1 has no constant case; constants do occur from k=2. The attainable shifts are c,floor(c/2),...,0 (one when c=0, m+2 when c≥1 with m=floor(log2c)); both parities occur iff c≥1, both constants always. The proof by shifting 2^k−1 and 3·2^k−1 establishes non-eventual periodicity of p, ruling out residual collisions. Thus exactly 4 states at c=0 and 6+floor(log2c) for c≥1, with both reachability and distinguishability. Independent direct residual signature enumeration covered 39 shifts and 19096 prefix signatures; finite tests are corroboration of all-shift proof.
 
-The closest source, Zantema–Bosma (2022), explicitly computes four reversed states for the unshifted paperfolding word and six for its single-step tail; those known points are acknowledged. Moradi–Popoli–Shallit–Vukusic (2026) analyzes shifts of the Fibonacci word in Zeckendorf numeration, not the present sequence in binary. Another automata-subsequence paper provides general results rather than the present exact classification. Semantic searches against mathematical research records, alternative names and accessible earlier claims did not show an all-shift dominating theorem. The residual risk is an unindexed table or alternate formulation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem completely evaluates minimal right-to-left state complexity for a natural infinite family of shifts of a classical automatic word. It locates every jump sharply at powers of two and explains the structure of the minimal residual family, extending the two previously published initial values. It is not an arbitrary numerical increment or a finite census.
+Best-of-knowledge qualified PASS: Zantema–Bosma already give reversed complexity 4 for unshifted regular paperfolding and 6 for its 1-step tail and general shift upper bounds. The complete dyadic staircase for arbitrary c≥1 and exact residual family are not obtained directly from those two special-case evaluations or the Fibonacci-word shift theorem.
 
-## Scope and risks
+## value
 
-The proof is restricted to the explicitly defined regular binary paperfolding sequence and least-significant-first binary input, with redundant zeroes permitted. It does not address other paperfolding variants or most-significant-first automata. Historical priority in unpublished/unindexed work is not excluded, and finite verification does not constitute an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All-shift minimal-state complexity is a natural automata invariant of a canonical automatic sequence. A sharp logarithmic dyadic staircase separates true minimality from generic existence of an automatic transducer, filling the gap between c=0,1 benchmarks and general shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
