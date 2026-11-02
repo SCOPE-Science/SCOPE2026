@@ -1,11 +1,21 @@
-# Scientific review: sharp even-jet Fock minimum modulus
+# Independent mathematical audit
 
-**Correctness — PASS.** Orthogonality of Gaussian monomials gives the scalar kernel exactly. The proof's reverse triangle bound is attained at the negative real scalar product for every radius before the unique zero; after that radius the zero itself lies in the closed disk. Both branches of the stated minimax identity, boundary equality, simplicity, and the Lambert inversion follow without numerical extrapolation. Stirling and differentiability of the principal Lambert branch give the quantified large-order asymptotic. The standalone check independently reproduces representative finite parameters, but the infinite claim relies on the analytic proof.
+## correctness
 
-**Originality — PASS under bounded investigation.** Relevant source: Cho–Choe–Koo, arXiv:1307.2670 (2013), especially its Theorem 4.5 and its kernel construction, concerns globally weighted Fock–Sobolev spaces. The new object instead changes a single monomial norm and asks for the exact worst-case *absolute value* across all complex pairs in a bounded disk. The closest retrieved published records concern different Gaussian/Fock radii or Bergman-space jet Gram kernels; they do not supply a statement implying the asserted sharp profile. Targeted searches were made for the exponential-minus-monomial alias, Lambert inversion, Fock jet penalty and zero-free observation radius, and available historical claims were compared. This is bounded evidence, not proof of literature uniqueness. A direct unindexed treatment of this special exponential-polynomial problem remains a real residual risk.
+PASS
 
-**Mathematical value — PASS.** For a natural rank-one penalization of an entire-function Hilbert norm, the precise minimum modulus on *all* bounded observation bidisks—not merely whether zeros exist—is the stability invariant controlling how closely kernel entries approach zero. The theorem determines the exact extremizing pair, the sharp first-zero location, the entire penalty/radius phase boundary, a penalty-independent optimum, and its large-order growth law. These are coherent intrinsic invariants for finite-domain kernel evaluation and potential logarithmic-kernel constructions, without claiming a further application or Gram-matrix condition-number theorem.
+Monomial norms are n! except the mth norm m!(1+tau m!), so the kernel exactly equals e^t-qt^m. For r<=R, |e^t-qt^m|>=e^{-|t|}-q|t|^m>=e^{-r}-qr^m; t=-r attains equality only because m is even. For r>=R, t=-R is a contained zero; at the nearest-zero radius equality in Re(t)>=-|t| forces t negative real and uniqueness. Derivative at -R is e^{-R}+qmR^(m-1)>0. Stirling and W derivative yield stated correction. Independent calculations used 12 (m,tau) parameter pairs with 640 sampled complex tests each plus exact R relation.
 
-**Scientific limitations.** The result is confined to even derivative orders and nonnegative real finite penalties; off-diagonal kernel modulus is not a multi-point interpolation determinant bound. Published equivalence outside inspected/accessible material cannot be excluded. There is no external or independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Fock kernels, rank-one Hilbert-space norm changes and Lambert inversion are antecedents. The inspected global Fock-Sobolev abstract covers spatially weighted norms, not the individual m-jet coefficient perturbation or its exact two-variable modulus. Distinctness does not prove priority; exact kernel-zero calculations may appear under Lu Qi-Keng terminology.
+
+## value
+
+PASS
+
+The nearest-zero radius and exact lower envelope give a natural sharp nonvanishing threshold for reproducing kernel entries under a single-jet penalty, and the uniform-penalty asymptotic is a useful quantitative boundary; the claim does not infer stability of multipoint Gram matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

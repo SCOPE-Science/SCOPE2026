@@ -1,19 +1,21 @@
-# Scientific review: localized kinetic defect in dimer deposition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim covers a uniquely specified infinite-lattice random sequential dimer deposition process, arbitrary fixed positive defect rate, every integer separation, and a sharp distance asymptotic. An edge's first exponential attempt is the only attempt that can succeed, reducing the process to a first-clock random greedy matching. Conditional success of an edge separates two half-line vacancy events. The empty-block hierarchy gives the exact homogeneous half-line cavity \(f(t)=\exp(e^{-t}-1)\). A unilateral cavity recursion with one anomalous clock yields the double-integral formula; monotonicity of the weighted exponential first-arrival distribution proves strict sign alternation; a normalized triangular integral concentrated at \((1,0)\) proves the factorial coefficient. The graphical dependency bound justifies the infinite-volume construction and the finite-horizon conditioning. The packaged code independently checked 250 finite-rational and integral comparisons. Reproducible computations corroborate, but do not replace, the infinite proof. The distance limit is only for fixed defect rate; the homogeneous point has identically zero response.
+PASS
 
-## Originality — PASS, subject to explicit priority risks
+PASS. Independently reconstructed first-clock greedy-matching equivalence, half-line empty-block ODE F_m(t)=exp(-(m-1)t) exp(e^-t-1), the edge-deleted cavity recurrence q_{j+1}=1-int_0^t exp(-s)q_j(s)ds, and iteration to the given triangle integral. First-clock stochastic monotonicity shows strict sign changes; the positive Volterra kernel alternates signs. The bound follows by induction in the integrated kernel; the normalized (x-y)^(j-1) density concentrates at (1,0), giving the coefficient e^-1(lambda-1), including a controlled integrable x=0 singularity for lambda<1. Fresh exact rational finite greedy-path tests found 54 reflection/sign checks at 7..13 edges and lambda=1/2,2,5; these do not prove infinite-volume concentration.
 
-Exact homogeneous RSA and impurity-prepared substrates are established by Flory, Evans and Lee. Lee (arXiv:cond-mat/9701167, full text) derives globally averaged coverage of adsorbing \(k\)-mers after random initial impurities; it does not present a solitary kinetic-rate anomaly. Schmidt (2002, full text) treats an inhomogeneous density functional, not the exact discrete edge-rate profile. Neugebauer–Taraskin (arXiv:0806.0131, full text) treat cooperative neighboring-occupancy effects, not a fixed one-bond clock perturbation. The closest paper is Stacchiola–Ciacera–Zuppa–Eggarter–Zgrablich (1998), DOI 10.1063/1.475545: its abstract explicitly claims exact solutions for dimers on heterogeneous 1D substrates. That earlier broad framework is fully credited. Full text was inaccessible, so it has **not** been ruled out as implying the exact spatial response. Its abstract, however, does not assert the specific strict sign-alternation and fixed-rate \((j+1)!^{-1}\) asymptotic with coefficient \(e^{-1}(\lambda-1)\). The separate periodically patched chain result does not directly specialize to a single nonperiodic defect. Searches of the research record for the claim, neighboring aliases and parameters located no equivalent statement. This is a best-knowledge rather than exhaustive-priority assessment; a sufficiently general 1998 theorem is a substantive residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a natural irreversible deposition model; a local kinetic imperfection asks whether the jammed matching perturbs just nearby bonds or sends a long-range response. The exact alternating sign and the factorial screening length, including the sharp nonzero coefficient, provide qualitative and quantitative answers for **every positive rate**. This is more than a finite numerical table, a routine homogeneous density computation, or a tiny perturbative increment: it determines a spatial nonlocal response mechanism. The discovery remains interesting even though the broader multiple-defect response and the full heterogeneous model are not classified.
+PASS, with substantial explicit priority risk. Classical homogeneous RSA and randomly preadsorbed impurities do not assert this single designated kinetic-rate perturbation. The close 1998 Stacchiola et al. paper states exact one-dimensional heterogeneous dimer adsorption in its abstract, but its full text was not accessible after arXiv/OA attempts and authorized institutional access reported VPN disconnected. Neither alternating all-distance sign nor precise fixed-rate factorial coefficient was confirmed in accessible source material. No uninspected-paper NOT_COVERING conclusion is asserted.
 
-## Closest literature and limitations
+## value
 
-J. W. Lee, *Effects of Impurities in Random Sequential Adsorption on a One-Dimensional Substrate* (1997), arXiv:cond-mat/9701167, full accessible mathematical text; D. J. Stacchiola et al., *Cooperative sequential adsorption processes on heterogeneous substrates*, J. Chem. Phys. 108 (1998) 1730–1739, DOI 10.1063/1.475545, abstract only, **material priority risk**; M. Schmidt (2002), *Density functional theory for random sequential adsorption*, full journal PDF; C. J. Neugebauer and S. N. Taraskin (2008), arXiv:0806.0131, full five-page PDF. The present theorem assumes initially vacant integer lattice, identical Poisson attempt processes except one rate, permanent dimers, and distance taken to infinity at fixed anomalous rate. An independent external examination would be needed to remove the unresolved priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The singled-out kinetic defect is a physically natural local perturbation of classical 1D RSA; exact response at every distance, strict parity sign alternation and the first sharp factorial screening amplitude address a nontrivial spatial sensitivity question. The factorial coefficient and sign pattern are not mere baseline recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

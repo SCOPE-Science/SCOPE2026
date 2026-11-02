@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The \(72\)-state integer matrix is built directly from the Stern recursion; its characteristic polynomial identity, irreducibility of the decisive sextic modulo \(17\), integer projection \((R(E)C)_0=116619264\), and rational Rouché root disks were each checked by the bundled executable certificate. The argument that the irreducible sextic actually occurs in the scalar count is essential and supplied; an unobserved matrix eigenvalue would not be enough. The limit superior accounts for complex oscillation and possible Jordan multiplicity. The finite enumeration of the first twelve blocks is not extrapolated to infinity.
+## correctness
 
-**Originality — PASS within checked evidence.** Deshouillers and Schinzel's full 2019 paper gives the uniform primitive-pair density via finite automata but no modulus-nine sharp discrepancy polynomial or observed eigenmode. Bettin, Drappeau, and Spiegelhofer's Stern distribution concerns logarithms, not modular pair counts. Targeted mathematical-record and prior-claim searches found no equivalent; no earlier publication priority is certified. Residual risks include an unindexed direct matrix calculation and implication from broader automatic-sequence spectra.
+PASS
 
-**Mathematical value — PASS.** Determining the exact rate above \(\sqrt2\) for a specified primitive pair modulo a natural prime power gives an intrinsic quantitative refinement of a published uniform-distribution theorem; the nonvanishing mode is a substantive structural fact rather than a table recomputation.
+Independently reconstructed the complete 72-state transfer matrix from maps (a,b)->(a,a+b),(a+b,b) mod 9 and exactly checked its degree-72 characteristic factorization with SymPy. The sextic q was independently verified irreducible mod 17; evaluating R(E)C at zero from exact integer recurrence gave 116619264, proving the q-mode occurs. Independent complex root calculations gave maximal pair modulus 1.439066724563126 and secondary pair 1.4081559256090412; actual check_stern9.py was inspected for exact rational Rouché-center certificates, so root separation is not inferred only from floats. Perron eigenvalue 2 is simple and uniform projection contributes exactly 2^k/72. Standard rational generating-function root growth gives limsup, not pointwise lower bounds.
 
-The result is restricted to dyadic blocks, one residue pair and modulus nine. It does not determine the sharp error for arbitrary initial intervals. The root location is certified by exact rational arithmetic. Independent mathematical validation was not sought or claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Deshouillers–Schinzel primary eight-page paper proves all primitive Stern-residue pairs have density 1/72 at modulus nine using an invertible finite automaton. It does not present the exact charpoly factor or scalar-mode certificate in Theorems 1.1,2.2,3.1–3.5 inspected. Distribution of logarithms by Bettin et al concerns a different statistic.
+
+## value
+
+PASS
+
+The sharp failure of square-root scale and explicit dyadic discrepancy growth constant for a natural primitive residue pair quantify mixing beyond the known density theorem, with an exact recurrence certificate; a fixed modulus and pair are motivated by the first non-prime-power modulus where finite automaton mixing has exceptional modes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

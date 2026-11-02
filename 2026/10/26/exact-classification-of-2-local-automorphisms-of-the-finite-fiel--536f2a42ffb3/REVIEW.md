@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The ordinary automorphisms are exactly \(e\mapsto e+uf\), \(f\mapsto df\), with \(u\in k\) and \(d\in k^\times\). The proof derives the slope parameterization from homogeneity and pairwise witnesses, then verifies the converse for dependent pairs, two nonvertical lines, and a vertical/nonvertical pair. The count is the cardinality of \(\operatorname{Sym}(k)\times k^\times\).
+PASS
 
-## Originality
+From characteristic derived ideal [L,L]=kf and bracket relation [e,f]=f, the actual automorphisms are exactly alpha_{u,d}(e)=e+u f, alpha_{u,d}(f)=d f, with u in k and d in k^*. The pairwise-witness condition fixes the e-coordinate and forces Phi(lambda v)=lambda Phi(v) even for zero. This defines the slope function sigma and nonzero kappa; for distinct slopes s,t, a common automorphism requires d=(sigma(t)-sigma(s))/(t-s) !=0, so sigma is injective and hence bijective over the finite field. Conversely any permutation yields such a d on any two distinct nonvertical slopes; a vertical/nonvertical pair forces d=kappa; dependent pairs are handled by homogeneity. Distinct parameters give distinct maps. Genuine automorphisms impose affine sigma(s)=u+ds and kappa=d. The characteristic-two q=2 boundary follows because both slope permutations are affine with d=1. Independent definition-level finite-prime-field enumeration checked all 2, 12 and 480 claimed maps at q=2,3,5 against every ordered pair of input vectors and the full ordinary automorphism group, giving genuine counts 2,6,20. Finite testing is not used to prove all prime powers.
 
-PASS, subject to the residual literature risks below. The 2024 local-map papers inspected concern different Lie or Lie-superalgebra families and do not imply the parameterization or count. The closest same-object result inspected concerns relatively free-algebra growth, not 2-local automorphisms. Searches for the exact object, aliases, and count did not find an equivalent result; absence of a hit is not treated as proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The claim gives a complete classification and exact count for every finite field, and establishes the sharp boundary that all 2-local automorphisms are actual automorphisms precisely over \(\mathbb F_2\). The finite-field restriction is mathematically essential to the permutation and factorial count.
+The inspected 2024 primary results concern linear 2-local maps on characteristic-zero model filiform Lie superalgebras or local maps on nilpotent algebras; the present L is two-dimensional solvable and nonnilpotent, and Phi is not assumed linear. A 2026 same-algebra paper studies relatively-free growth rather than 2-local maps. No matching finite-field permutation-times-scaling classification was located; this is qualified best-of-knowledge priority, not definitive absence.
 
-## Closest literature and limitations
+## value
 
-- Sheng, Liu and Liu (2024), DOI 10.1155/2024/6650997: model filiform Lie superalgebras, characteristic zero, linear 2-local maps; different object and scope.
-- Khudoyberdiyev and Jumaniyozov (2024), arXiv:2405.04209: local maps on nilpotent Lie algebras; the present algebra is nonnilpotent. Only the abstract and metadata were inspected.
-- Bahturin and Olshanskii (2026), arXiv:2603.09655v1: exact relatively-free growth for the same two-dimensional affine Lie algebra; the inspected result record does not classify 2-local maps, and the full preprint was not read.
+PASS
 
-The broader literature on 2-local maps is not exhausted. The theorem makes no claim for infinite fields or higher-dimensional algebras.
+Complete classification of a natural local-versus-global automorphism rigidity problem in the minimal nonabelian Lie algebra, with exact factorial counting and sharp q=2 exception. Arbitrary nonlinear maps and finite-field dependence give substantive content beyond ordinary automorphism counting.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

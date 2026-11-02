@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The model identification is Bienvenu–Duchamps–Foutel-Rodier, arXiv:1906.08806, Proposition 2.1. Edge-deletion coupling proves stochastic monotonicity under every fixed pattern of other root indicators. Independent parent choices give exact first and second indicator moments. Changing summation order proves the finite root–terminal covariance; Riemann sums and a uniform binomial expansion prove the nonzero Pearson limit. A standalone exact-rational checker exhausted every parent configuration through seven vertices. Its computations support, rather than replace, the mathematical proof.
+## correctness
 
-**Originality — PASS on inspected evidence.** The source already proves the Moran forest attachment construction and root-count and single-vertex degree marginals. None of those marginal formulas supplies the new joint terminal/component dependence or the stochastic influence profile. A nearby mathematical record concerns root degree and leaves in a uniform recursive tree, a different measure and statistic. A 1994 source investigates uniform recursive forests, which the Moran forest paper explicitly distinguishes from its nonuniform model; only that older article's abstract could be inspected. Database searches did not retrieve the claimed joint formula, but historical priority is not guaranteed.
+PASS
 
-**Value — PASS.** Numbers of components and terminal vertices are two natural global genealogical descriptors. Their limiting positive correlation above 0.63, in tension with negative pairwise dependence among terminal indicators, is a substantive dependence phenomenon. The exact birth-time influence ordering quantifies why the aggregation has this sign, and the finite formulas permit checks at every forest size.
+PASS: Independently reconstructed the actual stationary Moran-forest representation: U_j independent uniform among the n−1 other labels, and edge U_j→j only if U_j<j, with an irrelevant final relabeling. For fixed other H indicators, flipping H_j from attachment to root removes one edge, so no terminal vertex is lost. For i<j, Cov(H_j,A_i)=(n−j)/(n−1)^2 q_n^(n−i−1); summing the independent-parent covariance gives the stated positive finite-n sum. E[A_iA_j]=q_n^(j−i) r_n^(n−j), r_n=(n−3)/(n−1), implying nonpositive off-diagonal terminal covariances because r_n<=q_n². A Riemann-sum limit gives covariance/n=1−5/(2e), and expansion of the exact terminal variance yields 1/e−2/e²; combining with the published root variance limit 1/6 yields the claimed correlation. Independently enumerated every parent configuration for n=3..7, checking exact rational means, variances, cross covariances and conditional influences against formulas. These bounded checks corroborate, rather than prove, all-n statements.
 
-The result does not establish a bivariate CLT or claim that terminal vertices are undirected isolated vertices. It does not certify all related literature as absent. No external validation or independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): The full primary Moran forest paper supplies the independent-parent distribution and variance of the number of roots, as well as single-vertex degree laws. It does not state the cross covariance with outdegree-zero terminals, conditional edge-deletion stochastic order, ordered influences or limiting Pearson correlation. General uniform random recursive forests are a different distribution; related Resultary work concerns root degree versus leaves in a single uniform recursive tree, rather than total components versus terminals in the Moran law. The accepted contribution is this exact joint-dependence classification using antecedent construction, not the construction itself.
+
+## value
+
+PASS
+
+PASS: In a stationary reproduction/ancestry forest, number of components and terminal progenitors are two canonical statistics. An explicit strictly positive macroscale root–terminal covariance and nonzero asymptotic correlation, despite pairwise negative terminal correlations, reveal a non-obvious global dependence. The pointwise conditional stochastic order and its arrival-index gradient provide more than a routine single expectation and are biologically/combatorially motivated by birth-time attachment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

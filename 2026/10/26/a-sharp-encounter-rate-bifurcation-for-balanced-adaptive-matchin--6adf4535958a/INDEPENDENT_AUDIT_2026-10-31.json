@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:59:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen balanced-target matching ODE was reconstructed: capped stationarity gives C(x)=sum min(c_i,x) and D(y), both strictly increasing until T, and a scalar K=C^{-1}(R)D^{-1}(R)/R which is strictly increasing on 0<R<T. Full target R=T gives the exactly feasible A interval [d_max/K,T/c_max]; singleton at K_c=c_max d_max/T and a continuum above. The top multiplicities yield epsilon=T-R and the one-sided slope 1/(K_c eta), eta=1/(m_c c_max)+1/(m_d d_max)-1/T>0. At interior full-target points, within-side fluctuation modes and the aggregate 2x2 Jacobian have one zero tangent and all other negative eigenvalues. For homogeneous targets and within-side identical starts, constant A-B before clipping and boundary saturation give the selected clipped h0. Independent rational checks tested 12 interior/end equilibria and three cusp approximations; this finite sample is not the all-target proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gelastopoulos Sec.2.2 excludes sum c=sum d; no global continuum/selection for balance is asserted there.",
+          "Lauermann–Nöldeke–Tröger (2020) studies a different entry/exit market model."
+        ],
+        "reasoning": "Gelastopoulos main uniqueness theorem expressly assumes unequal total target rates, and other search-market balance papers use different state variables.",
+        "searches": [
+          "balanced two sided adaptive matching encounter rate threshold equal sums heterogeneous targets equilibrium continuum cusp selection Gelastopoulos",
+          "arXiv:2606.31802 (https://arxiv.org/abs/2606.31802)",
+          "Lauermann–Nöldeke–Tröger, Econometrica 88 (2020), DOI:10.3982/ECTA8356"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2606.31802 (relevant full HTML sections)",
+        "Econometrica DOI:10.3982/ECTA8356 (abstract only)",
+        "Resultary semantic search for balanced two-sided adaptive matching; top 12 records, no directly covering statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing paper leaves balanced case aside, and its strong global convergence theorem has an incompatible nonbalance hypothesis.",
+          "Explicit interval and clipped imbalance law are new consequences in the audited package."
+        ],
+        "reasoning": "General capped stationarity is a valid starting lemma but does not directly give the complete K bifurcation, one-sided volume derivative, zero transverse mode, or homogeneous initial-value selection; these follow from additional reductions and dynamics.",
+        "searches": [
+          "balanced two sided adaptive matching encounter rate threshold equal sums heterogeneous targets equilibrium continuum cusp selection Gelastopoulos",
+          "arXiv:2606.31802 (https://arxiv.org/abs/2606.31802)",
+          "Lauermann–Nöldeke–Tröger, Econometrica 88 (2020), DOI:10.3982/ECTA8356"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gelastopoulos Sec.3 capped inverse a_i=min(1,c_i/(KB)) is the same stationary condition.",
+          "The result additionally solves C^{-1}(R)D^{-1}(R)/R=K in the equal-total branch and gives an explicit global classification."
+        ],
+        "reasoning": "Search by balanced adaptive selection, capped-demand fixed points, continuum of equilibria, and encounter threshold; Gelastopoulos is exactly the same model.",
+        "searches": [
+          "balanced two sided adaptive matching encounter rate threshold equal sums heterogeneous targets equilibrium continuum cusp selection Gelastopoulos",
+          "arXiv:2606.31802 (https://arxiv.org/abs/2606.31802)",
+          "Lauermann–Nöldeke–Tröger, Econometrica 88 (2020), DOI:10.3982/ECTA8356"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned matching-theory and unrelated threshold findings, but none quantified this fixed-population feedback ODE on equal totals."
+        ],
+        "reasoning": "The result is a continuous-parameter theorem; no finite numerical lookup would suffice. Exact threshold and cusp formulas were nevertheless searched in published mathematical finding records.",
+        "searches": [
+          "balanced two sided adaptive matching encounter rate threshold equal sums heterogeneous targets equilibrium continuum cusp selection Gelastopoulos",
+          "arXiv:2606.31802 (https://arxiv.org/abs/2606.31802)",
+          "Lauermann–Nöldeke–Tröger, Econometrica 88 (2020), DOI:10.3982/ECTA8356"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge comparison: the accessible primary works supply originating models or generic techniques but their inspected mathematical statements do not establish this exact complete final result; the four implication checks and specific priority risks below delimit this conclusion.",
+      "residual_risks": [
+        "The originating capped fixed-point equations may already make the scalar K threshold an accessible corollary; novelty is confined to the explicit full equal-total bifurcation, cusp, spectrum and selection calculation.",
+        "Unindexed search-and-matching or Lotka–Volterra feedback literature may contain an equivalent continuum-selection theorem; priority not independently certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Self-review, established capped fixed-point premises. Theorem 2.1 requires unequal target totals and paper explicitly does not pursue equal totals. No sharp equal-total threshold, cusp, transverse spectrum or selection formula was located.",
+          "evidence": [
+            "Section 2.2: uniqueness only when sum c_i differs from sum d_j; immediately says balanced case not pursued.",
+            "Section 3 expresses capped individual acceptance in terms of total opposite-side acceptance."
+          ],
+          "identifier_or_url": "arXiv:2606.31802 (https://arxiv.org/abs/2606.31802)",
+          "material_read": "Full-text HTML: model equations (1)-(2), Section 2.2 Theorem 2.1 and explicit balanced-case exclusion, and Section 3 capped equilibrium treatment.",
+          "method": "Direct primary-source arXiv HTML reading; theorem hypotheses and implicit equilibrium equations compared against the submitted thresholds, spectra and outcome selection.",
+          "title": "Feedback dynamics in matching networks drive behavioral differentiation despite overlapping objectives",
+          "trigger": "Precisely the originating dynamic acceptance-probability model and target-rate parameters."
+        },
+        {
+          "assessment": "Entry/exit stationary search balance is not the fixed-population adaptive acceptance ODE under audit.",
+          "evidence": [
+            "Its equilibrium is in a market with entry/exit and search frictions, unlike the present clipped acceptance probabilities."
+          ],
+          "identifier_or_url": "Lauermann–Nöldeke–Tröger, Econometrica 88 (2020), DOI:10.3982/ECTA8356",
+          "material_read": "Title, abstract and bibliographic scope; no complete article proof claimed read.",
+          "method": "Abstract-level comparison of model objects and state variables.",
+          "title": "The Balance Condition in Search-and-Matching Models",
+          "trigger": "Terminological alias: balanced matching markets might appear in economic search theory."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Balanced total desired rates are the natural degeneracy hyperplane omitted from the originating model. Identifying the exact K_c, complete heterogeneous equilibrium geometry and quantitative cusp distinguishes feasibility from perpetual target shortfall; the neutral manifold and selected homogeneous outcome give useful dynamics that cannot be read from a numerical equilibrium plot. This is a structural classification, not a routine relabeling of the unequal-total theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2606.31802 (relevant full HTML sections)",
+    "Econometrica DOI:10.3982/ECTA8356 (abstract only)",
+    "Resultary semantic search for balanced two-sided adaptive matching; top 12 records, no directly covering statement"
+  ],
+  "disposition": "passed",
+  "limitations": "All target rates strictly positive and balanced; fixed finite populations and uniform K; spectral statement only linear common-rate feedback and interior segment points; exact global outcome selection only homogeneous targets and within-side homogeneous initial acceptance. No generic heterogeneous selection or stochastic concentration proved.",
+  "schema_version": 1
+}

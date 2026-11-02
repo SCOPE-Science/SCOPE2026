@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Execute `python3 verify_even_moments.py` with Python 3 standard library only. The checker reproduces 291 exact rational assertions; see `VERIFICATION_OUTPUT.txt` for the observed run output.
+## correctness
 
-It independently integrates spherical monomials for five distinct real traceless diagonal forms through normalized order ten, compares polynomial coefficients and strict inequalities through order nineteen, compares Legendre-zonal integrals through order thirteen, checks several complex traceless forms, and checks extremizing examples. The checker has no external data dependencies. All analytic quantifiers, strict monotonicity for every degree, and complex equality classifications are justified by the proof in `RESULT.md` rather than by these finite tests.
+PASS
 
-The code does not independently certify mathematical priority or supply independent review. Non-even moments and complex lower extremizers are outside its tested and proved scope.
+PASS. Reconstructed the Gaussian radial factor E|G|^(4m)=(4m+1)!! and determinant generating function det(I-2tA)^(-1/2)=(1-2St^2-8Tt^3/3)^(-1/2). Extracting even coefficients forces pairs of cubic factors and yields the stated nonnegative coefficients and a positive h=1 coefficient for m>=3. Characteristic-polynomial discriminant gives 0<=6T^2/S^3<=1 and exact uniaxial/biaxial spectral boundaries. Minkowski L^m applied to U^2+V^2 proves the complex upper bound; strict equality plus real polynomial factorization forces a global phase of a zonal quadratic. Independent direct monomial integrations reproduced 28 exact rational moment ratios for four spectra and m=1..7. The integration tests do not prove the all-m theorem.
+
+## originality
+
+PASS
+
+PASS, qualified. Prior complete published quartic result on the same S^2 degree-two space proves the m=2 shape degeneracy and complex phase classification, not higher even moments, the sixth-moment invariant gap or all-m extremizers. Classical quadratic-form generating functions are an enabling technique rather than a directly inspected theorem on sharp invariant ordering. Older invariant-theory or moment literature could contain equivalent formulas, retained as a residual risk.
+
+## value
+
+PASS
+
+PASS. Degree-two harmonics are a canonical finite-dimensional eigenspace, and each higher even norm is a natural invariant. The result solves all integer even moments with sharp real lower/complex upper values and full upper equality classification, while identifying degree six as first shape-sensitive order and yielding an exact biaxiality deficit. This is not an arbitrary finite numerical slice or a corollary of the previous L4 result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

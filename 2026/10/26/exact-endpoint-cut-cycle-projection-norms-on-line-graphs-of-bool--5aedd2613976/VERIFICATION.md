@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Computational and analytical verification
+# Independent mathematical audit
 
-Run `python check_line_cube.py` with Python 3.10 or later; no third-party packages are required.
+## correctness
 
-The checker constructs each ordinary Boolean cube from its bit-flip edges and independently forms its line graph. It solves a grounded integer graph-Laplacian system with exact rational Gaussian elimination for 124 separately sourced line-graph edges: all 24 columns in dimension 3, all 96 in dimension 4, three in dimension 5, and one in dimension 6. These dimensions collectively have 1,400 line-graph edges. Every tested column matches both analytical endpoint norms and the projector diagonal forced by edge transitivity.
+PASS
 
-Independently, the checker evaluates the beta-type Green integrals using exact binomial-tail sums, verifies strict Green-level order, checks four current-enumeration sums, checks the closed formula for the Green level at one, and reproduces the projected cut-column norm for each of the 38 dimensions from 3 through 40.
+For cube unsigned incidence B, BB^T=2nI-L_Q and L_line=2nI-B^TB. With b supported on the two cube edges incident at zero, solve L_Q g=delta_e1-delta_e2 and obtain line-graph potential (b+B^Tg)/(2n). Heat kernel integration shows g levels h_j=int_0^(1/2) p^j(1-p)^(n-2-j) dp with strict order. Sum all adjacent edge gradients using binomial identities sum C(m,j)h_j=1/2, jh_(j-1)=3m/8, (m-j)h_(j+1)=m/8, j(m-j)(h_(j-1)-h_(j+1))=m(m-1)/4, plus the source-edge corrections. Cube edge transitivity reduces all line-graph projection columns to one. Complementary projector diagonal (N-1)/M gives cycle norm. Independently recomputed exact Laplacian-current representative columns for the full n=3,4 line graphs; both cut and cycle formulas agreed, including diagonal correction.
 
-Expected verified output:
-`LINE_HYPERCUBE_HODGE_EXACT_OK integral_dimensions=38 grounded_graphs=4 grounded_columns=124 line_edges=1400`
+## originality
 
-These computations are finite consistency tests. The universal proof relies on the exact incidence reduction, heat-kernel integral, binomial summation and projection trace in `RESULT.md`; it does not infer all-dimensional truth from finite samples. No independent mathematical audit or external certification has been performed.
+PASS
+
+Fresh best-of-knowledge statement-level comparison with relevant published Resultary findings and primary articles, acknowledging known general methods and narrower ancestors; no inspected stronger theorem implies the exact final result. Priority is qualified by explicit residual risks.
+
+## value
+
+PASS
+
+Line graphs of hypercubes are canonical highly symmetric but triangle-bearing objects, and their graph Hodge endpoint norms are natural electrical total-current/Banach-space invariants distinct from spectral resistance trace. The exact formulas and halved leading slope relative to the original cube quantify a structural graph transformation, not a trivial parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

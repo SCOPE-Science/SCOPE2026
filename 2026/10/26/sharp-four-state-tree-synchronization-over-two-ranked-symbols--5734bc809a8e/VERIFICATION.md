@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite tree-automaton certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party dependencies. It prints `VERIFY_OK`, the twelve first-appearance masks, a least reset height of 11, a full-context witness with 12 distinct variable leaves, and the least-height table for all 15 nonempty subset masks.
+## correctness
 
-The `layer_reach` computation constructs the entire bounded-height closure under all unary and ordered binary applications. The `independent_min_height` routine obtains the minimal heights through a separate cost-fixpoint relaxation, using \(1+\max\) for a binary parent. The explicit witness is materialized with fresh variable identities and evaluated over all combinations of independent child images.
+PASS
 
-This is an exhaustive finite proof certificate for the displayed transition table, not a sampling argument. The universal upper bound and one-symbol exclusion have mathematical counting proofs in `RESULT.md`. The certificate does not address state counts greater than four and does not constitute external validation.
+Exact subset-image dynamic closure recomputed independently from the displayed complete unary map and 4x4 binary table: first masks 15,13,7,11,14,12,5,3,10,9,6,4 (heights 0..11) with no singleton before height 11; recurrence enumerates ALL 15 nonempty masks. The universal 11 bound follows strict new-nonsingleton growth; a one-symbol operator image I has |I|<=3 if it can ever synchronize, and only 4 nonsingleton subsets of I, yielding threshold at most 5. The witness term has 12 independent leaves and height 11. Original verify.py was read and the same calculation independently implemented.
+
+## originality
+
+PASS
+
+A sharp four-state unary-plus-binary witness is narrower than, and not implied by, the general 2^n-n-1 upper bound; recent two-symbol constructions target n>=5. Searches did not reveal the same n=4 extremizer, but unavailable full text and unindexed small-state examples are genuine priority risks.
+
+## value
+
+PASS
+
+Attaining a universal strong tree-reset bound with the smallest nontrivial ranked alphabet resolves a natural alphabet-economy extremal problem at four states; the exact minimum alphabet size and reset height are meaningful finite invariants beyond a one-off witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

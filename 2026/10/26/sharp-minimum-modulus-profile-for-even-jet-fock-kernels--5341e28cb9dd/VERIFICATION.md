@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The accompanying `verify.py` uses high-precision independent evaluation of the scalar exponential-polynomial identity. Run `python verify.py` with Python 3 and `mpmath`. It tests even orders 2, 4, 6 and 10 against finite penalties 0.1, 1, 10 and 100, checks an explicit complex polar grid inside and outside each closest-zero disk, and verifies derivative nonvanishing at each closest zero. It also verifies six high-order limiting profiles. All checks succeeded in the supplied environment. The script is only a finite consistency check, not an exhaustive search for other roots and not an independent proof. The exact complex-domain result rests on the two-line reverse-triangle and monotonicity argument in `RESULT.md`, plus coefficient normalization and Stirling expansion. Independent review is not performed.
+## correctness
+
+PASS
+
+Monomial norms are n! except the mth norm m!(1+tau m!), so the kernel exactly equals e^t-qt^m. For r<=R, |e^t-qt^m|>=e^{-|t|}-q|t|^m>=e^{-r}-qr^m; t=-r attains equality only because m is even. For r>=R, t=-R is a contained zero; at the nearest-zero radius equality in Re(t)>=-|t| forces t negative real and uniqueness. Derivative at -R is e^{-R}+qmR^(m-1)>0. Stirling and W derivative yield stated correction. Independent calculations used 12 (m,tau) parameter pairs with 640 sampled complex tests each plus exact R relation.
+
+## originality
+
+PASS
+
+Classical Fock kernels, rank-one Hilbert-space norm changes and Lambert inversion are antecedents. The inspected global Fock-Sobolev abstract covers spatially weighted norms, not the individual m-jet coefficient perturbation or its exact two-variable modulus. Distinctness does not prove priority; exact kernel-zero calculations may appear under Lu Qi-Keng terminology.
+
+## value
+
+PASS
+
+The nearest-zero radius and exact lower envelope give a natural sharp nonvanishing threshold for reproducing kernel entries under a single-jet penalty, and the uniform-penalty asymptotic is a useful quantitative boundary; the claim does not infer stability of multipoint Gram matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

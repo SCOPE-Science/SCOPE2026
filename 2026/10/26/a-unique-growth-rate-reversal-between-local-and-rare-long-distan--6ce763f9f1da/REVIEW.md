@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The strict factorization of the two moment-generating functions and the monotonicity of the ratio of exponential-tilt means are the two crucial lemmas. The latter implies one rise and one fall in the difference of the Cramér rate functions, yielding the claimed unique crossover. Exact elimination gives the secondary threshold. All quantifiers and saturation cases are treated. The bundled reproducibility program supplies finite cross-checks, not an infinite proof.
+## correctness
 
-**Originality (PASS, with priority risks).** The kernel-MGF formula and the possibility of a growth-dependent kernel-speed reversal are known from Kot–Lewis–van den Driessche (1996). Hsu–Zhao (2008) supplies broader continuous-kernel speed determinacy, but its quoted assumptions do not establish the present sharp atomic comparison. The new portion is the explicit two-kernel one-crossing theorem, probability boundary \(1/4\), secondary critical probability \(q_c\), and the classification of switch timing relative to saturation. The possibility of subsumption by a general Legendre-transform ordering theorem remains a residual risk.
+PASS
 
-**Value (PASS).** Integrodifference dispersal kernels model the competition between many local propagules and a smaller fraction of long-distance dispersers. A complete growth-dependent order, rather than a handful of numerical speed curves, resolves when the rare-long-jump strategy is guaranteed to be faster or slower, and distinguishes two structurally different mechanisms for the switch. The result applies to the specified linear speed functional, not to arbitrary nonlinear or finite-population invasion dynamics.
+PASS: Rebuilt both normalized MGFs M0=cosh(t), Mq=1-q+q cosh(2t), proved factorization (cosh t-1)(2q(cosh t+1)-1), and verified monotonic vq/v0=4q(1+sinh²t)/(1+2q sinh²t). For 0<q<1/4 that ratio crosses one only once, implying inverse tilts tq(v)-t0(v) change sign once, so J(v)=Iq(v)-I0(v) increases then decreases. Endpoint Legendre inversion with I0(1)=log2, Iq(2)=log(2/q) covers both finite-tilt and saturation regimes. Monotone Iq(1) determines unique qc and the cubic elimination; independently verified qc=0.1452003303264 and 56 speed-order checks. Claimed speed is only a linear-determinacy functional, not automatically nonlinear front velocity. Strict q=1/4 and q=1 are covered.
 
-**Sources and limitations.** The closest materially inspected sources are the original Kot–Lewis–van den Driessche paper, DOI 10.2307/2265698, pp. 2028–2031 and 2033, and Hsu–Zhao, DOI 10.1137/070703016, pp. 1–5. No observational prediction, general wave-existence statement or historical uniqueness guarantee is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the full two-atomic-kernel q/R order, unique reversal, and secondary post-saturation threshold, excluding known general MGF variational speed and qualitative growth-dependent ranking. Kot et al. 1996 materially inspected via the accessible full PDF at pp.2029-2031. General large-deviation ordering priority remains a risk.
+
+## value
+
+PASS
+
+PASS: local vs rare two-step dispersal is a motivated competing-kernel model; exact all-growth one-switch behavior, probability threshold 1/4, and the secondary saturation cutoff qc distinguish two mathematically different speed-reversal regimes. This goes beyond numerical curves or a routine substitution into the MGF speed formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

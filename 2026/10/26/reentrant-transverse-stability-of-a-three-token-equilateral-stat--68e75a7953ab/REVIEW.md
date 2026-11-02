@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three-token map is smooth and globally defined for \(0<h<1\). The regular-triangle softmax derivative yields a neutral common-rotation eigenvalue and precisely two identical shape eigenvalues \(\lambda=(1-hL)/(1-hK)\). Their modulus is controlled exactly by \(hS(\beta)-2\). A derivative sign analysis yields one strict maximum and the two claimed crossings. An independent numerical derivative checker compares the actual nonlinear map to the computed full shape spectrum. At \(\lambda=-1\), no nonlinear stability verdict is asserted.
+## correctness
 
-**Originality — PASS under examined evidence.** Altafini (arXiv:2610.13518v1) studies full attention with a positive dominant value eigenvalue, which the chosen negative scalar value violates. Gao, Yang and Chen (arXiv:2609.28448v1) analyze a closely related repulsive polygon setting but explicitly remove self-edges. That model differs dynamically and does not imply the reentrant full-self-edge three-token theorem. Six focused mathematical-record searches and claim-based historical deduplication found no explicit covering theorem. Historical-priority uncertainty persists under different naming conventions; search absence alone is not novelty proof.
+PASS
 
-**Value — PASS.** The smallest noncollinear full-attention configuration exhibits a genuine sharp stability-loss-then-restoration window in softmax sharpness at fixed residual step. The result identifies two critical values and an exact step boundary through a global one-variable calculation, furnishing a natural local dynamical phase diagram.
+At the equilateral family the softmax weights are p=e^(3β/2)/(e^(3β/2)+2) on self and q=1/(e^(3β/2)+2) on neighbors. Radial pre-normalized factor 1-hK>0, K=1-3q. Direct differentiating tangential softmax gives δt_i=q(2+3β)/4 Σ_{j != i}(δ_i-δ_j); shape derivative L=1+3q(3β-2)/4 and neutral rotation eigenvalue 1. The double transverse multiplier λ=(1-hL)/(1-hK) satisfies |λ|<1 iff h S(β)<2, S=K+L=2+9(β-2)/[4(e^(3β/2)+2)]. S has one maximum because its derivative sign is 2+(4-3β/2)e^(3β/2), with exactly one zero >2. This proves the unique sharp h_c and two flip-neutral β boundaries for h_c<h<1, without asserting nonlinear bifurcation at λ=-1. Twelve direct finite-difference perturbations of the full 3-token normalized map agree with the double eigenvalue at six β values and two h values.
 
-**Closest literature and limitations.** The two named arXiv papers are the primary comparators. The theorem is restricted to three planar unit tokens with full unmasked softmax, negative scalar value and \(0<h<1\). It gives transverse linear stability, not global convergence or nonlinear bifurcation type at the critical points. Residual equivalent-formulation priority risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is a sharp transverse Jacobian and reentrant sharpness classification for full (unmasked) repulsive softmax on a regular triangle. Altafini’s 2026 positive-dominant-value hypotheses exclude V=-I; Gao–Yang–Chen 2026 treats negative values and regular polygons but apparently uses diagonal-masked attention in the relevant model. A first-order reduction of full attention to masked attention with β-dependent effective residual step is possible at equilateral states, and could make part of this a corollary of an exact masked polygon multiplier theorem. Its primary full text could not be inspected, so the priority judgment is qualified rather than claiming a definitive separation. The additional unique-maximum/return-stability threshold is not stated in accessible material.
+
+## value
+
+PASS
+
+An exact stability diagram for the first nontrivial regular triangle in normalized repulsive attention resolves which fixed step lengths admit instability at intermediate attention sharpness but recovery at high sharpness. The two-root transition and critical step distinguish self-attention scaling regimes. It is a mathematically motivated local stability boundary rather than an arbitrary three-point finite experiment; no nonlinear flip claims are used.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

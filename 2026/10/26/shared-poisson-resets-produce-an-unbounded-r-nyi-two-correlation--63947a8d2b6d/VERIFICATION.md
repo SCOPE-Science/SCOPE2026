@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and analytic verification
+# Independent mathematical audit
 
-The theorem's infinite-lattice state, strict inequality and weak-reset asymptotics follow from the detailed analytic argument in `RESULT.md`: exponential-age stationarity, exact Bessel overlaps, a double-age convolution, strict Jensen, complete elliptic integrals and dominated convergence for the integrable fourth power of a Bessel function.
+## correctness
 
-Run `python3 verify_coherent_reset.py` using NumPy and SciPy. The checker evaluates a truncated Bessel position basis with an independent quadrature in the reset ages, explicitly forms a stationary one-particle density matrix, derives the shared two-particle purity from Gram products, compares both with renewal single-integral formulas, and verifies the elliptic representation and small-rate scaling numerically. Finite summations, quadratures and sample rates are consistency evidence, not an exhaustive certificate for all rates or the infinite lattice. The stationary separability statement follows directly from the convex-product decomposition, not from any numerical negativity test.
+PASS
 
-Independent audit: not performed.
+PASS: The exponential backward recurrence age at stationarity yields trace-norm convergent ρ1=E|ψ_T><ψ_T| and ρcommon=E(|ψ_T><ψ_T|)⊗². Reset contraction gives uniqueness; the common density matrix is a mixture of product projectors, hence separable with marginals ρ1. Tight-binding spectral Fourier transform gives overlap J_0(2J(s−t)). A double-exponential age integral reduces to a one-dimensional exponential convolution: P1=E[J_0(2JT)^2], Pcommon=E[J_0(2JT)^4], Pindependent=P1². Strict Cauchy–Schwarz variance is positive because J_0 is nonconstant. Bessel addition/Laplace identities give P1~r/(2πJ) log(16J/r); uniform O(u^−1/2) Bessel decay makes C4 finite, and dominated convergence gives Pcommon~r C4/(2J). The ratio and logarithmic divergence follow. Independently checked several finite-rate Bessel integrals, equality with elliptic P1, strict ratio and small-r trend. Not Umegaki mutual information, not entanglement.
+
+## originality
+
+PASS
+
+PASS (qualified): Stationary Poisson-reset quantum walk density matrices and Bessel site probabilities were already developed by Wald–Böttcher and Das–Dattagupta–Gupta. The claim does not assert the one-body purity, Poisson mixing, or renewal identity individually as novel. Neither inspected primary work studies the two-copy shared-vs-independent clock comparison with coincident marginals and strict Rényi-two contrast, nor establishes the Bessel-fourth-power weak-reset logarithmic singularity. General common-random-environment correlation identities may be antecedents, so novelty is qualified to the full explicit lattice asymptotic.
+
+## value
+
+PASS
+
+PASS: The choice of shared versus independent stochastic reset times is an experimentally meaningful distinction invisible to every one-body stationary density matrix. The exact diverging collision-entropy contrast, together with rigorously separable joint state, gives a sharp quantitative measure of correlation induced solely by a shared classical reset clock. The interplay between marginal logarithmic Bessel divergence and integrable fourth power is a nontrivial low-rate asymptotic, not a simple restatement of stochastic mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

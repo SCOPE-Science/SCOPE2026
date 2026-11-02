@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:10:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed all three disjoint cases. A subdivision w_ij has N[w_ij]={a_i,b_j,w_ij}, so omitted original vertices cannot occupy both sides. If no originals are omitted, selected subdivision edges must cover all originals, giving E_{p,q}. Omitting u>=1 from A forces exactly uq subdivisions, with remaining p-u selected rows independently nonempty; this gives C(p,u)z^(p+q+u(q-1))U_q^(p-u), and the omitted-B term is symmetric. Minimum exponents in these classes are 2p+q+u(q-2) and p+2q+v(p-2); the p=2 and p=q=2 boundary multiplicities are counted without double-counting. New independent closed-neighborhood bitmap enumeration directly tested all 2^(p+q+pq) subsets for (2,2),(2,3),(2,4),(3,3): 51,456 candidate subsets, matching every polynomial coefficient and minimum multiplicities 12,31,87,6. The three-case bijection, not finite tests, proves the all-p,q theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Magima and Ragukumar (2024), DOI 10.7546/nntdm.2024.30.3.640-653, full text Section 2.6 Theorem 2.19 gives gamma_x2(S(K_mn))=2n+m, not an enumerator.",
+          "Resultary neighborhood-total-2-domination polynomial concerns complete multipartite graphs themselves and an alternate domination definition, not their subdivisions."
+        ],
+        "reasoning": "The old scalar minimum is implied by the new polynomial; the reverse implication fails. The other similarly named polynomial does not dominate the given graph operation or closed-neighborhood definition.",
+        "searches": [
+          "web: Magima Ragukumar double domination number graphs generated unary products complete bipartite subdivision 2024 PDF",
+          "Resultary: double domination polynomial number double dominating sets subdivision complete bipartite graph two fold closed neighborhood incidence graph"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.05783v1, full 11-page primary PDF",
+        "DOI:10.7546/nntdm.2024.30.3.640-653, full 14-page primary PDF",
+        "Resultary semantic results including neighborhood-total-2-domination polynomial on complete multipartite graphs",
+        "Git RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, verify_double_subdivision.py in exact source tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old theorem gamma=p+2q is the least nonzero exponent of the new polynomial.",
+          "Exact domination uses equality |N[v] cap D|=2 and excludes many sets satisfying |N[v] cap D|>=2."
+        ],
+        "reasoning": "The proposed formula implies the published scalar theorem, but neither the scalar theorem nor exact-existence statement logically implies all coefficients; standard edge-cover data supply just one summand.",
+        "searches": [
+          "arXiv:2408.05783 Theorem 5",
+          "DOI:10.7546/nntdm.2024.30.3.640-653 Theorem 2.19",
+          "Resultary: double domination polynomial number double dominating sets subdivision complete bipartite graph two fold closed neighborhood incidence graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Behtoei and Zarifian, arXiv:2408.05783, full 11-page source, introduction/Section 2 and Theorem 5 define EXACTLY two closed-neighborhood occurrences, not AT LEAST two.",
+          "The reviewed theorem counts all nonexact supersets as well, using omitted-side decomposition."
+        ],
+        "reasoning": "Equal-two efficient double domination is a different property from two-fold at-least domination and its existence criterion cannot count every admissible subset; no exact equivalence from the inspected result.",
+        "searches": [
+          "Resultary: double domination polynomial number double dominating sets subdivision complete bipartite graph two fold closed neighborhood incidence graph",
+          "web: Behtoei Zarifian exact double domination subdivision Mycielskian middle graphs pdf 2408.05783"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Magima–Ragukumar Table 6 lists numerical minima for graph classes, not coefficient counts or minimal-set multiplicities.",
+          "Edge-cover polynomial E_{p,q} counts only the all-originals-selected component."
+        ],
+        "reasoning": "Neither a minimum table nor edge-cover polynomial alone determines the omitted-original components. No matching polynomial table was found in these bounded searches; this is not evidence of global absence.",
+        "searches": [
+          "web: double domination number subdivision complete bipartite Table 6 2024",
+          "Resultary: double domination polynomial number double dominating sets subdivision complete bipartite graph two fold closed neighborhood incidence graph"
+        ]
+      },
+      "rationale": "The full cardinality polynomial and exact minimizer multiplicities are a nontrivial refinement beyond the known scalar minimum, the unrelated exact-equality subdivision domination condition, and the ordinary edge-cover polynomial. Qualified priority judgment: an unindexed two-fold closed-neighborhood covering enumerator could be equivalent; no absolute novelty certification.",
+      "residual_risks": [
+        "Alternative labels such as 2-tuple closed-neighborhood domination may conceal a published full polynomial.",
+        "A more general graph polynomial counting minimum-two dominating sets may specialize to this graph even without naming it explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar minimum previously known; no all-cardinalities enumerator in its treatment of subdivisions.",
+          "evidence": [
+            "Theorem 2.19: gamma_x2(S(K_m,n))=2n+m for m<=n; Table 6 displays scalar domination numbers."
+          ],
+          "identifier_or_url": "DOI:10.7546/nntdm.2024.30.3.640-653; https://nntdm.net/papers/nntdm-30/NNTDM-30-3-640-653.pdf",
+          "material_read": "Full 14-page PDF, definitions, Section 2.6, Theorem 2.19, Table 6, proof and conclusions; inspected page 11 image.",
+          "method": "Read public primary PDF and screenshot.",
+          "title": "Double domination number of graphs generated from unary products",
+          "trigger": "Same S(K_pq) object and same >=2 condition."
+        },
+        {
+          "assessment": "Its exact-2 existence characterization does not enumerate at-least-two sets.",
+          "evidence": [
+            "Introduction: exactly two in each closed neighborhood; Section 2 Theorem 5 classifies exact subdivision feasibility."
+          ],
+          "identifier_or_url": "arXiv:2408.05783v1; https://arxiv.org/pdf/2408.05783",
+          "material_read": "Full 11-page primary PDF, definition and Section 2 proof/Theorem 5, including page 5 image.",
+          "method": "Read arXiv PDF text and screenshot.",
+          "title": "Exact double domination in subdivision, Mycielskian and middle graphs",
+          "trigger": "Same subdivision operation under an exact rather than at-least condition."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete labeled double-domination distribution is a natural graph-polynomial invariant for all one-step complete-bipartite subdivisions; the p=2 switch and the surjection boundary explain every minimum set, while coefficient data extend the previously known minimum. It is not merely a restated scalar number or known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2408.05783v1, full 11-page primary PDF",
+    "DOI:10.7546/nntdm.2024.30.3.640-653, full 14-page primary PDF",
+    "Resultary semantic results including neighborhood-total-2-domination polynomial on complete multipartite graphs",
+    "Git RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, verify_double_subdivision.py in exact source tree"
+  ],
+  "disposition": "passed",
+  "final_claim": "For 2<=p<=q, the at-least-two closed-neighborhood domination polynomial of S(K_{p,q}) equals z^(p+q)[E_{p,q}+(U_q+z^(q-1))^p-U_q^p+(U_p+z^(p-1))^q-U_p^q], with U_r=(1+z)^r-1. Minimum size p+2q has multiplicity 12 at (2,2), 3^q+2q-2 for p=2<q, and the surjection count Sum_{j=0}^p(-1)^j*C(p,j)*(p-j)^q when p>=3.",
+  "limitations": [
+    "Alternative labels such as 2-tuple closed-neighborhood domination may conceal a published full polynomial.",
+    "A more general graph polynomial counting minimum-two dominating sets may specialize to this graph even without naming it explicitly.",
+    "All computational checks are finite corroboration, not proofs for unrestricted parameters.",
+    "No external Lean proof or expert attestation is asserted.",
+    "Publication is operationally not_ready independently of completed scientific assessments."
+  ],
+  "schema_version": 1
+}

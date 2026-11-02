@@ -1,19 +1,21 @@
-# Review: Bayesian reconstruction through binary additive cellular automata
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized invertible binary recurrence identifies each finite output fiber with exactly \(2^d\) seeds and its differences with periodic kernel words. A strict/weak MAP comparison yields exact binomial-half-tail sandwiches; periodic Hamming densities and large-deviation asymptotics give the asserted universal exponent. Two elementary finite-state counts establish the unique minimum-density polynomial and sharp attained maximum-density bound. Conditional uniformity proves the separate fair-source statement. Rational-arithmetic checks from `verify.py` independently verify nontrivial finite instances; they are not substituted for infinite proofs.
+PASS
 
-## Originality — PASS within checked evidence, with priority risk
+The nonzero constant/trailing coefficients make each N-output finite fiber have exactly 2^d input candidates, indexed by d-bit seeds, and the difference of candidates is a restriction of a finite collection of nonzero periodic bi-infinite recurrence kernels. For biased Bernoulli(q), q=min(p,1-p)<1/2, strict competitor likelihood requires >half minority bits on its kernel support; any MAP error is bounded by union of weak >=half events. The exact binomial half-tail exponent is log(1/(2sqrt(q(1−q)))); periodic support weights m_k(N+d)=rho(k)N+O(1) give the min-density coefficient alpha_Q. SLLN across the finitely many kernel differences gives shift-covariant almost-sure inversion for biased sources. For p=1/2 all 2^d seed candidates are equiprobable and e_N=1−2^(−d). Every nonzero kernel has at least one 1 in each d-window, giving alpha>=1/d; equality forces a d-periodic single-1 kernel, hence Q=1+z^d. Uniform average over all 2^d−1 nonzero recurrence states gives alpha<=2^(d−1)/(2^d−1), attained by primitive irreducible recurrences. Independent recurrence enumeration verified all 31 normalized polynomials degree<=5 and four exact rational posterior-error sandwiches. This proves the unlimited degree/rate theorem by the analytic argument, not finite samples.
 
-Kari–Taati's full arXiv discussion of biased XOR concerns Gibbs properties, and the 1998 Lőrinczi–Maes–Vande Velde relevant full-text section concerns transformed Gibbs/non-Gibbs behavior, not the all-polynomial MAP error exponent or sharp kernel-density envelope. Ban–Chang's abstract and introduction concern topological pressure/entropy, while Dow's accessible abstract concerns global injectivity; their inaccessible or partially accessible original full text is an explicit residual priority risk. Published related research on finite-boundary reversibility and random syndrome guesswork concerns different domains and conclusions. Standard half-binomial tail estimates, primitive recurrences, and MAP decoding are not asserted as novel separately; the exact all-rule identification and extremal envelope are the evaluated contribution.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite-to-one factors of symbolic shifts may be far from invertible topologically yet invertible on a specified invariant measure. The present complete quantitative law identifies the exact observation cost of recovering a finite seed, exposes a sharp discontinuity at the fair input law, and determines extremal hardness across every fixed-support-width class. The unique minimum-density classification and primitive-polynomial attainment make the invariant structural and natural, rather than a single arbitrary numerical instance.
+Earlier additive-cellular-automaton work analyzes topological injectivity (Dow), entropy/pressure (Ban–Chang), and Gibbs/non-Gibbs properties of biased XOR output (Kari–Taati and Lőrinczi–Maes–Vande Velde). None of the materially read primary statements yields the exact finite-window entire-seed MAP exponent alpha_Q times the Bernoulli Chernoff rate plus sharp extremal alpha_Q bounds over all normalized binary rules. Generic likelihood large deviations and primitive-polynomial maximal-length sequences are well-known ingredients and not claimed new. Full Ban–Chang and Dow comparisons remain access-limited, and alternate coding-theoretic formulations may exist.
 
-## Boundaries
+## value
 
-No statement about noisy observations, variable bias, temporal entropy or upper-equality uniqueness. Some historical full texts were inaccessible; priority remains provisional pending independent study.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a noninjective but surjective additive cellular automaton, the information-theoretic question of whether an entire hidden seed can be recovered from a growing observation window is natural. The exact universal bias-dependent error exponent, the a.e. versus topological invertibility distinction and sharp all-degree minimum/maximum kernel-density envelopes form a complete quantitative classification with an intrinsic periodic recurrence invariant. These are substantive, not merely numerical code checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

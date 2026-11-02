@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.10 or later. The verifier uses only the standard library; no downloaded packages, external sources, or randomness are required. It checks all eight possible ballot types, including empty ballots, for each anonymous three-candidate profile with one to six voters. Its deterministic terminal output reports profile counts \(8,36,120,330,792,1716\) and strong-nonnesting counts \(0,0,0,0,0,3\), followed by `PASS`. It tests the complete irresolute winner sets rather than selecting convenient tie-breakers.
+## correctness
 
-The exact mathematical argument is in `RESULT.md`, which proves the bound for any number of voters using inequalities on approval-type counts. The verifier supplies an independent small-case cross-check but does not formally certify the infinite proof. Only self-review was performed; independent audit remains unperformed. No claim is made for more than three candidates or for committee sizes beyond one and two.
+PASS
+
+Definition 6 specifies lexicographic primary covered voters and secondary PAV-like second-stage score. Strong nonnesting on 3 candidates forces unique winning singleton A and unique winning pair BC. Singleton strict approval scores give u+q>v+r and u+p>w+r, while pair coverage implies u<=v,w; any equality contradicts secondary comparison, hence v,w>=u+1. Therefore q,p>=r+2 and n>=6+3u+3r+t+e. Equality forces u=r=t=e=0, v=w=1, p=q=2; BC covers all 6 while AB and AC cover 5, and A singleton has support4 versus3. Independent exhaustive enumeration checked all 3002 anonymous ballot-count vectors with 1..6 voters (including empty ballots): exactly 3 nonnested at 6. Finite census does not replace the all-n inequality.
+
+## originality
+
+PASS
+
+The base Adams-AV rule and coverage-primary composite score are from Baychkov et al.; this exact six-voter tie-independent house-nonnesting bound and complete equality profile classification are not in the inspected full paper. Witness also demonstrates CC nonnesting, so CC nonmonotonicity alone is NOT claimed as novel.
+
+## value
+
+PASS
+
+A sharp smallest electorate for forced nonnesting is an interpretable boundary of a recently proposed approval-rule house-size criterion. The strict inequalities and uniqueness classification explain why tie-breaking cannot rescue the witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

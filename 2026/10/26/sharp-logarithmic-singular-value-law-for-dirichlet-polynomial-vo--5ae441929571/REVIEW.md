@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The coefficient formula follows from elementary integration; the factorization into a compact diagonal operator and a finitely supported multiplier gives compactness and a rank-truncation upper singular bound. The sharp lower bound uses unit polynomials nearly attaining the torus multiplier norm, infinitely many pairwise orthogonal coprime prime-fibers at positive density, and the compact Hilbert-space min-max formula. The final logarithmic limit follows with every parameter fixed before the frequency cutoff grows. The factorial power bound follows from the exact multiplicative support growth. Finite tests verify local identities only.
+## correctness
 
-**Originality (PASS, historical qualification).** Brevig–Perfekt–Seip (arXiv:1602.04729, Section 7.1) prove polynomial-symbol compactness and non-Schatten membership, but their relevant full-text treatment does not specify the sharp universal coefficient of \(s_N\log N\). Tong–Wang–Yuan (arXiv:2610.21873v1) analyze other Dirichlet-series Banach function spaces and do not give this singular sequence. Bommier-Hato (2020) treats weighted Bergman-Dirichlet spaces and Schatten questions without the corresponding sharp unweighted logarithmic asymptotic. The nearest previously recorded monomial Volterra **commutator** result concerns a different composite operator with cubic logarithmic decay. Searches did not locate a covering result, but abstract slowly varying diagonal-times-multiplier theorems remain a possible priority risk.
+PASS
 
-**Value (PASS).** The earlier non-Schatten statement gives no exact singular-scale coefficient. The result identifies the full first-order rate \(s_N\sim C_g/\log N\) for every nonconstant finite symbol and detects simultaneous frequency interference through the torus supremum, not only coefficient sizes. It is a natural quantitative refinement of the compactness/Schatten dichotomy on a classical Dirichlet coefficient Hilbert space. No claim is made of a new general compactness or non-Schatten theorem.
+Rebuilt coefficient formula T_g e_n=sum_m b_m log m/log(nm)e_{nm} and factorization T_g=D M_h. Finite prime-torus polynomial multiplier has exact H2 norm C_g; deleting N-1 input coordinates gives s_N<=C_g/log(2N). A finite norm-approximating polynomial over the finitely many prime coordinates, shifted by integers r coprime to their product, generates a positive-density orthogonal family of images with norm >=(C_g-epsilon)/log(c N), establishing min-max lower bound for all N, not just a subsequence. Formula handles n=1, constants, arbitrary dependent frequencies and complex coefficients. Powers shift indices by >=2 so ||T_g^k||<=(C_g/log2)^k/k!. Explicit monomial weights are orthogonal. Original independent tests checked monomial coefficient sequences and coprime fibers; finite checks are not asymptotic proofs.
 
-**Limitations.** Finite symbols only; no uniformity in symbol degree or coefficients, no higher-order asymptotics, and no independent historical-priority certification. The fully read primary sources are listed in the associated result and structured review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp leading constant for the complete ordered singular-value sequence differs from earlier compactness/non-Schatten statements. Previous first-coefficient basis-vector estimates cannot supply the multiplier supremum for overlapping polynomial frequencies. Best-of-knowledge original exact spectral law, but not absolute historical priority.
+
+## value
+
+PASS
+
+An exact leading singular-value constant for a natural compact, highly non-Schatten Volterra operator is a substantive quantitative spectral invariant; the coefficient distinguishes interfering frequencies from coefficient-square norms and is usable when estimating approximation complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

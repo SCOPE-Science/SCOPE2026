@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For ordered probability spectra in \(\mathcal S_9\), the fifteen vertices are enumerated exactly. Their purity values give the unique outer maximum \(25/169\), second value \(11/75\), and the exact constants \(\gamma=16/12675\), \(q_0=16/845\), and \(D^2=58/1183\). The first qutrit Hildebrand matrix at the outer maximizer has least eigenvalue \(-(2\sqrt2-2)/13\). Its Frobenius perturbation bound forces every APPT spectrum to lie at Euclidean distance at least \((\sqrt2-1)/13\), which yields the stated rational gap by the two quadratic bounds in the proof. The standard-library verifier confirms the finite rational calculations; the remaining inequalities are proved analytically.
+PASS
 
-## Originality — PASS, subject to documented risk
+PASS: For ordered nine-eigenvalue spectra the APPT necessary outer inequality is lambda1≤lambda7+lambda8+lambda9. In difference coordinates its cone has six positive rays, one zero, two negative, yielding exactly 15 vertices (3 surviving plus 12 crossings), not merely an assumed numerical list. Exact Fraction enumeration reproduces unique outer maximum 25/169 at (3,3,1^7)/13, second vertex value 11/75, gamma=16/12675, q0=16/845 and D²=58/1183. The first Hildebrand qutrit matrix at the maximizer has a strictly negative eigenvalue (2−2sqrt2)/13; the Frobenius-Lipschitz bound ||K(lambda)-K(star)||F≤2||lambda-star|| yields t≥t0=7(sqrt2−1)/sqrt406. In a vertex decomposition, G=Fstar−F(lambda)≥max(gamma*t, q0*t−D²*t²). Endpoint comparisons for t∈[t0,t*] and linear bound for t≥t*, t*=784/2175, give G≥12544/27568125. The complete exact-vertex verifier was read; the new independent rational arithmetic reproduces all constants. Uses the qutrit PSD matrix only as a necessary APPT condition, not an equivalence.
 
-Tran's primary paper proves that the APPT purity is strictly below the outer-polytope maximum for \(3\otimes n\), and explicitly leaves the exact maximum open. Its strictness argument does not state the rational gap \(12544/27568125\). The 2026 two-qutrit classification paper supplies the explicit Hildebrand matrix but does not state this purity-gap bound. The claim is a quantitative corollary from those ingredients, not a solution of the exact optimization problem. The literature comparison is best-knowledge only; absence from search results is not proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result replaces a qualitative strict inequality with an explicit, reproducible rational margin in the smallest qutrit–qutrit case. This gives a rigorous exclusion threshold for interval or numerical investigations of the still-open exact maximum and rules out the outer-polytope extremizer with a stated quantitative separation. The constant is not sharp, and no practical tightness is claimed.
+PASS: The old qualitative strictness cannot be treated as the explicit rational bound without an effective modulus; the new proof supplies vertex separation and a local PSD spectral-distance estimate. A stronger *explicit* numerical upper bound or a complete maximization theorem would cover the claim; none was established in the read material. The broad dimension result does not dominate a positive explicit δ in the special dimension. This is not a recomputation of a known outer vertex table: the stricter APPT restriction is applied to produce a new certified gap, but a sharper published table remains a residual risk. The new rational coefficient is not a direct corollary of the prior stated inequalities; it requires the nontrivial quantitative application of the PSD condition and convex geometry. Exact APPT maximum remains unknown.
 
-## Closest literature and limitations
+## value
 
-- A. T. Tran, *Spectral Optimization for Absolutely PPT States: Purity, Entropy, and Volume Decay*, arXiv:2609.18568, especially the outer-polytope maximizer and the proof of strictness in \(3\otimes n\).
-- R. Hildebrand, *PPT from spectra*, arXiv:quant-ph/0502170; the spectral criterion supplies necessary linear matrix inequalities.
-- N. Wang, L. Chen, and Z. Song, *Extreme points of absolutely PPT states with exactly three distinct eigenvalues*, arXiv:2603.20717, including the explicit two-qutrit matrices.
+PASS
 
-The result is only an upper bound for \(3\otimes3\) APPT states. It does not determine the true maximum, characterize maximizers, or establish a bound for all \(3\otimes n\). Independent audit remains unperformed.
+PASS, modest but substantive: The exact two-qutrit APPT maximum is open; prior outer-polytope bound was known to be strictly unattainable but without an explicit rational separation. A rigorously checkable positive rational gap quantifies that separation for a natural fixed physical dimension and gives a concrete obstruction to approaching its unique outer candidate. It is nonsharp and not advertised as an optimization solution, so its mathematical utility is the first explicit quantitative certificate rather than the tiny numerical gain alone.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

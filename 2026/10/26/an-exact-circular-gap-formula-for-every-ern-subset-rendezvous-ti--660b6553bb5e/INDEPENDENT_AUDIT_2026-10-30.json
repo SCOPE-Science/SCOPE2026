@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:01:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The compressed block ba^{n-1} applies max(j-1,0) to representatives. After rotating a chosen occupied x to 0, n-g(x)-1 blocks reduce all images into {0,1}, and final b merges them. The lower bound uses F(T)=n(n-1)+1-max_{x in T}(n g_T(x)-r(x)); under a all nonwrapping scores increase only by one, under b moving 0 or deleting it when 1 exists adds at most one, and the only nonsingleton-to-singleton transition {0,1}-> {1} has F=1. Thus each letter reduces F by at most one. Independent exhaustive reverse-BFS checked all 8177 nonempty subsets across n=2..12; finite check corroborative, all-n proof is potential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Szykuła–Zyzik give general shortest-word algorithms, not symbolic formulas for all labeled Černý subsets.",
+          "Behague–Johnson provides broader automaton context but different invariant (extrema over size)."
+        ],
+        "reasoning": "Generic exponential subset search can compute an individual distance but does not imply the explicit formula and linear-in-|S| construction. Possible uninspected thesis coverage retained.",
+        "searches": [
+          "Resultary semantic: Cerny automaton subset synchronizing word minimal time cyclic gaps explicit formula every subset rendezvous time",
+          "https://arxiv.org/abs/2207.05495",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p41/pdf/"
+        ]
+      },
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p41/pdf/",
+        "https://arxiv.org/abs/2008.12166",
+        "https://arxiv.org/abs/2207.05495",
+        "https://doi.org/10.34626/607f-t921"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Behague–Johnson theorem concerns min/max among k-sets and some heavy k-set constructions.",
+          "General subset reverse BFS solves each instance but provides no circular-gap optimal certificate."
+        ],
+        "reasoning": "Size-only extrema do not imply exact every-S distances, and algorithmic solvability is not an explicit all-n formula. Cardoso thesis remains a plausible prior derivation, so no exhaustive priority certification.",
+        "searches": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p41/pdf/",
+          "https://arxiv.org/abs/2207.05495",
+          "Resultary semantic: Cerny automaton subset synchronizing word minimal time cyclic gaps explicit formula every subset rendezvous time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quantity is individual prescribed-subset weight, not k-set extremal min or max.",
+          "The one-step potential F is a shortest-distance certificate on the entire 2^n−1 power automaton."
+        ],
+        "reasoning": "Translated into subset-power-automaton shortest-path distances, circular gaps and min-plus potentials; the 2022 k-set article compares min/max for fixed size and does not itself supply every labeled-set closed form in its inspected sections.",
+        "searches": [
+          "Resultary semantic: Cerny automaton subset synchronizing word minimal time cyclic gaps explicit formula every subset rendezvous time",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p41/pdf/",
+          "Cardoso 2014 thesis DOI 10.34626/607f-t921"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published record on early deficiency profile counts minimal words compressing full state image, not arbitrary given S.",
+          "k-avoiding threshold concerns avoiding target subsets, not merging each starting subset."
+        ],
+        "reasoning": "The full-state value (n−1)^2 and pair cases are already known boundary table entries. The claim supplies an infinite complete pointwise table and explicit word, not a copied known small-n census.",
+        "searches": [
+          "Resultary semantic: Cerny automaton subset synchronizing word minimal time cyclic gaps explicit formula every subset rendezvous time",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "rationale": "PASS, qualified. The best related source Behague–Johnson defines individual k-set synchronizing times but concentrates on size-wise extrema, not a closed labeled-subset distance for every size and n. Previously known full-state reset and some pair distances are included but are not claimed new. Cardoso 2014 doctoral thesis is a relevant uninspected full text that might state the exact formula or an equivalent potential.",
+      "residual_risks": [
+        "Cardoso (2014) dissertation not inspected in full and could contain equivalent explicit every-subset formula.",
+        "General formula only for standard labeled Černý family, not arbitrary synchronizing automata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL OVERLAP: same invariant but not all-labeled-subset theorem in inspected theorems",
+          "evidence": [
+            "Electronic J. Combin. 29(3), P3.41 (2022), DOI 10.37236/9819"
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p41/pdf/",
+          "material_read": "Primary paper introduction, definitions of k-set weights and its size-wise extremal results; not claimed full document read",
+          "method": "Open journal PDF text and page screenshot",
+          "title": "Synchronizing Times for k-sets in Automata",
+          "trigger": "Same individual subset weight in classical automaton"
+        },
+        {
+          "assessment": "GENERAL ALGORITHM, no explicit Černý circular-gap formula observed",
+          "evidence": [
+            "Algorithmic search on power automaton differs from analytic pointwise distance formula"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.05495",
+          "material_read": "Primary abstract and algorithm description; no exhaustive full-text read this run",
+          "method": "arXiv search",
+          "title": "An Improved Algorithm for Finding the Shortest Synchronizing Words",
+          "trigger": "General stronger algorithms could imply closed formula"
+        },
+        {
+          "assessment": "UNRESOLVED PRIORITY RISK; no whole-document noncoverage claim",
+          "evidence": [
+            "2014 Porto thesis explicitly plausible as a source for individual subset distances"
+          ],
+          "identifier_or_url": "https://doi.org/10.34626/607f-t921",
+          "material_read": "Bibliographic record and citations from Behague–Johnson; full thesis unavailable (403 during source retrieval)",
+          "method": "University thesis catalogue/DOI and failed full-text access",
+          "title": "The Černý Conjecture and Other Synchronization Problems",
+          "trigger": "Doctoral thesis same problem and subset weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The prescribed-initial-subset reset time is a fundamental natural synchronization invariant. A closed exact all-subset min-over-circular-gaps formula and optimal word eliminate exponential shortest-path search for the classical extremal family, and the 1-Lipschitz potential is a reusable structural certificate beyond known full-set or pair-only numbers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p41/pdf/",
+    "https://arxiv.org/abs/2008.12166",
+    "https://arxiv.org/abs/2207.05495",
+    "https://doi.org/10.34626/607f-t921"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n>=2 and nonempty subset S of the classical n-state Černý automaton with a(i)=i+1 mod n and b(0)=1 (other states fixed), the shortest word merging S has exact length 0 for singleton and otherwise min_{x in S}[r(x)+n(n-g_S(x)-1)+1]; explicit optimal word a^{r(x)}(ba^{n-1})^{n-g_S(x)-1}b, with g the circular predecessor gap and r(x)=(-x) mod n.",
+  "limitations": [
+    "No uniqueness or count of shortest words; no claim on arbitrary synchronizing automata or Černý conjecture generally."
+  ],
+  "residual_risks": [
+    "Cardoso (2014) dissertation not inspected in full and could contain equivalent explicit every-subset formula.",
+    "General formula only for standard labeled Černý family, not arbitrary synchronizing automata."
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed the normalized curved-hemisphere moments: height uniform on [0,1], horizontal centered variances 1/3 and vertical centered variance 1/12. The orthonormal basis yields K(x,y)=1+3 x_h·y_h+12(x3−1/2)(y3−1/2). At equatorial x, K=4+3y1−6y3=4−3√5 v·y; its negative cap lies entirely within the hemisphere. Integrating that cap gives row norm L=61√5/15−7. Conditional azimuth symmetry makes row integral nondecreasing with unrestricted horizontal radius; convexity in the height coordinate bounds all rows with z≤1/3 strictly below the equator except z=0, while Cauchy–Schwarz K(x,x)=7−12z+9z²≤4 controls z≥1/3. Duality gives identical L1 and L∞ operator norms. Equality in the triangle inequality forces equatorial kernel signs for L∞; since the maximal-row set has measure zero, L1 has no nonzero extremizer. Negative cap mass gives overshoot (L−1)/2. Independent two-dimensional quadrature at five heights confirms constant and strict height comparisons, without replacing global analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant et al. arXiv:2405.12123 Corollary 4.12, full S² kernel; Hangelbroek et al. arXiv:1005.2424 general manifold estimates."
+        ],
+        "reasoning": "Broader coverage: whole-sphere polynomial projector norm formulas and manifold least-squares stability are broader in degree/dimension but on different domains or non-sharp; neither dominates the truncated-sphere equatorial constant.",
+        "searches": [
+          "Resultary semantic query: hemisphere affine linear polynomial L infinity least squares orthogonal projection Lebesgue constant endpoint exact",
+          "Web scientific search: hemisphere least-squares projection 2.093343108499; hemispherical spherical harmonic projector exact norm",
+          "https://cseweb.ucsd.edu/~ravir/291/2015/papers/p382-sloan.pdf",
+          "https://arxiv.org/pdf/2405.12123"
+        ]
+      },
+      "checked_sources": [
+        "https://cseweb.ucsd.edu/~ravir/291/2015/papers/p382-sloan.pdf",
+        "https://arxiv.org/pdf/2405.12123",
+        "https://arxiv.org/abs/1005.2424",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit cap negative mass ∫_{4/(3√5)}^1(3√5u−4)du and z-dependent sharp bounds."
+        ],
+        "reasoning": "Implication: least-squares characterization itself uniquely specifies K but does not automatically yield its absolute L1-row maximum or complete equality classification; the cap integration and global convexity comparison are additional nontrivial analytic steps.",
+        "searches": [
+          "Resultary semantic query: hemisphere affine linear polynomial L infinity least squares orthogonal projection Lebesgue constant endpoint exact",
+          "Web scientific search: hemisphere least-squares projection 2.093343108499; hemispherical spherical harmonic projector exact norm",
+          "https://cseweb.ucsd.edu/~ravir/291/2015/papers/p382-sloan.pdf",
+          "https://arxiv.org/pdf/2405.12123"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sloan et al. SIGGRAPH 2003 Appendix 9.1 p.8: A_ik=∫_H y_i y_k and c=A^{-1}b; sharp endpoint result includes a separate supremum of ∫|K(x,y)| over x."
+        ],
+        "reasoning": "Equivalent formulation: degree-0 and degree-1 spherical harmonics restricted to the curved hemisphere span the same 4D affine space. Sloan et al. already introduce the L2 least-squares hemispherical projection via A^{-1}b, but no endpoint norm.",
+        "searches": [
+          "Resultary semantic query: hemisphere affine linear polynomial L infinity least squares orthogonal projection Lebesgue constant endpoint exact",
+          "Web scientific search: hemisphere least-squares projection 2.093343108499; hemispherical spherical harmonic projector exact norm",
+          "https://cseweb.ucsd.edu/~ravir/291/2015/papers/p382-sloan.pdf",
+          "https://arxiv.org/pdf/2405.12123"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sloan reports approximation-error singular values at fifth order rather than L∞ stability of degree-one; Defant gives 5/3 for full sphere."
+        ],
+        "reasoning": "Exact database/table: full-sphere degree-one value 5/3 and applied hemispherical Gram matrices are prior; inspected primary references do not tabulate 61√5/15−7 or its kernel-sign equality patterns.",
+        "searches": [
+          "Resultary semantic query: hemisphere affine linear polynomial L infinity least squares orthogonal projection Lebesgue constant endpoint exact",
+          "Web scientific search: hemisphere least-squares projection 2.093343108499; hemispherical spherical harmonic projector exact norm",
+          "https://cseweb.ucsd.edu/~ravir/291/2015/papers/p382-sloan.pdf",
+          "https://arxiv.org/pdf/2405.12123"
+        ]
+      },
+      "rationale": "PASS (qualified): Sloan–Hall–Hart–Snyder (SIGGRAPH 2003) is a highly relevant antecedent: its Appendix 9.1 already constructs least-squares-optimal hemispherical spherical-harmonic projection using Gram-matrix inversion, which covers the projector itself and explicitly motivates it. It does NOT in the inspected 10-page text compute the sharp L1/L∞ operator norm, characterize exact equatorial maximizing rows, all extremizers, or negative overshoot. Defant et al. provide exact full-sphere projection constants (degree one gives 5/3) but their rotationally invariant sphere lacks the hemisphere truncation. General manifold kernel projector stability and the published affine-simplex example do not supply the exact hemispherical bound. The contribution is strictly the sharp stability/equality characterization, not invention of hemisphere least squares.",
+      "residual_risks": [
+        "The hemispherical least-squares projector itself was explicitly published in SIGGRAPH 2003; novelty attaches only to its exact norm/equality/overshoot theorem.",
+        "Older radiance-transfer or approximation literature might separately tabulate the degree-one sharp amplification; no exhaustive historical completeness is claimed.",
+        "The result is for the curved hemisphere with normalized surface measure, not equatorial disk, weighted caps, higher-degree spaces or arbitrary projections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS projector definition and Gram inversion, not this exact sharp L1/L∞ stability / boundary extremizers",
+          "evidence": [
+            "Appendix 9.1 sets c=A^(-1)b with Gram A_ik=∫_H y_i y_k, analyzes 25-basis numerical conditioning but not affine norm."
+          ],
+          "identifier_or_url": "https://cseweb.ucsd.edu/~ravir/291/2015/papers/p382-sloan.pdf",
+          "material_read": "10-page full author-posted primary PDF, abstract, Section 2 and Appendix 9.1–9.2 on printed pp.389–390; page 8 screenshot read",
+          "method": "open primary PDF text and screenshot",
+          "title": "Clustered Principal Components for Precomputed Radiance Transfer",
+          "trigger": "Exact same hemispherical spherical-harmonic least squares procedure"
+        },
+        {
+          "assessment": "COVERS full sphere polynomial projection constants, not truncated hemisphere",
+          "evidence": [
+            "Corollary 4.12 evaluates whole S² polynomial projection constant; symmetry and kernel differ from restricted hemisphere."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.12123",
+          "material_read": "36-page open arXiv primary PDF, §4.3 and Corollary 4.12 on p.31, screenshot, full-text search for hemisphere",
+          "method": "arXiv PDF extraction and page screenshot",
+          "title": "Minimal projections onto spaces of polynomials on real Euclidean spheres",
+          "trigger": "Potential sharper full-sphere degree-one norm theorem"
+        },
+        {
+          "assessment": "GENERAL PROJECTION STABILITY, not a directly inspected exact 4D hemisphere sharp constant",
+          "evidence": [
+            "Kernel-translate manifold estimates bound projectors under locality hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+          "material_read": "Abstract, named Theorem 5.1 and stated stability scope as identified from primary research references; not a new complete-text read",
+          "method": "arXiv primary record and previously inspected result summary",
+          "title": "The L-infinity norm of the L2 projector",
+          "trigger": "Potential general dominating L∞ stability estimate"
+        },
+        {
+          "assessment": "DIFFERENT domain: Euclidean simplex vs curved spherical hemisphere",
+          "evidence": [
+            "Reported simplex dimension-d exact positivity defect has distinct mass distribution and Gram kernel."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+          "material_read": "Indexed full statement summary from Resultary semantic query",
+          "method": "Resultary semantic-result comparison",
+          "title": "Exact positivity defect and max norm of affine least-squares projector on a simplex",
+          "trigger": "Published mathematical record with same target invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A degree-one affine projector on the uniform hemisphere is the canonical smallest nontrivial hemispherical least-squares approximation and already appears in applied spherical-harmonic radiance projection. Exact sharp worst-case amplification and negative overshoot quantify robustness of that established procedure. The unexpected fact that all worst-case evaluations lie precisely on the measure-zero equator and that L1 extrema are unattainable is a complete natural equality classification, not just a numerical bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cseweb.ucsd.edu/~ravir/291/2015/papers/p382-sloan.pdf",
+    "https://arxiv.org/pdf/2405.12123",
+    "https://arxiv.org/abs/1005.2424",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+  ],
+  "disposition": "passed",
+  "final_claim": "For L²-orthogonal projection onto affine restrictions span{1,y1,y2,y3} on the uniformly measured curved upper unit hemisphere, the exact L1 and L∞ operator norms are 61√5/15−7. The maximal absolute kernel rows occur exactly at the equator; all nonzero L∞ norm extremizers are scalar signs of an equatorial kernel row, none exist in L1, and the maximal overshoot for 0≤f≤1 is (61√5−120)/30.",
+  "limitations": [
+    "The hemispherical least-squares projector itself was explicitly published in SIGGRAPH 2003; novelty attaches only to its exact norm/equality/overshoot theorem.",
+    "The result is for the curved hemisphere with normalized surface measure, not equatorial disk, weighted caps, higher-degree spaces or arbitrary projections.",
+    "No new repository modifications; source publication requires separate confidentiality-safe metadata review."
+  ],
+  "residual_risks": [
+    "The hemispherical least-squares projector itself was explicitly published in SIGGRAPH 2003; novelty attaches only to its exact norm/equality/overshoot theorem.",
+    "Older radiance-transfer or approximation literature might separately tabulate the degree-one sharp amplification; no exhaustive historical completeness is claimed.",
+    "The result is for the curved hemisphere with normalized surface measure, not equatorial disk, weighted caps, higher-degree spaces or arbitrary projections."
+  ],
+  "schema_version": 1
+}

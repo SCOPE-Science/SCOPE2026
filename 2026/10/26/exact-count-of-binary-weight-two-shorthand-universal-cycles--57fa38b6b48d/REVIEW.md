@@ -1,12 +1,21 @@
-# Scientific review: weight-two shorthand universal-cycle enumeration
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement counts rotation classes of labeled binary circles realizing, exactly once, the complete dictionary of length-\(n-1\) words of Hamming weight one or two. The overlap-graph bijection is exact. Contracting forced weight-zero and weight-two vertices yields the two-arc rotation/reflection digraph on \(n-2\) states, with parallel edges retained. The BEST theorem reduces the population count to one directed in-arborescence cofactor. Fourier decomposition of its explicit Laplacian gives the nonzero eigenvalue product \((n-2)2^{\lfloor(n-2)/2\rfloor}\), and the directed matrix-tree theorem yields the stated count for all \(n\ge3\). Exact independent original-graph cofactors, compressed cofactors, Euler-tour enumerations, and short raw-circle enumerations agree on their specified finite ranges. Boundary \(n=3\) and rotation anchoring are explicit; no experimental extrapolation is needed.
+## correctness
 
-## Originality — PASS against inspected evidence; historical priority remains open
-Ruskey, Sawada, and Williams (2012) introduced the exact fixed-weight shorthand universal-cycle problem, its overlap digraph, and explicit universal cycles, with a main focus on existence, efficient construction, and lexical questions. Relevant Sections 1–2, 6, and 7 of the complete accessible text were compared with this result. They do not specify the closed enumeration \(2^{\lfloor(n-2)/2\rfloor}\) of **all** weight-two cycles modulo rotation. Chen, Sima, and Milenkovic (2025), relevant definitions and Section 5, concern maximum collections of mutually orthogonal sequences, not the population of all individual weight-two shorthand cycles. Related exact sequence enumerations and current research records were compared by statement and scope; no stronger or equivalent claim was identified. Failure to locate a result is not a proof of novelty, and an unindexed prior derivation remains possible.
+PASS
 
-## Mathematical value — PASS
-Fixed-weight universal cycles are an established family of optimal cyclic coverage structures. Knowing that they exist or constructing one does not determine their exact multiplicity. The result supplies a closed all-length count at the first nontrivial weight, a non-obvious reduction to a dihedral-type digraph, and an exact Fourier/tree evaluation. This is an intrinsic enumeration problem and can inform sampling and structural classification without claiming any unproved downstream application. The result is restricted to binary weight two and rotational, rather than bracelet, classes.
+The edge-labeled overlap graph has every weight-one vertex of degree two and every zero/two vertex degree one. Forced-path contraction gives a balanced two-arc directed graph on m=n-2 vertices with arcs i->i-1 mod m and i->m-1-i (loops and parallel arcs distinct). Euler cycles anchored by the unique 0^(n-2)1 edge are counted by in-arborescences via BEST, since all outdegrees two. The Fourier blocks of 2I-P-R have paired determinants 2(1-zeta^k)(1-zeta^-k) and exceptional eigenvalue four for even m; directed tree cofactor equals 2^floor(m/2). Independently constructed all contracted integer cofactors for m=1..15 and directly enumerated binary rotation classes for n=3..6: 1,2,2,4. Rotational anchoring is essential.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fresh best-of-knowledge statement-level comparison with relevant published Resultary findings and primary articles, acknowledging known general methods and narrower ancestors; no inspected stronger theorem implies the exact final result. Priority is qualified by explicit residual risks.
+
+## value
+
+PASS
+
+Universal cycles for all two-subsets in shorthand representation form a natural constrained de Bruijn population-count problem; determining how many such cyclic orderings exist is independent of constructing one, and an exact all-length exponential count is a usable combinatorial invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

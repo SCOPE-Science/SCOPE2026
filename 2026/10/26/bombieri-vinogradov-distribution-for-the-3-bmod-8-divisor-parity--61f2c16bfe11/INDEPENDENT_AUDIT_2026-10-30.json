@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:01:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS, subject to a bibliographic numbering erratum. Cooper–Riasanovsky/OEIS prior support decomposition as p^(4j+1)k² with p≡3 mod 8 prime and p∤k is correctly credited and directly checked. Summing higher j>=1 and spurious p|k principal-stratum terms gives O(sqrt X) each uniformly per progression. For k<=log(X)^(R+4), use the standard strong max_{y<=X} Bombieri–Vinogradov prime theorem at modulus Q with arbitrary log power; the dependence of a k^(-2) on k is absorbed by max over all reduced classes. For k>log^C, the elementary progression upper bound y/m+1, sum_m 1/φ(m)<<log Q and Qsqrt X control tails, so choosing B_R large proves every R. The total coefficient is 1/4 sum_{odd k}1/k²=π²/32. Independent GF(2) series inversion vs prime factorization checked 500 residue-3 indices below 4000; not an asymptotic proof. The cited support characterization is Proposition 26 in the primary paper, not Proposition 16 as written in the source RESULT; citation number must be corrected in a future scientific-file maintenance edit, but does not alter the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Granville–Shao 2019 discusses general multiplicative functions; this prime-square slice indicator is not a multiplicative function.",
+          "Yang 2026 studies well-factorable weighted convolution estimates, with different hypotheses and applications; no matching slice statement inspected."
+        ],
+        "reasoning": "Classical BV gives prime summand distribution, not the stated convolution uniformly without summing square tails. The transfer is short, and generic convolution closure results may dominate; none inspected supplied the exact specialized theorem.",
+        "searches": [
+          "Resultary semantic: Bombieri Vinogradov for divisor parity reciprocal series 3 mod8 prime square support distribution arithmetic progressions",
+          "https://discovery.ucl.ac.uk/id/eprint/1556736/",
+          "https://arxiv.org/abs/2608.13299",
+          "Classical Bombieri-Vinogradov theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL16/Cooper/cooper3.pdf",
+        "https://oeis.org/A192717",
+        "https://arxiv.org/abs/1409.2909",
+        "https://discovery.ucl.ac.uk/id/eprint/1556736/",
+        "https://arxiv.org/abs/2608.13299"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published prime-square factorization combines with standard BV only after controlling k up to log^C and tails, Qsqrt X.",
+          "No previously inspected source stated this exact reciprocal-series arithmetic progression estimate."
+        ],
+        "reasoning": "The claim follows by a nontrivial but standard analytic convolution transfer, so deep BV itself is explicitly credited. If a prior general convolution theorem with applicable hypotheses is later located, originality should be revisited; the current primary source has no equivalent conclusion.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL16/Cooper/cooper3.pdf",
+          "Classical strong maximal-prime Bombieri-Vinogradov bound",
+          "https://arxiv.org/abs/2608.13299"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The slice is the indicator of a prime-times-square convolution, up to an O(sqrt X) correction for higher prime exponents and nonprimitive factors.",
+          "OEIS A192717 gives exactly p^(4j+1)k² support but no averaged progression theorem."
+        ],
+        "reasoning": "Recast in Dirichlet convolution and prime-times-odd-square distribution; the main term is the square-weighted Li sum. The published support is an input, not an equivalent statement of averaged distribution.",
+        "searches": [
+          "Resultary semantic: Bombieri Vinogradov for divisor parity reciprocal series 3 mod8 prime square support distribution arithmetic progressions",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL16/Cooper/cooper3.pdf",
+          "https://oeis.org/A192717"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS tabulates early members and a prime-exponent characterization.",
+          "Cooper–Riasanovsky prove zero density of this residue class, not a growing-modulus level of distribution in the inspected Section 3."
+        ],
+        "reasoning": "A finite table or zero-density fact does not give asymptotic π²/32 X/log X or level 1/2. This is an infinite analytic distribution invariant for a naturally named support.",
+        "searches": [
+          "Resultary semantic: Bombieri Vinogradov for divisor parity reciprocal series 3 mod8 prime square support distribution arithmetic progressions",
+          "https://oeis.org/A192717",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL16/Cooper/cooper3.pdf"
+        ]
+      },
+      "rationale": "PASS, qualified because the transfer argument is elementary once the classical BV theorem and published prime-square support are known. The exact support and density-zero result are old; the new asserted statement gives an explicit main term and averaged growing-modulus level for this canonical parity reciprocal slice. Searches of the relevant published corpus, OEIS, and primary convolution/BV literature revealed no directly dominating statement with the same slice and uniform progression regime. A general convolution-stability theorem may imply the statement without matching notation; this is a real priority and value risk, not a proof of novelty.",
+      "residual_risks": [
+        "The cited exact support is Proposition 26 of Cooper–Riasanovsky, NOT Proposition 16 as written in RESULT.md; future maintenance should correct this bibliography without changing the proof.",
+        "A general prime-convolution BV closure theorem could cover the exact specialized progression estimate.",
+        "Uniform assertion only averaged in m and for 8|m; not for other parity slices or individual largest moduli."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORT COVERED; citation numbering correction: Proposition 26, not Proposition 16",
+          "evidence": [
+            "Prime-square classification p^(4j+1)k² and density zero; no inspected progressing-modulus averaged theorem"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL16/Cooper/cooper3.pdf",
+          "material_read": "Primary 13-page PDF, its section 3 and proposition around PDF page 9, plus abstract and density discussion",
+          "method": "Open journal PDF text and required page screenshots",
+          "title": "On the Reciprocal of the Binary Generating Function for the Sum of Divisors",
+          "trigger": "Original exact support theorem and claimed Proposition 16 reference"
+        },
+        {
+          "assessment": "COVERS SUPPORT and finite examples, not the new analytic estimate",
+          "evidence": [
+            "n=p^(4j+1)k², p≡3 mod 8 and k odd coprime to p"
+          ],
+          "identifier_or_url": "https://oeis.org/A192717",
+          "material_read": "Sequence definition, formula, early terms, references and examples",
+          "method": "Open integer-sequence database entry",
+          "title": "OEIS A192717",
+          "trigger": "Exact database for target arithmetic sequence"
+        },
+        {
+          "assessment": "DIFFERENT CLASS: multiplicative functions rather than prime-square supported indicator",
+          "evidence": [
+            "Granville–Shao (2019), Advances in Mathematics 350, 304–358"
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/1556736/",
+          "material_read": "Open article abstract and metadata; no full body read this run",
+          "method": "UCL primary institutional open abstract",
+          "title": "Bombieri–Vinogradov for multiplicative functions, and beyond the x1/2-barrier",
+          "trigger": "Possibly dominating averaged distribution general theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS, qualified. The parity reciprocal has a canonical sparse progression slice whose earlier known results identify members but do not quantify their distribution. The exact square-weighted progression asymptotic and level 1/2 provide a natural nontrivial arithmetic statistic with a sharp prime-like leading scale. The argument is a standard BV transfer rather than new sieve technology; its value is in the exact natural slice and the complete uniform statement, not a claim to improve BV itself.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cs.uwaterloo.ca/journals/JIS/VOL16/Cooper/cooper3.pdf",
+    "https://oeis.org/A192717",
+    "https://arxiv.org/abs/1409.2909",
+    "https://discovery.ucl.ac.uk/id/eprint/1556736/",
+    "https://arxiv.org/abs/2608.13299"
+  ],
+  "disposition": "passed",
+  "final_claim": "The n≡3 mod 8 component of the binary reciprocal of the sum-of-divisors parity generating series obeys a Bombieri–Vinogradov averaged distribution estimate up to Q=X^(1/2)/log(X)^B over moduli divisible by 8, with main term φ(m)^(-1) sum_{k odd,(k,m)=1}Li(X/k²), and total cardinality asymptotic π²X/(32 log X).",
+  "limitations": [
+    "No extension to the 7 mod 16 slice or unrestricted individual progressions. Classical BV is an input, not independently proved."
+  ],
+  "residual_risks": [
+    "The cited exact support is Proposition 26 of Cooper–Riasanovsky, NOT Proposition 16 as written in RESULT.md; future maintenance should correct this bibliography without changing the proof.",
+    "A general prime-convolution BV closure theorem could cover the exact specialized progression estimate.",
+    "Uniform assertion only averaged in m and for 8|m; not for other parity slices or individual largest moduli."
+  ],
+  "schema_version": 1
+}

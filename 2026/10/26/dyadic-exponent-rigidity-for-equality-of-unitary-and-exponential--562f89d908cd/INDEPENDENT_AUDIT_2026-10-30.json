@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:10:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed prime-power multiplicativity and exact cancellation p^(2^k)+1=q Q_k(p). For k=1 integrality forces p-1|2, so p=2,3 and q=5. At k=2, remainder (x-1)^2+1 lies strictly between 0 and Q=x^2+x-1. At k>=3 put U=x^(2^(k-2)), V=sum_{j=0}^{k-3}x^(2^j). Q=U^2+U+V-1 and U^4+1 congruent (U+V-1)^2+1 mod Q. The difference R-Q=U(2V-3)+(V-1)(V-2)+1>0. The induction U>=3(V-2) holds at k=3 since x^2>=3(x-2), and extends because U^2>=4U>=3(U+V-2); it yields 2Q-R>=2U^2/9>0. Thus Q<R<2Q uniformly. New independent arbitrary-precision calculation verified 343 (x,k) cases x=2..50, k=2..8 and 630 distinct-prime pair comparisons, finding only the two stated solutions. The interval induction is the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published result explicitly covers 2<=a<=49 and lists a=2,6,49, but makes no claim for a>=50.",
+          "Current dyadic exponent a=2^k crosses the cutoff at k=6 (a=64)."
+        ],
+        "reasoning": "Finite coverage of k<=5 does not logically imply the infinite k>=6 tail. There is no stronger all-exponent theorem in those inspected statements.",
+        "searches": [
+          "Resultary: unitary divisor sum equals exponential divisor sum sigma star p power of 2 exponent q prime infinite divisibility lacunary",
+          "published Resultary 2026/10/4 the first 49 exponent layers full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.4615v3, full primary PDF",
+        "Resultary published first 49 exponent layers, full RESULT.md",
+        "OEIS A236474 equality-value data",
+        "Git assigned RESULT.md, verify.py, AUDIT.json, METADATA.json, VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Trudgian records examples and formulates a global infinitude question, not exclusion of any unbounded exponent ray.",
+          "Published exponent-49 result uses polynomial remainder computations for each individual 2<=a<=49, not a uniform all-k induction."
+        ],
+        "reasoning": "The new result implies its finite dyadic subcases but is not implied by those fixed-exponent computations or by the known equality instances.",
+        "searches": [
+          "arXiv:1312.4615 Section 4",
+          "Resultary first 49 exponent layers of unitary-exponential equality full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Trudgian, arXiv:1312.4615 Section 4 asks if equalities occur infinitely often and lists examples including 20 and 45.",
+          "The polynomial Q_k(X)|X^(2^k)+1 is a strictly stronger integer-base obstruction for k>=2."
+        ],
+        "reasoning": "The prime-family classification is equivalent to that divisibility only for integer prime bases plus prime quotient, while the new lemma covers every integer base. No matching all-k obstruction appears in the primary results read.",
+        "searches": [
+          "Resultary: unitary divisor sum equals exponential divisor sum sigma star p power of 2 exponent q prime infinite divisibility lacunary",
+          "web: Trudgian the sum of unitary divisor function exponential divisor sum equality 2013 pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A236474 lists equality values 20,45,320 and larger examples including exponent 49.",
+          "Resultary finite exact table 2<=a<=49 contains prime-exponent solutions (2,2,5),(2,3,5),(6,2,5),(49,2,4363953127297)."
+        ],
+        "reasoning": "A finite sequence or finite exponent table cannot certify absence of solutions in every higher dyadic layer; failure to see such an entry is not novelty proof.",
+        "searches": [
+          "OEIS A236474 unitary exponential divisor sum equality",
+          "Resultary: unitary divisor sum equals exponential divisor sum sigma star p power of 2 exponent q prime infinite divisibility lacunary"
+        ]
+      },
+      "rationale": "Existing work records the motivating equality and examples and a published finite classification of exponents a<=49. Because 2^k<=49 only for k<=5, its exact finite classification does not imply exclusion of k>=6, whereas the integer-base modular lemma does. An older equivalent lacunary polynomial divisibility lemma remains a priority risk.",
+      "residual_risks": [
+        "An older or differently indexed lacunary-polynomial nondivisibility theorem could dominate the uniform integer-base lemma.",
+        "A paper on sums of exponential divisors not surfaced by these bounded searches could encode the same infinite ray."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poses global infinitude and reports examples; does not classify dyadic exponent ray.",
+          "evidence": [
+            "Section 4 asks whether sigma*(n)=sigma^(e)(n) infinitely often; reports n=20,45,320,6615,382200 and 2^49*4363953127297."
+          ],
+          "identifier_or_url": "arXiv:1312.4615v3; https://arxiv.org/pdf/1312.4615",
+          "material_read": "Entire seven-page arXiv PDF examined with focus on Section 1.2 definitions and Section 4 comparison question and example list, including page-six image.",
+          "method": "Full public arXiv PDF text and page screenshot.",
+          "title": "The sum of the unitary divisor function",
+          "trigger": "Original unitary/exponential equality and examples."
+        },
+        {
+          "assessment": "Finite exhaustive theorem covers only a<=49; cannot imply all k>=6.",
+          "evidence": [
+            "Finding and Limitations explicitly restrict a to integers 2 through 49; dyadic exponents a=64,128,... are outside."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e",
+          "material_read": "Complete published RESULT.md: finding, reduction, polynomial-remainder argument, exact enumeration, verification limitations and references.",
+          "method": "Read full primary mathematical result from GitHub repository file.",
+          "title": "The first 49 exponent layers of the unitary–exponential divisor-sum equality",
+          "trigger": "Same p^a q family, could dominate dyadic claim if all exponents covered."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-k impossibility theorem resolves a natural infinite exponent ray in an open divisor-function comparison problem, with a stronger prime-independent algebraic obstruction; it is not a bounded example search or reformulation of OEIS terms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1312.4615v3, full primary PDF",
+    "Resultary published first 49 exponent layers, full RESULT.md",
+    "OEIS A236474 equality-value data",
+    "Git assigned RESULT.md, verify.py, AUDIT.json, METADATA.json, VERIFICATION.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For k>=1 and distinct primes p,q, sigma*(p^(2^k)q)=sigma^(e)(p^(2^k)q) precisely for (k,p,q)=(1,2,5),(1,3,5). Stronger: for every integer x>=2 and k>=2, Q_k(x)=sum_{j=0}^{k-1}x^(2^j)-1 does not divide x^(2^k)+1.",
+  "limitations": [
+    "An older or differently indexed lacunary-polynomial nondivisibility theorem could dominate the uniform integer-base lemma.",
+    "A paper on sums of exponential divisors not surfaced by these bounded searches could encode the same infinite ray.",
+    "All computational checks are finite corroboration, not proofs for unrestricted parameters.",
+    "No external Lean proof or expert attestation is asserted.",
+    "Publication is operationally not_ready independently of completed scientific assessments."
+  ],
+  "schema_version": 1
+}

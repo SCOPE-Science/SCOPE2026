@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:01:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any nonempty intersecting 3-uniform hypergraph with every active pair contained in at least three triples must be K_5^(3) on its active support, possibly with isolates. The submitted finite triple-pair propagation proof has the right conditions and boundary: one triple forces additional triple choices; intersecting constraints force support into five vertices and δ₂⁺≥3 then forces each active pair to have all its three completions. Independently, Spiro’s 2021 structural result (Proposition 2.11 plus Lemma 2.5 for r=k-s+t=3,k=3,s=t=1) implies containment in all 10 triples of a five-set; closure under pair completions forces all ten triples. All 1023 nonempty 3-graphs on five labeled vertices were also enumerated; only K5³ met the conditions. The actual all-n proof rests on structural reasoning, not this finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spiro 2021 Lemma 2.5: H subset of a (2k−2s+t,k−s+t)-kernel under r=k−s+t and no bad triples.",
+          "Spiro 2021 Proposition 2.11: no bad triples automatically when δ^+_{r-s}>binom(k−1,s), and the final paragraph explicitly says size-independent containment in the equality-r case."
+        ],
+        "reasoning": "The stronger structural theorem gives the submitted active support bound universally; no unspecified n-large extremal-size hypothesis is needed for this implication.",
+        "searches": [
+          "web: Sam Spiro t-intersecting minimum positive codegrees paper 2021 Lemma 2.5",
+          "web: intersecting triple positive codegree at least 3 classification"
+        ]
+      },
+      "checked_sources": [
+        "Spiro, On t-intersecting Hypergraphs with Minimum Positive Codegrees, arXiv:2110.10317 (2021), published SIAM J. Discrete Math. 37 (2023), pp. 675-683, DOI:10.1137/21M1465998; specifically Proposition 2.11, Lemma 2.5, concluding statement p.9",
+        "Balogh, Lemons, Palmer, Maximum size intersecting families of bounded minimum positive co-degree, arXiv:2005.04282 (2021)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set (k,r,s,t)=(3,3,1,1): δ₂⁺>binom(2,1)=2, exactly the claimed δ₂⁺≥3.",
+          "Spiro p.9: when r=k−s+t, H is contained in the kernel system regardless of |H|.",
+          "Each positive pair in a subfamily of K5³ must occupy all its three possible triples to have codegree>=3; the Johnson graph J(5,3) is connected."
+        ],
+        "reasoning": "These published hypotheses imply exactly the complete theorem including isolates and uniqueness; this is decisive strong prior coverage, not a mere title match or negative search.",
+        "searches": [
+          "Spiro arXiv:2110.10317 Lemma 2.5 p.5 Proposition 2.11 p.8 concluding p.9",
+          "Balogh–Lemons–Palmer arXiv:2005.04282 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spiro arXiv:2110.10317 Proposition 2.11 and Lemma 2.5 cover all nonempty H for r=k-s+t, not merely a maximum-size extremal H.",
+          "At k=r=3,s=t=1 the kernel is the five-vertex triple system."
+        ],
+        "reasoning": "The submitted statement is an equivalent explicit complete-family formulation of a previously established structural containment theorem followed by forced pair completions.",
+        "searches": [
+          "Resultary: intersecting 3-uniform hypergraph minimum positive pair codegree three rigidity K5 all edges",
+          "web: Sam Spiro t-intersecting positive codegrees Lemma 2.5 Proposition 2.11 containment 2021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ten-edge object is the 5-set kernel system for r=3,k=3,s=t=1, already named in the literature.",
+          "The exact 5-vertex count 10=binom(5,3) follows from the prior kernel containment and pair closure."
+        ],
+        "reasoning": "There is no new census or invariant beyond a forced instance of the known complete kernel system; checking a finite table adds no originality.",
+        "searches": [
+          "Resultary: intersecting 3-uniform hypergraph minimum positive pair codegree three rigidity K5 all edges",
+          "web: Sam Spiro positive codegree 3 uniform 5 kernel theorem"
+        ]
+      },
+      "rationale": "The entire assertion is implied by Sam Spiro’s 2021 preprint / 2023 SIAM paper. Its unrestricted Proposition 2.11 rules out bad triples for t-intersecting r-graphs with δ_{r-s}⁺>binom(k−1,s); Lemma 2.5 then forces containment in a (2k−2s+t,k−s+t)-kernel system when r=k−s+t. At (k,r,s,t)=(3,3,1,1), this is containment in a complete 3-uniform hypergraph on five vertices. Since every active pair has codegree at least three and there are exactly three possible completions within five vertices, starting from any triple and closing under the connected Johnson graph J(5,3) forces all ten triples. The prior theorem is not limited to maximum-size H in this special case: the paper explicitly says the containment conclusion holds regardless of |H|. The proposed complete rigidity classification is thus a direct special-case corollary, not an original research result.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers complete assertion as short corollary of size-independent 5-kernel containment.",
+          "evidence": [
+            "Lemma 2.5: no bad triples -> H subset of (5,3)-kernel; Proposition 2.11 forbids bad triples; p.9 says r=k−s+t case independent of |H|."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.10317",
+          "material_read": "Entire ten-page primary PDF accessed; specially read Definition 1 pp.1–2, Lemma 2.5 p.5, Proposition 2.11 pp.8–9, concluding paragraph p.9; page screenshots visually checked.",
+          "method": "Direct hypothesis substitution (k,r,s,t)=(3,3,1,1) and graph-closure proof; compared unrestricted containment rather than headline max-size theorem.",
+          "title": "On t-intersecting Hypergraphs with Minimum Positive Codegrees",
+          "trigger": "Identical positive codegree, intersecting hypergraphs and potential stronger structural theorem"
+        },
+        {
+          "assessment": "Alone it states max-size structure rather than arbitrary H, but Spiro’s later stronger proof removes this limitation in the equality r=k−s+t case.",
+          "evidence": [
+            "Theorem of Balogh–Lemons–Palmer identifies k-kernel systems for extremal intersecting H."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.04282",
+          "material_read": "Primary 14-page PDF: introduction, positive-codegree definition and theorem statements; PDF viewed with visual page inspection.",
+          "method": "Compared its maximum-edge condition to the unrestricted hypothesis of the submitted rigidity claim.",
+          "title": "Maximum size intersecting families of bounded minimum positive co-degree",
+          "trigger": "Earlier positive pair-codegree extremal hypergraph theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The positive pair-codegree rigidity statement is a natural combinatorial fact, but its complete assertion is a short forced specialization of the already-published size-independent kernel containment theorem of Spiro. The only additional step is immediate closure under all three pair completions in K5³. As a proposed independent mathematical research contribution it is a routine known-theorem corollary, not a motivated unresolved gap or substantive new classification; correctness alone cannot supply value.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Spiro, On t-intersecting Hypergraphs with Minimum Positive Codegrees, arXiv:2110.10317 (2021), published SIAM J. Discrete Math. 37 (2023), pp. 675-683, DOI:10.1137/21M1465998; specifically Proposition 2.11, Lemma 2.5, concluding statement p.9",
+    "Balogh, Lemons, Palmer, Maximum size intersecting families of bounded minimum positive co-degree, arXiv:2005.04282 (2021)"
+  ],
+  "disposition": "failed",
+  "limitations": "Scientific rejection is due to decisive original-coverage failure, not correctness or source inaccessibility. Original claim and source package remain unchanged; no repaired surrogate can rescue the covered theorem.",
+  "schema_version": 1
+}

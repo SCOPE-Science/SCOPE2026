@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`. It derives the Gram kernel from the Hilbert-space kernel and establishes the exact zero-free classification without substituting a finite check for a universal argument.
+## correctness
 
-To reproduce the supplementary checks, execute `python3 check_fractional_jet.py` with the standard Python library. The script was executed from the embedded artifact source and returned:
+PASS
 
-`CHECK_OK: rational factorization, boundary zeros, Jacobian checks, derivative identities`
+Differentiate the kernel explicitly and normalize c=1 and |d/c|=t; numerator P=(1-ab)^2+beta*t*(a+b)*(1-ab)+beta*t²*(1+beta*ab). For boundary a,b on T, two real equations reduce to Q_beta(t²)=beta(1-beta)(t²-4/(1-beta))(t²+4/beta)<=0, with Q_1=-4t²-16. Strictly subcritical boundary roots are nondegenerate in both angles, so IFT yields interior zeros. For supercritical t, the large-t limit beta*(1+beta ab) is uniformly zero-free and argument-principle zero count persists on connected t region; Rouché rules out a threshold interior root. Pure derivative has numerator beta(1+beta ab), zero-free for beta<=1. Independent exact factorization and five torus roots checked. No finite grid substituted for analytic bidisk proof.
 
-The script verifies the factorization of the boundary threshold polynomial in exact rational arithmetic on a parameter grid; evaluates representative torus zeros, the two nonzero angular Jacobian factors, and limiting torus contacts; and cross-checks the numerator against independent derivative expressions. These computations do **not** certify all complex-parameter cases. The general proof instead uses phase reduction, a real implicit-function argument, two zero counts by the argument principle, and Rouché's theorem at the endpoint.
+## originality
 
-The primary full text and mathematically closest complete published proofs were compared for differences of domain, kernel exponent, functional coefficient ratio, and implication direction. Historical priority outside inspected material remains an acknowledged limitation. Independent audit has not been performed.
+PASS
+
+Unlike the ordinary Bergman derivative kernels at beta=2 and the upper-half-plane Gram-kernel results, fractional beta<1 disk kernels exhibit reentrance: a finite mixed-jet ratio becomes zero-free again. Same functional calculus but genuinely different kernel exponent/domain; no stronger prior implication found in read primary results.
+
+## value
+
+PASS
+
+An exact sharp Lu Qi-Keng phase diagram for a canonical complete-Pick family is a useful zero-set boundary. The reentrant large derivative regime and beta=1 singular limiting threshold identify qualitative behavior absent from classical Bergman cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

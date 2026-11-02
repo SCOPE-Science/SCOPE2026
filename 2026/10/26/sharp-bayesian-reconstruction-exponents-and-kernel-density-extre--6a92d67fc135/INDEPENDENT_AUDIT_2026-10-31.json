@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:01:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonzero constant/trailing coefficients make each N-output finite fiber have exactly 2^d input candidates, indexed by d-bit seeds, and the difference of candidates is a restriction of a finite collection of nonzero periodic bi-infinite recurrence kernels. For biased Bernoulli(q), q=min(p,1-p)<1/2, strict competitor likelihood requires >half minority bits on its kernel support; any MAP error is bounded by union of weak >=half events. The exact binomial half-tail exponent is log(1/(2sqrt(q(1−q)))); periodic support weights m_k(N+d)=rho(k)N+O(1) give the min-density coefficient alpha_Q. SLLN across the finitely many kernel differences gives shift-covariant almost-sure inversion for biased sources. For p=1/2 all 2^d seed candidates are equiprobable and e_N=1−2^(−d). Every nonzero kernel has at least one 1 in each d-window, giving alpha>=1/d; equality forces a d-periodic single-1 kernel, hence Q=1+z^d. Uniform average over all 2^d−1 nonzero recurrence states gives alpha<=2^(d−1)/(2^d−1), attained by primitive irreducible recurrences. Independent recurrence enumeration verified all 31 normalized polynomials degree<=5 and four exact rational posterior-error sandwiches. This proves the unlimited degree/rate theorem by the analytic argument, not finite samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kari–Taati Theorem 4 shows entropy-rate preservation for pre-injective factors; its object is entropy and Gibbs measures rather than finite-window MAP exponents.",
+          "Ban–Chang public abstract advertises topological pressure/entropy and Bernoulli ergodicity; full text returned HTTP 429."
+        ],
+        "reasoning": "These broader measure-theoretic facts do not determine the exact error exponent alpha_Q times a binomial half-tail rate or the polynomial extremizers; further full-text risks remain.",
+        "searches": [
+          "web: The Topological Pressure of Linear Cellular Automata Ban Chang 2009",
+          "web: Statistical Mechanics of Surjective Cellular Automata Kari Taati 2015",
+          "Resultary: binary additive cellular automata biased Bernoulli Bayesian seed reconstruction error exponent kernel cycle density"
+        ]
+      },
+      "checked_sources": [
+        "Kari and Taati, Statistical Mechanics of Surjective Cellular Automata, Journal of Statistical Physics 160 (2015), pp.1198–1243, https://link.springer.com/article/10.1007/s10955-015-1281-2 (full OA HTML)",
+        "Lőrinczi, Maes, Vande Velde, Transformations of Gibbs Measures, Probab Theory Relat Fields 112 (1998), DOI:10.1007/s004400050185 (abstract/bibliographic)",
+        "Ban and Chang, The Topological Pressure of Linear Cellular Automata, Entropy 11 (2009), DOI:10.3390/e11020271 (abstract, full text blocked 429)",
+        "Dow, Additive cellular automata and global injectivity, Physica D 110 (1997), DOI:10.1016/S0167-2789(97)00074-2 (abstract)",
+        "Resultary: binary additive cellular automata biased Bernoulli Bayesian seed reconstruction error exponent kernel cycle density"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kari–Taati discusses entropy-preserving pre-injective maps and regular Gibbs factors; XOR examples concern transformation of Gibbs measures and temporal randomization.",
+          "Dow (1997) classifies globally injective additive automata through algebraic invertibility; the current theorem concerns a.e. inverse under biased iid law with nontrivial topological kernel."
+        ],
+        "reasoning": "These source statements do not directly imply exact MAP error asymptotics from an N-window or sharp extremal kernel densities. Conceivable ML/coding formulations are an explicit residual risk.",
+        "searches": [
+          "Kari–Taati 2015 full OA journal HTML Section 3 and XOR examples",
+          "Dow 1997 abstract: additive cellular automata global injectivity",
+          "Resultary: binary additive cellular automata biased Bernoulli Bayesian seed reconstruction error exponent kernel cycle density"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kari–Taati (2015) Example 6 and 7 analyze biased XOR Gibbs/non-Gibbs properties, not posterior MAP error; source self-review used preprint numbering Example 33, corrected against journal HTML.",
+          "Dow 1997 abstract treats topological global injectivity, a different property."
+        ],
+        "reasoning": "Topological many-to-one versus biased-measure a.e. one-to-one is a genuine distinction; entropy preservation alone does not quantify finite-seed error rate.",
+        "searches": [
+          "Resultary: binary additive cellular automata biased Bernoulli Bayesian seed reconstruction error exponent kernel cycle density",
+          "web: biased Bernoulli additive cellular automata almost surely invertible xor seed recovery exponent periodic kernel",
+          "Kari–Taati full OA HTML XOR Example 6 and 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sharp density extremizers are 1+z^d and primitive degree-d binary polynomials, as demonstrated by state-cycle arguments.",
+          "No retrieved mathematical record/table tabulates all-polynomial finite-window Bayesian recovery exponents."
+        ],
+        "reasoning": "Primitive-polynomial cycle lengths are classical, and the finite density endpoints alone could be familiar coding theory; their universal MAP exponent connection is the actual claimed improvement, not a novel primitive-polynomial census.",
+        "searches": [
+          "Resultary: binary additive cellular automata biased Bernoulli Bayesian seed reconstruction error exponent kernel cycle density",
+          "web: normalized polynomial binary cellular automaton periodic kernel density minimum maximum 1/d primitive polynomial",
+          "web: Ban Chang additive cellular automata entropy 2009"
+        ]
+      },
+      "rationale": "Earlier additive-cellular-automaton work analyzes topological injectivity (Dow), entropy/pressure (Ban–Chang), and Gibbs/non-Gibbs properties of biased XOR output (Kari–Taati and Lőrinczi–Maes–Vande Velde). None of the materially read primary statements yields the exact finite-window entire-seed MAP exponent alpha_Q times the Bernoulli Chernoff rate plus sharp extremal alpha_Q bounds over all normalized binary rules. Generic likelihood large deviations and primitive-polynomial maximal-length sequences are well-known ingredients and not claimed new. Full Ban–Chang and Dow comparisons remain access-limited, and alternate coding-theoretic formulations may exist.",
+      "residual_risks": [
+        "Full Dow and Ban–Chang primary bodies not independently accessible; a more direct coding/information-theoretic theorem may exist.",
+        "Kari–Taati journal source numbering differs from the submitted preprint citation: relevant XOR examples appear as 6,7,10, not a verified Example 33.",
+        "The result is for fixed polynomial and fixed bias, not a noisy channel or simultaneous degree–window limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related same XOR map but no precise alpha_Q MAP rate for all binary additive rules in inspected passages.",
+          "evidence": [
+            "2015 J Stat Phys 160 1198–1243; Theorem 4 entropy preservation; journal text labels XOR examples 6,7 and 10 rather than self-review’s older Example 33."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-015-1281-2",
+          "material_read": "Open-access full journal HTML, abstract/intro, Section 3 entropy-preserving factor theorems, the XOR-map examples in the Gibbs section and later temporal randomization; searched for Bayes and recovered Example numbering.",
+          "method": "Read primary full HTML passages and compared output Gibbs/entropy claims against posterior MAP error exponent.",
+          "title": "Statistical Mechanics of Surjective Cellular Automata",
+          "trigger": "Same biased XOR factor and entropy properties"
+        },
+        {
+          "assessment": "Different object/quantifier in accessible abstract; inaccessible body remains an originality risk.",
+          "evidence": [
+            "1997 Physica D 110 67–91; DOI 10.1016/S0167-2789(97)00074-2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0167-2789(97)00074-2",
+          "material_read": "ScienceDirect publisher abstract, metadata and explicit description of global injectivity, periodic configurations; full text not accessed.",
+          "method": "Compare topological injectivity of full configurations to biased Bernoulli a.e. inversion and finite-window error.",
+          "title": "Additive cellular automata and global injectivity",
+          "trigger": "Potential general injectivity classification for same algebraic objects"
+        },
+        {
+          "assessment": "No decisive match from abstract; material full-text priority risk.",
+          "evidence": [
+            "Ban and Chang, Entropy 11 (2009) 271–284, 2009-05-11."
+          ],
+          "identifier_or_url": "https://www.mdpi.com/1099-4300/11/2/271",
+          "material_read": "Publisher abstract and bibliography accessible in search; full article returned HTTP 429.",
+          "method": "Compared claimed entropy/pressure calculations to posterior finite-window ML rate without inferring whole-document noncoverage.",
+          "title": "The Topological Pressure of Linear Cellular Automata",
+          "trigger": "Same linear automata, Bernoulli measures, entropy and potential larger coverage"
+        },
+        {
+          "assessment": "No full-text conclusion; remains plausible literature risk.",
+          "evidence": [
+            "Lőrinczi, Maes, Vande Velde, Probability Theory and Related Fields 112 (1998), 121–147."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s004400050185",
+          "material_read": "ResearchGate publisher metadata and abstract describing image Gibbs/non-Gibbs measures; full text not read in this independent run.",
+          "method": "Compare Gibbs regularity and relative-energy object against finite-seed Bayes risk.",
+          "title": "Transformations of Gibbs Measures",
+          "trigger": "Direct prior biased local transform of Gibbs measures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a noninjective but surjective additive cellular automaton, the information-theoretic question of whether an entire hidden seed can be recovered from a growing observation window is natural. The exact universal bias-dependent error exponent, the a.e. versus topological invertibility distinction and sharp all-degree minimum/maximum kernel-density envelopes form a complete quantitative classification with an intrinsic periodic recurrence invariant. These are substantive, not merely numerical code checks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kari and Taati, Statistical Mechanics of Surjective Cellular Automata, Journal of Statistical Physics 160 (2015), pp.1198–1243, https://link.springer.com/article/10.1007/s10955-015-1281-2 (full OA HTML)",
+    "Lőrinczi, Maes, Vande Velde, Transformations of Gibbs Measures, Probab Theory Relat Fields 112 (1998), DOI:10.1007/s004400050185 (abstract/bibliographic)",
+    "Ban and Chang, The Topological Pressure of Linear Cellular Automata, Entropy 11 (2009), DOI:10.3390/e11020271 (abstract, full text blocked 429)",
+    "Dow, Additive cellular automata and global injectivity, Physica D 110 (1997), DOI:10.1016/S0167-2789(97)00074-2 (abstract)",
+    "Resultary: binary additive cellular automata biased Bernoulli Bayesian seed reconstruction error exponent kernel cycle density"
+  ],
+  "disposition": "passed",
+  "limitations": "Originality-qualified due inaccessible full Dow/Ban–Chang studies and possible coding-theory equivalent. No noise-stability or continuous inverse claims.",
+  "schema_version": 1
+}

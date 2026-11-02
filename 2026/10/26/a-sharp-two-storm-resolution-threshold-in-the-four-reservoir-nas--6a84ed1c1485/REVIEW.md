@@ -1,11 +1,21 @@
-# Scientific review: double-storm Nash peak splitting
+# Independent mathematical audit
 
-**Correctness (PASS).** The linear-reservoir impulse response follows directly from Nash's convolution formula. For four reservoirs, direct differentiation reduces the problem to a cubic with the factored discriminant \(-27e^ss^2F(s)\); the monotone function \(G(s)=e^{-s}F(s)\) has exactly one zero in \((2,3)\). The derivative sign cases, equality boundary, and exact two- and three-reservoir comparisons have been reconstructed. The supplied numerical code checks the calculation but is not substituted for the proof.
+## correctness
 
-**Originality (PASS, within the stated scope).** Full Nash (1957) and closely relevant Došlá (2009) material and the Ponce exposition have been examined, together with targeted literature and semantic-database searches. Nash gives the impulse-response model, not the two-storm sharp transition. Došlá's general mixture derivative-ratio framework is the closest conceptual predecessor; its explicit gamma propositions cover changes in rate or shape, not an equal-rate translated-gamma separation cutoff. The new exact one-root equation and earliest-stage submodal splitting are not explicitly found. Risk: they may be regarded as an implicit consequence of general mixture criteria, or be proved elsewhere using different terminology; the novelty is not externally certified.
+PASS
 
-**Value (PASS).** Two nearby rainfall-excess events can yield either one or two routed streamflow peaks. The theorem provides an exact resolution margin and demonstrates a qualitative change in peak resolvability at the first relevant reservoir depth, instead of relying on sampled hydrographs. The narrow-rectangular-pulse persistence statement ensures the submodal peak-splitting effect is not merely a distributional artifact of idealized impulses.
+Linear initially empty equal-K reservoirs give Gamma/Erlang impulse kernel h_n(x)=x^(n-1) e^-x/(n-1)!. Two equal shifts produce the 4-stage derivative cubic P_s(u). Independent symbolic calculation exactly verified disc(P_s)=-27 e^s s^2 F(s); G=e^-s F decreases strictly on (2,3), changing sign once, and Vieta/Descartes together determine one versus three positive post-pulse derivative roots. Boundary s=3 and s>3, n=2,3, and persistence for fixed s between cutoff and 3 follow by separate derivative-sign arguments and uniform convergence on simple-root neighborhoods. Independent exact symbolic factorization, numerical root 2.95880814824388 and four sample root counts corroborated calculations, not the global analytic uniqueness.
 
-**Boundary conditions and risks.** All results are within equal, initially empty, linear reservoir cascades and identical storms; near the separation cutoff the first peak is very shallow. Original Nash publication year is 1957, but no original publication day was confirmed; the exact archival online record date of 2014-12-09 is explicitly distinguished.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge comparison: the accessible primary works supply originating models or generic techniques but their inspected mathematical statements do not establish this exact complete final result; the four implication checks and specific priority risks below delimit this conclusion.
+
+## value
+
+PASS
+
+Two storm events can be merged or resolved by a physical linear filter. Exact peak resolution as a function of reservoir depth and scaled separation is a natural hydrology/signal-processing invariant; the four-stage submodal bifurcation and its analytic transcendental cutoff answer a meaningful boundary question and persist under narrow finite-width pulses. It is not a universal claim about nonlinear catchments or noisy observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
