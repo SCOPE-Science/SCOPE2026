@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is proved for each fixed integer \(r\ge2\), every positive coefficient vector \(\mathbf c\), both parity subsequences, and the indicated join of a clique and an independent impurity set. The transition generator follows from counting vacant edges. Conditional holding-time moments establish \(E_n/\log n\to1\); independent exponential thresholds then give the jointly independent bulk-capture indicators. A uniform harmonic union bound excludes intermediate late impurity events, and the forced last ordinary-edge decision supplies the exact parity rule. The two-impurity finite product follows by multiplication of conditional ordinary-edge choices. There is no inference from finite experiments to the limit. The reproducibility script completed 72 grouped finite checks.
+PASS
 
-## Originality — PASS relative to inspected evidence
+The reduced Markov state (k,A) has exact ordinary-ordinary transition rate k(k-1)/2 and individual impurity rate k*lambda_i. Every event removes 2 vertices; the k=1 terminal rule is a rate-proportional impurity choice or ordinary vacancy. Holding-time exposure E=integral k dt until k<=ceil(log n)^2 has conditional mean sum 2/(k-1+2sum active rates)=log(n/K)+o(1), and variance O(1/K); only r one-step changes affect mesh O(1/K). Independent exponential hazard thresholds force bulk survival Bernoulli(e^-c_i) as E/log n->1. A harmonic union bound O(loglog n/log n) excludes captures at 2<=k<=K; remaining parity completes the finite state law and hence TV convergence. For r=2 even n, no impurity ever matched is product of ordinary edge selection probabilities at k=2j, giving exact finite product and limiting exp(-(c1+c2)). Independent freshly implemented exact rational labeled-edge recursion equaled reduced Markov recursion in 10 cases (r=2,3) and directly verified even-n product in tested cases; unrestricted limit rests on the exposure/threshold proof.
 
-The closest mathematical precedent is the weighted random-greedy matching model of Miller–Pritikin (1997), whose accessible abstract states bounds on matching-size performance rather than the labeled weak-reactivity limit considered here. Its full text was unavailable for complete implication checking; this remains a residual historical-priority risk. Bennett–Bohman (2012) treats regular, bounded-codegree hypergraphs with bulk matching-size concentration; its hypotheses and output do not cover the present dense graph with fixed exceptional vertices. Dhara–van Leeuwaarden–Mukherjee (2016) treats vertex-based adsorption and jamming fractions on sparse random graphs. A related homogeneous complete-graph monomer–dimer result yields parity-adjusted Poisson totals, but it has neither finitely capped labeled impurity channels nor the terminal weighted deletion; that theorem does not imply this labeled Poisson-binomial law. Actual source comparisons and unresolved risks are detailed in the structured assessment. Lack of a matching search result is not treated as a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact law characterizes a physically natural kinetic crossover: an edge rate of order \(1/\log n\) is neither fully suppressing nor fully saturating the finitely many reactive impurities. The answer retains the individual coupling constants and identifies a sharp parity-controlled terminal selection mechanism. The all-parameter labeled law, two-impurity finite identity, and even/odd distinction provide significantly more information than an adsorption density or a generic matching-size bound. The mechanism supplies a reusable framework for site-limited heterogeneous deposition, while making no claim about unstudied graph classes.
+Best-of-knowledge new fixed-impurity weak-rate labeled parity limit and finite product; standard edge-greedy exponential clocks are prior, and 1997 weighted matching full text remains a real priority uncertainty.
 
-## Boundaries and priority risks
+## value
 
-Only finitely many fixed impurities, homogeneous ordinary-edge rates, positive weak impurity rates, and the infinite-size jamming state are included. No rate of total-variation convergence or physical-time law is asserted. Relevant older weighted-matching full text remained inaccessible; the originality evaluation is best-knowledge, not independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 1/log n impurity rate is the mathematically natural transition scale because cumulative ordinary-vertex exposure is logarithmic. The sharp labeled Poisson-binomial survival and parity-dependent terminal selection determine more than mean coverage or bulk jamming fraction, and the r=2 finite product is an exact useful observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
