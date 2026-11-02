@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify_lambert.py` with a standard Python 3 interpreter. The script performs 4,500 reproducible derivative comparisons, 513 complete numerical phase-angle grids with 3,201 points each, checks extrema ordering across both transitions, and checks the strictly positive analytic envelope derivative at several eccentricities. The script reports the fold and global-switch eccentricities plus peak angles and intensities. The analytic proof, rather than any finite grid, establishes the global quantifiers and the uniqueness of the crossover. No measurement data or empirical parameter validation are claimed.
+## correctness
 
-Boundary coverage in the mathematical proof includes \(e=0\), the fold \(e=e_{\mathrm f}\), the exact global tie \(e=e_{\mathrm s}\), the degenerate apastron transition \(e=1/3\), and every \(1/3<e<1\). The discontinuous location of the global maximizer is a statement about the ideal noiseless function, not an observed physical discontinuity.
+PASS
+
+The exact derivative πB_e′=(1+e cos f)f sin f(1−eT(f)) holds on (0,π), and T(f)=2 sin(f)/f−3 cos f has one strict maximum by G=(3f²−2)sin f+2f cos f and a one-sign-change derivative. The fold eccentricity is 1/max T≈0.324898008977667, strictly below 1/3; for e between fold and 1/3 interior extrema are local max then min, while full phase is a local max. Envelope differentiation of log(B_e(f_minus)/(1−e)²) gives 2(1+cos f_minus)/[(1−e)(1+e cos f_minus)]>0, and opposite endpoint height signs force one global brightness exchange e≈0.325836262906186, plus a square-root fold. At e=1/3 apastron is a degenerate minimum; full orbit reflection yields the asserted maxima count. Independent derivative and bisection checks corroborate but do not prove universality.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: classical Lambert scattering and eccentric brightness peak shifts are prior; the sharp two-threshold global classification and uniqueness proof were not established in inspected primary articles.
+
+## value
+
+PASS
+
+Separating the fold onset of extra stationary extrema from the later global-height exchange is an exact and physically motivated phase-curve bifurcation classification. It resolves a natural idealized viewing geometry with an explicit finite jump in maximizing anomaly, rather than merely plotting a few eccentricity cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

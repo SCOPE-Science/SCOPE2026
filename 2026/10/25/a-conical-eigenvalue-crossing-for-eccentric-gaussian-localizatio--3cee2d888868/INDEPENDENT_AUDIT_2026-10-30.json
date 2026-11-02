@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:07:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/a-conical-eigenvalue-crossing-for-eccentric-gaussian-localizatio--3cee2d888868/RESULT.md blob 3f013b5a73b1bb5d01864595cb915e34936fbad8",
+        "2026/10/25/a-conical-eigenvalue-crossing-for-eccentric-gaussian-localizatio--3cee2d888868/check_eccentric_annulus.py source blob; independent checks separately recorded",
+        "Independent bounded verification JSON and script attached"
+      ],
+      "rationale": "At a concentric radius interval [a,b], Gaussian Fock monomials diagonalize T and lambda_j=1/j! integral_a^b t^j exp(-t) dt. The recurrence lambda_j-lambda_{j-1}=(a^j exp(-a)-b^j exp(-b))/j! changes sign exactly at j=k because b^k exp(-b)=a^k exp(-a). Hence only k-1,k share the strictly maximal eigenvalue; a nonzero gap separates them. The trace-class coherent-state integral is smooth under these small two-center domain perturbations, allowing a Riesz/spectral-projection reduction. Radial variation contributes diag(alpha*tau,0); an independent outer-boundary shape derivative contributes off-diagonal gamma*delta and its conjugate. The two eigenvalues of that Hermitian 2x2 matrix give exactly the displayed square root; the spectral gap controls the remaining terms to quadratic order. The outer radius shift keeps area pi*w exactly; Weyl covariance makes common translation irrelevant. Independent polar quadrature checks k=1,2,3 verify the double top eigenvalue, gamma boundary derivative, and second-order error scaling. No global optimization or uniform-in-k remainder is established.",
+      "residual_risks": [
+        "Infinite-dimensional quadratic remainder uses trace-class smoothness and isolation; finite matrix eigenvalues alone do not prove it.",
+        "Radius inclusion requires |delta| < sqrt(b+tau)-sqrt(a+tau); k,w held fixed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nicola–Tilli arXiv:2106.03423v1 Theorem 1.1 establishes the disk as the fixed-area global maximizer.",
+          "Gómez–Guerra–Ramos–Tilli arXiv:2307.09304v1 Theorem 1.1 proves a sharp disk-stability inequality."
+        ],
+        "reasoning": "A disk maximum and perturbative stability near a disk control a different nondegenerate equality configuration. They do not yield the local eccentric-annulus degeneracy cone, which concerns a nonoptimal annular set.",
+        "searches": [
+          "analytic Bargmann Fock annulus eccentric non concentric two center Toeplitz localization degeneracy eigenvalue crossing conical first order linear displacement",
+          "sharp fixed-area Gaussian STFT energy eccentric annular domain linear gain center separation at eigenvalue tie",
+          "non concentric annulus Gaussian localization Toeplitz spectral norm eccentric ring perturbation crossing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.01465v3 §2.3",
+        "arXiv:2106.03423v1 Theorem 1.1",
+        "arXiv:2307.09304v1 Theorem 1.1",
+        "Daubechies 1988 radial localization cited by Nicola–Tilli",
+        "Resultary semantic search: eccentric Fock annulus two-center perturbation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Radial gamma integrals alone are diagonal and contain no first angular-harmonic matrix coefficient.",
+          "The Kato-type finite-rank degeneracy theorem supplies the square root once the Fock boundary derivative is explicitly calculated."
+        ],
+        "reasoning": "General perturbation theory is a method, not the geometry-specific coupling computation. No inspected source supplied an implication with the exact fixed-area annulus deformation and coefficient; this risk of implicit derivability remains.",
+        "searches": [
+          "analytic Bargmann Fock annulus eccentric non concentric two center Toeplitz localization degeneracy eigenvalue crossing conical first order linear displacement",
+          "sharp fixed-area Gaussian STFT energy eccentric annular domain linear gain center separation at eigenvalue tie",
+          "non concentric annulus Gaussian localization Toeplitz spectral norm eccentric ring perturbation crossing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dewage–Ólafsson arXiv:2107.01465v3, §2.3 Theorem 2.12 gives known radial Fock Toeplitz diagonal eigenvalues.",
+          "Daubechies 1988 Gaussian localization radial Hermite diagonalization is classical."
+        ],
+        "reasoning": "Recasting the question as eigenvalue perturbation of the difference of two translated disk Toeplitz operators recovers the known concentric mode tie. The sharp two-center first angular-harmonic coupling and explicit cone are not stated by the radial diagonalization theorem.",
+        "searches": [
+          "analytic Bargmann Fock annulus eccentric non concentric two center Toeplitz localization degeneracy eigenvalue crossing conical first order linear displacement",
+          "sharp fixed-area Gaussian STFT energy eccentric annular domain linear gain center separation at eigenvalue tie",
+          "non concentric annulus Gaussian localization Toeplitz spectral norm eccentric ring perturbation crossing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A current search for off-center Gaussian/Fock annuli and published mathematical records yielded radial concentration, spectral problems with distinct operators, and disk stability, not the (alpha,gamma) cone."
+        ],
+        "reasoning": "No checked exact table or research result tabulates the first-order two-center cusp across all integer k and positive widths. This is not a proof of absence from unindexed literature.",
+        "searches": [
+          "analytic Bargmann Fock annulus eccentric non concentric two center Toeplitz localization degeneracy eigenvalue crossing conical first order linear displacement",
+          "sharp fixed-area Gaussian STFT energy eccentric annular domain linear gain center separation at eigenvalue tie",
+          "non concentric annulus Gaussian localization Toeplitz spectral norm eccentric ring perturbation crossing"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge original contribution: A conical eigenvalue crossing for eccentric Gaussian localization annuli. Closest prior work and limits are compared by implication, not title; priority risk retained.",
+      "residual_risks": [
+        "Specialized eccentric-annular Gaussian localization studies could predate this computation under different terminology.",
+        "Generic analytic perturbation results could make the cone implicit in an uninspected specialized formula; negative searches are not novelty certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RADIAL_ANTECEDENT_ONLY",
+          "evidence": [
+            "Theorem 2.12 integrates quasi-radial symbols against gamma weights; no off-center boundary perturbation statement in the inspected theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.01465",
+          "material_read": "full open-access 25-page PDF; §2.3 Theorem 2.12, definitions and eigenvalue integral read",
+          "method": "primary text and formula comparison",
+          "title": "Toeplitz operators on the Fock space with quasi-radial symbols",
+          "trigger": "same operator and radial eigenvalue sequence"
+        },
+        {
+          "assessment": "NOT_DECISIVE_COVERAGE",
+          "evidence": [
+            "Theorem 1.1 selects disks globally, not local deformations of annuli."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.03423",
+          "material_read": "full open-access 23-page PDF; introduction, Theorem 1.1 and spectral setup examined",
+          "method": "primary theorem and hypotheses comparison",
+          "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "strongest global fixed-area Gaussian concentration result"
+        },
+        {
+          "assessment": "NOT_DECISIVE_COVERAGE",
+          "evidence": [
+            "Stability controls distance to a Gaussian/disk at global optimality, not an annular double top eigenspace."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.09304",
+          "material_read": "full open-access 46-page PDF; main theorem and disk-stability section examined",
+          "method": "primary theorem/section comparison",
+          "title": "Stability of the Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "possible stronger perturbation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/a-conical-eigenvalue-crossing-for-eccentric-gaussian-localizatio--3cee2d888868/RESULT.md",
+        "arXiv:2107.01465v3 §2.3",
+        "arXiv:2106.03423v1 Theorem 1.1",
+        "arXiv:2307.09304v1 Theorem 1.1"
+      ],
+      "rationale": "Gaussian time-frequency localization annuli and Hermite-level ties are canonical, and the optimal captured-energy norm is the natural quantity. The result identifies a precise nonsmooth conical instability under physically meaningful relative center displacement while fixing area, with explicit coefficients for every tie and an independent rigid-motion invariance. Neither the radial spectrum nor general disk optimality quantifies this structural instability; the local law is a motivated sharp mathematical fact.",
+      "residual_risks": [
+        "Local fixed k,w asymptotics only, no global eccentric-annulus optimizer or uniform asymptotic in either parameter."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2107.01465v3 §2.3",
+    "arXiv:2106.03423v1 Theorem 1.1",
+    "arXiv:2307.09304v1 Theorem 1.1",
+    "Daubechies 1988 radial localization cited by Nicola–Tilli",
+    "Resultary semantic search: eccentric Fock annulus two-center perturbation"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each k>=1 and width w>0, centered radial annular Fock localization with squared radii a=w/(exp(w/k)-1), b=a+w has a strictly isolated double top eigenvalue at modes k-1,k. If both squared radii change by tau and the outer center displaces by delta, then norm(T)=lambda*+alpha*tau/2+sqrt((alpha*tau/2)^2+gamma^2*abs(delta)^2)+O((abs(tau)+abs(delta))^2), with alpha=a^k exp(-a)(1/b-1/a)/(k-1)! and gamma=a^k exp(-a)/sqrt((k-1)!k!), for fixed k,w and small admissible perturbations. Area pi*w is fixed.",
+  "limitations": [
+    "Infinite-dimensional quadratic remainder uses trace-class smoothness and isolation; finite matrix eigenvalues alone do not prove it.",
+    "Radius inclusion requires |delta| < sqrt(b+tau)-sqrt(a+tau); k,w held fixed.",
+    "Specialized eccentric-annular Gaussian localization studies could predate this computation under different terminology.",
+    "Generic analytic perturbation results could make the cone implicit in an uninspected specialized formula; negative searches are not novelty certification.",
+    "Local fixed k,w asymptotics only, no global eccentric-annulus optimizer or uniform asymptotic in either parameter."
+  ],
+  "schema_version": 1
+}

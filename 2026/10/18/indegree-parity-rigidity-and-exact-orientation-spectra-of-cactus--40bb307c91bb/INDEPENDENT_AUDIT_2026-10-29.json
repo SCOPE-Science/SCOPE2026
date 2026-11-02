@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T18:08:30.822494Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Indegree-parity variation is the F_2 unoriented incidence map of the set of reversed edges: each edge toggles two endpoints. Its rank on a connected graph is |V|-1, so exactly 2^{|V|-1} signatures are feasible and every fibre has 2^{|E|-|V|+1} orientations. Cactus simple cycles are edge-disjoint and span the cycle space; reversing each whole cycle leaves coherent directedness of it unchanged and leaves other cycles fixed, so every fibre has a constant number of directed cycles. In any noncactus a theta subgraph with three internally disjoint u-v paths exists. Direct all three paths u-to-v (acyclic), extend by topological order, then reverse two paths, which preserves parity but creates a directed cycle with the third path. For cacti, orientation count is 2^b product_i(2^{ell_i}-2+2z); division by the 2^c-element fibre yields P_G(z)=2^b product_i(2^{ell_i-1}-1+z). P_G(1)=2^{|V|-1}. The singleton and trees satisfy empty-product conventions. A fresh independent exhaustive verifier confirmed the iff and polynomial for all 772 labeled connected simple graphs on up to five vertices (399 cacti, 373 noncacti). Finite checks cannot replace the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravier–Petiteau–Sivignon treat classes of parity-target existence and Cartesian products rather than all-or-none fibres on all graph classes.",
+          "Király–Kisfaludi-Bak characterize dual-criticality/existence, not acyclicity homogeneity in a parity fibre.",
+          "Noûs et al. (2020), Theorem 5, derive a cactus block-product count for valid update labelings on a FIXED oriented input; it is not the same invariant as the count of parity-signature classes.",
+          "Published Resultary graph-flex cycle-anchor invariants concern legal source/sink flexes and integer flow signatures, not parity-fibre invariance."
+        ],
+        "reasoning": "Stronger-looking graph-class and cactus counting results have different quantifiers and counting objects. None directly covers the asserted all-graph iff and all-cactus weighted parity-signature count.",
+        "searches": [
+          "Resultary: orientation cycle space cosets acyclicity invariant parity Eulerian reversals oriented matroid",
+          "Resultary: cactus graph exact parity signature polynomial directed cycles bridge product",
+          "arXiv:2603.09475v1 Theorems 1.1,1.3,1.4",
+          "EGRES-TR-2012-07 Proposition 1.14",
+          "PMC7309494 Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.09475v1, full primary HTML",
+        "EGRES-TR-2012-07, 21-page primary PDF, page screenshot",
+        "PMC7309494, full primary HTML Theorem 5",
+        "Resultary semantic queries on cactus orientation parity fibres and cycle-space invariance",
+        "Targeted web searches on exact cactus signature polynomial and theta obstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The incidence-rank formula and tree existence theorem are classical parts of the claim, not new.",
+          "Even an existence criterion for every feasible parity target would not imply that all orientations within a target fibre share cycle status.",
+          "A block-product for update-labeling counts on one oriented cactus does not imply a quotient count by F_2 parity cosets or the theta obstruction."
+        ],
+        "reasoning": "Compared exact statements and their implications, not parameter or title matches. Inspected results are insufficient to imply the proposed characterization and polynomial; an unindexed equivalent Eulerian reversal theorem remains possible.",
+        "searches": [
+          "arXiv:2603.09475v1 Theorems 1.1,1.3,1.4 and Lemmas 4.4–4.5",
+          "EGRES-TR-2012-07 Theorem 1.8 and Proposition 1.14",
+          "PMC7309494 Theorem 5 / Section 5",
+          "Resultary: acyclic orientations prescribed indegree parity same parity signature cycle reversal cactus rigidity theta graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical equal-signature condition is cycle-space coset membership, and so already supplies feasibility and fibre cardinality.",
+          "arXiv:2603.09475v1 asks for existence of an acyclic T-odd orientation and gives tree/cycle existence, not all-or-none behaviour within a target fibre.",
+          "EGRES-TR-2012-07 Theorem 1.8 is a dual-critical graph equivalence for special parity targets."
+        ],
+        "reasoning": "Cycle-space reversal is classical but does not automatically preserve directed cycles. The submitted iff relates that invariance to the theta-forbidden-minor cactus class. Neither prior statement examined implies the iff or its enumerator.",
+        "searches": [
+          "Resultary: acyclic orientations prescribed indegree parity same parity signature cycle reversal cactus rigidity theta graph",
+          "Web: orientations same indegree parity acyclicity cactus theta graph cycle reversal parity",
+          "arXiv:2603.09475v1 Lemmas 4.4–4.5 and main theorems",
+          "EGRES-TR-2012-07 Definition 1.7 / Theorem 1.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No examined exact table contains P_G(z)=2^b product_i(2^{ell_i-1}-1+z) as a count of parity-equivalent orientation classes.",
+          "PMC7309494 counts update digraphs, not parity vectors; no coefficient table is supplied for this invariant."
+        ],
+        "reasoning": "The assertion is an all-parameter polynomial, not an isolated numeric entry. A failed index search is not proof that no equivalent older table exists; this is a retained risk.",
+        "searches": [
+          "Web: cactus graph acyclic orientation indegree parity number orientations polynomial count directed cycles",
+          "Web: cactus graph exact parity signature polynomial directed cycles bridge product",
+          "Resultary: cactus graph exact parity signature polynomial directed cycles bridge product",
+          "PMC7309494 Theorem 5"
+        ]
+      },
+      "rationale": "No identified primary theorem or published mathematical record covered the complete cactus fibre-rigidity iff together with its exact parity-signature polynomial. Classical parity feasibility and cactus cycle-block factorization are credited. Originality is best-of-knowledge with explicit alternate-terminology risk.",
+      "residual_risks": [
+        "An older result under Eulerian reversal, orientated-matroid/cycle-space, or cactus graph counting terminology may imply the characterization.",
+        "Related update-labeling cactus products suggest older literature may contain adjacent enumerators; no general proof of absent priority can be given."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Lemmas 4.4–4.5 concern existence for trees and cycles; Theorems 1.3–1.4 describe Cartesian path/cycle products, not parity-fibre rigidity nor the cactus spectrum.",
+          "identifier_or_url": "arXiv:2603.09475v1; https://arxiv.org/html/2603.09475v1",
+          "material_read": "Primary arXiv full-text HTML; introduction, main theorems, tree/cycle Lemmas 4.4–4.5, sections on Cartesian grids/cylinders/tori, searched cactus/unicyclic terminology.",
+          "method": "Read primary open-access HTML and compare exact quantifiers and theorem conclusions.",
+          "title": "Some polynomial classes for the acyclic orientation with parity constraint problem",
+          "trigger": "Same prescribed indegree parity and acyclic T-odd orientation problem."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Theorem 1.8 is about dual-critical graphs with all-but-one-odd parity; Proposition 1.14 about existence for all proper target sets. Neither determines uniform acyclicity status of realizing orientations.",
+          "identifier_or_url": "EGRES-TR-2012-07; https://egres.elte.hu/tr/egres-12-07.pdf",
+          "material_read": "Primary 21-page PDF, Section 1.1 definitions and proof of Theorem 1.8, Proposition 1.14, source text occurrence checks and original PDF page 3 screenshot.",
+          "method": "Read lawful primary PDF and visually inspect its key theorem page.",
+          "title": "Dual-Critical Graphs — Notes on parity constrained acyclic orientations",
+          "trigger": "General structural characterization could dominate restricted graph theorem."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Theorem 5 gives a cactus product for update-digraph labelings rather than parity cosets, no theta iff or z-count of directed cycles across signatures.",
+          "identifier_or_url": "arXiv:2004.02129; https://pmc.ncbi.nlm.nih.gov/articles/PMC7309494/",
+          "material_read": "Full open-access primary PMC HTML: definitions, Theorem 5 in cactus Section 5, and proof of block-product, plus discussion of acyclic orientation reduction.",
+          "method": "Compared enumerated update labelings conditional on a fixed oriented cactus with F_2 parity-signature classes of all edge orientations.",
+          "title": "#P-completeness of Counting Update Digraphs, Cacti, and Series-Parallel Decomposition Method",
+          "trigger": "Strongly related exact cactus cycle-block count; potentially dominating enumerator."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated classification of a natural invariance property for graph orientations, identifying exactly the connected simple graphs where indegree parity makes acyclicity uniform within each fibre. Theta subgraphs provide a sharp structural obstruction, and the all-cycle coefficient product enumerates feasible target signatures by forced directed-cycle count for arbitrarily many cactus cycles. Existence of an acyclic target or classical coset size alone does not answer this question. Its short graph-theoretic proof does not make the precise invariant a routine normalization check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2603.09475v1, full primary HTML",
+    "EGRES-TR-2012-07, 21-page primary PDF, page screenshot",
+    "PMC7309494, full primary HTML Theorem 5",
+    "Resultary semantic queries on cactus orientation parity fibres and cycle-space invariance",
+    "Targeted web searches on exact cactus signature polynomial and theta obstruction"
+  ],
+  "disposition": "passed",
+  "limitations": {
+    "originality_priority": "Unindexed older equivalent under cycle-space Eulerian reversals/cactus signature classes remains possible; best-of-knowledge PASS.",
+    "publication": "Two complete JSON replacements with original Git blob guards and exact UTF-8 digests are staged; not applied remotely. Current self-review is preserved with only original two source inspections; new additional primary comparison belongs to the independent review.",
+    "scientific": "Connected finite simple graphs only; full signature polynomial only for cacti. Finite tests to n=5 are falsification checks, not infinite proof."
+  },
+  "schema_version": 1
+}

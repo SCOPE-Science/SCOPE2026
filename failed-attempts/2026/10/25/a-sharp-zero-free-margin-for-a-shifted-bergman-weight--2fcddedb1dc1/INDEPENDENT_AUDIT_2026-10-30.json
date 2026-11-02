@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:08:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted Bergman kernel and normalized numerator are algebraically correct. Indeed the prior Jacobson one-zero decomposition gives P_r(z,v)=(1−rz)(1−rv)(2−φ_r(z)φ_r(v)), with disk automorphism φ_r(z)=(z−r)/(1−rz). On |z|,|v|≤1, |φ_r(z)φ_r(v)|≤1, |2−φ_r(z)φ_r(v)|≥1, and |1−rz|,|1−rv|≥1−r; hence min|P_r|≥(1−r)² with equality z=v=1. This immediately establishes zero-freeness and the sharp additive sup-norm perturbation radius. Endpoint r=0 and all 0≤r<1 are covered. Independent exact symbolic factor identity plus 3000 complex samples were checked; the analytic inequality, not samples, proves the result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jacobson 2013 covers all c∈disk for the weight |z−c|² and gives the explicit factor [2−φ_c(z)overline φ_c(w)] times kernel factors."
+        ],
+        "reasoning": "The antecedent formula is already uniform in the exact same parameter c and variables, and the claimed estimate is a direct bound on its factors. A later broader finite-zero representation is not required to establish coverage.",
+        "searches": [
+          "https://arxiv.org/pdf/1309.4800 shifted weight |z−c|² kernel",
+          "https://arxiv.org/pdf/2212.08118 representation for Blaschke weights"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1309.4800",
+        "https://arxiv.org/pdf/2212.08118",
+        "Resultary shifted Bergman kernel |z-a|^2 sharp zero free numerator minimum bidisk (1-|a|)^2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Jacobson identity: K_{|z−r|²}(z,w)=[2−φ_r(z)φ_r(v)]K(z,w)/[(1−rz)(1−rv)]. Thus P_r=(1−rz)(1−rv)(2−φ_r(z)φ_r(v)). For closed disk |φ_r|≤1 and |1−rz|≥1−r, so |P_r|≥(1−r)²; equality z=v=1.",
+          "For any E with ||E||∞<(1−r)², |P_r+E|>0; E≡−(1−r)² cancels P_r at (1,1)."
+        ],
+        "reasoning": "This is a decisive exact implication from the same-object, same-parameter 2013 paper. The claimed sharp bound and perturbation radius add only elementary modulus/triangle inequalities; therefore originality FAIL despite mathematical correctness.",
+        "searches": [
+          "https://arxiv.org/pdf/1309.4800 2013 one-zero representation",
+          "https://arxiv.org/pdf/2212.08118 general weighted kernel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set φ_r(z)=(z−r)/(1−rz). The source numerator satisfies P_r(z,v)=(1−rz)(1−rv)[2−φ_r(z)φ_r(v)], which is exactly the earlier Möbius factorization."
+        ],
+        "reasoning": "This is an algebraic restatement, not a distinct object or new invariant; the known disk-automorphism bound establishes the claimed minimum at z=v=1 without solving the source’s two-variable extremization.",
+        "searches": [
+          "Resultary semantic search: shifted Bergman kernel |z-a|^2 sharp zero free numerator minimum bidisk (1-|a|)^2",
+          "https://arxiv.org/pdf/1309.4800 one-zero shifted Bergman kernel formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numerical database is needed: the exact earlier analytic formula determines the margin mechanically as (1−r)² by contractive disk maps and boundary equality."
+        ],
+        "reasoning": "Any assertion that the precise number was not printed is irrelevant: a corollary is covered when it follows immediately from published stronger formulas.",
+        "searches": [
+          "Resultary semantic search: shifted Bergman kernel |z-a|^2 sharp zero free numerator minimum bidisk (1-|a|)^2",
+          "https://arxiv.org/pdf/1309.4800 exact analytic kernel formula"
+        ]
+      },
+      "rationale": "FAIL because the entire asserted extremal minimum and perturbation radius are immediate consequences of the exact one-zero shifted-weight Bergman formula printed in Jacobson (2013), not just a separately rederived kernel expression.",
+      "residual_risks": [
+        "No residual uncertainty affects the direct prior implication: the mathematical result is correct but scientifically covered.",
+        "The margin is normalization-specific; does not give a nontrivial result for the full weighted kernel or arbitrary weight perturbations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS: the exact claimed sharp inequality and perturbation radius are immediate one-line corollaries of its printed Möbius formula.",
+          "evidence": [
+            "Jacobson gives K_{|z−c|²} in factors of 2−φ_c(z)overline φ_c(w), (1−\\bar c z) and (1−c\bar w); φ_c maps closed disk to closed disk for |c|<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.4800",
+          "material_read": "2013 primary manuscript shifted one-zero kernel formula for disk, around PDF page 10, together with the decomposition formula and surrounding setting",
+          "method": "Open-access arXiv PDF, actual kernel equation inspected and independently algebraically compared with submitted P_r",
+          "title": "Weighted Bergman kernel functions associated to meromorphic functions",
+          "trigger": "Same weight |z−c|², exact kernel representation, could dominate entire claim"
+        },
+        {
+          "assessment": "Broader family exists; no full-text noncoverage judgment needed because Jacobson direct implication is decisive.",
+          "evidence": [
+            "The general kernel representation is background, not required for the negative originality verdict."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.08118",
+          "material_read": "Abstract/available indexed representation statement only; not relied on for decisive coverage",
+          "method": "Lawful open bibliographic record",
+          "title": "A representation for the reproducing kernel of a weighted Bergman space",
+          "trigger": "Additional broader representation of zero-weight kernels"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Although a sharp zero-free margin is a mathematically meaningful kind of invariant in principle, this specific canonically normalized one-zero numerator inequality follows in one line from the previously published Möbius-product representation and elementary disk inequalities. The perturbation corollary is the triangle inequality and equality at a boundary point. No independent nonroutine structural, classification or new numerical fact survives the decisive published implication; correctness alone does not supply new mathematical value.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1309.4800",
+    "https://arxiv.org/pdf/2212.08118",
+    "Resultary shifted Bergman kernel |z-a|^2 sharp zero free numerator minimum bidisk (1-|a|)^2"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No residual uncertainty affects the direct prior implication: the mathematical result is correct but scientifically covered.",
+    "The margin is normalization-specific; does not give a nontrivial result for the full weighted kernel or arbitrary weight perturbations."
+  ],
+  "schema_version": 1
+}

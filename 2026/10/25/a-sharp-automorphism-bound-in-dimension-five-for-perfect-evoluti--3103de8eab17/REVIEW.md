@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument first derives monomiality from independence of the five basis squares and a perfect matching from the nonzero determinant. The diagonal kernel is bounded by products of \(2^{\ell}-1\) from the cycle types of a supported matching. The separate prime-order cases \(31,5,7,3\), including both possible orders of the three-primary subgroup, prove the maximum 155. A directed five-cycle attains the bound over \(\mathbb C\), and the same matching argument proves uniqueness of the maximizing support. The exact finite checker exhausts the nontrivial-diagonal support patterns and corroborates the graph-group products; it is not substituted for the proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The closest sources are the 2026 survey's Conjectures 3–4, which explicitly leave dimension five unsettled, and Sriwongsa–Zou's 2022 classification of maximal **diagonal** groups, which does not bound a possible larger product of diagonal and permutation factors. The 2025 highly-transitive-image theorem and the 2026 five-dimensional \(A_5\) example do not imply a bound for arbitrary permutation images. The new contribution is the complete case-by-case joint bound, over arbitrary fields. Equivalent unpublished, unindexed or newly posted arguments remain a risk.
+PASS
 
-**Value — PASS.** Resolving the first dimension not already checked in a recent explicit conjecture is a natural motivated finite cutoff, not a freely chosen small example. The result is a sharp theorem for all perfect five-dimensional algebras over every field and simultaneously resolves the simple case over \(\mathbb C\). Its proof identifies the structural obstruction to compensating a smaller diagonal kernel with a larger graph group.
+For any five-dimensional perfect evolution algebra over any field, invertibility of its structure matrix forces monomial automorphisms and a supported permutation matching. The diagonal kernel embeds in matching-cycle roots with possible orders dividing 1,3,9,7,21,15,31. Separate prime-torsion cases force combined orders at most 155 (31-case exact five-cycle), 60 (5), 126 (7), 36 or 72 (3-primary), and 120 (trivial diagonal). Over C, the weighted five-cycle is normalized by a 31st-root rescaling, attains 31·5=155 and is simple. The normality argument restricts the realized permutation image, not necessarily every graph symmetry. Applies to K-point groups, not group-scheme length.
 
-**Limitations.** The equality and isomorphism classification is over \(\mathbb C\); the theorem concerns automorphism groups on field-points and does not assert a bound on nonreduced group-scheme length. No conclusions are drawn for larger dimensions. The source comparison is not an exhaustive historical proof of novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the surveyed maximum for n=5 is explicitly conjectural and prior maximal diagonal-group result does not bound the product with all permutation images.
+
+## value
+
+PASS
+
+A 2026 survey explicitly conjectures the first unsettled dimension-five perfect/simple maximum order. The proof provides a sharp global bound and equality isomorphism classification rather than merely exhibiting a large group or enumerating selected structures. This is a motivated finite structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric waiting-time identity is exact for any fixed target string, and weighted primitive-necklace Möbius inversion supplies the precise Lyndon restriction. The analytic proof isolates the sole dominant logarithmic singularity and establishes the positive-probability boundary; strict concavity proves the majorization statement. A separate exact-rational enumerator checks 25,824 source-word configurations but does not substitute for the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Hirakawa et al. (arXiv:2106.01190, Theorem 4) establish the uniform finite-length expectation; this is already known and **not claimed anew**. Biers-Ariel et al. (arXiv:1704.08661) analyze biased all-subsequence means; Bannai et al. (arXiv:2201.06773) treat longest Lyndon subsequence algorithms; classical Witt enumeration is background. The examined sources do not give the arbitrary-positive-bias Lyndon expectation, all-bias leading asymptotic with precise logarithmic prefactor, comparison to unrestricted subsequence counts, or sharp majorization. An unindexed more general weighted-counting result or an implicit corollary remains a genuine risk; search absence is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The exact nonuniform model and sharp fixed-bias rate characterize a natural random-string combinatorial complexity invariant, while strict majorization identifies how statistical source imbalance changes its growth. The comparison with all distinct subsequences establishes the precise \(1/n\) relative asymptotic; this is stronger than reprinting known uniform tables. No claim is made about variance, concentration, or typical values.
+PASS: For each distinct target word, left-to-right greedy matching gives independent geometric waiting times with factor g_a(z)=p_a*z/(1-(1-p_a)*z). Weighted Möbius inversion of primitive word rotation orbits gives the Lyndon multivariate Witt logarithm. With all p_a positive, S1(r)=1 has unique r in (0,1), d>=2 necklace terms are analytic beyond r, and positivity and strict triangle inequality isolate a unique dominant log singularity. This gives the coefficient prefactor 1/((1-r)n); summing arbitrary patterns gives the simple-pole comparison and ratio r*S1prime(r)/n. Strict concavity in p of g_a(z) yields Schur-concavity and unique uniform max. Independent exact direct random-word enumeration versus greedy target-pattern summation agreed for two binary distributions n<=8 and one ternary n<=6. Boundary p_a=0 expressly excluded.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified: Hirakawa et al 2021 already prove the exact uniform expectation for distinct Lyndon subsequences, while Biers-Ariel et al address biased all-subsequence counts. The combination of arbitrary positive bias, exact weighted Lyndon OGF, sharp biased prefactor, and Schur-concave optimizer was not present in the inspected abstracts and comparative references. Classical Witt formula is not new; an implicit weighted theorem remains a risk.
+
+## value
+
+PASS
+
+PASS: The mean distinct Lyndon-subsequence complexity is a natural combinatoric probability quantity. A source-sensitive exact OGF and strict majorization optimizer characterize the effect of bias and quantify a precise 1/n sparsity relative to all distinct subsequences, beyond known uniform formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

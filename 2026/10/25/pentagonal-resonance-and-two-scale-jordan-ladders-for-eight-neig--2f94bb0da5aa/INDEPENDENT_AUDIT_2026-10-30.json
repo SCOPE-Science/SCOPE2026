@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:14:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The eight-neighbour F2 torus update is multiplication by f=(1+x+x^{-1})(1+y+y^{-1})+1 in the group algebra. Because 5 and 2 are coprime, x^{5k}−1,y^{5l}−1 decompose into 25 local nilpotent-thickened fifth-root factors, each dimension kl. The fifth-root trace values are 0 once, α twice, β twice with α+β=αβ=1; exactly nine factors have f's constant term zero, and sixteen are units. For K=max(k,l), L=min(k,l), in eight nontrivial zero factors f has a simple uniformizer in a coordinate of length K, giving L Jordan blocks size K per factor. At (1,1), f's leading terms are quadratic u² and v²; for K≥2 this gives 2L blocks size K/2; K=1 is separately one size-one block. The nine nilpotent local factors yield dimension 9kl, Fitting decomposition all transient kernel counts and 2^(16kl) recurrent states. Independent GF2 bitset ranks on 5 tori (up to 10×20) matched every predicted iterate; finite ranks are corroboration, algebra proves all dyadic k,l.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1984 covers general 2D polynomial quotient methods; 2015 gives odd-rule growth counts; 2024 treats different boundary/reversibility matrices. None of the inspected sections gives the special 5th-root local factors and exact Jordan ladders."
+        ],
+        "reasoning": "General techniques do not mechanically output the stated full partition without the explicit resonance and filtration calculation.",
+        "searches": [
+          "Martin–Odlyzko–Wolfram CMP93 (1984) Section 4D",
+          "arXiv:1503.04249",
+          "arXiv:2406.06195"
+        ]
+      },
+      "checked_sources": [
+        "https://www-users.cse.umn.edu/~odlyzko/doc/arch/cellular.automata.pdf",
+        "https://arxiv.org/pdf/1503.04249",
+        "https://arxiv.org/abs/2406.06195",
+        "Resultary: Moore eight neighbor XOR parity cellular automata torus 5 times powers of two nilpotent Jordan blocks two-scale"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 1984 framework allows computing eventual automaton dynamics if one separately factors the specific quotient; the new claim calculates nine precise zero-mode Jordan factors and their transient counts."
+        ],
+        "reasoning": "Distinguishes implementable general machinery from a published exact implication with all needed numerical parameters; the local-factor calculation supplies the missing nontrivial work.",
+        "searches": [
+          "Martin–Odlyzko–Wolfram 1984 Section 4D polynomial method",
+          "Ekhad–Sloane–Zeilberger 2015 Sections 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same eight-neighbour XOR rule corresponds to MOORE polynomial f, but one-seed infinite grid evolution and all-state finite-torus nilpotent Jordan structure are inequivalent tasks."
+        ],
+        "reasoning": "Comparison was made at the level of the actual convolution polynomial, not just title or rule number.",
+        "searches": [
+          "Resultary: Moore eight neighbor XOR parity cellular automata torus 5 times powers of two nilpotent Jordan blocks two-scale",
+          "Martin Odlyzko Wolfram 1984 Section 4D",
+          "Ekhad Sloane Zeilberger 2015 odd-rule 757"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published odd-rule catalog identifies local 3×3 binary rule but does not tabulate its 5·2^a torus all-state Jordan partition."
+        ],
+        "reasoning": "An exact rule listing is not an exact all-state rank table; possible unindexed specialist tables remain a priority risk.",
+        "searches": [
+          "Resultary: Moore eight neighbor XOR parity cellular automata torus 5 times powers of two nilpotent Jordan blocks two-scale",
+          "arXiv:1503.04249 odd-rule 757 table",
+          "2013 Siap–Akin–Uguz EJPAM"
+        ]
+      },
+      "rationale": "The 1984 Martin–Odlyzko–Wolfram polynomial method gives general 2D additive CA framework, and the 2015 Ekhad–Sloane–Zeilberger odd-rule 757 identifies precisely the Moore-neighborhood polynomial on infinite grid from one active cell. Neither inspected result computes all-state nilpotent Jordan partitions or sharp preperiod census for 5·2^a by 5·2^b tori. The submitted fifth-root resonance/local Artinian-ring computation is a specific new exact structural invariant, with a possible obscure finite-torus tabulation priority risk.",
+      "residual_risks": [
+        "Potential obscure finite-torus Jordan computations for Moore parity could imply the result under modular group-algebra language.",
+        "Primitive periods of the invertible part remain unclassified; the theorem only determines recurrent dimension and nilpotent transient profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background group-algebra technique, no inspected all-state Jordan count for 5-dyadic Moore tori",
+          "evidence": [
+            "Section 4D treats additive 2D automata through bivariate polynomials and periodic quotients."
+          ],
+          "identifier_or_url": "https://www-users.cse.umn.edu/~odlyzko/doc/arch/cellular.automata.pdf",
+          "material_read": "Original full PDF obtained, introduction and Section 4D polynomial treatment materially read; not every page was read",
+          "method": "Primary PDF inspected with page screenshot for mathematical expressions",
+          "title": "Algebraic Properties of Cellular Automata",
+          "trigger": "Foundational exact 2D periodic polynomial method could dominate finite-torus result"
+        },
+        {
+          "assessment": "Same local rule in infinite-grid single-seed growth; not same finite-torus all-state Fitting classification",
+          "evidence": [
+            "Odd-rule 757 is the eight-neighbour XOR local polynomial, but the paper studies infinite lattice growth sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.04249",
+          "material_read": "Original 15-page PDF, introductory setup and relevant rule classification/figures read",
+          "method": "Primary PDF inspected with page screenshot",
+          "title": "Odd-Rule Cellular Automata on the Square Grid",
+          "trigger": "Same local Moore odd-rule 757"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit full Jordan decomposition, recurrent subspace size, transient cutoff and complete time-by-time census for a natural periodic family of a classical cellular-automaton rule are mathematically motivated finite-dynamics invariants. The two different nilpotent ladder scales reflect a genuine pentagonal resonance and are not supplied by simple eigenvalue counting or the infinite-grid odd-rule growth series.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www-users.cse.umn.edu/~odlyzko/doc/arch/cellular.automata.pdf",
+    "https://arxiv.org/pdf/1503.04249",
+    "https://arxiv.org/abs/2406.06195",
+    "Resultary: Moore eight neighbor XOR parity cellular automata torus 5 times powers of two nilpotent Jordan blocks two-scale"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only rectangular 5·2^a × 5·2^b tori, eight-neighbour XOR without self state, a,b≥0.",
+    "The group-algebra argument, not tested finite GF2 ranks, establishes the infinite parameter formulas.",
+    "Potential obscure finite-torus Jordan computations for Moore parity could imply the result under modular group-algebra language.",
+    "Primitive periods of the invertible part remain unclassified; the theorem only determines recurrent dimension and nilpotent transient profile."
+  ],
+  "schema_version": 1
+}

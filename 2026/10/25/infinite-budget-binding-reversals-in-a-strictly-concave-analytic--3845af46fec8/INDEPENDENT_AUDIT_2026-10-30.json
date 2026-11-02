@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:04:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6bbb4a0f675439d5e8aed612d24443f0509b6b2d/2026/10/25/infinite-budget-binding-reversals-in-a-strictly-concave-analytic--3845af46fec8/RESULT.md",
+        "RESULT.md blob 7086e614523ba843cb44ad34295dc168cc5262ea",
+        "verify.py blob 804ceb827c93dbb6ba0b8901c4a54adb0f23124f"
+      ],
+      "rationale": "u(x)=log(1+x)+(1-cos(log(1+x)))/4 is real analytic, u_prime=e^-t(1+sin(t)/4)>0, u_doubleprime=e^-2t[-1+(cos(t)-sin(t))/4]<0 for t=log(1+x). Price lambda(t) decreases, clipped demand min(e^t-1,1/lambda) increases, hence Theta=lambda/d is continuous strictly decreasing from infinity to zero and each Theta>0 has unique equilibrium. Binding inequality is sin t>4/(e^t-1). On every I_k=(2k*pi,(2k+1)*pi), k>=1, h has negative endpoints, positive midpoint and h_doubleprime= -sin t-4 e^t(e^t+1)/(e^t-1)^3<0, so two simple roots and a binding interval; negative-sine half-periods slack. Endpoint offsets asymptotic to 4e^-m*pi, and at equality Theta=(e^t-1)^-2, so consecutive cost threshold ratio tends to e^-2pi. Independently computed first five positive half-period crossings at high precision, first roots 6.2906136333,9.4244550324, and the last threshold ratio 0.00186744273170826 against e^-2pi=0.00186744273170799. Numerical roots cannot certify infinite alternation, which follows from analytic concavity.",
+      "residual_risks": [
+        "Infinite switches accumulate only as theta->0; no robustness on a compact positive-cost interval or empirical utility fit is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perkins–Zhang, arXiv:2603.20277v1, Theorems 1–2 and §IV-C: examples with quadratic utilities (two crossover points) and square-root utilities (one crossover point)."
+        ],
+        "reasoning": "Their assumptions do not impose a finite crossover bound, and their examples do not imply this constructive infinite-switch theorem or the ratio e^-2pi.",
+        "searches": [
+          "Resultary semantic search: electricity budget constrained consumer oscillatory analytic strictly concave utility infinitely many budget binding crossover equilibria"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.20277v1",
+        "Resultary semantic resource-allocation search above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clipped demand = min(D(lambda),1/lambda), as derived in Perkins–Zhang, and unique market equilibrium do not constrain the number of intersections of lambda D(lambda) with budget one.",
+          "The present t-parameter monotone market reparametrization and root concavity establish arbitrarily many transitions."
+        ],
+        "reasoning": "Prior existence/uniqueness are necessary background, not an implication of infinite oscillation; a different explicit analytic utility is required.",
+        "searches": [
+          "Resultary semantic search: electricity budget constrained consumer oscillatory analytic strictly concave utility infinitely many budget binding crossover equilibria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Perkins–Zhang, arXiv:2603.20277v1, §III equilibrium uniqueness and §IV modified log utility provide a clipped-demand equivalence.",
+          "The present switching criterion is an explicit root equation sin t=4/(e^t-1)."
+        ],
+        "reasoning": "Demand clipping itself is prior work; its composition with this utility produces a new infinite sequence not a mere restatement of clipped-demand form.",
+        "searches": [
+          "Resultary semantic search: electricity budget constrained consumer oscillatory analytic strictly concave utility infinitely many budget binding crossover equilibria"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent high-precision roots for k=1..5 and threshold ratios in the source market; no external exact crossover table for this constructed oscillatory utility.",
+          "Targeted Resultary search found no exact model matching this analytic construction."
+        ],
+        "reasoning": "The computed thresholds corroborate but do not establish priority; exact infinite root structure comes from strict concavity of h on successive windows.",
+        "searches": [
+          "Resultary semantic search: electricity budget constrained consumer oscillatory analytic strictly concave utility infinitely many budget binding crossover equilibria"
+        ]
+      },
+      "rationale": "Perkins–Zhang 2026 prove general budgeted equilibrium existence/uniqueness and demand clipping and show quadratic/square-root examples with one or two crossover thresholds. The explicitly increasing analytic strictly concave utility here has infinitely many endogenously ordered budget crossings with geometric cost accumulation, not forced by their comparison theorems. Unindexed oscillatory examples remain a priority risk.",
+      "residual_risks": [
+        "Oscillatory analytic utility examples may have been constructed in unindexed market-equilibrium literature.",
+        "Infinite switches accumulate only as theta->0; no robustness on a compact positive-cost interval or empirical utility fit is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers underlying model and 1–2 crossing examples, not the infinite alternating construction in inspected sections",
+          "evidence": [
+            "§III-B uniqueness; §IV-C examples explicitly titled two crossover points and one crossover point."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20277v1",
+          "material_read": "Full HTML text, §§II–IV, particularly uniqueness, modified utility and §IV-C quadratic/square-root examples",
+          "method": "Direct reading of primary arXiv HTML",
+          "title": "Resource Allocation in Electricity Markets with Budget Constrained Customers",
+          "trigger": "same competitive-equilibrium model, budget and clipped demand"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2603.20277v1",
+        "Resultary semantic resource-allocation search above"
+      ],
+      "rationale": "An explicit analytic strictly concave counterexample to any universal finite budget-switch count is a meaningful boundary of single-commodity comparative statics. The exact geometric accumulation rate is mathematically informative beyond a hand-drawn oscillation; it does not claim economic empirical realism.",
+      "residual_risks": [
+        "Oscillatory analytic utility examples may have been constructed in unindexed market-equilibrium literature.",
+        "Infinite switches accumulate only as theta->0; no robustness on a compact positive-cost interval or empirical utility fit is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2603.20277v1",
+    "Resultary semantic resource-allocation search above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Oscillatory analytic utility examples may have been constructed in unindexed market-equilibrium literature.",
+    "Infinite switches accumulate only as theta->0; no robustness on a compact positive-cost interval or empirical utility fit is implied."
+  ],
+  "schema_version": 1
+}

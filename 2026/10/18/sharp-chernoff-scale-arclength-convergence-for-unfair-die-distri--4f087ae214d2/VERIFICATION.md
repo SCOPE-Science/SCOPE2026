@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The proof's essential analytical checks are the exact finite-length formula, the exponential likelihood tilt, strict positivity of the subdivision gain, the relevant nonarithmetic/lattice local limit theorem, and the beta-integral evaluation. They establish an infinite-parameter theorem. The standard local limit theorem is invoked, not rederived.
+# Independent mathematical audit
 
-Run `python3 CHECK.py` to verify the exact finite-length formula two ways (ordered digit words and multinomial occupancy counts) for two examples, monotonic refinement of arclength, numerical normalization and centering of the tilt, the beta coefficient by independent quadrature, and a positive arithmetic lattice profile sample. The program uses only the Python standard library and reports checks that genuinely ran. Numeric agreement is corroboration and cannot replace the infinite proof.
+## correctness
 
-The cases with zero digit weights or a fair die are excluded by the assumptions. Neither independently certified results nor external expert review are claimed.
+PASS
+
+For every fixed fully supported nonuniform q-ary law, exact cell increments u=q^(-n),v=product(p_digit) give D_n=2-L_n=E_U phi(exp(S_n)). Since M’(0)=-D(U||P)<0 and M’(1)=D(P||U)>0, strict convexity fixes unique s* in (0,1), rho<1 and centered positive-variance tilted increments. The precise change of measure D_n=rho^n E_pi g(S_n) and per-step gain G_n=rho^n E_pi psi(S_n) follow from the finite formula. Strict concavity of phi and nonuniform weights makes psi positive. g and psi have exponential tails, allowing classical Stone/local lattice LLTs and positive uniformly summable periodic profiles. Explicit integration by parts evaluates int(g)=2^(s*-1) B((s*+1)/2,1-s*)/s*; int(psi)=(1-rho)int(g), and the arithmetic shifts give H(theta)=A(theta)-rho A(theta+a). Thus both D_n and G_n have the asserted sharp rho^n/sqrt(n) laws. Independently recomputed 7-file tree and verified finite levels with direct and multinomial methods, Chernoff tilts, beta quadrature and periodic gains. Uniform p and zero digit weights are correctly excluded; finite numerics are not a proof of the infinite theorem.
+
+## originality
+
+PASS
+
+The motivating 2023 article already proves the exact finite polygonal arclength and its limit 2, but asks for a quantitative step gain in Section 5.1. The assessed result adds the all-positive-biased-law sharp Chernoff exponent, n^-1/2 correction, evaluated beta factor and indispensable arithmetic-phase coefficient. Real Resultary searches and primary-source mathematical comparisons did not identify equivalent or stronger published coverage; standard LLT/Chernoff theory supplies inputs, not the assembled geometric asymptotic. Best-of-knowledge only, with residual risks explicitly recorded.
+
+## value
+
+PASS
+
+It resolves the natural explicitly posed quantitative refinement question for biased-digit CDF polygonal arclength, throughout the full fixed fully supported nonuniform q-ary family, rather than merely computing finite instances. The sharp rate identifies the Chernoff affinity and has a nontrivial square-root penalty; a positive periodic correction is essential in arithmetic cases. The result offers a mathematically reusable leading law and distinguishes effects of digit bias from finite numerical tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

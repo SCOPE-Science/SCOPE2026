@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cell index uses the Abrams/Prue–Scrimshaw sufficient subdivisions, and the inclusion of cubical cells is natural under vertex permutations. Integer checks reconstruct all cubical boundaries and confirm consecutive differentials compose to zero. Sparse elimination over the field of three establishes rank lower bounds \((454,1100,520)\). Connectedness caps the first at 454; 520 is the full third-boundary column count. The elementary sum-of-particle-motion map onto the six-dimensional first homology of \(K_5\) supplies the required upper bound of 1100 on the second boundary. These comparisons establish rational Betti ranks exactly, not by an unproved inference from modular data. Signed cell traces, the graph-cycle \(H_1\)-character and rational Specht character orthogonality then determine the entire degree-two module.
+## correctness
 
-## Originality — PASS, with residual risk
-Abrams and Prue–Scrimshaw supply the finite graph configuration model, not this rational vertex-symmetry representation. Ko–Park's first-homology theorem does not determine the second-homology character. Maciążek–Sawicki's primary article determines the three-particle \(K_4\) second-homology group and wheel-graph families but does not state the \(K_5\) five-vertex-symmetry decomposition. A prior two-particle calculation on the same complete graph identifies a degree-one total-motion representation but does not determine three-particle degree-two homology. Closest indexed configuration-homology work on Petersen, Pappus and Heawood graphs has different graph or particle hypotheses; neither specialization nor an evident stronger theorem supplies the present character. The principal risk is a less-indexed equivalent in the graph braid-group representation literature, not a contradiction encountered in the checked sources.
+PASS
 
-## Mathematical value — PASS
-The complete graph on five vertices is the smallest nonplanar complete graph and its full five-vertex symmetry is canonical. The top rational homology of the three-particle configuration space records collision-free coordinated motion. A decomposition into five Specht types—including multiplicity two for the six-dimensional constituent and no fixed vector—records natural information beyond first-homology formulae or nonequivariant Betti ranks. This is a motivated equivariant invariant, not an arbitrary parameter slice. Its precise rational scope and limits are explicit.
+For the once-subdivided K5 the discretized unordered 3-particle cubical complex has 455,1560,1650,520 cells. Independently reconstructed integer boundary squares vanish; exact finite-field ranks at primes 3,5,7 are (454,1100,520). The rational rank of d2 cannot exceed 1100 because the sum-of-particle-motion map surjects onto the six-dimensional H1(K5;Q), witnessed by triangle traversals with the other particles on complementary vertices. The modular lower bound then proves exact rational ranks, Betti (1,6,30,0). Signed cell Lefschetz traces and character orthogonality force H2 S5 character (30,0,-2,0,0,0,0) and multiplicities (0,1,1,2,1,1,0). Exact calculations corroborate, do not replace, discretization theorem and topological surjectivity.
 
-## Verification and limitations
-The standalone standard-library file `verify.py` reproduces the entire finite check and prints `VERIFY_OK`. The theorem does not assert integral torsion-freeness, a canonical splitting, or any statement for four or more particles. A further independent audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected the very close ordered-particle K5 S5 result by Ramos–Yun (2026), the K4/wheel calculations by Maciążek–Sawicki (2019), strengthened Abrams discretization, degree-one graph braid formulas, and a small-graph census. Ordered H2(Conf3(K5)) as an S5 module does not determine H2(UConf3(K5)) without the commuting S3-label action. No inspected source implies the claimed full unordered H2 character; historical priority remains qualified.
+
+## value
+
+PASS
+
+The complete graph K5, smallest nonplanar complete graph, has a canonical automorphism group S5. Its rational unordered three-particle top homology is a natural equivariant topological invariant, not determined by its 30-dimensional rank or lower homology. The complete seven-class character identifies five Specht constituents, a repeated six-dimensional irreducible, and absence of invariants; exact finite-graph classification has independent utility and clear integral and other-particle limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

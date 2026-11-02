@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** For a connected graph, orientations realizing one indegree-parity vector form a coset of the binary cycle space. In a cactus that space has the edge-disjoint cycles as its basis, so changing orientations within a fibre reverses whole cycles and cannot alter which undirected cycles are directed. In a noncactus, a theta subgraph provides a parity-preserving reversal that turns an acyclic orientation into one containing a directed cycle. The exact product polynomial follows by orientation enumeration and division by the proven common fibre cardinality. The standalone test also confirms the characterization for all connected labeled simple graphs on at most five vertices and counts the coefficients on multiple larger cacti.
+## correctness
 
-**Originality (PASS, subject to bibliographic uncertainty).** Gravier–Petiteau–Sivignon (arXiv:2603.09475v1, 2026) analyzes parity-constrained acyclic orientations on several graph classes but the inspected material does not give the characterization of graph classes with homogeneous acyclicity fibres nor the cactus target-spectrum polynomial. Király–Kisfaludi-Bak (2012) treats the related dual-critical condition, requiring all but one indegree odd, rather than fibrewise all-or-none acyclicity for every feasible signature. Searches for cactus/T-odd/indegree-parity orientation results, equivalent theta obstructions and exact tables revealed no stronger covering claim. Residual risk: unindexed equivalent work or terminology differences; absence from searches is not a uniqueness proof.
+PASS
 
-**Value (PASS).** A 2026 orientation-existence problem has a natural tractable subfamily: cacti. The theorem does not merely repackage the classical parity-feasibility condition; it classifies exactly which *graphs* make acyclicity invariant under parity-preserving edge reversal, identifies a minimal structural obstruction, and enumerates all feasible parity targets by the precise number of unavoidable directed cycles. It yields an explicit criterion and counts all successful targets in a family with arbitrarily many overlapping vertices across cycle blocks.
+Indegree-parity variation is the F_2 unoriented incidence map of the set of reversed edges: each edge toggles two endpoints. Its rank on a connected graph is |V|-1, so exactly 2^{|V|-1} signatures are feasible and every fibre has 2^{|E|-|V|+1} orientations. Cactus simple cycles are edge-disjoint and span the cycle space; reversing each whole cycle leaves coherent directedness of it unchanged and leaves other cycles fixed, so every fibre has a constant number of directed cycles. In any noncactus a theta subgraph with three internally disjoint u-v paths exists. Direct all three paths u-to-v (acyclic), extend by topological order, then reverse two paths, which preserves parity but creates a directed cycle with the third path. For cacti, orientation count is 2^b product_i(2^{ell_i}-2+2z); division by the 2^c-element fibre yields P_G(z)=2^b product_i(2^{ell_i-1}-1+z). P_G(1)=2^{|V|-1}. The singleton and trees satisfy empty-product conventions. A fresh independent exhaustive verifier confirmed the iff and polynomial for all 772 labeled connected simple graphs on up to five vertices (399 cacti, 373 noncacti). Finite checks cannot replace the unrestricted proof.
 
-**Scientific limitations.** This is a mathematical proof supported by finite, nonexhaustive sanity checks; those checks cannot establish the infinite theorem. The graph model excludes loops and multiple edges. The work does not resolve the computational complexity of the general parity-constrained acyclic orientation problem, and independent validation has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No identified primary theorem or published mathematical record covered the complete cactus fibre-rigidity iff together with its exact parity-signature polynomial. Classical parity feasibility and cactus cycle-block factorization are credited. Originality is best-of-knowledge with explicit alternate-terminology risk.
+
+## value
+
+PASS
+
+This is a motivated classification of a natural invariance property for graph orientations, identifying exactly the connected simple graphs where indegree parity makes acyclicity uniform within each fibre. Theta subgraphs provide a sharp structural obstruction, and the all-cycle coefficient product enumerates feasible target signatures by forced directed-cycle count for arbitrarily many cactus cycles. Existence of an acyclic target or classical coset size alone does not answer this question. Its short graph-theoretic proof does not make the precise invariant a routine normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

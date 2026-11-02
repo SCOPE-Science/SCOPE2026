@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The closure classification follows exhaustively from conflicting cells, partial matchings with at least two unmatched rows/columns, and unique completion of a near-perfect matching. Exact lower bounds on the number and maximum arity of sound Horn implications follow from inclusion-minimal nonclosed premises; the explicit basis reaches them in one synchronous round. The interval Möbius recurrence is evaluated for each of four possible interval shapes. The homotopy claim invokes the precise McCord–Quillen principal-ideal fiber criterion, with each fiber having a maximum. The executable finite checker reconstructs the context rather than importing formulas and succeeds on all intervals for sizes two through four. General correctness rests on proofs, not enumeration.
+## correctness
 
-## Originality — PASS, qualified
-Rawson et al. (2023) give the general formal-concept/hypergraph intersection framework, not this permutation-model family. Bichoupan (2022) treats optimization of general implication bases; the general canonical-basis concept does not imply the explicit sharp counts, all-interval Möbius formula, or chessboard fiber identification without the new structure proof. Barmak's simple-homotopy Quillen theorem and Shareshian–Wachs chessboard homology are established and explicitly credited, not claimed as novel. Searches for permutation-matrix formal contexts, partial-permutation intersection lattices, rook-poset Möbius/Laguerre relationships, and matching-complex fiber descriptions yielded no directly covering result, though specialized literature could contain an equivalent formulation. A closest related database item on rectangular matching polytope degrees treats a distinct invariant. Risk remains for uncatalogued rook-monoid or functional-dependency identities; independent publication-priority validation has not been performed.
+PASS
 
-## Mathematical value — PASS
-This theorem simultaneously determines a natural logical closure system, its exact minimal Horn-basis cardinality and sharp arity, complete interval Möbius invariant, graded enumeration, and a topological model that transfers known nontrivial torsion to implication lattices. The distinctive feature is the collapsing near-perfect rank and its effect on logical generation while preserving chessboard homotopy. The family is canonical rather than an arbitrary parameter slice, and the connections provide usable descriptions for all sizes.
+PASS. Every consistent input is a partial bipartite matching; ≤n−2 unmatched extension choices force no new atom, n−1 has a unique completion, and conflicts close to all E. Every conflicting pair and near-perfect matching is inclusion-minimal nonclosed (n≥3), forcing a distinct implication; explicit rules attain bound and arity n−1 in one parallel round. n=2 four singleton premises and their unions give every closure. The interval Möbius recurrence yields Boolean signs, (−1)^(m−1)(m−1) at full permutation, and −Σ_j(−1)^j binom(m,j)² j! at E, matching Laguerre identity. Quotient from nonempty matchings to proper closed sets has principal-ideal fibers with maximum, so Barmak/Quillen simple-homotopy lemma applies. Ratio monotonicity plus explicit two final ratios proves strict log-concavity including n=2. These are actual all-n proofs, not extrapolation.
 
-## Limits
-No new result about the integral homology of chessboard complexes is claimed. Existing general theorems supply the fiber lemma and the classical polynomial identity. The computer experiment checks only finite cases, with infinite scope supported by the written proof. Equivalence under alternate terminology remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with qualified priority. The general formal-concept/hypergraph, canonical Horn basis, rook counting, poset simple-homotopy and chessboard homology ingredients are known. Their inspected mathematical claims do not give this particular closure system simultaneously with exact minimal rule counts and all intervals; the projective ranking/rook terminology may conceal an older equivalent. The Laguerre identity and imported homology are not themselves new.
+
+## value
+
+PASS
+
+PASS. A canonical infinite family of permutation-valued logical models receives complete minimal implication complexity (rule number, arity and one-round depth), Möbius intervals and a nontrivial topological identification; the near-completion merge changes both inference and topology. Useful to formal-concept lattice and matching-complex calculations, not an arbitrary enumeration or a newly claimed homology computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

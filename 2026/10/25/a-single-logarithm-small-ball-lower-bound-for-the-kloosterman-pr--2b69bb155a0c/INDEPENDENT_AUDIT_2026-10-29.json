@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:09:34.283128Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified centered iid Sato–Tate coefficients X_h, fixed closed 1/2-Hölder target g with real normalized Fourier coefficients beta_h in [-1,1], and 0<epsilon<=1/4, take M=ceil(A_L epsilon^-2 log(2/epsilon)). Kyselov's exact Fejér approximation gives ||q_M-g||<=C L/sqrt(M) and independent high-frequency expected sup norm O(sqrt(log M/M)). For each b in [-1,1], sliding a length-delta interval inside [b-delta,b+delta] makes its Sato–Tate conditional expectation exactly b with mass >=c delta uniformly because the density is positive on [-5/4,5/4]. On dyadic frequency block 2^(j-1)<|h|<=2^j, choose widths delta_j=d 2^(-3(J-j)/4); conditioned errors are independent, centered, bounded. The negative log event probability is O(sum 2^j(1+J-j))=O(M); Hoeffding plus a Bernstein grid and summing blocks yields expected centered sup norm O(sqrt(log M/M)). Markov gives positive conditional probability of small error, and the independent tail plus X0 window cost only an additional factor c epsilon. Thus probability >= exp[-C_L epsilon^-2 log(2/epsilon)] for the same target class, genuinely improving Kyselov's log-squared exponent. I separately verified symmetric frequency counts, conditional window centering and dyadic geometric cost scaling; these bounded checks are not proof of the stochastic uniform estimates, whose bounds were reconstructed analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kyselov Theorem 1.2 gives exp[-C epsilon^-2 log²(2/epsilon)], strictly weaker than the claimed one-log lower bound; its Lemma 4.1 supplies the independent high-frequency tail estimate.",
+          "Kowalski–Sawin's support characterization is qualitative and cannot imply the asserted numerical small-ball rate by itself."
+        ],
+        "reasoning": "The sharper bound requires a new conditional-mean interval lemma and multiscale concentration; it does not follow from the older uniform pinning which costs M log M.",
+        "searches": [
+          "Kyselov 2026 Theorem 1.2 and Section 4 Lemma 4.1",
+          "Kowalski Sawin 2017 support of Kloosterman paths",
+          "Resultary Kloosterman random Fourier series small deviation"
+        ]
+      },
+      "checked_sources": [
+        "Kyselov arXiv:2610.22645v1, full primary HTML Section 4",
+        "Kowalski and Sawin arXiv:1709.05192, support theorem statement",
+        "Resultary semantic search Kloosterman small ball/random Fourier process",
+        "Hoeffding 1963 bounded independent summand concentration (classical tool)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kyselov pins each low-frequency coefficient to uniform eta=epsilon/[12(1+log M)], whose independent event cost has extra log M; Kyselov Remark 4.2 says logarithmic exponent is not claimed optimal.",
+          "The new centered conditional windows admit fluctuation errors and graded widths, lowering information cost to O(M) and retaining sup norm concentration."
+        ],
+        "reasoning": "The cited theorem is strictly weaker and cannot imply its improvement by adjusting a constant. The result's new argument changes the conditioning scheme while retaining exact target class and kernel.",
+        "searches": [
+          "Kyselov 2026 Section 4 lines 237-305",
+          "Kowalski Sawin arXiv:1709.05192 support theorem",
+          "random Fourier small deviation independent centered window"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kyselov defines precisely the same random Fourier process, closed Hölder target class, and coefficient margin [-1,1].",
+          "The improvement concerns the exponent from epsilon^-2 log² to epsilon^-2 log; these are different quantified lower bounds for the same event."
+        ],
+        "reasoning": "Explicitly matched normalization beta_h=2pi i h ghat(h), iid real Sato–Tate law and fixed target Hӧlder parameter L, rather than comparing abstract small-ball language alone.",
+        "searches": [
+          "Kloosterman process uniform small ball single logarithm dyadic centered coefficients",
+          "Kyselov arXiv:2610.22645v1 Theorem 1.2",
+          "random Fourier series Sato Tate Hölder curve small deviations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite database tabulates an all-epsilon function-space probability lower bound; exact finite-prime point counts are not its equivalent.",
+          "Resultary nearby records concern unrelated Fourier trace/logarithmic inequalities, not the same random process and target class."
+        ],
+        "reasoning": "An exact database/table is not a plausible dominating source for this functional asymptotic inequality; the actual searches targeted general estimates under probability/fourier aliases.",
+        "searches": [
+          "Resultary Kloosterman small ball probability dyadic centered Fourier windows",
+          "published Kloosterman process arithmetic probability small ball tables",
+          "arXiv:2610.22645v1 small-ball log²"
+        ]
+      },
+      "rationale": "Comparison by actual mathematical hypotheses, conclusions and implications, including the closest primary works and structured equivalent/general/table checks; best-of-knowledge acceptance with explicit historical-priority risks.",
+      "residual_risks": [
+        "A generic pre-2026 random Fourier series small-deviation theorem with centered small-window conditioning may imply this logarithmic bound under a more abstract process class.",
+        "The result is a lower bound, not a matching asymptotic or proof that the single logarithm cannot be removed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1.2 is strictly weaker and the proof uses uniform coefficient windows causing an additional log M",
+          "evidence": [
+            "Section 4 equation (4.1) controls tail by sqrt(log(2M)/M); equations (4.6)-(4.7) choose eta=epsilon/[12(1+log M)] and get exponent epsilon^-2 log²; Remark 4.2 disclaims optimality."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22645v1",
+          "material_read": "Full arXiv HTML: introduction, Theorems 1.1-1.2, Section 4 Lemma 4.1, proof of Theorem 1.2 and Remark 4.2, Section 5 corollaries and references; line-by-line comparison of concentration estimates",
+          "method": "Primary OA arXiv HTML full document",
+          "title": "Space-filling curves and small-ball probabilities for the Kloosterman process",
+          "trigger": "Exact same process and strongest matching target class"
+        },
+        {
+          "assessment": "Qualitative support and weak convergence do not determine new quantitative one-log small ball bound",
+          "evidence": [
+            "Kyselov Introduction (1.2) recounts Kowalski–Sawin's support conditions; Theorem 1.2 is needed for a rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.05192",
+          "material_read": "Primary abstract and the support-theorem statement quoted in Kyselov's introduction; full paper not reread",
+          "method": "Primary arXiv abstract and citation in Kyselov",
+          "title": "On the support of the Kloosterman paths",
+          "trigger": "Prior support characterization for same Kloosterman process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Removing a logarithm from a published quantitative uniform small-ball theorem for the Kloosterman random Fourier process, without narrowing its 1/2-Hölder target class, improves a natural arithmetic-probability lower-bound scale. Dyadic centered conditioning is a substantive entropy-versus-concentration mechanism rather than relabeling Kyselov's coefficient pinning. The theorem does not assert a matching upper bound or optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kyselov arXiv:2610.22645v1, full primary HTML Section 4",
+    "Kowalski and Sawin arXiv:1709.05192, support theorem statement",
+    "Resultary semantic search Kloosterman small ball/random Fourier process",
+    "Hoeffding 1963 bounded independent summand concentration (classical tool)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A generic pre-2026 random Fourier series small-deviation theorem with centered small-window conditioning may imply this logarithmic bound under a more abstract process class.",
+    "The result is a lower bound, not a matching asymptotic or proof that the single logarithm cannot be removed.",
+    "Finite verification supports but does not replace the unrestricted proof.",
+    "Original source review remains distinct from any independent external expert or formal Lean attestation."
+  ],
+  "schema_version": 1
+}

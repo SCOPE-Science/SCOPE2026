@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:09:34.283027Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a connected nonnegative symmetric weighted three-node Laplacian, verified the characteristic equation L^3-2sL^2+3tau L=0 (tau=ab+ac+bc>0), the exact [2/2] Padé quotient, its positive rational denominator D and the off-diagonal numerator 4h[12w+6tau h+tau(2s-3w)h^2]. The sign polynomial has no positive zero if 3w<=2s, otherwise exactly one at H=(3+sqrt(9+12w(3w-2s)/tau))/(3w-2s); at most one edge is exceptional. The scalar stability function r(z)=(z²-6z+12)/(z²+6z+12) lies (0,1] for z>=0, yielding positive diagonals, row/column sums 1, and spectral stability. The pseudoinverse formula L+_ij=(3w-2s)/(9tau) gives the equivalent Green criterion and large-step sign. Direct independently written SymPy rational matrix quotients matched 36 test cases, including zero-weight paths; the algebraic argument handles all h>=0 and all real conductances, unlike the tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth Theorem 6 characterizes positivity across dissipative positive ODE classes via scheme radius and dissipation constant; its Example 1 concerns other methods.",
+          "The published eight-state Padé result concerns existence of failure for arbitrarily small h on directed generators; a symmetric three-site finite-h failure has logically different quantifiers."
+        ],
+        "reasoning": "None of those general sufficient or impossible classes supplies the graph-specific necessary-and-sufficient 3w<=2s condition or the actual finite horizon H. A hypothetical universal cone-preserving theorem cannot hold for this RK scheme, but this does not settle an individual Laplacian.",
+        "searches": [
+          "Horváth 1998 Theorems 2,5,6,7",
+          "Zappavigna Colaneri Kirkland Shorten 2012 Essentially negative news about positive systems DOI 10.1016/j.laa.2011.12.021",
+          "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+        ]
+      },
+      "checked_sources": [
+        "Horváth 1998 DOI 10.1016/S0168-9274(98)00050-6, full 18-page primary text",
+        "Zappavigna et al. 2012 DOI 10.1016/j.laa.2011.12.021, summary/primary abstract",
+        "Lóczi and Ketcheson 2014 DOI 10.1112/S1461157013000326, abstract",
+        "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scheme-independent radius constraints give a bound sufficient for classes and do not force the pseudoinverse sign identity for a given 3x3 weighted graph.",
+          "The earlier eight-state criterion is about arbitrary-small-step failure, not the first loss at finite h."
+        ],
+        "reasoning": "The exact CH reduction and pairwise polynomial sign classification are needed beyond the cited results; prior implications are strictly weaker for this fixed three-site question.",
+        "searches": [
+          "Horváth 1998 full 18 pages Theorems 1-7",
+          "Resultary eight-state Padé 2026",
+          "Lóczi Ketcheson 2014 rational functions maximal radius absolute monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same end-step is the [2/2] Padé rational matrix function of -hL, and its eventual entry signs are those of -L+ off-diagonals.",
+          "Horváth's positivity radius is an RK-scheme/global-problem-class invariant, not a classification by three particular conductances."
+        ],
+        "reasoning": "Compared method-wide absolute-monotonicity and Markov-semigroup positivity notions against this fixed generator's exact entrywise threshold. The broader method property can fail even when the particular three-node step remains positive for all h.",
+        "searches": [
+          "two-stage Gauss Legendre [2/2] Padé graph Laplacian weighted three-node positivity",
+          "Horváth 1998 DOI 10.1016/S0168-9274(98)00050-6 Sections 3-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary eight-state counterexample and two-state SSP-SDIRK2 example treat distinct dimensions/methods and do not tabulate the three-weight continuum.",
+          "No finite table of particular weights could alone establish a sharp formula for all real positive conductances."
+        ],
+        "reasoning": "Checked semantic records for a full parametric classification, not mere shared notation; no matching exact 3-weight table was identified, which is not a proof of priority.",
+        "searches": [
+          "Resultary search Gauss weighted three-state positivity",
+          "published eight-state Padé Markov positivity barrier",
+          "Runge Kutta Gauss Markov graph Laplacian exact positivity threshold"
+        ]
+      },
+      "rationale": "Comparison by actual mathematical hypotheses, conclusions and implications, including the closest primary works and structured equivalent/general/table checks; best-of-knowledge acceptance with explicit historical-priority risks.",
+      "residual_risks": [
+        "Earlier specialist Markov/graph-matrix results for weighted three-state Padé positivity could be indexed under different terms.",
+        "The 2012 Metzler/Padé paper was not reread in complete primary full text in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General RK class-level scheme radius theorems, no fixed Gauss three-node conductance graph formula",
+          "evidence": [
+            "Theorem 6 gives R(A,b)/(2p) for a positive dissipative family; Example 2 concerns Lobatto IIIC; no 3-site symmetric weighted Padé horizon."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+          "material_read": "18-page full publisher article: introduction, mathematical definitions, full statements/proofs of Theorems 1-7, two examples and references; pages 1-18 retrieved and read",
+          "method": "Authorized publisher text extraction via Oxford after OA attempts",
+          "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+          "trigger": "Same 4th-order RK and positivity framework"
+        },
+        {
+          "assessment": "Plausible broad work but not established to cover exact 3-site formula",
+          "evidence": [
+            "Uses Padé/Metzler context; complete text remains a historical-priority risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2011.12.021",
+          "material_read": "Published abstract and search-accessible description of counterexamples/sufficient bounds; full text not independently read here",
+          "method": "Primary bibliographic record and available excerpts",
+          "title": "Essentially negative news about positive systems",
+          "trigger": "Padé time stepping of Metzler systems"
+        },
+        {
+          "assessment": "Different arbitrarily-small-step directed eight-state phenomenon",
+          "evidence": [
+            "The reported sharp eight-state witness fails for arbitrary small steps; this theorem's three-site symmetric failure happens only after positive H."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Resultary indexed scientific statement and summary, not its entire Git tree",
+          "method": "Connected mathematical-record semantic search",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Published related SCOPE theorem on identical integrator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, nonreentrant timestep positivity horizon for every three-vertex symmetric weighted diffusion network is a meaningful minimal-dimensional positivity classification, distinguishing spectral stability from cone preservation. Exact conductance criterion, Green-kernel reformulation, boundary at weight ratio 2 for paths, and extremal three-site onset are genuinely interpretable numerical properties, not a relabeled broad method theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Horváth 1998 DOI 10.1016/S0168-9274(98)00050-6, full 18-page primary text",
+    "Zappavigna et al. 2012 DOI 10.1016/j.laa.2011.12.021, summary/primary abstract",
+    "Lóczi and Ketcheson 2014 DOI 10.1112/S1461157013000326, abstract",
+    "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier specialist Markov/graph-matrix results for weighted three-state Padé positivity could be indexed under different terms.",
+    "The 2012 Metzler/Padé paper was not reread in complete primary full text in this execution.",
+    "Finite verification supports but does not replace the unrestricted proof.",
+    "Original source review remains distinct from any independent external expert or formal Lean attestation."
+  ],
+  "schema_version": 1
+}

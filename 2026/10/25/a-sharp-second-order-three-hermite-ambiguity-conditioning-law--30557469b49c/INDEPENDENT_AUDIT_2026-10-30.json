@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:08:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hermite ambiguity identity yields squared radial multipliers φ_j=e^(−x)L_j(x)² for j=0,1,2. L2 roots r±=2±√2 imply two exact lower precision-covering constraints. A strictly positive dual vector certifies minimal w0+w1=Ct with C≈5.984283368174 and unique normalized unit solution α0≈0.929064805486, α1≈5.055218562688. Bounding the disk endpoint x=R gives M3≤F_R−CF_R²+o(F_R²). Feasible weights (1+√F_R)F_R(α0,α1), 1−(1+√F_R)C F_R, satisfy global lower bound after neighborhoods of quadratic zeros, compact complement and monotone x≥7 tail, yielding equality to second order. Every optimizer has normalized limit (α0,α1) by bounded subsequences and LP uniqueness. Independently checked roots, dual balances and several finite radii; numerical finite checks are not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grohs et al concern lattice phase retrieval; Fulsche–Hagger describe Laguerre zeros; 2017 multitaper design has a different estimation objective.",
+          "The 2023 thesis full text was not retrieved, only its institutional abstract."
+        ],
+        "reasoning": "The general theories provide operator identities or distinct performance criteria, not the two-constraint large-disk precision budget law. The inaccessible thesis remains a genuine risk rather than noncoverage evidence.",
+        "searches": [
+          "https://arxiv.org/pdf/2207.10620 arXiv manuscript",
+          "https://arxiv.org/pdf/2308.11292 Theorem 3.4",
+          "https://www.isca-archive.org/interspeech_2017/sandsten17_interspeech.pdf multitaper study",
+          "https://lup.lub.lu.se/student-papers/record/9116759 institutional thesis abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2308.11292",
+        "https://arxiv.org/pdf/2207.10620",
+        "https://www.isca-archive.org/interspeech_2017/sandsten17_interspeech.pdf",
+        "https://lup.lub.lu.se/student-papers/record/9116759",
+        "Resultary Hermite Laguerre spectrogram multi-window ambiguity conditioning minimax two zeros asymptotic optimal weights"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zero-circle locations alone imply potential rank loss but not the sharp second-order penalty; injectivity results do not determine conditioning constants."
+        ],
+        "reasoning": "A new positive LP dual and a globally feasible lower construction at two zero neighborhoods are needed; no checked theorem supplies that comparison.",
+        "searches": [
+          "https://arxiv.org/pdf/2308.11292 Theorem 3.4",
+          "https://arxiv.org/pdf/2207.10620 multiwindow lattice theorem",
+          "https://www.isca-archive.org/interspeech_2017/sandsten17_interspeech.pdf Section 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hermite ambiguity values are e^(−x/2)L_j(x); separate-channel least singular squared response is the nonnegative weighted sum e^(−x)L_j(x)²."
+        ],
+        "reasoning": "The maximin over a radial disk is not injectivity of a sampled nonlinear STFT or approximate Wigner reconstruction, even though it shares Hermite/Laguerre functions.",
+        "searches": [
+          "Resultary semantic search: Hermite Laguerre spectrogram multi-window ambiguity conditioning minimax two zeros asymptotic optimal weights",
+          "https://arxiv.org/pdf/2308.11292 Laguerre zero circles",
+          "https://arxiv.org/pdf/2207.10620 multi-window STFT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The roots 2±√2 and individual Hermite ambiguity polynomials are classical tables; neither lists α0,α1 as the unique radial minmax asymptotic split."
+        ],
+        "reasoning": "Known low-order polynomial tables are inputs to, not solutions of, the radius-dependent two-node primal/dual covering program.",
+        "searches": [
+          "Resultary semantic search: Hermite Laguerre spectrogram multi-window ambiguity conditioning minimax two zeros asymptotic optimal weights",
+          "https://arxiv.org/pdf/2308.11292 Laguerre zero set",
+          "https://lup.lub.lu.se/student-papers/record/9116759 multitaper optimizations"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: multi-window phase-retrieval uniqueness, Fock Laguerre zero geometry and Wigner multitaper optimization do not state the large-R worst-case linear multiplier minimax or its second-order coefficient. Full 2023 thesis inaccessible, named residual risk.",
+      "residual_risks": [
+        "Full 2023 Optimal Multitaper Spectrograms thesis unavailable; its detailed mathematical targets could overlap.",
+        "No finite-R exact optimizer uniqueness is asserted, and phase retrieval for sampled windows is outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the relevant special-function zero geometry, not joint optimal multi-window precision design.",
+          "evidence": [
+            "Theorem 3.4 discusses Laguerre zero circles in harmonic-analysis operators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.11292",
+          "material_read": "Section 3, in particular Theorem 3.4 and surrounding zero-set formulas",
+          "method": "Open-access arXiv PDF inspected at relevant pages",
+          "title": "Quantum harmonic analysis for polyanalytic Fock spaces",
+          "trigger": "Exact Hermite/Laguerre zeros and potential domination"
+        },
+        {
+          "assessment": "Multitapers optimize an approximation/visualization criterion, not the independent-channel maximin inverse squared singular multiplier.",
+          "evidence": [
+            "Section 2 considers combining spectrograms to approximate a Wigner target, distinct from min_x Σ w_j φ_j."
+          ],
+          "identifier_or_url": "https://www.isca-archive.org/interspeech_2017/sandsten17_interspeech.pdf",
+          "material_read": "Full conference paper and its Section 2 weighting/estimation discussion",
+          "method": "Open-access Interspeech 2017 PDF inspected",
+          "title": "Automatic Time-Frequency Analysis of Echolocation Signals Using the Matched Gaussian Multitaper Spectrogram",
+          "trigger": "Multi-Hermite weight optimization is a possible earlier stronger result"
+        },
+        {
+          "assessment": "Potential overlap not resolved; no whole-document NOT_COVERING judgment.",
+          "evidence": [
+            "Abstract describes multitaper optimization but does not specify the submitted two-zero maximin asymptotic."
+          ],
+          "identifier_or_url": "https://lup.lub.lu.se/student-papers/record/9116759",
+          "material_read": "Institutional abstract/record ONLY; thesis full text not accessible in this execution",
+          "method": "Institutional library record",
+          "title": "Optimal Multitaper Spectrograms",
+          "trigger": "Closest thesis title could subsume weight-optimization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural three-window Hermite measurement introduces two Laguerre zeros requiring both lower-order windows at positive precision. The exact large-radius second-order penalty and asymptotic rigidity of every optimal allocation solve a meaningful joint covering optimization, unlike a trivial single-window normalization or arbitrary finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2308.11292",
+    "https://arxiv.org/pdf/2207.10620",
+    "https://www.isca-archive.org/interspeech_2017/sandsten17_interspeech.pdf",
+    "https://lup.lub.lu.se/student-papers/record/9116759",
+    "Resultary Hermite Laguerre spectrogram multi-window ambiguity conditioning minimax two zeros asymptotic optimal weights"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full 2023 Optimal Multitaper Spectrograms thesis unavailable; its detailed mathematical targets could overlap.",
+    "No finite-R exact optimizer uniqueness is asserted, and phase retrieval for sampled windows is outside scope."
+  ],
+  "schema_version": 1
+}

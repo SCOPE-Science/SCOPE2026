@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is analytical, using established results about consecutive-prime Zumkeller blocks, Mertens products, Linnik bounds, and CRT. The supplied Python program `verify.py` uses exact rational arithmetic for the six finite prime blocks, verifies the inequalities \(2\le B_k<2(1+1/Q)\) and \(0<\varphi(A_k)/A_k<1/2\), and confirms four CRT forbidden-residue counts by exhaustive enumeration of one complete modulus. It also checks the divisor/totient inequality for four familiar Zumkeller integers. Run: `python3 verify.py`. Expected terminal marker: `VERIFY_OK`.
+## correctness
 
-These computations are finite only. They neither establish the existence of an effective universal Zumkeller-block threshold nor certify the claimed infinite asymptotic without the displayed proof and cited results. Independent auditing and validation have not been performed.
+PASS
+
+PASS: The minimally abundant consecutive-prime block B crosses 2 by its last prime, and C=product(1-p^-2)=1+O(1/P), giving phi(A)/A=C/B=1/2+O(1/P) from below. The Zumkeller divisor partition implies sigma(z)>=2z and phi(z)sigma(z)/z^2<1, proving the per-seed strict bound. Prime Mertens gives Q asymptotic P^2; iterated disjoint blocks have sum 1/P_j finite and log z_j<=exp(D*2^j), producing K*2^-r failure product. Linnik primes in the appropriate reduced residue classes force representation outside size O(z_j^(2L)), and CRT contributes X*2^-r plus the essential O(Z_r) endpoint error. Choosing 2^r comparable to log log X makes Z_r and thresholds X^o(1); separate even-seed Linnik step bounds odd exceptional integers by a power saving. Independently checked four rational prime blocks and three full-period CRT families; finite checks do not prove the global asymptotic.
+
+## originality
+
+PASS
+
+PASS, qualified: Li 2026 Theorem 1.2 gives the weaker exponent A=log2(2*pi^2/(2*pi^2-3)) about .2378 and uses essentially the same prime blocks. Its proof takes phi(A)/A>3/(2*pi^2) instead of the sharp asymptotic 1/2 and does not state the exponent-one claim. The other block-existence input is published; local per-seed density is an evaluated sharpening, not a proof of global optimality.
+
+## value
+
+PASS
+
+PASS: A quantitative exponent-one strengthening of an explicit new analytic exceptional-set problem is nontrivial, using a sharp local Euler-product obstruction plus a correct finite-interval CRT remainder; it yields an exact mechanism with meaningful scope and does not rely solely on finite samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

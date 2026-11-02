@@ -1,10 +1,21 @@
-# Scientific review
-## Correctness (PASS)
-Exact three-bounce reflection geometry gives incidence cosine \(\sqrt3/2\); the two-bounce trajectory has incidence one. The differential of the specified ellipsoid gives equatorial curvatures \(1/r\) and \(\beta^2/r\), whence scalar kick coefficients and symplectic matrix traces yield the four stated exponents. Their strict monotone comparison and a nonzero derivative establish the exact crossover and stable opposite signs. The packaged symbolic checker reconstructs the geometry and all required monodromy matrices. The persistence uses standard hyperbolic periodic-orbit continuation and continuity of positive multipliers.
-## Originality (PASS under inspected sources)
-The 2026 Al Dowais–Stoyanov theorem proves a sufficient anisotropy regime for separation with respect to Gibbs measures; it does not assert opposing directional orderings on a period-two and period-three pair for weaker anisotropy. Its general reflection cocycle provides tools but does not state or imply the new sign reversal without the new special-orbit geometric comparison. Their spherical predecessor cannot determine the anisotropic crossing. The nearest published large-flattening expansion addresses asymptotic anisotropy rather than this finite boundary. Database searches did not reveal an equivalent phase diagram; lack of a retrieved hit alone is not a novelty guarantee.
-## Value (PASS)
-The two shortest natural symbolic cycles provide conflicting polarization tests for the **same** open billiard. The exact \(2/\sqrt3\) transition is independent of scatterer scale, and the opposing signs persist on open sets. This supplies a meaningful obstruction to global directional domination that is invisible to sufficiently-large-flattening comparisons and relevant when choosing assumptions for hyperbolic splitting theorems.
-## Residual risks
-General periodic-ray linearization is classical; a less visible source may already isolate this specific three-bounce crossing. The conclusion does not concern all invariant/Gibbs measures and does not rule out noncanonical dominated splittings. Independent priority and mathematical audits are pending.
-Self-review: passed. Independent audit: not yet performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For the explicit equilateral no-eclipse scatterers, the normal-incidence two-bounce ray and centroid-facing three-bounce ray satisfy exact specular reflection (incidence c=√3/2). The equatorial ellipsoid second fundamental form has principal curvatures 1/r and β²/r. Projecting displacement to ray-normal sections yields planar kick 2/(rc) and vertical kick 2β²c/r; free flight shear and kick have symplectic trace 2+ℓψ. Thus per-collision positive log multipliers are arcosh(1+ℓψ/2) for each periodic ray. Comparisons give β>1 in the 2-cycle and β<2/√3 opposite ordering in the 3-cycle, independent of D/r. Strict gaps obstruct a fixed canonical dominated line ordering, persist under small scatterer perturbations; numerical independent test at both sides and exact crossing corroborated. This does not rule out all other dominated splittings or Gibbs-measure orderings.
+
+## originality
+
+PASS
+
+Prior same-family Al Dowais–Stoyanov results analyze Lyapunov separation for Gibbs measures at sufficiently strong anisotropy and establish reflection geometry; published SCOPE large-β expansion and repaired strong-β gap do not supply opposite periodic-orbit ordering in weak flattening or the sharp β=2/√3 two-itinerary crossing. Full 2026 article was not independently accessible; qualification and actual material read recorded.
+
+## value
+
+PASS
+
+A sharp, aspect-ratio-independent polarization crossing for two natural hyperbolic itineraries demonstrates a substantive dynamical obstruction to global *canonical* unstable-line domination on a concrete open-billiard trapped set. This is motivated by existing strong-anisotropy Lyapunov splitting, not an arbitrary parameter grid; claims do not extend to every invariant measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

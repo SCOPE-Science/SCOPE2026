@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite-recruitment accountability theorem
 
-The proof's nonstandard step is the continuation valuation of a vacancy. Conditional on vacancy at the beginning of an epoch, the deterministic marginal per-round cost is \(D(m)=\kappa/[m(m-1)]\). Its epoch sum is \(A D(m)\), and only joint survival and unsuccessful recruitment, of factor \(t(1-\rho_m)\), preserves the vacant state. Iterating gives the **exact infinite** geometric expression \(A D(m)/[1-t(1-\rho_m)]\) because \(t<1\); the algebraic argument covers all allowed real parameters, not a finite simulation.
+# Independent mathematical audit
 
-The included exact-rational program checks the Bellman fixed-point and finite-sum-plus-exact-tail identity for 15,840 parameter combinations across \(2\le n\le11\), and checks the sharp last-two-size inequality across \(3\le n\le12\), producing 260 strict-reversal points on its rational grid. The witness at \(n=3\) has normalized value differences \(-1/40\) for size two and \(+1/10\) for size three. Program requirements: Python 3 standard library. Execute `python3 check_recruitment.py` in the directory containing the extracted program.
+## correctness
 
-Limits: parameter grids are not proofs beyond their tested points; the universal claim is proved analytically in `RESULT.md`. No independent auditor has examined the work. This check does not support equilibrium selection, strategic entry or a rule letting the exploited individual rejoin.
+PASS
+
+PASS. Let D(m)=κ/[m(m−1)] and t=δ^L, A=(1−δ^L)/(1−δ). Vacancy always lasts full epoch then persists with factor t(1−ρ_m), ρ_m=1−(1−p)^(n−m); Bellman Q_m=A D/[1−t(1−ρ_m)] converges since t<1. Nonexploit minus exploit is αtQ_m−dA, giving exact F_m. At grand size ρ_n=0, at n−1 ρ_(n−1)=p. Positivity of denominators yields F_n>F_(n−1) iff (n−2)tp>2(1−t). Exact n3, t3/4,p1,κ=α1,d2/5 gives F2=3/8<d<F3=1/2. n2 and p0 excluded. Assumptions re permanently ineligible exploited delegate and minimum one vacant epoch are essential.
+
+## originality
+
+PASS
+
+PASS with primary-access limitation. Mukhopadhyay–Filos-Ratsikas–Danassis 2026 analyze permanent departure with downward-closed accountability; accessible abstract/source pointers mention recruitment context but no inspected theorem deriving this exact finite-outsider replacement hazard. Joshi club-formation model addresses strategic exclusion/equilibria, not identical one-shot Bellman. A general renewal/recruitment result may already imply the calculation; main same-topic primary full text unavailable in this execution, so priority risk remains explicitly.
+
+## value
+
+PASS
+
+PASS. Provides a sharp, universally quantified and smallest-population realizable reversal of an intuitively monotone accountability-size relation under a natural finite outside-recruitment pool, with exact vacancy Bellman denominator and transfer interval. This is a motivated counterexample/boundary, not a claim of strategic equilibrium or general institutional policy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

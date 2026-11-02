@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproduction
-Use Python 3.9 or later and run `python3 verify.py` from the directory containing the supplied file. No nonstandard dependencies or source downloads are required. The program must print `VERIFY_OK` followed by exact class-character and multiplicity vectors.
+# Independent mathematical audit
 
-The tested complete cubical chain-group dimensions are \((455,1560,1650,520)\). The integer boundary-square test is exact. Sparse elimination modulo three produces boundary ranks \((454,1100,520)\), and an independent modulo-two cross-check yields \((454,1099,520)\). The homological rational upper-bound argument using the surjection onto graph-cycle homology is required in addition to those modular computations; modular elimination alone does not prove the characteristic-zero second-boundary rank. This upper bound is reconstructed in the proof and checked numerically against the finite rank certificate.
+## correctness
 
-For the class order \((1^5),(2,1^3),(2^2,1),(3,1^2),(3,2),(4,1),(5)\), the program verifies the rational \(H_1\)-character \((6,0,-2,0,0,0,1)\), degree-two character \((30,0,-2,0,0,0,0)\), and seven Specht multiplicities \((0,1,1,2,1,1,0)\). It also checks the total Specht dimension of thirty.
+PASS
 
-The code is an exact finite verifier, not a complete automation of the cited graph-discretization theorem or of the topological naturality of the motion-to-graph homomorphism. No independent scientific review is asserted.
+For the once-subdivided K5 the discretized unordered 3-particle cubical complex has 455,1560,1650,520 cells. Independently reconstructed integer boundary squares vanish; exact finite-field ranks at primes 3,5,7 are (454,1100,520). The rational rank of d2 cannot exceed 1100 because the sum-of-particle-motion map surjects onto the six-dimensional H1(K5;Q), witnessed by triangle traversals with the other particles on complementary vertices. The modular lower bound then proves exact rational ranks, Betti (1,6,30,0). Signed cell Lefschetz traces and character orthogonality force H2 S5 character (30,0,-2,0,0,0,0) and multiplicities (0,1,1,2,1,1,0). Exact calculations corroborate, do not replace, discretization theorem and topological surjectivity.
+
+## originality
+
+PASS
+
+Inspected the very close ordered-particle K5 S5 result by Ramos–Yun (2026), the K4/wheel calculations by Maciążek–Sawicki (2019), strengthened Abrams discretization, degree-one graph braid formulas, and a small-graph census. Ordered H2(Conf3(K5)) as an S5 module does not determine H2(UConf3(K5)) without the commuting S3-label action. No inspected source implies the claimed full unordered H2 character; historical priority remains qualified.
+
+## value
+
+PASS
+
+The complete graph K5, smallest nonplanar complete graph, has a canonical automorphism group S5. Its rational unordered three-particle top homology is a natural equivariant topological invariant, not determined by its 30-dimensional rank or lower homology. The complete seven-class character identifies five Specht constituents, a repeated six-dimensional irreducible, and absence of invariants; exact finite-graph classification has independent utility and clear integral and other-particle limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

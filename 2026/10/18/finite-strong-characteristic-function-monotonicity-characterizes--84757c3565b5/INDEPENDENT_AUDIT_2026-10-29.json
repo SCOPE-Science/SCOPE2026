@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T17:02:42.630395Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite integer support choose a=min(supp X) and m=max(supp X)-a. H(z)=Σ_{k=0}^m P(X=a+k)z^k has H(1)=1, positive constant and leading coefficients, and nonnegative intermediate coefficients. Every finite-support tilt with r=e^θ>0 has φθ(t)=e^{iat}H(re^{it})/H(r); therefore all-tilt modulus decrease is exactly angular decrease of |H| on every circle of positive radius. If H had a nonreal zero, conjugation allows an upper-half-plane root z0=r exp(it0), t0∈(0,π). At that tilt |H(re^{it0})|=0 and nonnegative nonincreasing modulus forces zero on [t0,π], impossible for a nonzero polynomial. No nonnegative real zeros because H(s)>0 for s≥0; hence all m roots negative. Factor H(z)=Π_j(λ_j+z)/(1+λ_j), λ_j>0, giving independent Bernoulli(q_j), q_j=1/(1+λ_j) strictly between 0,1. Conversely tilt updates each q to rq/(1-q+rq), and d/dt |1-q+qe^{it}|^2=-2q(1-q)sin t<0 on (0,π); factors have positive modulus there, so the total product is strictly decreasing. Case m=0 is a point mass and vacuous product. Degree two: |p0+p1e^{it}+p2e^{2it}|^2 is quadratic in u=cos t, derivative 2p1(p0+p2)+8p0p2u; nonincrease on [0,π] iff p1(p0+p2)≥4p0p2, whereas strong iff discriminant p1^2−4p0p2≥0. Exact example (8,7,2)/17 satisfies former (margin 6) but not latter (discriminant -15); tilt r=2 yields (4+7z+4z²)/15 with root (-7+i√15)/8 on unit circle and nonzero value 1/15 at z=-1. All quantifiers and support-gap boundaries handled. Independent symbolic calculation and 4096 positive-weight triple tests corroborate the algebra, but all-degree theorem is established analytically, not by finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aamand et al. Theorem 3.2 controls tilted point probabilities for an arbitrary strongly monotone summand but assumes, rather than classifies, its strong monotonicity.",
+          "Tang–Tang Theorem 4.1 characterizes real-rooted positive generating polynomials; no all-tilt Fourier condition is a hypothesis or conclusion.",
+          "Resultary/2026 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda (read complete RESULT.md, Git blob 7f587750eefb21b6cd8a0d9e858b2e03eb6a4285) assumes independent Bernoulli summands throughout."
+        ],
+        "reasoning": "Aamand covers infinite-support geometric/Poisson examples but does not give a finite-support necessity statement. A stronger theorem on general stable polynomial angular moduli could subsume the zero obstruction, but none was found in inspected primary texts. A cumulant theorem assuming a Poisson-binomial law cannot classify all strongly monotone finite laws.",
+        "searches": [
+          "web: real-rooted probability generating polynomial characteristic function monotone tilt",
+          "web: Pólya frequency distributions strongly monotone characteristic function",
+          "web: monotonicity of absolute value characteristic function Poisson binomial converse finite support",
+          "web: polynomial modulus angularly decreasing all circles radius roots negative real"
+        ]
+      },
+      "checked_sources": [
+        "Aamand, Alon, Houen, Thorup, On Sums of Monotone Random Integer Variables, Electronic Communications in Probability 27 (2022), DOI 10.1214/22-ECP500, author PDF read",
+        "Wenpin Tang and Fengmin Tang, The Poisson Binomial Distribution—Old & New, arxiv:1908.10024, §4 Theorem 4.1 and Cor. 4.2 read",
+        "Classical Aissen–Schoenberg–Whitney/Edrei PF real-root equivalence as given in Tang–Tang; 1952 original not directly inspected",
+        "Resultary/2026 cumulant effective-trial hierarchy, complete RESULT.md read",
+        "Resultary/2026 three-point kurtosis phase diagram, complete RESULT.md read",
+        "Three Resultary semantic queries and targeted web queries under angular-modulus/all-tilt/real-root/PF aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aamand et al. Lemma 3.1: Bernoulli ⇒ strongly monotone; addition/product closure gives sums of Bernoulli ⇒ strongly monotone.",
+          "Tang–Tang Theorem 4.1: negative-real-root PGF ⇔ Poisson-binomial.",
+          "Neither cited source proves strongly monotone finite law ⇒ no nonreal root. The audited necessity argument uses a root at z=r exp(it) and the all-radius angular monotonicity to force infinitely many zeros.",
+          "Direct symbolic computation gives ordinary three-atom threshold p1(p0+p2)≥4p0p2 and strong threshold p1^2≥4p0p2."
+        ],
+        "reasoning": "The conjunction of the two established prior statements proves only negative-real-roots/PB ⇒ all-tilt monotone. It cannot supply the converse without the zero-on-a-semicircle observation. The example (8,7,2)/17 shows ordinary monotonicity is weaker and is independent of prior PB factorization.",
+        "searches": [
+          "Aamand Alon Houen Thorup 2022 strongly monotone Lemma 3.1 Theorem 3.2",
+          "Tang Tang Poisson binomial Old New theorem 4.1",
+          "Resultary semantic search: finite support all exponential tilts characteristic modulus real roots"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H(rz)/H(r) is the PGF of the tilted law. Angular modulus monotonicity for every positive radius r rules out any nonreal root of H, because a zero at an interior angle forces zero on an arc.",
+          "Tang–Tang arXiv:1908.10024, §4 Theorem 4.1: finite probability polynomials with negative real roots are exactly PB/PF sequences.",
+          "Aamand et al. doi:10.1214/22-ECP500, §1 and Lemma 3.1: strongly monotone includes Bernoulli law; no finite-support converse in the inspected relevant text."
+        ],
+        "reasoning": "Aliases are Pólya-frequency/strongly-Rayleigh distributions and negative-real-root probability polynomials. Existing equivalences cover negative roots ⇔ Bernoulli convolution, not angular monotonicity under all positive radial dilations ⇒ negative roots. The reverse implication is established by the audited polynomial-zero argument, not inferred from a search failure.",
+        "searches": [
+          "Resultary: Finite-support integer random variables with all exponentially tilted characteristic function moduli monotone on [0,pi], equivalent to real-negative-rooted probability generating polynomial and sums of independent Bernoulli variables",
+          "Resultary: Poisson binomial strong monotonicity characteristic function every tilt angular modulus negative real zeros polynomial",
+          "web: finite support strongly monotone integer variables polynomial roots converse characterization Poisson binomial",
+          "web: polynomial modulus angularly decreasing all circles radius roots negative real"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary/2026 2026/10/4/SCOPE-complete-kurtosis-phase-diagram-for-three-point-laws-with-fixed--4ff414e28fa1 (read full RESULT.md, Git blob 82f0f81d65443a44eb2ad0103fb15d902bc7ff22) concerns kurtosis optimized over support spacings at fixed masses, not Fourier angular monotonicity.",
+          "The three-atom inequalities are symbolic discriminant/derivative comparisons; the theorem is all degrees and is not a table lookup."
+        ],
+        "reasoning": "An all-degree probability-law equivalence is not determined by a finite numeric table. Published exact three-atom kurtosis records concern a different statistic and do not imply the characteristic-modulus inequalities. No exact table giving this criterion was located; this absence is not used as a novelty proof.",
+        "searches": [
+          "Resultary: Three-point random variable ordinary monotonicity p1(p0+p2)>=4p0p2 but strong monotonicity p1 squared >=4p0p2",
+          "web: three point discrete distribution characteristic function modulus monotone not strongly monotone",
+          "published Resultary 2026/10/4/SCOPE-complete-kurtosis-phase-diagram-for-three-point-laws-with-fixed--4ff414e28fa1"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Aamand–Alon–Houen–Thorup define tilted strong monotonicity and prove sufficiency for Bernoulli, geometric and Poisson laws (Lemma 3.1), but their Theorem 3.2 concerns local probabilities under the assumption, not an inverse theorem. Tang–Tang Theorem 4.1 (Aissen–Schoenberg–Whitney/Edrei) characterizes finite negative-real-root PGFs as Poisson-binomial but does not equate this with the all-tilt angular modulus criterion. The new necessity is the zero-on-every-radius-semicircle contradiction, and the three-atom ordinary/strong boundary is distinct. Read the relevant full paper sections and compared published related results; priority is not absolutely certified.",
+      "residual_risks": [
+        "A classical complex-polynomial modulus theorem phrased via radial/angular monotonicity or Pólya frequency sequences could imply the necessity without the terminology strongly monotone; searches are not a completeness guarantee.",
+        "The 1952 Aissen–Schoenberg–Whitney original was not inspected in full; its negative-root equivalence is accounted for via Tang–Tang, but an unstated stronger modulus characterization cannot be excluded absolutely.",
+        "Resultary semantic rankings and web results may omit prior literature under alternative terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bernoulli, geometric, Poisson sufficiency and tilted point-probability estimates present. No stated finite-support inverse classification or three-point ordinary-versus-strong threshold in examined material.",
+          "evidence": [
+            "p.2 definition of strong monotonicity",
+            "p.6 Lemma 3.1",
+            "p.7 Theorem 3.2 and example",
+            "pp.3–5 analytic local estimates"
+          ],
+          "identifier_or_url": "doi:10.1214/22-ECP500; arxiv:2104.03721; https://web.math.princeton.edu/~nalon/PDFS/sumofmon1.pdf",
+          "material_read": "Full eight-page manuscript structure: definitions/introduction pages 1–2, analytic bound and examples pages 3–5, Section 3 Lemma 3.1, Theorem 3.2 and applications pages 6–8. In particular examined pages 2 and 6 as page images, and relevant page text across all eight pages.",
+          "method": "Author-manuscript full-PDF page/section reading with visual page inspection",
+          "title": "On Sums of Monotone Random Integer Variables",
+          "trigger": "Introduces the exact monotone/strongly-monotone definitions and proves the cited sufficiency."
+        },
+        {
+          "assessment": "Proves negative-real-root PGF iff Poisson-binomial/PF; does not state the all-exponential-tilts Fourier-modulus condition, so does not itself cover its necessity.",
+          "evidence": [
+            "§4 Theorem 4.1, p.8",
+            "§4 Corollary 4.2, p.8",
+            "discussion of Newton/logconcavity in p.9"
+          ],
+          "identifier_or_url": "arxiv:1908.10024; https://arxiv.org/pdf/1908.10024",
+          "material_read": "Introduction and Section 4 (pp.8–9), Theorem 4.1 and Corollary 4.2, surrounding PF and strongly Rayleigh discussion; inspected page 9 image.",
+          "method": "arXiv open-access primary survey PDF page-text and page-image reading",
+          "title": "The Poisson Binomial Distribution—Old & New",
+          "trigger": "Classical possible dominating theorem equating real negative roots with Bernoulli convolution."
+        },
+        {
+          "assessment": "Assumes a sum of independent Bernoulli variables and develops cumulant bounds; no converse test for strong monotonicity.",
+          "evidence": [
+            "W=Σ independent Bernoulli in statement",
+            "N3,N4 hierarchy and cumulant consequences"
+          ],
+          "identifier_or_url": "Resultary/2026 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda, blob 7f587750eefb21b6cd8a0d9e858b2e03eb6a4285",
+          "material_read": "Complete RESULT.md with statement, proof, sharp moment inequalities, limitations and references.",
+          "method": "GitHub frozen research text read",
+          "title": "Cumulant effective-trial hierarchy for Poisson-binomial laws",
+          "trigger": "Closest published SCOPE record surfaced by semantic search in same Bernoulli-sum family."
+        },
+        {
+          "assessment": "Optimizes the fourth standardized moment over locations of three atoms; no characteristic-function monotonicity condition or all-degree law classification.",
+          "evidence": [
+            "κ(X) and fixed masses are the invariant",
+            "support points (0,t,1) variable"
+          ],
+          "identifier_or_url": "Resultary/2026 2026/10/4/SCOPE-complete-kurtosis-phase-diagram-for-three-point-laws-with-fixed--4ff414e28fa1, blob 82f0f81d65443a44eb2ad0103fb15d902bc7ff22",
+          "material_read": "Complete RESULT.md, its extremal kurtosis identities and scope.",
+          "method": "GitHub research text read",
+          "title": "Complete kurtosis phase diagram for three-point laws with fixed masses",
+          "trigger": "Same three-atom probability parameters, possible known exact inequality."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The property is the actual finite-support hypothesis used in sharp local and tilted point-probability estimates, not an arbitrary coefficient experiment. A complete if-and-only-if classification reveals that this apparently broader hypothesis imposes exactly the Poisson-binomial/Bernoulli-convolution structure for bounded integer laws; it excludes any further finite-support distributions and provides a directly applicable criterion in terms of generating-polynomial roots. The three-atom ordinary-versus-strong inequality gives an exact diagnostic of why the weaker Fourier condition is insufficient. The proof is short and uses classical factorization, but the natural converse classification and sharp separation are substantive mathematical information not supplied by the cited sufficiency lemma or a mere reparameterization. No infinite-support classification or improvement in local-limit constants is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Aamand, Alon, Houen, Thorup, On Sums of Monotone Random Integer Variables, Electronic Communications in Probability 27 (2022), DOI 10.1214/22-ECP500, author PDF read",
+    "Wenpin Tang and Fengmin Tang, The Poisson Binomial Distribution—Old & New, arxiv:1908.10024, §4 Theorem 4.1 and Cor. 4.2 read",
+    "Classical Aissen–Schoenberg–Whitney/Edrei PF real-root equivalence as given in Tang–Tang; 1952 original not directly inspected",
+    "Resultary/2026 cumulant effective-trial hierarchy, complete RESULT.md read",
+    "Resultary/2026 three-point kurtosis phase diagram, complete RESULT.md read",
+    "Three Resultary semantic queries and targeted web queries under angular-modulus/all-tilt/real-root/PF aliases"
+  ],
+  "disposition": "passed",
+  "limitations": {
+    "originality_priority": "Classical angular-modulus polynomial characterization may exist under other wording, and original 1952 PF paper was not read in full. Best-of-knowledge PASS is not a priority guarantee.",
+    "publication": "Original record includes a nonpublic provenance field in AUDIT.json and METADATA.json. Two sanitized complete JSON replacements are prepared with actual blob SHA guards; no scientific RESULT or SLOGAN edit and no repository or dispatcher writes.",
+    "scientific": "Finite nonempty integer support only. No classification of infinite-support strongly monotone laws; all exponential tilts essential. The constant law and nonconsecutive initial supports are explicitly covered."
+  },
+  "schema_version": 1
+}

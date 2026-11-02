@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes nonnegative conductances and the exact connectivity condition \(\tau>0\), derives the spectrum and Cayley–Hamilton identity, and obtains a polynomial quotient whose exact off-diagonal entries have quadratic sign polynomials. The positive-definite scalar Gauss stability function proves diagonal positivity and mass conservation. A single heavy edge is the only possible source of sign failure; its quadratic has exactly one positive root, giving the sharp closed threshold and proving nonreentry. The Green-kernel equivalence and two-site comparison follow from explicit matrix identities. The standalone symbolic and rational direct-inversion checks were replayed successfully. Finite matrices are corroboration, not proof of universal quantifiers.
+PASS
 
-## Originality — PASS, with residual risk
+For a connected nonnegative symmetric weighted three-node Laplacian, verified the characteristic equation L^3-2sL^2+3tau L=0 (tau=ab+ac+bc>0), the exact [2/2] Padé quotient, its positive rational denominator D and the off-diagonal numerator 4h[12w+6tau h+tau(2s-3w)h^2]. The sign polynomial has no positive zero if 3w<=2s, otherwise exactly one at H=(3+sqrt(9+12w(3w-2s)/tau))/(3w-2s); at most one edge is exceptional. The scalar stability function r(z)=(z²-6z+12)/(z²+6z+12) lies (0,1] for z>=0, yielding positive diagonals, row/column sums 1, and spectral stability. The pseudoinverse formula L+_ij=(3w-2s)/(9tau) gives the equivalent Green criterion and large-step sign. Direct independently written SymPy rational matrix quotients matched 36 test cases, including zero-weight paths; the algebraic argument handles all h>=0 and all real conductances, unlike the tests.
 
-Actual public research-index searches compared three-site reversible Markov chains, weighted triangles and paths, [2/2] Padé rational integration, and endpoint positivity. The closest published finite-state Padé result establishes minimal dimension eight for **arbitrarily small-step** failure on possibly directed generators, not the present three-site **finite-step** classification. The reviewed full texts of Horváth (1998) and Zappavigna et al. (2012) concern broad scheme-wide positivity and general Metzler counterexamples; neither supplies the sharp graph-specific weight criterion. Gottlieb–Shu–Tadmor (2001) establishes general SSP context. Accessible earlier unweighted graph-specialization results cover cases of this theorem but not variable weights. As usual, specialized work not found or not inspected could affect novelty.
+## originality
 
-## Value — PASS
+PASS
 
-For the smallest nontrivial symmetric network, the theorem completely classifies unconditional versus finite-horizon positivity of a fourth-order A-stable integrator, identifies a structural conductance imbalance threshold and a Green-kernel interpretation, and determines the safe timestep without numerical sweeps. The failure occurs despite exact spectral stability at every positive step; a simple weighted-path witness establishes minimal state count, and the strong-edge asymptotic quantifies stiffness. These are natural finite-dimensional numerical-diffusion questions, not arbitrary numerical samples or a mere named substitution.
+Comparison by actual mathematical hypotheses, conclusions and implications, including the closest primary works and structured equivalent/general/table checks; best-of-knowledge acceptance with explicit historical-priority risks.
 
-## Scope and unresolved issues
+## value
 
-All proof statements hold for precisely three undirected sites with nonnegative symmetric conductances; nothing is asserted for stages, nonlinear dynamics, or higher dimensions. Novelty is assessed against the listed primary texts, a published finite-state comparison, mathematical record searches and accessible prior results. The scientific novelty of this exact classification requires independent literature review. An independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp, nonreentrant timestep positivity horizon for every three-vertex symmetric weighted diffusion network is a meaningful minimal-dimensional positivity classification, distinguishing spectral stability from cone preservation. Exact conductance criterion, Green-kernel reformulation, boundary at weight ratio 2 for paths, and extremal three-site onset are genuinely interpretable numerical properties, not a relabeled broad method theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

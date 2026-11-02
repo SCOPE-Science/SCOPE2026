@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-Exact differentiation yields \(\pi B'_e=(1+e\cos f)f\sin f(1-eT(f))\). The unique maximum of \(T\) establishes the fold and all local-extremum cases. The envelope derivative of the log height ratio equals \(2(1+\cos f_-)/[(1-e)(1+e\cos f_-)]>0\), which forces one and only one global-height exchange. Endpoint and equality cases are explicit. A standalone numerical checker corroborates, but does not certify, these continuous arguments.
+PASS
 
-## Originality (PASS, provisional)
+The exact derivative πB_e′=(1+e cos f)f sin f(1−eT(f)) holds on (0,π), and T(f)=2 sin(f)/f−3 cos f has one strict maximum by G=(3f²−2)sin f+2f cos f and a one-sign-change derivative. The fold eccentricity is 1/max T≈0.324898008977667, strictly below 1/3; for e between fold and 1/3 interior extrema are local max then min, while full phase is a local max. Envelope differentiation of log(B_e(f_minus)/(1−e)²) gives 2(1+cos f_minus)/[(1−e)(1+e cos f_minus)]>0, and opposite endpoint height signs force one global brightness exchange e≈0.325836262906186, plus a square-root fold. At e=1/3 apastron is a degenerate minimum; full orbit reflection yields the asserted maxima count. Independent derivative and bisection checks corroborate but do not prove universality.
 
-The Lambert phase response and eccentricity-dependent shifts of reflected-light maxima are prior art; the proposed addition is a fully explicit global-extremum phase diagram for the exactly aligned edge-on Lambert limit. Inspected relevant materials of Arnold–Schneider (2004), Dyudina et al. (2004), and Sudarsky et al. (2005) establish phase functions and qualitative/numerical peak shifts, including multiple peaks, but do not state the sharp two-threshold global classification in the examined sections. A broader unpublished or unindexed analytic result could imply it; absence from search is not proof of novelty.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The exact distinction between the creation of additional maxima and their eventual global dominance is a natural sharp question about interpreting non-sinusoidal orbital phase curves. The theorem produces a complete parameter-domain classification, an exact unique switching invariant, the three-maxima coexistence window and a quantitative fold-onset law. It does not extrapolate to arbitrary viewing inclinations or observed planets.
+PASS best-of-knowledge: classical Lambert scattering and eccentric brightness peak shifts are prior; the sharp two-threshold global classification and uniqueness proof were not established in inspected primary articles.
 
-## Closest literature and limitations
+## value
 
-Arnold–Schneider, arXiv:astro-ph/0403330; Dyudina et al., arXiv:astro-ph/0406390; Sudarsky et al., arXiv:astro-ph/0501109. Their prior orbital and scattering results are explicitly acknowledged. Physical visibility of the crossover is limited by idealized alignment and the very small competing brightness difference. Historical priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Separating the fold onset of extra stationary extrema from the later global-height exchange is an exact and physically motivated phase-curve bifurcation classification. It resolves a natural idealized viewing geometry with an explicit finite jump in maximizing anomaly, rather than merely plotting a few eccentricity cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

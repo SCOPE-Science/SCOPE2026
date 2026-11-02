@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The update polynomial equals precisely the eight Moore neighbours, with no center term. For circumferences \(5k\) and \(5\ell\) where \(k,\ell\) are powers of two, the proof has 25 genuine local algebra factors. The five-root trace calculation has one trivial and eight cross-trace zero factors. In the nontrivial factors, a unit linear coefficient constructs \(L\) Jordan chains of length \(K\) each; at the trivial factor, the quadratic vanishing constructs \(2L\) chains of length \(K/2\), or one size-one block at \(K=1\). The resulting exact rank sequences were checked independently by direct binary matrix elimination in a standalone verifier. The finite tests are not used as a substitute for the proof across all exponents.
+## correctness
 
-## Originality — PASS with historical limits
-Martin–Odlyzko–Wolfram (1984), Section 4D, supplies the general two-dimensional periodic additive-polynomial framework, and Ekhad–Sloane–Zeilberger (2015) gives the *same* Moore XOR local multiplier as Odd-rule 757. These are explicit antecedents, not renamed new contributions. The inspected 1984 text does not evaluate the specific two-scale Jordan blocks, and the inspected 2015 paper focuses on infinite-lattice single-seed population growth. Relevant periodic ternary axial-offset work and mixed-boundary Moore matrix work were also compared. Searches of the exact formula, algebraic equivalences, published records and earlier nearby grid-rule claims found no claim implying the entire fifth-root transient census. Residual risk: an unindexed equivalent or a result not recovered in available full texts may exist.
+PASS
 
-## Value — PASS
-A natural classical eight-neighbour cellular automaton displays a pentagonal resonance that leaves a \(16k\ell\)-dimensional recurrent subspace while forcing two distinct nilpotent Jordan lengths. The theorem explains exactly how transient depth and the fraction of maximal-depth configurations vary over an unbounded, arithmetically natural family of square and rectangular tori. These dynamical quantities are not just reformulations of the known single-seed growth sequences or an isolated small-grid computation.
+The eight-neighbour F2 torus update is multiplication by f=(1+x+x^{-1})(1+y+y^{-1})+1 in the group algebra. Because 5 and 2 are coprime, x^{5k}−1,y^{5l}−1 decompose into 25 local nilpotent-thickened fifth-root factors, each dimension kl. The fifth-root trace values are 0 once, α twice, β twice with α+β=αβ=1; exactly nine factors have f's constant term zero, and sixteen are units. For K=max(k,l), L=min(k,l), in eight nontrivial zero factors f has a simple uniformizer in a coordinate of length K, giving L Jordan blocks size K per factor. At (1,1), f's leading terms are quadratic u² and v²; for K≥2 this gives 2L blocks size K/2; K=1 is separately one size-one block. The nine nilpotent local factors yield dimension 9kl, Fitting decomposition all transient kernel counts and 2^(16kl) recurrent states. Independent GF2 bitset ranks on 5 tori (up to 10×20) matched every predicted iterate; finite ranks are corroboration, algebra proves all dyadic k,l.
 
-## Scientific limitations
-The result does not classify primitive periodic orbit lengths on the recurrent component, nor all possible periods or non-dyadic torus dimensions. Research-level historical coverage is not exhaustive; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 1984 Martin–Odlyzko–Wolfram polynomial method gives general 2D additive CA framework, and the 2015 Ekhad–Sloane–Zeilberger odd-rule 757 identifies precisely the Moore-neighborhood polynomial on infinite grid from one active cell. Neither inspected result computes all-state nilpotent Jordan partitions or sharp preperiod census for 5·2^a by 5·2^b tori. The submitted fifth-root resonance/local Artinian-ring computation is a specific new exact structural invariant, with a possible obscure finite-torus tabulation priority risk.
+
+## value
+
+PASS
+
+The explicit full Jordan decomposition, recurrent subspace size, transient cutoff and complete time-by-time census for a natural periodic family of a classical cellular-automaton rule are mathematically motivated finite-dynamics invariants. The two different nilpotent ladder scales reflect a genuine pentagonal resonance and are not supplied by simple eigenvalue counting or the infinite-grid odd-rule growth series.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

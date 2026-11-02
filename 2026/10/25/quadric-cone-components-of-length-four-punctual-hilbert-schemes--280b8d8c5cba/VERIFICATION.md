@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The mathematical proof classifies *all* length-four local quotients by Hilbert function. It then checks the curve equation by substituting the universal curvilinear parametrization into its cubic initial form and constructs each projective closure explicitly from six Plücker minors. Completeness, boundary incidence, and motivic additivity follow from those steps. The proof concerns reduced underlying varieties only.
+## correctness
 
-`verify.py` performs symbolic Plücker-coordinate identities and a separate exact finite-field rank/ideal enumeration for \(f=xy(y-x)\) over \(\mathbb F_3,\mathbb F_5,\mathbb F_7\). It produces `PLUCKER_QUADRIC_OK`, `FINITE_FIELD_OK` with totals \(40,106,204\), then `VERIFY_OK`. These are bounded checks, not proofs for every complex germ; the all-germ result follows from the argument in `RESULT.md`.
+PASS
 
-The literature comparison includes the known \(E_6\) motivic fourth coefficient, which already appears in Watari's work. No independent audit, external formal certification, or scheme-theoretic nilpotence computation is claimed.
+PASS. A colength-four local quotient of embedding dimension ≤2 has Hilbert function (1,1,1,1) or (1,2,1). Noncurvilinear ideals contain m³ and form hyperplane P² in m²/m³; every such ideal contains f. Curvilinear charts v=Bu²+Cu³ (length4) must align with zero of f3; one A² for each distinct tangent. Exact 2-plane Plücker minors (0,−B,1,B²,−B,−C) yield quadric cone X0X2=X1², boundary X0=X1=0; boundary ideals are those with ell² in I. Distinct lines in central P² correspond to Veronese squares of distinct tangent equations, hence 3 nonconcurrent. Curvilinear/noncurvilinear strata exhaust all points; reduced underlying variety components and motive follow. No scheme-theoretic nilpotents asserted.
+
+## originality
+
+PASS
+
+PASS, limited by inaccessible plausible primary coverage. General local Hilbert classifications and Rossinelli curvilinear motive framework supply substantial known ingredients; Watari already gives the r=1 E6 fourth motivic coefficient. The submitted uniform geometric cones, boundaries and intersections for all multiplicity-three germs are not entailed by that isolated coefficient or standard ambient Hilbert-function classification. Rossinelli full text could not be independently retrieved, so only accessible material was compared and its possible stronger implication remains a stated risk.
+
+## value
+
+PASS
+
+PASS. Length four is the first interaction of a two-dimensional noncurvilinear locus with tangent-indexed curvilinear surfaces at a triple plane point. The full component geometry, attachments, and triangle incidence give a natural explicit model beyond a known single motivic coefficient; useful in singular curve Hilbert schemes and motivic stratifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The theorem is quantified over all positive real element lengths and nonnegative time steps on exactly six periodic cells. The two factorized rational entries give separate necessity certificates for \(a^2/6\) and \(b^2/6\), with strictly positive denominators and co-factors; the symmetric, strictly diagonally dominant Stieltjes character of the assembled matrix proves sufficiency. The special case \(\tau=0\) gives the identity operator. The six-element matrices and an exact rational checker are included for reproducibility; finite checks are not substituted for algebraic identities.
+PASS
 
-## Originality
+For a six-element periodic P1 heat FEM mesh with alternating edges a,b, consistent mass M has offdiagonal h/6, stiffness K offdiagonal -1/h. For tau>0, independent exact 3-mode cyclic Fourier reduction of 6x6 D=M+tau K verifies P_{0,2}=2tau(6tau-a²)(ab+b²+6tau)/H and P_{0,4}=2tau(6tau-b²)(a²+ab+6tau)/H, H=(ab+6tau)(ab+12tau)(a²+3ab+b²+6tau)>0. Hence positivity forces tau>=max(a²,b²)/6. Conversely at or above threshold offdiagonals D<=0, strict row diagonal dominance by D1=M1>0, so D inverse nonnegative M matrix and P=D^-1M>=0; tau=0 gives identity. Six independent exact rational 6x6 inversions and fully symbolic mode decomposition confirm both entries. The proof covers every a,b>0 including equal case and endpoint equality.
 
-PASS on checked literature, with residual coverage uncertainty. Li–Huang (arXiv:1209.5657, Theorem 3.1) provides the sufficiency criterion but not its necessity on this six-cell alternating periodic mesh. The nearest related earlier analyses include consistent-mass maximum principles on nonuniform meshes; their exact treatment of this finite family was not exhaustively established. A symmetric six-cell alternating-*diffusivity* calculation on equal-length cells concerns a different mass matrix and does not imply the asserted variable-length result. No claim is made of uniqueness across all published literature.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The six-cell alternating grid is the smallest periodic three-repeat example, separating genuine spatially heterogeneous mesh effects from the exceptional four-cell period-two case. It yields an exact, contrast-uniform sharpness test for the classical sufficient time-step bound and identifies explicit negative transition entries below the boundary, directly relevant to using consistent-mass heat solvers on deliberately graded periodic grids. An exact self-contained finite-model theorem is retained without claiming a general theorem for longer meshes.
+The mesh-dependent lower-step M-matrix maximum-principle condition is classical, notably Li–Huang Theorem 3.1. The exact necessity for the six-element alternating periodic mesh is a distinct sign calculation. Inspected general theorem supplies sufficient condition only; no identified prior exact same six-cell necessity table. Best-of-knowledge PASS with risk of older specialized FEM analyses.
 
-## Closest literature and limitations
+## value
 
-The reviewed full text is Li–Huang, *Maximum principle for the finite element solution of time dependent anisotropic diffusion problems*, arXiv:1209.5657 (2012), notably Theorem 3.1. It supplies only a sufficient condition. Literature-based overlap uncertainty remains for earlier one-dimensional Green-function studies. The finding does not claim a classification beyond six elements. The identified uncertainty does not affect the reproduced matrix identities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp positivity-preservation frontier for the smallest meaningful three-period alternating mesh tests necessity of a widespread sufficient maximum-principle condition. The exact negative nonadjacent entries detect failure below the boundary for arbitrary mesh contrast and are naturally relevant to preserving physical bounds of heat discretizations. The result is narrow but a complete motivated sharp classification, not a generic textbook M-matrix sufficiency restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

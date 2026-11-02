@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An invertible polynomial transformation over the integers gives the exact equation \(W^2+UV-2t^6\) on each coordinate chart, proving the local Jacobian lengths by elementary ideal reduction. The characteristic-three polar quartic is checked using both charts and the remaining projective boundary; its extra point is shown reduced and disjoint. The characteristic-two ribbon follows from the three global gradient quadrics, their codimension, and local square-zero structure. Exact standalone symbolic checks corroborate the integral identity and sample finite fields. The analysis uses the hypersurface equation in the singular scheme, not only gradients.
+## correctness
 
-**Originality — PASS, qualified.** The normal-form family of complex \(2A_5\) cubic threefolds is published by Cheltsov–Marquand–Tschinkel–Zhang (2025); its coefficient-two member is the same polynomial. The characteristic-two determinantal/ribbon phenomenon is also pre-existing and is not claimed separately. Grieco–Guerrieri–Swanson's (2005) Hankel paper computes the ideals of two-by-two permanents, whereas this calculation concerns the polar base and intrinsic Jacobian singular scheme of the three-by-three permanent. The comparison retains only the all-characteristic modular polar scheme and characteristic-three sixfold intersection behavior as the new point. Searches under Hankel/catalecticant, \(2A_5\) cubic threefold, wild Tjurina, and polar base formulations found no full statement. Unidentified literature in characteristic-three cubic-threefold geometry is the main residual risk; search absence is not a uniqueness certificate.
+PASS
 
-**Mathematical value — PASS.** The classification determines the entire polar-base geometry and intrinsic singular scheme of a canonical permanent-defined cubic in *every* characteristic. In characteristic three the polar base gains an entire rational normal quartic not contained in the hypersurface, and the intersection creates two curvilinear length-six schemes. This is a structural degeneration of a natural projective invariant rather than a minor numerical improvement or arbitrary example. The characteristic-two ribbon and characteristic-zero two-point model supply necessary comparative boundaries.
+Exact integral triangular coordinates on a=1, t=b, U=c+b², W=d+bc and V=e+U²-4b²U+5b⁴ give F=W²+UV-2t^6; reversing coordinates treats e=1. Differentiation produces (U,V,W,t^5) for p!=2,3 and (U,V,W,t^6) as intrinsic singular ideal in p=3; in p=3 gradients alone give a reduced line/C_- plus isolated reduced Q off cubic, and F restricts to -2s^6t^6 on C_- (thus 6Pa+6Pe). In p=2, global gradients are three quadrics, complete intersection (2,2,2) with local k[t,W]/W², Hilbert 8m-4, genus5. No geometric singular point with a=e=0; hypersurface is irreducible/normal by gcd and R1+S2. Independent SymPy expansion verified exact integral identity, quartic restriction and both Groebner ideal inclusions in p=2,3,5,7; finite checks cannot certify all characteristics or scheme support, which follow from proofs.
 
-**Limitations.** The characteristic-zero and characteristic-two ingredients have important antecedents. The general characteristic-three statement could be implicit in literature under another normalization. Finite-field spot checks cannot establish scheme equality over algebraic closures; the coordinate proof does. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared actual invariant and mathematical implications rather than names. Examined closest primary materials, cited known premises/special cases, and preserved priority risks; no decisive equivalent or dominating all-scope theorem found within checked sources.
+
+## value
+
+PASS
+
+The permanent of the smallest nontrivial Hankel 3x3 matrix is a canonical cubic threefold; polar base versus intrinsic singular scheme is geometrically fundamental exactly when characteristic divides degree. The p=3 reduced polar quartic largely outside the cubic and its length-six intersections are substantive structural degeneration and full characteristic boundary classification, not merely a textbook Jacobian calculation or arbitrary coordinate example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

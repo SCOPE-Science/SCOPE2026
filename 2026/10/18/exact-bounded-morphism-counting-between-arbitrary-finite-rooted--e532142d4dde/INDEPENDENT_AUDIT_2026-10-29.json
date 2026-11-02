@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:07:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every nonempty finite unordered rooted tree T,U, with xRy iff y lies in the inclusive descendant cone, the forth/back condition is exactly f(T_x)=U_{f(x)}. A surjective map must send the root to the target root and the root-fixed condition is sufficient for surjectivity. Given s->t, child c->u must have u in U_t and its cone image is U_u. An immediate child v of t lies in U_u precisely when u=t or u=v. Thus missing a nonempty set J of target children forbids u=t and u in J, yielding B_c(t,J) =A_c(t)-F_c(t)-sum_{v in J}F_c(v), while J=empty gives A_c(t). Independent child-cone choices and inclusion-exclusion give the displayed F_s(t) recurrence with an empty product of 1. Induction on source cones proves all states. A source leaf maps to a leaf target with count 1, to a nonleaf target with count 0; one-node target admits exactly one constant map from any source. The root-fixed count N(T,U)=F_root(T)(root(U)) covers all surjective maps, including equal-order automorphism boundary. A_c subtree sums take O(m) per source state, while enumerating child subsets in target-degree Delta takes O(|children(s)| Delta 2^Delta) per (s,t); sum over source edges yields O(n m max(1,Delta) 2^Delta) big-integer operations and O(nm+2^Delta) integer cells (streamed). The source script was read, its two DPs and independent direct-check source were inspected. A separate implementation compared direct cone-image enumeration, positive coverage states and inclusion-exclusion for 196 rooted-shape pairs, corresponding to 62,778 root-fixed functions, plus 81 star pairs and binary-to-chain heights 0–4. All passed. Finite checks corroborate, not replace, the induction; counts and bit costs are not unit-time machine complexity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Resultary weak-order theorem gives O(hk^2) counts for continuous order-preserving maps between ordinal sums of antichains; it does not impose local back conditions or cover arbitrary tree branching; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-cardinality-recurrence-for-mapping-spaces-between-finite-w--1cee64311a06/RESULT.md",
+          "Akutsu et al., Theoretical Computer Science 883 (2021), Theorem 1: O(d 2^d m n^2) for unordered tree inclusion of node-labeled patterns by injective ancestor-respecting maps; https://doi.org/10.1016/j.tcs.2021.06.013",
+          "Gittenberger et al., Electronic Journal of Combinatorics 29(3) (2022), Theorems 1–4: generating functions and asymptotics of embeddings into families of binary rooted trees, not quotient counts for a fixed pair; https://arxiv.org/pdf/2008.08312"
+        ],
+        "reasoning": "The apparently broader finite weak-order formula handles a distinct class of domains/codomains and all monotone maps; it cannot directly recover local onto-cone constraints for arbitrary rooted trees. The tree-inclusion and embedding bounds address injections, not surjective p-morphisms; target/source roles and objects differ.",
+        "searches": [
+          "Resultary search: counting homomorphisms full back-and-forth surjective modal bounded morphisms ordered trees fixed parameter branch degree",
+          "Published Resultary/2026: Exact cardinality recurrence for mapping spaces between finite weak orders, 2026/10/4/SCOPE-exact-cardinality-recurrence-for-mapping-spaces-between-finite-w--1cee64311a06/RESULT.md",
+          "Web: New and improved algorithms for unordered tree inclusion 2021 degree bounded 2^d",
+          "Web: Counting embeddings of rooted trees into families of rooted trees 2022"
+        ]
+      },
+      "checked_sources": [
+        "Endriss, Modal Logics of Ordered Trees (2003), §§3.5–3.6",
+        "Goranko–Otto, Model Theory of Modal Logic (2006), §2.2",
+        "Bodirsky–Piguet, Finite trees are Ramsey under topological embeddings (2010), arXiv:1002.1557",
+        "Akutsu–Jansson–Li–Takasu–Tamura, New and improved algorithms for unordered tree inclusion (2021), DOI:10.1016/j.tcs.2021.06.013",
+        "Gittenberger–Gołębiewski–Larcher–Sulkowska, Counting embeddings of rooted trees into families of rooted trees (2022), arXiv:2008.08312",
+        "Published Resultary/2026, Exact cardinality recurrence for mapping spaces between finite weak orders, RESULT.md (2026-10-04)",
+        "Resultary semantic searches for exact p-morphism counts; GitHub repository code search and web searches under topological/open-map aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The image lemma in Endriss proves a tree remains a tree under stronger bidirectional p-morphisms; no map-count formula follows.",
+          "Goranko–Otto proves truth preservation, not an enumeration algorithm.",
+          "Bodirsky–Piguet gives Ramsey properties for plane binary leaf-preserving topological embeddings; it does not enumerate noninjective quotient maps.",
+          "Gittenberger et al. count injective subposet embeddings of fixed patterns aggregated across whole target families; the invariant and quantifiers are different.",
+          "Akutsu et al. bound time for deciding unlabeled/labelled inclusion and locating matches; their injection condition forbids multiple source vertices collapsing to one target vertex."
+        ],
+        "reasoning": "Replacing p-morphisms by injections or mere monotone maps changes the combinatorial object. Standard semantics plus general inclusion–exclusion permits a fresh proof but does not by itself give a previously published identical all-tree theorem; no inspected theorem logically dominates this final formula.",
+        "searches": [
+          "Endriss 2003 section 3.6 lemma 3.32",
+          "Goranko–Otto 2006 section 2.2 Definition 15",
+          "Bodirsky–Piguet 2010 arXiv:1002.1557 Theorem 1",
+          "Gittenberger et al. arXiv:2008.08312 Theorems 1–4",
+          "Akutsu et al. doi:10.1016/j.tcs.2021.06.013 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goranko–Otto, Model Theory of Modal Logic (2006), Definition 15 and Corollary 16: forth/back morphism has a bisimulation graph; no counting theorem in this section; https://www.mathematik.tu-darmstadt.de/~otto/papers/Chapter5_02_05_06.pdf",
+          "Endriss (2003), Definition 3.20: p-morphism for one relation; §3.6 studies stronger bidirectional successor structures; https://staff.science.uva.nl/u.endriss/pubs/files/otl.pdf",
+          "Finite Alexandroff-space continuity corresponds to order-preserving maps but openness/back is extra; see https://doi.org/10.1016/j.topol.2016.12.001, preliminaries."
+        ],
+        "reasoning": "For these Alexandrov posets, the correct equivalent category is order-preserving open maps: f(T_x)=U_{f(x)}. Ordinary monotone maps and injective rooted-tree embeddings are not equivalent: the former lack local surjectivity and the latter exclude quotients. No identified general exact enumeration of these open quotients.",
+        "searches": [
+          "Resultary search: exact count surjective p-morphisms bounded morphisms between finite rooted trees with reflexive descendant accessibility; inclusion exclusion child coverage recursion",
+          "Resultary search: number of interior maps p morphisms rooted Kripke tree frames descendant order preserving open maps combinatorial enumeration",
+          "Web: \"number of p-morphisms\" \"trees\" \"counting\" modal logic",
+          "Web: finite Alexandroff spaces open continuous maps enumeration number of open maps posets trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical star-to-star case equals onto-function number b! S(a,b), not new.",
+          "No relevant exact two-tree p-morphism database was identified in reviewed records; FindStat is a poset-statistics collection, not a claim about this pair-indexed invariant.",
+          "Published Resultary hits concerned finite weak orders, finite spaces and other map counts rather than this all-tree back-morphism count."
+        ],
+        "reasoning": "A small numerical sequence is not the claimed contribution. A single table cannot imply the all-source/all-target recurrence; absence of a table alone cannot certify originality.",
+        "searches": [
+          "Web: bounded morphism tree frame exact count table",
+          "Web: p-morphism finite rooted trees count number",
+          "Resultary semantic matches for exact count surjective p morphisms finite trees",
+          "FindStat posets collection https://www.findstat.org/CollectionsDatabase/Posets/"
+        ]
+      },
+      "rationale": "No inspected existing result states or implies the number of surjective bounded morphisms between every pair of finite rooted trees equipped with the single reflexive-descendant relation, or its O(n m max(1,Delta) 2^Delta) arithmetic-operation bound. Modal logic references give the forth/back definition, not enumeration. Prior weak-order mapping-space counts allow arbitrary order-preserving maps, not the back condition, and restrict to ordinal sums of antichains. Rooted-tree embedding and unordered inclusion results count or decide injective patterns rather than noninjective open quotients. Best-of-knowledge judgment; specialized prior open-map enumeration remains a priority risk.",
+      "residual_risks": [
+        "A general enumeration theorem for open maps/functional bisimulations of finite tree posets under less familiar terminology may imply the recurrence.",
+        "Unindexed modal-frame quotient counting literature or historical program could contain a prior implementation.",
+        "No historical-priority guarantee is claimed; search failures are not proofs of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_NOT_COUNTING",
+          "evidence": "Forth/back bisimulation and truth preservation are specified; no arbitrary finite rooted-tree p-morphism count is asserted.",
+          "identifier_or_url": "https://www.mathematik.tu-darmstadt.de/~otto/papers/Chapter5_02_05_06.pdf",
+          "material_read": "Section 2.2, Definition 15, Corollary 16, and generated-substructure discussion",
+          "method": "PDF text plus screenshot of page 11",
+          "title": "Model Theory of Modal Logic",
+          "trigger": "Direct authoritative p-morphism definition"
+        },
+        {
+          "assessment": "DIFFERENT_RELATIONS_NOT_ENUMERATION",
+          "evidence": "Lemma 3.32 proves tree-image closure for bidirectional p-morphisms of immediate-successor structures, not exact map cardinalities for one reflexive descendant relation.",
+          "identifier_or_url": "https://staff.science.uva.nl/u.endriss/pubs/files/otl.pdf",
+          "material_read": "Definition 3.20, §§3.5–3.6 and Lemma 3.32 with relevant proof",
+          "method": "PDF text plus screenshot of page 71",
+          "title": "Modal Logics of Ordered Trees",
+          "trigger": "Tree p-morphic image lemma under potentially stronger morphisms"
+        },
+        {
+          "assessment": "EMBEDDING_RAMSEY_INAPPLICABLE",
+          "evidence": "Theorem 1 is a Ramsey coloring theorem for copies of plane binary trees; neither p-morphism counting nor a parent/child map recurrence appears in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/1002.1557",
+          "material_read": "Abstract, introduction, definition of topological embeddings, Theorem 1 and its remarks on stronger Ramsey theorem",
+          "method": "ArXiv PDF textual inspection and screenshot",
+          "title": "Finite trees are Ramsey under topological embeddings",
+          "trigger": "Same rooted-tree shapes and possible stronger reduction"
+        },
+        {
+          "assessment": "TREE_INCLUSION_INJECTIONS_NOT_SURJECTIVE_OPEN_MAPS",
+          "evidence": "Node insertion/inclusion uses injective ancestor-reflecting embedding. Theorem 1 decides inclusion with O(d 2^d m n^2) runtime; it does not count all modal p-morphisms.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2021.06.013",
+          "material_read": "Publisher full HTML: abstract, §1, §2 definition and Proposition 1, §3 Theorem 1 and §5 restrictions",
+          "method": "Open full-text article HTML",
+          "title": "New and improved algorithms for unordered tree inclusion",
+          "trigger": "Closest branch-parameter FPT tree algorithm"
+        },
+        {
+          "assessment": "INJECTIVE_PATTERN_ENUMERATION_NOT_QUOTIENT_ENUMERATION",
+          "evidence": "Definition 1 defines a subposet embedding; Theorem 1 gives a generating function for embeddings aggregated over B_n, not all surjective open maps for one fixed source/target pair.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.08312",
+          "material_read": "20-page arXiv v3: abstract, §§1–2 definitions, Theorems 1–4 and section descriptions",
+          "method": "ArXiv searchable PDF text and screenshot of title page",
+          "title": "Counting embeddings of rooted trees into families of rooted trees",
+          "trigger": "Most relevant overlapping title and exact tree map enumeration"
+        },
+        {
+          "assessment": "CONTINUOUS_MAPS_OF_WEAK_ORDERS_DIFFERENT",
+          "evidence": "Counts all order-preserving maps between ordinal sums of antichains in O(h k^2), not surjective bounded morphisms on arbitrary rooted trees.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-cardinality-recurrence-for-mapping-spaces-between-finite-w--1cee64311a06/RESULT.md",
+          "material_read": "Complete published RESULT.md, definitions, two-state recurrence, proof and limitations",
+          "method": "Read complete public Git blob at published record path",
+          "title": "Exact cardinality recurrence for mapping spaces between finite weak orders",
+          "trigger": "Published mathematically adjacent SCOPE result surfaced by semantic search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact cardinalities of bounded-morphism quotient maps are a natural modal-frame invariant distinct from image existence, truth preservation and injective tree pattern counts. The formula handles arbitrary unbounded-height unordered rooted source and target shapes, and converts the local back condition into an explicit all-pair count and target-branching fixed-parameter arithmetic algorithm. The classical star-to-star surjection formula and the full binary-to-two-chain sequence illustrate nontrivial multiplicity beyond a yes/no image test. It is a reusable structural counting result for all finite rooted tree frames, not an arbitrary finite slice; no broader lower bound, bit-FPT result, or combinatorial classification of distinct isomorphism-orbits is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Endriss, Modal Logics of Ordered Trees (2003), §§3.5–3.6",
+    "Goranko–Otto, Model Theory of Modal Logic (2006), §2.2",
+    "Bodirsky–Piguet, Finite trees are Ramsey under topological embeddings (2010), arXiv:1002.1557",
+    "Akutsu–Jansson–Li–Takasu–Tamura, New and improved algorithms for unordered tree inclusion (2021), DOI:10.1016/j.tcs.2021.06.013",
+    "Gittenberger–Gołębiewski–Larcher–Sulkowska, Counting embeddings of rooted trees into families of rooted trees (2022), arXiv:2008.08312",
+    "Published Resultary/2026, Exact cardinality recurrence for mapping spaces between finite weak orders, RESULT.md (2026-10-04)",
+    "Resultary semantic searches for exact p-morphism counts; GitHub repository code search and web searches under topological/open-map aliases"
+  ],
+  "disposition": "passed",
+  "limitations": {
+    "originality_priority": "A specialized general rooted-poset open-map counting theorem under different terminology could dominate this recurrence; no exhaustive priority certification.",
+    "publication": "Minimal result/slogan are unchanged. Two fully staged JSON metadata replacements remove nonpublic origin fields; no repository or dispatcher writes are performed.",
+    "scientific": "Only nonempty finite rooted unordered trees and a single reflexive descendant accessibility relation; arithmetic-operation FPT, not bit-complexity FPT. No statements about infinite trees, multiple relations, or unbounded target-degree polynomial time."
+  },
+  "schema_version": 1
+}

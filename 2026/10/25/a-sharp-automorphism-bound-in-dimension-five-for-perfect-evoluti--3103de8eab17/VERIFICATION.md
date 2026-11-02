@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-`python3 verify.py` enumerates every directed five-vertex support with a perfect matching that admits a nontrivial diagonal automorphism, using the complete possible prime-order patterns \(3,5,7,31\). For each retained graph it computes diagonal-group order from modular edge equations and the graph-automorphism count from all \(120\) vertex permutations.
+## correctness
 
-Observed: 99 distinct maximal allowed edge sets, 26,989 nonempty candidate subgraphs before the matching test, 3,304 matching-compatible candidates, and exactly 24 maximizing labeled support graphs, all directed five-cycles. The maximum is 155; the checker prints `VERIFY_OK`.
+PASS
 
-Completeness of the finite graph check uses the supported-matching cycle decomposition, which bounds diagonal torsion to \(3,5,7,31\). Every nontrivial finite diagonal group contains an element of one of these prime orders. The proof in `RESULT.md` independently handles the case of trivial diagonal group with the group-theoretic bound 120. No computational sample is used as evidence for an unbounded dimension statement: the dimension is fixed to five, and the universal field argument is symbolic.
+For any five-dimensional perfect evolution algebra over any field, invertibility of its structure matrix forces monomial automorphisms and a supported permutation matching. The diagonal kernel embeds in matching-cycle roots with possible orders dividing 1,3,9,7,21,15,31. Separate prime-torsion cases force combined orders at most 155 (31-case exact five-cycle), 60 (5), 126 (7), 36 or 72 (3-primary), and 120 (trivial diagonal). Over C, the weighted five-cycle is normalized by a 31st-root rescaling, attains 31·5=155 and is simple. The normality argument restricts the realized permutation image, not necessarily every graph symmetry. Applies to K-point groups, not group-scheme length.
 
-The code uses only Python's standard library. Independent mathematical audit and independent replication are not performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: the surveyed maximum for n=5 is explicitly conjectural and prior maximal diagonal-group result does not bound the product with all permutation images.
+
+## value
+
+PASS
+
+A 2026 survey explicitly conjectures the first unsettled dimension-five perfect/simple maximum order. The proof provides a sharp global bound and equality isomorphism classification rather than merely exhibiting a large group or enumerating selected structures. This is a motivated finite structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

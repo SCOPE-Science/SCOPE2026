@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and proof boundaries
 
-The proof derives the mixed covariance from the circular Gaussian logarithm identity, rather than inferring a derivative of an uncontrolled error term. The relevant parameter domain is \(L>1\) and fixed \(\alpha,\beta>0\) as \(\epsilon\downarrow0\). The threshold and exact sign classification apply only to \(L=2\), while the series gives the stated sufficient negative-covariance regime at other intensities.
+# Independent mathematical audit
 
-Run `python check_hyperbolic_covariance.py` with Python 3.10+, SciPy and SymPy. The script evaluates an exact finite-radius integral independently of the boundary-series prediction, checks a symbolic quartic factorization and root interval, compares the closed expression with the series, and tests the known determinantal and intensity-two variance special cases. There were 43 passing assertions on the completed source artifact. Numerical convergence and finite spot tests are corroboration and are not themselves proofs of the infinite-parameter statements.
+## correctness
 
-At the threshold the leading covariance term is zero; no finite-radius sign conclusion is claimed. No independent external validation was conducted.
+PASS
+
+The normalized covariance of Gaussian logarithms is 1/4 Li2 of squared correlation; Jensen circular averages express the nested zero-count covariance as rs mixed radial derivatives of an angle integral. For distinct boundary gaps r=1-alpha*epsilon, s=1-beta*epsilon, scaling theta=epsilon*(alpha+beta)*t gives Q->(1-v²)/(1+t²), with a uniform integrable bound for differentiated Li2(Q^L) away from alpha=beta; the equal-radius case is provided by Buckley's independently known variance asymptotics. Expanding Li2 and using the beta integral yields the absolutely convergent gamma series for L>1. Every term is negative when v²>=1/(2L-1) except possibly k=1 zero; v=0 all terms positive. For L=2 an algebraic binomial summation gives the closed form, whose sign is that of 1-2v-v^4 by exact factorization -(1-v)^2(v^4+2v-1). Independent six gamma-series numerical checks matched the closed form, and verified unique positive quartic root. The sign transfer is for fixed noncritical boundary-gap pairs and sufficiently small epsilon, not all finite radii.
+
+## originality
+
+PASS
+
+Comparison by actual mathematical hypotheses, conclusions and implications, including the closest primary works and structured equivalent/general/table checks; best-of-knowledge acceptance with explicit historical-priority risks.
+
+## value
+
+PASS
+
+The theorem gives a nontrivial negative covariance between *nested* zero counts of a canonical hyperbolic GAF and a complete sharp sign diagram at intensity 2; the exact quartic boundary-gap ratio and general-intensity negative region are structural stochastic-geometry facts not determined by single-disk variance. It clarifies a genuinely natural contrast with the determinantal intensity-one process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
