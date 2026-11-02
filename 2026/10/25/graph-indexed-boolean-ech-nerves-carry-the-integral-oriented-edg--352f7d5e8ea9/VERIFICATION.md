@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Run `python3 verify.py` using Python 3.8 or later, no third-party libraries. The program directly builds all Čech simplices from Hamming-radius-one witness balls, checks the cone and the asserted relative two-simplices, independently computes exact mod-two homology for bounded graph sizes, and compares signed fixed-simplex Lefschetz traces with the oriented-edge trace for explicit automorphisms.
+# Independent mathematical audit
 
-Expected success counts from the embedded program are 121 graph instances, 121 cone/relative-face tests, 115 independent reduced-homology calculations, and 293 signed Lefschetz comparisons. The all-size theorem is proved separately by a uniform relative-chain argument. Passing bounded tests neither establishes uniqueness in the literature nor constitutes independent scientific validation.
+## correctness
+
+PASS
+
+Partition ball-witnesses into empty/singletons and selected pairs. The first collection of full simplices all contains ∅, giving a contractible simplicial cone B. Each pair witness e contributes exactly the relative triangle T_e=[{i},{j},e], not in B but attached along three boundary edges in B; distinct triangles meet only in B. The quotient K/B is a wedge of 2-spheres and the relative integral chain complex has one degree-two basis element per edge and no other relative faces; by cofibration and long exact sequence this proves integral homotopy and primitive generator claims. Oriented tetrahedral boundaries map with coefficient +1 to T_e; a transposition of its singleton endpoints reverses orientation, and edge insertion is an integral direct-summand inclusion. Independently all 75 graphs with n<=4 satisfied the cone/relative-triangle identity and K4 endpoint-swap oriented-edge trace 0. Finite checks corroborate only the inspected cases.
+
+## originality
+
+PASS
+
+Statement-level implication and object/parameter comparisons checked in cited primary literature and Resultary; novelty is best-of-knowledge, with named inaccessible full texts and generic-theorem risks. The previously known subclaims are explicitly excluded from the novelty claim.
+
+## value
+
+PASS
+
+Identifies a natural functor of arbitrary finite graphs in intrinsic Čech topology, not merely an isolated rank: one primitive integral homology generator is born per selected graph edge, persists under arbitrary insertions, and records endpoint orientation through a signed automorphism representation. These exact integral/equivariant and filtered invariants are independently reusable beyond the previously known complete-truncation sphere count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

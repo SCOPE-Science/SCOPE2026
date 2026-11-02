@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite graph on a nonempty vertex set, every Čech witness is empty, a singleton or a selected edge. The first two classes generate a contractible cone. Each selected-edge witness contributes precisely one triangle attached entirely along its boundary, with no other non-base faces. The integral relative chain complex thus has exactly one free degree-two generator per edge. Explicit oriented tetrahedral-boundary cycles map to each generator with coefficient one; naturality establishes the signed automorphism action and split edge-insertion persistence. Direct finite enumeration and signed Lefschetz checks independently corroborate this proof. No infinite claim rests on finite enumeration.
+## correctness
 
-## Originality — PASS, with residual risk
-Biswas's 2026 Lemma 4.1 establishes a nonequivariant one-sphere-per-pair count for a specific Boolean truncation. It does not state the arbitrary graph-indexed functor, primitive integral natural homology lattice, endpoint-reversal action, or split filtered maps. Existing full-hypercube Čech calculations use all Boolean points and cannot imply this restricted-space integral persistence merely from character agreement. Related prism-graph Čech calculations use another metric graph and an unsigned edge action. Equivalent unindexed generalizations of Biswas's argument are a residual risk.
+PASS
 
-## Value — PASS
-The result identifies a complete natural infinite category of Čech complexes and their integral automorphism representations and inclusion maps. In particular, a filtered graph can be read exactly from the degree-two integral persistent cycle basis, while signs encode endpoint reversals that sphere counts lose. The primitive geometric tetrahedral cycles make the answer directly computable and reusable in equivariant or filtered comparisons. This is more structural than merely recomputing the known complete-graph Betti rank.
+Partition ball-witnesses into empty/singletons and selected pairs. The first collection of full simplices all contains ∅, giving a contractible simplicial cone B. Each pair witness e contributes exactly the relative triangle T_e=[{i},{j},e], not in B but attached along three boundary edges in B; distinct triangles meet only in B. The quotient K/B is a wedge of 2-spheres and the relative integral chain complex has one degree-two basis element per edge and no other relative faces; by cofibration and long exact sequence this proves integral homotopy and primitive generator claims. Oriented tetrahedral boundaries map with coefficient +1 to T_e; a transposition of its singleton endpoints reverses orientation, and edge insertion is an integral direct-summand inclusion. Independently all 75 graphs with n<=4 satisfied the cone/relative-triangle identity and K4 endpoint-swap oriented-edge trace 0. Finite checks corroborate only the inspected cases.
 
-## Limits
-The claim does not cover higher Čech radii, weight-three Boolean vertices, or a broader ambient witness space. The literature comparison is not a proof of worldwide novelty; the proof and finite checks have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level implication and object/parameter comparisons checked in cited primary literature and Resultary; novelty is best-of-knowledge, with named inaccessible full texts and generic-theorem risks. The previously known subclaims are explicitly excluded from the novelty claim.
+
+## value
+
+PASS
+
+Identifies a natural functor of arbitrary finite graphs in intrinsic Čech topology, not merely an isolated rank: one primitive integral homology generator is born per selected graph edge, persists under arbitrary insertions, and records endpoint orientation through a signed automorphism representation. These exact integral/equivariant and filtered invariants are independently reusable beyond the previously known complete-truncation sphere count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
