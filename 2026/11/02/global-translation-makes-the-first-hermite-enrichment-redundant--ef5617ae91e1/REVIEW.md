@@ -1,0 +1,15 @@
+# Scientific review of an exact Hermite approximation boundary
+
+## Correctness — PASS
+
+The proof starts from the exact normalized translated-Hermite overlap coefficients for any finite positive Gaussian mixture. Differentiation gives the crucial cancellation \(Q_1'=2c_1c_2\) with \(c_2\ge0\); at every global maximizer the first excited coefficient must vanish. Existence of maximizing translations follows from Gaussian convolution vanishing at infinity. Consequently the optimized degree-zero and degree-one captured energies and their full argmax sets coincide. At their common optimizer, \(c_2>0\) for any non-point mixture, which proves strict improvement at degree two. The explicit two-Gaussian phase boundary follows from the strictly decreasing function \(\tanh(z)/z\). A separate sign-changing example checks necessity of positivity. The packaged verifier checked 15 direct integrals, 63 derivatives, finite optimizations, and the bifurcation; these computations do not replace the universal proof. Risk: all statements depend on normalized Hermite functions, fixed width, and a nonnegative finite mixing measure.
+
+## Originality — PASS (qualified)
+
+Actual searches of related mathematical findings were made using the claim, Hermite translation/enrichment aliases, Gaussian-mixture projection optimization, and the mean-shift bifurcation. No recoverable prior record asserting the all-positive-mixture equality of globally optimized zero/first Hermite projection errors, plus strict degree-two separation, was identified. The current source and its 2020 predecessor were inspected in full-text portions concerning moving and scaling of Hermite bases, error estimates, and the proposed adaptations. The later scaling-optimized paper was also inspected; it optimizes width rather than deriving the translation/enrichment identity. Classical Gaussian mean-shift stationarity and Gaussian-Hermite overlap identities are **not** claimed as new. The particular global structural obstruction is not a direct corollary of the inspected sources as stated; independent publication-priority review, including less-accessible spectral-approximation literature, remains a risk. Nonmatching research-search hits do not prove novelty.
+
+## Value — PASS
+
+The result identifies a universal, exact boundary in approximation-space enrichment: spending a mode on the first translated Hermite derivative gives no improvement when the basis center is optimized, while spending the next mode does improve the best error for every genuinely mixed nonnegative Gaussian input. This provides a principled decision benchmark for p-refinement versus basis movement in adaptive Hermite approximations. Its all-finite-positive-measure scope and sharp two-Gaussian center bifurcation make it more than an arbitrary low-dimensional numerical exercise. It is not a global accuracy theorem for actual PDE solvers or an assertion about fixed-center incremental accuracy.
+
+Self-review: passed. Independent audit: not yet performed.
