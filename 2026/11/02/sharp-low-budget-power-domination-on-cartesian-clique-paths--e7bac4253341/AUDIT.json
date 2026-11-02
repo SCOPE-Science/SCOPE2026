@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The standard closed-neighborhood initialization fills every occupied clique. An endpoint filled clique sweeps its unique outward matching neighbor in each column; two consecutive filled cliques sweep both outward directions. In the absence of both patterns, every occupied layer is interior and isolated. For at most n-2 seeds, at least two column indices are seed-free. A permanent invariant keeps all those columns unobserved in every unoccupied layer: observed vertices in unoccupied layers retain at least two white neighbors inside their clique; occupied-layer vertices in seed-free columns have two white vertical neighbors; other forces preserve the invariant. Thus propagation fails. n-1 seeds in layer 2 except one column force their missing endpoint clique cell, completing layer 1, and then sweep the remainder, showing sharpness. An independent-set polynomial of the interior layer path counts precisely all failing configurations of degree ≤n-2; coefficient extraction and the Bernoulli support calculation give the formulas. A binomial tail bounds the omitted high-cardinality sets and vanishes under p=c/n with fixed L. The standalone checker exhaustively compared 257426 low-budget subsets, all coefficients, and boundary witnesses across n=3..6 and L=3..7. No appeal to finite tests for the universal theorem is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1805.10984v1, Sections 3.2 and 4, uses component/join recurrences and enumerates complete graphs, paths, cycles, stars, coronas and threshold graphs.",
+        "arXiv:2209.03930v1, Theorem 4, proves general Cartesian-product lower bounds by failed partitions; Section 3 addresses the minimum power domination number.",
+        "doi:10.1016/j.akcej.2016.02.004, Section 2, concerns scalar minima and Vizing-like inequalities."
+      ],
+      "reasoning": "The clique path is neither a disjoint union nor join of the types covered by the cited closed formulas. Bounds on γ_P and the fact γ_P=1 imply only existence of a singleton; they do not imply counts of arbitrary sparse selections or their layer-occupancy constraints. No inspected stronger general formula specializes to the asserted coefficient window.",
+      "searches": [
+        "\"power domination polynomials of graphs\" Brimkov Section 3 Section 4",
+        "\"Graphs which satisfy a Vizing-like bound\" power domination Cartesian products Section 3",
+        "\"Power domination of the cartesian product of graphs\" Koh Soh observation 2.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1805.10984v1 (full accessible text)",
+      "arXiv:2209.03930v1 (full accessible HTML)",
+      "doi:10.1016/j.akcej.2016.02.004 (partial accessible text, display-math limitation)",
+      "Relevant published summaries on power domination of book graphs, spider trees, chain graphs and threshold graphs, objects not isomorphic to Cartesian clique paths"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Koh--Soh Observation 2.3: a suitable singleton power dominates Cartesian products of a path and a complete graph.",
+        "Brimkov et al. 2018: polynomial framework, monotonicity and general decomposition relations, not the exact small-cardinality structure for these products.",
+        "Anderson et al. 2022: lower bounds and partition certificates for minimum domination in Cartesian products."
+      ],
+      "reasoning": "The new claim contains as a consequence γ_P(G_{n,L})=1 with precisely 2n singleton placements, but does not claim novelty for the earlier scalar fact. Neither scalar minimum, generic monotonicity of power-dominating sets, nor generic fort duality determines which of the Θ((nL)^k) k-subsets are successful. The structural obstruction and path-independence counting require the separate invariant proof supplied in RESULT.md.",
+      "searches": [
+        "Koh Soh power domination K_n Cartesian path singleton observation 2.3",
+        "Brimkov Patel Suriyanarayana Teich power domination polynomial general families",
+        "Anderson Kuenzel Schuerger Vizing-like power domination Cartesian product Theorem 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Koh--Soh, doi:10.1016/j.akcej.2016.02.004, Section 2 Observation 2.3, states a minimum single placement for a related Cartesian product.",
+        "Anderson--Kuenzel--Schuerger, arXiv:2209.03930v1, Section 1 and Section 3, formulates the same propagation convention on Cartesian products.",
+        "Brimkov et al., arXiv:1805.10984v1, Proposition 7 expresses the fort-neighborhood hitting duality for power domination."
+      ],
+      "reasoning": "The formulations K_n square P_L and P_L square K_n are isomorphic, but the scalar minimum γ_P=1 cannot count all sets of sizes 2 through n-2. The general hitting property for fort neighborhoods translates the predicate but does not supply the exact independent-layer obstruction or its sharp cutoff. Power-domination and zero-forcing rules are distinct; a zero-forcing theorem cannot be substituted without an explicit reduction.",
+      "searches": [
+        "\"power domination polynomial\" \"Cartesian\" \"complete\" \"path\"",
+        "\"power domination\" \"K_n\" \"P_l\" layer selections",
+        "power domination of Cartesian product of complete graph with path; layered clique observation",
+        "\"power domination\" \"P_n\" \"K_m\" polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1805.10984v1, Section 4 contains exact formulas for selected graph families and discusses exhaustive tables for small orders; no general Cartesian clique path sequence is identified.",
+        "The relevant literature uses the minimum-value and all-set counting conventions separately; the target is a two-parameter infinite family with a degree-dependent cutoff."
+      ],
+      "reasoning": "Even a table containing one small graph instance would establish a finite coefficient value, not the n,L-uniform proof, sharpness, multivariate formula, or sparse-sensor limit. No exact table or generic database theorem encountered in the checked material dominates these claims. Nonindexed tables remain a priority risk.",
+      "searches": [
+        "\"K_n square P_l\" \"power domination\" \"polynomial\"",
+        "\"power domination polynomial\" \"clique path\"",
+        "\"power domination\" \"complete graph\" \"path\" sensor reliability"
+      ]
+    },
+    "rationale": "The substantive claim is a sharp, all-subset criterion through cardinality n-2 for the Cartesian clique path, with an explicitly counted independent-layer obstruction, a sharp n-1 cutoff witness, and a fixed-layer Bernoulli c/n limit. The full text of arXiv:1805.10984v1 supplies the power domination polynomial framework but gives no Cartesian K_n-by-path enumeration. The full text of arXiv:2209.03930v1 supplies bounds for Cartesian products but not this set classification. The accessible sections of Koh--Soh supply the minimum-value observation for the same graph, which is expressly not claimed as new. Published record summaries about power domination of book graphs, spider trees, connected threshold graphs and chain graphs concern different objects and do not imply this criterion. Equivalent graph notations and fort-based dual conditions were considered; none of these specific inspected statements implies the new counting/reliability theorem. Residual priority uncertainty is acknowledged.",
+    "residual_risks": [
+      "The priority search is not exhaustive, and an unindexed equivalent fort-neighborhood or clique-strip formulation might exist.",
+      "The accessible 2016 online text has display-math gaps, but its inspected observation establishes only scalar minimum placement; unexpected stronger content could alter priority assessment.",
+      "Only finite dimensions were exhaustively tested; the theorem depends on the separately written invariant proof for arbitrary n and L."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General counting framework and several special families, not a derivation of the Cartesian clique-path low-degree coefficients",
+        "evidence": "Introduction Definition 1; Section 3 Proposition 7; Section 4 family formulas, including threshold graphs.",
+        "identifier_or_url": "arXiv:1805.10984v1; https://arxiv.org/abs/1805.10984",
+        "material_read": "Complete accessible HTML full-text including abstract, Sections 1, 3.2, 4 and named formulas, plus Section 4.1 discussions",
+        "method": "Read the HTML full text and compared described graph constructions, coefficient properties and explicit families with K_n square P_L",
+        "title": "Power domination polynomials of graphs",
+        "trigger": "Potential direct polynomial enumeration of the same graph family"
+      },
+      {
+        "assessment": "Theorems concern scalar lower bounds for the power domination number and failed partitions; they do not count sparse seed sets for clique-path products",
+        "evidence": "2022-09-08 arXiv version 1; Section 3 Theorem 4 and Section 1 definitions; primary MSC 05C69.",
+        "identifier_or_url": "arXiv:2209.03930v1; https://arxiv.org/html/2209.03930v1",
+        "material_read": "Accessible full HTML Introduction, Section 3 Cartesian products including Theorem 4, Section 4 cut-sets and the conclusions",
+        "method": "Read and compared theorem hypotheses, quantifiers and outputs with the current all-set characterization and polynomial",
+        "title": "Graphs which satisfy a Vizing-like bound for power domination of Cartesian products",
+        "trigger": "Same graph operation and same dynamical invariant; strong possible coverage"
+      },
+      {
+        "assessment": "The known one-sensor phenomenon is credited; no all-subset enumeration or sparse probability limit was evident in material accessed",
+        "evidence": "Section 2 Observation 2.3 discusses a carefully placed single vertex for products including complete-graph-by-path types.",
+        "identifier_or_url": "doi:10.1016/j.akcej.2016.02.004; https://www.tandfonline.com/doi/full/10.1016/j.akcej.2016.02.004",
+        "material_read": "Accessible online text of Sections 1 and 2, including the narrative around Observation 2.3 and other minimum-value theorems; some displayed formulas were not rendered in the text view",
+        "method": "Compared the scope of the scalar minimum-value observations against the exact k-subset criterion",
+        "title": "Power domination of the cartesian product of graphs",
+        "trigger": "Directly relevant Cartesian product scalar result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e7bac425-3341-49ce-8ccc-e675d86c79f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The gap is the all-budget sensor placement distribution for a natural Cartesian clique-strip family, not a routine scalar power-domination number. It determines exactly which low-cost multisensor placements observe the entire strip, identifies a sharp failure of the support-only description at n-1 seeds, supplies exact layer-resolved enumerators through a growing degree window and yields a meaningful sparse random-placement observability limit in terms of an independent-set polynomial. The threshold and limiting law cannot be read from the already-known singleton optimum and can be used to distinguish deployment strategies with different sensor counts or layer allocations.",
+    "status": "PASS"
+  }
+}
