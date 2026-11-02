@@ -1,11 +1,21 @@
-# Review of the run-conditioned position-dispersion theorem
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Uniform subset sampling is bijective with weak compositions of the unselected gaps. Fixing the number of selected runs selects a uniformly random set of active internal gaps and leaves a uniform residual composition. The factorial moments of this composition imply the second moments of every pairwise selected-site distance. Summing these moments proves the exact conditional mean, including the separate \(k=2\) boundary; an edge-pair union-size count gives the independent exact covariance. The packaged exact-rational checker tests each identity on finite parameter ranges. These checks supplement, not replace, the proof.
+## correctness
 
-**Originality (O): PASS, with residual historical risk.** Searches used synonyms for selected-site runs, clusters, occupied intervals, squared location spread, rank dispersion, conditional run-count moments and fixed-composition binary words. The full accessible 2003 Smeeton–Cox article addresses simulation and distribution of run counts, not quadratic dispersion conditional on selected-one runs. The earlier accessible local-transition covariance result handles pairwise 0/1 transition indicators rather than global selected-position variance. Both direct and implication-based comparisons found no equivalence or theorem containing the displayed run-count conditional mean. The 1957 Barton–David *Multiple Runs* text and 1940 Mood text were not examined in full, leaving real priority uncertainty; absence of a search match is not proof of novelty.
+PASS
 
-**Mathematical value (V): PASS.** A classical runs statistic measures spatial clustering, while the sample variance of the marked locations measures global geometric spread. Their joint calibration is a natural null-distribution question, not an arbitrarily chosen finite coefficient. The exact nonlinear factor \((r-1)/(r+1)\) gives strictly increasing conditional means across every attainable run count; the independent all-size covariance formula quantifies the dependence. Neither formula follows from the two marginal expectations alone. No unsupported claims about test power or stochastic domination are made.
+Uniform k-subsets of [N] correspond bijectively to weak gap compositions. Conditional on r selected-site runs, r−1 of k−1 internal gaps are uniformly chosen positive and, after removing their mandatory ones, remaining gaps plus two outer gaps are a uniform weak composition of M=N−k−(r−1) into r+1 bins. Exact first/second joint factorial moments and pair-distance expression for unbiased V yield E[V|R=r]=k(k+1)/12+[(k+1)(N−k+2)(N+k+1)/(12(k−1))](r−1)/(r+1). Adjacent differences positive for k<N. Separately R=k−sum edge-pair inclusion indicators, and V weighted all-pair indicators divided by k(k−1); exact union-size 2/3/4 overlap weights yield Cov(R,V)=(N−k)(N+k+1)/(6N). Boundary k=2 and N≤3 are separately handled; k=N degenerate R=1 covariance0. Independent exact subset enumeration covered 4017 subsets in 150 conditional groups and 55 parameter covariances for N≤11; this is not all-N proof.
 
-**Scope and limitations.** Only uniform fixed-size subsets of consecutive integer sites are covered. The finding proves a conditional mean and covariance, not the joint law. The original historical papers may contain equivalent results, and independent scientific verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS: standard Wald–Wolfowitz fixed-composition runs distributions and published local transition-indicator covariances do not mechanically give the conditional quadratic dispersion of all sampled positions or its unconditional covariance. The 1957 Multiple Runs and 1940 distribution theory archival papers remain full-text access priority risks; only limited records examined.
+
+## value
+
+PASS
+
+The conditional mean of sample variance given clustering into runs is a natural finite-population joint statistic: strict monotonicity and exact global covariance quantify how spatial fragmentation influences dispersion, potentially useful as an exact null benchmark for spatial runs tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

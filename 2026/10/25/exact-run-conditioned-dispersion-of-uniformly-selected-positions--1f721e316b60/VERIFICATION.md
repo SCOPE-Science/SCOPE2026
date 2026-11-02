@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone program `VERIFY.py` uses only the Python standard library; execute `python3 VERIFY.py`. Its printed check counts, as reproduced from the packaged program, are:
+# Independent mathematical audit
 
-`{"conditional_groups_checked": 239, "exhaustive_covariance_checks": 78, "gap_moment_checks": 45020, "marginal_checks": 78, "pair_overlap_checks": 7137, "samples_enumerated": 16278, "strict_monotonicity_checks": 41860}`
+## correctness
 
-The verifier performs exact-rational exhaustive subset enumeration for all \(N\le13\), independent exact overlapping-edge moment checks for \(N\le120\), and all possible run-count weak-composition moment checks for \(N\le80\). It confirms the displayed formulas and every covered boundary case. The verifier is not an exhaustive check of infinitely many sizes and does not establish the theorem without the analytic proof in `RESULT.md`. No independent audit has been conducted.
+PASS
+
+Uniform k-subsets of [N] correspond bijectively to weak gap compositions. Conditional on r selected-site runs, r−1 of k−1 internal gaps are uniformly chosen positive and, after removing their mandatory ones, remaining gaps plus two outer gaps are a uniform weak composition of M=N−k−(r−1) into r+1 bins. Exact first/second joint factorial moments and pair-distance expression for unbiased V yield E[V|R=r]=k(k+1)/12+[(k+1)(N−k+2)(N+k+1)/(12(k−1))](r−1)/(r+1). Adjacent differences positive for k<N. Separately R=k−sum edge-pair inclusion indicators, and V weighted all-pair indicators divided by k(k−1); exact union-size 2/3/4 overlap weights yield Cov(R,V)=(N−k)(N+k+1)/(6N). Boundary k=2 and N≤3 are separately handled; k=N degenerate R=1 covariance0. Independent exact subset enumeration covered 4017 subsets in 150 conditional groups and 55 parameter covariances for N≤11; this is not all-N proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS: standard Wald–Wolfowitz fixed-composition runs distributions and published local transition-indicator covariances do not mechanically give the conditional quadratic dispersion of all sampled positions or its unconditional covariance. The 1957 Multiple Runs and 1940 distribution theory archival papers remain full-text access priority risks; only limited records examined.
+
+## value
+
+PASS
+
+The conditional mean of sample variance given clustering into runs is a natural finite-population joint statistic: strict monotonicity and exact global covariance quantify how spatial fragmentation influences dispersion, potentially useful as an exact null benchmark for spatial runs tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
