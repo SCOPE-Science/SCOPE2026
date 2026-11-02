@@ -1,15 +1,23 @@
-# Scientific review
+# Mathematical assessment
 
-## Correctness — PASS
-The seven-identical-demand upper bound follows from the all-ones leading generator row and distinct columns: six recovery sets avoiding the target need at least eighteen of fifteen available coordinates. The constructive lower bound rests on an exhaustive enumeration of all \(\binom{21}{6}=54{,}264\) six-demand multisets. For each, the checker finds and directly validates six pairwise disjoint legal recovery supports using the actual binary generator columns; this is a finite exhaustive witness proof, not a statistical sample. The packaged `verify.py` was replayed and returned `VERIFY_OK`.
+## Correctness
 
-## Originality — PASS
-The closest sources are the original all-symbol framework (Boruchovsky et al., arXiv:2601.04041, Definition 2, Proposition 29 and final section) and the earlier four-request Reed–Muller batch construction (Baumbaugh et al., arXiv:1710.07386, Theorems 4.13–4.14). Neither establishes serving all six-request multisets using sixteen separate storage coordinates. The 2025 Ly–Soljanin decoding result concerns recovering message coefficients, not the sharp all-symbol six-request batch property. Prior nearby fixed-code recovery and same-family availability results do not imply mixed-demand batch feasibility. The search cannot exclude every unindexed equivalent result.
+**PASS.** In the affine evaluation generator \(g_x=(1,x)\) over \(\mathbb F_2\), the seven-identical-demand bound follows because six disjoint recovery groups avoiding the requested coordinate require at least eighteen of the fifteen remaining storage coordinates. The six-demand lower bound is established by a complete finite witness procedure: all \(\binom{21}{6}=54{,}264\) six-demand multisets admit six disjoint singleton-or-triple supports. For every accepted set, the underlying five-bit column-sum identity and target multiplicity are checked. This proves the fixed code claim but no longer-length analogue.
 
-## Value — PASS
-The sixteen-coordinate first-order Reed–Muller code is the first nontrivial even-dimensional instance in which single-symbol recovery reaches six disjoint copies. Showing that the same maximum survives *arbitrary mixed requests* resolves a natural exact batch-capacity question at this small classical code and improves on the older four-query guarantee. It distinguishes an all-symbol batch property from repeated-one-symbol availability without asserting a general-length theorem. The proof supplies a reusable exhaustive witness generator.
+## Originality
 
-## Scientific limits and residual risk
-The result is confined to \(\operatorname{RM}_2(1,4)\), and every lower-bound witness uses sets of cardinality one or three. Historical one-step majority-logic and batch-code formulations may contain an overlooked equivalent stronger theorem; a broad novelty search is not a proof of absence. The verifier is a self-review computational proof, not an independent audit.
+**PASS, with priority qualifications.** Baumbaugh et al. (2018, Theorems 4.13–4.14) establish a four-query Reed–Muller batch construction. Boruchovsky et al. (2026, Definition 2 and Proposition 29) introduce the all-symbol batch formulation and derive the general upper bound; their Section 5 identifies Reed–Muller all-symbol behavior as a future direction. Neither cited theorem supplies the complete six-mixed-request lower bound. A parallel one-step majority-logic decoder and individual-symbol availability address different assignment constraints. The binary simplex functional-batch results use distinct storage sets/parameters. A historical orthogonal-parity-check equivalence remains a possible priority risk, especially in literature not available in full text.
 
-Self-review: passed. Independent audit: not yet performed.
+## Value
+
+**PASS.** The fixed-code maximum is a natural and exact invariant of a classical distributed-storage code. Its full mixed-demand six-query saturation is not a consequence of the six-identical-query guarantee; the full enumeration supplies a reproducible finite witness method. The result is useful as a locality-three benchmark without asserting broader Reed–Muller classification.
+
+## Limits
+
+Recovery is linear over \(\mathbb F_2\), with one physical read per server per batch and repeated requests allowed. The algorithmic certificate covers this fixed 16-coordinate code, not general length or running-time optimality. Computational verification is not formal-machine certification.
+
+## Primary sources
+
+- Baumbaugh, Diaz, Friesenhahn, Manganiello and Vetter (2018), *Batch codes from Hamming and Reed–Muller codes*, Theorems 4.11–4.14, DOI 10.13069/jacodesmath.466634.
+- Boruchovsky, Gruica, Niemann and Yaakobi (2026), *Serving Every Symbol: All-Symbol PIR and Batch Codes*, arXiv:2601.04041v2, especially Definition 2, Proposition 29 and Section 5.
+- Ly and Soljanin (2026), *Optimum 1-Step Majority-Logic Decoding of Binary Reed–Muller Codes*, arXiv:2508.08736v3, especially Section IV.
