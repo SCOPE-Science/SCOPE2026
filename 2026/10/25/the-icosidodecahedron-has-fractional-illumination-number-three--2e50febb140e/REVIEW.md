@@ -1,12 +1,21 @@
-# Scientific review: fractional illumination of the icosidodecahedron
+# Independent mathematical audit
 
-## Correctness — PASS
-The full definition of parallel illumination is fixed in `RESULT.md`. The regular icosahedron has six antipodal vertex pairs and thirty edges; its rectification has thirty vertices and thirty-two incident supporting facets (twelve pentagons, twenty triangles), verified by exact inequalities. A direction illuminating any rectified vertex forces both endpoints of the indexed original edge into one strict negative halfspace, hence into an antipodal transversal. The displayed signed adjacency matrix satisfies \(A^2=5I_6\), so the Rayleigh estimate and integer parity bound every transversal by ten edges. The exact direction \((-2,0,-1)\) strictly illuminates ten midpoints according to their four active facet normals. Vertex-transitive averaging then establishes \(i^*=30/10=3\). The bundled checker independently reconstructs facets, edges, the signed matrix, all sixty-four transversals and the direction's strict margins; its finite checks concern the finite geometric certificate, not sampling a continuum of directions.
+## correctness
 
-## Originality — PASS under inspected evidence
-The closest published exact polyhedral study already proves the vertex-transitive formula and computes the regular icosahedron and dodecahedron (each value four). That prior lemma is used and cited; the new claim concerns their thirty-vertex rectification and has a different signed-conference certificate. Gorodzha proves the general upper bound eight in three dimensions, not this exact value. Kiss and Oloff de Wet mention the icosidodecahedron, but their full-text calculation is an estimate for norm-weighted external sources, mathematically distinct from weighted parallel directions. Broad and exact-name searches did not find a result implying the new value. Residual risk remains from overlooked literature or other terminology; priority has not been independently established.
+PASS
 
-## Mathematical value — PASS
-This is a natural exact fractional-illumination benchmark for a canonical Archimedean solid, closely related to a pair of Platonic solids both having known value four. It exhibits a strict decrease from four to three under rectification and explains its origin using the six-vertex signed conference structure and spectral parity, rather than giving an unmotivated numerical census. A complete proof and portable exact certificate make the boundary between standard symmetry reduction and the new computation explicit. No wider family or ordinary illumination-number claim is made.
+PASS: Rectification of the standard 12-vertex icosahedron gives 30 edge-midpoint vertices with 12 pentagonal and 20 triangular facets. To illuminate edge midpoint ab, a direction has strictly negative dot product with the two pentagon normals a,b, hence illuminated edges lie in an original icosahedral antipodal transversal of six vertices. The exact symmetric 6x6 signed adjacency matrix A satisfies A²=5I; for s in {±1}^6, the induced transversal edge count is (15+sum_{i<j}A_ij s_i s_j)/2. Spectral bound on the odd sum is <=3sqrt5<7, hence <=5 and at most 10 induced edges. Independently enumerated 64 transversal edge-count distribution {5:12,6:20,9:20,10:12} and checked all active facet inequalities in Q(sqrt5) for u=(-2,0,-1), strictly lighting ten midpoint vertices. Therefore alpha=10. Any fractional cover has weight >=30/10 by summing vertex constraints; averaging this direction under the edge-transitive rotation group attains weight exactly 3 and covers the whole boundary. This analytic bound covers the continuum of directions; no finite direction-sampling extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified: Naszódi introduced the same fractional parallel-direction invariant, and previously published Platonic polytope exact evaluations give i*=4 for the icosahedron and dodecahedron. The new result is their 30-vertex rectification i*=3, established by a signed 6x6 conference matrix and a ten-vertex illumination witness. Kiss–Oloff de Wet do list the icosidodecahedron but evaluate a mathematically different norm-weighted external-light-source parameter, not its fractional direction number. No precise same-invariant result identified.
+
+## value
+
+PASS
+
+PASS: Fractional illumination is a canonical convex-geometric invariant, and the regular icosidodecahedron is the canonical rectification of two Platonic dual solids whose values were already computed as four. Establishing the strict decrease to three and its exact signed-conference obstruction is a natural new benchmark, not an unmotivated small integer table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
