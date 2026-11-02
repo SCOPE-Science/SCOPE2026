@@ -1,19 +1,21 @@
-# Review: Exact two-mode axial constant-width volume bound
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The support function is odd-mode perturbed, so its width is exactly \(2\). Convexity forces the two displayed absolute-value constraints by nonnegativity of the meridional curvature radius at \(t=\pm1\) and \(t=\pm1/2\). The exact volume integral is \(4\pi/3-20\pi a^2/7-56\pi b^2/11\). Maximizing its deficit over the containing parallelogram gives only the two cubic endpoints; both endpoints have explicitly factored nonnegative curvature radii.
+PASS
 
-## Originality
+Original RESULT.md gives incorrect displayed coefficient -210t for B5(t) in the meridional support radius; differentiation of P5 yields B5=(-105t+455t^3-378t^5)/2. The original attached verify.py checks -105/2, and the stated values at t=1 and 1/2 require this correction. Independently differentiated P3,P5, integrated the volume 4pi/3-20pi a²/7-56pi b²/11, checked two necessary meridional curvature samples define a containing parallelogram, and verified strict deficit maximization at feasible endpoints (a,b)=(±1/5,0), giving min 128pi/105. Complete corrected RESULT.md bytes supplied; all final theorem hypotheses and boundaries re-assessed.
 
-PASS, subject to the residual risk below. The nearest identified benchmark treats one axial Legendre mode at a time, while the present claim treats the simultaneous \(P_3/P_5\) family. The primary article on axial constant-width bodies supplies the support-function framework but does not state this two-mode volume bound.
+## originality
 
-## Value
+PASS
 
-PASS. The result tests whether the first higher odd axial mode can improve a known cubic endpoint in a natural finite-mode family. It proves a sharp negative answer and gives an exact gap at the two mixed vertices of the necessary feasible region.
+Best-of-knowledge qualified originality after comparing exact mathematical statements, potential stronger theorems and Resultary matches. Known one-mode axial volume hierarchy includes the b=0 endpoint; Hynd studies extremal shape families without bounding all (a,b). An unindexed equivalent result remains possible.
 
-## Closest literature and limitations
+## value
 
-R. Hynd, “On Extreme Constant Width Bodies in \(\mathbb R^3\),” arXiv:2501.16940v1; DOI 10.1007/s00454-025-00779-6. The result is confined to the two-mode axial family and does not resolve the global three-dimensional Blaschke–Lebesgue problem. Similarity searches cannot prove absolute novelty; an unindexed or unpublished treatment remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first two odd axial Legendre modes are a natural finite-dimensional test of whether extra shape flexibility improves the known cubic constant-width volume endpoint. The sharp negative volume optimization and unique equality coefficients are a useful benchmark for higher-mode truncations; this does not claim a global Blaschke–Lebesgue result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

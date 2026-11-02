@@ -40,7 +40,7 @@ Direct differentiation gives
 \begin{aligned}
 A_3(t)&=-5t^3,& B_3(t)&=15t-20t^3,\\
 A_5(t)&=\frac{35t^3-63t^5}{2},&
-B_5(t)&=\frac{-210t+455t^3-378t^5}{2}.
+B_5(t)&=\frac{-105t+455t^3-378t^5}{2}.
 \end{aligned}
 \]
 Consequently, \(r_{\mathrm{mer}}=1+aB_3+bB_5\). At \(t=\pm1\), the values \(B_3(1)=-5\) and \(B_5(1)=-14\) imply
