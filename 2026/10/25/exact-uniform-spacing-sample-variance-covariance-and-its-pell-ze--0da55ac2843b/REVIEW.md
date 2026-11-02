@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim is verified for every integer \(n\ge 2\) and every spacing index \(0\le r\le n\), including the two endpoint gaps. Its proof invokes the standard uniform-order-statistic Dirichlet law, reconstructs the third mixed moment of a gap and a squared inter-order-statistic distance, and evaluates both finite rank sums explicitly. The positive denominator reduces signs to one concave integer quadratic. Complete zero-covariance classification follows from an elementary descending transformation of positive solutions to \(x^2-3y^2=1\), rather than finite search. The scaling limit follows directly from the exact rational expression. A separate exact-arithmetic monomial expansion checks 2,402 finite relations; it is corroboration and is not substituted for the general proof. Notable boundary cases: both endpoint gaps always have negative covariance; at \(n=6\), the first two interior zero ranks occur.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest full-text prior work is Royen, arXiv:0710.5749, Section 4 and Theorem 3, with an exact marginal distribution of uniform-parent sample variance; Royen, arXiv:0810.1572, similarly provides distributions of sample variance from bounded parents. Neither inspected paper provides a mixed moment with an individual ordered gap. Kochar (1999) and his 2012 review (Section 5) compare sample spacings and dispersion statistics across parent laws, which does not determine their covariance within a single uniform sample. Yao et al. (2008) address dependence orderings of spacing vectors; their inspected abstract does not exhibit the present covariance or arithmetic zero classification, but full text was not accessible. Searches of published mathematical findings and the relevant literature also produced no formula that dominates the complete covariance-and-Pell result. These observations support originality by comparison of mathematical implications, not by absence of keyword matches; undiscovered earlier equivalent results remain a risk. Standard Dirichlet moments and Pell solutions are background tools, not claimed as new in themselves.
+PASS
 
-## Mathematical value — PASS
-A local order-statistic gap and the global unbiased sample variance are natural complementary descriptions of uniform-data dispersion. The sign is not uniform across ranks: expanding an outer gap is associated with *lower* sample variance on the probability simplex, whereas expanding a central gap is associated with *higher* variance. The result determines every finite-sample rank sign and its two continuum transition locations; the infinite but sparse Pell-indexed exact cancellations provide a complete arithmetic answer at the boundaries. Both the full-gap sign profile and the zero classification concern mathematically motivated statistics and are not arbitrary parameter slices.
+The all-(n,r) formula follows from uniform Dirichlet(1,...,1) spacings, exact degree-two/three factorial moments of gaps and the pairwise squared-distance identity for unbiased sample variance. The finite sums over pairs yield the quadratic 6r(n-r)-n(n-1); denominator is positive for n>=2. Setting m=abs(n-2r) converts zero covariance exactly into (n+1)^2-3m^2=1, whose complete positive solutions are powers (2+sqrt(3))^k with k>=2. Independent Fraction calculations expanded all Dirichlet monomials separately and confirmed every r for n=2..9, including both boundary gaps. These finite checks supplement the analytic all-size moments and Pell descent; zero covariance is not independence.
 
-## Limitations
-Only independent uniform sampling is covered. The zero-covariance ranks are uncorrelatedness statements and not independence results. The full text of one plausible spacing-dependence source could not be inspected. The finite checker is supportive rather than a proof of all-size assertions. No independent validation has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kochar 1999 compares the spacing vectors and sample variances of samples from different parent distributions in stochastic order; Royen 2007/2008 determines sample-variance marginal distributions; Yao et al. 2008 treats multivariate total positivity and dependence among spacings. None of the materially inspected text states within-sample rankwise Cov(G_r,S^2) or the Pell zero classification. An exact harmonic covariance with exponential sample range in Resultary concerns a different parent and statistic.
+
+## value
+
+PASS
+
+A natural rank-specific joint dependence invariant has an exact global sign diagram and infinitely many exceptional uncorrelated internal ranks classified by a Pell equation, useful for recognizing dependence in uniform order-statistic statistics without presupposing joint independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

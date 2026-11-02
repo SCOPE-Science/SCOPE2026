@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T22:11:10.511929Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-uniform-spacing-sample-variance-covariance-and-its-pell-ze--0da55ac2843b/RESULT.md",
+        "2026/10/25/exact-uniform-spacing-sample-variance-covariance-and-its-pell-ze--0da55ac2843b/verify.py",
+        "/mnt/data/audit_checks_05.py"
+      ],
+      "rationale": "The all-(n,r) formula follows from uniform Dirichlet(1,...,1) spacings, exact degree-two/three factorial moments of gaps and the pairwise squared-distance identity for unbiased sample variance. The finite sums over pairs yield the quadratic 6r(n-r)-n(n-1); denominator is positive for n>=2. Setting m=abs(n-2r) converts zero covariance exactly into (n+1)^2-3m^2=1, whose complete positive solutions are powers (2+sqrt(3))^k with k>=2. Independent Fraction calculations expanded all Dirichlet monomials separately and confirmed every r for n=2..9, including both boundary gaps. These finite checks supplement the analytic all-size moments and Pell descent; zero covariance is not independence.",
+      "residual_risks": [
+        "Finite numerical calculations cannot replace exact infinite proof; conclusions rest on the reconstructed analytic argument and inspected source certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stochastic-order or total-positivity theorems for spacing vectors cannot determine mixed covariance against the nonlinear sample variance, including its sign changes, without the additional rankwise moment calculation."
+        ],
+        "reasoning": "A more general theorem would cover the new claim only if its hypotheses and conclusions imply the specific exact statistic; Stochastic-order or total-positivity theorems for spacing vectors cannot determine mixed covariance against the nonlinear sample variance, including its sign changes, without the additional rankwise moment calculation.",
+        "searches": [
+          "https://web.pdx.edu/~kochar/Papers/d_papers/SPL1999_spacI.pdf",
+          "Yao Burkschat Chen Hu Dependence Structure of Spacings of Order Statistics DOI:10.1080/03610920801894887"
+        ]
+      },
+      "checked_sources": [
+        "Frozen actual source 2026/10/25/exact-uniform-spacing-sample-variance-covariance-and-its-pell-ze--0da55ac2843b/RESULT.md (Git blob 0a563b2219693d1d3edd845d07f91fbfd59d1fa8)",
+        "Frozen source verifier Git blob aeffb85ed5c35315732b2669c9656a697a1c6c05",
+        "https://web.pdx.edu/~kochar/Papers/d_papers/SPL1999_spacI.pdf",
+        "Resultary: covariance uniform spacings sample variance Pell equation rank",
+        "Royen exact distribution sample variance uniform parent arXiv:0710.5749 and 0810.1572",
+        "Yao Burkschat Chen Hu Dependence Structure of Spacings of Order Statistics DOI:10.1080/03610920801894887"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kochar Theorem 1.2/Corollary 1.1 compares random samples from F and G; setting both parents uniform trivializes the comparison and does not imply nonzero signed covariances or Pell-zero ranks. Royen marginal laws do not determine a joint moment."
+        ],
+        "reasoning": "Explicitly distinguish premises and implications from a genuinely added statement. Kochar Theorem 1.2/Corollary 1.1 compares random samples from F and G; setting both parents uniform trivializes the comparison and does not imply nonzero signed covariances or Pell-zero ranks. Royen marginal laws do not determine a joint moment.",
+        "searches": [
+          "https://web.pdx.edu/~kochar/Papers/d_papers/SPL1999_spacI.pdf",
+          "Yao Burkschat Chen Hu Dependence Structure of Spacings of Order Statistics DOI:10.1080/03610920801894887"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dirichlet moments and the pairwise-difference representation are classical equivalent computational tools; inspected prior results do not supply the final simplified rankwise formula nor zero set."
+        ],
+        "reasoning": "Compare the actual optimization/observable/parameter statement across aliases rather than the titles. Dirichlet moments and the pairwise-difference representation are classical equivalent computational tools; inspected prior results do not supply the final simplified rankwise formula nor zero set.",
+        "searches": [
+          "Resultary: covariance uniform spacings sample variance Pell equation rank",
+          "https://web.pdx.edu/~kochar/Papers/d_papers/SPL1999_spacI.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching rankwise joint-covariance table emerged in Resultary; the close exponentially sampled range/variance result is for another parent family and functional."
+        ],
+        "reasoning": "Checked the exact matching invariant rather than merely similar numerical parameters; no negative search result is treated as a proof of novelty. No matching rankwise joint-covariance table emerged in Resultary; the close exponentially sampled range/variance result is for another parent family and functional.",
+        "searches": [
+          "Resultary: covariance uniform spacings sample variance Pell equation rank",
+          "Royen exact distribution sample variance uniform parent arXiv:0710.5749 and 0810.1572"
+        ]
+      },
+      "rationale": "Kochar 1999 compares the spacing vectors and sample variances of samples from different parent distributions in stochastic order; Royen 2007/2008 determines sample-variance marginal distributions; Yao et al. 2008 treats multivariate total positivity and dependence among spacings. None of the materially inspected text states within-sample rankwise Cov(G_r,S^2) or the Pell zero classification. An exact harmonic covariance with exponential sample range in Resultary concerns a different parent and statistic.",
+      "residual_risks": [
+        "Full text of Yao et al. 2008 was not accessible; its accessible abstract addresses spacing-vector dependence but might conceal a stronger mixed-moment formula.",
+        "The result is restricted to exactly uniform iid observations and the unbiased variance divisor n-1.",
+        "Standard Dirichlet moments and Pell recurrences are acknowledged classical ingredients, not independent inventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A stochastic-order comparison across distinct parents, not the within-uniform-parent mixed covariance by gap rank or Pell zeros.",
+          "evidence": "A stochastic-order comparison across distinct parents, not the within-uniform-parent mixed covariance by gap rank or Pell zeros.",
+          "identifier_or_url": "https://web.pdx.edu/~kochar/Papers/d_papers/SPL1999_spacI.pdf",
+          "material_read": "Full eight-page author-hosted primary PDF; read Theorem 1.2 and Corollary 1.1, including p.348 proof that sample variance is an increasing function of spacings in comparisons of two parent distributions. Inspected page image p.348, not just search snippets.",
+          "method": "Author-hosted PDF full-text and visual page 4",
+          "title": "Subhash C. Kochar, On stochastic orderings between distributions and their sample spacings, Statistics & Probability Letters 42 (1999), 345–352",
+          "trigger": "Highly relevant primary prior on the same mathematical objects or close invariant; tested whether its theorems imply the submitted claim."
+        },
+        {
+          "assessment": "Claims multivariate total positivity and likelihood-ratio ordering of spacings, not exact mixed covariance with S_n². Full text not read and remains a priority risk.",
+          "evidence": "The abstract’s stated theorems involve MTP2 and spacing-vector dependence only.",
+          "identifier_or_url": "https://doi.org/10.1080/03610920801894887",
+          "material_read": "Full abstract and theorem description, not full text",
+          "method": "Publisher abstract inspection",
+          "title": "Dependence Structure of Spacings of Order Statistics",
+          "trigger": "Dependence of the same gap vector, possible dominance over mixed moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://web.pdx.edu/~kochar/Papers/d_papers/SPL1999_spacI.pdf",
+        "2026/10/25/exact-uniform-spacing-sample-variance-covariance-and-its-pell-ze--0da55ac2843b/RESULT.md"
+      ],
+      "rationale": "A natural rank-specific joint dependence invariant has an exact global sign diagram and infinitely many exceptional uncorrelated internal ranks classified by a Pell equation, useful for recognizing dependence in uniform order-statistic statistics without presupposing joint independence.",
+      "residual_risks": [
+        "The mathematical value is restricted to the explicitly defined natural object/observable; no broader landmark theorem or independent external certification is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full text of Yao et al. 2008 was not accessible; its accessible abstract addresses spacing-vector dependence but might conceal a stronger mixed-moment formula.",
+    "The result is restricted to exactly uniform iid observations and the unbiased variance divisor n-1.",
+    "Standard Dirichlet moments and Pell recurrences are acknowledged classical ingredients, not independent inventions."
+  ],
+  "schema_version": 1
+}
