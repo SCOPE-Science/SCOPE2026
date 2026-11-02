@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-From the extracted package directory, install dependencies listed in `requirements.txt` and run `python verify.py`. No external data files are used. The verifier operates in exact SymPy integer/rational/algebraic arithmetic rather than estimating eigenvalues from floating-point simulations.
+## correctness
 
-Checks performed: symbolic two-step recurrence characteristic trace/determinant; factorization of all three necessary-and-sufficient Schur margins; stationary-point and minimum calculations for the universal contrast threshold; an exact scalar growing eigenpair with a realizable first step; fourteen independent primal–dual updates matching the eliminated two-step recurrence; and exact rational monodromy characteristic polynomial and excitation minor for the strictly strongly convex–concave example.
+PASS
 
-The test run returned the literal line `VERIFY_OK: Floquet polynomial, exact Schur margins, dimension-free threshold,` followed by `  bilinear unstable mode, fourteen direct updates, strongly convex rational certificate`.
+Independently reconstructed the elimination x_k=(y_k-y_{k-1})/sigma_{k-1}, reached arbitrary (y_1,y_0) from (x_0,y_0), and derived companion M_r(q)=[[1+q-2r,r-q],[1,0]]. Direct exact matrix multiplication recovers trace 2(1+2r^2-r(1+S)) and determinant 1+r^2-rS of M(1/t)M(t). Schur quadratic margins are r(S+2-3r)>0, 4+5r^2-2r-3rS, and r(S-r)>0, so strict stability is equivalent to the claimed frontier for all r in (0,1), S>=2. At equality -1 is a nonzero neutral eigenmode and beyond it one eigenvalue<-1, with no unreachable eigenvector loophole. SVD decouples square invertible matrix modes; convex minimization of S_c(r)=4/(3r)+5r/3-2/3 gives r=2/sqrt5. Independently reproduced the rational strongly convex two-step matrix and characteristic polynomial with negative value at -1 and nonzero excitation minor; proves divergence of an explicit initial state. Finite direct-iterate checks only confirm identities, not asymptotic necessity.
 
-The analytic proof establishes the infinite-time assertions. The finite direct-iteration checks only verify implementation consistency and do not constitute an independent proof or external validation. No stochastic-block or floating-point-roundoff guarantee is asserted.
+## originality
+
+PASS
+
+Best-knowledge PASS for the exact period-two dual-extrapolated Schur frontier, its sharp all-spectrum minimum and strictly convex witness. Existing work already observes variable-step PDHG divergence under subcritical products, so qualitative divergence is NOT novel. Chambolle et al convergence requires additional quasi-increase hypotheses violated by the permanent alternating schedule. Goldstein et al use related but differently extrapolated methods; Resultary fixed-product PDHG optimization uses constant step pairs; generic two-periodic recurrence energy-norm estimates are not this spectral stability frontier.
+
+## value
+
+PASS
+
+A necessary-and-sufficient stability boundary for a standard primal–dual update under two-periodic step contrast, with a sharp dimension-free safety cutoff and an admissible interior worst singular mode, is structural, nontrivial parameter information. Its explicit strongly convex divergence witness rules out a tempting but unsupported stabilization heuristic. It has algorithm-design relevance distinct from the already known observation that variable steps can sometimes fail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

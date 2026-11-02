@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T01:02:29.195637Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the elimination x_k=(y_k-y_{k-1})/sigma_{k-1}, reached arbitrary (y_1,y_0) from (x_0,y_0), and derived companion M_r(q)=[[1+q-2r,r-q],[1,0]]. Direct exact matrix multiplication recovers trace 2(1+2r^2-r(1+S)) and determinant 1+r^2-rS of M(1/t)M(t). Schur quadratic margins are r(S+2-3r)>0, 4+5r^2-2r-3rS, and r(S-r)>0, so strict stability is equivalent to the claimed frontier for all r in (0,1), S>=2. At equality -1 is a nonzero neutral eigenmode and beyond it one eigenvalue<-1, with no unreachable eigenvector loophole. SVD decouples square invertible matrix modes; convex minimization of S_c(r)=4/(3r)+5r/3-2/3 gives r=2/sqrt5. Independently reproduced the rational strongly convex two-step matrix and characteristic polynomial with negative value at -1 and nonzero excitation minor; proves divergence of an explicit initial state. Finite direct-iterate checks only confirm identities, not asymptotic necessity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chambolle convergence theorem additionally assumes controlled quasi-increasing steps, violated by t>1 alternating steps.",
+          "Goldstein papers discuss possible nonconvergence for variable steps but do not give the exact frontier for dual-extrapolated alternating reciprocal schedules."
+        ],
+        "reasoning": "A theorem with more variable-step schedules would dominate only if its assumptions actually allow this unbounded-total-variation period-two schedule and resolve necessity; the cited guarantees do not.",
+        "searches": [
+          "Chambolle et al arXiv:2301.02511/Theorem 2.1 and open 2024 Springer article",
+          "Goldstein et al arXiv:1305.0546",
+          "Goldstein et al NeurIPS 2015 adaptive primal-dual splitting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md f3d8d53107ded1f3fd363ea67c99c9fca98a894b",
+        "Frozen verify.py 4a6efac9eceae1fa7d68862d237603d8bf86df67",
+        "Chambolle et al arXiv:2301.02511 open journal theorem",
+        "Goldstein et al arXiv:1305.0546",
+        "Goldstein et al NeurIPS 2015",
+        "Resultary scalar PDHG fixed-product rate phase diagram",
+        "Resultary two-periodic recurrences energy-norm stability",
+        "Independent SymPy Schur/matrix/strongly-convex exact checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source product condition η||A||²<1 is necessary but not sufficient for this changing-step schedule; source additionally requires sequence regularity.",
+          "Prior qualitative counterexamples cannot imply the exact rational threshold, endpoint neutral mode, and minimizer r=2/sqrt5."
+        ],
+        "reasoning": "Neither convergence under stricter time regularity nor an unspecified divergence example logically decides this entire two-step spectral parameter region.",
+        "searches": [
+          "arXiv:2301.02511 Theorem 2.1",
+          "arXiv:1305.0546",
+          "Resultary fixed-product rate phase diagram for scalar PDHG"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B=M_r(1/t)M_r(t) is the actual two-step Floquet multiplier matrix; its trace and determinant yield the stated Schur frontier.",
+          "Published generic two-periodic energy-norm stability studies an ℓ2 residual bound versus product of first-order coefficients, not the parameterized dual-extrapolated PDHG root crossing."
+        ],
+        "reasoning": "The equivalent spectral formulation and splitting terminology were checked; no cited general two-periodic formula was found that implies the displayed all-r iff inequality or the strongly convex witness.",
+        "searches": [
+          "Resultary search: period two variable step primal dual hybrid gradient bilinear scalar alternating reciprocal balanced steps exact Floquet stability Schur threshold",
+          "Resultary 2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe",
+          "arXiv:2301.02511, Algorithm 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That published SCOPE result optimizes fixed constant PDHG steps, not periodically alternated reciprocal steps.",
+          "No exact Floquet stability table for dual extrapolation was identified among inspected published records."
+        ],
+        "reasoning": "The exact polynomial/minimum is verified by algebra, but nonappearance in search alone does not establish novelty.",
+        "searches": [
+          "Resultary search: period two variable step primal dual hybrid gradient bilinear scalar alternating reciprocal balanced steps exact Floquet stability Schur threshold",
+          "Resultary 2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the exact period-two dual-extrapolated Schur frontier, its sharp all-spectrum minimum and strictly convex witness. Existing work already observes variable-step PDHG divergence under subcritical products, so qualitative divergence is NOT novel. Chambolle et al convergence requires additional quasi-increase hypotheses violated by the permanent alternating schedule. Goldstein et al use related but differently extrapolated methods; Resultary fixed-product PDHG optimization uses constant step pairs; generic two-periodic recurrence energy-norm estimates are not this spectral stability frontier.",
+      "residual_risks": [
+        "Older switched-operator/Floquet stability literature may already imply the specific criterion by reduction.",
+        "Comparison to different primal/dual extrapolation must preserve algorithmic convention.",
+        "Finite numerical updates cannot prove convergence, which rests on the Schur criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the tested alternating sequence because bounded/summable changes are required",
+          "evidence": [
+            "Theorem 2.1: quasi-increasing/summability conditions; equations of the primal–dual update"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.02511",
+          "material_read": "Accessible full journal HTML, algorithm definition, Theorem 2.1 hypotheses, and reciprocal balancing conditions",
+          "method": "Read open primary journal text and theorem hypotheses",
+          "title": "Stochastic Primal–Dual Hybrid Gradient Algorithm with Adaptive Step-Sizes",
+          "trigger": "Exact dual extrapolation scheme and possible dominating convergence theorem"
+        },
+        {
+          "assessment": "Known qualitative failure is acknowledged, exact two-periodic dual-extrapolated iff criterion not established by material inspected",
+          "evidence": [
+            "Different extrapolation convention; qualitative variable-step caution"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1305.0546",
+          "material_read": "Abstract, algorithm descriptions and statements compared with source paper; no claim of full-paper exclusion",
+          "method": "Primary arXiv abstract/accessible excerpts and inspected research package context",
+          "title": "Adaptive Primal-Dual Hybrid Gradient Methods for Saddle-Point Problems",
+          "trigger": "Earlier warnings about variable-step instability"
+        },
+        {
+          "assessment": "Not logically covering from summary; full-text generalization residual",
+          "evidence": [
+            "Residual-error constant for complex first-order recurrence on ℓ2, not PDHG spectral crossing"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe",
+          "material_read": "Published finding title and summary only; full source not inspected",
+          "method": "Resultary semantic result",
+          "title": "Sharp energy-norm stability for two-periodic recurrences",
+          "trigger": "Potential generic Floquet reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A necessary-and-sufficient stability boundary for a standard primal–dual update under two-periodic step contrast, with a sharp dimension-free safety cutoff and an admissible interior worst singular mode, is structural, nontrivial parameter information. Its explicit strongly convex divergence witness rules out a tempting but unsupported stabilization heuristic. It has algorithm-design relevance distinct from the already known observation that variable steps can sometimes fail.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md f3d8d53107ded1f3fd363ea67c99c9fca98a894b",
+    "Frozen verify.py 4a6efac9eceae1fa7d68862d237603d8bf86df67",
+    "Chambolle et al arXiv:2301.02511 open journal theorem",
+    "Goldstein et al arXiv:1305.0546",
+    "Goldstein et al NeurIPS 2015",
+    "Resultary scalar PDHG fixed-product rate phase diagram",
+    "Resultary two-periodic recurrences energy-norm stability",
+    "Independent SymPy Schur/matrix/strongly-convex exact checks"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only deterministic, two-periodic dual-extrapolated PDHG, invertible bilinear square A; strongly convex part is a single counterexample, not a full classification.",
+    "Does not assert failures of the original safeguarded adaptive rules or matrix-uniform rates."
+  ],
+  "residual_risks": [
+    "Older switched-operator/Floquet stability literature may already imply the specific criterion by reduction.",
+    "Comparison to different primal/dual extrapolation must preserve algorithmic convention.",
+    "Finite numerical updates cannot prove convergence, which rests on the Schur criterion."
+  ],
+  "schema_version": 1
+}
