@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-The included `verify_contextual_k1.py` enumerates **all source words** of lengths from 1 to 12 for two symbols, from 1 to 9 for three symbols, from 1 to 7 for four symbols, and from 1 to 6 for five symbols. For each word it independently applies the deletion rule to original run-leading positions and compares the entire resulting image set with the exact characterization. It also compares every output-length histogram to the displayed binomial sum.
+## correctness
 
-There are 34 distinct tested (alphabet size, input length) parameter pairs, totaling 79,087 source words. The recorded standard-Python execution terminated with `VERIFY_OK`. The analytic infinite proof is independent of these finite tests. The capacity and central limit theorem depend on the explicit rational generating function, its unique strictly dominant analytic pole near the probability-generating-function argument 1, and a Taylor expansion of its logarithm.
+PASS
 
-To replay from these standalone files, use `python3 verify_contextual_k1.py`; the only imports are standard-library modules. No external datasets, network services, or other-row files are required.
+For every q≥2 and n≥1, deleting original-input first symbols of all noninitial runs removes exactly s−1 symbols where s=#input runs; deletion cannot increase runs, so any output y satisfies |y|+r(y)−1≤n. Conversely appending one new leading symbol to each noninitial run of y constructs a minimal preimage and padding by n−|y|−r(y)+1 new singleton runs (alternating letters, always possible for q=2) constructs every larger source length. Run-composition counting proves exact N_{n,m}, summing minimal feasible lengths gives qt z/((1−z)(1−tz−(q−1)tz²)); deterministic fiber representatives prove exact zero-error code size. Unique dominant pole near t=1 yields capacity and quasi-power characteristic function with μ=(1+1/√(4q−3))/2 and σ²=(q−1)/(4q−3)^(3/2)>0. New independent exhaustive image computation across 23 (q,n) pairs totaling 10785 input words and symbolic derivative identities checked; infinite CLT rests on analytic proof.
 
-# Limitations
+## originality
 
-No independent scientific audit has been performed. The computational check is finite. Thresholds greater than one, intermediate deletion probabilities, and distributions induced by random input rather than uniform distinct outputs are outside the theorem's scope.
+PASS
+
+The original 2026 contextual deletion paper defines the same binary threshold mechanism, but its published fixed-k analyses/Section V do not state the complete threshold-one q-ary exact image language, finite length histogram, zero-error capacity, and distinct-output central limit law. Con–Ribeiro prove broader input-correlated synchronization capacity methods without this exact deterministic run-language evaluation. These are qualified priority comparisons, not proof against all older automata/transducer literature.
+
+## value
+
+PASS
+
+Threshold-one is a natural exact endpoint and benchmark for context-dependent deletion channels, giving not just capacity but every finite-block output frequency and a genuine Gaussian law for lengths of uniformly chosen distinct outputs. It clarifies the distinction between uniform source inputs and uniform distinct outputs and supports exact zero-error representative codes. The structural image criterion is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

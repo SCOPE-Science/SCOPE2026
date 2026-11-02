@@ -1,9 +1,21 @@
-# Review: deterministic threshold-one contextual deletion image spectrum
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof derives the exact output criterion from original-run deletion counting and an explicit padded preimage for every admissible nonempty word. Run-composition enumeration and a rational bivariate generating function give the full spectrum and exact optimal deterministic zero-error code size. Dominant-pole analysis independently establishes the q-ary capacity and Gaussian distinct-output length law with positive variance. The reproducible standalone verifier directly inspected 79,087 source words across 34 finite parameter pairs and confirmed every predicted image set and length histogram. These finite checks do not replace the infinite proof.
+## correctness
 
-**Originality: PASS, with limitations.** The closest work is Chen–Milenkovic–Ribeiro–Sima, arXiv:2602.05072 (first public 2026-02-04), whose Definition 1 gives the same contextual deletion mechanism and whose Section V presents bounds for fixed thresholds, rather than the threshold-one q-ary complete image/length-spectrum theorem. Con–Ribeiro, arXiv:2504.14087, supplies general input-correlated synchronization capacity methods, but its results do not calculate this exact deterministic channel. Semantic prior-result and primary-literature searches did not identify equivalent or stronger coverage. The remaining risks are unindexed transducer-language presentations and the elementary nature of some constituent counting identities; lack of a search hit is not a proof of global novelty.
+PASS
 
-**Value: PASS.** The result resolves the natural threshold-one endpoint of a newly studied context-dependent deletion model at every alphabet size and finite blocklength, combining exact zero-error coding capacity with the full length distribution and a Gaussian fluctuation law. These structural quantities provide a benchmark and distinguish finite observation-counting from asymptotic channel-rate behavior. Nothing is claimed about stronger thresholds or empirically calibrated DNA sequencing.
+For every q≥2 and n≥1, deleting original-input first symbols of all noninitial runs removes exactly s−1 symbols where s=#input runs; deletion cannot increase runs, so any output y satisfies |y|+r(y)−1≤n. Conversely appending one new leading symbol to each noninitial run of y constructs a minimal preimage and padding by n−|y|−r(y)+1 new singleton runs (alternating letters, always possible for q=2) constructs every larger source length. Run-composition counting proves exact N_{n,m}, summing minimal feasible lengths gives qt z/((1−z)(1−tz−(q−1)tz²)); deterministic fiber representatives prove exact zero-error code size. Unique dominant pole near t=1 yields capacity and quasi-power characteristic function with μ=(1+1/√(4q−3))/2 and σ²=(q−1)/(4q−3)^(3/2)>0. New independent exhaustive image computation across 23 (q,n) pairs totaling 10785 input words and symbolic derivative identities checked; infinite CLT rests on analytic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original 2026 contextual deletion paper defines the same binary threshold mechanism, but its published fixed-k analyses/Section V do not state the complete threshold-one q-ary exact image language, finite length histogram, zero-error capacity, and distinct-output central limit law. Con–Ribeiro prove broader input-correlated synchronization capacity methods without this exact deterministic run-language evaluation. These are qualified priority comparisons, not proof against all older automata/transducer literature.
+
+## value
+
+PASS
+
+Threshold-one is a natural exact endpoint and benchmark for context-dependent deletion channels, giving not just capacity but every finite-block output frequency and a genuine Gaussian law for lengths of uniformly chosen distinct outputs. It clarifies the distinction between uniform source inputs and uniform distinct outputs and supports exact zero-error representative codes. The structural image criterion is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:51:12.194050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every q≥2 and n≥1, deleting original-input first symbols of all noninitial runs removes exactly s−1 symbols where s=#input runs; deletion cannot increase runs, so any output y satisfies |y|+r(y)−1≤n. Conversely appending one new leading symbol to each noninitial run of y constructs a minimal preimage and padding by n−|y|−r(y)+1 new singleton runs (alternating letters, always possible for q=2) constructs every larger source length. Run-composition counting proves exact N_{n,m}, summing minimal feasible lengths gives qt z/((1−z)(1−tz−(q−1)tz²)); deterministic fiber representatives prove exact zero-error code size. Unique dominant pole near t=1 yields capacity and quasi-power characteristic function with μ=(1+1/√(4q−3))/2 and σ²=(q−1)/(4q−3)^(3/2)>0. New independent exhaustive image computation across 23 (q,n) pairs totaling 10785 input words and symbolic derivative identities checked; infinite CLT rests on analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. Definition 1 defines binary contextual deletions; Section V works with fixed k and explicit larger-threshold coding bounds.",
+          "Con–Ribeiro analyze information-theoretic capacity of input-correlated synchronization and deletions within runs, but not the displayed deterministic q-ary image."
+        ],
+        "reasoning": "A general existence/equality theorem for synchronization capacity cannot be directly specialized to the exact run-count image membership, histogram or image-uniform CLT; the claimed endpoint computation is additional.",
+        "searches": [
+          "arxiv:2602.05072 Section V",
+          "arxiv:2504.14087",
+          "threshold-one contextual deletions q-ary output image language run spectrum zero-error capacity Gaussian length"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2602.05072v2",
+        "https://arxiv.org/html/2504.14087v2",
+        "Resultary semantic query: threshold-one contextual deletions q-ary output image language run spectrum zero-error capacity Gaussian length",
+        "Resultary:2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-n iff image criterion is the key new structural statement; its analytic generating function then yields capacity and Gaussian law.",
+          "The primary prior paper defines threshold contextual deletions but does not state an all-q threshold-one exact image-count theorem in inspected relevant sections."
+        ],
+        "reasoning": "The general channel model and run decomposition are not claimed as novel. The new consequences require a concrete preimage construction and exact counting, not merely an application of broad capacity inequalities.",
+        "searches": [
+          "arxiv:2602.05072 Definition 1 / Section V",
+          "arxiv:2504.14087",
+          "threshold-one contextual deletions q-ary output image language run spectrum zero-error capacity Gaussian length"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For k=1, any previous nonempty run meets the contextual threshold, so the deleted sites are the first symbols of all runs after the initial run.",
+          "Binary generalized Fibonacci counts arise at q=2 but are contained in the stated q-ary spectrum."
+        ],
+        "reasoning": "The transducer/regular-language and run-leading-erasure aliases were queried; the same channel definition is known, while the exact full q-ary finite-block language and CLT are not given by inspected statements.",
+        "searches": [
+          "threshold-one contextual deletions q-ary output image language run spectrum zero-error capacity Gaussian length",
+          "arxiv:2602.05072 Definition 1",
+          "run-leader erasure regular language image generalized Fibonacci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact coefficients N_{n,m}=q Σ_j binom(m−1,j)(q−1)^j tabulate all lengths and all alphabets.",
+          "The matched Resultary q-ary deletion-code theorem studies correcting t deletions with redundancy coefficient, not this deterministic image fiber size."
+        ],
+        "reasoning": "No retrieved fixed-length table covers the full bivariate spectrum; even a binary Fibonacci total does not imply the q-ary q≥2 histograms and distinct-output CLT.",
+        "searches": [
+          "threshold-one contextual deletions q-ary output image language run spectrum zero-error capacity Gaussian length",
+          "contextual deletion threshold k=1 zero error image size Fibonacci",
+          "Resultary:2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c"
+        ]
+      },
+      "rationale": "The original 2026 contextual deletion paper defines the same binary threshold mechanism, but its published fixed-k analyses/Section V do not state the complete threshold-one q-ary exact image language, finite length histogram, zero-error capacity, and distinct-output central limit law. Con–Ribeiro prove broader input-correlated synchronization capacity methods without this exact deterministic run-language evaluation. These are qualified priority comparisons, not proof against all older automata/transducer literature.",
+      "residual_risks": [
+        "An older weighted finite-state transducer enumerator or context-deletion special case could be equivalent under different notation.",
+        "Only deterministic original-input threshold one; not intermediate deletion probabilities, k≥2, or uniform random source induced output lengths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The binary model definition agrees with k=1 original-run leader deletion; inspected stated capacity bounds and coding results do not give the full q-ary threshold-one image/CLT.",
+          "evidence": [
+            "Definition 1 deletes the run first bit if preceding run length≥k, hence for k=1 it matches the assigned map; Section V proof develops forbidden-pattern capacity estimates rather than the exact iff language."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.05072v2",
+          "material_read": "Primary full HTML Definition 1 and 3, fixed-threshold Section V, Theorem 5/13 and the combinatorial capacity proof sections.",
+          "method": "Retrieved publicly accessible primary HTML and examined the relevant mathematical statements and proof sections; no inference of whole-document noncoverage from a snippet.",
+          "title": "Correcting Contextual Deletions in DNA Nanopore Readouts",
+          "trigger": "Identical source contextual deletion model"
+        },
+        {
+          "assessment": "General capacity formalism does not directly evaluate the particular deterministic q-ary first-of-noninitial-run deletion fibers.",
+          "evidence": [
+            "The paper studies input-correlated synchronization via general stochastic mechanisms and within-run deletions; the assigned distribution is uniform over distinct outputs, not the induced input process."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2504.14087v2",
+          "material_read": "Primary accessible HTML introduction and sections concerning synchronization errors, runs, capacity methods and deletion models.",
+          "method": "Retrieved publicly accessible primary HTML and examined the relevant mathematical statements and proof sections; no inference of whole-document noncoverage from a snippet.",
+          "title": "Channels with Input-Correlated Synchronization Errors",
+          "trigger": "General synchronized errors could dominate channel theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Threshold-one is a natural exact endpoint and benchmark for context-dependent deletion channels, giving not just capacity but every finite-block output frequency and a genuine Gaussian law for lengths of uniformly chosen distinct outputs. It clarifies the distinction between uniform source inputs and uniform distinct outputs and supports exact zero-error representative codes. The structural image criterion is independently useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2602.05072v2",
+    "https://arxiv.org/html/2504.14087v2",
+    "Resultary semantic query: threshold-one contextual deletions q-ary output image language run spectrum zero-error capacity Gaussian length",
+    "Resultary:2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older weighted finite-state transducer enumerator or context-deletion special case could be equivalent under different notation.",
+    "Only deterministic original-input threshold one; not intermediate deletion probabilities, k≥2, or uniform random source induced output lengths."
+  ],
+  "residual_risks": [
+    "An older weighted finite-state transducer enumerator or context-deletion special case could be equivalent under different notation.",
+    "Only deterministic original-input threshold one; not intermediate deletion probabilities, k≥2, or uniform random source induced output lengths."
+  ],
+  "schema_version": 1
+}
