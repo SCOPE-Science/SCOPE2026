@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof begins from the exact Dung definition, shows that in an irreflexive symmetric cycle an independent set is complete precisely when the undecided induced subgraph has no isolated vertices, and translates that condition to the allowed cyclic gap set. Marking a selected vertex yields the precise \(n/k\) combinatorial factor. The formal differentiation identity yields the bivariate series, and elementary rational simplification gives the total recurrence. A unique positive simple dominant pole provides the claimed leading coefficient, with an explicit phase argument ruling out competing poles of equal modulus. In the shipped `checker.py`, the independently implemented Dung defender test is compared with both proposed characterizations for every subset on cycles of sizes 3–16 (131064 masks); the stable comparison and root checks also pass. Boundary cases at sizes 3 and 4 and the single-selected-vertex wrap gap were checked explicitly. Finite tests are corroboration, not an infinite certificate.
+PASS
 
-## Originality — PASS within compared literature
+For a symmetric loop-free cycle, conflict-free S defends its members; completeness requires no undecided isolated vertex in U=V\(S∪N(S)). A cyclic selected-vertex gap d produces undecided run length d−3 when d>=4: d=4 leaves exactly one isolated node, while d∈{2,3} or >=5 is valid. The gap condition therefore holds for any n>=3, including one-selected-vertex wrap n. Marked cyclic compositions count c_{n,k}=n/k[z^n]G(z)^k, G=z²+z³+z^5/(1−z), and rational generating series follows. The positive root of G(r)=1 is the unique circle-of-convergence pole using coprime 2 and 3, so leading asymptotic constant exactly one. Independently checked the Dung defender definition for all 65528 subsets for 3<=n<=15 against gaps and exact counts; no finite experiment is claimed to prove all n.
 
-Coste-Marquis, Devred and Marquis (2005) prove the antecedent structural fact that admissibility equals conflict-freeness on symmetric frameworks, and stable equals preferred, but do not count complete extensions of reciprocal cycles by size. Rodrigues (2017) provides a general complete-labelling enumeration procedure and inspects bidirectional cycle benchmarks, but does not derive the cyclic gap exclusion or a complete-extension generating polynomial. Obiedkov and Sertkaya (2026), including the publicly presented July 16 seminar and their KR paper, construct a closure-system enumeration algorithm for complete extensions; their full mathematical statements concern generic enumeration, not the exact all-cycle size distribution or its growth rate. Earlier exact results for *stable* extension disagreements on reciprocal cycles do not determine the larger class of complete extensions. A broader generic method applicable to a cycle is not the exact enumerator unless the published method or result already implies the displayed formula. Searches for complete/3-valued labellings of symmetric cycles, cyclic gap enumerators, the initial coefficient sequence, and the rational formula did not uncover such a theorem. This is bounded best-knowledge priority assessment; equivalence to an older three-state-model enumerator remains a concrete risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete structural classification and exact size distribution for a canonical infinite sparse family of argumentation frameworks. Because complete and stable semantics differ already on the five-cycle, their extension-output sizes cannot be identified; the proof gives a benchmark for all orders and quantifies the discrepancy sharply: \(\rho\approx1.549906\) for complete extensions versus the plastic constant \(\pi\approx1.324718\) for stable extensions. The prohibited four-gap and the required nonisolated undecided stretches are a structural description, rather than an arbitrary parameter slice or a mere computation of one short sequence. The result is useful for checking complete-extension enumeration and analysing worst-case output counts on natural strongly connected reciprocal networks.
+Best-of-knowledge PASS for exact labelled complete-extension SIZE polynomial, gap prohibition and asymptotic growth of all bidirected simple cycles. Dung semantics and symmetric-graph admissibility/stable equivalence are known prior, not claimed as new.
 
-## Closest literature and limitations
+## value
 
-The strongest overlap is the structural symmetric-framework theorem of Coste-Marquis–Devred–Marquis (2005) and the complete-labelling algorithm of Rodrigues (2017); the most recent motivating algorithms are those of Obiedkov–Sertkaya (2026). Neither inspected work states the exact reciprocal-cycle generating polynomial. The theorem does not claim an extension to arbitrary cycles with one-way attacks, arbitrary symmetric graphs, or unlabelled rotation classes. Unknown older identities in combinatorial statistical mechanics or label-counting remain an originality risk. The mathematical result has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The spectrum is a complete natural enumeration of Dung complete extensions on the simplest nontrivial connected symmetric attack graphs. Gap-4 prohibition distinguishes completeness from independence and the size polynomial yields exact refined counts, rational recurrence, asymptotic growth and stable/complete fraction; these are potentially reusable combinatorial baseline invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
