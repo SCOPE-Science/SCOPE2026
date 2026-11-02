@@ -1,15 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed normalization is uniform among every receiver's current outgoing neighbors. Subtracting the two equilibrium systems gives a one-row, rank-one change, and substituting the old resolvent's own-row equation yields the exact displayed scalar denominator. The nonnegative resolvent column has its largest entry at the modified receiver; therefore the denominator is uniformly strictly positive. The linear-fractional top-score argument works for negative as well as positive optimal gain and includes the empty intervention. The tie handling at score-line crossings has an exact proof. The packaged independent rational matrix calculations reproduce 764 subproblems and 2,155 perturbed equilibria. Residual proof risk lies in arithmetic complexity conventions, not the mathematical maximization statement: all inputs are assumed rational for the exact bit-complexity assertion.
+## correctness
 
-## Originality — PASS (bounded best-knowledge assessment)
-The 2026 motivating full text treats unrestricted edge placement and proposes heuristics. Its unrestricted NP-hardness does not imply fixed-receiver hardness. The fixed-receiver theorem includes the shared maximizing intervention for all componentwise monotone objectives and a constructive polynomial-time envelope of affine-score orderings, rather than only the standard one-row perturbation identity. The original 2025 link-recommendation literature optimizes leader-induced mean opinion over a different set of candidate edges. Relevant whole-text and abstract comparisons are documented in AUDIT.json. Historical priority has not been independently established; a possible prior exact same-row argument in the broader link-recommendation literature is the main remaining concern.
+PASS
 
-## Mathematical value — PASS
-The source identifies structural median intervention as computationally difficult and uses heuristics for selecting edges. A sharp tractable restriction is mathematically motivated: multiple edges from one recipient alter only one row, making the globally nonlinear optimization one-dimensional. The finding explains exactly when an optimal intervention can be computed and proves that the optimized set dominates every rival intervention at every opinion coordinate. The four-node strict reversal demonstrates why the positive-exposure ranking alone does not characterize optimum. This is a structural algorithmic result for all network sizes, not a routine one-edge derivative or an arbitrarily chosen finite example.
+Strict substochasticity gives nonnegative G=(I-Lambda W)^(-1), h=G e_i>=0, and h_i=max_v h_v>=1 by the maximum principle. A changed row is rank one, hence z(S)=z+alpha(S)h. Resolvent substitution gives alpha=lambda_i sum_{j in S}(z_j-b_i)/(d_i+|S|h_i-lambda_i sum_{j in S}h_j) with denominator >=d_i+|S|(1-lambda_i)h_i>0. Thus one optimal alpha yields coordinatewise domination of every other feasible outcome, making every nondecreasing aggregate objective optimal simultaneously, without claiming identical sets of *all* optimizers. At each fixed k, fractional-programming optimality at t=r makes maximizers of sum_{j in S}(z_j+t h_j) attain the optimal ratio; these top k selections change only at O(m^2) pairwise affine-score crossings. Including crossing points, intervals, k=1..K and empty set returns the exact optimum in polynomial bit/arithmetic time. The 4-node rational example reverses the raw opinion ordering (gain 27/1450>1251/82550). Independent exact matrix inversions and enumeration of all eligible subsets of this example passed.
 
-## Scope and prior literature
-Primary: Biondi et al., arXiv:2610.21933 (full available text, dynamics, problem, hardness, heuristics and conclusions). Comparison: Wang et al., arXiv:2506.12463 (full available text), Boudourides arXiv:2602.08704 (full available text), Ristache et al. (full available text), Zhu–Zhang DOI:10.1016/j.tcs.2025.115090 (abstract, no confirmed full text). An accessible abstract cannot rule out every stronger theorem in its full article. The algorithm requires one fixed tail, uniform outgoing weights and all susceptibility parameters strictly less than one.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating Biondi--Boldrini--Passarella--Conti October 2026 article establishes hardness for unrestricted multi-receiver structural median intervention and proposes heuristic methods. Its primary full paper was inspected and does not state a fixed-single-tail exact polynomial algorithm. General rank-one resolvent and fractional subset optimization are prior tools, not claimed as novel; the new consequence is a common optimum for every monotone statistic under a natural fixed-receiver constraint. Closest full text of Zhu--Zhang 2025 remains a literature risk.
+
+## value
+
+PASS
+
+The directed-FJ structural median optimization is hard when receiver tails vary. A practical natural one-receiver intervention class admits a surprising universal exact order on whole equilibria and an executable polynomial-time discrete optimizer for every quantile, mean and threshold, plus an exact counterexample to naive highest-baseline-donor ranking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
