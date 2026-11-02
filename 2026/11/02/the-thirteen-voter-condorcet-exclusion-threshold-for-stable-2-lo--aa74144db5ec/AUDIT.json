@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Uniform rank-copy integration gives \\(H_x=\\frac1n\\sum_v[L_v(x)^2+L_v(x)D(x)+D(x)^2/3]\\), including the zero-weight boundary. Weighted averaging yields exactly \\(1/3\\); Cai et al. Theorem 3 supplies the minimax upper bound. Exclusion of a strict Condorcet winner forces both rivals into interior support and \\(x=(3u-n)/n\\), a parity-sensitive rational grid. Condorcet inequalities imply \\(H_A\\ge(n+6)/(4n)\\) for even \\(n\\) and \\(H_A\\ge(n+3)/(4n)+9(n-1)/(4n^3)\\) for odd \\(n\\). Both strictly exceed \\(1/3\\) through \\(n=12\\). Exact rational evaluation of the thirteen-voter payoffs confirms stability; strict derivative and endpoint inequalities prove uniqueness on the full simplex. The standard-library exact-rational verifier additionally checked payoff identities and exhaustively enumerated anonymous profiles through \\(n=13\\), corroborating rather than replacing the universal proof. References: Cai et al. (2026), Section 3; RESULT.md, complete derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2609.08259v1 (Section 3 and Appendix A)",
+        "https://arxiv.org/pdf/2505.13630 (Sections 5.1-5.2)"
+      ],
+      "reasoning": "Cai et al. prove existence, stability, and worst-case metric distortion for all \\(k\\) and voter counts, which covers feasibility of the thirteen-voter stable lottery but not the absence of smaller exclusions. Their general Appendix A covers qualitative exclusion with eighteen voters; neither a general existence theorem nor a single upper-bound witness implies the first attainable finite \\(n\\) or uniqueness of that witness. The precise thirteen-voter threshold was separately established analytically.",
+      "searches": [
+        "stable k lotteries Condorcet winner excluded from support three alternatives majority 2 stable lottery",
+        "stable 2-lottery k-tournament Condorcet consistency minimum electorate 13 voter",
+        "\"stable lottery\" \"Condorcet winner\" positive probability",
+        "https://arxiv.org/html/2609.08259v1 Appendix A Lemma 8",
+        "https://arxiv.org/pdf/2505.13630 Theorem 5.5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.08259v1",
+      "https://arxiv.org/pdf/2505.13630",
+      "https://arxiv.org/abs/1905.04438",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-minimal-reinforcement-pair-census-for-three-candidate-i--ed9f14797f48",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-minimal-boundary-reinforcement-census-for-three-candida--f64982d2830a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2609.08259v1",
+        "https://arxiv.org/pdf/2505.13630",
+        "https://arxiv.org/abs/1905.04438"
+      ],
+      "reasoning": "Source implication: Appendix A with \\(k=2,m=2,r=8/9\\) implies the 18-voter Condorcet exclusion construction (2 top-A ballots, 16 A-middle ballots) and thus dominates any bare existence claim. It does not establish exclusion at 13 or impossibility for 12 and below, and its symmetric 18-voter lottery is not the unique 13-voter minimizer. The present statement includes both the sharp lower-bound proof and a full-simplex uniqueness proof. The 2025 source supplies existence only; the 2019 committee lottery is a distinct mathematical model.",
+      "searches": [
+        "Sharp 13 voter Condorcet winner excluded from stable 2 lottery three candidates unique equilibrium 5/13 8/13",
+        "two-defender-one-attacker Condorcet minimax game strict majority winner 13-voter support counterexample",
+        "https://arxiv.org/html/2609.08259v1 Appendix A m=2 t=1",
+        "https://arxiv.org/pdf/2505.13630 Section 5.1 stable lottery"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2609.08259v1",
+        "https://arxiv.org/pdf/2505.13630",
+        "https://arxiv.org/abs/1905.04438"
+      ],
+      "reasoning": "The game also appears as the independent-with-replacement committee version, a rank-copy quadratic activation minimax, or an equilibrium of a three-draw voter-favorite operator. In all these forms the claimed statement is a minimal voter count for zero weight on a strict Condorcet winner, plus a unique thirteen-voter minimizer; source equivalence of the minimax formulations alone does not supply the sharp count. The original committee-without-replacement model is not equivalent because it has different feasible lotteries and tie semantics.",
+      "searches": [
+        "stable k lotteries Condorcet winner excluded from support three alternatives majority 2 stable lottery",
+        "two candidate stable k lottery minimax Condorcet threshold and closed-form support",
+        "two-defender-one-attacker Condorcet minimax game strict majority winner 13-voter support counterexample",
+        "\"stable k-lotteries\" \"Condorcet\"",
+        "https://arxiv.org/html/2609.08259v1 Section 3 and Appendix A",
+        "https://arxiv.org/pdf/2505.13630 Sections 5.1-5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-minimal-reinforcement-pair-census-for-three-candidate-i--ed9f14797f48",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-minimal-boundary-reinforcement-census-for-three-candida--f64982d2830a",
+        "https://arxiv.org/html/2609.08259v1 Appendix A"
+      ],
+      "reasoning": "Published database hits with thirteen voters concern reinforcement paradoxes of instant-runoff voting, and one maximin reinforcement layer; those classify partition paradoxes and rule winners, not minimax support of stable two-lotteries. No inspected indexed table gives the anonymous three-alternative Condorcet-exclusion boundary. The accompanying exact finite enumeration has 0 exclusion profiles through n=12 and 2 at n=13, but absence of a database hit is not proof of novelty.",
+      "searches": [
+        "Sharp 13 voter Condorcet winner excluded from stable 2 lottery three candidates unique equilibrium 5/13 8/13",
+        "three candidates 13 voters 7-6 Condorcet winner receives probability zero randomized voting",
+        "\"stable 2-lotteries\" \"Condorcet winner\"",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-minimal-reinforcement-pair-census-for-three-candidate-i--ed9f14797f48",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-minimal-boundary-reinforcement-census-for-three-candida--f64982d2830a"
+      ]
+    },
+    "rationale": "The qualitative phenomenon is not new: Cai et al. (2026) Appendix A, specialized to \\(m=2,k=2,t=1,r=8/9\\), gives an eighteen-voter strict-Condorcet winner excluded by a stable two-lottery. The new exact lower bound (no exclusion through twelve), explicit sharp thirteen-voter example, and uniquely excluding minimizer are sharper than and not implied by that eighteen-voter construction. Charikar et al. (2025) give stable-lottery existence and representation, not finite support thresholds; Cheng et al. (2019/2020) study a different committee-distribution stability notion. Published-index search surfaced \\(13\\)-voter IRV reinforcement and maximin records with different solution concepts, not covering the stable-two-lottery support claim. All conclusions reflect the inspected primary materials, with residual unindexed priority risk.",
+    "residual_risks": [
+      "Unindexed or unpublished equivalent finite-electorate support analyses, possibly in source appendices not exhaustively inspected.",
+      "A future proof of a broader finite-support theorem could subsume the thirteen-voter cutoff.",
+      "Alternate meanings of stable lottery (distinct committee draws, deterministic duplicate ties, or modified activation functions) are not covered; comparing them without explicit equivalence would be invalid."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COV premise and stability established; qualitative Condorcet exclusion is already implied by Appendix A; no sharp 13-voter or lower bound to 12 found in inspected treatment",
+        "evidence": [
+          "https://arxiv.org/html/2609.08259v1 (Section 3, Equations 4-10)",
+          "https://arxiv.org/html/2609.08259v1 (Appendix A, Lemma 8)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.08259v1",
+        "material_read": "Primary full HTML: introduction, Sections 2-3 definitions/rank-copy convention, Section 5 and Appendix A Theorem 7, Lemma 8 and construction, bibliography/conclusion",
+        "method": "Inspected HTML text, definitions/equations (4)-(10), Appendix A parameters \\(k=2,m=2,t=1,r=8/9\\); separately recomputed the implied 18-voter strict-Condorcet exclusion",
+        "title": "Stable Voting Rules on the Edge of Optimal Metric Distortion",
+        "trigger": "Exact foundational stable-two-lottery minimax definition and plausible earlier Condorcet exclusion construction"
+      },
+      {
+        "assessment": "Covers minimax existence and representation without a visible three-candidate Condorcet-support cutoff; uninspected portions pose residual priority risk",
+        "evidence": [
+          "https://arxiv.org/pdf/2505.13630 Sections 5.1-5.2, Theorem 5.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.13630",
+        "material_read": "Primary 41-page PDF: contents, Sections 1.2.3, 5.1-5.2, conclusion; page 24 additionally inspected visually",
+        "method": "Read relevant PDF extracted text and page-24 image; checked Condorcet-related passages and stable-lottery theorems",
+        "title": "Metric Distortion for Tournament Voting and Beyond",
+        "trigger": "Earlier existence and representation for stable lotteries; possible stronger support characterization"
+      },
+      {
+        "assessment": "Defender lotteries are over distinct committees of a prescribed size, unlike the later independent-with-replacement two-draw game; no matching sharp three-candidate support cutoff in inspected material",
+        "evidence": [
+          "https://arxiv.org/abs/1905.04438 Sections 1.3 and 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.04438",
+        "material_read": "Primary HTML Sections 1.2-1.5 and 2.1-2.2, definitions and probability matching; checked for Condorcet comparisons",
+        "method": "Inspected accessible source text and original model definitions, not just abstract",
+        "title": "Group Fairness in Committee Selection",
+        "trigger": "Original committee-stable-lottery concept and equivalence test"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa74144d-b5ec-4640-ad0a-e87cdadbe3a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Support of a strict Condorcet winner is a central natural normative property of randomized elections. The first failure size is an exact meaningful boundary for current stable-two-lottery methods in the smallest nontrivial candidate set, and the uniquely excluding witness rules out the failure being a tie-breaking artifact among minimizers. The finite cutoff is not implied by existing asymptotic distortion guarantees or by the already-known eighteen-voter exclusion. The parity- and stationarity-based proof identifies the structural barrier, making this more than a routine example.",
+    "status": "PASS"
+  }
+}
