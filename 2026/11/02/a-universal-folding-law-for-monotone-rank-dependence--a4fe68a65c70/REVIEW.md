@@ -1,0 +1,19 @@
+# Self-review: a universal folding law for monotone rank dependence
+
+## Correctness — PASS
+
+The statement applies to every bivariate copula and every positive integer fold count. The random-branch construction gives a copula with a repeated conditional-distribution kernel. The full correlation identity follows by a direct cellwise change of variables. The critical nonstandard step is the repeated-envelope lemma: the least concave majorant of a repeated zero-endpoint function consists of the original first rising envelope, an intermediate plateau at its global maximum, and the original final falling envelope. The construction is the least majorant by pointwise comparison on those three regions; its squared derivative energy is multiplied by the fold count. The projection's additional reciprocal fold factor therefore yields the precise reciprocal coefficient. Reflection and integration give the remaining identities. Singular copulas and endpoint sections are included. Exact-rational PAVA checks passed 13,796 assertions but are not used as infinite-dimensional proof.
+
+## Originality — PASS, subject to independent priority review
+
+The originating source is Ansari, arXiv:2604.09950v1, first public April 10, 2026 (primary MSC 60E15), which motivates copula operators separating functional from monotone dependence. The closest subsequent comparison is Siburg, arXiv:2610.35340v1, first public October 26, 2026. It establishes the projection onto stochastically increasing copulas and the three-part coefficient, and its Example 5.4 proves the reciprocal law for one deterministic sawtooth family. The new statement treats every bivariate copula, simultaneously preserves total Chatterjee dependence, calculates both directional components and Spearman's rho, and gives a sharp uniform-convergence envelope. The repeated-envelope lemma supplies the extension to an arbitrary input, not merely the source's piecewise-linear example. The earlier Ansari work concerns upper-product/rearrangement operators, not the present periodic fold, while the later Siburg paper supplies the projected coefficient definitions and a special sawtooth calculation. Relevant mathematical-record results concerned a Marshall–Olkin directional-correlation range, an FGM block substitution, and finite isotonic stability; they do not imply the general reciprocal folding law. Searches and full-text comparisons are documented in AUDIT.json. A wider unretrieved copula-transform reference might have an equivalent theorem; absence of a database hit is not a proof of priority.
+
+## Mathematical value — PASS
+
+The exact all-copula identity isolates an order-sensitive statistic under a canonical information-preserving but nonmonotone change of predictor. It shows that an arbitrarily small uniform perturbation of independence can retain a fixed, nonzero predictive-dependence coefficient while both monotone directional components vanish at an exact rate. This strengthens the qualitative discontinuity phenomenon and extends the motivating sawtooth case to full-support absolutely continuous families such as FGM copulas and to arbitrary singular copulas. The reciprocal law is an exact structural classification, not a parameter renaming or a finite numerical example. Its precision matters when monotone explainability is compared to unconditional predictive association.
+
+## Literature boundary and limitations
+
+The proof relies on the published least-concave-majorant interpretation of the projected correlation, which is explicitly credited. The general folding identity itself is proved from the new repeated-envelope lemma. No statements about nonuniform branch widths, empirical estimator convergence rates, or global originality are asserted. Bibliographic coverage cannot replace independent expert review.
+
+Self-review: passed. Independent audit: not yet performed.
