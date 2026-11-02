@@ -1,19 +1,21 @@
-# Review of the cycle edge-general-position enumerator
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an infinite exact characterization and enumeration. A shortest cycle geodesic contains at most \(\lfloor n/2\rfloor\) consecutive edges. This converts the forbidden-triple condition into three positive circular gaps no greater than \(\lceil n/2\rceil\). Four-edge sets are exactly the configurations satisfying all four adjacent-gap pair bounds. A five-edge set would force \(3n\le5\lceil n/2\rceil\), impossible when \(n\ge6\). Stars-and-bars with inclusion–exclusion counts valid triples, and parity-separated gap equalities count valid four-sets. The maximal triple characterization follows from an explicit feasible split of a large gap; the displayed constructions extend all pairs. Exhaustive comparison with the original geodesic definition passed for each \(3\le n\le16\).
+PASS
 
-## Originality — PASS (with residual priority uncertainty)
+Every cycle geodesic is an arc of at most m=floor(n/2) edges. Three selected edges are legal iff each cyclic gap is <=ceil(n/2); four are legal iff every adjacent pair of four gaps sums <=ceil(n/2). A hypothetical legal five-set forces 3n<=5ceil(n/2), contradiction for n>=6. Count valid gap compositions with at most one oversized gap, divide by three initial-edge markings; quartets satisfy alternating gaps (even n) or two complementary adjacent-pair sums (odd). A legal triple extends to a quartet exactly when some gap >=m; otherwise it is maximal. Each 0,1,2-set extends. These identities prove explicit A_n,B_n,M_n and n=7 purity exception. Independent geodesic-mask enumeration checked all 16,376 subsets n=3..13; finite data corroborate universal gap proof.
 
-The 2021 founding edge-general-position paper and 2023 follow-up supply the maximum cardinality on cycles, not all coefficient counts or maximal-set spectra. The 2020 general \(d\)-position theory also gives the known maximum cardinality after a line-graph reduction and a general structural theorem. This is an important equivalent formulation, explicitly accounted for: the proposed enumerators are not a restatement of those published maxima or the abstract criterion. The 2024 general-position polynomial paper enumerates ordinary vertex rather than edge general position. No covering complete cycle edge-enumeration was found in the examined primary sources or relevant public mathematical result records. Undiscovered equivalent literature is possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact distribution counts every feasible size, and the independent maximal-set polynomial distinguishes local nonextendability from largest-cardinality optima. The parity phenomenon and the isolated pure case \(C_7\) are natural structural information missing from an extremal number alone. This gives a completely tractable benchmark for the emerging edge-general-position counting problem, independently of any unproved downstream theorem.
+Best-of-knowledge: The general d-position equivalence and extremal number are prior; neither inspected paper directly counts all legal/maximal edge sets with size refinement. A stronger structural criterion could be used to derive these counts but does not state them. Prior maximum-size results are true corollaries of the audited count in the cycle case; the reverse implication is false, and the structural theorem would require nontrivial counting to recover M_n. Priority and access limits explicitly preserved.
 
-## Limitations
+## value
 
-Only simple cycles and ordinary edge-general-position sets are considered. There is no claim of a new maximum cardinality, general graph theorem, full literature uniqueness, or independent validation. The finite checker is corroborative, not a proof of the infinite theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full polynomial and inclusion-maximal size spectrum answer a motivated enumerative problem on the most basic non-tree graph, revealing exactly where legal sets are pure versus non-pure. Maximality, rather than just maximum size, is an important distinction for graph-position invariants and algorithmic counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

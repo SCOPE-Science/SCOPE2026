@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:51:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every cycle geodesic is an arc of at most m=floor(n/2) edges. Three selected edges are legal iff each cyclic gap is <=ceil(n/2); four are legal iff every adjacent pair of four gaps sums <=ceil(n/2). A hypothetical legal five-set forces 3n<=5ceil(n/2), contradiction for n>=6. Count valid gap compositions with at most one oversized gap, divide by three initial-edge markings; quartets satisfy alternating gaps (even n) or two complementary adjacent-pair sums (odd). A legal triple extends to a quartet exactly when some gap >=m; otherwise it is maximal. Each 0,1,2-set extends. These identities prove explicit A_n,B_n,M_n and n=7 purity exception. Independent geodesic-mask enumeration checked all 16,376 subsets n=3..13; finite data corroborate universal gap proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 characterizes arbitrary general d-position sets via induced-clique components, not a closed formula for these cycle edge spectra."
+        ],
+        "reasoning": "Theorem generality in the underlying class does not dominate a separate explicit enumeration automatically; finite exact coefficients and the purity threshold are additional consequences not mechanically printed.",
+        "searches": [
+          "arXiv:2005.08095v1 Theorem 4.1",
+          "arXiv:2105.04292",
+          "cycle edge general position polynomial inclusion-wise maximal sets cardinality 3 4 gap counts"
+        ]
+      },
+      "checked_sources": [
+        "General d-position sets — https://arxiv.org/pdf/2005.08095",
+        "The Edge General Position Problem — https://arxiv.org/pdf/2105.04292",
+        "General Position Polynomials — https://arxiv.org/abs/2401.05696",
+        "Resultary semantic search: cycle edge general position polynomial inclusion-wise maximal sets cardinality 3 4 gap counts",
+        "Actual frozen Git package 2026/10/26/complete-edge-general-position-enumerators-and-maximal-spectra-o--4573ea90af78/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known bound max cardinality=4 gives only polynomial degree, not A_n,B_n or counts of maximal three-sets.",
+          "Audited proof derives gap-composition enumeration and extension criterion."
+        ],
+        "reasoning": "Prior maximum-size results are true corollaries of the audited count in the cycle case; the reverse implication is false, and the structural theorem would require nontrivial counting to recover M_n.",
+        "searches": [
+          "arXiv:2105.04292 Theorem on cycle maximum",
+          "arXiv:2005.08095 Proposition 3.3 / Theorem 4.1",
+          "cycle edge general position polynomial inclusion-wise maximal sets cardinality 3 4 gap counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The line graph of a cycle is another cycle, so edge general position maps to a suitable general d-position vertex condition.",
+          "Klavžar–Rall–Yero Theorem 4.1 is a general structural criterion; Manuel–Prabha–Klavžar gives maximum size four for cycles n>=6."
+        ],
+        "reasoning": "The general d-position equivalence and extremal number are prior; neither inspected paper directly counts all legal/maximal edge sets with size refinement. A stronger structural criterion could be used to derive these counts but does not state them.",
+        "searches": [
+          "cycle edge general position polynomial inclusion-wise maximal sets cardinality 3 4 gap counts",
+          "arXiv:2005.08095v1",
+          "arXiv:2105.04292"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary spider enumeration is for acyclic spiders; Iršič–Klavžar–Rus–Tuite general position polynomial concerns ordinary vertex general position, whose cycle maximum is three, versus edge GP maximum four."
+        ],
+        "reasoning": "No equivalent finite table or identical closed form was identified. A numerical lookup for n<=13 would not imply the universal formulas, nor is absence of a table proof of novelty.",
+        "searches": [
+          "cycle edge general position polynomial inclusion-wise maximal sets cardinality 3 4 gap counts",
+          "Resultary:2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+          "arXiv:2401.05696"
+        ]
+      },
+      "rationale": "Best-of-knowledge: The general d-position equivalence and extremal number are prior; neither inspected paper directly counts all legal/maximal edge sets with size refinement. A stronger structural criterion could be used to derive these counts but does not state them. Prior maximum-size results are true corollaries of the audited count in the cycle case; the reverse implication is false, and the structural theorem would require nontrivial counting to recover M_n. Priority and access limits explicitly preserved.",
+      "residual_risks": [
+        "A cycle-specific specialization of general d-position structural enumeration could exist in unindexed literature.",
+        "The general d-position theorem is a structural parent that could make some enumeration steps standard, though it does not state the explicit polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_STRUCTURE but no matching enumerator in material inspected",
+          "evidence": "Theorem 4.1 states component/clique-distance conditions, not the explicit P_n(z) and M_n(z) polynomial formulas.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.08095",
+          "material_read": "16-page PDF, definitions, section 3 Proposition 3.3, section 4 Theorem 4.1, application details and relevant proof, with page visual inspection",
+          "method": "public arXiv PDF text and screenshot",
+          "title": "General d-position sets",
+          "trigger": "Exact formal equivalence via line-graph cycle and possible dominating classification"
+        },
+        {
+          "assessment": "PRIOR_MAX_CARDINALITY; not same full-size spectrum",
+          "evidence": "Establishes the maximum edge-general-position number of cycles, four for n>=6; counts of all legal and maximal sets not found in inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.04292",
+          "material_read": "13-page PDF abstract, introduction, cycle extremal statements and relevant proof section; first-page screenshot",
+          "method": "public arXiv PDF text and screenshot",
+          "title": "The Edge General Position Problem",
+          "trigger": "Original edge GP invariant and cycle extremum"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT; whole-document novelty not asserted",
+          "evidence": "Counts ordinary vertex general-position sets of cycles, which differ from edge general position.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "Abstract and cited proposition description, not complete full text",
+          "method": "arXiv indexed abstract",
+          "title": "General Position Polynomials",
+          "trigger": "Potential exact cycle polynomial under alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full polynomial and inclusion-maximal size spectrum answer a motivated enumerative problem on the most basic non-tree graph, revealing exactly where legal sets are pure versus non-pure. Maximality, rather than just maximum size, is an important distinction for graph-position invariants and algorithmic counting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "All legal edge-general-position subsets of C_n are counted by the exact cardinality polynomial P_n for every n>=3, and all inclusion-maximal subsets by M_n with explicit cubic and quartic coefficients. For n>=6 no legal set has size five, and maximal cardinalities are 3 or 4 except n=7 with only size 4; the legal independence system is pure iff n=3,4,5,7.",
+  "limitations": [
+    "A cycle-specific specialization of general d-position structural enumeration could exist in unindexed literature.",
+    "The general d-position theorem is a structural parent that could make some enumeration steps standard, though it does not state the explicit polynomial.",
+    "No published scientific files were edited; no publication performed.",
+    "Numerical finite examples are not substitutes for the unrestricted mathematical argument."
+  ],
+  "schema_version": 1
+}
