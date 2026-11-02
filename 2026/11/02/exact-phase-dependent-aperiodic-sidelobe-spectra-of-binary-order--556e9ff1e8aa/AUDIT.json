@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "All 2^16 complementary-output feedback rules are checked, with an explicit proof that every order-five binary de Bruijn cycle uniquely determines a rule that is one 32-state cycle. Independently, unrestricted Euler-tour enumeration on the 4-bit de Bruijn graph returns precisely the same 2,048 cycles. The 65,536 cuts are checked by two independent integer formulas for aperiodic autocorrelation (bipolar-product sum versus 32-t minus twice mismatches), agreeing exactly. The Python checker was replayed successfully from its actual packaged path. Finite counts are only asserted for this finite family; no extrapolation occurs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spinsante–Andrenacci–Gambi (2011), sections on order-five periodic autocorrelation and Table 3, records subsets Phi_4=12 and Phi_8=784 under a different wrap-around correlation definition.",
+        "Fujisaki–Nabeshima (2011), Theorems 2–4 and Tables I–II give periodic normalized bounds and extreme classes, not rooted non-wrapping levels.",
+        "Dmitriev–Jedwab (2007), DOI 10.3934/amc.2007.1.461, abstract discusses general aperiodic PSL and m-sequence behavior, without a claim specific to all order-five de Bruijn roots."
+      ],
+      "reasoning": "General binary PSL bounds and periodic de Bruijn correlation statements cover different objects/observables and do not imply the complete exact root-by-root spectrum. A phase-dependent non-wrapping maximum is not determined by the rotation-invariant periodic spectrum alone.",
+      "searches": [
+        "de Bruijn sequences periodic autocorrelation spectrum binary maximum correlation shift",
+        "de Bruijn sequences aperiodic autocorrelation sidelobes exact distribution",
+        "Bounds on the growth rate of the peak sidelobe level of binary sequences Dmitriev Jedwab 2007"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1186/1687-1499-2011-4",
+      "https://doi.org/10.1587/nolta.2.400",
+      "https://doi.org/10.3934/amc.2007.1.461",
+      "https://www.jstage.jst.go.jp/article/nolta/2/4/2_4_400/_pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The explicit cycle 00000111110111001101010010001011 has non-wrapping PSL 6 when cut at 0 but PSL 4 when cut at 1 or 26; its periodic correlation is identical at all 32 cuts.",
+        "Spinsante discusses periodically wrapped theta_c(t) in the relevant order-five threshold table; Fujisaki Definition 1 uses X_{i+t mod N}.",
+        "New claim reports exact H_p on 65,536 cycle-cut pairs and Q_m on 2,048 rotation-classes, certified by independent exhaustions."
+      ],
+      "reasoning": "Periodic correlation information alone is invariant under shifting the root and cannot give these root-dependent counts; the cited results neither tabulate the non-wrapping spectrum nor provide an implication yielding its frequencies. This is a statement/implication comparison, not mere absence of title matches.",
+      "searches": [
+        "Binary De Bruijn sequences for DS-CDMA systems analysis and results 2011 correlation",
+        "On auto-correlation values of de Bruijn sequences Fujisaki Nabeshima 2011 PDF",
+        "order-five binary de Bruijn cycles aperiodic peak sidelobe level 32 rooted rotations PSL distribution minimum 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Spinsante–Andrenacci–Gambi (2011), DOI 10.1186/1687-1499-2011-4, distinguishes aperiodic correlation in the system model from the periodic theta correlation analyzed in its order-five tables.",
+        "Fujisaki–Nabeshima (2011), DOI 10.1587/nolta.2.400, Definition 1 explicitly sums over all positions with index modulo N; its Tables I–II concern periodic normalized autocorrelation extrema.",
+        "The new finite checker gives 40 attaining cuts over 32 cyclic cycles, a root-sensitive statistic not present in either periodic table."
+      ],
+      "reasoning": "Equivalent terminology includes aperiodic peak sidelobe level (PSL), non-wrapping binary autocorrelation maximum, rotation-rooted PSL, and best-phase de Bruijn code. Full relevant sections of both closest primary articles were examined. Neither states the 65,536-cut histogram or 2,048-cycle root-minimum histogram.",
+      "searches": [
+        "order-five binary de Bruijn cycles aperiodic peak sidelobe level 32 rooted rotations PSL distribution minimum 4",
+        "de Bruijn cyclic words order five aperiodic autocorrelation peak sidelobes root dependent",
+        "de Bruijn aperiodic peak sidelobe order 5 exact 32",
+        "de Bruijn sequences aperiodic autocorrelation 32 length census"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2011 Spinsante order-five table reports a periodic Phi_4 set of 12 cycles rather than a cut-count distribution; the calculated non-wrapping optimum is 40 cuts from 32 cycles.",
+        "The 2011 Fujisaki–Nabeshima Tables I–II concern counts of worst and second-worst periodic extrema, with no cut-by-cut aperiodic enumeration.",
+        "Semantic mathematical-record searches for this source family, its phase aliases, and the exact parameter did not return an equivalent table."
+      ],
+      "reasoning": "The closest known exact tables are for periodic correlation and are not an alternative normalization of the new non-wrapping histograms. Negative search results do not prove historical uniqueness; any obscure unpublished or unindexed table remains a risk.",
+      "searches": [
+        "aperiodic merit factor de Bruijn sequences exact 2048 cycles",
+        "de Bruijn sequences aperiodic autocorrelation 32 length census",
+        "Fujisaki Nabeshima On auto-correlation values de Bruijn Tables I II",
+        "de Bruijn aperiodic peak sidelobe order 5 exact 32"
+      ]
+    },
+    "rationale": "Relevant archive primary full texts analyze periodic normalized de Bruijn correlations, and general aperiodic PSL sources analyze arbitrary/m-sequences. The present exact, rooted, non-wrapping 65,536-cut and 2,048-cycle optimum distributions are not implied by periodic data, as the same explicit cycle changes PSL under cutting while periodic data stays fixed. No covering record appeared in targeted published mathematical-record and literature searches; historical priority is not conclusively established.",
+    "residual_risks": [
+      "Unindexed or obscure earlier exact non-wrapping root-by-root tables may exist; negative targeted searches do not establish uniqueness.",
+      "The 2007 general aperiodic PSL paper was checked at abstract level, not full text; its reported focus is general and maximal-length sequences, so no whole-document noncoverage conclusion is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers periodic rotation-invariant theta correlations in the span-five tables; does not give the rooted non-wrapping PSL histogram or phase-optimized distribution.",
+        "evidence": [
+          "Publisher article published 2011-06-06.",
+          "Correlation section describes theta_c(16) multiple of eight and theta_c(t) symmetric in t, identifying periodic correlation.",
+          "Reports Phi_4=12 and Phi_8=784 cycles, not 40 rooted PSL-four cuts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1687-1499-2011-4",
+        "material_read": "Full open-access HTML: introduction, system-model aperiodic definition, binary de Bruijn correlation formulas, order-five Table 3 context and subsets, evaluations, conclusion.",
+        "method": "Read publisher full article HTML, with direct inspection of correlation and tables discussion.",
+        "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+        "trigger": "Exact same 2048 span-five cycles, application to correlation-based spreading-code selection."
+      },
+      {
+        "assessment": "Definition 1 explicitly sums modulo N, so all its extrema and finite tables concern periodic correlation rather than non-wrapping rooted PSL.",
+        "evidence": [
+          "Page 401 defines R_N(l;X,Y)=sum_{i=0}^{N-1} X_i Y_{i+l(mod N)}.",
+          "Page 406 Tables I–II list periodic worst and second-worst classes for n=4,5,6, but not 32 rooted cuts per order-five cycle."
+        ],
+        "identifier_or_url": "https://doi.org/10.1587/nolta.2.400",
+        "material_read": "Complete nine-page open-access PDF, including Definition 1, Theorems 2–4, Tables I–II, summary, and appendix.",
+        "method": "Inspected searchable PDF text and rendered screenshots of pages 2, 5, and 7 (zero-indexed 1, 4, 6).",
+        "title": "On auto-correlation values of de Bruijn sequences",
+        "trigger": "Exact de Bruijn sequence autocorrelation bounds and finite order-five tables."
+      },
+      {
+        "assessment": "Abstract covers general binary sequences and m-sequence asymptotics, not the constrained phase-dependent de Bruijn classification; no claim of full-document noncoverage is made.",
+        "evidence": [
+          "Journal lists primary MSC 94A55, 68P30; aperiodic PSL defined as maximal absolute nontrivial aperiodic autocorrelation."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/amc.2007.1.461",
+        "material_read": "Publisher abstract and bibliographic metadata only; full text not accessed.",
+        "method": "Read official journal abstract and MSC classification.",
+        "title": "Bounds on the growth rate of the peak sidelobe level of binary sequences",
+        "trigger": "Classical definition of aperiodic peak sidelobe level and comparison with binary pseudorandom codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "556e9ff1-e8aa-4f7b-936b-fe133cc78880",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Aperiodic peak sidelobe level is an operationally motivated digital-sequence quality criterion; order-five de Bruijn cycles form a natural complete family with optimal contiguous-word coverage. The classification quantifies all admissible phase choices and the sharp achievable tradeoff within that family, including 40 level-four phases of 32 cycles and eight cycles whose best phase is level sixteen. This complete finite cutoff has exact design and benchmark value not furnished by periodic correlation summaries, independently of unproved higher-order conjectures.",
+    "status": "PASS"
+  }
+}

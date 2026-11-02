@@ -1,0 +1,15 @@
+# Scientific review: phase-dependent aperiodic sidelobes
+
+## Correctness (PASS)
+The Boolean-table representation is complete because successor injectivity forces complementary next bits for the two five-state predecessors of each four-state suffix, and every de Bruijn Hamiltonian successor determines a unique table. All \(2^{16}\) tables are tested, with precisely \(2,048\) Hamiltonian cycles; an edge-disjoint Euler-tour enumerator independently produces exactly the same set. Each of their \(32\) cuts is evaluated twice, once by sign products and once using the exact Hamming-mismatch identity, and counters reproduce both stated histograms. The finite proof does not extrapolate to other orders. The bundled checker has actually run successfully.
+
+## Originality (PASS, with residual priority risk)
+The closest accessible full paper is Spinsante–Andrenacci–Gambi (2011), https://doi.org/10.1186/1687-1499-2011-4. Its span-five table reports rotation-invariant periodic sidelobe cutoffs (twelve cycles at threshold four and 784 at threshold eight), not a distribution over 65,536 non-wrapping rooted windows. In fact, a single exhibited cycle has aperiodic peak levels six and four at different cuts while its periodic correlation is unchanged. General aperiodic PSL results of Dmitriev–Jedwab (2007) do not provide the constrained order-five de Bruijn census. Fujisaki–Nabeshima (2011), https://doi.org/10.1587/nolta.2.400, explicitly define normalized autocorrelation using cyclic indices in Definition 1 and tabulate periodic extremal values in Tables I–II; its complete nine-page PDF was read, including equations and tables. None of these periodic results implies the rooted non-wrapping distribution. Searches did not identify an equivalent table, but unindexed historical work remains a genuine priority risk.
+
+## Value (PASS)
+Aperiodic peak sidelobe level is a standard finite-sequence correlation quality metric relevant to digital synchronization, whereas de Bruijn cycles offer uniform short contiguous-factor coverage. The exact rooted distribution and per-cycle best phase answer a natural joint design question on the complete smallest sizeable family of 2,048 such cycles: how many admissible spreading-code phases attain each sidelobe threshold, and which cycles admit no good phase? The sharp results of 40 optimal cuts from 32 cycles and eight cycles with best level 16 are not implied by the rotation-invariant periodic tables. This is a motivated natural complete finite classification, not an arbitrary numerical slice.
+
+## Scope and remaining checks
+The result is for bipolar, **aperiodic** autocorrelation of one full length-32 traversal and all cyclic roots, not periodic correlation or a different cut convention. Finite enumeration is mathematically exhaustive because of the proved parametrization; no all-order theorem is asserted. Independent external mathematical audit and exhaustive verification of unindexed historical sources remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
