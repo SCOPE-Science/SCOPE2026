@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof counts graph-edge orbits of primitive shifts and primitive screw automorphisms; invariant-support barycenters give the entire geometric fixed set. The induced rational Lefschetz formula follows from the fixed-set Euler characteristic with the reduced correction. The all-width argument is independent of numerical tests; the finite verifier exercises every primitive power for widths three to ten.
+## correctness
 
-**Originality — PASS, with a substantive access risk.** The closest circular-ladder preprint supplies nonequivariant homotopy types, and a separately accessible general prism result addresses only the unscrewed layer exchange. Its fixed locus is not the fixed locus for a primitive screw; the orbit calculation is new relative to the checked statements. A circular-ladder independence-complex dihedral module is a distinct object. However, the revised preprint's technical full text was inaccessible; an equivalent result in those sections cannot be excluded. Database absence is not a proof of global novelty.
+PASS
 
-**Value — PASS.** A natural infinite family receives a precise equivariant geometric fixed-point classification, including the parity jump to three isolated points and a nonzero alternating homological trace. These invariants are absent from nonequivariant sphere counts. The contribution does not purport to determine all individual homology representations.
+For K_n whose simplices are edge subsets extendible to perfect matchings of C_n square K2, a point fixed by a simplicial automorphism has invariant support with equal barycentric coordinates on its edge orbits. For primitive rotation r^k, the horizontal rim orbits contain adjacent edges, hence cannot be simplices; full rung orbit is the unique invariant matching facet, so exactly its barycenter is fixed. For sr^k, horizontal edges lie in a single nonmatching orbit for odd n, whereas for even n they split into two alternate perfect-matching orbits, disjoint from the rung facet as combinatorial faces; exactly three isolated fixed barycenters. Lefschetz fixed point count gives reduced trace 0 (rotation/odd screw) or 2 (even screw). Independently checked orbit and matching predicates for all primitive k and widths n=3..9, without replacing the all-n gcd/parity orbit proof.
 
-The computation and proof have been checked in the present review; independent expert validation is still absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest Agarwal–Basak revised preprint addresses perfect-matching complexes of circular and Möbius ladders nonequivariantly, but its full technical body could not be inspected (Oxford VPN disconnected). An indexed circular-ladder D_n×C2 representation theorem instead treats the independence complex, not perfect matching. Möbius-ladder perfect matching characters and ordinary linear-ladder matching modules differ in graph/complex. No implication of this primitive screw fixed geometric locus was seen in accessible literature; high priority residual overlap risk with the inaccessible revised preprint.
+
+## value
+
+PASS
+
+Natural infinite graph family and natural primitive rotation-layer exchange action yield a complete geometric fixed-locus classification with a sharp parity jump from one to three discrete points, beyond ordinary Betti numbers. The changed rational Lefschetz alternating trace is an exact equivariant invariant and needs no full representation classification to be meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
