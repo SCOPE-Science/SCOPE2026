@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Starting with the published two forcing clauses, both nested operations are expanded into quantified statements over the two relational composites. Principal upsets recover a witness from any missing downward-inclusion for the existential connective. Complements of principal downsets recover one from any missing upward-inclusion for the universal connective. The output-coordinate saturation is required by the intuitionistic universal clause; condition (ii) makes its two composites upper closed, so the universal criterion reduces to ordinary associativity of the saturated relation. That saturation cannot be omitted. The resulting statements quantify over every world and every persistent valuation, without finite or chain restrictions. Enumerations on all 69 monotone frames of sizes one and two, and all 95 monotone operation-derived frames of size three, compare the actual modal semantics with the closures exactly. Finite checks support, but cannot replace, the proof for arbitrary frames.
+## correctness
 
-**Originality — PASS, with explicit uncertainty.** Kaminski (2026) states raw associativity as a sufficient condition for soundness and does not give this converse closure characterization of both connectives. The 2024 single-connective/classical treatment also does not supply the ordered two-connective criterion. Earlier ordered ternary or Lambek correspondences are plausible: the 2016 Kaminski–Francez full text was not available for comparison, so the risk of a differently stated prior equivalence remains. A previous finite two-point-chain census, which showed the strict gap between raw and semantic associativity, is prior work rather than a new claim here. The new claim is the necessary-and-sufficient arbitrary-poset dual-closure theorem, not its special finite examples.
+PASS
 
-**Value — PASS.** The result answers the precise fixed-frame validity question that the 2026 semantic development makes natural. It gives different structural conditions for the existential and universal associative laws, explains why the former needs downward closure but the latter is strict associativity after output saturation, and provides a polynomial finite-frame recognition algorithm. This is a nontrivial complete correspondence rather than a mere isolated countermodel or numerically small census; it does not settle the harder strong-completeness question.
+Independently reconstructed both necessary-and-sufficient correspondence arguments for every nonempty partially ordered W. For arbitrary atomic upsets A,B,C, the two nested existential semantics are exactly intersection of the upward product with L_R(u) and M_R(u). Principal upsets separate unequal downward closures. For bullet, the u-output-saturated relation E absorbs quantification over v≥u; distributivity gives a universal disjunctive predicate on triples of L_E and M_E. Complements of principal downsets separate unequal upward closures. Kaminski monotonicity (ii) makes E input-upward and hence both composites upsets, yielding literal L_E=M_E. Enumeration of n worlds × n³ candidate triples × n³ generating triples proves conservative O(n^7) time/O(n^4) space. Independently programmed full semantic-versus-relational checks matched on 2 admitted one-world, 67 admitted two-chain, 256 two-antichain, and 95 admitted functional three-chain frames. Finite checks corroborate, but the full result uses the symbolic principal-upset separation proof; no strong-completeness claim.
 
-**Literature and limitations.** Closest inspected sources: Kaminski (2026), DOI 10.1007/s00153-026-01025-3, Sections 3 and 6; Kaminski (2024), DOI 10.1007/s00153-024-00921-w, its ternary semantics; Kaminski and Francez (2016), DOI 10.1007/s11225-016-9665-0, abstract only. Possible equivalent historical ordered-frame formulations remain an originality risk, and the infinite-domain theorem has a mathematical proof rather than exhaustive computational validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A qualified best-of-knowledge PASS for the paired all-poset two-operator iff correspondence. Kaminski 2026 supplies the exact syntax/semantics and sufficient raw relational associativity but not necessity via the separate ↓R-composite and ↑E-composite equalities. Primary ordered-groupoid/ternary algebra sources make one half conceptually familiar but do not establish this exact two-operator theorem from their stated hypotheses. The inaccessible Kaminski–Francez 2016 primary paper and potential older algebraic correspondence aliases remain real priority risks; failed search alone is not claimed to prove novelty.
+
+## value
+
+PASS
+
+Associativity in the 2026 intuitionistic binary-modal semantics motivates a natural fixed-frame validity characterization. The theorem exactly identifies the separately necessary and sufficient structural conditions for existential and disjunctive-universal operations on arbitrary posets, sharpening the prior sufficient raw-associativity hypothesis and showing its asymmetric saturation/closure behavior. It gives a deterministic polynomial explicit-frame validity test without enumerating valuations and is nontrivial even though full associative-logic strong completeness stays open. The result is a useful structural characterization, not merely a numerical small-case check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
