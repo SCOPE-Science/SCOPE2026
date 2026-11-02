@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verification.py` from the directory containing the accompanying source. The program uses only the Python standard library and exact integer arithmetic.
+## correctness
 
-It checks five exact rational values of the core parameter, all coprime numerator classes for denominators in the stated finite interval, the partition of positive integers through the first 65,536 values, and finite-stage core counts. It confirms the inequality used in the Dirichlet construction by comparing integer numerators, not floating-point approximations.
+PASS
 
-Expected result:
+The density definition requires uniform numerator p coprime to all sufficiently large q, a constant C and v∈T with 1<=v<q. For prime q, each fixed v<q covers O(q^(1-s)) reduced numerator classes; Bertrand extends T(q)≫_s q^s from primes to all Q, giving δ(T)<=liminf_Q log T(Q)/log Q. For 0<t<1, stages n_k=floor(2^(tk)),d_k=floor(2^k/n_k) produce S_t of O(Q^t) counting growth and Dirichlet guarantees a v=md_k<q at every q in (2^k,2^(k+1)] with fractional error <=1/(n_k+1), so δ(S_t)=t. Endpoint cores S0=∅ and S1=N are handled separately. Alternating b_{j+1}=2^(b_j) full blocks E and O=N\E cover N, each with upper ordinary density one and liminf logarithmic count exponent zero at alternate endpoints. Then Aα=E∪Sα and Bβ=O∪Sβ have lower δ from the core and upper δ from the sparse endpoint count, achieving exactly all (α,β). Independent exact-q tests for t=1/2 and q<121 support finite boundaries, not asymptotic conclusions.
 
-`VERIFY_OK rational_dirichlet_checks=102510 integer_partition_checks=65536 exact_fraction_floor_checks=PASS all_finite`
+## originality
 
-The infinite cardinality bound, the all-real-parameter assertion, and the two asymptotic density equalities are proved in `RESULT.md`. No finite check establishes those universal statements, nor does it establish novelty or independent validation.
+PASS
+
+Qualified best-of-knowledge resolution of Sanford’s exact union/subadditivity question, sharpened to all covering pairs; proof openly uses known upper-counting bound, prescribed cores and alternating blocks, whose combination is elementary and may have appeared independently.
+
+## value
+
+PASS
+
+Directly solves the open union question for the exact restricted Diophantine density proposed by Sanford 20 Oct 2026 and strengthens it to the entire [0,1]² pair spectrum under coverage with both upper ordinary densities 1. It identifies a maximal failure of subadditivity for a natural number-theoretic approximation invariant. Existing analytic ingredients do not make the resulting precise invariant worthless merely because the proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of prescribed covering-pair Diophantine densities
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof defines the approximation exponent with its quantifiers and handles the empty and unit-exponent cases. An independent prime-modulus residue count establishes the general cardinality obstruction; Dirichlet's pigeonhole principle and geometric-series bounds establish exactly prescribed core densities; the two alternating-block subsequences force the required separate upper bounds without weakening coverage. The limits are controlled by the explicit identity \(\log b_{j-1}/\log b_j=b_{j-2}/b_{j-1}\to0\). Finite exact-integer verification checks the core witnesses and a substantial initial partition; it is supporting evidence only.
+PASS
 
-## Originality — PASS, with priority uncertainty
+The density definition requires uniform numerator p coprime to all sufficiently large q, a constant C and v∈T with 1<=v<q. For prime q, each fixed v<q covers O(q^(1-s)) reduced numerator classes; Bertrand extends T(q)≫_s q^s from primes to all Q, giving δ(T)<=liminf_Q log T(Q)/log Q. For 0<t<1, stages n_k=floor(2^(tk)),d_k=floor(2^k/n_k) produce S_t of O(Q^t) counting growth and Dirichlet guarantees a v=md_k<q at every q in (2^k,2^(k+1)] with fractional error <=1/(n_k+1), so δ(S_t)=t. Endpoint cores S0=∅ and S1=N are handled separately. Alternating b_{j+1}=2^(b_j) full blocks E and O=N\E cover N, each with upper ordinary density one and liminf logarithmic count exponent zero at alternate endpoints. Then Aα=E∪Sα and Bβ=O∪Sβ have lower δ from the core and upper δ from the sparse endpoint count, achieving exactly all (α,β). Independent exact-q tests for t=1/2 and q<121 support finite boundaries, not asymptotic conclusions.
 
-The May 2026 Sanford note introduces the central approximation condition. The October 2026 extended article establishes the upper-counting theorem and exact prescribed-density cores and explicitly asks in Section 7, Question 2, whether a union can have larger density than both components. The two elementary ingredients are credited and reproved, not claimed as new. Di Nasso and Jin's 2017 Proposition 1.3 already uses alternating blocks to show lower *ordinary* asymptotic density is non-subadditive. The contribution claimed here is the combination **for the restricted-approximation invariant**, strengthened to a complete attainable-pair classification with both covering sets having upper ordinary density one. The construction is a short synthesis of known ideas, so an overlooked implication or independent solution is a material bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification exactly resolves the possible values of an intrinsic union invariant on all covering pairs, and supplies an explicit extremal failure of subadditivity. Its motivation is the open union question for this very density, not an arbitrary parameter slice or numerical table. The simultaneous upper-ordinary-density-one property shows that this approximation density can vanish even on sets occupying nearly the whole positive integers along long intervals.
+Qualified best-of-knowledge resolution of Sanford’s exact union/subadditivity question, sharpened to all covering pairs; proof openly uses known upper-counting bound, prescribed cores and alternating blocks, whose combination is elementary and may have appeared independently.
 
-## Scope and limitations
+## value
 
-The result gives covering pairs, not arbitrary disjoint partitions with prescribed positive exponents. It assumes no computable encoding of a general real parameter. The argument is elementary and relies on acknowledged counting and core techniques; novelty here concerns their new application and the full quantified consequence. Independent priority and mathematical review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Directly solves the open union question for the exact restricted Diophantine density proposed by Sanford 20 Oct 2026 and strengthens it to the entire [0,1]² pair spectrum under coverage with both upper ordinary densities 1. It identifies a maximal failure of subadditivity for a natural number-theoretic approximation invariant. Existing analytic ingredients do not make the resulting precise invariant worthless merely because the proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
