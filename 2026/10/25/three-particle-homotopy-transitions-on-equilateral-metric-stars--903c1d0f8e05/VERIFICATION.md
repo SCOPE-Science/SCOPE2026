@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof establishes contractibility of each feasible chamber and each nonempty common intersection, invokes the finite polyhedral nerve theorem, identifies the nerve with a graph up to homotopy, and counts its vertices, edges, connected components, and cycle rank exactly. Both critical threshold equalities are included because all feasibility inequalities are non-strict.
+# Independent mathematical audit
 
-`verify_star3.py` is a standalone Python 3 script (standard library only). It constructs and checks the incidence graph for each arm count \(3\le m\le11\) and for seven exact rational values of normalized separation; its actual output is reproduced in `verification_output.txt`. Direct linear-program feasibility tests of the convex inequalities for \(3\le m\le6\) at adjacent and critical values also matched the symbolic conditions. These finite checks do not prove the unbounded arm-number formula; the written uniform argument does.
+## correctness
 
-Limits: only stagewise homotopy types are claimed, not parameterwise persistence maps or unequal-arm results. The closest 2011 thesis was not available in full text. No independent audit or external validation is claimed.
+PASS
+
+For m≥3 equal length-L metric star arms and three UNORDERED weakly r-separated particles, at r=0 the symmetric cube is contractible. For r>0 occupation-vector chambers (sum alpha_i=3) are compact convex polytopes. Intersections occur through at most one center particle, share a 2-particle center-face beta, and all nonempty finite intersections are convex, so the nerve theorem gives a bipartite graph with alpha and beta vertices. Feasibility thresholds: 3 on same arm iff r≤L/2; 2 on same iff r≤L; 3 different arms iff r≤2L. Counting graph E−V+C with connectivity proves 0<r≤L/2 wedge of [1+m(m+1)(2m−5)/6] circles, L/2<r≤L wedge of [1+2C(m,3)−C(m,2)] circles, L<r≤2L disjoint C(m,3) points, then empty. Critical endpoints covered by weak inequalities. Independent combinatorial incidence homology checks for 3≤m≤9 at seven critical/interior r passed; not a substitute for polyhedral nerve proof.
+
+## originality
+
+PASS
+
+General restricted metric graph configurations are established in Dover-Özaydın; ordered two-particle examples do not state the complete three-unordered-equilateral-star stages. Deeley discusses finite critical-value transitions for thick particles, mostly two-particle algorithms, but complete 2011 thesis unavailable. Recent Resultary two-unordered-particle star persistence has a different particle number. Qualified originality.
+
+## value
+
+PASS
+
+Natural full stagewise homotopy classification for physical hard-particle configurations, with all homotopy transition boundaries, component counts and circle ranks valid at critical separations and every number of arms. Not the more common unrestrained graph braid homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

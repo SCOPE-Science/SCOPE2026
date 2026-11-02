@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the unordered third Cartesian power subject to the weak pairwise distance constraint; at positive separation there are no collisions, and the zero-constraint stage is explicitly the symmetric cube. For each arm-occupation vector, the chamber inequalities define a compact convex polytope. A configuration common to distinct chambers has exactly one center particle, so every intersection is a convex center-face polytope. The finite polyhedral nerve theorem applies, including at equality thresholds. Distinct center-face simplices intersect in at most one vertex, reducing the nerve to an incidence graph. Occupancy and intersection feasibility are characterized by necessary inequalities with explicit witnesses. The connectedness arguments and graph Euler characteristic give the two free ranks; the disconnected end stage and the empty stage are handled separately. The standalone combinatorial checker verifies the stage arithmetic for eleven-arm bounds, while an independent LP feasibility stress-test covered all occupancy types for three through six arms at critical and adjacent values. These checks are corroboration, not a substitute for the uniform proof.
+PASS
 
-## Originality — PASS
+For m≥3 equal length-L metric star arms and three UNORDERED weakly r-separated particles, at r=0 the symmetric cube is contractible. For r>0 occupation-vector chambers (sum alpha_i=3) are compact convex polytopes. Intersections occur through at most one center particle, share a 2-particle center-face beta, and all nonempty finite intersections are convex, so the nerve theorem gives a bipartite graph with alpha and beta vertices. Feasibility thresholds: 3 on same arm iff r≤L/2; 2 on same iff r≤L; 3 different arms iff r≤2L. Counting graph E−V+C with connectivity proves 0<r≤L/2 wedge of [1+m(m+1)(2m−5)/6] circles, L/2<r≤L wedge of [1+2C(m,3)−C(m,2)] circles, L<r≤2L disjoint C(m,3) points, then empty. Critical endpoints covered by weak inequalities. Independent combinatorial incidence homology checks for 3≤m≤9 at seven critical/interior r passed; not a substitute for polyhedral nerve proof.
 
-The closest inspected primary source is Dover–Özaydın (arXiv:1301.5693), whose convex cells and bound on the number of types apply more generally but do not state the exact three-unordered-particle equal-star homotopy classification. Deeley (AGT 2011) treats two thick particles; the separate thesis abstract describes general Morse methods but its full text was unavailable and remains a risk. Li–Özaydın (arXiv:2603.00914) explicitly studies second configurations, and Wawrykow (arXiv:2401.13821) treats ordered unrestrained configurations. The checked mathematical-record searches and accessible previous claims did not return or imply the positive-separation three-particle thresholds and rank formula. The unrestrained star-braid rank agrees with, but does not imply, the restricted-stage results. Residual database coverage and thesis access risks are described in the structured audit.
+## originality
 
-## Value — PASS
+PASS
 
-The equal-arm family is a canonical packing problem in topological robotics. Two sharp geometric separation thresholds produce a nontrivial rank decrease for every number of arms, followed by a discrete component-splitting phase. The result gives exact integral homotopy types across all radii and all \(m\ge3\), not a single computer-generated instance, and makes the general polyhedral critical-value approach explicit in a natural higher-particle example.
+General restricted metric graph configurations are established in Dover-Özaydın; ordered two-particle examples do not state the complete three-unordered-equilateral-star stages. Deeley discusses finite critical-value transitions for thick particles, mostly two-particle algorithms, but complete 2011 thesis unavailable. Recent Resultary two-unordered-particle star persistence has a different particle number. Qualified originality.
 
-Limitations: equal arm lengths, three indistinguishable particles, and stagewise homotopy only; full thesis comparison unavailable. Independent validation has not occurred.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Natural full stagewise homotopy classification for physical hard-particle configurations, with all homotopy transition boundaries, component counts and circle ranks valid at critical separations and every number of arms. Not the more common unrestrained graph braid homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
