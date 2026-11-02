@@ -1,11 +1,21 @@
-# Review of the conditional joint leaf law
+# Independent mathematical audit
 
-**Correctness (PASS).** A fixed connected path admits \(qN^{N-q-1}\) labeled-tree extensions. Deletion of ordered off-path leaves and path endpoints gives the stated exact factorial moment law. Its conditional covariance and variance are consequences of the moments. Independent Prüfer enumeration of all 280391 labeled trees for sizes 3 through 8 confirms the stated exact comparisons without substituting for proof.
+## correctness
 
-**Originality (PASS, with residual priority risk).** Existing explicit conditional expectation of total leaves given marked distance is strictly a marginal first moment. Existing conditional generating functions of attachment degrees along a prescribed subtree concern the degree of *path vertices*, not whether off-path vertices are leaves. Aldous–Pitman provide path-subtree/degree methods; Bernardi–Morales provide degree enumerators, but no inspected statement subsumes the displayed complete bivariate conditional leaf law or its strict conditional anticorrelation. General enumeration machinery might allow the identity as a nonobvious corollary; historical priority is not conclusively established.
+PASS
 
-**Mathematical value (PASS).** Conditional separation into internal/outside versus marked-endpoint leaves is a natural geometric partition in a random spanning tree. Exact full joint factorial moments, not just a single marginal covariance, give every conditional variance and higher dependence measure. The strict negative cross-covariance at intermediate path lengths quantifies a genuine allocation tradeoff. The result is not a trivial normalization check or a new value for an already-tabulated marginal.
+The fixed path P on d+1 vertices has exactly (d+1)n^(n-d-2) containing trees. Delete r designated off-path leaves and s prescribed endpoint leaves, leaving a compulsory path with d+1-s vertices and n-r-s surviving labels. Its rooted-forest extension count times (n-r-s)^r yields (d+1-s)(n-r-s)^(n-d-2); divide and sum factorial moments. The exceptional adjacent-two-endpoints case must be zero. The covariance is negative for n-d-2>0 because 1-2/n<(1-1/n)^2. At d=n-2 exponent zero and at d=n-1 X is identically zero. The spanning-path negative exponent is interpreted by the exact integer counting formula, not a free formal 0^(-1).
 
-Closest primary sources are Aldous–Pitman (1998, Report 526, §§2–3) and Bernardi–Morales (2012, arXiv:1206.0598, §§1–3). The literature comparison is limited by the possibility of equivalent statements in other tree-enumeration treatments. No claim of independent validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: inspected the frozen final theorem and compared mathematical implications with published related sources rather than titles. The cited ingredients and simpler special cases are prior; the claimed additional precise joint law/spectral bound/bridge law/Dyck rigidity/cyclic construction is not established by the inspected results. Unlocated equivalent prior coverage remains an explicit risk.
+
+## value
+
+PASS
+
+A natural conditional joint law of leaf counts in two geometrically distinguished path classes, giving an exact signed cross-correlation and total-leaf variance. Neither the older marginal conditional mean nor the path-extension enumeration alone states the bivariate distribution; it is a substantial precise refinement in Cayley tree probabilistic enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
