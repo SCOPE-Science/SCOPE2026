@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact all-weight polynomial for the two-color outer-independent rainbow labelings of \(T_n=L(K_n)\) for every integer \(n\ge5\). Independence of empty vertices forces an underlying matching; for each matching edge exactly \(2(n-2)\) selected neighbors are eligible. The common-neighborhood union for \(k\) missing edges is exactly \(2k(n-k-1)\), since pairwise overlap counts four interpair edges. Incompatible opposite-color absence events do not meet, permitting the two-family inclusion-exclusion formula. The minimum-value construction checks both colors explicitly, and the minimum coefficient counts precisely the maximum-matching singleton assignments. No unproved general lemma is used. The complete definition-level coefficients match for \(n=3,4,5\); optimum counts match through \(n=6\). The finite checks are supporting, not the infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, with remaining priority risk)
+Independence of empty-labelled vertices is precisely an underlying K_n matching M. For t=|M|, the unrestricted selected-edge factor is z^(N-t)(z+2)^(N-t). Absence of a fixed color at k matched edges forces the union of U_k=2k(n-k-1) edge-neighbors to the opposite singleton. Different absent-color families intersect impossibly because two distinct matching edges have four common adjacent K_n edges; same-edge double absence is impossible with nonempty neighbors. Homogeneous-color inclusion-exclusion yields exactly the claimed polynomial. The n>=5 two-part coloring gives a feasible weight N-floor(n/2), and coefficient extraction counts precisely the equality cases. The union bound gives failure fraction at most 2h*2^(-2(n-2)) for a fixed maximum matching. Independently re-enumerated all four-label assignments for n=3,4,5; full coefficient profiles and minimum multiplicities agree; formula evaluated through n=8. Infinite theorem follows from the combinatorial argument, not those finite tests.
 
-The 2019–2023 literature on outer-independent two-rainbow domination primarily supplies bounds, characterizations of small or extremal minimum values, and formulas for graph products. The exact all-weight polynomial on the triangular graphs with \(n\ge5\) was not located. The closest record for all two-rainbow labelings of complete multipartite graphs concerns a different graph domain (the triangular graph ceases to be complete multipartite for \(n\ge5\)) and does not directly impose outer-independence. Other mathematical studies of power domination and paired domination on triangular graphs address different predicates, so their enumerators cannot imply the rainbow polynomial. Generic vertex-cover lower bounds give the minimum weight lower bound, not the new all-weight enumeration. The 2019 foundational publisher full text and any unindexed equivalent all-weight enumeration remain bibliographic risks; a negative search alone is not priority proof.
+## originality
 
-## Value — PASS
+PASS
 
-A complete exact weight distribution is a natural strengthening of a graph domination parameter, and the triangular graph family is a canonical line-graph/Johnson-graph family. The formula counts nontrivially coupled color-deficiency events around an omitted matching, giving an explicit finite polynomial, sharp minimum multiplicities and an exponential-density statement for feasible minimum colorings. This is not merely renaming a known vertex-cover bound or recounting a small graph table; it gives all coefficients uniformly for infinitely many graph orders.
+Best-of-knowledge: inspected same-invariant bounds and product theorems and matched their quantifiers to this complete all-weight triangular-graph polynomial. No full coefficient formula for this graph family was identified. This is not a historical priority certificate.
 
-## Scope and reproducibility
+## value
 
-The proof is combinatorial inclusion-exclusion and applies to every integer \(n\ge5\). The accompanying verifier computes all four-label assignments for \(n=3,4,5\) and all minimum-weight singleton labelings for \(n=3,4,5,6\), and its saved output is reproducible using standard Python. Neither finite enumeration nor search establishes an unrestricted theorem or priority by itself.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete named-color weight polynomial is a natural exact invariant of a canonical line/Johnson graph family, not a mere substitution of a known minimum. Matching intersections create genuine two-color dependencies; the formula gives every coefficient, exact optimizer multiplicities, and a quantitative typicality law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

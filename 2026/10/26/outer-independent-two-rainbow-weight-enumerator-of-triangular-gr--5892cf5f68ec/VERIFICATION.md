@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limitations
 
-The mathematical proof in `RESULT.md` is an all-integer matching/inclusion-exclusion argument. The standalone script `verify_oi2rd_triangular.py` checks its fixed-domain instances using the original neighborhood definition, not just the transformed matching criterion. Run with `python verify_oi2rd_triangular.py` using a standard Python 3 installation; no third-party modules or network access are needed.
+# Independent mathematical audit
 
-In detail, the script checks all \(4^{\binom n2}\) assignments for \(n=3,4,5\), compares the entire resulting weight profiles with the symbolic coefficient formula, and independently counts the two-singleton-color assignments for every maximum matching at \(n=3,4,5,6\). Its deterministic observed output is recorded in `verification_output.txt`. This is exhaustive only for these finite orders. It is not a proof that the formulas hold at all larger orders, and it is not independent mathematical validation.
+## correctness
 
-The result's exact scope is ordinary outer-independent two-rainbow domination with named colors on \(T_n=L(K_n)\) for \(n\ge5\). The \(n=3,4\) checks are boundary tests. General literature precedence remains subject to additional human verification. No external audit has been performed.
+PASS
+
+Independence of empty-labelled vertices is precisely an underlying K_n matching M. For t=|M|, the unrestricted selected-edge factor is z^(N-t)(z+2)^(N-t). Absence of a fixed color at k matched edges forces the union of U_k=2k(n-k-1) edge-neighbors to the opposite singleton. Different absent-color families intersect impossibly because two distinct matching edges have four common adjacent K_n edges; same-edge double absence is impossible with nonempty neighbors. Homogeneous-color inclusion-exclusion yields exactly the claimed polynomial. The n>=5 two-part coloring gives a feasible weight N-floor(n/2), and coefficient extraction counts precisely the equality cases. The union bound gives failure fraction at most 2h*2^(-2(n-2)) for a fixed maximum matching. Independently re-enumerated all four-label assignments for n=3,4,5; full coefficient profiles and minimum multiplicities agree; formula evaluated through n=8. Infinite theorem follows from the combinatorial argument, not those finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge: inspected same-invariant bounds and product theorems and matched their quantifiers to this complete all-weight triangular-graph polynomial. No full coefficient formula for this graph family was identified. This is not a historical priority certificate.
+
+## value
+
+PASS
+
+The complete named-color weight polynomial is a natural exact invariant of a canonical line/Johnson graph family, not a mere substitution of a known minimum. Matching intersections create genuine two-color dependencies; the formula gives every coefficient, exact optimizer multiplicities, and a quantitative typicality law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
