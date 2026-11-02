@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the Galgano–Gesmundo–Keneshlou resolution, every blow-up center lies on the distinguished line at infinity. The total-transform basis gives \(-K_X=2H+B\); the only noncrepant contraction is the line \(B\) for regular pencils. Its discrepancy yields \(2H+2B/(\kappa-1)\), whereas the singular-pencil pullback remains \(2H+B\). The proof checks all irreducible curves by distinguishing \(B\), exceptional curves, and curves of positive degree not equal to \(B\). The intersection calculations and examples replay exactly. Standard characteristic-zero base-point freeness completes the ample/semample distinction. The program alone is not an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** [1] provides the resolution, singularity basket and full distinguished intersection pairing but does not formulate an anticanonical nefness, volume, contraction or ampleness classification; directed text and mathematical-record searches found no equivalent statement. This is a new application of existing detailed geometry, not a new resolution, and an unindexed consequence or earlier treatment remains a nonzero risk. Related records concerning matrix nets, Hessenberg weak-Fano varieties and uniform matroid Schubert canonical indices do not imply the classification for all Kronecker matrix-pencil types.
+PASS
 
-**Value — PASS.** The paper motivates these surfaces as singular analogues of rational blow-ups; the classification answers the natural question of exactly when they are (weak) log del Pezzo, and identifies all anticanonical exceptional curves. It captures a structural dichotomy between regular and singular pencils and a sharp transition at \(\kappa=3\). The numerical volumes support, but are not the sole basis for, the value assessment.
+Read the same 2026 primary Schubert surface paper at Sections 3.11, 4.3, 4.5-4.8 to verify the blow-up resolution, quotient singularities, exceptional curve contractions and total-transform intersection basis. For the iterated blow-up of P² at κ chain points on line at infinity, the classes satisfy B=H-ΣE, B²=1-κ, K_X=-3H+ΣE and -K_X=2H+B. Singular pencils contract only crepant -2 strings and have f^*(-K_Y)=2H+B, volume 9-κ, B-intersection 3-κ. For regular pencils κ>=2 the additional B contraction has discrepancy a=(3-κ)/(κ-1), yielding f^*(-K_Y)=2H+(2/(κ-1))B and volume 4κ/(κ-1). Nefness is checked on every irreducible curve: nonexceptional D distinct from B has H.D>=1 and B.D>=0; exceptional surviving terminal A has positive intersection; intermediate surviving A has zero; singular B has 3-κ. Klt quotient singularities and characteristic-zero basepoint-free theorem yield the weak-Fano/Fano and anticanonical contraction criteria. Independently checked exact rational intersection identities for all κ<=8 and selected size profiles; finite checks do not replace all-curves proof.
 
-The main limitation is dependence on [1]'s geometric resolution and unperformed independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Galgano–Gesmundo–Keneshlou (arxiv:2610.07164, posted October 5, 2026) completely establishes resolution, quotient types and intersection pairing. The new statement derives a sharp all-Kronecker-profile anticanonical nef/ample classification, volumes and contraction locus; no direct anticanonical classification appears in the inspected original sections. A nontrivial all-curves positivity argument is added, not merely renaming a published surface. However automatic use of source intersection data makes a possible unpublished corollary a residual risk.
+
+## value
+
+PASS
+
+Weak log del Pezzo and log del Pezzo criteria are central birational-geometric positivity invariants. The classification gives a complete natural family boundary, exact anticanonical volumes and exceptional loci for all complex matrix-pencil Schubert surfaces, including the sharp κ=3 singular boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
