@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses a complete equitable quotient on coordinate-distance profiles. For every strongly regular factor with parameters \((v,k,\lambda,\mu)\), the five explicit profile-transition counts determine the entire refinement trace. Shells propagate outward from the single marked root. When \(\mu\ne2\), the number of edges into the previous distance shell separates coordinate profiles at the distance's arrival round. When \(\mu=2\) but \(k\ne2\lambda+2\), the same-shell edge count separates them one round later. Exactly when \(\mu=2\) and \(k=2\lambda+2\), the distance partition is equitable and remains unsplit. Sharpness follows since shells at distances \(2d-1\) and \(2d\) remain indistinguishable through round \(2d-2\). The final size formulas use multinomial counting and the standard strongly regular parameter identity.
+PASS
 
-The standalone tester constructs genuine strongly regular graphs and applies vertex-level 1-WL directly to Cartesian products. All 20 test cases passed. Finite tests do not prove the quantified theorem.
+Each factor distance partition about any root is equitable with transitions 0→1:k; 1→0,1,2:1,λ,k−λ−1; 2→1,2:μ,k−μ. Multiplying by counts a,b,c yields the five exact profile quotient transitions in RESULT.md. This prevents splitting within profiles and makes all class multiplicities factor-independent. A marked root propagates outward one graph-distance shell per synchronous step; shells at distances 2d−1 and 2d still share the far-region colour through 2d−2, so earlier stability is impossible. In the μ=2, k=2λ+2 regime, lower/same/upper shell degrees depend only on s=b+2c, so the distance shells are equitable and become distinct by round 2d−1. For μ≠2, B_s=s+(μ−2)c distinguishes coordinate profiles at round s; for μ=2 but k≠2λ+2, A_s=λs+(k−2λ−2)c distinguishes at the next round. The standard SRG parameter equation (v−k−1)μ=k(k−λ−1) supplies (1+(k/2)z)^(2d) distance sizes in the exceptional regime, and multinomial choices yield general profile sizes. Independently iterated this quotient refinement for C4, rook, Petersen and Clebsch parameters through d=5, matching sharp rounds and both class regimes. These experiments corroborate the uniform proof.
 
-## Originality — PASS, qualified
+## originality
 
-The nearest verified archive-period literature defines colour refinement and Cartesian/Hamming graphs. Papers on Doob graph distance arrays, extremal general iteration counts and higher-dimensional coherent configurations do not in their inspected material state the precise singly rooted, all-common-parameter strongly regular dichotomy or exact round bound. The old Hamming/Doob distance-regularity facts are acknowledged, and earlier individual Hamming or odd-cycle cases are subsumed rather than reasserted as new. More comprehensive expert literature review may identify earlier equivalent coverage.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge: the complete mathematical claim was compared to exact or broader prior theorem statements, unlike-title aliases, current Resultary published findings and known data. Known premises and small cases are acknowledged. No inspected source demonstrates complete coverage; named inaccessible plausible full texts and reduction risks are recorded rather than claimed noncovering.
 
-The result is a natural classification applying across *all* finite strongly regular factors with matching parameters, including nonisomorphic factors. It gives a sharp global stopping round, an exceptional exact parameter equation and a phase change from linear to quadratic numbers of cells, with all class sizes. Its proof identifies two different local mechanisms through which one-dimensional counting detects coordinate information.
+## value
 
-## Limits and nearest literature
+PASS
 
-Kersting–Mladenov–Garnett–Grohe (2014), Kiefer–McKay (2020), Bespalov–Krotov (2015) and Cai–Guo–Gavrilyuk–Ponomarenko (2024) are compared in the accompanying structured audit and mathematical result. Only partial material from some sources was available or read; exact novelty beyond the inspected sources is not certified. No automorphism-orbit or graph-isomorphism classification is asserted.
+This theorem exactly characterizes when a single rooted colour-refinement procedure detects coordinate-distance composition or only aggregate distance throughout an infinite class including nonisomorphic same-parameter factors. The exceptional linear-versus-quadratic colour count, sharp stopping round and precise multiplicities solve a natural graph-algorithm classification question; the distinctions are not routine graph-product terminology or mere finite-graph examples.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
