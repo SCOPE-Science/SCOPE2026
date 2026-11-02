@@ -1,0 +1,270 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:37:22.570520Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On K_{m,n}, m,n>=1, fixed eta>0, spin-reversal symmetry forces stationary mean zero and independent flip noise makes the continuous-time chain irreducible. Writing x,y,z for exchangeable pair correlations, the generator gives 0=-4eta*x+2lambda_A(z-x), 0=-4eta*y+2lambda_B(z-y), and 0=-4eta*z+lambda_A(1/n+(n-1)y/n-z)+lambda_B(1/m+(m-1)x/m-z). The rates are (lambda_A,lambda_B)=(1,1) for per-vertex copying and (n,m) for per-directed-edge copying. Direct substitution gives x=lambda_A*z/(lambda_A+2eta), y=lambda_B*z/(lambda_B+2eta), a strictly positive z denominator and the exact rational V=[N+m(m-1)x+n(n-1)y+2mnz]/N^2. Independent SymPy algebra checks proved equivalence with the two displayed closed forms, and independent exact rational full 2^(m+n)-state generators independently checked 8 noise/size/protocol cases including singleton sides. SymPy limits checked fixed m, balanced sizes and the n^(1/2) topology regime; asymptotic algebra gives sqrt(n)*VV -> 1/[8eta(1+eta)c], sqrt(n)*VE -> c/eta and VE/VV -> 8(1+eta)c^2 for m/sqrt(n)->c>0. The strict crossover sign follows for c != [8(1+eta)]^-1/2. Singleton within-side correlations are unobservable placeholders multiplied by zero, not fabricated pair expectations. Finitely many cases alone do not prove general or infinite limit; the closed pair-generator identities and limit argument do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sood–Antal–Redner (arXiv:0712.4288) covers same graph and both clock conventions, but at zero spin-flip noise with fixation and consensus observables.",
+          "Carro–Toral–San Miguel (arXiv:1602.06935) has general node-clock second moments, not the independently degree-proportional directed-edge rule.",
+          "Pymar–Rivera (arXiv:2112.01478) has general random-walk duality but does not evaluate both uniform-magnetization K_{m,n} quantities."
+        ],
+        "reasoning": "General graph and arbitrary-kernel results are more general in their methods but not shown to imply the complete two-clock asymptotic comparison with its exact critical constant as an already determined result. In particular, the noise-free bipartite theorem cannot subsume positive-noise equilibrium without additional analysis; a broad dual formula may still yield the special-case calculation and that risk remains.",
+        "searches": [
+          "arxiv:0712.4288",
+          "arxiv:1602.06935",
+          "arxiv:2112.01478",
+          "stationary variance noisy voter model graph degree weighted copying coalescing random walks killed dual"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0712.4288",
+        "https://arxiv.org/abs/1602.06935",
+        "https://arxiv.org/abs/2112.01478",
+        "https://arxiv.org/abs/2004.10187",
+        "https://arxiv.org/abs/1807.04615",
+        "https://arxiv.org/abs/2207.01224",
+        "Resultary semantic records for noisy voter model on complete bipartite graph stationary magnetization variance per vertex copying versus directed-edge copying square root partition scaling",
+        "Resultary semantic records for exact stationary covariance noisy voter model node-update link-update on K_mn bipartite with independent spin flip noise",
+        "Resultary semantic records for stationary variance noisy voter model graph degree weighted copying coalescing random walks killed dual",
+        "noisy voter stationary magnetization [SCOPE-Science/SCOPE2026 repository search]"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-noise consensus and quasi-stationary papers (arXiv:0712.4288, 2004.10187) concern distinct stochastic regimes.",
+          "The exact node-clock pair equation in arXiv:1602.06935 permits one variance by specialization but not the evaluated complementary edge-clock formula as stated.",
+          "The synchronous-noise bipartite inference model arXiv:2207.01224 uses distinct update rules and observables."
+        ],
+        "reasoning": "None of the inspected actual theorem statements provides the two rational stationary variances and sqrt(n) comparison as a direct already-established corollary. Algebraic specialization of known general equations is a concrete residual originality risk; no novelty is claimed for moment closure, only for the exact joint structural crossover.",
+        "searches": [
+          "arxiv:0712.4288",
+          "arxiv:1602.06935",
+          "arxiv:2004.10187",
+          "arxiv:1807.04615",
+          "arxiv:2207.01224",
+          "noisy voter model on complete bipartite graph stationary magnetization variance per vertex copying versus directed-edge copying square root partition scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carro et al. (arXiv:1602.06935) exact node-clock moment evolution (eq. 8) is a methodological precursor and can reformulate one component.",
+          "Pymar–Rivera (arXiv:2112.01478) supplies an arbitrary-kernel killed-coalescent description of stationary density, but concerns degree-weighted density and different evaluated graph regimes."
+        ],
+        "reasoning": "An equivalent formulation is a noisy voter spin pair covariance/killed coalescing walk calculation. The claim is the *joint* exact uniform-magnetization variances under two non-equivalent rate normalizations and their unique sqrt(n) crossover. Existing general descriptions make the calculation possible but no inspected statement explicitly covers both evaluated laws and constants; potential elementary specialization of a stronger general theorem remains a priority risk.",
+        "searches": [
+          "noisy voter model on complete bipartite graph stationary magnetization variance per vertex copying versus directed-edge copying square root partition scaling",
+          "exact stationary covariance noisy voter model node-update link-update on K_mn bipartite with independent spin flip noise",
+          "arxiv:1602.06935",
+          "arxiv:2112.01478"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three Resultary semantic queries returned unrelated graph/invariant records; no matching evaluated noisy-voter K_{m,n} stationary table.",
+          "GitHub repository code search for noisy voter stationary magnetization returned no matching result.",
+          "Primary papers involving bipartite graphs investigate consensus/conditional laws or synchronous noisy-voter inference rather than a table of both variances."
+        ],
+        "reasoning": "The invariant is a symbolic function of m,n,eta rather than one finite enumeration datum. No exact indexed table or equivalent full family formula was located; search non-retrieval is not proof of novelty.",
+        "searches": [
+          "noisy voter model on complete bipartite graph stationary magnetization variance per vertex copying versus directed-edge copying square root partition scaling",
+          "exact stationary covariance noisy voter model node-update link-update on K_mn bipartite with independent spin flip noise",
+          "noisy voter stationary magnetization [SCOPE-Science/SCOPE2026 repository search]",
+          "\"noisy voter\" \"complete bipartite\" \"stationary\" \"magnetization\""
+        ]
+      },
+      "rationale": "PASS (qualified best-of-knowledge): Sood–Antal–Redner develops noise-free voter/link clocks and complete bipartite consensus, while Carro–Toral–San Miguel develops general *node-clock* noisy-voter moment equations. Pymar–Rivera offers a broader noisy coalescing dual and degree-weighted density, but the inspected statements do not evaluate both continuous-time clock conventions for normalized K_{m,n} magnetization nor their common sharp sqrt(n) crossover. The exact second-moment closure is not itself novel. Relevant primary full-text sections and Resultary searches were inspected; no identified existing result directly dominates the full comparative claim. This is not proof of absolute priority: a general stationary covariance identity may yield the final formula through graph-specific specialization, and unindexed equivalent work may exist. The exact statement-vs-prior comparisons appear in the four checks below.",
+      "residual_risks": [
+        "A less visible general noisy-voter killed-coalescent or degree-dependent stationary covariance theorem may entail these evaluated special-case formulae after algebra; search failure cannot eliminate this priority risk.",
+        "The claim holds only for strictly positive fixed independent spin-flip rate eta and complete bipartite graphs with m,n>=1; no finite-size sign assertion exactly at asymptotic threshold c*.",
+        "The two clock protocols have differing total copying workloads on irregular graphs, intentionally held alongside a fixed spin-flip rate. Alternative globally normalized comparison yields a different threshold.",
+        "No formal Lean/expert certification; symbolic derivations and exact finite Markov checks corroborate a separately reconstructed analytic proof.",
+        "Publication withheld until operational provenance in source AUDIT.json and METADATA.json has been sanitized with complete verified replacement bytes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers noise-free voter/link/invasion clock conventions and fixation/consensus quantities, not positive-noise invariant magnetization covariance for two clock regimes.",
+          "evidence": [
+            "Section II distinguishes per-vertex voter and per-link update rules.",
+            "Section IV.A analyzes bipartite graph consensus/fixation with no independent spin-flip noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0712.4288",
+          "material_read": "Primary preprint, especially Section II model definitions and Section IV.A complete-bipartite graphs, their calculations and conclusions.",
+          "method": "Read primary full-text PDF sections and rendered page images; compared generators and observables.",
+          "title": "Voter Models on Heterogeneous Networks",
+          "trigger": "Same graph K_{m,n} and direct comparison of voter, link, and invasion update rules"
+        },
+        {
+          "assessment": "Its generic node-clock moment evolution subsumes the basic technique, but the inspected paper does not give the exact two-rule K_{m,n} covariance pair or the square-root crossover. An evaluated consequence of existing methodology remains possible.",
+          "evidence": [
+            "Equation (1) uses per-node copying rate h/k_i times neighbor spins.",
+            "Equation (8) gives general exact second-moment evolution, followed by annealed treatment for network heterogeneity; no directed-edge-clock evaluated companion identified."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.06935",
+          "material_read": "Primary full-text PDF, model equation (1), exact second-moment equation (8), heterogeneous-network approximation and conclusions.",
+          "method": "Read mathematics of the generator and moment equations and inspected PDF page image.",
+          "title": "The noisy voter model on complex networks",
+          "trigger": "Closest general exact node-clock pair-moment balance and stationary magnetization fluctuation framework"
+        },
+        {
+          "assessment": "Treats stationary degree-weighted density for arbitrary kernels and asymptotic laws; does not explicitly determine both unweighted K_{m,n} magnetization variances with distinct kinetic normalizations. General duality remains a priority risk.",
+          "evidence": [
+            "Density statistic weights vertices by stationary random-walk measure, unlike uniform magnetization on irregular K_{m,n}.",
+            "Graph examples include complete graph, cycle, tori and hypercubes rather than evaluated two-clock bipartite comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.01478",
+          "material_read": "Primary preprint full-text sections on stationary density, pair-coalescence representation, special graph families, introduction and main theorems.",
+          "method": "Read PDF text, theorem statements and relevant formulae, inspected rendered page.",
+          "title": "Asymptotic behaviour of the noisy voter model density process",
+          "trigger": "Possible general stationary coalescing dual formula and stronger arbitrary-kernel density theorem"
+        },
+        {
+          "assessment": "Studies the zero-noise absorbing model conditioned on survival, not the unique positive-flip-rate ergodic stationary measure in the claim.",
+          "evidence": [
+            "Central quasi-stationary laws condition an unperturbed voter process on nonabsorption.",
+            "No positive independent flip rate eta or two-clock variance crossover in inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.10187",
+          "material_read": "Primary preprint abstract, model and central theorem statements, conditional-distribution sections.",
+          "method": "Read full-text PDF sections and inspected first PDF page.",
+          "title": "Quasi-Stationary Distributions for the Voter Model on Complete Bipartite Graphs",
+          "trigger": "Exact same family K_{m,n}, potentially adjacent stationary stochastic invariant"
+        },
+        {
+          "assessment": "Discusses heterogeneous-network noisy voter pair approximation, not exact directed-edge and vertex clock stationary covariance on complete bipartite graphs.",
+          "evidence": [
+            "Uses pair approximations and heterogeneous degree descriptions.",
+            "No evaluated K_{m,n} exact joint two-protocol crossover found in inspected text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.04615",
+          "material_read": "Primary PDF model and pair-approximation treatment, variance/heterogeneity discussion and conclusion.",
+          "method": "Read PDF text and page image, checked bipartite and protocol terms.",
+          "title": "Stochastic pair approximation treatment of the noisy voter model",
+          "trigger": "Potential stronger network-heterogeneity variance approximation or exact formula"
+        },
+        {
+          "assessment": "Uses synchronous discrete-time update/local temporal observation statistics; not the asynchronous continuous-time stationary two-clock magnetization comparison.",
+          "evidence": [
+            "Section 6 addresses a complete-bipartite inference setting under synchronous noisy voter dynamics rather than the present variance formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.01224",
+          "material_read": "PDF model assumptions and Section 6 complete-bipartite treatment and conclusion.",
+          "method": "Read targeted full-text PDF section and rendered page image.",
+          "title": "Global information from local observations of the noisy voter model on a graph",
+          "trigger": "Independent noisy voter primary literature with complete bipartite graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The complete bipartite graph is a canonical heterogeneous-network family, and allocating copying activity per vertex versus per interaction are meaningful nonequivalent kinetic rules. At fixed flip-noise eta, the exact positive all-size rational variances reveal a sharp intermediate m~sqrt(n) reversal, with explicit crossover c*=[8(1+eta)]^-1/2. The reversal is not a trivial normalization identity: it depends on combining exact pair-correlation solutions with competing asymptotic regimes, and supplies reusable checks for noisy-voter approximations. The fixed-m and balanced-m/n limits further locate its boundary. Does not claim a phase transition, full law, mixing theorem, equal overall attempts, or exact critical-size sign.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/0712.4288",
+    "https://arxiv.org/abs/1602.06935",
+    "https://arxiv.org/abs/2112.01478",
+    "https://arxiv.org/abs/2004.10187",
+    "https://arxiv.org/abs/1807.04615",
+    "https://arxiv.org/abs/2207.01224",
+    "Resultary semantic records for noisy voter model on complete bipartite graph stationary magnetization variance per vertex copying versus directed-edge copying square root partition scaling",
+    "Resultary semantic records for exact stationary covariance noisy voter model node-update link-update on K_mn bipartite with independent spin flip noise",
+    "Resultary semantic records for stationary variance noisy voter model graph degree weighted copying coalescing random walks killed dual",
+    "noisy voter stationary magnetization [SCOPE-Science/SCOPE2026 repository search]"
+  ],
+  "disposition": "passed",
+  "final_claim": "For eta>0 and K_{m,n} with independent spin flips at eta and either vertex-clock or directed-edge-clock copying, the two exact rational stationary variances in source RESULT.md hold for all positive integers m,n. If n->infinity and m/sqrt(n)->c in (0,infinity), then sqrt(n)*VV->1/[8eta(1+eta)c], sqrt(n)*VE->c/eta and VE/VV->8(1+eta)c^2. The leading strict ordering reverses across c*=[8(1+eta)]^-1/2, with no exact-critical equality claim.",
+  "limitations": [
+    "Only fixed eta>0, continuous-time independent spin flips and K_{m,n}; the two kinetic protocols have different per-vertex total copying rates.",
+    "Leading asymptotic ordering does not resolve c=c*, exact finite-size crossing, or next-order variance correction.",
+    "No result about stationary full distribution, temporal mixing or unperturbed voter consensus.",
+    "Unknown possible older equivalent general coalescent/covariance formula; bounded primary literature comparison and Resultary semantic retrieval do not certify novelty.",
+    "No formalized proof or external specialist attestation; exact microstate tests are finite corroboration.",
+    "Source AUDIT.json and METADATA.json contain operational scope_run_id, so no publication change-set was staged."
+  ],
+  "residual_risks": [
+    "A less visible general noisy-voter killed-coalescent or degree-dependent stationary covariance theorem may entail these evaluated special-case formulae after algebra; search failure cannot eliminate this priority risk.",
+    "The claim holds only for strictly positive fixed independent spin-flip rate eta and complete bipartite graphs with m,n>=1; no finite-size sign assertion exactly at asymptotic threshold c*.",
+    "The two clock protocols have differing total copying workloads on irregular graphs, intentionally held alongside a fixed spin-flip rate. Alternative globally normalized comparison yields a different threshold.",
+    "No formal Lean/expert certification; symbolic derivations and exact finite Markov checks corroborate a separately reconstructed analytic proof.",
+    "Publication withheld until operational provenance in source AUDIT.json and METADATA.json has been sanitized with complete verified replacement bytes."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers noise-free voter/link/invasion clock conventions and fixation/consensus quantities, not positive-noise invariant magnetization covariance for two clock regimes.",
+      "evidence": [
+        "Section II distinguishes per-vertex voter and per-link update rules.",
+        "Section IV.A analyzes bipartite graph consensus/fixation with no independent spin-flip noise."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/0712.4288",
+      "material_read": "Primary preprint, especially Section II model definitions and Section IV.A complete-bipartite graphs, their calculations and conclusions.",
+      "method": "Read primary full-text PDF sections and rendered page images; compared generators and observables.",
+      "title": "Voter Models on Heterogeneous Networks",
+      "trigger": "Same graph K_{m,n} and direct comparison of voter, link, and invasion update rules"
+    },
+    {
+      "assessment": "Its generic node-clock moment evolution subsumes the basic technique, but the inspected paper does not give the exact two-rule K_{m,n} covariance pair or the square-root crossover. An evaluated consequence of existing methodology remains possible.",
+      "evidence": [
+        "Equation (1) uses per-node copying rate h/k_i times neighbor spins.",
+        "Equation (8) gives general exact second-moment evolution, followed by annealed treatment for network heterogeneity; no directed-edge-clock evaluated companion identified."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1602.06935",
+      "material_read": "Primary full-text PDF, model equation (1), exact second-moment equation (8), heterogeneous-network approximation and conclusions.",
+      "method": "Read mathematics of the generator and moment equations and inspected PDF page image.",
+      "title": "The noisy voter model on complex networks",
+      "trigger": "Closest general exact node-clock pair-moment balance and stationary magnetization fluctuation framework"
+    },
+    {
+      "assessment": "Treats stationary degree-weighted density for arbitrary kernels and asymptotic laws; does not explicitly determine both unweighted K_{m,n} magnetization variances with distinct kinetic normalizations. General duality remains a priority risk.",
+      "evidence": [
+        "Density statistic weights vertices by stationary random-walk measure, unlike uniform magnetization on irregular K_{m,n}.",
+        "Graph examples include complete graph, cycle, tori and hypercubes rather than evaluated two-clock bipartite comparison."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2112.01478",
+      "material_read": "Primary preprint full-text sections on stationary density, pair-coalescence representation, special graph families, introduction and main theorems.",
+      "method": "Read PDF text, theorem statements and relevant formulae, inspected rendered page.",
+      "title": "Asymptotic behaviour of the noisy voter model density process",
+      "trigger": "Possible general stationary coalescing dual formula and stronger arbitrary-kernel density theorem"
+    },
+    {
+      "assessment": "Studies the zero-noise absorbing model conditioned on survival, not the unique positive-flip-rate ergodic stationary measure in the claim.",
+      "evidence": [
+        "Central quasi-stationary laws condition an unperturbed voter process on nonabsorption.",
+        "No positive independent flip rate eta or two-clock variance crossover in inspected results."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2004.10187",
+      "material_read": "Primary preprint abstract, model and central theorem statements, conditional-distribution sections.",
+      "method": "Read full-text PDF sections and inspected first PDF page.",
+      "title": "Quasi-Stationary Distributions for the Voter Model on Complete Bipartite Graphs",
+      "trigger": "Exact same family K_{m,n}, potentially adjacent stationary stochastic invariant"
+    },
+    {
+      "assessment": "Discusses heterogeneous-network noisy voter pair approximation, not exact directed-edge and vertex clock stationary covariance on complete bipartite graphs.",
+      "evidence": [
+        "Uses pair approximations and heterogeneous degree descriptions.",
+        "No evaluated K_{m,n} exact joint two-protocol crossover found in inspected text."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1807.04615",
+      "material_read": "Primary PDF model and pair-approximation treatment, variance/heterogeneity discussion and conclusion.",
+      "method": "Read PDF text and page image, checked bipartite and protocol terms.",
+      "title": "Stochastic pair approximation treatment of the noisy voter model",
+      "trigger": "Potential stronger network-heterogeneity variance approximation or exact formula"
+    },
+    {
+      "assessment": "Uses synchronous discrete-time update/local temporal observation statistics; not the asynchronous continuous-time stationary two-clock magnetization comparison.",
+      "evidence": [
+        "Section 6 addresses a complete-bipartite inference setting under synchronous noisy voter dynamics rather than the present variance formulas."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2207.01224",
+      "material_read": "PDF model assumptions and Section 6 complete-bipartite treatment and conclusion.",
+      "method": "Read targeted full-text PDF section and rendered page image.",
+      "title": "Global information from local observations of the noisy voter model on a graph",
+      "trigger": "Independent noisy voter primary literature with complete bipartite graph"
+    }
+  ]
+}
