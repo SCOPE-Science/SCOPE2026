@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T05:03:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For u,v>0, active Rhaly rows are f_k=2^(-k/2)sum_(j<2^k)e_j multiplied by b_k, so their exact Gram is K=D_b T_(1/sqrt2)D_b, where T has entries 2^(-|i-j|/2), bounded and invertible. J=K^-1 is a positive half-line Jacobi matrix with d_0=2/u², even tail A=3/u², odd tail B=3/v², off-diagonal -sqrt2/(uv). Period-two Bloch dispersion gives essential bands [L,min(A,B)] and [max(A,B),U], L,U=(A+B∓sqrt((A-B)²+16t²))/2 with t=sqrt2/(uv). Floquet multipliers off bands permit only a simple boundary eigenvalue: algebra yields lambda*=2/u²+1/v² and decay ratio -u²/v², square-summable iff u<v, and no embedded band eigenvectors. Polar decomposition/spectral mapping gives two singular bands, one isolated singular value uv/sqrt(2v²+u²) iff u<v, zero kernel of infinite multiplicity, norm/essential norm L^-1/2 and b(1+sqrt2) at u=v=b. Independent eigenvalue calculations of 240x240 truncated Jacobi matrices confirm exactly one internal-gap mode for (u,v)=(1,2),(1.4,2.3) at formula, none for (2,1),(1,1). Truncations do not prove the entire infinite essential spectrum; the Bloch/Fredholm proof is essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A gives norm inequalities rather than equality, and Schatten theorems concern compact membership; they do not specify bulk bands or an isolated gap eigen for all positive u,v."
+        ],
+        "reasoning": "Even broad weighted Hardy results do not imply exact spectral curves or directional u<v condition as a stated or immediate special case.",
+        "searches": [
+          "Resultary semantic: dyadic sparse Rhaly terraced operator singular spectrum periodic Jacobi eigen gap local mode",
+          "arxiv:2606.15875 Theorem 1.1 and Thm A",
+          "arxiv:2503.21930 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2606.15875 Bellavita–Dellepiane–Stylogiannis (complete 23-page PDF)",
+        "arxiv:2503.21930 same authors earlier Schatten paper",
+        "doi:10.1007/s00020-005-1383-3 factorable triangular spectra abstract",
+        "Resultary/2026 Hahn–Exton zeros determine every singular value of a geometric Rhaly operator",
+        "Resultary semantic: dyadic sparse Rhaly terraced operator singular spectrum periodic Jacobi eigen gap local mode",
+        "Web primary: Rhaly operators on weighted Hardy spaces and factorable matrices spectral gaps periodic dyadic samples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 paper proves general operator class norm comparisons and Schatten properties. The current proof evaluates inverse Gram and one boundary diagonal to get a precise spectral gap and essential norm, while prior factorable spectral paper addresses different operator spectrum."
+        ],
+        "reasoning": "The inspected earlier theorems neither dominate nor directly entail the entire singular spectrum without nontrivial new Jacobi inversion/Floquet boundary calculation.",
+        "searches": [
+          "Web primary: Rhaly operators on weighted Hardy spaces and factorable matrices spectral gaps periodic dyadic samples",
+          "arxiv:2606.15875 Sections 1,3,4",
+          "doi:10.1007/s00020-005-1383-3 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical factorable matrices have singular-value and norm theory, but the complete Rhaly 2026 paper treats boundedness, compactness and Schatten classes, not this exact noncompact |R| spectrum."
+        ],
+        "reasoning": "Reduction to a half-line periodic Jacobi matrix is new family-specific analysis; classical Bloch theory is recognized as prior machinery.",
+        "searches": [
+          "Resultary semantic: dyadic sparse Rhaly terraced operator singular spectrum periodic Jacobi eigen gap local mode",
+          "Web primary: Rhaly operators on weighted Hardy spaces and factorable matrices spectral gaps periodic dyadic samples",
+          "arxiv:2606.15875 Thms 1.1–1.4",
+          "doi:10.1007/s00020-005-1383-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary geometric-family singular-value table uses discrete zeros of a Fredholm determinant, not bulk bands; the complete same-family article had no occurrence of spectral/Jacobi classification."
+        ],
+        "reasoning": "No matching tabulation of the exact two-periodic noncompact dyadic family among inspected sources; failed match alone is not proof of novelty.",
+        "searches": [
+          "Resultary semantic: dyadic sparse Rhaly terraced operator singular spectrum periodic Jacobi eigen gap local mode",
+          "Resultary Hahn–Exton singular-value result",
+          "arxiv:2606.15875 complete PDF"
+        ]
+      },
+      "rationale": "Best-of-knowledge new all-band singular spectrum and directional half-line boundary state for this explicitly motivated dyadically sparse, two-periodic Rhaly family, distinct from classical factorable-matrix norm bounds and compact-operator Schatten theory.",
+      "residual_risks": [
+        "Older unindexed periodic-Jacobi or lacunary Cesàro literature may have computed this specific Toeplitz covariance inverse and gap state.",
+        "2006 factorable-spectral source was abstract-only and could hide a related reduction, though its operator spectral invariant is different.",
+        "The name singular spectrum here is the operator spectrum of |R|, not decreasing discrete singular values; zero has infinite multiplicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_FULL_BAND_COVERAGE",
+          "evidence": "Theorems prove boundedness/compactness/Schatten membership for weights and factorable matrices, with nonsharp norm bounds; no periodic Jacobi exact essential bands, symmetry-direction gap eigenmode or norm formula appears.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2606.15875v1.pdf",
+          "material_read": "Complete 23-page primary paper, especially introduction, Theorems 1.1–1.4, Section 3 and factorable realization in Section 4; text searches for spectrum, spectral and Jacobi and page images",
+          "method": "Primary lawful OA PDF from alphaXiv PDF link, read text and screenshots of pages 3 and 18",
+          "title": "Rhaly operators on weighted Hardy spaces and factorable matrices",
+          "trigger": "Same class of operators, dyadic weighting and boundedness, potential broad theorem covering spectrum"
+        },
+        {
+          "assessment": "RELATED_SCHATTEN_PRIOR",
+          "evidence": "Quantitative Schatten criteria for compact matrices; present R is bounded noncompact with an essential continuous singular spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.21930",
+          "material_read": "Published paper title/abstract and related references as quoted/discussed in complete 2026 Rhaly PDF",
+          "method": "Abstract and detailed citation review, not falsely claimed full 2025 paper read",
+          "title": "Schatten class for Rhaly matrices and spaces of analytic functions",
+          "trigger": "Historical close model with dyadic sampling"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_SPECTRUM",
+          "evidence": "Spectrum of the nonsymmetric original triangular factorable operator is not the spectrum of positive |R|; a disguised Jacobi treatment remains possible.",
+          "identifier_or_url": "https://doi.org/10.1007/s00020-005-1383-3",
+          "material_read": "Publisher abstract and bibliographic information only",
+          "method": "Abstract-only inspection",
+          "title": "Spectra for factorable matrices on ell_p",
+          "trigger": "Could cover special factorable operator spectrum"
+        },
+        {
+          "assessment": "DIFFERENT_GEOMETRIC_COMPACT_FAMILY",
+          "evidence": "Discrete approximation singular values of compact geometric Rhaly operator do not determine continuous bands and localized gap of sparse dyadic noncompact family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hahn-exton-zeros-determine-every-singular-value-of-a-geometric-r--43fc115e6443",
+          "material_read": "Title and Resultary summary of compact geometric Rhaly operator and Fredholm zero formula",
+          "method": "Published Resultary semantic search result excerpt, not full document",
+          "title": "Hahn–Exton zeros determine every singular value of a geometric Rhaly operator",
+          "trigger": "Resultary same operator family and singular spectral invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural exactly solvable noncompact Rhaly model interpolating dyadic sampling and periodic operator theory, with explicit essential-band topology, a genuinely directional localized edge eigenmode, and sharp essential norm. The u↔v boundary asymmetry is a meaningful structural phenomenon even though Floquet analysis itself is standard.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2606.15875 Bellavita–Dellepiane–Stylogiannis (complete 23-page PDF)",
+    "arxiv:2503.21930 same authors earlier Schatten paper",
+    "doi:10.1007/s00020-005-1383-3 factorable triangular spectra abstract",
+    "Resultary/2026 Hahn–Exton zeros determine every singular value of a geometric Rhaly operator",
+    "Resultary semantic: dyadic sparse Rhaly terraced operator singular spectrum periodic Jacobi eigen gap local mode",
+    "Web primary: Rhaly operators on weighted Hardy spaces and factorable matrices spectral gaps periodic dyadic samples"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "u,v>0 two-periodic sample weights and dyadic sparse support only.",
+    "Continuous essential spectrum, not ordered approximation-number sequence; |R| has infinite-dimensional kernel.",
+    "Historic earlier exact Jacobi spectral computation could be unindexed."
+  ],
+  "residual_risks": [
+    "Older unindexed periodic-Jacobi or lacunary Cesàro literature may have computed this specific Toeplitz covariance inverse and gap state.",
+    "2006 factorable-spectral source was abstract-only and could hide a related reduction, though its operator spectral invariant is different.",
+    "The name singular spectrum here is the operator spectrum of |R|, not decreasing discrete singular values; zero has infinite multiplicity."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_FULL_BAND_COVERAGE",
+      "evidence": "Theorems prove boundedness/compactness/Schatten membership for weights and factorable matrices, with nonsharp norm bounds; no periodic Jacobi exact essential bands, symmetry-direction gap eigenmode or norm formula appears.",
+      "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2606.15875v1.pdf",
+      "material_read": "Complete 23-page primary paper, especially introduction, Theorems 1.1–1.4, Section 3 and factorable realization in Section 4; text searches for spectrum, spectral and Jacobi and page images",
+      "method": "Primary lawful OA PDF from alphaXiv PDF link, read text and screenshots of pages 3 and 18",
+      "title": "Rhaly operators on weighted Hardy spaces and factorable matrices",
+      "trigger": "Same class of operators, dyadic weighting and boundedness, potential broad theorem covering spectrum"
+    },
+    {
+      "assessment": "RELATED_SCHATTEN_PRIOR",
+      "evidence": "Quantitative Schatten criteria for compact matrices; present R is bounded noncompact with an essential continuous singular spectrum.",
+      "identifier_or_url": "https://arxiv.org/abs/2503.21930",
+      "material_read": "Published paper title/abstract and related references as quoted/discussed in complete 2026 Rhaly PDF",
+      "method": "Abstract and detailed citation review, not falsely claimed full 2025 paper read",
+      "title": "Schatten class for Rhaly matrices and spaces of analytic functions",
+      "trigger": "Historical close model with dyadic sampling"
+    },
+    {
+      "assessment": "RELATED_DISTINCT_SPECTRUM",
+      "evidence": "Spectrum of the nonsymmetric original triangular factorable operator is not the spectrum of positive |R|; a disguised Jacobi treatment remains possible.",
+      "identifier_or_url": "https://doi.org/10.1007/s00020-005-1383-3",
+      "material_read": "Publisher abstract and bibliographic information only",
+      "method": "Abstract-only inspection",
+      "title": "Spectra for factorable matrices on ell_p",
+      "trigger": "Could cover special factorable operator spectrum"
+    },
+    {
+      "assessment": "DIFFERENT_GEOMETRIC_COMPACT_FAMILY",
+      "evidence": "Discrete approximation singular values of compact geometric Rhaly operator do not determine continuous bands and localized gap of sparse dyadic noncompact family.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hahn-exton-zeros-determine-every-singular-value-of-a-geometric-r--43fc115e6443",
+      "material_read": "Title and Resultary summary of compact geometric Rhaly operator and Fredholm zero formula",
+      "method": "Published Resultary semantic search result excerpt, not full document",
+      "title": "Hahn–Exton zeros determine every singular value of a geometric Rhaly operator",
+      "trigger": "Resultary same operator family and singular spectral invariant"
+    }
+  ]
+}
