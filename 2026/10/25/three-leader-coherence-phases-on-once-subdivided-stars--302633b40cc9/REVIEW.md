@@ -1,19 +1,21 @@
-# Review of the three-leader subdivided-star classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The grounded Laplacian is positive definite for each nonempty leader set on a finite connected tree. Conditioning on whether the hub is selected exhausts every three-leader placement. With the hub selected, edge-disjoint blocks make the optimal two distinct grounded leaves immediate. With the hub unselected, four arm states and two integer budget identities yield the exact scalar Schur complement in `RESULT.md`; the six permitted remaining orbit types are complete and explicitly compared for every integer \(k\ge3\). For \(k\ge5\) every non-hub orbit is strictly more costly than \(3k-5\). These computations match separate exact inversions of the original Laplacian in the rational checker. Finite tests are supplementary and cannot prove the infinite theorem.
+PASS
 
-## Originality — PASS, with residual risk
+Reconstructed combinatorial Laplacian on T_k (k≥3 arms, two edges each), principal grounded follower matrix L_FF, and J=tr(L_FF⁻¹), noting physical total stationary variance J/2. With hub selected, each untouched arm contributes 3, each leaf leader saves 5/2, yielding Jhub=3k−5 for leaves on distinct arms. With hub unselected, Schur elimination of arm blocks yields J=3n0+nV/2+nI+(1+2n0+nV/4)/(nI+nB+nV/2) for three nonhub leaders. Exhaustively classify III,IIV,IVV,VVV,B+I,B+V orbit types and compare exact linear costs against hub option. This yields uniquely all leaves at k=3 (J=8/3, one set), I+two other leaves at k=4 (J=27/4, twelve sets), and hub+two distinct leaves at k≥5 (J=3k−5, binomial(k,2) sets). Independently formed and inverted exact rational grounded Laplacians for all labeled 3-leader triples for k=3..7 and checked all six symbolic orbit cost formulas through k=20. The proof, rather than finite k tests, establishes the unbounded k claim.
 
-Patterson and Bamieh (2010), Lin–Fardad–Jovanović (arXiv:1302.0450), and Fitch–Leonard (arXiv:1407.1569) establish the trace objective, optimization techniques, and joint centrality; those foundations are explicitly not claimed as new. Patterson–McGlohon–Dyagilev (arXiv:1604.07094) treats paths and cycles. The comparison included precise web and mathematical-database searches for three-leader subdivided stars, stochastic network coherence, pinning, and grounded inverse trace. The closest existing weighted depth-two-spider result optimizes only two leaders and does not imply this third-leader classification. No inspected source gives the three exact phase boundaries and optimal-set counts. An unindexed stronger source is not excluded.
+## originality
 
-## Value — PASS
+PASS
 
-The result determines a complete leader-placement phase diagram for a natural infinite family of branching network topologies, and the all-leaf, mixed, and hub-plus-leaves transitions are genuinely different. The anomalous four-arm optimum shows that simply prioritizing the center is not universally optimal. Explicit costs and counts allow direct benchmarking of placement heuristics and provide sharp design thresholds without an asymptotic approximation.
+Qualified PASS: grounded-Laplacian trace coherence, Schur complementation and general leader-selection algorithms are classical; path/cycle special cases also predate this work. The assessed contribution is the exact global 3-phase optimizer placement and multiplicity classification on the natural once-subdivided star family, which is not stated or implied by the inspected general leader-centrality formulas without carrying out the nontrivial orbit comparison.
 
-## Limitations
+## value
 
-Exactly three pinned noise-free leaders; all arms have exactly two unit-weight edges; integer \(k\ge3\). The optimizer is for trace of the inverse grounded combinatorial Laplacian, not alternative spectral objectives. Literature search is nonexhaustive and independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: exact optimal placement and transition thresholds are central natural invariants in noisy network leader selection. The classification pinpoints a counterintuitive switch from nonhub to hub-based placements at five arms and counts every optimal configuration, giving a closed-form benchmark useful in network design beyond general heuristic algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
