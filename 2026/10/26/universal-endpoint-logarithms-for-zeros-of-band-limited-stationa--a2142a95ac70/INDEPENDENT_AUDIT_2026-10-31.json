@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:48:00Z",
+  "axes": {
+    "correctness": {
+      "finite_check_path": "independent_checks.py (private independent bounded check, 13490 total assertions across 4 subjects)",
+      "rationale": "For fixed disjoint positive-length spectral arcs E, K(re^{iθ},re^{iθ})=(2π/ℓ)u_t(θ)/(1-r²), u_t the Poisson harmonic measure of E, and Edelman–Kostlan yields EN=r²/(1-r²)-(r/2)〈∂_t log u_t〉. Outside O(t) layers the gap-side u_t=tH_0(1+O(t+t²/d²)) contributes (2π-ℓ)/t, while on the band side 1-u_t=tH_1(1+...), H_1=1/(πd)+O(1) near each endpoint. The derivative errors integrate to O_E(1), so 〈∂_t log u_t〉=(2π-ℓ)/(2πt)-J/(2π²)log(1/t)+O_E(1). Substitution gives support fraction ℓ/(2π) times r²/(1-r²) plus J/(4π²)log(1/(1-r))+O_E(1). Poisson kernel scaled at θ_*+(1-r)x yields Fσ=1/2+atan(σx)/π and derivatives, and Δlog u=-|∇u|²/u² yields π(1-r²)²ρ→1-1/[π²(1+x²)Fσ(x)²] compact-uniformly. An independently written numerical script directly compared Poisson convolutions, derivatives and one/two-band endpoint-log coefficients; the finite tests do not prove the limiting remainder.",
+      "specific_checks": [
+        "Independent Poisson/Beta-moment/resultant/rational-jet computations, limited finite samples; no infinite inference."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noda–Shirai, arXiv:2106.02860 Theorems 1.1–1.3 assume finite dependence/trigonometric-polynomial spectral density for precise asymptotics",
+          "Shirai arXiv:2501.02586 Theorem 2.1 has smoothness hypotheses at a fixed angle"
+        ],
+        "reasoning": "Neither framework directly covers discontinuous indicator spectral densities with positive gaps and logarithmic singularities at multiple fixed endpoints; a general Poisson asymptotic might still imply the claim, which is retained as a risk.",
+        "searches": [
+          "Noda Shirai expected number zeros finitely dependent stationary Gaussian coefficients 2021 polynomial spectral density",
+          "Published Resultary semantic search: zeros of stationary Gaussian analytic function spectral density indicator union arcs endpoint logarithmic correction Poisson kernel hard edge (12 returned; none with same target theorem)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2501.02586",
+        "https://arxiv.org/abs/2106.02860",
+        "Published Resultary semantic search: zeros of stationary Gaussian analytic function spectral density indicator union arcs endpoint logarithmic correction Poisson kernel hard edge (12 returned; none with same target theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shirai fixed-angle Example 2.4 cannot legally be applied with an angle varying with r in the theorem",
+          "Trigonometric-polynomial spectra cannot have a nonempty open zero band unless identically zero"
+        ],
+        "reasoning": "The only directly identical prior example has insufficient quantification for the moving-interface profile or J-term; new endpoint integral control is mathematically required.",
+        "searches": [
+          "https://arxiv.org/abs/2501.02586",
+          "https://arxiv.org/abs/2106.02860",
+          "Published Resultary semantic search: zeros of stationary Gaussian analytic function spectral density indicator union arcs endpoint logarithmic correction Poisson kernel hard edge (12 returned; none with same target theorem)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tomoyuki Shirai, arXiv:2501.02586, Example 2.4 treats the same half-circle mask with fixed-direction gap asymptotic",
+          "The audited mathematical statement gives a simultaneous moving-edge intensity and a J-dependent integrated log term"
+        ],
+        "reasoning": "The identical input model is a serious alias: fixed θ in a spectral gap is not a uniform θ=θ*+tx limit, and local fixed-gap vanishing alone does not determine the global integrated logarithmic coefficient.",
+        "searches": [
+          "Published Resultary semantic search: zeros of stationary Gaussian analytic function spectral density indicator union arcs endpoint logarithmic correction Poisson kernel hard edge (12 returned; none with same target theorem)",
+          "stationary Gaussian analytic function half-circle spectral mask Shirai Example 2.4 hard edge moving angle logarithmic zero count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly equivalent prior published Resultary record in returned twelve semantic hits; closest searches concerned different zero sets or Fourier spectral restrictions",
+          "The same-mask example in Shirai 2025 gives local interior-gap rather than endpoint count table"
+        ],
+        "reasoning": "The count of endpoints J and the coefficient J/(4π²) are the exact natural invariant; no matching table was identified in the examined sources, but search nonreturn is not novelty proof.",
+        "searches": [
+          "stationary GAF zero-count spectral indicator two bands endpoint log coefficient J/(4 pi²)",
+          "Published Resultary semantic search: zeros of stationary Gaussian analytic function spectral density indicator union arcs endpoint logarithmic correction Poisson kernel hard edge (12 returned; none with same target theorem)"
+        ]
+      },
+      "rationale": "Shirai 2025 explicitly considers the SAME half-circle spectrum in Example 2.4, but the inspected relevant primary sections calculate a fixed-direction interior-gap density; its smooth-direction theorem does not determine simultaneous θ-θ*=O(1-r) behavior or the integrated positive logarithm for arbitrary finite unions. Noda–Shirai 2021/2023 analyzes finitely dependent coefficients with trigonometric-polynomial spectral densities, without an open zero-spectral-measure gap; such a continuous nonnegative trigonometric polynomial cannot equal the indicator of a proper band. General positivity-jump formulas with both sides positive are singular as one side tends to zero, and so do not automatically imply this hard-edge coefficient. Resultary and targeted literature searches found no stronger matching assertion; this is best-of-knowledge, not proof of historical priority.",
+      "residual_risks": [
+        "An older implicit derivation of the Poisson hard-edge log term may exist; semantic search cannot establish priority.",
+        "Shirai already studied the identical half-circle spectral mask, so novelty is only the moving-edge/global J-endpoint asymptotics, not the model.",
+        "No coalescing-endpoint uniformity, arbitrary spectral weights or individual almost-sure zero counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MASK_PARTIAL_LOCAL_COVERAGE",
+          "evidence": [
+            "Example 2.4 fixed gap interior zero-intensity; does not state simultaneous moving-edge scaling or J-endpoint integrated logarithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.02586",
+          "material_read": "Primary arXiv HTML relevant complete Theorem 2.1, Example 2.4 and Proposition 3.1, with hypotheses on fixed-angle regularity and example",
+          "method": "Read mathematical formulas and nearby proofs/assumptions rather than title/abstract alone",
+          "title": "The density of zeros of random power series with stationary complex Gaussian coefficients",
+          "trigger": "Identical half-circle spectral mask and zero-intensity theorem"
+        },
+        {
+          "assessment": "FINITE_DEPENDENCE_DIFFERENT_SPECTRAL_SUPPORT",
+          "evidence": [
+            "Precise cited asymptotics require finitely dependent covariance and trigonometric polynomial, not disjoint spectral bands."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.02860",
+          "material_read": "Paper abstract and theorem descriptions for finitely dependent spectral polynomial case; no claim of full historical document inspection",
+          "method": "Read accessible theorem summaries; compare exact hypotheses on spectral density",
+          "title": "Expected number of zeros of random power series with finitely dependent Gaussian coefficients",
+          "trigger": "Direct predecessor expected zero counts in stationary Gaussian analytic functions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed spectral arcs are a natural band-limited stationary analytic Gaussian model. The exact logarithmic correction is a subleading statistic sensitive to the number of interfaces even at equal total spectral length; its local universal edge profile explains the zero-density transition. Neither is a routine restatement of the ordinary leading zero count or the previously known interior-gap limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed positive arc/gap lengths and normalized constant spectral indicator only; O_E(1) not uniform at coalescence.",
+    "Asymptotic expectation and intensity, not sample-by-sample counts or variance.",
+    "Independent bounded numerical checks corroborate, not prove, the limit."
+  ],
+  "schema_version": 1
+}
