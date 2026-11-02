@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:19:36.592462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A one-vacancy cycle has attainable closed-occupied-neighborhood same-color fractions 1/3,1/2,2/3,1, with utilities q,1,q,0 (0<q<1); a nonsegregated agent at q has two occupied neighbors and moving to the vacant site cannot raise utility, while a utility-one agent cannot improve. Only segregated agents may profit. If vacancy neighbors are both red, every blue must be integrated; blue-run lengths in the occupied path are at most two. Hence at least ceil(b/2) blue runs and ceil(b/2)+1 distinct bordering red agents, attaining minimum NE integration b+ceil(b/2)+1. Symmetric blue-vacancy and mixed-color-vacancy cases have no lower NE integration; run construction with red endpoints saturates the bound for all r>=b>=1, r+b>=3. Global integration <=min(r+b,3b), since each blue can expose at most two red agents; alternating singleton-blue/red-run constructions attain it, with r=b and r>b cases treated separately. Exceptional r=b=1 triangle has value 2 and PoA 1. Independently enumerated all placements/deviations via exact rational utilities for r+b<=11 and r>=b, recovering both extrema. All-size proof uses the run argument, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published general upper bound min(Delta_G,(r+b)/(b+1)) is not an exact achieved formula on fixed cycles.",
+          "Monotone Schelling preferences invalidate the new half-peak strategic run criterion."
+        ],
+        "reasoning": "Neither broader PoA theorem nor alternate preference model logically implies all-population exact cycle extremum.",
+        "searches": [
+          "Resultary: single peaked jump Schelling cycle one vacancy integration price of anarchy equilibrium red blue",
+          "arXiv:2302.12107 Theorem 4.3",
+          "Agarwal et al. Schelling games on graphs (2021)"
+        ]
+      },
+      "checked_sources": [
+        "Friedrich–Lenzner–Molitor–Seifert 2023 full HTML selected model, Section 4.1/4.2",
+        "Bilò et al. 2022 swap-game model abstract",
+        "Agarwal et al. 2021 monotone game comparison",
+        "Molitor thesis indexed excerpt only",
+        "Resultary: single peaked jump Schelling cycle one vacancy integration price of anarchy equilibrium red blue",
+        "web: single peaked jump Schelling cycle one vacancy integration price of anarchy Friedrich Lenzner Molitor 2023"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "FIP proves convergence, and PoS=1 gives existence of optimal equilibria but does not determine the *minimum* NE welfare."
+        ],
+        "reasoning": "The new theorem adds complete worst-equilibrium classification; it does not claim FIP or PoS priority.",
+        "searches": [
+          "Resultary: single peaked jump Schelling cycle one vacancy integration price of anarchy equilibrium red blue",
+          "arXiv:2302.12107 Theorems 2.4,4.3, Section 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PoA = best unrestricted integrated count / minimum NE integrated count; searched the underlying minimum NE count separately.",
+          "A ring/cycle and one empty vertex are equivalent topologies, unlike swap games with no vacancy."
+        ],
+        "reasoning": "Compared all equivalent welfare and strategic formulations, verifying that same words in swap or monotone games change permitted deviations and utilities.",
+        "searches": [
+          "Resultary: single peaked jump Schelling cycle one vacancy integration price of anarchy equilibrium red blue",
+          "web: single peaked jump Schelling cycle one vacancy integration price of anarchy Friedrich Lenzner Molitor 2023",
+          "Friedrich et al. arXiv:2302.12107 §4",
+          "Bilò et al. IJCAI 2022 swap model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected primary source contains bounds and constructions on broader graphs, not a table for each r,b on the one-vacancy ring."
+        ],
+        "reasoning": "No exact r,b equilibrium census/price table identified; a thesis appendix remains unverified.",
+        "searches": [
+          "Resultary: single peaked jump Schelling cycle one vacancy integration price of anarchy equilibrium red blue",
+          "arXiv:2302.12107 §4.1–4.2",
+          "Resultary semantic query for one-vacancy cycle PoA"
+        ]
+      },
+      "rationale": "Qualified PASS: Friedrich–Lenzner–Molitor–Seifert 2023 is the exact same jump-game model and proves FIP on one-vacancy cycles and a general PoA upper bound min(Delta,n/(b+1)), but its inspected Section 4.1 does not determine exact worst-cycle equilibrium integration b+ceil(b/2)+1. Bilò et al. use swaps without the vacancy; Agarwal et al. use monotone preferences. An inaccessible broader residential-segregation thesis could contain exact cycle refinements and is flagged, not assumed noncovering.",
+      "residual_risks": [
+        "An exact cycle special-case result may appear in the full Molitor thesis or additional published version; indexed snippets are not a whole-document novelty exclusion.",
+        "Search under one-vacancy price of anarchy is not proof against unindexed game-theory equivalences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 4.3 general inequality and constructions on other graphs; no source-section exact one-vacancy cycle population formula",
+          "evidence": [
+            "Theorem 4.3: PoA<=min(Delta_G,n/(b+1)); Lemma 4.1 segregated agents condition"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/368753290_Single-Peaked_Jump_Schelling_Games",
+          "material_read": "accessible public full-text HTML with model definition, one-vacancy graph section, Theorem 2.4, Section 4.1 Lemma 4.1, Theorems 4.3–4.6, 4.2; literal mathematical passages inspected",
+          "method": "primary author preprint accessible full text via ResearchGate HTML",
+          "title": "Single-Peaked Jump Schelling Games",
+          "trigger": "exact same model and greatest priority risk"
+        },
+        {
+          "assessment": "Swap deviations, no one-vacancy jump game; not equivalent",
+          "evidence": [
+            "2022 result is a swap game"
+          ],
+          "identifier_or_url": "https://www.ijcai.org/proceedings/2022/12",
+          "material_read": "accessible conference abstract and model summary compared; no complete full mathematical text reread",
+          "method": "published conference abstract and primary 2023 source references",
+          "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+          "trigger": "most similar utilities but different action model"
+        },
+        {
+          "assessment": "Uses different monotone utility, cannot imply half-peak exact strategic formula",
+          "evidence": [
+            "Preferences are monotone instead of single-peaked"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.artint.2021.103576",
+          "material_read": "model and prior comparison as cited by primary 2023 source; full article not independently retrieved this run",
+          "method": "primary original claims via 2023 source related-work comparison",
+          "title": "Schelling games on graphs",
+          "trigger": "general Schelling PoA possibility"
+        },
+        {
+          "assessment": "UNASSESSED FULL TEXT: bibliographic risk; do not infer absence of the formula",
+          "evidence": [
+            "Thesis may contain additional ring analysis"
+          ],
+          "identifier_or_url": "https://publishup.uni-potsdam.de/files/60135/diss_molitor.pdf",
+          "material_read": "indexed excerpts concerning ring PoA/PoS; no full PDF independently read",
+          "method": "web indexed passage only",
+          "title": "Strategic Residential Segregation",
+          "trigger": "same author wider thesis with possible exact cycle appendix"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a canonical graph-game instance with guaranteed equilibrium under a single-peaked half-preference, the theorem determines exactly how welfare at the worst Nash equilibrium depends on two populations, sharp constructions and asymptotic inefficiency two. This refines coarse degree-based PoA bounds on an economically and combinatorially motivated family, rather than a routine restatement of potential existence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Friedrich–Lenzner–Molitor–Seifert 2023 full HTML selected model, Section 4.1/4.2",
+    "Bilò et al. 2022 swap-game model abstract",
+    "Agarwal et al. 2021 monotone game comparison",
+    "Molitor thesis indexed excerpt only",
+    "Resultary: single peaked jump Schelling cycle one vacancy integration price of anarchy equilibrium red blue",
+    "web: single peaked jump Schelling cycle one vacancy integration price of anarchy Friedrich Lenzner Molitor 2023"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An exact cycle special-case result may appear in the full Molitor thesis or additional published version; indexed snippets are not a whole-document novelty exclusion.",
+    "Search under one-vacancy price of anarchy is not proof against unindexed game-theory equivalences."
+  ],
+  "schema_version": 1
+}

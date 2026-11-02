@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The general argument uses exact rational neighbor fractions \(1/3,1/2,2/3,1\) and strict comparisons \(0<p(1/3)=p(2/3)<p(1/2)=1\). Its boundary check includes the three-vertex cycle with one agent of each color. The sharp constructions use only the condition \(r\ge b\ge1\).
+## correctness
 
-Run `python3 verify_cycle_enum.py` with a standard Python 3 interpreter. The checker exhausts each choice of vacant vertex and all choices of blue vertices in every case \(1\le b\le r\le9\), \(r+b\le15\), testing every occupied agent's one possible jump. Exact `fractions.Fraction` arithmetic is used with \(p(f)=2\min\{f,1-f\}\). It compares the observed best unrestricted integration and worst equilibrium integration to the theorem formulas. No randomness or external data are used.
+PASS
 
-This finite check cannot establish the formulas for all sizes. The unlimited-size correctness rests on the equilibrium-vacancy criterion, maximal blue-run length at most two, distinct bordering red agents, and constructive saturation of the upper and lower bounds.
+A one-vacancy cycle has attainable closed-occupied-neighborhood same-color fractions 1/3,1/2,2/3,1, with utilities q,1,q,0 (0<q<1); a nonsegregated agent at q has two occupied neighbors and moving to the vacant site cannot raise utility, while a utility-one agent cannot improve. Only segregated agents may profit. If vacancy neighbors are both red, every blue must be integrated; blue-run lengths in the occupied path are at most two. Hence at least ceil(b/2) blue runs and ceil(b/2)+1 distinct bordering red agents, attaining minimum NE integration b+ceil(b/2)+1. Symmetric blue-vacancy and mixed-color-vacancy cases have no lower NE integration; run construction with red endpoints saturates the bound for all r>=b>=1, r+b>=3. Global integration <=min(r+b,3b), since each blue can expose at most two red agents; alternating singleton-blue/red-run constructions attain it, with r=b and r>b cases treated separately. Exceptional r=b=1 triangle has value 2 and PoA 1. Independently enumerated all placements/deviations via exact rational utilities for r+b<=11 and r>=b, recovering both extrema. All-size proof uses the run argument, not enumeration.
+
+## originality
+
+PASS
+
+Qualified PASS: Friedrich–Lenzner–Molitor–Seifert 2023 is the exact same jump-game model and proves FIP on one-vacancy cycles and a general PoA upper bound min(Delta,n/(b+1)), but its inspected Section 4.1 does not determine exact worst-cycle equilibrium integration b+ceil(b/2)+1. Bilò et al. use swaps without the vacancy; Agarwal et al. use monotone preferences. An inaccessible broader residential-segregation thesis could contain exact cycle refinements and is flagged, not assumed noncovering.
+
+## value
+
+PASS
+
+In a canonical graph-game instance with guaranteed equilibrium under a single-peaked half-preference, the theorem determines exactly how welfare at the worst Nash equilibrium depends on two populations, sharp constructions and asymptotic inefficiency two. This refines coarse degree-based PoA bounds on an economically and combinatorially motivated family, rather than a routine restatement of potential existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

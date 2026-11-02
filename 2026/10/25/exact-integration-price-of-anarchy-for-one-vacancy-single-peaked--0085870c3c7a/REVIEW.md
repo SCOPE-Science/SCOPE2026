@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The analysis fixes the source model's closed occupied neighborhood and the exact half-peak utility order. It establishes the only-deviating-segregated property, classifies the vacancy-neighbor cases, proves a sharp blue-run lower bound, and constructs matching equilibria and global optima for every allowed pair of population sizes. The accompanying enumerator checks finite instances independently of the general proof. The two-agent triangle is handled separately.
+## correctness
 
-**Originality (PASS, residual bibliographic risk).** Friedrich et al. (2023), Theorem 2.4, proves convergence and a potential function on these cycles. Their Theorem 4.3 provides only a general upper bound on price of anarchy, and Section 4.2 establishes price of stability one. Neither determines the exact worst-equilibrium integration count. Bilò et al. (2022) concern swap moves; Agarwal et al. (2021) use monotone preferences. Searches and source comparisons found no mathematically equivalent result, but unindexed literature and an incompletely accessible related thesis remain a risk.
+PASS
 
-**Mathematical value (PASS).** The theorem resolves the complete size-and-imbalance dependence of the price of anarchy on the source paper's positive convergence topology. It identifies a precise finite-population efficiency loss, supplies attained witnesses for every parameter pair, and determines the sharp limiting inefficiency under strong imbalance. The exact ratio is not inferred from convergence or the existing general upper bound.
+A one-vacancy cycle has attainable closed-occupied-neighborhood same-color fractions 1/3,1/2,2/3,1, with utilities q,1,q,0 (0<q<1); a nonsegregated agent at q has two occupied neighbors and moving to the vacant site cannot raise utility, while a utility-one agent cannot improve. Only segregated agents may profit. If vacancy neighbors are both red, every blue must be integrated; blue-run lengths in the occupied path are at most two. Hence at least ceil(b/2) blue runs and ceil(b/2)+1 distinct bordering red agents, attaining minimum NE integration b+ceil(b/2)+1. Symmetric blue-vacancy and mixed-color-vacancy cases have no lower NE integration; run construction with red endpoints saturates the bound for all r>=b>=1, r+b>=3. Global integration <=min(r+b,3b), since each blue can expose at most two red agents; alternating singleton-blue/red-run constructions attain it, with r=b and r>b cases treated separately. Exceptional r=b=1 triangle has value 2 and PoA 1. Independently enumerated all placements/deviations via exact rational utilities for r+b<=11 and r>=b, recovering both extrema. All-size proof uses the run argument, not enumeration.
 
-**Scope.** No statements for multiple vacancies, other utility peaks, wider graphs, stochastic behavior or convergence rates. Finite enumeration confirms examples but is not treated as proof for unbounded population sizes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Friedrich–Lenzner–Molitor–Seifert 2023 is the exact same jump-game model and proves FIP on one-vacancy cycles and a general PoA upper bound min(Delta,n/(b+1)), but its inspected Section 4.1 does not determine exact worst-cycle equilibrium integration b+ceil(b/2)+1. Bilò et al. use swaps without the vacancy; Agarwal et al. use monotone preferences. An inaccessible broader residential-segregation thesis could contain exact cycle refinements and is flagged, not assumed noncovering.
+
+## value
+
+PASS
+
+In a canonical graph-game instance with guaranteed equilibrium under a single-peaked half-preference, the theorem determines exactly how welfare at the worst Nash equilibrium depends on two populations, sharp constructions and asymptotic inefficiency two. This refines coarse degree-based PoA bounds on an economically and combinatorially motivated family, rather than a routine restatement of potential existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
