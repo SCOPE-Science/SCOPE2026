@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central Delannoy binomial-square identity is an established exact formula. The proof uses Vandermonde with the sharp identity \(\nu_2\binom{2^s}{j}=s-\nu_2(j)\) for \(1\le j<2^s\), a uniform termwise valuation estimate, and a separate first-nonzero-term argument at the witness \(n=1\). All quantified cases are treated, including shifts with valuation \(0\), \(1\), \(2\), and every higher valuation; the minimum is attained. The period argument proves minimality, not only existence. The finite verifier is ancillary to the infinite proof.
+PASS
 
-## Originality — PASS under inspected evidence
+Legendre/Delannoy identity D_n=sum_k 2^k binom(n,k)^2 is fixed. For s>=2, M=2^s, Vandermonde gives valuation v2(binomial(M,j))=s-v2(j) for 1<=j<M; the resulting termwise binomial-square expansion proves D_(n+2^s)=D_n mod 2^(s+2) for all n. Direct n=2^s+1 coefficient analysis gives D_(2^s+1)-3=2^(s+2) mod 2^(s+3), extended to odd-multiple shifts; residues handle s=0,1. Half-period witness n=1 excludes smaller periods; b=1 Lengyel Conj4 follows by subtraction. Checked independently 240400 finite shift valuations and 11 moduli; proof, not checks, handles every n,m,h. All D_n odd, v2(0)=infty.
 
-Inspected primary literature was compared by mathematical implications, not titles. Sun's 2010/2011 paper gives odd-prime sum congruences; Noe's 2006 theorem gives prime divisibility criteria. Lengyel's 2021 Theorem 3 treats indices with many factors of \(2\), and Conjecture 4 explicitly leaves the valuation of differences with nonzero offsets unresolved. The present theorem includes its offset-\(1\) instance and the global period classification, which are not implied by the inspected source statements. Djadi and Belbachir's 2026 results focus on odd-prime congruences and different triangle quantities. Targeted mathematical record searches showed related prime-power arithmetic, not an equivalent Delannoy period theorem. An unindexed equivalent, a general p-adic polynomial theorem specialized to the same formula, or a later proof of the conjecture remains a realistic priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The period of the central Delannoy sequence modulo each dyadic modulus is a natural invariant of its arithmetic reductions. Its exact value for every modulus, including a universal witness for sharpness, is a complete unbounded classification. The same structural congruence resolves a concrete offset in a published p-adic valuation conjecture, so the result is more than low-modulus computation or parameter relabeling.
+Lengyel 2021 expressly poses the shifted Delannoy difference as Conjecture 4; its Theorems 3–4 do not imply the new uniform-all-index translation valuations and minimal global periods. This audit regards the b=1 proof and full global period classification as new best-of-knowledge, while leaving unindexed congruence literature as a risk.
 
-## Closest literature and limitations
+## value
 
-Closest: Lengyel, *INTEGERS* 21 (2021), A86, Theorems 3 and 4 and Conjecture 4; Noe, *J. Integer Sequences* 9 (2006) article 06.2.7; Sun, arXiv:1009.2486; Djadi and Belbachir, *J. Integer Sequences* 29 (2026), article 26.5.2. General offsets and odd-prime powers are outside the theorem. Computational checks are finite, and publication priority is subject to broader independent source verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact global minimal dyadic periods and a universal sharp same-index translation witness characterize an arithmetically important lattice-path sequence at all powers of 2. Proving a specified previously published offset case of a dyadic-difference conjecture adds concrete mathematical importance; this is much more than recomputing a finite modular table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

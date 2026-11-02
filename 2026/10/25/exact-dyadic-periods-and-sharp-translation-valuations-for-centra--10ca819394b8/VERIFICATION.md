@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Mathematical verification record
+# Independent mathematical audit
 
-The proof gives uniform divisibility through the binomial-square expansion and the exact valuation of binomial coefficients with a dyadic top index. The critical witness congruence is proved separately modulo one additional factor of \(2\), and low exponents are evaluated without asymptotic assumptions. The period classification uses the fact that every exact period divides a known dyadic period, then excludes the half-period at one explicit index.
+## correctness
 
-Run \(\texttt{python3 verify.py}\) from the package directory. This exact-integer verifier compares translations with each asserted valuation threshold over its stated finite ranges and checks modular periods and a family of offset-\(1\) differences. Its finite coverage cannot replace the proof for all positive shifts and all moduli. This package has not received independent mathematical audit.
+PASS
+
+Legendre/Delannoy identity D_n=sum_k 2^k binom(n,k)^2 is fixed. For s>=2, M=2^s, Vandermonde gives valuation v2(binomial(M,j))=s-v2(j) for 1<=j<M; the resulting termwise binomial-square expansion proves D_(n+2^s)=D_n mod 2^(s+2) for all n. Direct n=2^s+1 coefficient analysis gives D_(2^s+1)-3=2^(s+2) mod 2^(s+3), extended to odd-multiple shifts; residues handle s=0,1. Half-period witness n=1 excludes smaller periods; b=1 Lengyel Conj4 follows by subtraction. Checked independently 240400 finite shift valuations and 11 moduli; proof, not checks, handles every n,m,h. All D_n odd, v2(0)=infty.
+
+## originality
+
+PASS
+
+Lengyel 2021 expressly poses the shifted Delannoy difference as Conjecture 4; its Theorems 3–4 do not imply the new uniform-all-index translation valuations and minimal global periods. This audit regards the b=1 proof and full global period classification as new best-of-knowledge, while leaving unindexed congruence literature as a risk.
+
+## value
+
+PASS
+
+The exact global minimal dyadic periods and a universal sharp same-index translation witness characterize an arithmetically important lattice-path sequence at all powers of 2. Proving a specified previously published offset case of a dyadic-difference conjecture adds concrete mathematical importance; this is much more than recomputing a finite modular table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
