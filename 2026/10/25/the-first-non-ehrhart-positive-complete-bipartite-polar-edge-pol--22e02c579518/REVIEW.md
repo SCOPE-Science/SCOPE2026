@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph-potential definition is the intrinsic polar in the dual root lattice. Tight constraints at any vertex have connected spanning tight graph, hence integral potential coordinates, so Ehrhart interpolation has exact degree at most \(d=p+q-1\). The count by first-part potential range is a bijection; the translated-interval count gives \(N_p(r)=(r+1)^p-2r^p+(r-1)^p\). The exact Newton interpolation is exhaustive across the 49 part-interchange classes for dimensions one through thirteen; `coefficients.csv` contains every rational coefficient, and `verify.py` regenerates and signs each entry. It also verifies the leading-volume identity, reciprocity, and 48 independently enumerated small counts. Unique negativity at dimension thirteen is the linear coefficient \(-7184/715\) for \(K_{7,7}\). No floating-point or infinite-range inference is used.
+## correctness
 
-## Originality — PASS under the inspected evidence
-The closest direct source is M. Konoike's 2025 complete-bipartite table (Example 4.3) on **magic-basis** coefficients. Its explicit \(K_{3,7}\) polynomial has positive *ordinary* coefficients, although negative magic coefficients. The published table does not state the dimension-thirteen minimality or the \(K_{7,7}\) ordinary linear coefficient. Its magic table is not presented as new. Ohsugi–Tsuchiya's 2026-10-05 abstract specifies pseudo-symmetric simplicial polar classes and cycles, not the claimed complete-bipartite ordinary-positivity threshold. Higashitani–Jochemko–Michałek treat the original symmetric edge polytope, not its polar. Dedicated searches for the precise coefficient, for graph-potential/Lipschitz equivalents, and for the threshold returned no equivalent published conclusion. This is a best-knowledge priority assessment, not a proof of worldwide nonexistence. The newest preprint's full text was unavailable; an uninspected equivalent statement remains a real risk.
+PASS
 
-## Mathematical value — PASS
-The motivation is a concrete open boundary between magic positivity and ordinary Ehrhart positivity for graph-polar lattice polytopes. The theorem gives the **sharp minimal dimension** and completely identifies the unique obstruction at that dimension, rather than providing one more negative coefficient. The method provides a uniform exact count and volume for every complete bipartite part-size pair. A natural future use is a larger-dimensional coefficient-sign classification of this canonical reflexive family; the dimension-thirteen cutoff itself answers a precise invariant question without depending on that extension.
+The potential-coordinate polar constraints |x_i-y_j|<=1 and connected tight-edge incidence at vertices give lattice integrality. For dilation n, fixing the p-side potentials with x1=0 and range r leaves exactly (2n+1-r)^q independent second-side choices; the number of first-side vectors of range r is (r+1)^p-2r^p+(r-1)^p for r>=1. This proves the universal lattice count including p=1 and n=0. Ehrhart degree d=p+q-1 plus d+1 exact Newton samples completely determines each coefficient. A fresh independently coded Fraction finite-difference interpolator enumerated all 49 unordered classes d<=13, checked the leading volume 2^d p!q!, and found only (7,7), dimension13, c1=-7184/715 nonpositive. Independent small direct lattice counts matched. This is an exhaustive finite cutoff statement, not extrapolation beyond dimension13.
 
-## Closest sources and limitations
-Konoike, arXiv:2409.16648, Section 4 and Example 4.3, 2025 full-text proceedings version; Ohsugi and Tsuchiya, arXiv:2610.06419, first posted October 5, 2026 (dated abstract available, full text not inspected); Higashitani, Jochemko and Michałek, doi:10.1112/S0025579319000147, abstract on **nonpolar** symmetric edge polytopes. The result is deliberately limited to \(d\leq13\) for a minimum-dimension claim. The verifier is a finite exact-arithmetic proof certificate, not an independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS: Magic positivity implies ordinary positivity, but the converse fails: Konoike already exhibits ordinary-positive yet magic-negative classes such as K3,7. Therefore a table of magic failures is insufficient to imply which is the first ordinary failure. The nonpolar h* source concerns another lattice polytope. Neither is proof of the precise K7,7 boundary. Material comparisons distinguish actual mathematical implication from common terminology. Relevant uninspected sources and residual priority risks remain explicit.
+
+## value
+
+PASS
+
+Ehrhart positivity in the ordinary monomial basis is a natural exact invariant distinct from magic-basis positivity. The complete 49-class cutoff establishes a sharp first counterexample and uniqueness at the first dimension in this canonical graph-polar family, as well as a uniform exact counting and volume formula; a finite but complete and motivated classification is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

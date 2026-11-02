@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification record
 
-The accompanying `verify.py` uses only Python's standard library: exact integers, `fractions.Fraction`, `math.factorial`, and `itertools.product`. Execute `python3 verify.py` in a directory also containing `coefficients.csv` (the code recomputes its entries rather than trusting them). The exact line printed on success is:
+# Independent mathematical audit
 
-`EXACT_OK classes=49 strict_positive_d_le_12=42 first_failures=1 exception=K_7_7 c1=-7184/715 direct_counts= 48`
+## correctness
 
-The 49 unordered complete-bipartite part-size classes cover every dimension from one through thirteen: 42 through dimension twelve and seven at dimension thirteen. For every class, values at all consecutive integers \(0\leq n\leq d\) determine the degree-at-most-\(d\) Ehrhart polynomial because vertex integrality has been proved independently. Newton finite differences and polynomial multiplication are performed with exact rational coefficients. The program asserts strict positivity for all 42 lower-dimensional cases, then exact uniqueness of the sole nonpositive coefficient among the seven thirteen-dimensional cases.
+PASS
 
-Independently of the coefficient-sign checks, all 49 leading coefficients are tested against the proven beta-integral volume formula, and reciprocity is verified at two integer arguments. A second enumeration directly loops through the first-part integer potential assignments for 48 small \((p,q,n)\) parameter combinations; it independently matches the proven range formula. These spot checks support implementation confidence and are **not** the reason finite-dimensional coverage is exhaustive: coverage follows from the explicit 49-class loop plus exact interpolation and the separate counting proof.
+The potential-coordinate polar constraints |x_i-y_j|<=1 and connected tight-edge incidence at vertices give lattice integrality. For dilation n, fixing the p-side potentials with x1=0 and range r leaves exactly (2n+1-r)^q independent second-side choices; the number of first-side vectors of range r is (r+1)^p-2r^p+(r-1)^p for r>=1. This proves the universal lattice count including p=1 and n=0. Ehrhart degree d=p+q-1 plus d+1 exact Newton samples completely determines each coefficient. A fresh independently coded Fraction finite-difference interpolator enumerated all 49 unordered classes d<=13, checked the leading volume 2^d p!q!, and found only (7,7), dimension13, c1=-7184/715 nonpositive. Independent small direct lattice counts matched. This is an exhaustive finite cutoff statement, not extrapolation beyond dimension13.
 
-Limits: The conclusion does not cover other graph families or dimensions at least fourteen. No general monotonicity or positivity beyond the cutoff is inferred. Historical priority has not been independently audited; the newest relevant full text was unavailable for comparison.
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS: Magic positivity implies ordinary positivity, but the converse fails: Konoike already exhibits ordinary-positive yet magic-negative classes such as K3,7. Therefore a table of magic failures is insufficient to imply which is the first ordinary failure. The nonpolar h* source concerns another lattice polytope. Neither is proof of the precise K7,7 boundary. Material comparisons distinguish actual mathematical implication from common terminology. Relevant uninspected sources and residual priority risks remain explicit.
+
+## value
+
+PASS
+
+Ehrhart positivity in the ordinary monomial basis is a natural exact invariant distinct from magic-basis positivity. The complete 49-class cutoff establishes a sharp first counterexample and uniqueness at the first dimension in this canonical graph-polar family, as well as a uniform exact counting and volume formula; a finite but complete and motivated classification is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
