@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source bond-partition recurrence and the published Narayana path specialization combine with an exact enumeration of cyclic compositions. The algebraic generating-function identity, change of variables and Lagrange inversion establish all coefficients for every simple cycle. Every claimed strict positivity statement has an explicit term-by-term witness in the plane-tree model. Independently written finite bond-partition enumeration and multinomial calculations agree for orders three through nine, with additional coefficient checks through eighty. No finite check is presented as a proof of an infinite formula.
+## correctness
 
-**Originality — PASS, with disclosed bibliographic uncertainty.** The closest primary paper [1] proves weighted-bond recurrence, the path case, and gamma positivity for chordal graphs. Its Section 4 expressly acknowledges earlier **real-rootedness of the cycle case**, so neither this nor elementary gamma positivity is claimed. The assessed statement is a complete explicit bivariate gamma enumerator, multinomial coefficients and positive Motzkin-forest model for cycles; no such statement was found in the materially read original full text, in [2], or in targeted mathematical-record comparisons. The plausible 2022 thesis [3] could not be read because its repository restricted automated access; this is a genuine residual priority risk rather than evidence that it lacks the result.
+PASS
 
-**Value — PASS.** A recent paper proposes gamma positivity for a broad new graph polynomial, and the cycle family is a natural first nonchordal test. The entire refined coefficient sequence and a cancellation-free forest interpretation answer substantially more than the qualitative positivity already implied by known cycle real-rootedness. The closed form yields direct extraction and reproducible exact coefficients for arbitrary cycle order, without running exponential bond-lattice enumerations.
+For simple cycles n>=3 reconstructed the weighted connected-partition recurrence using path sign-adjusted Narayana polynomials P=x(1+P)(1+tP). Cyclic compositions into k>=2 proper path blocks occur n/k times per marked composition, yielding C(x,t)=sum_{n>=2}c_n(t)x^n=P^2(1+t+tP)/(1-tP^2); n=2 is explicitly formal, not a simple cycle. With z=(1+t)x, u=t/(1+t)^2, T=(1+t)P, the last equation becomes T=z(1+T+uT^2), and (1+t)C=T^2(1+uT)/(1-uT^2). Coefficients [z^n u^j] count nonnegative plane unary–binary forests and Lagrange inversion gives the stated two multinomial sums. For 0<=j<=floor((n-1)/2), n>=3, the r=j or r=j-1 terms prove strictly positive integers, and u=0 gives gamma_n0=n-1. Independently enumerated actual cyclic connected partitions with a separate path recurrence and checked the recovered gamma polynomials n=3..9 against the algebraic formula; the proof by formal series is all-n.
 
-The structural result does not settle the general conjecture or reproduce the inaccessible thesis. Priority and independent validation are open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS specifically for the explicit coefficientwise-positive multivariate generating function, every gamma coefficient, and the plane-forest interpretation, not for cycle real-rootedness or qualitative gamma positivity already acknowledged as prior. The 2026 primary source abstract, available secondary context and frozen derived recurrence were compared, but the primary full text and highly plausible 2022 thesis were not accessible for a full priority exclusion; authorized institutional retrieval reported VPN disconnected and repository thesis access was denied. That creates a material and unresolved bibliographic priority risk, not affirmative coverage or automatic O failure.
+
+## value
+
+PASS
+
+PASS for a complete exact positive enumerator of a natural nonchordal family for a recently defined graph invariant: provides all gamma coefficients and a cancellation-free forest model, more informative than known real-rootedness implying only sign. Explicit Lagrange formulas make exact extraction possible for any cycle size and reveal a combinatorial explanation of coefficient positivity. This is not framed as settling graph-wide conjecture or novel qualitative cycle positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
