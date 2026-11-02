@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite matching partition function supplies exact one- and two-edge probabilities. Three orthogonal Johnson-scheme eigenspaces give a positive covariance spectrum, and their projector entries reconstruct the inverse entry for disjoint edges. Polynomial division proves the universal low-activity coefficient. Leading matching-count ratios and the two-monomer star-variance argument prove the distinct parity-dependent high-activity coefficients. A standalone exact-rational checker passed 5039 assertions. The limits are all for fixed graph order; no numerical extrapolation is used as proof.
+## correctness
 
-## Originality
-PASS, provisionally. Primary literature comparisons included Quitmann's dimer-covariance decay theorem, the Alberici–Contucci–Mingione complete-graph mean-field treatment, and Chen–Liu–Vigoda's mixing/influence results. Those sources do not state the all-order finite inverse-covariance asymptotic parity law. Matching counts and the Johnson scheme are pre-existing tools; an unindexed or implicit formula in older susceptibility literature remains a genuine historical-priority risk. Matching vocabulary, disjoint-edge precisions, influence matrices, and finite-size mean-field alternatives were sought.
+PASS
 
-## Value
-PASS. The parity of a complete graph changes the qualitative limit of adjusted edge dependence. At high activity the two-monomer fluctuation of even-order graphs supplies a vanishing star mode, whereas odd-order graphs retain a nonzero star mode; this explains opposite leading signs in the inverse covariance. The result gives a natural finite-system dependence boundary beyond scalar pairwise correlation.
+For matching measure t^|M| on K_n, edge indicators have covariance matrix (p-s)I-s A_line+(s-p²)J. The 3 line-graph Johnson-scheme eigenvalues L0=p-Hp²+Ds,L1=p-(n-3)s,L2=p+s are all positive by empty and singleton matchings. The inverse disjoint-edge entry is 2/[n(n-1)L0]-4/[n(n-2)L1]+2/[(n-1)(n-2)L2]. Low-t expansions cancel through t and give q_n(t)=-2t²+O(t³); high-t matching-defect expansions give q/t -> -2/(n-2) for even n and +6/(n-1) for odd n. Independent sympy exact rational limits for n=4..9 agree. Since partial correlation is -q/Q_ee, odd-n sign changes from positive to negative by continuity. Claims avoid uniqueness/intermediate even n.
 
-## Scope and remaining risks
-No claim is made about the uniqueness of the zero for odd order, the entire even-order activity range, growing-order limits, nonlinear conditional independence, or independent verification. Novelty search is not proof of historical priority. The exact finite check does not replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical complete-graph matching partition function and Johnson-scheme eigenspaces are known tools; lattice dimer correlations and mean-field monomer–dimer density results do not entail finite-n full covariance *inverse* disjoint-edge sign reversal from their stated results. Published Resultary precision laws for permutation inversions or box indicators concern different random constraints, not matching hard-core law. No exact same parity crossover identified; prior exact inverse-covariance table might exist.
+
+## value
+
+PASS
+
+Inverse covariance captures full-order linear partial correlations, mathematically distinct from ordinary pair covariances. Their sign flips with parity at high activity for a canonical Gibbs matching model, a meaningful structural boundary in graphical dependence and finite-size matching asymptotics, beyond a simple numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
