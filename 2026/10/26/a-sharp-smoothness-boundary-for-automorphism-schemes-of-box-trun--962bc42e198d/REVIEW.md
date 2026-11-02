@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each generator image, the first-order relation is \(m x_i^{m-1}h_i=0\). Its kernel has dimension \((m-1)m^{n-1}\) if \(m\) is invertible and \(m^n\) otherwise. A family of coordinate-multiple substitutions achieves equality with tangent dimension in the first regime, proving smoothness. In the second regime all geometric automorphism images have zero constant term, so geometric dimension is strictly below tangent dimension. Independent finite algebra computations reproduce the predicted small-case automorphism counts and tangent dimensions.
+## correctness
 
-## Originality
-PASS with qualified scope. Díaz–Lucchini Arteche–Manzano-Flores (2026) assumes characteristic zero. Ma (2026) describes the height-one \(m=p\) regime, including its non-smooth automorphism scheme; that case is acknowledged and not asserted as independently novel. A published characteristic-two dual-number example supplies the one-generator boundary. The new comparison is the uniform sharp iff criterion for all exponents \(m\) and all \(n\ge2\), including composite exponents divisible by the characteristic, together with the precise tangent dimensions. Full historical priority cannot be guaranteed; broader unindexed treatments of Artin complete-intersection automorphism schemes remain the principal risk.
+PASS
 
-## Mathematical value
-PASS. Smoothness is a structural property invisible in the group of field-valued automorphisms. The theorem identifies its exact arithmetic threshold in an infinite, natural complete-intersection family, and constructs actual infinitesimal translation subgroup schemes whose presence explains the obstruction. It also recovers the precise geometric tangent excess and finite-field counts in the prime-power regime. This provides a sharp positive-characteristic boundary to the current characteristic-zero description of zero-dimensional monomial algebra automorphisms.
+Endomorphism images satisfy n equations f_i^m=0 in an n*m^n coordinate affine scheme; invertibility on the full algebra is open, giving Aut as open subscheme. Differentiating (x_i+epsilon h_i)^m gives m x_i^(m-1)h_i; its rank is m^(n-1) for each generator if p does not divide m, zero if p divides m, yielding tangent dimensions. If m invertible, substitutions f_i=x_i u_i with arbitrary units give a smooth family through identity of full tangent dimension; regular local dimension and base-field descent imply group-scheme smoothness. If p|m, geometric automorphisms preserve the unique maximal ideal, so all constant coefficients vanish and dimension<=n(m^n-1)<nm^n tangent; this proves nonsmoothness. For p^e||m infinitesimal translations by a_i^(p^e)=0 preserve x_i^m and invert. If m=p^e, Frobenius makes every zero-constant generator image m-nilpotent, so an invertible cotangent matrix plus arbitrary higher coefficients proves full finite-field point count and reduced dimension. Independent 80 tangent dimension cases and small finite-field formula examples confirmed; no claim these finite tests prove all fields.
 
-## Closest literature and limits
-The special height-one prime exponent is covered by Ma's Cartan-type coordinate automorphism scheme discussion, and the one-variable dual-number phenomenon is classical. The claim is not that nonsmooth automorphism schemes are new. Completeness of historical coverage is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A 2026 Cartan-type paper studies the height-one m=p algebra with nonsmooth full automorphism group scheme and smooth reduced factors; this overlapping prime-height result is explicitly acknowledged, so its discovery alone does not cover a uniform all-exponent iff boundary. Recent monomial-automorphism structural papers explicitly assume char zero. Published coordinate-cross algebras kill mixed monomials and are not the box complete intersection. General Artin complete-intersection automorphism criteria may dominate this theorem but no matching main statement was obtained. Ma primary full text was inaccessible through public routes and authorized Oxford returned vpn_disconnected, preserving a material risk; best-of-knowledge O PASS narrowly for all-m smoothness classification, not the prime-p case.
+
+## value
+
+PASS
+
+Scheme-theoretic smoothness is invisible in the group of field-valued automorphisms and governs infinitesimal deformation. The sharp arithmetic p|m boundary in an infinite natural box-truncated complete-intersection family, precise tangent dimension jump and explicit alpha_(p^e)^n obstruction extend the already-known m=p phenomenon; exact p-power finite-field counts are supporting structure. This is a natural classification, not arbitrary low-n recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
