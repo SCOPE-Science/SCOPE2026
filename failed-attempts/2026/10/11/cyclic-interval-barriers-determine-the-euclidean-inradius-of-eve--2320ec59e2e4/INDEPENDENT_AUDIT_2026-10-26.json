@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T01:41:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim accurately describes the full-dimensional Euclidean chainlink polytope for s≥2, positive integer a_i, l≥0, and 2l≤min a_i. The coordinate facets have normals of length 1 and the directed-difference facets normals sqrt(2), so a radius-rho inscribed ball requires rho≤x_i≤a_i−rho and x_i−x_{i+1}≤a_i−l−sqrt(2)rho. Let y_i=x_i−rho. The potential constraints correspond exactly to graph edges 0→i of weight a_i−2rho, i→0 of weight 0, and i+1→i of weight a_i−l−sqrt(2)rho. Standard no-negative-cycle potential feasibility holds in both directions (shortest paths yield potentials). The only simple cycles are hub cycles with ring path length m−1, weight sum_I a−(m−1)l−rho[2+(m−1)sqrt(2)], and the full ring with weight sum_i a_i−sl−s sqrt(2)rho. These are necessary and sufficient, yielding (5); normalized H constraints at rho=r give all centers. A zero cycle sums nonnegative facet slacks to zero, so its constituent facets are tangent. For uniform a, the interval barrier is (a+q(a−l))/(2+q sqrt(2)), monotone in q≥0; including the full ring reduces r to min(a/2,(a−l)/sqrt(2)). In the strict box case c=a/2 unique; in strict link case c=t·1 with r≤t≤a−r. The boundary equal phase has a unique midpoint center as a consequence of box equality. This exact proof is all-dimensional. An independent formulation with scipy.optimize.linprog (HiGHS) matched the formula in 392 distinct deterministic/random admissible cases in dimensions 2–9 to max 8.9e−16; this is corroboration, not proof. The seven-entry source tree was independently SHA-1 reconstructed and matches its assigned ID.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bringmann, Hansen, Krinninger (ICALP 2017), §2.2 Lemma 2: for edge weights c−lambda t, the minimum ratio cycle is exactly the parameter at which a zero cycle occurs; §2.3 Lemma 4: no negative cycle is equivalent to a valid potential. Full OA PDF inspected at introduction, §2.1–2.3.",
+          "Source arXiv:2211.08382v1, Definition 3.1: the defining inequalities have precisely a single directed cycle of x_i−x_{i+1} constraints plus independent lower/upper box bounds.",
+          "The 1993 Hartmann–Orlin abstract confirms established generic minimum cost/time cycle optimization; full PDF attempts failed."
+        ],
+        "reasoning": "Map normal-length shifted chainlink constraints to the general potential graph: 0→i has (cost,time)=(a_i,2), i→0=(0,0), and i+1→i=(a_i−l,sqrt(2)). Applying published Lemmas 2 and 4 and listing simple cycles of this ring-plus-hub graph gives every interval and full-cycle barrier verbatim. There is no extra structural lemma. Zero-cost cycles give all stated contact equalities. General prior mathematics dominates the completed theorem, rather than merely providing background computational tools.",
+        "searches": [
+          "Resultary: Cyclic difference constraints box polytope largest inscribed Euclidean ball Chebyshev inradius shortest paths negative cycles",
+          "web: \"difference constraints\" \"Chebyshev center\" graph polyhedron",
+          "web: \"inradius\" \"difference constraints\" \"cycles\" polytope",
+          "web: \"maximum feasible parameter\" \"negative cycles\" ratio weights graph",
+          "arXiv:2211.08382v1 Definition 3.1",
+          "Bringmann–Hansen–Krinninger 2017 Lemmas 2,4,5, DOI:10.4230/LIPIcs.ICALP.2017.124",
+          "Hartmann–Orlin 1993, DOI:10.1002/net.3230230607 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.08382v1 PDF, pp1–21, source inequalities and main results",
+        "DOI:10.4230/LIPIcs.ICALP.2017.124 full OA paper, §2 Lemma2 and Lemma4",
+        "Hartmann–Orlin 1993 publisher abstract and unavailable full PDF; DOI:10.1002/net.3230230607",
+        "Resultary exact-object and broader cyclic-difference-constraint searches; candidate self-match excluded",
+        "2024 Annals of Combinatorics publisher final preview DOI:10.1007/s00026-023-00683-x",
+        "Resultary analogues for chain/order polytopes and cycle/root-polytopes checked for mathematical object distinction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ICALP 2017 Lemma 2 (minimum cost/time cycle threshold) and Lemma 4 (potential existence iff no negative cycle), DOI:10.4230/LIPIcs.ICALP.2017.124.",
+          "Chainlink source Definition 3.1 exactly fixes edge costs; all 0-vertex cycles are intervals and the sole no-hub cycle is the ring.",
+          "Equation (6) in the assigned claim is merely the normalized original H-system at optimum; a binding cycle gives zero sum of nonnegative slacks, hence forced tangencies."
+        ],
+        "reasoning": "The prior theorems imply the exact claimed scalar and incenter/tangency conclusions by direct substitution and elementary directed-ring cycle listing. No claim of novelty follows from searching terminology or the absence of a chainlink-named theorem. Hence originality FAIL despite the correct mathematics.",
+        "searches": [
+          "arXiv:2211.08382v1 p1 and Definition 3.1 (P5)",
+          "Bringmann–Hansen–Krinninger, Lemma 2 at P4 lines 258–276; Lemma 4 at P4 lines 279–285",
+          "Hartmann–Orlin 1993 abstract; DOI:10.1002/net.3230230607",
+          "web: \"parametric shortest path\" \"minimum cost to time ratio cycle\" feasible parameters"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full arXiv:2211.08382v1 defines CL(a,l) by box and directed cyclic-difference inequalities, with no claim about inradius.",
+          "Searches with Chebyshev, insphere, largest inscribed ball, and center returned the candidate’s own Resultary entry as a self-match, not independent evidence."
+        ],
+        "reasoning": "Euclidean inradius is the largest feasible parameter in normalized supporting hyperplane constraints; translating x_i by rho yields a potential system. The equivalent parametric potential/minimum-ratio-cycle formulation is more diagnostic of coverage than matching the chainlink title.",
+        "searches": [
+          "Resultary: Chainlink polytopes Euclidean inradius Chebyshev center cyclic interval constraints Kantarcı Oğuz Özel Ravichandran",
+          "Resultary: Chainlink polytope center insphere facet tangencies homogeneous composition",
+          "web: \"Chainlink polytopes\" inradius Chebyshev center cyclic interval 2024",
+          "web: \"chainlink polytope\" \"inradius\"",
+          "web: \"chainlink polytopes\" \"Chebyshev center\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: first exact-object query had a candidate self-match and nine mathematically different inradius results for chain/order/symmetric-edge polytopes; no separately titled chainlink radius table surfaced.",
+          "No standalone chainlink inradius table was found in web searches."
+        ],
+        "reasoning": "The failure to find a separately enumerated value table does not restore originality when a stronger general ratio-cycle theorem directly implies the closed formula. Exact-database coverage is not the decisive ground; mathematical implication is.",
+        "searches": [
+          "Resultary exact-object query (10 hits), self-match excluded",
+          "Resultary cyclic-difference-constraints query (12 hits)",
+          "web: \"chainlink polytope\" \"inradius\"",
+          "web: \"chainlink polytopes\" \"Chebyshev center\""
+        ]
+      },
+      "rationale": "Although the 2022/2024 source paper introduces chainlink polytopes without an Euclidean inradius calculation, the full alleged theorem is a direct instance of existing minimum-cost-to-time-ratio cycle and potential-feasibility characterizations. For a radius rho, define a graph with 0->i of cost a_i and time 2, i->0 of cost/time 0, and i+1->i of cost a_i-l and time sqrt(2). The Chebyshev radius is the largest rho with a feasible vertex potential, hence precisely the minimum cost/time ratio of its cycles, by Bringmann–Hansen–Krinninger (2017) Lemmas 2 and 4 and standard facet-normal LP. The graph is an obvious directed ring with a hub; its only simple cycles are hub-to-hub cyclic intervals and the full ring, so the claim’s displayed R_{i,m} and R_cyc are immediate evaluations of the established general characterization. The incenter inequality description and zero-cycle tangencies are the same standard feasibility and zero-slack consequences. Thus the exact numerical identities and geometric contact assertions are covered by a routine specialization of stronger general published results, even though the chainlink name is absent. This is substantive prior implication, not rejection from lack of search results or mere algorithmic computability.",
+      "residual_risks": [
+        "2017 generic ratio-cycle theorem is fully inspected where needed and decisively implies the claim, so unexamined older articles cannot reverse this O rejection.",
+        "The 2024 journal-final version of the introducing paper was not available in full; original 2022 full preprint was inspected and contains the same defining inequalities.",
+        "The 1993 Hartmann–Orlin article full text was unavailable; only its abstract was inspected, and no whole-document conclusion is inferred from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The introducing source does not give the specific inradius and incenter statements. It does give the exact inequalities that make the classical potential reduction immediate.",
+          "evidence": [
+            "arXiv PDF lines 9–32, 260–285, 1039–1050; no matching inradius or Chebyshev text; journal DOI:10.1007/s00026-023-00683-x."
+          ],
+          "identifier_or_url": "arXiv:2211.08382v1; https://arxiv.org/pdf/2211.08382; DOI:10.1007/s00026-023-00683-x",
+          "material_read": "Entire 21-page OA PDF text available; examined introduction p1–3, Definition 3.1 p6, related polytope §3.1, cyclic-poset/Ehrhart program and §6 basic geometric properties; searched full text for inradius/Chebyshev and inspected first page rendering.",
+          "method": "Primary open-access arXiv PDF, line text and rendered page, targeted text search, with journal-final metadata and preview comparison.",
+          "title": "Chainlink Polytopes and Ehrhart-Equivalence",
+          "trigger": "Primary introducing source for identical polytope inequalities and geometry."
+        },
+        {
+          "assessment": "COVERING at the level of logical implication: Lemmas 2 and 4 plus the chainlink graph’s elementary ring-plus-hub cycle listing give precisely the proposed barrier minimum; zero cycles enforce facet equalities. The paper does not itself print chainlink-specific symbols.",
+          "evidence": [
+            "PDF lines 258–285, 279–305; Lemma 2 and Lemma 4; §1 lines 103–149 on prior minimum ratio algorithms."
+          ],
+          "identifier_or_url": "DOI:10.4230/LIPIcs.ICALP.2017.124; https://drops.dagstuhl.de/storage/00lipics/lipics-vol080-icalp2017/LIPIcs.ICALP.2017.124/LIPIcs.ICALP.2017.124.pdf; arXiv:1704.08122",
+          "material_read": "16-page OA primary PDF accessed. Materially examined abstract, introduction and prior-work discussion pp1–3, §2.1–2.3 pp4–5 including complete Lemmas 2, 4, 5 and proof context; screenshot of p2 inspected.",
+          "method": "Full-text direct PDF reading at relevant lemma statements and surrounding derivation; mathematical substitution into the actual chainlink H-description.",
+          "title": "Improved Algorithms for Computing the Cycle of Minimum Cost-to-Time Ratio in Directed Graphs",
+          "trigger": "Generic theorem on the identical parametric no-negative-cycle optimization; mathematically dominates the graph formulation used by the chainlink finding."
+        },
+        {
+          "assessment": "Historical generic minimum-ratio-cycle method is established; not needed for the decisive 2017 fully inspected covering Lemmas. Remaining full-text access limitation is explicitly recorded.",
+          "evidence": [
+            "1993 Wiley article abstract describes min_C sum cost/sum time and parametric shortest paths; DOI:10.1002/net.3230230607."
+          ],
+          "identifier_or_url": "Hartmann and Orlin, Networks 23 (1993), DOI:10.1002/net.3230230607",
+          "material_read": "Publisher abstract, bibliographic data and algorithm description; attempted full PDF from lawful university-hosted OA copy (timed out/502) and publisher PDF (403). Full article NOT read.",
+          "method": "Publisher abstract, search results and attempted OA full-text retrieval; no claim of full-document NOT_COVERING.",
+          "title": "Finding minimum cost to time ratio cycles with small integral transit times",
+          "trigger": "Earlier primary precedent on the generic ratio-cycle problem and parametric negative-cycle search, potentially broader than the asserted chainlink technique."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Euclidean inradius and set of maximizing centers are natural realization-sensitive invariants of a canonical, recently introduced poset-related polytope family, with quantification over all dimensions and heterogeneous compositions. The statement provides a useful explicit finite family of inequalities (including genuine proper interval minimizers, e.g. a=(16,32,17), l=6 has minimizing interval i=3,m=2), an exact contact-chain interpretation and a homogeneous qualitative center transition. This packaged geometry can be useful despite being mathematically implied by existing general theory, much as specialized closed-form applications can have expository/reference value. Value PASS does not establish originality or justify acceptance; generic ratio-cycle theory makes the claimed discovery mathematically covered.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2211.08382v1 PDF, pp1–21, source inequalities and main results",
+    "DOI:10.4230/LIPIcs.ICALP.2017.124 full OA paper, §2 Lemma2 and Lemma4",
+    "Hartmann–Orlin 1993 publisher abstract and unavailable full PDF; DOI:10.1002/net.3230230607",
+    "Resultary exact-object and broader cyclic-difference-constraint searches; candidate self-match excluded",
+    "2024 Annals of Combinatorics publisher final preview DOI:10.1007/s00026-023-00683-x",
+    "Resultary analogues for chain/order polytopes and cycle/root-polytopes checked for mathematical object distinction"
+  ],
+  "disposition": "failed",
+  "final_claim": "The exact Euclidean chainlink inradius equals the minimum of the cyclic interval and full-cycle barriers, with all incenter inequalities and forced tangent facets; in the homogeneous case r=min(a/2,(a−l)/sqrt(2)) with unique-center/center-segment phase change.",
+  "limitations": [
+    "This rejection is scientific originality, not operational inability or literature absence.",
+    "No formula beyond the main full-dimensional Euclidean realization or section/enclosing-ball behavior is assessed.",
+    "The independent numerical checks are finite corroboration; the mathematical proof and prior implication use analytic graph constraints.",
+    "Git tree reconstructed from returned complete tree entries; source contents read via GitHub, but not all blob data independently materialized/rehashed as local bytes."
+  ],
+  "residual_risks": [
+    "2017 generic ratio-cycle theorem is fully inspected where needed and decisively implies the claim, so unexamined older articles cannot reverse this O rejection.",
+    "The 2024 journal-final version of the introducing paper was not available in full; original 2022 full preprint was inspected and contains the same defining inequalities.",
+    "The 1993 Hartmann–Orlin article full text was unavailable; only its abstract was inspected, and no whole-document conclusion is inferred from it."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "The introducing source does not give the specific inradius and incenter statements. It does give the exact inequalities that make the classical potential reduction immediate.",
+      "evidence": [
+        "arXiv PDF lines 9–32, 260–285, 1039–1050; no matching inradius or Chebyshev text; journal DOI:10.1007/s00026-023-00683-x."
+      ],
+      "identifier_or_url": "arXiv:2211.08382v1; https://arxiv.org/pdf/2211.08382; DOI:10.1007/s00026-023-00683-x",
+      "material_read": "Entire 21-page OA PDF text available; examined introduction p1–3, Definition 3.1 p6, related polytope §3.1, cyclic-poset/Ehrhart program and §6 basic geometric properties; searched full text for inradius/Chebyshev and inspected first page rendering.",
+      "method": "Primary open-access arXiv PDF, line text and rendered page, targeted text search, with journal-final metadata and preview comparison.",
+      "title": "Chainlink Polytopes and Ehrhart-Equivalence",
+      "trigger": "Primary introducing source for identical polytope inequalities and geometry."
+    },
+    {
+      "assessment": "COVERING at the level of logical implication: Lemmas 2 and 4 plus the chainlink graph’s elementary ring-plus-hub cycle listing give precisely the proposed barrier minimum; zero cycles enforce facet equalities. The paper does not itself print chainlink-specific symbols.",
+      "evidence": [
+        "PDF lines 258–285, 279–305; Lemma 2 and Lemma 4; §1 lines 103–149 on prior minimum ratio algorithms."
+      ],
+      "identifier_or_url": "DOI:10.4230/LIPIcs.ICALP.2017.124; https://drops.dagstuhl.de/storage/00lipics/lipics-vol080-icalp2017/LIPIcs.ICALP.2017.124/LIPIcs.ICALP.2017.124.pdf; arXiv:1704.08122",
+      "material_read": "16-page OA primary PDF accessed. Materially examined abstract, introduction and prior-work discussion pp1–3, §2.1–2.3 pp4–5 including complete Lemmas 2, 4, 5 and proof context; screenshot of p2 inspected.",
+      "method": "Full-text direct PDF reading at relevant lemma statements and surrounding derivation; mathematical substitution into the actual chainlink H-description.",
+      "title": "Improved Algorithms for Computing the Cycle of Minimum Cost-to-Time Ratio in Directed Graphs",
+      "trigger": "Generic theorem on the identical parametric no-negative-cycle optimization; mathematically dominates the graph formulation used by the chainlink finding."
+    },
+    {
+      "assessment": "Historical generic minimum-ratio-cycle method is established; not needed for the decisive 2017 fully inspected covering Lemmas. Remaining full-text access limitation is explicitly recorded.",
+      "evidence": [
+        "1993 Wiley article abstract describes min_C sum cost/sum time and parametric shortest paths; DOI:10.1002/net.3230230607."
+      ],
+      "identifier_or_url": "Hartmann and Orlin, Networks 23 (1993), DOI:10.1002/net.3230230607",
+      "material_read": "Publisher abstract, bibliographic data and algorithm description; attempted full PDF from lawful university-hosted OA copy (timed out/502) and publisher PDF (403). Full article NOT read.",
+      "method": "Publisher abstract, search results and attempted OA full-text retrieval; no claim of full-document NOT_COVERING.",
+      "title": "Finding minimum cost to time ratio cycles with small integral transit times",
+      "trigger": "Earlier primary precedent on the generic ratio-cycle problem and parametric negative-cycle search, potentially broader than the asserted chainlink technique."
+    }
+  ]
+}
