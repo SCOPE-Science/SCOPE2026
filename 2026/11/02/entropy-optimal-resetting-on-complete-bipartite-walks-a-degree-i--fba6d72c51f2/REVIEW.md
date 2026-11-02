@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The exact stationary distribution follows by class balance and direct vertex inflow. The entropy formula combines row entropies with their correct stationary weights and merges the reset probability with ordinary neighbor probability at the distinguished vertex. The finite-size envelope, its strict local maximum and global decrease in the fixed-part regime, and an explicit upper bound locating every proportional-regime optimizer justify the limits for *all* global maximizers. The finite transition-matrix checker passed 5633 deterministic assertions; it is supporting evidence, not an infinite proof.
+
+**Originality — PASS, qualified.** Wang–Chen's 2022 paper supplies the resetting entropy framework and numerical optimization on regular networks, Cayley trees, and preferential-attachment networks, but its analyzed statements do not imply the two distinct complete-bipartite optimizer scales or their constants. Riascos–Boyer–Herringer–Mateos studies general reset-walk stationary and passage-time distributions; those formulas do not themselves determine entropy optima. Publicly indexed comparable findings in bipartite hitting-time and entropy problems have different observables. Remaining risk is an overlooked explicit two-class entropy maximization in earlier Markov/restart literature, so novelty is not externally certified.
+
+**Value — PASS.** A large degree imbalance changes the optimum resetting strength from inverse graph-part size to a three-quarter-power law. This is a structural, natural prediction for network entropy optimization, not an arbitrary parameter slice or a routine unquantified positive-gain statement. Both sharp first-order gain constants and all-global-maximizer localization are proved.
+
+**Limitations.** Only one fixed reset target on complete bipartite graphs, with independent Bernoulli resets and uniform ordinary neighbor steps. Intermediate regimes and finite-size optimizer uniqueness remain open here. One highly relevant primary paper was inspected in full accessible text; the second was assessed from its public abstract, which leaves limited residual priority risk.
+
+Self-review: passed. Independent audit: not yet performed.

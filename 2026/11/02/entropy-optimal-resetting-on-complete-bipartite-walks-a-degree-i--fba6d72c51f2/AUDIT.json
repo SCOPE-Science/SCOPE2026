@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Exact transition and stationary probabilities proved by class balance and direct inflow, yielding entropy formula. The hidden-reset conditional entropy gives a rigorous envelope. Derivative signs and strict concavity locate all global fixed-part optimizers; an envelope-based exclusion beyond O(1/m) and locally uniform expansions locate all proportional-part optimizers. The stand-alone Python code independently checks finite chain matrix identities and asymptotic diagnostics in 5633 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2208.05665 gives the entropy-rate definition and discusses maximizing the rate on several other network families.",
+        "arxiv:1910.13568 abstract reports stationary laws and first-passage-time properties on arbitrary undirected networks, not entropy-optimal constants."
+      ],
+      "reasoning": "General stationary formulas potentially subsume the finite stationary distribution calculation, which is therefore treated as an intermediate calculation, not the claimed research novelty. The claimed global maximizer localization and different powers of m are not logical corollaries of a first-passage or generic transition-entropy expression without optimization.",
+      "searches": [
+        "entropy rate random walks resetting optimal reset complete bipartite graph",
+        "arxiv:1910.13568",
+        "arxiv:2208.05665 Eq. (15), (17), (19)",
+        "random walks on networks with stochastic resetting general stationary distribution"
+      ]
+    },
+    "checked_sources": [
+      "Wang and Chen, arxiv:2208.05665, full accessible manuscript text, 2022-08-11",
+      "Riascos, Boyer, Herringer and Mateos, arxiv:1910.13568, abstract-level only, 2019-10-29",
+      "Accessible public summaries for complete-bipartite discounted hitting domination, height-function range and random-walk cover-time statements."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang–Chen 2022 Section III explicitly lists regular networks, finite Cayley trees and Barabási–Albert networks; Eq. (5) defines the general reset operator.",
+        "Riascos et al. 2019 describe stationary probabilities and passage times, not optimization of the Markov entropy rate."
+      ],
+      "reasoning": "Even if general prior formulas cover the stationary probabilities, the new claim includes sharp rates for every global optimum and two fundamentally different scaling regimes. Neither the 2022 graph-specific maximizers nor the 2019 passage-time results provide the quantified bipartite crossover. The strongest known shared premise is the general reset transition definition.",
+      "searches": [
+        "entropy rate maximization random walks with restart on complete bipartite graphs K_m,n reset target neighboring node exact formula",
+        "optimal resetting probability entropy rate random walk on star graph K_{1,n} degree imbalance asymptotic scaling",
+        "stochastic-reset entropy rate stationary Markov walk bipartite graph overlap reset neighbor row entropy",
+        "arxiv:2208.05665 Wang Chen reset entropy regular networks Cayley trees Barabási Albert",
+        "arxiv:1910.13568 stationary first passage times networks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2208.05665 states generic reset transition operator and studies regular, Cayley, and Barabási–Albert networks.",
+        "No equivalent complete-bipartite optimal-rate theorem was present in the inspected available text."
+      ],
+      "reasoning": "The equivalent formulations could call the same chain random walks with restart, PageRank-type single-node teleportation, or a two-class reset Markov chain. The new results optimize actual observed-state entropy over the resetting probability and require merging overlapping destination probabilities. A general transition matrix definition or stationarity formula does not logically imply the two global optimization asymptotics without this calculation.",
+      "searches": [
+        "entropy rate maximization random walks with restart on complete bipartite graphs K_m,n reset target neighboring node exact formula",
+        "stochastic-reset entropy rate stationary Markov walk bipartite graph overlap reset neighbor row entropy",
+        "entropy maximizing restart probability on K_mn",
+        "arxiv:2208.05665 sections II–III"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest publicly indexed bipartite-graph result concerned discounted hitting domination; another concerned height-function ranges; a closer random-walk result concerned bipartite cover times, not entropy.",
+        "No exact known tabulation of the two optimizing scales was found in the comparisons performed."
+      ],
+      "reasoning": "The desired values are infinite-family asymptotics rather than a small-graph table. Searches of title, claim, aliases, and closest indexed public findings did not provide a covering exact formula; absence from search is not a proof of uniqueness.",
+      "searches": [
+        "entropy rate maximization random walks with restart on complete bipartite graphs K_m,n reset target neighboring node exact formula",
+        "optimal resetting probability entropy rate random walk on star graph K_{1,n} degree imbalance asymptotic scaling",
+        "entropy rate resetting star graph complete bipartite exact optimal parameter",
+        "arxiv:2208.05665 graphs analyzed"
+      ]
+    },
+    "rationale": "The new theorem addresses sharp global entropy-maximizing reset probabilities, their gains and the fixed-versus-proportional bipartite crossover. The full accessible 2022 motivating paper treats different graph families and supplies general machinery rather than the optimized complete-bipartite asymptotics. The 2019 network reset-walk article describes stationary probabilities and passage times, not entropy optimization. The closest semantic findings concern other observables. Search noncoverage is evidence only within these inspected sources, not an assertion of exhaustive novelty.",
+    "residual_risks": [
+      "Broader restart/PageRank entropy-optimization literature could already contain an equivalent complete-bipartite asymptotic under different naming.",
+      "The general stationary result of arxiv:1910.13568 was not inspected in full; its abstract does not indicate entropy optimization.",
+      "Self-review alone does not independently certify scientific priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General framework clearly relevant, but no complete bipartite optimizer crossover in the inspected full text. Its generic row-entropy presentation must be compared with actual destination probabilities when a neighbor is also the reset target.",
+        "evidence": [
+          "Section II Eq. (5) defines the reset transition matrix; Eq. (4) defines entropy rate.",
+          "Section III analyzes regular random networks, Cayley trees and BA networks; Eq. (19) is a regular-network formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.05665",
+        "material_read": "Full accessible article text, including definitions, stationary resolvent, entropy equations, graph examples and conclusion, with close inspection of Sections II–III.",
+        "method": "Accessible arXiv HTML text read and compared equation by equation to bipartite graph calculation.",
+        "title": "Entropy rate of random walks on complex networks under stochastic resetting",
+        "trigger": "same objective and exact discrete resetting mechanism"
+      },
+      {
+        "assessment": "Potentially covers stationary formulas but has no entropy optimization claim in accessible material; residual full-text priority risk noted.",
+        "evidence": [
+          "Abstract states general stationary probabilities, mean/global first passage times, and applications to rings, Cayley trees and random networks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.13568",
+        "material_read": "Public arXiv abstract and bibliographic record only; full manuscript not asserted inspected.",
+        "method": "Abstract-level objective/claim comparison.",
+        "title": "Random walks on networks with stochastic resetting",
+        "trigger": "general stationary distribution of resetting walks on arbitrary networks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fba6d72c-51f2-4537-baaa-05da4737f151",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural ratio of the two bipartite class sizes causes a sharp change between m^(-3/4) and m^(-1) optimal single-target resetting, with explicit leading gains. This is a meaningful structural difference for reset-induced entropy diversification on heterogeneous graphs, not merely a parameter substitution or a numerical best fit.",
+    "status": "PASS"
+  }
+}
