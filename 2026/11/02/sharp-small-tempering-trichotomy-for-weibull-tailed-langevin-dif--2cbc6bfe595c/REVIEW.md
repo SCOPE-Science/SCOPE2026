@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The scale–speed derivation fixes the normalization and produces an exact nonnegative hitting-time integral. L'Hôpital's rule under the stated derivative assumption gives a regularly varying integrand; direct Laplace scaling derives the constants in all three mutually exclusive regimes. Endpoint classification and minorization establish the ergodicity threshold. The independent high-precision implementation passed 187 checks of exact specializations and limiting constants. Numerical checks are corroboration, not proof. The analysis requires \(V'(x)>0\) eventually and the explicit derivative condition.
+
+**Originality — PASS (qualified).** The 2026 motivating paper covers polynomial rather than Weibull tails. General hitting-time expressions and entrance/uniform-ergodicity principles are pre-existing results and are credited to Bansaye et al., Pinsky, Cattiaux–Guillin and Douc–Fort–Guillin and Arapostathis–Pang–Sandrić. The assessed claim is the sharp *parameter-response trichotomy and constants* for the Weibull-tail class, not those generic principles. Searches of prior mathematical findings and accessible primary literature did not establish equivalent or stronger coverage; historical priority remains qualified because a more general Tauberian diffusion result may imply the formulas.
+
+**Mathematical value — PASS.** The exponents and constants quantify the effectiveness of small tempering in a natural family of target laws and reveal a critical quadratic-tail boundary. Especially for \(\eta>2\), finite uniform entrance times coexist with an infinite first derivative at zero tempering, a nontrivial sensitivity property that a binary ergodicity criterion does not give. The result does not supply optimal mixing rates or cover all tail classes.
+
+Self-review: passed. Independent audit: not yet performed.
