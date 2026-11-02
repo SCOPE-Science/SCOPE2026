@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The result concerns the established smooth complete fan \(Z''_{13}(a,2,0,0)\) for integers \(a\ge4\). Its eighteen invariant curves are accounted for by all eighteen distinct two-cones. Exact primitive wall relations give anticanonical degrees in the displayed symbolic table; none vanishes for the claimed range. The star of ray \(7\) is the blow-up of \(\mathbb P^1\times\mathbb P^1\) at one fixed point, and the restrictions to three independent curve classes give \((-K_X)|_S\equiv F_1+2F_2-3E\). The strict transform of a general \((1,1)\)-curve through the point has class \(F_1+F_2-E\) and degree zero. The originating paper's derived Kleiman criterion then proves non-generation. Independent finite arithmetic checks of the fan, wall relations, intersection profiles, and section monomials are reproducible with `verify.py`; universality rests on symbolic arguments.
+## correctness
 
-## Originality
-The originating paper's Question 6.6 asks whether the general four-parameter toric family has only invariant-curve obstructions. Its Theorems 6.3–6.4 cover different one-parameter subfamilies. Its Example 4.5 and Remark 7.6 already establish that non-invariant curves and obstructing surfaces exist generally, so those general phenomena are expressly excluded from novelty. The contribution is the explicit infinite non-projective canonical-bundle subfamily for which **all** invariant wall intersections are nonzero while a precisely identified invariant surface and a non-invariant rational curve obstruct generation. Relevant published mathematical searches and recorded claims did not identify the same parameter-family result; implicit earlier computations remain possible, and the older Fujino–Sato full text was not inspected.
+PASS
 
-## Mathematical value
-The result settles the second part of an explicit, naturally motivated open question in a new primary paper: testing only invariant \((-1,-1)\)-curves cannot classify canonical tensor-generation across the four-parameter family. It identifies a coherent infinite parameter subfamily, an exact divisor class \(F_1+2F_2-3E\), and a concrete zero-degree curve, rather than an isolated negative numerical check. It does not solve the full parameter classification or imply an autoequivalence classification.
+For every integer a≥4 the 12 listed maximal cones have unimodular determinants and exactly 18 two-cone walls. Independently computed each symbolic primitive wall relation using SymPy matrix inverses with a symbolic integer parameter; all 18 anticanonical degrees agree with the source table: constants 2,-1,2,3,2,3,-1,1,2,2,-2,2 and affine terms a+2,1-a,a+1,3-a,a+1,1-a, with none zero for a≥4. Ray-seven star is the fan with five rays (1,1),(1,0),(0,-1),(-1,0),(0,1), hence Bl_p(P1×P1). The classes F1,F2,E form a Picard basis; boundary degree data (2,1,3) imply (-K)|S≡F1+2F2−3E. A general (1,1) curve through p is smooth irreducible rational, has strict transform F1+F2−E, is non-toric, and intersects L by 1+2−3=0. The quoted complete-curve tensor-generation criterion then proves non-generation. For every m≥1, sections of O(mL) are (m,2m)-biforms vanishing order≥3m at p, leaving just s^m t^{2m}; -mL has no sections after push-forward. This analytically justifies the invariant-surface obstruction beyond finite checks. The non-projectivity is established by the original Fujino–Sato primitive relation argument at b=2 and a≠0. Check relies on published tensor-generation criterion and fan classification, not re-proved here.
 
-## Closest literature and limits
-Ito–Zeng–Zeng (arXiv:2610.22279v1), Sections 3, 4, 6, 7; Fujino–Sato (arXiv:2412.02392), fan projectivity data cited indirectly. The general curve criterion and the general possibility of non-invariant obstructions are prior art; the family-specific calculation is the assessed claim. Historic priority cannot be independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the explicit infinite canonical-bundle counterfamily, not for the old general criteria. Ito–Zeng–Zeng formulate the all-parameter / invariant-(-1,-1)-curve question and discuss different subfamilies; this computation supplies a family of smooth nonprojective Z13 fans with all 18 invariant curve degrees nonzero but a non-invariant rational degree-zero curve. Fujino–Sato predate the submission and supply the fan, its primitive relations and non-projectivity, but inspected pp.16–18 concern birational/projectivity transformations, not the stated canonical tensor-generation classification. Directly relevant full Ito–Zeng–Zeng HTML/PDF could not be retrieved in this run; authorized institutional download reported VPN disconnected. Consequently there is a residual possibility of stronger previously proved or transformed equivalent statements; no exhaustive priority certification is claimed. Unrelated Resultary hits and unsuccessful exact searches alone were not regarded as proof of novelty.
+
+## value
+
+PASS
+
+The explicit Question 6.6 about a natural non-projective four-parameter toric family motivates exactly this obstruction classification. The theorem gives an infinite counterfamily to invariant-(-1,-1)-curve-only tests, despite all 18 invariant curve canonical degrees being nonzero; the blowup-surface class and non-invariant rational curve explain the obstruction geometrically, not by an arbitrary isolated negative case. A later worker studying tensor-generation or invariant-curve test completeness would need precisely such an example. It does not claim a complete classification, new general categorical criterion, or autoequivalence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
