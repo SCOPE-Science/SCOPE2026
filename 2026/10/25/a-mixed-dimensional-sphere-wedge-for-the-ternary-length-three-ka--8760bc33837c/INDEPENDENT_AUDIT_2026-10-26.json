@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T00:03:57.687587Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Actual Kautz digraph has 12 admissible length-three words, 24 shifted arcs, indegree 2 at every vertex; exactly 3^12 incoming-edge assignments exhaust every face. Independent reconstruction enumerated 314,928 faces including the empty face and the 4,608 top and 132 next-to-top facets (24 root pairs, multiplicities 21 times five and three times nine). Independently recreated complete 157,439 nonempty face Morse pairs and checked a directed-Hasse topological sort of 314,927 nodes and 2,361,936 incidences, with critical dimensions (0:1,8:3,9:22,10:23). Recomputed the complete signed integral 3-by-22 and 22-by-23 Morse boundary matrices, their zero product, 3 and 11 integral unit cancellations, and zero residual boundary. The surviving 8 cells in degree 9 and 12 in degree 10 attach by null maps because π9(∨S9)=H9, establishing the integral wedge, not merely homology. The 384 spanning arborescences per root supply an independent determinant check. This establishes ONLY the specified finite digraph, not other Kautz parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engström Thm.2.12 assumes a DAG; Kozlov correspondence assumes a bidirected tree; neither premise holds here.",
+          "Kautz D has directed cycles and vertices of indegree two, not an indegree-11 complete sink."
+        ],
+        "reasoning": "The broader-formulation results are conditional on graph structure that fails here; none yields the 8/12 homotopy multiplicities.",
+        "searches": [
+          "arXiv:math/0508148 Theorem 2.12",
+          "arXiv:math/0210045 tree correspondence",
+          "arXiv:1109.4475 Jojić shellability directed trees"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md, verify.py, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md",
+        "arXiv:math/0210045",
+        "arXiv:math/0508148",
+        "arXiv:1109.4475 (published shellability framework; source not fully read)",
+        "Resultary semantic query:  directed forest complex ternary Kautz graph length three 12 vertices homotopy wedge spheres"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kozlov computes bidirected strings/trees; Engström computes directed acyclic graph forests; natural cyclic line-digraph case lies outside."
+        ],
+        "reasoning": "Neither theorem entails mixed-dimensional wedge as corollary; residual risk concerns different unindexed reduction/classification.",
+        "searches": [
+          "Resultary semantic query: directed forest complex ternary Kautz graph length three 12 vertices homotopy wedge spheres",
+          "Kozlov 2002 directed tree §1",
+          "Engström 2005 directed acyclic shellability §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozlov Def.1.1 uses the identical oriented-forest face predicate; Engström Def.2.1 likewise.",
+          "Kautz length-three D is a 12-vertex directed line digraph, not a double-directed tree or six-vertex predecessor forest complex."
+        ],
+        "reasoning": "Equivalent name DT(D) or branching/indegree-one forest complex is the same object. The inspected sources calculate restricted graph classes and do not identify the Kautz D exact homotopy.",
+        "searches": [
+          "Resultary semantic query: directed forest complex ternary Kautz graph length three 12 vertices homotopy wedge spheres",
+          "arXiv:math/0210045 directed forest complexes and double-directed trees",
+          "arXiv:math/0508148 directed tree homotopy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest returned directed-forest or graph-cut findings concern other graph families.",
+          "No checked classification table supplies the 314,928-face Kautz forest complex or its integral Morse matrix."
+        ],
+        "reasoning": "Exact Kautz network and directed arborescence counts are classical, but these counts do not determine higher-dimensional topology.",
+        "searches": [
+          "Resultary semantic query: directed forest complex ternary Kautz graph length three 12 vertices homotopy wedge spheres",
+          "\"Kautz\" \"directed forest\" simplicial complex homotopy",
+          "Kautz graph directed tree complex exact face vector"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact finite homotopy classification is not implied by the full-text-checked directed-acyclic and doubly directed tree theorems; the Kautz line digraph has genuine directed cycles, no complete sink, and is not a bidirected tree. An unindexed classification or unpublished certificate of this exact digraph remains plausible.",
+      "residual_risks": [
+        "Finite exact result only, not a Kautz-family theorem.",
+        "Unindexed or unpublished full homotopy type for this directed line digraph is not excluded; Jojić full text was not freshly read in this run.",
+        "Independent finite reconstruction is not external formal proof or expert attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for this Kautz graph; actual results require bidirected strings/trees",
+          "evidence": [
+            "Definition 1.1 gives directed forest condition; abstract describes equivalence for bidirected trees; Prop.1.3 gives string formula."
+          ],
+          "identifier_or_url": "arXiv:math/0210045",
+          "material_read": "Open-access full 9-page PDF retrieved; inspected abstract, Definition 1.1, Proposition 1.3 and discussion of doubly directed tree family",
+          "method": "Primary PDF, page screenshot and searchable body text",
+          "title": "Directed trees in a string, real polynomials with triple roots, and chain mails",
+          "trigger": "Same directed forest complex definition and possible covering general theorem"
+        },
+        {
+          "assessment": "NOT_COVERING: DAG assumption violated by cyclic Kautz digraph",
+          "evidence": [
+            "Theorem 2.12 explicitly assumes G directed acyclic; the Kautz D contains directed cycles."
+          ],
+          "identifier_or_url": "arXiv:math/0508148",
+          "material_read": "Open-access full 14-page PDF retrieved; inspected abstract, definitions, Corollary 2.10 and Theorem 2.12 (acyclic digraph scope)",
+          "method": "Primary PDF with page screenshot and text; compared graph hypotheses",
+          "title": "Complexes of directed trees and independence complexes",
+          "trigger": "General directed forest-complex homotopy/shellability results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Directed-forest complexes are natural topological graph invariants and the ternary length-three Kautz network is a canonical finite shift network. Its large, nonpure face structure and exact mixed integral sphere-wedge type are not known to follow from spanning-tree counts; the 8/12 dimension split and lower facets offer a substantive reusable exact benchmark for cyclic digraph forest complexes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md, verify.py, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md",
+    "arXiv:math/0210045",
+    "arXiv:math/0508148",
+    "arXiv:1109.4475 (published shellability framework; source not fully read)",
+    "Resultary semantic query:  directed forest complex ternary Kautz graph length three 12 vertices homotopy wedge spheres"
+  ],
+  "disposition": "passed",
+  "limitations": "Nonequivariant, length-three ternary Kautz only; finite enumeration exhaustive on that object, not on any parameter family.",
+  "residual_risks": [
+    "Finite exact result only, not a Kautz-family theorem.",
+    "Unindexed or unpublished full homotopy type for this directed line digraph is not excluded; Jojić full text was not freshly read in this run.",
+    "Independent finite reconstruction is not external formal proof or expert attestation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING for this Kautz graph; actual results require bidirected strings/trees",
+      "evidence": [
+        "Definition 1.1 gives directed forest condition; abstract describes equivalence for bidirected trees; Prop.1.3 gives string formula."
+      ],
+      "identifier_or_url": "arXiv:math/0210045",
+      "material_read": "Open-access full 9-page PDF retrieved; inspected abstract, Definition 1.1, Proposition 1.3 and discussion of doubly directed tree family",
+      "method": "Primary PDF, page screenshot and searchable body text",
+      "title": "Directed trees in a string, real polynomials with triple roots, and chain mails",
+      "trigger": "Same directed forest complex definition and possible covering general theorem"
+    },
+    {
+      "assessment": "NOT_COVERING: DAG assumption violated by cyclic Kautz digraph",
+      "evidence": [
+        "Theorem 2.12 explicitly assumes G directed acyclic; the Kautz D contains directed cycles."
+      ],
+      "identifier_or_url": "arXiv:math/0508148",
+      "material_read": "Open-access full 14-page PDF retrieved; inspected abstract, definitions, Corollary 2.10 and Theorem 2.12 (acyclic digraph scope)",
+      "method": "Primary PDF with page screenshot and text; compared graph hypotheses",
+      "title": "Complexes of directed trees and independence complexes",
+      "trigger": "General directed forest-complex homotopy/shellability results"
+    }
+  ]
+}

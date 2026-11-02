@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` with Python 3.9 or newer. It requires no third-party packages or network access. The program enumerates the entire incoming-arc choice space, verifies membership by a second union-find test, checks root-arborescence determinants and maximal-face counts, constructs a complete Morse matching, and checks all oriented cover relations by topological sorting. It then regenerates the full signed Morse boundary matrices, verifies their composition vanishes, and performs exact integer unit cancellations. A successful execution ends with `VERIFY_OK`.
+# Independent mathematical audit
 
-The result proves a finite exact homotopy classification, not a general theorem for higher Kautz digraphs. The computation is reproducible; mathematical peer review and independent audit have not been performed.
+## correctness
+
+PASS
+
+Actual Kautz digraph has 12 admissible length-three words, 24 shifted arcs, indegree 2 at every vertex; exactly 3^12 incoming-edge assignments exhaust every face. Independent reconstruction enumerated 314,928 faces including the empty face and the 4,608 top and 132 next-to-top facets (24 root pairs, multiplicities 21 times five and three times nine). Independently recreated complete 157,439 nonempty face Morse pairs and checked a directed-Hasse topological sort of 314,927 nodes and 2,361,936 incidences, with critical dimensions (0:1,8:3,9:22,10:23). Recomputed the complete signed integral 3-by-22 and 22-by-23 Morse boundary matrices, their zero product, 3 and 11 integral unit cancellations, and zero residual boundary. The surviving 8 cells in degree 9 and 12 in degree 10 attach by null maps because π9(∨S9)=H9, establishing the integral wedge, not merely homology. The 384 spanning arborescences per root supply an independent determinant check. This establishes ONLY the specified finite digraph, not other Kautz parameters.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact finite homotopy classification is not implied by the full-text-checked directed-acyclic and doubly directed tree theorems; the Kautz line digraph has genuine directed cycles, no complete sink, and is not a bidirected tree. An unindexed classification or unpublished certificate of this exact digraph remains plausible.
+
+## value
+
+PASS
+
+Directed-forest complexes are natural topological graph invariants and the ternary length-three Kautz network is a canonical finite shift network. Its large, nonpure face structure and exact mixed integral sphere-wedge type are not known to follow from spanning-tree counts; the 8/12 dimension split and lower facets offer a substantive reusable exact benchmark for cyclic digraph forest complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
