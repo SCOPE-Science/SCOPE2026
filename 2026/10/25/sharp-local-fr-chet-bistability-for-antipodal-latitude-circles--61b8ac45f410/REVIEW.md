@@ -1,9 +1,21 @@
-# Review of the two-latitude spherical Fréchet result
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces antipodal geodesic-square energy to a circular average of \(\arcsin^2\), evaluates the equatorial average by the arcsine-square power series, and reconstructs both local Hessians by Taylor expansion and periodic integration by parts. The strict ordering and unique crossing use a negative derivative and elementary bracket inequalities. `verify.py` passed 48 numerical checks with Python's standard library; the proof, rather than finite testing, covers every \(0<h<1\).
+## correctness
 
-**Originality — PASS (qualified).** The 2011 Hotz–Huckemann intrinsic circle theory, the 2011 Afsari–Tron–Vidal Riemannian mean algorithms, and Tran's 2019/2020 spherical rotational derivative work were inspected for implications. The last is closest technically, but assumes absolutely continuous data and contains different worked distributions, not the two singular symmetric latitude circles with an \(e^{-1}\) stability boundary, second exact polar boundary, and dilogarithmic crossing. Published-record and accessible-own-claim comparisons found no stated equivalent. General theory may admit a rederivation and independent historical priority remains unverified.
+PASS
 
-**Mathematical value — PASS.** The exact bistability window in a canonical singular spherical distribution exhibits two qualitatively distinct local-minimum strata and a unique exchange of their energy ordering. It is an interpretable structural phase diagram, not a generic Taylor exercise. Nothing is claimed about complete global minimizers or the zero-Hessian endpoints.
+PASS. Reconstructed the rotational symmetric potential F_h(t)=π²/4+⟨arcsin²(h t+sqrt(1−h²)sqrt(1−t²)cosφ)⟩ from arccos(q)^2+arccos(−q)^2. The arcsin² power series and circle cosine moments yield equatorial energy π²/4+Li₂(1−h²)/2. Differentiation and integration by parts give equatorial t² coefficient 1+log h; polar geodesic-angle coefficient [1−h arcsin(h)/sqrt(1−h²)]/2. These signs yield simultaneous strict polar and Morse–Bott equatorial minima exactly e^(−1)<h<h_ax with h_ax the unique positive root of h arcsin h/sqrt(1−h²)=1. The two orbit energies differ strictly monotonically, giving exactly one crossover h*=0.5925125033 within the overlap. Analytic smoothness holds for 0<h<1 near the tested orbits; no conclusion at zero-Hessian boundaries or for other critical latitudes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS qualified best-of-knowledge, not certified historical priority. Hotz–Huckemann works on S¹ circle-valued means; Tran gives general sphere Fréchet derivative formulas but assumes area-absolutely-continuous rotational measures; Afsari–Tron–Vidal centers on strongly convex support conditions. None of the inspected relevant statements yields the singular two-parallel-circle Hessian thresholds plus unique energy crossing. General derivative theory could be adapted and priority is qualified. Residual risk: Equivalent computations for singular zonal Fréchet measures could appear under cut-locus/Karcher terminology.
+
+## value
+
+PASS
+
+PASS. Simultaneous isolated and one-dimensional-manifold local minima and the unique exchange in their energy ordering provide a concrete bifurcation diagram for a natural intrinsically metric probability measure on S². The coexistence interval and dilogarithmic crossover are mathematically interpretable, beyond a routine one-number evaluation. It does not claim that these are all global means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
