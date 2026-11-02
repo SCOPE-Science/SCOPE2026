@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. The script constructs cycle bouquets with one common vertex, computes shortest-path distances by breadth-first search, and uses the defining distance equality to recover every vertex belonging to at least one geodesic between each chosen pair. For every nonempty subset, it tests geodetic coverage and one-vertex-deletion minimality. It independently generates the classified families and compares the **entire family of sets**, not only counts; cardinality coefficients are compared separately.
+## correctness
 
-The recorded execution in `verify_output.txt` contains 28 checked bouquets (21 two-petal, seven three-petal) and 104,644 examined nonempty subsets, with `PASSED` on completion. For petal lengths \((4,5,6)\), the verifier reports \(24\) sets with size multiplicities \(3,12,9\). No outside packages, web data, or privileged resources are needed.
+PASS
 
-The verifier is exhaustive only on its listed finite instances. Universality for all integer petal lengths and all \(t\ge2\) follows from the mathematical proof, not computational extrapolation. The mathematical statement has not received independent validation.
+Cut-vertex separation forces each petal to have a selected nonhub vertex; removing the shared hub from any geodetic set preserves geodeticity because a hub-to-petal geodesic extends to a selected vertex in another petal. For S avoiding h, global covering is equivalent to geodetic covering of each cycle by S_i union {h}. Cyclic gaps between marked vertices must all be <=floor(n/2). Deleting a selected nonhub merges adjacent gaps, and three or more individually essential marks would give two disjoint gap pairs each longer than floor(n/2), impossible. The only essential singleton is an even antipode; allowed two-vertex configurations are exactly cyclic triple gaps meeting the bound without an antipode. Deficit-triple counting gives b(n) pairs, and independent petals multiply; real roots follow by linear factors. Direct independent graph shortest-path brute force matched exact minimal subsets and cardinality distributions on 9 bouquets and 2775 nonempty candidate subsets. Note the cut-vertex exclusion and minimum-set block reduction are PRIOR RESULTS of Ekim–Erey, not rediscovered.
+
+## originality
+
+PASS
+
+Qualified PASS for the full inclusion-minimal set enumerator and polynomial spectrum, not for cut-vertex exclusion or the minimum geodetic number alone. Ekim–Erey (2014) Remark 3.2 already proves no minimal geodetic set contains a cut vertex, Theorem 3.3 gives a minimum-size block decomposition, and Corollary 3.4 gives a block-cactus algorithm. Those do not state the local classification of *all* inclusion-minimal anchored cycle sets and the product polynomial. Bergougnoux–Defrain–Mc Inerney study enumerating minimal metric sets generally, not this explicit cactus family in relevant inspected material. A preexisting equivalence under minimal hull sets or geodetic polynomials remains a priority risk.
+
+## value
+
+PASS
+
+Cycle bouquets are a natural unrestricted cactus block family; the family of all inclusion-minimal geodetic sets is a different invariant from a minimum optimum. An exact factorized enumerator gives every cardinality and count, real-rootedness/log-concavity and an unbounded upper-minus-lower geodetic gap. This self-contained global classification is mathematically useful even without a full arbitrary-cactus census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

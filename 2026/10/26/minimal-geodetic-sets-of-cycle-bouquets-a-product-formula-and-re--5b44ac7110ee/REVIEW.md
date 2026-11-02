@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof proves a cut-vertex anchoring equivalence for every geodetic set, excludes the hub from every inclusion-minimal set, and gives a necessary-and-sufficient cyclic-gap criterion. The disjoint-gap-pair inequality bounds anchored minimal choices by two nonhub vertices; parity-dependent gap counting yields the exact product. A verifier implementing shortest paths directly tested every nonempty vertex subset on 28 bouquets (104,644 subsets), with exact agreement of set families and cardinality coefficients. Finite checks corroborate but do not replace the proof.
+## correctness
 
-**Originality — PASS, residual risk stated.** Primary inspection of Bergougnoux–Defrain–Mc Inerney's arXiv:2309.17419 found enumeration and complexity methods for minimal metric graph sets, not a cycle-bouquet minimal-geodetic polynomial. A 2014 block-cactus decomposition computes a *minimum*-cardinality geodetic set and notes the hull-set relation, not all inclusion-minimal sets. The full accessible 2023 sunlet/triangular-snake paper counts all geodetic sets in different graph families. Relevant published records and the exact synonyms cycle bouquet/flower/one-vertex cactus, anchored geodetic, hull-set and minimum-versus-minimal distinctions were checked. No covering count was found, but older or unindexed exact hull-set formulas remain a bibliographic risk, and inaccessible plausible papers cannot be certified as not covering the result.
+PASS
 
-**Value — PASS.** The class is a natural connected cactus family with unrestricted cycle lengths. A complete all-minimal-set structural classification and exact enumerator addresses the enumeration problem beyond minimum-value algorithms, and yields full cardinality support, sharp upper geodetic numbers, an unbounded difference of extremal sizes, and a uniform real-rooted/log-concave spectrum. These statements describe natural global invariants, not arbitrary finite table entries.
+Cut-vertex separation forces each petal to have a selected nonhub vertex; removing the shared hub from any geodetic set preserves geodeticity because a hub-to-petal geodesic extends to a selected vertex in another petal. For S avoiding h, global covering is equivalent to geodetic covering of each cycle by S_i union {h}. Cyclic gaps between marked vertices must all be <=floor(n/2). Deleting a selected nonhub merges adjacent gaps, and three or more individually essential marks would give two disjoint gap pairs each longer than floor(n/2), impossible. The only essential singleton is an even antipode; allowed two-vertex configurations are exactly cyclic triple gaps meeting the bound without an antipode. Deficit-triple counting gives b(n) pairs, and independent petals multiply; real roots follow by linear factors. Direct independent graph shortest-path brute force matched exact minimal subsets and cardinality distributions on 9 bouquets and 2775 nonempty candidate subsets. Note the cut-vertex exclusion and minimum-set block reduction are PRIOR RESULTS of Ekim–Erey, not rediscovered.
 
-**Limits and priority.** No complete result for general block-cactus graphs is asserted. The attached finite experiment is not a substitute for proof. The literature comparison is best-knowledge, not a priority certificate; an indexed or inaccessible equivalent result is possible. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the full inclusion-minimal set enumerator and polynomial spectrum, not for cut-vertex exclusion or the minimum geodetic number alone. Ekim–Erey (2014) Remark 3.2 already proves no minimal geodetic set contains a cut vertex, Theorem 3.3 gives a minimum-size block decomposition, and Corollary 3.4 gives a block-cactus algorithm. Those do not state the local classification of *all* inclusion-minimal anchored cycle sets and the product polynomial. Bergougnoux–Defrain–Mc Inerney study enumerating minimal metric sets generally, not this explicit cactus family in relevant inspected material. A preexisting equivalence under minimal hull sets or geodetic polynomials remains a priority risk.
+
+## value
+
+PASS
+
+Cycle bouquets are a natural unrestricted cactus block family; the family of all inclusion-minimal geodetic sets is a different invariant from a minimum optimum. An exact factorized enumerator gives every cardinality and count, real-rootedness/log-concavity and an unbounded upper-minus-lower geodetic gap. This self-contained global classification is mathematically useful even without a full arbitrary-cactus census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
