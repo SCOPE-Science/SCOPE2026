@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational reproducibility
 
-Run `python verify.py` in an environment with Python 3.10 or later and the external `sympy` package specified in `requirements.txt`. No network access is used by the script.
+# Independent mathematical audit
 
-The checker constructs, from the defining quadratic relations and each permutation, a full integer relation matrix with one row for every ordered generator pair. It computes the Smith normal form independently of the symbolic cyclic argument and checks that the free rank is exactly the number of permutation cycles, with nontrivial Smith factors equal to a single factor consisting of the gcd of their lengths. Every permutation in dimensions one through six is tested (\(873\) total).
+## correctness
 
-For every permutation in dimensions one through four, every integral coordinate vector with entries in \(\{-1,0,1\}\) is multiplied directly by every basic generator in both orders, and the observed centrality condition is compared with permutation invariance plus total-degree divisibility. The test prints `VERIFY_OK 873` when all assertions pass.
+PASS
 
-No finite computation can establish the all-degree theorem. The general assertions follow from the explicit relation derivation, lattice presentation, and generator-commutator proof in `RESULT.md`. The finite script requires Sympy's integer Smith normal form and supplies checks rather than a formal proof certificate.
+Associativity uses total-degree preservation, right Ore uses coordinatewise common upper bounds, and integer inverse is −P^{−|a|}a. Positive word transformed-letter multiset gives complete adjacent-swap relations; their abelianization has one shared difference torsion generator killed by each cycle length. For central v, commutation with every generator implies (I−P)v=(I−P^{|v|})e_i, sum forces Pv=v and then P^{|v|}=I. Degree image of fixed lattice is gZ giving index m/g. Independent 153 permutation Smith checks match rank c and torsion g.
+
+## originality
+
+PASS
+
+Lebed–Vendramin Prop 6.3 states only rank c, with small torsion examples, whereas general Zhang twists construct the algebraic object but do not explicitly compute all-cycle torsion and center in visible material. The full 2026 twist paper unavailable, so equivalence in I-type center literature remains a risk.
+
+## value
+
+PASS
+
+Fills an explicit finite-cycle torsion and integral center index question for a natural Yang–Baxter/semigroup family, beyond rational rank and isolated two-letter examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
