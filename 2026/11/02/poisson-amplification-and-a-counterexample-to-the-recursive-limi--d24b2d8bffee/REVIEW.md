@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The formula is well formed using the linear counting syntax. The Laurent-polynomial constant coefficient counts one balanced propositional pair exactly as \(4^{-n}\binom{2n}{n}\). Independence holds only because the letters and child-subtree valuations are disjoint under the stated complete-tree product measure. The binomial root distribution follows without hidden assumptions. Stirling's estimate yields three regimes for its mean, giving the Chebyshev, Poisson, and Markov limits. Definition 26 substitutes zero for the child event; the recursive limit therefore vanishes. The packaged standalone checker was executed and returned `ALL_CHECKS_OK`; direct enumeration and dynamic programming agreed. Its finite checks are supplemental rather than a substitute for the infinite proof.
+
+## Originality
+**PASS, with explicit residual risk.** The primary paper's Sections 6.1--6.3 and Appendix A were inspected directly. Its parity-driven counterexample is nonconvergent, whereas this construction yields a convergent probability \(1\) that contradicts the stated Conjecture 38. Its published one-step central-binomial calculation is used and credited, not claimed as new. The family of independent balance tests yields a separately formulated Poisson-critical regime \(1-e^{-1/\pi}\) and an exact all-size classification. Searches for the conjecture, equivalent rare-successor constructions, Poisson thresholds, and broader modal-counting results found no established identical theorem. The construction is close to the motivating article's own ingredients, so an unrecognized immediate corollary or independent unpublished counterexample remains a meaningful originality risk. Earlier work on GNN convergence and generic rare Bernoulli limits does not by its inspected claims state the modal recursive-limit comparison. Abstract-only records were not treated as fully inspected papers.
+
+## Value
+**PASS.** The finding resolves a concrete published conjectural prediction negatively, with the strongest possible discrepancy \(1\) between two probability limits. It identifies a natural branching-versus-rarity phase transition for nested counting modalities and the exact critical Poisson parameter. These facts directly explain why replacing each subformula's probability by its limit can destroy global information; they are not arbitrary finite enumerations or a renamed central-binomial identity.
+
+## Limitations and closest literature
+The statement applies to the full \(n\)-ary tree convention explicitly used in Section 6.1 of arXiv:2610.26187v1; a different random-tree ensemble would require separate proof. The original paper also uses the phrase “at most \(n\)” in other passages, so interpreting Conjecture 38 against the fixed-branching experiment warrants independent confirmation. The underlying local central-binomial identity and general Poisson limit are classical. The originality judgment does not certify historical uniqueness, and no independent validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
