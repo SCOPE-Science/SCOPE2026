@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.8 or newer; there are no external dependencies. The checker enumerates all ordered orthonormal bases in dimensions \(3\) and \(4\) by a backtracking search over odd-weight columns and direct orthogonality tests. The computed counts are \(6\) and \(48\), and all nonzero defining vectors have exactly the predicted attainable graph target sizes. For dimensions \(3\) through \(9\), the checker independently enumerates orbits under swaps and four-coordinate transvections and compares each complete visited set with the proposed orbit description. It prints `VERIFY_OK` on success.
+## correctness
 
-These finite tests verify the implementation and low-dimensional cases, not the full theorem. The unrestricted correctness argument is the explicit orthogonal-group orbit reduction and the characterization of all natural bases in RESULT.md. None of the computations assesses independent audit status.
+PASS
+
+Reconstructed xy=(x·y)u from nonzero equal natural-basis squares, Gram condition P^TP=I, graph support=weight(P^T u). In characteristic two, x·x=x·1 forces orthogonal matrices to fix 1; weight parity is preserved. Coordinate permutations and 4-coordinate transvections reduce noncanonical odd vectors to weight 1 and nonzero even vectors to weight 2 (n=3 boundaries checked), establishing exhaustive orbits. Independently enumerated ALL 6 orthonormal bases in n=3 and 48 in n=4 and support spectra for all 22 nonzero vectors; no infinite-n argument inferred from computation.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete natural-basis directed-graph spectrum and simultaneous-realisation classification in the nondegenerate F_2 one-dimensional-square class; the bilinear form and orthogonal-group framework are explicitly prior work, but the inspected primary papers do not give this graph-isomorphism-type support classification.
+
+## value
+
+PASS
+
+A complete exact graph-spectrum classification for every natural basis in a motivated, nontrivial infinite algebra class addresses a concrete subproblem of the published simultaneous-realisation question. It distinguishes basis-independent constraints and the unique strongly connected case, rather than merely renaming the pointed bilinear normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

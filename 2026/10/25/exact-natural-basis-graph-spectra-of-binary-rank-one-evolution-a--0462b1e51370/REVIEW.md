@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The nonzero common square in a one-dimensional square algebra is unique over \(\mathbb F_2\). The product identity \(xy=(x\cdot y)u\) and nonsingularity of the form force *every* natural basis to have orthogonal transition matrix. The corresponding graph edges are determined by \(P^{\mathsf T}u\). Every orthogonal map fixes the canonical all-ones vector and preserves parity. Orthogonal coordinate permutations and four-coordinate transvections reduce any noncanonical weight \(r\ge3\) by two, yielding the exact orbit classification for all \(n\ge3\). The complete graph spectrum and the simultaneous-realisation criterion then follow without additional assumptions. Exhaustive dimension-three and -four natural-basis enumerations and independent finite orthogonal-orbit tests reproduce the formulas. No finite experiment is used as a proof of the general theorem.
+PASS
 
-## Originality: PASS, residual risks stated
+Reconstructed xy=(x·y)u from nonzero equal natural-basis squares, Gram condition P^TP=I, graph support=weight(P^T u). In characteristic two, x·x=x·1 forces orthogonal matrices to fix 1; weight parity is preserved. Coordinate permutations and 4-coordinate transvections reduce noncanonical odd vectors to weight 1 and nonzero even vectors to weight 2 (n=3 boundaries checked), establishing exhaustive orbits. Independently enumerated ALL 6 orthonormal bases in n=3 and 48 in n=4 and support spectra for all 22 nonzero vectors; no infinite-n argument inferred from computation.
 
-The 2026 evolution-algebra survey explicitly poses the general simultaneous graphical realisation problem (Question 30). Its Proposition 14 concerns orthogonal *automorphisms* of a particular algebra, not the family of graph types produced by arbitrary natural bases. The 2025 pointed-bilinear-form work gives broad one-dimensional-square algebra classification and isometry theory; that framework is credited, and no new general isomorphism classification is asserted. The 2020 natural-family paper provides transformation principles, not an explicit binary graph-support orbit spectrum. Targeted searches for binary rank-one, natural-basis, orthogonal, support-size, parity, and simultaneous graph realisation statements found no covering explicit classification. A derivation from classical binary orthogonal theory, or a covering but inaccessible graph/pseudodigraph paper, remains possible; a search result is not proof of novelty.
+## originality
 
-## Value: PASS
+PASS
 
-This theorem gives an exact, all-dimension answer to a published graphical-realisation question on a natural, intrinsically described nonperfect-but-nondegenerate class. It characterizes precisely which graph collections can share one algebra, exhibits a structural characteristic-two parity restriction, and identifies the singleton strongly-connected graph case. The distinction between knowing algebra isomorphism classes and knowing all natural-basis graph presentations makes the answer mathematically useful despite the short orthogonal-orbit argument.
+Best-of-knowledge PASS for the complete natural-basis directed-graph spectrum and simultaneous-realisation classification in the nondegenerate F_2 one-dimensional-square class; the bilinear form and orthogonal-group framework are explicitly prior work, but the inspected primary papers do not give this graph-isomorphism-type support classification.
 
-## Scope and closest literature
+## value
 
-Ground field exactly \(\mathbb F_2\), rank-one square and annihilator zero, dimension at least \(3\). The claim is not an answer for general evolution algebras, larger characteristic-two fields, or arbitrary digraph collections. A potentially related 2026 manuscript on finite-dimensional evolution algebras and (pseudo)digraphs could not be materially inspected; its possible overlap is a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact graph-spectrum classification for every natural basis in a motivated, nontrivial infinite algebra class addresses a concrete subproblem of the published simultaneous-realisation question. It distinguishes basis-independent constraints and the unique strongly connected case, rather than merely renaming the pointed bilinear normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
