@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducibility checks and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and only the standard library. The exact rational example uses rates \(a=1\), \(b=2\), load ratio \(k=1/16\), and separations \(s=\log(9/4),\log4,\log16\). It checks the three derivative signs \(17/1296,-1/16,1/128\), giving \(2,1,2\) strict local maxima. The script also tests 15,000 reproducible random positive parameter tuples, exact continuity at the second outfall, direct derivative signs, and the downstream analytic critical point. Expected output:
+## correctness
 
-```
-Phase witnesses: 3 exact rational cases
-Randomized derivative/comparison checks: 15000
-```
+PASS
 
-The finite checker cannot prove global uniqueness, any \(k\)–\(s\) phase boundary, asymptotics or the universal \(e^{-2}\) limit. Those statements rely on the derivation and strict monotonicity in RESULT.md. The code does not simulate flow changes, direct oxygen shocks, settling, initial deficit or field measurements. The available literature evidence leaves historical priority uncertainty as documented in REVIEW.md and AUDIT.json.
+For g(t)=exp(-at)-exp(-bt), unique single-source t0=log(b/a)/(b-a). At t>s the derivative is a difference of two exponentials with at most one zero; right derivative at s is (b-a)(k-kappa(s)), kappa(s)=(a exp(-as)-b exp(-bs))/(b-a). Thus exactly two strict maxima iff s>t0 and k>kappa(s), with equality no second peak. Derivative of kappa changes sign only at 2t0, giving reentrant separation windows, max kappa_*=(a/b)^((a+b)/(b-a)), fold inverse-root behavior and universal kappa_*<exp(-2). Independently checked exact rational witness for (a,b,k)=(1,2,1/16): at s=log(9/4),log4,log16 the post-outfall derivative signs 17/1296,-1/16,1/128 yield 2,1,2. This proof is analytic, not an inference from finite checks.
+
+## originality
+
+PASS
+
+Classical Streeter–Phelps oxygen-sag superposition and multi-outfall compound-sag equations are prior. The precise sharp local-maxima phase diagram and reentrance for the specified no-settling two-inflow model were not established by accessed full/partial primary statements. Bhargava 1986 and 2007 full texts remain inaccessible, so exact historical novelty is qualified.
+
+## value
+
+PASS
+
+The count and disappearance/reappearance of two local oxygen minima are natural measurable geometric features for a two-outfall transport model. Exact load-separation folds, critical universal contrast and asymptotic boundary laws give mathematical decision thresholds; a field-scale validation is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
