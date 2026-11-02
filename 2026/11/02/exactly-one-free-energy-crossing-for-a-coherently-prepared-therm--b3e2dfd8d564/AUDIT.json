@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Explicit two-jump Lindblad Bloch evolution yields A^2-B^2=(R-z)(R+z+2b)p(1-p). The integral identity for the binary entropy gives a normalized difference with a strictly positive p derivative, since Q_theta+(1-p)Q_theta'=R^2-a_theta(1-p)^2<=1. Endpoint limits at p=1 and p=0 have opposite signs precisely when c>0, proving exactly one zero. The two diagonal boundaries are accounted for. The standalone checker symbolically certifies identities and numerically compares 2x2 Lindblad evolution for 505 diagnostics; finite tests are not the proof. Pure states, quantifiers, faithful Gibbs condition and exclusions are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Summer et al. arXiv:2507.16976 Sections III and Fig. 3 discuss thermal Davies-qubit crossing and metric-dependent Renyi crossover times but do not show the monotonic normalization or its global initial-state quantifiers",
+        "Standard qubit isospectral-orbit divergence inequalities concern a fixed pair under unitary rotation, not two continuously relaxing thermal Davies trajectories",
+        "General interacting-spin entropy-decay estimates involve different dynamics and do not imply global crossing uniqueness for two isospectral thermal qubits"
+      ],
+      "reasoning": "The known contractivity of Gibbs relative entropy makes each trajectory nonincreasing but does not order the difference of two independently decaying trajectories or forbid reentrant crossing. The explicit integral proof uses a special equality of longitudinal/coherence decay exponents. The broader resource-theoretic framework and orbit spectral inequalities do not imply these parameter-specific derivative and uniqueness statements.",
+      "searches": [
+        "\"qubit\" \"unique crossover\" \"relative entropy\" \"thermal\"",
+        "\"Davies\" \"Mpemba\" \"at most once\" qubit free energy",
+        "Davies thermal qubit amplitude damping relative entropy Mpemba crossing exactly once strictly monotonic",
+        "A resource theoretical unification of Mpemba effects arxiv:2507.16976 Davies qubit crossing times"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2403.16959 (first public 2024-03-25)",
+      "https://arxiv.org/html/2403.16959v3 (main text and Appendices A, B, C)",
+      "https://arxiv.org/abs/2311.01347 (Sections IV.5 and V.5)",
+      "https://arxiv.org/abs/2507.16976 (Davies-qubit discussion and Fig.3)",
+      "Related published results concerning qubit divergence inequalities and amplitude damping inspected for implication comparisons",
+      "Literature searches on authors, title aliases, qubit model, entropy observable and crossing uniqueness"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moroder et al. show that complete population inversion maximizes free energy on a unitary orbit, and demonstrate one qubit crossing, but those claims entail neither uniqueness over all future times nor the strict monotonicity of the normalized difference",
+        "Chatterjee et al. report single Kullback-Leibler intersections in particular driven examples, not a proof for all faithful thermal Davies semigroups",
+        "Summer et al. illustrate metric-dependent crossing time but give no derivative-sign identity for the normalized relative entropy of every coherent Bloch vector"
+      ],
+      "reasoning": "The new theorem quantifies over every finite positive bath polarization, every coherent Bloch vector including pure states, and all t>0. Existence of a crossing and separate contractivity of the two curves do not imply uniqueness: two decreasing curves can cross multiple times. The proof establishes a strict derivative sign for their difference after normalization and the exact coefficient of its late-time tail, which are not covered by the compared primary statements.",
+      "searches": [
+        "arxiv:2403.16959v3 Appendix A Appendix B Appendix C single qubit free energy crossing Fig.2",
+        "arxiv:2311.01347 Section IV.5 V.5 Kullback Leibler single crossings",
+        "arxiv:2507.16976 Figure 3 Renyi relative entropy crossing time",
+        "\"Thermodynamics of the quantum Mpemba effect\" \"crossing\" \"unique\" \"qubit\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moroder et al. arXiv:2403.16959v3 main text Fig. 2, Appendix A and Appendix C: coherent-state population-inversion construction and existence/example of a free-energy crossing, not an all-state unique-time classification",
+        "Chatterjee et al. arXiv:2311.01347 Section IV.5 and V.5: observed single Kullback-Leibler intersections in a distinct driven qubit, not a theorem of a strictly normalized difference for all coherent Davies preparations"
+      ],
+      "reasoning": "Equivalent observable = the Gibbs quantum-relative-entropy difference, proportional to nonequilibrium free-energy difference. Matching the two-qubit states requires fixed thermal Davies jumps and an inverted isospectral comparator, not just the word Mpemba. The original main text and appendix establish existence and the comparison but do not imply the all-parameter one-crossing claim. The driven-qubit examples use an independent family and permit nonequilibrium steady states and parameter protocols; their observed single intersections do not logically imply the strict monotonicity identity here.",
+      "searches": [
+        "\"quantum Mpemba\" \"unique crossing\" relative entropy qubit Davies",
+        "\"Mpemba\" \"single crossing\" qubit \"relative entropy\" amplitude damping",
+        "single-qubit quantum Mpemba exact one crossing diagonalized Bloch state under generalized amplitude damping"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The literature searches on the specific thermal-qubit construction and normalized Gibbs relative-entropy difference did not identify a claimed all-state formula",
+        "Related two-cavity amplitude-damping concurrence studies classify entanglement death and birth, a distinct observable from thermal free-energy crossings",
+        "No source was found containing an exact table of all initial Bloch vectors and unique Gibbs-relative-entropy crossing times"
+      ],
+      "reasoning": "The closest published results address different observables, models, or quantifiers. The claim is a universal inequality over a continuum of physical parameters, not a finite table entry; missing indexed examples are not treated as novelty proof.",
+      "searches": [
+        "Moroder Culhane Zawadzki Goold 2024 thermodynamics quantum Mpemba Davies qubit free energy unique time crossing",
+        "entropy difference divided by population decay monotone qubit Mpemba Davies",
+        "unique crossing relative entropy free energy qubit Davies Mpemba population inversion coherence thermal amplitude damping",
+        "qubit Davies population-inverted free-energy crossing exact uniqueness table or theorem"
+      ]
+    },
+    "rationale": "Moroder et al. 2024 provide the same qubit Davies preparation and observe a crossing, without the global exactly-one-crossing classification or strict normalized derivative. Chatterjee et al. 2023 report observed single KL crossings for different driven-qubit dynamics; Summer et al. 2025 present Davies-qubit figures and other resource-monotone measures without proving this global uniqueness. Accessible primary literature and mathematical searches found no directly covering formula. Publication priority remains qualified by incompleteness of exhaustive indexing.",
+    "residual_risks": [
+      "A more general, unindexed theorem on the phase-covariant qubit generalized amplitude-damping channel may imply monotonicity as an unstated corollary",
+      "Only inspected primary materials and searchable mathematical records have been compared; publication priority is not independently certified",
+      "New paper-specific proof relies on the absence of additional pure dephasing; larger Davies classes require different analysis"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes preparation and at least one crossing, but does not state the all-coherent-initial-state single-crossing theorem or the decay-normalized strict monotonicity",
+        "evidence": [
+          "https://arxiv.org/html/2403.16959v3#S0.F2",
+          "https://arxiv.org/html/2403.16959v3",
+          "Fig. 2 free-energy crossing; Appendix A invert/equal spectrum; Appendix B quantum relative-entropy/free-energy identity; Appendix C two-level jump structure"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.16959v3",
+        "material_read": "Main text sections introducing Davies structure and single-qubit Fig.2, and Appendices A, B, C, including the explicit generator and population inversion proof",
+        "method": "Read public arXiv full HTML with attention to claims, equations and appendices",
+        "title": "Thermodynamics of the quantum Mpemba effect",
+        "trigger": "Same thermal Davies qubit, the identical population-inversion comparison and same free-energy observable"
+      },
+      {
+        "assessment": "Single intersections are observations in controlled driven/exceptional-point setups with different protocols; no global thermal Davies uniqueness proof or normalized derivative claim",
+        "evidence": [
+          "https://arxiv.org/abs/2311.01347",
+          "Sections IV.5 and V.5 distinguish observed single KL crossing from multiple crossings of other observables"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.01347",
+        "material_read": "Abstract, driven open two-level model, Section IV.5 Kullback-Leibler divergence, Section V.5 associated intersections and observable discussion",
+        "method": "Read full public arXiv web-rendered text and compare dynamic generator, comparator and quantifiers",
+        "title": "Multiple quantum Mpemba effect: exceptional points and oscillations",
+        "trigger": "Explicitly discusses only single quantum relative-entropy/Kullback-Leibler crossings; possible broader implication"
+      },
+      {
+        "assessment": "Provides a broad conceptual framework and qubit examples; no all-state strict normalized relative-entropy ordering or uniqueness classification found in reviewed sections",
+        "evidence": [
+          "https://arxiv.org/abs/2507.16976",
+          "Fig. 3 thermal Davies-qubit crossing and Renyi crossing time dependence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.16976",
+        "material_read": "Main resource-theory discussion of Davies map and thermal qubit Fig. 3; explanation of Renyi-dependent crossover times and Liouvillian modes",
+        "method": "Read public arXiv rendered main paper and relevant figure text",
+        "title": "A resource theoretical unification of Mpemba effects: classical and quantum",
+        "trigger": "Later direct reuse of thermal Davies qubit and definition of crossing time"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3e2dfd8-d564-4665-9b8b-ba43149b01c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The named 2024 thermodynamic Mpemba model was previously illustrated by a crossing and asymptotic mode arguments. The new theorem excludes all reentrant free-energy orderings for every coherent Bloch state, gives necessary and sufficient coherence boundary, an exact strict monotonic normalized observable, and a sharp long-time coefficient. The physical question of whether the faster ordering can later reverse is nonroutine and naturally motivated by multiple-crossing Mpemba literature; this is a universal structural classification, not a numerical example.",
+    "status": "PASS"
+  }
+}
