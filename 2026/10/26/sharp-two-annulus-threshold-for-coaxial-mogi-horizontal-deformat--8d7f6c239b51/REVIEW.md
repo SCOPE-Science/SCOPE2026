@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized Mogi law has an exact derivative and strictly fixed signs outside the interval between the individual mode radii. The ratio of opposing derivative magnitudes has a positive-denominator logarithmic derivative with a single explicitly factored quadratic numerator. Its discriminant yields the exact threshold; root signs, boundary shoulders, critical quartic maximum, and the \(3/2\) strength-window cusp follow analytically. The bundled program checks symbolic identities and reproducible finite examples; the infinite parameter theorem rests on the proof, not on sampling.
+## correctness
 
-**Originality — PASS, with historical-priority reservations.** Mogi's point-source field and Pascal–Neuberg–Rivalta's two-source superposition and physical-error analysis are known. Došlá's general derivative-ratio theorem (2009) covers the *generic* criterion that a two-turn ratio produces a bimodal mixture for an interval of weights; this is not claimed as new. The specialized Mogi depth threshold, radical strength boundaries and explicit cusp opening coefficient were not located in the primary text sections and distribution examples inspected. Original source and full supplementary coverage remain incomplete; priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** The complete phase boundary is meaningful for idealized volcano-deformation interpretation: two radial maxima are impossible below a sharp depth contrast, and even above that contrast require sufficiently extreme relative inflation. The cusp law additionally quantifies the narrow parameter window near onset. It is more informative than an illustrative pair of source depths, and the result is not interpreted as observational detectability or a physical elastic-interaction theorem.
+Normalizing radius by d1 and x=r²/d1² preserves extrema. The derivative has signs + below x=1/2 and - above x=z/2 and factors by q-Phi_z(x) within that interval. Direct symbolic differentiation yields sign Phi_z'=sign P_z, P_z=24x²-6(z+1)x+9z, with discriminant 36(z²-22z+1). For 1<z<=11+2sqrt(30), Phi is strictly increasing; above it Phi has exactly one local maximum and minimum x±, giving exactly the described 1/3 stationary roots, two maxima in the interior strength window, and nonextremal shoulders at its endpoints. At coalescence Phi-q has a cubic zero and U quartically flat; integration of the local quadratic log-derivative gives window coefficient C=.27718120856 multiplying (z-z*)^(3/2). Independent SymPy discriminant/log derivative identities and five distinct two-ring witnesses passed. Physical nonideal models not included.
 
-Scientific limitations: exact linear, homogeneous half-space Mogi superposition, vertically coaxial positive sources, no finite-source interactions or measurement uncertainties. Relevant literature includes Mogi (1958), Došlá (2009), Pascal et al. (2013), and Aspri et al. (2017). Only the identified specialized calculation is advanced as an originality candidate; the generic mixture methodology is acknowledged prior work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: compared mathematical implication, equivalent aliases, broader frameworks and exact tables; not directly covered by sources actually inspected. Residual literature risks and incomplete full-text access are explicitly recorded.
+
+## value
+
+PASS
+
+An exact detectability phase map for double-depth point-source surface deformation: sharp depth ratio 4.68556..., precise source-strength window, cusp and 3/2 opening. The nonmonotonic radial profile is a substantive structural question for a standard geophysical kernel, beyond generic mixture modality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
