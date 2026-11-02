@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The exact load current is the empty-probability derivative. The irreducible four-state star generator has the stated detailed-balance equilibrium. High-detuning endpoint overlaps yield a fast reversible empty/detuned pair and two slow absorbing low states, with projected slow leakage rate \\((1-f)\\Gamma\\Omega^2/\\Delta^2\\). Finite-dimensional spectral perturbation establishes the limit uniformly away from zero; the work profile has a strict derivative and a unique scaled zero. The standalone code independently reconstructs the generator and passes 265 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grand-canonical detailed balance for one thermal reservoir is standard (Yunger Halpern et al., arXiv:1512.01189); the corresponding equilibrium formula is not advanced as independent novelty.",
+        "Singh et al. treat positive work at the finite endpoint \\(\\Omega t/\\hbar=100\\), not a theorem uniformly quantifying the late \\(\\Delta^2\\) crossover."
+      ],
+      "reasoning": "General bath thermalization covers the negative infinite-time sign once finite-system irreducibility is established, but does not dominate the full singular-detuning theorem, the noncommutation, and the explicit crossed time coefficient. No located stronger theorem with the same load Hamiltonian and scaling was identified.",
+      "searches": [
+        "\"quantum battery\" \"negative work\" \"load\" thermal reservoir long time",
+        "quantum battery extraction load grand canonical thermalization noncommuting limits weak coupling high detuning",
+        "triple quantum dot load detuning high chemical potential long time negative net work noncommuting large detuning limit quadratic crossover",
+        "noncommuting large detuning long time limits quantum dot reservoir discharge"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.33408v1 (full accessible HTML)",
+      "Phys. Rev. A 114, 032407 (2026; abstract inspected)",
+      "arXiv:1512.01189 (abstract inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Eqs. (16)-(22) imply the stationary grand-canonical law by detailed balance, and Sec. II.1 gives overlap suppression.",
+        "The first source explicitly fixes a finite discharge endpoint and does not compute \\(\theta_*\\) or exchange the large-detuning and large-time limits."
+      ],
+      "reasoning": "Distinguish the known generator and its routine Gibbs fixed point from the new compound claim: first project fast load exchange, then quantify the irreversible low-state filling and solve the resulting one-parameter work zero. This is not a mere special-case substitution of an already stated asymptotic result, though priority for consequences derived from known rate equations remains an acknowledged risk.",
+      "searches": [
+        "Dephasing-powered open quantum-dot battery Singh Sanchez Jordan load reservoir grand-canonical equilibrium finite time electrochemical work backflow late time recharge reversal",
+        "triple quantum dot load detuning high chemical potential long time negative net work noncommuting large detuning limit quadratic crossover",
+        "thermal reservoir load quantum battery grand canonical late-time backflow occupancy exact crossover 2026",
+        "\"Dephasing-powered open quantum-dot battery\" \"load\" \"backflow\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Singh et al., Sec. IV.2, Eq. (20) gives current as a signed difference between outward and inward load jumps; integrating this gives the empty-population identity.",
+        "No inspected source presents the specific \\(\\Delta^2\\)-scale return-to-zero formula or its equivalent slow-variable expression."
+      ],
+      "reasoning": "The equivalent empty-population identity is already implicit in the published current equations and is explicitly credited. The target claim includes a two-parameter order-of-limits distinction and the asymptotically exact zero, which require a slow generator reduction; none of the inspected claims state these conclusions.",
+      "searches": [
+        "\"Dephasing-powered open quantum-dot battery\" \"load\" \"backflow\"",
+        "Dephasing-powered open quantum-dot battery Singh Sanchez Jordan load reservoir grand-canonical equilibrium finite time electrochemical work backflow late time recharge reversal",
+        "arxiv:2610.33408 load reservoir reversed accumulated work high detuning t ~ Delta squared grand canonical thermalization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper reports finite-time output graphs and a finite final-time chemical-potential scan, rather than a table of slow-window work zeros.",
+        "The independent finite-dimensional verifier resolves the exact load generator for eight detunings and reports roots converging to the predicted constant."
+      ],
+      "reasoning": "The zero coefficient is an analytic function of source-population and load-Fermi parameters, not a claimed database constant; neither the available numerical source figure nor the checked published-record search covers the general formula.",
+      "searches": [
+        "thermal reservoir load quantum battery grand canonical late-time backflow occupancy exact crossover 2026",
+        "three-site quantum dot dephasing battery finite load discharge prolonged leak reinjection crossover",
+        "\"triple quantum dot\" \"backflow\" \"load\" charging"
+      ]
+    },
+    "rationale": "Best-knowledge claim-level distinction: the primary article supplies the model and early finite-time positive work, while the evaluated theorem derives a new singular scaling law for the accumulated-work sign change. Available published-search records and accessible past claims did not state or dominate the combined result; general detailed balance is credited as prior. Residual implicit-coverage risk is retained.",
+    "residual_risks": [
+      "The sharp quadratic-time calculation could be implicit in uninspected extensions of the published load equations; no independence or exhaustive publication priority is asserted.",
+      "The second and third background sources were accessible at abstract level only, so whole-document negative comparisons are not made.",
+      "Standard finite-state singular perturbation and grand-canonical equilibration are prior mathematical tools, not asserted to be new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the starting equations and positive finite-horizon extraction, but does not state or calculate the negative equilibrium output, noncommuting limits, or the explicit slow-window zero.",
+        "evidence": [
+          "Sec. IV.2 (Eqs. 16-22) expresses both injection and extraction and defines current; Fig. 9 uses the finite endpoint Ωt/ℏ=100.",
+          "Sec. II.1 lists detuning-dependent eigenstate overlaps; Sec. III.1 gives large-detuning charged populations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.33408v1",
+        "material_read": "Full accessible HTML: model II, steady-state and stability III, load IV.2, conclusions V, appendix section coverage and relevant text searches.",
+        "method": "Compared the published exact rate equations (18)-(22), the finite discharge horizon of Figure 9, and the analyzed time scales with the stated iterated limits and quadratic-time profile.",
+        "title": "Dephasing-powered open quantum-dot battery",
+        "trigger": "Same Hamiltonian, load contact, and electrochemical-work functional."
+      },
+      {
+        "assessment": "A two-qubit non-Markovian charging model and memory-aided ergotropy; abstract gives no three-dot single-load or detuning-dependent electrochemical-work crossover.",
+        "evidence": [
+          "The available abstract specifies a two-qubit charger-mediated system and time-dependent dephasing rate."
+        ],
+        "identifier_or_url": "https://journals.aps.org/pra/abstract/10.1103/21db-dxvt",
+        "material_read": "Published title and abstract, not full text.",
+        "method": "Compared described physical system and result type.",
+        "title": "Early-stage memory effect on the dephasing charger-mediated quantum battery",
+        "trigger": "Nearby 2026 charge/dephasing quantum-battery topic."
+      },
+      {
+        "assessment": "Supports the background expectation of thermal equilibrium but contains no claimed result for this three-dot load geometry.",
+        "evidence": [
+          "The abstract studies equilibrium under exchange of conserved charges, rather than a finite-time detuning-dependent extracted-work zero."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.01189",
+        "material_read": "Accessible abstract, not full manuscript.",
+        "method": "Separated established grand-canonical equilibrium from the new singular finite-time analysis.",
+        "title": "Microcanonical and resource-theoretic derivations of the thermal state of a quantum system with noncommuting charges",
+        "trigger": "Standard equilibrium coverage and normalization against trivial priority claims."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c78e5405-5f8e-457e-904b-c6db8fd739d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source device has a demonstrated positive short discharge interval. The new two-limit paradox and exact \\(\\Delta^2\\) cutoff quantify when keeping the thermal load attached reverses net delivered work; this is a physically meaningful cycle-design stopping-time boundary, not an arbitrary small-sample invariant. The sharp coefficient depends on measurable charged populations and the load Fermi offset, and the source simulation endpoint lies orders of magnitude before the predicted late crossover.",
+    "status": "PASS"
+  }
+}
