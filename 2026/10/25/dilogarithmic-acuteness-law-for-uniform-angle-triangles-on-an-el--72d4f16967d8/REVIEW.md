@@ -1,15 +1,21 @@
-# Scientific review of the ellipse acuteness law
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The directed-chord half-angle formula makes the two chord directions conditionally iid on a common semicircle. Their difference has an exact triangular density, and averaging the sign of the affine quadratic dot product over independent global orientation yields the explicit conditional obtuse-angle probability. A reflected integral, integration by parts, and the central-binomial arcsine-square power series produce the dilogarithm coefficient without approximation. The near-circular and flat limits follow from stated expansions. The standalone program independently verifies integral agreement, direct Cartesian dot products, and asymptotic consistency. Its finite tests corroborate, not replace, the proof.
+## correctness
 
-## Originality (O): PASS relative to checked evidence
-The closest exact prior expression is the circle **off-center point-containment** law (Jeremy Tan Jie Rui, 2018; Ismailov, arXiv:2601.02929). It is the same scalar dilogarithm function, and this match is explicitly credited. Neither inspected work treats Euclidean acuteness of three affinely deformed uniform circle points or supplies the geometric parameter identification. Koroleva–Nikitin (arXiv:1301.1360) addresses extremes of polygon perimeters and areas; Banerjee's 2009 thesis samples triangle vertices uniformly **inside** shapes, including ellipses; Hall (1982) also uses interior-uniform sampling in balls. Published work on optimal ellipse-boundary sampling measures other statistics. An alternate hidden equivalent geometric correspondence remains a real residual historical-priority risk.
+PASS
 
-## Value (V): PASS
-Acuteness is a fundamental angle-type statistic that is not preserved under affine transformations. A complete exact law for a canonical anisotropic family with a natural pullback boundary measure quantifies how shape alone changes triangle-type frequencies. The exact circle rigidity, optimal quadratic near-circle deficit, and logarithmically enhanced thin-ellipse decay give geometric meaning to the new interpretation and provide sharp benchmarks for other boundary sampling laws. This is not a mere restatement of the already-known off-center containment formula: the affine angle-sign reduction has to be established separately.
+For any nonsingular real 2x2 T with singular values a>=b>0, three iid uniform input angles yield a uniform common chord phase independent of triangular half-angle gap δ with density 2(pi-δ)/pi². The transformed Euclidean angle dot product equals (a²+b²)/2[cosδ+k cos(2phi+δ)], k=(a²-b²)/(a²+b²). Integrating its piecewise obtuseness probability yields P_acute=1/4-6/pi³ ∫_0^(pi/2)asin²(k sin u)du; the positive arcsine-square series and beta integral reduce it to 1/4-(3/(2pi²))Li_2(k²). Correct near-circle loss 3s²/(2pi²) with s=log(a/b), and thin limit 6t²/pi²[1-log(4t²)]+O(t⁴|log t|) with t=b/a. Independently evaluated quadrature versus Li2 at ratios 1,1.1,2,10,100 using 46-digit mpmath with disagreement <=5.5e-48; analytic proof covers all finite ratios, numerical test does not.
 
-## Scope and risks
-Uniform eccentric-angle sampling is deliberately distinct from uniform ellipse arclength and from uniform interior area; confusing these probability models invalidates the claim. Originality has been assessed against accessible statements and full text of strongly relevant primary works, not proved absolutely. The checker cannot certify a continuum of parameter values on its own. No independent mathematical audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact affine angular boundary-sampling acute-triangle law and geometric identification of a previously known dilogarithm distribution; the Li2 evaluation and circle-containment law are explicitly acknowledged prior art.
+
+## value
+
+PASS
+
+Determines a natural affine deformation law for the basic acute-versus-obtuse random triangle question under explicitly defined invariant angular sampling, with strict circle extremality, sharp quadratic stability and logarithmic thin-ellipse asymptotic. Cross-model identification is a motivated geometric fact rather than a special-function recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

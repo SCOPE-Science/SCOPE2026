@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T05:03:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any nonsingular real 2x2 T with singular values a>=b>0, three iid uniform input angles yield a uniform common chord phase independent of triangular half-angle gap δ with density 2(pi-δ)/pi². The transformed Euclidean angle dot product equals (a²+b²)/2[cosδ+k cos(2phi+δ)], k=(a²-b²)/(a²+b²). Integrating its piecewise obtuseness probability yields P_acute=1/4-6/pi³ ∫_0^(pi/2)asin²(k sin u)du; the positive arcsine-square series and beta integral reduce it to 1/4-(3/(2pi²))Li_2(k²). Correct near-circle loss 3s²/(2pi²) with s=log(a/b), and thin limit 6t²/pi²[1-log(4t²)]+O(t⁴|log t|) with t=b/a. Independently evaluated quadrature versus Li2 at ratios 1,1.1,2,10,100 using 46-digit mpmath with disagreement <=5.5e-48; analytic proof covers all finite ratios, numerical test does not.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hall computes acute probabilities for 3 area-uniform points in the ball; this differs from angular pushforward on the ellipse boundary."
+        ],
+        "reasoning": "A uniform-in-area result, even for a disk, does not dominate the ellipse boundary pushforward measure.",
+        "searches": [
+          "Resultary semantic: uniform angular points on ellipse probability acute triangle dilogarithm fixed point circle containment",
+          "Web primary search: acute triangle three random uniform angular points ellipse dilogarithm probability",
+          "doi:10.2307/3213533",
+          "doi:10.1007/s12045-023-1660-y"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2601.02929 Theorem 1.1, Ismailov",
+        "https://math.stackexchange.com/questions/2641793 (Jeremy Tan Jie Rui answer 2018)",
+        "doi:10.2307/3213533 Hall (1982) abstract",
+        "doi:10.1007/s12045-023-1660-y disk interior sampling abstract",
+        "Resultary semantic: uniform angular points on ellipse probability acute triangle dilogarithm fixed point circle containment",
+        "Web primary search: acute triangle three random uniform angular points ellipse dilogarithm probability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The off-center containment prior gives the same right-hand side after identifying radius k, but does not supply the chord-dot-product event transformation; Hall uses different measure."
+        ],
+        "reasoning": "A direct plug-in corollary requires a proved distributional equivalence; the RESULT.md supplies an independent nontrivial derivation, and no stronger earlier result was found covering it.",
+        "searches": [
+          "arxiv:2601.02929 Theorem 1.1",
+          "doi:10.2307/3213533",
+          "Web primary search: acute triangle three random uniform angular points ellipse dilogarithm probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.1 expresses the same function for a fixed off-center containment event on the circle, not the Euclidean acuteness of three affine-transformed points."
+        ],
+        "reasoning": "The probability identity is numerically exact but equivalence of event models requires nontrivial chord-angle geometry; no checked source states the affine event.",
+        "searches": [
+          "Resultary semantic: uniform angular points on ellipse probability acute triangle dilogarithm fixed point circle containment",
+          "Web primary search: acute triangle three random uniform angular points ellipse dilogarithm probability",
+          "arxiv:2601.02929 Theorem 1.1",
+          "MSE 2641793, 2018"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Li2 formula exactly matches an existing table/function at argument k²; the newly asserted affine-ellipse event is not tabulated as such."
+        ],
+        "reasoning": "The exact probability value is covered as a special-function expression, so priority is specifically about the geometric affine acuteness identity, not the dilogarithm or off-center formula.",
+        "searches": [
+          "Resultary semantic: uniform angular points on ellipse probability acute triangle dilogarithm fixed point circle containment",
+          "arxiv:2601.02929 Theorem 1.1",
+          "MSE 2641793, 2018"
+        ]
+      },
+      "rationale": "Exact affine angular boundary-sampling acute-triangle law and geometric identification of a previously known dilogarithm distribution; the Li2 evaluation and circle-containment law are explicitly acknowledged prior art.",
+      "residual_risks": [
+        "Historical geometric-probability literature may describe an equivalent affine-acute/off-center-containment correspondence under another name.",
+        "Only angular pushforward measure, not arclength or ellipse-interior sampling, is treated.",
+        "The same Li2 probability function was known in 2018 for another event and is not new by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_FUNCTION_DIFFERENT_EVENT",
+          "evidence": "Contains P(containing point at radial coordinate k)=1/4-3Li2(k²)/(2π²); the new ellipse result requires separate chord-angle/affine geometry and does not claim novelty of the Li2 evaluation.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.02929",
+          "material_read": "Theorem 1.1, fixed-point circular containment formula, parameter normalization and discussion of 2018 prior derivation",
+          "method": "arXiv full-text HTML theorem and discussion inspection",
+          "title": "With what probability does an inscribed triangle contain a given point?",
+          "trigger": "Same Li2 probability expression for a geometrically different circle event"
+        },
+        {
+          "assessment": "OLDER_FUNCTION_PRIOR",
+          "evidence": "No inference that the distinct event of affine acuteness is already explicitly established.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/2641793",
+          "material_read": "Published problem and previously acknowledged Tan Jie Rui solution, as corroborated by the 2026 mathematical paper",
+          "method": "Public question/answer record and 2026 source cross-check",
+          "title": "Probability that a random triangle with vertices on a circle contains an arbitrary point inside said circle",
+          "trigger": "Original 2018 solution to same dilogarithm function"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING",
+          "evidence": "Points are sampled uniformly in area/volume in a ball, unlike uniform angular boundary points under an affine linear map.",
+          "identifier_or_url": "https://doi.org/10.2307/3213533",
+          "material_read": "1982 article abstract and exact n=2 interior-ball formula 4/pi²-1/8",
+          "method": "Publisher abstract inspection",
+          "title": "Acute triangles in the n-Ball",
+          "trigger": "Possible broader random triangle acute probability theorem"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING",
+          "evidence": "No affine-ellipse boundary angular law.",
+          "identifier_or_url": "https://doi.org/10.1007/s12045-023-1660-y",
+          "material_read": "2023 publisher title, abstract and stated disk/ball interior model",
+          "method": "Publisher abstract inspection",
+          "title": "How Likely is a Random Triangle Acute? Picking Three Points in a Disc or in a Ball",
+          "trigger": "Recent random-triangle acuteness overview"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a natural affine deformation law for the basic acute-versus-obtuse random triangle question under explicitly defined invariant angular sampling, with strict circle extremality, sharp quadratic stability and logarithmic thin-ellipse asymptotic. Cross-model identification is a motivated geometric fact rather than a special-function recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2601.02929 Theorem 1.1, Ismailov",
+    "https://math.stackexchange.com/questions/2641793 (Jeremy Tan Jie Rui answer 2018)",
+    "doi:10.2307/3213533 Hall (1982) abstract",
+    "doi:10.1007/s12045-023-1660-y disk interior sampling abstract",
+    "Resultary semantic: uniform angular points on ellipse probability acute triangle dilogarithm fixed point circle containment",
+    "Web primary search: acute triangle three random uniform angular points ellipse dilogarithm probability"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform input angle under linear pushforward, not uniform ellipse arclength or interior.",
+    "b=0 only limiting degeneracy; a>=b>0 required.",
+    "The Li2 function is preexisting in the off-center circle containment problem."
+  ],
+  "residual_risks": [
+    "Historical geometric-probability literature may describe an equivalent affine-acute/off-center-containment correspondence under another name.",
+    "Only angular pushforward measure, not arclength or ellipse-interior sampling, is treated.",
+    "The same Li2 probability function was known in 2018 for another event and is not new by itself."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "EXACT_FUNCTION_DIFFERENT_EVENT",
+      "evidence": "Contains P(containing point at radial coordinate k)=1/4-3Li2(k²)/(2π²); the new ellipse result requires separate chord-angle/affine geometry and does not claim novelty of the Li2 evaluation.",
+      "identifier_or_url": "https://arxiv.org/abs/2601.02929",
+      "material_read": "Theorem 1.1, fixed-point circular containment formula, parameter normalization and discussion of 2018 prior derivation",
+      "method": "arXiv full-text HTML theorem and discussion inspection",
+      "title": "With what probability does an inscribed triangle contain a given point?",
+      "trigger": "Same Li2 probability expression for a geometrically different circle event"
+    },
+    {
+      "assessment": "OLDER_FUNCTION_PRIOR",
+      "evidence": "No inference that the distinct event of affine acuteness is already explicitly established.",
+      "identifier_or_url": "https://math.stackexchange.com/questions/2641793",
+      "material_read": "Published problem and previously acknowledged Tan Jie Rui solution, as corroborated by the 2026 mathematical paper",
+      "method": "Public question/answer record and 2026 source cross-check",
+      "title": "Probability that a random triangle with vertices on a circle contains an arbitrary point inside said circle",
+      "trigger": "Original 2018 solution to same dilogarithm function"
+    },
+    {
+      "assessment": "DIFFERENT_SAMPLING",
+      "evidence": "Points are sampled uniformly in area/volume in a ball, unlike uniform angular boundary points under an affine linear map.",
+      "identifier_or_url": "https://doi.org/10.2307/3213533",
+      "material_read": "1982 article abstract and exact n=2 interior-ball formula 4/pi²-1/8",
+      "method": "Publisher abstract inspection",
+      "title": "Acute triangles in the n-Ball",
+      "trigger": "Possible broader random triangle acute probability theorem"
+    },
+    {
+      "assessment": "DIFFERENT_SAMPLING",
+      "evidence": "No affine-ellipse boundary angular law.",
+      "identifier_or_url": "https://doi.org/10.1007/s12045-023-1660-y",
+      "material_read": "2023 publisher title, abstract and stated disk/ball interior model",
+      "method": "Publisher abstract inspection",
+      "title": "How Likely is a Random Triangle Acute? Picking Three Points in a Disc or in a Ball",
+      "trigger": "Recent random-triangle acuteness overview"
+    }
+  ]
+}
