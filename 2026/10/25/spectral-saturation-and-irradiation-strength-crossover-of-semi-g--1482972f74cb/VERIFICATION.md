@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The accompanying `check.py` runs with Python 3.9 or later and requires only the standard library. Execute `python check.py` in the same directory as this document. The script uses fixed random seeds, no network access, no external datasets, and no pre-generated log files.
+## correctness
 
-The verification reconstructs the original temperature formula independently of the analytical derivative, compares 5,000 symmetric finite differences against that derivative, evaluates 3,000 randomly chosen finite spectral mixtures, and brackets any predicted minimum by bisection. It checks exact two-band values, finite saturation against the limiting root, the logarithmic law with no transparent band, and 1,000 exact weak-band crossover identities. The source code is provided completely, so results can be rerun or modified. Numerical values are approximate and are not interval enclosures.
+PASS
 
-Analytical checks independent of finite testing are explicitly provided in `RESULT.md`: ratio monotonicity for the global zero count, strict sign behavior of the positive part of \(P-Q\), transversality at the finite saturation depth, finite-sum exponential asymptotics, and monotone inversion of the two-band crossover. The verified mathematical statements apply only to the stated positive parameters and fixed Eddington closure. No formal proof assistant, externally commissioned verification or independent scientific audit has been performed.
+Differentiate the exact normalized formula: 4(T_s^4)'=B+s(Q-P), B=3T_int^4. When high-rate P nonzero, P/(B/s+Q) strictly decreases, as every numerator decay exponent exceeds sqrt(3) while each denominator exponent is smaller or 0. This yields the sharp unique-root criterion and positive derivative outside. On P>Q, f=P-Q has negative derivative, giving monotone minimum depth and linear onset. Transverse P=Q gives finite saturation with order 1/s; if Q=0, least high exponent gives logarithmic depth. Direct exponential substitution yields the exact crossover equation. Independent numerical bisection at s=1 and 1000 reproduced depth ~0.848000916459 and ~1.352576932764 for P=60e^(-3tau), Q=4e^(-tau).
+
+## originality
+
+PASS
+
+Guillot establishes one-band profile, Parmentier–Guillot establishes arbitrary visible-band linear superposition, and Descartes/Laplace variation diminution covers a general bound on roots; those are prior. The submitted combined sharp intensity threshold, limiting depth alternatives and two-band scaling are not explicitly supplied by those inspected statements.
+
+## value
+
+PASS
+
+The exact dependence of atmospheric inversion depth on irradiation strength and the existence of even weak transparent bands are physically motivated analytical invariants of a standard closed-form radiative model, rather than arbitrary exponentials; distinct limiting regimes and a rigorous transition function have useful mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
