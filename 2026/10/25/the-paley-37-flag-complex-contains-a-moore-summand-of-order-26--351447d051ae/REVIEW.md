@@ -1,11 +1,21 @@
-# Scientific assessment — Paley-37 integral clique topology
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Exact exhaustive reconstruction yields 1,813 faces and a 841-pair acyclic matching, verified over all 5,550 covers; critical cells (1 in degree 0, 83 in degree 2, 47 in degree 3). The signed 83×47 Morse boundary has a 46×46 unit minor and a full 47×47 minor −26; mod-2 and mod-13 rank 46 force the final Smith invariant 26, while the minor bound and unit minor force all other invariants 1. Independent original simplicial boundary ranks over 2,3,5,13 corroborate. The no-one-cell CW model and Hurewicz imply wedge of 36 2-spheres plus degree-26 Moore space. Actual packaged verifier returned VERIFY_OK.
+## correctness
 
-**Originality (O): PASS with risks.** The closest same-family archival result determines the Paley-29 complex with order-2 Moore torsion, but does not establish an infinite-family theorem. Knill's printed \(QR(37)\) Euler characteristic agrees yet cannot determine torsion; Cioabă et al. 2025 and Cioabă–Mim 2026 address H1 and spectral invariants rather than this exact integral H2. Actual searches include Paley-37, QR(37), self-complementary/independence and order-26/13 torsion formulations, together with indexed mathematical-result records. Unindexed equivalent treatment is not excluded.
+PASS
 
-**Value (V): PASS.** The Paley-37 graph is a canonical next prime-size symmetric graph after the previously computed Paley-29 case. The discovered odd prime 13 in integral H2 is new information beyond known Euler characteristic 37, known H1 vanishing and P29 two-torsion; it gives a complete integral homotopy classification of a natural graph/flag-complex invariant, useful for comparing torsion behavior of Paley complexes. This is not merely a face-count recomputation or a numerical parameter substitution: the previously known P29 result does not determine the 26-degree Moore attachment.
+The exact difference-of-quadratic-residues graph P37 yields 37 vertices, 333 edges, 888 triangles, 555 tetrahedra (1813 nonempty faces), no larger cliques and χ=37. Independent staged bit-mask face pairing produces 841 pairs; inspection of all 5,550 face incidences plus a complete Hasse-DAG topological sort verifies acyclicity. The only critical cells are one 0-cell, 83 2-cells and 47 3-cells. Independently reconstructed signed Morse boundary B:Z^47→Z^83 has Smith factors 1 repeated46 and final 26. Stronger exact determinantal witnesses independently recomputed: specified 46×46 minor determinant +1, 47×47 minor determinant −26, agreeing with mod-2 and mod-13 rank drop and excluding any further factors. With one 0-cell and no critical 1-cells, Morse CW 2-skeleton is wedge of 83 2-spheres. The 3-cell attaching classes are integral degree vectors in π2=Z^83; Smith row/column changes are realized by sphere basis maps and CW cell slides. Canceling 46 unit pairs leaves 36 free 2-spheres and one degree-26 3-cell, exactly M(Z/26,2). Finite complete computation, not asymptotic theorem or extrapolation to other primes.
 
-**Limitations.** Self-review only. Full all-line reading of every related paper was not claimed. Independent audit has not been performed. Exact finite case, not an infinite-family result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Knill records the Paley-37 clique Euler characteristic 37, which cannot imply torsion. A published analogous Paley-29 Moore summand has order 2, not the order-26 summand of P37. Published strongly regular graph clique-homology results establish first homology vanishing and a different Latin-square family rank formula but not this integral second-homology and homotopy classification.
+
+## value
+
+PASS
+
+The natural Paley(37) graph supplies a canonical finite flag complex with rare odd-primary (13) torsion simultaneously with 2-torsion. The exact integral homotopy type is mathematically stronger than Euler characteristic and Betti ranks; detecting a nontrivial 26-attachment requires meaningful integral Smith computation rather than routine arithmetic. This precise finite complex and invariant are directly reusable in topological graph theory and test conjectures about torsion of strongly regular graph clique complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
