@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The independent chi-square–Dirichlet factorization gives S_n=T²V_n and slope error sigma G/(T sqrt(V_n)); the negative-moment integrals yield all moment cutoffs. Orthogonality of mean Gaussian noise and slope noise establishes conditional unbiasedness and conditional variance; exact chi-square inverse moments give the stated rational factor and sharp gain condition. The 2,748 reproducible checks pass, and the analytic proof treats all n rather than extrapolating from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pham–Gorodetsky arXiv:2101.02786 considers ensemble ACV uncertainty and sufficient pilot sizes.",
+        "Classical chi-square inverse moments establish an ingredient, not the fitted nested estimator risk law.",
+        "Rex–Qian arXiv:2610.19371 derives population-optimal weights/allocations and discusses regularizing pilot covariance."
+      ],
+      "reasoning": "The closest general results either address population-optimal coefficients, asymptotic designs, or sufficient variance-reduction conditions, not an implication supplying the exact all-n distribution of the sample-fitted coefficient and nested estimator. No dominating theorem with these precise assumptions was identified.",
+      "searches": [
+        "\"Ensemble approximate control variate estimators\" minimum sample size variance reduction",
+        "\"chi-square\" \"sample variance\" \"inverse moments\" regression",
+        "\"gamma\" \"sample variance\" \"negative moments\" \"regression\" control variate"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.19371v1 (HTML sections 1–3.3)",
+      "arxiv:2610.25016 (HTML sections 1, 3 and 4.4)",
+      "arxiv:2403.01477 (open full-text sections 1–3)",
+      "arxiv:2101.02786 (abstract only)",
+      "arxiv:2605.23016 (abstract only)",
+      "Sitter (1997), DOI 10.1080/01621459.1997.10474031 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang–Ding arXiv:2403.01477 gives the two-phase OLS estimator and asymptotics, not its chi-square auxiliary finite-moment spectrum.",
+        "Dai–Tchelepi–Tartakovsky arXiv:2610.25016 explains generally biased reuse; exact conditional Gaussian residual orthogonality provides a special unbiased instance without contradicting their statement.",
+        "Rex–Qian arXiv:2610.19371 discusses numerically unstable pilot covariances, not a one-dimensional infinite-variance phase transition."
+      ],
+      "reasoning": "The older estimator formula does not entail this exact all-finite-n risk law merely by substitution: an explicit Gamma–Dirichlet negative-moment analysis is needed. All asserted conclusions are specialized to the stated law; no known result directly implies the stated sharp cutoff and exact improvement threshold.",
+      "searches": [
+        "\"sample correlation adjustments for robust Multi-fidelity Monte Carlo\" 2026",
+        "\"control variate\" \"infinite variance\" \"sample covariance\" pilot",
+        "\"two-phase rejective sampling\" \"asymptotic\" \"regression estimator\" full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang–Ding arXiv:2403.01477 Section 2.2 describes the same estimator algebraically but analyzes asymptotic survey-design behavior.",
+        "Dai–Tchelepi–Tartakovsky arXiv:2610.25016 Sections 3.7/4.4 discuss the same nested sampling architecture with estimated gains, and bias in general."
+      ],
+      "reasoning": "The alias two-phase/double-sampling regression estimator is not novel. This does not imply finite-sample moments for independent shifted chi-square controls. The 2026 multifidelity references do not evaluate the exact n-dependent negative moments that drive the claimed boundary.",
+      "searches": [
+        "\"two phase\" regression estimator chi-square auxiliary variable exact variance",
+        "\"double sampling\" regression estimator random sample auxiliary variable normal errors \"MSE\" exact",
+        "nested multifidelity Monte Carlo pilot reuse coefficient fitted same samples chi squared Gaussian quadratic surrogate finite moments infinite variance n=4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved mathematical research records on Gaussian cross-fitting, estimated adaptive steps and beta-distribution sample variance concern different estimators and distributions.",
+        "No checked finite-sample table states a five-pair cutoff for this reused Gaussian-quadratic regression estimator."
+      ],
+      "reasoning": "Searches compared substantive estimator forms and implication relations, not just numerical parameters. Search nonmatches are not a proof of uniqueness; an unpublished or unindexed table remains possible.",
+      "searches": [
+        "Gaussian quadratic low fidelity chi square one random regression control variate estimated OLS slope tail n/2 beta distribution Dirichlet sample variance",
+        "pilot reuse estimated control variate gain unbiased despite reuse sharp pilot size n five positive finite MSE",
+        "adaptive control variate estimated covariance Gaussian normal sample exact finite variance threshold"
+      ]
+    },
+    "rationale": "The two-phase regression correction is well known (Yang and Ding 2024); the evaluated claim is the exact distributional and risk boundary for a shifted chi-square-one auxiliary covariate with same-sample estimated slope. Read sections of the 2026 nested multifidelity primary papers give population formulas and pilot warnings but not the \\(n=5\\) cutoff or the stated Gamma–Dirichlet risk law. Exact historical priority remains uncertain.",
+    "residual_risks": [
+      "An older two-phase survey regression or control-variate paper may contain the exact chi-square auxiliary moment law under different nomenclature.",
+      "Full texts of arxiv:2101.02786 and arxiv:2605.23016 were not inspected; their abstract-level evidence cannot certify complete noncoverage.",
+      "No exhaustive historical database or human priority review has been performed.",
+      "The full 1997 Sitter variance-estimation paper was not inspected; its exact finite-sample scope is an additional historical-priority uncertainty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines population and fitted coefficient framework; does not present this finite-sample chi-square/Gamma–Dirichlet result",
+        "evidence": [
+          "First posted 2026-10-14; Section 3.3 says pilot covariance can be ill conditioned and suggests regularization; Section 3 gives optimal population formulas."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.19371v1",
+        "material_read": "Sections 1, 2 and 3.1–3.3 including practical coefficient discussion, and supporting appendix headings and variance expressions",
+        "method": "Read public arXiv HTML text and targeted relevant passages",
+        "title": "Analytically Optimal Sample Allocations for Nested Multivariate Multifidelity Control Variate Estimators",
+        "trigger": "Same nested estimator architecture, pilot-estimated covariance and regression regularization"
+      },
+      {
+        "assessment": "It warns that reuse generally biases estimated coefficient corrections; does not quantify the exact special quadratic-Gaussian moment threshold or variance.",
+        "evidence": [
+          "First public 2026-10-18; Section 3.7 explains pilot reuse can induce bias; Section 4.4 gives empirical MSE comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.25016",
+        "material_read": "Text sections 1, 3.3–3.7, 4.4 and finite-pilot experiment comparisons",
+        "method": "Read public arXiv full-text HTML rendering under the abstract URL, including pilot-reuse formula and experiments",
+        "title": "Multifidelity Monte Carlo Estimator for High-Dimensional Quantities of Interest",
+        "trigger": "Pilot reuse and the exact two-level multifidelity estimator"
+      },
+      {
+        "assessment": "Prior structural formula is covered; the specific iid shifted chi-square conditional-Gaussian finite-size risk/moment law is not stated.",
+        "evidence": [
+          "First publicly posted 2024-03-03; Section 2.2 defines the two-phase regression estimator and focuses on asymptotic survey properties."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.01477",
+        "material_read": "Introduction and Section 2.2 describing regression adjustment, together with Section 3 asymptotic design context",
+        "method": "Read lawful open full-text arXiv rendering",
+        "title": "Two-phase rejective sampling and its asymptotic properties",
+        "trigger": "Exact same classical two-phase regression estimator formulation"
+      },
+      {
+        "assessment": "Insufficient material for a whole-document not-covering claim; retained as historical priority risk.",
+        "evidence": [
+          "The abstract states sufficient sample-size bounds for variance reduction and ensemble ACV weights."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.02786",
+        "material_read": "Title, abstract and bibliographic result; no complete paper read",
+        "method": "Open abstract/search listing",
+        "title": "Ensemble Approximate Control Variate Estimators: Applications to MultiFidelity Importance Sampling",
+        "trigger": "Classical study of coefficient uncertainty and minimum pilot sizes"
+      },
+      {
+        "assessment": "Plausibly related coefficient-robustness source; whole-document priority comparison unresolved.",
+        "evidence": [
+          "First public 2026-05-21; abstract describes pilot sample correlations and a bivariate Gaussian example."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.23016",
+        "material_read": "Abstract and bibliographic metadata only",
+        "method": "Read arXiv abstract/search result",
+        "title": "Sample correlation adjustments for robust Multi-fidelity Monte Carlo under limited pilot sampling",
+        "trigger": "Recent specialized work on small-pilot gain estimation"
+      },
+      {
+        "assessment": "Historical variance estimation for two-phase regression is related, but no content available to establish whether it includes exact chi-square one superpopulation moments.",
+        "evidence": [
+          "R. R. Sitter, Journal of the American Statistical Association 92 (1997), pp. 780–787; abstract describes the two-phase regression estimator variance estimation problem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/01621459.1997.10474031",
+        "material_read": "Journal abstract and bibliographic metadata; full paper not available for inspection",
+        "method": "Read public abstract and bibliographic listing",
+        "title": "Variance Estimation for the Regression Estimator in Two-Phase Sampling",
+        "trigger": "Historical exact estimator class and potential stronger general variance calculations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e31f3f81-d896-4867-a079-0113bb99da9a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The concrete one-dimensional low-fidelity quadratic benchmark demonstrates an otherwise hidden finite-pilot pathology: a same-sample correction can be unbiased with infinite variance even when every raw observation has all finite moments. The exact \\(n=5\\) boundary and positive signal-to-noise improvement cutoff are actionable for pilot sizes, regularization and checking multifidelity implementations. This is a motivated structural boundary, not a claim of a new estimator or generic sample-allocation optimum.",
+    "status": "PASS"
+  }
+}
