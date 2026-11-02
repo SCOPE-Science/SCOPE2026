@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Connected domination in the line graph is equivalent to connectivity of the bipartite edge set and complete support on at least one bipartition shore. Deleting cycle edges and nonspanning-shore leaves yields necessary bipartite-tree conditions; the converse checks every edge deletion, with a separate proof that one-deletion minimality implies inclusion-minimality. Bipartite Prüfer codes and surjections count each allowed tree exactly once. The theorem and endpoint counts include the m=n=2 boundary. An independent adjacency-based checker examined 1,444,991 nonempty vertex subsets over 17 graph orders and checked surjective words directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full arXiv:1611.00840v1",
+        "Full ESA 2022 paper DOI:10.4230/LIPIcs.ESA.2022.1"
+      ],
+      "reasoning": "General exponential-time enumeration bounds produce a way to compute finite examples but not a uniform closed expression, gap theorem, or endpoint multiplicity for all rectangle dimensions; the statements do not imply those conclusions without the new structural and counting argument.",
+      "searches": [
+        "\"Below all subsets for Minimal Connected Dominating Set\" 2016 arxiv",
+        "\"Enumerating Minimal Connected Dominating Sets\" ESA 2022",
+        "\"minimal connected dominating sets\" \"rook graph\" exact counts"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1611.00840v1, full PDF",
+      "DOI:10.4230/LIPIcs.ESA.2022.1, full PDF",
+      "arXiv:2201.00721, full PDF",
+      "DOI:10.1088/1742-6596/1850/1/012043, full article text",
+      "https://mathworld.wolfram.com/MinimalConnectedDominatingSet.html, complete reference entry",
+      "DOI:10.1016/j.dam.2019.07.015, abstract/secondary citation only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yoosuf–Kuttipulackal 2021 full article",
+        "Caputi–Celoria–Collari arXiv:2201.00721 full preprint",
+        "Golovach et al. 2020 abstract only"
+      ],
+      "reasoning": "The first two results count all connected dominating sets rather than inclusion-minimal selections. The chordal-only paper does not cover rook graphs because each contains induced C4. None provides a stated implication to a Stirling coefficient formula for inclusion-minimal connected dominating rook sets.",
+      "searches": [
+        "\"The Connected Domination Polynomial of Some Graph Constructions\" 2021",
+        "\"Categorifying Connected Domination via Graph Überhomology\"",
+        "\"Enumeration of Minimal Connected Dominating Sets for Chordal Graphs\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lokshtanov–Pilipczuk–Saurabh, arXiv:1611.00840v1; no rook formula",
+        "MathWorld Minimal Connected Dominating Set entry, named-graph table only"
+      ],
+      "reasoning": "Translated the problem to inclusion-minimal connected edge domination of K_{m,n} and Prüfer-counted bipartite trees. The found general theorems enumerate on a given graph; they do not give the explicit two-parameter coefficient formula or characterize its support.",
+      "searches": [
+        "\"rook graph\" \"minimal connected dominating sets\" Stirling",
+        "\"line graph\" \"minimal connected dominating\" complete bipartite",
+        "\"Cartesian product of complete graphs\" \"minimal connected dominating sets\" counting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld entry documents precomputed polynomials for many named graphs; no general rook parameter formula or support classification is present"
+      ],
+      "reasoning": "A table for individual named graphs or generic lookup procedure is not equal to an exact symbolic formula for every m,n, although small-order coefficients could overlap and are not claimed new individually.",
+      "searches": [
+        "\"Minimal Connected Domination Polynomial\" \"Rook\"",
+        "MathWorld Minimal Connected Dominating Set GraphData polynomial",
+        "\"minimal connected domination polynomial\" \"rook\""
+      ]
+    },
+    "rationale": "Full-text comparisons of general minimal connected dominating set enumerations and of all-connected-domination polynomials reveal no equivalent labeled rook-graph minimality enumerator. A named-graph polynomial database and standard bipartite Prüfer numbers do not include the derived two-parameter support gap. Literature-priority uncertainty is expressly retained.",
+    "residual_risks": [
+      "An unindexed/unexamined paper may contain an equivalent rook-graph formula or an easily specialized stronger theorem.",
+      "A chordal-graph enumeration paper was accessible only via title/abstract; its restriction to chordal graphs excludes all m,n>=2 rook graphs.",
+      "The built-in named-graph polynomial table may contain matching small instances, but no uniform parametric formula was found.",
+      "No independent publication-priority investigation has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems bound and algorithmically enumerate minimal connected dominating sets of arbitrary graphs, but provide no polynomial coefficients or rook-graph tree classification",
+        "evidence": [
+          "arXiv:1611.00840v1, posted 2016-11-02",
+          "SIAM J. Discrete Math. 32 (2018) DOI:10.1137/17M1138753"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.00840",
+        "material_read": "Full open-access 13-page paper, main theorem, definitions, reductions, and conclusion; searched for Cartesian products and bipartite specializations",
+        "method": "Read arXiv PDF and inspect relevant claims and their hypotheses",
+        "title": "Below All Subsets for Minimal Connected Dominating Set",
+        "trigger": "Defines the exact minimal connected dominating set object and proves general enumeration bounds"
+      },
+      {
+        "assessment": "No parameterized Stirling polynomial or forbidden size interval for complete rook graphs is given by the stated results",
+        "evidence": [
+          "ESA 2022, DOI:10.4230/LIPIcs.ESA.2022.1"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2022.1",
+        "material_read": "Full 15-page proceedings paper, including theorem statements, introduction, and principal enumeration bounds",
+        "method": "Read lawful open-access PDF and compare all-result implications",
+        "title": "Enumerating Minimal Connected Dominating Sets",
+        "trigger": "Same exact minimal connected domination condition and later general enumeration results"
+      },
+      {
+        "assessment": "Counts all connected dominating sets, not inclusion-minimal ones, and does not supply the claimed rook formula",
+        "evidence": [
+          "arXiv:2201.00721"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.00721",
+        "material_read": "Full open-access preprint, main theorem and applications",
+        "method": "Read paper and inspect definition of connected domination polynomial",
+        "title": "Categorifying Connected Domination via Graph Überhomology",
+        "trigger": "Potential more general polynomial of connected dominating sets"
+      },
+      {
+        "assessment": "Enumerates all connected dominating sets of particular graph constructions; no inclusion-minimal rook-graph polynomial",
+        "evidence": [
+          "J. Phys.: Conf. Ser. 1850 (2021) 012043"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1742-6596/1850/1/012043",
+        "material_read": "Full available article text, abstract, definitions, and graph-family theorems",
+        "method": "Read accessible full text and compare graph families and minimality",
+        "title": "The Connected Domination Polynomial of Some Graph Constructions",
+        "trigger": "Potential exact polynomial for Cartesian graph constructions"
+      },
+      {
+        "assessment": "Provides polynomial lookup for named graphs but no general formula or support gap over all \\(m,n\\ge2\\)",
+        "evidence": [
+          "MathWorld, updated 2026-10-23"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/MinimalConnectedDominatingSet.html",
+        "material_read": "Complete reference entry, definition, built-in polynomial and catalog description",
+        "method": "Read entry and inspect scope of tabulated GraphData objects",
+        "title": "Minimal Connected Dominating Set",
+        "trigger": "Exact named-graph polynomial database/table coverage"
+      },
+      {
+        "assessment": "Rook graphs on \\(m,n\\ge2\\) contain induced four-cycles, so chordal-only conclusions do not imply a general rook-graph formula; publication-priority uncertainty is retained",
+        "evidence": [
+          "Discrete Applied Mathematics 278 (2020), 3–11"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2019.07.015",
+        "material_read": "Title and abstract/secondary citation only; full paper was not inspected",
+        "method": "Checked available publication description and applicability of chordal hypothesis",
+        "title": "Enumeration of Minimal Connected Dominating Sets for Chordal Graphs",
+        "trigger": "Potential stronger specialized enumeration theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4248c05-14e3-4d39-bcde-a3be43481b6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The coefficient formula fully classifies a natural nonmonotone minimality property on a two-parameter graph family, determines endpoint multiplicities and the upper connected domination number, and exposes a forbidden interval of cardinalities exactly for skew rectangles. This is not a mere reformulation of the known minimum connected domination number or a finite table computation.",
+    "status": "PASS"
+  }
+}
