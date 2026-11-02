@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The forcing closure proves a bijection between maximum failed sets and complements of minimum forts. For each blue cell the white neighbor count is exactly its row plus column occupancy. The exhaustive regimes (no empty lines, empty columns only, empty rows only, both empty) give lower bounds and all equality patterns; the thin-board overlapping case is counted once. Orbit counts follow from the intersection size of two 2-element column supports. An independent adjacency-based script tested 20 dimensions (360898 candidate subsets), plus eight direct forcing comparisons. Finite checks are corroborative; the proof is valid for every m,n>=2.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cameron et al., arxiv:2310.17904, introduce fort-hypergraph and Cartesian-product bounds, not a complete minimum-fort count for a product of cliques.",
+        "Becker et al., arxiv:2404.05963v1, Sections 3-5, prove Sperner bounds and enumerate other named graph families; their construction methods address joins, coronas and vertex sums, not the Cartesian rook graph.",
+        "Published mathematical records titled “Minimal forts and fractional zero forcing of complete multipartite graphs” and “Minimal forts of complete multipartite graphs have rank at most three” concern complete multipartite graphs, not these rook graphs."
+      ],
+      "reasoning": "Known general theorems do not provide the opposite-cardinality extremal fort spectrum for this graph family. In particular, counts for complete multipartite graphs cannot be transferred to the line graph of a complete bipartite graph simply by similar terminology.",
+      "searches": [
+        "Minimal forts and cardinality-four forts of Cartesian products of complete graphs; K_n square K_m; count of maximum failed sets",
+        "Failed zero forcing number exact counts maximum nonforcing sets for rectangular rook graphs and Hamming graphs",
+        "rook graph K_m cartesian K_n exact enumeration all minimum forts number of forts of minimum cardinality four, 2 by n rook zero forcing",
+        "Cartesian product of two complete graphs maximal failed zero forcing sets all extremal configurations count binomial coefficients 2x2 rectangles",
+        "arxiv:2310.17904v1 Sections 2-4",
+        "arxiv:2404.05963v1 Sections 3-5"
+      ]
+    },
+    "checked_sources": [
+      "Fetcie, Jacob, Saavedra (2015), The failed zero forcing number of a graph, DOI 10.2140/involve.2015.8.99, Theorem 4.3 (full text)",
+      "Abara and Pelayo (2022), Maximal failed zero forcing sets for products of two graphs, arxiv 2202.04997v1 (full text)",
+      "Cameron et al. (2023), Forts, (fractional) zero forcing, and Cartesian products of graphs, arxiv 2310.17904 (accessible text)",
+      "Becker et al. (2024), On the number of minimal forts of a graph, arxiv 2404.05963v1 (21-page PDF, relevant sections)",
+      "Published mathematical claims focusing on rook graphs, fort hypergraphs and related product enumerators",
+      "Semantic literature searches concerning minimum rook forts, maximal failed blue sets, and crown-complement aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fetcie et al. establish mn-4 for a factor at least four and give one 2x2 construction, but do not classify other 4-cell forts (e.g., 2-by-4 has 44).",
+        "Abara–Pelayo refer back to that known result and do not supply an enumerator of maximum sets.",
+        "A related prior theorem concerns the maximum cardinality of an inclusion-minimal fort: an opposite extremum that does not determine the count of smallest forts.",
+        "Becker et al. identify complement/stalled equivalence, but this general equivalence alone does not determine smallest rook forts or their number."
+      ],
+      "reasoning": "The new conclusion does not follow as a numerical corollary of known failed zero forcing numbers or a single witness. General minimum-fort definitions and the opposite extremal cardinality likewise do not imply that only rectangles survive for m>=3,n>=5, nor the exact 44/54/60 exceptional counts.",
+      "searches": [
+        "doi:10.2140/involve.2015.8.99 Theorem 4.3",
+        "arxiv:2202.04997v1 Theorem 3.7",
+        "arxiv:2404.05963v1 Theorem 10 and Section 5",
+        "Number of maximum failed zero forcing sets of rook graphs K_m square K_n, equivalently minimum forts, cardinality four and enumeration, complete bipartite edge support",
+        "rook graph K_m cartesian K_n exact enumeration all minimum forts number of forts of minimum cardinality four, 2 by n rook zero forcing",
+        "related previously available rook-graph upper-minimal-fort theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph is also the line graph of the complete bipartite graph K_{m,n}, with a fort encoded by a 0-1 incidence matrix; minimum forts equal complements of maximum stalled failed standard zero-forcing sets.",
+        "For two rows it is the complement of a crown graph (for n >= 3), searched under the thin-board alias.",
+        "The accessible paper arxiv:2202.04997v1, Theorem 3.7, cites the scalar result F(K_m square K_n)=mn-4 rather than listing or counting all maximum sets."
+      ],
+      "reasoning": "Aliased line-graph, white-stalled and crown-complement forms were compared as equivalent *objects*. Neither the paper nor the closest research records state the full count and all orbit patterns; the 2015 value alone leaves extremizer multiplicities undetermined.",
+      "searches": [
+        "Number of maximum failed zero forcing sets of rook graphs K_m square K_n, equivalently minimum forts, cardinality four and enumeration, complete bipartite edge support",
+        "Minimal forts and cardinality-four forts of Cartesian products of complete graphs; K_n square K_m; count of maximum failed sets",
+        "rook graph K_m cartesian K_n exact enumeration all minimum forts number of forts of minimum cardinality four, 2 by n rook zero forcing",
+        "complement of crown graph minimum forts and maximum failed zero forcing sets count 2 by n rook",
+        "forts rook graphs line graphs complete bipartite graph characterization",
+        "arxiv:2202.04997v1 Sections 2 and 3.1",
+        "arxiv:2404.05963v1 Sections 2 and 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 4.3 in Fetcie et al. (2015) is an exact scalar table/formula for the maximum *size*, not an exact database of the number of attaining subsets.",
+        "Web searches for the two-row count sequence and minimum-fort counts did not retrieve a matching exact multiplicity table."
+      ],
+      "reasoning": "The previously known table of failed zero forcing numbers is not the claimed all-maximum-set multiplicity table. Negative database search results are only limited evidence; they are not treated as a proof of novelty.",
+      "searches": [
+        "site:oeis.org \"44, 100, 225, 441\" forts zero forcing rook",
+        "OEIS search for 44, 100, 225, 441 and maximum failed rook zero forcing",
+        "Number of maximum failed zero forcing sets of rook graphs K_m square K_n, equivalently minimum forts, cardinality four and enumeration, complete bipartite edge support",
+        "rook graph K_m cartesian K_n exact enumeration all minimum forts number of forts of minimum cardinality four, 2 by n rook zero forcing",
+        "doi:10.2140/involve.2015.8.99 Theorem 4.3"
+      ]
+    },
+    "rationale": "The 2015 rook-graph theorem establishes only the extremal cardinality and exhibits a rectangle; the 2022 product treatment recalls that theorem without counting all maximizers. The 2024 fort-enumeration study treats different named families and generic join/corona/vertex-sum operations, and the general fort-hypergraph product papers do not imply the rook-specific smallest-fort multiplicities. The new comparison concerns a full parametric labeled enumeration, complete shape classification, and thin-board symmetry orbit counts. A previously available rook-fort extremal result gives the opposite extremum, the largest inclusion-minimal fort, not the minimum forts counted here. Index and literal searches remain inherently incomplete.",
+    "residual_risks": [
+      "An unindexed or obscure treatment could enumerate minimum forts of line graphs of complete bipartite graphs using incidence-matrix terminology without the words rook graph or failed zero forcing.",
+      "Finite database tables or unpublished computational classifications might already include some small cases; no claim of independent publication-priority certification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_KNOWN_SCALAR_ONLY",
+        "evidence": "Theorem 4.3 gives F(K_n square K_m)=nm-4 for n>=4,m>=2 and constructs a single white 2x2 rectangle; no count of all maximum failed blue sets.",
+        "identifier_or_url": "https://msp.org/involve/2015/8-1/involve-v8-n1-p09-s.pdf",
+        "material_read": "Publisher full-text PDF; Theorem 4.3, argument and adjoining exceptional cases on pages 17-18 (document pages indexed 17-18) plus conclusions",
+        "method": "Full-text PDF text inspection and page screenshot",
+        "title": "The failed zero forcing number of a graph",
+        "trigger": "Direct exact scalar result on rook graphs"
+      },
+      {
+        "assessment": "COVERS_SCALAR_NOT_MULTIPLICITY",
+        "evidence": "Theorem 3.7 repeats the 2015 scalar rook result; no classified labeled counts or thin-board orbit multiplicities.",
+        "identifier_or_url": "https://arxiv.org/abs/2202.04997",
+        "material_read": "Accessible full arXiv HTML, introduction, Sections 2 and 3.1, including Theorem 3.7 and product construction statements",
+        "method": "Read mathematical statements in full accessible arXiv HTML and inspected Cartesian-product section",
+        "title": "Maximal failed zero forcing sets for products of two graphs",
+        "trigger": "Same graph product and failed standard zero forcing"
+      },
+      {
+        "assessment": "NOT_COVERING_THE_SPECIFIC_MINIMUM_ROOK_FORT_CENSUS",
+        "evidence": "Section 5 contains join, corona and vertex-sum constructions; the enumerated families include paths, cycles, spiders, wheels, sunlets and windmills; no rook-graph minimum-fort enumeration.",
+        "identifier_or_url": "https://arxiv.org/pdf/2404.05963",
+        "material_read": "21-page arXiv v1 PDF; abstract, preliminaries, Theorem 1, Sections 3 and 5 graph-product propositions and conclusion; checked whole searchable text for rook/Catesian/K_n",
+        "method": "PDF text searches, close reading of relevant numbered sections, and first-page screenshot",
+        "title": "On the number of minimal forts of a graph",
+        "trigger": "Potentially strongest prior on number of minimal forts and graph products"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_THE_SPECIFIC_COUNT",
+        "evidence": "Forts and their transversal hypergraphs are used for bounds, but the paper gives no all-dimension count of minimum forts in K_m square K_n.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.17904",
+        "material_read": "Accessible arXiv HTML, introductory definitions and product/fort bounds; v1 first public 2023-10-27 and current revision distinguished",
+        "method": "Full-text HTML theorem and section inspection",
+        "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+        "trigger": "Generic product-based fort and hypergraph bounds could dominate claimed result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5cfd0c4c-21bc-48e2-a6d2-d171f36e4e23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural zero-forcing extremizer-count question is unresolved by the known scalar formula. The theorem identifies every optimizer, computes exact labeled multiplicities for all rook graphs, and detects nontrivial thin-board orbit types and three exceptional rectangle families. It thereby specifies the minimum-cardinality stratum of a natural fort hypergraph, useful for extremal structure and fort-cover models. This is not a textbook substitution or merely numerical recomputation.",
+    "status": "PASS"
+  }
+}
