@@ -1,15 +1,21 @@
-# Research review: nilpotent census in inverse-monoid variants
+# Independent mathematical audit
 
-## Correctness — PASS
-The rank-preserving conjugate-sandwich reduction, exact directed-cycle criterion and signed cycle inclusion-exclusion give the claimed coefficient for every \(n,r,k\). The cycle polynomial at \(-1\) vanishes for cycle-union size at least two. The deficiency weight ratio and exact second-moment relation imply concentration and uniform integrability, establishing the square-root transition. Direct enumeration verifies 139 rank strata and 70 noncanonical sandwiches.
+## correctness
 
-## Originality — PASS within inspected coverage
-The closest primary text, Tsyaputa (2005), studies nilpotent subsemigroups and canonical sandwich reductions, not the rank-conditioned element census. Ganyushkin–Mazorchuk (2004) covers ordinary nilpotents, the special case of full sandwich rank; no independent priority is claimed for that case. Đurđev–Dolinka–East (2019) develops diagram-sandwich structure, while Laradji–Umar (2022) develops fixed-point/waist enumerations, neither of which supplies the two-variable nilpotent census in the inspected text. Published mathematical research-record queries and available prior claims revealed no dominating statement. Residual risk: the full text of the 2004 paper was unavailable, and an equivalent formula could be implicit in older combinatorial literature.
+PASS
 
-## Mathematical value — PASS
-Nilpotence and rank are intrinsic algebraic properties, while sandwich variants are natural deformations of a classical inverse monoid. The exact joint census across the entire infinite parameter family unexpectedly collapses to a linear conditional law. Its limiting parameter window distinguishes a vanishing nilpotent fraction from a positive fraction and quantifies the transition, offering a concrete invariant for structural comparisons of variants.
+Conjugation by total permutations identifies rank-r sandwich variants with partial identity e_R. A partial injection f is sandwich-nilpotent iff its functional digraph has no directed cycle contained wholly in R: an arbitrarily long alternating f-e_R walk forces a repeated R vertex. Inclusion-exclusion over disjoint cycles on t≤r vertices has signed weight sum_{π∈S_t}(-1)^cycles =0 for t≥2, so only t=0 and t=1 remain and N_{n,r,k}=C(n,k)^2 k!(1-rk/n²). For uniform partial injection J=n-rank, w_{n,j+1}/w_{n,j}=(n-j)/(j+1)^2 and exact E[J(J+1)]=n; geometric-tail concentration yields J/sqrt(n)→1, uniform integrability yields E[J]/sqrt(n)→1. Thus P→1-ρ and sqrt(n)P_{n,n-s_n}→1+τ. Independent n≤5 exhaustive sandwich-power enumeration and exact J moments corroborate, not replace, all-n proof.
 
-## Scope of verification
-The executable checker corroborates all enumerated cases and a finite exact moment identity, while the general statements rely on the written proof. This review is not independent; potential undiscovered prior art and the uninspected older full text remain risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary nilpotent rank enumeration (r=n) and asymptotics have substantial pre-2006 prior coverage by Ganyushkin–Mazorchuk, and are expressly excluded as new. Tsyaputa 2005 already studies nilpotent subsemigroups of sandwich variants, not the complete individual nilpotent rank fibers. The all-sandwich-rank linear factor 1-rk/n² and critical s~sqrt(n) transition were not found in inspected content. Qualified best-of-knowledge PASS; 2004 primary article could not be fully fetched, Oxford storage limit noted.
+
+## value
+
+PASS
+
+The parameter r changes the nilpotence probability at every fixed element rank by an unexpectedly simple exact linear factor and introduces a nontrivial sqrt(n) crossover between ordinary nilpotence and positive-density nilpotence. It is a complete natural census for variants, not merely a tiny finite example or an ordinary-case recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
