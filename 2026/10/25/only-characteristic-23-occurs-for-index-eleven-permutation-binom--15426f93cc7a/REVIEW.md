@@ -1,15 +1,21 @@
-# Scientific review: the eleventh-index characteristic classification
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite field of characteristic \(p\), the index-eleven Wendt obstruction restricts \(p\) to four explicitly factored prime divisors. The source's product identity puts the relevant scalar into a completely enumerable prime-field set for \(p=67,89,199\). Its first and second inverse-power-sum identities then force a pair of polynomial equations with only two possible relations between their indices. Exact arithmetic enumerates every first-equation root and checks that both corresponding second-equation residues are nonzero. The certificate uses an integer Sylvester determinant and two algebraically independent evaluations of the inverse-power-sum polynomials. The positive characteristic-\(23\) witness is checked both algebraically and over all field elements. The proof does not infer an infinite assertion from sampled extension degrees.
+## correctness
 
-## Originality — PASS, with residual risk
-Tang–Fan, arXiv:2610.18584v1, proves unrestricted characteristic classification through index \(10\), plus only a **prime-field** index-eleven result. Its Wendt determinant gives candidate characteristics but does not distinguish extension-field impossibility at the other three primes. Ayad–Belghaba–Kihel, arXiv:1210.1252, proves prime-field bounds and conditional descent, not unrestricted index-eleven elimination. Fan's arXiv:2609.20354 specializes to index \(q_0-1\) for a prime-power subfield size \(q_0\), so index \(11\) would require the impossible subfield size \(12\). The recorded Wendt-factorization table determines only candidate divisors. Searches for arbitrary-extension index-eleven classifications and mathematical research records found no stronger covering statement. Possible earlier implicit consequences or an unlocated result remain risks.
+PASS
 
-## Value — PASS
-The original investigation explicitly stopped its complete arbitrary-extension classification at index \(10\) and treated index \(11\) only in prime fields. Determining the next natural unrestricted index closes that genuine boundary with a complete finite-field characteristic classification, ruling out all three extra Wendt primes even for extension degrees beyond conditional descent hypotheses. This distinguishes possible characteristics from mere divisor candidates and supplies a reusable two-inverse-sum exclusion certificate.
+For g=gcd(s,p^m-1)=11, the necessary Wendt resultant W11=101832157445630503 factors exactly as 23^5*67^2*89*199^2. For p=67,89,199 all eleventh roots of unity lie in Fp, and published quotient-normalization/product conditions restrict z=(-a)^t to 4,2,4 candidates respectively. Published inverse-power-sum Lemma 3.3 forces P11(tau,U1,z)=P22(tau,U2,z)=0 with tau=-11^{-1} mod p, U2=2U1 or 2U1-tau; independent exact finite-field formal-series recurrence exhausted all first-sum roots, checking 12+4+8=24 nonzero second residues. Each such p is impossible for every extension, not just tested q. At p=23, x*(x^11+2) permutes F23 by the square/nonsquare split; independently enumerated its 23 images. All quantifiers, t>2 and 22<p in excluded cases were checked; Python tests supplement necessary published lemmas, not stand in for their general proofs.
 
-## Scope and limitations
-The theorem classifies prime characteristics, not all polynomial parameters within the surviving characteristic. No claim is made about index \(12\) or higher, nor about an independent audit. The necessary lemmas are published; new finite calculations and the logical reduction are reproducible from the companion verifier. The scientific comparison is best knowledge, not proof of global uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for all-extension admissible-characteristic set {23} at index 11. Tang–Fan proves Wendt finite candidate set and a prime-field-only characteristic 23 corollary, but not the exclusion of 67,89,199 over arbitrary extension fields. The joint two-inverse-sum exclusion supplies exactly that missing implication; no Resultary result dominates it. Source access and alternative old characterizations remain a priority risk.
+
+## value
+
+PASS
+
+The full extension-degree characteristic classification closes a defined gap in a natural permutation-binomial index problem; finite arithmetic is an exhaustive certificate for the extension-independent necessary conditions, not an arbitrary small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

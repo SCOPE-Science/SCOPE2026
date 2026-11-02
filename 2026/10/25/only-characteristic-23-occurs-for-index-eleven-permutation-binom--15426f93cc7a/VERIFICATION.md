@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Exact computational certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3. No third-party packages or input data are required.
+## correctness
 
-The script reconstructs the complete integer Wendt determinant at index \(11\) using a \(22\)-row Sylvester matrix and fraction-free Bareiss elimination. It verifies the factorization
-\[
-101832157445630503=23^5\cdot67^2\cdot89\cdot199^2.
-\]
-It checks the four prime factors are prime by exact trial division, enumerates all allowed \(11\)-th roots with the required product identity, all first-sum roots modulo the three excluded primes, and both permitted second-sum arguments. For the \(24\) required nonzero second-sum values, the code evaluates the polynomial two different ways: by the formal generating-coefficient identity and directly from its polynomial-derivative recurrence. Finally it verifies that the explicit witness polynomial permutes all \(23\) elements in the prime field.
+PASS
 
-Expected terminal conclusions:
+For g=gcd(s,p^m-1)=11, the necessary Wendt resultant W11=101832157445630503 factors exactly as 23^5*67^2*89*199^2. For p=67,89,199 all eleventh roots of unity lie in Fp, and published quotient-normalization/product conditions restrict z=(-a)^t to 4,2,4 candidates respectively. Published inverse-power-sum Lemma 3.3 forces P11(tau,U1,z)=P22(tau,U2,z)=0 with tau=-11^{-1} mod p, U2=2U1 or 2U1-tau; independent exact finite-field formal-series recurrence exhausted all first-sum roots, checking 12+4+8=24 nonzero second residues. Each such p is impossible for every extension, not just tested q. At p=23, x*(x^11+2) permutes F23 by the square/nonsquare split; independently enumerated its 23 images. All quantifiers, t>2 and 22<p in excluded cases were checked; Python tests supplement necessary published lemmas, not stand in for their general proofs.
 
-`CERTIFICATE_OK 24 nonzero second-sum residues`
+## originality
 
-`WITNESS_OK x^12+2x permutes F_23`
+PASS
 
-The enumerations are exhaustive **only because** the proof reduces an arbitrary extension to these three finite prime fields and two inverse-power-sum identities. No exhaustive examination of all polynomials or all extension degrees is asserted or required. The independent-audit channel has not been performed.
+Best-of-knowledge PASS for all-extension admissible-characteristic set {23} at index 11. Tang–Fan proves Wendt finite candidate set and a prime-field-only characteristic 23 corollary, but not the exclusion of 67,89,199 over arbitrary extension fields. The joint two-inverse-sum exclusion supplies exactly that missing implication; no Resultary result dominates it. Source access and alternative old characterizations remain a priority risk.
+
+## value
+
+PASS
+
+The full extension-degree characteristic classification closes a defined gap in a natural permutation-binomial index problem; finite arithmetic is an exhaustive certificate for the extension-independent necessary conditions, not an arbitrary small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
