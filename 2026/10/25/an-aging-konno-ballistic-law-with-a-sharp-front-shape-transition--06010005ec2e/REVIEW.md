@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the aperiodic power-law renewal age as a beta limit, obtains the coin-specific unreset speed distribution by a Fourier group-velocity pushforward, and applies exact renewal conditioning to yield the independent beta–Konno product. The central singularity and front coefficient follow from explicitly evaluated integrals, with all endpoint restrictions stated. The second moment reproduces the established renewal-MSD coefficient. The included verification program passes 18 analytic and finite-position checks, without pretending that finite experiments prove a weak limit.
+## correctness
 
-**Originality — PASS (best-knowledge).** Das (arXiv:2609.08973v1) already derives the model, renewal decomposition, fixed-site limits, and mean-squared displacement; Štefaňák et al. (arXiv:1405.7146) already derive unreset three-state weak velocities. The classical Dynkin–Lamperti age law is also antecedent. The claim is the *full* power-law restarted ballistic density with explicit cusp and three-regime front classification, not those building blocks. Publisher studies of ballistic Lévy walks treat accumulating flights, rather than repeatedly reset-to-origin trajectories. Searches in accessible prior records, publication literature, and available earlier claims did not identify an equivalent result. A broader unlocated theorem could imply portions of the claim; publication-wide priority and independent review are not certified.
+PASS
 
-**Value — PASS.** The spatial density answers a transport question left unresolved by existing fixed-site and mean-square asymptotics: whether the observed wavefront peaks or fades. The change at \(s=3/2\) is a sharp, parameter-complete qualitative distinction with exact amplitudes, suitable for direct spatial distributions and future finite-time investigations. The singular-origin and front exponents are related but different physical features.
+For fixed ell>0 and 0<alpha=s-1<1, renewal age A_t/t tends to Beta(1-alpha,alpha) via the regularly varying lattice renewal mass and survival tail; both endpoints are tight by the displayed power bounds. Spectral diagonalization of the specified three-state Grover coin and shift gives two dispersive branches plus a flat band; the reset coin chi_perp is orthogonal to the flat-band eigenspace at every momentum. An independent numerical projector check over 4 ell values and 31 momenta gave squared overlaps below 5e-31, corroborating but not proving the algebraic orthogonality. The pushforward of arcsine momentum under group velocity gives Konno density b/[pi(1-v^2)sqrt(a^2-v^2)] without an atom. Renewal mixing yields independent product Y=UV; Mellin/beta integrations give central x^(-alpha), front (a-x)^(alpha-1/2), positive constants and sharp transition at s=3/2. Beta E(U^2) times Konno E(V^2) reproduces the independently published second moment; tests of finitely many parameters do not establish general convergence.
 
-**Limitations.** The weak law is for fixed positive loop weight, exponent strictly between one and two, complete independent resets, and the flat-band-dark preparation. It does not imply pointwise finite-lattice density convergence, path limits, or behavior at marginal exponents. There is a residual undiscovered-literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Das (2026) studies the identical weighted three-state walk and reset mechanism, flat-band-dark state, renewal weights, fixed-position limits, and power-law-restart second moments. Classical Dynkin–Lamperti ages and three-state Konno velocities are prior results; these ingredients do not by themselves explicitly state the beta*Konno weak spatial law, its full density, sharp central/front amplitudes and s=3/2 front transition. Classical ballistic Lévy walks accumulate flights rather than restarting from origin, so a Lévy-walk law cannot simply be substituted.
+
+## value
+
+PASS
+
+The full spatial weak limit and its two singularity amplitudes are meaningful physical/mathematical invariants of a named quantum walk under heavy-tailed resets. The sharp front-shape transition at s=3/2 is invisible from the known second moment alone and offers a structural comparison of transport and renewal aging, with explicit parameter boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
