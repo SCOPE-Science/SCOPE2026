@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-risk percolation kernel has a unique threshold for finite excess-degree factor above one. The first-order perturbation at simultaneous weak heterogeneity and strong assortativity is a concrete \(2\times2\) matrix with distinct real eigenvalues; its Perron shift gives the stated square-root crossover. The fixed-assortativity derivative follows from the stationary left/right vectors of the stochastic contact matrix, whereas full segregation decouples the two classes. The determinants, large-degree trace correction, signs, and endpoint limits are derived explicitly. A standalone direct-kernel and exact-arithmetic checker passed; numerical tests are corroboration, not proof.
+## correctness
 
-**Originality — PASS within identified literature, with residual risk.** The motivating 2026 primary source gives the exact threshold determinant equation and a trace-only approximation; it does not state the joint \(1-h\asymp\delta\) singular scaling, the noncommuting first-order sensitivities, or the sharp degree-asymptotic trace-error law. General two-group spectral-threshold theory is acknowledged as pre-existing. Exact source-equation implication and parameter coverage were compared, as were searches for alternative homophily, reproduction-number and spectral formulations. A potential unindexed singular-perturbation lemma and differences between the open preprint and earlier journal article remain risks.
+PASS
 
-**Value — PASS.** Near-perfect social assortativity changes the practical interpretation of small differences in transmission behavior: any fixed amount of cross-group mixing has first-order impact \(p\), whereas complete segregation gives coefficient \(1\), joined by an explicit nontrivial transition. This is a motivated threshold-stability question and exposes an order-one limit to a natural scalar screening approximation, rather than an arbitrary parameter substitution. No empirical epidemiological inference is claimed.
+For κ>1, 0<p<1 and 0≤s≤1, strict monotonicity of the positive 2×2 transmissibility Perron root gives a unique positive threshold. With h=1−τδ, expand F(t)=f(t)[I+δK+O(δ²)] and K=[[-τp,τp],[τ(1−p),q−τ(1−p)]], q=t e^(−t)/f(t). Its simple upper eigenvalue G=(q−τ+sqrt((q−τ)²+4pqτ))/2, yielding t_c=t0−δG/(κ−1)+O(δ²), uniformly for compact τ. Perron derivative at fixed h<1 is p, whereas at h=1 the high-risk diagonal gives t0/(1+δ); the limits differ by 1/p. The leading coefficient B has det(B)=αh≥0, so 1≤tr(B)/rho(B)≤2; equality 2 at α=1,h=1. Independently evaluated exact spectral roots and δ² residuals at four parameter triples using different code; asymptotic and all-parameter proof is analytic, not inferred from finite tests.
 
-**Closest literature:** Mazza et al., Physical Review E 113, 014306 (2026), doi:10.1103/xps9-qqvp, exact Eq. (3) and trace-only Eq. (4); open arXiv:2601.21743, Appendix A; classical multitype SIR spectral analysis. Independent publication-priority confirmation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the singular near-segregation two-parameter threshold layer and sharp trace approximation bias, not for the prior HeSIR model, its exact determinant equation or generic Perron matrix perturbation.
+
+## value
+
+PASS
+
+The singular 1−h~δ crossover isolates an epidemiologically motivated noncommuting mixing/risk limit and gives an explicit parameter-dependent sensitivity and sharp error of a published trace-only screening approximation. These are structural asymptotic thresholds rather than an arbitrary numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
