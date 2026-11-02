@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-With Python 3.10+ in this directory, run `python verify_cover.py`. The script is standalone, imports only standard-library modules, and exhaustively checks the finite domain of 64 three-symbol words and all unordered six-word subsets. It first computes every six-subset union using an exact integer subset DP; it then separately reconstructs every covering sextuple by lexicographic enumeration with a justified remaining-capacity pruning rule. It enumerates all 48 relabeling/reversal actions on each cover and counts the orbit and overlap profiles. The expected output is in `verify_output.txt` and ends `VERIFY_OK`.
+## correctness
 
-The script asserts that all 74,974,368 six-subsets are represented by the DP, exactly 644 have full deletion-shadow union, exactly 120 of these have pairwise-disjoint shadows, and the orbit sizes sum to 644. These are complete finite calculations, not a test of an asymptotic statement. They do not independently establish scientific novelty; the prior-work comparisons and the identified residual risk are recorded separately. No external independent audit has been carried out.
+PASS
+
+For q=4 and three transmitted symbols, each 3-word has at most three distinct length-2 deletion descendants, so five words cannot cover all 16 ordered received pairs. The displayed six-word code gives a partition. Directly inspected exact mask representation M(a,b,c) and complete six-subset DP (64 possible triples), and independently implemented capacity-pruned increasing-sextuple and 24 global symbol permutations times reversal; found 644 optimal covers, 120 disjoint-shadow, 524 overlapping, and 21 orbits: 8*1 + 12*3 + 24*9 + 48*8 = 644. The capacity bound at depths 3,4,5 is 16-3(6-k), so pruning is exhaustive. Every counted codebook is an unordered set with distinct words; duplicate deletion positions are collapsed. This is a finite exhaustive proof only for q=4,n=3, not a general alphabet formula.
+
+## originality
+
+PASS
+
+Known lower bound/minimum size and existence of perfect six-word deletion codes are explicitly not new. The tested new final claim is the 644/120/524 labeled-codebook census, incidence profiles and 21 symmetry orbits. No inspected stronger theorem or published record was shown to imply the complete counting statistics; residual unindexed directed-covering-design risk remains.
+
+## value
+
+PASS
+
+A natural DNA-sized four-symbol deletion-covering problem has many inequivalent minimal covers; determining all 644, including 524 non-perfect overlap-bearing ones, resolves a complete finite classification beyond a known optimum size. Exact orbit and incidence profiles are usable structural benchmarks, not a routine substitution of a previously published count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
