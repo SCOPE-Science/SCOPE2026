@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:40:53.466901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Putting u_n=-log x_n gives u_(n+1)=p u_n-log c+O(exp(-delta u_n)); summing the normalized affine recurrence gives u_n=C p^n+(log c)/(p-1)+o(1), C>0 from u_n->infinity. Algebraic flight durations satisfy tau_n~a exp(q C p^n), so t_n is dominated by the last term and log log t_n=n log p+O(1); logarithmic flights have tau_n~a C p^n, hence t_n~const p^n and log t_n=n log p+O(1). Bracketing T between consecutive returns gives matching N(T) asymptotics. Summing b_n by Cesàro and bounding incomplete-cycle outside-time gives L(T)~b0 N(T). The cited piecewise example gives r(x)=sqrt(1+x^2)-1, return r/(1+r-r²)=x²/2-3x^4/8+O(x^6), tau~2/x² and b0=1-2epsilon. Independent symbolic expansion and recurrence checks corroborated constants.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating piecewise-flow return asymptotic is prior, not new.",
+          "Related bounded-return-time and pullback-convergence results have different hypotheses and do not imply both occupation rates with the same p and b0."
+        ],
+        "reasoning": "The combined two-flight-time conditional conclusion is not covered by the inspected source statements.",
+        "searches": [
+          "Oljača et al DOI:10.1007/s10884-022-10196-5",
+          "Newman et al DOI:10.1088/1361-6544/adbe21"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s10884-022-10196-5",
+        "https://doi.org/10.1088/1361-6544/adbe21",
+        "https://doi.org/10.1017/S0305004110000642",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/69e5cd3aa14bc846bbbd0f413f48a6f330f1273c/2026/10/26/a-two-regime-occupation-law-for-superattracting-return-flows--7d19283382db"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source return map supplies x_(n+1)~x_n²/2 and qualitative full-density residence, but it does not state a rate.",
+          "The new coefficient b0/log p also uses the limiting time outside each cycle and a specified flight-scale law."
+        ],
+        "reasoning": "The quantitative statement is derived by a new elementary but useful conversion from two return-time mechanisms to physical-time occupation.",
+        "searches": [
+          "Oljača–Ashwin–Rasmussen 2022 original return map example",
+          "Newman–Ashwin–Rasmussen 2025 homoclinic example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2022 source supplies qualitative statistical attraction and a return-map example.",
+          "The 2025 source studies bounded-return-time properties, convergence and hyperbolic-loop motivation."
+        ],
+        "reasoning": "Qualitative density-one attraction or return-map asymptotics alone do not state the two alternative explicit L(T) leading-coefficient laws.",
+        "searches": [
+          "Oljača Ashwin Rasmussen Measure and Statistical Attractors for Nonautonomous Dynamical Systems 2022",
+          "Newman Ashwin Rasmussen Return-time and pullback-convergence properties of statistical attractors 2025",
+          "Resultary: superattracting return map occupation time log log T statistical attractor long excursion cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published semantic hits concern different high-energy occupation laws and local return phenomena; none locates an all-cycle loglog/log first-order formula for this example."
+        ],
+        "reasoning": "No exact published table of these coefficients was found; a short asymptotic lemma may nevertheless be standard and is a residual risk.",
+        "searches": [
+          "Resultary: superattracting return map occupation time log log T statistical attractor long excursion cycles",
+          "2022 statistical attractor piecewise y^3 and y^2"
+        ]
+      },
+      "rationale": "Best-of-knowledge source/implication comparison: Qualitative density-one attraction or return-map asymptotics alone do not state the two alternative explicit L(T) leading-coefficient laws. The combined two-flight-time conditional conclusion is not covered by the inspected source statements. All specific risks are retained; inaccessible literature alone did not determine the outcome.",
+      "residual_risks": [
+        "The elementary perturbed-linear recurrence and renewal/time-change argument may be a known result implicit in the broader return-time literature.",
+        "Only relevant sections of the 2025 paper were read; other full-text sections could contain matching rate laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical flow/qualitative behavior are prior; inspected sections do not give this explicit loglog(T)/T coefficient.",
+          "evidence": "The source return map has quadratic superattraction and long slow passages; the present result derives a quantitative cumulative outside-time rate.",
+          "identifier_or_url": "https://doi.org/10.1007/s10884-022-10196-5",
+          "material_read": "Accessible open full article including the piecewise-flow construction and statistical-attractor discussion",
+          "method": "open publication full-text comparison",
+          "title": "Measure and Statistical Attractors for Nonautonomous Dynamical Systems",
+          "trigger": "Same piecewise-smooth flow with section coordinate and statistical attractor"
+        },
+        {
+          "assessment": "Related duration and attraction behavior; do not infer whole-document noncoverage from partial reading.",
+          "evidence": "The inspected material does not state both flight-scale occupation laws with b0/log p.",
+          "identifier_or_url": "https://doi.org/10.1088/1361-6544/adbe21",
+          "material_read": "Published full-text extract and abstract, especially definitions and return-time/homoclinic motivation; not every appendix or proof was inspected",
+          "method": "open licensed full-text excerpt/sections",
+          "title": "Return-time and pullback-convergence properties of statistical attractors",
+          "trigger": "Closest natural return-time framework"
+        },
+        {
+          "assessment": "Background on time averages, not evidence against or for exact rates.",
+          "evidence": "No source-wide priority judgment from abstract.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004110000642",
+          "material_read": "Bibliographic/abstract material only",
+          "method": "source metadata and abstract",
+          "title": "On statistical attractors and the convergence of time averages",
+          "trigger": "Background time-average persistence question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Physically motivated quantitative refinement of statistical attraction: the same superattracting return-map order yields different observable occupation decay depending on algebraic versus saddle-logarithmic flight times; gives universal leading coefficients for each.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a superattracting one-dimensional return x_(n+1)=c x_n^p(1+O(x_n^delta)), p>1, and outside-time b_n->b0>0, flight times asymptotic to a x_n^(-q) give L(T)~(b0/log p)log log T, whereas times asymptotic to a log(1/x_n) give L(T)~(b0/log p)log T; the original piecewise flow example has p=2 and b0=1-2epsilon.",
+  "limitations": [
+    "Conditional positive scalar return law, specified flight-time classes and bounded partial-cycle outside time, not every statistical attractor.",
+    "No uniform error estimates or claims for parabolic p=1 dynamics."
+  ],
+  "schema_version": 1
+}

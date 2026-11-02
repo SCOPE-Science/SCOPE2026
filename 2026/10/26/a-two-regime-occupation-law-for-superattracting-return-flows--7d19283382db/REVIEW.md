@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces the return-map asymptotic to \(u_{n+1}=p u_n-\log c+O(e^{-\delta u_n})\), establishes the cycle-count law in each duration regime, and then uses \(b_n\to b_0\) to obtain the occupation-time asymptotic. The example's return map is reconstructed from the slow/fast branches, and the exact solution of \(\dot y=-y^2\) gives the stated duration scale. The symbolic check verifies the return-map coefficients; the analytic proof establishes the infinite-time claim.
+PASS
 
-## Originality — PASS
+Putting u_n=-log x_n gives u_(n+1)=p u_n-log c+O(exp(-delta u_n)); summing the normalized affine recurrence gives u_n=C p^n+(log c)/(p-1)+o(1), C>0 from u_n->infinity. Algebraic flight durations satisfy tau_n~a exp(q C p^n), so t_n is dominated by the last term and log log t_n=n log p+O(1); logarithmic flights have tau_n~a C p^n, hence t_n~const p^n and log t_n=n log p+O(1). Bracketing T between consecutive returns gives matching N(T) asymptotics. Summing b_n by Cesàro and bounding incomplete-cycle outside-time gives L(T)~b0 N(T). The cited piecewise example gives r(x)=sqrt(1+x^2)-1, return r/(1+r-r²)=x²/2-3x^4/8+O(x^6), tau~2/x² and b0=1-2epsilon. Independent symbolic expansion and recurrence checks corroborated constants.
 
-The closest source for the example gives a qualitative statistical-attraction statement and the return-map expansion, but not the class-level occupation law. The later bounded-return-time paper studies related return-time properties and a homoclinic-loop setting, but the inspected sections do not state this two-regime rate theorem. Targeted database and literature searches found adjacent results on other return maps and occupation statistics, not an equivalent statement for the stated class. This is a best-knowledge originality assessment, not a proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result separates two natural flight-time mechanisms that can share the same superattracting return-map order. It gives the leading growth of excursion counts and the exact leading coefficient of the time fraction outside a target neighbourhood, refining qualitative statistical attraction into a usable observation-time law. Its scope and unproved extensions are stated explicitly.
+Best-of-knowledge source/implication comparison: Qualitative density-one attraction or return-map asymptotics alone do not state the two alternative explicit L(T) leading-coefficient laws. The combined two-flight-time conditional conclusion is not covered by the inspected source statements. All specific risks are retained; inaccessible literature alone did not determine the outcome.
 
-## Closest literature and limitations
+## value
 
-- Oljača, Ashwin, and Rasmussen (2022), DOI 10.1007/s10884-022-10196-5: source of the piecewise-smooth example and its qualitative statistical-attraction analysis.
-- Newman, Ashwin, and Rasmussen (2025), DOI 10.1088/1361-6544/adbe21: related bounded-return-time and homoclinic-loop analysis; only relevant sections were used for comparison.
-- Karabacak and Ashwin (2011), DOI 10.1017/S0305004110000642: background on statistical attractors and time averages.
+PASS
 
-Residual risk remains that an unindexed source contains a comparable general occupation law.
+Physically motivated quantitative refinement of statistical attraction: the same superattracting return-map order yields different observable occupation decay depending on algebraic versus saddle-logarithmic flight times; gives universal leading coefficients for each.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
