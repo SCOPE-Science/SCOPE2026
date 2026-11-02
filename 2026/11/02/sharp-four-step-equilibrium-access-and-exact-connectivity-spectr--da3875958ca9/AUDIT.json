@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The cube-layer proof supplies the sharp universal bound without sampling, and the displayed 12 arcs force four steps to the unique sink. A complete 4096-orientation traversal with independent reverse-BFS and Floyd–Warshall cross-checks exactly yields the counts; inclusion–exclusion independently confirms the 3134-sink denominator. All checks were replayed from the actual standalone verify.py included in this package.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnston et al. give connectivity results over large-game regimes and simulations, not this exact finite spectrum.",
+        "Fabrikant et al. reachability theorem applies to strict 2x2x2 games but has no stated sharp radius."
+      ],
+      "reasoning": "The broad weak-acyclicity theorem subsumes only the qualitative existence component; it does not subsume the quantified four-step threshold and full orientation-by-orientation counts. Large-game connectivity asymptotics cannot yield the stated small-game exact integers.",
+      "searches": [
+        "three-player two-action generic normal form games orientation of 3 cube exact number of connected best-response graphs with Nash equilibria 2492 3134 weakly acyclic",
+        "site:arxiv.org \"Game Connectivity and Adaptive Dynamics\"",
+        "arxiv:2309.10609 Section 4 and Appendix H",
+        "arxiv:1108.2092 Lemma 4.6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2309.10609v6",
+      "https://arxiv.org/abs/1108.2092",
+      "https://link.springer.com/article/10.1007/s00182-023-00837-4",
+      "https://digitalcommons.memphis.edu/facpubs/4415/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fabrikant–Jaggard–Schapira: all strict 2x2x2 games with PNE are weakly acyclic (known).",
+        "Johnston–Savery–Scott–Tarbush: primarily asymptotic connectivity; Appendix H is simulated.",
+        "Heinrich et al.: convergence of specified random/clockwork dynamics, not shortest existential paths.",
+        "Bollobás et al.: abstract-level only, model is independently chosen directed hypercube edges."
+      ],
+      "reasoning": "The final claim is not qualitative reachability. It quantifies the optimal worst-case shortest-path length and the full exact finite distribution, plus an exact every-sink connectivity probability. None of the specific inspected premises entails these numbers. The 1993 full-text gap prevents categorical priority exclusion but is not evidence of coverage.",
+      "searches": [
+        "arxiv:1108.2092 Lemma 4.6",
+        "arxiv:2309.10609 Sections 3–4 Appendix H",
+        "doi:10.1007/s00182-023-00837-4",
+        "\"Connectivity and dynamics for random subgraphs of the directed cube\" exact 3 dimensions enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2011 Lemma 4.6 proves weak acyclicity: some path exists but no four-move maximum or histogram is given.",
+        "Every generic binary three-player best-response relation corresponds exactly to one orientation of the 12-edge three-cube."
+      ],
+      "reasoning": "Equivalent vocabulary includes 2x2x2 strict games, directed hypercube orientations, weak acyclicity, best-response improvement distance and shortest path to a pure Nash equilibrium. Known reachability does not logically imply the sharp bound or exact distribution.",
+      "searches": [
+        "three-player binary game best-response graph exact equilibrium distance four moves 4096 orientations 720",
+        "shortest improvement path four steps sharp bound three-player two-strategy game",
+        "3 player 2 strategy random games shortest best response path exact counts equilibria",
+        "arxiv:1108.2092 Lemma 4.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Appendix H explicitly uses 10,000 sampled games rather than an exhaustive 4096-class census.",
+        "Exact numerical web and published-record searches returned no matching three-player best-response table."
+      ],
+      "reasoning": "No inspected published numerical table provides the exact distance histogram 258,644,1512,720 and connected count 2492. Negative search alone is not a uniqueness proof; the closest original study reports simulated, not exact, proportions.",
+      "searches": [
+        "exact count 2492 connected three-player two-action games 3134 pure Nash equilibria",
+        "\"2492\" \"3134\" game best-response graph",
+        "\"best response graph\" \"4096\" \"connected\"",
+        "\"best response\" \"3\" \"2\" \"720\" \"1512\" games",
+        "arxiv:2309.10609 Appendix H simulations"
+      ]
+    },
+    "rationale": "The theorem expressly excludes the already-published strict three-player binary weak-acyclicity assertion (Fabrikant–Jaggard–Schapira, Lemma 4.6). The asserted contribution is the new sharp numerical maximum of four strictly improving best-response moves, the exact four-cell distance spectrum over all labeled orientations, and the exact every-equilibrium connectivity probability. The directly relevant origin text has asymptotic and simulation, not these exact quantified conclusions. Abstract-only earlier literature remains a priority risk.",
+    "residual_risks": [
+      "The 1993 Bollobás–Gotsman–Shamir article was available only by abstract, so full-text priority comparison remains unresolved.",
+      "A specialized unpublished or unindexed exact enumeration of the oriented three-cube may exist.",
+      "The four-step bound has a short proof related to the known 2011 star argument; no originality is claimed for qualitative weak acyclicity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Asymptotic connectivity and 10,000-game small-parameter simulations; no exact 4096-orientation shortest-path histogram or sharp four-step claim established",
+        "evidence": [
+          "Section 3 definitions of weakly acyclic and connected, HTML lines 103–128",
+          "Section 1 explicit no-convergence-time caveat, lines 85–91",
+          "Appendix H lines 813–820 explicitly says ten thousand simulated games per parameter"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.10609v6",
+        "material_read": "Abstract, Sections 1–4, connectivity definitions, methodological claims, Appendix H, and references in publicly accessible full HTML",
+        "method": "Full-text reading with term and theorem/appendix comparison",
+        "title": "Game Connectivity and Adaptive Dynamics",
+        "trigger": "Matching best-response graph, generic game model, connectivity notion, and small-player simulations"
+      },
+      {
+        "assessment": "Lemma 4.6 explicitly already proves existence of a best-response path in every strict binary three-player game with a pure equilibrium. That component is excluded; no four-step sharp length or exact distance/connectivity census is stated in the inspected lemma",
+        "evidence": [
+          "arXiv:1108.2092, Lemma 4.6 and its proof, accessible lines 213–218"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.2092",
+        "material_read": "Complete HTML source around introduction, Section 4, Lemmas 4.3 and 4.6, and proof",
+        "method": "Full-text theorem-and-proof implication comparison",
+        "title": "On the Structure of Weakly Acyclic Games",
+        "trigger": "Known strict 2-by-2-by-2 weak-acyclicity result threatens coverage of the existential component"
+      },
+      {
+        "assessment": "Investigates stochastic and fixed-order playing sequences and asymptotic frequencies; not an exact all-orientations existential shortest-improvement-radius spectrum for three binary players",
+        "evidence": [
+          "2023 article abstract and Introduction, URL given"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00182-023-00837-4",
+        "material_read": "Full accessible HTML, abstract, introductory model and game figures, results and discussions of random/clockwork sequences",
+        "method": "Comparison of quantified dynamic and random-game statements",
+        "title": "Best-response dynamics, playing sequences, and convergence to equilibrium in random games",
+        "trigger": "Random-game best-response convergence, possible stronger quantitative results"
+      },
+      {
+        "assessment": "Abstract concerns independently sampled directed edges and an asymptotic strong-connectivity threshold, a different model from exactly one orientation per cube edge; full-document noncoverage cannot be asserted",
+        "evidence": [
+          "University of Memphis institutional abstract at https://digitalcommons.memphis.edu/facpubs/4415/"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF02784059",
+        "material_read": "Abstract and bibliographic data only; no full text obtained",
+        "method": "Abstract-level model and theorem comparison only",
+        "title": "Connectivity and dynamics for random subgraphs of the directed cube",
+        "trigger": "Historical directed-hypercube network convergence literature potentially covering small-cube counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da387595-8ca9-4bce-91e1-7f4fdaf85090",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp bound answers a motivated quantitative accessibility question, and the complete small-game radius/strong-connectivity distribution provides the exact finite counterpart to the published asymptotic and simulated game-connectivity picture. It is distinct from the already-known qualitative weak-acyclicity lemma; no claim is made about a fixed playing sequence or larger number of players.",
+    "status": "PASS"
+  }
+}
