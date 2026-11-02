@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:42:07.872815Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md blob ed74c90f9854397e746acd45d56f3b7a57aa4126 in tree 3ebb68ccae84131f886f9fea04275db0de3da7ac",
+        "Frozen Git verify_dual_blocking.cpp blob 83745add22c2a6bc0fbcf2098a8f6e55349ffd2d in tree 3ebb68ccae84131f886f9fea04275db0de3da7ac",
+        "Frozen Git verify_pencil_lower.cpp blob 23c2729ba790968e0d1411212a26a15fadeb59a2 in tree 3ebb68ccae84131f886f9fea04275db0de3da7ac",
+        "Frozen Git verify_examples.py blob 556176e859a786e219cbedea60701d146539cd00 in tree 3ebb68ccae84131f886f9fea04275db0de3da7ac",
+        "Independent C++ full eight-line and 34,375-pattern reruns; exact SymPy Jacobian and tangent checks"
+      ],
+      "rationale": "The set of distinct rational tangent lines must cover PG(2,5), equivalently a dual blocking set. A COMPLETE independently rerun g++ integer enumeration of all binom(31,8)=7,888,725 eight-line subsets found 9,300 covering sets, all containing a full 6-line pencil. The classical nontrivial blocking-set lower bound of 9 applies to fewer-line covers; no 8-line non-pencil cover exists. Any putative smooth quartic with <=8 rational points has six pencil tangencies. Normalize their center to [0:0:1]; all 34,375 patterns (5^6+6*5^5) of chosen contact points lead to explicit 12×15 linear F5 quartic coefficient systems. Read and reran complete verify_pencil_lower.cpp: ranks {9:25,11:750,12:33600}, 912,000 rationally nonsingular solutions encountered, minimum rational point count 9. Rational nonsingularity is a weaker filter than geometric smoothness, so this excludes all smooth counterexamples without assuming exhaustive geometric-point tests. Separately used exact finite-field rational tangent checks and SymPy Groebner Jacobian unit ideals on each projective chart for both provided quartics: each has 9 rational points, 9 distinct tangents covering all 31 plane points, and the claimed pencil distinction. This is a complete bounded exact search, not an extrapolation.",
+      "residual_risks": [
+        "The theorem is only F5 smooth quartics, not all finite fields or singular quartics.",
+        "The work does not classify all extremal projective quartic orbits; two incidence modes are witnessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli–Ghioca study tangent-filling curves over general finite fields and note their proposed degree-q−1 construction fails for q=5.",
+          "Blokhuis gives ≥9 for a nontrivial dual blocking set, which does not handle a 6-line full pencil or supply smooth quartic witnesses."
+        ],
+        "reasoning": "Neither stronger general statement alone covers the sharp smooth degree-four F5 minimum and its two extremal incidence modes.",
+        "searches": [
+          "https://arxiv.org/abs/2302.13420",
+          "https://doi.org/10.1007/BF01305953"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2302.13420",
+        "https://doi.org/10.1007/BF01305953",
+        "Frozen Git RESULT.md blob ed74c90f9854397e746acd45d56f3b7a57aa4126 in tree 3ebb68ccae84131f886f9fea04275db0de3da7ac",
+        "Frozen Git verify_pencil_lower.cpp blob 23c2729ba790968e0d1411212a26a15fadeb59a2 in tree 3ebb68ccae84131f886f9fea04275db0de3da7ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nontrivial blocking lower bound 9 permits full pencils of size 6 and hence cannot exclude curves with 6–8 rational tangent points.",
+          "The exhaustive linearized pencil constraints exclude smooth quartics below 9, and two exact Jacobian-verified equations supply sharpness."
+        ],
+        "reasoning": "The omitted full-pencil case and existence of smooth extremizers are additional mathematics, so prior incidence theory does not logically imply the complete claim.",
+        "searches": [
+          "https://arxiv.org/abs/2302.13420",
+          "https://doi.org/10.1007/BF01305953"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every rational point covered by one of the tangent lines is equivalent to the set of tangent lines being a dual blocking set.",
+          "The rational-point minimum is NOT the same as the minimum number of dual blocking-set points because tangent lines must arise from a geometrically smooth quartic."
+        ],
+        "reasoning": "Compared the dual-incidence formulation and smooth-curve incidence constraints explicitly rather than just the number 9.",
+        "searches": [
+          "Resultary semantic query: tangent-filling smooth plane quartics finite field F5 minimal rational points tangent line cover dual blocking sets",
+          "https://arxiv.org/abs/2302.13420",
+          "https://doi.org/10.1007/BF01305953",
+          "tangent filling quartic F5 PG(2,5) dual blocking set genus 3 rational tangents",
+          "https://arxiv.org/abs/2302.13420",
+          "https://doi.org/10.1007/BF01305953"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary surfaced PG(2,13) blocking-set tables, different field and conditions, and no matching F5 smooth quartic tangent census.",
+          "General genus-three rational-point lists do not encode tangent-line covering; no exact such table was verified."
+        ],
+        "reasoning": "The decisive object is a simultaneous geometric-smoothness and dual-cover certificate; ordinary point counts cannot certify the theorem.",
+        "searches": [
+          "Resultary semantic query: tangent-filling smooth plane quartics finite field F5 minimal rational points tangent line cover dual blocking sets",
+          "https://arxiv.org/abs/2302.13420",
+          "PG(2,5) line covers eight-element full-pencil finite blocking set table"
+        ]
+      },
+      "rationale": "Asgarli–Ghioca introduce tangent-filling curves and dual blocking criteria, and their degree-(q−1) family explicitly fails at q=5; they do not give the assessed exact nine-point smooth F5 quartic minimum in the inspected full primary paper. Blokhuis gives nontrivial dual blocking-set lower bound 9 but not exclusion of all full-pencil smooth quartics or attaining smooth witnesses. Complete finite certificates make this a distinct sharp conjunction of geometry, incidence, and arithmetic rather than a known genus-three point-count table. O PASS subject to unindexed finite-plane enumerations.",
+      "residual_risks": [
+        "An earlier unpublished/unindexed complete PG(2,5) tangent-filling curve census could contain this minimum or the explicit witnesses.",
+        "The claim deliberately omits exhaustive projective classification of all nine-point extremizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general theory and constructions but does not give this sharp F5 smooth quartic rational-point minimum in the inspected text.",
+          "evidence": "The article explicitly remarks that the general degree-(q−1) construction is not tangent-filling for q=5.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13420",
+          "material_read": "Primary full paper PDF inspected, including introduction, construction theorem, and discussion of failing q=5 specialization; screenshot viewed.",
+          "method": "Read the original preprint’s relevant sections and compared exact tangent-cover requirements.",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Closest same notion, same degree q−1 and failure at q=5"
+        },
+        {
+          "assessment": "Its ≥3(p+1)/2=9 lower bound for nontrivial blocking sets is necessary, but not sufficient for full-pencil exclusion or realizability by quartic tangents.",
+          "evidence": "For p=5 the bound equals nine while full pencils remain allowed at size six.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01305953",
+          "material_read": "The theorem statement and bibliographic summary, not complete original article",
+          "method": "Targeted literature citation/scope search",
+          "title": "On the size of a blocking set in PG(2,p)",
+          "trigger": "Classical nontrivial blocking lower bound used in dual covering argument"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git RESULT.md blob ed74c90f9854397e746acd45d56f3b7a57aa4126 in tree 3ebb68ccae84131f886f9fea04275db0de3da7ac",
+        "https://arxiv.org/abs/2302.13420",
+        "https://doi.org/10.1007/BF01305953"
+      ],
+      "rationale": "The sharp minimum number of rational points for a geometrically smooth tangent-filling quartic over the smallest field q=5 at degree q−1 is a natural extremal question left open by broader construction bounds; the curve condition prevents generic blocking-set estimates from settling it. The two explicit smooth extremizers realize combinatorially distinct dual covering modes, making this a substantive complete finite classification of a sharp invariant rather than a random table entry. The full lower bound requires nontrivial exhaustive linear-algebra certificates.",
+      "residual_risks": [
+        "Single field/degree only, and two examples do not classify all extremal quartics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every geometrically smooth plane quartic over F5 whose rational tangents cover all 31 rational projective points has at least nine F5 points. Two explicit smooth nine-point quartics attain the bound with respectively a complete six-line rational tangent pencil and no complete rational pencil; not an exhaustive projective-class census.",
+  "limitations": [
+    "The exact lower bound is based on exhaustive finite C++ searches independently rerun here; there is no short human-only inequality for the full-pencil case.",
+    "Geometric smoothness of witnesses was checked by three GF(5) Jacobian unit ideals; the lower-bound search tests a weaker rationally nonsingular superset.",
+    "An earlier unpublished/unindexed complete PG(2,5) tangent-filling curve census could contain this minimum or the explicit witnesses.",
+    "The claim deliberately omits exhaustive projective classification of all nine-point extremizers."
+  ],
+  "schema_version": 1
+}

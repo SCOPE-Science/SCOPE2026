@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The lower-bound proof reduces a putative curve with at most eight rational points to a full tangent pencil through a rational point. Exhaustive enumeration of all eight-line covers confirms the dual reduction, independently consistent with Blokhuis's prime-plane blocking-set bound. The full-pencil obstruction enumerates all 34,375 possible rational contact patterns and all solutions of the associated homogeneous linear systems, rejecting forms singular at rational points; no retained candidate has fewer than nine rational points. This necessary-condition superset contains every geometrically smooth example. Exact rational incidence and six unit-ideal Gröbner calculations verify both nine-point witnesses. The decisive correctness risk is an implementation error in the finite enumeration; all source and output data are included for replay.
+## correctness
 
-**Originality — PASS, qualified.** Asgarli–Ghioca (2023, arXiv:2302.13420) define the tangent-filling problem and discuss constructions, but their inspected full text does not give the sharp rational-point minimum for smooth quartics over the prime field of order five. Blokhuis (1994) proves the nine-line lower bound for nontrivial dual blocking sets, not the full-pencil exclusion or smooth sharpness witnesses. Earlier fixed-field results for cubics concern different degrees and do not imply the quartic result. Targeted mathematical-record and literature searches yielded no equivalent or dominating theorem. Publication priority remains uncertain with respect to unindexed exact small-field computations.
+PASS
 
-**Value — PASS.** The result determines a natural extremal geometric invariant: the least number of rational contact points able to make a smooth canonical genus-three plane curve tangent-filling over the smallest prime field beyond three. It identifies two genuinely different geometric realizations at the sharp bound, distinguished by whether their dual tangent configurations contain a line. The proof separates a general blocking-set obstruction from a concrete complete finite tangency-interpolation obstruction. It does not classify every extremal curve.
+The set of distinct rational tangent lines must cover PG(2,5), equivalently a dual blocking set. A COMPLETE independently rerun g++ integer enumeration of all binom(31,8)=7,888,725 eight-line subsets found 9,300 covering sets, all containing a full 6-line pencil. The classical nontrivial blocking-set lower bound of 9 applies to fewer-line covers; no 8-line non-pencil cover exists. Any putative smooth quartic with <=8 rational points has six pencil tangencies. Normalize their center to [0:0:1]; all 34,375 patterns (5^6+6*5^5) of chosen contact points lead to explicit 12×15 linear F5 quartic coefficient systems. Read and reran complete verify_pencil_lower.cpp: ranks {9:25,11:750,12:33600}, 912,000 rationally nonsingular solutions encountered, minimum rational point count 9. Rational nonsingularity is a weaker filter than geometric smoothness, so this excludes all smooth counterexamples without assuming exhaustive geometric-point tests. Separately used exact finite-field rational tangent checks and SymPy Groebner Jacobian unit ideals on each projective chart for both provided quartics: each has 9 rational points, 9 distinct tangents covering all 31 plane points, and the claimed pencil distinction. This is a complete bounded exact search, not an extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Asgarli–Ghioca introduce tangent-filling curves and dual blocking criteria, and their degree-(q−1) family explicitly fails at q=5; they do not give the assessed exact nine-point smooth F5 quartic minimum in the inspected full primary paper. Blokhuis gives nontrivial dual blocking-set lower bound 9 but not exclusion of all full-pencil smooth quartics or attaining smooth witnesses. Complete finite certificates make this a distinct sharp conjunction of geometry, incidence, and arithmetic rather than a known genus-three point-count table. O PASS subject to unindexed finite-plane enumerations.
+
+## value
+
+PASS
+
+The sharp minimum number of rational points for a geometrically smooth tangent-filling quartic over the smallest field q=5 at degree q−1 is a natural extremal question left open by broader construction bounds; the curve condition prevents generic blocking-set estimates from settling it. The two explicit smooth extremizers realize combinatorially distinct dual covering modes, making this a substantive complete finite classification of a sharp invariant rather than a random table entry. The full lower bound requires nontrivial exhaustive linear-algebra certificates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
