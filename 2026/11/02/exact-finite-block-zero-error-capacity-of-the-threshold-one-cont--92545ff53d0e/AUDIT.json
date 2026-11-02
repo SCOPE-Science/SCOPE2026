@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For an input with s original runs the channel removes exactly s−1 symbols and its output has at most s runs; this gives n>=m+r−1. Canonical extension of every noninitial output run by one symbol gives the unique inverse at equality. Appending disappearing singleton runs proves reachability at every larger n. q(q−1)^(r−1) binomial(m−1,r−1) counts outputs with m symbols and r runs; summing gives exact image size and a matching zero-error code. The rational GF and dominant root follow algebraically. Standalone exhaustive and integer checks agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. Section V-A: the extremal capacity lower-bound argument begins with the explicit hypothesis k>=2.",
+        "Nguyen et al. study run-length-limited constructions and error correction; their constrained sets have a different membership relation from the image of this deletion map.",
+        "Kash et al. study a threshold for adversarial deletion channels, not the deterministic original-boundary map."
+      ],
+      "reasoning": "The k>=2 bounds are for different channel parameters and do not specialize to k=1. A maximum-runlength constraint controls admissible input runs whereas this result counts outputs from deleting boundary symbols. Adversarial deletions admit many deletion patterns, not one deterministic output per input.",
+      "searches": [
+        "https://arxiv.org/pdf/2602.05072",
+        "https://arxiv.org/abs/2001.02839",
+        "https://arxiv.org/abs/1102.0040",
+        "\"contextual deletion\" \"threshold 1\" \"capacity\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2602.05072",
+      "https://arxiv.org/pdf/2602.05072",
+      "https://arxiv.org/abs/2001.02839",
+      "https://arxiv.org/abs/1102.0040"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier model work establishes the mechanism and provides upper/lower asymptotic bounds for k>=2 but no all-length exact k=1 cardinality.",
+        "Our proof adds a necessary-and-sufficient output feasibility criterion m+r-1<=n and constructs a unique shortest preimage."
+      ],
+      "reasoning": "General deletion-channel statements do not determine image size because they do not exploit the exact one-symbol-per-original-run rule. Conversely, our threshold-one result does not improve or contradict the existing higher-threshold results. The finite-block identity and preimage uniqueness require a specific structural argument not contained in the compared published statements.",
+      "searches": [
+        "https://arxiv.org/pdf/2602.05072",
+        "\"contextual deletion\" \"threshold 1\" \"capacity\"",
+        "\"delete first symbol\" \"run\" \"capacity\" channel",
+        "https://arxiv.org/abs/2001.02839"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The channel is a deterministic run-boundary deletion transducer: it keeps every symbol that is equal to its predecessor, plus the initial symbol. The original paper defines contextual deletion at the first symbol following a completed sufficiently long run (Definitions 1 and 3).",
+        "No exact threshold-one output-enumeration theorem was found in the inspected primary material or exact-transducer searches."
+      ],
+      "reasoning": "Alternative terminology includes run-boundary suppression, start-of-run deletion, maximal-run contraction and deterministic contextual deletion. The image-count identity is stronger than any general qualitative channel bound and cannot be inferred from a coincident Fibonacci sequence or a constrained-language capacity without a channel-image equivalence. No such equivalence was found in inspected sources.",
+      "searches": [
+        "\"delete first symbol\" \"run\" \"capacity\" channel",
+        "\"first symbol of every run\" \"deletion\" Fibonacci",
+        "\"run-boundary\" \"deletion\" \"Fibonacci\" \"channel\"",
+        "\"first symbol of every run\" deletion output Fibonacci",
+        "https://arxiv.org/pdf/2602.05072"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The binary finite-block values begin 2,4,8,14,24,40,66,108. Numerical recurrence coincidences without a demonstrated matching object do not prove coverage.",
+        "The inspected arXiv paper includes capacity bounds and tables for the regime k>=2, rather than an exact k=1 image-count table."
+      ],
+      "reasoning": "No table explicitly identifying this sequence as zero-error code sizes for the deterministic threshold-one contextual deletion channel was found. An OEIS-style numerical match, if present, would not necessarily give the preimage classification or q-ary formula, and is not asserted to be new solely by sequence absence.",
+      "searches": [
+        "\"first symbol of every run\" \"deletion\" Fibonacci",
+        "\"contextual deletion\" \"k=1\" \"golden ratio\"",
+        "\"run-boundary\" \"deletion\" \"Fibonacci\" \"channel\"",
+        "\"contextual deletion\" \"k=1\" capacity"
+      ]
+    },
+    "rationale": "The first-public 2026 model paper defines the channel but its constant-threshold extremal capacity argument explicitly begins at k>=2; neither its bounds nor the distinct constrained-coding and adversarial deletion sources imply the exact all-n threshold-one image count or unique shortest-preimage theorem. Exact-form and alias searches returned no mathematical coverage; unindexed equivalent transducer results remain a residual risk.",
+    "residual_risks": [
+      "Unindexed earlier work could have an equivalent run-boundary transducer image formula or generalized Fibonacci count.",
+      "A sequence-table coincidence does not alone establish this theorem as previously published or as new; no worldwide priority certification is claimed.",
+      "Only model-defining and related portions of the cited literature were compared deeply; the research does not guarantee comprehensive priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its extremal-channel argument explicitly fixes k>=2 in Section V-A; no exact k=1 enumeration or normal form was located.",
+        "evidence": [
+          "First version 2026-02-04; PDF Section I-A defines first symbol after run as deletion target.",
+          "Section V-A begins: Fix an arbitrary threshold k>=2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.05072",
+        "material_read": "Complete openly available paper text inspected selectively: model/Definitions 1–3, Section II constant threshold theorem statements and Table I, Section V proof setup, and relevant appendix text/word searches for k=1, golden and Fibonacci.",
+        "method": "Accessible arXiv full text and page images; direct model-to-claim implication comparison.",
+        "title": "Correcting Contextual Deletions in DNA Nanopore Readouts",
+        "trigger": "Directly motivating paper defining deterministic contextual deletions and extremal capacity"
+      },
+      {
+        "assessment": "Does not establish the threshold-one channel-image identification or unique minimal inverse.",
+        "evidence": [
+          "Run-length limits constrain input sequence runs; this result instead enumerates all outputs under a fixed run-boundary map."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.02839",
+        "material_read": "Accessible full-text Section III covering run-length-limited constructions and their capacity setup.",
+        "method": "Semantic comparison of constrained input languages with deterministic deletion output images.",
+        "title": "Capacity-Approaching Constrained Codes with Error Correction for DNA-Based Data Storage",
+        "trigger": "Potential broader coverage via finite-type/run-length-limited coding and generalized Fibonacci rates"
+      },
+      {
+        "assessment": "Adversarial deletion fraction/capacity thresholds do not imply exact image cardinality of the deterministic contextual channel.",
+        "evidence": [
+          "Multiple adversarial deletions vs one uniquely determined output per input here."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1102.0040",
+        "material_read": "Accessible arXiv abstract and problem formulation.",
+        "method": "Comparison of allowed deletion mechanisms and code confusability definitions.",
+        "title": "On the Zero-Error Capacity Threshold for Deletion Channels",
+        "trigger": "Potential dominating zero-error capacity theorem for deletion channels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "92545ff5-3d0e-4252-b7b6-da675671e63e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct nanopore-motivated extremal channel at its lowest run threshold has a complete natural finite-block zero-error capacity characterization, a strong unique shortest-inverse structure, explicit optimal codeword representatives and an exact asymptotic rate for every finite alphabet q>=2, including DNA q=4. It closes a deliberately excluded parameter endpoint of a recent channel study, rather than an arbitrary computed slice.",
+    "status": "PASS"
+  }
+}
