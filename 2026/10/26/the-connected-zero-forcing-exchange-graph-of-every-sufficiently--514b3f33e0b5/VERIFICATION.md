@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the connected zero-forcing classification
 
-The theorem is proved symbolically in RESULT.md for all integers \(n\ge6\). The two programs below check independent aspects of its finite instances, and their outputs must not be mistaken for a proof of the unrestricted quantifier.
+# Independent mathematical audit
 
-`python3 bruteforce.py 15` exhaustively generates **all** four-subsets of the \(2n\) labelled vertices for each \(6\le n\le15\), independently checks initial connectedness and synchronous zero-forcing closure, constructs the complete exchange graph, verifies all degrees, and runs BFS to check connectivity. For \(6\le n\le11\), it separately excludes connected forcing seeds of sizes one, two, and three. Expected recorded output: `bruteforce.out`.
+## correctness
 
-`python3 structural.py 35` constructs all four symmetry classes by rotation, reflection and swapping layers; independently checks that the classes have the expected sizes and do not overlap, computes and checks the class-to-class exchange table, and verifies that each representative forces the entire graph for each \(6\le n\le35\). Expected recorded output: `structural.out`.
+PASS
 
-These tests have been executed successfully. Both scripts use only the Python standard library. The hand-checkable exchange table in RESULT.md establishes the all-size degree rule and connectivity; no unexecuted script or inaccessible certificate is needed to understand the theorem.
+In a triangle-free cubic prism a connected seed of three vertices forms a path, whose first forced neighbor creates a claw and then stalls; seeds of size <=2 also stall. Every connected induced four-vertex subgraph is a path, square or claw; claws cannot force. For n>=6 the only squares are rung squares and all induced 4-paths fall into three disjoint types counted 2n,4n,2n. The four representative forcing sequences complete both rims, proving all 9n seeds. Enumerating local replacements of each retained triple yields degree 6 for path types A,B,D and degree 8 for the square type C; handshake yields 28n. A-type translates connect each rim and B/C/D moves join all types and both rims. Independent direct exhaustive four-subset forcing and exchange graph BFS for n=6..12 agreed with vertex counts, edge counts, degrees and connectivity. The unrestricted n statement follows the local classification, not finite tests.
 
-**Limits.** A computational timeout would not imply impossibility. Testing finitely many prisms cannot replace the structural classification. An independent audit of the derivation, sources and priority has not been performed.
+## originality
+
+PASS
+
+Qualified PASS: known minimum size and general reconfiguration concepts are credited; complete characterization, orbit census, degree distribution and connectedness are new to the checked primary statements.
+
+## value
+
+PASS
+
+The connected minimum zero-forcing configuration space is a natural reconfiguration object. Its complete classification and exact connected exchange graph parameters refine the known scalar forcing number in a way relevant to robustness and reconfiguration, not a routine counting of unrelated subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
