@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For every n=8..1024, the reproduced embedded chords.txt supplies a genuine non-cycle edge (1,q_n). Exact formulae enumerate cyclic-arc sums and prefix/suffix pair sums of two arc interiors, each resulting subset being connected through that edge; a bitset assertion covers every target 1..n(n+1)/2. Independently a direct subset-connectivity census was executed for n=8,12,16. The verifier completed with VERIFY_OK on all 1017 orders, max target 524800. Marotti–Needleman Theorem 1 proves the strictly positive lower bound for all n>=8. The conclusion is finite only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marotti–Needleman arXiv:2610.08889v1, Theorem 1: C_n incomplete for n>=8; Section 5 Proposition 1: mEC(n)<=n/2-1; final discussion leaves sublinear completion as future study.",
+        "Primary full-text mirrors arxiv HTML 2026-10-06 and paperpeel.com/paper/2610.08889 (Section 5 read through end)."
+      ],
+      "reasoning": "The source lower bound implies mEC(n)>=1, but its upper bound n/2-1 does not imply mEC(n)<=1 for n>=6. Its unique explicit one-edge example is order eight; no all-range theorem covering the present finite 1017 cases appears in the material read.",
+      "searches": [
+        "Consecutive Cycle Sums 2610.08889 exact minimum edge completion table nontrivial cases",
+        "Consecutive Cycle Sums Marotti Needleman minimum edge completion mEC(n) one chord exact values Hamiltonian connected sums 1 to n(n+1)/2",
+        "\"minimum edge completion\" \"consecutive cycle sums\" graph",
+        "\"consecutive cycle sums\" \"mEC\" \"2026\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08889v1 (full HTML primary sections 1 through 5)",
+      "https://www.paperpeel.com/paper/2610.08889 (full-text mirror for missing ending)",
+      "Published mathematical-record semantic searches for mEC, one chord and exact 1024 census (actual IDs listed in named checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Marotti–Needleman arXiv:2610.08889v1 Section 5: the only demonstrated exact value is mEC(8)=1; their bound for all n is mEC(n)<=n/2-1.",
+        "Actual local exhaustive certificate covers every n=8..1024 and was executed, output: VERIFY_OK n=8..1024 count=1017 max_target=524800 one_chord_witnesses=PASS bitset_complete=PASS brute_subset_check=8,12,16 finite_only=YES."
+      ],
+      "reasoning": "Combining the source incompleteness lower bound with the newly checked one-chord witnesses proves exact equality on the finite interval. The source general upper bound alone does not imply any of the new exact equalities beyond n=8; no stronger accessible Published mathematical-record result implies them.",
+      "searches": [
+        "mEC(n)=1 one-chord completion consecutive cycle sums Marotti Needleman for all 8<=n<=1024 exact finite census",
+        "Consecutive Cycle Sums 2610.08889 exact minimum edge completion table nontrivial cases",
+        "\"consecutive cycle sums\" \"mEC\" \"2026\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary full text arXiv:2610.08889v1, Section 5 defines mEC(n) by connected vertex sums after extra graph edges (https://arxiv.org/html/2610.08889).",
+        "Published mathematical-record query closest 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 discusses a different graph invariant, not connected label sums."
+      ],
+      "reasoning": "An arc-sum representation and the connected-subset-sum version are two descriptions of the source problem. Their invariant is exactly the same mEC(n); the new claim supplies mEC(n)=1 for every integer n in [8,1024]. Similar graph cover/label-sum terminology refers to different objects and does not imply this census.",
+      "searches": [
+        "mEC(n)=1 one-chord completion consecutive cycle sums Marotti Needleman for all 8<=n<=1024 exact finite census",
+        "finite 1024 vertex-weighted cyclic sequence 1,...,n one added chord connected vertex sums all integers up to n(n+1)/2",
+        "\"connected vertex sums\" \"cycle\" \"chord\" consecutive",
+        "\"Marotti\" \"Needleman\" \"edge completion\" \"one chord\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary Section 5 shows one n=8 witness and a broad linear bound but no 8..1024 table.",
+        "Published mathematical-record searches for exact mEC(n), one chord, interval through 1024 returned unrelated graph invariants (e.g. 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2)."
+      ],
+      "reasoning": "No directly matching table or row specifying the first 1017 exact mEC values was retrieved. An indexed absence does not prove uniqueness; the possibility of unindexed or unpublished computations remains.",
+      "searches": [
+        "mEC(n)=1 one-chord completion consecutive cycle sums Marotti Needleman for all 8<=n<=1024 exact finite census",
+        "Consecutive Cycle Sums 2610.08889 exact minimum edge completion table nontrivial cases",
+        "\"mEC(n)\" \"cycle\" \"minimum edge completion\" 2026",
+        "\"consecutive cycle sums\" \"one edge\" \"mEC\""
+      ]
+    },
+    "rationale": "The same invariant mEC(n) is defined by Marotti–Needleman arXiv:2610.08889v1. Their full Section 5 explicitly gives only mEC(8)=1 and the general upper bound n/2-1 and poses improvement as a further question. It does not contain the exact 1017-order census. Actual web/Published mathematical-record searches of exact names, aliases and coverage found no dominating or equivalent statement. Residual risk of unpublished or unindexed duplicate computational tables persists.",
+    "residual_risks": [
+      "Unindexed unpublished computational tables or alternate graph-sum terminology could contain the same finite values.",
+      "Originality of the finite cutoff is not independent-priority certified; no statement is made for n>1024."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the entire 8..1024 equality; explicitly bounds mEC(n) by n/2-1 and leaves improvement open",
+        "evidence": [
+          "arXiv HTML lines 30-44 theorem, 158-168 definition/upper bound; PaperPeel full-text mirror lines 88-107 includes end of Section 5"
+        ],
+        "identifier_or_url": "arXiv:2610.08889v1; https://arxiv.org/html/2610.08889",
+        "material_read": "Full accessible HTML through Section 5 including Theorem 1, Proposition 1, example n=8, closing further question; visible numbered lines 23-180, plus mirror conclusion",
+        "method": "Read HTML primary text and compared exact quantifiers and upper bound against new claim",
+        "title": "Consecutive Cycle Sums",
+        "trigger": "Identical object and definition of minimum edge completion; potential dominating result"
+      },
+      {
+        "assessment": "Further question asks how to improve mEC bound and lacks an exact finite table beyond n=8",
+        "evidence": [
+          "Mirror lines 88-107, especially result mEC(n)<=n/2-1 and final open question"
+        ],
+        "identifier_or_url": "https://www.paperpeel.com/paper/2610.08889",
+        "material_read": "Full presented mathematical content including Section 5 final paragraph and proof of source bound",
+        "method": "Read complete text mirror and matched headings, results and formulas with arXiv primary",
+        "title": "Consecutive Cycle Sums full-text mirror",
+        "trigger": "Complete final lines of same source inaccessible on a repeat HTML fetch"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "17bba398-510d-42ad-91f9-0485b4a9366b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise invariant mEC(n) was posed for further study in a number-theory paper first public 2026-10-06. The exact initial full dyadic range 8..1024 comprises 1017 values, improves an order-n upper bound to the exact minimum 1 throughout, and gives concrete chords useful for developing or testing a conjectural general theorem. This is a natural bounded census rather than a routine algebraic restatement; the proof needs exhaustive coverage of up to 524800 distinct targets at 1024, not a sample. The finite cutoff is declared, and no infinite assertion is inferred.",
+    "status": "PASS"
+  }
+}
