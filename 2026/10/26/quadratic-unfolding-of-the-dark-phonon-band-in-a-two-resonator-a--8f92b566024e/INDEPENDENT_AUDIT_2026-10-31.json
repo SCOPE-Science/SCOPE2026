@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:46:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the mass-normalized symmetric 3x3 Bloch matrix, eliminated oscillator coordinates to F(lambda)=lambda[1+a*r1/(r1-lambda)+b*r2/(r2-lambda)] and F'(lambda)=1+a*r1^2/(lambda-r1)^2+b*r2^2/(r2-lambda)^2>0. Strict pole limits give the unique interior eigenvalue. Normalizing its eigenvector gives d lambda/dz=|u_host|²=1/F'. Minimizing A³/t²+B³/(Delta-t)² yields ((A+B)^3/Delta²), the bound. At epsilon=0, flat eigenvalue r is uniformly spectrally separated for compact z∈[0,c]; Taylor/Schur expansion gives slope coefficient 4ab/(r²(a+b)³) and uniform positive leading bandwidth c times this. Independent direct symmetric matrix eigen computations over four parameter sets and three detunings checked interlacing, host-energy identity, leading width and O(epsilon) normalized errors; finite numerics corroborate the uniform analytic expansion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard Hellmann–Feynman gives lambda'=|u_host|², and rank-one arrowhead eigenvalue interlacing gives uniqueness; these prerequisites are credited, not the full original result."
+        ],
+        "reasoning": "General symmetric-matrix perturbation could yield a Taylor series but cannot directly give the stated explicit coefficient and bound without solving this physical characteristic equation. Stronger specialized coverage remains possible.",
+        "searches": [
+          "two local resonators acoustic chain dark flat band near degenerate detuning quadratic bandwidth host energy fraction arrowhead matrix perturbation",
+          "two resonator flat band degenerate perturbation arrowhead spectral interlacing"
+        ]
+      },
+      "checked_sources": [
+        "Stein–Nouh–Singh arXiv:2107.08431 full PDF §§2.1.1–2.1.3 and Figures 3–4",
+        "Bonanomi–Theocharis–Daraio arXiv:1403.1052 public abstract",
+        "Jones–Movchan–Gei 2011 DOI public abstract",
+        "Frozen RESULT.md analytic proof and independent eigenvalue numerics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At equal tuning the dark eigenvector has zero host component and yields exact flat eigenvalue r. At detuned r±epsilon the middle branch becomes dispersive; the claimed coefficient requires cancellation of the singular terms of F(lambda)."
+        ],
+        "reasoning": "The earlier exact-flatness result does not force a quadratic rather than linear opening without a model-specific perturbative cancellation, and the universal slope inequality is an additional contribution.",
+        "searches": [
+          "two local resonators acoustic chain dark flat band near degenerate detuning quadratic bandwidth host energy fraction arrowhead matrix perturbation",
+          "arXiv 2107.08431 2.1.2 2.1.3 identical parallel resonators flat pass bands",
+          "generic Fock arrowhead rank one perturbation eigenvalue derivative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stein–Nouh–Singh §2.1 contrasts identical parallel resonators with distinct tuned resonators, and shows dispersive pass bands; they do not give the epsilon→0 quadratic bandwidth or uniform host weight coefficient."
+        ],
+        "reasoning": "The Bloch models are closely related, but an illustration of a narrow non-flat band is weaker than its exact near-degenerate leakage exponent, constant and all-positive-param nonasymptotic slope inequality.",
+        "searches": [
+          "two local resonators acoustic chain dark flat band near degenerate detuning quadratic bandwidth host energy fraction arrowhead matrix perturbation",
+          "Stein Nouh Singh 2107.08431 multi resonator acoustic metamaterials dispersion flat bands"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stein–Nouh–Singh figures 3–4 visualize distinct resonator tuning and narrow passbands, without the exact symbolic 4cab/[r²(a+b)³] coefficient."
+        ],
+        "reasoning": "The claim is a universal asymptotic formula and inequality for a positive-parameter continuum, not a finite table; numerical plots at selected tuning values do not assert the same quantified invariant.",
+        "searches": [
+          "two local resonators acoustic chain dark flat band near degenerate detuning quadratic bandwidth host energy fraction arrowhead matrix perturbation",
+          "acoustic metamaterial double resonator bandwidth quadratic detuning numerical tables"
+        ]
+      },
+      "rationale": "General mass-in-mass / multi-resonator dispersion and degenerate dark flat bands are already known and explicitly credited. The inspected Stein–Nouh–Singh primary analysis displays multiple bands and unequal-frequency passbands but not this exact positive quadratic detuning coefficient for two unequal attached masses with the global finite-detuning host-weight inequality. Standard perturbation theory guarantees analytic expansion but does not itself give this model-specific sharp constant.",
+      "residual_risks": [
+        "A more specialized vibroacoustic perturbation calculation not indexed under flat-band terminology may give an equivalent coefficient.",
+        "The standard Hellmann–Feynman/interlacing ingredients alone are not claimed as novel; original scope is the explicit combination and coefficient.",
+        "Undamped conservative local two-resonator model only; no finite-chain, disorder or damping conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_PHYSICAL_MOTIF_NOT_EXACT_COEFFICIENT",
+          "evidence": "Distinct tuned resonators create narrow dispersive passbands while identical ones can be flat; no formula for universal quadratic small-detuning bandwidth with unequal attached masses is provided in inspected sections.",
+          "identifier_or_url": "arXiv:2107.08431v1, DOI:10.1016/j.jsv.2021.116716",
+          "material_read": "Full 32-page public PDF read with focus on §§2.1.1–2.1.3, formulas 5–8, Figures 3–4 and their captions; page 8 visual checked",
+          "method": "Read public arXiv PDF and screenshot",
+          "title": "Widening, Transition and Coalescence of Local Resonance Band Gaps in Multi-resonator Acoustic Metamaterials: From Unit Cells to Finite Chains",
+          "trigger": "Exact multi-resonator model, flat bands and detuning"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_FULL_TEXT_PRIORITY_CERTIFICATION",
+          "evidence": "Provides the locally resonant propagation motif, not inspected as a whole-document novelty exclusion.",
+          "identifier_or_url": "arXiv:1403.1052v1",
+          "material_read": "Abstract/public background references and related dispersion setting, not complete detailed article",
+          "method": "Public abstract only",
+          "title": "Locally Resonant Granular Chain",
+          "trigger": "Foundational related mass-in-mass chain"
+        },
+        {
+          "assessment": "PLAUSIBLE_UNINSPECTED_ANTECEDENT",
+          "evidence": "General multiscale resonator analysis; possible implicit coefficient remains historical risk.",
+          "identifier_or_url": "Jones–Movchan–Gei (2011), DOI:10.1098/rspa.2010.0319",
+          "material_read": "Accessible abstract and bibliographic comparison only; full text not opened",
+          "method": "Public abstract/metadata only",
+          "title": "Waves and damage in structured solids with multi-scale resonators",
+          "trigger": "Possible multi-scale resonance formula antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The bandwidth leakage from a degenerate dark mode is a natural measurable physical invariant, and the quadratic rather than linear opening with precise mass-allocation dependence matters in resonator design and asymptotic wave mechanics. The simultaneous host-weight identity plus global slope bound makes a substantive exact classification, not simply a re-labelling of generic eigenvalue continuity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For positive masses and springs in a conservative 1D chain with two uncoupled attached resonators, the middle squared-frequency Bloch eigenvalue for distinct local squared frequencies r1<r2 lies strictly between them and increases with host coupling z. Its slope equals mass-normalized host weight and obeys a sharp two-reciprocal-square global bound; when r1=r-epsilon and r2=r+epsilon, squared-frequency band width is 4 c a b epsilon^2/(r^2(a+b)^3)+O(epsilon^3), with the same host-energy leading coefficient uniformly over z in [0,c].",
+  "limitations": [
+    "M,K,a,b,r>0 and c=4K/M finite fixed; near-degeneracy is in squared frequencies r±epsilon with masses fixed; uniform z∈[0,c]; no damping or direct resonator-resonator springs."
+  ],
+  "schema_version": 1
+}
