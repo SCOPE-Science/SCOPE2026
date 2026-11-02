@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The pair-column state construction is bijective with labelled proper conflict-free prism colourings. Its 18- and 84-state transition characteristic polynomials are checked in full by an independent standard-library Newton-identity implementation using exact integer matrix traces; the formal log-determinant trace identity proves the universal generating functions. All 6,498,957 tested full assignment words match independent direct edge/neighbourhood enumeration for q=3, n=3..7 and q=4, n=3..5. Constructive closed walks of lengths 3,4,5 sharing one state establish four-colour existence for every n>=3, while a three-colour trace factor gives the exact 3-divisibility obstruction. Rouché bounds and elementary root signs justify the asymptotic rate; the ordinary prism transfer has leading eigenvalue 7. The proof excludes n<3 and palettes other than q=3,4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allagan et al. (2026), Section 3, gives a twelve-state transfer for all proper prism colourings, which does not test singleton neighbourhood colours.",
+        "Qi, Song and Cao (2026) establishes degree-dependent list-choosability for high-girth sparse graphs; the prism has girth at most four and its constrained count is not a parameter of their reported theorem.",
+        "Cho et al. (2022) establishes general proper conflict-free colouring existence bounds, not an exact prism enumerator in the inspected abstract."
+      ],
+      "reasoning": "The ordinary chromatic polynomial counts a strict superset, so the general count cannot determine the size of the constrained subclass. The stronger list-colouring guarantee addresses colour availability rather than the number of admitted labelled assignments. None of the inspected published results has stronger numerical coverage of the present exact census.",
+      "searches": [
+        "dynamic chromatic polynomial prism graph 4 colors number of colorings circular ladder",
+        "proper conflict-free choosability of sparse graphs with girth at least seven arxiv 2609.11249",
+        "Explicit Equimodular Curves for Prism-Graph Chromatic Polynomials doi 10.4236/ajcm.2026.161002",
+        "proper conflict free coloring of sparse graphs arxiv 2203.16390"
+      ]
+    },
+    "checked_sources": [
+      "Madaras–Šurimová, Mathematica Bohemica 148 (2023), Theorem 3, doi:10.21136/MB.2022.0007-21",
+      "Allagan–Voloshin–Deriglazov–Lopez-Bonilla, American Journal of Computational Mathematics 16 (2026), doi:10.4236/ajcm.2026.161002",
+      "Qi–Song–Cao, arXiv:2609.11249v1 (2026-09-10), accessible abstract and submission record",
+      "Cho–Choi–Kwon–Park, arXiv:2203.16390, accessible abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 in Madaras–Šurimová gives allowed numbers of used colours for all-n prism families; it implies the 3-colour existence condition but gives no numeric counts.",
+        "Allagan et al. has the one-rung adjacency transfer for ordinary proper colourings, while this result uses two-rung pairs and enforces both nonmonochromatic open neighbourhoods.",
+        "The present 4-colour count starts 264, 384, 3600, 17472 and has a degree-36 determinant with a new Perron root of x³−4x²−6x+4, distinct from the ordinary prism chromatic rate 7."
+      ],
+      "reasoning": "The known divisibility statement is subsumed as a boundary, not presented as novel. Counts and asymptotics do not follow from knowing that three or four colours exist, and cannot be read from the ordinary chromatic polynomial without additional local constraints. The finite transfer determinant supplies the missing numerical information.",
+      "searches": [
+        "Madaras Šurimová 2023 prism homogeneous coloring Theorem 3 count versus existence",
+        "Allagan Voloshin Deriglazov Lopez-Bonilla 2026 prism chromatic polynomial transfer matrix",
+        "number of optimal dynamic colorings of prism C_n×K_2 with 3 or 4 named colors, 12 if 3 divides n, 84-state transfer matrix spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "On a cubic graph, a proper conflict-free colouring is exactly a proper 2-dynamic colouring (at least two neighbour colours); 2-homogeneous is the stricter condition of exactly two neighbour colours.",
+        "Madaras and Šurimová (2023), Theorem 3, determines the palette-size scale of 2-homogeneous prism colourings including the three-divisibility condition but does not state multiplicities or a transfer determinant."
+      ],
+      "reasoning": "Equivalent names were compared through their actual neighbourhood conditions. Uniform two-homogeneity is a subset of the present class: three distinct neighbour colours are also permitted. The theorem from 2023 provides the existence boundary but not a formula for named proper conflict-free colourings using four names, even on its two-homogeneous subset.",
+      "searches": [
+        "number of optimal dynamic colorings of prism C_n×K_2 with 3 or 4 named colors, 12 if 3 divides n, 84-state transfer matrix spectrum",
+        "2-homogeneous colorings prism graph with exact multiplicities and characteristic polynomial",
+        "proper conflict free coloring prism circular ladder dynamic coloring chromatic polynomial",
+        "doi:10.21136/MB.2022.0007-21, Theorem 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed mathematical-record searches returned adjacent colourability and prism graph results, not this enumerator.",
+        "The full 2026 ordinary prism chromatic-polynomial article reports unconstrained proper-colouring eigenbranches, which differ from the current constrained factorization."
+      ],
+      "reasoning": "No matching table or explicit generating function was located using the first four numerical terms and structural terminology. A failed search is not proof of novelty; the remaining possibility of an unindexed general dynamic-colouring enumeration is retained as a risk.",
+      "searches": [
+        "4-color proper conflict-free coloring polynomial of circular ladders prism, exact sequence 264 384 3600 17472",
+        "264, 384, 3600, 17472 coloring prism",
+        "proper conflict-free enumeration cyclic ladder",
+        "q-dynamic chromatic number and counting minimum colorings of prisms"
+      ]
+    },
+    "rationale": "The claim is the all-length exact named-colouring count for proper conflict-free three- and four-colourings of prisms, including the degree-36 spectral determinant, optimal-colouring multiplicities, and conditional exponential rate. The 2023 prism result gives existence ranges for uniformly two-homogeneous colourings, not these counts. The 2026 prism chromatic-polynomial analysis counts all proper colourings and does not enforce neighbourhood uniqueness. The recent proper conflict-free list-colouring papers concern existence under sparseness hypotheses rather than enumeration on cubic prisms. Explicit semantic and database comparisons below found no statement implying this exact enumeration; historical-priority uncertainty remains.",
+    "residual_risks": [
+      "An earlier general enumeration of dynamic or homogeneous graph colourings could imply this specialization even without explicitly naming prisms.",
+      "The 2026 large-girth list-colouring manuscript and 2022 general bounds paper were inspected only through available abstracts, not fully.",
+      "Independent historical-priority assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3 specifies allowed numbers of used colour names and proves an n mod 3 condition for homogeneous 3-colourings. It does not enumerate the labelled assignments or give a four-colour neighbourhood-constrained generating function.",
+        "evidence": [
+          "Theorem 3 parts (d),(e) give scal_2(D_n)=[3,n] for 3|n, [4,n] otherwise.",
+          "Theorem 3 counts palette availability, whereas A_4(n) counts assignments with at least two neighbour colours at every vertex."
+        ],
+        "identifier_or_url": "https://dml.cz/dmlcz/151530",
+        "material_read": "Full wording and proof of Theorem 3, pages 108–109, together with definitions and prior results in the preceding introduction.",
+        "method": "Examined the mathematical text and rendered page containing Theorem 3.",
+        "title": "Homogeneous colourings of graphs",
+        "trigger": "A prism-specific theorem for 2-homogeneous and dynamic colouring might subsume the result."
+      },
+      {
+        "assessment": "Its transfer is restricted only by proper edge incidences and is therefore an enumerator of a strictly larger assignment set, not the required nonmonochromatic-neighbourhood subset.",
+        "evidence": [
+          "Section 3.1: ordinary state space Ω_q={(a,b):a≠b} and ordinary trace tr(M(q)^n).",
+          "The published principal q=4 ordinary eigenbranch is 7, whereas the constrained census has leading eigenvalue approximately 5.034."
+        ],
+        "identifier_or_url": "https://www.scirp.org/journal/paperinformation?paperid=150405",
+        "material_read": "Full article HTML, particularly Section 3.1 definitions and Proposition 3.3 (single-rung ordinary chromatic transfer), and the abstract/introduction.",
+        "method": "Inspected article text and checked for conflict-free/dynamic conditions.",
+        "title": "Explicit Equimodular Curves for Prism-Graph Chromatic Polynomials and the Beraha-Kahane-Weiss Limit Set",
+        "trigger": "The identical graph family has a published 2026 transfer-matrix enumeration of proper colourings."
+      },
+      {
+        "assessment": "The available statements concern large-girth graph list-choosability, not prism counts. Because the full proof was not inspected, no whole-document noncoverage claim is made.",
+        "evidence": [
+          "Version one submitted 2026-09-10; combinatorics classification 05C15.",
+          "The theorem requires girth at least seven; the prism has short cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.11249",
+        "material_read": "Version-one abstract, public submission metadata, and scope statements available in open bibliographic previews; full proof text not inspected.",
+        "method": "Read bibliographic abstract and theorem scope.",
+        "title": "Proper conflict-free choosability of sparse graphs with girth at least seven",
+        "trigger": "Recent public paper motivating proper conflict-free colouring and nearest source date."
+      },
+      {
+        "assessment": "Gives the concept and bounds for sparse graphs; abstract does not provide the exact prism colour-count formula. No full-document exclusion claim is made.",
+        "evidence": [
+          "The abstract states proper conflict-free existence and maximal-average-degree results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.16390",
+        "material_read": "Accessible public abstract, without full-paper inspection.",
+        "method": "Compared the stated graph parameters and reported general bounds.",
+        "title": "Proper conflict-free coloring of sparse graphs",
+        "trigger": "Foundational formulation and general colouring bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "373334d2-a6e9-49ea-ab65-5eddff569fe3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact number of optimal palette colourings is a natural finer invariant than chromatic number for a fixed common graph family. The established prism theorem determines the minimum palette but does not count admissible assignments; the 84-state neighbourhood transfer yields a nontrivial seven-factor determinant, exact infinite counting sequence, and quantitative decay of the fraction of ordinary proper four-colourings meeting the local uniqueness requirement. These precise statistics compare constrained and unconstrained colourings, not arbitrary slices or minor numeric gains.",
+    "status": "PASS"
+  }
+}
