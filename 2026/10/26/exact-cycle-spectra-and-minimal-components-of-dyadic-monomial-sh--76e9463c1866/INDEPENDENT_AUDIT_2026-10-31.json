@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:10:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen complete RESULT.md and exact Git tree from assigned commit",
+        "independently implemented mathematical checks in independent_checks.py",
+        "critical lemmas reconstructed from definitions, not merely VERIFY_OK"
+      ],
+      "rationale": "Verified the polynomial lifts to bijections by f(x+2^t)-f(x)≡2^t (mod 2^(t+1)); exact iteration doubling lemma uses Taylor G^2(x)-x=Delta(1+G'(x))+O(Delta^2) with v2(Delta)>=2 and G'≡1 (mod4). Positive shells begin at exact displacement 1+ds and double valuation every power-of-two iterate. Odd shells start with a two-step displacement of valuation 2 for even d and 3 for odd d, then double. Orbit lengths follow from these valuations, and count-versus-ball-cardinality proves every asserted ball is minimal; nonzero points cannot be periodic in Z_2 because f(x)=x iff x=0. Independent exhaustive finite permutation tracing for d=3..11 and k=1..11 passed; infinite case follows the algebra, not finite tracing.",
+      "residual_risks": [
+        "Only coefficient 2 and d>=3; general odd multiples 2a and degree 2 not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rivest gives a bijectivity criterion; Anashin treats x+2x² as a concrete example; Fan–Liao general minimal decomposition and a complete quadratic classification."
+        ],
+        "reasoning": "Those results cover the framework and the excluded quadratic case, but a general existence theorem does not give the claimed exact higher-degree multiplicities.",
+        "searches": [
+          "Rivest permutation polynomials modulo 2^w Theorem 1",
+          "Anashin Non-Archimedean ergodic theory arXiv:0710.1418",
+          "Fan–Liao arXiv:1010.5583 Theorems A–C"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1010.5583v2 full HTML",
+        "arXiv:0710.1418 cited primary theorem",
+        "Rivest 2001 doi:10.1006/ffta.2000.0282",
+        "Resultary search 2-adic dynamical polynomial permutations x+2x^d exact finite periods minimal component shell decomposition odd even degree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing all-polynomial decomposition statement describes possible shapes; a separate displacement lemma gives explicit periods and all minimal balls of this specific map."
+        ],
+        "reasoning": "Neither generic decomposition nor mere bijectivity implies the quantitative formula without the nontrivial 2-adic displacement computations.",
+        "searches": [
+          "Fan–Liao Theorem A, Theorem C and section 6",
+          "Rivest Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fan–Liao Theorem A gives generic decomposition; its Section 6 treats quadratic polynomials explicitly; the assessed claim is specific x+2x^d, d>=3, including exact shell counts."
+        ],
+        "reasoning": "P-adic adding-machine and cycle-lifting reformulations are equivalent descriptions. The inspected general framework does not state the explicit degree-parity periods and 2^((d-1)s) counts; a hidden specialization remains possible.",
+        "searches": [
+          "2-adic dynamical polynomial permutations x+2x^d exact finite periods minimal component shell decomposition odd even degree",
+          "Fan–Liao, On minimal decomposition of p-adic polynomial dynamical systems, arXiv:1010.5583"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fresh Resultary query returned a different symbolic period-doubling fibre result (record a7e0bd7bb899), not the 2-adic polynomial f_d."
+        ],
+        "reasoning": "No exact identical table was located; negative database evidence is not proof of novelty.",
+        "searches": [
+          "2-adic dynamical polynomial permutations x+2x^d exact finite periods minimal component shell decomposition odd even degree",
+          "Resultary actual semantic query 2-adic dynamical polynomial permutations x+2x^d exact finite periods minimal component shell decomposition odd even degree"
+        ]
+      },
+      "rationale": "Best-of-knowledge new explicit all-depth, all-degree>=3 period and clopen-ball census. Prior polynomial permutation criteria and general p-adic cycle-lifting machinery apply but do not explicitly evaluate this family; previously classified quadratic degree is excluded and not presented as new.",
+      "residual_risks": [
+        "Unindexed specialized all-degree 2-adic dynamics may express the same counts in lifting notation.",
+        "Full historical originality certification is impossible from bounded literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers generic lifting and all quadratics, not explicitly all higher-degree x+2x^d valuations",
+          "evidence": "Theorem A and Section 6; Theorem C adding machine; Theorem 2.1 finite-level minimality criterion",
+          "identifier_or_url": "arXiv:1010.5583v2; https://arxiv.org/html/1010.5583v2",
+          "material_read": "Full accessible arXiv HTML: abstract and Theorems A–C; the cycle-lifting analysis of Sections 2–5 and the explicit quadratic classification in Section 6",
+          "method": "Primary lawful full-text inspection by section and mathematical statement",
+          "title": "On minimal decomposition of p-adic polynomial dynamical systems",
+          "trigger": "Same p-adic minimal-components setting and potentially dominating polynomial theorem"
+        },
+        {
+          "assessment": "Quadratic x+2x² and generic criterion, not the present displayed higher-degree exact census",
+          "evidence": "Example 4.16(2) quadratic; general measure-preserving conditions",
+          "identifier_or_url": "arXiv:0710.1418",
+          "material_read": "Source referenced and comparison of the named quadratic example and general measure-preserving theorem; not asserted fully reread in this execution",
+          "method": "Actual primary theorem/abstract and packaged citation cross-check",
+          "title": "Non-Archimedean Ergodic Theory and Pseudorandom Generators",
+          "trigger": "Earlier p-adic polynomial permutation example and general ergodicity criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "actual final RESULT.md statement and proof",
+        "prior-work comparison against same objects and invariants"
+      ],
+      "rationale": "The full orbit-length classification for an infinite p-adic dynamical family and the one-versus-two parity transition identify natural invariants of permutation polynomials. It goes substantially beyond a direct check of bijectivity or isolated small depths.",
+      "residual_risks": [
+        "Finite enumeration is corroboration only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only coefficient 2 and d>=3; general odd multiples 2a and degree 2 not claimed.",
+    "Finite enumeration is corroboration only."
+  ],
+  "schema_version": 1
+}
