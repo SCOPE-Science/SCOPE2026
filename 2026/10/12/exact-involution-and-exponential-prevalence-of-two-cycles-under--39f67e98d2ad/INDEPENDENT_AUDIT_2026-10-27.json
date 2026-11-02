@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T03:43:37.024003Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked exactly the submitted N>=1, finite undirected simple graph pairs, scalar J=-j with j>=0, Delta=max of both layer vertex degrees, synchronous binary sign updates, fair stochastic ties. Each intralayer sum lies in [-d_i,d_i]. For j>Delta the cross-layer term -j B_i (or -j A_i) strictly dominates every possible neighbor sum, so update equals (-B,-A) deterministically and F^2=Id for every microstate. Conversely at an all-positive pair of layers, a degree-Delta site has field Delta-j: positive for j<Delta and a fair tie at j=Delta, contradicting state-uniform deterministic identity (includes Delta=0,j=0). Fixed states solve A=-B, exactly 2^N; remaining 4^N-2^N microstates pair into (4^N-2^N)/2 disjoint strict cycles. For a site, A_i=B_i iff it flips, probability 2r(1-r); independent product initialization gives Binomial(N,2r(1-r)), stationary probability q^N with q=r^2+(1-r)^2, homogeneous opposite states r^(2N)+(1-r)^(2N), and strict-two-cycle probability 1-q^N. For r=0,1 cycle chance is zero; for each fixed 0<r<1 it tends to 1 exponentially. Direct proof handles arbitrary N and graph pairs; independent checker enumerated 69 pairs of simple graphs and 4,164 graph-state combinations for N=1,2,3, with exact rational ensemble probabilities at r=0,1/3,1/2,2/3,1 and all-positive threshold witnesses. No finite check is treated as an infinite proof.",
+      "risks": [
+        "Outside j>Delta there is no claimed full phase classification; j=Delta has probabilistic ties.",
+        "No statement about noisy updates at nonzero field or smooth mean-field map; these are different systems.",
+        "Exponential cycling law assumes product-independent initial bits with fixed interior r, not arbitrary correlated initialization."
+      ],
+      "sources": [
+        "Assigned GitHub frozen RESULT.md (8,261 bytes), VERIFICATION.md, SLOGAN.txt and verify.py read as evidence, not instructions",
+        "Independent checker independent_check.py in this private run, output PASS 69 graph pairs/4,164 graph-state combinations",
+        "Hughes et al. 2026 PMC full text Eqs. (2)-(5) corroborates source model and ensemble"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles & Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187-189, doi:10.1016/0012-365X(80)90121-1; abstract https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/ Abstract states repeated symmetric threshold updates end in fixed points or cycles of length two.",
+          "Hughes et al., Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics, Entropy 28 (2026), 857, doi:10.3390/e28080857, https://pmc.ncbi.nlm.nih.gov/articles/PMC13512852/ Eqs. (21)-(23) give two homogeneous absorbing states for J<0, not a global fixed-state enumeration; its limitation/discussion distinguishes sign-rule simulations from smooth mean-field.",
+          "A mod-four orbit census for parity automata on distance-two Boolean cubes, Resultary published result 2026-10-11, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4/RESULT.md proves period-two in certain dimensions through F_2 algebra, different graphs/update."
+        ],
+        "reasoning": "The 1980 result covers broader threshold systems but has a weaker qualitative conclusion: existence of an eventual 1/2-cycle does not determine whether all states are periodic immediately, the exact state count or the sharp j>Delta criterion. Hughes covers the same microscopic model but studies a different coupling range and does not derive the strong-coupling census. The inaccessible 1980 primary paper leaves a material special-case risk.",
+        "searches": [
+          "Web: Goles Olivos Periodic behaviour of generalized threshold functions 1980 pdf synchronous symmetric network",
+          "Web: \"Periodic behaviour of generalized threshold functions\" \"pdf\" Goles Olivos",
+          "Web: \"Periodic behaviour of generalized threshold functions\" full text",
+          "Web: \"number of fixed points of the majority rule\" Goles Olivos",
+          "Resultary semantic: strongly inhibitory coupled Boolean threshold networks interlayer coupling dominance periodic two cycles fixed states exact count",
+          "Resultary semantic: negative cross-coupled synchronous spins dominant matching interactions fixed points period two prevalence Bernoulli"
+        ]
+      },
+      "checked_sources": [
+        "Hughes et al., Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics, Entropy 28 (2026), 857, doi:10.3390/e28080857, https://pmc.ncbi.nlm.nih.gov/articles/PMC13512852/",
+        "Goles & Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187-189, doi:10.1016/0012-365X(80)90121-1; abstract https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/",
+        "A mod-four orbit census for parity automata on distance-two Boolean cubes, Resultary published result 2026-10-11, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4/RESULT.md",
+        "Fraenkel, Agur & Klein, The number of fixed points of the majority rule, Discrete Mathematics (1988), doi:10.1016/0012-365X(88)90005-2; bibliographic comparison only",
+        "Resultary semantic searches (six actual queries above); matched parity/coupled-map results were compared for update-law implications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hughes et al., Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics, Entropy 28 (2026), 857, doi:10.3390/e28080857, https://pmc.ncbi.nlm.nih.gov/articles/PMC13512852/ Sections 3.4, 4.1-4.4: model/two homogeneous opposed absorbing states; baseline J=-1 on 3-regular layers.",
+          "Goles & Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187-189, doi:10.1016/0012-365X(80)90121-1; abstract https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/ general eventual-period statement.",
+          "A mod-four orbit census for parity automata on distance-two Boolean cubes, Resultary published result 2026-10-11, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4/RESULT.md direct inspection of RESULT.md: GF(2)-linear distance-two operator F_n, rank identities and mod-four cases."
+        ],
+        "reasoning": "Neither identification of two particular fixed configurations nor the universal bound on eventual cycle length entails an immediately involutive transition on all 4^N configurations. The single-line dominance proof is an additional application-specific premise check, followed by a complete orbit and product-ensemble classification; conversely the classical theorem cannot determine those counts without this reduction. Checked the closest published SCOPE/Resultary binary-cycle census and excluded exact implication because its update is parity-linear, not a majority sign threshold.",
+        "searches": [
+          "Web: \"Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics\" strong coupling two cycles J -Delta",
+          "Web: \"antagonistic multiplex\" \"strong coupling\" \"period 2\" \"majority\"",
+          "Web: \"strong inhibitory\" \"synchronous\" \"two cycles\" Boolean network",
+          "Web: \"synchronous\" \"dominant inhibitory\" \"fixed points\" two-cycle networks",
+          "Web: Goles Olivos Periodic behaviour of generalized threshold functions 1980 pdf synchronous symmetric network",
+          "Web: \"Periodic behaviour of generalized threshold functions\" \"pdf\" Goles Olivos",
+          "Resultary semantic: exact involution synchronous binary antagonistic two-layer multiplex majority threshold network when interlayer inhibitory coupling dominates vertex degrees full state orbit census two cycles",
+          "Resultary semantic: strongly inhibitory coupled Boolean threshold networks interlayer coupling dominance periodic two cycles fixed states exact count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hughes et al., Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics, Entropy 28 (2026), 857, doi:10.3390/e28080857, https://pmc.ncbi.nlm.nih.gov/articles/PMC13512852/ Section 2 equations (2)-(5): signed intralayer sums and uniform negative paired coupling; Section 4 simulation J=-1.",
+          "A mod-four orbit census for parity automata on distance-two Boolean cubes, Resultary published result 2026-10-11, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4/RESULT.md uses parity modulo 2 on a distance-two cube, not threshold-sign updates.",
+          "Direct reconstruction: under j>Delta the sign rule equals the coordinatewise complement-and-layer-swap map (A,B)->(-B,-A), with frozen antiparallel pairs and alternating parallel pairs."
+        ],
+        "reasoning": "The coordinate change to local pair differences/sums, Boolean complement-swap and matching-inhibition dominance were compared. Prior two-cycle theorems describe eventual orbit lengths, not equality of the full one-step map with this involution. The published parity map is a different algebraic dynamical system; its F^2=I branch is not a reduction of these sign-rule hypotheses.",
+        "searches": [
+          "Web: \"Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics\" strong coupling two cycles J -Delta",
+          "Web: \"antagonistic multiplex\" \"strong coupling\" \"period 2\" \"majority\"",
+          "Web: \"strong inhibitory\" \"synchronous\" \"two cycles\" Boolean network",
+          "Resultary semantic: exact involution synchronous binary antagonistic two-layer multiplex majority threshold network when interlayer inhibitory coupling dominates vertex degrees full state orbit census two cycles",
+          "Resultary semantic: strongly inhibitory coupled Boolean threshold networks interlayer coupling dominance periodic two cycles fixed states exact count",
+          "Resultary semantic: negative cross-coupled synchronous spins dominant matching interactions fixed points period two prevalence Bernoulli"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hughes et al., Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics, Entropy 28 (2026), 857, doi:10.3390/e28080857, https://pmc.ncbi.nlm.nih.gov/articles/PMC13512852/ Figure 3 and Section 4 report simulated outcome categories and entropy, not a table of all 4^N states in the j>Delta phase.",
+          "A mod-four orbit census for parity automata on distance-two Boolean cubes, Resultary published result 2026-10-11, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4/RESULT.md contains a superficially analogous orbit census, but for the different distance-two parity operator.",
+          "Fraenkel, Agur & Klein, The number of fixed points of the majority rule, Discrete Mathematics (1988), doi:10.1016/0012-365X(88)90005-2; bibliographic comparison only concerns fixed points of majority-rule operators on cyclic binary strings rather than a paired antagonistic multiplex."
+        ],
+        "reasoning": "The formulas 2^N fixed states, (4^N-2^N)/2 two-cycles, and [r^2+(1-r)^2]^N are formulas for every N and arbitrary intralayer graphs, not a finite tabulated sequence. Checked outcome tables and published nearby cycle censuses do not give an equivalent result under their stated maps. No exact prior table was identified, but negative search is not a novelty certificate.",
+        "searches": [
+          "Resultary query: exact involution synchronous binary antagonistic two-layer multiplex majority threshold network",
+          "Resultary query: strongly inhibitory coupled Boolean threshold networks fixed states exact count",
+          "Web: \"antagonistic multiplex\" \"2^N\" fixed points",
+          "Web: \"Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics\" \"J\" \"period\"",
+          "Web: \"The number of fixed points of the majority rule\" Fraenkel Agur Klein"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the precise sharp all-microstate strong-antagonism phase of the synchronous Hughes et al. paired-spin model, not for the elementary sign-bound inequality or the classical eventual period <=2 fact. The complete Hughes 2026 primary text defines the same Eqs.(2)-(5), focuses on k=3,J=-1, and identifies two homogeneous opposed absorbing states and their simulated attraction picture, without analyzing j>Delta, proving an immediate all-state involution, or deriving an all-bias binomial distribution. Goles-Olivos 1980 provides the much broader eventual period-at-most-two theorem for symmetric threshold maps; even if applicable to this signed network, that alone does not imply zero transient, exact fixed/cycle counts, or a degree-sharp identity. Related published Resultary parity automata use an F_2-linear distance-two Hamming graph update, not a sign-threshold antagonistic paired graph. No inspected source was found that asserts or mathematically forces the full model-specific phase. Residual risk is significant because the complete 1980 text was inaccessible and other signed-threshold strong-coupling reductions may be indexed differently; search absence is not priority proof.",
+      "residual_risks": [
+        "1980 Goles–Olivos full text was not obtained; the authorized source request was safety-blocked. Its abstract only establishes eventual period <=2; specialized examples not read.",
+        "Earlier signed Boolean network strong-coupling dominance lemmas or unindexed exact census could cover this special case under alternate terminology.",
+        "The mechanism is elementary degree domination and orbit counting; its originality should not be overstated as a new general threshold-network theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and ensemble. Reports baseline metastability/two special homogeneous absorbing states, but not immediate involution, full orbit counts, or general j>Delta product-law phase.",
+          "evidence": [
+            "PMC lines 149-169 microscopic update and r initialization",
+            "PMC lines 236-251 homogeneous absorbing states",
+            "PMC lines 280-305 baseline k=3,J=-1 simulation and outcome categories",
+            "PMC lines 469-490 discussion and conclusion"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13512852/ ; doi:10.3390/e28080857",
+          "material_read": "Complete accessible PMC HTML article across Sections 1-7: microscopic Eqs.(1)-(5), mean-field regularization/absorbing-states Sec.3, simulation protocol and outcomes Sec.4, qualitative analogy Sec.5, discussion/limitations and conclusions Secs.6-7.",
+          "method": "Read full PMC HTML, compared equations, parameter windows J=-1 versus j>Delta, fixed-state scope and period-two conclusions.",
+          "title": "Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics",
+          "trigger": "Identical local update and initialization; central direct prior art."
+        },
+        {
+          "assessment": "Its accessible statement proves eventual fixed or period-two behavior for symmetric threshold dynamics; abstract does not substantiate this specific one-step involution/strong-coupling orbit census. A plausible uninspected specialization remains a residual priority risk.",
+          "evidence": [
+            "University bibliography abstract: repeated symmetric threshold update leads either to fixed point or length-two cycle; Discrete Mathematics 30 (1980), 187-189"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1 ; https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/",
+          "material_read": "Published university bibliography: full abstract and precise journal/year/page/DOI only, NOT the 3-page primary paper.",
+          "method": "Searched arXiv/preprint and lawful OA copies without obtaining full text; authorized institutional full-text attempt was blocked by safety controls, with no retry or bypass.",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Most relevant general threshold-system theorem potentially dominating the cycle-length conclusion."
+        },
+        {
+          "assessment": "Different parity-linear Hamming-distance-two automaton. Its involution/census result does not cover this signed multiplex majority map.",
+          "evidence": [
+            "RESULT.md: (F_n+c_n I)^2=0 over F_2; when n modulo 4 is 2 or 3, F_n^2=I and cycle counts from linear rank."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4/RESULT.md",
+          "material_read": "Complete RESULT.md, including finding, F_2 group algebra proof, rank derivation, cycle formula, limitations.",
+          "method": "Read actual published GitHub RESULT.md and compared state spaces and update laws.",
+          "title": "A mod-four orbit census for parity automata on distance-two Boolean cubes",
+          "trigger": "Most comparable published Resultary all-state binary 1/2-cycle census."
+        },
+        {
+          "assessment": "Published enumeration concerns a majority operator on binary strings, not the paired interlayer-signed strong-coupling rule; limited inspected scope.",
+          "evidence": [
+            "MaRDI: majority function and cyclic binary strings; exact enumeration."
+          ],
+          "identifier_or_url": "https://portal.mardi4nfdi.de/wiki/The_number_of_fixed_points_of_the_majority_rule ; doi:10.1016/0012-365X(88)90005-2",
+          "material_read": "Bibliographic record and model keywords only; primary full text not reviewed.",
+          "method": "Checked publisher/bibliographic listing for domain; no unsupported full-paper absence inference.",
+          "title": "The number of fixed points of the majority rule",
+          "trigger": "Potential earlier fixed-point enumeration for majority automata."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full strong-inhibition regime is a motivated, natural parameter phase of the just-introduced antagonistic multiplex majority model. Although its sign-dominance proof and subsequent counting are elementary, together they give an all-graph, all-size, sharp complete orbit classification not provided by the motivating baseline metastability simulations. It materially changes interpretation of model extrapolation: above the explicit maximum-degree barrier, every state is already stationary or oscillates, exponentially many exact two-cycle orbits coexist with 2^N absorbing (often non-consensus) fixed states, and under the motivating independent biased ensemble almost all large-N initial states cycle for every interior bias. The exact threshold and binomial survival/cycling probability are natural diagnostic quantities for designing simulations and distinguishing a two-polarized-consensus picture from a fully oscillatory microscopic phase. The result is self-contained and has object-specific value rather than relying on an unproved downstream theorem.",
+      "risks": [
+        "The mathematical mechanism is simple and this does not claim a novel general technique.",
+        "Does not assess time scales or metastability at the authors' J=-1 cubic baseline, since |J|=1<Delta=3.",
+        "Does not establish a universal consensus-transition threshold or robustness to noise/asynchrony."
+      ],
+      "sources": [
+        "Hughes et al. 2026, Secs. 3.4 and 4: motivated competition between polarized outcomes and finite-size entropy/convergence statistics at J=-1, k=3",
+        "Assigned RESULT.md exact full-state classification and proof",
+        "Direct exact rational independent enumeration for bounded sizes"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hughes et al., Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics, Entropy 28 (2026), 857, doi:10.3390/e28080857, https://pmc.ncbi.nlm.nih.gov/articles/PMC13512852/",
+    "Goles & Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187-189, doi:10.1016/0012-365X(80)90121-1; abstract https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/",
+    "A mod-four orbit census for parity automata on distance-two Boolean cubes, Resultary published result 2026-10-11, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4/RESULT.md",
+    "Fraenkel, Agur & Klein, The number of fixed points of the majority rule, Discrete Mathematics (1988), doi:10.1016/0012-365X(88)90005-2; bibliographic comparison only",
+    "Resultary semantic searches (six actual queries above); matched parity/coupled-map results were compared for update-law implications"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No mathematical conclusions for antagonistic magnitude j<=Delta except failure of the same all-state deterministic map.",
+    "Inaccessible Goles–Olivos full text: authorized institutional retrieval was safety-blocked, no bypass or retry.",
+    "Finite checker is a finite corroboration; universal conclusion is an independent elementary proof.",
+    "Publication withheld pending complete privacy-safe source replacements and downstream validation; no source mutation."
+  ],
+  "residual_risks": [
+    "1980 Goles–Olivos full text was not obtained; the authorized source request was safety-blocked. Its abstract only establishes eventual period <=2; specialized examples not read.",
+    "Earlier signed Boolean network strong-coupling dominance lemmas or unindexed exact census could cover this special case under alternate terminology.",
+    "The mechanism is elementary degree domination and orbit counting; its originality should not be overstated as a new general threshold-network theorem.",
+    "Public source AUDIT.json and METADATA.json contain operational run identifiers; comprehensive validated sanitization files were not supplied."
+  ],
+  "schema_version": 1
+}

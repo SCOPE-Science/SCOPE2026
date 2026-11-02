@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone `verify.py` runs with standard Python 3 and uses exact integers and `fractions.Fraction`; execute `python verify.py`. Successful execution prints `PASS: 279 exact integer/rational assertions`.
+## correctness
 
-For \((b,p,N)\) equal to \((2,2/5,12)\), \((3,3/5,8)\), \((4,1/2,6)\), and \((2,1/3,10)\), it propagates **all** depth-\(N+2\) finite digit words under independently selected expanding shifts and uniformly selected contractions. It directly checks the covariance of the centered leading-digit coding \(f(a)=2a-(b-1)\) at every lag through \(N\), with rational weights and no floating-point approximation. Its transition operator acts on finite digit strings, not on the auxiliary Dyck-walk model used in the proof.
+PASS
 
-The remaining assertions check Catalan convolution for indices \(1\) through \(39\), and agreement of two independently enumerated finite-variance sums for five switching probabilities and horizons \(1\) through \(40\). The arithmetic test verifies 40 lag-covariance instances, 39 Catalan identities and 200 finite-variance identities. The general theorem, the infinite correlation sum and the critical square-root asymptotic are established by the analytic argument in `RESULT.md`, not by finite checking.
+The digit functions h_j are orthogonal and centered under Lebesgue measure. The observable transition operator gives P h_0=p h_1 and P h_j=p h_(j+1)+(1-p)h_(j-1) (j>=1). Its zero-to-zero 2m paths are Dyck excursions, each weighted [p(1-p)]^m, explaining C_m. Pair counting yields exact finite variance; Catalan series sums to 1/max(p,1-p), with unique neutral maximum at p=1/2. Stirling C_m/4^m=(pi m^3)^(-1/2)+O(m^-5/2) gives the sqrt(N) deficit coefficient 8 sqrt(2N/pi); differentiating the Catalan series gives the offcritical intercept. Independently propagated finite-digit stochastic operator for 25 parameter/lag checks; finite check not proof.
 
-The domain includes every integer base \(b\ge2\), every probability \(0<p<1\), and every nonconstant real-valued first-digit coding. The reproducibility program samples only selected rational parameters; no claim of exhaustive testing or independent mathematical audit is made.
+## originality
+
+PASS
+
+Homburg–Kalle establish the random affine IFS and balanced uniform stationary measure, and study synchronization/two-point laws. The exact one-point temporal first-digit Catalan covariance/variance with critical correction is not stated by those results. Pelikan-map literature uses a different nonuniform inverse mechanism. No equivalent same mathematical model symbolic-dynamics formula located in scoped searches, subject to alias risk.
+
+## value
+
+PASS
+
+One-time stationary marginals are parameter-independent, making parameter-sensitive temporal covariance a natural and nontrivial observable. The precise Catalan law, sharp maximum at the zero-Lyapunov transition and distinct finite-size corrections give a complete temporal classification, not just isolated finite simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

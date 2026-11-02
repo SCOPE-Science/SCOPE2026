@@ -1,11 +1,21 @@
-# Review of the Catalan digit-memory theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** The theorem is derived from an explicit observable transfer operator and the orthogonality of distinct base-digit coordinates under stationary Lebesgue measure. Its index-zero cancellation forces Catalan-weighted returns of a one-dimensional nonnegative nearest-neighbor walk, establishing every lag covariance. Pair sums and the Catalan generating series establish the finite and limiting variance, while explicit Stirling tails establish the sharp critical square-root correction. The attached exact-rational checker independently evaluates finite instances of the observable process. It is not used as proof of the arbitrary-time statement.
+## correctness
 
-**Originality (PASS, best knowledge).** Homburg and Kalle provide the family, stationary Lebesgue law and two-point motion phase transition, but not the identified temporal leading-digit covariance and finite-time variance correction. Majumdar and collaborators compute position correlations for the Pelikan process with a single contracting branch, which is not the balanced inverse-branch model. Examined published-finding corpus records on symbolic marker correlations, random expansion, and related affine systems do not imply this claim. Equivalent statements in unindexed or more general literature cannot be excluded.
+PASS
 
-**Value (PASS).** Identical one-time uniform distributions conceal nontrivial temporal structure that becomes algebraically long-lived precisely at the neutral Lyapunov parameter. The theorem measures that change by a complete covariance sequence, an exact sharp integrated-variance maximum, and differing finite-size asymptotics across the transition. This resolves a meaningful observable-level question for the original dynamical model rather than an arbitrary restricted computation.
+The digit functions h_j are orthogonal and centered under Lebesgue measure. The observable transition operator gives P h_0=p h_1 and P h_j=p h_(j+1)+(1-p)h_(j-1) (j>=1). Its zero-to-zero 2m paths are Dyck excursions, each weighted [p(1-p)]^m, explaining C_m. Pair counting yields exact finite variance; Catalan series sums to 1/max(p,1-p), with unique neutral maximum at p=1/2. Stirling C_m/4^m=(pi m^3)^(-1/2)+O(m^-5/2) gives the sqrt(N) deficit coefficient 8 sqrt(2N/pi); differentiating the Catalan series gives the offcritical intercept. Independently propagated finite-digit stochastic operator for 25 parameter/lag checks; finite check not proof.
 
-The proof is annealed and requires equal expansion and contraction bases, uniformly selected inverse branches, and a one-digit observable. It proves neither a central limit theorem nor any quenched statement. Historical priority and mathematical correctness have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Homburg–Kalle establish the random affine IFS and balanced uniform stationary measure, and study synchronization/two-point laws. The exact one-point temporal first-digit Catalan covariance/variance with critical correction is not stated by those results. Pelikan-map literature uses a different nonuniform inverse mechanism. No equivalent same mathematical model symbolic-dynamics formula located in scoped searches, subject to alias risk.
+
+## value
+
+PASS
+
+One-time stationary marginals are parameter-independent, making parameter-sensitive temporal covariance a natural and nontrivial observable. The precise Catalan law, sharp maximum at the zero-Lyapunov transition and distinct finite-size corrections give a complete temporal classification, not just isolated finite simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
