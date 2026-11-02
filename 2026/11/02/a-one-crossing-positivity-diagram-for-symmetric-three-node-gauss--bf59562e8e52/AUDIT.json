@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact inversion of the symmetric three-node Gaussian kernel matrix yields the weight formulas given in RESULT.md. Endpoint positivity is an integral of a strictly positive hyperbolic-cosine excess. The sign of the center weight is the sign of a positive-inner minus positive-outer integral. For every pair of inner and outer integration points, the logarithmic time derivative of their positive integrand ratio is strictly positive: its proof uses a hyperbolic-cotangent auxiliary function with derivative strictly between zero and one. Integrating cross-products proves that the ratio of the two integrals is strictly increasing. The flat-kernel comparison has the exact node-radius boundary proved in RESULT.md, and the center weight is eventually positive by exponentially vanishing kernel cross-correlation. These facts prove the entire sign classification and uniqueness of the crossing. The nonnegative-polynomial witness proves an actual positivity defect. An independent arbitrary-precision matrix linear-solve verifier passed 389 finite checks, not used as a substitute for analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1812.08509, Theorem 1: at least at least half the weights rounded upward one-dimensional totally-positive kernel weights are positive; Corollary 1: all positive under local node optimality.",
+        "arXiv:2108.02848v1, abstract and contribution: positive/accurate least-squares rules via equidistribution, with interpolatory subsampling constructions.",
+        "arXiv:2301.12998v1, §§4–5: compactly-supported RBF stability and oversampled least-squares positivity."
+      ],
+      "reasoning": "The prior half-positive theorem predicts at least two positive weights for three nodes but does not decide the third. Its node-optimal sufficient condition is not required here and gives no converse. Least-squares and selected-node positivity theorems change the quadrature design or require oversampling; they do not cover the fixed unaugmented three-node Gaussian setting with prescribed outer nodes. No stronger condition was found that subsumes the sharp threshold.",
+      "searches": [
+        "positive quadrature weights Gaussian shape parameter RBF",
+        "On the positivity and magnitudes of Bayesian quadrature weights Gaussian kernels",
+        "Construction and application of provable positive and exact cubature formulas least squares interpolation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2301.12998",
+      "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+      "https://link.springer.com/article/10.1007/s10543-019-00758-3",
+      "https://arxiv.org/abs/2108.02848"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2301.12998v1, §2.2 Eq. (10): kernel moment linear system; §4 treats compactly supported kernels; §5 positive least-squares rules.",
+        "arXiv:1812.08509, Theorem 1 and Corollary 1: at least half positive universally; all positive at locally optimal design points.",
+        "arXiv:1803.09532v1, §1–2: Gaussian integration on R with scaled Gauss–Hermite nodes and approximate Mercer weights."
+      ],
+      "reasoning": "The new theorem proves all end weights positive, and gives necessary and sufficient sign conditions for the remaining central weight at fixed nodes. It strengthens the half-positive statement in one specific geometry but is not an instance of the locally optimal node theorem; the present uniform bounded measure and arbitrarily prescribed a differ from the Gauss–Hermite setting. The 2023 large-node and least-squares results do not establish or refute this fixed-three-node shape threshold.",
+      "searches": [
+        "arXiv:2301.12998v1 cardinal weights stability RBF Gaussian numerical sections",
+        "arXiv:1812.08509 Theorem 1 Corollary 1 positivity Bayesian quadrature Gaussian",
+        "arXiv:1803.09532v1 Gaussian measure scaled Gauss Hermite weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2301.12998v1, §§2.2 and 4–7: interpolation-based RBF weights and stability for large node sets, compact supports and least-squares remedies.",
+        "arXiv:1812.08509, §3: general Chebyshev-system/total-positivity results and sufficient node-optimality condition."
+      ],
+      "reasoning": "Kernel quadrature and unaugmented RBF cardinal quadrature are equivalent formulations of the same three-center linear system, so both were included in searches. Neither inspected paper states the full finite three-node shape-and-geometry necessary-and-sufficient condition or gives a reduction that implies its unique transition. Classical polynomial weights recover only the flat limit, not the one-crossing theorem.",
+      "searches": [
+        "Three symmetric nodes Gaussian radial basis function quadrature weights sign positivity central weight shape parameter location threshold crossing",
+        "Gaussian kernel quadrature on interval nodes -a 0 a one negative quadrature weight flat limit and positive for large shape uniqueness",
+        "Gaussian RBF quadrature positivity sharp threshold symmetric 3 point a epsilon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2023 RBF paper reports multi-node numerical stability tests, without a three-node threshold table.",
+        "The inspected 2019 Gaussian-kernel Gauss–Hermite article reports weights on a different measure and nodes; its stated positivity findings are numerical and not a finite-interval table."
+      ],
+      "reasoning": "No matching exact numerical table or phase frontier emerged from these actual searches. Lack of a table is not itself proof of novelty, so this check is interpreted jointly with the primary-text implication comparisons.",
+      "searches": [
+        "Gaussian RBF three point quadrature weights sign threshold exact shape parameter",
+        "Gaussian radial basis function quadrature 3 nodes symmetric positivity central weight shape parameter interval one crossing",
+        "Gaussian kernel Bayesian quadrature weights three equidistant points interval negative positive lengthscale"
+      ]
+    },
+    "rationale": "The targeted primary literature provides kernel quadrature construction, large-node or oversampled positivity guarantees, and abstract sufficient conditions from total positivity. The checked statements do not logically determine the sign of the central weight of a fixed symmetric three-node Gaussian rule for all a and epsilon, nor its one-crossing shape phase diagram. Literature-coverage and publication-priority risks remain qualified.",
+    "residual_risks": [
+      "Specialized Gaussian cardinal-weight sign theorems or unindexed preprints might state an equivalent phase diagram under different terminology.",
+      "The 2021/2022 general cubature paper's complete proof and appendices were not inspected, although the accessible stated hypotheses point to different rule designs.",
+      "Semantic search and accessible literature do not establish absolute publication priority; independent expert review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No fixed three-node, all-shape Gaussian positivity theorem in the inspected statements; the main theorems use other design or asymptotic assumptions",
+        "evidence": "Definitions §2.2, compact-support §4, oversampling Corollary 5.2 and experiments §7",
+        "identifier_or_url": "https://arxiv.org/abs/2301.12998",
+        "material_read": "Full-text HTML material from §§1–2 (definitions and Eq. (10)), §4 (compact support), §5 (least-squares positivity), §6 (polynomial augmentation) and §7 (numerical tests)",
+        "method": "Accessible arXiv article full-text HTML sections and formulas",
+        "title": "Towards stability results for global radial basis function based quadrature formulas",
+        "trigger": "Exact same RBF quadrature construction and Gaussian kernels"
+      },
+      {
+        "assessment": "Half-positive guarantee and local-optimality sufficient condition, not a complete sign classification for arbitrary prescribed symmetric centers",
+        "evidence": "Theorem 1 states at least at least half the weights rounded upward weights positive; Corollary 1 requires locally optimal nodes",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+        "material_read": "Full-text article introduction and §3, including Proposition 3, Theorem 1, Theorem 2, Corollary 1 and §§3.7–3.8",
+        "method": "Open-access HTML theorem and proof inspection",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Potential dominating theorem on positive Gaussian-kernel Bayesian quadrature weights"
+      },
+      {
+        "assessment": "Uses Gaussian probability measure on the real line, scaled Gauss–Hermite points, and Mercer approximations; not the fixed symmetric interval nodes",
+        "evidence": "§1 Gaussian measure and nodes; §2 matrix weight formulation and numerical positivity discussion",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-019-00758-3",
+        "material_read": "Full-text introduction and §§1–2, including Eq. (1.2), approximating formulas and discussion of positivity",
+        "method": "Open-access HTML definition/theorem/assumption comparison",
+        "title": "Gaussian kernel quadrature at scaled Gauss–Hermite nodes",
+        "trigger": "Same Gaussian kernel; plausible general positive-weight result"
+      },
+      {
+        "assessment": "Constructs positive least-squares or selected-node rules; distinct from necessary-and-sufficient fixed-node Gaussian phase boundary, but deeper specialized overlap remains a residual risk",
+        "evidence": "LS positivity requires equidistribution and sufficient extra points, with exactness spaces containing constants",
+        "identifier_or_url": "https://arxiv.org/abs/2108.02848",
+        "material_read": "ArXiv abstract and accessible journal §1.3–1.4 contributions, assumptions and implications; complete proof text not available through checked HTML route",
+        "method": "Open-access preprint abstract and accessible publisher article sections; no whole-document NOT_COVERING assertion",
+        "title": "Construction and application of provable positive and exact cubature formulas",
+        "trigger": "Potentially dominating generic positive interpolatory/least-squares cubature theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf59562e-8e52-41f9-8a59-ed79e2de1a25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positivity of kernel quadrature is a mathematically motivated stability requirement; unlike a trivial flat-limit computation, the result gives a complete necessary-and-sufficient geometry/shape positivity phase diagram for a natural three-node Gaussian RBF rule, with a strict one-crossing proof and an explicit smooth positive-input counterexample. It explains when changing kernel scale alone can restore positivity on fixed nodes, and when all scales are safe. This finite model is a sharp reproducible benchmark for shape tuning and kernel-quadrature design; no unsupported larger-dimensional extension is asserted.",
+    "status": "PASS"
+  }
+}
