@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T23:19:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Derived exact energy capture (sum_i s_i c_i T_i)/D with c_i=s_i h_i^2. Exchangeability transpositions imply f_i-f_j=-(c_i-c_j)/2 E[(T_i-T_j)^2/(D Dswap)]. Inserting this into weighted covariance identity yields claimed 1/(2C) sum pairwise error gap, uniformly bounded integrands with no moment condition. Monotonic s versus c gives flat-sign minimum, inverse c=s^{-1} gives reversal, power c=s^(2q+1) gives min and sharp factor-two; rational symmetrized examples independently checked and q=0 factor-two algebra reviewed. Finite checks are corroborative, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Each integrand (T_i-T_j)^2/(D(T)D(Tswap)) is bounded with all c_i>0.",
+          "Swap identity gives sign of pairwise gap; c_i=s_i^(2q+1) or c_i=s_i^-1 makes every product respectively nonnegative or nonpositive."
+        ],
+        "reasoning": "Saibaba–Międlar 2023 and Tropp–Webber 2023 provide general randomized low-rank bounds and Gaussian analyses, but inspected main results do not imply this exact all-exchangeable distribution ordering.",
+        "searches": [
+          "exchangeable squares flat Rademacher probe optimal one-vector randomized singular value sketch spectral filtering",
+          "https://arxiv.org/abs/2308.05814",
+          "https://arxiv.org/abs/2306.12418"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2308.05814",
+        "https://arxiv.org/abs/2306.12418"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each integrand (T_i-T_j)^2/(D(T)D(Tswap)) is bounded with all c_i>0.",
+          "Swap identity gives sign of pairwise gap; c_i=s_i^(2q+1) or c_i=s_i^-1 makes every product respectively nonnegative or nonpositive."
+        ],
+        "reasoning": "Gaussian expectation bounds and multi-vector subspace iteration error estimates are not the exact pair-swap identity. A general weighted ratio rearrangement theorem may imply it, requiring future historical check.",
+        "searches": [
+          "exchangeable squares flat Rademacher probe optimal one-vector randomized singular value sketch spectral filtering",
+          "https://arxiv.org/abs/2308.05814",
+          "https://arxiv.org/abs/2306.12418"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each integrand (T_i-T_j)^2/(D(T)D(Tswap)) is bounded with all c_i>0.",
+          "Swap identity gives sign of pairwise gap; c_i=s_i^(2q+1) or c_i=s_i^-1 makes every product respectively nonnegative or nonpositive."
+        ],
+        "reasoning": "Compared Rademacher versus Gaussian rank-one range sketch, ratio rearrangement under exchangeability, singular-vector-aligned projection error, and symmetrization.",
+        "searches": [
+          "exchangeable squares flat Rademacher probe optimal one-vector randomized singular value sketch spectral filtering",
+          "https://arxiv.org/abs/2306.12418"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Each integrand (T_i-T_j)^2/(D(T)D(Tswap)) is bounded with all c_i>0.",
+          "Swap identity gives sign of pairwise gap; c_i=s_i^(2q+1) or c_i=s_i^-1 makes every product respectively nonnegative or nonpositive."
+        ],
+        "reasoning": "No exact one-vector, all-exchangeable-magnitude table/formula identified among relevant searched records; sample finite rational symmetrization is not historical evidence.",
+        "searches": [
+          "exchangeable squares flat Rademacher probe optimal one-vector randomized singular value sketch spectral filtering",
+          "https://arxiv.org/abs/2306.12418"
+        ]
+      },
+      "rationale": "Main randomized low-rank primary source gives probabilistic/non-Gaussian bounds and sample-size estimates, not exact single-column exchangeability ordering or inverse-filter reversal. Generic weighted-ratio rearrangement could imply this as a corollary, unresolved priority risk.",
+      "residual_risks": [
+        "An earlier abstract weighted-ratio/rearrangement inequality or singular-vector-aligned randomized sketch result may subsume the exact pairwise formula.",
+        "Model requires known aligned singular-vector coordinates, not generic low-rank SVD optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sample-covariance/randomized range bounds, not exact rank-one exchangeable magnitude law",
+          "evidence": "Nonasymptotic sketch error bounds versus exact pair-swap expectation.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05814",
+          "material_read": "Main results on sketch class conditions, Theorems 3.3/3.5/3.7 and related mathematical discussion",
+          "method": "Lawful primary manuscript full-text excerpts and statement comparisons",
+          "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+          "trigger": "Non-Gaussian sketch distribution comparison, similar objects"
+        },
+        {
+          "assessment": "General Gaussian algorithm analysis, no established implication to exact all-exchangeable one-vector comparison",
+          "evidence": "Named generalized randomized low-rank algorithms and their usual error bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.12418",
+          "material_read": "Abstract and relevant framework/summary, not entire primary monograph",
+          "method": "arXiv publication summary",
+          "title": "Randomized algorithms for low-rank matrix approximation: Design, analysis, and applications",
+          "trigger": "Dominating general randomized SVD framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a distribution-free design criterion for a natural fixed-cost, basis-aligned randomized rank-one sketch; sharp comparison with optimal rank one and spectral-filter order reversal are actionable structural results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier abstract weighted-ratio/rearrangement inequality or singular-vector-aligned randomized sketch result may subsume the exact pairwise formula.",
+    "Model requires known aligned singular-vector coordinates, not generic low-rank SVD optimality.",
+    "Orthogonal nonzero real matrix columns, one range vector y=A diag(h) xi, positive h, exchangeable squared magnitudes T_i with sum T>0; squared Frobenius error."
+  ],
+  "schema_version": 1
+}
