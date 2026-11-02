@@ -1,121 +1,176 @@
 {
   "correctness": {
-    "rationale": "Exact definitions: every face of a bipartite I_3 graph has at most four vertices; the full one-skeleton and graph-edge-triangulated triangles prove simply connectivity. A leaf has conical link, so trees collapse. On adding an arbitrary cross-part edge ab, the relative C2 basis consists exactly of vertices nonadjacent to both a,b, and relative C3 columns are signed incidences of old edges incident to that vertex set. Connectivity of the old graph gives a path to a sink for every component, so the integral relative differential is onto and H2 cannot be created by edge insertion. Thus all H2 vanish; simply connectivity and Hurewicz–Whitehead give an integral wedge of S3. An independent exact simplex count gives multiplicity C(b+1,2)-c4. Delivered verifier checks 240 connected graph cases (mod 2,3) and 639 relative insertion maps (mod 2,3); finite tests supplement but do not replace the integral proof. Small n=1 and tree cases are explicitly treated.",
+    "checked_sources": [
+      "Assigned RESULT.md all six proof steps at Git blob 0f6f0575a334a9da21e0fca4ffb6059b8e7daa93",
+      "Assigned verify.py blob 98572abda2e965eeb58e9fbebccb317dbca1d73a inspected but not trusted as standalone proof",
+      "Independent verification script and recorded finite counts",
+      "Carnero Bravo Proposition 21 corroborates the connected-graph π1 statement"
+    ],
+    "rationale": "For every finite connected simple bipartite G, any 5-vertex set contains 3 vertices from one bipartition, so dim I_3≤3; 2- and 3-faces are exactly triples containing an edge and quadruples carrying disjoint edges. The complete one-skeleton plus graph-edge triangles kills loops using a connected-graph fan. A leaf t attached to v has link(t)=v*Cl(H−v), hence deleting leaf t collapses I_3(H+t) to I_3(H); thus a tree is contractible. On adding any bipartite cross-edge ab to a connected spanning subgraph H, the new C_2 relative generators are triples {a,b,u} for vertices u adjacent to neither a nor b in H. The new C_3 relative boundary columns are signed graph incidences of old edges having ≥1 endpoint in U; connectivity of H implies each component of H[U] is connected to a vertex outside U∪{a,b}. A root path along a spanning forest supplies an integer coefficient ±1 expression for each generator, making ∂_3:C_3(L’,L;Z)→C_2(L’,L;Z) onto. H_2 of the growing complex stays zero from a spanning tree; with π_1=0 and top integral H_3 free, Hurewicz and homology Whitehead give a wedge of 3-spheres. Exact f_2=m(n−2)−sum_v binom(d_v,2), f_3=binom(m,2)−sum_v binom(d_v,2)−c_4 imply multiplicity binom(b+1,2)−c_4. Edge cases K_1 and trees work. Independent Python chain checks covered 231 connected small bipartite graphs over F_2,F_3,F_5, 673 old-edge additions, plus C_6,C_8,C_10,K_{3,4},K_{4,4}; their finite scope is not a universal integer proof.",
+    "residual_risks": [
+      "The universal homotopy equivalence depends on exact integer path-to-sink surjectivity, not finite-field ranks; this graph-theoretic argument has been checked analytically.",
+      "The result does not address nonbipartite graphs, higher robust parameter or equivariant integral homology representations."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Theorem 1.2 of arXiv:2602.11365 explicitly requires square-sequence construction by attaching four-cycles.",
-        "Carnero Bravo arXiv:2602.21427 studies complete multipartite graphs, cycles/powers, and Cartesian-product cases, not all connected bipartite graphs."
+        "Filakovský Theorem 1 treats rectangular grids and Theorem 2 treats graphs obtained by successive C4 attachments. Arbitrary connected bipartite graphs (e.g. any C_6, trees and incidence graphs of girth ≥6) do not all belong to these families (arXiv:2602.11365v4).",
+        "Carnero Bravo Proposition 15 handles connected chordal graphs (including trees), Proposition 37 complete multipartite graphs, and Corollary 39 cycles; these jointly do not exhaust connected bipartite graphs (arXiv:2602.21427).",
+        "Resultary equivariant Euler theorem computes the alternating rational homology representation for all connected bipartite graphs and explicitly disclaims homology concentration or integral torsion conclusions; it gives the same Euler characteristic but not the homotopy type."
       ],
-      "reasoning": "Connected bipartite graphs such as cycles of length six or more have no four-cycles and so cannot be covered by a square-sequence theorem. Complete multipartite cases and special graph families are proper subclasses. Existing finite special-case wedge calculations cannot imply the unrestricted relative-chain lemma.",
+      "reasoning": "All-compartments representation/Euler coverage is broader in equivariance but strictly weaker for degreewise integral homology and homotopy. Prior full homotopy classifications apply to proper subclasses, and a general all-connected-graph simple-connectivity statement still leaves the H_2 obstruction.",
       "searches": [
-        "Indexed literature query: Filakovsky square sequence robust clique three extension all bipartite graph complete homotopy classification",
-        "Indexed literature query: bounded independence three robust clique any connected bipartite graph wedge of 3 spheres homotopy",
-        "arXiv:2602.11365 Theorems 1.1–1.2 and full §3",
-        "arXiv:2602.21427 §5.2 and §§5.3–5.4"
+        "Resultary semantic search: k-robust clique complex I_3 of arbitrary finite connected bipartite graphs homotopy wedge 3-spheres cycle rank minus four-cycles",
+        "Resultary semantic search: total 3 cut complexes bipartite graph Alexander dual homotopy four-cycles",
+        "arXiv:2602.11365v4 introduction Theorems 1–2, §2 square-sequence definition and §3 proofs",
+        "arXiv:2602.21427 Proposition 15, Proposition 37, Corollary 39 and Theorem 40",
+        "Published Resultary 2026-10-11 equivariant Euler-character result full RESULT.md"
       ]
     },
     "checked_sources": [
-      "arXiv:2602.11365 (original v1 date, full v4 HTML, Thms 1.1–1.2 and §3)",
-      "arXiv:1912.12605 (full PDF, main collapsibility Theorems 1.5–1.8 and §7)",
-      "arXiv:2602.21427 (full PDF, §§4–5 and complete multipartite section)",
-      "Published mathematical record summaries from actual targeted semantic searches (no exact unrestricted theorem identified)",
-      "Independent comparison of published equivalent and stronger graph-complex statements"
+      "arXiv:2602.11365v4, full HTML, Theorems 1–2 and §3",
+      "arXiv:1912.12605, primary PDF, main theorems and relevant sections",
+      "arXiv:2602.21427v3, primary PDF, Propositions 15,21,37, Corollary 39 and Theorem 40",
+      "Resultary published equivariant Euler result, complete RESULT.md",
+      "Three exact recorded Resultary semantic searches (queries embedded in four O checks)",
+      "Targeted external literature searches under I_3, BI_3, robust clique, total 3-cut and square-sequence aliases"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "An alternating Euler-character equality, even when known for every graph, does not yield integral H2 vanishing or a wedge homotopy type.",
-        "Kim–Lew Theorem 1.8 supplies a collapsibility upper bound depending on maximum degree; it does not force wedge type.",
-        "Filakovský Theorem 1.2 and Carnero Bravo §5 cover proper graph subclasses."
+        "Carnero Bravo proves π_1(I_3(G))=0 for all connected G, but that alone does not imply H_2=0 (Proposition 21).",
+        "Kim–Lew bounds collapsibility number, which neither identifies integral H_2 nor fixes H_3 ranks (Theorem 1.8).",
+        "An all-graph alternating equivariant Euler character cannot rule out cancelling homology in degrees two and three; the published source explicitly disclaims degreewise homology concentration.",
+        "For graphs outside square sequences and the special families, no inspected prior statement forces the signed relative C_3→C_2 map to be surjective over Z."
       ],
-      "reasoning": "The novel topological step is that adding arbitrary bipartite cross-edges from a spanning tree leaves the degree-two integral homology zero; the relative boundary has an integral right-surjectivity witness from graph paths. Coupled with simple connectivity, this determines the homotopy type. None of the compared sources or the older Euler statement implies this condition for unrestricted bipartite graphs.",
+      "reasoning": "The submitted result is not an implication of any inspected primary theorem individually or of the reported combined prior facts. Its distinctive premise is proved by connectivity of the old graph and integer incidence paths for every newly inserted bipartite edge. A stronger unlocated result could still dominate it, so this is best-of-knowledge, not certified world priority.",
       "searches": [
-        "Indexed literature query: homology H2 vanishes for I3 of every bipartite connected graph four cycle count",
-        "Indexed literature query: adding a bipartite edge robust clique 3 relative homology vanish degree two tree collapse",
-        "Web: \"3-robust clique\" arbitrary bipartite graphs homotopy type",
-        "arXiv:2602.11365 Theorems 1.1–1.2 and all-bipartite scope comparison"
+        "Resultary semantic search: bounded independence number complex connected bipartite homotopy type integral H2 zero",
+        "Resultary semantic search: total 3 cut complexes bipartite graph Alexander dual homotopy four-cycles",
+        "arXiv:1912.12605 Theorems 1.5–1.8",
+        "arXiv:2602.21427 Propositions 15 and 21, Corollary 39, §5.2",
+        "Filakovský arXiv:2602.11365 Theorems 1–2",
+        "Resultary equivariant Euler result proof and limitations"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Kim–Lew arXiv:1912.12605 uses the alias I_3 and treats d-collapsibility, not unrestricted homotopy types.",
-        "Filakovský arXiv:2602.11365 uses Cliq_3 and proves square-sequence graph subclasses."
+        "Kim–Lew defines I_n(G)={S:alpha(G[S])<n}; I_3 equals the submitted robust clique complex, whereas Theorem 1.8 bounds collapsibility in terms of maximum degree (arXiv:1912.12605, pp.2–3).",
+        "Carnero Bravo defines BI_d as the same bounded independence complex and proves simple connectivity of BI_3 for connected graphs (Proposition 21), but not universal H_2=0 or wedge homotopy (arXiv:2602.21427, pp.8–12).",
+        "Alexander duality identifies its dual with total-three-cut complex; it relates homology, not an automatic statement of this 3-dimensional homotopy type (arXiv:2602.21427, §3)."
       ],
-      "reasoning": "The two names describe exactly the same bounded-independence complex. The former known theorems bound collapsibility, whereas the new statement identifies the integral homotopy type for all connected bipartite graphs. The Alexander dual total three-cut complex is related but not automatically homotopy equivalent: Alexander duality gives homology shifts, not unstated ordinary homotopy classification.",
+      "reasoning": "The aliases I_3, Cliq_3, BI_3 and the Alexander dual total-cut complex were explicitly compared. Known general connectivity and bounded collapsibility do not imply H_2 vanishing. The complete claim requires the universal integral relative-boundary argument, which is not a formal consequence of the inspected prior results.",
       "searches": [
-        "Indexed literature query: all connected bipartite graphs I3 bounded independence simplicial complex wedge of three spheres homotopy binomial cyclomatic fourcycles",
-        "Indexed literature query: all finite connected bipartite graphs 3-robust clique complex homotopy wedge S^3 cycle rank number of four cycles",
-        "Web: \"I_3(G)\" \"bipartite\" \"wedge\" \"3-spheres\"",
-        "arXiv:1912.12605 Theorems 1.5–1.8"
+        "Resultary semantic search: k-robust clique complex I_3 of arbitrary finite connected bipartite graphs homotopy wedge 3-spheres cycle rank minus four-cycles",
+        "Resultary semantic search: bounded independence number complex connected bipartite homotopy type integral H2 zero",
+        "Web queries: \"I_3\" bipartite homotopy wedge spheres; independence number at most 2 simplicial complex connected bipartite",
+        "arXiv:1912.12605 §1 and Thm 1.8",
+        "arXiv:2602.21427 §3 and Proposition 21"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The simple enumerative identity for the Euler characteristic, independently derived in RESULT.md, is weaker than the claimed homotopy type and supplies no H2-vanishing implication.",
-        "Filakovský Theorem 1.1 gives binomial multiplicities for rectangular grids only."
+        "For every bipartite G the previously computed Euler number is c_4(G)-binom(b+1,2), including via the Resultary equivariant Euler result, but no degree concentration or integral H_2 vanishing is asserted there.",
+        "Filakovský grid family has known multiplicities binom((m-1)(n-1),2), and Carnero Bravo cycle/complete-bipartite cases are established exact special-family tables.",
+        "The submitted verifier has only bounded tests, which are not taken as a novelty source or global proof."
       ],
-      "reasoning": "An exact Euler number or face table does not determine integral H2, π2, torsion, or homotopy. The present theorem explicitly does not claim Euler-characteristic enumeration as new; it claims the higher homotopy-level strengthening for every connected bipartite graph.",
+      "reasoning": "An exact face-count/Euler formula or finite class table does not determine the homotopy type of a 3-dimensional complex; the new general integer-chain vanishing result is genuinely stronger than the existing count. Prior exact special-family results are acknowledged as covered.",
       "searches": [
-        "Indexed literature query: robust clique complex finite connected bipartite graph binomial cycle rank minus four cycles",
-        "Indexed literature query: Alexander dual total 3-cut complex arbitrary connected bipartite graph wedge same dimensional spheres",
-        "Web: \"binomial\" \"four-cycles\" \"homotopy\" \"bipartite\" simplicial",
-        "arXiv:2602.11365 Theorem 1.1 grids"
+        "Resultary semantic search: k-robust clique complex I_3 of arbitrary finite connected bipartite graphs homotopy wedge 3-spheres cycle rank minus four-cycles",
+        "Resultary semantic search: total 3 cut complexes bipartite graph Alexander dual homotopy four-cycles",
+        "Web query: binomial four-cycles homotopy bipartite simplicial complex",
+        "Filakovský Theorem 1 grid sphere counts",
+        "Resultary equivariant Euler formula for all connected bipartite graphs"
       ]
     },
-    "rationale": "The claim is the unrestricted integral homotopy type. Filakovský gives wedges for square-sequence graphs only; Kim–Lew gives collapsibility bounds, and Carnero Bravo gives special-family topology; none asserts this all-connected-bipartite result. An unrestricted equivariant Euler character would entail the Euler number only and cannot determine π1, H2, or a wedge homotopy equivalence. Material comparisons use full source texts, aliases I_3/Cliq_3, Alexander duality, broader graph classes, and the recorded real literature queries. Residual risks are kept explicit, not disguised as novelty certification.",
+    "rationale": "Best-of-knowledge novelty of the unrestricted integral homotopy theorem and its signed relative-edge-insertion lemma, not of the previously published graph-complex definition, simple-connectivity statement, tree special case, Euler number or cycle/grid formulas. The inspected primary sources only imply restricted graph cases, collapsibility bounds, or alternating characters. An unindexed stronger statement remains a specific priority risk.",
     "residual_risks": [
-      "An older or contemporaneous unindexed statement of the unrestricted integral wedge classification could exist; negative search results do not certify originality.",
-      "The equivalent total-cut/Stanley–Reisner formulation has a large literature, and a sufficiently strong dual or commutative-algebra theorem could potentially subsume this statement; the specifically inspected closest sources do not.",
-      "No independent mathematical audit is available. Finite-field checks alone cannot exclude all integer torsion; the signed relative boundary proof supplies the integral argument."
+      "An unindexed prior publication or stronger commutative-algebra/Alexander-dual theorem for all connected bipartite graphs may imply this, despite the inspected source comparisons.",
+      "The existing equivariant Euler result shares the all-bipartite scope and exact Euler number but does not establish integer homology concentration; future independent derivations may narrow priority claims.",
+      "A source is not excluded solely because its abstract or indexing does not use I_3 terminology; the searched primary corpus is substantial, not exhaustive."
     ],
     "source_inspections": [
       {
-        "assessment": "Square-sequence constructions and grids only; no all-connected-bipartite homotopy classification. The unrestricted claim has proper new scope.",
+        "assessment": "Covers grids and C4-built square sequences only, not arbitrary connected bipartite graphs.",
         "evidence": [
-          "arXiv:2602.11365, Introduction Theorems 1.1–1.2, §3 (https://ar5iv.labs.arxiv.org/html/2602.11365).",
-          "arXiv first posted 2026-02-11 (https://arxiv.org/abs/2602.11365)."
+          "Introduction Theorem 1 (grid graphs), Theorem 2 (square-sequence); §2 Definition 8 and §3 proof, arXiv:2602.11365v4, revised August 10, 2026."
         ],
-        "identifier_or_url": "arXiv:2602.11365; https://ar5iv.labs.arxiv.org/html/2602.11365",
-        "material_read": "Primary full-text HTML, Introduction Theorems 1.1–1.2, square-sequence definitions, relevant §2 lemmas and §3 main proofs consulted.",
-        "method": "Primary full-text HTML and original arXiv abstract/history, theorem-to-theorem scope comparison.",
+        "identifier_or_url": "arXiv:2602.11365v4; https://arxiv.org/html/2602.11365",
+        "material_read": "Accessible 537-line primary HTML: abstract, Theorems 1–2, definitions of square sequences, relevant proof passages in §3, corollaries and limitations examined.",
+        "method": "Opened and searched original arXiv full HTML; compared graph quantifiers and predicted wedge counts.",
         "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
-        "trigger": "Originating 2026 source for exact robust clique homotopy types; possibility of stronger blanket theorem."
+        "trigger": "Same object and wedge-of-three-spheres result may cover arbitrary bipartite graphs."
       },
       {
-        "assessment": "Proves collapsibility and Leray bounds, not a homotopy equivalence for every connected bipartite graph.",
+        "assessment": "Proves collapsibility bounds, not an unrestricted bipartite wedge/homology theorem.",
         "evidence": [
-          "arXiv:1912.12605, Theorems 1.5–1.8, especially Theorem 1.8 on I_3 (https://arxiv.org/pdf/1912.12605)."
+          "pp.1–3 definition of I_n, Theorem 1.8 and §§4–5; Theorem 1.8 bounds C(I_3(G)) in maximum-degree terms."
         ],
         "identifier_or_url": "arXiv:1912.12605; https://arxiv.org/pdf/1912.12605",
-        "material_read": "Full primary PDF accessed; main Theorems 1.5–1.9, §2 definitions, targeted §5 results and §7 examples read for relevant statement coverage.",
-        "method": "Opened primary arXiv PDF, inspected page images and searched/read theorem statements and relevant sections.",
+        "material_read": "33-page original PDF opened; page 1 visually inspected; definitions, Theorems 1.5–1.8, relevant chordal and degree-bounded sections examined via full-text navigation.",
+        "method": "ArXiv original PDF page-image inspection and theorem-section searches.",
         "title": "Complexes of graphs with bounded independence number",
-        "trigger": "Older original same-object paper under I_3 alias; might contain the general result."
+        "trigger": "Foundational alias I_3 and potential general graph-theoretic homotopy result."
       },
       {
-        "assessment": "Special-family homotopy calculations only, with no general connected bipartite theorem.",
+        "assessment": "Its general simple connectivity theorem is already known; its specific homotopy calculations cover proper graph subclasses only.",
         "evidence": [
-          "arXiv:2602.21427, §§4–5, notably §5.2 complete multipartite graphs (https://arxiv.org/pdf/2602.21427)."
+          "Proposition 15 connected chordal contractibility; Proposition 21 BI_3 simply connected; Proposition 37 complete multipartite; Corollary 39 cycles; Theorem 40 cycle powers."
         ],
-        "identifier_or_url": "arXiv:2602.21427; https://arxiv.org/pdf/2602.21427",
-        "material_read": "Primary full PDF accessed; introduction, the section-by-section homotopy coverage in §5, complete multipartite §5.2 and cycle cases consulted.",
-        "method": "Opened original full arXiv PDF, inspected first page and scanned theorem statements/sections, including §5.2.",
+        "identifier_or_url": "arXiv:2602.21427v3; https://arxiv.org/pdf/2602.21427",
+        "material_read": "33-page original PDF opened; page 2 visually inspected; definitions and duality §3, Proposition 15 on chordal graphs, Proposition 21 on connected graph simple connectivity, §5.2 multipartite and §5.3 cycles and powers examined.",
+        "method": "Primary arXiv PDF, page screenshot and targeted theorem/section full-text inspection.",
         "title": "Total cut complexes and their duals",
-        "trigger": "Closely related same Alexander-dual objects, including trees, cycles, complete multipartite graphs."
+        "trigger": "Same bounded independence complexes under BI_d alias, plus possible strong all-graph results."
+      },
+      {
+        "assessment": "Computes virtual rational homology and Euler characteristic, explicitly not integral degreewise concentration or homotopy; non-dominating for submitted claim.",
+        "evidence": [
+          "The result states sum (-1)^j [Htilde_j]=Q[C4]-Sym²H1(G;Q); the limitations expressly exclude degreewise homology and integral torsion."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-equivariant-euler-characters-of-3-robust-clique-complexes-of-con--f9d874df12e5/RESULT.md",
+        "material_read": "Complete published RESULT.md, including theorem, representation proof, graph specializations, and Limitations.",
+        "method": "Read full public primary mathematical record.",
+        "title": "Equivariant Euler characters of 3-robust clique complexes of connected bipartite graphs",
+        "trigger": "Published same-object arbitrary connected bipartite graph statement with potentially dominating invariants."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": {
+      "status": "PASS",
+      "substance": "Original written proof establishes a full two-skeleton, collapses trees by cone links, shows the signed relative three-to-two boundary of any added cross-edge is integer-surjective by paths to sinks, and derives the binomial-minus-four-cycle count from exact face counts. Its finite two-field tests support but do not prove the general integer theorem."
+    },
+    "originality": {
+      "status": "PASS",
+      "substance": "Prior mathematical comparison recognized square-sequence and grid homotopy theorems, maximum-degree collapsibility bounds, complete-multipartite and cycle computations, and an unrestricted alternating Euler character. All are strictly weaker in universal integral H2 and homotopy classification; possible unindexed equivalent statements remain a residual risk."
+    },
+    "value": {
+      "status": "PASS",
+      "substance": "Natural all-connected-bipartite homotopy classification, extending special classes and supplying a general integer incidence lemma; not merely finite data or an Euler identity."
+    }
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "8d06720b-1a2b-40bc-8d86-6879779d0804",
+  "scientific_limitations": "Finite connected simple bipartite graphs, k=3. The classification does not assert nonbipartite/higher-robust/equivariant homotopy statements. Finite-field tests neither prove integral surjectivity nor worldwide originality. No formal assistant/Lean proof or external expert attestation is asserted.",
   "value": {
-    "rationale": "This resolves a natural, previously special-class homotopy classification at robust parameter three for every connected bipartite graph, with an explicit topological rank formula and no planarity/degree/girth restriction. It upgrades a known exact Euler character to a full integral homotopy statement by a new edge-insertion surjectivity lemma, proving torsion-freeness and simple connectivity. It applies to arbitrary long even cycles, high-girth incidence graphs and dense bicliques not covered by square attachments. The advancement is structural and infinite rather than a routine numerical increment.",
+    "checked_sources": [
+      "Filakovský grid/square-sequence restrictions",
+      "Carnero Bravo special-family computations and connected-graph simple connectivity",
+      "Resultary equivariant Euler character and its lack of homotopy concentration",
+      "Assigned RESULT.md edge insertion lemma"
+    ],
+    "rationale": "A complete integral homotopy classification for the natural three-bounded-independence complex of every connected bipartite graph is a meaningful infinite-family gap. The incidence-surjectivity lemma explains why arbitrary cross-edges added to trees cannot create degree-two homology; this general structural result is not a routine Euler identity. It unifies prior grid, square-sequence, tree, even-cycle and biclique cases and applies to high-girth bipartite incidence graphs and unrestricted degrees/attachments. Exact binom(b+1,2)−c4 multiplicity and the forced nonnegative four-cycle inequality are useful invariant information independent of finite examples.",
+    "residual_risks": [
+      "Novelty is best-of-knowledge and may be narrowed by an unindexed universal theorem.",
+      "No new general theorem for robust k>3, nonbipartite graphs or symmetry representations is claimed."
+    ],
     "status": "PASS"
   }
 }
