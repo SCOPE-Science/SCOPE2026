@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:45:15.165564Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md blob dc11f88959c80d55f0948a8ac7f8570b44d22a57 in tree 9c399a061a7e55e07c275f96a710b6dea95c221f",
+        "Frozen actual scientific verification script(s) in exact 9-file source manifest",
+        "Actual frozen RESULT.md/checker.py read; independently rederived Sturm-like complex Wronskian and Bessel zero derivative; mpmath check three shape pairs and two asymmetry signs; compared primary 2005 beta-wavelet article PDF Eq.(41)–(43) revealing qualitative prior coverage not acknowledged in original file."
+      ],
+      "rationale": "PASS. Differentiate ((1-y²)w_{p,q})'=(p-q-(p+q)y)w_{p,q} on (-1,1) and integrate against e^{ity}; endpoint flux vanishes for every p,q>0 even if the original density diverges integrably. The resulting ODE is tH''+(p+q)H'+tH=i(p-q)H, H(0)=1, H'(0)=i(p-q)/(p+q). Multiplication by conjugate and subtraction yields (t^m W)'=2i(p-q)t^{m-1}|H|² with no integration constant at zero; therefore Im(H' conjugate H)=(p-q)t^{-m} integral_0^t s^{m-1}|H(s)|² ds for all t>0. This is strictly signed because H(0)=1; any nonzero real H zero would force the Wronskian to vanish, impossible. Reflection symmetry extends sign to negative frequencies; the unwrapped phase exists and derivative has the sign of p-q. On the diagonal the Fourier-Bessel identity gives simple zeros +/-j_{nu,k}. At fixed m, implicit differentiation of the ODE in delta=p-q and the mixed Wronskian at a simple Bessel zero gives t_k'(0)=i integral_0^j J_nu(s)^2 ds / (j J_nu'(j)^2)>0. Fixed-order Bessel large-j asymptotics give numerator (1/pi)log j+O(1) and denominator 2/pi+O(1/j), hence the logarithmic velocity. Independently evaluated the Wronskian at asymmetric shape triples with numerical residual ~10^-40 and located complex zeros for delta=+/-0.0001; observed velocity agrees with the Bessel integral. These are diagnostics, not an infinite proof; the source ODE/implicit-function argument establishes all quantifiers, including parameter-shape endpoints.",
+      "residual_risks": [
+        "The small-delta zero branch is fixed k,m only; logarithmic k asymptotics concern its derivative at zero, not a uniform joint k-delta approximation.",
+        "Only real-axis zero-freeness is claimed for asymmetric parameters; complex zeros persist."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dixit et al arXiv:1402.5544 Introduction and Fourier-Jacobi integral give the hypergeometric transform, without globally signed phase or velocity. Lin–Luo arXiv:1510.01285 Theorem 1.3 gives lower bound |z_k|>=M k for complex Kummer zeros."
+        ],
+        "reasoning": "The classical closed-form transform is known, but determining real-axis turning and infinitesimal escape requires a new sign-definite differential identity. General zero-modulus growth does not imply the imaginary displacement coefficient.",
+        "searches": [
+          "Fourier transform beta distribution asymmetric positive shape no real zeros monotone phase Kummer Bessel",
+          "Dixit Jiu Moll Vignat finite Fourier transform classical polynomials 1402.5544",
+          "Lin Luo zeros Kummer 1510.01285"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.02166v1 (de Oliveira/de Araújo; original 2005 paper)",
+        "arXiv:1402.5544",
+        "arXiv:1510.01285",
+        "DLMF 13.9",
+        "DOI:10.1017/S0305004100031698 (Slater 1956 real argument zeros abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2005 beta-wavelet spectral statement covers the qualitative real-zero exclusion in a broad subdomain. Its Eq(41) includes the unavoidable zero at frequency 0 from the extra derivative factor; the comparative theorem concerns nonzero notches. It has no statement about phase monotonicity or complex zeros."
+        ],
+        "reasoning": "The prior claim does logically imply that subpart and must be credited; it does not imply the full strengthened composite theorem, which has independent quantitative zero-trajectory content. Full earlier zero-motion literature could still be found in classic special-function monographs.",
+        "searches": [
+          "de Oliveira Araujo 2005 nonzero spectral nulls beta wavelets",
+          "Kummer imaginary axis zero branches asymmetry Bessel roots"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Oliveira–de Araújo, Journal of Communication and Information Systems 20(3), 2005, pp.105–111; arXiv:1502.02166v1, Eq.(41)–(43), explicitly states only symmetric beta-wavelet spectra have nontrivial zero notches. Spectrum is (-i omega)*a nonzero exponential times the Beta characteristic function at a nonzero real rescaled frequency. The wavelet source uses beta shapes >=1."
+        ],
+        "reasoning": "For nonzero frequency the beta-wavelet spectral zero dichotomy directly covers the beta characteristic-function zero dichotomy on the source parameter range p,q>=1. The original finding is not globally novel as a zero/nonzero statement. That paper does not derive the strict unwrapped phase Wronskian, shapes below 1, first-order Bessel-zero motion or logarithmic velocities.",
+        "searches": [
+          "Fourier transform beta distribution asymmetric positive shape no real zeros monotone phase Kummer Bessel",
+          "Beta wavelet spectrum only symmetrical cases have zeroes de Oliveira de Araujo 2005 arxiv 1502.02166"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF 13.9 tabulates zeros of M(a,b,x) on REAL x and a few complex zero-free parabolic regions, not the entire imaginary axis for all beta-shape parameters."
+        ],
+        "reasoning": "Parameter/argument geometry differs; DLMF does not provide the exact phase derivative or Bessel integral velocities. No indexed table or direct closed-form expansion for C_{nu,k} found.",
+        "searches": [
+          "NIST DLMF 13.9 Kummer function zeros real argument vs imaginary axis",
+          "Fourier transform beta distribution asymmetric positive shape no real zeros monotone phase Kummer Bessel"
+        ]
+      },
+      "rationale": "PASS, substantially qualified: the real-zero dichotomy for beta shapes >=1 is explicitly mentioned in a 2005 beta-wavelet primary paper and MUST NOT be claimed new on that range. The independently derived global phase Wronskian/strict phase law, extension to all p,q>0, and exact complex-zero velocity including k-growth form the remaining distinct claim.",
+      "residual_risks": [
+        "The qualitative zero dichotomy is KNOWN at least for positive beta-wavelet shape domain >=1; scientific novelty cannot rest on that subclaim.",
+        "Buchholz, Slater, Tricomi and older Kummer/Whittaker literature could contain equivalent phase or zero-motion identities; not all monographs were fully accessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: qualitative nonzero spectral zero dichotomy for p,q>=1, not strict phase law or complex-zero motion",
+          "evidence": [
+            "At equation (42) M(alpha,alpha+beta,i nu) is exactly the Beta Fourier transform, up to affine phase and scale; text says only symmetric cases have nonzero spectral zeroes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.02166v1",
+          "material_read": "Primary seven-page PDF, page 3 Equation (41)–(43) and spectral zeros statement; parameter restrictions pp.2–3",
+          "method": "Read the primary manuscript full text at the relevant original definitions, theorem statements, and proofs (PDF/HTML or exact public scientific source).",
+          "title": "Compactly Supported One-cyclic Wavelets Derived from Beta Distributions",
+          "trigger": "Exact beta spectral zero statement under wavelet alias; original 2005 article"
+        },
+        {
+          "assessment": "KNOWN_TRANSFORM only, no matching phase Wronskian/zero speeds",
+          "evidence": [
+            "The normalized beta Fourier transform is a Kummer confluent hypergeometric function, not newly derived."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.5544",
+          "material_read": "Read full ar5iv primary HTML, formulas and applications, especially Introduction and §3",
+          "method": "Read the primary manuscript full text at the relevant original definitions, theorem statements, and proofs (PDF/HTML or exact public scientific source).",
+          "title": "The finite Fourier transform of classical polynomials",
+          "trigger": "Classical Jacobi/Beta Fourier transform and Kummer notation"
+        },
+        {
+          "assessment": "NOT_COVERING the real-axis all-positive-shape Wronskian or explicit motion",
+          "evidence": [
+            "Theorem 1.3 gives a lower bound on complex zero moduli, not the exact imaginary-axis nonzero criterion or first derivative."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.01285",
+          "material_read": "Full primary PDF abstract, theorem 1.3, asymptotic zero growth statements",
+          "method": "Read the primary manuscript full text at the relevant original definitions, theorem statements, and proofs (PDF/HTML or exact public scientific source).",
+          "title": "On the zeros of Confluent Hypergeometric Functions",
+          "trigger": "Possible stronger full complex-zero theorem"
+        },
+        {
+          "assessment": "DIFFERENT_ARGUMENT geometry; no phase/velocity result",
+          "evidence": [
+            "Its p(a,b) tabulates positive REAL argument zeros for M(a,b,x), not M(a,b,it) along imaginary axis."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/13.9",
+          "material_read": "Main §13.9(i) statements about real argument and complex zero-free parabolic regions",
+          "method": "Read the primary manuscript full text at the relevant original definitions, theorem statements, and proofs (PDF/HTML or exact public scientific source).",
+          "title": "NIST Digital Library of Mathematical Functions §13.9",
+          "trigger": "Authoritative classical Kummer zero table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen original scientific theorem: https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/phase-rigidity-and-complex-zero-escape-for-asymmetric-beta-fouri--1985d778d78f/RESULT.md",
+        "Relevant published primary sources compared under originality.source_inspections"
+      ],
+      "rationale": "PASS. The exact integral phase derivative and the first-order imaginary escape speeds are natural global analytic invariants for an entire family of Fourier transforms. They give a quantitative strengthening beyond known qualitative wavelet spectral notches and the classical Bessel diagonal, including a nontrivial logarithmic growth law. The result is substantive even after explicitly excluding the older real-zero observation from novelty.",
+      "residual_risks": [
+        "Qualitative nonvanishing is not a new phenomenon in the beta-wavelet shape range; value rests on quantitative phase and complex zero motion, not the transform representation itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all beta-shape p,q>0, the centered Beta(p,q) Fourier transform H=e^-it 1F1(p;p+q;2it) has real zeros iff p=q; for p!=q its globally unwrapped phase is strictly monotonic with sign(p-q) and exact positive Wronskian integral. At p=q the zeros are simple Bessel zeros, and as fixed total shape is perturbed asymmetrically, each positive zero escapes into the complex plane with explicit positive imaginary velocity C_{nu,k}=integral_0^{j}J_nu^2/(j J_nu_prime(j)^2)=(1/2)log k+O(1) as k->infinity.",
+  "limitations": [
+    "The small-delta zero branch is fixed k,m only; logarithmic k asymptotics concern its derivative at zero, not a uniform joint k-delta approximation.",
+    "Only real-axis zero-freeness is claimed for asymmetric parameters; complex zeros persist.",
+    "The qualitative zero dichotomy is KNOWN at least for positive beta-wavelet shape domain >=1; scientific novelty cannot rest on that subclaim.",
+    "Buchholz, Slater, Tricomi and older Kummer/Whittaker literature could contain equivalent phase or zero-motion identities; not all monographs were fully accessible.",
+    "Qualitative nonvanishing is not a new phenomenon in the beta-wavelet shape range; value rests on quantitative phase and complex zero motion, not the transform representation itself."
+  ],
+  "schema_version": 1
+}

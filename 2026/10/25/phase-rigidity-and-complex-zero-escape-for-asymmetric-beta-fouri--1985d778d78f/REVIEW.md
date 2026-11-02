@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The beta normalization, integration-by-parts boundary term for every positive endpoint exponent, and exact complex Wronskian yield a sign-definite identity for all positive frequencies. The identity excludes all real zeros off the symmetric parameter diagonal, and continuous argument differentiation determines the phase sign. The symmetric Bessel representation gives infinitely many simple real zeros. Analytic implicit differentiation gives exact first-order complex displacement, with a positive Bessel integral; standard fixed-order Bessel asymptotics prove logarithmic growth. The numerical checker reproduces the Wronskian and four perturbed zero branches. Its finite experiments are supplementary rather than the justification of infinite claims.
+## correctness
 
-**Originality — PASS, qualified.** The focal classical Fourier-transform formulas in Dixit–Jiu–Moll–Vignat, arXiv:1402.5544 (Introduction, §3 and §5), do not state the Fourier zero dichotomy or complex-argument Wronskian. The full arXiv:1510.01285 Theorem 1.3 concerns moduli of arbitrary Kummer zeros. DLMF §13.9 specifies real-argument zeros and bounded zero-free regions; neither directly implies global imaginary-axis zero exclusion or the derivative-of-zero formula. Milne's older Whittaker-function roots analysis works on the real argument axis. The closest recoverable mathematical-record entries concern different Jacobi quadrature thresholds, other hypergeometric species, or unrelated transforms. General classical Kummer zero-location treatises not completely inspected remain a priority risk, and the first-order drift is consistent with the known fixed-parameter distant-zero asymptotic, not a contradiction of it.
+PASS
 
-**Value — PASS.** For a natural two-parameter family of compactly supported probability kernels, the theorem provides a sharp complete zero/no-zero characterization, a globally oriented unwrapped phase, and an exact sensitivity law for the formerly real zeros at the symmetry boundary. Nonvanishing is relevant to injectivity of convolution and Fourier-domain inverse methods, without asserting conditioning. The positive logarithmic drift distinguishes how remote zeros react to arbitrarily small asymmetry and is not a restatement of a transform table.
+PASS. Differentiate ((1-y²)w_{p,q})'=(p-q-(p+q)y)w_{p,q} on (-1,1) and integrate against e^{ity}; endpoint flux vanishes for every p,q>0 even if the original density diverges integrably. The resulting ODE is tH''+(p+q)H'+tH=i(p-q)H, H(0)=1, H'(0)=i(p-q)/(p+q). Multiplication by conjugate and subtraction yields (t^m W)'=2i(p-q)t^{m-1}|H|² with no integration constant at zero; therefore Im(H' conjugate H)=(p-q)t^{-m} integral_0^t s^{m-1}|H(s)|² ds for all t>0. This is strictly signed because H(0)=1; any nonzero real H zero would force the Wronskian to vanish, impossible. Reflection symmetry extends sign to negative frequencies; the unwrapped phase exists and derivative has the sign of p-q. On the diagonal the Fourier-Bessel identity gives simple zeros +/-j_{nu,k}. At fixed m, implicit differentiation of the ODE in delta=p-q and the mixed Wronskian at a simple Bessel zero gives t_k'(0)=i integral_0^j J_nu(s)^2 ds / (j J_nu'(j)^2)>0. Fixed-order Bessel large-j asymptotics give numerator (1/pi)log j+O(1) and denominator 2/pi+O(1/j), hence the logarithmic velocity. Independently evaluated the Wronskian at asymmetric shape triples with numerical residual ~10^-40 and located complex zeros for delta=+/-0.0001; observed velocity agrees with the Bessel integral. These are diagnostics, not an infinite proof; the source ODE/implicit-function argument establishes all quantifiers, including parameter-shape endpoints.
 
-**Limitations and residual risks.** There is no classification of all complex zeros, uniform perturbation estimate as both frequency index and asymmetry vary, or independent publication-priority verification. Comprehensive older Kummer monographs may contain stronger location theorems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, substantially qualified: the real-zero dichotomy for beta shapes >=1 is explicitly mentioned in a 2005 beta-wavelet primary paper and MUST NOT be claimed new on that range. The independently derived global phase Wronskian/strict phase law, extension to all p,q>0, and exact complex-zero velocity including k-growth form the remaining distinct claim.
+
+## value
+
+PASS
+
+PASS. The exact integral phase derivative and the first-order imaginary escape speeds are natural global analytic invariants for an entire family of Fourier transforms. They give a quantitative strengthening beyond known qualitative wavelet spectral notches and the classical Bessel diagonal, including a nontrivial logarithmic growth law. The result is substantive even after explicitly excluding the older real-zero observation from novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
