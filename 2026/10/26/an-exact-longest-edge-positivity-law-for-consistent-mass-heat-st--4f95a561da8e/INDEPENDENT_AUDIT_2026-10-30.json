@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:54:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed assembled consistent P1 mass/stiffness on a finite metric tree, n>=3, all Neumann/Kirchhoff unknowns retained: each edge has beta=h/6-t/h in H=M+tK. For every t>0 the positive branch inverse g obeys 1/g>=h/3+t/h, so Schur complement gives 0<P_bb<1 and P_ab=g[(h/6)(1-P_bb)+(t/h)P_bb]>0 for adjacent vertices. For t<h_uv^2/6 choose w adjacent to u distinct from v: P_vw=-beta_uv*g_v*P_uw<0 at distance two. For t>=max h_e^2/6 H is positive definite Stieltjes, hence H^{-1}M>=0, and P(0)=I; with exactly two vertices no distance-two witness and all entries remain positive. Independently computed nine exact rational 3-vertex path matrix-step checks, including thresholds and strict witnesses. Finite tests do not establish the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The compared model uses triangular/polygonal domains and boundary/mesh restrictions, while the claim covers arbitrary finite metric-tree junctions and natural Neumann vertices."
+        ],
+        "reasoning": "Even a stronger planar-mesh sufficient result does not entail the tree-specific universal necessity via a strict two-hop entry.",
+        "searches": [
+          "consistent mass finite element heat semigroup backward Euler positivity Neumann metric trees edge length threshold",
+          "Jin et al. arXiv:1510.02825; Schatz-Thomée-Wahlbin 2010"
+        ]
+      },
+      "checked_sources": [
+        "A. H. Schatz, V. Thomée, L. B. Wahlbin (2010), DOI 10.2478/cmam-2010-0025; B. Jin, R. Lazarov, V. Thomée, Z. Zhou, arXiv:1510.02825",
+        "SCOPE Git RESULT.md and verify.py at frozen tree 3c5c3a807be26b1ce81e0919e10356e051f4c040",
+        "Resultary semantic search: consistent mass finite element heat semigroup backward Euler positivity Neumann metric trees edge length threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M-matrix/Stieltjes sufficiency gives the forward implication for t>=max h^2/6; the submitted branch separation identity proves the converse and per-edge strict witnesses."
+        ],
+        "reasoning": "The decisive nonstandard extra implication is necessity for every overlong edge, not provided by the cited general positivity results.",
+        "searches": [
+          "DOI 10.2478/cmam-2010-0025",
+          "arXiv:1510.02825",
+          "consistent mass finite element heat semigroup backward Euler positivity Neumann metric trees edge length threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior FEM work studies positivity of Galerkin time-stepping matrices and Stieltjes sufficient steps; the metric-tree all-edge sharp equivalence is distinct."
+        ],
+        "reasoning": "Related notions of discrete maximum principle and inverse positivity were checked; a general sufficient Stieltjes condition is not the necessity of the exact maximum edge-square bound.",
+        "searches": [
+          "consistent mass finite element heat semigroup backward Euler positivity Neumann metric trees edge length threshold",
+          "arXiv:1510.02825",
+          "DOI 10.2478/cmam-2010-0025"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned discrete-scheme positivity horizons for BDF2, Crank-Nicolson and other operators, not this FEM consistent mass metric-tree law."
+        ],
+        "reasoning": "No finite table could cover arbitrary lengths; search did not identify an existing exact longest-edge threshold but absence is not proof of novelty.",
+        "searches": [
+          "consistent mass finite element heat semigroup backward Euler positivity Neumann metric trees edge length threshold",
+          "Resultary semantic search 2026-10-30"
+        ]
+      },
+      "rationale": "Existing FEM positivity theory establishes the Stieltjes sufficient mechanism and discusses nonpositivity of consistent-mass discretization at small times, typically on Euclidean-domain meshes. The sharp necessary-and-sufficient longest-edge law for arbitrary graded metric trees with Neumann/Kirchhoff coupling and a distance-two negative certificate was not established in the reviewed primary sources. General M-matrix sufficiency is not claimed as new.",
+      "residual_risks": [
+        "Uninspected full journal article by Schatz-Thomée-Wahlbin could contain a specialized one-dimensional/metric-network necessity result.",
+        "Boundary condition and mesh topology differences warrant care in reductions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different polygonal/Dirichlet discretizations; does not give this metric-tree all-edge necessary-and-sufficient criterion.",
+          "evidence": "Jin, Lazarov, Thomée, Zhou, 2015, arXiv:1510.02825; finite element mass matrix positivity assumptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.02825",
+          "material_read": "Inspected accessible full PDF, initial problem assumptions and positivity theorems/sufficient mesh conditions in the relevant discussion.",
+          "method": "Open arXiv PDF text plus page image inspection",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "Consistent-mass FEM and nonnegative backward Euler step discussion"
+        },
+        {
+          "assessment": "Establishes context and Stieltjes sufficient mechanism; whole-document exact overlap not excluded based on abstract.",
+          "evidence": "Schatz, Thomée, Wahlbin (2010), Computational Methods in Applied Mathematics 10, 421-443.",
+          "identifier_or_url": "https://research.chalmers.se/en/publication/155436",
+          "material_read": "Reviewed journal bibliographic record and detailed abstract, not asserted to be complete full text.",
+          "method": "Institutional abstract webpage",
+          "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations",
+          "trigger": "Backward-Euler positivity for consistent and lumped FEM"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positivity preservation is essential for monotone parabolic numerical schemes. The exact longest-edge cutoff for any finite graded metric tree and edge-specific negative witnesses are informative for choosing backward-Euler step sizes on networks, beyond generic sufficient conditions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "A. H. Schatz, V. Thomée, L. B. Wahlbin (2010), DOI 10.2478/cmam-2010-0025; B. Jin, R. Lazarov, V. Thomée, Z. Zhou, arXiv:1510.02825",
+    "SCOPE Git RESULT.md and verify.py at frozen tree 3c5c3a807be26b1ce81e0919e10356e051f4c040",
+    "Resultary semantic search: consistent mass finite element heat semigroup backward Euler positivity Neumann metric trees edge length threshold"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Not a theorem for cyclic networks, Dirichlet-eliminated matrices, mass lumping, coefficient jumps, higher integrators or t<0.",
+    "Only nine fresh independent exact rational path checks; unlimited metric-tree theorem relies on Schur and separation arguments."
+  ],
+  "residual_risks": [
+    "Uninspected full journal article by Schatz-Thomée-Wahlbin could contain a specialized one-dimensional/metric-network necessity result.",
+    "Boundary condition and mesh topology differences warrant care in reductions."
+  ],
+  "schema_version": 1
+}
