@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The link of the center is characterized by an exact weighted component-count inequality. Its subcomplex with a missing intermediate vertex has a full-simplex good-cover nerve, hence is contractible. When every intermediate vertex is present, the complementary cone-on-truncated-simplex model meets it in the join of a simplex boundary and a skeleton. Two homotopy pushouts yield the claimed sphere-wedge dimensions and ranks. Natural Mayer–Vietoris maps and the integral top-cycle kernel of a simplex skeleton prove the sign-twisted exterior-power lattice. The contractibility bounds and the empty-face case are explicit. The complete finite checker independently confirms 45 mod-two Betti vectors and 1436 signed Lefschetz characters; these are corroborative only.
+## correctness
 
-**Originality — PASS with residual bibliographic uncertainty.** Deshpande–Singh arXiv:2001.05448 was inspected in its complete accessible HTML, in particular Theorems 3.8, 3.10 and 5.6. The nearest general exact theorem assumes every nonleaf has an adjacent leaf, which fails at the unwhiskered center. The perfect-ary-tree theorem also excludes this family. Sawant arXiv:2605.25150 proves tree vertex-decomposability, not the exact homotopy ranks or integral branch action. Prior finite \(r=2\) cases and ordinary Morse complexes of spiders are acknowledged without claiming them. An unindexed equivalent formula remains possible.
+PASS
 
-**Mathematical value — PASS.** Removing a *single* whisker from the center of a fully whiskered star takes the graph outside the published exact family theorem. The complete infinite-parameter answer exhibits a sharp contractible-to-spherical-to-contractible transition, a binomial multiplicity profile, and an integral symmetry lattice. These are natural quantitative refinements for a simple nontrivial boundary family of the 2026 all-trees theorem, not an arbitrary finite parameter slice.
+The center deletion is a full simplex. The center link is precisely the weighted inequality sum_{i:a_i selected}(1+1_{b_i selected})<=r-1. Its missing-a_i subcomplexes are cones, every nonempty intersection a cone, giving a full-simplex nerve and contractible union. For m+1<=r<=2m the remaining full-A part is Delta_A*Y (Y the size<=k skeleton on B), intersecting the union in boundary(Delta_A)*Y; two homotopy pushouts yield suspension^{m+1}Y and the claimed sphere count. Naturality of Mayer-Vietoris and integral simplex chain contraction give sgn_m tensor wedge^k U_m, with k=r-m-1. r=m+1 (k=0), r=2m (k=m-1), r>=2m+1 all handled. Independent graph-induced-component enumeration and full mod-two boundary ranks verified 15 (m,r) examples 2<=m<=4, r>=3; the proof, not finite checks, establishes arbitrary m and integral lattices.
 
-**Scope and limitation.** No general-tree formula or equivariant homotopy equivalence is claimed. The theorem is for equal two-edge arms and \(r\ge3\), with all integral homotopy claims proved by decomposition rather than inferred from finite experiments. The closest sources and material-read limitations appear in the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for this explicit unwhiskered equal-arm family and integral branch permutation lattice. Fully whiskered nonleaf-neighbor and perfect-ary tree theorems have hypotheses that fail for the central vertex or branching profile; all-trees vertex-decomposability is strictly weaker than exact multiplicity and integral module.
+
+## value
+
+PASS
+
+Natural minimal departure from a fully whiskered star makes the center fail a standard family theorem, yet all thresholds admit exact homotopy and integral S_m module. Sharp contractible-spherical-contractible transitions and binomial profile are independently useful structural invariants, not a few isolated computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
