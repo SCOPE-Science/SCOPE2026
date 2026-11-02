@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:57:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all real cyclic x,y, use the exact continuous piecewise-linear median-selector representation. On strict chambers P1=1; variations of arc indicators are extreme modulo constants because a zero-sum cyclic gradient decomposes into positive linear combinations of e_p-e_q. Thus each selector norm is the maximum number of connected components of its preimage of an arc. A 3-local selector creates at most three such components, at most two for n=4,5, and zero for n=3 because every window equals the whole 3-cycle. Explicit strict-order and arc witnesses realize 2 or 3 for every admissible n (n>=7 uniformly). Separately threshold coarea proves the one-input TV contraction, not the two-input result. Independently reconstructed all strict selectors and cyclic arcs for n=3..7, obtaining max 0,2,2,3,3, and checked unequal-total-variation attaining pairs n=4..7; finite checks do not establish the n>=8 bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qiu supplies thresholded median optimization and Arias-Castro–Donoho statistical denoising risk, neither implies the sharp cyclic two-input ratio."
+        ],
+        "reasoning": "Risk and local cost theorems do not bound a nonlinear difference-variation quotient.",
+        "searches": [
+          "Qiu 1994 Functional Optimization Properties of Median Filtering",
+          "Arias-Castro–Donoho arxiv:math/0612422"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md tree 54a9e066d7f19f07ac1edd4899a84877ba067020 and actual median_tv_checker.py blob 1137b23872a3ee7dae4dfac3ec501772d754a2f2",
+        "Qiu (1994) author-hosted PDF full two pages",
+        "Restrepo and Chacón (1994), DOI:10.1109/78.286974, abstract",
+        "arxiv:math/0612422",
+        "Resultary semantic query as in four O checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proven one-input V(Tx)<=V(x) does not imply V(Tx-Ty)<=V(x-y), as the n>=6 ratio 3 witnesses show."
+        ],
+        "reasoning": "Precisely negates the potential false inference from existing BV contraction; prior general median descriptions do not entail the new norm. Restrepo full text remains an open coverage risk.",
+        "searches": [
+          "Restrepo–Chacón DOI 10.1109/78.286974",
+          "Qiu 1994",
+          "arxiv:math/0612422"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The input-output difference BV seminorm is the operator norm of each order-chamber selector on the quotient by constants. Restrepo–Chacón discuss smoothing of one signal, not visibly the two-input selector norm."
+        ],
+        "reasoning": "One-input contraction is not equivalent to a bound on the difference of outputs of a nonlinear median; the latter can be three.",
+        "searches": [
+          "Resultary: cyclic running median filter sharp total variation Lipschitz operator norm difference two inputs",
+          "Restrepo–Chacón 1994 DOI:10.1109/78.286974"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search hits concerned cyclic Fourier or convolution norms and do not index median two-input BV constants. Calculated maxima [0,2,2,3,3] are independent consistency data, not prior tables."
+        ],
+        "reasoning": "No exact external table with the sharp all-n constants identified; absence of hits is not proof of priority.",
+        "searches": [
+          "Resultary query: cyclic running median filter sharp total variation Lipschitz operator norm difference two inputs",
+          "finite n=3..7 independently computed selector table"
+        ]
+      },
+      "rationale": "The sharp ratio measures V(Tx-Ty)/V(x-y), not classical V(Tx)/V(x) or pointwise median continuity. No inspected primary result or published semantic-search hit implies this full periodic n-dependent two-input theorem. Novelty is best-of-knowledge and the 1994 smoothing source full text remains unavailable.",
+      "residual_risks": [
+        "The full Restrepo–Chacón 1994 paper was inaccessible; authorized Oxford retrieval returned vpn_disconnected (job 3c113ab58b397f24fab79d9f4717cf54). Its coverage cannot be ruled out.",
+        "Finite selector enumeration to n=7 is supportive; generality depends on the analytic arc-component argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the claimed nonlinear cyclic two-input BV modulus",
+          "evidence": [
+            "Local cost/thresholding identity concerns one median response, not variation of differences."
+          ],
+          "identifier_or_url": "https://people.cs.nott.ac.uk/pszqiu/webpages/Papers/Functional%20Optimisation%20Properties%20of%20Median%20Filtering.pdf",
+          "material_read": "Both pages of the two-page author-hosted primary paper, including its optimization and thresholding statements",
+          "method": "Open-access PDF inspected in full with rendered pages",
+          "title": "Functional Optimization Properties of Median Filtering",
+          "trigger": "median-filter threshold decomposition and possible norm formula"
+        },
+        {
+          "assessment": "UNDETERMINED for possible equivalent two-input theorem",
+          "evidence": [
+            "Accessible claim concerns one-input smoothing under finite-signal boundary convention; authorized Oxford attempt returned vpn_disconnected; no bypass."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/78.286974",
+          "material_read": "Accessible abstract and bibliographic metadata; complete 1994 paper NOT read",
+          "method": "Open-access attempts, then institutionally authorized retrieval attempted",
+          "title": "A Smoothing Property of the Median Filter",
+          "trigger": "closest pre-existing TV smoothing theorem"
+        },
+        {
+          "assessment": "NOT_IDENTIFIED_COVERAGE; whole-document negative conclusion not asserted",
+          "evidence": [
+            "Minimax statistical risk is distinct from exact finite-cycle deterministic BV difference norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0612422",
+          "material_read": "Abstract and theorem-scope evidence on statistical edge denoising, not entire full text",
+          "method": "Preprint abstract/scope comparison",
+          "title": "Does median filtering truly preserve edges better than linear filtering?",
+          "trigger": "broader median-filter stability claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact operator norm measures stability of variation under small differences in two filtered signals, a natural robustness invariant despite each individual signal losing variation. It locates first sharp saturation at six samples and explicitly separates nonlinear two-input amplification from one-input smoothing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md tree 54a9e066d7f19f07ac1edd4899a84877ba067020 and actual median_tv_checker.py blob 1137b23872a3ee7dae4dfac3ec501772d754a2f2",
+    "Qiu (1994) author-hosted PDF full two pages",
+    "Restrepo and Chacón (1994), DOI:10.1109/78.286974, abstract",
+    "arxiv:math/0612422",
+    "Resultary semantic query as in four O checks"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The full Restrepo–Chacón 1994 paper was inaccessible; authorized Oxford retrieval returned vpn_disconnected (job 3c113ab58b397f24fab79d9f4717cf54). Its coverage cannot be ruled out.",
+    "Finite selector enumeration to n=7 is supportive; generality depends on the analytic arc-component argument.",
+    "All finite numerical/combination checks were independent supportive computations, not a replacement for all-parameter mathematical arguments.",
+    "The source public administrative confidentiality blocker makes publication not_ready independently of the C/O/V science judgment."
+  ],
+  "residual_risks": [
+    "The full Restrepo–Chacón 1994 paper was inaccessible; authorized Oxford retrieval returned vpn_disconnected (job 3c113ab58b397f24fab79d9f4717cf54). Its coverage cannot be ruled out.",
+    "Finite selector enumeration to n=7 is supportive; generality depends on the analytic arc-component argument."
+  ],
+  "schema_version": 1
+}

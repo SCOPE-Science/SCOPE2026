@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim holds for every integer \(n\ge3\) and all real cyclic datasets with nonzero input-difference variation. Continuous piecewise-linearity reduces the modulus to realized three-neighbor coordinate selectors. The cyclic TV unit ball modulo constants decomposes exactly into consecutive-arc indicators. Locality limits each selected arc image to three connected components; the small-cycle counting bounds and exact strict-order witnesses prove every branch. The same proof treats ties by continuity. A separate threshold-majority/coarea argument proves individual-data contraction. Standalone exhaustive and exact-integer witness regressions passed (see VERIFICATION.md); they supplement, not replace, the universal proof.
+PASS
 
-## Originality — PASS, with residual risk
+For all real cyclic x,y, use the exact continuous piecewise-linear median-selector representation. On strict chambers P1=1; variations of arc indicators are extreme modulo constants because a zero-sum cyclic gradient decomposes into positive linear combinations of e_p-e_q. Thus each selector norm is the maximum number of connected components of its preimage of an arc. A 3-local selector creates at most three such components, at most two for n=4,5, and zero for n=3 because every window equals the whole 3-cycle. Explicit strict-order and arc witnesses realize 2 or 3 for every admissible n (n>=7 uniformly). Separately threshold coarea proves the one-input TV contraction, not the two-input result. Independently reconstructed all strict selectors and cyclic arcs for n=3..7, obtaining max 0,2,2,3,3, and checked unequal-total-variation attaining pairs n=4..7; finite checks do not establish the n>=8 bound.
 
-The closest classical material concerns threshold decomposition (Qiu 1994), one-input variation smoothing (Restrepo--Chacón 1994), and statistical risk under noise (Arias-Castro--Donoho 2006/2009). None of the materially inspected relevant claims implies the exact **two-input** cyclic BV modulus with dimension threshold at six. Accessible prior-record claims concern five-cycle quadratic Sobolev stability or a different nonlinear graph maximal operator; they do not imply this cyclic variation result. The Restrepo--Chacón and Gallagher--Wise full texts were not inspected, so an equivalent historical formulation remains possible. Failure to find such a formulation is not offered as a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A locally robust smoother may decrease the roughness of each input yet amplify a perturbation threefold in the same variation geometry. The exact modulus is uniform over all cycle lengths, is attained by one-arc perturbations, and first saturates on six sites. This gives a directly usable worst-case BV stability constant, including the exceptional finite-size regime, for periodic median signal processing; it is not a standalone numerical table or a routine improvement to an existing sharp constant.
+The sharp ratio measures V(Tx-Ty)/V(x-y), not classical V(Tx)/V(x) or pointwise median continuity. No inspected primary result or published semantic-search hit implies this full periodic n-dependent two-input theorem. Novelty is best-of-knowledge and the 1994 smoothing source full text remains unavailable.
 
-## Scope and uncertainty
+## value
 
-One pass of a scalar three-point cyclic median with uniform edge variation; not nonperiodic windows, weighted graphs, higher-order differences, or multistep median iteration. The 1994 smoothing paper could not be read in full; its abstract addresses one-data smoothing and a different finite-boundary convention, but cannot exclude stronger unpublished or unindexed comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact operator norm measures stability of variation under small differences in two filtered signals, a natural robustness invariant despite each individual signal losing variation. It locates first sharp saturation at six samples and explicitly separates nonlinear two-input amplification from one-input smoothing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
