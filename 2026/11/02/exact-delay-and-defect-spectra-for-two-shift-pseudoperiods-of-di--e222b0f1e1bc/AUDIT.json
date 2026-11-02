@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For each run \\(R\\) and shift \\(h<p\\), the matching sites are exactly an initial interval of length \\([R-h]_+\\) and a terminal interval of length \\([R-(p-h)]_+\\). For \\(s<t\\) the smaller shift dominates the initial intervals and the larger shift dominates terminal intervals; their uncovered gap equals \\([R-[R-s]_+-[R-(p-t)]_+]_+\\). Summing over all runs is exact. Zero gaps iff \\(s+p-t\\leq R\\) for each run, hence \\(s+p-t\\leq\\min_j r_j\\). Counting positive \\(s,u\\) under \\(s+u\\leq r\\) gives \\(\\binom r2\\), the capped triangular law, and unique minimum-delay pair. Since two host periods cover each residue under shifts \\(t<p\\), the finite claim follows. Literal independent finite enumeration successfully checked 2,537 tuples, 157,381 shift pairs, 28,563 budgets, and 157,381 finite comparisons. Finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2207.10171 Proposition 3: binary run-length bound.",
+        "arXiv:2207.10171 Theorem 5: alphabet-size versus largest shift.",
+        "arXiv:2207.10171 Theorem 40: general finite-word pseudoperiod problem is NP-complete."
+      ],
+      "reasoning": "The published general bounds constrain only extremal features and do not determine the exact two-shift pairs or their count. General complexity does not imply a parametric formula. A general method for deciding a particular pair, or checking a periodic word by finitely many positions, can enumerate candidates but is not the claimed closed-form classification; the two-copy checking observation is explicitly not isolated as novel.",
+      "searches": [
+        "Meleshko Ochem Shallit Shan Pseudoperiodic Words exact 2-pseudoperiod of repeated block runs",
+        "periodic word two pseudoperiod pair shifts all values run lengths pseudoperiodicity classification Meleshko",
+        "pseudoperiodicity finite periodic blocks distinct letters multiple shifts 2022 2023",
+        "arXiv:2207.10171 Section 2 Proposition 3 Theorem 5 and Section 7 Theorem 40"
+      ]
+    },
+    "checked_sources": [
+      "Meleshko, Ochem, Shallit, Shan (2022/2023), arXiv:2207.10171, inspected full relevant text.",
+      "Praveen, Schnoebelen, Vialard, Veron (2023), arXiv:2311.15431, examined definitions and periodic-word measure.",
+      "Indexed published mathematical findings returned by exact-object, period-minimum, mismatch-set, and two-offset semantic searches; closest ranked records concern unrelated objects."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meleshko et al., Proposition 4 classifies the special pair \\((1,2)\\), which is impossible below the primitive period for the present distinct-run family.",
+        "Their Remark 11 implies a bounded finite-check approach to any fixed pseudoperiod, not an explicit all-parameter budget polynomial.",
+        "The displayed new proof derives the precise failure count and triangular delay budget from each individual run."
+      ],
+      "reasoning": "Published statements do not logically entail the quantitative classification without the new, specialized run-prefix/suffix calculation. The scope of novelty is the exact spectrum, not the definition, generic decision procedure, or elementary two-period certification.",
+      "searches": [
+        "arXiv:2207.10171 Proposition 4 Theorem 5 Remark 11 Theorem 40 pseudoperiod",
+        "pseudoperiodicity minimal maximum two delays run-length encoded periodic word",
+        "Pseudoperiodic Words and a Question of Shevelev 2022 distinct run cyclic classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2207.10171, Definition 1 (forward-shift pseudoperiodicity) and Section 2; no complete distinct-run shift spectrum in inspected material.",
+        "Binary shift-mismatch covering is a logically equivalent reformulation, but the new theorem covers arbitrarily many distinct run labels."
+      ],
+      "reasoning": "A pair is valid exactly when no residue fails both shifts, equivalently its mismatch sets have empty intersection; for binary words this can be written as a cyclic-Hamming triangle equality. The compared source does not solve the resulting interval-overlap equality for unequal distinct-letter runs. No literal or alternate-formulation equivalent theorem was found in the specified searches.",
+      "searches": [
+        "Binary periodic two-run pseudoperiodicity exact two-offset pseudoperiod pairs 0^a1^b automata",
+        "pseudoperiod sets binary periodic run words shift covering mismatches",
+        "Pairwise cyclic shift mismatch sets Hamming distance triangle equality for run-length periodic words; two pseudoperiods",
+        "\"pseudoperiodic\" \"Hamming distance\" binary cyclic shifts",
+        "\"pseudoperiod\" \"runs\" \"periodic\" 2 pseudoperiod 2022 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact run-length pseudoperiod table was identified in the inspected principal paper (arXiv:2207.10171).",
+        "Closest returned published-index results concerned binary length-two composition classes and automaton rank-compression thresholds, which have different objects and do not imply the pseudoperiod spectrum."
+      ],
+      "reasoning": "Search results were compared by objects and implications: length-two composition observations and automaton rank thresholds cannot imply the present shift-covering classification. An unsuccessful indexed search is not a proof of uniqueness, so an uncatalogued exact enumeration remains a residual risk.",
+      "searches": [
+        "Complete classification of two-shift pseudoperiod pairs below the primitive period for infinite cyclic distinct-letter run word a1^r1 a2^r2 ... aq^rq with all letters distinct, budget B and min run length r",
+        "Delay-limited pseudoperiodicity of periodic block words: exactly C(minimum run length,2) two-offset pairs, optimal max delay period minus minimum run plus one",
+        "\"pseudoperiod\" \"0^a\" \"1^b\" binary periodic",
+        "\"pseudoperiod\" \"two\" \"blocks\" \"shifts\" binary"
+      ]
+    },
+    "rationale": "The principal checked full-text source, Meleshko–Ochem–Shallit–Shan (arXiv:2207.10171), establishes the notion and general bounds (Prop. 3, Thm. 5), a fixed-tuple finite checking principle (Remark 11), and general complexity (Thm. 40), but its inspected relevant sections do not state the all-run-length two-shift classification, exact failure-count function or budget spectrum. Domain-aligned published-index searches found no stronger covering statement. The claim is not that no algorithm could compute the result; this is a closed-form structural classification. Specialist overlap risk remains.",
+    "residual_risks": [
+      "The accessible sources and indexed results are not an exhaustive library of all publications; an equivalent older cyclic-interval identity or unpublished specialization could exist.",
+      "General formulations of cyclic Hamming triangle equality may encode the binary subcase, though no located statement supplies the full distinct-letter run spectrum.",
+      "No independent specialist originality review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the precise definition and broader theory; inspected material does not state or imply the complete distinct-letter run-length two-shift spectrum.",
+        "evidence": [
+          "Definition 1: for each position at least one forward shift matches.",
+          "Proposition 3 concerns longest binary runs; Theorem 5 concerns alphabet size; Remark 11 concerns checking; Theorem 40 concerns NP-completeness."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.10171v3",
+        "material_read": "Full accessible HTML, with close comparison of Introduction, Section 2 (Definition 1, Propositions 2–4, Theorem 5, Remark 11), Section 5 (binary pairs), Section 6 (larger alphabets), Section 7 (Theorem 40), and bibliography.",
+        "method": "Read searchable arXiv HTML full-text sections and mathematical statements, including their hypotheses and targets.",
+        "title": "Pseudoperiodic Words and a Question of Shevelev",
+        "trigger": "Principal source defining two-shift pseudoperiodicity and proving general existence/complexity statements."
+      },
+      {
+        "assessment": "Its measured objects are subsequence-equivalence indices rather than forward-shift pseudoperiod pairs; its published results do not assert the present theorem.",
+        "evidence": [
+          "Introductory definitions: piecewise height and piecewise minimality index.",
+          "Periodic-word section computes these subsequence complexity measures, not pseudoperiod shift-covering families."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.15431",
+        "material_read": "Abstract and Introduction, inspected definitions of Simon congruence and periodic arch-factorization/algorithm portions.",
+        "method": "Read accessible arXiv full-text HTML excerpts and sections describing the invariant.",
+        "title": "On the piecewise complexity of words and periodic words",
+        "trigger": "Plausible periodic-word paper from the same algorithmic combinatorics area."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e222b0f1-e1bc-4cab-ac48-7add6d1c866f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete delay-budget spectrum answers a natural two-offset resource-constrained question arising directly from the 2022 definition and its bounded-pseudoperiod decision problem: which subperiod delays suffice, how many under budget, what is the best largest delay, and how many phases fail any rejected pair? The all-alphabet-size, all-positive-run family yields a sharp threshold and nontrivial triangular growth determined solely by the minimum run, plus quantitative exact defects. It goes beyond a single numerical example or an automatic restatement of known upper/lower bounds. The distinct-letter hypothesis is necessary (primitive-period 00101 demonstrates failure without it). No general NP-hardness improvement is claimed.",
+    "status": "PASS"
+  }
+}
