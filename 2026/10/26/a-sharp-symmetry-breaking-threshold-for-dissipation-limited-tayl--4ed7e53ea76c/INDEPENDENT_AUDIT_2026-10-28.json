@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T19:56:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On planar no-slip unit channel, write u=6qy(1-y)+F prime, F in clamped H0², so exact energy E=12q²+||F double-prime||² and Taylor objective ||qf+F||², f=3y²-2y³-y odd about midpoint. The first clamped-beam eigenmode e1 is simple and midpoint-even, eigenvalue alpha^4 for alpha the least positive root cos(alpha)cosh(alpha)=1. Hence forcing has zero projection there. The unique odd stationary family F=q(G_k-f), 0<k<=alpha, increases strictly in excess energy to s_c. Exact equal-energy identity ||qf+F||²-||qf+F*||²=||F-F*||²-mu||(F-F*) double-prime||² and sharp beam inequality prove unique symmetric optimum below/at E_c and exactly two mirror optimizers ±sqrt(E-E_c)e1 prime above, with high-energy linear optimal Taylor correction. Independently computed alpha=4.730040744862704..., s_c=0.370205669468391..., t_c=0.006144379658716..., matching analytic forms. These finite quadratures confirm constants, whereas global optimality is proved spectrally.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marbach–Alim full PDF Section III.C and Appendix D.3 optimize radial pipe L2 velocity-deviation with Bessel profiles.",
+          "Ng slip-driven families are narrower; Lunasin et al objective finite-time periodic scalar mixing."
+        ],
+        "reasoning": "Broader domains or mixing goals do not mathematically dominate planar no-slip fixed transverse-velocity-derivative budget; the norm constraint difference changes Euler–Lagrange operator.",
+        "searches": [
+          "Marbach Alim 2019 Active control of dispersion within a channel section III.C appendix D3",
+          "Ng 2010 2011 How does wall slippage affect hydrodynamic dispersion",
+          "Lunasin et al 2012 optimal mixing fixed energy power palenstrophy"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md full blob 9429a11c011aa239cf1d44de7dcbed7db950f50e and frozen audit/review/verification",
+        "Marbach and Alim 2019 DOI 10.1103/PhysRevFluids.4.114202 full primary PDF Section III.C Appendix D.3",
+        "Ng DOI 10.1007/s10404-010-0645-9 abstract",
+        "Lunasin et al DOI 10.1063/1.4752098 abstract",
+        "Taylor DOI 10.1098/rspa.1953.0139 classical cell formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taylor–Aris formula D_eff=D+T[u]/D already known.",
+          "The new two-branch threshold follows from no-slip H1 gradient-energy sphere plus odd forcing; L2 pipe optimization uses a distinct constraint and geometry."
+        ],
+        "reasoning": "Classical dispersion formula gives the objective, not the constrained maximizer classification. Same mathematical model but different-norm prior theorem cannot be substituted without proof.",
+        "searches": [
+          "Taylor 1953 classic dispersion formula",
+          "Marbach Alim 2019 Appendix D.3 constrained dispersion maximization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact clamped H0² trust-region reduction and simple even lowest eigenfunction yield threshold E_c.",
+          "The general trust-region mechanism is not claimed new; evaluated physical constraint and exact root/symmetry classification is the assessed result."
+        ],
+        "reasoning": "Potential earlier odd-forcing trust-region solutions could imply the result by specializing a general theorem, but no such exact physical coverage is established by inspected sources.",
+        "searches": [
+          "optimal Taylor Aris dispersion given throughput and enstrophy planar channel beam eigenfunction bifurcation",
+          "clamped fourth order operator quadratic trust region odd forcing symmetry breaking"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently reproduced alpha, sc, tc by high-precision quadrature.",
+          "Prior papers report Bessel-profile optima for a different norm/geometry, not these exact constants."
+        ],
+        "reasoning": "The threshold is a spectral/variational closed-form parameter, not a lookup of pre-existing transport constants in sources inspected; a specialized table remains possible.",
+        "searches": [
+          "Taylor dispersion optimal dissipation 3.085047 clamped beam 4.730040744862",
+          "planar shear flow optimal effective diffusivity enstrophy exact eigenfunctions"
+        ]
+      },
+      "rationale": "Taylor–Aris cell formula and quadratic beam inequality are classic prior tools. Direct Marbach–Alim 2019 full-text comparison is for cylindrical/radial geometry and L2 velocity deviation, not planar fixed gradient-dissipation constraint. Ng 2010 pressure/slip flow restrictions and Lunasin et al finite-time periodic mixing likewise do not give this all-profile threshold. An earlier variational-control solution in alternative notation remains a priority risk.",
+      "residual_risks": [
+        "Possible unindexed equivalent optimal-control/trust-region formulation of clamped beam forced by odd cubic.",
+        "The optimized functions can have backflow and need distributed forcing, not a pressure-only Navier–Stokes realization.",
+        "Numerical constants high precision but global infinite-dimensional optimizer count relies on clamped spectrum and analytic proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OBJECTIVE_AND_GEOMETRY",
+          "evidence": "Cylindrical radial channel, prescribed mean with L2 velocity-deviation budget; Bessel radial optimum, not fixed planar shear-gradient energy.",
+          "identifier_or_url": "doi:10.1103/PhysRevFluids.4.114202",
+          "material_read": "Complete primary approximately 30-page accessible PDF; Section III.C and Appendix D.3 with formula and geometry, visual check of page 8",
+          "method": "Public full PDF text with screenshot on actual paper page 8",
+          "title": "Active control of dispersion within a channel with flow and pulsating walls",
+          "trigger": "Most relevant variational dispersion optimization under constrained flow"
+        },
+        {
+          "assessment": "PARTIAL_RESTRICTED_FLOW",
+          "evidence": "Prescribed slip/pressure-driven families, not proved complete planar H1 fixed dissipation maximizer.",
+          "identifier_or_url": "doi:10.1007/s10404-010-0645-9",
+          "material_read": "Title/abstract and model description, not complete primary full text",
+          "method": "Publisher abstract and bibliography",
+          "title": "How does wall slippage affect hydrodynamic dispersion?",
+          "trigger": "Planar channel Taylor dispersion predecessor"
+        },
+        {
+          "assessment": "FOUND_CLASSICAL_FORMULA",
+          "evidence": "Shear-enhanced passive dispersion is prior, not the optimized threshold.",
+          "identifier_or_url": "doi:10.1098/rspa.1953.0139",
+          "material_read": "Historical formula and bibliographic record as reproduced in package and primary sources; complete original not reread",
+          "method": "Classical theorem via subsequent primary literature",
+          "title": "Dispersion of Soluble Matter in Solvent Flowing Slowly through a Tube",
+          "trigger": "Origin of Taylor dispersion cell problem"
+        },
+        {
+          "assessment": "DIFFERENT_FINITE_TIME_MIXING",
+          "evidence": "Periodic-domain finite-time mixing objective, not long-time axial channel effective diffusivity.",
+          "identifier_or_url": "doi:10.1063/1.4752098",
+          "material_read": "Abstract and objective/geometry from source comparison; not original full PDF",
+          "method": "Primary abstract/bibliography",
+          "title": "Optimal mixing and optimal stirring for fixed energy, fixed power, or fixed palenstrophy flows",
+          "trigger": "Broad energy-constrained flow optimization comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural prescribed throughput versus viscous dissipation tradeoff has a sharp 3.085% excess-energy symmetry-breaking onset. Complete global optimizer multiplicity and exact square-root branch amplitude plus linear high-budget law are substantively more informative than a local Euler–Lagrange equation, despite idealized arbitrary forcing and possible backflow.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md full blob 9429a11c011aa239cf1d44de7dcbed7db950f50e and frozen audit/review/verification",
+    "Marbach and Alim 2019 DOI 10.1103/PhysRevFluids.4.114202 full primary PDF Section III.C Appendix D.3",
+    "Ng DOI 10.1007/s10404-010-0645-9 abstract",
+    "Lunasin et al DOI 10.1063/1.4752098 abstract",
+    "Taylor DOI 10.1098/rspa.1953.0139 classical cell formula"
+  ],
+  "disposition": "passed",
+  "limitations": "Steady planar unit-width no-slip u∈H1_0, mean q>0, exact ∫|u’|²=E>=12q², arbitrary signed velocity allowed, long-time passive Taylor–Aris molecular D>0; not a general reactive/turbulent or nonlinear fluid-flow optimization.",
+  "residual_risks": [
+    "Possible unindexed equivalent optimal-control/trust-region formulation of clamped beam forced by odd cubic.",
+    "The optimized functions can have backflow and need distributed forcing, not a pressure-only Navier–Stokes realization.",
+    "Numerical constants high precision but global infinite-dimensional optimizer count relies on clamped spectrum and analytic proof."
+  ],
+  "schema_version": 1
+}
