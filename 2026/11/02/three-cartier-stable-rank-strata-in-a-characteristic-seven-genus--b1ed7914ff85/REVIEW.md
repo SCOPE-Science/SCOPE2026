@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The squarefree condition is exactly \(a^5\ne-1\). Riemann–Hurwitz gives genus four. The complete Cartier matrix has rank two for all smooth parameters. The correct Frobenius-twisted products have stable ranks zero, one, or two as proved by a nilpotence identity, a rank-one idempotent-up-to-scalar identity on the fifth roots, and a generically nonzero minor. `verify_symbolic.py` checks the exact identities; `verify_point_counts.py` independently checks finite-field specializations. No finite enumeration is misused to prove the algebraically closed assertion.
+
+**Originality (O): PASS, with residual priority risk.** Sutherland (arXiv:2004.10189, coefficient-block formula and genus-four trigonal example) dominates the *method*, but does not state the stable-rank trichotomy for this pencil. Obus–Shaska (arXiv:2006.12685) concerns automorphisms and CM rather than characteristic-seven rank strata. Achter–Howe (arXiv:1710.10726) settles matrix convention but not these parameters. Semantic research-record searches, exact-formula searches, and recoverable existing-result titles did not expose the stated exceptional loci. Sohn (2025, DOI:10.23091/japm.2025.059) studies the genus-four superelliptic \(a\)-number; its inaccessible full text is an overlap risk for the *constant a-number portion*, but this result's central novelty is the three stable \(7\)-rank strata. No global priority claim is made.
+
+**Mathematical value (V): PASS.** A natural tame, cyclic trigonal genus-four pencil has a striking constant Cartier rank but three different stable Frobenius ranks; it has a unique rank-zero member and a finite rank-one locus of five smooth parameter values. The exceptional locus is geometrically intrinsic to the pencil rather than an arbitrary coefficient-table entry. Its exact determination distinguishes the \(p\)-rank from the \(a\)-number, and provides sharply stratified examples relevant to degeneration of Jacobians.
+
+**Limits.** Neither all genus-four curves nor all geometric isomorphism classes are classified. Preexisting coefficient formulas are credited. Priority remains subject to unindexed work and independently inspected literature.
+
+Self-review: passed. Independent audit: not yet performed.
