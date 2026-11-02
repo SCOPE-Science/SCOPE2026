@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Every length-five word either contains a constant three-subsequence or has five distinct nonpalindromic three-subsequences. The latter is proved by exhaustive multiplicity-pattern cases (2,2,1), (2,1,1,1), (1,1,1,1,1), with explicit ordering arguments. Consequently weights 1 on constant triples, 0 on nonconstant palindromes, and 1/5 on nonpalindromic triples have at least unit weight in every codeword shadow. Disjoint shadows sum to at most q+(q^3−q²)/5. At q=3 the floor is six; all six exhibited codewords have pairwise disjoint explicit descendant sets. Independently, the bundled pure-Python checker exhausts all 52 equality patterns and 243 ternary words and reconstructs witness shadows.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni–Kiyavash Theorem IV.1 bounds the optimal q-ary code by sum over reciprocal smaller deletion-sphere sizes; for q=3,n=5,s=2 that sum is 3+18/2+6/3=14, not six.",
+        "Schaller–Toesca–Vu work in the multiplicity-free n≤q setting; q=3,n=5 lies outside it.",
+        "Li–Wang–Fu bound sizes of each individual descendant sphere, which does not by itself determine globally disjoint sphere packings."
+      ],
+      "reasoning": "Known general inequalities and large-alphabet constructions do not imply the exact six-word optimum. The new 0/1/5 fractional weighting is tailored to five-letter shadows, while the general dual LP technique is explicitly credited to previous literature.",
+      "searches": [
+        "\"Optimal Codes for the q-ary Deletion Channel\" non-asymptotic 5 2",
+        "https://arxiv.org/abs/1211.3128",
+        "https://arxiv.org/abs/2501.13534",
+        "https://arxiv.org/abs/2601.06493",
+        "q-ary length-five double deletion code cardinality upper bound floor((q cubed minus q squared plus five q) divided by five)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2601.06493",
+      "https://arxiv.org/abs/1211.3128",
+      "https://arxiv.org/abs/1008.1343",
+      "https://arxiv.org/abs/2501.13534",
+      "https://www.cosc.brocku.ca/~shoughten/ternaryedit.html",
+      "https://arxiv.org/abs/2609.38259"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem IV.1 of Kulkarni–Kiyavash gives 14 at the target parameters; 14 permits seven, whereas the present weighting excludes seven.",
+        "Perfect-code work covers survivor length two and therefore not the length-three survivor problem here.",
+        "The recent literal-systematic five-letter obstruction concerns the existence of q² codewords with a prescribed prefix mapping, not the unrestricted maximum over all codebooks."
+      ],
+      "reasoning": "No inspected result has a conclusion logically stronger than the simultaneous upper bound six and lower witness six. The result is not the corollary of a capacity statement for systematic encoders or for deletion multisets (which discard order).",
+      "searches": [
+        "https://arxiv.org/abs/1211.3128",
+        "https://arxiv.org/abs/1008.1343",
+        "https://arxiv.org/abs/2601.06493",
+        "https://arxiv.org/abs/2609.38259",
+        "ternary length five double deletion correcting code exact maximum size three survivors",
+        "Five-letter two-deletion code packing using fractional transversal weights 1 for aaa 0 for aba 1/5 for abc yields ternary optimum six"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The optimum is equivalent to a maximum set packing of exact length-three subsequence shadows, or to minimum insertion/deletion distance at least six among length-five ternary words. Chee–Ge–Ling use the insertion/deletion metric but focus on perfect codes with a two-symbol surviving word.",
+        "The specific six-word family has disjoint shadows of sizes 1,1,1,5,7,5; the general fractional inequality rules out seven codewords."
+      ],
+      "reasoning": "Equivalence by LCS and common received subsequence is explicit. No located exact prior theorem gives the q=3,n=5,t=2 unrestricted packing maximum, and the closest perfect-code theorem concerns n−t=2, not 3. A search result alone does not establish absence of an unindexed equivalent.",
+      "searches": [
+        "\"A_3(5,2)\" deletion correcting code",
+        "\"5\" \"3\" \"2\" maximum deletion correcting code ternary",
+        "For ternary words length five two deletions, the maximum size of a code with pairwise disjoint length-three subsequence sets is exactly six.",
+        "https://arxiv.org/abs/1008.1343",
+        "Maximum ternary five-symbol two deletion code 6 codewords 00000 11111 22222 00112 10221 21100"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Houghten’s 2005 ternary table labels its entries E_3(n,d) for minimum edit distance, with substitution charged as one edit, not the insertion/deletion-only distance of the theorem.",
+        "The Eindhoven ternary code table is for Hamming distance, not deletion shadows."
+      ],
+      "reasoning": "The public tables found describe different metrics and cannot transfer a numerical entry directly to A_3(5,2). A separate exhaustive deletion-code database might exist without being indexed or accessible, so residual priority risk remains.",
+      "searches": [
+        "ternary deletion code tables length 5 two deletions six words",
+        "https://www.cosc.brocku.ca/~shoughten/ternaryedit.html",
+        "https://aeb.win.tue.nl/codes/ternary-1.html",
+        "\"A_3(5,2)\" deletion correcting code"
+      ]
+    },
+    "rationale": "The numerical q3,n5,t2 unrestricted deletion capacity six and the specific 1/5 fractional-shadow certificate are not implied by the inspected 2012 general bound (14 at these parameters), by the 2010 perfect-code survivor-length-two results, by the 2025 multiplicity-free large-alphabet constructions, or by the 2026 source-word deletion-ball cardinality inequalities. Systematic-code alphabet feasibility and multiset deletion are logically different problems. Matching parameters and plausible prior tables were searched; unindexed equivalent work remains a priority risk.",
+    "residual_risks": [
+      "The search is not an exhaustive global publication-priority proof: earlier unindexed exact small-code computations might already give A_3(5,2)=6.",
+      "An abstract-level related asymptotic construction and historical sources not digitized in accessible text remain unreviewed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering exact maximum pairwise disjoint length-three descendant shadows of length-five ternary words.",
+        "evidence": [
+          "Definitions and literature survey concern |D_t(X)| and run-dependent bounds, not a codebook packing exact size."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.06493",
+        "material_read": "Introduction, definitions, main lower/upper bound discussions and their claims; HTML full-text representation",
+        "method": "Read arXiv full-text HTML and compared code-packing versus individual-sphere cardinality",
+        "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+        "trigger": "Recent deletion-ball cardinality study supplying motivation"
+      },
+      {
+        "assessment": "Fractional transversal method anticipated, but its explicit bound specializes to 14, not six.",
+        "evidence": [
+          "Theorem IV.1 states |C|≤∑_{v∈Σ_q^{n−t}}1/|D_t(v)|; sum for q3,n5,t2 equals 14."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+        "material_read": "Sections on hypergraph formulation, multiple deletions, Theorem IV.1, and numerical comparison",
+        "method": "Read primary arXiv HTML and specialized stated bound to n=5,t=2,q=3",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Strongest obvious general dual/transversal approach"
+      },
+      {
+        "assessment": "Focus on perfect codes and n−t=2; cannot provide the unrestricted n=5,t=2 optimum.",
+        "evidence": [
+          "The explicit contributions describe perfect (3,1)_q and (4,2)_q spectra."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1008.1343",
+        "material_read": "Definitions, state of affairs, first main theorems, stated scope of perfect code spectra",
+        "method": "Read arXiv HTML text and checked survivor-length and perfection hypotheses",
+        "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+        "trigger": "Possible exact finite code capacity results"
+      },
+      {
+        "assessment": "Not covering q=3,n=5 unrestricted repeated-letter words.",
+        "evidence": [
+          "Its main construction assumes q>n or n≤q multiplicity-free input."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.13534",
+        "material_read": "Introduction, definitions of multiplicity-free words and main constructive regime",
+        "method": "Read arXiv HTML material, checked parameter regime n≤q and constructions",
+        "title": "A New Construction of Non-Binary Deletion Correcting Codes and their Decoding",
+        "trigger": "Recent code construction potentially giving sharp small-length parameters"
+      },
+      {
+        "assessment": "Different edit metric; does not constitute a deletion-only code-capacity table.",
+        "evidence": [
+          "Table header defines E_3(n,d) by minimum edit distance, not deletion-shadow packing."
+        ],
+        "identifier_or_url": "https://www.cosc.brocku.ca/~shoughten/ternaryedit.html",
+        "material_read": "Entire publicly accessible table and description of E_3(n,d)",
+        "method": "Read table and compared metrics and named parameters",
+        "title": "A Table of Bounds on Optimal Fixed-Length Ternary Edit-Metric Codes",
+        "trigger": "Possible preexisting exact small ternary table"
+      },
+      {
+        "assessment": "Not directly covering the unrestricted A_3(5,2) optimum.",
+        "evidence": [
+          "Systematic codes have q² messages with two unaltered information symbols; arbitrary codes do not satisfy this requirement."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.38259",
+        "material_read": "Full-text arXiv representation: introduction, model and literal-systematic definitions, main benchmarks, Theorems 1.1 and 2.3, and their implications for unrestricted codes",
+        "method": "Read primary arXiv full-text HTML and compared codebook size and prescribed systematic-prefix hypotheses against the unrestricted packing claim",
+        "title": "Systematic Codes Correcting Two Deletions with Three Redundant Symbols over Large Alphabets",
+        "trigger": "Adjacent five-letter systematic coding endpoint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2a10c6f-f32c-437e-8722-42175122fcc2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest nontrivial ternary five-letter two-deletion setting is a natural exact finite-alphabet channel benchmark; without a sharp converse, the six-code construction is not known optimal. The single structural weighted shadow applies to every alphabet and yields a closed q-ary nonasymptotic upper bound, with a matching explicit ternary code. This identifies an optimal global packing not obtainable from individual deletion-ball counts alone.",
+    "status": "PASS"
+  }
+}
