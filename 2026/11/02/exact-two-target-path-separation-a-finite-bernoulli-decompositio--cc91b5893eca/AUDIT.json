@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The finite two-target path has a well-defined Markov cutting process. Conditioning on a uniform cut proves the one-target inactive-arm recurrence F_c(d)=z(c+1+sum_{h<d}F_c(h))/(c+d+1), and the product Q_c(d)=(c+1)prod_{k=c+1}^{c+d}(1+z/k). First-cut conditioning for two targets then yields z^{-1}E[z^S]=prod_{k=a+1}^{N-1}(k+z)/(k+1)+prod_{k=b+1}^{N-1}(k+z)/(k+1)-1, with complete telescoping and exact endpoint conditions. Coefficientwise subtraction proves the signed error and both exact total-variation constants a/N, b/N. Harmonic sums and Taylor remainders give the interior PGF and normalized mixture; probability masses sum to one. For a/N→0 the TV error a/N vanishes, auxiliary independent Bernoulli variance diverges and is asymptotic to H_N-H_{a+1}, and Lindeberg plus TV proves the CLT. An independent exact-rational Markov recursion checks 55 cases (3≤N≤12), 964 assertions, in the bundled verify_path_cutting.py; finite tests do not substitute for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fabian Burghart, A Modification of the Random Cutting Model, arXiv:2111.02968v2, Section 2 Proposition 1 (centered source; Poisson(log 2) conditioned positive), Sections 4–7 (general cutting methods and distinct examples); https://arxiv.org/html/2111.02968v2",
+        "Burghart Sections 4–5 contain general subgraph and separating-tree machinery; Section 6 gives caterpillar, stars and complete binary-tree examples. S. Janson, Random cutting and records in deterministic and random trees (2006), describes classical root-cutting and record mechanisms."
+      ],
+      "reasoning": "A general characterization of cut processes may indirectly entail special path identities if specialized and solved, but the inspected stated results do not directly present the present sharp finite PGF/TV and crossover. Classical root isolation, unlike separation from two specified endpoints, does not itself imply this law without a nontrivial stopping-rule comparison. Janson full text was not established as read; this remains a coverage risk rather than a categorical exclusion.",
+      "searches": [
+        "modified graph cutting arbitrary path source location distribution marked points",
+        "crossover Gaussian number of cuts separating two leaves in rooted path when root is o(n) from endpoint",
+        "Burghart Proposition 1 ln 2 general position",
+        "arXiv:2111.02968v2 Sections 4, 5, 6, 7",
+        "Janson random cutting and records in deterministic and random trees 2006"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2111.02968",
+      "https://arxiv.org/html/2111.02968v2",
+      "https://doi.org/10.1017/apr.2023.22",
+      "https://doi.org/10.4230/LIPIcs.AofA.2022.4",
+      "https://doi.org/10.1002/rsa.20086",
+      "Literature text search: random path cutting source at arbitrary fraction position two endpoint targets limiting separation number distribution asymmetric paths",
+      "Literature text search: for a path with root at an arbitrary interior vertex and endpoints as targets, the separation cut count has an exact generating function in rising factorials and a mixture of truncated Poisson laws",
+      "Literature text search: crossover Gaussian number of cuts separating two leaves in rooted path when root is o(n) from endpoint"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fabian Burghart, A Modification of the Random Cutting Model, arXiv:2111.02968v2, Section 2 Proposition 1 (centered source; Poisson(log 2) conditioned positive), Sections 4–7 (general cutting methods and distinct examples); https://arxiv.org/html/2111.02968v2",
+        "At a=b, x=1/2, the new formula simplifies to z(2^z−1), exactly Burghart Proposition 1. For a/N→0, the corrected normalization is logarithmic with a Gaussian limit, not the centered tight Poisson regime."
+      ],
+      "reasoning": "The new theorem implies the known special symmetric limit, not conversely; a limit restricted to a=b is insufficient to fix finite asymmetric probabilities, to prove exact a/N total variation or to determine the root-near-boundary Gaussian scaling. The paper includes broad frameworks; the technical implication to this exact solved formula would require additional nontrivial work.",
+      "searches": [
+        "random cutting rooted path two targets unequal arm lengths Poisson process stopping time logarithms",
+        "random cutting path position a and b two-arm source dual record sums total variation distance a/n",
+        "crossover Gaussian number of cuts separating two leaves in rooted path when root is o(n) from endpoint",
+        "arXiv:2111.02968v2 Proposition 1 and formula (2)",
+        "cutting model root internal vertex path two leaves limiting distribution source fraction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fabian Burghart, A Modification of the Random Cutting Model, arXiv:2111.02968v2, Section 2 Proposition 1 (centered source; Poisson(log 2) conditioned positive), Sections 4–7 (general cutting methods and distinct examples); https://arxiv.org/html/2111.02968v2",
+        "The two-product PGF is equivalent to the positive-atom decomposition P(S=j+1)=P(A=j)+P(B=j), j≥1, and to a convex mixture of two positive-conditioned Bernoulli sums plus an atom 1/N at S=1."
+      ],
+      "reasoning": "Compared distributions of the same stopping time, Bernoulli record-count sums and positive-truncated Poisson mixtures. Burghart explicitly supplies only the symmetric a=b limiting law. The asymmetric exact discrete product, TV and near-endpoint Gaussian do not follow from that symmetric limiting assertion alone.",
+      "searches": [
+        "random path cutting source at arbitrary fraction position two endpoint targets limiting separation number distribution asymmetric paths",
+        "random cutting rooted path two targets unequal arm lengths Poisson process stopping time logarithms",
+        "for a path with root at an arbitrary interior vertex and endpoints as targets, the separation cut count has an exact generating function in rising factorials and a mixture of truncated Poisson laws",
+        "separation number path endpoints root cuts Poisson",
+        "arXiv:2111.02968v2 Section 2 Proposition 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed mathematical statements on rooted-forest order, Bernoulli balancing, and graph-indexed path ranges concern different theorems. Previously compiled mathematical statements screened by claim, title and distinguishing parameters gave no matching two-target path-cutting assertion."
+      ],
+      "reasoning": "The closest inspected mathematical statements describe unrelated forest-order inequalities, Bernoulli balancing, or graph-indexed path ranges, not the two-target separation law. Similarity search is not exhaustive, and inaccessible literature cannot establish uniqueness.",
+      "searches": [
+        "random path cutting source at arbitrary fraction position two endpoint targets limiting separation number distribution asymmetric paths",
+        "for a path with root at an arbitrary interior vertex and endpoints as targets, the separation cut count has an exact generating function in rising factorials and a mixture of truncated Poisson laws",
+        "Burghart A Modification of the Random Cutting Model equation 2 general unequal arms Poisson binomial",
+        "modification of the random cutting model path asymmetric",
+        "semantic literature indexing: two-target path, asymmetric source, conditional Poisson, Bernoulli products",
+        "screening of previously recorded mathematical claims for two-target path-separation equivalents"
+      ]
+    },
+    "rationale": "The closest direct source Burghart arXiv:2111.02968 proves the centered two-target path positive-Poisson limit (a=b); this is explicitly a special case. In the inspected preprint, no theorem stating the all-arm exact two-product PGF, sharp finite TV equalities and source-location-dependent interior-to-Gaussian transition was identified. Established general cutting/record techniques may yield related formulas, so historical priority remains uncertain.",
+    "residual_risks": [
+      "The exact two-arm formula may be implicitly derivable from general source/target graph-cutting recursions or a classical two-sided record-count identity; no absolute priority certificate is asserted.",
+      "The 2006 record-cutting paper full text was not materially inspected; a stronger statement there or in its descendants cannot be excluded.",
+      "Available literature searches and previously compiled claims are not exhaustive of earlier/public work. Independent mathematical and priority checks have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT PRIOR SPECIAL CASE; full present asymmetric finite PGF/TV and source-near-boundary Gaussian not stated in inspected material",
+        "evidence": "Proposition 1 gives 1+Poisson(log 2) conditional positivity for a centered source; Section 2 equation (2) integrates symmetrical cut locations. Full Section 2 available at https://arxiv.org/html/2111.02968v2#S2.",
+        "identifier_or_url": "https://arxiv.org/html/2111.02968v2",
+        "material_read": "Accessible full-text original, focusing on Section 1 context, Section 2 model and Proposition 1 proof, Sections 4–5 general subgraph/tree tools, Section 6 examples, and Section 7 questions",
+        "method": "Read accessible arXiv HTML plus inspected a PDF page and compared equations, parameters and stopping rules",
+        "title": "A Modification of the Random Cutting Model",
+        "trigger": "Exact same graph separation model, two endpoint targets and centered-path example"
+      },
+      {
+        "assessment": "Same work/version family; confirms model and primary MSC 60C05, not independent novelty evidence",
+        "evidence": "Cambridge page lists 60C05 primary, online publication 2023-08-07, author Burghart, and cutting model with source/target sets.",
+        "identifier_or_url": "https://doi.org/10.1017/apr.2023.22",
+        "material_read": "Cambridge accessible abstract, bibliographic metadata and references; not asserted full publisher text read",
+        "method": "Read Cambridge article landing page, compared online abstract and classification with arXiv full text",
+        "title": "A modification of the random cutting model (published version)",
+        "trigger": "Published article of the same arXiv work; primary MSC confirmation"
+      },
+      {
+        "assessment": "Same work, shorter conference version; no affirmative coverage conclusion drawn from abstract alone",
+        "evidence": "Published 2022-06-08; describes general modified cutting and complete binary trees.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2022.4",
+        "material_read": "Accessible Dagstuhl abstract, metadata and table of contents; full 14-page PDF not asserted read",
+        "method": "Inspected original publisher page and compared abstract to full arXiv version",
+        "title": "A Modification of the Random Cutting Model (conference)",
+        "trigger": "Earlier conference version by the same author"
+      },
+      {
+        "assessment": "Unresolved historical coverage risk, not used to declare full-document NOT_COVERING",
+        "evidence": "Record representation addresses classical root-cutting, not by itself an explicit two-target asymmetric separation identity.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20086",
+        "material_read": "Available bibliographic/abstract description and discussion in Burghart; full original not confirmed inspected",
+        "method": "Read accessible description and Burghart citation comparison",
+        "title": "Random cutting and records in deterministic and random trees",
+        "trigger": "Classical general record representation could dominate a path-specific Bernoulli construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc91b589-3eca-452c-97d2-8d0116233bb0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Moving the source relative to the two terminal targets changes the natural geometric balance in an established random separation model. The all-arm finite PGF and sharp exact TV errors do more than restate a symmetric continuum limit; they characterize the full stopping distribution and identify a quantifiable, not merely heuristic, reduction to an independent-Bernoulli count. The resulting tight asymmetric positive-Poisson mixtures and boundary Gaussian crossover answer a structural scaling question, and the finite TV identity determines exactly when a one-arm proxy is accurate. The boundary regime is motivated by varying source placement, not an arbitrary unmotivated statistic.",
+    "status": "PASS"
+  }
+}
