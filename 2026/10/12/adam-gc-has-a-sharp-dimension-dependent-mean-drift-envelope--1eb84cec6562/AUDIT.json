@@ -1,117 +1,120 @@
 {
   "correctness": {
-    "rationale": "With zero initial moments, Adam bias correction makes the first centralized first moment equal to the centralized gradient and the second moment equal to its coordinatewise square. The exact update is therefore coordinatewise \\(h_i/(|h_i|+\u000barepsilon)\\). Splitting a centered vector into positive and negative masses, Jensen's inequality and the subadditivity of \\(x/(x+\u000barepsilon)\\) give the strict \\(d-2\\) signed-sum bound; an explicit one-versus-\\(d-1\\) family approaches it. The embedded verifier independently replays the formulas and final-delta repair.",
+    "rationale": "The final claim specifies d≥2, nonzero zero-sum centralized gradient h, zero initial Adam moments, 0≤β1,β2<1, ε>0, positive learning rate α and no weight decay. Bias-correction exactly gives mhat=h and vhat=h², hence Δw_i=−α h_i/(|h_i|+ε). For d=2, h=(a,−a) and drift is zero. For d≥3, let the positive and negative magnitudes sum to A>0 with p positive and n negative components. φ(x)=x/(x+ε) increases and is strictly concave; Jensen yields ∑positives φ(x_i)≤pφ(A/p), whereas subadditivity yields ∑negatives φ(y_j)≥φ(A). After reversing h to make S≥0, 0≤S≤pφ(A/p)−φ(A)=(p−1)A²/((A+pε)(A+ε))<p−1≤d−2. Thus |Δmean|<α(d−2)/d, and h=(a,…,a,−(d−1)a), a/ε→∞, makes the ratio tend to (d−2)/d. At fixed finite ε the bound is strict and the maximum is not attained; ε=0 is excluded. Projection of final adaptive delta gives zero mean at each step for those blocks on which it is actually applied. An independent exact-rational test covered 4214 cases and boundary families in dimensions 2..64; mathematical proof is analytic, not finite sampling.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "Sharp first-step theorem assumes positive α and ε, zero initial moments, centered nonzero gradient, no weight decay.",
+    "Prior GC2 final-update centralization is not a new result.",
+    "Existing external formal-proof and expert-verification claims are not implied by these mathematical and finite exact-arithmetic checks."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The official repository says preserving the weight-vector mean usually works better for adaptive learning-rate methods.",
-        "Moment Centralization explicitly forces the Adam first-order moment to zero mean.",
-        "Its AdamMC parameter update still uses coordinatewise division by the second-moment denominator."
+        "Yong et al. equation (3) and Corollary 4.1 apply to SGD/SGDM; Algorithm 2 Adam uses coordinatewise denominator, which does not commute with zero-mean projection.",
+        "Official README explicitly recommends weight-mean preservation for adaptive optimizers and the Adam_GC2 code centralizes the final update (roughly lines 365–370); this exactly covers the remedy, not the magnitude bound for pre-update GC.",
+        "AdamMC (Sadu et al. Algorithm 2) centralizes the first moment but leaves a heterogeneous denominator."
       ],
-      "reasoning": "These sources cover the motivation and related repairs, but zero-mean raw gradients or first moments do not imply zero-mean preconditioned parameter updates. They therefore do not imply the accepted sharp parameter-mean envelope.",
+      "reasoning": "The prior mean-preserving GC2 construction is fully covered and contributes no new independent novelty here. The established broad GC / MC methods do not imply a published sharp dimension-only supremum for the source-form Adam-GC first step; deriving it requires the centered-vector extremal inequality.",
       "searches": [
-        "Moment Centralization Adam zero mean update parameter mean adaptive denominator",
-        "Gradient Centralization Adam mean weight unchanged adaptive learning rate",
-        "Moment Centralization based Gradient Descent Optimizers zero mean first order moment"
+        "web: Gradient Centralization Yong Huang Hua Zhang 2020 Algorithm Adam weight mean constraint",
+        "official repository: Gradient-Centralization Adam_GC Adam_GC2 code, revision ed2a608ccdbb731301e00bf838c83821df1b8d70",
+        "web: Moment Centralization Adam zero mean update parameter mean adaptive denominator"
       ]
     },
     "checked_sources": [
-      "arXiv:2004.01461v1",
-      "ECCV2020:2471",
-      "github:Yonghongwei/Gradient-Centralization:ed2a608ccdbb731301e00bf838c83821df1b8d70",
-      "arXiv:2207.09066v1"
+      "Submitted mathematical theorem and its accompanying source definitions",
+      "Yong et al., Gradient Centralization: A New Optimization Technique for Deep Neural Networks, ECCV 2020, §§3.3–4.1, https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123460613.pdf",
+      "Official GC README and Adam.py at revision ed2a608ccdbb731301e00bf838c83821df1b8d70, https://github.com/Yonghongwei/Gradient-Centralization",
+      "Sadu et al., Moment Centralization based Gradient Descent Optimizers for Convolutional Neural Networks, arXiv:2207.09066v1 (2022), §2 Algorithm 2",
+      "Three independent published mathematical findings index semantic database searches for the exact GC/Adam mean-drift statement and broader affine-invariant results",
+      "Targeted public web searches for equivalent softsign zero-sum sharp bounds and Adam-GC mean preservation"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Algorithm 2 in the defining paper places GC before Adam moment accumulation and adaptive division.",
-        "The theoretical affine constraint is derived from projected SGD steps and the subsequent feature theorem explicitly covers SGD or SGDM.",
-        "Official GC2 code centralizes the final adaptive delta, while ordinary Adam_GC does not.",
-        "AdamMC centralizes its first moment but retains a coordinatewise second-moment denominator."
+        "The source-form code gives bias-corrected first-step update −α h_i/(|h_i|+ε), hence its signed mean by summation; this algorithmic identity is derivative of earlier work and not independently novel.",
+        "For centered h and ε>0 the claimed sharp bound requires a separate optimization over all positive/negative splittings; concavity gives S≤(p−1)A²/((A+pε)(A+ε))<p−1≤d−2 and the family (a,…,a,−(d−1)a) asymptotically attains d−2.",
+        "The prior GC2 code computes a centered final adaptive delta, mechanically implying its every-step zero-sum property; this part is explicitly credited as prior."
       ],
-      "reasoning": "The prior formulas expose the ingredients but do not supply the sharp implication. The accepted theorem requires an exact first-step reduction, an extremal inequality over all centered gradients, and a separate proof that final-delta centralization restores the invariant.",
+      "reasoning": "The full accepted result is not just a special case of the old SGD affine constraint (which fails for Adam) or the GC2 mean-preservation construction. The exact first-step drift formula is an elementary consequence of Algorithm 2; the dimension-sharp inequality and equality/supremum structure are additional deductions not present in the inspected literature. Standard Jensen is used as a tool rather than being a previously published instance-specific theorem. Retain residual priority risk for unindexed implementation discussions.",
       "searches": [
-        "arXiv:2004.01461 Algorithm 2 Adam Gradient Centralization",
-        "arXiv:2004.01461 weight space regularization eT w constant SGD",
-        "github Gradient-Centralization Adam_GC Adam_GC2 keeping mean weight unchanged",
-        "arXiv:2207.09066 Adam Moment Centralization parameter update"
+        "Yong et al. 2020 Algorithm 2; §4.1 Eq (3) and Corollary 4.1",
+        "Official Gradient-Centralization source Adam.py Adam_GC and Adam_GC2 at Git revision ed2a608ccdbb731301e00bf838c83821df1b8d70",
+        "Sadu–Dubey–Sreeja 2022 §2 Algorithm 2",
+        "web: Adam_GC mean drift constraint"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The defining paper's Adam algorithm centralizes the raw gradient and then divides the bias-corrected first moment by a coordinatewise square-root second moment.",
-        "The paper's affine weight-constraint derivation is written for SGD with GC and its feature theorem explicitly names SGD or SGDM.",
-        "The official repository provides distinct GC2 variants that centralize the final adaptive update."
+        "Yong–Huang–Hua–Zhang (ECCV 2020), Algorithm 2 (PDF p.5), defines centralized-gradient-first Adam; §4.1 (PDF p.6) derives fixed weight mean specifically from projected SGD, not Adam.",
+        "The official implementation Adam_GC class (source lines 265–282) center gradients before the adaptive update; no endpoint extremum over all centered h is given.",
+        "Sadu–Dubey–Sreeja (arXiv:2207.09066, Algorithm 2, PDF p.4) centers the first moment then divides coordinatewise by the adaptive denominator; not an equivalent sharp parameter drift theorem."
       ],
-      "reasoning": "Equivalent coverage would state the exact first-step mean drift, identify dimension two as the only automatic cancellation dimension, or give the sharp supremum \\(\u0007lpha(d-2)/d\\). No inspected source states those results.",
+      "reasoning": "The qualitative failure of mean preservation under diagonal preconditioning is prior and is not claimed as new. An equivalent formulation of the accepted claim would compute the exact first-step signed softsign mean AND its global best constant (d−2)/d for each dimension; these searched primary works do not supply that joint extremal theorem.",
       "searches": [
-        "Gradient Centralization Adam first step mean drift dimension bound",
-        "Adam gradient centralization affine weight constraint broken adaptive denominator",
-        "Gradient Centralization Adam_GC2 final update centralization mean preserving"
+        "web: Gradient Centralization Adam mean weight preservation GC2 adaptive gradient first step zero sum softsign bound",
+        "web: d-2 gradient centralization Adam drift mean",
+        "published mathematical findings index: Gradient Centralization Adam first-step drift of weight vector mean zero-sum gradient coordinatewise adaptive denominator sharp dimension dependent bound"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Closest indexed records concerned adaptive-moment equivariance, normalization obstructions, and unrelated sharp one-step optimization frontiers.",
-        "No returned indexed finding named Gradient Centralization together with Adam mean drift or a dimension-dependent affine-constraint bound."
+        "The published mathematical findings index returns nearest optimizer-frontier records on AdaBound, AdaX, LAMB, RAdam and other optimizers; no retrieved matching Adam-GC parameter-mean dimension envelope or exact (d−2)/d table.",
+        "The full primary GC and MC algorithms contain formulas but no dimensionwise exact table of optimal mean drift."
       ],
-      "reasoning": "The nearest records use different optimization maps and do not imply the source Adam-GC coordinatewise-preconditioning formula. Database absence is supporting evidence only and is combined with direct source inspection.",
+      "reasoning": "The particular sharp value is not identified in searched tables/databases. This is limited evidence, not a novelty proof: absence from search cannot exclude unindexed derivations.",
       "searches": [
-        "Gradient Centralization exact affine subspace weight mean invariant SGD",
-        "gradient centralization parameter mean conservation zero mean gradient optimization",
-        "Gradient Centralization projected gradient affine constraint counterexample",
-        "Gradient Centralization Adam first step mean drift dimension bound",
-        "Adam gradient centralization affine weight constraint broken adaptive denominator",
-        "Gradient Centralization Adam_GC2 final update centralization mean preserving",
-        "Moment Centralization Adam zero mean update parameter mean adaptive denominator"
+        "published mathematical findings index query: Gradient Centralization Adam first-step drift of weight vector mean zero-sum gradient coordinatewise adaptive denominator sharp dimension dependent bound",
+        "published mathematical findings index query: Projected gradient adaptive optimizer affine mean conservation fails Adam GC dimension",
+        "published mathematical findings index query: Mean preservation post-preconditioning final update centered Adam GC2 exact sharp extremal deviation",
+        "web: zero-sum vector softsign sharp dimension bound"
       ]
     },
-    "rationale": "The defining paper proves the affine weight constraint in its SGD/SGDM analysis but does not state it for Adam. The official repository already recognizes the practical value of keeping adaptive-method weight means unchanged and provides final-delta-centralized GC2 variants, so that broad repair is treated as prior. Later Moment Centralization literature forces a zero-mean first moment but does not give the final parameter-mean drift theorem. Focused database searches found no exact first-step formula or sharp dimension envelope.",
+    "rationale": "Best-of-knowledge originality is confined to the complete dimension-sharp first-step drift envelope and its d=2 dichotomy. The formula for the first Adam-GC update is algebraically present in prior algorithm definitions, and final-delta GC2 mean preservation is prior source-code knowledge. However the quantified sharp supremum over all finite centered gradients at every d≥3 requires an additional global concavity/subadditivity extremal argument; the inspected primary literature and three semantic database searches did not contain it. This is an informed, qualified novelty assessment, not proof from search absence.",
     "residual_risks": [
-      "A recent non-primary tutorial explicitly warns that adaptive coordinatewise scaling can break GC's weight-mean invariant, so the broad qualitative observation is not claimed as new.",
-      "The official repository already contains a mean-preserving adaptive repair; the originality claim is restricted to the sharp first-step theorem and dimension law.",
-      "An equivalent extremal calculation may exist in unindexed implementation discussions."
+      "Unindexed implementation notes and code discussions could contain the same elementary Jensen sharp bound even if no retrieved publication stated it.",
+      "The qualitative observation that adaptivity can spoil gradient centralization constraints and the exact final-delta GC2 repair are clearly prior. Novelty assessment is restricted to the dimension-sharp first-step supremum and its exact exception at d=2.",
+      "Adam implementations differ in placement/scaling of epsilon or weight decay; this theorem is only about the specified first source-form step, not all Adam variants or later states."
     ],
     "source_inspections": [
       {
-        "assessment": "DEFINING_ADAM_ORDERING_AND_SGD_CONSTRAINT; SHARP_ADAM_MEAN_DRIFT_NOT_ANALYZED.",
-        "evidence": "The source places gradient centralization before Adam's coordinatewise adaptive division, while its exact weight-mean preservation argument follows projected SGD and explicitly specializes the later feature theorem to SGD or SGDM.",
-        "identifier_or_url": "arXiv:2004.01461v1; ECCV 2020",
-        "material_read": "Full open paper with direct inspection of the GC definition, Algorithms 1 and 2, the weight-space regularization derivation, Equation 4 affine constraint, and Theorem 4.1's SGD/SGDM scope.",
-        "method": "Full-text and page-image inspection.",
+        "assessment": "Original projected-SGD mean conservation and Adam ordering established. No exact sharp first-step Adam mean-drift bound or dimension-2 cancellation is stated in the inspected relevant argument.",
+        "evidence": "Algorithm 2 centralizes g before m/v; §4.1 derives constancy of eᵀw under projected SGD; Corollary 4.1 explicitly uses SGD (or SGDM).",
+        "identifier_or_url": "Hongwei Yong et al., ECCV 2020; arXiv:2004.01461; https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123460613.pdf",
+        "material_read": "PDF section 3.3 and section 3.4, Algorithms 1 and 2 (PDF page index 4), and section 4.1 with affine constraint and SGD/SGDM qualification (PDF page indices 5–6); original paper abstract and introduction.",
+        "method": "Primary ECCV open PDF, parsed section text and actual page screenshots of pp. 5–6.",
         "title": "Gradient Centralization: A New Optimization Technique for Deep Neural Networks",
-        "trigger": "Defining source for GC projection, Adam ordering, and the claimed constrained weight-space interpretation."
+        "trigger": "Original GC method, Adam algorithm ordering, and stated affine weight-space constraint."
       },
       {
-        "assessment": "BROAD_REPAIR_PRIOR; EXACT_SHARP_DRIFT_ENVELOPE_NOT_STATED.",
-        "evidence": "Ordinary Adam_GC centralizes the raw gradient before moments; GC2 centralizes the final adaptive delta. The README says keeping the weight-vector mean unchanged usually works better for adaptive learning-rate methods.",
-        "identifier_or_url": "github:Yonghongwei/Gradient-Centralization:ed2a608ccdbb731301e00bf838c83821df1b8d70",
-        "material_read": "Repository README and `GC_code/CIFAR100/algorithm/Adam.py`, including `Adam_GC`, `Adam_GC2`, and `Adam_GCC2` update ordering.",
-        "method": "Direct repository source-code inspection.",
+        "assessment": "Ordinary Adam_GC final adaptive update need not be mean-zero; GC2 explicitly subtracts the final delta mean for eligible tensor blocks. The latter repair is prior, not original.",
+        "evidence": "Adam_GC: grad.add_(-grad.mean(...)); then exp_avg/denom passed directly to p.data.addcdiv_. Adam_GC2: delta=(step_size*exp_avg/denom).clone(); delta.add_(-delta.mean(...)); p.data.add_(-delta).",
+        "identifier_or_url": "https://github.com/Yonghongwei/Gradient-Centralization/blob/ed2a608ccdbb731301e00bf838c83821df1b8d70/GC_code/CIFAR100/algorithm/Adam.py; fetched blob 5d9d34766e3ab7a969e64929407d0bbac41aa7af",
+        "material_read": "Repository README statement on adaptive mean preservation and source Adam.py code portions for Adam_GC (approximately lines 176–283) and Adam_GC2 (approximately lines 286–373), including operations before/after moment division.",
+        "method": "Direct read-only GitHub source fetch at the specified commit, code-lines and relevant README.",
         "title": "Official Gradient Centralization implementation",
-        "trigger": "Distinguish ordinary Adam_GC from the repository's adaptive mean-preserving variants."
+        "trigger": "Check difference between ordinary Adam_GC and the final-delta-centralized GC2 repair."
       },
       {
-        "assessment": "ZERO_MEAN_FIRST_MOMENT_PRIOR; FINAL_PARAMETER_MEAN_ENVELOPE_NOT_STATED.",
-        "evidence": "The paper explicitly centralizes the first moment, but its parameter update remains coordinatewise preconditioned and no exact final weight-mean preservation theorem or sharp drift envelope is given.",
-        "identifier_or_url": "arXiv:2207.09066v1",
-        "material_read": "Full open paper with direct inspection of the motivation, first-order moment centralization equation, and AdamMC Algorithm 2 including the coordinatewise second-moment denominator.",
-        "method": "Full-text and page-image inspection.",
+        "assessment": "Centralized m is still divided coordinatewise by sqrt(v)+epsilon. No full-update centering or sharp Adam-GC weight-mean drift is given.",
+        "evidence": "Algorithm 2 lines m_t ← m_t−mean(m_t), v_t ←..., theta update −α mhat_t/(sqrt(vhat_t)+ε).",
+        "identifier_or_url": "Sadu, Dubey, Sreeja, arXiv:2207.09066v1 (2022); https://arxiv.org/pdf/2207.09066",
+        "material_read": "Primary arXiv full PDF, section 2 and Algorithms 1–2 (PDF indices 2–3), inspected actual Algorithm 2 page image (PDF index 3), and abstract/conclusions.",
+        "method": "Open arXiv PDF parsed text and page screenshot of p.4.",
         "title": "Moment Centralization based Gradient Descent Optimizers for Convolutional Neural Networks",
-        "trigger": "Closest later primary work on zero-mean constraints inside adaptive momentum optimizers."
+        "trigger": "Closest alternate adaptive optimizer design preserving zero mean inside first moments."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "self_review",
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "1eb84cec-6562-4c30-989f-2b068477e459",
-  "self_review_status": "passed",
   "value": {
-    "rationale": "GC's projected-gradient affine constraint is a central theoretical explanation in the defining paper, and Adam is one of the two flagship embeddings shown there. The theorem identifies exactly how the adaptive denominator can defeat that constraint, gives a sharp dimension-dependent worst case that approaches one learning rate in high dimension, and mathematically explains why the repository's later final-delta-centralized variants are the correct structural repair. This is a natural optimizer-composition boundary rather than an arbitrary numerical example.",
+    "rationale": "GC’s projected-gradient affine constraint is explicitly offered as a central theoretical mechanism of the original method, and its Adam implementation is prominent. Quantifying precisely how far the actual adaptive update can leave that affine space—zero at d=2, strict but asymptotically near a whole learning rate as d grows—is an intrinsic, dimension-sharp safety/invariance boundary directly relevant to the original mathematical interpretation. It can inform optimizer choice and controlled mean preservation, without needing downstream generalization claims. The proof is short but the extremal object and invariant are independently motivated; neither correctness, novelty nor code reproducibility alone is used to justify value.",
     "status": "PASS"
   }
 }
