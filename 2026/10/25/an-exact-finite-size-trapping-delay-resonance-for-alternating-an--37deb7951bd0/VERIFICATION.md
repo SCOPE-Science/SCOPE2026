@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Computational and analytical verification
+# Independent mathematical audit
 
-Run `python check_switching_gates.py` with standard Python 3 (no third-party packages). The actual packaged program was executed successfully and printed: `PASS: 160 checks; two independently assembled Markov generators agree exactly.` It independently builds two continuous-time Markov-chain generators from first principles, performs absorbing hitting-time solves using exact fractions, compares them to the closed Fourier expression, and tests derivative sign boundaries and scaling. The algebraic Fourier proof in `RESULT.md` establishes the result for every positive integer \(k\); the finite tests alone do not certify an infinite theorem. The originality comparison is literature-bounded; independent scientific audit has not been performed.
+## correctness
+
+PASS
+
+The relative coordinate Y=X-kE mod 2k reduces the original 4k position/gate configurations to a 2k-site continuous-time walk jumping +1 at rate1 and +k at rate g, with site zero killed. Uniform stationary averaging of Poisson hitting-time equation Lh=-1+2k delta_0 gives Fourier mean sum. Even modes yield (k-1)/2; odd roots z^k=-1 yield k r^(k-1)/(1+r^k) by P'(r)/P(r), r=1+2g. Differentiation has sign of k-1-r^k, establishing strict decrease k=1,2, unique global max for k>=3 at g*=((k-1)^(1/k)-1)/2, and ratio limit 3/2. Checked boundary g=0, g->infty and k=1,2. Independently assembled original full 4k-state absorbing generator and solved exact rational linear systems for k=1..6, rates 0,1/3,2; 18 direct exact comparisons PASS. These are corroborative tests; the spectral proof applies for every k.
+
+## originality
+
+PASS
+
+PASS within accessible coverage: established gated-reaction network renewal formulas and switching-boundary diffusion literature provide general methods, not an identified exact two-antipodal-target continuous-time clockwise formula or the positive-rate unique maximum. Scher–Reuveni 2021 full text inaccessible and could permit direct specialization; documented as a material risk.
+
+## value
+
+PASS
+
+A finite directed transport graph with alternately active distinct traps is a natural first-passage control model. A sharply characterized onset at k=3, a single counterintuitive positive switching-rate maximum, and its 50% macroscopic delay at large size give a complete meaningful classification, not a routine small-graph evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
