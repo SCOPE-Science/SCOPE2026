@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:50:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The bijective Feller cycle insertion has singleton probability 1/n, giving G_n=(n-1+z)G_{n-1}/n. Classifying insertion positions before, at and after the marked record gives F_{n,i}=G_{n-1}/n+(n-i-1+z)F_{n-1,i}/n with boundary F_{i,i}=zG_{i-1}/i. The centered recurrence solves to H=(i-1)(z-1)G_{i-1}G_{n-i}/(i^2 binom(n,i)). Coefficient telescoping produces an exact nonnegative tail gap at every integer k, including i=1 equality and n=1. Derivative at z=1 gives covariance; total covariance is 1/n+O(n^-2) and Bernoulli harmonic variance is log n+O(1). Independent full-permutation rational enumeration n<=7 matches exact conditional PGF, tail sign and covariance; it is corroboration, not the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Najnudel-Pitman provides standard cycle insertion and Bernoulli spacing laws, both used as prerequisites.",
+          "Jin jointly enumerates some record/descent statistics but does not include ordinary cycle counts of the untransformed input in its cited theorems."
+        ],
+        "reasoning": "Known marginal Stirling and Foata statements are weaker and do not imply the exact conditional marked cycle distribution.",
+        "searches": [
+          "arXiv:1907.09587 full sections on Feller coupling",
+          "Gnedin 2007 original paper relevant sections",
+          "Jin arXiv:2210.08789 main Euler-Stirling results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1907.09587v2 (Feller and Foata transforms)",
+        "Gnedin 2007 complete lawful OA paper",
+        "arXiv:2210.08789 cited main results",
+        "Resultary efaa92233051, 6e228e1e9495, bb66bcfebcc4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A cycle-marginal G_n and an upper-record marginal 1/i do not determine F_{n,i}.",
+          "The new H_{n,i} is an explicit nonzero polynomial perturbation (except at i=1), which is stronger than a scalar covariance."
+        ],
+        "reasoning": "The marked recurrence adds essential joint information; none of the compared stated results supplies it as a consequence without further input.",
+        "searches": [
+          "Najnudel-Pitman arXiv:1907.09587",
+          "Gnedin 2007",
+          "Jin arXiv:2210.08789",
+          "Resultary efaa92233051"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foata/fundamental transformations relate records on a transformed permutation to cycles of the original; they do not preserve the marked record event of that same permutation.",
+          "Feller coupling encodes cycle lengths but does not itself give a joint PGF for a one-line record in the same input."
+        ],
+        "reasoning": "Identifying cycle count with record count after a nontrivial transformation is not same-object joint dependence. No checked exact equivalent same-input formula was found; transformation equivalence would require extra coupling information.",
+        "searches": [
+          "Resultary: uniform random permutation same permutation upper record indicator number of cycles conditional stochastic dominance exact covariance",
+          "Najnudel-Pitman arXiv:1907.09587 Sections 1-3",
+          "Gnedin 2007 Coherent random permutations with record statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed inversion/cycle result is about inversion indicators, not upper records of the same permutation.",
+          "The bivariate-record kill law uses a cycle-count representation of a different statistic."
+        ],
+        "reasoning": "The exact cycle/marked-upper-record conditional polynomial and its full tail table are not tabulated in inspected sources; failure to locate a table does not certify historical priority.",
+        "searches": [
+          "Resultary published finding efaa92233051 linear inversion-gap cycle covariance",
+          "Resultary published finding 6e228e1e9495 fixed-point/descent dependence",
+          "Resultary published finding bb66bcfebcc4 Stirling bivariate-record kills"
+        ]
+      },
+      "rationale": "Independent comparison of statements, standard reductions, stronger sources and exact parameter tables. Accessible evidence does not decisively cover this final claim; limitations and material unread sources remain recorded without inferring novelty from search silence.",
+      "residual_risks": [
+        "Classical joint-record/cycle identities may be hidden in older cycle-index or fundamental-bijection literature not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL_PREREQUISITE_NOT_SAME_INPUT_MARKED_LAW",
+          "evidence": "Cycle-spacings marginal and transformed-permutation representation do not state the conditional ordinary cycle PGF given a record of the same one-line permutation.",
+          "identifier_or_url": "arXiv:1907.09587v2",
+          "material_read": "Full accessible mathematical text, especially construction/transform sections 1-3 and related cycle/record distinctions",
+          "method": "public arXiv HTML",
+          "title": "Feller coupling of cycles of permutations and Poisson spacings in inhomogeneous Bernoulli trials",
+          "trigger": "Cycle insertion and possible Foata equivalence"
+        },
+        {
+          "assessment": "DIFFERENT_PROJECTION_AND_TRANSFORM",
+          "evidence": "Deletion of maxima in cycle representation versus one-line record representation is distinguished, not the same conditional cycle law.",
+          "identifier_or_url": "Gnedin, DMTCS 2007, https://dmtcs.episciences.org/en/articles/3551/download",
+          "material_read": "Lawful OA PDF (13 pages), pertinent deletion/record operations, Sections 4-7",
+          "method": "full PDF read, relevant pages screenshot-inspected",
+          "title": "Coherent random permutations with record statistics",
+          "trigger": "Closest record/cycle transformation literature"
+        },
+        {
+          "assessment": "NOT_DIRECT_COVERAGE_IN_READ_RESULTS",
+          "evidence": "Joint Euler-Stirling record/descent enumerators do not identify a same-input ordinary cycle-count marked-record law.",
+          "identifier_or_url": "arXiv:2210.08789",
+          "material_read": "Accessible arXiv relevant main generating-function theorems and named statistics",
+          "method": "public arXiv text",
+          "title": "Symmetric generating functions and Euler-Stirling statistics on permutations",
+          "trigger": "Possible joint statistic dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classical equality in distribution of record and cycle counts does not determine their dependence on a single original permutation. The exact marked conditional stochastic order, its boundary exception, every-threshold gap and sharp small total correlation form a natural uniform-in-n joint law, not a bare marginal restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform pi in S_n and upper-record R_{n,i}, the conditional ordinary-cycle PGF is G_n(z)+(i-1)/(i*binom(n,i))*(z-1)*G_{i-1}(z)*G_{n-i}(z); its tail gap at k is the same prefactor times P(K_{i-1}+K_{n-i}=k-1). The same-pi covariance is (i-1)/(i^2*binom(n,i)), with total correlation asymptotic 1/(n log n).",
+  "limitations": [
+    "Uniform permutations only, and conditioning on one specified upper left-to-right record; no Ewens generalization or positive association of the entire record vector is claimed.",
+    "The original derivation establishes the infinite family; independent exhaustive permutations stop at n=7.",
+    "Equivalent older cycle-record joint identities could remain undiscovered."
+  ],
+  "schema_version": 1
+}
