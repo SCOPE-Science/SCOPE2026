@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T08:24:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned source snapshot: SCOPE-Science/SCOPE2026 at commit 6c379935c2e469fc18959fc6c387e31328c64bcf, record tree 4cf38149bb45e618294f979a90c77fa949fbed95",
+        "Independent 4080-instance far-cap vertex linear-feasibility cross-check in independent_cube_check.py and independent_cube_results.json"
+      ],
+      "rationale": "For real X=ell_infinity^n, n>=1, and any x in its closed unit ball, normalize coordinate signs and write a_i=|x_i|, b_i=1-a_i, b*=max b_i. The defining infimum over slices is exactly the largest r with x in conv(E_r(x)); finite-dimensional compactness and strict separation justify both directions even at thresholds. The 2-point midpoint (replace a maximal-escape coordinate by 1 and by 2a_i-1) proves the floor b*. For r>b* all far points lie in opposite-coordinate caps y_i<=a_i-r, active iff r<=1+a_i. Grouping any convex decomposition by a cap forces weights lambda_i <= b_i/(r+b_i), hence Phi>=1. Conversely when Phi>=1, lambda_i=c_i/Phi give explicit cap points with y_i^(j)=a_i-r if i=j and a_i+lambda_i*r/(1-lambda_i) otherwise; they stay inside [-1,1]^n and average to x. When Phi<1 the separating functional sum_i y_i/(r+b_i) over active i has exact gap 1-Phi. The capacity is nonincreasing piecewise rational, giving the complete all-r formula. Equal-coordinate cases n=1 vs n>=2, the root 3r^2-r-2(1-t)=0 on (2/3,2/3,t), and the unit-sphere cap bound Phi(r)<=(n-1)(2-r)/2 for r>1 prove exact values and equality cases n=2, n=3, n>=4. Independent vertex-hull linear-feasibility comparisons across 4080 rational cases of n=1..4 yielded zero mismatches; this numerical check supports examples but is not the infinite-dimensional family proof.",
+      "residual_risks": [
+        "The independent scipy/HiGHS feasibility checks are numerical despite rational inputs; analytic inequalities provide the universal argument.",
+        "All numerical tests are finite and do not imply the all-n quantifier or prove uniqueness of maximizer orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published c0 all-point formula has r in [1,2] and requires infinite tail; infinite C(K) theorem explicitly requires infinite compact K and nonisolated points.",
+          "The finite cube point (4/5,4/5,4/5) has 2/5, while zero extension in c0 has 1.",
+          "Choi–Jung Corollary 4.10 only proves a lower bound under finite ell-infinity sums, not an exact formula."
+        ],
+        "reasoning": "Neither strong all-point theorem applies to finite K or passes down through isometric subspaces: a numerical counterexample refutes that inference. The general absolute-sum bound is strictly weaker.",
+        "searches": [
+          "Resultary semantic search: Delta constant of points in C(K) c0 real finite discrete compact spaces formula",
+          "Web query: exact delta constants real C(K) finite compact Hausdorff point formula Banach 2026",
+          "Published Resultary c0 RESULT.md 2026/10/4/...092d7050fe45",
+          "Published Resultary C(K) RESULT.md 2026/10/4/...55e920f38e68",
+          "Primary arXiv:2307.10647v3 Proposition 4.9 and Corollary 4.10"
+        ]
+      },
+      "checked_sources": [
+        "Choi–Jung, The Daugavet and Delta-constants of points in Banach spaces, arXiv:2307.10647v3, Definition 2.1, Proposition 2.3, Proposition 3.1, Theorem 3.3, Remark 3.4, Proposition 4.9; https://arxiv.org/html/2307.10647v3",
+        "Published Resultary record, Exact Delta-constants for every point of c0, full RESULT.md; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delta-constants-for-every-point-of-c-0--092d7050fe45/RESULT.md",
+        "Published Resultary record, Exact Delta-constants on every real C(K) space, full RESULT.md; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delta-constants-on-every-real-c-k-space--55e920f38e68/RESULT.md",
+        "Published Resultary record, Positive square points of ell-infinity-n are exactly cube-face centers, full RESULT.md; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-positive-square-points-of-ell-infty-n-are-exactly-cube-face-cent--21b262733e81/RESULT.md",
+        "Pinned source snapshot: SCOPE-Science/SCOPE2026 at commit 6c379935c2e469fc18959fc6c387e31328c64bcf, record tree 4cf38149bb45e618294f979a90c77fa949fbed95",
+        "Independent 4080-instance far-cap vertex linear-feasibility cross-check in independent_cube_check.py and independent_cube_results.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original n=2 result is a special case; n>=3 capacity and sharp maximizer results are absent from the reviewed primary theorem.",
+          "Neither infinite c0 nor infinite C(K) all-point theorem implies a finite-cube formula: their hard lower floor r>=1 is contradicted by finite-cube delta=2/5.",
+          "The positive-square classification is logically different and does not bound the quantitative Delta radius."
+        ],
+        "reasoning": "The current theorem entails the older n=2 special case, strictly resolves the n=3 source gap, and optimizes in each n. The most plausible dominating results have excluded domains or weaker implications. Therefore PASS as a best-of-knowledge priority assessment, not a claim of globally exhausted literature.",
+        "searches": [
+          "Full Choi–Jung arXiv:2307.10647v3 Sections 2.1, 3.1, 4.2",
+          "Published Resultary c0 and infinite C(K) full source comparisons",
+          "Published Resultary positive-square full-source comparison",
+          "Resultary semantic search: quantitative delta point constant ell infinity finite dimensional Banach cube slices convex hull far faces",
+          "Web query: \"Choi\" \"Jung\" \"delta\" \"l_infty^3\" exact maximum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choi–Jung Definition 2.1 gives the slice infimum and Proposition 2.3 provides an epsilon/closed-convex-hull version, not the solved finite-cube optimization.",
+          "The primary paper says n>=3 is difficult and presents a lower bound and plotted sample (Remark 3.4).",
+          "Resultary exact self-match 2026/10/11/SCOPE-exact-delta-constants-of-finite-dimensional-real-cubes-and-sharp--e5afc884d721 is the audited record and was EXCLUDED as external precedence."
+        ],
+        "reasoning": "The general slice and convex-hull reformulations are equivalent foundations, but they do not imply the novel threshold capacity criterion, all-ball formula, or equality orbit. No independent equivalent finite-cube statement was identified in actual searches.",
+        "searches": [
+          "Resultary semantic search: Exact pointwise Delta constants of finite dimensional real cubes ℓ∞^n unit ball Choi Jung 2023 opposite face capacity formula sharp sphere extremizers",
+          "Resultary semantic search: quantitative delta point constant ell infinity finite dimensional Banach cube slices convex hull far faces",
+          "Web query: Choi Jung The Daugavet and Delta constants of points in Banach spaces Proposition 3.1 Remark 3.4 finite dimensional l infinity cube arxiv 2307.10647",
+          "Primary arXiv:2307.10647v3 Definition 2.1, Proposition 2.3, Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 2 of Choi–Jung plots a lower bound, not the exact radical (1+sqrt(25-24t))/6.",
+          "The finite-cube positive-square table is a different norming-functional invariant, not the Delta constant.",
+          "No exact table for all n and all point coordinates was identified; absence is only bounded-search evidence."
+        ],
+        "reasoning": "The only nearby exact cube table classifies a different property, and the named 3D source figure does not tabulate exact values. No checked catalogue or table supplies the claimed infinite family of pointwise values.",
+        "searches": [
+          "Resultary semantic search: Exact pointwise Delta constants of finite dimensional real cubes ℓ∞^n unit ball Choi Jung 2023 opposite face capacity formula sharp sphere extremizers",
+          "Web query: delta constant finite dimensional ℓ infinity n sharp formula δc cube point characterization",
+          "Web query: \"delta-constant\" \"ell_infty\" \"N\" \"2026\" finite dimensional exact",
+          "Web query: \"Delta-constants\" \"finite dimensional\" cube geometry 1/(r+1-a)",
+          "Published Resultary positive-square-point RESULT.md 2026/10/4/...21b262733e81",
+          "Primary arXiv:2307.10647v3 Remark 3.4 Figure 2"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS. Choi–Jung introduce this quantitative Delta constant and prove exact finite-cube values only for n=2, stating n>=3 difficulty. Full readable 2026 Resultary c0 and C(K) all-point results are excluded from finite cubes by infinite-tail/nonisolated-core assumptions; the finite-vs-c0 counterexample is concrete. A nearby positive-square-point cube classification is a different invariant. Actual semantic and web searches found only the audited record as an exact self-match, not independent earlier coverage. Residual priority risks remain explicit.",
+      "residual_risks": [
+        "An unindexed older finite-polytope or differently named diametral radius calculation could reproduce this capacity formula.",
+        "The published c0/C(K) research uses similar coordinate budgets; mathematical overlap is real, but their explicit domains do not dominate the finite problem.",
+        "Web search indices and the Resultary published corpus are not exhaustive; no claim of certified priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: the n=2 finite-cube Delta value is exact; for n>=3 a lower bound and sample plot are supplied, not an exact all-ball capacity formula or unit-sphere equality classification.",
+          "evidence": [
+            "Definition 2.1 and slice formula at lines 101–133, Proposition 2.3 at lines 143–155.",
+            "Proposition 3.1 at lines 397–429 gives exact Delta values only for N=2 and says N>=3 computation remains difficult.",
+            "Remark 3.4(1), lines 503–523, is a lower bound and plot for n=3; Proposition 4.9 lines 1060–1111 is a general absolute-sum lower bound."
+          ],
+          "identifier_or_url": "arXiv:2307.10647v3; https://arxiv.org/html/2307.10647v3",
+          "material_read": "Accessible complete arXiv HTML source, reading Definition 2.1, Proposition 2.3, Proposition 3.1 with proof, Theorem 3.3, Remark 3.4 and Figure 2, and Section 4.2 Proposition 4.9/Corollary 4.10.",
+          "method": "Line-level mathematical reading at HTML lines 101–155, 392–429, 465–535 and 1056–1113; compare domains, inequalities, and strength of conclusions.",
+          "title": "The Daugavet and Delta-constants of points in Banach spaces",
+          "trigger": "Defining quantitative paper, precise finite-cube question and pointwise comparison."
+        },
+        {
+          "assessment": "NOT_COVERING: c0 formula imposes r>=1 and uses freely perturbable tail; its statement expressly excludes finite-dimensional ell-infinity cubes.",
+          "evidence": [
+            "Resultary blob 5bd366a95e014682051ee3d244ec88f0a0ed828b gives delta c0(x) via inf r in [1,2].",
+            "Finite (4/5,4/5,4/5) has Delta constant 2/5, while its zero extension in c0 has Delta constant 1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delta-constants-for-every-point-of-c-0--092d7050fe45/RESULT.md",
+          "material_read": "Entire public RESULT.md, including all-point statement, hypotheses, both proof directions, verification, references and explicit limitations.",
+          "method": "Fetched full published Git blob via read-only GitHub connector and compared zero-extended points and radius floor.",
+          "title": "Exact Delta-constants for every point of c0",
+          "trigger": "Published exact all-point formula with the same cap weights; plausible dominating theorem."
+        },
+        {
+          "assessment": "NOT_COVERING: the theorem explicitly assumes K infinite; K prime is nonempty and forces radius at least 1; finite K discrete are excluded.",
+          "evidence": [
+            "Resultary blob 0f5621b18ae5f55abc727c6b8ccaea4a2f6ef8c0 starts with K infinite compact Hausdorff and beta=max over K prime.",
+            "The finite-cube subunit example 2/5 cannot be obtained by specializing that theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delta-constants-on-every-real-c-k-space--55e920f38e68/RESULT.md",
+          "material_read": "Entire public RESULT.md, including infinite K condition, nonisolated-core construction, proof, and limitations.",
+          "method": "Fetched full published Git blob read-only; checked all hypotheses and the precise lower-radius obstruction.",
+          "title": "Exact Delta-constants on every real C(K) space",
+          "trigger": "Title suggests all C(K), which might include the finite discrete case and cover the claim."
+        },
+        {
+          "assessment": "NOT_COVERING: the classified predicate is positive-square, neither the exact Delta-radius function nor its sphere supremum.",
+          "evidence": [
+            "Published result blob f19d3cdc003d7c1ec100f27635daa574bc251d10 classifies {-1,0,1}^n\\{0}.",
+            "The definition uses f(x)>=0 and ||x+y|| tending to 2, not Delta far-point convex-hull capacity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-positive-square-points-of-ell-infty-n-are-exactly-cube-face-cent--21b262733e81/RESULT.md",
+          "material_read": "Entire public RESULT.md, including definitions, proof, vertex/face classification and limitations.",
+          "method": "Read full published result via GitHub and compared norming-functional positive-square condition to slice-radius optimization.",
+          "title": "Positive square points of ell-infinity-n are exactly cube-face centers",
+          "trigger": "Natural exact finite-cube classification in the same norm geometry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Choi–Jung, The Daugavet and Delta-constants of points in Banach spaces, arXiv:2307.10647v3, Definition 2.1, Proposition 2.3, Proposition 3.1, Theorem 3.3, Remark 3.4, Proposition 4.9; https://arxiv.org/html/2307.10647v3",
+        "Published Resultary record, Exact Delta-constants for every point of c0, full RESULT.md; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delta-constants-for-every-point-of-c-0--092d7050fe45/RESULT.md",
+        "Published Resultary record, Exact Delta-constants on every real C(K) space, full RESULT.md; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delta-constants-on-every-real-c-k-space--55e920f38e68/RESULT.md",
+        "Pinned source snapshot: SCOPE-Science/SCOPE2026 at commit 6c379935c2e469fc18959fc6c387e31328c64bcf, record tree 4cf38149bb45e618294f979a90c77fa949fbed95"
+      ],
+      "rationale": "The finite real cube is a canonical Banach polytope, and the Delta constant is a natural established quantitative slice-diameter invariant. The defining primary source explicitly says exact n=3 values are difficult, while the current result determines every coordinate point and every dimension, a sharp 3D radial profile, and a global sphere maximum with extremal orbit classification. The cap-budget formula explains a structural finite/infinite boundary rather than merely computing small examples. It is a natural complete quantitative classification, not a textbook renaming, arbitrary slice, or known-table recomputation; no general downstream theorem is required.",
+      "residual_risks": [
+        "Mathematical value is restricted to the explicit class ell-infinity^n(R); no claim of general normed-space extension or optimality beyond that family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Choi–Jung, The Daugavet and Delta-constants of points in Banach spaces, arXiv:2307.10647v3, Definition 2.1, Proposition 2.3, Proposition 3.1, Theorem 3.3, Remark 3.4, Proposition 4.9; https://arxiv.org/html/2307.10647v3",
+    "Published Resultary record, Exact Delta-constants for every point of c0, full RESULT.md; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delta-constants-for-every-point-of-c-0--092d7050fe45/RESULT.md",
+    "Published Resultary record, Exact Delta-constants on every real C(K) space, full RESULT.md; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delta-constants-on-every-real-c-k-space--55e920f38e68/RESULT.md",
+    "Published Resultary record, Positive square points of ell-infinity-n are exactly cube-face centers, full RESULT.md; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-positive-square-points-of-ell-infty-n-are-exactly-cube-face-cent--21b262733e81/RESULT.md",
+    "Pinned source snapshot: SCOPE-Science/SCOPE2026 at commit 6c379935c2e469fc18959fc6c387e31328c64bcf, record tree 4cf38149bb45e618294f979a90c77fa949fbed95",
+    "Independent 4080-instance far-cap vertex linear-feasibility cross-check in independent_cube_check.py and independent_cube_results.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The result is exclusively for real finite-dimensional ell-infinity cubes; not complex cubes, infinite c0, finite-dimensional general absolute norms, or arbitrary C(K).",
+    "The exact all-ball statement and extremal orbit are proved by compact separation and explicit barycentric witnesses; finite LP checks are corroboration only.",
+    "The bounded literature survey cannot exclude all historical equivalents; best-of-knowledge originality PASS with named remaining risks.",
+    "No Lean formalization or expert attestation has been performed; preserving original external verification channels.",
+    "Potentially public metadata retains an operational run identifier and procedural review provenance; publication withheld until exact privacy-safe replacement files are materialized and validated."
+  ],
+  "residual_risks": [
+    "An unindexed older finite-polytope or differently named diametral radius calculation could reproduce this capacity formula.",
+    "The published c0/C(K) research uses similar coordinate budgets; mathematical overlap is real, but their explicit domains do not dominate the finite problem.",
+    "Web search indices and the Resultary published corpus are not exhaustive; no claim of certified priority is made.",
+    "The independent scipy/HiGHS feasibility checks are numerical despite rational inputs; analytic inequalities provide the universal argument.",
+    "All numerical tests are finite and do not imply the all-n quantifier or prove uniqueness of maximizer orbits.",
+    "Mathematical value is restricted to the explicit class ell-infinity^n(R); no claim of general normed-space extension or optimality beyond that family."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: exact pointwise \(\Delta\)-constants of finite cubes
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof directly reconstructs the Choi–Jung slice definition through finite-dimensional compact separation, without relying on a numerical estimate. For arbitrary \(x\in B_{\ell_\infty^n}\), a two-point midpoint construction gives the exact baseline \(b_*=1-\min_i|x_i|\). Above that baseline, every distant point belongs to a negative-coordinate face cap. Grouping any convex decomposition yields sharp capacities \(\lambda_i\le(1-|x_i|)/(r+1-|x_i|)\), and the reverse implication has explicit \(n\)-point barycentric witnesses. When the total capacity is below one, a positive linear functional has the exact strict separation gap \(1-\Phi_x(r)\). Consequently no finite-computation heuristic is used to justify the universal theorem. The equal-coordinate formula, the plotted three-dimensional radical, and the sharp sphere maximum follow by algebra; the cases \(n=1,2,3\), vanishing coordinates, saturated coordinates, and cap-threshold equalities have been checked explicitly. The embedded exact-rational checker passed 31,294 cases; an independent 1,960-case vertex-convex-hull LP comparison also agreed.
+## correctness
 
-## Originality — PASS
-The closest primary source is Choi and Jung, arXiv:2307.10647v1 (2023-07-20), especially Proposition 3.1 and Remark 3.4: the finite cube is treated exactly only in dimension two, with a general dimension-three lower bound rather than an exact profile. The exact published \(c_0\) and infinite compact \(C(K)\) formulas are stronger in their own infinite domains but do not imply this finite-cube theorem: both have a mandatory baseline of at least one, while \(\delta c_{\ell_\infty^3}(4/5,4/5,4/5)=2/5\). The finite-cube positive-square classification concerns a different norming-functional property. A full-text comparison of these public results and targeted semantic searches returned no equivalent exact all-point finite-cube theorem or dimension-sharp extremizer classification. Unindexed or differently phrased prior coverage remains a bibliographic risk, not a claim of absolute uniqueness.
+PASS
 
-## Value — PASS
-The central object is a canonical real Banach cube and a quantitative geometric constant whose exact evaluation the defining work explicitly identifies as difficult for dimension three. The face-cap budget determines the entire pointwise function in every finite dimension, not an arbitrary low-cardinality example. It solves the plotted slice \((2/3,2/3,t)\) exactly and determines the optimal global unit-sphere value \(2-2/(n-1)\) for \(n\ge3\), including the unique maximizer orbit for \(n\ge4\). This identifies a sharp dimension-dependent approach to the Delta-point threshold without the appearance of actual Delta points. The comparison with the infinite \(c_0\) case exposes a meaningful finite/infinite difference.
+For real X=ell_infinity^n, n>=1, and any x in its closed unit ball, normalize coordinate signs and write a_i=|x_i|, b_i=1-a_i, b*=max b_i. The defining infimum over slices is exactly the largest r with x in conv(E_r(x)); finite-dimensional compactness and strict separation justify both directions even at thresholds. The 2-point midpoint (replace a maximal-escape coordinate by 1 and by 2a_i-1) proves the floor b*. For r>b* all far points lie in opposite-coordinate caps y_i<=a_i-r, active iff r<=1+a_i. Grouping any convex decomposition by a cap forces weights lambda_i <= b_i/(r+b_i), hence Phi>=1. Conversely when Phi>=1, lambda_i=c_i/Phi give explicit cap points with y_i^(j)=a_i-r if i=j and a_i+lambda_i*r/(1-lambda_i) otherwise; they stay inside [-1,1]^n and average to x. When Phi<1 the separating functional sum_i y_i/(r+b_i) over active i has exact gap 1-Phi. The capacity is nonincreasing piecewise rational, giving the complete all-r formula. Equal-coordinate cases n=1 vs n>=2, the root 3r^2-r-2(1-t)=0 on (2/3,2/3,t), and the unit-sphere cap bound Phi(r)<=(n-1)(2-r)/2 for r>1 prove exact values and equality cases n=2, n=3, n>=4. Independent vertex-hull linear-feasibility comparisons across 4080 rational cases of n=1..4 yielded zero mismatches; this numerical check supports examples but is not the infinite-dimensional family proof.
 
-## Scope and outstanding limitations
-All statements are for finite real \(\ell_\infty^n\) and all points of its unit ball; no infinite-dimensional, complex, or arbitrary absolute-norm extension is claimed. The proof is complete under these hypotheses. Supplementary computations are finite checks, not universal proof. Source searches cannot exclude all unindexed equivalent statements.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS. Choi–Jung introduce this quantitative Delta constant and prove exact finite-cube values only for n=2, stating n>=3 difficulty. Full readable 2026 Resultary c0 and C(K) all-point results are excluded from finite cubes by infinite-tail/nonisolated-core assumptions; the finite-vs-c0 counterexample is concrete. A nearby positive-square-point cube classification is a different invariant. Actual semantic and web searches found only the audited record as an exact self-match, not independent earlier coverage. Residual priority risks remain explicit.
+
+## value
+
+PASS
+
+The finite real cube is a canonical Banach polytope, and the Delta constant is a natural established quantitative slice-diameter invariant. The defining primary source explicitly says exact n=3 values are difficult, while the current result determines every coordinate point and every dimension, a sharp 3D radial profile, and a global sphere maximum with extremal orbit classification. The cap-budget formula explains a structural finite/infinite boundary rather than merely computing small examples. It is a natural complete quantitative classification, not a textbook renaming, arbitrary slice, or known-table recomputation; no general downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
