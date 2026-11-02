@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify_groebner.py` with SymPy 1.10+ and `python verify_finite_fields.py` with Python 3; both scripts return exit status zero only if every asserted check passes. Their deterministic reference outputs are `groebner_output.txt` and `finite_field_output.txt`.
+## correctness
 
-The Gröbner script performs 39 unit-ideal checks of dehomogenized cubic Jacobian systems over characteristic three and 3 unit-ideal checks of the base locus. The finite-field script independently tests all normalized rational members at every point of the projective planes over finite extensions of degrees 1, 2, 3; for a singular cubic one of those extensions must contain a singular point, by the component/normalization argument described in RESULT.md. Code and reference outputs are sufficient to reproduce the exact computations. This is not a check of every coefficient over every extension field; only thirteen rational coefficient members are claimed smooth.
+PASS
 
-Neither the source code nor this note constitutes an independent audit.
+Distinct monomials make F,G,H independent. I reconstructed characteristic-three Jacobian ideals on each of three affine charts for each of 13 rational projective members; independently executed exact GF(3) Gröbner computation: all 39 ideals unit, plus all three generator common-base ideals unit. Nullstellensatz excludes singularities and base points even over algebraic closure. For any F3 rational point, the 3-dimensional first-jet value/derivative target gives a nonzero singular member whenever input dimension is at least four; sharp maximum therefore equals three. Finite rational-parameter enumeration is exhaustive precisely for 13 rational projective directions, not for coefficients after scalar extension.
+
+## originality
+
+PASS
+
+The missing characteristic-three, degree-three plane case in the general existence theorem is supplied by the concrete smooth rational net. No inspected result states the exact instance; priority is best of knowledge.
+
+## value
+
+PASS
+
+A natural and genuine sharpness gap lies in a central theorem whose construction explicitly excludes the smallest characteristic-dividing example. The exact 13-member basepoint-free smooth net attains a rigorous universal first-jet bound and is a usable explicit algebraic-geometric witness, not an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
