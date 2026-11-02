@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:43:25.337924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a finite product of fields, vertices have nonempty proper support A; ordinary zero-divisor graph adjacency means disjoint supports. Nonzero annihilator supports are subsets of A^c and B^c, so weak adjacency requires choosing distinct annihilator coordinates, equivalent to |A^c∪B^c|≥2. For distinct support classes, the weak-minus-ordinary difference graph joins exactly intersecting supports; an individual class of size |A|≤t-2 is itself complete, whereas coatom classes are internally independent. Thus cliques are weighted intersecting support families, weight a^{|A|} for sizes≤t-2 (a=q-1≥2), weight 1 per coatom. Among families without singleton supports, every coatom can be added; complementary pairs of sizes 2 through t-2 contribute at most a^{max(|A|,t-|A|)}; choosing all >half supports and one from each complementary middle pair attains this bound because any noncomplementary half-sets intersect. A family with singleton {i} is bounded by full i-star, whose apparent singleton advantage over the coatom-complete choice is a-1. A complementary pair {i,j}, [t]\\{i,j} has t≥5 and contributes gain at least a^{t-2}-a²≥a²(a-1)>a-1 to the nonsingleton choice, while all other complementary pair contributions are no smaller. Hence no singleton-family maximizes. Strict a>1 forces the larger support from every unequal-size complementary pair, all coatoms and exactly one half-set of every middle pair, proving the full equality classification and count a^{t(t-1)} times 2^{binom(t,t/2)/2} in even dimension. Independent SCIPY HiGHS MILP in integer support space returned globally optimal status and exact values 85,275,326,1491,1239 at (t,q)=(5,3),(5,4),(6,3),(6,4),(7,3), and independent enumeration verified all 2^10=1024 complementary middle choices for t=6; infinite claim follows from combinatorial inequalities, not these finite optimizations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wani resolves t=3,4 and gives bounds plus an explicit open exact clique question at t≥5; its refined upper bound can retain a singleton/coatom term, while the new proof excludes it for equal q≥3. Filmus weights all subsets by μ_p(A) without a coatom cap or forbidden full set."
+        ],
+        "reasoning": "The closest broad results do not imply the specific t≥5 parity formula and all equality cases without the new support/singleton comparison. A general weighted-intersection theorem could potentially be specialized but no checked exact covering formulation appears.",
+        "searches": [
+          "Wani 2026 arXiv:2607.17677, Theorem 3.1, Proposition 3.3, Propositions 6.1–6.8, Question 6.11",
+          "Filmus 2016 arXiv:1610.00756, full weighted Ahlswede–Khachatrian statements"
+        ]
+      },
+      "checked_sources": [
+        "Wani, The Weak Zero-Divisor Difference Graph of a Finite Commutative Ring, arXiv:2607.17677, §§3,6",
+        "Filmus, Ahlswede–Khachatrian Theorems: Weighted, Infinite and Hamming, arXiv:1610.00756, weighted theorem",
+        "Shariq–Kumar, On the vertex connectivity of weakly zero-divisor graphs, arXiv:2609.02103",
+        "Resultary indexed finite-field zero-divisor graph domination and graph intersection records",
+        "Resultary semantic searches: exact clique number of weak difference graph product of equal fields"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wani reduction already implies the weighted intersecting-family *formulation*, but a formulation/upper bound does not imply its sharp maximum. The crucial gap is elimination of singleton stars via gain a^{t-2}-a²>a-1, and equality requires strict a>1; Filmus weights coatoms as a^{t-1} in a full-product measure, not 1."
+        ],
+        "reasoning": "The new pairwise-complement construction and strict singleton domination are extra logical steps not present as the stated consequences of either prior result. They produce new all-maximizer counts, not just restatement of the support reduction.",
+        "searches": [
+          "Wani arXiv:2607.17677, §6 upper/lower bounds and Question 6.11",
+          "Filmus arXiv:1610.00756, Theorem 2.2 weighted measure on full Boolean lattice",
+          "Wani 2026 Proposition 3.3, support adjacency"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The difference graph is a complete join between intersecting nonempty proper support classes, except coatom classes internally independent; its maximum clique is a weighted intersecting family with coatom weight 1 and no full-support vertex."
+        ],
+        "reasoning": "Search included weakly zero-divisor graph minus ordinary zero-divisor graph, support intersection graph, coatom-capped weighted EKR and equal-field direct-product aliases; generic product-zero-divisor clique results concern different edges.",
+        "searches": [
+          "Resultary: weak zero divisor difference graph finite field product exact clique number",
+          "Resultary: homogeneous finite field weak zero divisor difference graph clique exact",
+          "Web: weak zero-divisor difference graph Wani clique Question 6.11",
+          "Filmus 2016 weighted EKR Boolean lattice theorems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wani gives t=4 exact, not a table of all q≥3,t≥5 optimal clique numbers or a count of all maximizing cliques. Resultary near hits refer to unrelated domination and annihilator graph invariant tables."
+        ],
+        "reasoning": "No prior exact t≥5 homogeneous weak-difference clique-number table was identified; the t≤4 tables cannot logically extend to the quantified theorem, and unrelated graph parameters are not covering records.",
+        "searches": [
+          "arXiv:2607.17677, exact small-rank clique tables and Question 6.11",
+          "Resultary: zero-divisor difference graph homogeneous field product maximum clique",
+          "Web: Wani 2026 maximum cliques equal finite-field products t5 t6"
+        ]
+      },
+      "rationale": "Wani 2026 precisely introduced the same weak zero-divisor difference graph, proved the support reduction, determined small t=3,4 clique numbers, and posed exact general t≥5 as Question 6.11 with upper/lower bounds. The homogeneous q≥3 special family here is a substantive part of that open regime and the new strict singleton-star comparison removes the remaining coatom contribution gap; full equality classification and number of maximizing vertex-cliques also go beyond Wani. Filmus 2016 provides a broad weighted Ahlswede–Khachatrian theorem for full Boolean-lattice product measure; that weight differs crucially at coatoms and omits the full support, so it does not directly give the claimed ring graph theorem. No identical stronger theorem was identified; traditional weighted intersecting-family machinery may simplify the proof but does not erase this natural exact application.",
+      "residual_risks": [
+        "An earlier unindexed weighted intersecting-family theorem with a coatom-capped and top-deleted weight could subsume the equality classification as a corollary; the specific Wani question and same-object primary evidence make coverage less likely.",
+        "The proof uses q≥3 essentially for a=q-1>1; q=2 may have distinct maximizers. Unequal field orders require a separate weighted optimization and are unproved.",
+        "Finite MILP cases corroborate but do not constitute proof for all t and prime-power q."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_BUT_NOT_COVERING: supplies setup, bounds and t≤4 case; leaves t≥5 exact value open, so current homogeneous t≥5 expression is not a listed corollary",
+          "evidence": [
+            "Wani arXiv:2607.17677, posted 2026-07-20, Question 6.11 and Propositions 6.1–6.8"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.17677",
+          "material_read": "Read primary arXiv text across graph definition and support decomposition, clique section §§3 and 6 including Theorem 3.1, Proposition 3.3, Propositions 6.1–6.8 and Question 6.11; compared formulas and coatom weights",
+          "method": "primary full scientific text (arXiv openly readable)",
+          "title": "The Weak Zero-Divisor Difference Graph of a Finite Commutative Ring",
+          "trigger": "Precisely same mathematical object and open exact clique-number problem, highest-priority potential covering source"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_APPLICABLE: product-measure μ_p on full power set rather than truncated Boolean lattice with coatom weight 1; no stated maximizer enumeration for this modified graph-derived objective",
+          "evidence": [
+            "Filmus, arXiv:1610.00756, weighted intersection theorem §2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.00756",
+          "material_read": "Read full open-access arXiv primary text: introduction, weighted theorem formulation and admissible family measure, comparing the underlying set weight to coatom-capped weight",
+          "method": "primary full-text HTML",
+          "title": "Ahlswede–Khachatrian Theorems: Weighted, Infinite, and Hamming",
+          "trigger": "Potentially stronger weighted intersecting-family theorem covering entire optimization"
+        },
+        {
+          "assessment": "INAPPLICABLE: studies resolving domination of the ordinary zero-divisor graph, not clique number of weak-minus-ordinary difference graph",
+          "evidence": [
+            "Resultary/2026 indexed result October 4, 2026"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-resolving-domination-of-zero-divisor-graphs-for-mixed-products-o--d7ebe49b1929",
+          "material_read": "Read semantic indexed abstract/summary and parameter description",
+          "method": "Resultary published abstract",
+          "title": "Resolving domination of zero-divisor graphs for mixed products of finite fields",
+          "trigger": "Related indexed same product rings but possibly different graph parameters"
+        },
+        {
+          "assessment": "INAPPLICABLE: weakly zero-divisor graph connectivity, not weak difference graph clique classification",
+          "evidence": [
+            "Shariq–Kumar arXiv:2609.02103, revised October 2026"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.02103",
+          "material_read": "Read arXiv primary abstract and graph definition, statement of connectivity parameter",
+          "method": "primary abstract",
+          "title": "On the vertex connectivity of weakly zero-divisor graph of commutative rings",
+          "trigger": "Post-Wani related graph and possible generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same-object foundational 2026 paper specifically asks for the exact clique number when t≥5, and homogeneous products of equal finite fields form a natural symmetric infinite family. The theorem determines not only the sharp clique number but all its maximizing support structures and counts actual vertex cliques, with an essential q≥3 rigidity boundary; this is a motivated structural subcase of a genuine open extremal problem rather than a harmless weight substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wani, The Weak Zero-Divisor Difference Graph of a Finite Commutative Ring, arXiv:2607.17677, §§3,6",
+    "Filmus, Ahlswede–Khachatrian Theorems: Weighted, Infinite and Hamming, arXiv:1610.00756, weighted theorem",
+    "Shariq–Kumar, On the vertex connectivity of weakly zero-divisor graphs, arXiv:2609.02103",
+    "Resultary indexed finite-field zero-divisor graph domination and graph intersection records",
+    "Resultary semantic searches: exact clique number of weak difference graph product of equal fields"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every prime power q≥3 and t≥5, the weak zero-divisor difference graph of R=(F_q)^t has clique number t+Σ_{j=(t+1)/2}^{t-2} binom(t,j)(q-1)^j for odd t, and t+(1/2)binom(t,t/2)(q-1)^(t/2)+Σ_{j=t/2+1}^{t-2}binom(t,j)(q-1)^j for even t. All maximizing cliques consist of every support class strictly above half and ≤t-2, exactly one vertex from each coatom class, and for even t exactly one whole class from each complementary middle pair. Their number is (q-1)^{t(t-1)} times 2^{binom(t,t/2)/2} for even t.",
+  "limitations": "Exact formula and complete maximizer classification only for R=(F_q)^t with equal q≥3 and t≥5, not q=2 equality cases, not arbitrary unequal factors or general finite rings.",
+  "residual_risks": [
+    "An earlier unindexed weighted intersecting-family theorem with a coatom-capped and top-deleted weight could subsume the equality classification as a corollary; the specific Wani question and same-object primary evidence make coverage less likely.",
+    "The proof uses q≥3 essentially for a=q-1>1; q=2 may have distinct maximizers. Unequal field orders require a separate weighted optimization and are unproved.",
+    "Finite MILP cases corroborate but do not constitute proof for all t and prime-power q."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "STRONG_PRIOR_BUT_NOT_COVERING: supplies setup, bounds and t≤4 case; leaves t≥5 exact value open, so current homogeneous t≥5 expression is not a listed corollary",
+      "evidence": [
+        "Wani arXiv:2607.17677, posted 2026-07-20, Question 6.11 and Propositions 6.1–6.8"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2607.17677",
+      "material_read": "Read primary arXiv text across graph definition and support decomposition, clique section §§3 and 6 including Theorem 3.1, Proposition 3.3, Propositions 6.1–6.8 and Question 6.11; compared formulas and coatom weights",
+      "method": "primary full scientific text (arXiv openly readable)",
+      "title": "The Weak Zero-Divisor Difference Graph of a Finite Commutative Ring",
+      "trigger": "Precisely same mathematical object and open exact clique-number problem, highest-priority potential covering source"
+    },
+    {
+      "assessment": "NOT_DIRECTLY_APPLICABLE: product-measure μ_p on full power set rather than truncated Boolean lattice with coatom weight 1; no stated maximizer enumeration for this modified graph-derived objective",
+      "evidence": [
+        "Filmus, arXiv:1610.00756, weighted intersection theorem §2"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1610.00756",
+      "material_read": "Read full open-access arXiv primary text: introduction, weighted theorem formulation and admissible family measure, comparing the underlying set weight to coatom-capped weight",
+      "method": "primary full-text HTML",
+      "title": "Ahlswede–Khachatrian Theorems: Weighted, Infinite, and Hamming",
+      "trigger": "Potentially stronger weighted intersecting-family theorem covering entire optimization"
+    },
+    {
+      "assessment": "INAPPLICABLE: studies resolving domination of the ordinary zero-divisor graph, not clique number of weak-minus-ordinary difference graph",
+      "evidence": [
+        "Resultary/2026 indexed result October 4, 2026"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-resolving-domination-of-zero-divisor-graphs-for-mixed-products-o--d7ebe49b1929",
+      "material_read": "Read semantic indexed abstract/summary and parameter description",
+      "method": "Resultary published abstract",
+      "title": "Resolving domination of zero-divisor graphs for mixed products of finite fields",
+      "trigger": "Related indexed same product rings but possibly different graph parameters"
+    },
+    {
+      "assessment": "INAPPLICABLE: weakly zero-divisor graph connectivity, not weak difference graph clique classification",
+      "evidence": [
+        "Shariq–Kumar arXiv:2609.02103, revised October 2026"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.02103",
+      "material_read": "Read arXiv primary abstract and graph definition, statement of connectivity parameter",
+      "method": "primary abstract",
+      "title": "On the vertex connectivity of weakly zero-divisor graph of commutative rings",
+      "trigger": "Post-Wani related graph and possible generalization"
+    }
+  ]
+}
