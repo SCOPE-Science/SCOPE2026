@@ -1,16 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The third generator obeys \(c=qb-a\); the first is coprime to the second, with \(a>q\) and \(b>2a\). Every factorization reduces, via the three stated trades, to a unique canonical pair with \(0\le y+qz<a\); this establishes presentation completeness. Coprimality and bounded third-generator multiplicities show each of the three critical degrees has exactly two disjoint-support factorizations, proving indispensability. Chain distances give the upper bound, and the two-element third critical fiber gives equality. The explicit mod-eight dichotomy follows from the odd-subsequence recurrence modulo \(q\). A standalone exact-arithmetic program corroborates 64 parameter pairs, 34 complete critical fibers, and three finite exhaustive connectivity ranges. Finite checks are not used as an infinite proof.
+## correctness
 
-## Originality
-Komatsu and Mu's Pell-triple work (arXiv:2307.08998, 2023-07-18) treats generalized Frobenius numbers and genus, not catenary degree and minimal presentation. Aguiló-Gost and García-Sánchez (DOI:10.37236/410, 2010) supply a broad algorithm for arbitrary embedding-dimension-three catenary degrees; it evaluates every fixed member but does not state this uniform mod-eight Pell parameter law or the explicit three indispensable trades. Süer–Sezgin's telescopic families (arXiv:2011.09548) have different hypotheses. Actual searches of published mathematical records and published-finding corpus found no equivalent stated family classification. The general algorithm is the main residual implication/priority risk, not evidence of mathematical independence.
+PASS
 
-## Value
-An exact uniform catenary-degree formula and the complete minimal presentation are natural factorization invariants of the Pell triples previously studied for their Frobenius statistics. The distinction between the two odd-index mod-eight branches is nontrivial and arises from the Pell recurrence. The presentation identifies all three critical factorization obstructions and thus gives information beyond numerical evaluation of a single parameter instance.
+The recurrence yields c=q b-a, gcd(a,b)=1, b>2a and q<a, with r in {1,q-1}. The reductions q b→a+c and (Q+1)c→(b-Q-1)a+(q-r)b together with the third trade generate a unique canonical factorization where (y,z) enumerate t=y+qz in [0,a-1]; coprimality then forces unique x. At each of the three Betti degrees, explicit divisibility bounds show exactly the two factorizations in RESULT.md, with disjoint supports. Trade distances yield the upper bound D=b-Q+q-r-1; the two-factor E_C fiber forces the same lower bound. The 4-cycle of odd-index Pell residues modulo q proves the stated mod-eight branches. Independent integer checks verified 60 parameter pairs and bounded critical fibers; those are corroboration, not all-parameter proof.
 
-## Limits and comparison risks
-Published generic embedding-dimension-three algorithms can compute individual cases, so the scope of novelty is only the explicit all-parameter arithmetic classification. An unindexed equivalent specialization or a short unrecorded deduction of the formula would defeat priority. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
+Komatsu–Mu 2023 study exactly this Pell generator family but generalized Frobenius/genus invariants. Aguiló-Gost–García-Sánchez 2010 provide a general algorithm for the catenary degree of any three-generated numerical semigroup; that necessarily covers each individual input as a computable instance, but the inspected theorem does not state an immediate symbolic mod-eight all-parameter formula or these three indispensable factorization pairs. This is an explicit substantive implicit-specialization priority risk, not grounds to ignore the generic algorithm. Resultary nearest Pell hits concerned other mathematical objects.
+
+## value
+
+PASS
+
+The three exact indispensable critical fibers and sharp two-branch catenary invariant classify factorization complexity for a natural infinite Pell family, giving an interpretable recurrence-driven phenomenon rather than arbitrary sample computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
