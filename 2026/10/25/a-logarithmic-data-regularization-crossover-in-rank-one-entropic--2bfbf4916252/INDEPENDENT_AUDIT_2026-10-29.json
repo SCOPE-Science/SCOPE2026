@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:53:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strict convexity and superlinearity on x>=0 give unique minimizer; derivative -infinity at x_i=0 forces interior. KKT yields positive monotone scalar root F(t)=b+λt with x_i=c_i exp(-a_i t). As bλ→0, t→infinity, with λt<=Me^(-alpha t) implying t=O(log1/λ). For finite b/(λL)→β, lower bound F>=Ce^(-alpha t) gives t/L→1/alpha and F(t)~(β+1/alpha)λL. For dominant b≫λL, λt=o(b), hence F(t)~b. At b=0, z=alpha t and w=W(alpha C/λ), use 0<=z-w<=log(1+R(z/alpha)) with R=O(e^-δz); the stated relative Lambert correction follows. Shape convergence and non-Lipschitz at λ0 are direct. Independent fresh 70-digit KKT bisections covered heterogeneous, tied minima, zero, finite-ratio and data-dominated regimes; all residuals <1e-65 and zero-data relative errors tiny at λ=1e-24; finite β transient relative ~0.056 is consistent with slow log convergence. Numerical checks are diagnostic only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barnfield provides general multimeasurement positive-λ local perturbation and fixed-mass λ→0 limit, a broader ambient algorithm but under a materially different endpoint constraint."
+        ],
+        "reasoning": "General ambient optimization/duality does not automatically deliver the specific coupled b(λ) and λ crossover or non-Lipschitz singularity. No prior stated sharp rank-one hierarchy identified.",
+        "searches": [
+          "Barnfield et al. Thm6.2,6.3",
+          "Chuna et al. arXiv:2511.06915"
+        ]
+      },
+      "checked_sources": [
+        "https://pdfs.assets.alphaxiv.org/2604.27154v1.pdf",
+        "https://arxiv.org/abs/2511.06915",
+        "https://arxiv.org/abs/2501.01869"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "KKT x_i=(q_i/e)e^(-a_i t), F(t)=b+λt, and F(t)~Ce^(-alpha t) identify the unique balance and shape; Lambert W exact at all equal a_i."
+        ],
+        "reasoning": "Classical convexity and Lambert W underlie the proof, but turning them into uniform regime-separated asymptotics with b(λ) variable and minimum-coefficient support is a separate exact boundary classification.",
+        "searches": [
+          "Barnfield §6 Theorem 6.3 simplex limit and perturbation",
+          "zero-datum Lambert W simplification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barnfield KKT scalarization and positive-λ smoothness are prior mathematical components."
+        ],
+        "reasoning": "The crossover b≈λlog(1/λ) and limiting coordinate exponents emerge when mass is not constrained and datum also vanishes. Known fixed-τ simplex result is not equivalent.",
+        "searches": [
+          "Resultary: Rank one entropic least squares vanishing data regularization lambda log 1/lambda asymptotic Lambert W",
+          "Barnfield et al. arXiv:2604.27154v1 §6",
+          "web: entropic inverse problem noiseless limit Lambert W"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published examples numerically trace nonzero-data fixed-mass regularization, not exact coefficients for each a_i/alpha power."
+        ],
+        "reasoning": "No known table of the asserted coordinate exponents or beta-dependent coefficient found; non-observation is not novelty proof.",
+        "searches": [
+          "Resultary: rank-one entropy vanishing datum scaling",
+          "Barnfield examples figures regularization paths"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp coupled datum–regularization crossover and coordinate power hierarchy for the variable-mass rank-one model. The closest full primary paper treats general positive-λ perturbation or fixed-mass endpoints, not the same limit. Other entropy sources only partially read and retained as a residual risk.",
+      "residual_risks": [
+        "General exponential-family/Lambert-W singular perturbation literature could contain equivalent scalar asymptotics under another name.",
+        "Two Chuna papers were not compared page by page; no whole-document negative statement is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 6.2 is positive-λ local Lipschitz only, constants blow up at λ0; Theorem 6.3 concerns fixed total-mass simplex τΔ_n and fixed data, not unnormalized variable-mass rank-one b(λ)→0. The KKT reduction is shared prior art.",
+          "evidence": "arXiv:2604.27154v1 §6 pp19–23",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2604.27154v1.pdf",
+          "material_read": "Full 28-page primary PDF model §1, duality, perturbation §6 Theorems 6.2–6.3, examples §7; page-image inspected",
+          "method": "Compare whether λ↓0 theorem treats varying mass, datum and coordinates",
+          "title": "A Scale-Shape Dual Newton Method for Entropic Least Squares",
+          "trigger": "Exactly same regularizer and primal-dual method at positive parameter; strongest comparator"
+        },
+        {
+          "assessment": "Related limits without explicit joint zero-signal b≈λlog(1/λ) crossover in visible material; full-text noncoverage not claimed.",
+          "evidence": "arXiv:2511.06915",
+          "identifier_or_url": "https://arxiv.org/abs/2511.06915",
+          "material_read": "ArXiv abstract and relevant mathematical summary; original full technical text not inspected in this run",
+          "method": "Compare constrained physical analytic-continuation setup versus positive rank-one unnormalized entropy",
+          "title": "The noiseless limit and improved-prior limit of the maximum entropy method",
+          "trigger": "Entropic inverse problem vanishing noise/prior"
+        },
+        {
+          "assessment": "General dual machinery rather than the precise fixed-positive-coefficient rank-one crossover law; a full-document hidden implication remains possible.",
+          "evidence": "arXiv:2501.01869",
+          "identifier_or_url": "https://arxiv.org/abs/2501.01869",
+          "material_read": "Published arXiv abstract and research model summary, not complete full text",
+          "method": "Compare model normalization and parameter paths",
+          "title": "Dual formulation of the maximum entropy method applied to analytic continuation",
+          "trigger": "Broad dual maximum-entropy methods possibly implying scalar KKT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact transition scale λlog(1/λ), minimum-forward-coefficient support selection, coordinate-specific powers a_i/alpha, and singular non-Lipschitz endpoint quantify a mathematically meaningful inverse-problem boundary where standard fixed-mass stability is inapplicable. Though scalarizable, this is a complete natural phase classification, not a routine KKT restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://pdfs.assets.alphaxiv.org/2604.27154v1.pdf",
+    "https://arxiv.org/abs/2511.06915",
+    "https://arxiv.org/abs/2501.01869"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strictly positive fixed forward row and priors, fixed d, bλ>=0→0, unnormalized variable-mass entropy; no multiple measurements, negative/constant data or general regularizers."
+  ],
+  "residual_risks": [
+    "Older scalar exponential-family boundary-layer analysis under different nomenclature may overlap."
+  ],
+  "schema_version": 1
+}
