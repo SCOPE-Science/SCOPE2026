@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For any odd q>1, the root congruence \\(x^2\\equiv2q-1\\pmod{4q}\\) reduces to \\(x^2\\equiv-1\\pmod q\\) with an odd lift; Hensel and CRT give exactly \\(2^{\\omega(q)+1}\\) root generators, yielding \\(2^{\\omega(q)}\\) cyclic order-four subgroups. For a root x, \\(x^3\\equiv2q-x\\pmod{4q}\\) gives subgroup sum \\(4q\\) below the halfway point, \\(8q\\) above. Translation \\(x\\mapsto x+2q\\) is well defined on generators, involutory, fixed-point-free, and swaps the two sums, proving the equal multiplicities and absence of −1. The verification script tests 999 odd q up to 1999 but is not used for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source explicitly assumes two distinct odd primes and analyzes quartic character kernels of their unit groups; none of its hypotheses allows an even modulus.",
+        "Pomerance–Ulmer Theorem 3.1 excludes full-coset balance for sufficiently large moduli unless -1 or m/2+1 belongs to the subgroup; neither does so for the present fixed involution.",
+        "Girstmair 1997 abstract describes distribution vectors for general quotient groups but gives no inspectable explicit specialization to this fixed family."
+      ],
+      "reasoning": "General CRT/Hensel theory establishes the root count but not the stated exact first moment. The stronger published full-coset balance property cannot subsume the present centered groups for all large q, because their unique involution is \\(\\(2q-1\\)\\), not either of the two sufficient order-two elements. The 1997 broad framework was inaccessible and is recorded as a nontrivial but nondecisive priority risk.",
+      "searches": [
+        "modulus 4n odd n fourth root of minus one cyclic order 4 subgroup residue sums 4n or 8n half order 2n-1",
+        "sum balanced cyclic subgroups order four modulo four times odd integer prime factors congruent 1 modulo 4",
+        "arxiv:2610.29608v1 §5 theorems and conclusion",
+        "arxiv:1204.6705v1 Theorems 2.1, 3.1, 3.2",
+        "doi:10.1007/BF02940820 abstract and bibliographic record"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.29608v1",
+      "arxiv:1204.6705v1",
+      "arxiv:2509.21094v1",
+      "doi:10.1007/BF02940820 (abstract/bibliography only)",
+      "Public mathematical research-record searches for two-level 4q/8q cyclic-subgroup sum and square-root aliases",
+      "Public OEIS-targeted searches (no exact entry identified)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A fixed square congruence x² = \\(\\(2q-1\\)\\) forces group order 4 and a natural involution but does not force each subgroup to have centered sum; both \\(4q\\) and \\(8q\\) occur even at q=5.",
+        "Ma–Merca–Zhang show noncomplementary pairing permits centered or uncentered sums at odd semiprime moduli, but do not count the two exact levels in the even-modulus family.",
+        "Pomerance–Ulmer classify a different stronger subgroup property, and their necessary large-modulus theorem precludes that property for the centered family at large q."
+      ],
+      "reasoning": "The theorem is not a corollary obtained by simply setting a parameter in the odd-semiprime classifications: no such specialization produces m=\\(4q\\). Stronger cosetwise cardinality balance is not a published covering statement about the present first moments, which may be centered while the cosetwise property fails. The uninspected general 1997 article is explicitly retained as a residual comparison risk.",
+      "searches": [
+        "primitive quartic root x square 2m minus 1 subgroup sum centered without minus one exact half",
+        "residue sum of 1 r r squared r cubed modulo 4q q primes 1 mod 4",
+        "arxiv:2610.29608v1 §2/§5: implications of sum-balanced condition",
+        "arxiv:1204.6705v1 Theorem 3.1 and discussion of balanced cyclic groups"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma–Merca–Zhang abstract/Sections 1,2,5: their modulus is a product of two distinct odd primes, while the proposed modulus is \\(4q\\).",
+        "Pomerance–Ulmer Theorem 2.1: every coset has equal half-interval cardinalities, not the sum of least-positive elements of the subgroup itself.",
+        "The order-four group here is \\(\\{1,x,\\(2q-1\\),x^3\\}\\), and the least-positive sum is either \\(4q\\) or \\(8q\\); this exact two-level distribution was not stated in the inspected references."
+      ],
+      "reasoning": "The root condition \\(x^2\\equiv2q-1\\pmod{4q}\\) is equivalent to \\(x^2\\equiv-1\\pmod q\\) with odd lift; its odd-prime-power CRT count is standard but the two residue-sum levels and their exactly equal subgroup multiplicities do not follow as statements from the inspected literature. Full-coset half-interval balance would imply the subgroup has two elements in each half, but it does not by itself supply the exact integer first moment; conversely the present centered subgroups are eventually not globally coset-balanced by Pomerance–Ulmer Theorem 3.1.",
+      "searches": [
+        "two-level quartic residue sums 4q 8q cyclic subgroups involution 2q-1",
+        "half quartic cyclic subgroups whose involution 2q-1 are balanced exactly 2 omega q",
+        "multiplicative subgroup square roots minus one modulo 4n all prime divisors 1 modulo four exact first moment",
+        "arxiv:2610.29608v1, 2026-10-21; keywords 4q, even modulus, quartic subgroup, mixed involution",
+        "arxiv:1204.6705v1, Sections 1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of exact verbal/parametric aliases did not surface an indexed sequence or table giving the \\(2^{\\omega(q)-1}\\) group multiplicities for these cyclic-subgroup residue sums.",
+        "Closest indexed records include the four-point spectral-set spectrum multiplicities in \\(\\mathbb Z/(4p)\\) and the order-two-involution quotient-multiset criterion; their scientific objects and claims differ."
+      ],
+      "reasoning": "No matching exact table or indexed statement was found by the searches carried out. This negative retrieval is not treated as a proof of novelty. The finite computation contained here is a cross-check, not an extant database lookup.",
+      "searches": [
+        "site:oeis.org \"cyclic subgroup\" \"sum\" \"modulo\" quartic",
+        "site:oeis.org \"residue sums\" \"4n\" \"order four\"",
+        "\"2^{omega(n)-1}\" \"residue sum\" subgroup",
+        "Public research-record semantic search: two-level quartic residue sums 4q 8q cyclic subgroups involution 2q-1",
+        "Public research-record semantic search: multiplicative subgroup square roots minus one modulo 4n all prime divisors 1 modulo four exact first moment"
+      ]
+    },
+    "rationale": "No inspected primary theorem states or implies the exact family-wide two-level first-moment law for cyclic order-four groups modulo \\(4q\\) with fixed involution \\(2q-1\\). The 2026 odd-semiprime paper excludes the even modulus and unbounded prime-power support; the 2012 paper asks the strictly stronger cosetwise half-cardinality question. Published research-record matches concern distinct objects (spectral subsets and abstract involutions). The full text of the 1997 general residue-vector paper could not be inspected, so possible older specialization remains a priority risk rather than negative proof.",
+    "residual_risks": [
+      "A general modulus distribution-vector theorem in Girstmair (1997) could have an explicit or immediate specialization; full text was unavailable.",
+      "An earlier unindexed congruence calculation could reproduce the elementary two-level law.",
+      "Negative search results are not a mathematical proof of publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scope excludes even modulus \\(4q\\); no exact \\(2^{\\omega(q)-1}\\) law in the inspected results.",
+        "evidence": [
+          "arXiv:2610.29608v1, PDF pp.1–3,9–16,25; introduction and index-four section specify m=pq for distinct odd primes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.29608",
+        "material_read": "Abstract, introduction, residue-sum definitions and half-order treatment, index-four propositions and theorems, concluding summary; searches throughout indexed full text for \\(4q\\), even modulus, 2q, appendix.",
+        "method": "Full-text PDF indexed inspection with page image and heading/term cross-check.",
+        "title": "Residue Sums Modulo Products of Two Distinct Odd Primes",
+        "trigger": "Same invariant and newly published motivating source; potential stronger/parallel quartic theorem."
+      },
+      {
+        "assessment": "Different property; for sufficiently large \\(4q\\) its Theorem 3.1 rules out full-coset balance for the fixed involution under study.",
+        "evidence": [
+          "arXiv:1204.6705v1, Theorems 2.1, 3.1 and 3.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1204.6705",
+        "material_read": "Abstract, definition of coset-balanced, Section 2 character criterion, Section 3 small-order results and Theorems 3.1–3.2.",
+        "method": "Full-text indexed PDF and page-image inspection.",
+        "title": "On Balanced Subgroups of the Multiplicative Group",
+        "trigger": "Full-coset balance could potentially imply a stronger coverage of our centered groups."
+      },
+      {
+        "assessment": "Survey emphasis on prime-modulus quadratic and sixth-power residues, no explicit \\(4q\\) quartic subgroup classification found.",
+        "evidence": [
+          "arXiv:2509.21094v1, abstract and selected survey content."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.21094",
+        "material_read": "Abstract and relevant distribution/prime-modulus discussion of the public survey.",
+        "method": "Full-text PDF selected sections and summary.",
+        "title": "Power Residues, Digit Expansions, and Relative Class Numbers",
+        "trigger": "Related prime-power residue-sum and class-number literature."
+      },
+      {
+        "assessment": "Inaccessible plausible source; cannot assert NOT_COVERING from abstract. Named residual priority risk.",
+        "evidence": [
+          "DOI:10.1007/BF02940820; 1997 article abstract describes general residue-vector distributions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF02940820",
+        "material_read": "Bibliographic metadata and abstract only; full article not obtained from accessible open sources.",
+        "method": "Title and DOI search, bibliographic metadata, and abstract inspection. Full article was not obtained from the consulted sources.",
+        "title": "Class number factors and distribution of residues",
+        "trigger": "Broad general-modulus distribution-vector framework; potential implicit or exact earlier coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "763a0bc7-286e-4136-9e07-9c6ab7a2bda6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete natural local-involution fiber in the subgroup-centering problem and provides a uniform existence test, exact \\(2^{\\omega(q)}\\) count, and a nontrivial equal split of two distinct first-moment values for every allowable odd composite q. It exhibits centered order-four subgroups not containing −1 and distinguishes centered first moments from global coset balance; these are motivated arithmetic invariants, not an arbitrary finite sample or a restatement of root counting.",
+    "status": "PASS"
+  }
+}
