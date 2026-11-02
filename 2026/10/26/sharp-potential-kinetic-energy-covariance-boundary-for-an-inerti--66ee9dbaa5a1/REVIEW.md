@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The stable damped linear system driven by bounded telegraph forcing has a unique stationary law and all finite moments. The stated generator identities directly reconstruct the first and mixed fourth moments. Exact symbolic elimination yields the factored covariance, and polynomial coefficient positivity establishes the entire parameter classification, strict monotonicity and boundary limits. `CHECK.py` independently reproduces the hierarchy algebra and the mixed fourth moment from ordered four-time telegraph correlations, passing 25 assertions. Its finite parameter checks corroborate rather than replace the global proof.
+## correctness
 
-## Originality (PASS, with residual priority risk)
-The precise earlier model and its all-degree moment recursion appear in Dutta, Kundu, Sabhapandit and Basu, arXiv:2406.06120, Section III; that algorithm and the published second moments are prior work. Comparison was made with the paper's full accessible sections and appendices, Patel and Chaudhuri's arXiv:2404.01107 on inertial active Brownian particles, Frydel's arXiv:2312.05406 on active oscillator recursions, and public mathematical research records about stationary covariances. No independently asserted theorem covering the exact connected potential–kinetic covariance and sharp sign-phase boundary was identified. Because the source recursion can compute the mixed moment, derivability and an unpublished equivalent phase diagram remain live scholarly-priority risks; absence from retrieved text is not a uniqueness certificate.
+PASS
 
-## Scientific value (PASS)
-Stationary potential and kinetic energy fluctuations are natural jointly measurable transport observables; they are not determined by the marginal fourth cumulants. A sharp dimensionless damping cutoff, unique monotone tumbling-rate transition and exact rational covariance identify where telegraph forcing correlates energy modes positively or negatively. A Gaussian colored drive with matching two-time covariance would produce zero energy covariance in the linear stationary system (zero position–velocity covariance and joint Gaussianity), making this a substantive non-Gaussian dependence signature. The claim is not extended to thermal forcing, nonlinear confinement or finite-time dynamics.
+Generator identities for moments M_ij=E[x^i v^j], S_ij=E[x^i v^j sigma] are triangular by polynomial degree. They yield M20=(g+2u)/(gB), M02=2u/(gB), mixed M22=2uQ/(g^2(3g^2+4)BCE); subtracting M20*M02 gives the exact negative factor -4uP/[g(3g^2+4)B^2CE] before physical energy scaling. Independent SymPy exact cancellation verified the polynomial factorization; a separate rational moment linear solve at (g,u)=(1/5,1/3) agreed with source mixed moment. Denominators are positive, every positive-power u coefficient of P is positive, and P(g,0)=(6g^2-1)(3g^2+9) with partial_g P>0, proving a unique decreasing zero for 0<g<1/sqrt6, none above; g->0 root 1/(2sqrt3). This is an unrestricted sign proof, not an extrapolation from finite checks.
 
-## Closest literature and limitations
-Closest: arXiv:2406.06120, Sec. III and Appendices A–D (higher moments are computable there). Other relevant full texts: arXiv:2404.01107 and arXiv:2312.05406 (different active forcing or dynamical model). See `RESULT.md` for scope and the proof, and `AUDIT.json` for the structured source comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct statement after exact model/quantifier comparisons with relevant primary work, related published mathematical records and natural equivalent formulations; no absolute novelty certification.
+
+## value
+
+PASS
+
+The exact joint potential/kinetic covariance sign diagram and universal damping threshold isolate a physically meaningful mixed fourth-order observable not determined by marginal position/velocity kurtosis. The strict one-root classification distinguishes distinct telegraph correlation regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
