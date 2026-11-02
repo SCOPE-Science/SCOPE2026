@@ -1,15 +1,21 @@
-# Scientific review: A fourfold Dedekind law for one-point types over Boolean cubes
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete one-point extension problem is reduced to a genuine bijection with admissible downset/upset pairs. The union-support lemma counts downsets by the binomial inverse of Dedekind numbers and subtracts precisely one incompatible pair per support. The formal exponential generating-function identity follows algebraically. A separate argument using the established Dedekind asymptotic and convexity of central binomial coefficients proves the infinite two-scale law, without treating finite enumeration as proof. The embedded verifier exhaustively checks Boolean cubes through dimension four.
+## correctness
 
-## Originality — PASS (qualified)
-The full general generic-poset counting result in public published-finding corpus record 3b955f4020e1 has the pair characterization and #P-completeness but neither the Boolean-cube transform nor the fourfold two-scale law. Dolinka–Mašulović (arXiv:1009.2892) study one-point extensions, and De Causmaecker–De Wannemacker (arXiv:1407.4288) study Dedekind numbers, but neither inspected full text states this joint quantitative result. Accessible prior restricted-grid, series–parallel and tree-cover type results do not cover Boolean cubes in every dimension; dimension-two overlap is acknowledged. Targeted published-finding corpus and publication searches did not reveal an equivalent stronger theorem. Residual risk: an unindexed lattice or model-theoretic source may already contain it.
+PASS
 
-## Mathematical value — PASS
-Named Boolean cubes are a canonical non-series–parallel family, and finite-base generic-poset type counting is hard in general. The exact type census has a meaningful relation to Dedekind numbers and yields a new fourfold asymptotic with the sharp first boundary correction, neither a routine numerical slice nor a restatement of the earlier one-point characterization.
+Homogeneity identifies labeled nonalgebraic one-types with strict L/U ideal-filter pairs. A lower ideal with union support S has a_|S| possibilities by binomial inversion; among the M_{n-|S|} upsets above S precisely one is forbidden for principal ideal ↓S. Therefore sum binom(n,s)a_s M_{n-s}-2^n holds including B_0, and exponential convolution gives formal e^{-z}M(z)^2-e^{2z}. The boundary indices s=0,1,n-1,n give 4M_n+2nM_{n-1}; the remaining s range is exponentially lower under established log2 M_n~binom(n,floor n/2) with the middle coefficient maximum controlled at s=2/n-2. The EGF is explicitly formal, not analytic. Brute ideal/upset count independently checked n≤4 and all stated n≤8 values against the established M_n table; bounded enumeration is not a proof of the asymptotic.
 
-## Scope and limits
-This self-review is not independent validation. Dedekind-number asymptotics are used as prior mathematics; the code tests finitely many cubes only. Full background citations and residual novelty risks are in `RESULT.md` and `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge novelty of the precise additional claim only; original definitions, exact source formulas, special cases and existing methods remain prior work. Source readings and explicit residual priority risks are recorded; no assertion of exhaustive literature coverage.
+
+## value
+
+PASS
+
+Gives an exact count and an unexpected fourfold leading law for labeled one-types over a canonical hierarchy of finite parameter posets, connecting model theory and extremal Boolean combinatorics. The correction 2nM_{n-1} is an independently useful asymptotic scale, not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
