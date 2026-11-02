@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:04:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 7a30174f06447768a805ef6bc62d33dce72bd03d, proof §§1–5 and both explicit 7x7/3x3 matrices",
+        "Frozen verify.py blob cd393656c48b860feecac84268ac0b2f46fd4467 inspected, not executed as opaque repository code",
+        "Independent Python SymPy determinant verification and direct graph subset enumeration n=3..8; /mnt/data/scope05_independent_checks_20261030.py"
+      ],
+      "rationale": "A 1-limited set is encoded by white bits in two-vertex twisted columns; each vertex condition becomes c_{i-1,r}+c_{i+1,r}+c_{i,1-r}<=1+c_{i,r}. The 16-state ordered-column transfer with twist J correctly counts each labeled configuration once. The signed trace splits into 7-dimensional symmetric and 3-dimensional antisymmetric cyclic cores; exact independent symbolic determinants equal (1-tz)(1-Q(t,z)) and 1-tz+t²z. Formal -t partial_t log(det) yields all F_n, and deficit a-b of Q monomials gives the sharp degree and multiplicities. The n=1,2 series coefficients are auxiliary, not claims for simple cubic graphs. The example F3=1+6z+9z², F4=1+8z+12z²+8z³+4z⁴ checks complement weighting. Brute enumeration of all subsets for n=3..8 matches the transfer profiles; no infinite result is claimed from finite checks.",
+      "residual_risks": [
+        "Proof relies on correct restriction of twisted 16-state transfer to specified cyclic-core bases; determinant checks and finite comparisons provide independent corroboration.",
+        "No claim for n<3 or unlabeled quotient; finite brute enumeration is not all-n proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tepeh 2026 arXiv:2606.22428 addresses k-limited domination bounds and some Cartesian products.",
+          "Radić and Tepeh arXiv:2610.01796v1 studies cubic-graph complexity and Goldberg snarks (full PDF inspected)."
+        ],
+        "reasoning": "General cubic-graph bounds and snark results do not provide the cardinality distribution in these Möbius ladders; an earlier independent record supplies only the known minimum, explicitly excluded from novelty.",
+        "searches": [
+          "1-limited domination polynomial Möbius ladders all dominating set cardinalities transfer matrix",
+          "arXiv 2606.22428 Tepeh k-limited domination Cartesian products",
+          "arXiv 2610.01796 cubic 1-limited Goldberg snarks"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01796v1",
+        "arXiv:2606.22428",
+        "https://oeis.org/A290337",
+        "Resultary query: 1-limited domination polynomial Möbius ladders all dominating set cardinalities transfer matrix",
+        "Frozen RESULT.md prior-work discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pre-existing minimum n/n+1 and four optima for 4|n are conceded in source.",
+          "All-size F_n and 2n or 3n multiplicities require the twisted transfer and deficit combinatorics, not determined by gamma."
+        ],
+        "reasoning": "Claim vs prior implication is strict: an extremal scalar invariant cannot reconstruct all coefficients; no searched primary result supplied the requisite transfer spectrum.",
+        "searches": [
+          "1-limited domination polynomial Möbius ladders all dominating set cardinalities transfer matrix",
+          "Radić Tepeh 2026 cubic graph 1-limited domination Goldberg snarks",
+          "Tepeh 2026 limited domination Möbius ladder minimum multiplicities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cubic 1-limited domination is equivalent to (1,2)-domination: selected vertex has >=2 selected neighbors.",
+          "OEIS A290337 counts inclusion-minimal ordinary dominating sets, not all 1-limited sets.",
+          "Transfer-equivalent two-row twisted cylinder encoding is specific to opposite-chord Möbius ladder."
+        ],
+        "reasoning": "The aliases and complement encoding were compared at predicate level. Neither ordinary domination nor matching-complex enumeration implies the asserted all-z polynomial.",
+        "searches": [
+          "1-limited domination polynomial Möbius ladders all dominating set cardinalities transfer matrix",
+          "1-limited domination (1,2)-domination cubic graph Möbius ladder",
+          "Möbius ladder graph minimal dominating sets OEIS A290337"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source reports F3=1+6z+9z² and F4=1+8z+12z²+8z³+4z⁴; independent n<=8 enumeration reproduced coefficients.",
+          "OEIS A290337 concerns inclusion-minimal ordinary dominating sets; Resultary top-12 returned other graph classes."
+        ],
+        "reasoning": "A matching finite initial sequence would not by itself imply all-order rational generating function; no full exact tabulation of this predicate found among inspected sources.",
+        "searches": [
+          "1-limited domination polynomial Möbius ladders all dominating set cardinalities transfer matrix",
+          "OEIS A290337 Möbius ladder minimal dominating sets",
+          "Möbius ladder 1-limited domination polynomial sequence"
+        ]
+      },
+      "rationale": "The new contribution is the all-cardinality 1-limited domination polynomial and non-0-mod-4 optimum multiplicities, not the previously known minimum cardinality or 4 optimum sets in the 0-mod-4 case. Relevant 2026 1-limited-domination papers study Cartesian products and Goldberg snarks; an OEIS/Möbius-ladder minimal dominating-set count concerns inclusion-minimal ordinary domination, a distinct predicate. Resultary semantic search returned domination polynomial results for chain and multipartite graphs, not this Möbius ladder predicate. This supports qualified best-of-knowledge originality, not absence of unindexed older enumerators.",
+      "residual_risks": [
+        "Unindexed 1-limited dominating-set transfer enumerators could be equivalent; keyword/semantic search alone is not a novelty proof.",
+        "The earlier known minimum and divisible-by-four multiplicity are excluded from novelty; only remaining polynomial and nontrivial counts are assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the specific full Möbius ladder cardinality polynomial; results concern other graph families",
+          "evidence": "arXiv:2610.01796v1, full PDF with graph families and complexity theorems",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01796",
+          "material_read": "Full preprint PDF, introduction, definitions, Goldberg-snark sections, and concluding scope",
+          "method": "arXiv primary PDF, text and page view",
+          "title": "On 1-limited and (1,2)-domination in cubic graphs",
+          "trigger": "Same 1-limited predicate on cubic graphs"
+        },
+        {
+          "assessment": "Partial comparison only; absence of an all-order enumerator cannot be certified from abstract",
+          "evidence": "arXiv:2606.22428; Cartesian products emphasis",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+          "material_read": "Abstract and cited research-result summary; not entire manuscript",
+          "method": "arXiv abstract/metadata and comparison in frozen source",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "Same limited-domination invariant"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT: inclusion-minimal ordinary dominating sets",
+          "evidence": "OEIS A290337 entry",
+          "identifier_or_url": "https://oeis.org/A290337",
+          "material_read": "Definition and sequence description",
+          "method": "OEIS web entry",
+          "title": "OEIS A290337, minimal dominating sets on Möbius ladders",
+          "trigger": "Possible exact database or table for same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Möbius ladder cubic graph and known extremal-domination context; source RESULT.md",
+        "All-n rational generating function and optimal size/multiplicity extraction"
+      ],
+      "rationale": "The exact generating function simultaneously counts every feasible size of 1-limited dominating sets on a natural, widely used cubic graph family. It refines a previously known extremal domination number and supplies previously uncatalogued optimum multiplicities in two other residue classes. Such enumerators are natural complete invariants and reusable for asymptotic or probabilistic combinatorics; the result is not merely recomputing a small finite table.",
+      "residual_risks": [
+        "No broader combinatorial consequences or asymptotics established; intrinsic all-size classification suffices for the stated value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Simple labeled Möbius ladders only, n>=3; z measures white/excluded vertices.",
+    "Primary literature and Resultary searches leave normal priority risk; self-review is not independent certification."
+  ],
+  "schema_version": 1
+}

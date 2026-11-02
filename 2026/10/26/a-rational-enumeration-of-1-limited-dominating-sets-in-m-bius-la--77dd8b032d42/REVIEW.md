@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph definition, complement exponent, quantifiers \(n\ge3\), and 1-limited/(1,2) equivalence were checked from first principles. The local three-neighbor inequality yields an exact twisted 16-state transfer. Row-swap symmetry reduces it to the two explicit cyclic cores in `RESULT.md`; determinants were re-evaluated by signed-permutation integer arithmetic in `verify.py`. Formal power-series trace extraction establishes the unrestricted bivariate identity and the one-deficit leading-coefficient count. Direct graph-subset enumeration through \(n=10\) and transfer comparison through \(n=50\) are reproducibility checks, not substitutes for the algebraic proof.
+PASS
 
-## Originality — PASS with stated residual risk
+A 1-limited set is encoded by white bits in two-vertex twisted columns; each vertex condition becomes c_{i-1,r}+c_{i+1,r}+c_{i,1-r}<=1+c_{i,r}. The 16-state ordered-column transfer with twist J correctly counts each labeled configuration once. The signed trace splits into 7-dimensional symmetric and 3-dimensional antisymmetric cyclic cores; exact independent symbolic determinants equal (1-tz)(1-Q(t,z)) and 1-tz+t²z. Formal -t partial_t log(det) yields all F_n, and deficit a-b of Q monomials gives the sharp degree and multiplicities. The n=1,2 series coefficients are auxiliary, not claims for simple cubic graphs. The example F3=1+6z+9z², F4=1+8z+12z²+8z³+4z⁴ checks complement weighting. Brute enumeration of all subsets for n=3..8 matches the transfer profiles; no infinite result is claimed from finite checks.
 
-An earlier recorded claim (opaque ID `667abaa2-f0fd-48af-af32-0526b89aa687`) already establishes the minimum-size formula and the four minimizers when \(4\mid n\); **those statements are expressly prior**. The present contribution is the full rational generating function for every excluded-set size, and the minimum-set counts in the other residue classes. Tepeh's Cartesian-product study, Radić–Tepeh's cubic complexity/Goldberg study, the foundational 2021 cubic domination paper, and matching-cut literature were compared by objects and implications. Targeted published-record searches of synonyms, near-optimal cardinalities, matching cuts, transfer descriptions and polynomial formulations showed no stronger coverage. Unindexed equivalence remains possible. Details, genuine inspections and searches are in `AUDIT.json`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural cubic circulant graph family acquires a complete, all-cardinality domination census and an exact optimum-multiplicity phase law. This adds information absent from an extremal-value formula, beyond mere enumeration of several instances. The result is limited to Möbius ladders with labeled vertex sets; automorphism orbits and general cubic graphs are outside scope.
+The new contribution is the all-cardinality 1-limited domination polynomial and non-0-mod-4 optimum multiplicities, not the previously known minimum cardinality or 4 optimum sets in the 0-mod-4 case. Relevant 2026 1-limited-domination papers study Cartesian products and Goldberg snarks; an OEIS/Möbius-ladder minimal dominating-set count concerns inclusion-minimal ordinary domination, a distinct predicate. Resultary semantic search returned domination polynomial results for chain and multipartite graphs, not this Möbius ladder predicate. This supports qualified best-of-knowledge originality, not absence of unindexed older enumerators.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact generating function simultaneously counts every feasible size of 1-limited dominating sets on a natural, widely used cubic graph family. It refines a previously known extremal domination number and supplies previously uncatalogued optimum multiplicities in two other residue classes. Such enumerators are natural complete invariants and reusable for asymptotic or probabilistic combinatorics; the result is not merely recomputing a small finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
