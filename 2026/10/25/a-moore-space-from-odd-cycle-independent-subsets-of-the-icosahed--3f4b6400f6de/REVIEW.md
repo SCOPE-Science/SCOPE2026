@@ -1,11 +1,21 @@
-# Scientific review: icosahedral odd-cycle independence
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies the exact finite graph and every subset test. A standalone exact checker constructs two independent face predicates, confirms 1,023 simplices and all minimal forbidden odd cycles, and certifies twelve individual free-face/coface removals. The 100 facets and 300 ridges satisfy the pseudomanifold incidence and connectedness criteria; a six-step dual walk has negative orientation holonomy. A complete 510-pair acyclic discrete-Morse matching leaves cells only in dimensions zero, four and five. The signed gradient-path elimination computes an actual integral attaching coefficient \(+2\), yielding \(M(\mathbb Z/2,4)\); distinct modular boundary calculations corroborate the result. The claim is restricted to this finite graph.
+## correctness
 
-**Originality — PASS, subject to documented literature risk.** The full accessible text of Grady–Knoll–Laskar–Lipman (2015, arXiv:1505.02268) defines the same odd-cycle-independent vertex condition and studies extremal graph parameters, not the integral topology. Jonsson's graph-complex book and Hultman's directed-subgraph complexes involve edge-set structures rather than this vertex-set condition. Exact-object, equivalent-forbidden-cycle, Alexander-dual odd-cycle-transversal, Moore-space, hypergraph-independence and stronger-coverage searches of indexed literature and mathematical records did not identify a covering theorem. The directly relevant Jonsson book chapters could not be read in full, and unindexed prior calculations cannot be ruled out. Absence from an index is not novelty proof.
+PASS
 
-**Value — PASS.** The induced-bipartite-subgraph complex is a canonical topological refinement of the natural odd-cycle independence and transversal parameters. Its entire integral homotopy type is a nontrivial two-torsion Moore space despite having a pure five-dimensional pseudomanifold triangulation. The elementary twelve-collapse comparison shows that forbidding odd cycles beyond triangles changes the face set but not the simple-homotopy type for the icosahedron. This is a structurally motivated exact classification, not a routine Betti-table recomputation.
+Using fixed symmetric 12-vertex degree-five icosahedral adjacency, independent enumeration of all 2^12 vertex subsets by both two-colorability and odd-cycle test gives exactly 1,023 bipartite-induced nonempty faces, f-vector (12,66,200,345,300,100), minimal nonfaces 20 triangles + 12 five-cycles. Triangle-free supercomplex has 1,047 nonempty faces and precisely 12 free 5-/6-subset face pairs, giving elementary collapse T↘B. All 100 maximal 5-faces and 300 4-faces yield connected pure pseudomanifold with each ridge in exactly two facets and a negative signed dual holonomy loop proving nonorientability. Independent 510-pair Morse matching complete DAG on 1,023 nodes/4,212 incidences leaves critical cells dimensions 0,4,5; exact signed integer reduction yields 5→4 coefficient +2. Hence CW model S4∪degree2 e5 = M(Z/2,4) and H4=Z/2, without inferring integral homotopy from modular ranks alone.
 
-**Closest prior work and limitations.** Grady et al. (arXiv:1505.02268) supplies the underlying vertex property; Jonsson (DOI 10.1007/978-3-540-75859-4) and Hultman (DOI 10.37236/1828) cover different graph-complex constructions. Exact higher-independence, neighborhood, matching and cut complexes of the icosahedron are not identical face families. The book-chapter access limit and unknown unindexed coverage remain originality risks. Verification is finite, reproducible and not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Grady et al define exactly odd-cycle-independent vertex sets as those inducing bipartite graphs, but accessible full text focuses extremal graph parameters, not integral topology of the icosahedral graph. Related SCOPE icosahedral MATCHING/NBR/CUT complexes have distinct face predicates; their Moore torsion does not imply a Moore(Z/2,4) here. A graph-complex book chapter was not fully available, leaving documented possible unindexed analogy.
+
+## value
+
+PASS
+
+This is the natural simplicial complex of induced bipartite vertex sets in the exceptionally symmetric icosahedral graph, not an arbitrary cochain slice. An explicit two-primary Moore homotopy type, minimal odd-cycle obstructions, pseudomanifold nonorientability, and 12 elementary collapses reveal substantive integral torsion invisible to rational homology and supply a reusable small non-sphere graph-complex example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact reproduction and checks
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` from this directory (Python 3.8+ standard library only). Check that the process completes with `VERIFY_OK`. The saved `VERIFICATION_OUTPUT.txt` is supplied for comparison and is not itself a substitute for running the checker.
+## correctness
 
-The executable reconstructs the entire twelve-vertex icosahedron from a fixed adjacency list. It enumerates all 4,096 subsets using independent parity-coloring and simple-odd-cycle tests, establishes the face vector and the 32 minimal forbidden sets, verifies each of the twelve elementary collapses of the triangle-free supercomplex, tests connectedness and every codimension-one incidence of the hundred-facet pseudomanifold, and replays a six-step signed orientation-obstruction walk.
+PASS
 
-The executable then forms all 510 acyclic face pairs, checks all 4,212 cover incidences by directed topological sorting, computes the exact integral differential between the two positive-dimensional critical cells as \(+2\), and independently checks the two top boundary ranks over \(\mathbb F_2\) and \(\mathbb F_3\). These finite calculations support an integral Moore-space homotopy equivalence by standard discrete Morse theory and the degree classification of \(S^4\to S^4\).
+Using fixed symmetric 12-vertex degree-five icosahedral adjacency, independent enumeration of all 2^12 vertex subsets by both two-colorability and odd-cycle test gives exactly 1,023 bipartite-induced nonempty faces, f-vector (12,66,200,345,300,100), minimal nonfaces 20 triangles + 12 five-cycles. Triangle-free supercomplex has 1,047 nonempty faces and precisely 12 free 5-/6-subset face pairs, giving elementary collapse T↘B. All 100 maximal 5-faces and 300 4-faces yield connected pure pseudomanifold with each ridge in exactly two facets and a negative signed dual holonomy loop proving nonorientability. Independent 510-pair Morse matching complete DAG on 1,023 nodes/4,212 incidences leaves critical cells dimensions 0,4,5; exact signed integer reduction yields 5→4 coefficient +2. Hence CW model S4∪degree2 e5 = M(Z/2,4) and H4=Z/2, without inferring integral homotopy from modular ranks alone.
 
-The calculation does not classify other graphs; exhaustive finite verification is not a general theorem. No independent external review has been performed. Historical literature comparison is limited by unavailable full book chapters and potential unindexed equivalent work.
+## originality
+
+PASS
+
+Grady et al define exactly odd-cycle-independent vertex sets as those inducing bipartite graphs, but accessible full text focuses extremal graph parameters, not integral topology of the icosahedral graph. Related SCOPE icosahedral MATCHING/NBR/CUT complexes have distinct face predicates; their Moore torsion does not imply a Moore(Z/2,4) here. A graph-complex book chapter was not fully available, leaving documented possible unindexed analogy.
+
+## value
+
+PASS
+
+This is the natural simplicial complex of induced bipartite vertex sets in the exceptionally symmetric icosahedral graph, not an arbitrary cochain slice. An explicit two-primary Moore homotopy type, minimal odd-cycle obstructions, pseudomanifold nonorientability, and 12 elementary collapses reveal substantive integral torsion invisible to rational homology and supply a reusable small non-sphere graph-complex example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
