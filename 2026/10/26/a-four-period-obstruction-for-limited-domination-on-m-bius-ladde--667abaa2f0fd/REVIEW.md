@@ -1,11 +1,21 @@
-# Review of the Möbius-ladder limited-domination theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof does not infer an infinite classification from finite enumeration. Degree counting makes half-order equality equivalent to a perfect matching cut. Opposite-crossing indicators have an alternating difference recurrence; parity forces periodic crossing sequences only when \(4\mid n\). The explicit arc of \(n+1\) selected vertices handles all other orders. The argument also enumerates all four minimum sets at the equality orders. The direct exhaustive and twisted-boundary transfer implementations cross-check the first six widths.
+## correctness
 
-**Originality — PASS (best-knowledge, not independent priority certification).** The closest contemporary literature gives the definition, general half-order constraints, Cartesian product bounds, and cubic graph families distinct from the Möbius ladder. The 2021 result already includes the smallest graph \(K_{3,3}\), so that particular value is not new. A general statement about efficient domination in the Möbius ladder has a different constraint. Matching-cut literature is a material alternative formulation: a general unindexed classification of perfect matching cuts could subsume the half-order boundary. The inspected sources and searches did not reveal that classification, but residual bibliographic uncertainty is recorded in the structured audit.
+PASS
 
-**Value — PASS.** The four-period threshold and exact equality-case rigidity are structural results about a canonical, vertex-transitive, cubic twisted cycle family. They specify when the universal half-order bound is attainable, provide optimal constructions otherwise, and completely classify the exceptional minimum configurations. This is stronger than a one-instance calculation, a small improvement to a generic bound, or a brute-force table.
+Counting crossing edges E(D,U) from the dominating outside vertices and the ≤1 outside neighbor per inside vertex gives |D|≥n, with equality iff every vertex has one crossing neighbor. Binary coloring crossing a_i=c_i XOR c_(i+1), b_i=c_i XOR c_(i+n) yields a_(i-1)+a_i+b_i=1. Subtract antipodal equations to obtain d_i=a_(i+n)−a_i=(-1)^i d_0, and chord parity b_i≡sum_(j=i)^(i+n-1) a_j (mod2); the even-n case forces alternating a_i, b_i=0 and n divisible4; odd n has no coherent case. For multiples of four there are two alternating a phases times global color complement, exactly four D and two cuts. For all other n the arc D={0,...,n} has n+1 vertices and satisfies both requirements. Independently brute-enumerated every subset for n=3..8 and reproduced equality multiplicity.
 
-**Limitations and closest literature.** Radić–Tepeh, arXiv:2610.01796v1, studies 1-limited and \((1,2)\)-domination in cubic families; Tepeh, arXiv:2606.22428v1, treats Cartesian products; Fakharan et al. (2021) covers \(K_{3,3}\); Bouquet–Picouleau (2025) discusses perfect matching cuts. No exhaustive count of minimum sets for non-equality orders is proved. The paper-priority assessment is subject to equivalent formulations and unindexed sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The half-order lower bound is standard for cubic limited domination, n=3 value is known, and equality is a perfect matching cut problem. The new candidate is an exact Möbius-ladder congruence and count of its equality cuts. Primary work on limited domination in cubic graph families and perfect matching cuts does not state a parameter-complete Möbius-ladder characterization in the inspected statements.
+
+## value
+
+PASS
+
+The exact n mod4 cutoff and the rigidity of equality minimizers form a natural infinite-family domination classification with a meaningful boundary not determined by general half-order bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

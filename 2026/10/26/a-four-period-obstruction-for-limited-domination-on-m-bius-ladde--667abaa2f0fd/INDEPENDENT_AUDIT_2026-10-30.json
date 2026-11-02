@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:45:50.557427Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md at the exact assigned Git tree",
+        "Original verification source inspected, not blindly trusted",
+        "independent_checks.py: 1624 bounded diagnostic assertions across five records",
+        "verify_trees.py: all five root Git SHA-1 trees and one nested tree independently serialized and matched"
+      ],
+      "rationale": "Counting crossing edges E(D,U) from the dominating outside vertices and the ≤1 outside neighbor per inside vertex gives |D|≥n, with equality iff every vertex has one crossing neighbor. Binary coloring crossing a_i=c_i XOR c_(i+1), b_i=c_i XOR c_(i+n) yields a_(i-1)+a_i+b_i=1. Subtract antipodal equations to obtain d_i=a_(i+n)−a_i=(-1)^i d_0, and chord parity b_i≡sum_(j=i)^(i+n-1) a_j (mod2); the even-n case forces alternating a_i, b_i=0 and n divisible4; odd n has no coherent case. For multiples of four there are two alternating a phases times global color complement, exactly four D and two cuts. For all other n the arc D={0,...,n} has n+1 vertices and satisfies both requirements. Independently brute-enumerated every subset for n=3..8 and reproduced equality multiplicity.",
+      "residual_risks": [
+        "Brute force covers only n≤8; the binary crossing recurrence and parity argument are needed for the all-n result.",
+        "No count of n+1-optimal sets when 4∤n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Božović et al establish general 1-limited domination framework and bounds; Radić–Tepeh address cubic families. Resultary k-limited complete multipartite classification concerns different graphs."
+        ],
+        "reasoning": "A graph-wide half-order bound or cubic existence result cannot force a four-period modulus and exact number of matching cuts.",
+        "searches": [
+          "https://arxiv.org/abs/2610.01796",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-k-limited-domination-of-complete-multipartite-graphs--1c4ae0b1465b",
+          "Resultary semantic query: 1-limited dominating set Möbius ladder gamma one limited domination perfect matching cut"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01796",
+        "https://arxiv.org/abs/2606.22422",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-k-limited-domination-of-complete-multipartite-graphs--1c4ae0b1465b",
+        "https://arxiv.org/abs/2610.26259",
+        "Resultary semantic query: 1-limited dominating set Möbius ladder gamma one limited domination perfect matching cut"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Perfect matching cuts are equivalent only to the equality |D|=n. A general existence/complexity classification of perfect matching cuts does not directly provide the exact Möbius ladder count."
+        ],
+        "reasoning": "The proof gives an independent cyclic crossing-indicator classification and a n+1 constructive upper bound.",
+        "searches": [
+          "https://arxiv.org/abs/2610.01796",
+          "https://arxiv.org/abs/2606.22422"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The term (1,2)-domination can encode the same inside/outside local degree constraints in cubic graphs. Primary 2026 results for cubic graphs concern other families; M6=K3,3 has earlier known value 4."
+        ],
+        "reasoning": "Compared the precise vertex-local convention, not merely the label, and excluded known n=3 from novelty.",
+        "searches": [
+          "Resultary semantic query: 1-limited dominating set Möbius ladder gamma one limited domination perfect matching cut",
+          "https://arxiv.org/abs/2610.01796",
+          "https://arxiv.org/abs/2606.22422"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known M6 value does not furnish table for all M_(2n). No indexed all-n exact table identified."
+        ],
+        "reasoning": "A bounded census of M6 or M8 does not imply the n mod4 theorem.",
+        "searches": [
+          "Resultary semantic query: 1-limited dominating set Möbius ladder gamma one limited domination perfect matching cut",
+          "arXiv:2610.01796",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-k-limited-domination-of-complete-multipartite-graphs--1c4ae0b1465b"
+        ]
+      },
+      "rationale": "The half-order lower bound is standard for cubic limited domination, n=3 value is known, and equality is a perfect matching cut problem. The new candidate is an exact Möbius-ladder congruence and count of its equality cuts. Primary work on limited domination in cubic graph families and perfect matching cuts does not state a parameter-complete Möbius-ladder characterization in the inspected statements.",
+      "residual_risks": [
+        "A prior perfect matching-cut classification of Möbius ladders under graph-isomorphism notation may give the equality result.",
+        "A new 2026 paper on structural 1-limited domination in cubic graphs (arXiv:2610.26259) has an accessible converted transcription describing general equality and snark applications, with no Möbius or ladder occurrence in that indexed rendering; mathematical aliases and original PDF appendices remain a residual risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general cubic-domain results; inspected statements do not assert all-n Möbius ladder formula",
+          "evidence": [
+            "Related results for cubic graph families; no located exact four-period Möbius classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01796",
+          "material_read": "Primary arXiv HTML body, theorem statements and graph-family discussion",
+          "method": "Read accessible primary HTML and searched for Möbius-ladder and perfect matching mentions",
+          "title": "On 1-limited and (1,2)-domination in cubic graphs",
+          "trigger": "Same invariant in cubic graphs and possible direct Möbius-ladder treatment"
+        },
+        {
+          "assessment": "General limited-domination setup and bounds; exact Möbius census still assessed separately",
+          "evidence": [
+            "Definition of k-limited domination and general bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+          "material_read": "Primary bibliographic abstract and accessible result descriptions; full primary text not established here",
+          "method": "Read abstract/search result; no whole-document exclusion claimed",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Definitions and general degree-bound antecedent"
+        },
+        {
+          "assessment": "Different graph structure; not a Möbius-ladder table",
+          "evidence": [
+            "Sharp formula depends on multipartite part capacities, not perimeter-antipodal parity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-k-limited-domination-of-complete-multipartite-graphs--1c4ae0b1465b",
+          "material_read": "Database summary for complete multipartite family",
+          "method": "Resultary semantic retrieval; linked result summary read",
+          "title": "Exact k-limited domination of complete multipartite graphs",
+          "trigger": "Most similar indexed Resultary result"
+        },
+        {
+          "assessment": "Acknowledges Fakharan et al. prior general iff perfect matching-cut characterization and develops snark results; no exact Mobius-ladder theorem found in the searched rendering",
+          "evidence": [
+            "Section 2 repeats earlier iff half-order perfect matching cut as known; Sections 3–4 discuss Blanusa and flower snarks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.26259",
+          "material_read": "Public converted full-paper HTML transcription, introduction, Section 2 and searchable article text; NOT the original PDF",
+          "method": "Inspected publicly rendered scientific content and searched for Mobius, ladder and matching-cut phrases",
+          "title": "Structural aspects of 1-limited domination in cubic graphs",
+          "trigger": "Very recent same-invariant cubic graph work and general equality theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full source RESULT.md and proof motivation",
+        "https://arxiv.org/abs/2610.01796",
+        "https://arxiv.org/abs/2606.22422"
+      ],
+      "rationale": "The exact n mod4 cutoff and the rigidity of equality minimizers form a natural infinite-family domination classification with a meaningful boundary not determined by general half-order bounds.",
+      "residual_risks": [
+        "Only counts optimal sets in the equality regime, not all n+1 minimizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Möbius ladder M_(2n), n≥3, the 1-limited domination number is n precisely when 4|n and n+1 otherwise; for 4|n exactly four minimum D sets and two unordered perfect matching cuts.",
+  "limitations": [
+    "Brute force covers only n≤8; the binary crossing recurrence and parity argument are needed for the all-n result.",
+    "No count of n+1-optimal sets when 4∤n.",
+    "A prior perfect matching-cut classification of Möbius ladders under graph-isomorphism notation may give the equality result.",
+    "A new 2026 paper on structural 1-limited domination in cubic graphs (arXiv:2610.26259) has an accessible converted transcription describing general equality and snark applications, with no Möbius or ladder occurrence in that indexed rendering; mathematical aliases and original PDF appendices remain a residual risk.",
+    "Only counts optimal sets in the equality regime, not all n+1 minimizers."
+  ],
+  "schema_version": 1
+}
