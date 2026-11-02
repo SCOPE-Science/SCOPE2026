@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "An arbitrary three-point metric always has nearest-neighbor-distance multiset (a,a,b). Distant deviations cannot help. For small deviations the cost is h+(d-h)/(1+Oprime). If the agent starts as the far member, Oprime<=2(b/a)^alpha(1+h/b)^alpha and the cubic scalar inequality settles incentives. If it starts as a close member, the low-b case is monotone, the high-b closest-pair case has a nonnegative derivative bounded below by (1-z)(2-z), and a transition to the far member has an explicit positive polynomial rational certificate at alpha=3, with monotonic reduction to lower powers. For alpha>3, a line deviation at (0,1,2) has negative initial cost derivative 2(3-alpha)/9. The embedded checker proves the polynomial identity exactly and executes 196,608 exact-rational finite checks; no extrapolation from finite tests is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The all-population inverse-square theorem is broader in agent count but fixed at exponent two; its statement does not imply incentive compatibility at a larger exponent.",
+        "The full-power social-cost ratio for n>=3 is a welfare statement, not a truthful-incentives statement. The already-known negative obstruction for powers greater than three does not imply any positive result at three.",
+        "Older concave-cost facility results use a different selection mechanism."
+      ],
+      "reasoning": "Any prior result asserting strategyproofness for all nonnegative powers up to three, or cubic power for arbitrary agent counts, would dominate this theorem. The inspected primary statements do not assert either. The new proof covers all metric spaces but intentionally only the minimal population.",
+      "searches": [
+        "n-1 facility inverse-square rule strategyproofness power extension inverse cube exponent parameter incentive compatibility",
+        "general inverse-power nearest-neighbor omission mechanisms strategyproofness exponent exactly 3 for three strategic agents in arbitrary metric spaces",
+        "https://www.researchgate.net/publication/413593510_Randomized_Strategyproof_Facility_Location_Two_Facilities_and_Beyond",
+        "https://www.scribd.com/document/332067834/Algorithmic-Decision-Theory-ADT-2011-pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.22484",
+      "https://www.researchgate.net/publication/413593510_Randomized_Strategyproof_Facility_Location_Two_Facilities_and_Beyond",
+      "https://doi.org/10.1007/978-3-642-24873-3_6",
+      "https://www.scribd.com/document/332067834/Algorithmic-Decision-Theory-ADT-2011-pdf",
+      "https://arxiv.org/abs/1305.3333"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2026 proves strategyproofness for normalized weights delta^-2 for arbitrary n, not delta^-3.",
+        "Source 2011 proves normalized weights delta^-1, not delta^-3.",
+        "The separate earlier power-law welfare phase diagram asserts sharp approximation for all powers and failure for powers greater than three, while explicitly declining the positive 2<alpha<=3 claim."
+      ],
+      "reasoning": "Neither adjacent exponent truthfulness nor an upper bound on possible truthful exponents entails the cubic endpoint: truthfulness is not monotone from welfare. The new three-agent proof supplies the missing global nonmanipulability inequality, including the critical far-transition polynomial. Existing welfare formulas are context rather than original findings.",
+      "searches": [
+        "arxiv:2608.22484 Theorem 3 and Section 4 full proof",
+        "Escoffier et al. ADT 2011 Theorem 1 and Section 2.1",
+        "sharp strategyproofness range of inverse-power nearest-neighbor randomized facility omission for exactly three agents metric arbitrary distance exponent 0 through 3",
+        "three-agent strategyproof inverse cube omission rule proof threshold at exponent three improved approximation 1.065274448"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The candidate parameterizes omission probabilities as the normalized inverse powers of nearest-neighbor distances, not merely a different mechanism name.",
+        "Chan--Lin--Wang Theorem 3 uses exponent exactly two in its probability definition and proof.",
+        "Escoffier et al. Section 2.1 uses exponent exactly one.",
+        "No reviewed full-text passage states arbitrary-metric strategyproofness for exponent three."
+      ],
+      "reasoning": "Equivalent names include inverse-cube omission, reciprocal-cubic nearest-neighbor loser lottery, and three-agent two-facility power-law random deletion. The exact pointwise omission probabilities distinguish this rule from Pairwise-Distance or Pick the Loser. The closest articles cover powers one or two, not the maximal admissible three-agent exponent.",
+      "searches": [
+        "sharp strategyproofness range of inverse-power nearest-neighbor randomized facility omission for exactly three agents metric arbitrary distance exponent 0 through 3",
+        "three-agent strategyproof inverse cube omission rule proof threshold at exponent three improved approximation 1.065274448",
+        "arxiv:2608.22484, Section 4",
+        "doi:10.1007/978-3-642-24873-3_6, Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The matching database hits concern unrelated probabilistic serial assignment, Banach spaces, and algebraic cubic thresholds.",
+        "A separate prior power-law welfare classification gives the numerical exponent-three ratio and nontruthfulness for powers greater than three, but leaves the cubic positive strategyproofness question unproved.",
+        "No exact truthfulness-by-exponent table or stronger numerical classification is identified in the inspected sources."
+      ],
+      "reasoning": "This claim is an all-metric incentive theorem, not a finite census or previously tabulated welfare value. Lack of a retrieved database hit is treated as limited negative evidence rather than a proof of absence.",
+      "searches": [
+        "sharp strategyproofness range of inverse-power nearest-neighbor randomized facility omission for exactly three agents metric arbitrary distance exponent 0 through 3",
+        "three-agent strategyproof inverse cube omission rule proof threshold at exponent three improved approximation 1.065274448",
+        "general inverse-power nearest-neighbor omission mechanisms strategyproofness exponent exactly 3 for three strategic agents in arbitrary metric spaces",
+        "Three agents two facilities, inverse-cube omission rule with probability proportional to third power inverse nearest-neighbor distances, strategyproof threshold 3 and approximation ratio 1.065274448"
+      ]
+    },
+    "rationale": "The new assertion is a sharp universal three-agent incentive classification for all nonnegative inverse-distance powers, including positive truthfulness of the cubic endpoint on every metric space. The motivating 2026 source proves only power two, the 2011 paper power one. An earlier separate all-power welfare calculation supplies efficiency and the power-greater-than-three negative obstruction but specifically not this positive classification. Source statement-level and implication comparisons below find no known stronger coverage; risk of unindexed equivalents remains.",
+    "residual_risks": [
+      "An unindexed or later-discovered equivalent three-agent inverse-cubic incentive theorem would change priority; retrieval is not an exhaustive novelty certificate.",
+      "Only the abstract of the related Fotakis--Tzamos 2013 paper was materially inspected; it was not asserted to be wholly noncovering.",
+      "The social-cost ratio for exponent three was previously known from a full-power welfare calculation and is explicitly excluded from the novelty claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves exponent two on all metrics; no parameterized exponent-three incentive claim found in the inspected relevant section or surrounding paper text",
+        "evidence": [
+          "Section 4 mechanism definition delta_i^-2 and Theorem 3",
+          "Section 4 proof equations (4.1), (4.2)",
+          "arxiv listing first submitted 2026-08-23"
+        ],
+        "identifier_or_url": "arxiv:2608.22484; https://www.researchgate.net/publication/413593510_Randomized_Strategyproof_Facility_Location_Two_Facilities_and_Beyond",
+        "material_read": "Full relevant Section 4 (mechanism definition, Theorem 3, incentive proof and tight approximation proof), plus abstract and surrounding definitions",
+        "method": "Read accessible author-preprint full text, compared with arXiv bibliographic record and first-version date",
+        "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+        "trigger": "Same n-1-facility inverse-nearest-distance lottery, with quadratic weights and strategyproofness proof"
+      },
+      {
+        "assessment": "Proves inverse-first-power strategyproofness but not exponent-three truthfulness",
+        "evidence": [
+          "Section 2.1 explicitly defines normalized weights 1/delta_i",
+          "Lemma 1 and Theorem 1 establish strategyproofness only for that defined mechanism"
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-642-24873-3_6; https://www.scribd.com/document/332067834/Algorithmic-Decision-Theory-ADT-2011-pdf",
+        "material_read": "Original conference proceedings paper Section 2.1, mechanism, Lemma 1 and Theorem 1 with proof/sketch on printed pages 71-73, plus relevant abstract and introduction",
+        "method": "Read accessible full-text proceedings representation, not just search snippet",
+        "title": "Strategy-Proof Mechanisms for Facility Location Games with Many Facilities",
+        "trigger": "Original inverse-proportional n-1 facility omission mechanism"
+      },
+      {
+        "assessment": "The described Pick the Loser family is not identified as the inverse-cubic nearest-distance lottery; full-text overlap remains a bounded residual risk, not a whole-paper noncoverage assertion",
+        "evidence": [
+          "Abstract: strongly group-strategyproof concave-cost Pick the Loser and other selection rules"
+        ],
+        "identifier_or_url": "arxiv:1305.3333; https://www.alphaxiv.org/abs/1305.3333v1",
+        "material_read": "Title and complete abstract, not full paper",
+        "method": "Compared model and lottery description from accessible author-preprint abstract",
+        "title": "Strategy-Proof Facility Location for Concave Cost Functions",
+        "trigger": "Related n=k+1 randomized Pick the Loser family with potentially stronger truthfulness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84349445-86c2-4691-8f6e-9c95df602c24",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimal nontrivial two-facility strategic location game obtains an exact sharp admissible exponent threshold on every metric space. Truthfulness at the critical cubic power is structurally nontrivial and improves the known worst-case expected social-cost factor for this family from approximately 1.11237244 for quadratic power to approximately 1.06527445. The improvement is meaningful because the welfare factor is not sufficient for incentive compatibility. The earlier welfare formula is explicitly treated as context, not a new result.",
+    "status": "PASS"
+  }
+}
