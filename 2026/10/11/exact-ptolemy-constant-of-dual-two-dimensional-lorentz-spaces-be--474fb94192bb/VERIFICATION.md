@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,77 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-p=\frac{q}{q-1},
-\qquad
-\rho=\omega^{1/(2-q)}.
-\]
-For an ordered dual vector with
-\[
-M=\max\{|u_1|,|u_2|\},
-\qquad
-m=\min\{|u_1|,|u_2|\},
-\]
-the exact norm is
-\[
-\|u\|_{X^*}
-=
-\begin{cases}
-\bigl(M^p+\omega^{1-p}m^p\bigr)^{1/p},&m\le\omega M,\\
-(M+m)/(1+\omega)^{1/q},&m\ge\omega M.
-\end{cases}
-\]
+# Independent mathematical audit
 
-For \(r=m/M\), the normalized Euclidean profile on the first branch has logarithmic derivative
-\[
-\frac{r\bigl(\omega^{1-p}r^{p-2}-1\bigr)}
-{\bigl(1+\omega^{1-p}r^p\bigr)(1+r^2)},
-\]
-so its unique minimum is \(r=\rho\). The second branch is strictly increasing. Consequently,
-\[
-a=(1+\rho^2)^{-(2-q)/(2q)}
-\]
-and
-\[
-b=\max\left\{1,\frac{\sqrt2}{(1+\omega)^{1/q}}\right\}
-\]
-are the exact Euclidean comparison constants.
+## correctness
 
-Euclidean Ptolemy gives
-\[
-C_{\mathrm{Pt}}(X^*)\le(b/a)^2.
-\]
-For
-\[
-0<\omega\le2^{q/2}-1,
-\]
-the triple
-\[
-x=(\rho,1),\qquad
-y=\frac{1-\rho}{1+\rho}(-1,\rho),\qquad
-z=(1-\rho)(-1,1)
-\]
-attains
-\[
-\frac{2}{(1+\omega)^{2/q}}(1+\rho^2)^{(2-q)/q}.
-\]
-For
-\[
-2^{q/2}-1\le\omega<1,
-\]
-the triple
-\[
-x=(1,-\rho),\qquad
-y=(-1,-\rho),\qquad
-z=(0,-\rho-\rho^{-1})
-\]
-attains
-\[
-(1+\rho^2)^{(2-q)/q}.
-\]
-Thus the exact formula holds on both regimes and agrees at the phase boundary.
+PASS
 
-The proof is fully symbolic. No finite enumeration, timeout, or numerical search is used to establish the quantified result. The unproved scope is dimension above two and Lorentz families with more than two weights.
+Read all six pinned Git source files and reconstructed the support-function dual norm with its cone boundary m=omega M. For p=q/(q-1), the first-branch Euclidean profile has unique minimum at rho=omega^(1/(2-q)) and the second branch is increasing. Axes/diagonal yield exact maximum b; Euclidean Ptolemy bounds the constant by (b/a)^2, and both stated explicit three-point configurations attain the bound in their regimes, meeting at omega=2^(q/2)-1. All 0<omega<1 and 1<q<2 are covered analytically. The all-q extension invokes the precise previously published q=1 and q>=2 results. Independently rechecked algebra and 95 parameter cases; those finite checks support but do not prove the universal quantifiers.
+
+## originality
+
+PASS
+
+ScienceAsia 44 (2018), Theorems 7-8 and Remark 2, computes the primal constant for 1<=q<2 and the dual at q=1 and q>=2; it explicitly leaves the dual 1<q<2 case unknown. Zuo 2012 midpoint-extremal comparison theorems and Zuo 2018 MIA q>=2 example do not yield the interior-minimizer dual formula. No independently examined source establishes the complete missing-range dual formula; unindexed coverage remains possible.
+
+## value
+
+PASS
+
+Closes the explicit missing dual 1<q<2 range in the 2018 primary paper, computes a natural Banach-space metric invariant for all real two-dimensional Lorentz weights in that range, locates the sharp weight phase boundary and attaining configurations, and completes the family-specific primal-dual equality using published complementary cases. No claim for higher-dimensional Lorentz spaces or arbitrary normed planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
