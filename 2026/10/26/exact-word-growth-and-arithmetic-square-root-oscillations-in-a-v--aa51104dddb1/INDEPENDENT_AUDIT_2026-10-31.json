@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:40:03Z",
+  "axes": {
+    "correctness": {
+      "independent_check": "independent_checks.py spacing_test: direct pairwise valuation checks of all masks lengths 1..16, independent memoized recurrences, 1000 exact fourfold cases",
+      "rationale": "Every odd-valuation permitted support lies within one index parity; halving indices swaps required parity of valuations. For even valuation, the two parity subsequences are independent, proving F(n)=G(ceil n/2)+G(floor n/2)-1 and G(n)=F(ceil n/2)F(floor n/2), with base F(0)=G(0)=1 and F(1)=G(1)=2. Thus F(4n)=2F(n)^2-1. Hyperbolic cosine doubles give exact values on r4^m, distinct normalized constants arcosh(2) and arcosh(3)/sqrt(2). Monotonicity gives log F(n)=Theta(sqrt n); uniform at-most-2sqrt(n) support forces unique invariant delta_zero; incompatible neighboring period valuations rule out nonzero periodic points; superpolynomial subexponential word growth excludes soficity. Independently direct-brute counted both rules for n<=16 and tested fourfold for n<=1000.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwietniak, arXiv:1111.0190, abstract: hereditary shift positive entropy iff not uniquely ergodic; Dastjerdi--Amiri, arXiv:1110.6144, characterization of entropy for general spacing shifts."
+        ],
+        "reasoning": "Generic zero-entropy, unique-ergodicity and proximality consequences are already covered; neither accessible stated result has a parameterized exact complexity count F(n) for this valuation parity object. Full texts not established as completely read.",
+        "searches": [
+          "Kwietniak, arXiv:1111.0190, DOI 10.3934/dcds.2013.33.2451",
+          "Ahmadi Dastjerdi--Dabbaghian Amiri, arXiv:1110.6144"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: 2-adic valuation parity pairwise spacing shift exact word complexity F(4n)=2F(n)^2-1 sqrt growth",
+        "Kwietniak, arXiv:1111.0190, DOI 10.3934/dcds.2013.33.2451",
+        "Ahmadi Dastjerdi--Dabbaghian Amiri, arXiv:1110.6144",
+        "OEIS A002812 and A001601"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known hereditary shift entropy-to-unique-ergodicity equivalence and Chebyshev iteration values do not determine a concrete shift language recurrence."
+        ],
+        "reasoning": "The exact model-specific recursions and nonconvergent normalization require parity decomposition, which is absent from the available statements of the cited general theorems.",
+        "searches": [
+          "Kwietniak, arXiv:1111.0190, DOI 10.3934/dcds.2013.33.2451",
+          "Ahmadi Dastjerdi--Dabbaghian Amiri, arXiv:1110.6144",
+          "OEIS A002812 and A001601"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constraint is a hereditary spacing shift with allowed positive differences whose 2-adic valuation is odd, equivalently an independent-set shift on the forbidden-distance 2-adic graph."
+        ],
+        "reasoning": "The named 2-adic graph interpretation was explicitly considered; general hereditary shift theory controls entropy/minimality, not the displayed exact F/G recursion or arithmetic renormalization.",
+        "searches": [
+          "Resultary semantic: 2-adic valuation parity pairwise spacing shift exact word complexity F(4n)=2F(n)^2-1 sqrt growth",
+          "Kwietniak, arXiv:1111.0190, DOI 10.3934/dcds.2013.33.2451"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A002812 and A001601 already list the two cosh/Chebyshev integer subsequences."
+        ],
+        "reasoning": "Those subsequences are not new integer sequences. The nontrivial assertion is that they are language-complexity samples of the specified all-pairs shift with a new every-length F/G recursion and distinct square-root limits.",
+        "searches": [
+          "OEIS A002812 and A001601",
+          "Resultary semantic: 2-adic valuation parity pairwise spacing shift exact word complexity F(4n)=2F(n)^2-1 sqrt growth"
+        ]
+      },
+      "rationale": "General hereditary/spacing-shift entropy and proximality and the Chebyshev integer iterates predate this work; the assessed result is the all-length valuation-parity word complexity coupled recursion and nonconstant square-root normalized growth. Resultary semantic searches found no directly identical finding, but a 2-adic hierarchical independent-set enumeration remains possible.",
+      "residual_risks": [
+        "An earlier source using 2-adic hierarchical independent sets rather than spacing-shift terminology could imply the exact F/G enumeration.",
+        "Most relevant old spacing-shift full texts were not accessible in this run; no whole-document exclusion is claimed.",
+        "The numerical Chebyshev subsequences and generic zero-entropy implications are known and not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_READ; generic equivalences already cover zero-entropy/unique-ergodic corollaries",
+          "evidence": "Published abstract: positive entropy iff not uniquely ergodic for hereditary shifts; no word-count formula in available abstract.",
+          "identifier_or_url": "arXiv:1111.0190; DOI 10.3934/dcds.2013.33.2451",
+          "material_read": "Published AIMS article landing page abstract and references, not full proof text",
+          "method": "publisher article HTML excerpt",
+          "title": "Topological entropy and distributional chaos in hereditary shifts with applications to spacing shifts and beta shifts",
+          "trigger": "same hereditary spacing-shift category"
+        },
+        {
+          "assessment": "INCONCLUSIVE_FULL_TEXT; general entropy only in accessible description",
+          "evidence": "General entropy characterization cited as older scope; a hidden specialization remains residual priority risk.",
+          "identifier_or_url": "arXiv:1110.6144",
+          "material_read": "arXiv abstract/metadata and citation; no full text obtained",
+          "method": "bibliographic source and abstract",
+          "title": "Characterization of Entropy for Spacing Shifts",
+          "trigger": "general entropy of the precise class of spacing shifts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parity of the 2-adic difference valuation is a natural self-similar all-pairs spacing rule. The exact language recursion reveals subexponential yet superpolynomial complexity and an arithmetic oscillation invisible to entropy; the unique-invariant-measure/nonsofic contrast is a meaningful dynamical example beyond the already catalogued numerical subsequences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only odd valuation of each pairwise occupied difference and base 2; no all-n accumulation set beyond fixed four-adic dilates.",
+    "General hereditary-shift entropy consequences and the cosh integer sequences are previously known."
+  ],
+  "schema_version": 1
+}
