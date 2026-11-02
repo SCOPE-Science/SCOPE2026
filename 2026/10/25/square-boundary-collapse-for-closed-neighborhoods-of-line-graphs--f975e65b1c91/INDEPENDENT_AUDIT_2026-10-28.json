@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:48:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/square-boundary-collapse-for-closed-neighborhoods-of-line-graphs--f975e65b1c91/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/square-boundary-collapse-for-closed-neighborhoods-of-line-graphs--f975e65b1c91/line_graph_square_verifier.py",
+        "Independent bitset collapse script /mnt/data/scope_worker-06_20261028T123636Z/audit_checks.py"
+      ],
+      "rationale": "For each G-edge e=uv, closed neighborhood in line graph is S_u∪S_v; clique complex Y is union of star simplices because triangle-free. Any face outside Y contains two disjoint G-edges a,b. Every center must join an endpoint of a to an endpoint of b; triangle-free implies at most two such connectors; two only if the face is an opposite-edge pair of a unique four-cycle. Retain all tetrahedral boundaries B_C on E(C). Every remaining face has unique center e and pairs with face toggling e; descending lower-face cardinality proves each pair a genuine elementary free-face collapse, independent of overlapping squares. Star-simplex nerve is G; splitting each B_C into two triangular disks with distinct interior diagonals yields one square-completion 2-cell and one additional S2. Hence K~Q(G)∨qS2, H1=H1(G)/<four-cycle classes>, H2=H2(Q)⊕Z^q, higher homology 0. Independently constructed K, retained T and executed all claimed free-face collapses on K2,3, K3,3 and C6, including all their overlapping 4-cycles; finite checks supplement general symbolic center proof.",
+      "residual_risks": [
+        "Connected finite simple triangle-free G with at least one edge; triangles destroy center uniqueness. Q(G) may retain nontrivial H1 or torsion; do not claim purely wedge of spheres generally."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known square-completion theorems for N[G] impose restrictions and cannot be substituted on L(G) when deg_G>=3 because L(G) has triangles; known clique line graph theorem identifies Y but not K."
+        ],
+        "reasoning": "No inspected broader theorem implies the exact all-triangle-free, all-square-overlaps line-graph relative collapse. Using G versus L(G) changes the complex and invalidates direct implication.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-two-ech-collapse-theorem-for-line-graphs-of-girth-at-lea--69ae03a7604c",
+          "Square-completion decomposition of scale-two graph Čech nerves (published SCOPE Oct 2026)",
+          "https://arxiv.org/abs/2009.12130",
+          "https://arxiv.org/abs/2511.12608"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-two-ech-collapse-theorem-for-line-graphs-of-girth-at-lea--69ae03a7604c",
+        "https://arxiv.org/abs/2009.12130",
+        "https://arxiv.org/abs/2511.12608",
+        "https://arxiv.org/abs/2212.05871",
+        "Resultary square-completion query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published prior girth>=5 proof uses unique connector for every face outside Y; for squares, an opposite-edge pair has TWO centers. New proof isolates precisely those pairs and retains B_C boundaries, while collapsing all others."
+        ],
+        "reasoning": "The old proof is inapplicable when q>0 (its unique-center hypothesis fails), and general Y≃G does not determine extra 2-cells of K. New decomposition explicitly classifies ambiguous centers and gives square-completion plus q independent spheres.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-two-ech-collapse-theorem-for-line-graphs-of-girth-at-lea--69ae03a7604c",
+          "https://arxiv.org/abs/2009.12130",
+          "https://arxiv.org/abs/2212.05871",
+          "https://arxiv.org/abs/2511.12608"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scale-two vertex-centered graph Čech convention equals closed-neighborhood N[L(G)]. Girth>=5 published theorem has q=0 and collapses to Y; the present theorem extends to q>0 including K2,3."
+        ],
+        "reasoning": "The equivalence of terminology is recognized; old q=0 result is subsumed, but it cannot imply new q>0 attaching spheres or square completion.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-two-ech-collapse-theorem-for-line-graphs-of-girth-at-lea--69ae03a7604c",
+          "https://arxiv.org/abs/2212.05871",
+          "https://arxiv.org/abs/2511.12608",
+          "Resultary: closed neighborhood complex line graph triangle free four cycles square completion wedge spheres Čech complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Girth>=5 exact homotopy table known. New K2,3 gives wedge^4 S2 and K3,3 overlapping square family; finite test examples are checks, not the all-graph theorem."
+        ],
+        "reasoning": "The exact homotopy formula for every four-cycle under arbitrary overlaps is structural, not a finite table. Failed search leaves residual historical equivalence risk.",
+        "searches": [
+          "Resultary graph Čech neighborhood complex line graph query",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-two-ech-collapse-theorem-for-line-graphs-of-girth-at-lea--69ae03a7604c",
+          "web: line graph closed neighborhood complex overlapping squares K2,3 tetrahedron boundary"
+        ]
+      },
+      "rationale": "Previously published girth>=5 theorem gives K=N[L(G)] collapses to Y=Cl(L(G)), but explicitly excludes four-cycles. The new exact relative collapse handles every finite connected triangle-free G, including arbitrarily overlapping four-cycles, and adds each tetrahedral boundary B_C; its homotopy splitting is Q(G) plus one S2 per four-cycle, even for K2,3. The known Y≃G and general graph Čech neighborhood formulas are acknowledged. A separate published square-completion theorem concerns the Čech nerve of G itself under additional no-K2,3 restriction, not L(G) with triangles, so does not imply this result directly. Best-of-knowledge novelty PASS, with residual equivalent nerve-model risk.",
+      "residual_risks": [
+        "A different older square-filling or closed-neighborhood construction could be equivalent under a nonobvious functor; published SCOPE square-completion counterpart not wholly reread this run.",
+        "The homotopy split is not a literal simplicial collapse to a wedge; formula keeps Q(G) possibly with torsion in first homology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRICT_SPECIAL_CASE_Q=0; DOES_NOT_COVER_SQUARES",
+          "evidence": "Prior proof excludes 4-cycles and at C4 old conclusion would incorrectly identify K as S1 rather than S2; new theorem retains square boundaries and sphere.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-two-ech-collapse-theorem-for-line-graphs-of-girth-at-lea--69ae03a7604c",
+          "material_read": "Complete published RESULT.md: hypotheses girth>=5, unique generator, explicit elementary collapse, homology kernel and proof",
+          "method": "Read full primary repository RESULT.md via GitHub",
+          "title": "A scale-two Čech collapse theorem for line graphs of girth at least five",
+          "trigger": "Previously published same invariant and nearly same graph family"
+        },
+        {
+          "assessment": "COVERS_Y_EQUIVALENCE_ONLY",
+          "evidence": "Y≃G holds as background, but does not imply K=N[L(G)]≃Q(G)∨qS2.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.12130",
+          "material_read": "Accessible primary full HTML, including clique-cover homotopy equivalence Y≃G and related proof",
+          "method": "Read full relevant theorem/corollary section",
+          "title": "Topology of Clique Complexes of Line Graphs",
+          "trigger": "Same Y=Cl(L(G)) subcomplex and triangle-free condition"
+        },
+        {
+          "assessment": "GENERAL_COMPLEX_FRAMEWORK_NOT_THIS_LINEGRAPH_COLLAPSE",
+          "evidence": "General neighborhood-complex topological results lack this edge-center pairing / square-completion integral splitting.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.12608",
+          "material_read": "Accessible primary full HTML definitions and main suspension/fundamental-group results",
+          "method": "Read relevant full-text definitions and theorem sections",
+          "title": "Closed neighborhood complexes of graphs",
+          "trigger": "Same closed-neighborhood simplicial construction, more general ambient graphs"
+        },
+        {
+          "assessment": "COVERS_SCALE_CONVENTION_ONLY",
+          "evidence": "The scale-two neighborhood description specifies K but does not imply relative collapse or square splitting.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.05871",
+          "material_read": "Primary accessible arXiv HTML Lemma 2.2 and related scale recovery discussion",
+          "method": "Read relevant primary lemma/theorem statements",
+          "title": "Čech complexes of hypercube graphs",
+          "trigger": "Scale-two Čech identification as closed neighborhoods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/square-boundary-collapse-for-closed-neighborhoods-of-line-graphs--f975e65b1c91/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-two-ech-collapse-theorem-for-line-graphs-of-girth-at-lea--69ae03a7604c",
+        "https://arxiv.org/abs/2511.12608"
+      ],
+      "rationale": "The theorem is a sharp structural extension from girth-five to all triangle-free graphs with unrestricted square overlap. It supplies an explicit simple-homotopy reduction and a computable homotopy and integral homology description via graph square completion; K2,3 and K3,3 illustrate nontrivial new phenomena outside earlier no-square/no-K2,3 hypotheses.",
+      "residual_risks": [
+        "Does not classify homotopy of Q(G) for every graph or higher filtration scales; useful because reduction to Q(G) is already complete and natural."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite connected simple triangle-free graph G with an edge, N[L(G)] simplicially collapses to Cl(L(G)) united with tetrahedral boundaries B_C indexed by all four-cycles C, and N[L(G)] ≃ Q(G) ∨ wedge^{q} S² where Q(G) attaches one square 2-cell per 4-cycle; H1 quotient and H2 splitting follow integrally without restrictions on square overlap.",
+  "limitations": [
+    "Assumes triangle-free finite connected simple G; homotopy formula uses square-completion Q(G) rather than fully classifying its homotopy.",
+    "Published related square-completion theorem for other graph nerve not wholly reread this run; equivalent constructions remain priority risk."
+  ],
+  "schema_version": 1
+}
