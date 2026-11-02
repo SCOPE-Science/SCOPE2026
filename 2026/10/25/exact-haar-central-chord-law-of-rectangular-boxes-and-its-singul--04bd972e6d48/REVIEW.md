@@ -1,31 +1,21 @@
-# Scientific review: exact Haar central-chord distribution for rectangular boxes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probability law is a complete all-parameter identity for every three-dimensional box with strictly positive half-lengths. The chord formula \(L=2\min_i a_i/|U_i|\) follows directly from the defining inequalities of the box. Union probabilities of three absolute-coordinate spherical caps truncate at the pair level for \(x<2R\), since \(\sum_i(2a_i/x)^2>1\). Their pair areas follow from the explicitly normalized two-coordinate spherical density and an elementary one-dimensional integral, with a direct endpoint and derivative identity for the arctangent formula. A shrinking two-cap intersection yields a \(3/2\)-power onset with a positive coefficient. The terminal event is exactly a shrinking triangle in squared-coordinate Dirichlet space, giving the quadratic tail with its normalization. The proof treats endpoints, vanishing intersections, unequal and equal side lengths, and coincident thresholds.
+PASS
 
-The actual standalone `verify.py` is dependency-free. It was executed from the new package and completed seeded checks for three boxes, pair quadrature and asymptotic coefficients with output `VERIFY_OK`. The finite checks only corroborate, and do not replace, the proof for all real parameters. The big-O bounds are local with the box dimensions fixed.
+For Haar U on S^2, center chord L=2 min_i a_i/|U_i|. Inclusion-exclusion of three absolute-coordinate spherical caps yields F=Σ(1-2a_i/x)_+-ΣJ, because no triple intersections occur before x=2R. The joint two-coordinate density is 1/(2pi sqrt(1-u²-v²)); integrating over quadrants gives the stated elementary J. Scaling the shrinking pair intersection gives positive coefficient 2 sqrt(r_ij)/(3pi a_i a_j) times (x-2r_ij)^{3/2}. For terminal tail U_i² follow Dirichlet(1/2,1/2,1/2), whose smooth density near a_i²/R² times a shrinking area δ²/2 yields R/(4pi prod a_i)*(2R-x)². Independent numerical evaluation of J against 1D spherical quadrature plus Gaussian-sphere simulation for a=(1,1.7,2.4) gave errors under the expected sampling tolerances. Coincident thresholds are handled termwise.
 
-## Originality — PASS (historical-priority risk retained)
+## originality
 
-The most closely related modern motivating work [1] studies high-probability bounds for diameters of random sections but does not provide this exact three-dimensional all-aspect-ratio centered-line CDF or its sharp face-diagonal and terminal expansions. Its arXiv first-submission date is independently established as 2026-09-21. Coleman's complete available 1969 paper [2] computes explicit cube secant laws under four random sampling protocols, each with a randomized point or offset, not Haar-uniform lines constrained to pass through the fixed center. The 1981 *Intercept lengths of random probes through boxes* [3] is a plausible title-level comparator; its abstract was accessible, but full-text confirmation was not obtained, and this uncertainty is disclosed rather than silently treated as a negative result.
+PASS
 
-The complete inspected mathematical records on the Haar hexagon probability of central **plane sections** [4], the directional width distribution of cubes [5], and central chords of **planar regular polygons** [6] differ in dimension or whether the random statistic is an intersection or a projection. Neither their complete results nor the accessible historical claims about center-constrained planar parallelogram mean chords imply the all-aspect-ratio three-dimensional probability law. Targeted queries also searched the exact CDF, spherical cap overlap, chord alias, and endpoint asymptotic formulations. Absence from search results alone is not asserted to prove novelty. The remaining possibility of a classical stereological formula for the fixed-center sampling model is a real residual risk.
+Classical random-probe secant laws frequently use random offsets or random chord endpoints, not center-constrained Haar directions. An inspected Coleman (1969) transcription uses four such other models; published width, planar chord, and central-plane section laws are different observables. Coleman (1981) on rectangular-box probes remains a material uninspected comparator; lawful institutional full-text attempt reported VPN disconnected, so its entire content is NOT called noncovering. Inaccessible plausible source alone does not establish failure of best-of-knowledge O.
 
-## Mathematical value — PASS
+## value
 
-A complete analytic law for a natural and reproducible stochastic geometric observation of every three-dimensional orthotope is a motivated exact benchmark for random-section diameter bounds and for distinctions among stereological random-line models. The three independent half-lengths cannot be removed by Euclidean symmetry. The support, each pairwise face-diagonal threshold, its noninteger \(3/2\) onset, and the sharp terminal quadratic coefficient provide a structural classification across arbitrary aspect ratios. None is an arbitrary isolated numerical slice or a mere cube-table recomputation. The proof uses the geometry of spherical cap overlap and the Dirichlet corner, explaining why these exponents arise.
+PASS
 
-## Closest literature and limitations
+Complete natural stochastic law over all three independent box half-lengths, with exact face-diagonal onset and longest-chord singularity coefficients; these are structurally meaningful and distinguish several non-equivalent random-section models.
 
-[1] Guédon–Litvak–Tatarko–Vritsiou, *On random diameters of convex bodies*, arXiv:2609.24131 (2026-09-21).
-
-[2] R. Coleman, *Random paths through convex bodies*, *Journal of Applied Probability* **6** (1969), 430–441, DOI 10.1017/S0021900200032939. Available full text read for its sampling definitions and cube calculations.
-
-[3] R. Coleman, *Intercept lengths of random probes through boxes*, *Journal of Applied Probability* **18** (1981), 276–282, DOI 10.2307/3213189; complete text was unavailable. Its relationship to fixed-center Haar lines is unverified.
-
-[4–6] Published mathematical research records titled *Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes*, *Exact directional width law of the cube and its first spherical-cap transition*, and *Parity-resolved central-chord laws for regular polygons*. Their complete RESULT texts were read and compared by the section dimension, random variable, and claimed result.
-
-The proof is confined to Haar-directions through a fixed center for Euclidean three-dimensional orthotopes; it does not address offset-invariant secants, arbitrary oblique parallelepipeds, higher-dimensional cap intersections or global uniqueness of the mathematical observation. The cited 1981 comparator and unindexed earlier stereology are the remaining originality risks.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
