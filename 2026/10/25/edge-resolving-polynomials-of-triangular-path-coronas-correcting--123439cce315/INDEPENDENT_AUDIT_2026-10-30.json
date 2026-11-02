@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:46:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Reconstructed H_n with path vertices and one tip per edge; computed every edge-to-vertex distance by BFS for n=2..8 and independently enumerated all 43,688 graph-vertex subsets in n=2..8, checking resolving signatures against covers of the specified auxiliary graph and confirming exact polynomial counts/minima. The symbolic table of d(w_j,A_i),d(w_j,L_i),d(w_j,R_i) is verified from shortest paths, and the necessary two-witness pairs force auxiliary edges. For sufficiency the proof classifies all nonconsecutive tip-witness supports by block-index piecewise-affine distance differences, reducing to the six displayed boundary pairs (small overlapping cases direct); independently found precisely six boundary configurations for each n=6,7,8,9,12,18,28. The cover polynomial follows exactly by complementation of independent sets and counting free interior path vertices; leading coefficients yield edim ceil(n/2)+1 and minimum counts. Finite exhaustive cases corroborate, but do not replace the general piecewise-affine argument; its case analysis remains the sensitive nonstandard lemma. The original proposed edim=2 is already refuted at n=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest article claims a constant wrong edge metric dimension edim=2 for n>=3; block-graph corollary is about MIXED metric dimension; founding article gives definitions."
+        ],
+        "reasoning": "Mixed metrics must separate edge/vertex pairs and cannot substitute for edge-only resolver enumeration. Existing claimed edge family value is wrong by direct n=3 counterexample and growing bound. No dominating correct edge-only theorem found.",
+        "searches": [
+          "Ghalavand Klavžar Tavakoli 2023 mixed metric block graphs arXiv:2305.19620",
+          "Korivand Khashyarmanesh Tavakoli 2023/24 Theorem 3.4",
+          "Kelenc Tratnik Yero arXiv:1601.05416",
+          "Resultary query: edge metric dimension path edge corona P_n diamond K1 triangular snake edge resolving vertex cover polynomial"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1080/09728600.2023.2291465",
+        "arXiv:2305.19620",
+        "arXiv:1601.05416",
+        "Resultary 2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+        "Resultary 2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Structural criterion reduces every resolving set to cover of explicitly given auxiliary F_n, and gives E_n(z) via an independence polynomial and n>=3 edim=ceil(n/2)+1."
+        ],
+        "reasoning": "The previous erroneous constant-dimension theorem is contradicted rather than a stronger prior. For n=3 exactly four resolving 3-sets exist and no 2-set resolves; for n>=4 a linear dimension replaces constant 2. Published general mixed results do not imply the full edge-resolution polynomial.",
+        "searches": [
+          "DOI:10.1080/09728600.2023.2291465 Theorem 3.4",
+          "Resultary query: edge metric dimension path edge corona P_n diamond K1 triangular snake edge resolving vertex cover polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Triangular path edge-corona is a path of triangles (triangular snake), and the full family of edge-resolving sets equals vertex covers of a tip path with terminal triangles, times free interior original-path vertices."
+        ],
+        "reasoning": "Searched triangular-snake and edge-corona aliases, ordinary vertex-cover/independence polynomial equivalence and edge-resolving polynomials; no equivalent published enumeration identified in checked material.",
+        "searches": [
+          "Resultary query: edge metric dimension path edge corona P_n diamond K1 triangular snake edge resolving vertex cover polynomial",
+          "triangular snake graph edge metric bases enumeration",
+          "path edge corona P_n diamond K1 resolving vertex cover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent explicit BFS enumeration of all vertex subsets n=2..8 yields minimum basis counts 3,4,4,8,4,12,4 and minimum dimensions 2,3,3,4,4,5,5."
+        ],
+        "reasoning": "Small-case tables, if present, cannot imply exact arbitrary-n polynomial or full cover criterion; no equivalent exact sequence table located. Searches not proof of absence.",
+        "searches": [
+          "triangular snake edge metric dimension tables",
+          "path edge corona resolving polynomials",
+          "Resultary query: edge metric dimension path edge corona P_n diamond K1 triangular snake edge resolving vertex cover polynomial"
+        ]
+      },
+      "rationale": "PASS, best of knowledge with clearly bounded literature/access risks. The previous erroneous constant-dimension theorem is contradicted rather than a stronger prior. For n=3 exactly four resolving 3-sets exist and no 2-set resolves; for n>=4 a linear dimension replaces constant 2. Published general mixed results do not imply the full edge-resolution polynomial.",
+      "residual_risks": [
+        "The author-uploaded complete six-page paper was inspected; publisher PDF itself was 403 but no reliance on snippets for its Theorem 3.4; a later erratum or equivalent correction may remain unindexed.",
+        "For arbitrary n, sufficiency rests on the paper’s piecewise-affine case classification, not finite checks; independently the six exceptional nonconsecutive-tip witness configurations were reproduced for n=6,7,8,9,12,18,28. Larger untested parameters are covered by symbolic argument only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3.4 explicitly states edim(P_n diamond K1)=2 for n≥3 and claims {a1,a_(n−1)} resolves edges, but n=3 these two landmarks give identical edge distances to two distinct path edges. The mixed metric statement dim_m=n+1 is separate. The full primary article does not contain the corrected edge-resolver polynomial.",
+          "evidence": [
+            "Full Theorem 3.4/its proof read: edim(P_n diamond K1)=2 n≥3, witnessed by first and last tips; n3 those tips fail to separate the two path edges and edim=3."
+          ],
+          "identifier_or_url": "DOI:10.1080/09728600.2023.2291465",
+          "material_read": "Full six-page author-uploaded published article text in ResearchGate HTML, including original Theorem 3.4 and its proof (original {a1,a_(n−1)} resolver claim), separate mixed metric theorem and other graph families. Publisher PDF itself returned 403.",
+          "method": "full author-uploaded primary paper, Section 3 and theorem/derivation passages read as HTML; publisher PDF request forbidden",
+          "title": "Mixed metric dimension over (edge) corona products",
+          "trigger": "exact same path edge-corona family and contradictory published edge metric dimension"
+        },
+        {
+          "assessment": "Addresses mixed metric dimension and cut-vertex block graphs; mixed metric dimension does not determine resolving sets for edges alone.",
+          "evidence": [
+            "Corollary 3.2 concerns mixed dimension of block graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.19620",
+          "material_read": "Accessible abstract, corollary description and relevant definitions of mixed metric dimension; not the full manuscript.",
+          "method": "lawful arXiv source excerpts",
+          "title": "Graphs whose mixed metric dimension is equal to their order",
+          "trigger": "potential stronger block-graph theorem on triangular path graphs"
+        },
+        {
+          "assessment": "Defines the invariant; no specific polynomial for triangular snake path corona found.",
+          "evidence": [
+            "Edge landmark distance is min distance from landmark to an edge endpoint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.05416",
+          "material_read": "Abstract and definition of edge metric dimension, not all paper pages.",
+          "method": "arXiv abstract/metadata",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "foundational definition and potential general result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Correcting a published theorem for a standard infinite graph family is a substantive mathematical clarification, especially because the error grows linearly with n. The full characterization of all edge-resolving sets and their cardinality-generating polynomial gives an exact structural solution, strictly more than another sample basis count, and cleanly separates edge from mixed metric dimension.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1080/09728600.2023.2291465",
+    "arXiv:2305.19620",
+    "arXiv:1601.05416",
+    "Resultary 2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+    "Resultary 2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2"
+  ],
+  "disposition": "passed",
+  "final_claim": "For H_n=P_n diamond K1, all edge-resolving sets correspond precisely to vertex covers of the tip-path F_n with endpoint triangles, with interior path vertices optional; full generating polynomial and edim(H_n)=ceil(n/2)+1 for n≥3, extremal basis counts, correcting the published edim=2 claim.",
+  "limitations": [
+    "The author-uploaded complete six-page paper was inspected; publisher PDF itself was 403 but no reliance on snippets for its Theorem 3.4; a later erratum or equivalent correction may remain unindexed.",
+    "For arbitrary n, sufficiency rests on the paper’s piecewise-affine case classification, not finite checks; independently the six exceptional nonconsecutive-tip witness configurations were reproduced for n=6,7,8,9,12,18,28. Larger untested parameters are covered by symbolic argument only."
+  ],
+  "residual_risks": [
+    "The author-uploaded complete six-page paper was inspected; publisher PDF itself was 403 but no reliance on snippets for its Theorem 3.4; a later erratum or equivalent correction may remain unindexed.",
+    "For arbitrary n, sufficiency rests on the paper’s piecewise-affine case classification, not finite checks; independently the six exceptional nonconsecutive-tip witness configurations were reproduced for n=6,7,8,9,12,18,28. Larger untested parameters are covered by symbolic argument only."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Theorem 3.4 explicitly states edim(P_n diamond K1)=2 for n≥3 and claims {a1,a_(n−1)} resolves edges, but n=3 these two landmarks give identical edge distances to two distinct path edges. The mixed metric statement dim_m=n+1 is separate. The full primary article does not contain the corrected edge-resolver polynomial.",
+      "evidence": [
+        "Full Theorem 3.4/its proof read: edim(P_n diamond K1)=2 n≥3, witnessed by first and last tips; n3 those tips fail to separate the two path edges and edim=3."
+      ],
+      "identifier_or_url": "DOI:10.1080/09728600.2023.2291465",
+      "material_read": "Full six-page author-uploaded published article text in ResearchGate HTML, including original Theorem 3.4 and its proof (original {a1,a_(n−1)} resolver claim), separate mixed metric theorem and other graph families. Publisher PDF itself returned 403.",
+      "method": "full author-uploaded primary paper, Section 3 and theorem/derivation passages read as HTML; publisher PDF request forbidden",
+      "title": "Mixed metric dimension over (edge) corona products",
+      "trigger": "exact same path edge-corona family and contradictory published edge metric dimension"
+    },
+    {
+      "assessment": "Addresses mixed metric dimension and cut-vertex block graphs; mixed metric dimension does not determine resolving sets for edges alone.",
+      "evidence": [
+        "Corollary 3.2 concerns mixed dimension of block graphs."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2305.19620",
+      "material_read": "Accessible abstract, corollary description and relevant definitions of mixed metric dimension; not the full manuscript.",
+      "method": "lawful arXiv source excerpts",
+      "title": "Graphs whose mixed metric dimension is equal to their order",
+      "trigger": "potential stronger block-graph theorem on triangular path graphs"
+    },
+    {
+      "assessment": "Defines the invariant; no specific polynomial for triangular snake path corona found.",
+      "evidence": [
+        "Edge landmark distance is min distance from landmark to an edge endpoint."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1601.05416",
+      "material_read": "Abstract and definition of edge metric dimension, not all paper pages.",
+      "method": "arXiv abstract/metadata",
+      "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+      "trigger": "foundational definition and potential general result"
+    }
+  ]
+}
