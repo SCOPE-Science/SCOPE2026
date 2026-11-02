@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The ideal/filter characterization is established. The graph block-cut lemma provides a non-cut minimal or maximal element. The exact three extension conditions yield \(t(P)\le2t(Q)\), and equality forces a star. Induction and direct star counting handle every order. The finite checker matches 2996 connected instances and 4823 deletion cases but is not substituted for proof.
+## correctness
 
-**Originality — PASS (qualified).** The complete prior published RESULT.md on random-poset one-type counting supplies the general encoding and global endpoints but not a sharp maximum conditional on comparability-connectedness. The two accessible arXiv full-text studies supply admissible extensions and embeddings, not this extremal classification. Closest prior theorem has a broader *input class* but a different *conclusion* (counting complexity rather than sharp restricted maximum and equality). Hidden prior implication and unindexed sources remain risks.
+PASS
 
-**Value — PASS.** The theorem determines the sharp connected-case upper envelope of finite-base nonalgebraic type counts and classifies all extremizers. The equality analysis explains why only one-ended stars attain the exponential bound; this is a natural structurally motivated gap between known chain and antichain endpoints.
+For finite nonempty comparability-connected poset P of cardinality n, nonalgebraic types are ideal/filter pairs (L,U) with every l in L below every u in U. A minimal or maximal extreme vertex z whose deletion preserves comparability-connectedness exists via leaf block of the finite block-cut tree. For maximal z with nonempty B={q<z}, extension criteria give exactly one triple-extension type and an unavoidable single-extension type, all others at most two, proving t(P)<=2t(P-z). Equality forces B a unique minimum of Q and Q\{b} antichain (or the dual), hence star. Induction from n=1 yields t(P)<=3*2^(n-1), equality exactly ordinal-sum bottom-star or top-star including singleton and n=2 chain. Independently enumerated all naturally labeled transitive posets through n=5 and checked 1,1,3,18,181 connected instances respectively, sharpness/equality and count conditions; this is finite support to the structural proof, not exhaustive all n.
 
-**Scope and limits.** Only connected undirected comparability graphs, finite nonempty parameters and complete nonalgebraic one-types are covered. The conclusion does not yield closed formulas for arbitrary posets or multi-types. No independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established one-point ideal/filter encoding and general #P-complete counting are prior results. The inspected earlier Resultary primary record gives chain/antichain counts and complexity, not the comparability-connected extremal bound nor equality stars. No direct dominating theorem was identified; best-of-knowledge priority only.
+
+## value
+
+PASS
+
+The exact maximum and equality shape for named-parameter nonalgebraic orbit counts under connectedness is a natural extremal question in finite posets and homogeneous model theory. The structural doubling equality lemma is stronger than recomputing a known unrestricted count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
