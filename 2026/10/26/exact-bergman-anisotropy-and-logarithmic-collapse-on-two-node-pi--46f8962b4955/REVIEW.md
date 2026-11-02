@@ -1,15 +1,21 @@
-# Scientific review: exact Bergman geometry of two-node Pick bodies
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is bounded and balanced, and disk Schwarz–Pick contraction ensures its balance. Each section in its second coordinate is a disk with the proved center and radius; direct polar integration produces its volume and its first quadratic moment. Exact biholomorphic covariance determines the diagonal kernel for all diagonal points. Orthogonality of the constant and first-degree homogeneous subspaces, plus swap symmetry, makes the metric matrix diagonal in sum/difference coordinates. Comparison of the kernel's quadratic diagonal coefficient establishes the crucial identity that the squared norm of the sum coordinate equals the domain volume. The transverse norm follows from the parallelogram identity. Strict monotonicity is a covariance sign argument, and both asymptotics follow from exact logarithmic integrals. The embedded checker verifies symbolic and numerical consistency; it is not used as a replacement for these analytic steps.
+## correctness
 
-## Originality — PASS (subject to historical priority uncertainty)
-The 2026 Biswas interpolation manuscript (arXiv:2602.00882v1), inspected in full, defines Pick bodies and studies their interpolation and contraction properties; it does not state the Bergman metric eigenspectrum or its singular limiting law. The later automorphism manuscript (arXiv:2610.28972v1) was also read, and its automorphism classification does not imply quantitative Bergman curvature or metric eigenvalues. Published mathematical-index searches for Pick-body Bergman metrics, covariance formulae, pseudohyperbolic interpolation domain moments, and logarithmic anisotropy found no equivalent statement. The sharp formula is not merely a change of notation for those qualitative results. The full 1993 Cole–Lewis–Wermer characterization paper remained inaccessible; historical-priority overlap remains a genuine risk, as does unindexed geometry work. A failed search alone is not treated as a novelty proof.
+PASS
 
-## Value — PASS
-Pick bodies are natural finite interpolation data domains with a rich automorphism group and intrinsic analytic geometry. Quantifying the normal metric cost at colliding nodes and the sharp rate of recovery of bidisk geometry addresses a genuine geometric degeneration, not an arbitrary numerical example. The strictly monotone exact eigenvalue ratio, including its two different singular scales, is a nontrivial global parameter description with possible uses in deformation estimates and comparisons of interpolation geometries. The claim is self-contained despite not treating all points or general multipoint bodies.
+Read actual RESULT.md, check.py, REVIEW.md and VERIFICATION.md from assigned Git blob SHAs. The fixed-u target-value slice is an ordinary disk of center (1-q)u/(1-q|u|²) and radius sqrt(q)(1-|u|²)/(1-q|u|²); polar Fubini gives V=π²qJ0 and Iu=π²qJ1. Balanced-domain evaluation K(0,0)=1/V and simultaneous Möbius covariance give diagonal K(a,a)=1/[V(1-|a|²)^4]. Degree-one rotational orthogonality and exchange symmetry diagonalize in s=u+v,d=u-v; the diagonal kernel |a|² coefficient forces ||s||²=V, while ||d||²=4Iu−V, yielding exact eigenvalues. M=J1/J0 increases strictly since its derivative is the positive covariance of t and 2t/(1-qt). The rational-logarithmic J0,J1 forms give both endpoint coefficients. Independent high-precision quadratures and exact small-q coefficient checked four q values; they support but do not prove all parameters. Normalization is Euclidean unweighted volume and metric ∂∂bar log K, only diagonal points.
 
-## Closest literature and limits
-Biswas, arXiv:2602.00882v1 (2026-01-31), is the primary natural-object reference. Biswas, arXiv:2610.28972v1 (2026-10-20), is the closest automorphism discussion. Cole–Lewis–Wermer (1993) gives classical characterization but was available only from an abstract, so neither full-text exclusion nor completeness of historical-priority comparison is claimed. The theorem concerns two-node bodies, their diagonal, and the standard Bergman normalization only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant published research-index and primary literature comparisons found no directly covering exact claim, subject to the explicit priority limitations. The novel result is the exact claim stated, not its previously known foundational object or general theory.
+
+## value
+
+PASS
+
+Nevanlinna–Pick target domains are natural complex domains; intrinsic normal-versus-tangential Bergman metric is an important analytic-geometric invariant. The exact monotone deformation and unequal algebraic and logarithmic degeneration rates quantify node collision and recovery of bidisk geometry for the entire two-node family, not an arbitrary isolated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

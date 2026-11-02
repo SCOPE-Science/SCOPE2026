@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-The proof uses explicit pseudohyperbolic disk slices, the identity between the squared norm of the symmetric coordinate and the domain volume, swap-invariant first-order Bergman Gram matrices, biholomorphic covariance, and exact logarithmic moment integration. These identities are sufficient to establish the claim for the entire indicated parameter range.
+## correctness
 
-Reproduction: from the directory containing the embedded `check.py`, run `python check.py` with Python 3 and the installed `mpmath` and `sympy` packages. The output observed here was `CHECK_OK: beta-moment identities, positivity, both singular coefficients`. The checker evaluates both integral forms and closed forms for six parameters, checks moment positivity and a separate variance formula, and computes both singular limit coefficients symbolically.
+PASS
 
-Finite tests do not prove an infinite-domain statement: the analytic lemmas in RESULT.md are the proof. No complete characterization of the metric off the diagonal, higher-point bodies, or independent assessment is asserted. Relevant earlier characterization work was not available in full and remains a priority-risk source.
+Read actual RESULT.md, check.py, REVIEW.md and VERIFICATION.md from assigned Git blob SHAs. The fixed-u target-value slice is an ordinary disk of center (1-q)u/(1-q|u|²) and radius sqrt(q)(1-|u|²)/(1-q|u|²); polar Fubini gives V=π²qJ0 and Iu=π²qJ1. Balanced-domain evaluation K(0,0)=1/V and simultaneous Möbius covariance give diagonal K(a,a)=1/[V(1-|a|²)^4]. Degree-one rotational orthogonality and exchange symmetry diagonalize in s=u+v,d=u-v; the diagonal kernel |a|² coefficient forces ||s||²=V, while ||d||²=4Iu−V, yielding exact eigenvalues. M=J1/J0 increases strictly since its derivative is the positive covariance of t and 2t/(1-qt). The rational-logarithmic J0,J1 forms give both endpoint coefficients. Independent high-precision quadratures and exact small-q coefficient checked four q values; they support but do not prove all parameters. Normalization is Euclidean unweighted volume and metric ∂∂bar log K, only diagonal points.
+
+## originality
+
+PASS
+
+Relevant published research-index and primary literature comparisons found no directly covering exact claim, subject to the explicit priority limitations. The novel result is the exact claim stated, not its previously known foundational object or general theory.
+
+## value
+
+PASS
+
+Nevanlinna–Pick target domains are natural complex domains; intrinsic normal-versus-tangential Bergman metric is an important analytic-geometric invariant. The exact monotone deformation and unequal algebraic and logarithmic degeneration rates quantify node collision and recovery of bidisk geometry for the entire two-node family, not an arbitrary isolated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
