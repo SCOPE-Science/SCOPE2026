@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(G(n,m)\), a prescribed \(j\)-edge event has probability \((m)_j/(M)_j\). Among triangles relative to one fixed four-cycle, exactly four share two edges, \(4(n-4)\) share one, and the remainder share zero. This yields the displayed exact covariance identity for arbitrary \(n\) and \(m\). Algebraic factoring produces the claimed formula, and positivity of the remaining factors reduces the complete sign law to a one-dimensional affine comparison. The \(n=4\) cancellation is explicitly handled. An independent exhaustive graph-level enumerator and symbolic check pass. Finite tests supplement, rather than replace, the arbitrary-parameter proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For uniform G(n,m) with M=binom(n,2), a fixed j-edge event has probability h_j=(m)_j/(M)_j (interpreted as zero if j>m). Fix a non-induced unoriented 4-cycle. Exactly 4 triangles share 2 cycle edges, exactly 4(n−4) share 1, and the remainder share 0; the exact covariance is 3 binom(n,4){binom(n,3)(h_7−h_3h_4)+4(n−4)(h_6−h_7)+4(h_5−h_7)}. For n=4 the h7 terms cancel before evaluation. Independently factorized it symbolically to the claimed rational expression 4(m)_4(M−m)(M−m−1)[m(n²−2n−7)−4(n²−n−4)]/[(n+1)²(n+2)(n+3)(M−5)(M−4)(M−2)²]; denominators positive n>=4. The sign changes at tau_n=4(n²−n−4)/(n²−2n−7), giving the stated exceptional small-n ranges, zero at (5,8), and a universal m=4 negative to m=5 positive transition for n>=9. Independently exhaustively enumerated all 64+1024+32768=33856 labeled simple graphs for n=4,5,6 and every m-layer using separately generated triangle/cycle masks; all exact covariance values match. These finite checks supplement the exact combinatorial proof.
 
-Queries for fixed-edge triangle/four-cycle covariance, its mixed factorial moments, threshold aliases, and relevant published findings did not identify this specific all-parameter signed formula. Stark–Wormald (arXiv:1608.05193v1) treat nonexistence probabilities for one prescribed subgraph in \(G(n,m)\); Sah–Sawhney (arXiv:2006.11369v1) treat local limit theorems for individual subgraph counts; Drmota–Ramos–Rué (arXiv:1512.08889v1) treat a different restricted graph class. The closest historical findings concern triangles versus graph-component statistics or versus isolated-edge components, not counts of four-cycles. Classical overlap counting could yield a precursor mixed moment, so an uninspected earlier formula remains the main historical-priority risk; searches do not certify uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharply changing covariance sign concerns two fundamental motifs under the canonical fixed-edge random-graph null. The result resolves the sign for every graph order and every edge count, identifies an exact interior zero at \((n,m)=(5,8)\), and shows a universal four-to-five-edge sign reversal for all \(n\ge9\). Conditioning on the edge count makes the dependence genuinely different from the nonnegative motif covariance in independent-edge \(G(n,p)\). The classification is not a routine reparametrization of an existing all-density sign theorem in the sources checked.
+Best-of-knowledge PASS with a clearly delimited priority risk: the elementary overlap method for mixed subgraph moments is classical, but inspected papers on triangle tails, subcritical graph-class statistics, prescribed subgraph avoidance and univariate local limits do not furnish the all-n, all-m factored triangle/C4 covariance or full integer sign boundary. A broad classical motif moment formula might imply this with additional algebra; searches are not novelty proof.
 
-## Evidence and limits
+## value
 
-The checker enumerates all \(33{,}856\) graphs on four, five, or six vertices, makes 138 exact moment and symbolic-identity checks, and runs finite sign crosschecks up to 50 vertices. The mathematical proof covers all orders. The closest literature was compared by actual statement and graph model, and the older Kim–Vu paper was available only at abstract level; an unseen general mixed-moment identity might anticipate part of the finding. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Conditional dependence of two canonical motifs in the fixed-edge random-graph null model changes sign, unlike nonnegative covariance from shared edges in independent-edge G(n,p). The exact threshold (especially m=4 versus 5 for all n>=9) and complete finite boundary make a natural, reusable mixed-invariant classification, not an arbitrary small instance or restatement of marginal motif statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

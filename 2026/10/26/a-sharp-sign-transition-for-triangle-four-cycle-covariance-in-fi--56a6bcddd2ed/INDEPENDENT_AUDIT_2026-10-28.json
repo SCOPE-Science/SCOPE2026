@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:54:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform G(n,m) with M=binom(n,2), a fixed j-edge event has probability h_j=(m)_j/(M)_j (interpreted as zero if j>m). Fix a non-induced unoriented 4-cycle. Exactly 4 triangles share 2 cycle edges, exactly 4(n−4) share 1, and the remainder share 0; the exact covariance is 3 binom(n,4){binom(n,3)(h_7−h_3h_4)+4(n−4)(h_6−h_7)+4(h_5−h_7)}. For n=4 the h7 terms cancel before evaluation. Independently factorized it symbolically to the claimed rational expression 4(m)_4(M−m)(M−m−1)[m(n²−2n−7)−4(n²−n−4)]/[(n+1)²(n+2)(n+3)(M−5)(M−4)(M−2)²]; denominators positive n>=4. The sign changes at tau_n=4(n²−n−4)/(n²−2n−7), giving the stated exceptional small-n ranges, zero at (5,8), and a universal m=4 negative to m=5 positive transition for n>=9. Independently exhaustively enumerated all 64+1024+32768=33856 labeled simple graphs for n=4,5,6 and every m-layer using separately generated triangle/cycle masks; all exact covariance values match. These finite checks supplement the exact combinatorial proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drmota–Ramos–Rué work in restricted subcritical random graph classes, not unrestricted fixed-m G(n,m).",
+          "Sah–Sawhney prove individual-count local limits in asymptotic regimes, not exact all-m two-motif covariance."
+        ],
+        "reasoning": "A joint limit theorem or a generic overlap identity can be related, but neither inspected claim directly determines every finite sign and exact threshold.",
+        "searches": [
+          "G(n,m) fixed edge random graph exact covariance triangle and four-cycle sign transition",
+          "arXiv:1512.08889v1, subcritical graph-class statistics",
+          "arXiv:2006.11369v1"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md b81bbba68aca1aea0c6715efcf810feb58c2925c",
+        "SCOPE frozen verify.py f2b4930f9b0250f356d442bbf03c92c9b8176bac, inspected source",
+        "Independent complete enumeration 33,856 graphs plus exact symbolic factorization; independent_checks.py",
+        "https://arxiv.org/abs/1512.08889",
+        "https://arxiv.org/abs/1608.05193",
+        "https://arxiv.org/abs/2006.11369",
+        "Resultary search: G(n,m) fixed edge random graph exact covariance triangle and four-cycle sign transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subcritical restricted classes, one-pattern avoidance and univariate local limits do not imply the full mixed 3-cycle/4-cycle covariance under uniform fixed edges.",
+          "The theorem requires three exact edge-overlap cases and symbolic reduction to a linear sign factor."
+        ],
+        "reasoning": "Generic classical subgraph moments make the computation accessible but the inspected publications do not explicitly yield the sharp all-density sign law without the new specialization and analysis.",
+        "searches": [
+          "arXiv:1512.08889v1",
+          "arXiv:1608.05193v1",
+          "arXiv:2006.11369v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Triangle/4-cycle count covariance is a mixed second factorial moment in the hypergeometric G(n,m) model.",
+          "Prior local limits and avoidance statements do not give the explicit mixed moment factorization or sign law."
+        ],
+        "reasoning": "Equivalent terminology (triangle-square covariance, cycle-count mixed cumulant) was checked; no exact all-density prior statement located.",
+        "searches": [
+          "G(n,m) fixed edge random graph exact covariance triangle and four-cycle sign transition",
+          "arXiv:2006.11369v1, subgraph count local limits",
+          "arXiv:1608.05193v1, subgraph avoidance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest published result pairs component count with triangles in independent bond percolation; it does not pair triangles with non-induced 4-cycles in fixed-m graphs.",
+          "No queried exact table supplied the all-n m threshold or special (5,8) zero."
+        ],
+        "reasoning": "A negative database search does not establish priority; the present formula is exact for an infinite parameter family, not a finite table.",
+        "searches": [
+          "G(n,m) fixed edge random graph exact covariance triangle and four-cycle sign transition",
+          "Resultary search; 11 hits",
+          "Resultary: 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with a clearly delimited priority risk: the elementary overlap method for mixed subgraph moments is classical, but inspected papers on triangle tails, subcritical graph-class statistics, prescribed subgraph avoidance and univariate local limits do not furnish the all-n, all-m factored triangle/C4 covariance or full integer sign boundary. A broad classical motif moment formula might imply this with additional algebra; searches are not novelty proof.",
+      "residual_risks": [
+        "A historical general mixed-subgraph factorial moment identity may, after routine substitution and factorization, contain the present covariance; prior uniqueness is not independently certified.",
+        "Kim–Vu 2004 accessible material was abstract-level only, so full-text noncoverage is not asserted.",
+        "Exact signed covariance does not imply positive/negative association, stochastic monotonicity or a G(n,p) analogue."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Restricted subcritical graph families, not uniform unrestricted G(n,m)",
+          "evidence": "Subcritical graph-class assumptions distinguish the random model.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.08889",
+          "material_read": "Full primary arXiv manuscript, main assumptions and subgraph-statistic theorems, PDF visual inspection",
+          "method": "Read primary article model hypotheses and results",
+          "title": "Subgraph statistics in subcritical graph classes",
+          "trigger": "Relevant paper considering several subgraph counts including cycles"
+        },
+        {
+          "assessment": "Addresses absence of a fixed subgraph in a sparse regime, not all-density mixed count covariance",
+          "evidence": "The main probability is avoidance of one pattern rather than a two-count covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.05193",
+          "material_read": "Primary open preprint’s model/objective and main nonexistence theorem statements",
+          "method": "Read accessible primary source theorem/material",
+          "title": "The probability of nonexistence of a subgraph in a moderately sparse random graph",
+          "trigger": "Potential factorial-moment coverage in G(n,m)"
+        },
+        {
+          "assessment": "Marginal and asymptotic local limits, not exact finite fixed-edge mixed covariance",
+          "evidence": "Restricted asymptotic regimes and univariate count focus.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.11369",
+          "material_read": "Full open preprint main statements and assumptions; PDF first-page screenshot",
+          "method": "Read primary theorem/model and compare count variables",
+          "title": "Local limit theorems for subgraph counts",
+          "trigger": "Possible dominating subgraph distribution theorem"
+        },
+        {
+          "assessment": "Triangle tails/martingales, no supported whole-document noncoverage assertion",
+          "evidence": "Only the abstract focuses on triangle counts; hidden mixed-moment appendices remain a risk.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.10113",
+          "material_read": "Publisher bibliographic title/abstract only; full text not inspected",
+          "method": "Abstract-level comparison, not a full-text exclusion",
+          "title": "Divide and conquer martingales and the number of triangles in a random graph",
+          "trigger": "Old classical triangle-count paper possibly containing mixed-moment identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Conditional dependence of two canonical motifs in the fixed-edge random-graph null model changes sign, unlike nonnegative covariance from shared edges in independent-edge G(n,p). The exact threshold (especially m=4 versus 5 for all n>=9) and complete finite boundary make a natural, reusable mixed-invariant classification, not an arbitrary small instance or restatement of marginal motif statistics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md b81bbba68aca1aea0c6715efcf810feb58c2925c",
+    "SCOPE frozen verify.py f2b4930f9b0250f356d442bbf03c92c9b8176bac, inspected source",
+    "Independent complete enumeration 33,856 graphs plus exact symbolic factorization; independent_checks.py",
+    "https://arxiv.org/abs/1512.08889",
+    "https://arxiv.org/abs/1608.05193",
+    "https://arxiv.org/abs/2006.11369",
+    "Resultary search: G(n,m) fixed edge random graph exact covariance triangle and four-cycle sign transition"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform simple labeled G(n,m), non-induced unoriented 4-cycles counted once each, triangles counted once each.",
+    "Finite exhaustive enumeration is only through n=6; arbitrary n follows exact combinatorial reasoning and symbolic identity."
+  ],
+  "residual_risks": [
+    "A historical general mixed-subgraph factorial moment identity may, after routine substitution and factorization, contain the present covariance; prior uniqueness is not independently certified.",
+    "Kim–Vu 2004 accessible material was abstract-level only, so full-text noncoverage is not asserted.",
+    "Exact signed covariance does not imply positive/negative association, stochastic monotonicity or a G(n,p) analogue."
+  ],
+  "schema_version": 1
+}
