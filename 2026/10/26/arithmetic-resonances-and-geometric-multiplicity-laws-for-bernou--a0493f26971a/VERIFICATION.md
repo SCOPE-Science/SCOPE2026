@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedure and boundaries
+# Independent mathematical audit
 
-The analytical proof establishes the infinite claims by (i) nonvanishing of the product tail, (ii) exact parity/coprimality classification of coincident cosine factors, (iii) a unique primitive indexing by residue class, (iv) elementary periodic counts of odd integers with prescribed divisibility, and (v) a geometric-tail error estimate. The exact order-\(m\) density is \((b-1)^2/[\pi b^{m+1}(1-\lambda)]\) whenever the least odd-rational-power relation is \(\lambda^k=a/b\).
+## correctness
 
-To repeat the finite independent checks, run `python3 check_zero_census.py` using Python 3.10 or newer; it requires only the standard library. Compare its output byte-for-byte with `checker_output.txt`. The program computes exact rational Fourier-zero abscissae in units of \(\pi/2\) for six contractions, groups repeated factors by exact fractions, and tests the predicted counting densities and exact earliest high-order zeros through order five. The algebraic tests for \(\lambda=1/\sqrt3\) and \(\lambda=\sqrt{3/5}\) track the two parity chains using exact integer and rational arithmetic for the frequency cutoffs, so it does not mistake close numerical frequencies for equal zeros.
+PASS
 
-The tests are finite and do not certify infinite zero exhaustiveness, the complete source comparison, or publication novelty. Those limits are explicit. Independent external mathematical audit was not performed.
+Entire product convergence is locally uniform and the tail is nonvanishing at a fixed zero, so analytic order equals number of vanishing cosine factors. Two levels collide iff a power of lambda is odd/odd rational. The subgroup of resonant exponents has minimal generator k, lambda^k=a/b reduced odd/odd; levels split into k noncolliding residue classes. Primitive zero frequencies are uniquely indexed by j=0 or j>=1 with a not dividing odd u; the multiplicity is 1+max{d:b^d divides u}. Exact inclusion-exclusion among odd u and convergent geometric sums produce density (b-1)^2/[pi b^(m+1)(1-lambda)] and first multiplicity-m frequency pi b^(m-1)/2; factor-counting gives the universal weighted density. Independent rational exact factor collisions and first-occurrence calculations passed.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality is the all-parameter multiplicity census, first high-order zero and densities; the classical cosine-product zero locations and rational parity of spectral families are acknowledged as prior.
+
+## value
+
+PASS
+
+Classifies all possible finite zero orders and their geometric density spectrum for a natural entire characteristic function, with nontrivial arithmetic resonances that distinguish generic lambda from a countable dense exceptional family. Both first occurrences and all-order densities are precise reusable spectral invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
