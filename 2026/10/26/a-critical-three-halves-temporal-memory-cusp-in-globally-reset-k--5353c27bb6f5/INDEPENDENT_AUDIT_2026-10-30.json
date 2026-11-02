@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:43:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the frozen RESULT.md: the exact conditional-on-reset split gives C(t)=e^(-lambda t)Cov(f(A),f(A+t)), not just the one-point renewal law. Verify explicitly the Riccati/logistic solutions f= rho0 e^(-k t)/sqrt[1+K rho0²(1-e^(-2kt))/(2k)] subcritical, f=q/sqrt[1+(q²/rho0²-1)e^(-(K-2sigma)t)] supercritical, f=h(t+c)^(-1/2) critical. Expanding bounded denominator terms uniformly over A>=0 gives the stated pure exponential rates and strictly positive prefactors (same/opposite monotonicity compensated by b_+ sign). At the critical point the age-independent h t^-1/2 term cancels; -h(A+c)t^-3/2/2 survives, with integrable Taylor remainder O((A+c)^2 t^-5/2) since A exponential. Direct gamma integration gives B_c and positivity by strictly negative Cov(f(A),A). Constant branch rho0=q is handled exactly; K=0, rho0=1 and small positive rho0 are within stated quantifiers. Independent 9-parameter numerical checks include 27 ODE derivative residuals, positive prefactors, two incomplete-gamma-vs-integral comparisons, the equilibrium-constant case and asymptotic ratios; these are corroboration, not infinity proofs. Reconstructed seven-blob Git tree matches exact assigned source-tree SHA-1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff 2024 Eq(5.52) provides a broader PDMP OA model and p.36 stationary variance only.",
+          "Generic reset renewal formulas apply and lead to the cross-covariance once the flow is supplied, but a full published off/at-critical asymptotic coefficient theorem was not identified."
+        ],
+        "reasoning": "A broad theorem for stationary covariance of regenerative deterministic flows with asymptotic f(t)~c t^-1/2 could logically imply t^-3/2 after centering if it includes differentiable asymptotic expansions. No such dominating theorem was verified. The standard renewal identity alone is not claimed new.",
+        "searches": [
+          "arXiv:2401.03501 Sec V.3, Eq(5.52)",
+          "arXiv:2504.08510 Sec VII and Appendix",
+          "web: nonlinear deterministic dynamical system Poisson resetting stationary autocorrelation critical algebraic power-law exponential 3/2",
+          "web: stochastic resetting temporal correlations renewal autocorrelation stationary exactly solution"
+        ]
+      },
+      "checked_sources": [
+        "Sarkar–Gupta, arXiv:2203.00339v2, full PDF/model/statistical sections",
+        "Bressloff, arXiv:2401.03501v2, full PDF/Sections V.3 & VI",
+        "Acharya–Sarkar–Gupta, arXiv:2504.08510, full ar5iv HTML / Section VII",
+        "Das–Gupta, arXiv:1806.09113, abstract only",
+        "Resultary semantic records with query topics listed in four comparison blocks",
+        "Open web searches for Poisson-reset nonlinear autocorrelation and 2026 Kuramoto resetting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known cubic f and one-time stationary law plus elementary reset-age conditioning yield e^-lambda t Cov(f(A),f(A+t)).",
+          "For critical f(a)=h(a+c)^-1/2, centering removes h t^-1/2, while -h(a+c)t^-3/2/2 survives with coefficient -h Cov(f(A),A)/2; this consequence is an additional asymptotic calculation beyond the printed one-time formulas.",
+          "Acharya 2025 stationary overline C is a different cross-oscillator observable and cannot determine the time-lag power by itself."
+        ],
+        "reasoning": "The claim is mathematically derivable from known dynamics and standard renewal conditioning in several lines; this narrows the originality margin. Nonetheless the exact asymptotic observable, critical coefficient and three-regime classification were not found as prior results. A prior general regenerative expansion theorem would decisively cover this and should be checked by later literature review.",
+        "searches": [
+          "arXiv:2203.00339 Sect III.2–III.3",
+          "arXiv:2401.03501 Eq(5.49)/(5.52)",
+          "arXiv:2504.08510 Eq(79)/(83)/(91)",
+          "arXiv:1806.09113 abstract",
+          "web: Kuramoto globally reset stationary time autocorrelation coherence critical 3/2 e lambda t 2022 2025"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same observable aliases: two-time lag covariance, stationary autocorrelation of coherence amplitude, global-reset OA order parameter; Acharya 2025 Eq.79 is instead an equal-time variance.",
+          "Sarkar–Gupta (2022) establishes the flow P_st, not lag-covariance."
+        ],
+        "reasoning": "The paper's C(t) uses two stationary clock TIMES (0,t) whereas earlier C(t) uses two oscillator labels at one time t. This distinction is mathematical, not bibliographic. No equivalent fixed-lag theorem identified; possible hidden re-expression of general regenerative covariance remains a residual risk.",
+        "searches": [
+          "Resultary: Globally Poisson reset Kuramoto Ott Antonsen stationary two-time covariance at critical K=2sigma e^{-lambda t}t^{-3/2}",
+          "Resultary: Stationary reset age deterministic nonlinear relaxation critical decay t^-1/2 centered covariance lag t^-3/2",
+          "web: Kuramoto stochastic resetting two time autocorrelation order parameter covariance Ott Antonsen",
+          "arXiv:2504.08510 Sec VII Eq (79)",
+          "arXiv:2203.00339 Eq (18)–(24)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary neighbors concern quadratic-reset hybrid oscillators, critical Ornstein–Uhlenbeck autocorrelation, and renewal-age residual powers, not this Lorentzian global-reset Kuramoto two-time coefficient.",
+          "No matching finite table is natural to this continuous-parameter asymptotic theorem."
+        ],
+        "reasoning": "This exact analytic limit is not generally catalogued as a finite database entry. Absence in ranked mathematical findings is weak negative evidence, not proof of historical novelty.",
+        "searches": [
+          "Resultary: Globally Poisson reset Kuramoto Ott Antonsen stationary two-time covariance at critical K=2sigma e^{-lambda t}t^{-3/2}",
+          "Resultary: Stationary reset age deterministic nonlinear relaxation critical decay t^-1/2 centered covariance lag t^-3/2",
+          "Resultary: globally reset kinetic model temporal memory cusp t^(3/2) dynamic resetting nonanalytic covariance Markovian resets"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact reset-age identity is standard regenerative machinery and the cubic OA flow is already known; however, in materially read original and broader primary literature, the theorem's precise centered stationary TWO-time cross-covariance, its sharp switch from off-critical pure exponentials to e^{-lambda t}t^{-3/2} exactly at K=2sigma, positivity and incomplete-gamma prefactor are not stated. The physical and mathematical observable is not equivalent to the equal-time C(t) in Acharya et al. This PASS is qualified by possible implicit general regenerative-theorem coverage and incomplete inspection of Das–Gupta 2018.",
+      "residual_risks": [
+        "The theorem could be a short corollary of a preexisting general Poisson-reset deterministic-flow two-time asymptotic theorem, especially one giving centered Taylor-jet expansions.",
+        "The full body of renewal/autocorrelation literature and Das–Gupta 2018 paper was not exhaustively read; abstract-level noncoverage is not asserted.",
+        "The underlying OA amplitude model and exact stationary one-time law are definitely prior results; novelty is confined to sharp centered long-lag asymptotics.",
+        "Resultary and ordinary web searches have limited recall and cannot certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly establishes the cubic amplitude flow and one-point stationary reset distribution, but the inspected paper develops stationary synchrony statistics rather than the centered stationary TWO-time large-lag three-regime theorem.",
+          "evidence": [
+            "PDF p.7 (zero-index 6), Eq. (18) and (20): cubic OA amplitude flow and synchrony threshold K_c=2sigma; Eq. (21)–(24): reset-age master equation; PDF pp.9–12: one-point P_st(r) descriptions; no explicit lagged covariance theorem found."
+          ],
+          "identifier_or_url": "arXiv:2203.00339v2; https://arxiv.org/pdf/2203.00339",
+          "material_read": "Full 18-page available PDF, with particular attention to pages 6–13 and Eq. (18), (20), (21)–(24), stationary P_st and conclusions; source PDF page 6 visually inspected.",
+          "method": "Read primary formulae, inspected complete paper structure and searched for temporal covariance/autocorrelation; compared observables and long-time statements.",
+          "title": "Synchronization in the Kuramoto model in presence of stochastic resetting",
+          "trigger": "Original same Lorentzian Ott–Antonsen amplitude under population-wide Poisson resetting."
+        },
+        {
+          "assessment": "Broader model and stochastic OA amplitude reduction are prior; the reviewed formulas give one-time stationary variance and reset PDMP rather than the exact critical long-lag centered covariance coefficient and exponent.",
+          "evidence": [
+            "PDF p.37 Eq. (5.52): reset-driven amplitude cubic; p.36 Eq. (5.49): variance of stationary R at a single time; Sec. VI refers to previously analyzed stationary amplitude density."
+          ],
+          "identifier_or_url": "arXiv:2401.03501v2; https://arxiv.org/pdf/2401.03501",
+          "material_read": "Accessible 51-page PDF; Sec. V especially pp.33–41 and Eq. (5.49), (5.52); relevant p.37 (zero-index 36) screenshot visually inspected; section conclusions.",
+          "method": "Read stochastic OA reduction, contrasted one-time variance and full lagged stationary covariance, searched autocorrelation/covariance.",
+          "title": "Global density equations for interacting particle systems with stochastic resetting: from overdamped Brownian motion to phase synchronization",
+          "trigger": "Same globally reset Kuramoto dynamics in a broader density/PDMP framework."
+        },
+        {
+          "assessment": "Section VII's C(t) is an equal-time inter-oscillator covariance/variance as physical evolution time varies; overline C is its t→infinity stationary value. It is not E[(R(0)-m)(R(t)-m)] with t a stationary lag, so it does not cover the proposed three-halves lag law.",
+          "evidence": [
+            "Sec. VII Eq. (79): C(t)=<|R|^2>(t)-|<R>(t)|^2, lines 408–425; Eq. (83) defines its stationary limit; Eq. (91) computes a stationary single-time noninteracting noisy-phase variance, lines 449–455."
+          ],
+          "identifier_or_url": "arXiv:2504.08510; https://ar5iv.labs.arxiv.org/html/2504.08510",
+          "material_read": "Complete accessible 587-line ar5iv full-text rendition: introduction, Secs. II–VI, detailed Sec. VII lines 405–455, Sec. VIII, appendices; in particular Eq. (79)–(83) and Eq. (91).",
+          "method": "Compared exact definition of displayed C(t) with a stationary two-time covariance of scalar OA amplitudes and checked whether critical coupling and temporal-lag power occur.",
+          "title": "Stationary-state dynamics of interacting phase oscillators in presence of noise and stochastic resetting",
+          "trigger": "Newer same global resetting Kuramoto paper specifically emphasizing correlations."
+        },
+        {
+          "assessment": "Described model has continuously noisy phases and no common Poisson reset of deterministic amplitude, so its abstract's exponential autocorrelation is not direct coverage; complete text remains an access/priority limitation.",
+          "evidence": [
+            "arXiv abstract states Gaussian white noise and autocorrelation of order parameter; different dynamics from a deterministic Lorentzian OA amplitude with common Poisson resets."
+          ],
+          "identifier_or_url": "arXiv:1806.09113; https://arxiv.org/abs/1806.09113",
+          "material_read": "Abstract and model description only; full primary paper not inspected in this fresh run.",
+          "method": "Identify stochastic forcing/reset mechanism and observable from accessible abstract; no conclusion about uninspected details.",
+          "title": "Exact correlations in the nonequilibrium stationary state of the noisy Kuramoto model",
+          "trigger": "Title-level overlap: exact stationary-time Kuramoto autocorrelations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The long-lag autocovariance of collective coherence is a natural dynamic observable, not determined by an instantaneous stationary order-parameter distribution. It has a mathematically sharp critical signature at the classical OA threshold K=2sigma: exp(-lambda t)t^-3/2 rather than an off-critical pure exponential or uncentered t^-1/2 response. The positive exact incomplete-gamma coefficient and explicit exceptional zero path make the classification usable in temporal inference and comparison with reset-ensemble simulations. Although the covariance reduction itself is standard, quantifying the critical cancellation and all regimes is a motivated exact invariant, not an arbitrary parameter slice, mere normalization, or a known table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For sigma>0, K>=0, lambda>0, 0<rho0<=1, globally Poisson-reset deterministic Lorentzian Ott–Antonsen coherence f obeys C(t)=exp(-lambda t)Cov(f(A),f(A+t)), A~Exp(lambda). For K<2sigma, C(t)~B_- exp(-(lambda+sigma-K/2)t) with B_->0; for K>2sigma and rho0 unequal to q=sqrt(1-2sigma/K), C(t)~B_+ exp(-(lambda+K-2sigma)t) with B_+>0, while rho0=q gives identically zero covariance. For K=2sigma, C(t)~B_c exp(-lambda t)t^(-3/2), B_c=exp(z)/(4sigma sqrt(lambda))*[(z+1)Gamma(1/2,z)-Gamma(3/2,z)]>0, z=lambda/(2sigma rho0^2). All parameters fixed, t→infinity.",
+  "limitations": [
+    "Continuum infinite-population Lorentzian OA manifold with a deterministic fixed initial coherence rho0 and shared Poisson reset only; neither finite-size fluctuations nor local resets are covered.",
+    "All fixed-parameter t→infinity expansions may fail uniformity as K→2sigma, lambda→0 or rho0→0.",
+    "The prior OA flow, stationary marginal and renewal splitting are standard; precise novelty is restricted to the full centered lag covariance asymptotic.",
+    "No independent expert/Lean certification; primary-source priority and broad regenerative-theorem coverage remain qualified."
+  ],
+  "schema_version": 1
+}
