@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement fixes generator convention, Strang ordering, extrapolation weights and all quantifiers. For two states, explicit symbolic transition coefficients are nonnegative and Cayley–Hamilton turns the delayed linear combination into an exact power. For the directed three-state witness, the first off-diagonal entry has an exact positive delay multiplier; a second positive entry and row conservation prove nonnegativity on the other side of the unique algebraic threshold. The proof covers all integer delays and generator rates; finite symbolic tests are explicitly supplementary. Evidence: `RESULT.md` proof and `verify.py` execution.
+## correctness
 
-**Originality — PASS (best-knowledge).** Blanes–Casas–Shaw's original 2023 text contains the delayed two-level extrapolation but no finite-Markov-generator positivity theorem or exact delay-invariant cutoff. Chin–Geiser's earlier multi-product construction and the Blanes–Casas–Murua 2024 survey cover general extrapolation and positivity barriers, not the two-state exact-power identity or three-state threshold. The published comparisons for SSP-SDIRK2(2) and Padé [2/2] concern mathematically different maps and imply neither theorem. Accessible prior own claims on edge-Lie splittings, commutator-free Magnus methods and Richardson acceleration likewise have different updates and cannot imply the result. Actual mathematical comparisons are in `AUDIT.json`; residual risk is older specialized work on extrapolated positive semigroups.
+PASS
 
-**Value — PASS.** A negative weight in a fourth-order formula creates an important practical mass-versus-positivity concern, but generic order barriers give no sharp small-state answer. Exact coincidence of delayed and iterated maps in two states is structural, and the three-state threshold quantifies when otherwise stochastic subflows yield negative endpoint probabilities. Delay independence in substep size, despite an increasing block length, is a non-obvious property relevant to aggregating high-order integrators with reduced communication.
+For two-state row Markov generators, X_h and Y_h are stochastic with determinant θ=e^{-(α+β)h} and equal trace 1+θ. Direct off-diagonal polynomials of M_{h,1} have nonnegative factors and the diagonal entries follow from trace; Cayley–Hamilton yields (4Y_h^p-X_h^p)/3=M_{h,1}^p for every p. For the two-edge equal-rate three-state pure-birth witness, upper triangularity yields exactly (M_{h,p})_{01}=p q^{4p-2}(1-q²)(8q-q²-1)/3; row sums and a bound on (M_{h,p})_{02} complete the sharp iff q≥4-√15. Independent symbolic reconstruction verified the 2-state identity for p=1..4 and 3-state formulas for p=1,2,3,5,8. The all-p statement follows from the structural identities, not extrapolation from tests.
 
-The classification refers to exact arithmetic, Markov row generators, and a particular equal-rate three-state witness; it does not classify all three-state splits. Unidentified equivalent results remain possible, and no independent review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing multi-product papers specify the negative-weight fourth-order delayed scheme, and other published Markov-positivity barriers concern different maps. Neither method definition nor a general negative-weight obstruction implies universal two-state positivity, exact delayed-power identity, or sharp three-state λh threshold independent of delay.
+
+## value
+
+PASS
+
+The obstruction from negative extrapolation weights is a substantive Markov-numerics issue. An exact universal two-state safe class and minimal three-state counterexample with a sharp all-delay step-size cutoff distinguish the operator method from loose qualitative barrier statements and quantify how delayed aggregation interacts with positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

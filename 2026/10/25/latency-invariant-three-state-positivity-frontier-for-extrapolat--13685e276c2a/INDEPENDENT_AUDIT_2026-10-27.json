@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T02:56:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two-state row Markov generators, X_h and Y_h are stochastic with determinant θ=e^{-(α+β)h} and equal trace 1+θ. Direct off-diagonal polynomials of M_{h,1} have nonnegative factors and the diagonal entries follow from trace; Cayley–Hamilton yields (4Y_h^p-X_h^p)/3=M_{h,1}^p for every p. For the two-edge equal-rate three-state pure-birth witness, upper triangularity yields exactly (M_{h,p})_{01}=p q^{4p-2}(1-q²)(8q-q²-1)/3; row sums and a bound on (M_{h,p})_{02} complete the sharp iff q≥4-√15. Independent symbolic reconstruction verified the 2-state identity for p=1..4 and 3-state formulas for p=1,2,3,5,8. The all-p statement follows from the structural identities, not extrapolation from tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General splitting negative coefficient limitations and barriers apply broadly but are too weak to establish an exact two-state exemption or the algebraic threshold for a specified three-state witness."
+        ],
+        "reasoning": "A positivity impossibility for generic higher-order methods is not a determination of all step lengths and dimensions for this discrete update.",
+        "searches": [
+          "Resultary: positivity of multi-product extrapolated Strang splitting for Markov chains two states three state aggregation delay",
+          "Blanes–Casas–Murua splitting methods review arXiv:2401.01722",
+          "Chin–Geiser multiproduct splitting 2011"
+        ]
+      },
+      "checked_sources": [
+        "S. Blanes, F. Casas, L. Shaw, Generalized extrapolation methods based on compositions of a basic 2nd-order scheme, arXiv:2311.11581, https://personales.upv.es/serblaza/2024_ApplMathComput.pdf",
+        "S. Blanes, F. Casas, A. Murua, Splitting methods for differential equations, arXiv:2401.01722 (2024 review)",
+        "S. A. Chin, J. Geiser, Multi-product operator splitting..., IMA J. Numer. Anal. 31 (2011), 1552–1577",
+        "Resultary: Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2), 2026; different integrator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior work specifies delayed sum 4Y^p/3−X^p/3 and notes generic qualitative issues; current calculation adds determinant rigidity in dimension two and a pure-birth sign factor 8q−q²−1 with delay-independent sign."
+        ],
+        "reasoning": "Negative weights alone predict possible failure but not minimal n, the exact θ-dependent identity, or the sharp boundary; distinct SSP method has no implication.",
+        "searches": [
+          "Resultary: positivity of multi-product extrapolated Strang splitting for Markov chains two states three state aggregation delay",
+          "Blanes–Casas–Shaw equations (1.4)–(1.5)",
+          "Resultary SSP-SDIRK2(2) endpoint positivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same delayed extrapolation formula is in the primary paper; no matching n=2 matrix-power identity or 3-state all-delay cutoff was found in inspected relevant passages."
+        ],
+        "reasoning": "Having an identical numerical update formula does not subsume a nontrivial classification of its positivity domain.",
+        "searches": [
+          "Resultary: positivity of multi-product extrapolated Strang splitting for Markov chains two states three state aggregation delay",
+          "Blanes–Casas–Shaw arXiv:2311.11581 equations (1.4),(1.5)",
+          "Web: extrapolated Strang splitting Markov entrywise nonnegative dimension two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby indexed exact thresholds use unrelated SSP-SDIRK2(2), Padé, or Crank–Nicolson maps rather than M_{h,p}."
+        ],
+        "reasoning": "No direct table of this Strang extrapolation frontier located; distinct integrators have different rational/exponential stability functions and cannot identify it.",
+        "searches": [
+          "Resultary: positivity of multi-product extrapolated Strang splitting for Markov chains two states three state aggregation delay",
+          "Resultary: Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+          "Resultary: Eight-state barrier for Markov positivity of [2/2] Padé"
+        ]
+      },
+      "rationale": "Existing multi-product papers specify the negative-weight fourth-order delayed scheme, and other published Markov-positivity barriers concern different maps. Neither method definition nor a general negative-weight obstruction implies universal two-state positivity, exact delayed-power identity, or sharp three-state λh threshold independent of delay.",
+      "residual_risks": [
+        "Previous positivity bounds for extrapolated Markov semigroups under alternative nomenclature could contain equivalent formulas.",
+        "Three-state iff cutoff is only for equal-rate directed two-edge pure-birth split; no universal 3-state threshold is claimed.",
+        "Symbolic checks cover finitely many delays; proof handles all positive integers in exact arithmetic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies and credits prior numerical method; inspected passage does not give finite Markov positivity classification",
+          "evidence": [
+            "Equations (1.4) and (1.5) establish exactly this form of delayed linear-combination aggregation."
+          ],
+          "identifier_or_url": "https://personales.upv.es/serblaza/2024_ApplMathComput.pdf",
+          "material_read": "Open full primary PDF, introduction and pp.1–2 including formulas (1.4)–(1.5), inspected with page images",
+          "method": "OA full-text reading of relevant formulas",
+          "title": "Generalized extrapolation methods based on compositions of a basic 2nd-order scheme",
+          "trigger": "Identical fourth-order delayed two-level extrapolation"
+        },
+        {
+          "assessment": "General methods and order/positivity barriers are broader context but not proven to imply this n≤2/n=3 exact statement",
+          "evidence": [
+            "Survey treatment of Strang and negative-coefficient multi-product constructions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.01722",
+          "material_read": "Accessible primary review information and sections identified as 9.1.2 and 9.2.1; no claim of exhaustive full-text reading",
+          "method": "OA metadata and relevant exposition",
+          "title": "Splitting methods for differential equations",
+          "trigger": "Potential broader positivity barrier and review"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The obstruction from negative extrapolation weights is a substantive Markov-numerics issue. An exact universal two-state safe class and minimal three-state counterexample with a sharp all-delay step-size cutoff distinguish the operator method from loose qualitative barrier statements and quantify how delayed aggregation interacts with positivity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "S. Blanes, F. Casas, L. Shaw, Generalized extrapolation methods based on compositions of a basic 2nd-order scheme, arXiv:2311.11581, https://personales.upv.es/serblaza/2024_ApplMathComput.pdf",
+    "S. Blanes, F. Casas, A. Murua, Splitting methods for differential equations, arXiv:2401.01722 (2024 review)",
+    "S. A. Chin, J. Geiser, Multi-product operator splitting..., IMA J. Numer. Anal. 31 (2011), 1552–1577",
+    "Resultary: Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2), 2026; different integrator"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real exact row Markov generators only, including reducible and zero-rate cases.",
+    "The universal positive result is for ≤2 states; only one specified three-state family has a sharp iff cutoff.",
+    "No rounding, stochastic simulation, or broad 3-state classification included."
+  ],
+  "residual_risks": [
+    "Previous positivity bounds for extrapolated Markov semigroups under alternative nomenclature could contain equivalent formulas.",
+    "Three-state iff cutoff is only for equal-rate directed two-edge pure-birth split; no universal 3-state threshold is claimed.",
+    "Symbolic checks cover finitely many delays; proof handles all positive integers in exact arithmetic."
+  ],
+  "schema_version": 1
+}
