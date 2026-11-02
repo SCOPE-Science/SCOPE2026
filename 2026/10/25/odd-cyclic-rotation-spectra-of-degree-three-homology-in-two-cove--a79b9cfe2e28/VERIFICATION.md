@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete infinite proof is in `RESULT.md`: (i) classify complete graph-edge orbits under each nonidentity odd-order rotation, (ii) compute exact minimum vertex-cover obstructions, (iii) enumerate the exceptional invariant triangles for order three, (iv) apply reduced simplicial Lefschetz and established adjacent-degree homology character, and (v) take the finite cyclic Fourier transform. The homology concentration and degree-four character are named dependencies, not recomputed or claimed original.
+## correctness
 
-The accompanying reproducibility files are `verify_rotation.py` (Python 3 standard library, no dependencies) and `verify_rotation.out`. Run `python3 verify_rotation.py` from this directory; expected output must match `verify_rotation.out` byte-for-byte and end in `VERIFY_OK`.
+PASS
 
-Exact integer checks cover the orbit-cost classification for 304 odd-order nonidentity rotations, full signed augmented-chain Lefschetz sums for 28 small cases, and all integer nonnegative eigen-multiplicity formulas for 49 odd sizes from 5 to 101. Numerical complex Fourier reconstructions are supplementary floating-point checks; they are not claimed to be exact linear-algebra certificates. The theorem for all odd integers follows only from the displayed proof and the cited results, not extrapolation from tests.
+For a nonidentity cyclic relabeling of odd order ell>=3, an edge orbit meeting two distinct vertex orbits is a matching of ell edges (cover number ell), while an edge orbit internal to one vertex orbit is disjoint odd cycles (cover number at least ceil(ell/2)). Hence all nontrivial ell>=5 have no fixed nonempty faces and reduced Lefschetz trace −1. For ell=3, exactly m/3 disjoint triangle-orbit 2-simplices are fixed (each even vertex permutation), giving reduced Lefschetz m/3−1. The known homology concentration in degrees 3,4, H3 rank C(m−1,4), and known H4 4-subset permutation character (trace zero for odd nontrivial rotations) yield H3 traces 1 or 1−m/3. Cyclic Fourier inversion yields the claimed integer multiplicities; quotient invariant follows rational transfer after barycentric subdivision. Independently checked fixed-face cover obstructions for 42 powers at m=5,7,9,11,15 and the exact integer spectrum examples m9 and m15. C validity depends explicitly on published homology and top-degree character results, not on a finite verifier alone.
 
-The older homology-theorem full paper was not accessible in its entirety; the exact indexed rank and concentration statements were available, and the absence of unindexed equivalent character results cannot be guaranteed. Independent audit has not been performed.
+## originality
+
+PASS
+
+Jonsson computed nonequivariant homology and the published four-subset top H4 module is a prerequisite, not a degree-three cyclic module. The new claimed conclusion computes the entire odd-order cyclic H3 character, including the order-three exception, all Fourier multiplicities and the quotient invariant. Jonsson full text could not be read due accessible source and Oxford VPN failures, so historical overlap remains a specifically documented priority risk.
+
+## value
+
+PASS
+
+The complete rational cyclic-module character and quotient H3 invariant of a natural family is substantially richer than the known Betti ranks and degree-four representation. The exceptional order-three character is a structural symmetry phenomenon valid for all odd m, with an economical orbit-cover proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
