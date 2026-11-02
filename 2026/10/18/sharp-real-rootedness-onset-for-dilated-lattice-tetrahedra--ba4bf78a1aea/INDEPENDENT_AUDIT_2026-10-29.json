@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T17:49:14.488789Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final statement is for every full-dimensional lattice tetrahedron in Z^3 and integer m>=1. The involution lambda_i->1-lambda_i shows box coefficients ell1=ell3=A_m. Height-one open-box lattice points equal interior points of mS, so Ehrhart reciprocity yields A_m=sum_{j=0}^3 h_j binom(m+j-1,3). The total count is T_m=6a m^3-4b m^2+E m-3 via lattice-index inclusion-exclusion (full 4D determinant 6a m^3, four 3-column facet indices summing to 4b m^2, six 2-column indices E m, four unit 1-column indices). Thus B_m=T_m-2A_m and G_m=B_m-2A_m=H m^3/3+(E-2(11+2h1-h2+2h3)/3)m+1. Direct arithmetic verifies G2=2E+4h2-11>=1 and G_m=1+m(G2-1)/2+H(m^3-4m)/3>0 for all integer m>=2. For A>0, t[A+(2A+G)t+At^2] has one simple zero and two distinct negative roots, discriminant G(4A+G)>0; A=0 yields a scalar t^2. A1=h3, A2=h2+4h3, A3=h1+4h2+10h3, A4=1+4h1+10h2+20h3, so the onset cases and universal 4 are exact. At m=1 the criterion G1>0 is necessary as well as A1>0; nonnegative coefficient B1 rules out a second negative-discriminant branch. Unimodular S gives ell*(3S)=6t^2 and ell*(4S)=t+19t^2+t^3. Independent SymPy algebra and 16 direct four-dimensional strict-interior lattice enumerations in 4 tetrahedra and m=1..4 agree. Finite checks confirm only those cases, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nill, Lattice polytopes of large width have real-rooted Ehrhart h*-polynomials, arXiv:2608.03635v1 (2026), Theorem 1.2, pages 1 and 3-4: any d and enough width but no sharp C_box(3) bound.",
+          "Borger, Kretschmer, Nill, Thin polytopes, arXiv:2207.09323v2 (2023), Proposition 4.5, page 16: any 3D lattice polytope, but only coefficient identity/thinness.",
+          "Jochemko, On the real-rootedness of the Veronese construction for rational formal power series, arXiv:1602.09139v2 (2016), Theorem 1.1, page 3: h*(rP) only; no arbitrary box ell*(rS) conclusion.",
+          "Athanasiadis, Local h-polynomials, uniform triangulations and real-rootedness, Combinatorica 45 (2025), Theorem 1.4: edgewise subdivision local h, different object/invariant."
+        ],
+        "reasoning": "Broader families and stronger asymptotic bounds were checked for logical domination. In Nill, width(mS)=m width(S), but unspecified C_box(3) cannot imply m=4. In Jochemko the dilation assertion controls closed Ehrhart numerators; replacing them by local box polynomials is a nontrivial and unproved reduction. The 2025 subdivision theorem has a superficially matching threshold but does not cover arbitrary lattice tetrahedra without an equivalence.",
+        "searches": [
+          "Web: arxiv 2608.03635 theorem 1.2; arxiv 2207.09323 Proposition 4.5",
+          "Web: Jochemko Veronese construction any r>=d real-rooted h* dilates",
+          "Web: Athanasiadis local h polynomials edgewise subdivision r>=n real rooted"
+        ]
+      },
+      "checked_sources": [
+        "Borger, Kretschmer, Nill, Thin polytopes, arXiv:2207.09323v2 (2023), Proposition 4.5, page 16",
+        "Nill, Lattice polytopes of large width have real-rooted Ehrhart h*-polynomials, arXiv:2608.03635v1 (2026), Theorem 1.2, pages 1 and 3-4",
+        "Jochemko, On the real-rootedness of the Veronese construction for rational formal power series, arXiv:1602.09139v2 (2016), Theorem 1.1, page 3",
+        "Athanasiadis, Local h-polynomials, uniform triangulations and real-rootedness, Combinatorica 45 (2025), Theorem 1.4",
+        "Gustafsson-Solus, Derangements, Ehrhart Theory, and Local h-polynomials, arxiv:1807.05246 (abstract and scope: s-lecture-hall simplices)",
+        "Resultary published semantic search, 3 queries with hit inspection, 2026-10-29 UTC"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "BKN only implies B_m>=A_m for all 3D polytopes, not B_m>2A_m needed for two distinct negative roots; new calculation gives G_m=B_m-2A_m>0 for m>=2.",
+          "For m=2 the new sharp formula G_2=2E+4h2-11>=1, with E>=6 and h2>=0, is stronger than BKN's inequality.",
+          "Nill eventual box-root conclusion has unspecified width constant; Jochemko r>=d theorem concerns ordinary Ehrhart h*, not box."
+        ],
+        "reasoning": "Known results cover the standard coefficient foundation, and standard inclusion-exclusion makes the gap accessible. However no inspected theorem explicitly or directly implies the strict gap or first-dilation classification, which must be derived with the new dimension-three edge/Ehrhart arithmetic. There is residual risk that an earlier general coefficient inequality specialized here already implies the root cutoff.",
+        "searches": [
+          "BKN Proposition 4.5 and Corollary 4.6 full theorem inspection",
+          "Nill Theorem 1.2 theorem/proof PDF inspection",
+          "Jochemko Theorem 1.1/Section 4 PDF inspection",
+          "Athanasiadis 2025 Theorem 1.4 source inspection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borger, Kretschmer, Nill, Thin polytopes, arXiv:2207.09323v2 (2023), Proposition 4.5, page 16: ell1=ell3=I(P), ell2=I(2P)-4I(P)-sum_facets I(F).",
+          "Nill, Lattice polytopes of large width have real-rooted Ehrhart h*-polynomials, arXiv:2608.03635v1 (2026), Theorem 1.2, pages 1 and 3-4: eventually at unspecified width; did not assert numerical dilation cutoff.",
+          "No inspected equivalent statement of G_2=2E+4h*_2-11 or the m=2/3/4 phase diagram."
+        ],
+        "reasoning": "Aliases box polynomial/local h*/local Ehrhart/open-parallelepiped were checked. BKN identity is equivalent to the coefficient-level starting point, not a statement of strict gamma-positive roots. Real-rootedness of ordinary h* is distinct. The exact finite onset is not in the inspected primary statements; unindexed equivalence remains possible.",
+        "searches": [
+          "Resultary semantic: Ehrhart h* polynomial real rootedness onset dilated lattice tetrahedra sharp threshold roots all real dilation",
+          "Resultary semantic: For every 3-dimensional lattice tetrahedron S the local box polynomial of mS has three simple real roots for m>=4, sharp onset h* coefficients edge lattice lengths",
+          "Web: box polynomial dilations real-rooted tetrahedron; local h* Veronese real-rootedness simplex dilation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary hits concerned Gorenstein h* roots, ordinary h* inequalities, unrelated tetrahedral invariants and one special family of Ehrhart polynomials; no indexed result supplied the universal box m=4 theorem.",
+          "The sharp unimodular counterexample is an exact formula, not known database recomputation."
+        ],
+        "reasoning": "The finding is a uniform all-tetrahedra theorem rather than a single database entry. Indexed results with similar 'h*' or 'root' terminology do not imply the local box statement. Absence of a search hit is not historical-priority proof.",
+        "searches": [
+          "Resultary: local h star polynomial of dilated 3-dimensional lattice simplex open parallelepiped negative roots Ehrhart m=2 m=3",
+          "Resultary: Ehrhart h* polynomial real rootedness onset dilated lattice tetrahedra sharp threshold",
+          "Web exact search: local box tetrahedron 4 real-rootedness edge lattice length gap"
+        ]
+      },
+      "rationale": "BKN Proposition 4.5 already supplies the general dimension-three local-h* coefficient formula, so that formula, symmetry and standard reciprocity are not independently original. The new asserted contribution is a sharp uniform lattice-tetrahedron dilation cutoff and the complete earlier-onset criterion with a strict gamma gap. Nill's box theorem only guarantees sufficiently large lattice width, Jochemko's sharp Veronese theorem is for ordinary Ehrhart h*, and Athanasiadis's edgewise-local-h theorem concerns subdivisions rather than arbitrary lattice box polynomials. The actual theorem hypotheses and implications were compared, not merely paper titles. This is qualified best-of-knowledge PASS, not proof of priority.",
+      "residual_risks": [
+        "Published BKN coefficient identity combined with standard Ehrhart computations is very close; earlier unstated specialization or an old stronger gamma inequality could remove priority.",
+        "Jochemko/edgewise interlacing frameworks may conceal a presently unverified reduction to arbitrary lattice-box polynomials.",
+        "Searches are not comprehensive across every historical language and unindexed manuscript; no independent chronological priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR COVERAGE: symmetry and the three-dimensional coefficient identity are already proved, for all 3D lattice polytopes; the paper does not assert the sharp dilation-four root-multiplicity theorem or the complete m=1/2/3 onset. Deriving those still requires positivity of B_m-2A_m and the dilation-specific conversion.",
+          "evidence": "Proposition 4.5 (printed p.16): ell*_P(t)=I(P)(t+t^3)+(I(2P)-4I(P)-sum_facets I(F))t^2. Corollary 4.6 establishes B>=A, weaker than required B>2A. Theorem 4.3 classifies thin polytopes, not the positivity gap at m>=2.",
+          "identifier_or_url": "arxiv:2207.09323v2; https://arxiv.org/pdf/2207.09323",
+          "material_read": "Primary full-text PDF, introduction, Section 2 definitions, Theorem 4.3, Proposition 4.5 and its complete proof, Corollaries 4.6-4.7 and beginning of their application (PDF pp. 1-6, 15-17 targeted).",
+          "method": "Read accessible primary PDF text; inspected screenshot of printed page 16 showing exact coefficient formula.",
+          "title": "Thin polytopes: Lattice polytopes with vanishing local h*-polynomial",
+          "trigger": "Directly applicable universal three-dimensional local-h* coefficient formula; strongest possible priority overlap."
+        },
+        {
+          "assessment": "Qualitative larger-width theorem does not assert a numerical universal m=4 threshold nor m=2/3 exact criteria; mS has width m*width(S) but paper gives no C_box(3)<=4.",
+          "evidence": "Theorem 1.2: for every d an unspecified C_box(d)>0 suffices for simple zero and d-1 distinct negative box roots. Proof uses convergence of normalized slice counts to Eulerian polynomial as lattice width grows, without first four dilates.",
+          "identifier_or_url": "arxiv:2608.03635v1; https://pdfs.assets.alphaxiv.org/2608.03635v1.pdf",
+          "material_read": "Primary five-page PDF; Theorems 1.1-1.2, introduction, full Section 4 proof pp.3-4 and supporting prerequisites pp.2-3.",
+          "method": "Accessible lawful open-access PDF, text and screenshots of printed pp.1 and 4.",
+          "title": "Lattice polytopes of large width have real-rooted Ehrhart h*-polynomials",
+          "trigger": "Direct result on real roots of local box polynomial of lattice simplices; expected broader coverage."
+        },
+        {
+          "assessment": "The r>=d distinct-real-root statement concerns the ordinary Ehrhart h*(rP), the numerator of the closed lattice-point sequence, not the local box polynomial ell*(rS). Theorem 1.1 transforms one fixed rational generating series under subsequencing, which is not established for ell*(mS); hence no direct implication verified.",
+          "evidence": "Theorem 1.1 applies U^d_{r,i}h(t) to subsequence a_{rn+i}; its Ehrhart specialization at i=0 is h*(rP). This is a different invariant from counting open homogeneous parallelepiped lattice points of rS.",
+          "identifier_or_url": "arxiv:1602.09139v2; https://arxiv.org/pdf/1602.09139",
+          "material_read": "Primary 14-page PDF, abstract, introduction, Theorem 1.1 and its distinction from the Ehrhart application in Section 4; theorem page screenshot.",
+          "method": "Accessible primary full-text PDF, read mathematical statement, hypotheses and application; screenshot printed p.3.",
+          "title": "On the real-rootedness of the Veronese construction for rational formal power series",
+          "trigger": "Potential stronger pre-2026 uniform dilation root bound r>=d; risk of covering a corollary without matching wording."
+        },
+        {
+          "assessment": "Theorem 1.4 is for local h of r-fold edgewise subdivisions of triangulations of a simplex, not local Ehrhart box polynomial of arbitrary lattice tetrahedron rS. No identification for arbitrary non-unimodular tetrahedra appears in the inspected statements.",
+          "evidence": "Theorem 1.4 states real-rootedness/interlacing of ell_V(esd_r(Gamma),x) by E_{n,r}(x) for r>=n, with Gamma a triangulation of the (n-1)-simplex; the audited invariant uses an ambient lattice and open fundamental parallelepiped.",
+          "identifier_or_url": "doi:10.1007/s00493-025-00162-2; https://link.springer.com/article/10.1007/s00493-025-00162-2",
+          "material_read": "Open-access article introduction, the local h of subdivisions definition and Theorems 1.2/1.4; did not inspect all later proofs.",
+          "method": "Primary open-access article HTML with explicit displayed theorem statements.",
+          "title": "Local h-polynomials, uniform triangulations and real-rootedness",
+          "trigger": "Near-identical finite threshold r>=n and local-h terminology could imply the claim by reduction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp dimension-three universal cutoff m=4 for strict local-box real-rootedness addresses the natural quantitative refinement of eventual root reality. The result classifies all earlier dilations by intrinsic Ehrhart h*-coordinates and lattice edge lengths, and the unimodular example proves optimality of the uniform bound. The explicit edge-based gap is a nontrivial geometric-to-algebraic inequality and the statement covers every lattice tetrahedron, not an arbitrary small table; restricted to three-dimensional simplices, no unsupported higher-dimensional or lattice-width generalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen repository RESULT.md, CHECKER.py, METADATA.json, AUDIT.json, SLOGAN.txt, REVIEW.md, VERIFICATION.md; GitHub connector at assigned commit and main",
+    "Independent bounded SymPy/open parallelepiped checker: 16 cases and 5 symbolic identities",
+    "Borger, Kretschmer, Nill, Thin polytopes, arXiv:2207.09323v2 (2023), Proposition 4.5, page 16",
+    "Nill, Lattice polytopes of large width have real-rooted Ehrhart h*-polynomials, arXiv:2608.03635v1 (2026), Theorem 1.2, pages 1 and 3-4",
+    "Jochemko, On the real-rootedness of the Veronese construction for rational formal power series, arXiv:1602.09139v2 (2016), Theorem 1.1, page 3",
+    "Athanasiadis, Local h-polynomials, uniform triangulations and real-rootedness, Combinatorica 45 (2025), Theorem 1.4",
+    "Gustafsson-Solus, Derangements, Ehrhart Theory, and Local h-polynomials, arxiv:1807.05246 (abstract and scope: s-lecture-hall simplices)",
+    "Resultary published semantic search, 3 queries with hit inspection, 2026-10-29 UTC"
+  ],
+  "disposition": "passed",
+  "final_claim": "Every full-dimensional lattice tetrahedron has local-box polynomial A_m t+(2A_m+G_m)t^2+A_m t^3, with A_m=sum_j h_j binom(m+j-1,3), G_m=H m^3/3 + [E-2(11+2h1-h2+2h3)/3]m+1. It has a simple zero plus two distinct negative roots iff h3>0 and G1>0 at m=1, iff h2+h3>0 at m=2, iff non-unimodular at m=3, and always at m>=4; the uniform threshold four is sharp.",
+  "limitations": [
+    "No assertion for arbitrary three-dimensional nonsimplicial polytopes or dimensions other than 3.",
+    "Finite checks supplement, never replace, infinite reasoning; no external expert/Lean certification.",
+    "Historical originality is best-of-knowledge; BKN/Jochemko implications have been assessed, not all literature exhaustively searched.",
+    "Scientifically passed but publication withheld for operational confidentiality sanitization of existing metadata."
+  ],
+  "residual_risks": [
+    "Published BKN coefficient identity combined with standard Ehrhart computations is very close; earlier unstated specialization or an old stronger gamma inequality could remove priority.",
+    "Jochemko/edgewise interlacing frameworks may conceal a presently unverified reduction to arbitrary lattice-box polynomials.",
+    "Searches are not comprehensive across every historical language and unindexed manuscript; no independent chronological priority certificate."
+  ],
+  "schema_version": 1
+}
