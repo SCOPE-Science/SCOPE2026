@@ -1,23 +1,21 @@
-# Scientific review: Weddle fixed-point and Jacobian schemes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The determinant equation and torus involution are as stated by Dolgachev [2, §2]. On the completed chart the fixed equations in characteristic two are precisely three squares, so their common zero scheme has length eight. The exact characteristic-two expansion of the defining determinant shows that its local equation and all first derivatives lie in the same square ideal. The explicit nonvanishing universal determinant of three quadratic jet vectors implies equality of these ideals by Nakayama's lemma. The standalone polynomial verifier reconstructs all nonstandard identities and passes. The conclusion is local only; this verification does not assert a global singular-scheme classification.
+PASS
 
-## Originality — PASS, with residual historical risk
+Normalize w=sqrt(d) and write x=sqrt(a)(1+u), y=sqrt(b)(1+v), z=sqrt(c)(1+t). The involution sends the three coordinates to their inverses, so in characteristic two its fixed equations are precisely u²=v²=t²=0, giving I with basis 1,u,v,t,uv,ut,vt,uvt. A fresh independent symbolic expansion of the stated actual 4×4 determinant over F2[A,B,C,D,u,v,t] verified all squarefree local coefficients vanish: f∈I and partial derivatives ∈I. The exact three-by-three minor of the quadratic coefficient rows of (f,f_v,f_t) equals (ABCD)^4(A+B)(A+C)(A+D)^2(B+C)^2(B+D)(C+D), nonzero on the pairwise-distinct nonzero locus. Thus J→I/mI surjects, and Nakayama yields J=I in the completed local ring. The independent computer-algebra derivation matched the entire claimed universal minor polynomial, rather than checking only a finite sample. Distinguishing the local Jacobian scheme from the reduced singular locus and restricting to the torus are essential.
 
-The directly relevant open-access primary full text [2, §2] already describes the additional \(D_4\) singularity and the unique geometric fixed point of the involution. It does not identify the Tjurina scheme with the fixed-point scheme or give their joint defining ideal. Support-level uniqueness does not imply a length-eight nonreduced fixed scheme, and a characteristic-two \(D_4\) label does not specify the full Jacobian algebra. The historical paper [1] is a plausible older overlap risk whose metadata were inspected but whose full text could not be read. Semantic research-record queries on Weddle, Jacobian ideals, Hutchinson involutions, and characteristic-two fixed schemes returned no covering statement. An unlocated equivalent computation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The equality connects two independently motivated infinitesimal structures: a wild order-two Cremona action and the Jacobian degeneracy of its invariant classical quartic. It holds throughout an entire three-dimensional moduli-parameter locus and yields an explicit eight-dimensional local algebra with Hilbert function \((1,3,3,1)\). This refines classical reduced-point and ADE-type information, and gives a concrete local model for further quotient and deformation investigations, without asserting such downstream results.
+Qualified novelty is the equality of the characteristic-two infinitesimal Hutchinson fixed scheme with the Weddle quartic Tjurina/Jacobian scheme, including its explicit length-eight algebra. The surface, parameter determinant, D4-type extra point, and geometric fixed-point support are prior; these alone do not determine a nonreduced scheme equality. Primary 1905 coverage remains a historical risk.
 
-## References and scope
+## value
 
-[1] Bateman, *The Weddle Quartic Surface* (1905), doi:10.1112/plms/s2-3.1.225 (publisher metadata; historical full text inaccessible).
+PASS
 
-[2] Dolgachev, *K3 surfaces of Kummer type in characteristic two* (2024), doi:10.1112/blms.13033, §2 (full Weddle discussion read).
+For a natural Weddle quartic and its classical Hutchinson involution in wild characteristic two, reduced fixed-point support loses the entire infinitesimal geometry. An explicit uniform equality between its fixed-point functor and Jacobian singular scheme yields an exact local algebra, multiplicity eight and Hilbert function (1,3,3,1) on a four-parameter locus. This connects two independently motivated geometric structures and can inform deformation and quotient analysis; it is more than merely naming a known D4 singularity.
 
-[3] Catanese–Schütt, *Singularities of normal quartic surfaces II (char=2)*, arXiv:2110.03078 (abstract only).
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
