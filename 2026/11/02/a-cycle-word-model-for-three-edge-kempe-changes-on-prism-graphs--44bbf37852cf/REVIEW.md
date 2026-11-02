@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Integrating the Klein-four edge-flow on the sphere gives a bijective parametrization of all proper named three-edge-colourings. Classifying the alternating cycles by complementary side-face runs proves equality of the complete move relations, including the unique even exceptional leaf. Explicit five-word witnesses extend by prefix padding. The published triangle-exclusion theorem establishes the matching lower bound on odd girth. Exhaustive direct/word adjacency comparison through rim size twelve and padded-witness tests through size sixty both passed; the proof is general, not an extrapolation.
+
+**Originality (PASS; qualified).** In the most relevant full-text primary paper, Belcastro and Haas (2017, p. 213), the exact form of the ordinary prism's vertex-fixed Kempe graph is noted as hard to prove; its actual computation addresses the distinct crossed prism. Their general triangle-free theorem covers the lower bound on odd girth but not the explicit five-cycle witnesses or this full ordinary-prism isomorphism. The 2012 connectivity theorem and existing numerical prism degree laws are credited and excluded from novelty; neither fixes the labelled adjacency relation. Graph-oriented dataset tables for class counts may have overlapping numerical consequences, but a stored unindexed adjacency classification is an acknowledged residual possibility. Relevant mathematical research records were searched under prism, cyclic-word, face-potential, and edge-Kempe aliases without finding a stronger covering theorem.
+
+**Value (PASS).** This is a complete, all-size graph-isomorphism description for an object whose exact structure was explicitly highlighted as a gap in published research. It converts an edge-colouring dynamics problem into local word substitutions and reveals odd cycles even in the edge-Kempe graphs of bipartite prisms; the latter is a qualitative phenomenon beyond previously known state/degree counts. No unproven extension to broader families is claimed.
+
+**Limitations.** Historical priority cannot be fully certified from indexed sources, and no independent validation has been performed. The precise scope is the ordinary prism, fixed named three-edge colours and full alternating-cycle switches.
+
+Self-review: passed. Independent audit: not yet performed.
