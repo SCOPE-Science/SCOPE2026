@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:07:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Distinguished the purely combinatorial quantifier (for every ordered triple of unordered nonempty three-block partitions, existence of pairwise-disjoint transversal) from the valuation-space implication (failure of MMS forces every chosen MMS partition triple to be exceptional, not that an exceptional triple suffices for every arbitrary valuation profile). For five goods, partition types are (3,1,1) and (2,2,1). Reconstructed the case split by singleton coincidences, Hall's theorem when three singleton choices can be distinct, and the unique residual matchings-on-four argument. Independently implemented the exact set-partition enumeration using surjection-generated frozensets, not the supplied bitmask source: 25 three-partitions, 15,625 ordered triples, exactly 30 lacking a transversal; equivalence with the stated common-singleton/three-matching normal form holds for every triple, and all 6^3 four-good triples admit a transversal. For the explicit binary monotone valuation, the common good or complete pair in each agent's private matching has value one; disjoint matching pairs of distinct matchings intersect, so no exact MMS allocation. Sharpness extends to <=4 goods with nonnegative monotone valuations. The census is exhaustive after proved finite reduction, not extrapolation of a partial sample. Not a classification of all valuation functions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feige Theorem 1 gives n+Theta(log n) monotone feasibility bounds, not a local uniqueness census.",
+          "Feige–Sapir–Tauber Theorem 2 says additive valuations always MMS-feasible for m<=n+5, in a stricter valuation class."
+        ],
+        "reasoning": "A general hypergraph reduction is strong context but does not explicitly imply the 30-case structural classification without small-instance combinatorics; additive feasibility does not cover arbitrary monotone nonadditive failure.",
+        "searches": [
+          "Feige arXiv:2610.06125 Theorem 1 and Appendix B",
+          "Feige Sapir Tauber arXiv:2104.04977 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Feige arXiv:2610.06125 full 25-page paper, Appendix B Questions 21–24",
+        "Feige–Sapir–Tauber arXiv:2104.04977 full primary sections 1–2",
+        "Resultary exact matching-query search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Feige 2026 establishes matching interpretation and known counterexamples, but not uniqueness of every five-good obstruction.",
+          "Feige–Sapir–Tauber 2021 precludes additive five-good counterexamples but leaves general monotone valuation functions free."
+        ],
+        "reasoning": "The known example/threshold is prior and should not independently count for O. The novelty candidate is exact necessary-and-sufficient partition-triple pattern, exact 30 certificates and one orbit, not stated by inspected stronger results.",
+        "searches": [
+          "arXiv:2610.06125 2026 Questions 21–23 and Theorem 1",
+          "arXiv:2104.04977 2021 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feige 2026, On MMS allocations with few items, Section 1, matching formulation and Appendix B Questions 21–24, materially read.",
+          "All 15,625 partition triples independently classified; explicit matchings-on-four normal form."
+        ],
+        "reasoning": "The rainbow matching reduction is in prior work; the exact iff classification and count of all minimal five-good certificates are distinct from the previously published existence bounds or example.",
+        "searches": [
+          "three agents five goods maximin share partitions disjoint rainbow transversal common singleton three perfect matchings classification",
+          "Feige 2026 MMS few items rainbow matching hypergraph arXiv:2610.06125",
+          "3 agents 5 goods matching singleton 4-cycle rainbow transversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated allocation lotteries/serial dictatorship profiles, not a five-good MMS partition census.",
+          "The 2026 primary 25-page PDF contains no dedicated 30-case five-good table in inspected theorems and appendix."
+        ],
+        "reasoning": "No matching indexed exact table identified; this is limited evidence only. A small hypergraph matching theorem outside searched records could imply the same obstruction.",
+        "searches": [
+          "three agents five goods maximin share partitions disjoint rainbow transversal common singleton three perfect matchings classification",
+          "Resultary semantic search of exact 30 5-good MMS partition triples",
+          "Feige few items five goods all matching obstruction"
+        ]
+      },
+      "rationale": "PASS, qualified best-of-knowledge. Feige (arXiv:2610.06125) already supplies general monotone MMS counterexamples and frames the problem as a rainbow matching in an n-colored hypergraph; consequently neither existence of a five-good failure nor the generic matching reduction is claimed as new. The inspected 25-page primary work and its appendix questions about rainbow matchings do not give this all-15,625-triples iff obstruction, the exact count 30, or the single symmetry orbit. Feige–Sapir–Tauber (arXiv:2104.04977) works with additive valuations and proves existence through m<=n+5 in that narrower category, compatible with this nonadditive witness. Prior small-hypergraph rainbow matching lemmas or unindexed enumeration could overlap and are recorded as risks. Negative searches alone do not establish priority.",
+      "residual_risks": [
+        "No claim that all valuation triples realizing the forbidden partitions necessarily have MMS failure; it is a necessary certificate, not sufficient for arbitrary valuations.",
+        "The existence and five-good lower-bound example already follows from published Feige 2026 construction; not treated as new.",
+        "Unindexed small hypergraph rainbow-matching classification could have covered the exact 30-case normal form earlier."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_CONSTRUCTION_NOT_ALL_TRIPLES_CLASSIFICATION",
+          "evidence": [
+            "Feige 2026 explicitly introduces hypergraph rainbow matchings and asymptotic monotone MMS feasibility, not a 30-certificate classification"
+          ],
+          "identifier_or_url": "arXiv:2610.06125v1",
+          "material_read": "entire 25-page primary PDF accessible; abstract, counterexample construction, main theorems, matching reduction and Appendix B Questions 21–24 materially read",
+          "method": "PDF text, targeted text search, screenshot of Appendix B page 22",
+          "title": "On MMS allocations with few items",
+          "trigger": "same agents/goods and rainbow-matching prior result"
+        },
+        {
+          "assessment": "STRICTLY_NARROWER_ADDITIVE_VALUATIONS",
+          "evidence": [
+            "Feige–Sapir–Tauber 2021 prove additive MMS for m<=n+5, compatible with a general monotone nonadditive witness"
+          ],
+          "identifier_or_url": "arXiv:2104.04977v2",
+          "material_read": "full PDF accessible; abstract and Theorems 1–3 and scope of additive valuations materially read",
+          "method": "PDF extracted text and screenshot of theorem page",
+          "title": "A tight negative example for MMS fair allocations",
+          "trigger": "potential stronger no-MMS threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. This is a complete structural classification of the first naturally small three-agent monotone-MMS obstruction, not a new isolated counterexample or arbitrary finite slice. The precise forbidden partition configuration, labeled census and unique relabeling orbit are mathematically meaningful refinements that can diagnose which restricted valuation classes avoid it. It makes the known minimal counterexample necessary at the level of MMS partition certificates and carefully avoids a false converse for arbitrary valuations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim that all valuation triples realizing the forbidden partitions necessarily have MMS failure; it is a necessary certificate, not sufficient for arbitrary valuations.",
+    "The existence and five-good lower-bound example already follows from published Feige 2026 construction; not treated as new.",
+    "Unindexed small hypergraph rainbow-matching classification could have covered the exact 30-case normal form earlier."
+  ],
+  "schema_version": 1
+}
