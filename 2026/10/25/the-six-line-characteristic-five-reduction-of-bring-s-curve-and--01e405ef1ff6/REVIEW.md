@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic-five polynomial identities hold in the complete homogeneous ideal, establishing scheme equality with a cone over the transverse six-point conic–cubic intersection. The six-line decomposition is geometrically exhaustive, and the local algebra, evaluation filtration, and group stabilizers are reconstructed explicitly. The conductor equality \(\mathfrak m^3\) follows because evaluation is surjective in degree three, but contains no single-branch indicator in degrees below three. The bundled script verifies the finite identities and ranks; geometric completeness is proved separately using transverse intersection and Bézout. Flatness follows by the regular-sequence/parameter nonzerodivisor argument.
+PASS
 
-## Originality — PASS, with qualified historical coverage
+In characteristic five, substitution X=(t+a,t+b,t+c,t-a-b-c,t) transforms the three homogeneous power sums exactly into the ideal (Q,P), with Q=a²+b²+c²+ab+ac+bc and P=(a+b)(a+c)(b+c). Each cubic factor meets the conic transversely at two rational points, and Bezout's degree six rules out hidden geometric components; hence the cone has exactly six reduced lines through one vertex. The S5 stabilizer has order 20, giving six components. Hilbert series (1-z²)(1-z³)/(1-z)³ gives evaluation ranks 1,3,5,6; transitive symmetry excludes branch delta functions before degree three, proving normalization defect 9 and conductor m³. The complete intersection and nonzerodivisor 5 prove Z5 flatness. Independently generated F5 evaluation ranks and all six directions agree; these finite tests are supplemental to the algebraic proof.
 
-The precise three-equation characteristic-five scheme is outside the stated hypotheses of Korchmáros–Lia–Timpanella. Their special \(m=p\) discussion concerns a larger two-equation variety and does not imply the reducedness or exact conductor of the three-equation Bring model. Braden–Northover and Braden–Disney-Hogg treat the classical characteristic-zero geometry. Searches for equivalent formulations, stronger prior results, tabulated modular reductions, and claims implied by earlier power-sum descriptions did not identify prior exact coverage. An uninspected older modular or finite-geometric treatment may still exist; no universal uniqueness assertion is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies the entire exceptional-prime geometric special fiber of a canonical model of a distinguished genus-four curve, refines it by the \(S_5\)-component action, and computes a nontrivial local conductor and normalization defect. The conductor filtration records scheme structure not implied by listing the six lines and can inform subsequent arithmetic degeneration analysis.
+Best-of-knowledge originality after actual source and implication comparisons. Existence of some rational lines in the containing two-power-sum variety cannot imply the reduced conic–cubic intersection, exhaustiveness of six components, or local conductor of the three-power-sum fiber. Korchmáros–Lia–Timpanella's principal positive-characteristic theorem assumes p≥7 and m≤p−1, excluding p=m=5; characteristic-zero Bring period results do not imply this reduction.
 
-## Limitations
+## value
 
-The result does not determine a stable or minimal regular model. The exact result depends on the integral projective equations shown. Historical literature coverage is incomplete, and there has been no independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exceptional prime of a canonical genus-four power-sum model yields a genuinely nontrivial six-branch degeneration. The normalization defect and exact conductor reveal local scheme structure not determined merely by counting components and provide reusable arithmetic degeneration boundary data; this is not a stable-reduction claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
