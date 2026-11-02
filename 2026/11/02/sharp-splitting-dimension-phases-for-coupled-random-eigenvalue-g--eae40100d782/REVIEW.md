@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The claim follows from the exact rationalized eigenvalue-level kernel, an integrable/nonintegrable radial moment trichotomy, and the fourth-centered-moment expansion. The critical logarithmic constants are fixed by the angular area and the density at zero. The variance phase uses an essential subtraction of squared means for dimensions one and two and genuine \(L^2\) convergence thereafter. The kurtosis phase uses the correctly centered fourth moment; \(L^4\) convergence only starts above dimension four. The unbiased sample-variance formula is exact, yielding necessary *and* sufficient sample budgets. An independently implemented pure-Python reproduction of the finite rational identities and quadrature constants passed. The argument covers every bounded compactly supported density continuous and positive at zero, rather than relying on those tests.
+
+## Originality — PASS with residual priority risk
+
+The March 2026 symmetry/eigenfrequency article gives the motivation and the exact spectral-degeneracy setting but neither introduces this common-random-number regularization model nor computes its level moments. The 2024 MLMC eigenvalue article analyzes bias, variance, and cost for stochastic convection–diffusion eigenproblems, not the splitting-dimension transitions or kurtosis-based necessary sample counts. The 2022/2023 stochastic eigenspace article documents loss of individual-mode smoothness near crossing but not these sharp correction laws. Dölz and Ebert (preprint 2022, SIAM 2024) provide perturbation theory, sample alignment and Monte Carlo mean/covariance comparisons for multiple eigenvalues, but no coupled gap-scale fourth-moment classification or necessary variance-estimation sample budgets. Searches of published mathematical finding records for the normal form, splitting dimension, multilevel correction, and fourth moments found no equivalent claim. The closest semantic hits concerned unrelated spectral-spacing limits or kurtosis distributions, neither implying the stated eigenvalue correction theorem. General Mellin/Tauberian and radial singular-integral methods are classical, and a previously unnoticed theorem covering this concrete combination remains possible. The work does not claim those general tools as new.
+
+## Mathematical value — PASS
+
+The five-regime fourth-moment classification reveals a sampling-cost barrier invisible in the absolute mean-square rate. For the same local spectral normal form, variance can decrease rapidly while its standard empirical estimator becomes increasingly unstable: the two-splitting-coordinate case requires \(N_h\gg h^{-2}/\log(1/h)^2\), versus \(N_h\gg h^{-1}\) in one or three coordinates. The exact necessity and sufficiency gives a concrete sampling-budget design rule. The trace-square comparison also shows why working with smooth spectral invariants can eliminate the difficulty entirely in the model. This is a complete natural classification, not a mere finite numerical observation, although its scope is restricted to an explicitly stated local Hermitian model.
+
+## Boundaries and literature risk
+
+The gap scale is not presumed to equal a finite-element meshwidth, and the results are not asserted for nonlinear eigenproblems or nonidentical sample coupling. Sun and Khandelwal (2026), Cui et al. (2024), and Grubišić et al. (2022) were inspected in accessible full-text HTML, and Dölz and Ebert (2022/2024) in the arXiv full text (especially perturbation theory, Section 3 Monte Carlo discussion, and Sections 4–6). Potential older equivalents through general singular-kernel asymptotics and probabilistic regular variation cannot be excluded. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
