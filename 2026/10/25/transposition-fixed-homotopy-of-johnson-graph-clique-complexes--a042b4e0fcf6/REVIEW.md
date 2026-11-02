@@ -1,19 +1,21 @@
-# Scientific review of transposition-fixed Johnson clique complexes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The result is formulated for inclusive scale one, integers \(n\ge6\), \(3\le k\le n-3\), and the literal geometric fixed space of a specified involution. The orbit model explicitly includes barycenters of switched adjacent vertex pairs; using only pointwise-fixed vertices would be incorrect. A pairwise Johnson-adjacency analysis isolates two smaller Johnson clique complexes and exactly \(\binom{n-2}{k-1}\) paths joining them. A self-contained reduction shows each smaller Johnson complex is simply connected and collapses to dimension two, with calculated integral second-homology rank. Standard Hurewicz and Whitehead implications finish the homotopy classification. Independent finite mod-two chain computations verify the predictions in the encoded test range.
+PASS
 
-## Originality
+The original graph-metric Rips convention includes edges at distance one. An invariant simplex has barycentric coordinates constant on ground-set-transposition vertex orbits; singleton A_P, singleton D_Q and paired C_S orbits give an honest geometric fixed orbit complex, not merely the fixed-vertex subcomplex. Distinct C_S are incompatible, and every C_S is coned onto one star simplex in Cl(J(m,k)) and one top simplex in Cl(J(m,k-2)); replacement by N=C(m,k-1) bridges yields N-1 fundamental circles. The smaller Johnson complexes collapse by unique maximal-star/top ownership of triangles to simply connected two-complexes with V=C(m,j), E=j(m-j)V/2 and T=C(m,j-1)C(m-j,2)+C(m,j+1)C(j,2), so Hurewicz and Whitehead give wedges of b(m,j) two-spheres including j=1,m-1 simplex boundaries. An independently coded orbit-complex chain construction yields reduced F2 Betti vectors (0,5,0) at (6,3), (0,9,4) at (7,3), (0,19,20) at (8,4), and (0,34,75) at (9,4), with no other reduced homology. These finite checks corroborate but do not replace the all-parameter collapse and homotopy proof.
 
-PASS with residual literature uncertainty. Shuldiner–Oldford's original full text identifies Johnson cliques, Goyal–Shukla–Singh's full text studies line-graph clique-complex homotopy, and the full public 2026 Johnson sphere-wedge result classifies the ambient nonequivariant spaces. None of these establishes the transposition-fixed geometric homotopy types. An ambient symmetry-character calculation, including earlier known Johnson homology representations, only determines Lefschetz traces and does not imply the fixed fundamental group. Direct searches of scientific-result records and public literature under transposition, involution, orbit, fixed simplicial subcomplex, flag complex, and hypersimplex formulations found no covering theorem. An unindexed equivalent fixed-space theorem remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The main contribution is the uniform, exact *geometric fixed-space* homotopy classification for a natural involution throughout an infinite two-parameter family. The large free fundamental group, such as rank five in the smallest case and rank nineteen at \((n,k)=(8,4)\), contrasts sharply with the simply connected ambient complexes. The circle/sphere split is not recoverable from the known nonequivariant Betti numbers or ambient character, and is useful in equivariant topological investigations of Johnson and hypersimplex structures.
+The decisive invariant is the geometric fixed-point homotopy type, whose freely generated first homotopy is not determined by the established ordinary Johnson clique-complex wedge theorem or by a graph clique classification. Verified historical works cover the star/top combinatorics and ambient ordinary homotopy; no inspected statement implies the fixed-point orbit-bridge decomposition.
 
-## Scope and limitations
+## value
 
-The statement is confined to one transposition at scale one. No classification for arbitrary permutation subgroups or integral representation structure is asserted. Computational checks are finite and mod two, not independent certification of the universal proof. Closest relevant sources: arXiv:2009.12130, arXiv:2208.12710, and the publicly available 2026 Johnson sphere-wedge result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The entire fixed-space integral homotopy classification for a natural transposition across an infinite family is a motivated equivariant-topology refinement. A simply connected ambient two-sphere wedge acquires a fixed space with large free fundamental group; this distinguishes the geometric action beyond the homology of the ambient complex, and supplies reusable orbit-complex techniques.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
