@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The syndrome map enumerates every nonzero vector in \(\mathbb F_p^r\) exactly once from the \(4n\) elementary shift errors. Because paired columns are collinear, symplectic check orthogonality is automatic; the projective matrix has rank \(r\). Distinct one-error syndromes exclude any Lee-weight-two zero syndrome, and the local \(XZ^2\) witness is an undetectable non-stabilizer of Lee weight three. The parity obstruction counts opposite-sign orbits on each projective line. The complete algebraic proof works for all permitted parameters. The standalone exact checker passed five representative parameter sets.
+
+**Originality — PASS, subject to literature-access risk.** Guo et al. (2026) present the joint-Lee bound, an isolated \([[6,4,3_{\diamond}]]_5\) example and other metric-specific families, but not the projective all-rank construction or the collinear-class congruence condition. Matsumoto (2021) uses CSS codes with separate error-component Lee weights. Classical Golomb–Welch tilings and Hamming parity checks furnish the syndrome-counting precursor, but do not automatically satisfy the stabilizer symplectic equation. Targeted literature and mathematical-record comparisons found no stronger equivalent theorem. The 1970 original full text was not obtained, and unpublished or unindexed analogous constructions remain possible.
+
+**Value — PASS.** The construction produces a perfect joint-Lee quantum code at arbitrarily large redundancy for each admissible prime, rather than another finite parameter row. The prime congruence obstruction is exact within a geometrically defined natural class of termwise-commuting checks. It supplies a structural extension of the first Lee-metric perfect-code examples; no ordinary Hamming-distance or fault-tolerance advantage is inferred.
+
+**Scientific limits.** All conclusions are in the specified joint Lee metric and local Pauli frame. The negative congruence statement does not exclude general noncollinear stabilizers. No efficient physical implementation, decoding complexity theorem, or newness of the already-known small parameters is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
