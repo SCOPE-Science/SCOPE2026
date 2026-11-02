@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite family is completely specified by domination and element-deletion tests, with independent exact transversal generation. The eleven-vertex path has 36 distinct minimal dominators. A four-point VC certificate realizes all 16 traces; each of the 462 five-point traces misses at least one of its 32 labels. A complete 32-leaf depth-five adaptive certificate gives the lower bound; the 36-hypothesis count gives the upper bound. Exact computation through ten vertices shows no earlier VC–Littlestone disparity. For disjoint unions, the standard product decomposition and an inductive split argument prove additivity of both dimensions for arbitrary component count. Computational evidence is used only for the fully exhausted eleven-vertex base and smaller paths.
+## correctness
 
-## Originality
-PASS under the inspected-source and accessible-record comparisons, with residual historical-priority uncertainty. Mofidi's arXiv:2212.04570 analyzes dominating-graph median/partial-cube structure and includes component factorization, not the 36-concept shattering calculation. Guingona et al.'s arXiv:2109.04805 establishes equal VC and Littlestone dimensions for linear zero-set systems, not minimal dominating sets. Mary's arXiv:2407.00694 concerns enumeration given bounded VC dimension of the input hypergraph, not the adaptive dimension of its minimal transversals; its abstract, not the complete manuscript, was inspected. A fixed-cardinality matching example is a different edge-membership concept system and does not entail the values for inclusion-minimal dominating sets of the eleven-vertex path. Similar unpublished finite classifications may remain undiscovered.
+PASS
 
-## Value
-PASS. Inclusion-minimal dominating sets are a canonical transversal class; static versus adaptive shattering quantifies two different forms of membership-query complexity of its solution space. The smallest separating path is a naturally defined cutoff rather than an arbitrary graph chosen for its bit pattern. The exact base and additivity produce an unbounded quantitative separation within the highly restricted class of maximum-degree-two forests. No connected-family general formula or downstream complexity breakthrough is claimed.
+The concept domain is path vertices and hypotheses are all inclusion-minimal dominating sets, not only minimum-cardinality sets. Reconstructed the private-neighbor criterion, independently enumerated all masks and computed VC dimension through all shattering trace projections and Littlestone dimension by exact adaptive-split recurrence for n=1..11. Values for n=1..10 coincide, and n=11 has exactly 36 hypotheses, VCdim=4, Ldim=5. Independently decoded the actual attached certificates.json blob da3a9118dd7a49cfa5a26c3076b26f04920deb91: all 16 labels on zero-based {0,2,7,9} have valid minimal-dominator witnesses, and all 31 query nodes and 32 distinct leaves of the depth-five decision tree satisfy their path labels and minimal domination; checks returned no errors. All 462 possible 5-query subsets fail shattering, while 36<64 excludes depth six. For disjoint copies of P11, minimal dominating concept class is a product; VCdim and Ldim add on disjoint domains by trace/product and the standard minimax split induction, hence VC=4s,Ldim=5s for all positive s. Finite enumeration is exact for its bounded cases; the product lemma supplies the infinite extension.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the natural first connected-path VC/Littlestone separation threshold and its disjoint-union amplification. Compared full primary papers: Mofidi studies dominating-set reconfiguration geometry and product components; Guingona et al prove equality for zero sets of linear combinations, whose hypotheses are not the path minimal-dominator membership class. Mary studies VC properties of the input hypergraph for transversal enumeration, not adaptivity of all minimal transversals. A published SCOPE matching-edge example is a different incidence family and does not imply the present values. Older tabulations of learning dimensions for minimal transversals remain a risk.
+
+## value
+
+PASS
+
+PASS because inclusion-minimal dominating sets are a canonical combinatorial solution class, and static versus adaptive membership shattering are mathematically distinct learning dimensions. The smallest separating path P11 is a well-motivated exact finite cutoff, not an arbitrary slice, and the disjoint-union product yields an unbounded linear separation inside forests of degree at most two. The result does not need a general formula for larger connected paths to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
