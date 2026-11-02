@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "All k>=3 and ell>=2 are covered by exhaustive six-type cross-path conflict analysis. That analysis bounds strong clique sizes by k+1 and supplies matching cliques; length two is a complete conflict graph. At length four, a hypothesized (k+1)-coloring forces distinct missing colors and a same-branch distance-two collision. Explicit constructions cover length two, three, four, five and all >=6 with a valid three-periodic middle and boundary avoidance. Standalone code verified 464 constructions, exact chromatic numbers on 30 small instances, and clique sizes on 50, as corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cames van Batenburg et al. arXiv:1905.06031 Theorem 6 (full-text PDF) gives at most 3\\(\\Delta\\) for \\(K_4\\)-minor-free multigraphs.",
+        "Naprasit–Nakprasit DOI:10.1016/j.disc.2013.11.005 accessible abstract establishes upper bound 2\\(\\Delta\\) for subdivided multigraphs, but its full text was not accessed.",
+        "The planar large-girth equality theorem DOI:10.1016/j.dam.2018.03.075 requires \\(\\sigma(G)\\ge\\Delta+2\\), whereas here \\(\\sigma=\\Delta+1\\)."
+      ],
+      "reasoning": "The general 3Δ and 2Δ upper bounds are strictly weaker for lengths three and greater; neither supplies the exact k+1 / k+2 transition. The planar equality theorem has a failed essential hypothesis on this family. Any inaccessible stronger result is expressly retained as a publication-priority risk.",
+      "searches": [
+        "strong edge coloring theta graph branch degree Delta exact Delta+1 length four Delta+2",
+        "web: \"Strong chromatic index and Hadwiger number\" arxiv first submitted",
+        "web: Naprasit Nakprasit 2014 strong chromatic index graphs subdivisions pdf",
+        "web: exact strong chromatic index uniform theta graph Theta(k,3) Theta(k,4) Theta(k,5) subdivided parallel edges"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.06031 (primary full PDF inspected in relevant sections)",
+      "arXiv:1508.03515 (primary full PDF relevant theta section inspected)",
+      "DOI:10.1016/j.disc.2013.11.005 (abstract only)",
+      "DOI:10.1016/j.dam.2018.03.075 (public theorem text/hypothesis)",
+      "2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e1622d47 (published-finding corpus summary, different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DeOrsey et al. arXiv:1508.03515 Theorem 1.8 proves a sparse-subcubic bound of five colors, while its proof verifies only some specified three-path theta triples by computation.",
+        "Cames van Batenburg et al. arXiv:1905.06031 prove a general 3Δ upper bound for the enclosing minor-free class.",
+        "The local 2Δ subdivision bound is insufficient to infer the sharp strong clique number or the chromatic-only length-four obstruction."
+      ],
+      "reasoning": "The present theorem proves exact optimal color numbers for arbitrary branch number and every common length, plus strong clique numbers. None of the inspected stronger-looking bounds or specialized sparse arguments logically implies those exact conclusions. Potential uninspected work is a residual risk.",
+      "searches": [
+        "strong chromatic index of generalized theta graph with k internally disjoint equal length paths between two hubs length 3 length 4 and length at least 5",
+        "strong edge coloring theta graph branch degree Delta exact Delta+1 length four Delta+2",
+        "uniform generalized theta graph k >= 3 equal length L strong chromatic index 2k for length two, k+2 for length four, k+1 other lengths",
+        "strong edge coloring subdivided parallel edges K_{2,k} theta graph chi'_s Delta+1 exception length four",
+        "web: \"strong edge coloring\" \"theta graphs\" degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A strong edge coloring is exactly a vertex coloring of the squared line graph; the searched equivalent is \\(\\chi(L(\\Theta)^2)\\).",
+        "published-finding corpus nearest ID 2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e1622d47 studies squares of the ORIGINAL theta graph, not squares of its LINE graph.",
+        "DeOrsey et al. arXiv:1508.03515 PDF pages 11–12 discuss individual theta-length triples only in a different sparse-bound proof."
+      ],
+      "reasoning": "The coloring of the vertex square and that of the squared line graph have different ground sets and adjacency relations. Selected 3-path theta subcases in a general upper-bound argument neither imply the exact uniform all-branch formula nor the strong clique chromatic discrepancy.",
+      "searches": [
+        "strong chromatic index of generalized theta graph with k internally disjoint equal length paths between two hubs length 3 length 4 and length at least 5",
+        "square of line graph uniform theta k parallel paths chromatic clique number gap 1 length four",
+        "web: \"strong chromatic index\" \"theta\" \"k+2\"",
+        "web: \"strong chromatic index\" \"internally disjoint paths\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact indexed published-finding corpus statement for the strong index of uniform k-branch theta graphs appeared among the relevant returned hits.",
+        "Related indexed 3-path theta record addresses square chromatic number of vertex graph, not squared line graph.",
+        "No table enumerating the present strong index and clique-gap parameter pair was surfaced by these searches."
+      ],
+      "reasoning": "The searches cover both parameter formulas and the likely square-of-line-graph encoding. This is a negative bounded comparison only, not a completeness or priority certificate.",
+      "searches": [
+        "uniform generalized theta graph k >= 3 equal length L strong chromatic index 2k for length two, k+2 for length four, k+1 other lengths",
+        "square of line graph uniform theta k parallel paths chromatic clique number gap 1 length four",
+        "web: \"strong chromatic index\" \"theta\" graph",
+        "web: \"strong chromatic index\" \"theta\" \"paths\" edge coloring formula"
+      ]
+    },
+    "rationale": "A bounded review of published-finding corpus and published primary works found general 2Δ/3Δ bounds, sparse subcubic special cases, and a distinct theta vertex-square result, but no implication of the exact two-parameter formula or the chromatic-vs-clique length-four gap. Full-text access to an older subdivision article was unavailable, so publication priority remains provisional.",
+    "residual_risks": [
+      "Unindexed publications could independently contain all or part of the classification.",
+      "Naprasit–Nakprasit 2014 full text was not available for direct comparison; substantive coverage beyond the abstract remains uncertain.",
+      "Some other strong edge-coloring results on theta graph subdivisions may not be discoverable by the searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_WEAKER_NOT_COVERING",
+        "evidence": [
+          "Theorem 6 gives at most 3Δ for K4-minor-free multigraphs; no uniform-theta exact formula or k+1 vs k+2 transition located."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.06031",
+        "material_read": "Accessible 23-page arXiv PDF; abstract, introduction, exact Theorems 2/6/7/9 and Section 6 proof, searched for theta and subdivision; page image also inspected.",
+        "method": "Primary PDF text with page-image confirmation and within-document searches",
+        "title": "Strong chromatic index and Hadwiger number",
+        "trigger": "General minor-free strong coloring bound for the series-parallel theta family"
+      },
+      {
+        "assessment": "SELECTED_THETA_CASES_NOT_GENERAL_CLASSIFICATION",
+        "evidence": [
+          "The proof explicitly enumerates seven unequal-length theta triples with strong five-colorings under a sparse-bound hypothesis; the theorem gives a five-color upper bound, not exact arbitrary-k values."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.03515",
+        "material_read": "Accessible 15-page PDF; introduction and girth conditions, relevant theta passage on pages 11–12 and figure on page 4; within-PDF search for theta glyph; page images examined.",
+        "method": "Primary PDF text and screenshots of relevant pages",
+        "title": "On the Strong Chromatic Index of Sparse Graphs",
+        "trigger": "Subcubic theta configurations appear in sharp sparse-graph proofs"
+      },
+      {
+        "assessment": "ABSTRACT_BOUND_WEAKER_FULL_TEXT_UNREAD",
+        "evidence": [
+          "The abstract states a 2Δ upper bound for subdivisions, which cannot imply the sharp Δ+1/Δ+2 formulas by itself. Full-text risk remains."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2013.11.005",
+        "material_read": "Accessible abstract and bibliographic record only; Lawful open full-text retrieval attempts were unsuccessful; the entire paper could not be read.",
+        "method": "Publisher/abstract and bibliographic descriptions, bounded open-access attempts",
+        "title": "The strong chromatic index of graphs and subdivisions",
+        "trigger": "Could cover many subdivisions of the parallel-edge base multigraph"
+      },
+      {
+        "assessment": "HYPOTHESIS_INAPPLICABLE",
+        "evidence": [
+          "Equality theorem requires σ(G)≥Δ+2; for the uniform theta family σ=Δ+1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.03.075",
+        "material_read": "Accessible article introduction and theorem hypothesis/proof summary as served by scholarly search result.",
+        "method": "Publisher text result and hypothesis comparison",
+        "title": "On the precise value of the strong chromatic index of a planar graph with a large girth",
+        "trigger": "Potential theorem equating strong index and the local degree-sum lower bound"
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_CONSTRUCTION",
+        "evidence": [
+          "Their Θ(G) is an auxiliary graph of a partial cube and does not denote k internally disjoint paths between two hubs."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-093-ars-articles/theta-graphs-of-partial-cubes-and-strong-edge-colorings/",
+        "material_read": "Accessible abstract and definition of a different theta graph operation; no proof or full paper inspected.",
+        "method": "Publisher abstract and object-definition disambiguation",
+        "title": "Theta-graphs of partial cubes and strong edge colorings",
+        "trigger": "Title ambiguity using the word theta"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9583a8b5-e679-46d9-a7f5-a6065add313c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact infinite two-parameter classification identifies a uniform series-parallel family with χ(L(G)^2)>ω(L(G)^2) precisely at one arm length, by exactly one color. It also proves an unbounded drop 2k to k+1 under a natural subdivision and sharp stabilization for all larger lengths; these are structural rather than isolated computational facts.",
+    "status": "PASS"
+  }
+}
