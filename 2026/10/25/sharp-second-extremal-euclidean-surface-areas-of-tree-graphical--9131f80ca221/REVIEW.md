@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The incidence columns of any tree are independent, and Cauchy–Binet counts exactly the nonzero maximal forest minors after one edge deletion. Each such minor omits one row in each component, yielding precisely the product of component orders. The cut-product formula gives strict lower bounds for nonstars. A strict branch transfer replaces each affected split of order \(s\) by \(s+a\), with \(n>2s+a\), so it strictly increases the area and lowers the leaf count. The two arm-transfer identities then uniquely identify the best nonpath tripod. The paired gaps coincide by the symmetry \(f_n(k)=f_n(n-k)\). The small-order checker tests the exact Gram identities and extremal classes, but the claims are established analytically for all \(n\ge4\).
+PASS
 
-## Originality
+Read complete RESULT.md blob 70b9bd7ba9fd951286c7c6f8489f4d2d91da43d4 and verifier source. Oriented tree incidence columns form independent generators of an intrinsic parallelotope. Cauchy–Binet counts n nonzero full minors, giving volume sqrt n; deleting an edge yields forest components of a,n−a, with exactly a(n−a) nonzero maximal minors and two facets of area sqrt(a(n−a)). This supplies exact surface formula. Every split has sqrt(k(n−k))≥sqrt(n−1), equality only pendant; star is unique minimum. Nonstar must contain ≥1 interior edge with k in [2,n−2], causing gap ≥2(sqrt(2(n−2))−sqrt(n−1)), uniquely attained by subdivided star. Strict transfer of smallest branch from degree≥3 vertex to a leaf of another branch increases every changed split product since n>2s+a, reduces leaf count, and eventually reaches a path; equality is strict except tree already path. Among three-leaf tripods, transferring edges from short to long arms strictly increases sum until arms (1,1,n−3), giving unique near-maximum B−Δ. Integral of sqrt(x(1−x)) yields ratio ~πsqrt(n)/8. Independent Prüfer tree enumeration through n=6 confirmed both nearest gap extrema; no inference of all n from enumeration.
 
-**PASS, qualified.** The facet-area identity alone is subsumed by standard forest Gram-minor/intrinsic-volume principles and is not claimed as new. The actual assessed claim is the sharp first and second geometric extremal shells, rigid near-extremizers and *identical* extreme gaps. The closest same-family mathematical result treats directional-width variance and has the opposite star/path direction, not hypersurface measure. The 2019 tree-split work treats leaf-split statistics and fixed degree sequences; the graph-zonotope deformation source treats normal fans, not these second-shell boundaries. Relevant primary full texts and the published same-family mathematical result were inspected. Unknown equivalent formulations in generalized vertex-split indices remain a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The second-extremal classification is a natural, exact geometric stability threshold: among combinatorially identical zonotopes with identical \((n-1)\)-volume and mean width, the boundary hypersurface measure distinguishes both ends, identifies the nearest shapes, and exhibits an unexpected equality of their exact gaps. The divergent path/star surface ratio demonstrates the growing metric distinction; this is more than a restatement of the determinant formula.
+Best-of-knowledge PASS: incidence Gram-minor surface formula itself is standard and credited, while published width-variance result concerns a distinct directional statistic even though for same trees it reverses the star/path order. General graph-zonotope deformation literature and phylogenetic leaf-split indices do not state these rigid vertex-split second extrema in the material inspected. A general split-functional theorem might nevertheless imply the arm transfer and remains a residual risk.
 
-## Limitations
+## value
 
-All claims concern unweighted tree graphical zonotopes in the canonical intrinsic Euclidean embedding, not arbitrary graph families or weighted deformations. The direct area formula is already implied by standard incidence-matrix geometry. Further comparison with poorly indexed general split-size extremal results could affect novelty. No independent review was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Graphical zonotopes of trees are combinatorially cubes with exactly the same intrinsic volume yet markedly different Euclidean boundary measure. The exact first and second metric extremal shells identify nearest competitors and a surprising equality of two gaps. This supplies natural geometric stability data for an important family rather than merely reapplying the known forest Gram identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
