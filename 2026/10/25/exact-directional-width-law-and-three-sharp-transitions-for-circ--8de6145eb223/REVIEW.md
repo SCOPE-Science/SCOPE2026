@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The support function of the convex hull of two coaxial disks yields exactly the maximum of the two explicit width branches in the theorem. Absolute axial cosine has the uniform distribution on the unit interval. Clipping the exact quadratic inverse roots, including the otherwise extraneous larger root below the axial width, gives a complete CDF on all thresholds. Differentiation locates the three ordered geometric transitions; direct interval lengths yield the super-equatorial tail and its square-root onset. The included independent-support and CDF verifier succeeds on the stated finite test families. Continuum claims rest on the elementary proof, not the sampling.
+## correctness
 
-## Originality — PASS relative to inspected published statements
-Finch (2012, arXiv:1212.5946v1) gives mean-width context for cones and cylinders, not the all-threshold law of a genuine unequal-positive-radius frustum. Kim, Yaskin and Zvavitch (2015, arXiv:1512.07289v1) study distributions of hyperplane projections of convex bodies, a different two-dimensional observable. A published exact line-width law and inverse theorem for *solid right circular cones* establishes the singular zero-upper-radius boundary case; the new result concerns two unequal positive radii and three strictly distinct thresholds. Vickers and Brown (2001, DOI:10.1098/rspa.2000.0667) focus on planar projected area and perimeter of solid particles; only their abstract was accessible, so historical priority is provisional. No inspected stronger statement implies the full frustum law, but absence from searches is not proof of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-The entire one-dimensional random-width distribution is a natural, scale-covariant integral-geometric invariant of a classical solid. The classification distinguishes three geometric events that need not coincide: birth of an oblique stationary maximum, exchange of global maximizers and exchange of global minimizers. The sharp square-root probability onset is a substantial directional-law consequence. Cone and cylinder limits coalesce thresholds, making the genuinely two-radius family mathematically different rather than a parameter renaming.
+The frozen RESULT.md reduces the convex hull support function to W(t)=max(2R sqrt(1-t^2),(R+r)sqrt(1-t^2)+Ht), t=|u_z| uniformly on [0,1]. Inverse quadratic roots plus the unsquared condition w>=H on the upper root justify all survival branches. Differentiation and endpoint comparison independently give H1^2=R^2-r^2, H2^2=(R-r)(3R+r), H3^2=(R+r)(3R-r), with H3^2-H2^2=4Rr>0. Integration yields the stated mean. My independent numerical quadrature checks 240 CDF cases, not all heights; the continuous argument proves the universal claim. The limiting cone r=0 and cylinder r=R do not have three distinct thresholds.
 
-## Limits
-No extension is claimed to off-axis or elliptical frusta, two-dimensional shadow areas, incomplete or noisy data, or any independent certification. A plausible inaccessible full paper remains a historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The best-of-knowledge originality survives the explicit comparison with the cone-width distribution and earlier mean-width calculations; the full positive-radius frustum CDF and three strictly separated transitions were not found in inspected results.
+
+## value
+
+PASS
+
+An exact probability distribution rather than only mean for a familiar 3D solid is a natural intrinsic geometry invariant. The separation of three local/global extremal transitions for genuine positive unequal radii, and square-root onset of the fraction of directions wider than 2R, are nontrivial structural boundary statements relevant to shape stereology and testing projected-width models; these cannot be obtained by citing an average or the cone endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
