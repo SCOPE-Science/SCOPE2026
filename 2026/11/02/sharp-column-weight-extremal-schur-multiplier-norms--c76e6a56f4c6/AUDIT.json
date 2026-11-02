@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For all integers \\(v\\ge2\\), \\(1\\le k<v\\), all finite widths, and complex coefficients \\(a,b\\), center each binary column and the coordinate rows. The common squared lengths \\((v-1)/v\\) and \\(k(v-k)/v\\) give the upper norm bound \\(\\left|a+bk/v\\right|+|b|\\sqrt{k(v-k)(v-1)}/v\\) via a one-parameter Schur factorization and exact minimization. The complete \\(k\\)-subset incidence matrix has \\(NN^*=(r-\\lambda)I+\\lambda J\\) with \\(r-\\lambda=nk(v-k)/[v(v-1)]\\), yielding a constant singular value \\(\\sqrt{vn}|a+bk/v|\\) and \\(v-1\\) further singular values \\(|b|\\sqrt{r-\\lambda}\\). The rectangular polar witness yields a universal nuclear-trace lower bound \\(\\|M\\|_*/\\sqrt{vn}\\) that exactly matches the upper bound. The proof explicitly covers \\(a+bk/v=0\\), \\(b=0\\), and \\(k=1\\). Real coefficients have real bounds and witnesses. The balanced-column width minimum follows from the Frobenius norm and a normalized Hadamard example. Actual standalone code checked 180 complete incidence and 1155 random support instances; these finite computations are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davidson–Donsig give order-\\(\\sqrt{k}\\) sparse-pattern estimates and Mathias’s normalized nuclear-trace formula for certain square symbols, not the exact fixed-\\(v,k\\) all-width two-level extremum.",
+        "Holbrook–Johnston–Schoch prove unrestricted \\(n\\)-by-\\(n\\) sign-norm upper bound \\(\\sqrt n\\), including the rectangular bound \\(\\min\\{\\sqrt v,\\sqrt n\\}\\); it is weaker than the present constrained profile except at boundary parameters.",
+        "The general Grothendieck–Haagerup factorization inequality is a necessary method and is explicitly credited as old, but its stated bound requires a separate tailored centered factorization and a saturating combinatorial frame."
+      ],
+      "reasoning": "Checked whether universal norm estimates imply the claimed sharp value without a new parameter-dependent construction. They do not state the exact finite extremal profile or sharpness for every (v,k). The generic factorization framework mathematically encompasses the problem, so the possibility that an unlocated earlier worked-out special case exists is retained as risk.",
+      "searches": [
+        "arxiv:math/0506073v1 Theorem 2.3, Lemma 2.5, Theorem 4.5",
+        "arxiv:2206.02863v1 Equation (6), Theorem 2 and rectangular remarks",
+        "arxiv:1302.4849v2 factorization and low-norm classifications"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.02863v1 (open PDF; posted 2022-06-06)",
+      "arxiv:math/0506073v1 (open PDF; posted 2005-06-03)",
+      "arxiv:1302.4849 (open PDF; posted 2013)",
+      "published research-record search for constant-column-weight sign, gamma2, and block-design incidence aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unrestricted \\(\\sqrt v\\) sign bound does not give the sharp balanced-column value \\(\\sqrt{v-1}\\), or the fixed-\\(k\\) sign ceiling tending to \\(1+2\\sqrt k\\).",
+        "A sparse-support \\(\\sqrt k\\) idempotent estimate does not supply the precise \\(v\\)-dependent finite correction and equality for complete \\(k\\)-uniform hypergraphs.",
+        "Mathias’s criterion can evaluate highly symmetric square symbols and is part of the technique, but does not directly cover arbitrary rectangular columns or establish a universal constrained supremum."
+      ],
+      "reasoning": "Compared implication, not just titles. Generic inequality or norm factorization is acknowledged and reused; the exact all-support optimization and matching sharpness are the distinct statement. The Schur norm and the tensor ratios in close index results are non-equivalent, so those results cannot directly dominate this claim.",
+      "searches": [
+        "arxiv:2206.02863v1 global sign Schur norm Theorem 2",
+        "arxiv:math/0506073v1 sparse Schur pattern Lemma 2.5 and Mathias Theorem 4.5",
+        "arxiv:1302.4849v2 idempotent Schur norm spectra",
+        "\"Schur multiplier norm\" \"incidence matrix\" \"projective plane\"",
+        "\"Schur multiplier\" \"block designs\" incidence norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same norm can be expressed as a \\(\\gamma_2\\) factorization norm for two-level incidence matrices, but this general equivalence does not specify the sharp constant at fixed \\(v,k\\).",
+        "Holbrook–Johnston–Schoch study unrestricted square sign patterns and Hadamard witnesses, rather than all widths at fixed column weight.",
+        "Levene studies idempotent small-norm values and bipartite support graphs, not the displayed parameterized universal extremum."
+      ],
+      "reasoning": "Replacing Schur norm by gamma_2 or bipartite graph incidence changes nomenclature but not the object; searched these aliases. None of the inspected formulated results has the same variable-width, fixed-column-weight supremum. The actual construction determines the sharp number beyond the general abstract norm definition.",
+      "searches": [
+        "\"Schur multiplier\" \"column weight\" \"gamma2\" norm",
+        "\"Schur multiplier norm\" \"uniform hypergraph\"",
+        "\"gamma2 norm\" \"k-subsets\" \"incidence\"",
+        "arxiv:2206.02863v1 Sections 2-3",
+        "arxiv:1302.4849v2 Sections 1-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed record titled “Even-column rectangular tensor-norm saturation has an exponential row threshold” treats a Rademacher bilinear tensor ratio, not Schur gamma_2 operator norms.",
+        "Other indexed nearby records treat Schatten-4 idempotent gaps, exact 4x4 tensor ratios, and Hamming Fourier projection norms, each with different symbols or objectives.",
+        "The inspected published sign-norm and idempotent tables do not tabulate a fixed-column-weight arbitrary-width optimum."
+      ],
+      "reasoning": "Direct numerical/table coverage would require the exact same norm for every v,k and all two-level coefficients. The located tables and indexed records do not contain or imply such a formula. Nonmatching search results alone are not proof of global absence.",
+      "searches": [
+        "Sharp maximum Schur multiplier norm for n by m sign matrices with each column containing exactly k negative entries: complete k-uniform hypergraph incidence extremizes",
+        "Optimal gamma_2 norm over all incidence matrices with columns on a Johnson slice: fixed column Hamming weight k and m rows, two-level symbol alpha J plus beta B",
+        "Exact Schur multiplier norm of 2-design incidence matrix and extremal upper bound for arbitrary k-uniform set systems",
+        "arxiv:2206.02863v1 Schur spectra tables",
+        "arxiv:1302.4849v2 small-norm tables"
+      ]
+    },
+    "rationale": "The new quantified problem fixes every column Hamming weight but maximizes over all finite widths and supports and all two-level complex coefficients; the explicit sharp constant and its equality via complete k-subset incidence are not stated in the closest inspected references. Classical factorization, square symmetric norm criteria, sparse pattern bounds, and small-norm idempotent classifications are credited. An equivalent earlier constrained extremal formula under other terminology is a real residual priority risk.",
+    "residual_risks": [
+      "The mathematical priority of the explicit formula is not independently certified; an earlier exact application of classical factorization to uniform hypergraph incidence may exist under different terminology.",
+      "Broad Mathias/Haagerup frameworks are old and closely related; the claimed contribution is the sharp constrained extremal classification, not those frameworks.",
+      "The sources were inspected in relevant original sections, not every historical document in the Schur multiplier literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its unrestricted sign-norm bounds and optimal Hadamard characterization do not state the fixed column-weight, unrestricted-width extremum or its complex two-level pencil.",
+        "evidence": [
+          "Theorem 2 gives unrestricted n-by-n norm <=sqrt(n); the rectangular remarks give <=min(sqrt(v),sqrt(n)).",
+          "Its Section 2 equation (6) gives the general Schur-factorization estimate, used here with specially chosen centered factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.02863 (v1 first posted 2022-06-06)",
+        "material_read": "Abstract, introduction, Sections 2-3 factorization and witnesses, Theorem 2 and its rectangular discussion, relevant terminology search across the PDF.",
+        "method": "Opened original open-access PDF; read extracted sections and page images, checked theorem statement and searches for column-weight/design/balanced formulations.",
+        "title": "Real Schur norms and Hadamard matrices",
+        "trigger": "Most relevant recent sign-Schur norm paper, including rectangular discussion and global Hadamard extremum."
+      },
+      {
+        "assessment": "Provides key prior methods and square symmetric examples, but not the sharp finite constrained maximum over arbitrary-width constant-column-weight symbols.",
+        "evidence": [
+          "Lemma 2.5 yields at most sqrt(k) for sparse zero-one masks.",
+          "Theorem 4.5 identifies norm with normalized nuclear trace under a constant-diagonal hypothesis for square matrices."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0506073 (v1 2005-06-03)",
+        "material_read": "Abstract, background, sparse-pattern theorem and lemma, Sections 4-5 around Theorem 4.5; searched the PDF for design incidence statements.",
+        "method": "Inspected original open-access PDF text and theorem page image.",
+        "title": "Norms of Schur Multipliers",
+        "trigger": "Generic Schur factorization, sparse-column estimates, and the Mathias normalized trace criterion may dominate exact calculations."
+      },
+      {
+        "assessment": "Classification of low norm gaps and some special graphs, not a constant-column-weight universal sharp formula.",
+        "evidence": [
+          "Section 1 defines rectangular idempotent Schur multipliers.",
+          "Section 6 classifies the first few small norms, rather than all prescribed column Hamming weights."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.4849 (first public 2013, revised 2014)",
+        "material_read": "Abstract, Sections 1-3 on rectangular symbols and factorization; scanned Section 6 small-gap and connected-bipartite graph classification; searched entire parsed text for design.",
+        "method": "Open-access PDF text, theorem passages and first pages image inspection.",
+        "title": "Norms of idempotent Schur multipliers",
+        "trigger": "The claimed two-level pencil contains idempotent zero-one Schur multipliers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c76e6a56-f4c6-441f-ae06-d0e90d53d7c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sparse operator masks with a prescribed number \\(k\\) of incidences per column are natural in rectangular Schur multiplication. The result gives one sharp finite-\\(v,k\\) functional-analytic constant for every two-level complex symbol and every finite width, not merely a table or a single example. Complete hypergraph incidences establish equality without requiring symmetry of an arbitrary input. The zero-one and signed cases, the sharp balanced-\\(k=v/2\\) deficit \\(\\sqrt{v-1}\\) with Hadamard minimal widths, and the sparse-negative limit \\(1+2\\sqrt{k}\\) are meaningful structural boundaries. This is a natural complete extremal classification with a self-contained derivation, independent of a downstream theorem.",
+    "status": "PASS"
+  }
+}
