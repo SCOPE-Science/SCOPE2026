@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Independent exponential first edge-attempt times turn complete coverage into the event of no adjacent failed edges. The two-by-two circular transfer trace has exactly computed eigenvalues. A uniform expansion log(lambda+)=-2u+us+O(u^2), explicit far-left exponential bounds, and dominated convergence in supremum/L1 establish the fractional and near-symmetry limits, optimal Kolmogorov constants, and expectation coefficients. The packaged checker independently passed 77 exact-rational and asymptotic assertions; numerical tests are supporting checks rather than proofs.
+
+**Originality — PASS, with literature risk.** The claim is the asymmetric sharp first Gumbel correction for an alternating-rate edge-cover-time process, its optimal Kolmogorov and mean coefficients, and a moving-rate logarithmic symmetry crossover. Finite exact circular-run distributions and the first-order Poisson/Gumbel phenomenon are expressly excluded from originality. The inspected relevant primary results do not give these particular periodic triangular-array coefficients. Residual priority risk is nonzero due to inaccessible full text of a plausible 1995 paper. The closest scientific comparisons are Krapivsky (2022) on random sequential covering; Koutras, Papadopoulos and Papastavridis (1995) on nonidentical circular runs; Inoue and Aki (2005) on iid circular runs; and Petrauskienė and Čekanavičius (2010) on iid two-run Poisson approximations. Exact finite circular run counting is treated as known, not a priority claim.
+
+**Value — PASS.** Periodic heterogeneity changes the universal Gumbel convergence rate from square-root order to an arbitrary fractional exponent determined by the weaker rate, and reveals a logarithmic crossover when two rare-run mechanisms compete. Sharp Kolmogorov and expectation coefficients quantify this effect for a natural cyclic coverage/reliability process; these are meaningful distributional quantities not inferred from first-order limits or finite enumeration alone.
+
+**Limits.** Even alternating-rate cycles only; no nonperiodic environment theorem. A fully resolved original-paper comparison with *Runs on a circle* (1995) was not possible; definitive historical priority remains open.
+
+Self-review: passed. Independent audit: not yet performed.
