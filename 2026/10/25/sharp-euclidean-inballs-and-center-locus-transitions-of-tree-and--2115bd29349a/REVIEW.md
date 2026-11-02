@@ -1,12 +1,21 @@
-# Scientific assessment — unit in-in zonotope inballs
+# Independent mathematical audit
 
-## Correctness: PASS
-The unit ambient-metric normalization matches the definition and the earliest public source. The proof reconstructs the support function, shows that an optimal ball is origin-centered, and reduces the Euclidean support-function quotient to positive cut indicators via positive/negative splitting and the coarea/triangle inequality. The exposed-face dimension calculation proves the exact connected-subset facet criterion and the center inequalities. Tree boundary size one and cycle boundary size two give sharp lower bounds with equality classification. Rank of active indicator vectors gives center-locus dimension; the three-site contiguous-interval constraint sharply bounds the even-cycle alternating centers. All graph orders and exceptional thresholds are addressed. An independently written finite enumerator checks cut identities, facet-contact ranks, raw support quotients and center constraints. Limits: finite computations do not establish the all-order conclusions; square-root endpoint checks in the executable are numerical corroboration, while proof is exact.
+## correctness
 
-## Originality: PASS under inspected evidence
-The primary paper by Glew (arXiv:2601.18903, full manuscript inspected, Minkowski and facets) and the 2026 He–Li–Su–Zhu article (arXiv:2608.19720, abstract and detailed overview only) concern construction, facet factorization, forms, and stringy integrals. No inspected claim supplies the tree/cycle Euclidean inradii, tangency thresholds, or entire sets of centers. The published weighted graphical-zonotope cut formula gives a distinct zero-sum intrinsic-metric edge-only body, not a cube-plus-edge body in full Euclidean space. Published cycle and path symmetric-edge-polytopes concern a convex hull rather than this Minkowski sum. The full Padrol–Pilaud–Poullot graphical zonotope treatment is combinatorial. Related results about complete-bipartite graphical zonotopes and resistance curvature have distinct domains and invariants, without overlapping implications. No exact table found that fixes these Euclidean invariants. Uninspected full text of He et al., synonyms for rooted/grounded graphical zonotopes, or older unpublished metric classifications remain priority risks; absence in search results is not proof of uniqueness.
+PASS
 
-## Mathematical value: PASS
-The unit in-in zonotope was introduced in 2026 as a natural graph-polytope family. Its Euclidean inball structure was not determined by the foundational facet formulas. The result classifies the inradius, the exact contact-facet count and affine dimension of all maximal-ball centers for **every** tree and cycle, including a nontrivial tree leaf-count invariant, sharp thresholds \(n=4\) and \(n=8\), the even/odd cycle rigidity split, and explicit positive-length segments of centers. These give meaningful geometric structure of this family beyond restating a definition or computing isolated low-order examples. No physical application or weighted extension is inferred.
+The Minkowski support function is sum_v |u_v|+sum_edges |u_v-u_w|. Sign decomposition and layer-cake/coarea plus Minkowski inequality show the Euclidean support quotient minimum is an indicator cut (|S|+|delta S|)/sqrt|S|. Equality and exposed-face direction ranks restrict facets to connected S; the corresponding inequalities give the entire incenter locus. For trees, proper connected cuts cost at least k+1, minimizing at a leaf (ratio 2) versus full V (sqrt n); for cycles cost at least k+2, minimizing at adjacent pairs (2sqrt2) versus full V. Contact indicator ranks prove all center dimension regimes, and odd interval length k=3 sharply bounds the even-cycle alternating segment at |t|<=5-2sqrt6. Independent exhaustive all-subset cut minima and contact ranks checked paths, stars and cycles through order 12; read actual verify.py; finite checks not all-order proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The in-in zonotope and its connected-set facets are known (Glew); the exact ambient Euclidean cut extremization, tree/cycle radius transition, center dimensions and full alternating center intervals are not in the material inspected. Intrinsic graphical zonotope inradius and convex-hull root-polytope analogues concern other metrics/bodies.
+
+## value
+
+PASS
+
+An exact natural convex-geometric invariant and full optimal-center phase diagram for two canonical infinite graph families; cut geometry explains rigidity and parity transitions and determines all maximal-ball centers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

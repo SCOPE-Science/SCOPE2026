@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Checks and limitations
+# Independent mathematical audit
 
-The independent-in-implementation standard-library checker `verify.py` reconstructs each finite graph from a Prüfer code or a cyclic edge list. It tests all graph cut ratios by rational cross-multiplication and compares the full predicted contact subspace against the span of minimizing indicator vectors. It additionally evaluates direct zonotope support-function values on integer-grid vectors and evaluates all connected-cut incenter constraints at the proposed even-cycle and star segment endpoints.
+## correctness
 
-Replay with `python3 verify.py` from a folder containing the embedded script. The observed output is:
+PASS
 
-```text
-EXACT_OK labeled_trees=1442 cycles=13 contact_cuts=4225 raw_support_vectors=7768
-CENTER_OK all_cut_cycle_segment_checks=21756 star_bounds=117
-```
+The Minkowski support function is sum_v |u_v|+sum_edges |u_v-u_w|. Sign decomposition and layer-cake/coarea plus Minkowski inequality show the Euclidean support quotient minimum is an indicator cut (|S|+|delta S|)/sqrt|S|. Equality and exposed-face direction ranks restrict facets to connected S; the corresponding inequalities give the entire incenter locus. For trees, proper connected cuts cost at least k+1, minimizing at a leaf (ratio 2) versus full V (sqrt n); for cycles cost at least k+2, minimizing at adjacent pairs (2sqrt2) versus full V. Contact indicator ranks prove all center dimension regimes, and odd interval length k=3 sharply bounds the even-cycle alternating segment at |t|<=5-2sqrt6. Independent exhaustive all-subset cut minima and contact ranks checked paths, stars and cycles through order 12; read actual verify.py; finite checks not all-order proof.
 
-Tree enumeration is complete only for orders up to six; cycle enumeration covers orders three to fifteen; interval feasibility checks cover finitely many even orders and employ floating-point square-root tolerance. The proof in `RESULT.md`, not these computations, establishes infinite families and exact interval endpoints. No external or independent scientific audit has been performed.
+## originality
+
+PASS
+
+The in-in zonotope and its connected-set facets are known (Glew); the exact ambient Euclidean cut extremization, tree/cycle radius transition, center dimensions and full alternating center intervals are not in the material inspected. Intrinsic graphical zonotope inradius and convex-hull root-polytope analogues concern other metrics/bodies.
+
+## value
+
+PASS
+
+An exact natural convex-geometric invariant and full optimal-center phase diagram for two canonical infinite graph families; cut geometry explains rigidity and parity transitions and determines all maximal-ball centers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
