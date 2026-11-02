@@ -1,15 +1,21 @@
-# Scientific review: certified oscillatory sector in a nonreciprocal Ising mean field
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof handles every \(J>1\), \(K\ge J-1\) including equality. The crucial fixed-point reduction uses the strictly increasing map \(\operatorname{arctanh}(u)/u\), giving a contradiction to oppositely signed equilibrium factors. The origin is a repelling hyperbolic focus; all other orbits are bounded and exclude its neighborhood eventually, so Poincare--Bendixson applies to their complete omega-limits. The angular inequality is established by monotonicity of \(\tanh(s)/s\), and the period bounds follow from winding number one and strict speed inequalities. Reproducible finite corroboration: 50,000 scalar comparisons, 175 root-search starts and 7,000 trajectory checks; the global claims rest on proof, not sampling.
+## correctness
 
-## Originality: PASS, with residual priority risk
-Avni et al. [arXiv:2311.05471 and arXiv:2409.07481] establish the model and its swap-phase phenomenology; the detailed follow-up calculates numerically the fixed-point and cycle phase diagram and near-critical bifurcations. It does not state this simple global sufficient coupling sector, the all-nonzero-data omega-limit conclusion, or the two-sided period certificate. Seung et al. (NeurIPS 1997) prove sufficient fixed-point *convergence* conditions for a broad neural-network class, not the new strong-coupling oscillation guarantee. Blom et al. (arXiv:2407.20312) treat correlation-dependent lattice onset, which does not imply the particular global mean-field bound. The strictest unresolved risk is an unidentified general sigmoidal planar-network theorem that could imply the claim as a corollary; semantic mathematical-record searches did not reveal equivalent coverage and cannot establish definitive priority.
+PASS
 
-## Mathematical value: PASS
-The initial nonreciprocal Ising phase diagram is largely numerical outside small-amplitude bifurcation theory. An explicit unbounded region with a proof for **all initial conditions**, and a calculable upper period bound away from the static-to-cycle transition, provides a structural guarantee useful for choosing robust mean-field oscillatory parameters. The result is not just a local Hopf calculation or an arbitrary evaluated parameter example. The region and period constants are sufficient rather than optimal, and this does not settle uniqueness or fluctuating-lattice stability.
+Reconstructed all-domain, all-initial-condition ODE proof from the exact 9319-byte RESULT.md: (-1-x)<=dx/dt<=(1-x) and analogous y bound yield boundedness and inward physical square; linearization eigenvalues J-1 +/- iK make the unique origin a hyperbolic repeller. At any nonzero equilibrium set F_J(u)=atanh(u)/u-J, derive F_J(x)F_J(y)=-K^2; one negative factor has modulus <J-1 and forces both coordinate magnitudes below the unique m_J root, a contradiction even at K=J-1. The outward transverse circle excludes the origin from all other omega limits; Poincare-Bendixson then proves the entire omega-limit is a periodic orbit. For K>J the exact polar-angle derivative and |a tanh(b)-b tanh(a)|<a tanh(a)+b tanh(b) imply strict clockwise speed; tanh(s)/s monotonicity and Cauchy-Schwarz give the strict T bounds. Independently checked 5 pairs (J,K), including equality and strong K>J, with 36 test points/inequalities per pair; these finite values do not prove global behavior. Limitation: no uniqueness of cycles, no sharp coupling boundary, no finite noisy lattice claim.
 
-## Limitations and closest literature
-The result is deterministic, spatially homogeneous and two-dimensional. It does not certify a noisy thermodynamic time crystal. Model, swap phase and standard Poincare--Bendixson theorem are pre-existing. Priority is not independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after comparing actual global dynamical quantifiers and explicit sector/period inequalities to the foundational nonreciprocal Ising primary article and a broader inhibitory-network theorem. Existing studies obtain the model, simulations, phase boundaries and sufficient fixed-point stability, but the inspected statements do not imply the asserted universal repeller/periodic omega-limit sector. A previously unrecognized two-neuron planar theorem may imply the special case; priority remains qualified.
+
+## value
+
+PASS
+
+A concrete nonperturbative open parameter wedge J>1,K>=J-1 with an explicit inclusive boundary is a substantive dynamical statement: it rules out every nonzero static omega-attractor for every initial state, not just local Hopf existence. Strong-coupling rotation monotonicity and quantitative period bounds are independently useful for the two-species nonreciprocal model. This is not a trivial renaming of local linear stability, and it does not promise noise-robustness or uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:10:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git source RESULT.md blob 6e660101a38c28614c9befacd2d25786dcf80a55, proof sections 1-5",
+        "Git source VERIFY.py blob 5f7aef25e57958a1eed2c8caad26b1db6dfbfafd, sampling-only scope",
+        "Poincare-Bendixson theorem for bounded planar flow without equilibria in its omega-limit"
+      ],
+      "rationale": "Reconstructed all-domain, all-initial-condition ODE proof from the exact 9319-byte RESULT.md: (-1-x)<=dx/dt<=(1-x) and analogous y bound yield boundedness and inward physical square; linearization eigenvalues J-1 +/- iK make the unique origin a hyperbolic repeller. At any nonzero equilibrium set F_J(u)=atanh(u)/u-J, derive F_J(x)F_J(y)=-K^2; one negative factor has modulus <J-1 and forces both coordinate magnitudes below the unique m_J root, a contradiction even at K=J-1. The outward transverse circle excludes the origin from all other omega limits; Poincare-Bendixson then proves the entire omega-limit is a periodic orbit. For K>J the exact polar-angle derivative and |a tanh(b)-b tanh(a)|<a tanh(a)+b tanh(b) imply strict clockwise speed; tanh(s)/s monotonicity and Cauchy-Schwarz give the strict T bounds. Independently checked 5 pairs (J,K), including equality and strong K>J, with 36 test points/inequalities per pair; these finite values do not prove global behavior. Limitation: no uniqueness of cycles, no sharp coupling boundary, no finite noisy lattice claim.",
+      "residual_risks": [
+        "No formal-machine proof of the global theorem; handwritten use of Poincare-Bendixson and strict angular inequality inspected directly.",
+        "Finite test points and numerical root searches cannot exclude unexamined equilibria outside the proved region."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Seung et al NeurIPS 1997 paper p330 states its stability theorem proves sufficient global fixed-point conditions and leaves sufficient oscillation conditions open.",
+          "Avni et al arXiv:2409.07481v2 obtains local bifurcations for the nonreciprocal Ising flow."
+        ],
+        "reasoning": "A general sufficient condition for point attractors cannot imply every nonzero trajectory in a repelling sector has periodic omega-limit. The later source discusses oscillations but the inspected analytic claims stop short of this all-orbits conclusion.",
+        "searches": [
+          "homogeneous two species antisymmetric nonreciprocal Ising mean field only equilibrium stable limit cycles J>1 K>=J-1 period bounds",
+          "Seung Richardson Lagarias Hopfield 1997 excitatory inhibitory networks global limit cycle"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: homogeneous two species antisymmetric nonreciprocal Ising mean field only equilibrium stable limit cycles J>1 K>=J-1 period bounds",
+        "arXiv:2409.07481v2 sections IV.3, V.2",
+        "Seung et al NeurIPS 1997 PDF pp329-335",
+        "arXiv:2407.20312 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Avni et al 2024 Sec IV.3 and V.2 analyze fixed-point branches and local Hopf/SNIC behavior; the audited theorem includes every initial condition for unbounded K and period bounds.",
+          "Seung et al 1997 sufficient dissipativity implies global fixed-point convergence in a different regime."
+        ],
+        "reasoning": "Local Hopf existence or global stability in an opposite parameter regime does not imply the nonexistence of remote equilibria and Poincare-Bendixson omega sets here. No established stronger theorem was identified that directly dominates the final claim.",
+        "searches": [
+          "homogeneous two species antisymmetric nonreciprocal Ising mean field only equilibrium stable limit cycles J>1 K>=J-1 period bounds",
+          "arXiv:2409.07481 homogeneous mean field nonreciprocal phase transitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Avni et al 2024 arXiv:2409.07481v2 sections IV.3, V.2 study the same tanh ODE and Hopf/SNIC phase diagram.",
+          "Seung et al 1997 NeurIPS 10 pp329-335 equations (1)-(2) describe broader opposing signed interactions."
+        ],
+        "reasoning": "Matching the same differential equations is not matching the same global theorem: neither inspected primary result provides J>1,K>=J-1 as a global no-other-equilibria sector or a two-sided period inequality.",
+        "searches": [
+          "homogeneous two species antisymmetric nonreciprocal Ising mean field only equilibrium stable limit cycles J>1 K>=J-1 period bounds",
+          "two neuron antisymmetric sigmoidal network global periodic omega limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Avni et al arXiv:2409.07481v2 plots local and numerical phase boundaries, including swap/static regions.",
+          "Resultary semantic search returned May-Leonard and other unrelated cyclic dynamical systems, not a same-equation period bound."
+        ],
+        "reasoning": "A numerical phase diagram or a different model table does not furnish an exact proof of unique equilibrium and every nonzero omega-limit for the full wedge; no exact algebraic table providing the claimed inequalities was identified.",
+        "searches": [
+          "homogeneous two species antisymmetric nonreciprocal Ising mean field only equilibrium stable limit cycles J>1 K>=J-1 period bounds",
+          "nonreciprocal Ising homogeneous J K phase diagram oscillatory sector numerical table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after comparing actual global dynamical quantifiers and explicit sector/period inequalities to the foundational nonreciprocal Ising primary article and a broader inhibitory-network theorem. Existing studies obtain the model, simulations, phase boundaries and sufficient fixed-point stability, but the inspected statements do not imply the asserted universal repeller/periodic omega-limit sector. A previously unrecognized two-neuron planar theorem may imply the special case; priority remains qualified.",
+      "residual_risks": [
+        "Unindexed two-neuron analytic theory could imply the sufficient oscillatory wedge as a corollary, even without identical parameters.",
+        "Blom/Thiele/Godec 2025 full text not materially inspected; no claim of full-text NOT_COVERING.",
+        "A numerical or perturbative earlier calculation may encode part of the period estimates, but no source establishes the entire all-orbit global result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_ON_INSPECTED_MATERIAL",
+          "evidence": "Same ODE and phases; no universal sector with all-nonzero-trajectory omega-limit and explicit period bounds in inspected mean-field conclusions.",
+          "identifier_or_url": "https://arxiv.org/html/2409.07481v2",
+          "material_read": "Relevant model derivation, sections IV.3 and V.2, local bifurcation and phase diagrams, plus cited definitions; not every unrelated lattice section",
+          "method": "Public full-text HTML, mathematical theorem/section comparison",
+          "title": "Dynamical phase transitions in the nonreciprocal Ising model",
+          "trigger": "same exact two-species nonlinear mean-field equations"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING_ON_INSPECTED_MATERIAL",
+          "evidence": "Authors explicitly frame sufficient conditions for oscillatory behavior as open, prove point-attractor stability instead; this does not imply the audited wedge.",
+          "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/1997/file/3d779cae2d46cf6a8a99a35ba4167977-Paper.pdf",
+          "material_read": "PDF pages 1-5, including stated theorem, model equations (1)-(2), and global stability versus oscillatory conjecture on p330",
+          "method": "Primary PDF text and page screenshot, section/theorem comparison",
+          "title": "Minimax and Hamiltonian Dynamics of Excitatory-Inhibitory Networks",
+          "trigger": "broader antisymmetric coupled-neuron dynamics might subsume theorem"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_PRIORITY_RISK",
+          "evidence": "Addresses nearest-neighbor correlations and deviations beyond mean-field; abstract alone does not determine whether global mean-field corollaries occur in full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.20312",
+          "material_read": "Abstract and scope of 2025 Phys Rev E paper only; full paper not read",
+          "method": "arXiv abstract",
+          "title": "Local Order Controls the Onset of Oscillations in the Nonreciprocal Ising Model",
+          "trigger": "alternative more detailed spatial approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md finding, proof sections 2-5",
+        "Avni et al arXiv:2409.07481v2 sections IV-V; observed mean-field phase diagrams and local bifurcations"
+      ],
+      "rationale": "A concrete nonperturbative open parameter wedge J>1,K>=J-1 with an explicit inclusive boundary is a substantive dynamical statement: it rules out every nonzero static omega-attractor for every initial state, not just local Hopf existence. Strong-coupling rotation monotonicity and quantitative period bounds are independently useful for the two-species nonreciprocal model. This is not a trivial renaming of local linear stability, and it does not promise noise-robustness or uniqueness.",
+      "residual_risks": [
+        "Sufficient coupling sector may be substantially inside the true optimal transition.",
+        "Period bounds are not sharp and do not imply uniqueness of attracting periodic cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formal-machine proof of the global theorem; handwritten use of Poincare-Bendixson and strict angular inequality inspected directly.",
+    "Finite test points and numerical root searches cannot exclude unexamined equilibria outside the proved region.",
+    "Unindexed two-neuron analytic theory could imply the sufficient oscillatory wedge as a corollary, even without identical parameters.",
+    "Blom/Thiele/Godec 2025 full text not materially inspected; no claim of full-text NOT_COVERING.",
+    "A numerical or perturbative earlier calculation may encode part of the period estimates, but no source establishes the entire all-orbit global result.",
+    "Sufficient coupling sector may be substantially inside the true optimal transition.",
+    "Period bounds are not sharp and do not imply uniqueness of attracting periodic cycles."
+  ],
+  "schema_version": 1
+}
