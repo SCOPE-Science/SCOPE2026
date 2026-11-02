@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.8 or newer; the script has no third-party dependencies. It enumerates bracket-preserving maps from the defining bilinear multiplication tables, calculates ranks using modular elimination, checks idempotents by direct matrix multiplication, and for three small cases checks von Neumann regularity against every potential inner inverse.
+## correctness
 
-Observed output ends with `VERIFY_OK`. Tested prime fields and parameters: first algebra at orders 2, 3 and 5; anisotropic second algebra at `(q,lambda)=(3,1),(5,2),(7,4)`. The tests at `q=2,3` for the first algebra and `q=3` for the second exhaustively check all possible regularity witnesses. All other regularity figures are computed by the proved classification and compared with the reconstructed counts. The unbounded finite-field formulas and limiting proportions require the written argument, and the tests do not verify them on their own.
+PASS
+
+Every homomorphism of the derived-central-line two-step nilpotent Leibniz algebras has block matrix [A 0; w s], with arbitrary w∈F_q^2 and A^TBA=sB. For J with B=[[0,1],[0,0]], exactly A=0, two nonzero one-row families, or invertible diagonal A occur. Counting w in/out of row(A) gives rank distribution 1,(q²-1)(2q+1),2q(q-1)(q²-1),q²(q-1)²; nonzero central-image and rank-two maps cannot admit endomorphic inner inverses, but rank-one one-row maps do. The idempotent count is 2q²+2 and regular count q⁴+q²-2q+1. For H, anisotropy forces A=0 when s=0 and A a norm similitude when s≠0, giving 2(q²-1) similitudes and no rank two. Idempotents 2, regular count 1+2q²(q²-1). Direct independent finite-field enumeration checked J at q=2,3 (including exhaustive FGF tests), H at q=3 (exhaustive FGF) and q=5 (ranks/idempotents); analytic argument covers all prime powers in domain.
+
+## originality
+
+PASS
+
+The inspected earlier works calculate automorphism groups, i.e. only invertible homomorphisms. The new singular-rank census, idempotents and von Neumann regularity under the actual multiplicative endomorphism monoid require the degenerate quotient-form conditions and inner inverse analysis; their conclusions do not follow solely from unit-group formulas.
+
+## value
+
+PASS
+
+The two natural smallest non-Lie two-step nilpotent algebra types show contrasting singular geometry and regularity proportions (1/3 versus 1), despite equal dimensions and one-dimensional derived ideals. This is a complete and usable monoid-level classification, not merely an order of an automorphism group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

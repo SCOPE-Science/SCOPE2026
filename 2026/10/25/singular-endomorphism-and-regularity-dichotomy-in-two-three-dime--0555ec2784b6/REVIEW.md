@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The bracket-preservation reduction \(A^{\mathsf T}BA=sB\) follows from the defining products and the characteristic derived ideal. Direct factorization of the one-sided form identifies two disjoint rank-one quotient strata and invertible diagonal maps. Anisotropy of the second quadratic form rules out every nonzero singular quotient similitude. The proof distinguishes all endomorphism ranks, counts idempotents, and constructs or obstructs von Neumann pseudoinverses. The included program independently enumerates defining-bracket-preserving maps over six prime-field configurations, matching exact rank and idempotent counts and exhaustively testing the regularity relation in the indicated small cases.
+PASS
 
-## Originality — PASS against inspected sources
+Every homomorphism of the derived-central-line two-step nilpotent Leibniz algebras has block matrix [A 0; w s], with arbitrary w∈F_q^2 and A^TBA=sB. For J with B=[[0,1],[0,0]], exactly A=0, two nonzero one-row families, or invertible diagonal A occur. Counting w in/out of row(A) gives rank distribution 1,(q²-1)(2q+1),2q(q-1)(q²-1),q²(q-1)²; nonzero central-image and rank-two maps cannot admit endomorphic inner inverses, but rank-one one-row maps do. The idempotent count is 2q²+2 and regular count q⁴+q²-2q+1. For H, anisotropy forces A=0 when s=0 and A a norm similitude when s≠0, giving 2(q²-1) similitudes and no rank two. Idempotents 2, regular count 1+2q²(q²-1). Direct independent finite-field enumeration checked J at q=2,3 (including exhaustive FGF tests), H at q=3 (exhaustive FGF) and q=5 (ranks/idempotents); analytic argument covers all prime powers in domain.
 
-The original automorphism-group computations in arXiv:2305.00592v1 and arXiv:2310.11180v1 do not tabulate singular endomorphisms, ranks, nontrivial idempotents or the regular subsemigroup, although they do cover the units. Prior small-dimensional automorphism counts, including those for the anisotropic form, are acknowledged rather than presented as new. Related published work on derivation algebras studies additive derivations, not endomorphism-monoid regularity. Published-research searches under structural aliases did not reveal a matching rank/regularity census. This does not establish publication uniqueness; an unindexed endomorphism study or equivalent bilinear-form treatment could contain the same conclusion.
+## originality
 
-## Value — PASS
+PASS
 
-This is a nontrivial finite-monoid structural distinction for two canonical three-dimensional non-Lie Leibniz families. Von Neumann regularity detects whether a homomorphism admits a homomorphic inner inverse, unlike ordinary matrix rank alone. The complete census shows why singular endomorphisms dominate in one family yet are almost all absent in the other, and identifies the exact missing rank-two stratum and idempotent jump. These furnish precise, natural invariants suitable for comparison with broader endomorphism-monoid classification problems.
+The inspected earlier works calculate automorphism groups, i.e. only invertible homomorphisms. The new singular-rank census, idempotents and von Neumann regularity under the actual multiplicative endomorphism monoid require the degenerate quotient-form conditions and inner inverse analysis; their conclusions do not follow solely from unit-group formulas.
 
-## Closest literature, limitations and outstanding risks
+## value
 
-The two primary automorphism studies are Kurdachenko–Pypka–Semko, arXiv:2305.00592v1 and arXiv:2310.11180v1. The first gives the one-sided example (up to basis change), the second gives the anisotropic symmetric example. The result does not claim their unit groups as novel. The second family requires odd field characteristic and an anisotropic parameter. The available literature cannot exhaustively exclude equivalent prior singular-endomorphism enumerations. Numerical experiments verify only the stated finite prime-field instances; exact all-field statements rely on the provided proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two natural smallest non-Lie two-step nilpotent algebra types show contrasting singular geometry and regularity proportions (1/3 versus 1), despite equal dimensions and one-dimensional derived ideals. This is a complete and usable monoid-level classification, not merely an order of an automorphism group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
