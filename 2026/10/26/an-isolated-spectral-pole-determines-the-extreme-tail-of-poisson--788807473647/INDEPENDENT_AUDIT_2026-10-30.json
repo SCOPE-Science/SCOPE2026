@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:49:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For D,b,mu>0, stationary Cox-reset survival satisfies S(t)=E exp(-int_0^t lambda_u du)=<1,e^{-tH}1> where H=(lambda+mu)I-mu P on L^2(exponential(mean b)); H is positive self-adjoint and its essential spectrum is [mu,infty). A rank-one bound state below mu has eigenvector (lambda+s)^-1 and equation mu F_b(s)=1. F_b strictly decreases from infinity with mu F_b(mu)<1, yielding one s* in (0,mu), eigenvalue a*=mu-s*. Spectral atom mass B*=1/(mu^2 M_2(s*))=b s*/[mu(mu-s*)] lies (0,1). The stationary backward reset-age density -S'(t), Gaussian heat kernel and positive spectral measure give p(x)=(B*/2)sqrt(a*/D) exp(-sqrt(a*/D)|x|)+R(x), with 0<=R<=(sqrt b)/(2sqrt D) exp(-sqrt(mu/D)|x|). Stieltjes inversion gives the stated nonnegative continuum rho(q); E1 small-argument expansion yields s*~b exp(-gamma_E-b/mu) and exponentially small residue. The variance is 2D F_b(mu)/(1-mu F_b(mu)), giving MSD effective a=1/F_b(mu)-mu ~ b/log(b/mu), distinct from a*~mu. Independently numerically solved the eigencondition and checked B* and variance for mu=0.3,1,3 with b=D=1. These checks supplement the spectral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 primary text fully specifies the exact same environment, derives the stationary transform and its regimes.",
+          "The 2018 reset-process spectral comparison focuses on constant resetting intensity and its shifted spectrum."
+        ],
+        "reasoning": "No inspected prior theorem explicitly isolates the random-intensity rank-one bound state or its exponential-small residue; the model and transform are acknowledged prior art.",
+        "searches": [
+          "Arutkin and Reuveni 2025 original author full text, Eq. 24 and tail discussion",
+          "Rose et al. arXiv:1806.01298v2"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md SHA f542efb77bb9b91a0f54f577fcff857e362d0455",
+        "Assigned verify_tail.py SHA 0f629be50a8db07c111f88148e48a944be7f1f07",
+        "arXiv:2509.25365v1 and author full text",
+        "arXiv:1806.01298v2",
+        "Resultary: stochastic resetting with Poisson refreshed exponential reset rate stationary Brownian position density pole tail Arutkin Reuveni"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Eq.24 gives the same transform, but expansion near k=0 controls variance rather than the closest singularity in complex k; this difference is shown by a_MSD/a* diverging for mu/b->0."
+        ],
+        "reasoning": "A full spectral analysis of the known resolvent does imply the result mathematically, but that nontrivial analysis is the new asserted theorem; no published statement of it was identified.",
+        "searches": [
+          "arXiv:2509.25365v1 original Fourier formula and far-tail prose",
+          "arXiv:1806.01298v2 constant reset spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact original stationary Fourier transform is mathematically equivalent to the scalar rank-one resolvent, so in principle contains the isolated pole under analytic continuation.",
+          "The original derives an exponential tail length via small-k expansion, whereas the audited exact pole gives a mathematically different strict far-tail exponent for slow refreshing."
+        ],
+        "reasoning": "Implicit analytic extractability from a known transform does not by itself mean the original paper stated or proved the positive isolated-pole asymptotic, although novelty is correspondingly narrow.",
+        "searches": [
+          "Resultary: stochastic resetting with Poisson refreshed exponential reset rate stationary Brownian position density pole tail Arutkin Reuveni",
+          "Arutkin–Reuveni arXiv:2509.25365v1 equations (23),(24)",
+          "rank-one resolvent spectral poles reset Brownian mixture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The transcendental root s* and the amplitude B*=b s*/(mu(mu-s*)) vary with continuous parameters; Resultary hits concern unrelated renewal/reset tails."
+        ],
+        "reasoning": "The output is not a table recomputation; a nontrivial analytic branch/pole determination and positive spectral mixture are needed for the strict asymptotic.",
+        "searches": [
+          "Resultary: stochastic resetting with Poisson refreshed exponential reset rate stationary Brownian position density pole tail Arutkin Reuveni",
+          "Arutkin–Reuveni Eq.24",
+          "Resultary stochastic resetting spectral pole search"
+        ]
+      },
+      "rationale": "Arutkin–Reuveni (2025), primary author-posted full text, already gives the exact Fourier transform of precisely this model (eqs.23–24), and suggests a far-tail scale by expanding it near k=0. It does not separately establish the isolated subcontinuum pole, its positive spectral mass, uniform remainder separation, nonperturbative weight, or exact contrast with the moment-based surrogate; indeed the latter need not equal the strict tail exponent. Constant-rate resetting spectral results do not directly cover the Cox intensity environment. Best-of-knowledge originality for correcting a subtle asymptotic interpretation of a previously known transform, not for the transform itself.",
+      "residual_risks": [
+        "The exact Fourier transform and random Cox-intensity model are entirely prior work; only strict-pole tail correction is assessed as original.",
+        "The fixed-mu tail asymptotic is not uniform as mu->0, because the isolated-mode weight is exponentially small.",
+        "Potential equivalent analytic-continuation observation in supplemental sources or other older resetting theory is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original transform and model prior work; claimed far-tail inference uses small-k expansion, without deriving isolated positive subcontinuum spectral weight and strict asymptotic",
+          "evidence": "The paper states expanding (24) at small k gives a far-tail exponential length, while the analytic pole location of its denominator is mu-s*, generally unequal to the MSD surrogate.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.25365",
+          "material_read": "Original full-text author-posted copy at https://www.researchgate.net/publication/396048096_Diffusion_with_doubly_stochastic_resetting, Feynman-Kac evolution, equations (23),(24), far-tail discussion around equation (24), references",
+          "method": "read openly accessible primary full text and directly compared displayed formulas",
+          "title": "Diffusion with doubly stochastic resetting",
+          "trigger": "identical Poisson-refresh/exponential-hazard Brownian model; could dominate entire theorem"
+        },
+        {
+          "assessment": "Constant-rate reset not same dynamic environmental rate refresh",
+          "evidence": "Ordinary resetting rate is fixed; in the current model a reversible Markov hazard process produces a rank-one Feynman-Kac operator with continuum.",
+          "identifier_or_url": "https://arxiv.org/html/1806.01298v2",
+          "material_read": "Original arXiv public spectral/reset discussion and identified constant-rate setting",
+          "method": "targeted primary HTML model/results read",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "possible general spectral-pole theorem for reset processes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In random-rate diffusion, the apparent spatial exploration length from second moments can disagree arbitrarily with the actual strict far-tail decay length, yet the extremal mode has exponentially tiny weight. This distinction prevents an observable inference error in the precise source model and is captured by explicit pole/residue formula and controlled continuum remainder. It is a motivated mathematical refinement, not an arbitrary parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md SHA f542efb77bb9b91a0f54f577fcff857e362d0455",
+    "Assigned verify_tail.py SHA 0f629be50a8db07c111f88148e48a944be7f1f07",
+    "arXiv:2509.25365v1 and author full text",
+    "arXiv:1806.01298v2",
+    "Resultary: stochastic resetting with Poisson refreshed exponential reset rate stationary Brownian position density pole tail Arutkin Reuveni"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The exact Fourier transform and random Cox-intensity model are entirely prior work; only strict-pole tail correction is assessed as original.",
+    "The fixed-mu tail asymptotic is not uniform as mu->0, because the isolated-mode weight is exponentially small.",
+    "Potential equivalent analytic-continuation observation in supplemental sources or other older resetting theory is not excluded."
+  ],
+  "residual_risks": [
+    "The exact Fourier transform and random Cox-intensity model are entirely prior work; only strict-pole tail correction is assessed as original.",
+    "The fixed-mu tail asymptotic is not uniform as mu->0, because the isolated-mode weight is exponentially small.",
+    "Potential equivalent analytic-continuation observation in supplemental sources or other older resetting theory is not excluded."
+  ],
+  "schema_version": 1
+}

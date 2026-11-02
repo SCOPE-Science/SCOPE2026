@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary Cox-reset age has tail \(S(t)=\mathbb E[e^{-\int_0^t\lambda_u\,du}]\). Its reversible rate-refresh Feynman--Kac generator is the positive self-adjoint rank-one perturbation \(H=(\lambda+\mu)I-\mu P\). Below the multiplication continuum \([\mu,\infty)\), the unique eigenvalue \(a_*=\mu-s_*\) is forced by \(\mu F_b(s_*)=1\). Projection of the constant vector gives the positive coefficient; heat-kernel subordination gives the explicit stationary mixture and quantitative smaller error. Stieltjes inversion provides the continuum density, and the exponential-integral expansion proves the rare-refresh asymptotics. Numerical spectral-mass, characteristic-function, and moment checks independently corroborate the algebra. The derivation is fully mathematical; finite computations are not used as proof.
+## correctness
 
-**Originality — PASS (self-review with residual risk).** Arutkin--Reuveni, arXiv:2509.25365v1, supplies the entire exact stationary Fourier transform and describes an exponential far tail inferred from the small-wave-number expansion. That formula is acknowledged in full. Their displayed results do not give the distinct rightmost pole, its strictly positive residue, its exact isolated/continuum decomposition or its essential-singularity strength; the present claim explains why the variance-derived effective rate does not determine the strict tail. Rose et al., arXiv:1806.01298v2, treat constant-rate resetting and do not imply the random-intensity formula without additional spectral analysis. The result is a nontrivial asymptotic extraction from a known transform, not a new transform. A general rank-one spectral or Cox-survival theorem might contain an implicit equivalent; this is the chief unresolved priority risk. Supplementary material to the motivating paper could not be inspected in full.
+PASS
 
-**Value — PASS.** The article discusses competing far-field and core scales for a physically meaningful fluctuating-reset experiment. Identifying an isolated mode with positive but nonperturbatively small amplitude resolves an important asymptotic-versus-moment distinction and gives a quantitative error bound for the remainder. The ratio of surrogate and actual squared decay rates diverges as the environmental refresh rate vanishes. Thus a directly motivated observable has a sharply different asymptotic from its second-moment approximation. This does not assert a new general resetting framework.
+For D,b,mu>0, stationary Cox-reset survival satisfies S(t)=E exp(-int_0^t lambda_u du)=<1,e^{-tH}1> where H=(lambda+mu)I-mu P on L^2(exponential(mean b)); H is positive self-adjoint and its essential spectrum is [mu,infty). A rank-one bound state below mu has eigenvector (lambda+s)^-1 and equation mu F_b(s)=1. F_b strictly decreases from infinity with mu F_b(mu)<1, yielding one s* in (0,mu), eigenvalue a*=mu-s*. Spectral atom mass B*=1/(mu^2 M_2(s*))=b s*/[mu(mu-s*)] lies (0,1). The stationary backward reset-age density -S'(t), Gaussian heat kernel and positive spectral measure give p(x)=(B*/2)sqrt(a*/D) exp(-sqrt(a*/D)|x|)+R(x), with 0<=R<=(sqrt b)/(2sqrt D) exp(-sqrt(mu/D)|x|). Stieltjes inversion gives the stated nonnegative continuum rho(q); E1 small-argument expansion yields s*~b exp(-gamma_E-b/mu) and exponentially small residue. The variance is 2D F_b(mu)/(1-mu F_b(mu)), giving MSD effective a=1/F_b(mu)-mu ~ b/log(b/mu), distinct from a*~mu. Independently numerically solved the eigencondition and checked B* and variance for mu=0.3,1,3 with b=D=1. These checks supplement the spectral proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Arutkin–Reuveni (2025), primary author-posted full text, already gives the exact Fourier transform of precisely this model (eqs.23–24), and suggests a far-tail scale by expanding it near k=0. It does not separately establish the isolated subcontinuum pole, its positive spectral mass, uniform remainder separation, nonperturbative weight, or exact contrast with the moment-based surrogate; indeed the latter need not equal the strict tail exponent. Constant-rate resetting spectral results do not directly cover the Cox intensity environment. Best-of-knowledge originality for correcting a subtle asymptotic interpretation of a previously known transform, not for the transform itself.
+
+## value
+
+PASS
+
+In random-rate diffusion, the apparent spatial exploration length from second moments can disagree arbitrarily with the actual strict far-tail decay length, yet the extremal mode has exponentially tiny weight. This distinction prevents an observable inference error in the precise source model and is captured by explicit pole/residue formula and controlled continuum remainder. It is a motivated mathematical refinement, not an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
