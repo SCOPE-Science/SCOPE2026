@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The two-step companion matrices produce trace N/D and determinant 1/D. Exact Schur–Cohn factorization ((|D|^2-1)^2-|N conjugate(D)-conjugate(N)|^2)=F G has strictly positive factors for every nonzero z with Re z>=0 and chi>=2; z=0 has distinct roots 1,1/(2chi+5). Fixed-r stiff damping and chi->infty Crank–Nicolson limit follow by polynomial coefficient limits; standalone SymPy recomputation passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Liao Theorem 2.1 requires h_max<=1/(4 L_f) for a perturbation-stability estimate, not unconditional stiff Dahlquist A-stability.",
+        "Akrivis et al. Theorem 1.1 bounds adjacent ratios <=1.9398 and yields parabolic energy bounds.",
+        "Deferred-correction work uses added correction stages, not the same uncorrected two-step method."
+      ],
+      "reasoning": "General-grid results with a small-step or bounded-ratio restriction do not cover the high-r, high-|z| domain of this claim. Different error stability definitions and modified algorithms do not logically imply the complex product root inequality.",
+      "searches": [
+        "arXiv:2201.00527v1 variable-step BDF2 arbitrary time-grid stability",
+        "doi:10.1007/s10543-024-01007-y BDF2 parabolic all grids",
+        "Mesh-robust stability and convergence of variable-step deferred correction methods based on BDF2 2402.06129"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.30454v1, Sections 2.3 and 4.3",
+      "arXiv:2201.00527v1, Theorem 2.1 and surrounding stability definition",
+      "doi:10.1007/s10543-024-01007-y, Theorem 1.1/Section 1.3",
+      "doi:10.1007/s10543-022-00931-1, abstract only",
+      "Relevant published-finding corpus IDs for fixed-step BDF2 sign loss, period-two first-order Ulam constants, and prior four-step alternating BDF-like method"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source global second-order convergence is stated only with ratio<1+sqrt2; no two-period unconditional half-plane multiplier is stated.",
+        "Arbitrary-grid perturbation stability of Li–Liao includes a small-step condition and is not a bound on complex Floquet roots for arbitrarily large z.",
+        "Bourgault–Garon 2022 full text is not inspected; exact overlap cannot be excluded."
+      ],
+      "reasoning": "The new theorem is a sharp root-location statement for every complex test parameter on exactly alternating grids. Existing broad stability assertions with different stability notions or bounded steps do not dominate its universal complex quantitative claim; the deferred-correction abstract is plausibly related but not a decisive coverage proof.",
+      "searches": [
+        "arXiv:2610.30454v1 full text Sections 2.3 and 4.3",
+        "arXiv:2201.00527v1 full text Theorem 2.1",
+        "doi:10.1007/s10543-024-01007-y full text Theorem 1.1",
+        "doi:10.1007/s10543-022-00931-1 abstract and attempted institutional access"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Motivating paper arXiv:2610.30454v1 Section 2.3 gives the same coefficients but no two-period trace/determinant polynomial.",
+        "published-finding corpus finding c7d71d470cbe on sharp energy-norm stability for two-periodic recurrences treats a bilateral first-order stability constant, not BDF2 test-equation monodromy."
+      ],
+      "reasoning": "Aliases searched: alternating step ratio, reciprocal ratio, two-period Floquet, complex Schur–Cohn, zero stability. Other two-period recurrence classes are not equivalent; a scalar second-order BDF2 period matrix has different coefficients and spectral quantifiers.",
+      "searches": [
+        "two-periodic variable-step BDF2 scalar Dahlquist test equation unconditional A stability for every positive alternating step ratio Floquet polynomial",
+        "variable-step BDF2 alternating time steps reciprocal ratios zero stability product r/((1+2r)(r+2))",
+        "alternating unequal step BDF2 exact two-cycle amplification eigenvalues Crank Nicolson limit extreme step ratios",
+        "BDF2 period 2 A stability arbitrary step ratio Floquet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus finding cf66315c5a14 on delayed BDF2 sign loss studies delayed negativity for fixed-step BDF2.",
+        "Closest prior research records claim 763c35a7-d474-46c7-ba55-f30757dc2f96 is a FOUR-step optimized BDF-like method with a bounded alternating stability interval."
+      ],
+      "reasoning": "Compared equations, order, method identity, complex stability regime and implications—not just title or a matching two-period parameter. Neither result implies universal period-two A-stability of the standard two-step BDF2.",
+      "searches": [
+        "published-finding corpus semantic search: two-periodic variable-step BDF2 scalar Dahlquist test equation unconditional A stability for every positive alternating step ratio Floquet polynomial",
+        "published-finding corpus semantic search: variable-step BDF2 alternating time steps reciprocal ratios zero stability product r/((1+2r)(r+2))",
+        "published-finding corpus semantic search: reciprocal ratio BDF2 Floquet complex Schur Cohn stability"
+      ]
+    },
+    "rationale": "Compared exact unconditional two-period complex Floquet conclusion and singular-limit implications with full motivating vBDF2 and Li–Liao/arbitrary-grid results, parabolic energy literature, accessible published-finding corpus assertions and specialized terminology. No inspected stronger theorem entails it. Accessible abstract of a related deferred-correction study leaves explicitly recorded residual priority risk, not a decisive stronger claim.",
+    "residual_risks": [
+      "Bourgault–Garon (2022) accessible abstract but unavailable full text: its deferred-correction treatment could contain related special cases; no whole-document noncoverage assertion is made.",
+      "Older specialist literature on periodic multistep and complex root-location formulas may overlap despite no dominating statement among checked records.",
+      "Mesh-robust stability in Li–Liao uses a nonidentical definition and step-size hypothesis; careful separation of logical implications is required."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact period-two complex Floquet theorem; provides base discretization and a different general-grid convergence discussion",
+        "evidence": "Section 2.3 states 0<rho<1+sqrt(2), and Section 4.3 invokes this for global order two.",
+        "identifier_or_url": "arXiv:2610.30454v1; https://arxiv.org/html/2610.30454v1",
+        "material_read": "Full accessible HTML text, especially Sections 2.3 and 4.3, the variable-step coefficients, allowed ratios and convergence claims",
+        "method": "Read equations (3)-(4), local ratio restriction, Proposition 8 and discussion",
+        "title": "Energy-rate equidistribution for adaptive SSAV–BDF2 integration of gradient flows",
+        "trigger": "Same BDF2 coefficients; motivating new adaptive method and ratio restriction"
+      },
+      {
+        "assessment": "NOT_COVERING by implication: the arbitrary-grid perturbation result restricts maximum step versus Lipschitz constant and does not give large-|z| test-equation damping or exact period-two multipliers",
+        "evidence": "Theorem 2.1 maximum step condition h_max<=1/(4 L_f), in the named perturbation stability sense.",
+        "identifier_or_url": "arXiv:2201.00527v1; https://arxiv.org/html/2201.00527v1",
+        "material_read": "Accessible HTML full text, abstract, definitions and Theorem 2.1 with its small-step hypothesis",
+        "method": "Compared exact quantified perturbation-stability statement with unbounded-stiffness scalar Floquet eigenvalue assertion",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Strongest plausible arbitrary-grid BDF2 stability predecessor"
+      },
+      {
+        "assessment": "NOT_COVERING period-two arbitrary-ratio complex scalar A-stability: theorem uses adjacent ratios <=1.9398 and a distinct Hilbert-space estimate",
+        "evidence": "Theorem 1.1 states r_n<=r*≈1.9398 and a bound on parabolic solution norms.",
+        "identifier_or_url": "doi:10.1007/s10543-024-01007-y; https://link.springer.com/article/10.1007/s10543-024-01007-y",
+        "material_read": "Full open-access HTML paper, in particular Theorem 1.1 and its hypotheses, Section 1.3 prior-work comparison",
+        "method": "Checked explicit ratio maximum and parabolic-norm guarantee",
+        "title": "The variable two-step BDF method for parabolic equations",
+        "trigger": "Closest parabolic energy-stability treatment of classical variable BDF2"
+      },
+      {
+        "assessment": "UNRESOLVED PRIORITY RISK; abstract concerns higher-order BDF2-deferred-correction methods and does not explicitly state this exact uncorrected Floquet theorem",
+        "evidence": "BIT 2022 bibliographic abstract identifies variable-step deferred correction, not an unrestricted two-period complex multiplier formula.",
+        "identifier_or_url": "doi:10.1007/s10543-022-00931-1",
+        "material_read": "Abstract/metadata only; neither arXiv nor lawful OA full text was obtainable; institutional authorized access was unavailable",
+        "method": "Compared abstracted deferred-correction algorithm against fixed, uncorrected two-period BDF2 and documented noninspection risk",
+        "title": "Variable-step deferred correction methods based on backward differentiation formulae for ordinary differential equations",
+        "trigger": "Potentially covering alternative variable-grid A-stability discussion in closely related deferred-correction literature"
+      },
+      {
+        "assessment": "NOT_COVERING the present arbitrary-contrast alternating-grid complex A-stability statement",
+        "evidence": "Analysis focuses on smooth nonuniform mesh transformations and zero-stability, not imaginary-axis Floquet damping.",
+        "identifier_or_url": "2018 open-access Springer article; prior source comparison",
+        "material_read": "Accessible full-text discussion of smooth nonuniform grid stability assumptions",
+        "method": "Compared smooth-step assumptions with abrupt period-two grids and absence of complex Dahlquist stability domain",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Possible nonconstant mesh zero-stability equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90ab3045-6757-406d-b89c-f557018ee27f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a named modern integrator, the theorem reveals an exact structural exception to a familiar per-step ratio limitation, requiring a genuinely nontrivial full-half-plane Schur–Cohn certificate. The singular Crank–Nicolson limit and strict-but-not-uniform damping are concrete numerical-stability phenomena useful for sharp benchmark design, not routine substitutions or unmotivated parameters.",
+    "status": "PASS"
+  }
+}
