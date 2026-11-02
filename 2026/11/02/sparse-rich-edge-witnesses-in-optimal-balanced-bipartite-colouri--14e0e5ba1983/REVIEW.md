@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The universal lower bound follows from a total edge-dominating set in the line graph touching one full bipartition class. The construction for every \(n\ge4\) partitions one side into two sets of size at least two and uses complementary \((n-1)\)-colour Latin rectangles, with one extra shared colour on nonincident edges. Exact row/column palettes prove that the **entire** rich-edge set consists of precisely \(n\) edges in two stars and that every edge has a *distinct* rich neighbor. A direct neighborhood checker passed all 83 construction instances. For \(n=3\), a three-edge rich subgraph must be a star or three-edge path; the path is forbidden by palette intersections and the star forces a two-colour edge-colouring of \(K_{3,2}\), which is impossible. A five-colour matrix attains four. For \(n=2\), a four-colour assignment necessarily makes all four cycle edges rich. The general proof does not rely on finite extrapolation.
+
+## Originality
+PASS, with historical risk. The closest primary source is Kong's arXiv:2610.21036v1, Theorem 1.2 and Section 3.1. Its exact **colour** optimum is acknowledged as prior work. The balanced construction in its proof certifies \(2n-2\) rich edges, not the sharp witness-support count \(n\) proved here. Its later rich-edge component theorem applies to complete graphs, not complete bipartite graphs. The general linear upper bound of Kashima et al. does not control sparse optimal witnesses. Searches using rich-edge graph, minimum rich edges, total edge domination, optimal biclique palette and exact support produced no equivalent full claim. A historical literature search is not a uniqueness proof; priority remains provisional.
+
+## Value
+PASS. The motivating sharp colour-count result leaves a natural second optimization question: how many local rich-edge certificates are strictly necessary once the colour budget is already optimal? The answer exhibits exact joint feasibility for every balanced order at least four, supplies a tunable two-star family meeting the graph-theoretic lower bound, and isolates an actual size-three obstruction. Unlike merely recomputing the colour optimum or the total edge-domination number, this proves compatibility of two constraints which are not equivalent. It also halves the previously exhibited count asymptotically, from \(2n-2\) to \(n\), without extra colours. The contribution is deliberately limited to balanced bicliques.
+
+## Closest work and residual risks
+Kong, arXiv:2610.21036v1 (2026-10-15), complete inspected HTML Section 3.1 and related statements; Kashima et al., arXiv:2610.16446v1 (2026-10-12), publicly available abstract; Chen–Tan–Zhou (2025), published abstract. Terms such as *total edge-dominating forest* and *rich-edge graph* were compared by implication. The previous theorem proving only colour count does not determine minimum rich-edge support. Residual risk is an older unindexed equality under a different name. No claim of independent assessment or comprehensive priority verification is made.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The vertex-cover counting lower bound, explicit two cyclic Latin rectangles and complementary palettes, strict open-neighbor verification, and n=2,3 obstructions prove the claim for all n≥2. The complete rich-edge set is certified, not merely a subset; K3,3 three-rich impossibility uses path/stars and a degree-three edge-colouring obstruction. The stand-alone direct adjacency checker passed 83 constructions plus normalized exhaustive five-colour K3,3 search. Finite tests are not used to infer the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kashima et al. prove upper bounds on number of colours for multigraphs, not minimum support of rich edges.",
+        "Kong Theorem 1.2 covers the colour-optimality component. Its Section 3.1 balanced witness construction explicitly provides two stars containing 2n−2 rich edges, not the n-edge optimum.",
+        "Kong Theorem 1.4 concerns the number of components of rich-edge graphs of complete graphs, not balanced complete bipartite graphs."
+      ],
+      "reasoning": "A theorem bounding colours or guaranteeing a rich-neighbor colouring is strictly weaker than minimizing rich-edge support subject to a fixed optimal palette. The balanced construction in Kong does not attain the new count; the later component theorem applies to a different graph family.",
+      "searches": [
+        "arxiv:2610.16446v1",
+        "arxiv:2610.21036v1 Theorem 1.1",
+        "arxiv:2610.21036v1 Theorem 1.2",
+        "arxiv:2610.21036v1 Theorem 1.4",
+        "Jiangxu Kong Linear bounds for rich-neighbor edge-colorings 2610.21036 minimum rich edges K_{n,n}"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.21036v1, HTML Section 3.1, Theorem 1.2, Lemma 2.1, Section 3.2",
+      "arxiv:2610.16446v1 abstract",
+      "Chen–Tan–Zhou, Graphs and Combinatorics 41 (2025) article 89, publisher abstract",
+      "published-finding corpus 2026/9/17/SCOPE005 (different majority colouring)",
+      "published-finding corpus 2026/10/4/SCOPE-exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be (different D-conflict index)",
+      "published-finding corpus 2026/9/18/SCOPE-exact-rainbow-path-cover-k2m--bb36c6d0f938 (different rainbow path cover)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: χrn(Kn,n)=2n−1 for n≥3; exhibited balanced coloring certifies 2n−2 rich edges.",
+        "New: among ALL optimal-palette colourings, the minimum rich-edge count is n for n≥4, and four for n=2,3; every split 2≤d≤n−2 has a construction with exactly n rich edges.",
+        "The existence of 2n−2 rich edges does not imply the existence or lower bound of precisely n such edges."
+      ],
+      "reasoning": "A known colour count and a nonminimal witness cannot imply the exact second-objective optimum. The novel simultaneous equality and size-three obstruction require the new construction and palette rigidity proof.",
+      "searches": [
+        "arxiv:2610.21036v1 Section 3.1 full proof",
+        "arxiv:2610.21036v1 Lemma 2.1",
+        "arxiv:2610.21036v1 Theorem 1.4",
+        "Jiangxu Kong Linear bounds for rich-neighbor edge-colorings 2610.21036 minimum rich edges K_{n,n}",
+        "optimal rich-edge support number balanced complete bipartite graph two star witness construction",
+        "minimize cardinality rich-edge subgraph in minimum-palette rich-neighbor edge colorings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kong Section 2 defines the rich-edge graph through singleton palette intersections and total edge domination, and Section 3.1 proves the chromatic palette optimum.",
+        "The new optimization is the minimum cardinality of the rich-edge set at that colour optimum, not ordinary total edge domination.",
+        "No matching joint optimum found among the actual targeted published-finding corpus hits; closest ids listed in checked_sources."
+      ],
+      "reasoning": "Aliases such as sparse rich-edge graph, total-edge-dominating set in the line graph, and palette-constrained witness set were compared. The graph-theoretic support lower bound n does not provide a proper 2n−1-colouring realizing it; the two-Latin-rectangle construction provides the missing simultaneous feasibility.",
+      "searches": [
+        "optimal rich-neighbor coloring complete bipartite graph minimum number of rich edges star forest two stars",
+        "K_n,n rich-edge graph exactly n rich edges optimal 2n-1 colors",
+        "minimum rich edges in rich-neighbor edge colorings complete bipartite graphs",
+        "\"rich-neighbor chromatic index\" \"complete bipartite\"",
+        "\"rich-neighbor\" \"minimum number of rich edges\"",
+        "arxiv:2610.21036v1 Section 3.1",
+        "arxiv:2610.21036v1 Eq. (4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ranked records included generalized strong-majority biclique thresholds and D-conflict indices; their summaries contain no equivalent support count.",
+        "Published Section 3.1 provides no table of minimum rich-edge counts of optimal biclique colourings.",
+        "The exhaustive normalized K3,3 checker establishes only a small-order sanity check; infinite counts are analytically proved."
+      ],
+      "reasoning": "Neither the accessible published source tables nor the queried database records gave the function rho(Kn,n), its n=3 obstruction, or the tunable two-star constructions. This is best-knowledge absence, not a proof of absolute novelty.",
+      "searches": [
+        "K_n,n rich-edge graph exactly n rich edges optimal 2n-1 colors",
+        "minimum rich edges in rich-neighbor edge colorings complete bipartite graphs",
+        "rainbow palette optimal biclique edge coloring sparse rich edges",
+        "optimal rich-edge support number balanced complete bipartite graph two star witness construction",
+        "minimize cardinality rich-edge subgraph in minimum-palette rich-neighbor edge colorings",
+        "\"complete bipartite\" \"rich edges\" \"two stars\" \"2n-1\"",
+        "\"rich-edge graph\" \"complete bipartite\" \"minimum\" \"rich-neighbor\"",
+        "\"sparse rich edges\" \"complete bipartite\" \"edge-coloring\"",
+        "arxiv:2610.21036v1 Section 3.1"
+      ]
+    },
+    "rationale": "The full relevant primary biclique theorem of Kong was inspected. Its known optimal colour count and 2n−2-edge balanced witness do not imply the n-edge joint optimum or the exact small-order obstruction, and no broader covering statement surfaced in targeted published-finding corpus and web searches. Historical priority remains uncertain.",
+    "residual_risks": [
+      "An equivalent minimum-witness result might exist under unindexed palette-labelling or total edge domination terminology.",
+      "The 2025 subcubic paper and 2026 Kashima et al. paper were not inspected in full; only their accessible abstracts.",
+      "No independent historical-priority determination has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers χrn(Km,n), including small exceptions, but does not prove or count minimum rich-edge support for balanced bicliques; shown balanced construction gives 2n−2 rich witnesses.",
+        "evidence": [
+          "arXiv HTML lines 31–60: theorem statements",
+          "arXiv HTML lines 90–100: palette criterion",
+          "arXiv HTML lines 177–189: entire balanced-biclique proof and exhibited stars",
+          "arXiv HTML lines 190–210: structural star-forest result explicitly for complete graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21036v1",
+        "material_read": "Introduction and Theorems 1.1–1.4; definition/palette lemma; complete Section 3.1 (proof of Theorem 1.2); comparative complete-graph structure statements in Section 3.2.",
+        "method": "Full-text arXiv HTML primary source inspected at definitions, theorem statements, complete proof for complete bipartite graphs, and relevant structure section.",
+        "title": "Linear bounds for rich-neighbor edge-colorings",
+        "trigger": "Most direct exact rich-neighbor biclique theorem, and possible coverage by its optimal constructions"
+      },
+      {
+        "assessment": "Related linear colour bounds, no claim in inspected material about minimum number of rich witnesses in an optimal colouring.",
+        "evidence": [
+          "arXiv 2610.16446 abstract states bounds of 6Δ−8 and 5Δ−8 for several classes, not sparse rich-edge support"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.16446",
+        "material_read": "Complete publicly accessible abstract only; main proof not inspected.",
+        "method": "ArXiv abstract and indexed primary bibliographic metadata.",
+        "title": "The rich-neighbor chromatic index is linear in the maximum degree",
+        "trigger": "Contemporaneous general colour bounds that might dominate the palette-specific claim"
+      },
+      {
+        "assessment": "Subcubic upper bound under degree-three independence; cannot imply the all-n balanced-biclique support theorem.",
+        "evidence": [
+          "Graphs and Combinatorics 41 (2025) article 89 abstract describes subcubic colour-existence results"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00373-025-02949-y",
+        "material_read": "Publisher abstract and bibliographic information, not the complete article.",
+        "method": "Publisher abstract inspection.",
+        "title": "On the Rich-Neighbor Edge-Colorings of Subcubic Graphs",
+        "trigger": "Earlier terminology and possible small-order coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "14e0e5ba-1983-4763-a30b-e7a5d9002471",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exactly optimizes a mathematically natural second resource—the number of locally rich witness edges—while simultaneously retaining the recently proved minimum palette. The new two-star Latin-rectangle construction attains the vertex-cover lower bound for every n≥4 and allows arbitrary split sizes 2..n−2; it reduces the formerly exhibited balanced witness count 2n−2 to n and identifies a genuine exceptional obstruction at n=3. Neither the previous colour theorem nor total edge domination alone implies joint attainability.",
+    "status": "PASS"
+  }
+}
