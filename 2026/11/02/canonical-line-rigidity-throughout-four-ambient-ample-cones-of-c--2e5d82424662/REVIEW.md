@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** Counting monomials by normal degree gives the ambient bivariate Hilbert polynomial; the anticanonical exact sequence gives each coefficient of the fourfold Hilbert polynomial. The four fully expanded discriminants have positive coefficients in the independent positive variables \(b\) and \(u=a-b\), giving a proof for all permissible integral polarizations and excluding multiple or non-imaginary roots. The exact symbolic checker reconstructs all four Hilbert polynomials and verifies independent direct monomial counts. Its finite evaluations are checks, not a substitute for the positive-coefficient proof.
+
+**Originality — PASS, qualified.** Weitsman's general toric hypersurface theorem already computes Hilbert polynomials from lattice boundaries, and that computational implication is acknowledged. Golyshev's transfer theorem from a toric Fano canonical strip concerns the ambient anticanonical polarization; Belmans–Galkin–Mukhopadhyay survey that restricted setting and exhibit counterexamples elsewhere. The inspected statements do not prove persistence for every \(a>b>0\) in four full Picard-rank-two ambient ample cones, or the corresponding strict Chern inequality. Broad root-location or enumerative interpretations may contain an implicit equivalent proof; definitive historical priority remains unverified.
+
+**Mathematical value — PASS.** The canonical-line phenomenon is not automatic in higher-dimensional Calabi–Yau geometry. A complete root-rigidity theorem simultaneously on four nontrivial two-dimensional polarization cones, with exact strict characteristic-number inequalities, gives an invariant structural statement beyond computing isolated Hilbert polynomials or specializing a single polarization.
+
+**Scope and risks.** Only ambient-induced ample classes on smooth anticanonical hypersurfaces of linear-center blowups of \(\mathbb P^5\) are treated. The proof does not cover general toric Fano fivefolds or all intrinsic polarizations. Broader unpublished or implicit root-location literature is a historical-priority risk; independent mathematical review is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
