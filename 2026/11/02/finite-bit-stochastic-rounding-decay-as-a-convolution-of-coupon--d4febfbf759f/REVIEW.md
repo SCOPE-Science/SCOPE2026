@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** On the explicitly specified decrement-rounding grid, the transition probability is \(q_j=\lfloor Kj/N\rfloor/K\). Positive holding states have independent geometric durations. Their multiplicities produce exactly a shifted convolution of classical coupon-collector waiting times. The bit-threshold, moments, and limiting laws follow from this identity, the classical Gumbel limit, and a second-moment argument. Exact-rational finite tests support the derivations without replacing the proof.
+
+**Originality — PASS, with publication-priority risk.** El Arar et al. (arXiv:2408.03069, Section 3) establish the biased limited-bit rounding mechanism, but not its exact statewise absorption or coupon-collector convolution. Fitzgibbon and Felix (arXiv:2504.20634) classify one-step few-bit biases and possible corrections but do not give this precision-dependent Euler stopping law. Classical coupon-collector and pure-death results imply the harmonic and Gumbel consequences after the correspondence is known; these classical formulas are credited, not claimed original. The fixed-point scheme is narrower than general floating-point rounding. A specialized prior formulation could still coincide, so priority is qualified.
+
+**Value — PASS.** The sharp budget \(r=p\) separates almost-sure arrival at the exact equilibrium from a positive absorbing floor. More than a counterexample, the full finite stopping-time law quantifies the reliability and waiting cost and shows a non-Gumbel/point-mass two-parameter transition. This natural bit-budget question arises directly from the hardware-motivated gap between ideal and limited-bit stochastic rounding, while the exact fixed-point model makes the engineering assumptions transparent.
+
+**Limits and closest sources.** The theorem does not generalize to operation-wise IEEE arithmetic, to rounding the completed update, or to bias-corrected few-bit rounding. Related finite-state birth–death limit theory (Hathcock and Strogatz, arXiv:2103.08522) concerns broader asymptotic mechanisms but does not explicitly state this exact digital coupling. Independent scientific assessment remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

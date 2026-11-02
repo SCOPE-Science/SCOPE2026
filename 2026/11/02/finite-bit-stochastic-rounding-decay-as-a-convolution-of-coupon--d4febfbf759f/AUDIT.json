@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For the specified fixed-point decrement probability-truncation scheme, the exact probability is floor(Kj/N)/K. Every transient integer j is visited exactly once with independent geometric residence time. Rate multiplicities, including the one deterministic initial state, rigorously yield the shifted L-fold coupon distribution; the two moment identities, sharp r>=p zero-hit threshold, fixed-deficit Gumbel-convolution and growing-deficit concentration follow from this. The included exact-rational checker independently passed 70 finite identities. The proof, not the finite enumeration, establishes the universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2103.08522 develops general absorption-time asymptotics for birth-death processes, not the exact finite coupon-collector coupling for a specific digital Euler update.",
+        "arXiv:2010.16225 surveys ideal unbiased rounding; arXiv:2603.06060 reviews limited-bit variants and their biases."
+      ],
+      "reasoning": "Generic pure-death holding-time decomposition and standard coupon-collector theory imply the probabilistic consequences once the specific transition rates have been identified; their known coverage is explicitly credited. They do not supply an existing fixed-point r-versus-p plateau theorem or the exact digital-to-coupon equivalence found by the inspected searches. An undiscovered stronger theorem tailored to this exact chain remains a residual risk.",
+      "searches": [
+        "arXiv:2103.08522",
+        "arXiv:2010.16225",
+        "arXiv:2603.06060",
+        "finite random bits stochastic rounding positive trapping floor of probability absorbing near zero sharp bit threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2408.03069",
+      "https://arxiv.org/pdf/2504.20634",
+      "https://arxiv.org/pdf/2603.06060",
+      "https://arxiv.org/pdf/2010.16225",
+      "https://arxiv.org/pdf/2103.08522"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior rounding papers give one-step bias rules and generic bounds rather than this exact monotone scalar recurrence.",
+        "Classical coupon-collector calculations are recovered verbatim after identifying each of the L copies, and are treated as prior mathematics."
+      ],
+      "reasoning": "One-step bias plus a general convergence theorem does not state the grid-state absorbing barrier or its exact full-horizon law without deriving the state rate multiplicities. The additional discrete-structure derivation and sharp bit threshold are the claimed contribution; formulas for C_K themselves are not claimed original.",
+      "searches": [
+        "arXiv:2408.03069 Definition 4 and Section 3",
+        "arXiv:2504.20634 Sections II-IV",
+        "L-fold independent coupon collector hitting time from finite-random-bit stochastic rounding Euler decrement fixed-point dyadic plateau"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2408.03069 Section 2.3, Definition 4 defines probability truncation for limited-bit stochastic rounding; Section 3 studies the resulting bias.",
+        "arXiv:2504.20634 Sections II-IV treat alternative few-bit rounding rules and error-bias calculations."
+      ],
+      "reasoning": "The exact update uses probability floor(Kj/N)/K after rounding the positive decrement on a fixed grid. Closest known equivalent phrasing is a discrete pure-death chain with L repeated holding rates or L independent coupon-collector sums. Neither inspected few-bit paper states this full equivalence or its sharp terminal residual; bias bounds alone do not logically entail the exact convolution.",
+      "searches": [
+        "limited precision stochastic rounding Euler decrement dyadic fixed point r random bits stagnation residual floor harmonic absorption time coupon collector",
+        "coupon collector exact law stochastic rounding Euler discretization scalar linear decay uniform grid extinction Gumbel cutoff",
+        "arXiv:2408.03069",
+        "arXiv:2504.20634"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic research-record searches retrieved related reset coupon-collector and quantized-map results but no exact finite-bit Euler stopping-time table.",
+        "The analytic formula characterizes all integer p,r, not a re-tabulation of selected finite cases."
+      ],
+      "reasoning": "No checked indexed record or inspected numerical table directly lists these transition probabilities with the shifted L-fold coupon convolution. Finite checks were generated from the analytic identity; absence of a search hit is not a proof of novelty.",
+      "searches": [
+        "L-fold independent coupon collector hitting time from finite-random-bit stochastic rounding Euler decrement fixed-point dyadic plateau",
+        "stochastic rounding truncated random bits Euler decay coupon collector absorption time harmonic number",
+        "arXiv:2408.03069 Section 3"
+      ]
+    },
+    "rationale": "The inspected 2024 primary limited-bit stochastic-rounding analysis gives one-step bias but not the precision-specific Euler absorption/convolution; 2025 few-bit bias work and 2026 review do not directly state it. The classical geometric waiting-time/coupon collector laws are credited rather than presented as new. Accessible historical comparison and targeted semantic research-record searches found related but non-implicative results. Specialized earlier coverage remains possible.",
+    "residual_risks": [
+      "Classical coupon-collector equivalence may have been independently noted for an equivalent quantized pure-death scheme outside inspected sources.",
+      "The main motivating paper uses normalized floating-point arithmetic, while the new theorem is only for the explicitly specified fixed-point analogue.",
+      "Search coverage is finite and cannot establish priority; no independent external assessment was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines limited-bit rounding and proves bias, but does not identify exact fixed-point Euler hitting laws or collector convolutions",
+        "evidence": [
+          "Definition 4, equation (6); Section 3, equation (7) and Lemma 3; introduction summary of sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.03069",
+        "material_read": "Original PDF pages 1-8, specifically introduction, Definitions 3-4, Section 3 and bias formulas, plus section outline and references",
+        "method": "Read PDF text and inspected its displayed probability/rounding definitions",
+        "title": "Probabilistic error analysis of limited-precision stochastic rounding",
+        "trigger": "Direct source of finite-bit probability-truncation model and closest possible coverage"
+      },
+      {
+        "assessment": "Addresses bias and correction variants, not this exact Euler absorption or L-fold coupon law",
+        "evidence": [
+          "Sections I and III; equation (7); Sections IV-V and Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.20634",
+        "material_read": "Abstract, introduction, implementation/bias sections II-III, application Section IV, conclusion and bias appendix excerpts",
+        "method": "Read original arXiv PDF text and checked named bias formulas and Euler/stagnation mentions",
+        "title": "On Stochastic Rounding with Few Random Bits",
+        "trigger": "Alternative few-bit rounding implementations could dominate the proposed mechanism"
+      },
+      {
+        "assessment": "Covers general limited-precision rounding and hardware but no explicit digital coupon-collector absorption theorem in inspected material",
+        "evidence": [
+          "Abstract; Sections 1-2; no coupon keyword match"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.06060",
+        "material_read": "Abstract and Sections 1-2 including few-bit definition; searched full PDF for coupon terminology",
+        "method": "Inspected publicly available PDF text and terminology matches",
+        "title": "What is New in Stochastic Rounding: a Survey on Theory, Hardware, and Applications",
+        "trigger": "Recent survey for any stronger known few-bit result"
+      },
+      {
+        "assessment": "The ideal-unbiased premise differs, and exact finite-bit absorbing chain law was not found in inspected sections",
+        "evidence": [
+          "Survey discussion of stochastic-rounding stagnation and numerical ODEs"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.16225",
+        "material_read": "Abstract, sections on rounding and ODE implementations, and conclusions",
+        "method": "Inspected lawful full-text PDF including mathematical setup and cited applications",
+        "title": "Stochastic rounding: implementation, error analysis, and applications",
+        "trigger": "Classical ideal rounding and possible ODE-specific prior results"
+      },
+      {
+        "assessment": "General asymptotics are known and credited; no direct exact finite-bit Euler-to-L-coupon correspondence in material inspected",
+        "evidence": [
+          "Absorbing birth-death process first-passage distribution framework"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2103.08522",
+        "material_read": "Abstract, main theorem framework, and introductory examples",
+        "method": "Opened and inspected original mathematical PDF",
+        "title": "Asymptotic absorption-time distributions in birth-death processes",
+        "trigger": "Broad absorbing-chain theorem possibly implying Gumbel limits"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4febfbf-759f-44dc-83c2-b7ede0c6052f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem exactly relates a natural hardware bit-resource constraint to a numerical solver failing to attain its stable equilibrium. It gives a sharp r=p criterion, nonzero residual size, complete stopping-time distribution and two-parameter asymptotic reliability phase separation. These quantify both cost and residual risk in a controlled fixed-point model; no applicability beyond the exact assumptions is claimed.",
+    "status": "PASS"
+  }
+}
