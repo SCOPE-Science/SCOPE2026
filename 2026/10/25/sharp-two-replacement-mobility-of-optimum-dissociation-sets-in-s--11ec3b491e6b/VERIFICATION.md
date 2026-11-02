@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying `verify_rook.py` independently enumerates configurations from center assignments and tests two-replacement adjacency by direct common-subset hashing. The accompanying `verify_rook_independent.py` generates the states by an exact cover of the original row/column vertices by two-edge stars and builds adjacencies from explicit legal local transformations.
+## correctness
 
-Each program is standalone Python 3 using only its standard library. Run `python verify_rook.py` and `python verify_rook_independent.py` in the extracted directory. The recorded outputs are included in corresponding `.out` files; replayed outputs must match as UTF-8 bytes.
+PASS
 
-For board sizes three and six, both programs give respectively nine and 8,100 optimal states, degrees four and 24, and a single two-replacement connected component. The independent script also brute-forces every subset on three- and four-by-four boards, checking maximum size four and five respectively. A finite check does not prove the infinite statement. The proof in `RESULT.md` is the basis for all quantified conclusions; no independent audit was performed.
+Line-graph translation makes selected edges vertex-disjoint P3s and isolated edges, giving 4k cap on 6k endpoints. Equality is a P3-factor with k centers each side. Every nontrivial two-swap either exchanges chosen same-orientation leaves, giving 8*binom(k,2), or switches cross-orientation centers, giving 4k^2. The leaf-swap fiber is connected; the quotient contains the connected direct product of two nonbipartite Johnson graphs, establishing connectivity. Independent enumeration of all n=3 maximum sets yields 9 optimums, no one-swap, connected degree-four two-swap graph.
+
+## originality
+
+PASS
+
+The exact exchange threshold and regular degree are not present in inspected primary line-graph dissociation and independent-set reconfiguration results; earlier P3 packing and optimum count are not claimed as new. Best-of-knowledge only; specialized reconfiguration may exist.
+
+## value
+
+PASS
+
+Optimal dissociation-set reconfiguration is a natural combinatorial optimization transition problem; determining the smallest simultaneous replacement budget and the full regular graph degree in an unbounded rook-graph family is a motivated structural theorem, not a renaming of the packing correspondence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
