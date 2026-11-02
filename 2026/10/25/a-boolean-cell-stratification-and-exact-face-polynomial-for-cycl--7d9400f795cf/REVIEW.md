@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The directed multihomomorphism CW definition and dimension convention match the original 2021 directed-Hom construction. Every transversal directed triangle obeys the forced circular order. That order prohibits interleaving labels and yields a unique anchor in each of the three color classes. The three maximal clockwise arc constraints then become independent inequalities, and the augmentation-slot count is exactly \(m-1\). Counting anchor gap pairs gives the all-parameter binomial face polynomial and purity. Direct arc-based and separately anchor-based constructions agree exactly for six complete finite orders (5, 7, 9, 11, 13, 15). These computations cross-check but do not substitute for the all-parameter proof. The quotient cell count uses uniqueness of the anchor to exclude fixed cells for nonidentity translations.
+## correctness
 
-## Originality — PASS against inspected evidence
-The original directed-Hom paper develops the general object and studies transitive tournaments and other examples, but does not supply the all-order Boolean anchor partition and face formula for regular cyclic tournaments. The published nine-vertex calculation explicitly contains the four entries \((90,270,270,90)\), which are credited, but is one specialization. An existing all-parameter equivariant circle description of the same complexes gives more *homotopy* information, but neither its hypothesis nor its conclusion implies the exact regular-cell counts or Boolean interval partition. Searches for aliases of directed multihomomorphism cell counts, face polynomials, cyclic tournament Hom and its parameters found no statement forcing the new enumerator. This is not a proof of global uniqueness; a presently unindexed equivalent formula is the main residual risk.
+PASS
 
-## Value — PASS
-The complete dimension-by-dimension CW cell counts of a canonical infinite directed Hom family are natural invariants of the fixed regular-cell model, not invariants of an arbitrary subdivision or of the known circle homotopy type. The unique anchor partition is a reusable structural classification of the multihomomorphisms and gives a direct indexing scheme for all cellular chains, their exact sizes, the top dimension, purity, and cyclic quotient cell counts. The binomial factorization explains the exponential cell growth even though the homotopy remains small. The proof is not a name change, ad hoc finite sample, or reinterpretation of the previous nine-vertex table. Future integral, equivariant and Morse calculations can use this exact cellular indexing; no such further calculation is claimed here.
+Every directed source triangle in regular cyclic tournament R_n occurs in clockwise A,B,C order, forcing all three occupied colors into noninterleaving circular blocks. Unique first occupied anchors have clockwise gaps x,y,z in [1,m] summing 2m+1. Exact additional offsets are m−z,m−x,m−y in disjoint consecutive blocks, totaling m−1; any independent choice respects all cyclic arcs. There are n*C(m+1,2) anchor triangles, each with a Boolean interval on m−1 positions, proving every cell count f_d=n*C(m+1,2)*C(m−1,d), purity, free rotation and chi=0. Reconstructed arc-predicate direct cell sets independently of anchors and checked equality for n=5,7,9,11 with complete vectors (15,15), (42,84,42), (90,270,270,90), (165,660,990,660,165). All-n correctness rests on cyclic-block and extreme-offset inequalities, not finite enumeration.
 
-## Closest literature and limits
-Dochtermann–Singh, *Homomorphism complexes, reconfiguration, and homotopy for directed graphs* (first public 2021-08-24), was inspected in full relevant definitions and tournament sections through its accessible HTML rendering. The public regular-cyclic-nine-vertex published-finding corpus RESULT.md was read and its existing face vector compared. Broader indexed findings concerning homotopy and tournament flag/path complexes were checked for implication; these do not give the new all-parameter cell enumerator. Residual risk: nonindexed enumeration or a deeper description of the same face poset may subsume it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Against materially inspected primary literature and indexed mathematical findings, the precise claim is not implied by the closest related theorems, as detailed by the four comparisons. Best-of-knowledge, not global proof of priority.
+
+## value
+
+PASS
+
+This is an explicit all-order face-polynomial and unique Boolean stratification of a canonical directed Hom CW complex, distinguishing cell combinatorics from known circle homotopy and from one earlier n=9 census. Exact regular-cell enumeration and symmetry quotient are natural invariants that a homotopy theorem cannot supply, and Boolean intervals are not incorrectly promoted to subcomplexes or a Morse matching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
