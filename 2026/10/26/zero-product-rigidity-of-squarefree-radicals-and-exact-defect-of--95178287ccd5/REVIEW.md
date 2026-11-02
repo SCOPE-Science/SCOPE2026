@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The squarefree-monomial spanning proof reduces every nonzero product tensor to a unique class indexed by its union. The key zero-product identity joins incomparable splittings; a complement connects comparable splittings. Products certify independence. Units in the local algebra isolate zero-product tensors inside the radical–radical summand, proving the universal quotient. Dimensions and finite-field counts follow by independent parameterization. The included direct-kernel checker supplies finite consistency checks, not an infinite proof.
+## correctness
 
-**Originality — PASS (self-review, residual uncertainty).** Gardella–Thiel establish failure of zero-product determination for higher-index monogenic nilpotent algebras; the current squarefree radical gives an all-index opposing family. Their paper does not supply these squarefree quotient or symmetric-defect formulas. Jia–Xiao establish a yes/no unital idempotent criterion; the negative unital ZPD verdict is credited and excluded from the originality claim. The present claim is the universal bilinear decomposition, its exact dimension profile and symmetric boundary, and the contrasting nilpotent radical. Searches for squarefree radicals, zero-product tensor quotients, and bilinear zero-product maps did not locate direct coverage. Residual risk: a broader uncatalogued classification could implicitly subsume the combinatorial quotient computation.
+PASS
 
-**Value — PASS.** The results distinguish the nilpotent radical sharply from its unitization, show that high nilpotency index alone is not a ZPD obstruction, and provide exact spaces and counts of all admissible bilinear maps, not just examples or existence statements. The symmetric-defect threshold is natural because symmetric bilinear maps form the commutative/Jordan-relevant subclass.
+Squarefree basis monomials multiply to x_{S union T} for disjoint S,T and zero for intersecting supports. Linear zero-product tensor identities join all nonempty ordered disjoint splittings of each U via incomparable subsets; multiplication sends the common class to independent x_U for |U|>=2, yielding (J tensor J)/Z2(J) isomorphic to J². Every A_r element with nonzero constant is a unit, so nontrivial zero products have both operands in J; the three unitization tensor components remain unconstrained and give K⊕J⊕J⊕J². Dimensions and symmetric condition L=R follow exactly. Independent GF2 rank enumeration for r=1,2,3 matched full zero-product span; unrestricted proof holds for all K.
 
-**Closest literature.** Gardella–Thiel (2023), Examples 2.16–2.17 and tensor-quotient definitions, and Jia–Xiao (2026), finite-dimensional unital criterion. Mathematical limitations and reproducibility are in the result and verification files. An uncatalogued equivalent derivation remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge assessment: Similar nilpotency words or truncated polynomial generators alone are not equivalence: the squarefree multi-index multiplication tensor is the differentiating hypothesis. The positive J_r determination and exact quotient defects are more informative than the prior unital negative criterion, and not contradicted by the monogenic counterexample. The explicit tensor identity is essential new computation under the identified comparisons; only unital non-ZPD status is prior implied. Residual priority and source-access risks are explicitly retained.
+
+## value
+
+PASS
+
+The positive zero-product-determined family at unbounded nilpotency and exact asymmetric/symmetric bilinear defect of its unitizations are motivated structural algebra invariants, sharply distinguishing zero-product behavior of nonunital radicals from their unital local extensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

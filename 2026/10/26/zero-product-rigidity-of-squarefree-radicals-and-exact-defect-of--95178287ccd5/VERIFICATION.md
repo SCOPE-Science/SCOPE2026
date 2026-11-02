@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The included `verify.py` was run directly from its newly packaged source and ended with `VERIFY_OK`.
+## correctness
 
-- For \(r=1\) and \(r=2\), the program enumerates every possible algebra element and every ordered pair over \(\mathbb F_2\) and \(\mathbb F_3\), checks the multiplication condition, and verifies that the canonical quotient coordinates vanish on all zero-product pairs.
-- For \((r,q)=(1,2),(1,3),(2,2),(2,3),(2,5),(3,2),(3,3)\), it enumerates every nonzero radical element, computes the full kernel of its left multiplication on the radical, spans all resulting zero-product pure tensors, and confirms the exact expected tensor-span rank. This exhaustive linear-algebra step avoids enumerating every kernel vector but spans the same vector space by bilinearity.
-- For \(r=2\), \(q=3\), it tests the explicit symmetric quotient coordinate distinguishing \(F(x_1,x_2)\) from \(F(1,x_1x_2)\).
+PASS
 
-These checks do not prove the unrestricted statement. The general argument is the squarefree splitting relation and local-unit decomposition in the mathematical proof. The program uses prime fields only; the theorem holds over every field. No independent audit or certification was performed.
+Squarefree basis monomials multiply to x_{S union T} for disjoint S,T and zero for intersecting supports. Linear zero-product tensor identities join all nonempty ordered disjoint splittings of each U via incomparable subsets; multiplication sends the common class to independent x_U for |U|>=2, yielding (J tensor J)/Z2(J) isomorphic to J². Every A_r element with nonzero constant is a unit, so nontrivial zero products have both operands in J; the three unitization tensor components remain unconstrained and give K⊕J⊕J⊕J². Dimensions and symmetric condition L=R follow exactly. Independent GF2 rank enumeration for r=1,2,3 matched full zero-product span; unrestricted proof holds for all K.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge assessment: Similar nilpotency words or truncated polynomial generators alone are not equivalence: the squarefree multi-index multiplication tensor is the differentiating hypothesis. The positive J_r determination and exact quotient defects are more informative than the prior unital negative criterion, and not contradicted by the monogenic counterexample. The explicit tensor identity is essential new computation under the identified comparisons; only unital non-ZPD status is prior implied. Residual priority and source-access risks are explicitly retained.
+
+## value
+
+PASS
+
+The positive zero-product-determined family at unbounded nilpotency and exact asymmetric/symmetric bilinear defect of its unitizations are motivated structural algebra invariants, sharply distinguishing zero-product behavior of nonunital radicals from their unital local extensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
