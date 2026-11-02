@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:46:39Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md Git blob b373ce6af7c5f4932420584efc1f5b223ff7c4dc; checker.py Git blob 913ebee338c42d855bb6ed7edc1d6dea1c717c5a; exact source-tree 5f3b1469704d220bac46046d59fbed7bb09b36ae.",
+        "Independently authored code solved 160 stationary 6x6 Lyapunov equations at independent parameter sets, checking input/terminal/bond heat currents and Lorentzian formula with max error 1.34e-14.",
+        "Pinned symbolic determinant checker was read, including full matrix assembly and determinant expressions; no uninspected opaque code executed.",
+        "Four separately built 21x21 rational Lyapunov systems had exact det(M)=-64 det(K)D and det(M)-det(M_44)=-256 det(K)(S+2), verifying the closed flux at (p,q,x)=(1,1,0),(2,1,1/2),(3/2,4/3,2),(1/2,5/4,3); see independent_exact_thermal_results.json. This remains bounded corroboration rather than a symbolic proof for all parameters."
+      ],
+      "rationale": "The specified 6x6 Langevin drift has positive definite stiffness for p,q>0,x>=0, and a Hurwitz generator because terminal damping rules out undamped eigenmodes. Stationary covariance is the unique Lyapunov solution, and equilibrium linearity reduces the flux to T_L=1,T_R=0. Exact 21-unknown symmetric covariance elimination yields det M=-64 det(K) D and det M-det(M_44)=-256 det(K)(S+2), with positive D=2(S+2)^2(4S+3)/(S+1)+8(S+1)(x-x0)^2. Cramer then gives J/(T_L-T_R)=2(S+1)(S+2)/((S+2)^2(4S+3)+4(S+1)^2(x-x0)^2), S=(p+q)/2+((p-q)/2)^2 and x0=(p+q)/2-3/2+1/(2(S+1)). Strict positive denominator coefficient implies the unique x>=0 maximum at max(0,x0). Differentiating x0 with respect to squared terminal contrast gives -1/[2(S+1)^2], and p=q onset (1+sqrt17)/4 is exact. Independent fresh covariance solves corroborate the eliminant; the universal proof is the polynomial identities plus quadratic geometry.",
+      "risks": [
+        "The exact 21x21 determinant identity is a nontrivial algebraic step: the original script was inspected but was not independently replayed symbolically in this run; independent floating-point covariance verification is bounded.",
+        "No claim for general masses, end friction, quantum/non-Markovian baths or longer chains.",
+        "The four exact-rational determinant matrices corroborate the algebra, but the all-p,q,x determinant identity is supported by the inspected symbolic elimination and source proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roy–Dhar derive long-chain transport properties, including distributed pinning or disorder; Falasco et al use a local bath at every site.",
+          "The audited chain instead has only end Langevin baths, independently adjustable positive p,q and a single free nonnegative x."
+        ],
+        "reasoning": "General Green-function formulas permit calculation but do not determine this finite exact Lorentzian and its global tuning transition as an explicit theorem.",
+        "searches": [
+          "Roy Dhar arXiv:0711.4318 ordered harmonic lattices",
+          "Roy Dhar arXiv:0806.4693 pinning in disordered long chains",
+          "Falasco et al arXiv:1505.05088 local reservoirs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1012.0622 (primary PDF formula statement)",
+        "arXiv:nlin/0305006",
+        "arXiv:0711.4318",
+        "arXiv:0806.4693",
+        "arXiv:1505.05088",
+        "Resultary oscillator thermal semantic search 2026-10-28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general Gaussian Lyapunov solution is a premise, but the center-parameter dependence must be algebraically eliminated to expose x0 and the slope -1/(2(S+1)^2).",
+          "The source model uses precisely three nodes, unequal positive endpoint substrates, unit damping and a bath-free center; published comparison setups differ."
+        ],
+        "reasoning": "General linear-response formulas do not by their published statements imply the particular x0 formula without a substantive exact special-case calculation; prior equivalents may exist.",
+        "searches": [
+          "Saito Dhar arXiv:1012.0622 transfer matrix special case",
+          "Eckmann Zabey triangle vs open chain",
+          "Roy Dhar 2008 pinning number and location"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saito–Dhar proves a general harmonic-network heat-current generating function, not the displayed 3-site x-Lorentzian extremum.",
+          "Eckmann–Zabey study a triangle network rather than the specified open three-node chain with a free middle substrate."
+        ],
+        "reasoning": "Equivalent input-output network descriptions may give the same covariance if specialized, but no matching closed optimum/threshold was identified in inspected primary statements.",
+        "searches": [
+          "Resultary: three oscillator harmonic chain thermal conductance Lorentzian central onsite pinning optimum asymmetric terminal springs",
+          "Saito Dhar arXiv:1012.0622 harmonic-network generating function",
+          "Eckmann Zabey arXiv:nlin/0305006 three oscillator triangle heat flux"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved oscillator thermal/nonequilibrium records involving other graphs, three-spin entanglement and heat baths, not a matching exact tuned 3-site parameter table."
+        ],
+        "reasoning": "An analytical optimization statement is not supplied by an exact conductance table from the inspected sources; nonmatching search results do not certify priority.",
+        "searches": [
+          "Resultary harmonic chain 3 oscillator Lorentzian peak central pinning",
+          "web searches for three mass spring Langevin conductance optimal middle potential and boundary transition"
+        ]
+      },
+      "rationale": "Best-of-knowledge new fully optimized three-site special-case formula and exact boundary/interior transition. General harmonic network Green-function/Lyapunov expressions are prior art; the audited result does not claim to invent those methods. It adds an exact globally tunable center pin, asymmetric endpoint contrast parameter and sharp transition.",
+      "residual_risks": [
+        "General harmonic-network formulas could yield this specialized answer in earlier unindexed work.",
+        "No claim of novelty of Gaussian Lyapunov method or current covariance identities themselves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: general transport formula, not the particular center pinning Lorentzian optimization.",
+          "evidence": [
+            "Saito–Dhar studies heat-current statistics for arbitrary harmonic networks; no x0 phase transition is given in the inspected formula statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1012.0622",
+          "material_read": "Primary arXiv PDF opening section and main generating-function statement",
+          "method": "PDF text and rendered first-page inspection",
+          "title": "Generating Function Formula of Heat Transfer in Harmonic Networks",
+          "trigger": "General network formula might dominate optimized three-site chain"
+        },
+        {
+          "assessment": "DISTINCT_TOPOLOGY: triangle oscillator network instead of open chain.",
+          "evidence": [
+            "Triangle has a different network cycle and transport law; abstract does not settle all possible special-case appendices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/nlin/0305006",
+          "material_read": "Primary-source abstract and geometric setup",
+          "method": "ArXiv source/abstract comparison; entire paper not independently read",
+          "title": "Strange Heat Flux in (An)Harmonic Networks",
+          "trigger": "Same small finite oscillator network and nontrivial flux"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: pinning locations for long disordered chains, different extremum.",
+          "evidence": [
+            "Published topic is long-chain pinning number/location and asymptotic dependence, not tunable three-oscillator x0 formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0806.4693",
+          "material_read": "Accessible primary mathematical summary and model parameters",
+          "method": "ArXiv source comparison; complete PDF not independently read this run",
+          "title": "Role of pinning potentials in heat transport through disordered harmonic chains",
+          "trigger": "Potentially stronger pinning optimization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Closed positive Lorentzian for arbitrary p,q>0, x>=0; unique global optimizer and sharp boundary threshold.",
+        "Asymmetry-induced switch from interior to zero central pin quantifies a physically interpretable design effect."
+      ],
+      "rationale": "The exact resonant-vs-unpinned optimum and strict shift under endpoint mismatch are a naturally motivated control parameter and qualitative transition in the smallest nontrivial open harmonic conductor. Their exact analytic thresholds can serve as finite-chain benchmarks beyond generic transport identities.",
+      "risks": [
+        "Finite classical, unit-normalized chain only; practical reach beyond this idealized system is not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md b373ce6af7c5f4932420584efc1f5b223ff7c4dc",
+    "checker.py 913ebee338c42d855bb6ed7edc1d6dea1c717c5a",
+    "Saito–Dhar 2010 arXiv:1012.0622",
+    "Eckmann–Zabey 2003 arXiv:nlin/0305006",
+    "Roy–Dhar 2008 arXiv:0806.4693"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical 3-site Markovian end-bath chain, unit friction/masses/coupling."
+  ],
+  "residual_risks": [
+    "No independently replayed full symbolic 21-variable elimination, though independent Lyapunov numerical checks agree.",
+    "Potential unindexed earlier specialized finite-chain formula."
+  ],
+  "schema_version": 1
+}

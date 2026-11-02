@@ -1,15 +1,21 @@
-# Review of the three-oscillator thermal-conductance optimization
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is a sharp, quantified equality for all \(p,q>0\), \(x\ge0\), and \(T_L>T_R>0\). The positive stiffness matrix and boundary damping ensure a unique stationary covariance. Constructing the \(21\) stationary covariance equations gives two exact determinant identities; Cramer's rule derives the normalized current. Its denominator is strictly positive and quadratic in the central spring strength, so the unique constrained optimum and all boundary cases follow. The accompanying checker reconstructed the determinant identities symbolically and passed \(9,100\) independent numerical tests. The symbolic identities, not finite tests, provide the infinite analytical certificate.
+## correctness
 
-## Originality: PASS, with documented historical-priority risk
-published-finding corpus searches for three-site Langevin conduction, central pinning optimization, and resonance/impedance variants gave no directly equivalent claim among inspected closest findings. Established literature includes three-site cyclic heat transport (Eckmann–Zabey, 2003), long-chain conductance and boundary/substrate pinning (Roy–Dhar, 2007 and 2008), general heat-current generating functions for arbitrary networks (Saito–Dhar, 2010), and local-reservoir harmonic chains (Falasco et al., 2015). The last two are general methods that could *in principle* imply the result after specialization and nontrivial exact algebra, but do not state the sharp middle-site optimizer or asymmetry-induced boundary transition in the reviewed material. The 2008 paper studies asymptotic behavior in long disordered chains, not fixed three-site pin optimization. Earlier unpublished/less discoverable special cases could cover the result; searches cannot prove priority.
+PASS
 
-## Mathematical value: PASS
-The result addresses a physically natural design question: with fixed terminal wells and heat baths, how much middle-site substrate pinning maximizes steady transport? The exact Lorentzian reduces the full continuum of design choices to an algebraic optimum, supplies a real boundary/interior phase transition, and shows quantitatively how terminal heterogeneity moves that transition. The full parameter and boundary classification is stronger than evaluating conductance at a few choices and has plausible utility for finite phononic or electromechanical toy-network design. It does not imply a general theorem for long chains or noisy experimental inference.
+The specified 6x6 Langevin drift has positive definite stiffness for p,q>0,x>=0, and a Hurwitz generator because terminal damping rules out undamped eigenmodes. Stationary covariance is the unique Lyapunov solution, and equilibrium linearity reduces the flux to T_L=1,T_R=0. Exact 21-unknown symmetric covariance elimination yields det M=-64 det(K) D and det M-det(M_44)=-256 det(K)(S+2), with positive D=2(S+2)^2(4S+3)/(S+1)+8(S+1)(x-x0)^2. Cramer then gives J/(T_L-T_R)=2(S+1)(S+2)/((S+2)^2(4S+3)+4(S+1)^2(x-x0)^2), S=(p+q)/2+((p-q)/2)^2 and x0=(p+q)/2-3/2+1/(2(S+1)). Strict positive denominator coefficient implies the unique x>=0 maximum at max(0,x0). Differentiating x0 with respect to squared terminal contrast gives -1/[2(S+1)^2], and p=q onset (1+sqrt17)/4 is exact. Independent fresh covariance solves corroborate the eliminant; the universal proof is the polynomial identities plus quadratic geometry.
 
-## Closest literature and limitations
-Eckmann–Zabey, arXiv:nlin/0305006; Roy–Dhar, arXiv:0711.4318 and arXiv:0806.4693; Saito–Dhar, arXiv:1012.0622; Falasco et al., arXiv:1505.05088. They explain basic forward conduction or distinct setups. A broad search of historical three-oscillator tuning work is necessarily incomplete. No external independent review exists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new fully optimized three-site special-case formula and exact boundary/interior transition. General harmonic network Green-function/Lyapunov expressions are prior art; the audited result does not claim to invent those methods. It adds an exact globally tunable center pin, asymmetric endpoint contrast parameter and sharp transition.
+
+## value
+
+PASS
+
+The exact resonant-vs-unpinned optimum and strict shift under endpoint mismatch are a naturally motivated control parameter and qualitative transition in the smallest nontrivial open harmonic conductor. Their exact analytic thresholds can serve as finite-chain benchmarks beyond generic transport identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
