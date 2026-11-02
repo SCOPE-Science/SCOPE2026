@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Uniform root splitting with independent Yule daughters yields the stated conditional additive recurrences. The cherry boundary mean correction is supported only at subtree sizes 1 and 2. Total covariance gives K_n=2/(n-1) sum K_k+2(2H_{n-2}-3n+7)/(3(n-1)); an explicit induction cancels harmonic terms and proves -(n-3)(5n-8)/(9(n-1)) for all n>=3. Boundary n=2,3 and strict sign for n>=4 follow. Direct exact probabilities/independent LCA evaluation and a second mixed-moment recurrence pass 4746 assertions through specified finite sizes, but are not treated as exhaustive infinite proof. Asymptotic correlation uses external proven marginal variances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cardona et al. (2012), full primary PDF: variance and Sackin-cophenetic covariance, not cherry-cophenetic",
+        "Wu and Choi (2015), full primary PDF: cherry-pitchfork joint laws, not cophenetic",
+        "Published record 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9: different random-BST imbalance/path-length statistic"
+      ],
+      "reasoning": "Known multivariate fringe-count results cover cherries and pitchforks, not the nonlocal cophenetic index. Sackin and cophenetic are non-equivalent across trees of the same leaf count; an earlier Yule cherry-Sackin identity therefore cannot dominate this result.",
+      "searches": [
+        "\"Yule Harding Kingman random phylogenetic trees exact covariance of cherry count and total cophenetic index\"",
+        "\"Random binary search tree number of leaves versus total cophenetic index pairwise lowest common ancestor depth covariance\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.6573v1",
+      "arXiv:1508.03139v1",
+      "published indexed records 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f; 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9; 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+      "Accessible adjacent Yule/BST cherry-Sackin formulas compared by mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cardona et al. (2012): Sackin-cophenetic covariance and cophenetic marginal variance",
+        "Wu and Choi (2015): joint cherry/pitchfork distribution",
+        "Published record 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9: random BST squared root imbalance vs total internal path length"
+      ],
+      "reasoning": "Known marginal laws and Sackin-cophenetic covariance do not specify the three-statistic third-order interaction needed for Cov(cherries,cophenetic). Cherry-Sackin covariance cannot be substituted because cophenetic is not an affine function of Sackin on Yule tree shapes. The claimed exact -((n-3)(5n-8))/(9(n-1)) therefore is not a straightforward special case of inspected statements.",
+      "searches": [
+        "\"Yule model phylogenetic tree cherry counts and Sackin index stochastic dependence exact negative covariance\"",
+        "\"Yule phylogenetic tree cherry count sum ancestor pairs / total cophenetic index mixed expectation\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1202.6573v1: definitions of total cophenetic and comparison with Sackin; no cherry cross-moment",
+        "arXiv:1508.03139v1: joint subtree counts only"
+      ],
+      "reasoning": "Aliases include total cophenetic, ancestral depth for leaf pairs, cherry count, and Yule/BST correspondence. The standard cophenetic statistic is pairwise common-ancestor depth, not total leaf path length. Inspected sources do not imply the claim.",
+      "searches": [
+        "\"cherries versus total cophenetic index Yule Harding covariance joint moment exact\"",
+        "\"cophenetic index cherry count Yule n leaves correlation decorrelation phylogenetic tree\"",
+        "\"Yule phylogenetic tree cherry count sum ancestor pairs / total cophenetic index mixed expectation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed near-neighbor 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f: root degree and leaves for recursive trees",
+        "Published indexed near-neighbor 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9: root-split imbalance and path length in random BST",
+        "Published indexed near-neighbor 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae: endpoint degree and distance in Cayley trees"
+      ],
+      "reasoning": "No matched exact published table was retrieved. This is negative search evidence, not a claim of global uniqueness; closer sources were read at the primary level.",
+      "searches": [
+        "\"cophenetic index cherry count Yule n leaves correlation decorrelation phylogenetic tree\"",
+        "\"Yule phylogenetic tree number of cherries versus internal edge ancestor pair count covariance linear 5n/9\""
+      ]
+    },
+    "rationale": "Primary full-text inspection of Cardona-Mir-Rossello 2012 and Wu-Choi 2015 finds cophenetic marginal/Sackin covariance and cherry-pitchfork laws, but no cherry-cophenetic cross-moment. Searches of aliases and broad reductions in published indexed records and accessible adjacent claims do not supply the formula. The Yule/BST cherry-Sackin identity is a different statistic; cophenetic is not determined by Sackin. Residual historical priority is explicitly unresolved.",
+    "residual_risks": [
+      "Unlocated older specialized literature may already imply or state the cross-moment.",
+      "Generic multivariate phylogenetic recurrences might make the calculation accessible without stating the exact formula.",
+      "The large-n correlation constant relies on published marginal variances and inherits their normalization conventions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the precise cherry-cophenetic cross-moment in inspected parts; gives required cophenetic variance asymptotic",
+        "evidence": "arXiv:1202.6573v1; source contains Sackin–cophenetic covariance, not the asserted cherry–cophenetic formula.",
+        "identifier_or_url": "https://arxiv.org/abs/1202.6573 (arXiv:1202.6573v1)",
+        "material_read": "Primary PDF definitions and introductory results; moments and variance calculations; later section on Sackin-cophenetic covariance",
+        "method": "Read extracted full-text portions from primary PDF and inspected page rendering; searched full PDF for cherry/cherries",
+        "title": "Exact formulas for the variance of several balance indices under the Yule model",
+        "trigger": "Primary source for total cophenetic moments and strongest plausible mixed-index coverage"
+      },
+      {
+        "assessment": "NOT_COVERING the precise mixed cophenetic statistic in inspected result sections",
+        "evidence": "arXiv:1508.03139v1; stated bivariate law concerns cherries and pitchforks.",
+        "identifier_or_url": "https://arxiv.org/abs/1508.03139 (arXiv:1508.03139v1)",
+        "material_read": "Primary PDF introduction, joint cherry/pitchfork distribution theorem and covariance sections, comparison and conclusions",
+        "method": "Read primary PDF text and inspected page rendering; searched for cophenetic and Sackin terminology",
+        "title": "On joint subtree distributions under two evolutionary models",
+        "trigger": "Strongest plausible joint-moment source for cherry counts in Yule trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d9e3f02-7d46-4e69-9b98-b6697f833700",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of cherries and total cophenetic index are established, complementary indices of local recent branching and shared-ancestry depth. Their exact covariance is strictly negative from n=4, has a nontrivial boundary-supported cancellation mechanism, and reveals n^(-3/2) normalized decorrelation; this is pertinent to joint null behavior of tree-shape diagnostics and not a mere restatement of separate marginal formulas.",
+    "status": "PASS"
+  }
+}
