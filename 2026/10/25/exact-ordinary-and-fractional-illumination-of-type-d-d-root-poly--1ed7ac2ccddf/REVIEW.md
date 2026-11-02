@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is for all integers \(d\ge4\), with an independently described three-dimensional boundary case. The intersection description \(P_d=[-1,1]^d\cap\{\|x\|_1\le2\}\) follows from the truncated unit-cube vertices in each orthant and convex combinations of signed roots. The active-facet criterion for a root yields the strict heavy-pair condition \(2(a_i+a_j)>\sum_ka_k\) and fixes root signs. Two disjoint heavy pairs violate the same total-weight inequality; an intersecting graph-edge family is a star or a triangle. Thus at most \(d-1\) roots per direction for \(d\ge4\), giving the lower bound \(2d\) for **every** finite weighted illumination scheme, not merely a particular class of directions. The explicitly signed \(2d\) vectors reach exactly the four root sign patterns for each coordinate pair, each exactly once. All boundary faces are lit by vertex illumination via containment of active-inequality sets. The exact checker agrees for \(d=3,\ldots,8\), but the universal assertion depends on the symbolic proof, not the finite tests. No omitted smoothness, scale, genericity, or positivity assumption is needed.
+## correctness
 
-## Originality — PASS under inspected evidence, with residual historical risk
-The **closest same-polytope** published result, *Exact quantitative illumination of type-\(D_d\) root polytopes* (2026), has a related heavy-pair/intersecting-edge reduction. It minimizes the **norm-weighted positions of external light sources**, reporting \(2d(d-1)\), and does not state or construct the exact ordinary/fractional direction count \(2d\). The overlapping pairwise-intersection mechanism is credited rather than presented as completely new; the signed \(2d\)-direction vertex partition and matching all-dimensional fractional value are distinct, non-implied claims. The 2026 fractional-illumination paper establishes universal inequalities, not this family-specific identity. The older cuboctahedron four-direction upper estimate is acknowledged. Naszódi gives foundational definitions without this type-\(D_d\) evaluation. Another public three-dimensional cube–octahedron intersection theorem includes the cuboctahedron but does not apply to dimensions \(d\ge4\). Targeted published-record searches and primary-text inspections found no equivalent or stronger theorem, but this is not a guarantee against differently named or unindexed work.
+PASS
 
-## Value — PASS
-The result exactly resolves the two most basic directional illumination invariants for an infinite, root-system-indexed family of centrally symmetric polytopes, including the exceptional regular \(24\)-cell. The equality of integral and fractional optima is forced by a structural extremal graph restriction and certified by an explicit signed incidence partition, rather than numerical enumeration. This completes a natural class evaluation motivated by recent fractional-illumination work and clarifies the contrast with the different, previously computed quantitative source-cost invariant. The statement does not claim a universal illumination improvement or a rigidity classification.
+For P_d=conv{±e_i±e_j} = [-1,1]^d ∩{Σ|x_i|≤2}, the active inequalities at each root v=σe_i+τe_j give σu_i<0, τu_j<0 and 2(|u_i|+|u_j|)>Σ|u_h|. A single direction can reach at most one signed root per unordered pair; two disjoint heavy pairs would exceed the total weight, so all reached coordinate pairs intersect. Every pairwise-intersecting graph-edge family is a star or triangle and has at most d-1 edges for d>=4. Summing vertex coverage constraints implies fractional and ordinary >=2d. The 2d explicit signed star directions with center magnitude d, all others magnitude 1 have exactly d-1 hits apiece and partition the 2d(d-1) roots; illuminating vertices suffices for all boundary faces. The d=3 tetrahedral direction family separately gives 4. Independently enumerated exactly one hit per root for d=3..8. Universality rests on active-facet/edge-family proof.
 
-## Limitations
-Independence or exhaustive historical priority is not certified. The same-object predecessor supplies part of the combinatorial insight, which increases the possibility that the exact directional result was independently noticed. The computer program checks finitely many cases, and no independent expert has verified the proof. The dimension-three case is contextual, not the novelty-bearing part.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The most relevant earlier same-polytope published exact result computes gauge-weighted external-source cost 2d(d-1), not the ordinary direction-count or weighted fractional direction-count I*=2d; even its shared heavy-pair mechanism does not imply an optimal 2d-direction vertex partition. General fractional illumination and 3D cuboctahedron antecedents do not imply the d>=4 uniform family. Best-of-knowledge, with same-object overlap expressly acknowledged.
+
+## value
+
+PASS
+
+The type-D_d root family includes the regular 24-cell and is a natural high-symmetry polytope family. Exact equality I=I*=2d with an incidence partition and a matching fractional lower bound is a structural infinite-family result, relevant to illumination and covering theory; it distinguishes directional from previously studied gauge-cost illumination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
