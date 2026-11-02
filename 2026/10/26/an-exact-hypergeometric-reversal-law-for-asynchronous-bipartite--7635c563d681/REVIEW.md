@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional first-flip event has a direct coupling to a uniformly random permutation of the initially opposite-majority agent classes, yielding the hypergeometric probability. At the first tip both community majorities agree forever, so the final consensus is determined unambiguously. The binomial weighting and red/blue symmetry recover the unconditional reversal formula, excluding initial global ties. The continuous-time exponential-clock representation and exponential-order-statistic concentration justify the Gaussian comparison; the limiting Cauchy ratio gives the arcsine expression. The encoded `verify.py` independently checks an absorbing Markov recurrence and explicitly enumerates small initial profiles, with exact rational arithmetic. These checks establish finite consistency but are not the universal proof.
+PASS
 
-## Originality — PASS, subject to stated limits
+For odd m,n>=3, opposite initial part majorities cause only L's initial red and R's initial blue vertices to move their opinions until the first group tips. Their distinct first-selection order is a uniform permutation; L flips first iff among the first a+b-1 relevant activations at least a are from the r=x L-red vertices, giving exactly the hypergeometric tail H. Once part majorities agree, all further updates reinforce them, and every vertex is almost surely eventually updated; initial part-majority agreement is already monotone. Binomial initial counts and color exchange give the stated unconditional R excluding initial global ties. With m/n->rho in [1,infinity), independent unit-rate first-activation order statistics concentrate around |X|/m, |Y|/n for CLT margins; the inversion wedge XY<0, |Y|<|X|<rho |Y| has Gaussian probability (1/pi)arcsin((rho-1)/(rho+1)). Independently recoded an absorbing state recursion and rational hypergeometric first-tip count; tested all 324 conditional count configurations over m,n in {3,5,7}, plus example R_(3,3)=9/160 and other samples. Finite checks do not establish the asymptotic limit.
 
-The directly inspected 2018 node-dynamics paper considers random asynchronous opinion updates on complete and dense random graphs, not the exact complete-bipartite reversal problem. The inspected 2023 asynchronous majority paper has initially absent public opinions and treats binomial random graphs, not publicly initialized complete bipartite networks. A spectral result on voter dynamics treats stochastic neighbor copying rather than deterministic neighborhood majority. Published research searches and current own-history comparison did not reveal a theorem implying the exact finite hypergeometric probability together with the fixed-ratio arcsine limit. A claim with equivalent statement in unindexed work remains an originality risk. A negative search is not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The quantitative gap between global vote majorities and final local-interaction consensus is a natural measure of distortion in two-community social aggregation. An exact finite probability law and a nontrivial aspect-ratio phase curve distinguish balanced communities (vanishing asymptotic reversal) from unequal ones (positive asymptotic reversal), with a memorable one-sixth level at three-to-one sizes. This is not just a computational count at a selected graph size: the theorem covers all odd community sizes and explains a structural asymptotic phenomenon.
+The precise complete-bipartite random-sequential strict-majority reversal probability and finite-ratio Gaussian-arcsine limit are not implied by the inspected node-dynamics consensus-time results on complete/dense random graphs, or by signal-revelation majority on sparse random graphs and neighbor-copy voter processes. The public 2018 primary full text explicitly focuses on complete and dense Erdos–Renyi consensus-time estimates, not two odd bipartition groups with exact hypergeometric first-tipping law. Best-of-knowledge originality with possibility of an unindexed two-community majority race identity.
 
-## Scope of review
+## value
 
-Only the single main claim in RESULT.md was assessed. Finite tests cannot establish full generality; the proof handles it. Secondary literatures using alternative update or initialization rules have been distinguished, and inaccessible or unindexed equivalent statements remain a limitation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Majority reversals are the central efficiency/fidelity question for social learning; complete bipartite communities are an elementary but nontrivial topology exhibiting opposing group majorities. The exact finite hypergeometric probability and nontrivial arcsine size-imbalance law quantify when almost-sure consensus contradicts the initial global majority. These distinguish convergence from aggregation accuracy, with a sharp 3:1 limiting value 1/6.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

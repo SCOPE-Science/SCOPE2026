@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python verify.py` with a standard Python 3 installation; no third-party libraries are needed. It checks the exact hypergeometric first-flip conditional formula against an independently coded absorbing-state Markov recurrence for \(784\) initial-count states over the \(16\) ordered sizes with each part in \(\{3,5,7,9\}\), verifies three exact sample values, and enumerates all labeled initial binary profiles of three small network sizes for their total inversion probabilities.
+## correctness
 
-Observed output:
+PASS
 
-```
-K_{3,3}: inversion=9/160 approximately 0.0562500000
-K_{3,5}: inversion=131/1792 approximately 0.0731026786
-K_{3,9}: inversion=233/2048 approximately 0.1137695312
-K_{5,7}: inversion=5233/67584 approximately 0.0774295691
-K_{7,21}: inversion=8970593/67108864 approximately 0.1336722523
-K_{11,33}: inversion=8007083634787/57174604644352 approximately 0.1400461566
-PASS 784 conditional cases, 3 exhaustive binary-profile tests, 3 rational sample checks
-```
+For odd m,n>=3, opposite initial part majorities cause only L's initial red and R's initial blue vertices to move their opinions until the first group tips. Their distinct first-selection order is a uniform permutation; L flips first iff among the first a+b-1 relevant activations at least a are from the r=x L-red vertices, giving exactly the hypergeometric tail H. Once part majorities agree, all further updates reinforce them, and every vertex is almost surely eventually updated; initial part-majority agreement is already monotone. Binomial initial counts and color exchange give the stated unconditional R excluding initial global ties. With m/n->rho in [1,infinity), independent unit-rate first-activation order statistics concentrate around |X|/m, |Y|/n for CLT margins; the inversion wedge XY<0, |Y|<|X|<rho |Y| has Gaussian probability (1/pi)arcsin((rho-1)/(rho+1)). Independently recoded an absorbing state recursion and rational hypergeometric first-tip count; tested all 324 conditional count configurations over m,n in {3,5,7}, plus example R_(3,3)=9/160 and other samples. Finite checks do not establish the asymptotic limit.
 
-These checks have finite range, do not constitute a machine proof of universal formulas, and do not establish originality. The proof in RESULT.md supplies the infinite-domain argument. No independent audit or validation has been performed.
+## originality
+
+PASS
+
+The precise complete-bipartite random-sequential strict-majority reversal probability and finite-ratio Gaussian-arcsine limit are not implied by the inspected node-dynamics consensus-time results on complete/dense random graphs, or by signal-revelation majority on sparse random graphs and neighbor-copy voter processes. The public 2018 primary full text explicitly focuses on complete and dense Erdos–Renyi consensus-time estimates, not two odd bipartition groups with exact hypergeometric first-tipping law. Best-of-knowledge originality with possibility of an unindexed two-community majority race identity.
+
+## value
+
+PASS
+
+Majority reversals are the central efficiency/fidelity question for social learning; complete bipartite communities are an elementary but nontrivial topology exhibiting opposing group majorities. The exact finite hypergeometric probability and nontrivial arcsine size-imbalance law quantify when almost-sure consensus contradicts the initial global majority. These distinguish convergence from aggregation accuracy, with a sharp 3:1 limiting value 1/6.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
