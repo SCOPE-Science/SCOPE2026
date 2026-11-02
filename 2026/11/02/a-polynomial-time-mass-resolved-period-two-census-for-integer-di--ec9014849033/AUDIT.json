@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "A tree incidence matrix has trivial edge kernel, so period dividing two is equivalent to exact edgewise sign reversal. The necessary and sufficient signed-gap bounds force independent assignments on a tree, and the rooted coefficient extraction counts each assignment once. Subtree-size monomials encode total chip mass modulo n; the unique constant fixed state is subtracted, and the remaining states split into two-state orbits. The standard-library verifier replays exact recurrence and independent brute edge-gap counts for every labelled tree of orders 1 through 6 (1,442 cases), plus explicit integer dynamics. These finite checks corroborate an infinite proof; they do not substitute for it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Duffy et al. arXiv:1609.05792, inspected introduction and periodicity/graph-family sections: no global exact tree census by total.",
+        "Long and Narayanan arXiv:1704.04295, inspected theorem and edge-comparison proof: establishes eventual periods of at most two on any graph but not their populations."
+      ],
+      "reasoning": "Qualitative general-graph periodicity covers possible periods, not exact orbit populations. The recurrence here gives counts by each integer total and handles all trees without enumerating integer configurations. No dominating counting formula was found in the material inspected.",
+      "searches": [
+        "graph diffusion game all trees period-two configurations enumeration edge flows tree dynamic programming",
+        "diffusion on graphs is eventually periodic Long Narayanan 2017",
+        "diffusion of integers on rooted tree counting steady states period-two states at fixed total chip sum",
+        "arXiv:1609.05792",
+        "arXiv:1704.04295"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.05792 (inspected primary text and first version metadata)",
+      "arXiv:1704.04295 (inspected primary text)",
+      "arXiv:2010.04750 (inspected primary full HTML)",
+      "arXiv:2010.07745 (abstract only)",
+      "Semantic research-index checks for period-two edge reversal, chip-sum-resolved tree census and graph-family aliases",
+      "Accessible prior claims on stars, bistars, cycles, and graph-parity dynamics (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Path enumeration arXiv:2010.04750 treats paths rather than all branched trees.",
+        "Previously available star and double-star orbit formulas and a cycle zero-winding transfer concern restricted graph families.",
+        "The all-graph period-two bound arXiv:1704.04295 supplies neither recurrence coefficients nor chip-total refinement."
+      ],
+      "reasoning": "Previous star, bistar, and path statements are special cases of the new theorem and cannot imply a uniform algorithm on arbitrary rooted trees merely from their parameters. The cyclic transfer additionally requires a zero-winding condition absent on trees, so it is not an obvious direct specialization providing the present mass-resolved rooted recursion. The known edge-reversal lemma is explicitly credited and combined with previously unstated subtree-mass encoding.",
+      "searches": [
+        "Counting Path Configurations in Parallel Diffusion Mullen Nowakowski Cox 2020",
+        "recurrent diffusion bistar star path cycles exact enumeration integer chips",
+        "arXiv:2010.04750",
+        "arXiv:2010.07745",
+        "integer diffusion on trees two cycles edge orientations sign reversal exact number periodic configurations recurrence graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2010.04750, full accessible HTML: path-specific periodic-configuration recurrence, not arbitrary-tree mass-residue enumeration.",
+        "arXiv:1704.04295, main theorem and edge-reversal discussion: qualitative eventual period bound, no all-tree counting transfer."
+      ],
+      "reasoning": "The present claim counts fixed-conserved-total primitive orbits on arbitrary labelled trees through a degree- and descendant-size-dependent group-ring recursion. The known path recurrence and edge-flux reversal supply ingredients but no equivalent formula on general branched trees. Search comparisons used both the original terminology (diffusion game) and the sign-gradient/edge-flow formulation.",
+      "searches": [
+        "primitive two cycle integer diffusion on trees exact census rooted tree dynamic programming flux sign reversal chip",
+        "integer diffusion on trees two cycles edge orientations sign reversal exact number periodic configurations recurrence graph",
+        "sign-gradient diffusion recurrence all finite trees periodic states number of orbits translation",
+        "period two integer diffusion trees explicit count orbit translation tree sign differences",
+        "arXiv:2010.04750"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Finite six-vertex vectors are computed from the independent gap enumerator and exact rooted transfer in the included verification code.",
+        "A nearby published research result concerns binary parity automata on complete multipartite graphs, not integer diffusion or the six-vertex tree census."
+      ],
+      "reasoning": "No exact published all-tree population table, complete six-vertex degree-twin comparison, or more-general database was identified in the actual checks. Absence of a match cannot prove uniqueness; the example distinguishes structural shapes within the proved uniform theorem.",
+      "searches": [
+        "exact chip sum residue enumeration of primitive two cycle integer diffusion on arbitrary labelled trees via edge signs and polynomial-time dynamic programming",
+        "two nonisomorphic trees same vertex degrees different number diffusion periodic orbits 197 279",
+        "recurrent diffusion bistar star path cycles exact enumeration integer chips"
+      ]
+    },
+    "rationale": "Accessible primary literature establishes the diffusion process, eventual period at most two, and path-only periodic counts, but does not give the general rooted-tree, conserved-total period-two orbit census. The closest available prior star/bistar and cycle claims concern proper shape subclasses or cyclic integrability. Exact semantic research-index searches for aliases, flux-sign reversals, and mass-residue enumeration produced no exact or dominating result; this is a documented best-knowledge rather than a guarantee against unindexed historical equivalence.",
+    "residual_risks": [
+      "Older unindexed tree-specific counting work could express an equivalent recurrence with different notation.",
+      "A plausibly relevant diffusion-game thesis was inaccessible for full examination.",
+      "Semantic similarity ranking is not an exhaustive proof of literature uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and studies the same update but no general exact per-total primitive two-cycle census for arbitrary trees appeared in inspected sections.",
+        "evidence": [
+          "2016-09-19 first public arXiv version; later revised and journal versions distinguished.",
+          "Theorems discussed concern eventual behavior and particular graphs rather than the claimed group-ring counting recursion."
+        ],
+        "identifier_or_url": "arXiv:1609.05792",
+        "material_read": "ArXiv submission details and open-access PDF introduction, sign-update definitions, graph-family periodicity discussions and concluding sections.",
+        "method": "Text extraction together with direct inspection of selected source PDF pages.",
+        "title": "A Variation on Chip-Firing: the diffusion game",
+        "trigger": "Original source of graph diffusion, source-date and covered graph families."
+      },
+      {
+        "assessment": "Confirms all-graph period-one-or-two eventuality; contains no all-tree chip-total orbit enumeration in inspected core argument.",
+        "evidence": [
+          "2017-04-13 first public arXiv version; results are about eventual periodicity and edge sign behavior."
+        ],
+        "identifier_or_url": "arXiv:1704.04295",
+        "material_read": "Abstract, theorem statements, proof passages on sign changes and phase reversal in open-access PDF.",
+        "method": "Text extraction and selected primary PDF page inspection.",
+        "title": "Diffusion on graphs is eventually periodic",
+        "trigger": "Stronger qualitative all-graph period-two result and sign-reversal lemma."
+      },
+      {
+        "assessment": "The main enumeration is path-specific and no general rooted-tree, fixed-chip-total theorem was identified.",
+        "evidence": [
+          "2020-10-09 public version; path recurrence for periodic configurations."
+        ],
+        "identifier_or_url": "arXiv:2010.04750",
+        "material_read": "Open-access full article HTML, definitions, main path-counting recurrence, and discussion of scope.",
+        "method": "Direct full-text reading and searches for tree generalization.",
+        "title": "Counting Path Configurations in Parallel Diffusion",
+        "trigger": "Closest primary exact periodic-configuration count, which might imply a tree transfer."
+      },
+      {
+        "assessment": "Known scope is complete graphs/polyominoes, not an apparent general tree theorem; no assertion about its uninspected detailed text.",
+        "evidence": [
+          "2020-10-14 public preprint abstract."
+        ],
+        "identifier_or_url": "arXiv:2010.07745",
+        "material_read": "Public abstract and bibliographic metadata only; no full-text novelty judgment based on it.",
+        "method": "Abstract comparison.",
+        "title": "Complete Graphs and Polyominoes",
+        "trigger": "Potentially broader enumeration by the same authors."
+      },
+      {
+        "assessment": "Inaccessible plausible secondary source; its uninspected content remains a residual originality risk.",
+        "evidence": [
+          "Search index mentions paths, stars and complete graphs; not used to infer full-document absence."
+        ],
+        "identifier_or_url": "https://dalspaceb.library.dal.ca/server/api/core/bitstreams/aa1e16bc-1bc8-41ce-9cf9-6975680543b7/content",
+        "material_read": "Search index excerpt only; full thesis download did not complete.",
+        "method": "Search-index inspection and attempted authorized source access.",
+        "title": "Counting and graph diffusion related thesis",
+        "trigger": "Potential longer treatment containing unpublished tree results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec901484-9033-4882-a0de-3ee562b7d0d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a uniform polynomial-time exact primitive-orbit census on every labelled finite tree, including each prescribed conserved integer total, for a process with infinite unbounded state space. Unlike a path/star/bistar special-case formula, branching is unrestricted and captured by subtree-size weights. Two nonisomorphic six-vertex degree twins have different primitive-orbit counts (279 and 197) and chip-total residue profiles, furnishing a natural geometry-sensitive dynamical invariant and a reusable graph-dynamics counting method.",
+    "status": "PASS"
+  }
+}
