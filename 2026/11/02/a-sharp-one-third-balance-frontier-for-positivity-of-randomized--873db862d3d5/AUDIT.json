@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Exact rational stage elimination yields r_x(z) and its monotonic derivative; the two-state stationary projector gives M=Pi+r(I-Pi), reducing stochasticity to r >= -m/(1-m). Solving the complete threshold quadratic gives all probability branches, and analytic limits prove m=1/3, the square-root onset, and deterministic product positivity despite almost-sure recurrent negative one-step entries. A standalone Python 3 rational checker passed 4703 auxiliary checks; the infinite statements rely on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth 1998 and 2005 concern universal convex-cone step-size bounds; abstracts were accessible, full theorem-level exclusions were not.",
+        "The 2026 source provides A-stability, which does not imply entrywise positivity or the exact stationary-rate frontier."
+      ],
+      "reasoning": "Generic positivity/absolute-monotonicity bounds may imply existence or nonexistence of an unfavorable stage but not automatically the precise probability for a uniform random parameter on a fixed generator. Full historical coverage remains uncertain.",
+      "searches": [
+        "algebraically stable A-stable randomized Runge Kutta numerical Markov semigroup stochastic positivity obstruction",
+        "uniform randomized implicit Runge Kutta two state CTMC positivity nonnegative transition finite step threshold"
+      ]
+    },
+    "checked_sources": [
+      "Eisenmann–Jans–Kruse–Podhaisky arXiv:2607.18928v1 Sections 3, 5, 8 and appendix (full HTML text)",
+      "Bochacik–Przybyłowicz arXiv:2404.19059 (open full HTML text)",
+      "Horváth 1998 RK positivity (abstract and metadata only)",
+      "Horváth 2005 RK threshold (abstract and metadata only)",
+      "Published two-state Markov Crank–Nicolson result (full mathematical text)",
+      "Published SSP-SDIRK2(2) Markov result (full mathematical text)",
+      "Accessible earlier scalar sign-risk and Markov rational-method claim summaries (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The scalar-decay sign-failure result for the identical tableau concerns the threshold r<0; the new operator failure condition is r<-m/(1-m), with m-dependent probabilities and a one-third stiff boundary.",
+        "Crank–Nicolson and SSP-SDIRK2(2) published Markov notes concern different rational stability maps and no randomized tableau law.",
+        "The source preprint gives the tableau and amplification, so those are attributed as prior, not claimed original."
+      ],
+      "reasoning": "The new structural theorem follows by combining the known multiplier with the two-state Markov projector and then proving the full probability, phase boundary, square-root onset and operator-product dichotomy. The prior scalar law alone does not state the requested matrix property or classify rate imbalance; none of the inspected claim statements logically covers the entire final theorem.",
+      "searches": [
+        "randomized two-stage SDIRK Runge Kutta uniform parameter positivity two-state Markov generator step matrix threshold stationary distribution",
+        "randomized SDIRK 2607.18928 ξ uniform 1/2 to 1 2-stage stability matrix two-state positive stochastic exact probability 1/3",
+        "two-state generator rational matrix function positivity stationary mass one third stiff limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-state stochasticity test is r_x(z) >= -m/(1-m), unlike scalar r_x(z)>=0; a Markov fixed-generator equivalent would need the full stationary balance dependence.",
+        "The inspected generalized RK positivity sources establish classes/radii rather than the random-parameter success distribution."
+      ],
+      "reasoning": "Equivalent descriptions via scalar rational matrix functional calculus and the invariant probability simplex were tested against published two-state Markov results; those use fixed rational maps and do not give this random-tableau distribution.",
+      "searches": [
+        "randomized two-stage SDIRK Runge Kutta uniform parameter positivity two-state Markov generator step matrix threshold stationary distribution",
+        "two-state generator rational matrix function positivity stationary mass one third stiff limit",
+        "two-state continuous time Markov chain SDIRK diagonal implicit Runge Kutta all-step positivity phase diagram"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published numerical-method summaries and the accessible prior weekly claim catalogue were searched under the tableau, Markov, stationary balance, and positivity aliases.",
+        "No precise fixed-parameter table giving this two-state random-law probability was recovered."
+      ],
+      "reasoning": "This is an analytic continuous-parameter phase diagram, not a finite table entry or small-rational-value computation; absence of an exact listed match is not a uniqueness proof.",
+      "searches": [
+        "2026 numerical optimization numerical integration quadrature positivity stability computational mathematics",
+        "uniform randomized implicit Runge Kutta two state CTMC positivity nonnegative transition finite step threshold"
+      ]
+    },
+    "rationale": "The source randomized SDIRK tableau and scalar sign-risk law are prior, but neither scalar r<0 nor the alternative Crank–Nicolson and squared-midpoint Markov theorems states the exact random two-state transition-stochasticity probability, stationary balance m=1/3 frontier and recurrent-local/eventually-positive-product classification. Novelty is assessed at statement/implication level, subject to a genuine general-RK priority risk.",
+    "residual_risks": [
+      "The complete Horváth 1998 and 2005 texts and other older invariant-cone literature were not fully inspected; an equivalent specialized theorem might predate this account.",
+      "No claim of priority over undiscovered literature, no extension to nonautonomous/multistate systems or stage positivity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides method and rational scalar amplifier; inspected results do not classify two-state row-stochasticity probability or one-third rate balance.",
+        "evidence": [
+          "Source tableau A(x) with diagonal x and subdiagonal 1−2x; X uniform on [1/2,1]",
+          "Source scalar amplification under Dahlquist decay and A-stability analysis; no stationary mass m in inspected stability statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.18928",
+        "material_read": "Full open-access HTML: Sections 3, 5, 8, appendix and stability formula around the tableau",
+        "method": "Read mathematical definitions, theorem statements and scalar multiplier and compare their implications to two-state Markov stochasticity",
+        "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge–Kutta Method",
+        "trigger": "Identical randomized two-stage SDIRK tableau, uniform parameter and scalar stability function"
+      },
+      {
+        "assessment": "Analyzes a different random implicit update, not the exact two-stage SDIRK Markov step probability here.",
+        "evidence": [
+          "Different rational scalar update and random stage placement; no identical two-state stochasticity classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.19059",
+        "material_read": "Open-access HTML full text: overview, scheme and convergence/stability sections",
+        "method": "Compared tableau/scalar stability function and target Markov probability.",
+        "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+        "trigger": "Nearby randomized implicit integration and probabilistic scalar stability"
+      },
+      {
+        "assessment": "A plausible general source, but not enough content to certify absence of a special two-state randomization law.",
+        "evidence": [
+          "General RK positivity context in published abstract; no confirmed theorem-level equivalence"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+        "material_read": "Publication metadata and abstract only; full mathematical text not recovered",
+        "method": "Searched bibliographic title, positivity step size, Markov generators and fixed-matrix terms",
+        "title": "Positivity of Runge–Kutta and diagonally split Runge–Kutta methods",
+        "trigger": "General invariant-cone and positivity-radius theory could imply a restricted special case"
+      },
+      {
+        "assessment": "Historical priority risk; no assertion of whole-document noncoverage.",
+        "evidence": [
+          "General step-size threshold framework, not evidence for this precise randomized probability law"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Publication metadata and abstract only; full mathematical text not recovered",
+        "method": "Compared abstract question and method classes to exact random-draw probability",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Generic sharp positivity thresholds and possible fixed-generator specialization"
+      },
+      {
+        "assessment": "For Crank–Nicolson (one endpoint of the random interval), not the randomized SDIRK family or its probability; cannot imply rate-dependent random-law frontier alone.",
+        "evidence": [
+          "Cayley/Crank–Nicolson return-resolvent condition; distinct rational function from variable-x family"
+        ],
+        "identifier_or_url": "Published mathematical note, October 2026",
+        "material_read": "Full available mathematical result and proof",
+        "method": "Compared rational transition multiplier, parameter family and positivity condition",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Two-state Markov positivity and stationary-mass threshold for a rational time integrator"
+      },
+      {
+        "assessment": "Their method is two consecutive midpoint steps and is always two-state endpoint-positive, unlike the randomized tableau family here.",
+        "evidence": [
+          "Their transition multiplier is a square of midpoint stability factor, not r_x(z) in this theorem"
+        ],
+        "identifier_or_url": "Published mathematical note, October 2026",
+        "material_read": "Full available mathematical result and proof",
+        "method": "Compared original two-stage tableau and squared midpoint rational map",
+        "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+        "trigger": "SSP singly diagonally implicit two-stage numerical Markov endpoint positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "873db862-d3d5-4da2-8b88-882d5284fb98",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "In finite-state kinetics, stochasticity of the entire numerical transition operator—not just scalar contractivity—is a natural physical invariant. The exact parameter-averaged probability, sharp one-third stationary balance frontier and square-root onset answer a concrete step reliability question for a recent random integrator. The dichotomy of infinitely many invalid local factors versus deterministically eventually positive cumulative propagators gives a meaningful new boundary for interpreting long-time computations.",
+    "status": "PASS"
+  }
+}
