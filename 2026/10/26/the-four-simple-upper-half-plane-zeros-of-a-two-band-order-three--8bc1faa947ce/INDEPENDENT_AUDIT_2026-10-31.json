@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:47:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified endpoint antiderivative and scale reduction rho=a/b: rational F=2(1-rho)P_rho(w²)/(3(w²-rho²)^3(w²-1)^3). Fresh symbolic computation independently recomputed polynomial numerator and its discriminant -108 rho³(1-rho)²(1+rho)^6Q(rho), with all 11 coefficients of Q strictly positive. For 0<rho<1 the discriminant is negative, so P has exactly two simple real roots and a nonreal conjugate pair. Signs P(0)>0, P(-rho)<0, P(-infinity)>0 locate both real roots strictly negative. Every negative root has one positive-imaginary square root; each nonreal conjugate root similarly contributes a unique upper-half-plane root, paired by symmetry. P(0)>0 and simple quartic roots ensure no w multiplicity; denominator poles all real. Four rational rho examples independently checked numerically; arbitrary parameters proved by sign/discriminant argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General phase-retrieval uniqueness and analytic zero representations apply to a much larger class of signals",
+          "The present quartic discriminant sign and strict no-collision geometry are not an immediate implication of a general analytic transform representation without signal-specific calculation"
+        ],
+        "reasoning": "Generality of a wavelet framework does not itself imply a precise count for this piecewise-constant density. Potential general results for Stieltjes-transform derivatives and two cuts remain a meaningful prior-art risk.",
+        "searches": [
+          "Mallat Waldspurger Phase retrieval for the Cauchy wavelet transform arXiv1404.1183 Sections 1–2 and 5",
+          "Web rational Cauchy wavelet symmetric two-band root classification"
+        ]
+      },
+      "checked_sources": [
+        "Mallat–Waldspurger arXiv1404.1183 full primary PDF inspected",
+        "Aptekarev–Van Assche–Yattselev arXiv1505.03993 abstract only",
+        "Resultary and web derivative-of-Stieltjes searches",
+        "Git frozen RESULT.md, checks/check_zeros.py, and checks tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original wavelet paper supplies analytic framework and possible relation of zero geometry to phase retrieval, not the displayed P_rho numerator or strict resultant product",
+          "A classical quartic discriminant plus signs proves the claimed count once the specific rational expression is calculated"
+        ],
+        "reasoning": "The new conclusion follows from extra algebra and sign analysis, not just from the generic phase-retrieval theorem. No published classification implying the exact root geometry was located.",
+        "searches": [
+          "Mallat–Waldspurger arXiv1404.1183 primary Sections2 and5",
+          "Web: fourth derivative Stieltjes transform two intervals discriminant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Order-three Cauchy wavelet transform of a step function is proportional to the third derivative of its Stieltjes transform and to an endpoint rational pole sum",
+          "Mallat–Waldspurger arXiv1404.1183 treats zeros of general Cauchy wavelet transforms but no exact same two-band quartic discrimination observed"
+        ],
+        "reasoning": "Equivalent fourth-order Cauchy integral, derivative-of-Stieltjes and four-endpoint rational function formulations were considered. Those rephrasings do not constitute historical novelty unless a full root count is already stated. No such direct source was encountered.",
+        "searches": [
+          "Resultary: two band symmetric interval Cauchy wavelet integral fourth power kernel exact zeros quartic discriminant",
+          "Web: Cauchy wavelet two symmetric intervals order three four zeros upper half plane rational signal",
+          "GitHub research index: Cauchy wavelet zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact four-simple-zero table appears in the available Resultary hits, which mostly address unrelated Fourier zeros or other analytic kernels",
+          "Fresh symbolic discriminant and four sample ratios produce root configuration; not a literature comparison alone"
+        ],
+        "reasoning": "No match in searched zero tables; absence is qualified and does not prove novelty.",
+        "searches": [
+          "Resultary exact two band Cauchy zero geometry search",
+          "Web Cauchy wavelet fourth-power symmetric intervals zeros quartic discriminant"
+        ]
+      },
+      "rationale": "Standard Cauchy-wavelet phase retrieval describes general analytic zeros and implications for uniqueness, while rational integration and quartic discriminants are classical. The claimed additional fact is a complete, gap-uniform, exactly four-simple-zero classification of this natural two-band symmetric step input, including off-axis geometry and no collisions. Mallat–Waldspurger primary full text has general zero theory but does not explicitly determine this particular signal, and no exact equivalent source was found.",
+      "residual_risks": [
+        "Older rational Stieltjes-derivative zero-location theorems for disconnected symmetric intervals could imply the count even without wavelet terminology.",
+        "This is a special symmetric two-band geometry; general asymmetric signals, other wavelet orders and stability bounds are not addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general Cauchy transform analytic framework, not the particular symmetric two-interval quartic root classification in material inspected",
+          "evidence": "web , , ",
+          "identifier_or_url": "https://arxiv.org/abs/1404.1183",
+          "material_read": "Accessible full primary arXiv PDF Introduction, Cauchy-wavelet definition and analytic continuation Sections 1–2, and zeros/phase-retrieval discussion Section 5",
+          "method": "full open-access primary PDF text with screenshot of representative page",
+          "title": "Phase retrieval for the Cauchy wavelet transform",
+          "trigger": "Foundational analytic zero structure for the same kernel family"
+        },
+        {
+          "assessment": "Studies approximants for overlapping-support transforms rather than zeros of the fourth-power Cauchy signal; no whole-document noncoverage claim",
+          "evidence": "web turn643294academia62",
+          "identifier_or_url": "https://arxiv.org/abs/1505.03993",
+          "material_read": "Public abstract and article metadata, not full text",
+          "method": "web search abstract",
+          "title": "Hermite-Padé approximants for a pair of Cauchy transforms with overlapping symmetric supports",
+          "trigger": "Two-interval symmetric Cauchy transforms could be alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A symmetric two-band indicator is a natural elementary nonconnected signal for analytic Cauchy-wavelet transforms. A uniform root-count and geometry classification across the gap ratio provides meaningful structural information about analytic zeros, independently useful as a benchmark for wavelet-zero methods; it does not assert unproved phase-retrieval stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any real 0<a<b, F_{a,b}(z)=∫_{[-b,-a]∪[a,b]}(z-x)^(-4) dx has exactly four distinct simple zeros in Im(z)>0: two imaginary and two with opposite real parts and same positive imaginary part, for every gap ratio a/b in (0,1).",
+  "limitations": [
+    "Only equal-height and symmetric two intervals 0<a<b, order-three wavelet fourth-power Cauchy kernel; endpoints excluded and no stability bound.",
+    "Older rational Stieltjes-derivative zero-location theorems for disconnected symmetric intervals could imply the count even without wavelet terminology.",
+    "This is a special symmetric two-band geometry; general asymmetric signals, other wavelet orders and stability bounds are not addressed."
+  ],
+  "schema_version": 1
+}
