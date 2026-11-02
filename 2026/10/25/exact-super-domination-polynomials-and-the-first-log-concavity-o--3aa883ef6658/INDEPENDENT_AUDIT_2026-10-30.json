@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:51:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The case split by center selected/omitted gives the exact polynomials P_{a,b}=z^{a+b}[(a+1)(1+z)^b+z(2+z)^b] for a>=1, and z^b[(1+z)^b-1+z(2+z)^b] for a=0, including the one-vertex a=b=0 boundary. For b<=43 and a>=1, every adjacent log-concavity difference is p_k t^2+q_k t+r_k with t=a+1, p,r>=0 and either q>=0 or q²<=4pr; independent exact-integer recomputation covered all 946 (b,k) pairs, including 275 negative mixed terms, and separately 903 inequalities for a=0. This is a finite COMPLETE certificate over b, with uniform all-real t>=0 positivity, not an unjustified finite extrapolation over a. For b=44,a=2^24-1, coefficients at indices 20/21/22 are exactly 76817877657622413312,63311437629908582400,52183972834348892160 and yield c20*c22-c21²=323906111900267026871809275246673920>0. The original-definition decomposition supports all-set enumeration; the reconstructed eight-blob Git tree matches the assigned SHA.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 tree theorem computes minimum super-domination number, which fixes only the lowest nonzero exponent and not all size counts.",
+          "Kaidash's full formulas are not accessible: cannot rule out a broader family specializing to T_{a,b}. Its abstract gives no parameterized 43/44 coefficient boundary."
+        ],
+        "reasoning": "The inspected accessible theorems are weaker on the requested enumerative invariant; inaccessible relevant 2024 full text alone does not automatically fail best-of-knowledge originality, but remains material uncertainty.",
+        "searches": [
+          "Kaidash (2024) DOI 10.1007/978-3-031-73365-9_6 abstract",
+          "arXiv:2302.08862 Section 3",
+          "arXiv:2209.01795 Section 6"
+        ]
+      },
+      "checked_sources": [
+        "Ghanbari–Jäger–Lehtilä, Super Domination: Graph Classes, Products and Enumeration, arXiv:2209.01795",
+        "Bujtás–Ghanbari–Klavžar, Computational complexity aspects of super domination, arXiv:2302.08862",
+        "Kaidash, Super Domination Polynomial of a Graph (2024), DOI 10.1007/978-3-031-73365-9_6, abstract only",
+        "Resultary semantic query: super domination polynomial radius two spider graph starlike trees coefficients log concavity first counterexample 44 length-two arms",
+        "Assigned RESULT.md, verify.py and reference verification output at tree 7c1f77f97b2bc5f11f7ba98128d09b9d4872c1c9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 star count and 2023 tree minimum-value theorem do not imply the cardinality polynomial or uniform coefficient shape.",
+          "The audited 946 exact symbolic quadratic inequalities, 903 boundary inequalities, and explicit b=44 counterexample establish a different, stronger uniform-in-a coefficient-shape result."
+        ],
+        "reasoning": "The new 43/44 boundary is not a stated or derivable corollary of the accessible minimum-domination results. Lack of access to the 2024 chapter prevents a decisive comparison of its unknown full polynomial formulas, named as a residual risk.",
+        "searches": [
+          "Ghanbari–Jäger–Lehtilä arXiv:2209.01795 Section 6",
+          "Bujtás–Ghanbari–Klavžar arXiv:2302.08862 Section 3",
+          "Kaidash 2024 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim enumerates every super-dominating set by cardinality on the mixed length-one/length-two spider T_{a,b}, and gives a sharp all-a log-concavity boundary at b=43/44.",
+          "Kaidash (2024) explicitly introduces the same super-domination polynomial and claims formulas for unnamed graph families; the available abstract does not identify which families or whether any coefficient log-concavity threshold is treated."
+        ],
+        "reasoning": "Same-object Kaidash chapter is a genuine priority risk; only abstract/metadata were accessible despite OA and Oxford attempts, so it is NOT classified as whole-document noncoverage. Earlier tree super-domination number/lowest coefficient results are not equivalent to the full polynomial or its coefficient-shape threshold.",
+        "searches": [
+          "super domination polynomial radius two spider graph starlike trees coefficients log concavity first counterexample 44 length-two arms",
+          "Kaidash 2024 DOI 10.1007/978-3-031-73365-9_6",
+          "Ghanbari–Jäger–Lehtilä arXiv:2209.01795",
+          "Bujtás–Ghanbari–Klavžar arXiv:2302.08862"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary hits on spider trees concern power domination and general-position polynomials, with different feasible-set predicates, not super domination.",
+          "The 2024 chapter's abstract states that explicit formulas for some graph families are included, but no full table or family names could be inspected."
+        ],
+        "reasoning": "No verified preexisting complete (a,b)-spider super-domination coefficient table or b=44 log-concavity witness was located; uncertainty about the inaccessible chapter is expressly retained.",
+        "searches": [
+          "super domination polynomial radius two spider graph starlike trees coefficients log concavity first counterexample 44 length-two arms",
+          "Resultary spider polynomial search: power domination and general-position polynomials",
+          "Kaidash 2024 sciact.math.nsc.ru/public/article/5672/en"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, qualified by incomplete access to Kaidash (2024), the most plausible same-invariant primary paper. The accessible 2022/2023 papers cover minimum super-domination, not the full two-parameter polynomial or first uniform log-concavity obstruction. It would be misleading to claim whole-document noncoverage by Kaidash based solely on the abstract.",
+      "residual_risks": [
+        "High-priority inaccessible Kaidash 2024 chapter could contain the same spider polynomial or a broader graph-family formula; only its abstract has been read.",
+        "The 43/44 boundary depends on a complete 1,849-integer-inequality certificate; independently checked exact symbolic conditions and explicit 44-arm witness, but no external proof assistant certificate.",
+        "The witness uses a=2^24-1; minimal a at b=44 has not been established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers counts of optimal/minimum super-dominating sets, including star cases, not the all-size T_{a,b} coefficient-shape law in inspected sections.",
+          "evidence": [
+            "Section 6 Theorem 6.1 counts minimum super dominating sets; arXiv:2209.01795."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.01795",
+          "material_read": "Primary full PDF abstract, definitions, enumeration section 6 and Theorem 6.1 for stars; inspected its focus on minimum super-dominating sets.",
+          "method": "Open-access PDF text and page-image inspection",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "Same super-dominating-set definition and enumeration"
+        },
+        {
+          "assessment": "Minimum cardinality and complexity statements do not specify complete cardinality distributions or log-concavity.",
+          "evidence": [
+            "arXiv:2302.08862 abstract pp.1–2 and Section 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.08862",
+          "material_read": "Primary PDF abstract, definitions, introduction, Section 3 theorem setting and tree-subdivision results: formula for minimum super-domination number and linear-time computation.",
+          "method": "Open-access arXiv PDF with screenshot of p.1",
+          "title": "Computational complexity aspects of super domination",
+          "trigger": "General super-domination formula for every tree could dominate spider case"
+        },
+        {
+          "assessment": "UNDETERMINED COVERAGE. Cannot assert the whole chapter lacks a T_{a,b} formula, and no conclusion about its contents beyond the abstract is made.",
+          "evidence": [
+            "https://sciact.math.nsc.ru/public/article/5672/en abstract; Springer DOI 10.1007/978-3-031-73365-9_6."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-73365-9_6",
+          "material_read": "Accessible official bibliographic record and abstract only: defines D_sp(G,x), notes formulas for some families without naming them. No chapter body read.",
+          "method": "OA/preprint web search then authorized Oxford request; authorized request returned vpn_disconnected, job_id 8e7d1698728fc36961ec058e5cc18441; no bypass attempted",
+          "title": "Super Domination Polynomial of a Graph",
+          "trigger": "Direct same invariant; possibly covers spider polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Radius-two spiders are a standard two-parameter tree family for testing domination enumerators; the exact all-cardinality polynomial and sharp 43/44 coefficient-shape transition are a motivated global classification and boundary counterexample, not an arbitrary table or a rephrasing of the minimum domination number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ghanbari–Jäger–Lehtilä, Super Domination: Graph Classes, Products and Enumeration, arXiv:2209.01795",
+    "Bujtás–Ghanbari–Klavžar, Computational complexity aspects of super domination, arXiv:2302.08862",
+    "Kaidash, Super Domination Polynomial of a Graph (2024), DOI 10.1007/978-3-031-73365-9_6, abstract only",
+    "Resultary semantic query: super domination polynomial radius two spider graph starlike trees coefficients log concavity first counterexample 44 length-two arms",
+    "Assigned RESULT.md, verify.py and reference verification output at tree 7c1f77f97b2bc5f11f7ba98128d09b9d4872c1c9"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Precisely radius-two spider trees; uniform log-concavity only proved up to 43 length-two arms and existence of failure at 44, not failure for every b>44.",
+    "Incomplete priority comparison with 2024 super domination polynomial chapter; authorized Oxford access disconnected and was not bypassed.",
+    "Finite complete certificate supports uniform-in-a conclusion; not a claim of all-graph log-concavity."
+  ],
+  "residual_risks": [
+    "High-priority inaccessible Kaidash 2024 chapter could contain the same spider polynomial or a broader graph-family formula; only its abstract has been read.",
+    "The 43/44 boundary depends on a complete 1,849-integer-inequality certificate; independently checked exact symbolic conditions and explicit 44-arm witness, but no external proof assistant certificate.",
+    "The witness uses a=2^24-1; minimal a at b=44 has not been established."
+  ],
+  "schema_version": 1
+}

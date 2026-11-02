@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Each possible super-dominating set belongs to exactly one of three center/leaf configurations, yielding the two closed polynomials. Uniform log-concavity for every direct-leaf parameter and every number of length-two arms through 43 follows from a complete 946-case quadratic-sign certificate plus 903 exact inequalities in the zero-direct-leaf boundary case. An explicit 44-arm coefficient triple disproves further uniformity. The original definition was independently enumerated for 25 small graphs. All arithmetic is integral and reproducible with `verify.py`; the proof is not finite extrapolation.
+## correctness
 
-**Originality: PASS, with residual risk.** The full 2022 and 2023 super domination papers and published-record searches were compared. The tree matching formula and earlier minimum-set counts cover only the first nonzero coefficient, not this full all-cardinality result or its sharp coefficient-shape boundary. Spider polynomials for power domination and general position concern different feasible configurations. The 2024 chapter *Super Domination Polynomial of a Graph* is a relevant, incompletely accessible potential priority risk; no stronger coverage was established by its abstract.
+PASS
 
-**Value: PASS.** The two-parameter tree family is a standard natural testbed for domination enumerators, and the shift from universally log-concave polynomials to an exact counterexample at 44 arms is a substantive sharp boundary. The statement is not just a routine extremal number, parameter substitution, or unexplained finite table: it classifies all sets and identifies global coefficient behavior with a complete proof.
+The case split by center selected/omitted gives the exact polynomials P_{a,b}=z^{a+b}[(a+1)(1+z)^b+z(2+z)^b] for a>=1, and z^b[(1+z)^b-1+z(2+z)^b] for a=0, including the one-vertex a=b=0 boundary. For b<=43 and a>=1, every adjacent log-concavity difference is p_k t^2+q_k t+r_k with t=a+1, p,r>=0 and either q>=0 or q²<=4pr; independent exact-integer recomputation covered all 946 (b,k) pairs, including 275 negative mixed terms, and separately 903 inequalities for a=0. This is a finite COMPLETE certificate over b, with uniform all-real t>=0 positivity, not an unjustified finite extrapolation over a. For b=44,a=2^24-1, coefficients at indices 20/21/22 are exactly 76817877657622413312,63311437629908582400,52183972834348892160 and yield c20*c22-c21²=323906111900267026871809275246673920>0. The original-definition decomposition supports all-set enumeration; the reconstructed eight-blob Git tree matches the assigned SHA.
 
-**Limitations.** No claim for all trees or all large second-arm counts; the 2024 chapter has not been read in full and exhaustive bibliographic priority has not been established. The symbolic finite certificate requires ordinary exact computation, independently reproducible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS, qualified by incomplete access to Kaidash (2024), the most plausible same-invariant primary paper. The accessible 2022/2023 papers cover minimum super-domination, not the full two-parameter polynomial or first uniform log-concavity obstruction. It would be misleading to claim whole-document noncoverage by Kaidash based solely on the abstract.
+
+## value
+
+PASS
+
+Radius-two spiders are a standard two-parameter tree family for testing domination enumerators; the exact all-cardinality polynomial and sharp 43/44 coefficient-shape transition are a motivated global classification and boundary counterexample, not an arbitrary table or a rephrasing of the minimum domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

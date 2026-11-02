@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction instructions and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9+ and the standard library, in the same folder as this document. Its output must match `verification_output.txt` exactly. The code (1) enumerates the original private-neighbor definition over all 25 trees with the two arm parameters from 0 through 4, (2) proves the uniform-in-direct-leaf log-concavity inequalities using exact symbolic quadratic coefficients for all 0–43 length-two arm counts, (3) verifies the separate zero-direct-leaf case, and (4) evaluates the exact three-coefficient counterexample at 44 length-two arms. No outside input or third-party package is needed.
+## correctness
 
-The infinite parameter statement uses an algebraic argument: the certificate checks every integer second-arm count in a finite stated interval **with all** direct-leaf counts simultaneously. Small-graph enumeration is a cross-check only. This is not an independent audit or external certification. The 2024 polynomial chapter was not accessible in full, so bibliographic overlap remains a residual risk.
+PASS
+
+The case split by center selected/omitted gives the exact polynomials P_{a,b}=z^{a+b}[(a+1)(1+z)^b+z(2+z)^b] for a>=1, and z^b[(1+z)^b-1+z(2+z)^b] for a=0, including the one-vertex a=b=0 boundary. For b<=43 and a>=1, every adjacent log-concavity difference is p_k t^2+q_k t+r_k with t=a+1, p,r>=0 and either q>=0 or q²<=4pr; independent exact-integer recomputation covered all 946 (b,k) pairs, including 275 negative mixed terms, and separately 903 inequalities for a=0. This is a finite COMPLETE certificate over b, with uniform all-real t>=0 positivity, not an unjustified finite extrapolation over a. For b=44,a=2^24-1, coefficients at indices 20/21/22 are exactly 76817877657622413312,63311437629908582400,52183972834348892160 and yield c20*c22-c21²=323906111900267026871809275246673920>0. The original-definition decomposition supports all-set enumeration; the reconstructed eight-blob Git tree matches the assigned SHA.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS, qualified by incomplete access to Kaidash (2024), the most plausible same-invariant primary paper. The accessible 2022/2023 papers cover minimum super-domination, not the full two-parameter polynomial or first uniform log-concavity obstruction. It would be misleading to claim whole-document noncoverage by Kaidash based solely on the abstract.
+
+## value
+
+PASS
+
+Radius-two spiders are a standard two-parameter tree family for testing domination enumerators; the exact all-cardinality polynomial and sharp 43/44 coefficient-shape transition are a motivated global classification and boundary counterexample, not an arbitrary table or a rephrasing of the minimum domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
