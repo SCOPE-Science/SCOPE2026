@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For any unselected edge and any selected edge the distance is exactly a two-valued function of root-edge intersection, so failure of equidistance is exactly the occurrence of complementary incidence signatures. Every simple three-edge root graph belongs to one of five listed types. Two are proven positive only at explicit small orders and each negative type has explicit complement-witness pairs over its remaining range. The no-two-landmark argument and exact labeled triangle, path-plus-edge and matching counts finish the proof. A separately coded BFS checker agrees on every two/three-set candidate over thirteen original graphs, not merely generated patterns.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "González–Hernando–Mora, arXiv:2107.10805 and DOI:10.1007/s40840-022-01295-z, sections 2 and Johnson graphs, introduce the invariant and broader scalar bounds.",
+        "Kratica et al., arXiv:2406.17870, §§2.2, 2.5, give exact scalar values for the same two-subset graph families."
+      ],
+      "reasoning": "Scalar equidistant dimensions and general upper/lower bounds do not imply which labeled subsets attain them. The complete-multipartite minimum-family result concerns a different class: neither Johnson J(n,2) (n>=5) nor Kneser KG(n,2) is a complete multipartite graph; no structural covering implication holds.",
+      "searches": [
+        "\"minimum distance-equalizer sets\" \"Johnson\" \"classify\"",
+        "\"equidistant bases\" \"triangular graph\" OR \"Johnson\"",
+        "equidistant dimension of Johnson and Kneser graphs Jn2 exact minimum eqdim 3 and classified minimizers"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2107.10805 (first public 2021-07-22), full open publisher HTML content DOI:10.1007/s40840-022-01295-z, foundational definition and Johnson subsection",
+      "arXiv:2406.17870 (first public 2024-06-25), full accessible arXiv HTML content §§2.2,2.5,2.6",
+      "Published mathematical-record search: All distance-equalizer sets of complete multipartite graphs (2026-09-30), different graph class",
+      "Equidistant-dimension studies of Johnson and Kneser graphs are checked against the stronger all-minimizer claim; related resolving-number statements use a different separation quantifier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kratica et al. arXiv:2406.17870, §2.2, directly prove eqdim(J(n,2))=3 and exhibit triangle sets; §2.5 proves the same scalar result for KG(n,2).",
+        "The original 2021 definition paper arXiv:2107.10805 studies Johnson graphs without the complete optimizing-family statement.",
+        "The resolving-number parameter asks whether all large landmark sets separate vertices, rather than whether every outside pair has some equidistant witness; this is not a stronger version of the minimum distance-equalizer basis classification."
+      ],
+      "reasoning": "The scalar result is strictly weaker: it says at least one minimum set exists and forbids smaller sets. It neither rules out other minimum 3-sets nor counts them. The old Johnson resolving-number result maximizes landmark sets failing to resolve, a different universal/separation quantifier; its known counts of equidistant vertices for fixed pairs do not classify three-landmark minimum equalizer families. The present case-by-case root-edge classification supplies the missing implication.",
+      "searches": [
+        "\"equidistant dimension\" \"triangular graph\"",
+        "\"distance equalizer\" \"line graph\" \"complete graph\"",
+        "All minimum distance-equalizer sets of Johnson graph J(n,2) / triangular graph L(K_n), unique triangle triples for n>=7, matching exception at n=6 and path-plus-edge exception n=5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kratica–Čangalović–Kovačević-Vujčić, arXiv:2406.17870, §2.2 Theorem 3 and §2.5 Theorem 6, consider exactly Johnson and two-subset Kneser graphs, and give their minimum cardinalities and a triangle witness.",
+        "The arXiv full HTML text §2.6 reports only numerical equidistant dimensions of higher-rank Johnson/Kneser cases."
+      ],
+      "reasoning": "The names triangular graph, Johnson graph J(n,2), and line graph L(K_n) describe the same graph; all were compared. The graph-complement duality also identifies the entire equalizer family in KG(n,2) for n>=5, not just the size. The primary source proves eqdim 3 and a triangle construction but does not enumerate every minimum subset or give the n=5,6 exceptional optimal shape families; those are distinct quantified results.",
+      "searches": [
+        "\"equidistant dimension\" \"triangular graph\"",
+        "\"distance equalizer\" \"line graph\" \"complete graph\"",
+        "\"distance equalizer sets\" \"J(n,2)\" \"triangle\" matching",
+        "All minimum distance-equalizer sets of Johnson graph J(n,2) / triangular graph L(K_n), unique triangle triples for n>=7, matching exception at n=6 and path-plus-edge exception n=5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kratica et al., arXiv:2406.17870, Observation 1 includes example minimizers at orders 4 and 5, and Table 1 in §2.6 records scalar dimensions for other Johnson/Kneser graphs; no complete minimum-basis counts appear in the inspected full text.",
+        "Finite breadth-first-search census supplied here returns counts 3,40,35,35,56,84,120 for Johnson orders 4–10 and the corresponding Kneser counts."
+      ],
+      "reasoning": "An example minimum set, a table of minimum cardinalities, or a computation of a related graph invariant is not an exact table of all minimum selected sets. The basis-count and root-edge orbit classification are absent from the directly inspected relevant sections. Finite checker results validate formulas at sample orders, not novelty by themselves.",
+      "searches": [
+        "\"number of distance equalizer sets\" triangular graph",
+        "\"equidistant dimension\" \"number of\" \"minimum\" \"Johnson\"",
+        "Equidistant bases of triangular graphs counting minimum distance equalizers 3 for n>=5 and multiplicities binomial(n,3), 35, 40"
+      ]
+    },
+    "rationale": "Claim assessed is the full basis classification and labeled multiplicity, not the previously known equidistant dimension. The relevant 2024 primary full text gives scalar dimension three for Johnson and Kneser graphs and one triangle construction, but no exhaustively quantified minimizing-family theorem; case analysis here proves the additional 5/6 exceptional orbits and threshold 7. Equivalent graph names, duality, known tables, and stronger coverage were queried. Residual alternate-terminology priority risk remains.",
+    "residual_risks": [
+      "Index/terminology coverage is not exhaustive: a source phrased as pair-incidence antiequalization or minimum anonymizing landmark systems could already imply the optimizer family.",
+      "The classification does not address inclusion-minimal nonminimum equalizer sets or higher-rank Johnson/Kneser graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes scalar parameter and a triangle witness for both families; does not classify nontriangle minimizers or count all labeled bases. No claim of new eqdim values is made.",
+        "evidence": [
+          "Original public version dated 2024-06-25",
+          "Theorem 3 and Theorem 6 have exactly the scalar conclusions eqdim=3; Observation 1 gives one J(5,2) example; Table 1 is dimension values for higher-rank pairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.17870",
+        "material_read": "Full accessible arXiv HTML text, introductory definitions, §2.2 including Observation 1 and all five cases of Theorem 3, §2.5 including Theorem 6, §2.6 numerical table and conclusions",
+        "method": "Read indexed accessible full-text rendering, inspect all sections using search and section navigation",
+        "title": "Equidistant dimension of Johnson and Kneser graphs",
+        "trigger": "Exact same graph families and parameter; possible decisive stronger covering theorem"
+      },
+      {
+        "assessment": "Introduces invariant and proves graph-class results and Johnson upper bounds, not exhaustive classification of minimum bases for J(n,2) or KG(n,2).",
+        "evidence": [
+          "Definition of equalizer and equidistant dimension in §2",
+          "Johnson subsection states upper bounds for certain n,k; dated arXiv preprint 2021-07-22."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40840-022-01295-z",
+        "material_read": "Publisher open full-text accessible sections introducing distance-equalizer sets and the subsection on Johnson graphs; arXiv:2107.10805 first public on 2021-07-22",
+        "method": "Read accessible full-text publisher HTML and original arXiv landing metadata",
+        "title": "The Equidistant Dimension of Graphs",
+        "trigger": "Origin of invariant and structural Johnson graph claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77cf9761-bfc9-46e0-9c2f-b19466249063",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The published 2024 theorem establishes exact minimum sizes but leaves the natural optimizer structure unenumerated. Here a full infinite-parameter optimizer classification proves eventual triangle rigidity at order seven and two qualitatively different small-order exceptional orbits, with exact labeled counts and a simultaneous Johnson/Kneser equality through complement-distance duality. This identifies all minimum anonymity-equidistance landmark placements and is a structurally motivated complete problem, not an arbitrary narrow numerical slice.",
+    "status": "PASS"
+  }
+}
