@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "A divisor formed from powers of the two distinct primes is coprime to an input exactly according to its two prime-divisibility indicators. The allowed divisor sets for the three restricted classes are, respectively, the unit alone, the unit and all positive powers of the second prime through its given exponent, and the unit and all positive powers of the first prime through its exponent. These sets overlap only at divisor 1. Partitioning all matchings by the class using divisor 1 yields the three disjoint falling-factorial terms; a T member forces 1 and two T members are impossible. End cases with B=0,C=0, saturation, negative x, and x=0 follow from exact zero-extension and gcd. A separate bitmask permanent implementation checked 7776 progressions and 846 complete occupancy profiles for small parameters. Finite verification does not substitute for the universal partition proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.05304v2 studies which n admit [1,tau(n)] matchings and the density of such n.",
+        "Sah–Sawhney, Enumerating coprime permutations, Mathematika 68 (2022), treats all permutations on [n] with gcd(i,sigma(i))=1, not this divisor-set graph.",
+        "Alekseyev arXiv:2610.37512v1 Theorem 1.1 is more general in prime support but weaker in enumerative information."
+      ],
+      "reasoning": "Broader existential theorems cannot determine exact multiplicity; generic permanent algorithms are not an evaluated formula. The closest quantitative prior object, interval coprime permutations, has a different domain and no reduction covering the two-prime divisor set calculation in the inspected materials.",
+      "searches": [
+        "permanent gcd coprime matrix divisor set p^a q^b matching",
+        "McNew Pomerance matchable numbers number of matchings",
+        "Sah Sawhney \"Enumerating coprime permutations\" asymptotic squarefree"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.37512v1",
+      "arXiv:2604.05304v2",
+      "Sah and Sawhney, Mathematika 68 (2022), DOI 10.1112/mtk.12159",
+      "arXiv:2111.07157 abstract",
+      "Mathematical-record searches for exact coprime divisor-matching enumeration and permanent formulas",
+      "Public mathematical literature on divisor-set matching and coprime permutations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alekseyev Theorem 1.1 depends only on c_p(P) and c_q(P).",
+        "For the divisor set of 225, the progressions with starts one and steps two versus four have the same counts of multiples of three and five, namely three and two, but matching counts 480 and 288; the difference is their shared-prime intersection.",
+        "The arbitrary-set obstruction {2,4,3,9} for n=6 satisfies the individual prime capacities yet has no matching, whereas {1,2,3,6} has one."
+      ],
+      "reasoning": "Matching existence for arithmetic progressions is a weaker Boolean statement. The exact multiplicity varies with intersection data not specified by the former existence criterion, so it is not an implicit numerical evaluation. For arbitrary sets, the new support classification also records an additional two-prime Hall obstruction.",
+      "searches": [
+        "arXiv:2610.37512v1 Theorem 1.1 arithmetic progression criterion",
+        "arXiv:2604.05304v2 matchable numbers full-text",
+        "\"number of perfect matchings\" coprime gcd 1 divisors p^a q^b consecutive integers formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted mathematical-record searches returned coprime-index permutation-binomial enumerations and distinct equal-sum divisor-partition counts, not gcd-matchings.",
+        "arXiv:2610.37512v1, Sections 1, 2, 5, supplies existence by a nonzero determinant, not a permanent evaluation."
+      ],
+      "reasoning": "Equivalent graph language is the permanent of the binary adjacency matrix whose entries indicate coprimality between a member of the integer set and a divisor. The present formula is that permanent for all pairs of prime exponents and all X, not merely a support criterion. No checked record explicitly evaluated this permanent.",
+      "searches": [
+        "Exact enumeration permanent coprime bijections between divisors of p^a q^b and integer sets prime divisibility classes counting matchings",
+        "Coprime matchings divisor sets two prime powers arithmetic progressions number of distinct matchings count enumeration",
+        "\"number of coprime matchings\" divisors arithmetic progression",
+        "\"coprime matchings\" \"count\" \"divisors\" Alekseyev"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical-record searches returned no evaluated coprime divisor-matching table; the nearest divisor items counted equal-sum partitions, not gcd-bijections.",
+        "Alekseyev 2026 and McNew–Pomerance 2026 provide existence/density results rather than per-progression multiplicity tables."
+      ],
+      "reasoning": "The new statement is a closed form for an entire infinite family, and the checked databases did not surface an existing exact table. An absence of records does not establish mathematical uniqueness.",
+      "searches": [
+        "Exact enumeration permanent coprime bijections between divisors of p^a q^b and integer sets prime divisibility classes counting matchings",
+        "coprime matchings divisor sets enumeration permanent two prime powers",
+        "\"Coprime matchings of divisor sets\" Alekseyev 2026 number of matchings enumeration"
+      ]
+    },
+    "rationale": "The closest full text, Alekseyev arXiv:2610.37512v1 Theorem 1.1, decides whether an arithmetic-progression matching exists, not the exact number of matchings. The count is not implied by its separate prime capacities: for n=225 two arithmetic progressions each have three multiples of 3 and two of 5 but give 480 and 288 matchings. McNew–Pomerance studies existence/density; Sah–Sawhney gives interval-permutation asymptotics for a different bipartite graph. Targeted scholarly record and public searches found no evaluated two-prime-power divisor permanent. Priority remains uncertain with respect to general rook/permanent literature.",
+    "residual_risks": [
+      "Earlier general rook-polynomial or permanent formulas for restricted bipartite graphs could specialize to the present expression without matching its number-theory terminology.",
+      "Unindexed older specialized enumeration literature may include an equivalent formula.",
+      "Independent mathematical and priority audits have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides existence, a nonzero determinant and qualitative classifications, not a formula for the number of all bijections.",
+        "evidence": [
+          "Theorem 1.1 uses individual prime capacity counts.",
+          "Section 2 expands a determinant to prove at least one matching exists; no evaluated permanent is given.",
+          "Section 5 proves sufficiency by constructing a matching."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.37512v1",
+        "material_read": "Abstract; Introduction and Theorem 1.1; Section 2 Vandermonde construction and proof; Section 5 theorem proof; Section 6 corollaries; references.",
+        "method": "Public full-text HTML inspection with statement-level implication comparison",
+        "title": "Coprime matchings of divisor sets",
+        "trigger": "Same gcd-bijection object and arbitrary arithmetic progressions"
+      },
+      {
+        "assessment": "Focuses on existence and density of matchable integers, not evaluated all-matching multiplicities.",
+        "evidence": [
+          "Definition in Introduction matches D(n) with [1,tau(n)].",
+          "Main statements are existence and density; no permanent term or formula found in inspected relevant sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.05304v2",
+        "material_read": "Abstract, introduction, matching definition, necessary conditions, existence construction, density results and references.",
+        "method": "Public full-text HTML inspection and exact-term searches for permanent and counting matchings",
+        "title": "Matchable numbers",
+        "trigger": "Earlier paper on the same divisor matching family, cited as primary precursor"
+      },
+      {
+        "assessment": "Counts permutations of [n] satisfying pairwise coprimality asymptotically, not divisor-set pairings; no implication to the explicit rank-two permanent observed.",
+        "evidence": [
+          "Its permutation graph has [n] on both sides.",
+          "Its theorem gives n! times an exponential asymptotic constant, not a rank-two divisor-set closed form."
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12159",
+        "material_read": "Public abstract, introduction, main asymptotic statement and method summary available in full-text HTML.",
+        "method": "Web textual inspection and object comparison",
+        "title": "Enumerating coprime permutations",
+        "trigger": "Prior enumerative work cited by Alekseyev"
+      },
+      {
+        "assessment": "Works with two intervals, not divisor sets; a full manuscript comparison was not needed to exclude its stated theorem, but remains a residual source-access limit.",
+        "evidence": [
+          "Abstract proves matching existence for two intervals of equal even length subject to length conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.07157",
+        "material_read": "Original arXiv abstract and classification metadata.",
+        "method": "Public abstract inspection",
+        "title": "Coprime matchings",
+        "trigger": "Similar title and earlier existence study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "445826e4-4df1-484a-9211-f329be8482ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Coprime matchability of divisor sets is an active natural arithmetic problem; the recent general theorem provides an existence criterion for progressions. The evaluated full matching count for the entire unbounded two-prime-power family is the first meaningful support level with overlapping constraints. The natural enumerative invariant cannot be reconstructed from the known one-prime existence data, as two progressions for n=225 have the same prime counts but 480 vs 288 matchings. The exact arbitrary-set Hall obstruction is additionally classified. No unsupported downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
