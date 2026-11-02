@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Kaneko–Stoll Theorem 2.2 gives the strict global cutoff ab<2^23 for odd positive factors whose two binary weights and product weight are all three. Unique binary expansion gives precisely 231 candidate odd three-bit products 1+2^i+2^j (1<=i<j<=22). Trial division up to integer square root exhausts unordered factor pairs, yielding precisely six. Standalone verify.py replayed: 231 products, 5473 eligible trial divisors, and independent 3672 factor-first admissible pairs, both yielding exactly (7,7,49),(7,19,133),(7,37,259),(11,35,385),(13,21,273),(21,49,1029). All integer identities checked. The published cutoff, not finite computation alone, proves global completeness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaneko–Stoll, Products of integers with few nonzero digits, arXiv:2112.03077v1 (2021-12-06), Theorem 2.2, section 3 proof, https://arxiv.org/html/2112.03077v1",
+        "Exact (3,2,3) binary-weight product classification, published RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9/RESULT.md"
+      ],
+      "reasoning": "Kaneko–Stoll 2.2 gives ab<2^23, an input to the present proof, but does not enumerate possible pairs or give the sharp 1029 maximum. The published nearby case is a different parameter slice and does not dominate the symmetric theorem.",
+      "searches": [
+        "published-finding corpus: Kaneko Stoll k=3 ell=m=3 finite solutions 2^23 7 19 37 11 35 13 21 49",
+        "Web: Kaneko Stoll 2022 binary digits products Hamming weight 3 2023"
+      ]
+    },
+    "checked_sources": [
+      "Kaneko–Stoll, Products of integers with few nonzero digits, arXiv:2112.03077v1 (2021-12-06), Theorem 2.2, section 3 proof, https://arxiv.org/html/2112.03077v1",
+      "Exact (3,2,3) binary-weight product classification, published RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9/RESULT.md",
+      "OEIS A080025, https://oeis.org/A080025 and b-file https://oeis.org/A080025/b080025.txt (10,000 terms through 2,928,786)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kaneko–Stoll, Products of integers with few nonzero digits, arXiv:2112.03077v1 (2021-12-06), Theorem 2.2, section 3 proof, https://arxiv.org/html/2112.03077v1",
+        "Exact (3,2,3) binary-weight product classification, published RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9/RESULT.md",
+        "OEIS A080025, https://oeis.org/A080025 and b-file https://oeis.org/A080025/b080025.txt (10,000 terms through 2,928,786)"
+      ],
+      "reasoning": "The general cutoff plus an existing finite table does not logically imply the exhaustive list without a certificate across all 231 possible product patterns below 2^23. The published 2,3,3 classification is logically inapplicable to factors each having weight three. Together the new independent enumerations and global theorem supply the missing implication. Residual unindexed equivalent result is acknowledged.",
+      "searches": [
+        "published-finding corpus: exactly six unordered pairs of odd positive integers both having three binary ones whose product has three binary ones: (7,7) (7,19) (7,37) (11,35) (13,21) (21,49)",
+        "Web: binary weight of product three ones in both factors exactly three nonzero digits classification odd 7 19 37 11 35 13 21 49"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kaneko–Stoll, Products of integers with few nonzero digits, arXiv:2112.03077v1 (2021-12-06), Theorem 2.2, section 3 proof, https://arxiv.org/html/2112.03077v1",
+        "Exact (3,2,3) binary-weight product classification, published RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9/RESULT.md"
+      ],
+      "reasoning": "Aliases checked were Hamming weight, binary digit sum, nonzero binary digits, three-one binary factor products, and symmetric parameter triple (3,3,3). Published (3,2,3) covers a weight-two factor, not the symmetric case. No inspected source enumerates and globally excludes all further symmetric pairs.",
+      "searches": [
+        "published-finding corpus: odd integers a b both binary Hamming weight three and product Hamming weight three s(a)=s(b)=s(ab)=3 exhaustive classification Kaneko Stoll bound",
+        "Web: \"s(a)=s(b)=s(ab)=3\" binary",
+        "Web: \"Hamming weight\" \"both factors\" \"weight 3\" product 3 classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080025, https://oeis.org/A080025 and b-file https://oeis.org/A080025/b080025.txt (10,000 terms through 2,928,786)"
+      ],
+      "reasoning": "All six products are already in OEIS, so individual value observations cannot claim originality. The finite public b-file only extends to 2,928,786, whereas the needed global exclusion interval is up to 8,388,607. OEIS lacks proof that the six restricted factor pairs exhaust all allowable products. Completeness with sharp maximum, rather than values, is the narrowly original assertion.",
+      "searches": [
+        "published-finding corpus: OEIS A080025 digital Hamming weights factors product 49 133 259 273 385 1029 exact enumeration",
+        "Web: \"49\" \"133\" \"259\" \"385\" \"273\" \"1029\" binary digit weight products",
+        "OEIS A080025 public sequence and b080025.txt"
+      ]
+    },
+    "rationale": "The motivating published theorem supplies a general effective upper bound but not this sharp exact symmetric weight-three classification. The highly relevant published (3,2,3) finding addresses a disjoint factor-weight condition, as confirmed by reading its full RESULT.md. OEIS A080025 records the six product values as prior data, but its finite table terminates below the applicable 8,388,608 bound and does not imply global completeness for these six pairs. The specific original scope is the worldwide exact completeness and sharp maximum 1029, not discovery of these six values. Residual implicit-prior-coverage risk remains.",
+    "residual_risks": [
+      "An unindexed earlier article, sequence commentary, or computation might give the same complete symmetric (3,3,3) classification.",
+      "The contribution is a narrow exact finite classification and sharp natural bound, based on a published deep theorem and substantial but elementary enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUND_GENERAL_BOUND_NOT_EXACT_SYMMETRIC_CLASSIFICATION",
+        "evidence": [
+          "Kaneko–Stoll, Products of integers with few nonzero digits, arXiv:2112.03077v1 (2021-12-06), Theorem 2.2, section 3 proof, https://arxiv.org/html/2112.03077v1"
+        ],
+        "identifier_or_url": "arxiv:2112.03077v1; https://arxiv.org/html/2112.03077v1",
+        "material_read": "Abstract, introduction, Theorem 2.2 and its proof including carry-based bounds and discussion of weight triples",
+        "method": "Read accessible original arXiv HTML full text sections",
+        "title": "Products of integers with few nonzero digits",
+        "trigger": "Same weight-3 products; critical global theorem"
+      },
+      {
+        "assessment": "DIFFERENT_WEIGHT_SLICE_NOT_COVERING",
+        "evidence": [
+          "Exact (3,2,3) binary-weight product classification, published RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9/RESULT.md",
+        "material_read": "Complete RESULT.md including theorem, scope, exhaustive finite proof, limitations",
+        "method": "Read full publicly available RESULT.md in its public source repository",
+        "title": "Exact (3,2,3) binary-weight product classification",
+        "trigger": "Closest semantic overlap with adjacent factor-weight classification"
+      },
+      {
+        "assessment": "LISTS_ALL_SIX_PRODUCT_VALUES_BUT_NO_EXHAUSTIVE_GLOBAL_WEIGHT_3_CLASSIFICATION",
+        "evidence": [
+          "OEIS A080025, https://oeis.org/A080025 and b-file https://oeis.org/A080025/b080025.txt (10,000 terms through 2,928,786)"
+        ],
+        "identifier_or_url": "https://oeis.org/A080025",
+        "material_read": "Public definition and numerical sequence; public b-file range to 10000th term",
+        "method": "Read public sequence record and b-file text",
+        "title": "OEIS A080025",
+        "trigger": "Possible known list of six products"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a45fc1b-8dcc-44eb-9b61-9d275792f4d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The symmetric first nonexceptional sparse binary-product case is a natural specific slice of Kaneko–Stoll’s Diophantine factor-weight question. It has six distinct unordered solutions, gives every factorization and improves the published effective ceiling ab<8,388,608 to an exact sharp maximum 1029. The exact finite cutoff globally excludes unobserved products. The answer is narrow and individual numerical products were known, but the complete rigorous solution of this naturally motivated symmetric case is not a routine mere parameter substitution or table listing.",
+    "status": "PASS"
+  }
+}
