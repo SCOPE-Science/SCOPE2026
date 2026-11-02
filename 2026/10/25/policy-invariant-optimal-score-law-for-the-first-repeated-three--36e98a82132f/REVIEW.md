@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a finite, fully specified 90-word model. Conditioning on any feedback history produces a uniform posterior on the surviving words. The proof independently maximizes the unnormalized first moment, then minimizes/maximizes each future-score coefficient across *every* such expectation-optimal decision. The two polynomial extremal vectors agree componentwise at the root. The exact 11,867-state recurrence and a separate forward enumeration over 90 complete decks both pass; this proves all-policy invariance, not merely one example. Its only boundary is this exact finite composition.
+## correctness
 
-## Originality — PASS on compared sources
-The value \(271/90\) of the optimal mean is **known** to four decimal places (Diaconis–Graham–Spiro, Table 2) and is not the asserted new component. Their published table, the Diaconis–Graham–He–Spiro paper, and the 1981 foundational paper give mean or structural results but not the coefficientwise comparison proving that all mean-optimal policies have the same six-point score law. The published-finding corpus comparison found no matching claim. Earlier dissertations, unpublished numerical tables, and software remain residual priority risks. An algorithm capable of computing the mean is not itself a published assertion of distributional invariance.
+PASS
 
-## Value — PASS
-This is the smallest balanced repeated deck in which three types cause a genuinely ambiguous incorrect guess, unlike binary decks. The complete optimal score law answers a natural risk-sensitive question left by the mean-only tables: all optimal controls have the same tail probabilities and variance, and each attains at least two hits on *every* six-card word. The result is an exact natural finite classification, not an incremental correction to the known expectation or an arbitrary parameter slice.
+Uniform posterior on the set of 90 labeled deck words consistent with yes/no history. The unnormalized Bellman recursion F(B,t)=max_g (|H_g|+F(H_g,t+1)+F(N_g,t+1)) is exact. Componentwise lower/upper score-polynomial recursions take min/max over Bellman-optimal actions and independently optimal continuations. Equality of every component at root proves all deterministic optimal policies have the same polynomial; mixtures preserve it. Independently implemented a tuple-of-word-index recursion (not the source bit-mask representation), visited 11867 states, returned F=271 and identical coefficient vectors (0,0,33,30,21,5,1). Mean 271/90 and variance 7469/8100 follow; finite exhaustive enumeration is complete for the specified deck, not all compositions.
 
-## Limits
-No larger-composition statement; no independent expert audit or certification. Historiographic priority remains partly uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Diaconis-Graham-Spiro 2020/2021 Table 2 gives optimal expectation 3.0111 for the two-copy/three-type case, covering the mean (271/90). Their complete primary paper focuses on expected values and heuristics and does not state the coefficientwise policy-invariant score law in inspected contents. The underlying Bellman recursion is classical; same-deck optimal-law invariance remains distinctive, with risk from older implementations/technical reports.
+
+## value
+
+PASS
+
+A natural small repeated-label feedback game has a nontrivial universal risk distribution across every expectation-optimal policy; separating optimal expected score from invariant higher moments is an exact mathematically useful first repeated three-label case despite small finite size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
