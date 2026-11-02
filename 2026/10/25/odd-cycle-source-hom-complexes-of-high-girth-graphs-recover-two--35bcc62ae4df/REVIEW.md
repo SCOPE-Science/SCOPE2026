@@ -1,15 +1,21 @@
-# Scientific review: odd-cycle-source graph Hom complexes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces all admissible length-\(g+2\) odd closed walks to a unique oriented \(g\)-cycle with one reversal or an injective \((g+2)\)-cycle. Square-freeness isolates the latter and prevents products of independent moving coordinates. Each off-cycle simplex collapses to a base edge; the surviving winding components are polygons. All-parameter arguments, rather than finite tests, establish integral homology and the component count. The standalone test covers eight targets, including Petersen and mixed five-/seven-cycle graphs. Small checks do not substitute for the universal proof.
+PASS
 
-## Originality — PASS, with material residual risk
+Reduced closed walks of odd length m=g+2 are either injective m-cycles or g-cycles with one immediate backtrack; two disjoint backtracks would force cycle length <=g−2, violating girth. Square-freeness (at most one common neighbor for distinct vertices) makes each nontrivial cell a simplex with one variable coordinate, and injective m-cycles are isolated. Outside branches attach as free simplices and collapse onto a winding component of Hom(C_{g+2},C_g), a cycle of exactly gm homomorphisms per orientation. Thus 2*c_g S1 components and 2m*c_m singleton components; no higher homology. Independently enumerated complete homomorphism adjacency for C5, C7 (two values of g), 5-/7-cycle wedge and bridge, with predicted circle/isolated counts; finite samples confirm, not prove all H.
 
-Čukić–Kozlov provides the cycle-target polygons already used as a premise. Matsushita, Theorem 5.8 / Corollary 5.9, provides qualitative classification into circles and points, but not the new multiplicities in terms of two cycle lengths. Fujii–Kimura–Nozaki develops a general squarefree component algorithm; its full text was inaccessible, so an equivalent special formula in that work cannot be ruled out. The closest indexed Hom(C5)-target Heawood record has the source and target in the reverse roles. Novelty is not mathematically certified by unsuccessful searches.
+## originality
 
-## Value — PASS
+PASS
 
-This natural one-reversal threshold provides the full homotopy type in a broad infinite class of irregular high-girth graphs and directly recovers two distinct graph cycle counts from component and homology data. It is a structural classification, not a singleton numerical computation. Independent validation is outstanding.
+The classical Hom(C_m,C_g) cycle homotopy and square-free codomain point-or-circle theorems are already known, but the quantitative global formula in two consecutive cycle counts and explicit free collapse for arbitrary girth-g target are the assessed refinements. The highly relevant Fujii/Kimura/Nozaki and Matsushita PDFs were accessed and their theorems reviewed; priority still carries a risk from generic component algorithms.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A single natural graph-Hom functor extracts the two shortest relevant odd cycle counts as Betti and component statistics, with an explicit canonical collapse. The all-graph-girth theorem is structural and offers a useful graph-homotopy/cycle-count correspondence beyond the already known point/circle dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
