@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T13:45:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-unique-sketch-angle-threshold-for-condition-number-reversal-in--1347e7d49a8c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-unique-sketch-angle-threshold-for-condition-number-reversal-in--1347e7d49a8c",
+        "nystrom_check.py"
+      ],
+      "rationale": "Write H=A^{1/2}Π A^{1/2} and I−Π=wwᵀ for one unit vector, rotate the two-dimensional unit-eigenspace of A, and observe the two retained nonzero H eigenvalues are 1 and λ=1+(k−1)s². The normalized Nyström preconditioner is P=I+(λ−1)uuᵀ/(1+m). The nontrivial generalized pencil (A+mI,P) has trace T and determinant D specified in RESULT, with z_-<1+m<z_+; κ=z_+/z_-. For positive roots ratio r>=1, T²/D=r+2+r^-1 increases with r. Independently symbolically verified the exact sign identity T²/D−(κ0+1)²/κ0=−(λ−1)G(λ)/[λ²(λ+m)(k+m)(m+1)²], and the substitution λ=(1+kt)/(1+t) converts (1+t)³G/(k−1) into a3t³+a2t²−a1t−a0. All a_i>0, so the cubic decreases then increases through exactly one positive zero. Endpoint λ=1 has P=I, λ=k ideal κ=1. Reconstructed exact k=4,m=1,Ω=[[1,0],[4,0],[0,1]] with H off diagonal 4/5, 2x2 generalized polynomial 26z²−161z+200, giving κ=(161+3sqrt569)/(161−3sqrt569)>5/2. Dense independently computed random/sketch pencils matched the sign classification. Gaussian full support and spectral continuity yield both open probability regions. For k→∞, m=1/k, λ=3/2 the exact trace/determinant limits yield ratio 32/27. Dimension two rank one has P=I and rank two is exact A, so no worsening. Analytical identities, not random trials, establish all-parameter theorem.",
+      "residual_risks": [
+        "The theorem concerns spectral condition numbers of normalized, exact arithmetic rank-two Nyström preconditioning, not PCG iteration counts or runtime.",
+        "The 32/27 constant is achievable in one limiting subfamily, not claimed globally extremal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frangella–Tropp–Udell guarantee bounded expected κ for sufficiently large sketch rank relative to effective dimension; this does not imply per-sketch κ<=κ0 at rank 2.",
+          "Dereziński–Musco–Yang study a distinct multilevel preconditioner/average spectral complexity."
+        ],
+        "reasoning": "A theorem for arbitrary PSD A with enough sketch columns is broader in matrix domain but not the claimed sharp per-sketch worsening/improvement partition at insufficient rank. No inspected stronger prior theorem covers the exact threshold.",
+        "searches": [
+          "https://arxiv.org/abs/2110.02820",
+          "https://arxiv.org/abs/2405.05865",
+          "three dimensional rank two randomized Nystrom preconditioner worsening spectral condition number sketch angle spike"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-unique-sketch-angle-threshold-for-condition-number-reversal-in--1347e7d49a8c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-unique-sketch-angle-threshold-for-condition-number-reversal-in--1347e7d49a8c",
+        "https://arxiv.org/pdf/2110.02820",
+        "https://doi.org/10.1002/qj.4151",
+        "Resultary semantic search: three dimensional rank two randomized Nystrom preconditioner worsening spectral condition number sketch angle spike"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Initiating paper shows eq.1.3, conditions on effective rank and average guarantees, with no cited per-realization κ reversal theorem.",
+          "Other randomized spectral preconditioning sources discuss possible small eigenvalue displacement with different P and algorithmic setting."
+        ],
+        "reasoning": "The exact cubic and explicit open sets of worsening are not logical consequences of an upper bound on expected κ or of observations about a different preconditioner; specific method and dimension matter.",
+        "searches": [
+          "https://arxiv.org/pdf/2110.02820",
+          "https://doi.org/10.1002/qj.4151",
+          "https://arxiv.org/abs/2405.05865"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frangella–Tropp–Udell eq. (1.3) is the same normalization P; therefore algorithm itself and general eigenvalue approximation are NOT new.",
+          "The new theorem compares every rank-two sketch against identity preconditioning using exact 3x3 spectral pencil and one angle threshold."
+        ],
+        "reasoning": "Equivalent preconditioner formulas reconciled (preconditioner versus inverse); do not conflate P with P^{-1} or assert all low-rank Nyström constructions worsen.",
+        "searches": [
+          "three dimensional rank two randomized Nystrom preconditioner worsening spectral condition number sketch angle spike",
+          "https://arxiv.org/pdf/2110.02820",
+          "rank-two Nystrom 3x3 spike sketch eigenvalue reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results were unrelated MINRES/Kaczmarz/conditioning examples, not this normalized Nyström spectral pencil.",
+          "The 3x3 rational witness is one certificate but all-(k,m,λ) single-threshold theorem is more than an isolated numeric table."
+        ],
+        "reasoning": "No direct exact-database coverage found; a failed semantic search is not priority proof.",
+        "searches": [
+          "Resultary: three dimensional rank two randomized Nystrom preconditioner worsening spectral condition number sketch angle spike",
+          "Nystrom 3D rank 2 condition degradation counterexample database"
+        ]
+      },
+      "rationale": "Frangella–Tropp–Udell give this very normalized Nyström preconditioner (formula 1.3) and bounds on expected κ once sketch rank scales with effective dimension; they do not promise per-sketch improvement and do not derive the three-dimensional exact crossover. Previous studies of eigenvalue inflation for different randomized limited-memory preconditioners do not imply this unique t_* for this exact normalization. Formula is prior, classification and worsening witness survive.",
+      "residual_risks": [
+        "Specialized preconditioning analyses may already have an equivalent three-dimensional criterion, but were not located.",
+        "A general perturbative theorem might imply deterioration qualitatively, not necessarily the exact sharp cubic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHM_AND_RANK_DEPENDENT_EXPECTATION_PRIOR_NOT_PER_SKETCH_CROSSOVER",
+          "evidence": "Exact P normalization is prior; rank-dependent expected bound and ideal-subspace cases do not classify per-sketch worse/equal/better for A=diag(k,1,1).",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.02820",
+          "material_read": "Accessible full 37-page primary PDF; formula (1.3), rank/effective-dimension guarantees, theorem 5.1, proposition 5.3 and exact-eigenspace discussion inspected; screenshot of PDF page with formula reviewed",
+          "method": "Read lawful accessible primary article or research text",
+          "title": "Frangella, Tropp and Udell, Randomized Nyström Preconditioning",
+          "trigger": "Exactly the normalized rank-two Nyström algorithm and its condition number guarantees"
+        },
+        {
+          "assessment": "DIFFERENT_PRECONDITIONER_LIMITED_INSPECTION",
+          "evidence": "Notes randomized limited-memory spectral preconditioner pitfalls, but no exact same normalized rank2 Nyström cubic found in inspected material.",
+          "identifier_or_url": "https://doi.org/10.1002/qj.4151",
+          "material_read": "Accessible abstract and comparison summary, not full text",
+          "method": "Read lawful accessible primary article or research text",
+          "title": "Daužickaitė, Lawless and Scott, Randomised preconditioning for the forcing formulation...",
+          "trigger": "Potential prior statement of randomized condition-number worsening"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-unique-sketch-angle-threshold-for-condition-number-reversal-in--1347e7d49a8c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-unique-sketch-angle-threshold-for-condition-number-reversal-in--1347e7d49a8c",
+        "Primary literature interpretation in axes.originality.source_inspections"
+      ],
+      "rationale": "The exact smallest-dimensional boundary between provably useful and harmful sketch subspaces is a motivated stability/counterexample result for an established preconditioner. It separates average sufficiently-high-rank guarantees from per-realization behavior and provides a reproducible spectral benchmark useful when interpreting low-rank solver failures.",
+      "residual_risks": [
+        "No conclusion on real-world convergence time, floating-point stabilization, or arbitrary-dimensional worst-case deterioration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For A=diag(k,1,1), k>1, μ=m>0, every full-rank 3x2 sketch has retained Nyström eigenvalues λ,1 with 1<=λ<=k. In the interior the preconditioned spectral condition number exceeds/equal/falls below (k+m)/(1+m) exactly as t=(λ-1)/(k-λ) is less/equal/greater than the unique positive root of a3t³+a2t²−a1t−a0. Positive-measure Gaussian sketches worsen conditioning; dimension three minimal; an explicit rational witness and an attainable stiff-spike family limit 32/27 are supplied.",
+  "limitations": [
+    "The theorem concerns spectral condition numbers of normalized, exact arithmetic rank-two Nyström preconditioning, not PCG iteration counts or runtime.",
+    "The 32/27 constant is achievable in one limiting subfamily, not claimed globally extremal.",
+    "Specialized preconditioning analyses may already have an equivalent three-dimensional criterion, but were not located.",
+    "A general perturbative theorem might imply deterioration qualitatively, not necessarily the exact sharp cubic.",
+    "No conclusion on real-world convergence time, floating-point stabilization, or arbitrary-dimensional worst-case deterioration."
+  ],
+  "schema_version": 1
+}

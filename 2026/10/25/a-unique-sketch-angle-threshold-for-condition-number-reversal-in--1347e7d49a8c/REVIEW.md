@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the rank-two projector representation \(H=A^{1/2}\Pi A^{1/2}\), rotates the repeated eigenspace to identify the complete one-parameter sketch family, and calculates the exact positive generalized eigenvalues. The strictly monotone comparison function \(r+2+r^{-1}\) converts condition-number comparison into a cubic sign test. Its transformed cubic has a unique positive root since it is initially negative and strictly convex with eventually positive derivative. The symbolic checker verifies the exact rational identities, the finite example, and the asymptotic limit, and independent direct Nyström/sketched generalized eigensolves agree across 500 random inputs. No finite experiment is treated as a proof of the universal signs.
+## correctness
 
-## Originality — PASS, subject to publication priority
-Frangella–Tropp–Udell (arXiv:2110.02820, §§1.1, 2.1, 5.1–5.2) define this normalized preconditioner and establish a large-sketch expected condition-number bound and exact-eigenspace optimality, not a rank-two per-sketch comparison with the unpreconditioned condition number. Daužickaitė–Lawless–Scott (doi:10.1002/qj.4151, §§3, 4, 5.1) report loss of lower spectral nonexpansiveness for a different randomized limited-memory preconditioner, without the exact threshold for this normalization. Dereziński–Musco–Yang (arXiv:2405.05865) employ a different multilevel preconditioner; its abstract was inspected, but full text was not accessible in this comparison. Targeted published-literature and mathematical-result searches did not surface an exact equivalent or broader theorem with this implication. An unobserved equivalent small-dimensional preconditioning calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-Whether preconditioning is guaranteed to reduce a condition number is a natural safety question for PCG. Here the exact crossover divides all possible two-column sketches on a natural SPD spike family; failure has positive probability for every spike and every regularization. The smallest dimension is identified, an exact rational deterioration certificate is supplied, and an asymptotic family gives a concrete \(32/27\) relative deterioration. These are stronger than a one-off numerical failure or a routine normalization observation. The theorem does not claim a corresponding iteration-count increase, a global deterioration maximum, or a failure of the original large-sketch expected bound.
+Write H=A^{1/2}Π A^{1/2} and I−Π=wwᵀ for one unit vector, rotate the two-dimensional unit-eigenspace of A, and observe the two retained nonzero H eigenvalues are 1 and λ=1+(k−1)s². The normalized Nyström preconditioner is P=I+(λ−1)uuᵀ/(1+m). The nontrivial generalized pencil (A+mI,P) has trace T and determinant D specified in RESULT, with z_-<1+m<z_+; κ=z_+/z_-. For positive roots ratio r>=1, T²/D=r+2+r^-1 increases with r. Independently symbolically verified the exact sign identity T²/D−(κ0+1)²/κ0=−(λ−1)G(λ)/[λ²(λ+m)(k+m)(m+1)²], and the substitution λ=(1+kt)/(1+t) converts (1+t)³G/(k−1) into a3t³+a2t²−a1t−a0. All a_i>0, so the cubic decreases then increases through exactly one positive zero. Endpoint λ=1 has P=I, λ=k ideal κ=1. Reconstructed exact k=4,m=1,Ω=[[1,0],[4,0],[0,1]] with H off diagonal 4/5, 2x2 generalized polynomial 26z²−161z+200, giving κ=(161+3sqrt569)/(161−3sqrt569)>5/2. Dense independently computed random/sketch pencils matched the sign classification. Gaussian full support and spectral continuity yield both open probability regions. For k→∞, m=1/k, λ=3/2 the exact trace/determinant limits yield ratio 32/27. Dimension two rank one has P=I and rank two is exact A, so no worsening. Analytical identities, not random trials, establish all-parameter theorem.
 
-## Closest literature and limitations
-The closest identical algorithm is arXiv:2110.02820; nearby random-spectral limited-memory and multilevel methods use different preconditioner matrices. Exact arithmetic, a three-state diagonal spike and rank-two sketches are assumed. Priority remains subject to independent literature review, and the finite-precision stabilization used in implementations is outside the theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Frangella–Tropp–Udell give this very normalized Nyström preconditioner (formula 1.3) and bounds on expected κ once sketch rank scales with effective dimension; they do not promise per-sketch improvement and do not derive the three-dimensional exact crossover. Previous studies of eigenvalue inflation for different randomized limited-memory preconditioners do not imply this unique t_* for this exact normalization. Formula is prior, classification and worsening witness survive.
+
+## value
+
+PASS
+
+The exact smallest-dimensional boundary between provably useful and harmful sketch subspaces is a motivated stability/counterexample result for an established preconditioner. It separates average sufficiently-high-rank guarantees from per-realization behavior and provides a reproducible spectral benchmark useful when interpreting low-rank solver failures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
