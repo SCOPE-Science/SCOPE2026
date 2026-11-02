@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The statements are restricted to finite polynomial directions and a fixed-parameter real four-mode family. The Dirichlet norm is exactly one by orthogonal monomial weights. The Hessian follows from the exponential Taylor formula and circle Parseval. The sixth-order identity follows from an explicit Laurent constant-term calculation, reproducing the coefficients of orders two, four, and six. Exact symbolic checks and separate high-precision integrals agree. The positive square root is defined for all sufficiently small real parameters. Evenness eliminates the seventh-order error. The distance calculation makes the lack of any positive stability constant with exponent below six a rigorous consequence, including the upper bound \(e/192\) on any possible sixth-power stability constant. These finite calculations do not establish a matching sixth-power lower bound.
+## correctness
 
-## Originality
-**PASS, with residual historical-priority risk.** Frank–Ivanisvili's global inequality and equality classification constrain the deficit to be nonnegative but do not imply its sixth-order expansion. Andreev–Matheson's 1994 Section 4 already isolates the second-degree flat direction in local line perturbations, so that observation is acknowledged as prior context rather than the new contribution. Their results do not cover the new fourth- and sixth-degree nested corrections or the exact optimized \(1/24\) coefficient. Searches for Chang–Marshall sixth-order normal forms, equivalent Fourier-polynomial expansions, and quantitative Dirichlet stability found no directly covering theorem. Historical nonlinear-functional papers of 1995–1996 were accessible only in abstract and remain a genuine priority risk.
+PASS
 
-## Value
-**PASS.** The recent sharp global theorem settles extremal value but leaves the *scale of near equality* open. The calculation isolates the first three harmonics that interact with the flat mode, shows how a fourth-order deficit cancels nontrivially, and proves a sharp *necessary lower bound on any putative stability exponent*. This is a geometric restriction on quantitative refinements of a natural critical embedding, not a routine change of parameters or an arbitrary numerical slice. No global stability theorem is claimed.
+The exact claim is restricted to fixed polynomial h orthogonal to z, and a fixed-real-(u,v) Dirichlet-unit four-mode path f_x=a(x)z+x z^2+u x^2 z^3+v x^3 z^4 for sufficiently small real x. Parseval gives D(f_x)=a^2+2x^2+3u^2x^4+4v^2x^6=1 and the second variation -sum_{n>=2}(n-2)|h_n|^2, flat only in z^2 among transverse polynomial modes. Independently derived the complete weighted-order-six Laurent log constant-term series from six independent exp(q_j z^{±j}) factors; it exactly matches the package formula, including cancellation of all q1^2 q2^2 terms. A separate symbolic substitution into q0,q1,q2,q3 verified [x^2]=0, [x^4]=-(2u-3)^2/4 and [x^6]=-2(9u^2-27uv+30u+9v^2-6v-5)/9. Setting u=3/2 makes the sextic deficit 1/24+2(v-31/12)^2; the unique real optimum v=31/12 has positive 1/24. The transformation f_{-x}(z)=-f_x(-z) establishes evenness and O(x^8) for fixed u,v. Phase-orbit minimization yields dist_D^2=2(1-a(x))=2x^2+O(x^4), hence (e-J)/dist_D^6→e/192, excluding every positive C for p<6. Independently evaluated a 256-point 50-digit boundary Fourier quadrature at x=.08,.04,.02, verifying convergence trend but not substituting numerics for analytic proof. This is not a proof of a full p=6 stability lower bound or an unrestricted optimum over all perturbations.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the optimized real four-mode jet and necessary stability obstruction, not for the already known flat direction or sharp global inequality. Independent Resultary semantic searches returned sixth-order Fourier, finite-field and Sobolev examples but no matching Chang–Marshall jet; direct source-package GitHub code search for Chang-Marshall/Dirichlet sextic did not identify broader previously published SCOPE coverage. Full primary 2026 and 1994 texts were read and compared at the level of statements and implications. Highly relevant 1995/1996 texts were abstract-only; authorized 1996 full-text request returned VPN-disconnected, which is explicitly a residual priority risk rather than a scientific failure.
+
+## value
+
+PASS
+
+This is a motivated structural near-equality invariant of the sharp critical Chang–Marshall Dirichlet embedding: the first Hessian-degenerate transverse mode forces a nontrivial cubic correction u=3/2 to cancel the quartic loss, followed by a uniquely optimized fourth-harmonic correction v=31/12. The positive 1/24 sextic loss and e/192 necessary constant impose a precise, reusable obstruction on any future quantitative Dirichlet-distance stability theorem. Neither the sharp global inequality, known quadratic flatness, nor numerical reproducibility alone supplies this nonlinear resonance. The finite four-mode scope is explicitly bounded; it is meaningful without promising a complete infinite-dimensional stability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
