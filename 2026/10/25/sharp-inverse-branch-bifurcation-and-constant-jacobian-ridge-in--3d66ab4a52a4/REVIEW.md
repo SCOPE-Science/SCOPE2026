@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Log-odds coordinates reduce every inverse fiber to the real-valued scalar equation \(\Phi_A(x)=H\) with \(\Phi_A'(x)=1/[x(1-x)]-A\). This derivative has zero, one degenerate, or two simple interior critical points as \(A<4\), \(A=4\), or \(A>4\). The limiting values at the open interval endpoints establish *all* inverse counts rather than sample counts. Direct evaluation yields the fold-band width \(Ar-4\operatorname{artanh}r\) and its sharp \((A-4)^{3/2}/3\) onset. The explicit output \(Q_*\) puts all three inverse beliefs strictly into the physical square. The determinant factorization proves the constant-Jacobian ridge. The compact fully invariant area conclusion uses bijectivity and change-of-variables; the Lyapunov identity uses compact interior support and multiplicative ergodic theory. Exact symbolic identities and a physical inverse-witness calculation were replayed from the accompanying standalone checker; this is supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-Metaxas and Sapsis introduced the map and established equilibrium and average properties and numerical bifurcation diagrams (arXiv:2606.29967, first submitted June 29, 2026). The inspected substantive sections do not contain the exact global inverse-branch diagram, physical triple-preimage witness, sharp caustic width, or the unique constant-Jacobian memory rate. General fold and cusp theory of Krauskopf–Osinga–Peckham (2007) and Hobbs–Osinga (2008) covers standard local singularity types, and their existence is explicitly credited. Relevant published mathematical records return thematically related but distinct dynamical systems, not an implication of this map-specific conclusion. The general papers' full texts were not inspected and specialized historical priority remains a nonzero risk. Absence from a search is not treated as a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Inverse multiplicity is an intrinsic issue for reconstructing past population-risk states from present observations. The theorem determines its global bifurcation sharply as a function of the learning and belief-response parameters, with a nonempty physical triple-preimage target and an exact width exponent. The distinguished memory ridge instead provides a rigorous fixed geometric contraction and Lyapunov budget independently of the intensity of learning. These statements provide structural information not furnished by the source's bifurcation plots and are not merely textbook restatements of cusp theory.
+In log-odds y=log(x/(1−x)), the given two-state map reduces every extended-strip inverse fiber exactly to Φ_A(x)=H, Φ_A=logit(x)−Ax and A=a(1−ckp₁/(1−k)). Differentiating gives Φ'_A=1/[x(1−x)]−A: strictly positive for A<4, a single cubic zero at x=1/2 for A=4, and two folds at x±=(1±sqrt(1−4/A))/2 for A>4. The domain-end limits ±infinity imply global 1/3 inverse counts with two roots on caustics; Φ_4(1/2+u)=−2+(16/3)u³+O(u^5). The difference of fold values is Ar−4 artanh(r), r=sqrt(1−4/A), with cubic-cusp onset (A−4)^(3/2)/3. For A>4, s=kp₁/(1−k)<1/c<1 permits Q*=(1−k)/2+k(p₀+p₁/2) and three real roots all having q=1/2+s(1/2−x) in (0,1); hence physical triple preimages genuinely occur. The exact log-odds determinant is (1−k)[1−A x(1−x)]; it is spatially constant iff A=0, k=1/(1+cp₁), equal to 1−k. Injectivity and change of variables yield zero area for compact *fully* invariant interior sets, while the compactly supported invariant-law Lyapunov sum is log(1−k). Checked the symbolic determinant, critical expansion, and the constructive physical witness against the actual package checker source. None of these statements asserts global chaos or a complete physical inverse census.
 
-## Closest literature and limitations
-The original adaptive-belief model is credited to Metaxas–Sapsis, Eq. (9). General planar endomorphism theory supplies local fold/cubic normal forms but does not itself establish this parameter-specific global diagram from the inspected material. Two older plausible references were accessible only as abstracts; independent priority review is outstanding. The global inverse count applies to the real-belief extension, though at least one triple inverse is physical; the CVaR-capped model is not considered. The zero-area theorem applies only to compact *fully invariant* sets, not arbitrary forward-invariant trapping sets; Lyapunov sums require compactly supported interior invariant laws.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Metaxas and Sapsis define this population-game map and analyze its equilibria and numerical bifurcation dynamics. Their relevant full text was materially read; its model and parameter conventions are identical, but those sections do not state the exact global 1/3 inverse counts, sharp fold width and physical triple-preimage construction, or unique constant-Jacobian memory rate. General planar endomorphism fold/cusp normal forms are standard and acknowledged; their abstract local classification does not by itself calculate this map's global inverse branches and physical feasibility. Available Resultary hits address other dynamical systems. The object-specific inverse and contraction formulas survive those comparisons. An alternate coordinate conjugacy or earlier map-specific derivation could still cover part of the claim.
+
+## value
+
+PASS
+
+Inverse multiplicity determines whether observed new population and belief states reconstruct prior risk states uniquely. The explicit parameter threshold, exact caustic geometry and nonempty physical triple-preimage region give a structural global classification rather than a generic local cusp observation. The separate memory ridge provides an exact invariant-measure Lyapunov budget and area obstruction that is independent of learning intensity. These are meaningful dynamics and observability facts, with physical and invariance restrictions made explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
