@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The total-viable-seed scalar recurrence follows by replacing the oldest outgoing age class. Under Floquet scaling, it yields two symmetric closed characteristic-polynomial identities when viable seed age is a multiple of the environmental period or one less. An auxiliary discrepancy satisfies a one-step multiplier \(b\), making cancellation of the exceptional root \(\mu=b^m\) legitimate; the final identities are polynomial identities. Exact symbolic/rational examples were checked, and the five-age opposite growth signs have strictly positive exact coordinatewise Collatz–Wielandt witnesses. Numerical spectral estimates are not used to certify the inequalities. The theorem is limited to the hypotheses stated in the result.
+## correctness
 
-## Originality — PASS (best-knowledge)
-Mertens, van den Bosch and Heesterbeek (2002) show that ordered crop rotations in their soil-depth-structured weed model can change growth rates, including an \(AABB\) versus \(ABAB\) comparison. Thus order effects themselves are old; their reported conclusion does not specify the all-period congruence-isospectral seed-age family proved here. Mertens et al. (2006) address cyclic permutations and transient effects; arbitrary permutation spectra and the congruence classes are different statements. Cushing and Ackleh (2011/2012) derive periodic net reproductive numbers and some period-two Leslie formulas, but the accessible material does not cover the all-period arbitrary-order characteristic identities. Meyer and Li (2013) investigate age-structured seed banks with spatial dispersal and spreading speeds, not the stated permutation problem. Relevant full texts were not all accessible, so equivalent earlier results in matrix rearrangement or renewal theory remain a risk. No claim of certified literature uniqueness is made.
+PASS
 
-## Mathematical value — PASS
-The result classifies an infinite family of biologically interpretable seed-longevity versus environmental-period resonances, at the level of all eigenvalues rather than a single mean. It identifies a sharp four-season age-limit boundary: two age classes strictly prefer alternation, three or four are blind to order, while five can prefer clustering sufficiently to reverse the growth-versus-decline verdict. The property is useful for interpreting when crop/weather ordering can matter in finite-age seed bank projections; it is not a routine scalar averaging fact.
+Let a=g, b=s(1-g), and M_L(r) have top row ar and subdiagonal b. Total seed mass S_t satisfies N_{t+1}=ar_t S_t and S_{t+1}=(b+ar_t)S_t - a*b^L*r_{t-L} S_{t-L}, with age-out correction exact. A nonzero monodromy Floquet multiplier μ obeys S_{t+m}=μS_t. For L=km the recurrence reduces to S_{t+1}=[b+ar_t(1-b^L μ^-k)]S_t, yielding the symmetric characteristic-polynomial identity after cancelling μ-b^m. For L=km-1, the reduction [1+ab^L r_{t+1} μ^-k]S_{t+1}=(b+ar_t)S_t gives the second symmetric product identity. Reconstruction from age-zero cohorts excludes spurious Floquet sequences except µ=b^m, and polynomial continuation covers degeneracies. Direct independent SymPy symbolic characteristic comparisons for m=4 and L=1..5 gave exact zero differences at L=1,3,4, nonzero signed a²b²µ(H-J)² at L=2 and -a²b^6µ³(H-J)² at L=5. At L=2 equal determinants and trace(alternating)-trace(clustered)=a²b²(H-J)²>0 imply strict Perron ranking. For g=1/5,s=9/10,H=4,J=1/6,L=5 independent exact rational multiplication verified all five components of Pc*v-v and w-Pa*w positive for v=(104,50,2,2,27), w=(40,2,22,1,11). Collatz–Wielandt gives rho(Pc)>1>rho(Pa). Source checker.py fully inspected but finite tests do not replace arbitrary m,k proof.
 
-## Limits and closest published work
-The comparison concerns only deterministic low-density linear projections, not transient seed abundance, stochastic extinction, or ecological coexistence. The closest published works include Mertens et al. (2002, DOI 10.1890/1051-0761(2002)012[1125:WPACRE]2.0.CO;2), Mertens et al. (2006, DOI 10.1890/0012-9658(2006)87[2338:TPDIPM]2.0.CO;2), Cushing and Ackleh (DOI 10.1080/17513758.2010.544410), and Meyer and Li (DOI 10.1137/120880501). Inaccessible historical full text remains the main originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact all-season-permutation isospectrality at L=km or km-1 and sharp four-season age-five ordering reversal. Classical periodic population matrices and weed crop-rotation order effects are prior, but use different age/depth structuring and do not visibly state these full-spectrum congruences.
+
+## value
+
+PASS
+
+The result isolates a surprising exact all-permutation full-spectrum invariant at two natural seed-age/period congruence families, plus a sharp age-five reversal between clustered and alternating environmental patterns with a certified growth/decline witness. This provides a structural classification/boundary in a well-motivated age-structured periodic model, beyond a generic fact that matrix multiplication is order-sensitive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

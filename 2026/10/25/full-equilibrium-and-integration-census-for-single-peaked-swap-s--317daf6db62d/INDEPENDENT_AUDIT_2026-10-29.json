@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:50:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At peak Lambda=1/2 the closed-neighborhood payoff has exactly two levels: each agent is positive iff at least one adjacent vertex has the other color. A mutually strictly beneficial opposite-color swap exists iff both colors have an interior vertex of a length >=3 monochromatic run: those vertices are nonadjacent, and swapping makes both integrated. Thus an equilibrium has all runs of at least one color of length <=2. For k paired cyclic runs, a short run has S(t,z)=tz+t^2 z^2, an unrestricted run has T(t,z)=tz+t^2 z^2/(1-t), and inclusion-exclusion gives S(x,z)^k T(y,z)^k+T(x,z)^k S(y,z)^k-S(x,z)^k S(y,z)^k. Marking a blue run yields the exact n/k coefficient, so P_{n,b}(z) counts vertex-labeled colorings, not individually distinguishable agents. Extremal support is [b+ceil(b/2)+1,min(n,3b)] for n>=3, 1<=b<=r, attained continuously by distributing 1..2 minority runs and majority excess. Independently brute-enumerated all b<=floor(n/2), n=3..10, comparing direct profitable swaps with independently implemented run polynomial for 24 parameter pairs; the result E_{6,3}=14 agrees. The general claim is proved by cyclic-run argument, not finite tests. Required actual files inspected: RESULT.md blob eb0f3082..., verify.py b4630dba..., METADATA, AUDIT, SLOGAN, VERIFICATION.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "IJCAI 2022 Theorem 8 provides a cycle PoA witness, Theorem 12 PoS=1",
+          "jump model uses vacant positions"
+        ],
+        "reasoning": "Broader existence/efficiency theorems dominate only extrema, not a coefficientwise equilibrium distribution; different-move results cannot be substituted.",
+        "searches": [
+          "Bilò 2022 Theorem 8 Theorem 12",
+          "single-peaked jump model arXiv:2302.12107"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.12599",
+        "https://arxiv.org/abs/2302.12107"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior ring PoA approaches 2 but does not provide full coefficient distribution",
+          "The n/k cycle-root correction resolves individually labeled vertex colorings"
+        ],
+        "reasoning": "The general equilibrium criteria can motivate the short-run rule, but they do not state the complete enumeration and support by merely substituting a parameter.",
+        "searches": [
+          "Bilò 2022 Theorems 8 and 12",
+          "direct n/k cyclic run counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source RESULT.md: at least one color has all runs length<=2",
+          "Bilò 2022 uses strict pair swaps"
+        ],
+        "reasoning": "Equivalent cyclic binary run avoidance was explicitly considered; preexisting general swap-stability results give only necessary patterns or welfare bounds, not the exact polynomial.",
+        "searches": [
+          "Resultary semantic Schelling query",
+          "swap equilibrium cyclic binary run compositions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching refined distribution among Resultary hits returned for stated query",
+          "Existing polynomial is self-contained over all n,b,j"
+        ],
+        "reasoning": "No exact matching database table emerged, but negative search is not priority proof; arbitrary finite tables would not alone imply universal formula.",
+        "searches": [
+          "Resultary semantic Schelling search",
+          "binary cyclic run coloring coefficient counts"
+        ]
+      },
+      "rationale": "Best-of-knowledge new full run-refined equilibrium integration census and attainable welfare spectrum, conditional on published game definition. Bilò et al. prove existence and approximate price-of-anarchy bounds, not the exact (n,b,j) polynomial in inspected manuscript. The other jump model allows unilateral moves into vacancies, so its superficially similar extremal ratios do not cover pair-swap counts.",
+      "residual_risks": [
+        "Unindexed exact cyclic-word/equilibrium counting result could yield equivalent polynomial by a straightforward reduction",
+        "Original manuscript portions not captured by accessible excerpt inspection may contain a stronger unnamed enumeration",
+        "All independent tests are finite and do not constitute exhaustive all-n verification",
+        "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+        "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the exact refined census; known model, existence/PoA and price-of-stability results fully credited",
+          "evidence": [
+            "Theorem 8: ring family PoA tends to 2",
+            "Theorem 12: PoS=1 for certain almost-regular max degree 3 graphs",
+            "https://www.ijcai.org/proceedings/2022/0012.pdf"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.12599",
+          "material_read": "Open-access full IJCAI 2022 paper, mathematical model, Lemma 4, Theorems 8 and 12 and accompanying arguments",
+          "method": "Read and compare stated hypotheses, welfare extrema and cycle witness against complete polynomial",
+          "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+          "trigger": "Exact same pair-swap model, cycles, integration objective"
+        },
+        {
+          "assessment": "Different transition graph; no immediate implication to equilibrium multiplicities for vacancy-free swaps",
+          "evidence": [
+            "arXiv:2302.12107, distinct jump action"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.12107",
+          "material_read": "Public abstract and definitions of vacancy-based unilateral jump game; no whole-document negative claim",
+          "method": "Compared move rules and vacancies to two-agent strict swaps",
+          "title": "Single-Peaked Jump Schelling Games",
+          "trigger": "Possible equal integration extrema in different move model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete classification of equilibria and exact multiplicities at each integration value, over every cycle size and population balance, improves qualitative existence and efficiency bounds and permits welfare-weighted equilibrium comparisons. The PoA extremum is a byproduct and not claimed alone as the discovery.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/75a66f878b7bc7bb89b24618f1adcf7e6624296f/2026/10/25/full-equilibrium-and-integration-census-for-single-peaked-swap-s--317daf6db62d/RESULT.md",
+    "https://arxiv.org/abs/2204.12599",
+    "https://arxiv.org/abs/2302.12107"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A finite numerical or exact enumeration check does not establish an infinite-parameter claim.",
+    "Best-of-knowledge originality does not certify absolute historical priority.",
+    "No GitHub writes, public artifacts, independent expert attestation, or Lean proof produced."
+  ],
+  "residual_risks": [
+    "Unindexed exact cyclic-word/equilibrium counting result could yield equivalent polynomial by a straightforward reduction",
+    "Original manuscript portions not captured by accessible excerpt inspection may contain a stronger unnamed enumeration",
+    "All independent tests are finite and do not constitute exhaustive all-n verification",
+    "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+    "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+  ],
+  "schema_version": 1
+}

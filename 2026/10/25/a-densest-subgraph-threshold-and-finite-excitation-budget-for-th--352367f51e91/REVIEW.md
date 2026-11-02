@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument is independent of graph order and uses finite-horizon counting, not extrapolated simulation. Refractory separation makes consecutive-time excitation transmissions a matching on each undirected edge. Summing their capacities by integer level sets yields the exact inequality \((q-\rho(G))N_T\le qm\), forcing finite excitation count under \(\rho(G)<q\). The critical bipartite four-cycle is explicitly evaluated for arbitrary integer \(q\ge2\). Exact enumeration and event-matching tests on \(11{,}259\) configurations confirm small instances, without being invoked as an infinite proof.
+## correctness
 
-## Originality — PASS, bounded by inspected evidence
-The closest relevant published texts concern spatial threshold-range excitable automata (Durrett–Griffeath, 1993), finite-graph Greenberg–Hastings with one-neighbour activation (Doba, 2018), and probabilistic infinite regular-tree models (Bello–Sivakoff, 2021). None of the inspected statements implies an arbitrary-finite-graph maximum-induced-density bound for all total excitations under threshold \(q\ge2\). Multiple semantic searches, including equivalent terms for densest subgraph and pseudoarboricity, disclosed no matching result. An unindexed equivalent remains possible; novelty is not certified independently.
+PASS
 
-## Mathematical value — PASS
-This gives a structural necessary density condition for sustained excitation and an explicit lifetime budget, valid even when maximum degree is unbounded. It provides an explanatory mechanism for a broad family of extinction results and identifies the exact threshold at which unconditional density-based extinction can fail. The theorem does not assert an optimal bound for every graph or a converse for individual graphs.
+For each horizon T and vertex v let a_v count its excited events. Two consecutive excitations at a vertex are separated by ≥3 time steps. Along any edge every adjacent-time transmission uses distinct endpoint excitation events; otherwise same vertex would be excited at times distance two. Hence transmissions per edge ≤min(a_u,a_v), whereas each noninitial excitation requires q incoming transmissions. The layer-cake sum Σ_edges min(a_u,a_v)=Σ_{j≥1}|E[S_j]|≤ρ(G) Σ_v a_v gives (q−ρ)N_T≤qm. If ρ<q finite excitation budget forces extinction and initial refractory states clear by N+1. For K_{2q,2q}, ρ=q and explicit four-class state cycle is primitive period 4. Independent exhaustive graph/state enumeration checked all 216+5184+248589 initial states on all simple labeled graphs of size 3,4,5 with ρ<2, for q=2, including event budget and clock bound, independently of packaged verify_density.py. This finite check is corroboration, not the all-graph proof.
 
-## Limits and closest literature
-General all-initial finite-graph threshold-\(q\) claims differ from stochastic tree fixation and threshold-one graph cycle theory. The finite verifier checks examples only. Independent historical novelty and independent correctness validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For Densest-subgraph excitation extinction threshold and finite event budget: exact final statement and implication were compared against relevant published original mathematical statements and Resultary findings. This gives strictly new general coverage compared to inspected prior statements by exploiting event matching/layer-cake, with explicit sharpness. Best-of-knowledge qualified by explicitly named risks.
+
+## value
+
+PASS
+
+A structural universal extinction criterion in terms of induced density rather than maximum degree, with a quantitative total excitation-event budget and exact equality counterexample, is useful for finite-threshold excitable graph dynamics. It handles nonuniform high-degree graphs and supplies an energy/event-count invariant, not merely a routine maximum-degree estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

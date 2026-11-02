@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified fifteen-category Dirichlet prior has independent-gamma representation. Partitioning into five ballot types per first-choice candidate, and then into the \(C\)-first continuation categories, gives the independent \(\operatorname{Dirichlet}(2,2,1)\) transfer law. A direct two-variable Jacobian calculation yields the density \(1-3d^2+2|d|^3\) for the transfer difference, whose tail integrates to the claimed quartic. The posterior limiting claim follows from exact grouped Dirichlet conjugacy and concentration. The included checker verifies exact polynomial identities and Monte Carlo diagnostics. The mathematical proof, not simulation, establishes the infinite claim.
+## correctness
 
-## Originality — PASS (qualified)
-The closest source, Rosenman and Liang (2026, arXiv:2606.31022, Sections 2.1, 4.2–4.6), specifies the fifteen ballot types and flat Dirichlet model, then estimates outcomes by simulation using complete poll responses. Its inspected text does not state the first-choice-only conditional Dirichlet transfer law, quartic risk, nonzero infinite-poll residual or complete-versus-truncated cubic/linear frontier. The classic RangeVoting catalog gives unconditional plurality/IRV discordance under a different random model. Targeted published-web and mathematical-result searches found no statement implying the complete present claim. Ordinary Dirichlet-neutrality calculations could make an equivalent formula derivable and unindexed precedent remains an originality risk.
+PASS
 
-## Value — PASS
-The work answers a directly motivated decision quantity for the new Bayesian instant-runoff polling model: what win confidence can an arbitrarily large but less detailed first-choice-only poll support? Its positive Bayes-error floor is quantitatively sharp, has an exact cubic majority-frontier rate, and contrasts with a full-ranking ballot-universe model. This is more than a generic conjugacy example because the exhaustions, three-way grouping, explicit winner rule, and asymptotic observational information limit are all essential to the resulting law. Practical calibration is entirely conditional on the stated prior; no universal empirical reliability is claimed.
+The 15 nonempty strict ranking types group into five by first choice. Independent Gamma(1) variables under flat Dirichlet prior imply first-choice totals Dirichlet(5,5,5) independent of within-C first-choice group. After C first elimination, the fractions transferring to A, B, exhausted have Dirichlet(2,2,1). Writing D=U_B-U_A, a Jacobian with T=U_B+U_A yields density f_D(d)=1-3d^2+2|d|^3, integrating to 1 and symmetric. B beats A iff D>(a-b)/c=delta; direct integration on delta..1 gives 1/2(1-delta)^3(1+delta) for 0<delta<1, zero for delta>=1, strictly less than 1/2. As counts grow with a>b>c, posterior group totals Dirichlet(n_i+5) concentrate while within-C transfer law remains unchanged, proving positive irreducible risk if a<1/2. Under separate six-full-ranking ballot prior, transfer U is uniform, yielding (1-delta)/2. Fresh independent symbolic integration checked normalization and the quartic identity; simulations are merely diagnostics.
 
-## Main remaining risks
-A previously unindexed conditional ranked-choice calculation or a broad explicit Dirichlet order-statistic theorem may already imply the quartic. The flat prior's weighting of truncated ballots is context dependent, as the motivating paper itself emphasizes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rosenman–Liang (2026) introduce the same 15-type flat-Dirichlet model and simulate winner probabilities from richer ranked responses, so model and conjugacy are prior. The inspected primary text does not derive the exact conditional B-upset quartic given only population first-choice shares, its infinite-poll risk floor or the different six-complete-ranking comparator. Indexed IRV paradox tables concern different unconditional culture models. This is a narrow, best-of-knowledge formula, not a distribution-free finding.
+
+## value
+
+PASS
+
+How much uncertainty survives arbitrarily large cheap first-choice-only surveys is a natural operational decision quantity for ranked-choice polling. Exact positive Bayes-error floor, third-order majority frontier, and contrast of truncated/full ballot spaces have direct model-theoretic content. This is not a generic Dirichlet moment without an IRV elimination rule; external calibration remains entirely conditional on the specified prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

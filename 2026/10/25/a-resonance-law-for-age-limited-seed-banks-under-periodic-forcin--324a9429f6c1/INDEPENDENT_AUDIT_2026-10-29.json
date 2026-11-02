@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:55:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let a=g, b=s(1-g), and M_L(r) have top row ar and subdiagonal b. Total seed mass S_t satisfies N_{t+1}=ar_t S_t and S_{t+1}=(b+ar_t)S_t - a*b^L*r_{t-L} S_{t-L}, with age-out correction exact. A nonzero monodromy Floquet multiplier μ obeys S_{t+m}=μS_t. For L=km the recurrence reduces to S_{t+1}=[b+ar_t(1-b^L μ^-k)]S_t, yielding the symmetric characteristic-polynomial identity after cancelling μ-b^m. For L=km-1, the reduction [1+ab^L r_{t+1} μ^-k]S_{t+1}=(b+ar_t)S_t gives the second symmetric product identity. Reconstruction from age-zero cohorts excludes spurious Floquet sequences except µ=b^m, and polynomial continuation covers degeneracies. Direct independent SymPy symbolic characteristic comparisons for m=4 and L=1..5 gave exact zero differences at L=1,3,4, nonzero signed a²b²µ(H-J)² at L=2 and -a²b^6µ³(H-J)² at L=5. At L=2 equal determinants and trace(alternating)-trace(clustered)=a²b²(H-J)²>0 imply strict Perron ranking. For g=1/5,s=9/10,H=4,J=1/6,L=5 independent exact rational multiplication verified all five components of Pc*v-v and w-Pa*w positive for v=(104,50,2,2,27), w=(40,2,22,1,11). Collatz–Wielandt gives rho(Pc)>1>rho(Pa). Source checker.py fully inspected but finite tests do not replace arbitrary m,k proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mertens et al 2006 studies effects of cyclic rotations of a fixed sequence on transients, not arbitrary permutations.",
+          "Cushing–Ackleh studies periodic reproductive thresholds and period-two Leslie models."
+        ],
+        "reasoning": "Cyclic order shifts are trivially isospectral for square factors (AB and BA), so those results do not explain permutations across noncyclic seasonal arrangements, nor the L≡0,-1 mod m resonance.",
+        "searches": [
+          "periodic age structured seed bank Leslie seasonal ordering permutation isospectral spectra L km",
+          "Cushing Ackleh net reproductive number periodic matrix models",
+          "Mertens 2006 cyclic permutations transients"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1890/1051-0761(2002)012[1125:WPACRE]2.0.CO;2 publisher abstract only",
+        "doi:10.1890/0012-9658(2006)87[2338:TPDIPM]2.0.CO;2 publisher/PubMed abstract only",
+        "doi:10.1080/17513758.2010.544410 general periodic reproduction",
+        "doi:10.1137/120880501 spatial seed-bank model",
+        "Resultary query: periodic age structured seed bank Leslie seasonal ordering permutation isospectral spectra L km",
+        "independent exact SymPy charpoly and rational Perron-vector checks",
+        "assigned RESULT.md and checker.py Git snapshot"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mertens 2002 documents that AABB and ABAB can have different growth, but not universal congruence-defined equality of all eigenvalues for a homogeneous age-limited survival model.",
+          "Mertens 2006 cyclic shifts change transient trajectories, consistent with identical monodromy spectra under cyclic permutations."
+        ],
+        "reasoning": "The earlier observations are neither contradictory nor stronger coverage: a general order-sensitive depth model can coexist with exact order-blind resonances in this special age-homogeneous family; independent formulas (2),(3) are needed. Exact age-five reversal is specific and unknown from inspected abstracts.",
+        "searches": [
+          "doi:10.1890/1051-0761(2002)012[1125:WPACRE]2.0.CO;2",
+          "doi:10.1890/0012-9658(2006)87[2338:TPDIPM]2.0.CO;2",
+          "periodic age structured seed bank Leslie seasonal ordering permutation isospectral spectra L km"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mertens 2002 gives order effects in a soil-depth structured crop-rotation system, with AABB vs ABAB growth contrasts.",
+          "The source claim instead has a finite age boundary with homogeneous dormancy survival and all-order monodromy characteristic-polynomial identities."
+        ],
+        "reasoning": "Comparing identical order-pattern aliases does not imply identical dynamics: soil-depth mixing is not the equal-age subdiagonal model. No exact prior all-permutation charpoly statement identified.",
+        "searches": [
+          "periodic age structured seed bank Leslie seasonal ordering permutation isospectral spectra L km",
+          "Mertens van den Bosch Heesterbeek 2002 periodic weed matrix crop rotations",
+          "periodic Leslie cyclic permutation spectra age class congruences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related published findings included cocycle spectral nonconvergence and unrelated code isospectrality, not the same seed-bank monodromy matrices.",
+          "Exact finite 5×5 rational Perron inequality witness verified anew; no preexisting matching table found."
+        ],
+        "reasoning": "The full-spectrum identity is for all ages in two congruence classes and all season permutations, not a finite database item. Search absence proves nothing about priority.",
+        "searches": [
+          "periodic age structured seed bank Leslie seasonal ordering permutation isospectral spectra L km",
+          "Resultary query periodic age structured seed bank Leslie seasonal ordering permutation isospectral spectra L km",
+          "periodic seed bank permutation isospectral age five table"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact all-season-permutation isospectrality at L=km or km-1 and sharp four-season age-five ordering reversal. Classical periodic population matrices and weed crop-rotation order effects are prior, but use different age/depth structuring and do not visibly state these full-spectrum congruences.",
+      "residual_risks": [
+        "Mertens 2002 and 2006 primary full text not obtained; Oxford institutional VPN disconnected, no access bypass. A stronger general spectral rearrangement theorem could dominate this result.",
+        "The ecological interpretation only concerns low-density deterministic growth; no extinction inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_PARTIAL_PRIOR",
+          "evidence": "Soil-depth and crop-dependent projected matrices; specific contrast AABB 25% below ABAB in baseline, not proof of this homogeneous finite-age result.",
+          "identifier_or_url": "doi:10.1890/1051-0761(2002)012[1125:WPACRE]2.0.CO;2",
+          "material_read": "Publisher abstract, methodological description and accessible reference list only; full paper blocked after OA/arXiv search and authorized Oxford attempt returned vpn_disconnected.",
+          "method": "Publisher primary landing page (abstract) + bounded lawful OA search + Oxford access check",
+          "title": "Weed Populations and Crop Rotations: Exploring Dynamics of a Structured Periodic System",
+          "trigger": "same ecological seed-bank season order effects and AABB/ABAB"
+        },
+        {
+          "assessment": "DISTINCT_PERMUTATION_SCOPE",
+          "evidence": "Cyclic shifts and transients, no evidence of arbitrary-season reordering spectrum equivalence.",
+          "identifier_or_url": "doi:10.1890/0012-9658(2006)87[2338:TPDIPM]2.0.CO;2",
+          "material_read": "Publisher abstract and PubMed record only; full article not obtained.",
+          "method": "Primary abstract and PubMed bibliographic statement",
+          "title": "Transient Population Dynamics in Periodic Matrix Models: Methodology and Effects of Cyclic Permutations",
+          "trigger": "same matrix-product order but cyclic permutations"
+        },
+        {
+          "assessment": "GENERAL_METHOD",
+          "evidence": "Period-two reproduction threshold framework; cannot rule out deeper applicable theorem without full text.",
+          "identifier_or_url": "doi:10.1080/17513758.2010.544410",
+          "material_read": "Accessible citation and abstract discussion only; not full text.",
+          "method": "Bibliographic primary abstract",
+          "title": "A Net Reproductive Number for Periodic Matrix Models",
+          "trigger": "periodic Leslie threshold potentially dominating"
+        },
+        {
+          "assessment": "DIFFERENT_TARGET",
+          "evidence": "Spread speed of spatial stage-structured model; no direct matched all-order monodromy identity identified.",
+          "identifier_or_url": "doi:10.1137/120880501",
+          "material_read": "Title, abstract and model scope from published source; full analysis not read.",
+          "method": "Bibliographic primary scope",
+          "title": "A Spatial Model of Plants with an Age-Structured Seed Bank and Juvenile Stage",
+          "trigger": "exact same age-bank biological objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result isolates a surprising exact all-permutation full-spectrum invariant at two natural seed-age/period congruence families, plus a sharp age-five reversal between clustered and alternating environmental patterns with a certified growth/decline witness. This provides a structural classification/boundary in a well-motivated age-structured periodic model, beyond a generic fact that matrix multiplication is order-sensitive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1890/1051-0761(2002)012[1125:WPACRE]2.0.CO;2",
+    "doi:10.1890/0012-9658(2006)87[2338:TPDIPM]2.0.CO;2",
+    "doi:10.1080/17513758.2010.544410",
+    "doi:10.1137/120880501"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Positive annual productivity; constant germination and dormant survival; finite age classes; only deterministic low-density growth; 5-age comparison existential."
+  ],
+  "residual_risks": [
+    "Historical full texts of season-order population models not accessible; possible unindexed general rearrangement theorem."
+  ],
+  "schema_version": 1
+}

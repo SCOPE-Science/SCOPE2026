@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:50:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For scalar |a|>1, Q>0, R>0, h!=0, each received update g(P)=Q+(a^2 R P)/(h^2 P+R) lies in [Q,Q+a^2 R/h^2], independent of previous P. After N>=1 losses, f^N(g(P))=B^N g(P)+Q(B^N-1)/(B-1) with B=a^2, giving deterministic Q B^N<=M<=C_+ B^N. For the staged transient kernel T=pI+cJ, the exact binomial expansion e1^T T^(n-1)1=Σ_{j=0}^{min(m-1,n-1)}C(n-1,j) p^(n-1-j)c^j follows for all m>=2, n>=1; its dominant j=m-1 term has survival asymptotic [c^(m-1)/((m-1)!p^m)]n^(m-1)p^n. Integer logarithmic thresholds then give Pr(M>x)=Theta(x^-alpha (log x)^(m-1)), alpha=-log p/log B, no unjustified sharp constant because lattice oscillations. Comparing B^(rN) moments yields finiteness iff p B^r<1, including boundary divergence, and monotone inversion gives claimed extreme quantile order. Independently computed exact rational powers of T vs finite binomial sum through n=30 for m=3,p=1/2,c=1/4, checking sample survival 9/32,39/512,81/8192 at n=5,8,12. Formula is proved algebraically; finite checks only diagnostics. Inspected RESULT.md blob c81e34ed..., metadata and audit status files.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior papers mainly two-state Markov or bounded-loss models",
+          "Source full derivation resolves all m>=2 for exact transient kernel"
+        ],
+        "reasoning": "Prior scalar techniques motivate exponent but do not assert the polynomial prefactor inherited from defective transient matrix; their precise model hypotheses differ.",
+        "searches": [
+          "Mo Sinopoli 2012 Remark 5",
+          "Huang Dey 2006 Sec IV.C",
+          "bounded Markov loss 2015"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1109/CDC.2006.376710",
+        "https://doi.org/10.1109/TAC.2011.2166309",
+        "https://arxiv.org/abs/1501.05469"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mo–Sinopoli tail exponent alone cannot distinguish polynomial prefactors",
+          "Exact binomial power supplies new slow factor"
+        ],
+        "reasoning": "The general claim is not a numerical special case of two-state channel results; however, general phase-type exponential amplification lemmas could imply it, recorded as residual risk.",
+        "searches": [
+          "Mo Sinopoli 2012 channel-specific tail theorem",
+          "T=pI+cJ matrix powers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T=pI+cJ repeated eigenvalue p, length m Jordan chain",
+          "Q B^N<=M<=C+ B^N"
+        ],
+        "reasoning": "Equivalent phase-type/NB time-to-absorption and exponential-amplification representations were considered; a generic phase-type theorem may supply alternative derivation, but the matching Kalman tail family was not found.",
+        "searches": [
+          "phase-type survival from substochastic Jordan block",
+          "two-state Gilbert Elliott channel peak covariance",
+          "Resultary staged Kalman query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching finite tabulation or exact formula in retrieved Resultary hits",
+          "Closed asymptotic tail envelope is all m, not finite table"
+        ],
+        "reasoning": "A phase-type survival distribution may be known as a standard table; the resulting named predictor-risk tail was not identified, and tables alone would not establish this quantitative transfer.",
+        "searches": [
+          "Resultary semantic Kalman staged tail query",
+          "Markov phase type Jordan covariance tail"
+        ]
+      },
+      "rationale": "Earlier Gilbert–Elliott channel results give power-tail bounds or logarithmic exponent for a two-state channel, whereas this precise m-stage upper-triangular transient kernel has a nontrivial Jordan block producing an n^(m-1) survival factor and hence (log x)^(m-1) peak covariance envelope. Standard phase-type and scalar Kalman ingredients may individually be classical; searched material did not establish the combined staged model classification. Qualified priority, not a claim to originate Jordan phase-type asymptotics.",
+      "residual_risks": [
+        "General published phase-type/Jordan-block tail theorem plus Riccati comparisons may already imply this as a corollary",
+        "Moment threshold and quantile follow mechanistically once the nontrivial tail law is established",
+        "Only peak prediction covariance at recovery, not physical error or stationary-observation distribution",
+        "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+        "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS Gilbert–Elliott power bounds, not arbitrary m-stage logarithmic correction",
+          "evidence": [
+            "Huang and Dey, CDC 2006, Section IV.C"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/CDC.2006.376710",
+          "material_read": "Lawful author full text https://mural.maynoothuniversity.ie/id/eprint/14463/1/kalman%20filtering.pdf, model and Section IV.C",
+          "method": "Compared two-state transition and tail-bound statements with defective m-stage transient kernel",
+          "title": "Kalman Filtering with Markovian Packet Losses and Stability Criteria",
+          "trigger": "Same covariance-tail and burst-loss subject"
+        },
+        {
+          "assessment": "COVERS logarithmic decay exponent in its channel class, but not stated m-stage polynomial prefactor; theorem correction/erratum limits extrapolation",
+          "evidence": [
+            "Mo and Sinopoli, IEEE TAC 57 (2012), 677–689",
+            "Remark 5 addresses prospective extensions"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2011.2166309",
+          "material_read": "Author full text https://yilinmo.github.io/public/papers/journal2009kalman.pdf, setup, channel-specific theorems and Remark 5; published erratum existence noted",
+          "method": "Compared Gilbert–Elliott model, the tail decay exponent and implications for m-stage Jordan survival",
+          "title": "Kalman Filtering with Intermittent Observations: Tail Distribution and Critical Value",
+          "trigger": "Exact same peak covariance tail, possible generalization remark"
+        },
+        {
+          "assessment": "Different bounded-loss assumption; cannot directly supply unbounded heavy-tail formula",
+          "evidence": [
+            "Wu, Shi, Xie, Johansson, arXiv:1501.05469"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.05469",
+          "material_read": "Full arXiv abstract, model statement and bounded-loss hypothesis, not an exhaustive whole-paper exclusion",
+          "method": "Compared bounded maximum run length vs unbounded Jordan-phase geometric tail",
+          "title": "An Improved Stability Condition for Kalman Filtering with Bounded Markovian Packet Losses",
+          "trigger": "Finite-state Markov losses possible general domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated family of packet-loss models with identical persistence eigenvalue but varying numbers of progressive stages has exactly distinguished risk tails, moment thresholds and extreme quantiles. This demonstrates concrete limitations of characterizing networked estimator reliability by the power exponent alone and covers every stage count, not an arbitrary numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/75a66f878b7bc7bb89b24618f1adcf7e6624296f/2026/10/25/logarithmic-covariance-tails-from-staged-markov-packet-loss-burs--31bc59402dfa/RESULT.md",
+    "https://doi.org/10.1109/CDC.2006.376710",
+    "https://doi.org/10.1109/TAC.2011.2166309",
+    "https://arxiv.org/abs/1501.05469"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A finite numerical or exact enumeration check does not establish an infinite-parameter claim.",
+    "Best-of-knowledge originality does not certify absolute historical priority.",
+    "No GitHub writes, public artifacts, independent expert attestation, or Lean proof produced."
+  ],
+  "residual_risks": [
+    "General published phase-type/Jordan-block tail theorem plus Riccati comparisons may already imply this as a corollary",
+    "Moment threshold and quantile follow mechanistically once the nontrivial tail law is established",
+    "Only peak prediction covariance at recovery, not physical error or stationary-observation distribution",
+    "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+    "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+  ],
+  "schema_version": 1
+}

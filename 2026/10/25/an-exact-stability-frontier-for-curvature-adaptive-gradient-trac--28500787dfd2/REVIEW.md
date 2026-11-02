@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The local-gradient estimate equals the exact scalar curvature whenever the primal difference is nonzero; the stated initialization therefore holds the steps at \(q/h_i\). The tracker invariant reduces the consensus trajectory to the stated second-order recurrence. The quadratic Schur/Jury inequalities give a necessary-and-sufficient stability test, and `verify.py` checks the characteristic polynomial and boundary examples symbolically and numerically.
+PASS
 
-## Originality
+For two scalar positive-curvature quadratics and complete averaging W=(11^T)/2, the local gradient secant equals h_i whenever defined; initialized adaptive alpha_i=q/h_i remains constant under the specified local-gradient step rule. The tracking invariant sum y_i=sum grad_i and primal consensus after the first averaging step give error recurrence e_(k+1)=(1-q)e_k-q*xi*e_(k-1), xi=(h1-h2)^2/(4*h1*h2). Its characteristic polynomial r²+(q-1)r+qxi is strictly Schur stable iff qxi<1 and q(1-xi)<2; the active bound changes at xi=1/3: qcrit=2/(1-xi) below and 1/xi above. The full 4x4 state has factors r(r-1) times this quadratic; r=1 is excluded on the legitimate gradient-tracking invariant subspace. Independently reconstructed symbolic 4x4 update characteristic polynomial and tested eight rational stable/unstable parameter cases spanning both branches; exactly reproduced source algebra, not relying on standalone verifier status. Unit roots on the boundary are not asymptotically stable.
 
-PASS, narrowly scoped. The primary AdGT source proves a sufficient generic convergence condition, not the exact necessary-and-sufficient two-agent boundary for reciprocal-curvature steps. The closest indexed graph-tuning result concerns homogeneous local curvature and a common step. Classical gradient-tracking results use common fixed steps and do not state this heterogeneous recurrence. Residual risk remains because the closest indexed record was only available as a summary and an unindexed equivalent could exist.
+## originality
 
-## Value
+PASS
 
-PASS. The formula gives a sharp tuning boundary for the minimal connected network and separates a flip-mode loss of stability from a unit-circle pair as curvature mismatch increases. This supplies an exact diagnostic for the role of heterogeneous local curvature that a conservative general-network bound does not provide.
+The original AdGT work develops the adaptive local-gradient update and proves sufficient global-network convergence conditions. Qu–Li classical gradient tracking uses homogeneous fixed common steps, and the nearest published exact graph-tuning record addresses homogeneous scalar quadratics. These do not directly entail a heterogeneous reciprocal-curvature two-agent necessary-and-sufficient Schur boundary. The most relevant AdGT full article could not be obtained: OA preprint/PDF links were blocked in this run and authorized Oxford retrieval attempt was stopped by a safety check; only its available abstract and metadata were read. This is a material best-of-knowledge priority risk, not automatic scientific rejection.
 
-Closest literature: arXiv:2504.15196; arXiv:1605.07112; indexed homogeneous graph-tuning record 2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6.
+## value
 
-Limitations: scalar quadratics, two agents, complete averaging, and the specified update only. No general-network or nonlinear claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-agent complete-averaging quadratic specialization is the minimal nontrivial model of curvature heterogeneity for adaptive gradient tracking. Its exact stability frontier and flip-versus-unit-circle transition show how reciprocal-curvature steps can fail despite scalar local smoothness control, sharpening conservative general network tuning without pretending to be a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

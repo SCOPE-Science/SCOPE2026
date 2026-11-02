@@ -1,15 +1,21 @@
-# Review of fixed-point inverse-degree classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The coordinatewise inverse calculation yields exactly one inverse for each source letter mapping to the incoming negative symbol. Fixed points correspond bijectively to constant future letters; their intrinsic inverse degrees recover all fiber sizes, and relabeling source/target alphabets proves sufficiency. The period-count, weighted sums, natural-extension and entropy claims follow from explicit product-space coding, not simulation. `CHECKS.py` independently tests finite surjections and bounded periods; the proof covers all positive finite alphabet sizes.
+## correctness
 
-## Originality
-**PASS, subject to residual priority risk.** In the relevant full text of Lamei–Mehdipour's *Zip shift space* (arXiv:2502.11272v1), the preimage theorem and constant-degree example do not state a complete unrestricted conjugacy classification for all full one-block surjections. Their subsequent S-expansiveness paper (arXiv:2510.12980v1) treats shadowing and factors. The uniform-degree Bernoulli paper arXiv:2505.24647 concerns measurable isomorphism. The first fixed-point inverse-degree polynomial, partition count, and refined zeta contrast are not present as the claimed conjunction in the material inspected. Older general topological conjugacy frameworks or alternative terminology remain an explicit possible priority risk; no exhaustive priority claim is made.
+PASS
 
-## Value
-**PASS.** The motivating problem is classification of finite-to-one zip-shift models. An exact conjugacy criterion without restricting conjugacies to one-block codes and a complete partition-number census are structural results for every finite source-alphabet size. The theorem pinpoints the information lost under natural extension, topological entropy and all ordinary periodic counts, while an intrinsic degree-sensitive period polynomial retains it.
+PASS: The full one-block zip map Fτ on Z^{negative}×S^{nonnegative} is onto with pointwise inverse degree δ(x)=|τ^-1(x_{-1})|=d_{x_-1}, a topological-conjugacy invariant by bijection of inverse fibers. Exactly |S| fixed points are indexed by constant forward symbol s and have degree d_{τ(s)}; hence Iτ(v)=Σ_z d_z v^{d_z}. Its coefficient at v^d divided by d recovers the number of target fibers of size d. Equal multisets permit explicit bijections α:S→S′ and β:Z→Z′ with ρ∘α=β∘τ, giving coordinatewise conjugacy of the full zip systems. Thus conjugacy classes at |S|=N are partitions of N. Periodic words w∈S^n yield exactly N^n fixed points; degree-weighted sums factor as (Σ_z d_z^{r+1})^n, giving rational ζ_{τ,r}. The projection from full bilateral S-shift proves natural extension and entropy logN. Independently enumerated all finite surjections with 1≤N≤5 and recovered 1,2,3,5,7 distinct inverse-degree polynomials, equal to partition counts; bounded checks are not the all-N proof.
 
-## Closest sources and limits
-Original source: https://arxiv.org/html/2502.11272v1 (especially §§2–5, local-preimage analysis and a constant-degree example). Related properties: https://arxiv.org/html/2510.12980v1. Uniform-degree measurable comparison: https://arxiv.org/abs/2505.24647. The proof concerns full letterwise surjections only; constrained and higher-block zip shifts are not classified. Some peripheral source texts and appendices were not fully inspected. Independent mathematical and priority audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): intrinsic fixed-point inverse-degree polynomial as a COMPLETE conjugacy invariant over all full one-block zip systems, with p(N) class count, is stronger than prior examples separating uniform inverse degrees and general zip-shift constructions. General finite-to-one local homeomorphism classification might imply it, which remains a residual risk.
+
+## value
+
+PASS
+
+PASS: Topological classification of a natural noninvertible shift family is a substantive exact structural result. The degree polynomial distinguishes systems with identical entropy, ordinary periodic counts and natural extensions; the p(N) census and rational refined zetas make the distinction explicit and reusable. It is not an arbitrary finite sample or a relabeling-only invariant: the inverse-degree argument rules out all non-block-code conjugacies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

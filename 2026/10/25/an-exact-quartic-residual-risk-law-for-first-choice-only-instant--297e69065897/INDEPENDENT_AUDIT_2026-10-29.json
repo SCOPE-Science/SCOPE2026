@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:53:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 15 nonempty strict ranking types group into five by first choice. Independent Gamma(1) variables under flat Dirichlet prior imply first-choice totals Dirichlet(5,5,5) independent of within-C first-choice group. After C first elimination, the fractions transferring to A, B, exhausted have Dirichlet(2,2,1). Writing D=U_B-U_A, a Jacobian with T=U_B+U_A yields density f_D(d)=1-3d^2+2|d|^3, integrating to 1 and symmetric. B beats A iff D>(a-b)/c=delta; direct integration on delta..1 gives 1/2(1-delta)^3(1+delta) for 0<delta<1, zero for delta>=1, strictly less than 1/2. As counts grow with a>b>c, posterior group totals Dirichlet(n_i+5) concentrate while within-C transfer law remains unchanged, proving positive irreducible risk if a<1/2. Under separate six-full-ranking ballot prior, transfer U is uniform, yielding (1-delta)/2. Fresh independent symbolic integration checked normalization and the quartic identity; simulations are merely diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary Bayesian model allows general full ranking response observations and posterior sampling, and hence can estimate probabilities numerically.",
+          "A general simulation procedure does not already state an exact expression or identify its positive infinite-poll limit."
+        ],
+        "reasoning": "The original full model contains the present prior as a special case but does not logically provide the exact analytic posterior risk without further conditioning and integration; standard Dirichlet aggregation is credited.",
+        "searches": [
+          "three candidate instant runoff first choice only Dirichlet 15 ranked ballot types conditional runner up winner probability quartic",
+          "arxiv:2606.31022"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.31022",
+        "https://www.rangevoting.org/IrvParadoxProbabilities.html",
+        "Resultary semantic search: three candidate instant runoff first choice only Dirichlet 15 ranked ballot types conditional runner up winner probability quartic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gamma aggregation yields Dirichlet(2,2,1) for C-first transfers; density via change of variables is 1-3d²+2|d|³.",
+          "The primary study supplies the ballot universe but not the nonidentification theorem for first-choice-only polls."
+        ],
+        "reasoning": "The closed quartic and posterior nonconcentration are not quoted from, nor mechanically stated by, published posterior simulations; they require the specific conditional reduction, although standard probability makes them derivable.",
+        "searches": [
+          "Rosenman Liang 2026 Sections 2.1,4.2-4.6",
+          "three candidate instant runoff first choice only Dirichlet 15 ranked ballot types conditional runner up winner probability quartic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the fifteen-type prior, the conditional winner event equals a Dirichlet(2,2,1) contrast tail.",
+          "Rosenman–Liang use posterior simulation, not this displayed quartic for first-choice-only data."
+        ],
+        "reasoning": "Transfer-tail formulation is mathematically equivalent to the claimed probability; no inspected prior text gives that conditional tail as a closed expression in delta.",
+        "searches": [
+          "three candidate instant runoff first choice only Dirichlet 15 ranked ballot types conditional runner up winner probability quartic",
+          "Bayesian uncertainty quantification ranked choice voting first choice marginal Dirichlet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Older three-candidate plurality/IRV paradox tables give unconditional frequencies in other ballot universes.",
+          "Here first-choice shares a>b>c are fixed and 15 possible truncated ballot types receive a flat Dirichlet prior."
+        ],
+        "reasoning": "An unconditional random-election table cannot be substituted for the conditional five/three-type Dirichlet transfer law; no exact matching conditional table was found.",
+        "searches": [
+          "three candidate instant runoff first choice only Dirichlet 15 ranked ballot types conditional runner up winner probability quartic",
+          "IRV Paradox Probabilities Master List RangeVoting"
+        ]
+      },
+      "rationale": "Rosenman–Liang (2026) introduce the same 15-type flat-Dirichlet model and simulate winner probabilities from richer ranked responses, so model and conjugacy are prior. The inspected primary text does not derive the exact conditional B-upset quartic given only population first-choice shares, its infinite-poll risk floor or the different six-complete-ranking comparator. Indexed IRV paradox tables concern different unconditional culture models. This is a narrow, best-of-knowledge formula, not a distribution-free finding.",
+      "residual_risks": [
+        "Earlier or unindexed exact conditional calculation under this Dirichlet polling model may exist.",
+        "The flat prior is not invariant to reparameterizing ballot categories; neither the answer nor its calibration is prior-free."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies model and posterior simulation, not the first-choice-only conditional quartic in inspected sections",
+          "evidence": "Rosenman and Liang (2026), Dirichlet model and simulated winning probabilities",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31022",
+          "material_read": "Research-hosted full text: model setup and Sections 2.1, 4.2, 4.5, 4.6, including simulation procedure and ballot-type enumeration",
+          "method": "Primary full-text inspection via available ResearchGate article text",
+          "title": "Bayesian Uncertainty Quantification for Ranked Choice Voting Polls",
+          "trigger": "Identical fifteen ballot types and flat Dirichlet ranked-choice polling model"
+        },
+        {
+          "assessment": "Different sampling space and no fixed first-choice Dirichlet conditional risk",
+          "evidence": "Three-candidate unconditional paradox catalogue",
+          "identifier_or_url": "https://www.rangevoting.org/IrvParadoxProbabilities.html",
+          "material_read": "Accessible catalog descriptions of unconditional election-culture probabilities",
+          "method": "Comparison of model conditioning and sample space",
+          "title": "IRV Paradox Probabilities in 3-candidate elections — Master List",
+          "trigger": "Similar plurality-versus-IRV upset probabilities"
+        },
+        {
+          "assessment": "No claim about thesis full-text coverage; residual priority risk",
+          "evidence": "Jason Liang (2026) thesis abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31022",
+          "material_read": "Companion thesis abstract only; full PDF request returned access error",
+          "method": "Partial bibliographic inspection",
+          "title": "Ranked choice voting polling Bayesian inference thesis",
+          "trigger": "Possible companion reporting of the original model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "How much uncertainty survives arbitrarily large cheap first-choice-only surveys is a natural operational decision quantity for ranked-choice polling. Exact positive Bayes-error floor, third-order majority frontier, and contrast of truncated/full ballot spaces have direct model-theoretic content. This is not a generic Dirichlet moment without an IRV elimination rule; external calibration remains entirely conditional on the specified prior.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2606.31022",
+    "https://www.rangevoting.org/IrvParadoxProbabilities.html",
+    "Resultary semantic search: three candidate instant runoff first choice only Dirichlet 15 ranked ballot types conditional runner up winner probability quartic"
+  ],
+  "disposition": "passed",
+  "limitations": "Three candidates, strict first-choice shares a>b>c>0, all fifteen partial ballot types and Dirichlet(1) prior; no finite-poll closed formula or empirical forecast.",
+  "residual_risks": [
+    "Earlier or unindexed exact conditional calculation under this Dirichlet polling model may exist.",
+    "The flat prior is not invariant to reparameterizing ballot categories; neither the answer nor its calibration is prior-free."
+  ],
+  "schema_version": 1
+}

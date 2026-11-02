@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:55:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The idempotent equation in the specified evolution basis is x=A^T x^[2]. For invertible M=A^T, classical Lang/semilinear normal form M=B(B^[2])^-1 over the algebraic closure turns fixed points into B(F2^n), exactly 2^n geometric idempotents. Frobenius_q descent C=B^-1 B^[q] lies in GL_n(F2) and counts rational idempotents as 2^dim ker(C-I). A rational twisted-conjugacy orbit of M corresponds to a binary conjugacy class [C] and has stabilizer |Z_GL_n(F2)(C)|; hence uniform M produces the uniform binary matrix C conjugacy-class law. Möbius inversion on binary subspace lattice gives N_{n,k}= [n choose k]_2 Σ_{j=0}^{n-k}(-1)^j 2^{j choose 2}[n-k choose j]_2 2^{(k+j)(n-k-j)}|GL_{n-k-j}(F2)|. Independently enumerated all invertible binary matrices n=1,2,3: fixed-point count histograms respectively {2:1}, {1:2,2:3,4:1}, {1:48,2:98,4:21,8:1}. These agree with the formula; all extension degrees and n follow from the proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 23 proves mean one nonzero idempotent, i.e. mean two total elements, for broad random invertible matrices; a mean does not determine the distribution.",
+          "Wei–Zou count isomorphism classes under a monomial group, not uniform labeled matrices in one natural basis."
+        ],
+        "reasoning": "Neither broader mean result nor a distinct sampling measure implies the exact per-k full law. All use of Lang normal form is acknowledged as prior.",
+        "searches": [
+          "Resultary: characteristic two evolution algebras idempotent elements finite field GL fixed space distribution semilinear",
+          "Kaygorodov–Martín González–Viruel arXiv:2610.22248 Remark 23",
+          "Wei–Zou arXiv:2310.12368"
+        ]
+      },
+      "checked_sources": [
+        "Actual seven-entry Git tree 7ea8cdf4219753bed54affac373c47e84803f74f; full RESULT.md and evolution_idempotent_checker.py inspected.",
+        "Independent complete GL_n(F2) computations for n=1,2,3 with exact fixed-space frequencies.",
+        "Original primary survey, Wei–Zou and Dempwolff–Fisher–Herman full-text inspections; Resultary alias search."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical semilinear normal form supplies B but does not specify the q-rational orbit-weighted descent distribution without the centralizer calculation.",
+          "A single first moment and isomorphism-orbit number do not determine every probability P(I(A)=2^k)."
+        ],
+        "reasoning": "The exact conjugacy-class weighting and subspace Möbius count are essential extra deductions; they may also exist in more general finite semilinear random-matrix literature, a priority risk.",
+        "searches": [
+          "DOI:10.1017/S0017089500020164",
+          "arxiv:2610.22248 Remark 23",
+          "arxiv:2310.12368"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The law is equivalently the fixed-space dimension distribution for a random F2-linear automorphism obtained by q-Frobenius descent of an invertible Frobenius-semilinear map.",
+          "The classical normal-form theorem identifies geometric fixed sets; it does not by itself assert the finite-field probability weights."
+        ],
+        "reasoning": "The descent orbit-stabilizer step provides a genuine distributional refinement beyond the normalization statement.",
+        "searches": [
+          "Resultary: characteristic two evolution algebras idempotent elements finite field GL fixed space distribution semilinear",
+          "Dempwolff–Fisher–Herman DOI:10.1017/S0017089500020164",
+          "Wei–Zou arXiv:2310.12368"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full n=2,3 binary class histograms agree with the new formula, but exact binary fixed-space counts are standard finite-group enumerations.",
+          "The claimed contribution is their push-forward to the evolution-algebra uniform matrix law for arbitrary q=2^e."
+        ],
+        "reasoning": "Known GL_n(F2) fixed-space tables are not claimed as new; no inspected table stated the evolution-algebra field-size-independent distribution.",
+        "searches": [
+          "Resultary: characteristic two evolution algebras idempotent elements finite field GL fixed space distribution semilinear",
+          "arxiv:2610.22248",
+          "arxiv:2310.12368"
+        ]
+      },
+      "rationale": "PASS (qualified): earlier works cover classical Lang/semilinear normalization, evolution algebra isomorphism classes and the average nonzero idempotent count. The uniform-matrix full distribution independent of extension degree and binary fixed-space law is a sharper separate statement. Any equivalent random semilinear matrix orbit theorem remains a risk.",
+      "residual_risks": [
+        "Classical finite semilinear group classification may already imply the distribution under different terminology; complete global priority impossible.",
+        "Odd characteristic and singular matrices excluded; the classification is matrix-uniform, not uniform on algebra isomorphism classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the acknowledged Frobenius normal form, not the complete matrix-uniform evolution-idempotent law",
+          "evidence": [
+            "General conjugacy-weight consequences might be implicit in group-theoretic literature."
+          ],
+          "identifier_or_url": "doi:10.1017/S0017089500020164",
+          "material_read": "Full seven-page published article and semilinear normal-form statement, not evolution-algebra distribution",
+          "method": "Read primary PDF, inspected mathematical statement and relevant proof",
+          "title": "Semilinear Transformations over Finite Fields are Frobenius Maps",
+          "trigger": "Critical nonstandard Lang normal-form premise"
+        },
+        {
+          "assessment": "Covers expectation and geometric counts but not full binary law",
+          "evidence": [
+            "Very recent survey may omit related original papers."
+          ],
+          "identifier_or_url": "arxiv:2610.22248",
+          "material_read": "Full 37-page PDF including Remark 23 near the mean one nonzero idempotent formula",
+          "method": "Read PDF and materially inspected statement of Remark 23",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Direct evolution-algebra random idempotent count theorem"
+        },
+        {
+          "assessment": "Counts monomial isomorphism classes, not uniformly labeled structures",
+          "evidence": [
+            "Potential relation through orbit-weight inversion requires additional data."
+          ],
+          "identifier_or_url": "arxiv:2310.12368",
+          "material_read": "Full primary PDF, introduction and main isomorphism-class theorem",
+          "method": "Read primary PDF and checked parameter / orbit action",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Same algebra family, contrasting sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Rational idempotent elements form a central invariant of a perfect evolution algebra. This all-n complete probability law over all 2-power fields, including nontrivial extension-degree invariance and exact k-frequencies, goes beyond the already published mean or existence statement; the binary descent makes a structural arithmetic prediction useful in finite-algebra experiments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual seven-entry Git tree 7ea8cdf4219753bed54affac373c47e84803f74f; full RESULT.md and evolution_idempotent_checker.py inspected.",
+    "Independent complete GL_n(F2) computations for n=1,2,3 with exact fixed-space frequencies.",
+    "Original primary survey, Wei–Zou and Dempwolff–Fisher–Herman full-text inspections; Resultary alias search."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uses classical Lang theorem as an explicitly acknowledged premise; no new proof of Lang.",
+    "Independent exact tests cover n≤3 over F2; supplied checker extends to eight small field/dimension cases but is not an unrestricted proof."
+  ],
+  "residual_risks": [
+    "Classical finite semilinear group classification may already imply the distribution under different terminology; complete global priority impossible.",
+    "Odd characteristic and singular matrices excluded; the classification is matrix-uniform, not uniform on algebra isomorphism classes."
+  ],
+  "schema_version": 1
+}

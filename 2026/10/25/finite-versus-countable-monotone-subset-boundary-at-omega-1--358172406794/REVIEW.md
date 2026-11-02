@@ -1,19 +1,21 @@
-# Scientific review: finite-versus-countable monotone-subset boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-family assertion follows by finite iteration of the one-map monotone-subset corollary: each new thinning preserves all previously obtained monotonicities. For the obstruction, the injection \(e:\omega_1\hookrightarrow 2^\omega\) exists in ZFC. At any coordinate where two codes differ, one of the complementary binary maps decreases from \(1\) to \(0\); therefore no pair can be simultaneously nondecreasing for all maps.
+PASS
 
-## Originality — PASS
+PASS: For every infinite well-orderable κ, color a pair α<β by whether g(α)≤g(β) or g(α)>g(β). The ZF Erdős–Dushnik–Miller partition theorem (or Shen Corollary 3.3) yields a size-κ nondecreasing homogeneous set: an ω-sized strictly decreasing set of ordinals is impossible. Iteration through any fixed finite list of g_i keeps the full cardinality and previously established monotonicity. For the ZFC obstruction, inject e:ω1→2^ω, allowed by ω1≤2^{aleph0}; define f_{2n}=1-e_n and f_{2n+1}=e_n. For distinct codes one of these two coordinates decreases along either order, so any common nondecreasing subset has at most one element. CH is unnecessary. No finite experiment needed; the two cases and cardinal assumptions are an exhaustive proof. The primary Shen paper full text was not retrieved; its one-map consequence also follows directly from the standard EDM theorem.
 
-The closest primary source is Shen’s Corollary 3.3, which handles a single map. It implies the finite-family positive statement by iteration but does not state the countable-family obstruction. The explicit obstruction is supported by the binary-coordinate proof in RESULT.md. Searches for the exact simultaneous-monotonicity formulation did not surface a matching source; the elementary nature of the construction leaves a folklore-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The question tests a natural strengthening of a monotone-subset lemma used in a recent choice-free partition argument. The result gives a sharp boundary: finite families always admit a common large subset, whereas a countable family can fail even on every two-point set. This prevents an unjustified countable-iteration extension of the one-map lemma.
+PASS, qualified by elementary folklore: the finite-family side is already an immediate iteration of Shen’s published one-map corollary and is NOT claimed independently novel; the sharp simultaneous obstruction from a countable family is an explicit complementary-coordinate antichain construction. No searched primary statement asserted the combined finite/countable boundary, but it may be textbook folklore or an immediate reformulation of known antichain results.
 
-## Closest literature and limitations
+## value
 
-Guozhen Shen, “A choice-free proof of the Erdős–Dushnik–Miller theorem,” arXiv:2609.02703v1, §3, Theorem 3.2 and Corollary 3.3. The counterexample is in ZFC; CH is unnecessary. The coding argument may be folklore, and the claim is deliberately restricted to the exact finite-versus-countable boundary stated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS, narrowly: This is a natural exact quantifier boundary for attempting to extend a newly published monotone-subset theorem from finitely to countably many requirements: every finite conjunction preserves an uncountable common subset, but countably many Boolean requirements can prevent even a two-point one. The proof is elementary and reuses a standard antichain mechanism; its worth is the sharp, explicitly motivated failure of countable iteration, not a new result about Cantor antichains or general infinite-dimensional posets. The scope is intentionally modest and the risk of folklore coverage is significant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

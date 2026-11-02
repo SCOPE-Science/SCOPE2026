@@ -1,19 +1,21 @@
-# Review: rare containment of square-zero transformations
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The statement is restricted to labeled full transformations on \(n\ge5\) points. The containment criterion is an exact image/fiber inclusion, using the published classification of largest commutative nilpotent subsemigroups. The Stirling count treats the number of noncentral image values as a surjection statistic and includes constant maps correctly. The asymptotic argument derives an exact consecutive-fiber-size ratio, bounds its two tails and controls the unused-image count by Markov's inequality. Direct enumeration independently agrees for sizes five through seven. The infinite conclusion rests on the ratio bounds, not on extrapolating finite computations.
+PASS
 
-## Originality
+For f^2 constantly c, c is fixed, B=f^{-1}(c) contains im f. The known maximal null semigroups N(c,Y) satisfy im f subset Y subset B. With t in I_n=argmax t^(n-t), this is equivalent to |B|>=t_- and |im f|<=t_+. Choosing c, B, and surjective distributions of noncentral image points gives exact Stirling formula E_n; unrestricted choices give |Q_n|=n sum_b binom(n-1,b-1)(b-1)^(n-b). The F_n(b) consecutive ratio is (n-b)/b^2*(b/(b-1))^(n-b) and decreases, locating its mass at b substantially above t_+ by order n loglog(n)/log(n)^2; conditional coupon vacancies have expectation O(sqrt(n)/log n), hence by Markov rare enough to bridge that gap. The bound O(log(n)/(sqrt(n)loglog(n))) follows. Independently enumerated n=2..6 square-zero maps and Stirling sums, including n=5 counts 205 total/185 contained and n=6 1176/1146. Actual RESULT.md blob 67da90155492e9c5c52c9ff1f1326a6f05781f06 and check.py blob 210ab4e6d2171b264fe2a246fefbc8e275ea1a78 were read. The infinite rate is analytic, not inferred from finite cases.
 
-PASS within the inspected literature. Cameron and collaborators classify null transformation semigroups and enumerate inclusion-maximal instances; Cain, Malheiro and Paulista identify the cardinality-maximal commutative nilpotent family. Their extremal classifications are inputs, not discoveries here. Neither inspected primary source states a census of individual height-two transformations that extend to those extrema or the quantitative vanishing-proportion theorem. Published related work on arbitrary random mappings and a later extremal-classification preprint may contain stronger indirectly covering results; no exhaustive priority claim is made. The finite nonnull class-three extremal counts, which have a different domain and conclusion, were compared at the level of mathematical implication.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The maximum-order family is natural in finite semigroup extremal theory. Determining whether a *typical* square-zero transformation belongs to that family is a separate structural stability question: the answer is asymptotically almost never, despite the fact that every such map belongs to some null subsemigroup. The exact extension census, quantitative rate, and image/fiber mechanism identify the scale of failure. No claim about a complete probabilistic limit law or optimal rate is made.
+The structural classification of largest commutative nilpotent subsemigroups belongs to Cain-Malheiro-Paulista building on Cameron et al.; it is used as an explicit hypothesis, not claimed new. The exact count of *individual* height-two transformations contained in their union, and their asymptotic rarity under uniform Q_n sampling, are not implied by the cited classification statements alone and were not found in inspected primary coverage.
 
-## Evidence and risks
+## value
 
-The core source is Cain–Malheiro–Paulista, *Commutative nilpotent transformation semigroups* (arXiv:2310.08481, Theorem 3.12), together with Cameron–East–FitzGerald–Mitchell–Pebody–Quinn-Gregson, *Minimum degrees of finite rectangular bands, null semigroups, and variants of full transformation semigroups* (arXiv:2110.09701, Section 4). See `AUDIT.json` for the investigated implication comparisons and source-inspection limitations. Direct exhaustive checks cover only small finite sizes; the published extremal classification and new analytic argument support the general claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact incidence enumeration between a natural class of height-two transformations and maximal-cardinality nilpotent commutative semigroups, with a sharp qualitative asymptotic phenomenon (coverage tends to zero), is a mathematically motivated measure of how sparse extremal semigroups are inside a natural nilpotent stratum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

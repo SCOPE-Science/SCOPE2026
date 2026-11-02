@@ -1,0 +1,229 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T15:52:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned source RESULT.md Git blob 25f8c9ab31a19dd50ca7f0c9e2ad3686e4f325d1; VERIFICATION.md blob 1f953ffe4c9fce94d961b225f9500732b563f16e; verify.py blob 5f32e3119e6cde5ff84c5b65a444d1a9d4d711b4",
+        "Fresh independent exact symbolic determinant/support calculations and 7000 exact rational chord cases; numerical bound test 20000 parameter samples."
+      ],
+      "rationale": "Read the assigned RESULT.md and independently verified all four proof steps. For R=1, u=(x+y)/2, v=(x-y)/2 yield D={(u,v,z):(|u|+|v|)^2+z^2<=1}=conv(D_u union D_v), where D_u,D_v are centered perpendicular unit disks and affine map back has determinant magnitude 2. The signed four-vertex determinant is separately affine in every vertex, so some optimum lies on the two generating rim circles. Single-circle choices are degenerate, while a 3+1 split has triangle area <=3sqrt(3)/4 and height <=1, giving volume <=sqrt(3)/4<8/(9sqrt(3)) in D. For 2+2, independently expanded the trigonometric chord determinant to exactly 4 sin(alpha)sin(beta)(sin(psi)cos(alpha)-sin(phi)cos(beta)); writing a=cos(alpha), b=cos(beta) in [0,1], its absolute value is at most 4(a+b)(1-(a+b)^2/4)<=16/(3sqrt(3)), with equality only a=b=1/sqrt(3) and sin(psi)=-sin(phi)=+/-1. This yields D-volume 8/(9sqrt(3)) and bicylinder-volume 16/(9sqrt(3)). The strict support-functional computation for each canonical vertex (e.g. n=(2/sqrt(3),0,sqrt(2/3)), plane n dot x=-sqrt(2)/3) gives unique absolute-distance maximum at the intended rim point; reverse multiaffine replacements exclude hidden interior/noncanonical maximizers. Independently checked the exact coordinate determinant and support heights via SymPy, and 7000 rational point-circle splits via Fraction (3500 2+2; 3500 3+1) with no inequality violation. A separate 20000-sample two-chord test stayed under the analytic maximum. These finite tests corroborate but do not imply global optimization. Bicylinder horizontal sections have area 4(1-z^2), so body volume 16/3 and fraction 1/(3sqrt(3)). Scaling by R^3 and degeneracies R>0 are explicit.",
+      "residual_risks": [
+        "The input checker itself contains only finite samples, so analytic proof carries continuous optimization and equality rigidity.",
+        "No formal Lean or expert attestation was supplied; neither is represented as performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akopyan-Glazyrin Corollary 2.3 only says a maximal simplex in centrally symmetric convex body contains its center.",
+          "Horvath Sections 2 and 3 cover sphere-inscribed polytopes and hulls of paired tetrahedra; the optimized body and objective differ.",
+          "The published Resultary cube-octahedron profile gives sharp piecewise bounds for a polygonal family, not the curved two-cylinder intersection."
+        ],
+        "reasoning": "The center-containment lemma and general multi-affinity are standard useful inputs, but neither yields the exact 16/(9 sqrt(3)) value. Polytope families, convex-hull volume under moving copies, and ball-inscribed simplex problems do not dominate this exact bicylinder containment theorem.",
+        "searches": [
+          "\"maximum volume tetrahedron inside intersection two orthogonal cylinders\"",
+          "\"maximal simplex cross cylindrical intersection\"",
+          "A. G. Horvath, Volume of convex hull of two bodies and related problems, arXiv:1509.08859v2, https://arxiv.org/pdf/1509.08859, Sections 2, 3.1 and 3.2",
+          "A. V. Akopyan, A. A. Glazyrin, On maximum volume simplices in polytopes, Period. Math. Hung. 69 (2014), 251-256, doi:10.1007/s10998-014-0051-2, https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+          "Resultary/2026, 2026/10/11/SCOPE-sharp-tetrahedral-volume-profile-in-the-cube-octahedron-intersec--9ba1a511dacf/RESULT.md, Git blob d5cf4338e67b50d64a2976294c54d602e33670c0"
+        ]
+      },
+      "checked_sources": [
+        "S. R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514v3, https://arxiv.org/pdf/1211.4514, introduction and Section 1; document-wide searches for tetrahedron/simplex",
+        "A. G. Horvath, Volume of convex hull of two bodies and related problems, arXiv:1509.08859v2, https://arxiv.org/pdf/1509.08859, Sections 2, 3.1 and 3.2",
+        "E. D. Nash, A. F. Pir, F. Sottile, L. Ying, Convex Hull of Two Circles in R^3, arXiv:1612.09382v2, https://arxiv.org/pdf/1612.09382, abstract, introduction and Theorem 2.1",
+        "A. V. Akopyan, A. A. Glazyrin, On maximum volume simplices in polytopes, Period. Math. Hung. 69 (2014), 251-256, doi:10.1007/s10998-014-0051-2, https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+        "Resultary/2026, 2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11/RESULT.md, Git blob 5da9f9d13507e3672d0993873f0718e399cdc0f3",
+        "Resultary/2026, 2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf/RESULT.md, Git blob 9314b081aaaf3978fc6793a2d1a0e29a5f846600",
+        "Resultary/2026, 2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md, Git blob c1068d1aea9f55a0c99657a77b4ab4620a238285",
+        "Resultary/2026, 2026/10/11/SCOPE-sharp-tetrahedral-volume-profile-in-the-cube-octahedron-intersec--9ba1a511dacf/RESULT.md, Git blob d5cf4338e67b50d64a2976294c54d602e33670c0",
+        "MathWorld Steinmetz Solid, https://mathworld.wolfram.com/SteinmetzSolid.html; classical ambient volume 16R^3/3",
+        "Paul Bourke, Intersecting cylinders, https://paulbourke.net/geometry/cylinders/index.html; classical bicylinder volume"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finch 8/3 body volume, 2(2+pi) surface area and mean-width calculations leave max four-vertex determinant undetermined.",
+          "Akopyan-Glazyrin Cor.2.3 constrains center inclusion but does not identify the optimal value or uniqueness.",
+          "Resultary 2-disk surface-volume law and mean-width derivative law are different functionals on the same body.",
+          "The three-disk hull and K_c polytope formula are distinct body families, so specializations do not deliver the target."
+        ],
+        "reasoning": "The sharp tetrahedron determinant and strict uniqueness follow from the target-specific two-circle chord inequality and exposed-support proof. Intrinsic volumes, center-containment conditions and other-body maxima lack the needed inequality and equality classification. Therefore no checked stronger statement logically supplies the final claim.",
+        "searches": [
+          "S. R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514v3, https://arxiv.org/pdf/1211.4514, introduction and Section 1; document-wide searches for tetrahedron/simplex",
+          "A. G. Horvath, Volume of convex hull of two bodies and related problems, arXiv:1509.08859v2, https://arxiv.org/pdf/1509.08859, Sections 2, 3.1 and 3.2",
+          "E. D. Nash, A. F. Pir, F. Sottile, L. Ying, Convex Hull of Two Circles in R^3, arXiv:1612.09382v2, https://arxiv.org/pdf/1612.09382, abstract, introduction and Theorem 2.1",
+          "A. V. Akopyan, A. A. Glazyrin, On maximum volume simplices in polytopes, Period. Math. Hung. 69 (2014), 251-256, doi:10.1007/s10998-014-0051-2, https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+          "Resultary/2026, 2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11/RESULT.md, Git blob 5da9f9d13507e3672d0993873f0718e399cdc0f3",
+          "Resultary/2026, 2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf/RESULT.md, Git blob 9314b081aaaf3978fc6793a2d1a0e29a5f846600",
+          "Resultary/2026, 2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md, Git blob c1068d1aea9f55a0c99657a77b4ab4620a238285",
+          "Resultary/2026, 2026/10/11/SCOPE-sharp-tetrahedral-volume-profile-in-the-cube-octahedron-intersec--9ba1a511dacf/RESULT.md, Git blob d5cf4338e67b50d64a2976294c54d602e33670c0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact affine equivalence: (u,v,z) to (u+v,u-v,z) has Jacobian 2 and maps the convex hull of perpendicular unit disks to the equal-radius bicylinder.",
+          "Finch arXiv:1211.4514 Section 1 computes the identical disk hull volume 8/3, but not maximum four-point determinant.",
+          "Nash et al arXiv:1612.09382 Theorem 2.1 characterizes edge surfaces and spectrahedra of two-circle hulls, not maximal inscribed simplex."
+        ],
+        "reasoning": "The disk hull, square-sectional bicylinder, Steinmetz solid, and mixed (l1,l2)-unit ball describe equivalent shapes under the stated map. The novelty test is the exact unrestricted tetrahedron determinant and optimizer set, not the already-known body or its intrinsic volumes. No inspected same-body treatment establishes that optimization.",
+        "searches": [
+          "\"Steinmetz solid\" \"tetrahedron\" \"inscribed\"",
+          "\"orthogonal disks\" \"maximum volume simplex\"",
+          "\"two orthogonal disks\" \"maximum volume tetrahedron\"",
+          "Resultary query: maximal volume inscribed tetrahedron intersection perpendicular circular cylinders Steinmetz bicylinder convex hull two orthogonal disks",
+          "S. R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514v3, https://arxiv.org/pdf/1211.4514, introduction and Section 1; document-wide searches for tetrahedron/simplex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld and Bourke record the classical ambient bicylinder volume 16R^3/3, not the largest contained tetrahedron volume.",
+          "Finch reports 8/3 as entire disk-hull volume, not 8/(9sqrt(3)) as the disk-hull largest-tetrahedron volume.",
+          "Resultary returned exact tetrahedral volumes for different polyhedra and related intrinsic-volume calculations, not an exact same-body table."
+        ],
+        "reasoning": "No checked exact table gives the four-point extremal determinant. The occurrence of 16/3 for the ambient body must not be conflated with 16/(9sqrt(3)) for the tetrahedron; a negative search is not in itself proof of priority.",
+        "searches": [
+          "\"16/(9 sqrt(3))\" tetrahedron cylinder",
+          "\"1/(3 sqrt(3))\" Steinmetz tetrahedron",
+          "\"Steinmetz bicylinder largest tetrahedron\"",
+          "MathWorld Steinmetz Solid, https://mathworld.wolfram.com/SteinmetzSolid.html; classical ambient volume 16R^3/3",
+          "Paul Bourke, Intersecting cylinders, https://paulbourke.net/geometry/cylinders/index.html; classical bicylinder volume",
+          "Resultary query: maximum volume 3-simplex in convex hull of two perpendicular disks with common center"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality. The identical convex body is classical, and Finch obtained its disk-hull volume 8/3; the bicylinder ambient volume 16/3 is also classical. New scientific content assessed is the globally sharp contained-tetrahedron volume and all-maximizer classification. Fresh semantic Resultary queries, published full RESULT files, targeted exact-string/alias searches and substantive primary-paper reading did not reveal a dominating theorem or table; general center-containment and convexity facts are acknowledged as prior tools, not rediscovered. Inaccessible/unindexed historical geometry could affect priority; no negative search is treated as proof of global priority.",
+      "residual_risks": [
+        "Old or non-English geometry of Chinese square umbrella/Steinmetz bicylinders may contain an unindexed maximal inscribed-tetrahedron calculation.",
+        "No worldwide historical novelty proof is claimed.",
+        "The full technical bodies of Finch/Nash/Horvath were read selectively in relevant mathematical parts, not line-by-line in every unrelated section."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected statements determine intrinsic metrics of the identical disk hull, not maximum contained tetrahedron volume or all equality cases; no assertion of exhaustive negative examination of all passages.",
+          "evidence": [
+            "arXiv PDF p.1 abstract and centered disks; p.2 Section 1 states V=8/3, area=2(2+pi), no contained-simplex bound."
+          ],
+          "identifier_or_url": "arxiv:1211.4514v3; https://arxiv.org/pdf/1211.4514",
+          "material_read": "Title/abstract, introduction, Section 1 including explicit disk definitions, exact hull volume 8/3, area 2(2+pi), and mean-width setup; document-wide text searches for tetrahedron and simplex, neither found.",
+          "method": "Read arXiv full-text PDF extraction, reviewed PDF page images 1 and 2; examined section organization and searched the complete extracted text.",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Exact same convex body after the explicit affine transformation of the bicylinder."
+        },
+        {
+          "assessment": "Theorems concern circumspherical simplices or maximizing the volume of hulls of pairs of bodies, not arbitrary simplex containment inside the centered orthogonal two-disk hull.",
+          "evidence": [
+            "Section 3.1 Theorem 3.1: convexity of hull volume under translation. Section 3.2 treats two regular tetrahedra with shared center, an objective with different quantifiers."
+          ],
+          "identifier_or_url": "arxiv:1509.08859v2; https://arxiv.org/pdf/1509.08859",
+          "material_read": "Abstract/introduction, Section 2 on sphere-inscribed maximal polytopes, Section 3.1 on hull-volume of two moving bodies, Section 3.2 on convex hulls of pairs of tetrahedra and their symmetry.",
+          "method": "Read primary arXiv full-text PDF and inspected its title-page image and relevant theorem sections.",
+          "title": "Volume of convex hull of two bodies and related problems",
+          "trigger": "Potentially stronger general theorem about simplices and convex hulls."
+        },
+        {
+          "assessment": "Inspected theorems classify face lattices, spectrahedra and edge surfaces, with no derived maximal-volume inscribed tetrahedron; uninspected sections are not declared not covering in full.",
+          "evidence": [
+            "Theorem 2.1 characterizes spectrahedral hulls and degree-eight edge surface, not a determinant maximum."
+          ],
+          "identifier_or_url": "arxiv:1612.09382v2; https://arxiv.org/pdf/1612.09382",
+          "material_read": "Abstract, introduction, Section 2 Theorem 2.1, introductory description of Sections 3-5, and document-wide text search for tetrahedron.",
+          "method": "Read arXiv full-text PDF extraction and first-page screenshot; searched relevant technical terms.",
+          "title": "Convex Hull of Two Circles in R^3",
+          "trigger": "Same two-circle convex-hull object class, possible general face/edge result implying the extremum."
+        },
+        {
+          "assessment": "Corollary 2.3 provides a necessary center-containment condition, not the sharp value or equality locus for the smooth bicylinder.",
+          "evidence": [
+            "Corollary 2.3: any maximum-volume simplex in a centrally symmetric convex body contains its center. No particular bicylinder value follows."
+          ],
+          "identifier_or_url": "doi:10.1007/s10998-014-0051-2; https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+          "material_read": "Abstract, Section 2 Lemma 2.1, Corollaries 2.2 and 2.3, and Section 4 introduction and theorem scope.",
+          "method": "Read author-hosted full PDF extracted text and page images 1-2, including precise center-containment condition.",
+          "title": "On maximum volume simplices in polytopes",
+          "trigger": "Potential dominating statement for maximal simplices in symmetric bodies."
+        },
+        {
+          "assessment": "The volume and surface-area identity for k concurrent disks contains the centered orthogonal pair as a special case, but gives no four-vertex simplex optimization.",
+          "evidence": [
+            "For k=2 and equal angular gaps pi/2 it gives ambient volume 8/3 and area 2(2+pi), not a tetrahedral determinant."
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11/RESULT.md, Git blob 5da9f9d13507e3672d0993873f0718e399cdc0f3",
+          "material_read": "Full published RESULT.md: finding, assumptions, section proof, extremal angular-spacing theorem, scope and references.",
+          "method": "Direct full Git blob reading at its listed public result path.",
+          "title": "A universal surface-volume identity for hulls of concurrent circular disks",
+          "trigger": "Contains the exact two-disk perpendicular equal-center case."
+        },
+        {
+          "assessment": "Its observable is mean width W(delta) and derivatives, not an inscribed-simplex volume.",
+          "evidence": [
+            "W(delta) theorem includes strict convexity and asymptotic slope but no tetrahedral maximum."
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf/RESULT.md, Git blob 9314b081aaaf3978fc6793a2d1a0e29a5f846600",
+          "material_read": "Full published RESULT.md with mean-width derivative formulas, proofs, relationship to prior work and limitations.",
+          "method": "Direct full Git blob reading.",
+          "title": "A one-dimensional derivative law for orthogonal-disk mean width",
+          "trigger": "Same centered disk hull as separation parameter delta=0."
+        },
+        {
+          "assessment": "The body uses three mutually perpendicular disks with no common line, hence differs from the target two-disk hull and has no four-vertex maximal tetrahedron formula.",
+          "evidence": [
+            "Its support function and 8 triangular facets describe three disks; even its polar triple-cylinder claim does not cover the bicylinder tetrahedral containment."
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md, Git blob c1068d1aea9f55a0c99657a77b4ab4620a238285",
+          "material_read": "Full published RESULT.md, including support function, boundary patches, intrinsic volumes and radii.",
+          "method": "Direct full Git blob reading.",
+          "title": "Exact intrinsic volumes and boundary decomposition of the orthogonal three-disk hull",
+          "trigger": "Closest higher-disk companion body and an exact geometric classification."
+        },
+        {
+          "assessment": "The parameter family is polyhedral K_c=[-1,1]^3 intersect {|x|_1<=c}. The target bicylinder has curved boundary and square sections of size sqrt(1-z^2); no c and no affine change puts it into the polyhedral family.",
+          "evidence": [
+            "Published D(c) and 1/6 volume-fraction lower envelope apply only to K_c, not to the cylinder intersection."
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-sharp-tetrahedral-volume-profile-in-the-cube-octahedron-intersec--9ba1a511dacf/RESULT.md, Git blob d5cf4338e67b50d64a2976294c54d602e33670c0",
+          "material_read": "Full published RESULT.md with K_c definition, piecewise determinant maximum and exact finite polynomial certificate.",
+          "method": "Direct full Git blob reading.",
+          "title": "Sharp tetrahedral-volume profile in the cube-octahedron intersection family",
+          "trigger": "Same exact inscribed tetrahedron objective; candidate broader family or dominating numerical table."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source RESULT.md exact equal-radius perpendicular-cylinder statement, full analytic proof and limitations.",
+        "S. R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514v3, https://arxiv.org/pdf/1211.4514, introduction and Section 1; document-wide searches for tetrahedron/simplex",
+        "A. V. Akopyan, A. A. Glazyrin, On maximum volume simplices in polytopes, Period. Math. Hung. 69 (2014), 251-256, doi:10.1007/s10998-014-0051-2, https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+        "Resultary/2026, 2026/10/11/SCOPE-sharp-tetrahedral-volume-profile-in-the-cube-octahedron-intersec--9ba1a511dacf/RESULT.md, Git blob d5cf4338e67b50d64a2976294c54d602e33670c0"
+      ],
+      "rationale": "For a canonical classical convex body, the volume of the largest contained tetrahedron and its dimensionless ratio to ambient volume are intrinsic affine-invariant measures of approximation by a minimal-vertex polytope. The target exact 1/(3sqrt(3)) fraction is not a table recomputation of ambient volume, not a contrived parameter slice, and not mechanically implied by standard center-inclusion or surface-measure theorems. Strict equality classification rules out all asymmetric/interior alternatives and supplies a concrete sharp geometric benchmark. A future worker studying four-point approximation or contained-simplex volume ratios could need this precise extremal value and optimizer structure; no theorem for oblique/unequal/translated cylinder intersections is asserted.",
+      "residual_risks": [
+        "Usefulness is bounded to this fixed natural bicylinder and affine equivalents; no broad extremal statement for general cylinder arrangements is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "S. R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514v3, https://arxiv.org/pdf/1211.4514, introduction and Section 1; document-wide searches for tetrahedron/simplex",
+    "A. G. Horvath, Volume of convex hull of two bodies and related problems, arXiv:1509.08859v2, https://arxiv.org/pdf/1509.08859, Sections 2, 3.1 and 3.2",
+    "E. D. Nash, A. F. Pir, F. Sottile, L. Ying, Convex Hull of Two Circles in R^3, arXiv:1612.09382v2, https://arxiv.org/pdf/1612.09382, abstract, introduction and Theorem 2.1",
+    "A. V. Akopyan, A. A. Glazyrin, On maximum volume simplices in polytopes, Period. Math. Hung. 69 (2014), 251-256, doi:10.1007/s10998-014-0051-2, https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+    "Resultary/2026, 2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11/RESULT.md, Git blob 5da9f9d13507e3672d0993873f0718e399cdc0f3",
+    "Resultary/2026, 2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf/RESULT.md, Git blob 9314b081aaaf3978fc6793a2d1a0e29a5f846600",
+    "Resultary/2026, 2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md, Git blob c1068d1aea9f55a0c99657a77b4ab4620a238285",
+    "Resultary/2026, 2026/10/11/SCOPE-sharp-tetrahedral-volume-profile-in-the-cube-octahedron-intersec--9ba1a511dacf/RESULT.md, Git blob d5cf4338e67b50d64a2976294c54d602e33670c0",
+    "MathWorld Steinmetz Solid, https://mathworld.wolfram.com/SteinmetzSolid.html; classical ambient volume 16R^3/3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only equal-radius right-angle intersecting cylinders, R>0, and unrestricted tetrahedral vertices inside K_R; no oblique, unequal, disjoint/translated, or triple-cylinder extension.",
+    "Finite exact-rational and floating-point tests are corroboration, not a certificate of infinitely many competitor configurations.",
+    "Existing external Lean and expert verification not performed and not represented otherwise."
+  ],
+  "residual_risks": [
+    "Historical priority remains qualified; no external uniqueness certification.",
+    "Administrative public-file confidentiality and broken citations block publication, not the completed science."
+  ],
+  "schema_version": 1
+}

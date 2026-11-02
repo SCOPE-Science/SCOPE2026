@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:53:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary words, the greedy shortest-complete-arch count equals k-subsequence universality index. Composition (k+1 zeros,k ones) and length 2k+1 force exactly k full arches, each with one 1, with either k two-letter 01/10 arches and trailing 0, or k arches and no suffix with exactly one length-three arch necessarily 001. The first contributes z^C(k,2)(1+z)^k; the second contributes z^C(k,2)(1+z)^(k-1) sum_{j=1}^k z^(k-j+2). Factoring gives stated polynomial, and its convolution coefficients, symmetric support 0..2k, three-point maximum and total follow algebraically. New exhaustive fixed-composition enumeration independently verified each coefficient for k=1..8, with explicit all-pattern universality cross-check k<=4. These finite checks do not replace the all-k structural proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier results characterize universality for arbitrary binary words and arbitrary Parikh triples, with broader ambient parameters."
+        ],
+        "reasoning": "The broader existence/index classifications do not count representatives at each 01 statistic. First redundant fixed-composition slice is natural and the refined generating function is not implied from unrefined totals without a new arch classification.",
+        "searches": [
+          "Published SCOPE length-by-universality OGF (1+z)/(1-z-2uz²)",
+          "Fazekas Theorems3.3,4.5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.06717",
+        "https://pdfs.assets.alphaxiv.org/2510.07159v1.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7247877/",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unique decomposition into all length-2 01/10 arches followed by 0, or one unique 001 length-3 arch among k and remaining length-2 arches, makes cross-arch contribution binom(k,2)."
+        ],
+        "reasoning": "Prior arch criterion supplies necessary groundwork, but does not already state the weight of the special 001 arch (k-j+2), whose summation yields (1+z)^(k-1) sum_{h=0}^{k+1} z^h.",
+        "searches": [
+          "Fazekas Lem2.1 arch characterization and Thm3.3",
+          "Richomme Lem4.12",
+          "published Resultary unrefined count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known equivalence of k-universality to k alternating arches and unrestricted 01-partition counts are direct inputs."
+        ],
+        "reasoning": "Neither prior result gives the cardinality of k-universal words with each given (k+1,k,01) triple; existence of a representative is weaker than counting all representatives.",
+        "searches": [
+          "Resultary: Binary k-universal scattered subsequences words length 2k+1 k+1 zeros k ones generating polynomial 01 count",
+          "Fazekas et al. arXiv:2610.06717 Thm3.3",
+          "Richomme arXiv:2510.07159v1 Lem4.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Unrefined total (k+2)2^(k-1) follows from standard arch structure and may be known, as is unrestricted partition count for fixed 01."
+        ],
+        "reasoning": "No matching joint q-polynomial or coefficient table found. Do not claim the total word count by itself to be new; original component is exact 01-refinement.",
+        "searches": [
+          "Resultary closed-form binary universality 2026/10/4",
+          "Richomme partitions of ab count",
+          "web: binary universal 01 subsequence count k+1 zeros fixed composition"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact q-enumerator of a natural first-redundancy fixed-composition class, not original greedy arch criterion or unrefined count. Closest 2026 primary paper gives existence/all index questions for fixed Parikh matrices; original 2025 partition work counts all fixed-01 words, not those that are subsequence universal.",
+      "residual_risks": [
+        "An unindexed q-refinement from universal-word enumerations might already give this specialization.",
+        "The 2026 Resultary unrefined entry was examined at statement level, not entire Git source; no whole-file negative claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem3.3 gives a necessary and sufficient condition for existence of k-universal representative of a given Parikh triple, not the number of universal representatives or q-distribution for (k+1,k). Theorem4.5 studies all-representative index ≤3; neither dominates the enumerator.",
+          "evidence": "arXiv:2610.06717 Lem2.1, Thm3.3, Thm4.5",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+          "material_read": "Complete primary full HTML §§2–5 including Lemma2.1, Lemma3.2, Thm3.3, Thm4.5, exact role of (A,B,C)",
+          "method": "Compare existence/for-all index of Parikh fibers versus counts of universal representatives within each fiber",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Closest same triple (zeros, ones, 01-count) and subsequence-universality questions"
+        },
+        {
+          "assessment": "Bijection with bounded integer partitions counts unrestricted fixed Parikh fibers but does not impose k complete greedy arches. Is not the same refined universality enumeration.",
+          "evidence": "arXiv:2510.07159v1 §4.2 pp19–21",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2510.07159v1.pdf",
+          "material_read": "37-page original primary PDF, introduction, §4.2 Lem4.12–4.13 and partition bijection, page-image p20 inspected",
+          "method": "Compare enumerating all words at fixed 01 with enumerating only k-universal words",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Same statistic |w|_{01} and fixed-composition fibers"
+        },
+        {
+          "assessment": "Unrefined bivariate length/universality generating series (1+z)/(1-z-2uz²) does not determine |w|_0, |w|_1 or 01-count distribution. No whole-package noncoverage asserted from summary.",
+          "evidence": "Resultary published statement: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Resultary indexed mathematical statement and summary, not full Git source text",
+          "method": "Compare univariate length/index enumerator to joint fixed composition plus scattered 01 count",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Related prior published closed length/index counting law"
+        },
+        {
+          "assessment": "Provides standard arch criterion and structural background; exact 01-weighted near-shortest fixed-composition polynomial not located in inspected parts.",
+          "evidence": "2020 article introductory sections",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7247877/",
+          "material_read": "Open peer-reviewed article introduction and universal-arch background",
+          "method": "Compare shortest length and arch decomposition for small excess",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Arch factorization and shortest-universal structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete coefficient distribution for a canonical first-redundancy universality layer, refining previously known unweighted counts by the natural scattered pair statistic used in Parikh matrices. The polynomial yields exact support, a symmetric unimodal law and sharp plateau; not an arbitrary numerical slice, and its exact self-contained classification does not require a larger theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.06717",
+    "https://pdfs.assets.alphaxiv.org/2510.07159v1.pdf",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC7247877/",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Binary alphabet, exactly k+1 zeros/k ones and length 2k+1, scattered 01 rather than contiguous subwords; no higher excess or larger alphabet."
+  ],
+  "residual_risks": [
+    "Unindexed joint Parikh/arch count could imply the specific q-polynomial; fixed-composition result is narrower than broad universal-word enumerators."
+  ],
+  "schema_version": 1
+}

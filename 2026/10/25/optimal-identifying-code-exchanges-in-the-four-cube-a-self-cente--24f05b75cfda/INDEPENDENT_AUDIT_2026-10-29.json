@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:51:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Q4 vertices encoded as 16 bits, the identifying property requires all 16 closed-ball intersections with code C to be nonempty and distinct. Independent code enumerated every 7-subset (11,440 candidates), checked all 6-subsets (8,008 candidates, no identifying code), and found exactly 960 minimum codes. By monotonicity of coverage/separation, no smaller codes exist. One-word swaps correspond to shared 6-element cores. An independently constructed 960-state graph has degree 9 everywhere, 4320 edges, 12 triangles per vertex, hence 3840 triangles. Independent BFS from ALL 960 states (not merely orbit representatives) found exactly the same distance shells (1,9,35,132,300,338,130,15), so radius=diameter=7 and connected. Source scripts/check_mask.py blob b2615f2ddc9b9fa4cace7665dfa158b97bb2e7d6, scripts/check_sets.py blob eb7547fcc6189f540f67e976b1367126e9775493 inspected. Source scripts enumerate all 384 cube isometries and yield orbit sizes 384,384,192; orbit sizes not independently recomputed here, though the algorithms and group order were inspected. Full finite census is exhaustive at the stipulated dimension, not extrapolation to higher cubes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The modern table provides code size M(4)=7, no 960-state graph or all-roots distance shells.",
+          "Local identifying code bounds and replacement heuristics have different predicates/objectives."
+        ],
+        "reasoning": "Known broad cube coding bounds and constructions do not determine the configuration graph metric/orbits; no stronger covering classification located.",
+        "searches": [
+          "Q4 binary hypercube minimum identifying codes size 7 optimal code exchange reconfiguration graph diameter 960",
+          "Herva-Laihonen-Lehtilä 2024 Table 1",
+          "Q4 binary hypercube minimum identifying codes size 7 optimal code exchange reconfiguration graph diameter 960",
+          "Charon et al 2010"
+        ]
+      },
+      "checked_sources": [
+        "Karpovsky et al 1998 DOI 10.1109/18.661507",
+        "Herva et al 2024 arXiv:2302.13351",
+        "Charon et al 2010 DOI 10.1016/j.ejc.2009.03.032",
+        "Blass-Honkala-Litsyn 2001 DOI 10.1016/S0012-365X(01)00113-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A method that locally exchanges codewords to construct/improve codes does not assert that every optimum is connected at most 7 exchanges or 9-regular.",
+          "Knowing M(4)=7 yields only the candidate set size, not all 960 states or their adjacency."
+        ],
+        "reasoning": "Existing cube minimum and heuristics are substantive prior input, but their stated implications fall short of the full graph classification.",
+        "searches": [
+          "Q4 binary hypercube minimum identifying codes size 7 optimal code exchange reconfiguration graph diameter 960",
+          "Charon-Cohen-Hudry-Lobstein 2010",
+          "Herva-Laihonen-Lehtilä 2024",
+          "Karpovsky-Chakrabarty-Levitin 1998"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nonempty-signature identifying-code definition is stricter than weak pairwise-distinct signatures alone; exactly 192 6-subsets separate signatures but leave an uncovered vertex.",
+          "Modern Table 1 states M(4)=7, already known."
+        ],
+        "reasoning": "Distinguished minimum-size value and local-identifying-code problems from the new single-codeword exchange graph; normalization mismatch with older six count explicitly acknowledged.",
+        "searches": [
+          "Q4 binary hypercube minimum identifying codes size 7 optimal code exchange reconfiguration graph diameter 960",
+          "Karpovsky-Chakrabarty-Levitin 1998 DOI 10.1109/18.661507",
+          "Herva-Laihonen-Lehtilä arXiv:2302.13351",
+          "Charon-Cohen-Hudry-Lobstein 2010 DOI 10.1016/j.ejc.2009.03.032"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small-cube minimum size 7 is tabulated, but distinct from 960 labeled optima and the 4320 exchange edges.",
+          "The exhaustive finite census here additionally checks triangle counts, all 960 BFS profiles and symmetry orbits."
+        ],
+        "reasoning": "This is naturally an exact finite database/classification result; prior table covers one parameter but not the new reconfiguration invariant.",
+        "searches": [
+          "Q4 binary hypercube minimum identifying codes size 7 optimal code exchange reconfiguration graph diameter 960",
+          "Herva-Laihonen-Lehtilä Table 1",
+          "Karpovsky-Chakrabarty-Levitin 1998"
+        ]
+      },
+      "rationale": "The optimum M(4)=7 is explicitly known in Herva-Laihonen-Lehtilä 2024 Table 1; early Karpovsky 1998 reports a six-code value under a potentially different separating-versus-dominating convention. Package and independent check establish that weak pairwise-distinct-only six-sets exist (192) but do not dominate, clarifying normalization. The 960-state one-exchange graph, common complete distance-shell distribution, triangle regularity, and three natural symmetry orbits were not located in inspected primary work. Charon et al 2010 local code replacement discussions are not complete exchange-graph classification.",
+      "residual_risks": [
+        "Karpovsky 1998 scanned full article and Charon et al full article were not wholly inspected; an unindexed old exact minimum-code exchange census remains a historical-priority risk.",
+        "The dimension is exactly four and the exchange graph uses arbitrary one-codeword replacements, not adjacent cube-vertex swaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational coverage credited; cannot assert entire 1998 paper lacks exchange-graph result without full reading",
+          "evidence": "First page describes identifying-code concept and code minimum",
+          "identifier_or_url": "https://sites.bu.edu/mark/files/2018/02/132.pdf",
+          "material_read": "Scan inspected at first page and original framework only; not a reliable full-text whole-document search",
+          "method": "PDF screenshot and limited visual reading",
+          "title": "On a New Class of Codes for Identifying Vertices in Graphs",
+          "trigger": "Foundational identifying-code definition and historical small cube table"
+        },
+        {
+          "assessment": "Confirms M(4)=7 known; does not present the proposed all-optima exchange graph in inspected material",
+          "evidence": "Table 1 row n=4 has M(n)=7 but M^L(n)=6",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.13351",
+          "material_read": "Primary PDF including definitions and Table 1 on page displaying M(4)=7; comparison with local-identifying code scope",
+          "method": "full PDF text and table screenshot",
+          "title": "Optimal Local Identifying and Local Locating-dominating Codes",
+          "trigger": "Modern exact minimum M(4)=7 and neighboring local-code theorems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph of all minimum identifying codes and their allowed one-codeword swaps is a canonical finite reconfiguration object. Its full orbit, metric and local triangle census reveals a self-centered graph across multiple symmetry orbits, useful for exact local-search and code-design structure. The result does not assert a general hypercube family law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Karpovsky et al 1998 DOI 10.1109/18.661507",
+    "Herva et al 2024 arXiv:2302.13351",
+    "Charon et al 2010 DOI 10.1016/j.ejc.2009.03.032",
+    "Blass-Honkala-Litsyn 2001 DOI 10.1016/S0012-365X(01)00113-3"
+  ],
+  "disposition": "passed",
+  "limitations": "Does not generalize to other dimensions; classifies natural cube-isometry orbits but not full automorphism group of the exchange graph.",
+  "residual_risks": [
+    "Karpovsky 1998 scanned full article and Charon et al full article were not wholly inspected; an unindexed old exact minimum-code exchange census remains a historical-priority risk.",
+    "The dimension is exactly four and the exchange graph uses arbitrary one-codeword replacements, not adjacent cube-vertex swaps."
+  ],
+  "schema_version": 1
+}

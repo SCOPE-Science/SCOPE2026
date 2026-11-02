@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The image of a nonzero rank-one Rota–Baxter operator must span a square-zero line or an idempotent line. The general reduction is proved by direct substitution, and the all-dimension idempotent count follows from conjugating idempotent lifts to their binary diagonals and evaluating two Peirce corners. The Gaussian-binomial inversion enumeration is exact. In dimension three, every square-zero image line and its annihilator dimension are explicitly classified, yielding the complementary term. The proof works in every finite-field characteristic.
+## correctness
 
-The standalone direct checker exhausts the defining identity over \(\mathbb F_2\) and \(\mathbb F_3\), and a separate binary Peirce enumeration checks sizes \(n=2,3,4\). These finite checks do not replace the general proof.
+PASS
 
-## Originality — PASS with residual risks
-The 2014 semigroup-algebra classification concerns dimensions at most three, not this triangular algebra. The 2024 classification of all operators on \(T_3\) in characteristic zero subsumes the structural rank-one classification there; the novel scope assessed here is the characteristic-uniform finite-field **labeled enumeration** and the all-dimension Gaussian-binomial idempotent-image formula. Published rank-one counts for radical-square-zero quiver algebras do not transfer through the nontrivial radical-square multiplication in \(T_3\). No matching complete enumeration was found in the inspected material or targeted mathematical-record searches. An unindexed enumeration, or a derivation of the characteristic-zero part from existing normal forms, remains possible. No claim of absolute publication priority is made.
+The nonzero rank-one substitution R(x)=f(x)u reduces the identity to u^2=lambda*u and functional eigenrelations for left/right multiplication by u; lambda=0 forces both to annihilate uA+Au, and lambda!=0 yields a unique normalized idempotent e with functional in the two disjoint Peirce-corner dual spaces. The triangular nilpotent radical conjugates each idempotent with k diagonal 1s to its diagonal word, with exactly q^{k(n-k)} lifts, while the Peirce dimensions are binary inversion counts; Gaussian inversion enumerators yield B_n(q)=2 sum_{k=1}^{n-1} q^{k(n-k)}([n k]_q-binomial(n,k)). For T_3 the square-zero lines are q+q+1 with annihilator codimensions 2,2,1 and count A_3=3q^5-2q-1; adding B_3 gives total 3q^5+4q^4+4q^3-8q^2-2q-1. All q prime powers, n>=1, rank-one operators only. Fresh independently composed F2 direct six-dimensional basis-identity test gave exactly 155 operators (91 nilpotent-image, 64 idempotent-image); symbolic inversion sum checked several n. These finite tests are corroboration, not a universal proof.
 
-## Value — PASS
-The operator-counting invariant addresses all finite fields, including the smallest positive characteristics not covered by characteristic-zero classifications, and a natural infinite tower of triangular algebras. The decomposition explains why idempotent images are governed by the \(q\)-inversion enumerator, while the first non-radical-square-zero case introduces an additional square-zero-image contribution. It gives a reproducible benchmark for extending such counts to larger triangular algebras.
+## originality
 
-## Closest literature and limits
-Guo–Rosenkranz–Zheng, arXiv:1402.3702; Gubarev, arXiv:2404.00289. This result does not enumerate all ranks for \(n>3\), classify conjugacy orbits, or provide independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Characteristic-zero classification of all T3 Rota–Baxter operators is stronger structurally but does not automatically give positive-characteristic labeled finite-field counts, or all-n idempotent-image Gaussian formula. The all-field all-n stratum and complete T3 census are assessed as distinct explicit enumerations; existing background rank-one reductions are not claimed as original. Best-of-knowledge PASS with explicit possible derivation from older normal forms.
+
+## value
+
+PASS
+
+The all-n exact idempotent-image count and characteristic-uniform full T3 rank-one census provide directly usable labeled representation statistics for a natural noncommutative algebra. Positive-characteristic and nonprime-field cases matter independently of the older characteristic-zero classification; the theorem expressly does not classify higher-rank operators or general Tn square-zero images.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

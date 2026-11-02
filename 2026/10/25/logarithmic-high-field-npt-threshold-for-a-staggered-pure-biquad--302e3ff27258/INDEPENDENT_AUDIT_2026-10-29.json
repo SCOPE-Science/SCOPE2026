@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:50:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two spin-1 particles (S1·S2)^2=I+3P0 (singlet projector), so remove scalar -JI to obtain H'=hD-3JP0. On total magnetization zero, in basis (|1,-1>,|0,0>,|-1,1>) the dimensionless A_epsilon has diagonal (2,0,-2)-epsilon and alternating off-diagonal signs; remaining product states retain diagonal weights 1,e^{±x}, x=h/T. Partial transpose gives exactly three 2x2 positivity inequalities |G_ac|<=1, |G_ab|<=e^-x, |G_bc|<=e^x where G=exp(-xA_epsilon). The smallest eigenvector near epsilon=J/h=0 has components (epsilon/4,-epsilon/2,1)+O(epsilon^2), eigenvalue -2-epsilon+O(epsilon^2). In x=(1/2)log(4/epsilon)+O(1), epsilon*x->0 and G_ac=(epsilon/4)e^{2x}(1+o(1)), while G_ab=O(epsilon), G_bc=O(1); first block thus crosses at x*=0.5 log(4/epsilon)+o(1), other blocks remain PPT there. First-order Duhamel bounds for smaller x exclude an earlier crossing for these other blocks, so the supremum NPT temperature is T_NPT=2h/(log(4h/J)+o(1)), not a statement about PPT separability. Independently diagonalized 3x3 A and brent-bracketed all three block inequalities at epsilon=1e-2,1e-3,1e-4, obtaining first roots 2.978270256...,4.144701322...,5.298027449... and later roots for the other blocks; gap to 0.5 log(4/epsilon) decreases. Fixed epsilon tests cannot prove asymptotics. Inspected RESULT.md 2a68b3..., verify_threshold.py cca14c..., status files.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghannadan–Strečka studies bilinear XXZ and anisotropies",
+          "Zhou 2005 nonlinear coupling abstract only"
+        ],
+        "reasoning": "Broad thermal-negativity formulae for spin dimers require matching Hamiltonian; inspected full one does not cover pure biquadratic staggered case. Historical nonlinear coupling remains unresolved priority risk, not decisive coverage.",
+        "searches": [
+          "Ghannadan Strečka 2021",
+          "Albayrak 2011",
+          "Zhou Yi Song 2005"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-thermal-negativity-of-the-pure-biquadratic-spin-1-dimer--03f67142630f",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8199999/",
+        "https://doi.org/10.1088/1009-1963/14/6/019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing uniform field result stays constant in B",
+          "The staggered case grows 2h/log(4h/J)"
+        ],
+        "reasoning": "Different thermodynamic regimes and non-unitarily-equivalent field terms prevent direct implication of new asymptotic from known uniform-field special case.",
+        "searches": [
+          "Resultary uniform field formula 3|K|/log4",
+          "PMC Ghannadan 2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform B(S1z+S2z) commutes with total magnetization and has field-independent positive-T threshold",
+          "Staggered h(S1z-S2z) has nontrivial 3x3 mixing and divergent threshold"
+        ],
+        "reasoning": "Compared field reversal on just one site: this does not preserve the isotropic (S1·S2)^2 interaction, so the published uniform-field result is not equivalent.",
+        "searches": [
+          "Resultary pure-biquadratic spin-1 dimer uniform Zeeman field",
+          "staggered field qutrit dimer NPT threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matched uniform-field case but not staggered coefficient",
+          "Independent exact 3x3 block criterion gives analytic threshold asymptotic"
+        ],
+        "reasoning": "No matched table in consulted mathematical findings; a finite parameter table would not give high-field logarithmic asymptotic.",
+        "searches": [
+          "Resultary thermal negativity search",
+          "spin-1 staggered biquadratic NPT exact matrix threshold"
+        ]
+      },
+      "rationale": "Closest known exact pure-biquadratic two-qutrit thermal threshold in Resultary uses a UNIFORM field B(S1z+S2z); this field conserves total spin projection and has field-independent positive-temperature threshold. The staggered field h(S1z-S2z) breaks that symmetry, mixes the singlet with m=0 basis states, and creates an h/log h threshold. Other inspected spin-dimer works use bilinear XXZ exchange, DM or single-ion anisotropy. No exact same-Hamiltonian high-field NPT coefficient or first-block proof identified; nonlinear-coupling historical text remains only partly accessible.",
+      "residual_risks": [
+        "Zhou/Yi/Song 2005 nonlinear spin-coupling full paper unavailable; similar staggered-field derivation not ruled out",
+        "No quantitative uniform remainder established outside asymptotic first-crossing argument beyond bounded perturbation reasoning",
+        "The claim is NPT, not general entanglement/PPT separability",
+        "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+        "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING staggered field: uniform field threshold 3|K|/log4 cannot imply divergent staggered h/log h without changing Hamiltonian",
+          "evidence": [
+            "Resultary 2026/10/4: Tc=3|K|/log4 independent of finite uniform B",
+            "Uniform B(S1z+S2z) differs structurally from staggered h(S1z-S2z)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-thermal-negativity-of-the-pure-biquadratic-spin-1-dimer--03f67142630f",
+          "material_read": "Published finding/summary and explicit formula for H=K(S1·S2)^2+B(S1z+S2z), no full source proof read",
+          "method": "Compared exact field term and invariant sectors, threshold asymptotics",
+          "title": "Exact thermal negativity of the pure-biquadratic spin-1 dimer",
+          "trigger": "Same pure-biquadratic interaction, strong potential domination"
+        },
+        {
+          "assessment": "Different Hamiltonian and field orientation; cannot substitute its critical temperature",
+          "evidence": [
+            "Ghannadan and Strečka, Molecules 2021, doi:10.3390/molecules26113420"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8199999/",
+          "material_read": "Lawful full PMC paper, model Hamiltonian and entanglement conclusions",
+          "method": "Compared bilinear XXZ/single-ion anisotropy with pure biquadratic staggered field",
+          "title": "Magnetic-Field-Orientation Dependent Thermal Entanglement of a Spin-1 Heisenberg Dimer",
+          "trigger": "Same two spin-1 sites with magnetic field"
+        },
+        {
+          "assessment": "INACCESSIBLE_FOR_FULL_COMPARISON; potential precise historical priority risk remains",
+          "evidence": [
+            "Zhou, Yi and Song, Chinese Physics 14 (2005), 1168"
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1009-1963/14/6/019",
+          "material_read": "Published abstract and bibliographic metadata only, full text not obtained",
+          "method": "Considered model overlap; no whole-document absence claim",
+          "title": "Thermal entanglement in 1D optical lattice chains with nonlinear coupling",
+          "trigger": "Nonlinear spin coupling possibly exact interaction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp asymptotic entanglement transition for a canonical spin-1 two-site Hamiltonian identifies a nontrivial logarithmic field scale and responsible partial-transpose block, contrasting strikingly with the uniform-field model. The exact coefficient 2 and logarithm constant 4 are not merely a dimension or unit renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/75a66f878b7bc7bb89b24618f1adcf7e6624296f/2026/10/25/logarithmic-high-field-npt-threshold-for-a-staggered-pure-biquad--302e3ff27258/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-thermal-negativity-of-the-pure-biquadratic-spin-1-dimer--03f67142630f",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC8199999/",
+    "https://doi.org/10.1088/1009-1963/14/6/019"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A finite numerical or exact enumeration check does not establish an infinite-parameter claim.",
+    "Best-of-knowledge originality does not certify absolute historical priority.",
+    "No GitHub writes, public artifacts, independent expert attestation, or Lean proof produced."
+  ],
+  "residual_risks": [
+    "Zhou/Yi/Song 2005 nonlinear spin-coupling full paper unavailable; similar staggered-field derivation not ruled out",
+    "No quantitative uniform remainder established outside asymptotic first-crossing argument beyond bounded perturbation reasoning",
+    "The claim is NPT, not general entanglement/PPT separability",
+    "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+    "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+  ],
+  "schema_version": 1
+}

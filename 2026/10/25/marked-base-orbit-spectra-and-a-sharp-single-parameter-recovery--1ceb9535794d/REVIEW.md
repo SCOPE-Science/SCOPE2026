@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the pointwise-stabilizer orbit counts of new injective tuples, not just unbased tuple orbits. Every finite cross-edge assignment is realized by the random bipartite extension property. The full-rank and base-restriction rank calculations are independent, and rank-nullity yields the displayed quotient sizes in all boundary cases, including empty or one-sided bases. The converse of the balanced-base collision uses explicit one-point counts and the singleton two-type exception. The singleton three-type counts are independently reproduced by explicit finite switching patterns. The finite tests corroborate but do not certify the unlimited parameter and arity quantifiers.
+## correctness
 
-## Originality — PASS, qualified
-Lu's classification and finite parity-characterization of the side-preserving switch groups are established prior work. The existing published unbased tuple-orbit result already counts free finite matrices modulo row/column switching and identifies the unmarked left/right coincidence. Its full result and proof were compared against this claim. It does not state the general frozen-base stabilizer-orbit formula, its exact balanced-base if-and-only-if, or the minimum one-parameter/three-new-coordinate numerical separation threshold. These are conditional local orbit questions, not mere instances of the published unbased numerical sequence; they require ranks of switching subspaces constrained to vanish on a prescribed rectangle. Nevertheless, the previously known matrix actions are the essential input, and an unindexed derivation of the frozen-base formula remains the main originality risk.
+PASS
 
-## Value — PASS
-The natural reconstruction question asks how many individually named parameters and new tuple coordinates are needed for numerical type data to identify a reduct group. The complete formula resolves this for Lu's five side-preserving groups, showing both a sharp single-parameter recovery phenomenon and a persistent all-arity blind spot for balanced bases. The comparison is structural rather than a routine small numerical improvement: an infinite family of balanced bases cannot distinguish two groups by any tuple-type counts, while the smallest unbalanced base distinguishes all five at a sharp bounded arity.
+The full theorem counts pointwise-stabilizer orbits of injective ordered k-tuples over a finite named base with a left and b right vertices in the five closed side-preserving reduct groups classified by Yun Lu. For a fixed new-side assignment x+y=k, u=a+x, v=b+y, e=uv-ab free cross-edges. By finite bipartite homogeneity and group-switch characterization, orbits are affine cosets of a binary linear action of rank r_G. The exact ranks are r0=1_{ab=0}, r_l=x+a1_{b=0}, r_r=y+b1_{a=0}, r_lr=u+v-1-1_{ab>0}(a+b-1), r_inf=e for uv>0, otherwise zero; hence T_G=Σ_x binom(k,x)2^(e-r_G). The sum respects coordinate side assignment and frozen base rectangle. Left/right exchange gives equality for all k when a=b; one-point formulas show separation for every unbalanced positive pair except singleton one-sided bases, where arity two separates. For the singleton left base vectors k=1,2,3 are [2,2,2,2,2],[7,5,6,4,4],[41,20,26,11,8], establishing minimal one parameter and arity three to distinguish all five. Stirling transform handles repeated tuple entries. Independent enumeration of 390 translation actions for finite a,b,x,y<=2 agreed with the rank formula and singleton spectra, with separate algebraic rank verification; universal proof is rank-nullity, not the finite checks.
 
-## Closest sources and limitations
-Yun Lu (2011), *Reducts of the Random Bipartite Graph*, arXiv:1101.1947, supplies the group classification and switching parity actions. *Exact ordered-tuple orbit profiles of the side-preserving random bipartite reducts* (published mathematical record, 2026-09-30) supplies the unbased finite-matrix orbit profiles, including the left/right collision. The new theorem does not reprove these classifications. It applies to named-side reducts and numerical orbit/type counts only. Undiscovered or implicit prior conditioned-rank calculations remain possible. Independent evaluation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Yun Lu established the five-group classification and finite row/column switching characterization, and the published unbased Resultary theorem supplies all-arity global tuple orbit counts including the left/right collision. Those exact prior facts are acknowledged. The present extension freezes a named base rectangle and computes the kernel ranks for all (a,b,k), then proves the balanced-base collision criterion and the sharp one-parameter/arity-three recovery threshold. These do not directly follow from the numerical unbased orbit sequence; new stabilizer restrictions must be computed. They are accessible by elementary extra linear algebra, which tempers originality/value claims but is not identical to a prior stated theorem; priority against unindexed conditioned orbit formulas is a residual risk.
+
+## value
+
+PASS
+
+Numerical orbit profiles are a canonical oligomorphic invariant. The published unbased collision shows that two distinct reduct groups cannot be separated by any unmarked arity; determining the minimal size and tuple arity of a named witness is therefore a motivated natural reconstruction problem. The exact all-base formula resolves which marks preserve collision and which recover the five classes. A single-parameter arity-three threshold is nontrivial and useful for studying reduct identification and finite type complexity, not merely recomputing the global table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

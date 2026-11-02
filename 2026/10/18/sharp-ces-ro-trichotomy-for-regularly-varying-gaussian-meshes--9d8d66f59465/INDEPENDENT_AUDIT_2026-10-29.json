@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:51:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob adde76a2b5be4b12ffd747f7bbe87f8f22e7a02b; VERIFICATION.md 0fec11864e2705f0a6425e0c447fce7ded4dfc1b; SLOGAN.txt 7cd98cc427b19395558d28caf503738b25c557a4",
+        "Bauschke–Tung, arXiv:2605.25491v2, sections 2,5,6,7.1,7.3, particularly Proposition 6.2 and Theorem 7.6; full accessible arXiv text as of 2026-10-29",
+        "Independent exact Git tree reconstruction over all six actual frozen 100644 blobs gave SHA-1 174ed803af9b63f70a40895fdb43687b5466de48",
+        "Fresh NumPy Gaussian Gram sums for non-admissible diagnostic mesh d_i=i^-0.6, n=1500,3000,6000, yielded ratios 0.975964,0.981750,0.986150 to sqrt(pi)*n/((1+alpha)*d_n); this tests only the analytic kernel lemma, not operator realizability.",
+        "Independent 1500x1500 midpoint double-integral quadratures match F(0)=1, F(0.125)=0.971300864958, F(0.7)=0.658821282087, F(2)=0.341350926264 to numerical quadrature errors <=4e-5.",
+        "Power-mesh recurrence checked independently for alpha=0.501,0.6,0.75,0.99 with c=1/16 and first 10,000 increments; analytic lower bound proves all indices."
+      ],
+      "rationale": "Reconstructed the entire RESULT.md theorem under source admissibility d_1<=1/8, d_{n+1}<=d_n/(1+64d_n^2), positive l2-not-l1 increments, and additional regular variation index -alpha (1/2<alpha<=1) with an existing extended limit a=lim n*d_n. The source Proposition 6.2 fixes <x_i,x_j>=rho_i*rho_j*exp(-(t_i-t_j)^2), rho_i=exp(-sum_{k<i}d_k^2), so rho_infty=exp(-sum d_k^2)>0. For nd_n->infinity, i d_i->infinity and 1/d_i=o(i): a Gaussian local Riemann sum gives d_i sum_{j>=1} exp(-(t_i-t_j)^2)->sqrt(pi). For j>2i the omitted tail is <=C i exp(-c(i d_i)^2), whose product with d_i tends to zero, and all nearer tails are uniformly controlled by monotonicity and regular variation. For i in any interior proportional window the finite n row has the same asymptotic. Karamata yields sum_{i<=n}1/d_i ~ n/((1+alpha)d_n), giving the exact coefficient sqrt(pi)/(1+alpha). Weighted Cesaro convergence replaces rho_i*rho_j by rho_infty^2 without altering this scale. If a<infinity, necessarily alpha=1: proportional-window step sums converge to a log(s/t) and bounded two-dimensional Riemann sums, including the omitted small-index region, give rho_infty^2*F(a), with F(a)=int_0^infty exp(-a^2u^2-u)du. F(0)=1; strict decrease and aF(a)->sqrt(pi)/2 follow from the integral. For c*n^-alpha, c<=1/16, the mesh recurrence follows from n^alpha*((n+1)^alpha-n^alpha)>=alpha*2^(alpha-1)>=1/(2sqrt(2))>64c^2, so rho_infty=exp(-c^2*zeta(2alpha)) and the claimed power rate is valid. One subtle normalization checked: Gaussian kernel is exp(-(s-t)^2), not a kernel with a hidden 1/2 in the exponent. The theorem is only for the constructed orbit, not all firmly nonexpansive operators.",
+      "residual_risks": [
+        "The Gaussian finite-n numerical checks are bounded and are not proofs of the all-n asymptotic, for which the row-tail and Karamata arguments are essential.",
+        "The regular-variation restriction and extended limit are material; oscillatory admissible meshes outside this class are not classified.",
+        "The diagnostic mesh with coefficient 1 is not claimed to obey the firmly nonexpansive realization condition; it was used only to check a kernel asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauschke–Tung v2, Theorem 7.6 and equation (74): ||Y_n||^2 <= (1+sqrt(pi))/(n*d_n), giving convergence but not sharp equality.",
+          "Bauschke–Tung v2, Example 7.7: d_n=1/(16n^(3/4)) yields strong convergence without rate.",
+          "The SIAM 2006 sampling-series localization abstract concerns band-limited recovery approximation and errors, not the Cesaro norm of this nonlinear Gaussian orbit."
+        ],
+        "reasoning": "Even a stronger qualitative convergence theorem for all admissible meshes does not entail the sharp constant in the regularly varying subclass. Generic kernel-localization literature is an unresolved possible source of an equivalent lemma, but the observed sampling papers do not directly imply the claimed orbit trichotomy.",
+        "searches": [
+          "Bauschke Tung Cesaro means firmly nonexpansive Gaussian mesh regular variation sharp asymptotic sqrt pi row Gaussian kernel n d_n",
+          "Gaussian kernel regularly varying mesh Cesàro asymptotic Karamata 1/(1+alpha)",
+          "\"Bauschke\" \"Tung\" \"regularly varying\" Cesàro Gaussian",
+          "non uniform Gaussian kernel sampling asymptotic regularly varying mesh double sum 1/(n d_n)",
+          "https://arxiv.org/abs/2605.25491",
+          "https://epubs.siam.org/doi/10.1137/04061845X"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact semantic searches for Bauschke–Tung Gaussian-mesh sharp Cesàro asymptotics, harmonic exact limit, and Karamata Gaussian localization on 2026-10-29.",
+        "arXiv:2605.25491v2 primary full text, Bauschke and Tung (June 30, 2026), Theorem 7.6 and Example 7.7.",
+        "Resultary published 2026-10-04 harmonic RESULT.md, GitHub blob 0a0e05f0c62efe3c46c23b01f33a49694e58057f.",
+        "Additional web searches for Gaussian kernel nonuniform sampling, localized sampling series, and stronger quantitative nonlinear Cesaro results."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior source formula (73a) is the exact Gram sum, but its Theorem 7.6 only bounds the sum by n*(1+sqrt(pi))/d_n and then shows Y_n->0.",
+          "Previously published harmonic limit is rho_infty^2 F(delta) when d_n=delta/n.",
+          "Current theorem yields lim (n*d_n)||Y_n||^2=rho_infty^2*sqrt(pi)/(1+alpha) for all high-density admissible RV meshes and rho_infty^2F(a) for all finite-density RV meshes."
+        ],
+        "reasoning": "Neither the source O(1/(n*d_n)) inequality nor an exact harmonic-only special case logically fixes the sharp high-density coefficient. The a=0 logarithmically slow boundary also has no harmonic c>0 counterpart. The exact same Bauschke–Tung orbit and prior harmonic case are credited; only the complementary classifications are originality-positive.",
+        "searches": [
+          "Bauschke Tung Cesaro means firmly nonexpansive Gaussian mesh regular variation sharp asymptotic sqrt pi row Gaussian kernel n d_n",
+          "Exact Cesaro norm limit harmonic firmly nonexpansive counterexample",
+          "\"Bauschke\" \"Tung\" \"regularly varying\" Cesàro Gaussian",
+          "https://arxiv.org/abs/2605.25491",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published 2026-10-04 harmonic RESULT.md: the exact norm limit e^{-delta^2 pi^2/6} sqrt(F(delta)) is proved only for d_n=delta/n.",
+          "The new finite-density statement covers arbitrary regularly varying d_n with n*d_n->a, and its high-density statement covers all alpha in (1/2,1] with n*d_n->infinity.",
+          "The source paper supplies the Gaussian Gram identity but not uniform reciprocal-mesh asymptotics for general d_n."
+        ],
+        "reasoning": "The old harmonic formula is a genuine known special case, but it does not entail the new all-mesh local Gaussian-row coefficient; changing coordinates to logarithmic mesh time cannot convert nonharmonic regularly varying sequences to a fixed exact harmonic orbit without additional analysis.",
+        "searches": [
+          "Bauschke Tung Cesaro means firmly nonexpansive Gaussian mesh regular variation sharp asymptotic sqrt pi row Gaussian kernel n d_n",
+          "Exact Cesaro norm limit harmonic firmly nonexpansive counterexample",
+          "Gaussian kernel regularly varying mesh Cesàro asymptotic Karamata 1/(1+alpha)",
+          "Bauschke Tung Cesaro Gaussian mesh harmonic exact norm limit complementary error function",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic retrieval found one closely related exact constant, for the single harmonic family, not a coefficient table over regular-variation indices alpha.",
+          "The source example alpha=3/4 is a proof of convergence rather than a tabulation of its leading constant."
+        ],
+        "reasoning": "A continuum of asymptotic coefficients for arbitrary regularly varying meshes is not an ordinary finite enumerative database invariant. No exact database or table yielding it was found in the actual searches; this negative finding is search-bounded, not proof of priority.",
+        "searches": [
+          "Exact Cesaro norm limit harmonic firmly nonexpansive counterexample",
+          "Gaussian kernel regularly varying mesh Cesàro asymptotic Karamata 1/(1+alpha)",
+          "Gaussian kernel regularly varying mesh Cesàro asymptotic Karamata 1/(1+alpha)",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge priority, after comparing actual mathematical statements. The directly relevant 2026-06-30 Bauschke–Tung v2 source, Theorem 7.6, proves strong convergence under nd_n->infinity through the explicit nonsharp inequality sum_{i,j<=n}exp(-(t_i-t_j)^2)<=n(1+sqrt(pi))/d_n (its equation 74), and Example 7.7 proves qualitative convergence for d_n=1/(16n^(3/4)). It does not present the sharp asymptotic coefficient sqrt(pi)/(1+alpha) or the a=0 finite-density boundary. The previously published Resultary harmonic finding proves exactly rho_infty^2*F(delta) for d_n=delta/n, and expressly limits its domain to that one mesh. The harmonic result is an acknowledged special case, not claimed as new. Neither a source upper bound nor a fixed-harmonic exact calculation implies a sharp asymptotic for all regularly varying admissible meshes; a new uniform local Gaussian-row argument plus Karamata summation supplies the missing content. Searches for Gaussian-kernel localization and nonlinear mean-ergodic aliases did not establish a dominating result. These searches are not an exhaustive historical priority proof.",
+      "residual_risks": [
+        "Generic nonuniform Gaussian-kernel localization/regular-variation lemmas could imply the row estimate under a different vocabulary; searches do not globally exclude this.",
+        "Semantic retrieval and accessible paper comparisons do not certify absolute priority; the full same-family primary texts and nearest known harmonic special case were, however, materially inspected.",
+        "If a stronger published theorem supplies the exact weighted nonuniform Gaussian double-sum asymptotic for arbitrary regularly varying meshes, originality needs re-evaluation even without matching orbit wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct predecessor. Establishes Gaussian Gram identity, firmness, qualitative convergence and a nonsharp bound, but not the full sharp regular-variation coefficient or vanishing-density limit.",
+          "evidence": [
+            "arXiv v2 (2026-06-30) sec 6 Proposition 6.2: Gaussian Gram; sec 7.3 Thm 7.6, equations (71)–(74): O((n*d_n)^-1) bound; Example 7.7 (75)–(78): power-law case with convergence only."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.25491",
+          "material_read": "Full accessible v2 primary mathematical text dated 2026-06-30, especially sections 2,5,6,7.1–7.3, source equations (73a), (74), Theorem 7.6, and Example 7.7; also main-results introduction and normalizations.",
+          "method": "Read the primary full-text rendering through the arXiv abstract/HTML textual view (not snippets or saved review).",
+          "title": "Cesàro means of firmly nonexpansive iterates need not converge strongly",
+          "trigger": "Exact same Gaussian feature orbit, source admissibility conditions, harmonic and power-law examples, and possible dominating convergence theorem."
+        },
+        {
+          "assessment": "Establishes the exact harmonic special case, expressly excludes nonharmonic meshes; not a dominating uniform regular-variation theorem.",
+          "evidence": [
+            "2026-10-04 published RESULT: ||y_n|| -> e^{-delta^2 pi^2/6} sqrt(int_0^1 exp(-delta^2 log(r)^2)dr), delta in (0,1/8]; Limitations explicitly restrict to harmonic mesh."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba",
+          "material_read": "Entire published RESULT.md: Finding, Assumptions, Proof, Verification, Relationship to Prior Work, Limitations, References.",
+          "method": "Read GitHub connector full pinned research RESULT.md, blob 0a0e05f0c62efe3c46c23b01f33a49694e58057f.",
+          "title": "Exact Cesàro norm limit for the harmonic firmly nonexpansive counterexample",
+          "trigger": "Same exact Gaussian Cesàro norm for harmonic d_n=delta/n; possible implication of current finite-density law."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md finding and proof, compared to Bauschke–Tung Theorem 7.6 and Example 7.7 and published harmonic-only exact result."
+      ],
+      "rationale": "The source paper established a qualitatively new nonlinear mean-ergodic obstruction and showed that one power-law mesh converges strongly, without the sharp rate. The audited theorem supplies a motivated and precise quantitative invariant of that particular constructed orbit: the natural density n*d_n controls a phase split; in the fast-mesh regime the exact constant sqrt(pi)/(1+alpha) and polynomial decay exponent distinguish different RV indices; at finite density an explicit Gaussian-logarithmic crossover F(a) includes the previously unquantified a=0 boundary. This is an exact and useful classification of convergence behavior of a specified nonlinear example, not a mere substitution into an existing constant or a generic assertion for all nonexpansive maps. It can serve as a sharp test case for quantitative ergodic and kernel-localization analyses.",
+      "residual_risks": [
+        "Applicability is intentionally limited to admissible regularly varying Gaussian meshes with an existing extended n*d_n limit; arbitrary firmly nonexpansive maps are not classified.",
+        "A broadly applicable downstream theorem is not asserted; mathematical value is the sharp, natural special-orbit phase classification itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "All six actual assigned Git objects at pinned commit, with source-tree SHA-1 independently reconstructed.",
+    "Bauschke and Tung arXiv:2605.25491v2 full primary mathematical text (June 30, 2026).",
+    "Resultary published 2026-10-04 harmonic result full RESULT.md, plus three fresh semantic searches.",
+    "Independent Gaussian Gram numerical checks and analytic finite-density integral cross-checks."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only a constructed Gaussian-kernel firmly nonexpansive orbit, not every operator.",
+    "Only positive admissible l2-not-l1 regularly varying d_n with 1/2<alpha<=1 and existing extended lim n*d_n.",
+    "The prior exact pure-harmonic case is acknowledged, not offered as new.",
+    "No formal verification or external expert attestation was performed or represented."
+  ],
+  "residual_risks": [
+    "The proof is unrestricted within its conditions but numerical finite cases are not proof of all-n limits.",
+    "A general historical kernel-localization theorem under other terminology remains a priority risk.",
+    "Publication is not ready because public pre-existing provenance and malformed source citation were not replaced with guarded final sanitized bytes."
+  ],
+  "schema_version": 1
+}

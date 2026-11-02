@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:53:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform independent parent P_t in {1,...,t-1} yields Pr(Y_j=1)=(j-1)/(n-1), Y_1=0. The off-diagonal cross-covariance of D_i with Y_j telescopes to ((j-1)/(n-1))*(1/(max(i,j)-1)-1/(n-1)), i != j >= relevant, while D_jY_j=0 yields diagonal -Pr(Y_j) sum_{t=j}^{n-1}1/t. Row summation gives Cov(D_1,L)=(n-2)/(2(n-1)) and for nonroot i Cov(D_i,L)=((n-i)(n-3))/(2(n-1)^2)-(i-1)/(n-1) sum_{t=i}^{n-1} 1/t. Exact discrete second difference 1/[i(n-1)]>0 and last nonroot point negative while endpoint a_{n,n}=0 imply one ordered sign crossing even allowing zero/empty positive block. Harmonic sums converge to f(x)=(1-x)/2+x log x, uniquely crossing zero at alpha approximately .284668. Fresh independent parent-product enumeration of every recursive tree for n=2..8 verified 203 exact rational cross-covariance entries; not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published equal-share covariance computes Cov(root outdegree,L)=(n-2)/(2(n-1)), not Cov(D_i,L) for every nonroot i.",
+          "Lodewijks studies high-degree vertex labels and depths rather than degree/global leaf-count cross covariance."
+        ],
+        "reasoning": "These prior statements are strictly narrower or on different statistics, not a general theorem dominating the proposed age threshold.",
+        "searches": [
+          "random recursive tree cross covariance birth label outdegree total number rooted leaves degree leaf age sign threshold",
+          "published root covariance 2026/10/4",
+          "Lodewijks arxiv:2204.09032"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.09032",
+        "https://arxiv.org/abs/2511.04085",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "Resultary semantic search: random recursive tree cross covariance birth label outdegree total number rooted leaves degree leaf age sign threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sum_i D_i=n-1 implies sum_i Cov(D_i,L)=0, a single linear identity across rows.",
+          "The root covariance supplies one number and cannot recover the individual age-dependent sign classification."
+        ],
+        "reasoning": "Both the root row and conservation constraint are satisfied by many nonroot arrays. The attachment-wise off-diagonal calculation is essential new information.",
+        "searches": [
+          "Equal-share covariance of root degree and leaves in a random recursive tree",
+          "random recursive tree cross covariance birth label outdegree total number rooted leaves degree leaf age sign threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete cross-covariance is equivalent to mixed moments E[D_iY_j]; root-only covariance is one special row.",
+          "The investigated labeled-degree/depth and leaf-degree results do not state mixed moments with global rooted-leaf count."
+        ],
+        "reasoning": "Aliases including degree/leaf mixed moments and attachment-survival covariance were explicitly considered; known root formulas do not determine the remaining nonroot rows.",
+        "searches": [
+          "random recursive tree cross covariance birth label outdegree total number rooted leaves degree leaf age sign threshold",
+          "Lodewijks arxiv:2204.09032",
+          "Hartle Krapivsky arxiv:2511.04085"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently checked exact all-labeled-parent finite models n2..8, but that finite table is not the all-n result.",
+          "Published formulas for global expected leaves and expected degrees alone do not give mixed covariance."
+        ],
+        "reasoning": "No exact mixed-covariance matrix/table with arbitrary label i was identified in examined sources; lack of search hit alone does not establish novelty.",
+        "searches": [
+          "random recursive tree cross covariance birth label outdegree total number rooted leaves degree leaf age sign threshold",
+          "random recursive tree moments E[D_i L] covariance tables"
+        ]
+      },
+      "rationale": "Previously published root covariance is expressly prior; its one row is not the nonroot covariance matrix. The assessed original part is the full birth-age mixed-covariance law, strict convexity and threshold alpha. Earlier labeled-degree results and leaf-distribution studies concern different statistics, although broader implicit moment formulas remain a priority risk.",
+      "residual_risks": [
+        "A broad or unindexed earlier recursive-tree joint generating function could imply the mixed moments.",
+        "Graph-theoretic leaves can count the root, unlike outdegree-zero rooted leaves here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Root case covered and not claimed new; does not state nonroot cross-covariance",
+          "evidence": "Cov(D_root,L)=(n-2)/(2(n-1))",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+          "material_read": "Published mathematical result summary and root total-covariance formula",
+          "method": "Resultary record and paper comparison",
+          "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+          "trigger": "Same model and same global rooted-leaf statistic"
+        },
+        {
+          "assessment": "Related vertex degree/label/depth laws, no displayed age-dependent global rooted-leaf covariance",
+          "evidence": "Lodewijks (2022), labeled-vertex degrees and depths",
+          "identifier_or_url": "https://arxiv.org/abs/2204.09032",
+          "material_read": "Available article introduction and the discussed degree/label/depth theorem material",
+          "method": "Primary web full-text inspection of available article pages",
+          "title": "On joint properties of vertices with a given degree or label in the random recursive tree",
+          "trigger": "Same random recursive tree and degree-by-age objects"
+        },
+        {
+          "assessment": "Different graph-theoretic leaf convention and global statistics; full-text exclusion not established",
+          "evidence": "Hartle and Krapivsky (2025), leaf-degree statistics",
+          "identifier_or_url": "https://arxiv.org/abs/2511.04085",
+          "material_read": "Search-accessible article extracts on leaf degrees and whole-tree leaf statistics; complete full document not read",
+          "method": "Partial primary-text inspection",
+          "title": "Statistics of leaves in growing random trees",
+          "trigger": "Leaf-number/age statistics in growing random trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact birth-label profile for dependence between local outdegree and global rooted-leaf abundance answers a natural question left open by root-only covariance. The asymptotic sign reversal at a canonical fraction alpha reveals that young vertices correlate positively and late nonterminal vertices negatively with leaves. The formula is a reusable structural finite and limiting invariant, not a table extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2204.09032",
+    "https://arxiv.org/abs/2511.04085",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+    "Resultary semantic search: random recursive tree cross covariance birth label outdegree total number rooted leaves degree leaf age sign threshold"
+  ],
+  "disposition": "passed",
+  "limitations": "Only independent uniform attachment, rooted outdegree-zero leaves (root excluded), and covariance, not stochastic association or nonuniform attachment.",
+  "residual_risks": [
+    "A broad or unindexed earlier recursive-tree joint generating function could imply the mixed moments.",
+    "Graph-theoretic leaves can count the root, unlike outdegree-zero rooted leaves here."
+  ],
+  "schema_version": 1
+}

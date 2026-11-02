@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The open-neighborhood condition forces one occupied square per column (or, on a square board, one per row), and each occupied parallel line has multiplicity at least two. Exact one-swap analysis freezes the support; the explicit buffer-row construction connects all bounded-fiber assignments with a spare square. The exponential enumeration and the edge formula follow by labeled counting and directed-move double counting. Full-board exhaustive checks on six small rectangles agree with an independent bounded-fiber generator through eight columns. The Desargues identification follows directly from inclusion of two- and three-subsets of a five-set.
+## correctness
 
-**Originality (O): PASS, with residual literature uncertainty.** Existing papers establish total-domination bounds and the minimum parameter, and OEIS already tabulates the optimum counts. A related full classification of *inclusion-minimal* rook total-dominating sets and results for *paired* domination do not assert the new one-replacement component structure; the latter restricts admissible configurations to induced subgraphs with perfect matchings. The inspected 2013 Cartesian-product article, 2015 rook-graph article, and 2020 reconfiguration survey do not give the exact bounded-fiber graph decomposition or five-column Desargues splitting. Semantic mathematical-record queries for these results gave no decisive earlier coverage. An unindexed equivalent reconfiguration computation remains possible.
+PASS
 
-**Mathematical value (V): PASS.** This is a natural complete reachability classification of all optimum solutions on an infinite family of Cartesian-product graphs. It gives exact sizes, edge counts, a sharp mobility transition, sharply many isolated optima, and a canonical identification of the first nontrivial components with the Desargues graph. It is not merely a recomputation of the previously known optimum cardinality or minimum-set enumerator.
+For n>=m>=3 a chosen set of fewer than m vertices leaves a row and a column empty; at size m there is a full orientation with one chosen vertex per column (or its transposition on square boards). An occupied row must have >=2 chosen squares because selected vertices must have a selected neighbor. One-square exchanges preserve occupied columns and the entire occupied-row support: deleting a square from a two-occupied row is forbidden, while no target row can be previously empty. Within support r, bounded-fiber functions provide the exact graph H_{m,r}, with connected buffer transfers for m>=2r+1, no moves for m=2r, and a singleton for r=1. The correct 2-/3-subset inclusion graph at m=5 is the Desargues graph. Count by labeled surjections L_{m,r}=m![x^m](e^x-1-x)^r and source/destination directed moves E_{m,r}=binom(r,2)*m*L_{m-1,r}. Independent fresh enumerator compared actual open-neighborhood total domination and support function graph on six rectangular boards; 5x5 yielded 410 vertices, 600 edges, 10 isolates and 20 size-20 Desargues components. The finite checks corroborate the all-order combinatorial proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The rook-graph domination literature establishes optimum size or counts but not the precise single-token replacement graph on all optimum sets. An earlier inclusion-minimal TDS classification has a larger feasible class but does not by itself yield the frozen support connectivity, Desargues components and edge formulas. No equivalent dominating exchange theorem was found in targeted Resultary and primary comparisons; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+Minimum-total-domination reconfiguration is a natural reachability problem. The theorem gives every connected component across an infinite rook-graph family, a sharp spare-vertex threshold, exact edges and a canonical Desargues transition at five columns; this is not a restatement of the known total optimum-state count. Finite check complements an explicit all-order buffer construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

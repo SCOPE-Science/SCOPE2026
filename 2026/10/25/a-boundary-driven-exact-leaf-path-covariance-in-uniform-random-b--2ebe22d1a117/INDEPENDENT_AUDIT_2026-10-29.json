@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:53:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform-permutation root split K is uniform on 0..n-1, and conditional subtree independence implies the exact mixed-moment recursion. The leaf mean ℓ_m=(m+1)/3+δ_m with δ0=-1/3,δ1=1/3 concentrates conditional-leaf regression on the four boundary splits. Using t_m=2(m+1)H_m-4m gives B_n=-4(H_{n-1}-1)/(3n); the total covariance recurrence and telescoping (n+1)c_{n+1}=(n+2)c_n-4/(3n) yield c_n=-(n+3)(n-2)/(9n) for all n>=2. Initial c0=c1=c2=0 and n2 boundary are correct. Independent new exact-rational joint-moment recurrences checked every n<=65; repository verify.py source was read (it specifies n<=100 and 46,233 permutation checks, but the source assertion is not reported as an independently rerun program). Exact recurrence, not finite checking, proves the infinite statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm5.4 establishes covariance of leaf count and internal path length asymptotically as E_R n for d=1."
+        ],
+        "reasoning": "This is genuine partial broader-model coverage of the leading order; it does not logically imply the finite-size factor -(n+3)(n-2)/(9n) or the root-boundary mechanism. Do not claim novelty of linear decay order.",
+        "searches": [
+          "Chern Fuchs Hwang Neininger Theorem 5.4 d=1 quadtree",
+          "arXiv:1501.05135v3 §5.3 generalized shape parameters"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cs.upc.edu/~conrado/research/papers/rsa-fgm97.pdf",
+        "https://arxiv.org/abs/1412.2796",
+        "https://arxiv.org/html/1501.05135v3",
+        "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/an-almost-sure-result-for-path-lengths-in-binary-search-trees/7DB82E9CDA64226213ADACBCD1A2BFF5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Root split covariance depends on δ0=-1/3,δ1=+1/3 and exact t_m difference 2(H_m-1); the resulting telescoping c_n supplies finite-n correction absent from Chern asymptotic."
+        ],
+        "reasoning": "The prior asymptotic statement may cover -n/9, and marginal formulas are known; neither yields the exact covariance without a new joint-moment recurrence and its boundary correction. Some derivation is short, but the precise boundary localization supplies nontrivial explanatory content.",
+        "searches": [
+          "Flajolet 1997 full text leaf statistics",
+          "Chern et al. 2016 Thm5.4 5.6",
+          "Cambridge path-length article abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flajolet et al. count leaves; Chern et al. explicitly cover d=1 quadtree leaf/path covariance asymptotically."
+        ],
+        "reasoning": "Equivalent d=1 quadtree or Quicksort coupling does not give an all-n exact identity merely by renaming; no exact closed rational formula found in inspected statements.",
+        "searches": [
+          "Resultary: Exact covariance number of leaves and internal path length total depths in uniform random binary search trees",
+          "web: leaf internal path length covariance binary search trees",
+          "arXiv:1501.05135v3 §5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Flajolet and Bóna-Pittel give leaf marginals; no directly matching exact table found; Resultary finds other BST root statistics."
+        ],
+        "reasoning": "An absent indexed row is not proof of novelty; the asserted contribution is an all-order symbolic joint identity rather than a new marginal leaf mean.",
+        "searches": [
+          "Resultary same statistic covariance BST leaves internal path",
+          "web: exact joint covariance leaves random BST"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact finite-size covariance and boundary-local mechanism. Chern et al. Thm5.4 explicitly covers the same d=1 statistic at leading asymptotic order, so that order alone is prior art. Source-level mathematical comparison did not find the all-n rational covariance or boundary decomposition; distinguish this limited novelty and accept with a serious residual older-literature risk.",
+      "residual_risks": [
+        "Older mixed-moment BST and Quicksort literature, especially older path-length article full text, not fully read.",
+        "The known d=1 quadtree asymptotic may have unpublished or appendix-level exact recurrence evaluations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides leaf marginals, not a finite-size leaf versus sum-of-depths joint covariance.",
+          "evidence": "PDF pp.223–244; leaf local-law and expectation sections",
+          "identifier_or_url": "https://www.cs.upc.edu/~conrado/research/papers/rsa-fgm97.pdf",
+          "material_read": "Author 22-page PDF: definitions and exact leaf mean/variance plus local law and generating-function discussion",
+          "method": "Read primary PDF and inspect page image; compare statistics and hypotheses",
+          "title": "Patterns in Random Binary Search Trees",
+          "trigger": "Same unbalanced BST model and fringe/leaf counts"
+        },
+        {
+          "assessment": "Studies rank from leaves and exact/asymptotic marginals; not the asserted mixed moment.",
+          "evidence": "arXiv:1412.2796 §§1–3",
+          "identifier_or_url": "https://arxiv.org/abs/1412.2796",
+          "material_read": "Full arXiv HTML introduction, rank distribution results and search for path-length mixed statistic",
+          "method": "Compare random-tree definition, rank-zero count, and main theorems",
+          "title": "On a random search tree: asymptotic enumeration of vertices by distance from leaves",
+          "trigger": "Same model and number of rank-zero (leaf) vertices"
+        },
+        {
+          "assessment": "Theorem 5.4 covers Cov(L_n,Ξ_n) ∼ E_R n at d=1 (possibly the leading -n/9 coefficient); it does not give the exact rational expression at every n or the boundary-split conditional covariance. §5.3 general toll recurrences are asymptotic, not the exact output.",
+          "evidence": "arXiv:1501.05135v3 §5.2 Thm5.4 d=1 and §5.3",
+          "identifier_or_url": "https://arxiv.org/html/1501.05135v3",
+          "material_read": "Full primary HTML: main m-ary scope, §5.1, §5.2 and Theorems 5.4,5.6, §5.3",
+          "method": "Compare d=1 quadtree reduction and covariance conclusions by logical implication, not mere title",
+          "title": "Dependence and phase changes in random m-ary search trees",
+          "trigger": "Most dangerous source: §5.2 treats leaf/path covariance of d-dimensional quadtrees including d=1"
+        },
+        {
+          "assessment": "Not enough full text to exclude hidden mixed covariance; named residual risk, not treated as a negative proof.",
+          "evidence": "Cambridge primary abstract, publication page",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/an-almost-sure-result-for-path-lengths-in-binary-search-trees/7DB82E9CDA64226213ADACBCD1A2BFF5",
+          "material_read": "Journal bibliographic abstract and published summary only; full article not obtained",
+          "method": "Compare model and stated path-length limit",
+          "title": "An almost sure result for path lengths in binary search trees",
+          "trigger": "Same internal path-length statistic in random BSTs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite-n dependence measure for terminal stored vertices and total search cost, with a sharp negative sign for every n>=3, explicit O(n) anticovariance and exact zero boundary. Boundary-support explanation reveals why conditional leaf count varies only at extreme split sizes. This is more than marginal means, a table recomputation, or a bare sign check, even though the leading asymptotic was known.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cs.upc.edu/~conrado/research/papers/rsa-fgm97.pdf",
+    "https://arxiv.org/abs/1412.2796",
+    "https://arxiv.org/html/1501.05135v3",
+    "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/an-almost-sure-result-for-path-lengths-in-binary-search-trees/7DB82E9CDA64226213ADACBCD1A2BFF5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform insertion permutation, unbalanced BST, stored leaves (not external null pointers), n>=2; only mixed covariance, not negative association or other models."
+  ],
+  "residual_risks": [
+    "Leading d=1 linear-order covariance known in Chern et al. 2016; finite-size exact novelty narrower than manuscript comparison suggests.",
+    "Potential historically published exact covariance under Quicksort/fringe-size terminology not fully excluded."
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T11:53:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, blob ed143ac7acd0e033c2d9fb1735425fe3b63f5f52, entire statement, hypotheses, proof steps (1)-(10), limitations and references",
+        "Assigned checker.py, blob 1d4989bc8ea2b0f63cc54e1c258ac18657d3091b, entire inspected source; not used as a black-box certification",
+        "Seven pinned Git blobs comprising assigned tree af736b7f412aa18fbb21073e8ceb0bc0dc15cdb8, reconstructed with canonical Git tree serialization",
+        "Fresh, independently written 2026-10-29 SymPy exact algebra and SciPy finite-section check, /tmp/scope07_independent.py and separate numerical quadrature script (private transient verification).",
+        "Ciesielski–Kamont 2004 eq. (4.6) independent full-line inverse Gram formula"
+      ],
+      "rationale": "For all 0<t<1 in the full-line integer-grid continuous piecewise-affine L2 spline space, inserting t adds precisely one tent direction h_t. Orthogonalizing gives nonzero g_t=h_t−Ph_t and the exact rank-one difference Q_t f=<f,g_t>g_t/||g_t||_2^2. The integer-hat Gram matrix has diagonal 2/3 and off-diagonals 1/6; its inverse sqrt(3)(−q)^|j−k| with q=2−sqrt(3) satisfies both diagonal normalization and the off-diagonal recurrence and is bounded on ell2. Thus the coefficients c0,c1 and their two alternating geometric tails follow. The new nodal value d=1/2+(sqrt(3)−1)t(1−t) is strictly larger than |c_j| at old knots, so ||g_t||_infinity=d. By orthogonality E=||g_t||_2^2=[sqrt(3)+2(sqrt(3)−1)t(1−t)]/12>0. Integrating all infinite alternating tails as a geometric series plus the two sign-changing cell segments yields B=||g_t||_1, exactly equation (8). Symmetry of the kernel and an L∞ sign witness give both endpoint operator norms dB/E; L1 equality follows by duality/approximating a concentration at its maximum. Fresh independent exact SymPy algebra verifies reduction to the stated rational R(u), with u=t(1−t), and the identity R'(u)=3J(u)/H(u)^2; every coefficient of H,J is positive at sqrt(3), so R strictly increases over [0,1/4], with endpoint 2 and unique t=1/2 maximum 27/26+45sqrt(3)/52=2.537351660396... . A separately written SciPy 101-hat finite-section Gram system with independent piecewise absolute integrals agrees with exact formulas to <1e−12 for t=.001,.137,.5,.731,.999. These experiments validate computed identities, not replace the proof for the infinite line.",
+      "residual_risks": [
+        "Finite-section quadratures were performed only at five interior knots; unrestricted validity rests on the exact inverse/series and symbolic rational identity.",
+        "No formal Lean or independent human expert verification was performed; the analytic argument and algebraic checks were directly reconstructed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciesielski–Kamont 2004 determines max whole-projector Lebesgue constant 2+(2−sqrt(3))^2 and proves the full-line integer-knot whole projector has norm 2 (Lemma 4.3).",
+          "Passenbrunner 2011 studies periodic whole projectors with partially uniform knot grids and gives supremum 2+(33−18sqrt(3))/13, a different operator and domain.",
+          "Passenbrunner 2012 Theorem 1.1 gives a geometric-decay upper estimate for inverse Gram entries with constants depending on spline order, not an exact rank-one increment norm.",
+          "Published Resultary 2026-10-11 hat-spline Gabor frame bounds concern time-frequency frame operators, not inserting one spline knot; 2026-10-04 affine simplex projector concerns a finite simplex, not cardinal line splines."
+        ],
+        "reasoning": "General full projector norm bounds, periodic whole projector constants, Gabor-frame estimates, or entrywise Gram inverse bounds do not determine the sharp norm of the difference of two nested full-line projectors. They can inform its calculation, but no examined stronger result yields the entire function R(u) and its strict maximum as an immediate corollary.",
+        "searches": [
+          "Web: Ciesielski Kamont 2004 Lebesgue constants Franklin orthogonal system full PDF, DOI 10.4064/sm164-1-4, §4",
+          "Web: Passenbrunner The Lebesgue Constant for the Periodic Franklin System arXiv:1103.1950, main theorem and §4",
+          "Web: Passenbrunner Pointwise estimates for B-spline Gram matrix inverses arXiv:1212.2777, Theorem 1.1",
+          "Resultary semantic: piecewise linear splines sharp projector norm refinement a single knot L infinity projector differences inverse gram, 17 hits"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches of published findings on 2026-10-29: spline one-knot rank-one increment and sharp endpoint norms, results compared to target object and parameters.",
+        "SCOPE-Science/SCOPE2026 GitHub code search: Franklin refinement increment norm, no results in default-branch index, not proof of absence.",
+        "Ciesielski–Kamont 2004, DOI 10.4064/sm164-1-4, accessible primary PDF relevant mathematical sections.",
+        "Passenbrunner 2011, arxiv:1103.1950, accessible primary PDF relevant mathematical sections.",
+        "Passenbrunner 2012, arxiv:1212.2777, accessible primary PDF relevant theorem and preliminaries.",
+        "Bechler 2003 DOI 10.1016/S0021-9045(03)00030-3, no verified primary full text (only secondary references); institutional VPN disconnected."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2004 paper explicitly computes P onto integer-knot full-line space (norm 2) and onto a whole half-mesh-matched full-line space (norm 2+(2−sqrt(3))^2); it does not state ||P_t−P|| for arbitrary t.",
+          "The periodic paper concerns P_{n,nu} on the torus and supremum over knot-pattern parameters, not the L1 and Linfinity norm of the rank-one full-line one-knot update.",
+          "General inverse-decay estimates cannot yield sharp nontrivial monotonicity without additional calculations of the new vector and its L1, L2, Linfinity norms.",
+          "Bechler 2003 may contain related normalized-wavelet calculations. Because the complete primary text was inaccessible, no whole-document NOT_COVERING claim is made."
+        ],
+        "reasoning": "An exact whole-projector norm bound for P or P_t does not algebraically determine ||P_t−P||, and published whole projector constants are numerically and structurally distinct. The current proof supplies a new nontrivial exact single-vector norm analysis and a strict derivative certificate. Inaccessible material is an explicit priority risk rather than a scientific failure by itself.",
+        "searches": [
+          "Ciesielski–Kamont 2004, full primary PDF DOI 10.4064/sm164-1-4, equations (2.10)-(2.12), (4.6), Lemma 4.3 and Corollary 4.6",
+          "Passenbrunner 2011 arXiv:1103.1950, Introduction, main theorem and projector Gram analysis",
+          "Passenbrunner 2012 arXiv:1212.2777, Theorem 1.1 and inverse-Gram preliminaries",
+          "Bechler 2003 DOI 10.1016/S0021-9045(03)00030-3, bibliographic/secondary summaries only; lawful preprint/OA search, institutional retrieval blocked"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The orthogonal refinement increment has kernel g_t(x)g_t(y)/||g_t||_2^2; equivalently this is the coordinate projection onto the normalized Franklin/Strömberg refinement wavelet, with norm ||g_t||_1||g_t||_infinity/||g_t||_2^2.",
+          "Ciesielski–Kamont 2004 formulas (2.10)-(2.12) and §4 identify norms of entire spline-space projectors P, not isolated rank-one differences P_t−P.",
+          "The exact constant 27/26+45sqrt(3)/52 and numerical decimal 2.537351660 did not identify a prior equivalent formula in the actual queries; a negative keyword search does not prove novelty."
+        ],
+        "reasoning": "Wavelet terminology changes the representation, not the invariant; coverage would include any prior formula for the L1*Linf norm of the same normalized one-knot spline wavelet. The inspected whole-projector analyses do not compute that product for arbitrary insertion location, but Bechler 2003 cannot be excluded without full text.",
+        "searches": [
+          "Web fast: sharp norm orthogonal projection difference knot insertion piecewise linear spline rank one Lebesgue constant (2026-10-29)",
+          "Web fast: single Franklin function L1 L infinity product normalized wavelet norm 2.537 (2026-10-29)",
+          "Web fast: 27/26 45 sqrt(3) Franklin wavelet; 2.537351660 spline wavelet (2026-10-29)",
+          "Resultary semantic: Franklin spline single knot insertion rank-one orthogonal projector difference L1 Linfinity norm t(1-t), 14 hits",
+          "Z. Ciesielski and A. Kamont (2004), DOI 10.4064/sm164-1-4, sections 1,2,4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claimed invariant is a real-parameter family over 0<t<1 rather than a canonical finite tabulation.",
+          "The nearest published numerical sharp constants 2+(2−sqrt(3))^2 and 2+(33−18sqrt(3))/13 refer to different whole projectors; neither equals the claimed midpoint constant 2.537351660396..."
+        ],
+        "reasoning": "A finite exact database/table is not naturally the statement here; the relevant possible prior coverage is a closed formula or theorem about the wavelet rank-one kernel. No matching exact constant/table was identified by the actual search; this is not asserted to rule out unindexed tables or alternate normalizations.",
+        "searches": [
+          "Web fast: 2.537351660 spline wavelet; 27/26 45 sqrt(3) Franklin wavelet",
+          "Web fast: sharp operator norm L infinity difference of nested orthogonal piecewise linear spline projections inserted knot",
+          "Resultary semantic results for spline refinement increment and projector endpoint norms"
+        ]
+      },
+      "rationale": "Best-of-knowledge original narrow result: the stated continuous-position rank-one refinement-increment norm R(t(1-t)) and strict unique midpoint maximum differ from published whole-projector Lebesgue constants, periodic projection norms, and inverse-Gram decay inequalities. The key equivalence to an individual normalized Franklin/Strömberg wavelet projection was explicitly checked, not treated as a different object. In the relevant accessible primary mathematical sections no dominating theorem or explicit formula giving this exact one-step norm and monotonicity was found. Historical priority is not certified; the most plausible 2003 Strömberg-wavelet article remained inaccessible in full, and was not represented as NOT_COVERING.",
+      "residual_risks": [
+        "The full original Bechler (2003) Strömberg-wavelet paper, the strongest potential source of a previously known rank-one component formula, was inaccessible because institutional VPN was disconnected; historical equivalence remains possible.",
+        "Older unconditionality constants or single-wavelet coefficient-projection results under alternate basis normalization were not exhaustively ruled out.",
+        "Published SCOPE/Resultary semantic search and keyword search are incomplete by nature; no global priority certificate follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the stated arbitrary-position isolated rank-one increment norm and its strict unique midpoint maximum in the inspected relevant mathematical sections.",
+          "evidence": "§4 obtains the full-line integer-knot projector norm 2 and half-mesh mixed-grid whole-projector norm 2+(2−sqrt(3))^2. Equation (4.6) independently supports the alternating full-line Gram inverse used as input to the new proof.",
+          "identifier_or_url": "Z. Ciesielski and A. Kamont, Studia Math. 164 (2004), 55–73, doi:10.4064/sm164-1-4, https://www.impan.pl/shop/en/publication/transaction/download/product/90654",
+          "material_read": "Primary PDF accessible; abstract, §1–2 and mathematical §§4.1–4.2, including (2.10)–(2.12), (4.6), Lemma 4.3 and Corollary 4.6; inspected relevant pages visually.",
+          "method": "Compared projector kernels, norm targets, full-line Gram inverse, and partially refined knot families to P_t−P.",
+          "title": "The Lebesgue constants for the Franklin orthogonal system",
+          "trigger": "Exact Franklin whole-projector Lebesgue constants and full-line uniform knot inverse Gram matrix, closest underlying objects."
+        },
+        {
+          "assessment": "NOT_COVERING the exact full-line rank-one increment norm and continuous single-knot position extremality in the inspected relevant sections.",
+          "evidence": "Main theorem identifies supremum whole-periodic-projector constant 2+(33−18sqrt(3))/13; no claim for the separate one-step difference kernel.",
+          "identifier_or_url": "M. Passenbrunner, arXiv:1103.1950 (2011), https://arxiv.org/pdf/1103.1950",
+          "material_read": "Accessible 25-page primary PDF, introduction, main theorem, §4 proof outline and selected inverse-Gram/whole-projection formulas; main theorem page visually inspected.",
+          "method": "Matched the domain (torus rather than real line), operator (whole P_{n,nu} rather than P_t−P), and quantified parameters.",
+          "title": "The Lebesgue Constant for the Periodic Franklin System",
+          "trigger": "Sharp partially uniform spline projector constants and possible stronger parameterized theorem."
+        },
+        {
+          "assessment": "NOT_COVERING the sharp one-insertion difference norm; provides upper estimates for matrix inverse entries.",
+          "evidence": "Theorem 1.1 states |b_ij|<=K gamma^{|i-j|}/eta_ij, not an equality for a rank-one update norm.",
+          "identifier_or_url": "M. Passenbrunner, arXiv:1212.2777 (2012), https://arxiv.org/pdf/1212.2777",
+          "material_read": "Accessible primary PDF introduction, Theorem 1.1, preliminaries, and iteration discussion; first page visually inspected.",
+          "method": "Compared the exact Toeplitz inverse and norm formula with geometric-decay inequality and its constants.",
+          "title": "Pointwise estimates for B-spline Gram matrix inverses",
+          "trigger": "Generic Gram inverse bounds could dominate the exact geometric inverse argument."
+        },
+        {
+          "assessment": "UNINSPECTED_FULL_TEXT, material unresolved historical-priority risk; no assertion of NOT_COVERING.",
+          "evidence": "Ciesielski–Kamont §4 credits Bechler with norms for whole integer-knot projection and Franklin–Strömberg cumulative wavelet Lebesgue constant 2+(2−sqrt(3))^2; this does not establish whether single wavelet rank-one norm is also computed.",
+          "identifier_or_url": "P. Bechler, Journal of Approximation Theory 122 (2003), 13–23, doi:10.1016/S0021-9045(03)00030-3",
+          "material_read": "Only title, bibliographic record, and descriptions of its main global Lebesgue constant in Ciesielski–Kamont 2004 and Passenbrunner 2011; full original text not accessible. arXiv/OA search did not surface a lawful full text; authorized institutional download reported vpn_disconnected.",
+          "method": "Restricted comparison to actually accessible descriptions; did not claim the full article had been read or exclude a hidden formula.",
+          "title": "Lebesgue constant for the Strömberg wavelet",
+          "trigger": "Most plausible equivalent normalized Franklin/Strömberg wavelet norm formulation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md, blob ed143ac7acd0e033c2d9fb1735425fe3b63f5f52, entire statement, hypotheses, proof steps (1)-(10), limitations and references",
+        "Published Ciesielski–Kamont 2004 whole projector norms contrasted with rank-one sensitivity",
+        "Passenbrunner 2011 periodic whole projection comparison",
+        "Fresh exact derivative sign and finite-section checks"
+      ],
+      "rationale": "The operator Q_t isolates the new L2 spline component released by a single interior knot; its norm is a direct worst-case amplification measure relevant to stability of adaptive piecewise-linear least-squares refinement. Optimizing knot location over an entire continuum is intrinsic to the object, not an arbitrary finite slice. The exact closed R(t(1−t)), strict midpoint extremizer, and precise t→0/1 limit provide sharp structural information unavailable from bounds for either whole projection alone. The result is a mathematically complete narrow stability classification; no broad adaptive algorithm, all-mesh or high-degree extension is claimed.",
+      "residual_risks": [
+        "Application to actual adaptive refinement sequences or nonuniform parent grids is not established and must not be implied.",
+        "Some formulation may be known in wavelet coefficient stability literature; this is an originality risk not a reason to reject intrinsic value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, blob ed143ac7acd0e033c2d9fb1735425fe3b63f5f52, entire statement, hypotheses, proof steps (1)-(10), limitations and references",
+    "Assigned checker.py, blob 1d4989bc8ea2b0f63cc54e1c258ac18657d3091b, entire inspected source; not used as a black-box certification",
+    "Assigned AUDIT.json blob ce39e5bff2a7cab0ab0b182fdea92070c8b395ca, metadata/review/verification, read as historical evidence not independent judgment",
+    "Seven pinned Git blobs comprising assigned tree af736b7f412aa18fbb21073e8ceb0bc0dc15cdb8, reconstructed with canonical Git tree serialization",
+    "Fresh, independently written 2026-10-29 SymPy exact algebra and SciPy finite-section check, /tmp/scope07_independent.py and separate numerical quadrature script (private transient verification)."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Claim covers t in (0,1) and full-line uniform piecewise-affine spline space only; it does not give refined whole-projector norms, arbitrary grids, degree>1 or all p-norms.",
+    "A published plausible primary Strömberg wavelet paper could not be read fully due to disconnected VPN; originality is expressly qualified.",
+    "Current publication readiness is not scientific status; public administrative provenance must be sanitized before any external publication."
+  ],
+  "residual_risks": [
+    "Bechler 2003 exact single-wavelet component formula might supply prior coverage despite accessible whole-projection summaries.",
+    "No GitHub repository modification, publication or external mathematical certification occurred."
+  ],
+  "schema_version": 1
+}

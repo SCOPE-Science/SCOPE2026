@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope of checks
 
-Run `python3 verify.py` in the directory containing the bundled verifier. Only Python's standard library is required. Compare its output with `verify_output.txt`.
+# Independent mathematical audit
 
-The checker constructs an explicit undirected simple graph for each ordered tuple of two through four cycle lengths in the range 3–7 whose total edge count is at most 15. For each graph it enumerates all edge subsets, tests the definition of a perfect edge dominating set edge-by-edge, records the number of selected spokes, and separately identifies dominating induced matchings by pairwise edge nonincidence.
+## correctness
 
-The predicted bivariate coefficient table is independently obtained from the binomial closed form, not from the graph enumeration. The checker tests both the exact polynomial and the modular DIM formula. The recorded verification covered 132 graph tuples with 1,679 PED sets and 30 DIMs; the largest tested graph has 15 edges. These tests verify finite cases only. They do not establish the general formula or novelty. All universal assertions instead depend on the explicit proof in `RESULT.md`.
+PASS
 
-The comparison with the 2026 generalized-series-parallel counting algorithm is a bibliographic assessment, not a machine-certified originality result. Independent audit and external validation are not performed.
+For a bouquet of k>=2 cycles with lengths >=3, an unselected spoke sees every selected hub spoke, so hub-spoke count can only be 0,1,2k. In every case omitted internal edges require exactly one adjacent selected edge; zero runs of the boundary-1 binary row are of length precisely two, giving F_n(z)=sum_j binomial(n-2j+1,j)z^{n-2j}. Hub boundary conditions yield G_1=z, G_n=z^2 F_{n-2}, J_1=1, J_n=z F_{n-2}, H_1=H_2=0, H_3=z, H_n=z^2 F_{n-4}, and the three-term bivariate product formula. Imposing nonadjacency on selected edges forces unique three-periodic patterns and the exact modulo-3 DIM formula, with values 0,1,2. Fresh independent direct edge-subset enumeration verified every bivariate coefficient on 93 ordered bouquets with 3..7 length petals and <=14 edges, totaling 1048 PED and 23 DIM sets. These bounded tests do not replace the unrestricted case split proof.
+
+## originality
+
+PASS
+
+A 2026 primary paper gives a general linear-time algorithm for total PED and DIM counts on generalized series-parallel graphs (therefore including cycle bouquets). Those known unrefined totals are not original. The exact bivariate cardinality-plus-hub-spoke polynomial and modulo-three 0/1/2 formula are a structural specialization not explicitly established by the accessible source material. A semiring-weight extension of the GSP dynamic program could recover coefficient data; risk is explicitly retained and prevents absolute-priority claims.
+
+## value
+
+PASS
+
+Single-hub bouquets are a natural cactus/GSP subfamily with interacting hub constraints. The explicit product factorization enumerates every size and hub-spoke refinement, and the sharp 0/1/2 DIM residue classification is a useful all-length structural theorem. Its value is not a new complexity result, and the known unrefined GSP total-count algorithm is conceded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

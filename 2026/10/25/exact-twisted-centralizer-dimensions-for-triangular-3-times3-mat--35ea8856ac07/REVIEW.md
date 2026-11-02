@@ -1,11 +1,21 @@
-# Scientific review of the triangular twisted-centralizer census
+# Independent mathematical audit
 
-**Correctness.** The six scalar equations obtained from \(AB=\omega BA\) identify a six-dimensional nullity problem. The proof partitions all matrices by exactly zero, one, two, or three nonzero diagonal entries, explicitly resolves the exceptional off-diagonal conditions, and counts the resonant nonzero triples. It verifies that the seven stratum totals sum to \(q^6\), and weights each by its kernel size. Finite-field enumeration over \(\mathbb F_4\), \(\mathbb F_5\), and \(\mathbb F_7\) agrees. This supports correctness for the exact stated hypotheses; omitted twists are not addressed.
+## correctness
 
-**Originality.** Markova (2026) describes connectivity, vertices, and diameters of precisely the relevant graph but not the complete nullity census or exact field-polynomial arc count. Huang (2022) counts pairs in the full matrix algebra, not both factors constrained to the same upper-triangular subalgebra. The twisted-centralizer-code literature likewise treats unrestricted matrices. The related published finite-field commutator census identified during comparison concerns a different matrix operator, not this triangular twisted equation. No inspected statement determines the seven numbers by a stronger direct theorem. Equivalently formulated, unindexed prior enumeration remains a residual risk, not a proven absence.
+PASS
 
-**Value.** The first weakly connected upper-triangular case of Markova's directed graph has a natural unresolved quantitative invariant: every out-neighborhood size is determined by \(\dim C_\omega(A)\). The theorem gives every possible value and its exact multiplicity, the complete arc count, and a non-obvious independence from the multiplicative order of the twist, even in characteristic two. This goes beyond testing isolated matrices or computing a selected small example. It does not claim a general \(n\)-variable classification.
+PASS: Reconstructed the six linear scalar equations for AB=ωBA in T_3(F_q), including the diagonal equations (1-ω)au=(1-ω)bv=(1-ω)cw=0, two adjacent-entry equations and one (1,3)-entry equation. Splitting by zero, one, two, or three nonzero diagonal entries and checking the resonances a=ωb, b=ωc, a=ωc yields the seven N_d polynomials. The three resonance equalities cannot hold simultaneously for ω≠1, and a two-resonance stratum requires the extra x=0 or y=0 condition precisely where specified. The symbolic totals sum to q^6; weighted by q^d, they give q^3(2q-1)(11q²-15q+5) ordered pairs. Subtract 2q^6-1 zero-factor pairs for the directed nonzero graph. Independently recomputed all 4^6=4096 A over F4 with ω of order three by row reduction of the six-by-six system: nullity counts [576,2016,1296,180,24,3,1], 54208 pairs, matching formulas. Finite verification cannot establish arbitrary finite fields; the complete stratum proof supplies that extension.
 
-**Literature and limitations.** The nearest papers are Markova, DOI `10.13001/ela.2026.9879`; Huang, arXiv:2110.15570; and Alahmadi–Glasby–Praeger et al., arXiv:1607.05838 and 1608.04079. The final claim concerns only upper-triangular \(3\times3\) matrices, prime-power \(q\ge4\), and \(\omega\notin\{0,1,-1\}\). Specialized earlier formulas might be unindexed; no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): the exact nullity distribution for the fixed flag-preserving triangular algebra and resulting directed graph arc census is distinct from published vertex/connectivity results and from unrestricted quantum-plane pair enumeration. A same-size obscure specialized census remains possible.
+
+## value
+
+PASS
+
+PASS: The first nontrivial weakly connected triangular ω-commuting graph has a natural quantitative invariant, the distribution of twisted-centralizer dimensions/outdegrees and its total arc count. Seven exact q-polynomials and independence of the nontrivial twist order are structural information not supplied by connectivity or a finite special example; they can support enumeration and graph comparisons. Does not promise higher rank or all twists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

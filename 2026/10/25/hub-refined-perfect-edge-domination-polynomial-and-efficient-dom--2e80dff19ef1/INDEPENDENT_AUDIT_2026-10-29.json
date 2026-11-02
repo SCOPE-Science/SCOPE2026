@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T17:51:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a bouquet of k>=2 cycles with lengths >=3, an unselected spoke sees every selected hub spoke, so hub-spoke count can only be 0,1,2k. In every case omitted internal edges require exactly one adjacent selected edge; zero runs of the boundary-1 binary row are of length precisely two, giving F_n(z)=sum_j binomial(n-2j+1,j)z^{n-2j}. Hub boundary conditions yield G_1=z, G_n=z^2 F_{n-2}, J_1=1, J_n=z F_{n-2}, H_1=H_2=0, H_3=z, H_n=z^2 F_{n-4}, and the three-term bivariate product formula. Imposing nonadjacency on selected edges forces unique three-periodic patterns and the exact modulo-3 DIM formula, with values 0,1,2. Fresh independent direct edge-subset enumeration verified every bivariate coefficient on 93 ordered bouquets with 3..7 length petals and <=14 edges, totaling 1048 PED and 23 DIM sets. These bounded tests do not replace the unrestricted case split proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grippo–Lin–Moyano–Vera (2026) explicitly provide linear-time total counts for PED and DIM on GSP graphs, which include these bouquets.",
+          "P6-free algorithm applies to a different restricted family and does not cover all bouquets.",
+          "Lu–Ko–Tang 2002 develops optimization and structural algorithms; full publisher text inaccessible."
+        ],
+        "reasoning": "The general algorithm covers unrefined counts at each fixed bouquet, so that part is known. The new evaluation is explicit all-coefficient symbolic hub refinement and structural 0/1/2 classification, not any claim of improving complexity.",
+        "searches": [
+          "arxiv:2607.03894 generalized series parallel perfect edge dominating set counting",
+          "arxiv:2509.04598 P6-free PED counting",
+          "Lu Ko Tang 2002 perfect edge domination generalized series parallel"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2607.03894 abstract/metadata and indexed GSP method summaries",
+        "arxiv:2509.04598 abstract",
+        "doi:10.1016/S0166-218X(01)00198-6 indexed source",
+        "Resultary semantic query recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic DP counts unweighted PED and DIM in linear time.",
+          "The three-case hub split is a direct combinatorial decomposition into 0,1,2k spoke states with exact local F,G,H,J factors."
+        ],
+        "reasoning": "A weighted-semiring lift of a full GSP recurrence would mechanically compute refined polynomials, but a general computability method is not shown to imply the displayed closed formula or 0/1/2 residue classification without additional specialization and proof. This is substantial residual overlap.",
+        "searches": [
+          "arxiv:2607.03894 general GSP DP terminal-state recurrences",
+          "weighted PED GSP exact symbolic generating function extension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bouquets are one-point unions of cycles, sometimes called floral cacti or rose graphs.",
+          "The polynomial records all cardinality and hub-spoke counts; the DIM criterion is a 3-residue condition on every petal."
+        ],
+        "reasoning": "A graph-product expression under flower/rose/bouquet aliases would count as equivalent; searches yielded no documented identical bivariate factorization.",
+        "searches": [
+          "Resultary semantic finding search: perfect edge domination polynomial cycle bouquet flower graph hub spokes efficient edge dominating matchings enumeration",
+          "\"dominating induced matching\" \"flower graph\" cycle bouquet modulo 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching closed bivariate table was identified in accessible search.",
+          "Fresh direct enumeration verified 93 bouquet tuples and all bivariate coefficients; source gives 132-tuples independent witness."
+        ],
+        "reasoning": "A numerical table or general counting algorithm may compute each specialized total but does not on its face identify universal coefficient factorization or its sharp residue pattern.",
+        "searches": [
+          "cycle bouquet PED DIM number mod3 0 1 2",
+          "\"perfect edge dominating sets\" cycle bouquet generating polynomial",
+          "Resultary semantic finding search: perfect edge domination polynomial cycle bouquet flower graph hub spokes efficient edge dominating matchings enumeration"
+        ]
+      },
+      "rationale": "A 2026 primary paper gives a general linear-time algorithm for total PED and DIM counts on generalized series-parallel graphs (therefore including cycle bouquets). Those known unrefined totals are not original. The exact bivariate cardinality-plus-hub-spoke polynomial and modulo-three 0/1/2 formula are a structural specialization not explicitly established by the accessible source material. A semiring-weight extension of the GSP dynamic program could recover coefficient data; risk is explicitly retained and prevents absolute-priority claims.",
+      "residual_risks": [
+        "GSP terminal-state dynamic programming may admit a standard weighted-semiring specialization yielding equivalent bivariate counts.",
+        "Full Grippo–Lin–Moyano–Vera 2026 paper and Lu–Ko–Tang 2002 paper could not be inspected because available institutional access was disconnected; noncoverage is not certified.",
+        "An older flower/cactus exact formula may exist under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_UNREFINED_COVERAGE; FULL_TEXT_UNREAD",
+          "evidence": [
+            "Paper asserts O(n+m) PED and DIM counts for GSP graphs; complete treatment of possible weighted refinements was not read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.03894",
+          "material_read": "arXiv abstract, public metadata and indexed structured descriptions of GSP terminal-state DP; primary full text inaccessible",
+          "method": "arXiv/OA attempts; authorized institutional request returned vpn_disconnected; read abstract and indexed summary",
+          "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+          "trigger": "closest published general GSP counting theorem, includes bouquets"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_CLASS",
+          "evidence": [
+            "Counting method constrained to P6-free; not all cycle bouquets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.04598",
+          "material_read": "Abstract and publication metadata, algorithmic claim for P6-free graphs",
+          "method": "arXiv abstract/index",
+          "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+          "trigger": "possible older counting coverage"
+        },
+        {
+          "assessment": "POSSIBLE_PRIORITY_SOURCE_NOT_FULLY_READ",
+          "evidence": [
+            "Cannot assert whole-document absence of equivalent structural formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(01)00198-6",
+          "material_read": "Citation, title, scope and bibliographic snippets only; full text inaccessible",
+          "method": "OA search and authorized institutional request returned vpn_disconnected",
+          "title": "Perfect edge domination and efficient edge domination in graphs",
+          "trigger": "2002 foundational generalized series-parallel methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Single-hub bouquets are a natural cactus/GSP subfamily with interacting hub constraints. The explicit product factorization enumerates every size and hub-spoke refinement, and the sharp 0/1/2 DIM residue classification is a useful all-length structural theorem. Its value is not a new complexity result, and the known unrefined GSP total-count algorithm is conceded.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2607.03894 abstract/metadata and indexed GSP method summaries",
+    "arxiv:2509.04598 abstract",
+    "doi:10.1016/S0166-218X(01)00198-6 indexed source",
+    "Resultary semantic query recorded above",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/c9e3884a81ba7a1c41202104d433b8bf09aa8036/2026/10/25/hub-refined-perfect-edge-domination-polynomial-and-efficient-dom--2e80dff19ef1",
+    "source RESULT.md and actual verification scripts read by Git blob identity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite simple bouquets k>=2, petal sizes>=3, exact PED and DIM semantics; not all cactus/GSP graphs. Prior GSP algorithm already computes total counts. Full relevant 2026 and 2002 texts unavailable; residual origin risk."
+  ],
+  "residual_risks": [
+    "GSP terminal-state dynamic programming may admit a standard weighted-semiring specialization yielding equivalent bivariate counts.",
+    "Full Grippo–Lin–Moyano–Vera 2026 paper and Lu–Ko–Tang 2002 paper could not be inspected because available institutional access was disconnected; noncoverage is not certified.",
+    "An older flower/cactus exact formula may exist under different terminology."
+  ],
+  "schema_version": 1
+}

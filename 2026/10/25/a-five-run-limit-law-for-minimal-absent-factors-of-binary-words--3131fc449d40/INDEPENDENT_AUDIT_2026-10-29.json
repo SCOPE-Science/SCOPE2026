@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:55:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all a,b,c,d,e>=1 the bridge 01^k0 is a minimal absent contiguous factor exactly for 1<=k<=max(b,d), k not one of b,d; 10^k1 occurs exactly for 1<=k<=max(c,min(a,e)), k!=c. Their disjoint count is T+M-1-|{b,d}|. The prior proved RLE five-type bounds give at most 2 unary, 0 missing two-letter factors, 196 type-four, 10 type-five residual factors, hence 0<=R<=208. The fixed-dimensional positive-composition grid converges to Dirichlet(1,1,1,1,1); continuity and bounded error yield weak convergence and all fixed moment convergence. For selected j simplex coordinates, E[min]=1/(5j), so E[max(C,min(A,E))]=7/30 and E[max(B,D)]=3/10; piecewise-affine rational simplex lattice sums yield E[N_n]=(8/15)n+O(1). Independently enumerated all 1024 quintuplets with each run in 1..4, constructing factors afresh; exact bridge family and remainder checked, max observed remainder 7. Read actual verify.py (3125-case planned checker); its output is not substituted for proof. Domain five positive runs, n>=5, linear contiguous factors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akagi Lemma 4 and Lemma 5 show O(m^2) type-four and O(m) type-five bounds; at m=5 they imply the residual 208.",
+          "arxiv:1509.05188 genome-like sequence model, only abstract read."
+        ],
+        "reasoning": "The general deterministic RLE theorem covers the bounded-remainder ingredient, and is fully credited; it does not specify the Dirichlet(1^5) law, so there is no complete prior implication without a new composition probability calculation.",
+        "searches": [
+          "minimal absent words binary run-length encoding five runs uniform composition count Dirichlet limit law Akagi",
+          "Akagi Okabe Mieno Nakashima Inenaga Minimal Absent Words on Run-Length Encoded Strings arxiv 2202.13591"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2202.13591 primary PDF with page-image checks",
+        "arxiv:1707.04450 arXiv result",
+        "arxiv:1509.05188 relevant full HTML Sections 1–2",
+        "Resultary query: minimal absent words binary run-length encoding five runs uniform composition count Dirichlet limit law Akagi",
+        "assigned RESULT.md and verify.py at snapshot 75a66f8",
+        "independent finite 1024-case factor enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing bridge enumeration and type bounds directly entail a uniform O(1) residual for fixed five runs.",
+          "The uniform-simplex measure, continuous max/min functional and its moments are additional steps not given by the deterministic RLE statements."
+        ],
+        "reasoning": "Akagi implies the structural component, not the complete distributional/mean statement as a stated corollary without specializing the fixed-run ensemble and doing the probability. Circular-word results count cyclic rather than linear factors.",
+        "searches": [
+          "arxiv:2202.13591 type 3 M3 classification",
+          "arxiv:1707.04450 circular minimal forbidden factors",
+          "minimal absent words binary run-length encoding five runs uniform composition count Dirichlet limit law Akagi"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akagi et al. 2022: bounded M1,M2,M4,M5 by RLE size, unbounded M3; binary bridge classes.",
+          "Uniform positive five-composition gives a joint Dirichlet law, not a distribution described by their deterministic bounds."
+        ],
+        "reasoning": "Aliases minimal absent words/forbidden factors and RLE count reduce to the bridge classification. No inspected source supplies the stated random-composition limit; deterministic upper bounds alone are not the probabilistic assertion.",
+        "searches": [
+          "minimal absent words binary run-length encoding five runs uniform composition count Dirichlet limit law Akagi",
+          "\"five run\" \"minimal absent words\" expectation distribution",
+          "arxiv:2202.13591 Sections 2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact five-run Dirichlet functional or 8/15 expectation was identified among Resultary results; returned nearby automata/word-constraint entries have different invariants."
+        ],
+        "reasoning": "The claim is an infinite asymptotic law, not an entry in a fixed finite database. Finite table absence is not evidence of priority.",
+        "searches": [
+          "minimal absent words binary run-length encoding five runs uniform composition count Dirichlet limit law Akagi",
+          "minimal absent words five-run exact statistics tables",
+          "Resultary semantic search minimal absent words binary run-length encoding five runs uniform composition count Dirichlet limit law Akagi"
+        ]
+      },
+      "rationale": "Best-of-knowledge original five-run positive-composition probability law and first moment; known Akagi RLE characterization is explicitly a premise, not claimed new. No inspected prior result states the Dirichlet functional or its 8/15 moment.",
+      "residual_risks": [
+        "A different stochastic MAW study not identified may already imply the five-run specialization; accessible 2015 paper uses a distinct iid genome ensemble.",
+        "Sharp residual constant 208 not claimed; limiting density not explicit, but law determined as a Dirichlet functional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PARTIAL_COVERAGE",
+          "evidence": "Lemma 4 type four <=[2(2m-3)]^2; five disjoint types; no random five-run ensemble law in inspected work.",
+          "identifier_or_url": "arxiv:2202.13591",
+          "material_read": "Full 19-page primary PDF; abstract, definitions, five types, bounds and proof of type-four/type-five lemmas (PDF pages 0,3,7 inspected visually as well).",
+          "method": "Web full PDF text + mandatory page screenshots",
+          "title": "Minimal Absent Words on Run-Length Encoded Strings",
+          "trigger": "same exact invariant and RLE structural lemmas"
+        },
+        {
+          "assessment": "DISTINCT_OBJECT",
+          "evidence": "Cyclic factor occurrences are not the five-run linear-word factor notion.",
+          "identifier_or_url": "arxiv:1707.04450",
+          "material_read": "Main circular-word definitions and results from accessible arXiv HTML cited in package; current independent source comparison scoped to circular versus contiguous linear model.",
+          "method": "Primary available HTML excerpts",
+          "title": "Minimal Forbidden Factors of Circular Words",
+          "trigger": "synonym minimal forbidden factors"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "IID four-letter genomic bulk/tail MAW length model; does not state the binary five-run composition limit law in inspected relevant sections. No absolute whole-literature novelty claim.",
+          "identifier_or_url": "arxiv:1509.05188",
+          "material_read": "Full arXiv HTML primary text inspected, including introduction, random-word bulk model in Section 1 and model comparisons in Section 2; this is an iid four-letter string ensemble, not fixed five runs.",
+          "method": "Primary arXiv full HTML relevant Sections 1–2 and abstract",
+          "title": "The Bulk and the Tail of Minimal Absent Words in Genome Sequences",
+          "trigger": "statistical prior on minimal absent words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact asymptotic distribution and rational mean answer a natural probabilistic question about minimal absent contiguous words under a fixed-run composition ensemble. Five runs give two distinct competing bridge orientations and the first genuinely joint max/min functional. The bounded-remainder lemma makes a complete nondegenerate law out of the combinatorial count; the known deterministic RLE bounds alone are not the requested random-ensemble statistic. No paper-size theorem or exact density required.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2202.13591",
+    "arxiv:1707.04450",
+    "arxiv:1509.05188"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Positive binary five-run compositions only; linear factors; R<=208 not sharp; finite tests not proof."
+  ],
+  "residual_risks": [
+    "Prior statistics for a different random model may contain a five-run result in inaccessible material; originality qualified."
+  ],
+  "schema_version": 1
+}

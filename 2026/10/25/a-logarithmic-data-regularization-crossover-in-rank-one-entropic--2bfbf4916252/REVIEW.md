@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The strict convexity and entropy barrier give a unique positive optimizer. Its KKT equations reduce to a unique monotone scalar root, bounded above by a Lambert function. Grouping the smallest forward coefficient proves the logarithmic crossover and the power-law hierarchy. At zero data the Lambert correction follows from an explicit exponential tail estimate. The checker independently recomputes high-precision roots and KKT residuals in 39 finite cases; computational checks do not prove the asymptotic theorem.
+## correctness
 
-## Originality
-The closest primary reference, Barnfield et al., arXiv:2604.27154v1, equations (1.1), (1.5) and Section 6, provides the general problem and numerical methodology, plus an implicit dual system and perturbation estimates. Its Theorem 6.3 is on a fixed-mass simplex; that result does not imply the variable-mass zero-signal boundary described here without additional analysis. Chuna et al. (arXiv:2511.06915v1 and 2501.01869) treat noiseless analytic continuation and dual reconstruction, not the quantified one-row crossover in their inspected statements. Earlier dual entropy formulas could still contain an equivalent result under other notation; novelty is not established by unsuccessful searching alone.
+PASS
 
-## Mathematical value
-The one-measurement positive inverse problem is a minimal model where both the total reconstructed mass and its normalized spectral shape are free. Its exact \(\lambda\log(1/\lambda)\) data threshold and forward-coefficient-dependent suppression exponents explain how tiny signals and regularization interact, with implications for continuation tolerances and coordinate underflow. This is more informative than a generic convergence-to-zero assertion and captures a distinct boundary sensitivity not visible in positive-parameter Lipschitz estimates.
+Strict convexity and superlinearity on x>=0 give unique minimizer; derivative -infinity at x_i=0 forces interior. KKT yields positive monotone scalar root F(t)=b+λt with x_i=c_i exp(-a_i t). As bλ→0, t→infinity, with λt<=Me^(-alpha t) implying t=O(log1/λ). For finite b/(λL)→β, lower bound F>=Ce^(-alpha t) gives t/L→1/alpha and F(t)~(β+1/alpha)λL. For dominant b≫λL, λt=o(b), hence F(t)~b. At b=0, z=alpha t and w=W(alpha C/λ), use 0<=z-w<=log(1+R(z/alpha)) with R=O(e^-δz); the stated relative Lambert correction follows. Shape convergence and non-Lipschitz at λ0 are direct. Independent fresh 70-digit KKT bisections covered heterogeneous, tied minima, zero, finite-ratio and data-dominated regimes; all residuals <1e-65 and zero-data relative errors tiny at λ=1e-24; finite β transient relative ~0.056 is consistent with slow log convergence. Numerical checks are diagnostic only.
 
-## Limits
-The result is restricted to fixed finite dimension, one strictly positive measurement, nonnegative vanishing data, fixed priors, and the precise unnormalized entropy. It claims no multi-measurement generality. Historical equivalence remains a priority risk; independent validation is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp coupled datum–regularization crossover and coordinate power hierarchy for the variable-mass rank-one model. The closest full primary paper treats general positive-λ perturbation or fixed-mass endpoints, not the same limit. Other entropy sources only partially read and retained as a residual risk.
+
+## value
+
+PASS
+
+The exact transition scale λlog(1/λ), minimum-forward-coefficient support selection, coordinate-specific powers a_i/alpha, and singular non-Lipschitz endpoint quantify a mathematically meaningful inverse-problem boundary where standard fixed-mass stability is inapplicable. Though scalarizable, this is a complete natural phase classification, not a routine KKT restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

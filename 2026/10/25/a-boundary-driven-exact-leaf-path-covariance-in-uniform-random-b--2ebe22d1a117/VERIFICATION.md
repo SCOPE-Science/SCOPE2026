@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and boundaries
 
-From the containing package, save \(\texttt{verify.py}\) beside this document and execute \(\texttt{python3 verify.py}\) in a standard Python 3 environment; no third-party modules are required. The program computes all first and mixed moments with exact \(\texttt{fractions.Fraction}\) arithmetic for \(1\le n\le100\), compares the exact conjectured covariance at every size \(n\ge2\), and independently constructs BSTs from every permutation for \(1\le n\le8\). Expected output:
+# Independent mathematical audit
 
-```
-PASS: all exact moment/covariance recurrences through n=100; 46233 exhaustive BST permutations through n=8.
-```
+## correctness
 
-The analytic proof in \(\texttt{RESULT.md}\) establishes all integers \(n\ge2\); the finite program cannot establish an infinite assertion. No proof assistant, external certification, or independent audit was used. The open mathematical risk concerns historical priority, not evidence of an erroneous finite check.
+PASS
+
+Uniform-permutation root split K is uniform on 0..n-1, and conditional subtree independence implies the exact mixed-moment recursion. The leaf mean ℓ_m=(m+1)/3+δ_m with δ0=-1/3,δ1=1/3 concentrates conditional-leaf regression on the four boundary splits. Using t_m=2(m+1)H_m-4m gives B_n=-4(H_{n-1}-1)/(3n); the total covariance recurrence and telescoping (n+1)c_{n+1}=(n+2)c_n-4/(3n) yield c_n=-(n+3)(n-2)/(9n) for all n>=2. Initial c0=c1=c2=0 and n2 boundary are correct. Independent new exact-rational joint-moment recurrences checked every n<=65; repository verify.py source was read (it specifies n<=100 and 46,233 permutation checks, but the source assertion is not reported as an independently rerun program). Exact recurrence, not finite checking, proves the infinite statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact finite-size covariance and boundary-local mechanism. Chern et al. Thm5.4 explicitly covers the same d=1 statistic at leading asymptotic order, so that order alone is prior art. Source-level mathematical comparison did not find the all-n rational covariance or boundary decomposition; distinguish this limited novelty and accept with a serious residual older-literature risk.
+
+## value
+
+PASS
+
+A natural finite-n dependence measure for terminal stored vertices and total search cost, with a sharp negative sign for every n>=3, explicit O(n) anticovariance and exact zero boundary. Boundary-support explanation reveals why conditional leaf count varies only at extreme split sizes. This is more than marginal means, a table recomputation, or a bare sign check, even though the leading asymptotic was known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

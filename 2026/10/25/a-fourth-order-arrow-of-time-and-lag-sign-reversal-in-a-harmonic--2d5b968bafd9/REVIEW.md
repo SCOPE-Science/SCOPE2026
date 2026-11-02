@@ -1,15 +1,21 @@
-# Scientific review: fourth-order temporal asymmetry of a resetting Brownian bath
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary resetting Brownian forcing and stable harmonic convolution furnish an exact stationary Markov model with all relevant moments finite. Polynomial generator balances give the needed degree-four moments. A closed six-dimensional cubic semigroup and an independent degree-one regression yield an explicit rational Laplace transform; Taylor coefficients and pole residues establish the nonzero short-lag witness, the sharp threshold \(\rho_*=(3+\sqrt{33})/4\), and the nonempty lag-sign-reversal interval \(1<\rho<\rho_*\). In particular, the repeated pole at \(\rho=1\) is analyzed separately. The supplied checker passed 75 symbolic, numerical semigroup, and stochastic-sampling assertions. The infinite-time and all-parameter conclusions rest on the displayed analytic derivation, not simulations.
+## correctness
 
-## Originality — PASS, subject to external priority review
-The model, stationary even moments, and two-time covariance belong to Guéneau–Majumdar–Schehr (2023), not to this finding. Relevant published comparisons include Dabelow–Eichhorn's Gaussian active Ornstein–Uhlenbeck irreversibility framework and Yuvan–Bier's parabolic-trap Lévy-noise time asymmetry; these do not directly give a position-only, finite-fourth-moment, Poisson-reset-Brownian time-order transform. Searches for temporal fourth-order asymmetry, equivalent polynomial-regression formulations, and lag-sign reversal located no dominating result in the compared records. The newly assessed claim is the displayed *two-time fourth-order* identity and resulting sharp sign transitions, not known one-time fourth cumulants or covariance. A prior equivalent result under general polynomial stochastic-process machinery remains a real priority risk; no independent literature audit has been performed.
+PASS
 
-## Scientific value — PASS
-The model has a second-order ambiguity: a reversible stationary Gaussian colored-force surrogate reproduces its covariance exactly. Sign symmetry also suppresses all third-order witnesses. The fourth-order position-only statistic is therefore the lowest-order natural diagnostic of the otherwise hidden arrow of time. The explicit interval of *lag-dependent sign reversal* gives a measurable qualitative prediction and shows that witness sign at one lag cannot serve as a globally reliable direction indicator. This is a motivated distinction in active stochastic dynamics rather than an arbitrary high-order moment calculation.
+The stationary (X,Y) Markov generator on x^i y^j is −(i+ρ1_{j>0})x^iy^j+i x^{i−1}y^{j+1}+j(j−1)x^iy^{j−2}. Independently solved all degree≤4 moment recurrences, built 6×6 cubic semigroup generator in basis (x³,x²y,xy²,y³,x,y), and used rational matrix resolvent to verify the claimed exact Laplace transform of Aρ(t)=E[X0³Xt]−E[X0Xt³] for arbitrary symbolic ρ,p>0. Fresh direct matrix-generator differentiation gave derivatives n=0,1,2 identically zero, n=3 equal 72(2ρ²−3ρ−3)/(ρ(ρ+1)²(ρ+2)(ρ+3)) and n=4 equal −24(7ρ²−14ρ−12)/(ρ(ρ+1)²(ρ+2)), positive at ρ*=(3+√33)/4. Leading pole residues give negative long-lag for ρ<1 and positive for ρ>1, with explicit ρ=1 double pole; hence 1<ρ<ρ* has a sign reversal. Sign symmetry kills lower odd moments, covariance symmetry kills degree two, proving fourth-degree first nonzero witness; all moments finite under exponential renewal ages.
 
-## Scope and residual limitations
-The stationary linear-filter/Poisson-reset forcing assumptions are essential. No uniqueness or total count of sign-crossing lags, nonequilibrium entropy production, or finite-sample statistical guarantees are derived. Independently establishing priority, particularly versus broad stochastic polynomial-semigroup and time-series irreversibility literature, remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For Fourth-order time-direction statistic and lag sign reversal under harmonic filtering of resetting Brownian forcing: exact final statement and implication were compared against relevant published original mathematical statements and Resultary findings. The novel rational transform is not a corollary of the limited prior moments without the new polynomial-semigroup computation; the same model's stationary distribution is prior work. Best-of-knowledge qualified by explicitly named risks.
+
+## value
+
+PASS
+
+A sharp observable-only irreversible temporal statistic for a physically motivated stationary non-Gaussian forcing model (despite covariance equivalence to a reversible Gaussian process) identifies a nontrivial reset-rate transition and lag-dependent sign reversal. The exact rational Laplace law and rate/lag boundaries provide diagnostic structure beyond known stationary marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
