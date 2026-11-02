@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The exact factorization follows from exhaustive selected/absent local domination cases. \\(U_t\\) factors are positive and log-concave, so \\(P=(1+x)U_aU_c\\) is log-concave. \\(Q=P-x^{a+c}\\) loses only one coefficient. The only endangered Turán inequality has exactly derived polynomial margin \\(144(q_s^2-q_{s-1}q_{s+1})\\), bounded strictly below by a positive explicit expression via \\(4ac\\le(a+c)^2\\). Q and all \\(U_t\\) are hole-free, and convolution preserves log-concavity. The actual code checks 192 complete enumerations, 18,045 independent 3-state tree-DP cases, and 6,400 exact margin cases; these supplement, not replace, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Du–Heilman–Panova 2026 Theorem 3.3 assumes every leaf count is at least one, whereas the proposed theorem requires precisely one zero; their Remark 3.4 conjectures the omitted extension.",
+        "Wang 2026 Theorem 1 restricts spiders to arms of length at most three; it does not encompass arbitrarily long multi-branch caterpillars.",
+        "Beaton–Schoonhoven 2024 give unimodality when the upper-minus-lower domination-number gap is below three; the claim here has no such bound and proves stronger log-concavity."
+      ],
+      "reasoning": "No known stronger theorem from inspected sources implies log-concavity for every graph in the one-gap family. The full conjecture would imply it, but was stated without proof. Standard convolution closure supplies one step only and does not itself control the degree-s corrected coefficient.",
+      "searches": [
+        "2026 legless caterpillars domination polynomial log-concavity one missing pendant leaf spine vertex special case Du Heilman Panova",
+        "2024 2026 dominating set sequences of caterpillars with single leafless support spine vertex extended legged caterpillars",
+        "\"caterpillar\" \"one\" \"legless\" \"log-concave\" \"domination\"",
+        "\"domination polynomial\" \"caterpillar\" \"log concave\" \"vertex\"",
+        "arXiv:2605.02193v1 Theorem 3.3 Remark 3.4",
+        "DOI:10.5281/zenodo.20513066"
+      ]
+    },
+    "checked_sources": [
+      "Du–Heilman–Panova, arXiv:2605.02193v1, §3.2, Theorem 3.3 and Remark 3.4 (full text)",
+      "Şahin–Şahin, Turkish Journal of Mathematics and Computer Science 9 (2018), pp.34–38 (full displayed text)",
+      "Wang, DOI:10.5281/zenodo.20513066, June 2 2026 (hosted full-text portions)",
+      "Beaton–Schoonhoven, arXiv:2411.02288 (abstract)",
+      "Targeted scientific-literature searches for one-gap caterpillars, double brooms, and ordinary domination-polynomial log-concavity."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.3 product formula applies iff every spine vertex has positive pendant multiplicity, while the new factor is P minus a monomial and admits unbounded endpoints.",
+        "Şahin–Şahin do not supply the polynomial coefficient log-concavity inequality across all pairs of pendant sizes, let alone the exact degree-six positive margin.",
+        "A spider has at most one branching vertex, whereas a permitted caterpillar can have arbitrarily many branching spine vertices.",
+        "Unimodality alone does not imply log-concavity; the nearly well-dominated theorem uses an additional bounded domination gap."
+      ],
+      "reasoning": "The contribution is the infinite-family log-concavity conclusion, not the already-known leaf factor nor the classical convolution property. Neither known positive-leaf theorem nor short-legged spider theorem contains the new family; the local subtraction must be controlled by the displayed strict inequality.",
+      "searches": [
+        "arXiv:2605.02193v1 §3.2 Theorem 3.3 Remark 3.4",
+        "Şahin and Şahin 2018 Theorems 2.1–2.3",
+        "Wang 2026 Theorem 1",
+        "Beaton Schoonhoven arXiv:2411.02288",
+        "double broom graph domination polynomial log concavity logarithmic concavity three spine vertices",
+        "domination polynomial nonlegged caterpillar length three double broom exact coefficients log concavity",
+        "2026 legless caterpillars domination polynomial log-concavity one missing pendant leaf spine vertex special case Du Heilman Panova",
+        "domination polynomial of double broom B(a,c) x(1+x) factorization log concave",
+        "2024 2026 dominating set sequences of caterpillars with single leafless support spine vertex extended legged caterpillars"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A one-gap caterpillar of spine length three is a subdivided bistar/double broom with arbitrary pendant multiplicities. The precise statement concerns log-concavity of its ordinary domination coefficient sequence, not power, total or super domination.",
+        "No equivalent all-parameter log-concavity result appeared in the targeted searches; closest research-record IDs refer to different graph polynomials or graph families."
+      ],
+      "reasoning": "A polynomial formula or a proof of unimodality is not logically equivalent to log-concavity; the family also includes long spines and multiple branch vertices, so a spider-only result does not cover it. The search tested both graph names and the coefficient inequality.",
+      "searches": [
+        "double broom graph domination polynomial log concavity logarithmic concavity three spine vertices",
+        "domination polynomial nonlegged caterpillar length three double broom exact coefficients log concavity",
+        "domination polynomial of double broom B(a,c) x(1+x) factorization log concave",
+        "\"double broom\" \"domination polynomial\" log concave",
+        "\"double star\" \"subdivided\" \"domination polynomial\" log-concave",
+        "arXiv:2605.02193v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Older caterpillar domination work provides formulas for its studied graph classes and the bistar/comb cases, not a tabulated theorem establishing the uniform log-concavity margin for one bare interior vertex.",
+        "The recent legged-caterpillar product formula has no zero-group term, and experimental sequences alone do not establish the full statement."
+      ],
+      "reasoning": "A finite list of polynomial coefficient values or a general enumeration formula is weaker than the unbounded log-concavity theorem unless it contains an implication proving every Turán inequality. No exact matching all-parameter table or proved equivalence was found.",
+      "searches": [
+        "double broom graph domination polynomial log concavity logarithmic concavity three spine vertices",
+        "domination polynomial nonlegged caterpillar length three double broom exact coefficients log concavity",
+        "domination polynomial of double broom B(a,c) x(1+x) factorization log concave",
+        "\"double broom\" \"domination polynomial\" log concave",
+        "Şahin–Şahin 2018 Theorem 2.2",
+        "arXiv:2605.02193v1 Theorem 3.3"
+      ]
+    },
+    "rationale": "Du–Heilman–Panova (2026), Theorem 3.3 and Remark 3.4, prove only the strictly positive pendant-multiplicity case and explicitly leave zero groups open. The corrected local factor and uniform log-concavity inequality for one missing group are not derived there. Şahin–Şahin (2018) enumerate certain caterpillar domination polynomials but do not prove the present log-concavity extension. Wang (2026) covers short-legged spiders, not arbitrary multi-support caterpillars; Beaton–Schoonhoven (2024) cover unimodality under another hypothesis. Targeted mathematical-record and literature searches found no encompassing statement. Priority remains qualified by incomplete global indexing.",
+    "residual_risks": [
+      "Global historical-priority coverage is not a proof of novelty; an alternative terminology or unindexed earlier log-concavity result could exist.",
+      "The nearly well-dominated tree paper was not used for full-text negative claims; its abstract gives only a weaker result under extra hypotheses.",
+      "The theorem assumes exactly one bare interior spine vertex; it does not settle the stronger conjecture with two or more missing groups."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.3 requires all pendant multiplicities positive, and Remark 3.4 explicitly leaves zero multiplicities open; no proof of the one-gap theorem is given.",
+        "evidence": [
+          "arXiv HTML submission header identifies May 4, 2026 v1",
+          "Theorem 3.3 product of \\(x(1+x)^a+x^a\\)",
+          "Remark 3.4 explicitly proposes extension to some \\(a_i=0\\)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.02193v1",
+        "material_read": "Introduction, §3.2 Theorem 3.3, complete proof and Remark 3.4; §4 rooted domination-state recurrence",
+        "method": "direct reading of author arXiv full-text HTML",
+        "title": "Trees and Graphs with Non Log-concave Dominating Set Sequence via AI Tools",
+        "trigger": "Exact motivating conjecture and closest positive-leaf result on same caterpillar family"
+      },
+      {
+        "assessment": "Calculates domination polynomials for bistar and caterpillar/comb cases but contains no all-parameter log-concavity theorem for a missing leaf-group. Even access to an enumeration expression would not by itself prove the required coefficient inequalities.",
+        "evidence": [
+          "Theorem 2.1 bistar expression",
+          "Theorem 2.2 caterpillar expression",
+          "Theorem 2.3 comb specialization \\(D=x^k(x+2)^k\\)"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/328571420_On_domination_polynomials_of_caterpillar_graphs",
+        "material_read": "full extracted 2018 five-page text, definitions and proofs, Theorems 2.1, 2.2, 2.3, closing references",
+        "method": "read complete openly displayed author-paper text reproduced as HTML with page markers",
+        "title": "On Domination Polynomials of Caterpillar Graphs",
+        "trigger": "Earliest relevant titled work on exact domination polynomial of caterpillars"
+      },
+      {
+        "assessment": "All legs have length one, two or three and there is a single branching center. The one-gap caterpillar family can have arbitrarily long spines and arbitrarily many branching spine vertices; neither family contains the other.",
+        "evidence": [
+          "Theorem 1 short-legged-spider statement",
+          "§3 spider generating formula and selected/unselected center cases"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/405734171_Log-concavity_of_domination_polynomials_for_spiders_with_legs_of_length_at_most_three",
+        "material_read": "publicly displayed full-text introduction, Theorem 1, §2 convolution properties, §3 generating formula, and proof setup",
+        "method": "reading hosted full-text HTML extraction",
+        "title": "Log-concavity of domination polynomials for spiders with legs of length at most three",
+        "trigger": "Recent exact log-concavity on trees with some degree-three internal structures"
+      },
+      {
+        "assessment": "The abstract states unimodality for gap-bounded trees and non-log-concavity for some trees. Its stated result is not the present unconditional log-concavity for the one-gap caterpillar family. Full-text noncoverage remains a limited access/inspection risk.",
+        "evidence": [
+          "abstract: unimodality when upper and lower domination numbers differ by less than three"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.02288",
+        "material_read": "arXiv abstract and full submission metadata; the earlier full-text comparison was not relied upon to exclude unexamined stronger results",
+        "method": "read accessible arXiv abstract",
+        "title": "On the unimodality of nearly well-dominated trees",
+        "trigger": "Possible broad tree domination coefficient shape result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f2d734bc-5a0b-49e8-a197-24936eeeb6c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating paper explicitly proposes extending domination-coefficient log-concavity from fully leaf-supported caterpillars to missing-leaf spine vertices. The theorem settles the natural exact-one-missing-group case for all spine lengths and arbitrary positive pendant multiplicities, not a finite census or a textbook substitution. Its new structural factorization reduces all potential coefficient failures to one nontrivial two-parameter inequality, proved uniformly by a degree-six positivity bound, supplying a potential local module for analyzing multiple gaps.",
+    "status": "PASS"
+  }
+}
