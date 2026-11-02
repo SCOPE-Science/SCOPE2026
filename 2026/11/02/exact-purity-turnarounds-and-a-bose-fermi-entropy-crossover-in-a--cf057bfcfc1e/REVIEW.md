@@ -1,0 +1,19 @@
+# Scientific comparison of the final claim
+
+## Correctness — PASS
+
+The domain is a resonant single-qubit collision generator with independently thermalized, noninteracting ancillas, fixed strictly positive composite couplings and finite positive temperature. The stationary Bloch generator is explicitly written out and inverted with positive denominator. The purity is an exact rational function with derivative \(4u^2(q-Av/4)/(K+q)^3\); it therefore has one and only one minimum. The oscillator-versus-qubit difference factors into a positive rational factor and a strictly decreasing quadratic, so its sole positive root is exact and all sign assertions are strict away from it. The ergotropy derivative is proved negative without a numerical sign assumption, and the two reciprocal terms in the integer-step criterion are strictly increasing with cluster size. Direct complex Lindblad stationarity and symbolic identities are checked by a separately implemented matrix calculation in `verify.py`. The remaining scope restrictions are physical, not missing proof steps.
+
+## Originality — PASS, qualified
+
+The exact collision generator, finite-size stationary Bloch vector and ordinary qubit ergotropy formula are explicitly credited to Yáñez-Soria et al. (arXiv:2609.38724), whose complete accessible text, Appendix B and entropy sections were compared. Their treatment does not state the exact pair of real cluster-size purity minima, the unique Bose–Fermi purity/entropy crossing, the strict ordering of all three thresholds or the exact integer-step classification. Román-Ancheyta et al. (arXiv:2008.05200) study purity and coherence for selected cluster sizes and temperatures, but their plotted and asymptotic observations do not give the full positive-parameter three-threshold classification. Actual semantic mathematical-record searches for oscillator/qubit statistical comparisons, exact purity crossovers and energetic-coherence clusters returned nearest results on different quantum observables or models. The nearby published mathematical results examined concern different state families and observables, not an equivalent threshold classification. Residual risks: the published exact Bloch solution makes the classification algebraically derivable, and a broader unlocated treatment of purity versus thermal-cluster size might contain the same thresholds; independent priority assessment remains outstanding.
+
+## Value — PASS
+
+A physically important finite-size design decision is whether a larger thermal cluster produces a more or less mixed stored state. The source literature examines cluster-size purity trends, yet the exact response reveals a nonmonotone purification boundary and a statistics-dependent entropy inversion, while useful extractable work continues to increase. The three ordered thresholds and the exact integer-step rule distinguish a genuine observable change from simply plotting another parameter point. They identify when an oscillator reservoir has both more work and more entropy, versus more work and less entropy. The common \(N^{-2}\) approach to limiting purity, always from below, resolves the large-cluster side of the tradeoff. No global battery-efficiency or experimentally realized advantage is claimed.
+
+## Sources, scope and risk
+
+Full scientific material inspected: arXiv:2609.38724, Sections II–IV and Appendix B (equations 3, 7 and 36–47); arXiv:2008.05200, Sections II.1 and III.1 including figures and bath moment comparison. Abstract/context inspected: arXiv:2403.04698. Comparison includes rates, fixed parameters, cluster statistics, purity and ergotropy implications. The main residual originality risk is an as-yet-unlocated broader analytic consequence of the cited stationary-state formula. No independent mathematical or priority audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
