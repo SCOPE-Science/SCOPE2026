@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "With Q=[[-a,a],[b,-b]], pi=(b,a)/(a+b), centered velocity diagonal (-a Δ/r,b Δ/r), the exact 2x2 Laplace resolvent is (s+r-ηΔz)/(s(s+r-ηΔz)-PΔ²z²). Expansion through z⁴ and inversion give κ4=24PΔ⁴/r⁴[η²A(rt)-PB(rt)]. The explicit A and B both vanish with first derivatives at 0, their second derivatives are positive and B″/A″=4(u-1+exp(-u))/u² strictly decreases. Two monotone weighted-average steps establish B/A decreases strictly from 2 to 1. With P=(1-η²)/4 this gives the exact 1/5 and 1/3 thresholds, a unique simple interior crossing in the middle regime, and strict signs on both boundaries. The Feynman-Kac 10x10 moment block implementation checked 333 assertions with maximum matrix discrepancy about 2.73e-12; this is supplementary, not an infinite proof. Independent Gaussian increments have zero fourth cumulant. All parameters a,b,Δ strictly positive and t>0; no hidden normalization assumptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "López–Ratanov, full PDF https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AF791584BC527BA17D7E23A7060053BC/S0021900200011438a.pdf/on-the-asymmetric-telegraph-processes.pdf, Theorem 4.1 recursive moments of any order, pages 581–584; no theorem about fourth cumulant sign across all times in Sections 1–5.",
+        "Kolesnik 2012, https://www.math.md/en/publications/basm/issues/y2012-n1/11070/, abstract explicitly treats symmetric Poisson switching and even moments."
+      ],
+      "reasoning": "General all-moment identities dominate the *computation* of κ4 but do not state or demonstrate the sharp global sign and zero-count classification. The source uses conditional initial states and the present statement requires stationary mixing, followed by a strict inequality for a ratio of explicit functions. This is a derivable property of an existing model, not a newly proposed stochastic model; material residual risk is recorded.",
+      "searches": [
+        "On the asymmetric telegraph processes Lopez Ratanov 2014 moment generating fourth moment",
+        "\"On the Asymmetric Telegraph Processes\" arxiv López Ratanov preprint",
+        "\"Moment analysis of the telegraph random process\" Kolesnik 2012",
+        "random telegraph signal integrated fourth cumulant excess kurtosis switching asymmetry zero"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1239/jap/1402578644",
+      "https://portal.mardi4nfdi.de/wiki/On_the_asymmetric_telegraph_processes",
+      "https://www.mathnet.ru/eng/basm304",
+      "https://www.math.md/en/publications/basm/issues/y2012-n1/11070/",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=82C05"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier related record 1c58232c-f9d7-4190-aa65-c3e9c7888e0c: symmetric THREE-state run/rest/positive/negative motion, thresholds in a rest-entrance/exit ratio; its mechanism and parameter space do not include the strictly two-state asymmetric switching model.",
+        "Earlier related record da4b27d9-b2f2-46b3-beea-3b05ecaffb24: symmetric sign-reversal telegraph walk with spatially periodic rates and long-time cumulant slope; it does not assert finite-time one-crossing for constant asymmetric rates.",
+        "Earlier related record 3389edf8-e2f3-4619-822f-c9c5c6846309: symmetric Poisson sign reversals with speed magnitude redrawn independently, a different random-velocity mechanism and only an asymptotic fourth cumulant rate.",
+        "López–Ratanov full text contains the broadly applicable general moment framework but no statement of the monotone ratio lemma or the resulting all-time sharp trichotomy."
+      ],
+      "reasoning": "The three earlier records have distinct state spaces, random parameters and/or time scopes. Their proven sign changes do not directly subsume the new claim. General formulas of López–Ratanov mathematically determine the new cumulant but leave the nontrivial global classification to prove; the assessment excludes them from any claim to model novelty.",
+      "searches": [
+        "two-state Markov-modulated velocity displacement fourth cumulant changes sign one crossing",
+        "asymmetric telegraph process fourth cumulant kurtosis occupation time sign change rates",
+        "doi:10.1239/jap/1402578644"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "López–Ratanov, DOI 10.1239/jap/1402578644, Sections 2 and 4, contains general moment formulas for a two-rate telegraph process but no explicit fourth-cumulant sign-phase classification in inspected complete sections.",
+        "A. D. Kolesnik (2012), https://www.mathnet.ru/eng/basm304, covers homogeneous symmetric Goldstein–Kac moment and semi-invariant formulas, a strict subset of the two-rate parameter domain."
+      ],
+      "reasoning": "Equivalent formulations include a two-state occupation-time cumulant, binary telegraph noise integral, integrated dichotomous Markov signal, and centered persistent random walk. The all-time one-zero and two-boundary statement is stronger than having a moment-generating function; explicit moments alone logically allow derivation, so the genuinely assessed result is a nontrivial global inequality and unique-crossing classification. No checked source was found to explicitly prove that structural assertion.",
+      "searches": [
+        "two state asymmetric telegraph stationary integrated velocity fourth cumulant excess kurtosis crosses zero one time switching rates asymmetry threshold",
+        "binary Markov occupation time kurtosis fourth cumulant two rates finite time zero crossing",
+        "\"asymmetric telegraph process\" \"kurtosis\"",
+        "\"random telegraph\" \"fourth cumulant\" asymmetry two state"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant retrieved other result: Complete kurtosis phase diagram for three-point laws with fixed masses, published record: Complete kurtosis phase diagram for three-point laws with fixed masses, is a static support-placement model, not time-integrated binary Markov velocity.",
+        "Search result: four-way interaction Sparre–Andersen persistence, published record: Four-step Sparre–Andersen persistence detects a pure fourth-order interaction, is a discrete fourth-order dependence effect rather than a telegraph cumulant."
+      ],
+      "reasoning": "No exact table or database entry encountered that identifies the 1/5, 1/3 thresholds or the unique time crossing for stationary two-rate telegraph transport. This is a negative search observation and not independent evidence of novelty.",
+      "searches": [
+        "stationary asymmetric integrated telegraph fourth cumulant sign threshold ratio 1/5 1/3 telegraph process",
+        "asymmetric persistent random walk platykurtic leptokurtic crossover stationarity",
+        "random telegraph motion stationary two velocity states skewness kurtosis threshold one crossing"
+      ]
+    },
+    "rationale": "The exact two-rate telegraph process and arbitrary-order moment machinery are prior art, in particular López–Ratanov (2014), Theorem 4.1 and its closed general moments in Section 4. The claim is NOT priority to those formulas, but an all-time, sharp two-threshold sign trichotomy with strict unique zero and a monotone quotient proof. The examined primary full text does not assert the trichotomy or unique-crossing theorem, nor does the closest symmetric-moment abstract do so. Earlier nearby findings concern three-state rest dynamics, spatially periodic symmetric tumble rates, or randomized speed magnitude, and their hypotheses and implications do not yield this stationary asymmetric constant-velocity classification. Searches did not find equivalent results, but this does not prove global novelty. Historical priority should be independently checked.",
+    "residual_risks": [
+      "General moments from López–Ratanov mathematically contain sufficient information to derive κ4, so originality is claimed solely for the sharpened all-time sign and uniqueness classification, not for the moment formula or physical model.",
+      "Other papers or theses might have independently analyzed the exact kurtosis sign inequality under occupation-time or random-telegraph terminology; finite searches cannot establish priority.",
+      "The Kolesnik (2012) full text was not accessed after a bounded retrieval timeout, though its cited symmetric model does not cover switching asymmetry.",
+      "The focal bibliographic catalog gives an exact 2014-07-11 date, but the journal issue is identified only by month June 2014, leaving the earliest actual day of public availability uncertain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers moment machinery and model, but inspected complete sections do not assert finite-time κ4 sign phase diagram or unique crossing. Retains priority risk because derivative algebra could exist elsewhere.",
+        "evidence": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AF791584BC527BA17D7E23A7060053BC/S0021900200011438a.pdf/on-the-asymmetric-telegraph-processes.pdf; Theorem 4.1 eq (4.4), general formula eq (4.10), pp. 581–584",
+        "identifier_or_url": "https://doi.org/10.1239/jap/1402578644",
+        "material_read": "Accessible full 21-page PDF: model/introduction pp. 569–571; moment formulas and derivations pp. 581–584, including Theorem 4.1; scaling conclusions pp. 584–588 and bibliography; visual page inspections of the moment section and later pages",
+        "method": "Read text and visually inspected pages/sections and checked terms kurtosis, fourth, cumulant",
+        "title": "On the Asymmetric Telegraph Processes",
+        "trigger": "Same two-state asymmetric Markov generator, arbitrary-order displacement moments, plausible direct broader coverage"
+      },
+      {
+        "assessment": "Symmetric special case and general semi-invariants, no evidence in accessible text of asymmetric two-rate sign thresholds; full-text coverage unverified",
+        "evidence": "https://www.mathnet.ru/eng/basm304; https://www.math.md/en/publications/basm/issues/y2012-n1/11070/",
+        "identifier_or_url": "https://www.mathnet.ru/eng/basm304",
+        "material_read": "Full bibliographic abstract and public source description; attempted separate full PDF retrieval timed out",
+        "method": "Checked mathematical abstract and classification, attempted accessible publisher-linked PDF",
+        "title": "Moment analysis of the telegraph random process",
+        "trigger": "Earlier exact symmetric Goldstein–Kac cumulants and moments, potentially a special case"
+      },
+      {
+        "assessment": "Gives a day-specific recorded public date 2014-07-11. Journal issue is dated June 2014 without day; a still-earlier exact public date is not demonstrated.",
+        "evidence": "https://portal.mardi4nfdi.de/wiki/On_the_asymmetric_telegraph_processes",
+        "identifier_or_url": "https://portal.mardi4nfdi.de/wiki/On_the_asymmetric_telegraph_processes",
+        "material_read": "Bibliographic entry including exact date 2014-07-11, title and DOI",
+        "method": "Read catalog metadata and cross-checked DOI and journal publication year",
+        "title": "On the asymmetric telegraph processes bibliographic record",
+        "trigger": "Date-only public-date evidence for the focal publication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bba6635-4458-40bb-b528-a4d3f6115a4c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Anomalous (negative versus positive) fourth cumulant of a transport displacement is a natural measure of non-Gaussian transient transport. Existing asymmetric telegraph moments alone do not tell whether temporal sign reversal can happen, how many times, or which imbalance produces it. The new exact 1/5 and 1/3 thresholds classify every positive time, prove a unique transition in the intermediate regime, and persist under ordinary independent thermal Brownian broadening. This is a structural all-parameter, all-time theorem with a measurable implication, not a single arbitrary numerical slice. The result is restricted to stationary two-state Markov velocity transport and does not claim a broader universality class.",
+    "status": "PASS"
+  }
+}
