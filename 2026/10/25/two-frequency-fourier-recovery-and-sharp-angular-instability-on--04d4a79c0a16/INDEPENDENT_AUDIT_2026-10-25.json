@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T21:04:28.257789Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Funk–Hecke with normalized sphere measure gives each harmonic-channel 2x2 multiplier M_l with phi_l(z)=2^nu Gamma(nu+1) z^{-nu} J_{l+nu}(z). On 0<bv<j_{nu,1}, the positive Bessel product and monotonicity of its first zero make ratio phi_l(at)/phi_l(bt) strictly increasing in t; det M_l<0 for u<v. Single observation sphere always has a nontrivial 1x2 null vector. The Bessel series cancels determinant leading terms and gives -kappa_l^2(abuv)^l (b²-a²)(v²-u²)/[4(l+nu+1)](1+O(1/l)). Bottom-right entry asymptotically dominates, and sigma_min=abs(det)/sigma_max gives stated sharp ill-conditioning. Independent 90-digit Bessel evaluations for d=2,3,5 and degrees 0,1,5,40 checked determinant sign and determinant/leading-term ratios 0.9966, 0.9931, 0.9896 at degree 40. All-l uniqueness rests on the proof, not finite samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Bessel products and harmonic decompositions are established; they imply strict sign after the new two-radius comparison."
+        ],
+        "reasoning": "General special-function identities provide proof ingredients, not explicit two-source stability laws. A general inverse source theorem with multiple shells could dominate but was not located.",
+        "searches": [
+          "NIST DLMF §10.21 product and first zeros",
+          "Vieli 2012 full paper",
+          "Chattopadhyay et al. 2020 theorem 13"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0004972711002942 primary PDF",
+        "DOI:10.5802/crmath.48 primary PDF",
+        "NIST DLMF §10.21",
+        "Resultary two-shell Fourier query",
+        "frozen checker.py numerical normalization source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both primary theorems explicitly assume source measure is supported on one sphere and make only injectivity conclusions; the new result has two independently varying densities plus a quantitative singular-value law."
+        ],
+        "reasoning": "Combining two copies of a one-shell uniqueness theorem does NOT separate two summands measured only through their sum; the 2x2 determinant proof is needed.",
+        "searches": [
+          "González Vieli Proposition 1.2",
+          "Chattopadhyay Ghosh Giri Srivastava Theorem 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vieli establishes a one-source/one-frequency nonvanishing criterion. Chattopadhyay et al. establish a single-source/multiple-frequency uniqueness characterization."
+        ],
+        "reasoning": "Both use sphere Fourier harmonics but have only ONE independent source density, so neither determines a 2x2 source-shell determinant or its smallest singular value.",
+        "searches": [
+          "DOI:10.1017/S0004972711002942 Proposition 1.2",
+          "DOI:10.5802/crmath.48 Theorem 13",
+          "Resultary: Fourier two concentric source spheres two observation frequency spheres Bessel determinant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact two-source/two-observation angular singular-value table among results."
+        ],
+        "reasoning": "No discrete database lookup is intrinsic here; data are continuous spherical harmonics. Inapplicability is structural, not assumed novelty.",
+        "searches": [
+          "Heisenberg uniqueness pairs concentric spheres two source shells",
+          "Resultary spectral Fourier recovery query"
+        ]
+      },
+      "rationale": "Best-of-knowledge original surviving claim: Combining two copies of a one-shell uniqueness theorem does NOT separate two summands measured only through their sum; the 2x2 determinant proof is needed. Prior work and access risks as in structured comparisons.",
+      "residual_risks": [
+        "Lev 2011 and Sjölin 2011 comparable circle HUP papers were accessible only through secondary descriptions and may contain alternative two-shell constructions.",
+        "Safe observation bound bv<j_nu,1 is sufficient only; global characterization and noise stability are not proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only one source sphere and one observation sphere; same Bessel function normalization with 2π frequency convention",
+          "evidence": [
+            "Cambridge PDF p2 Proposition 1.2"
+          ],
+          "identifier_or_url": "DOI:10.1017/S0004972711002942",
+          "material_read": "Full five-page PDF accessible; inspected statement Proposition 1.2 and Fourier–Laplace preliminaries, plus setup and proof structure",
+          "method": "Primary PDF pages 1–5; screenshot of page 2",
+          "title": "A uniqueness result for the Fourier transform of measures on the sphere",
+          "trigger": "Closest exact Bessel uniqueness criterion"
+        },
+        {
+          "assessment": "Theorem 13 fixes one source sphere and unions of observation spheres; does not separate two densities on distinct source radii",
+          "evidence": [
+            "Numdam PDF p9 Theorem 13"
+          ],
+          "identifier_or_url": "DOI:10.5802/crmath.48",
+          "material_read": "Full 14-page PDF accessible; read main definitions and Theorem 13 with proof on pages 8–10",
+          "method": "Primary PDF; screenshot page 9",
+          "title": "Heisenberg uniqueness pairs on the Euclidean spaces and the motion group",
+          "trigger": "Multi-observation sphere result could dominate"
+        },
+        {
+          "assessment": "Standard special-function identities are not claimed as new",
+          "evidence": [
+            "Bessel product J_{alpha}(z) and order-monotone first positive zeros"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/10.21",
+          "material_read": "Standard first-zero and infinite-product formulas as cited in mathematical proof",
+          "method": "Reference and proof-formula comparison",
+          "title": "NIST Digital Library of Mathematical Functions §10.21",
+          "trigger": "Used Bessel product/zero monotonicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural two-shell inverse-source geometry is separated exactly by the minimal number of full measurement spheres and its ill-conditioning is quantified at the singular-value level. This is substantively stronger than bare uniqueness of a single-shell inverse problem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1017/S0004972711002942 primary PDF",
+    "DOI:10.5802/crmath.48 primary PDF",
+    "NIST DLMF §10.21",
+    "Resultary two-shell Fourier query",
+    "frozen checker.py numerical normalization source"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Lev 2011 and Sjölin 2011 comparable circle HUP papers were accessible only through secondary descriptions and may contain alternative two-shell constructions.",
+    "Safe observation bound bv<j_nu,1 is sufficient only; global characterization and noise stability are not proved."
+  ],
+  "residual_risks": [
+    "Lev 2011 and Sjölin 2011 comparable circle HUP papers were accessible only through secondary descriptions and may contain alternative two-shell constructions.",
+    "Safe observation bound bv<j_nu,1 is sufficient only; global characterization and noise stability are not proved."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Only one source sphere and one observation sphere; same Bessel function normalization with 2π frequency convention",
+      "evidence": [
+        "Cambridge PDF p2 Proposition 1.2"
+      ],
+      "identifier_or_url": "DOI:10.1017/S0004972711002942",
+      "material_read": "Full five-page PDF accessible; inspected statement Proposition 1.2 and Fourier–Laplace preliminaries, plus setup and proof structure",
+      "method": "Primary PDF pages 1–5; screenshot of page 2",
+      "title": "A uniqueness result for the Fourier transform of measures on the sphere",
+      "trigger": "Closest exact Bessel uniqueness criterion"
+    },
+    {
+      "assessment": "Theorem 13 fixes one source sphere and unions of observation spheres; does not separate two densities on distinct source radii",
+      "evidence": [
+        "Numdam PDF p9 Theorem 13"
+      ],
+      "identifier_or_url": "DOI:10.5802/crmath.48",
+      "material_read": "Full 14-page PDF accessible; read main definitions and Theorem 13 with proof on pages 8–10",
+      "method": "Primary PDF; screenshot page 9",
+      "title": "Heisenberg uniqueness pairs on the Euclidean spaces and the motion group",
+      "trigger": "Multi-observation sphere result could dominate"
+    },
+    {
+      "assessment": "Standard special-function identities are not claimed as new",
+      "evidence": [
+        "Bessel product J_{alpha}(z) and order-monotone first positive zeros"
+      ],
+      "identifier_or_url": "https://dlmf.nist.gov/10.21",
+      "material_read": "Standard first-zero and infinite-product formulas as cited in mathematical proof",
+      "method": "Reference and proof-formula comparison",
+      "title": "NIST Digital Library of Mathematical Functions §10.21",
+      "trigger": "Used Bessel product/zero monotonicity"
+    }
+  ]
+}

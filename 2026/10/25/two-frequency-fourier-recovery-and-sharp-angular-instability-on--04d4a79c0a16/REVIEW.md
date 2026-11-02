@@ -1,21 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes probability-surface normalization and makes the two independent angular density functions explicit. Funk–Hecke diagonalizes the Fourier restriction by harmonic degree. The Bessel infinite product and first-zero ordering make the quotient of radial multipliers strictly increasing throughout the displayed low-frequency interval; its sign forces every two-by-two channel determinant to be nonzero. Completeness of the harmonic functions upgrades all-channel invertibility to uniqueness for complex or signed finite measures with integrable angular densities. The single-frequency failure is a genuine nonzero harmonic null vector.
+PASS
 
-The large-order Bessel series gives a uniform expansion at the four fixed arguments. The rank-one leading term cancels in the determinant and the first correction is exactly \(-\Delta/[4(\ell+\nu+1)]\); the bottom-right entry dominates for \(a<b\), \(u<v\). This establishes both sharp singular-value prefactors, not just decay rates. Independent spherical plane-wave integration in dimension three and numerical singular-value ratios support the normalization and signs. Finite tests are not used as proof for all degrees.
+Funk–Hecke with normalized sphere measure gives each harmonic-channel 2x2 multiplier M_l with phi_l(z)=2^nu Gamma(nu+1) z^{-nu} J_{l+nu}(z). On 0<bv<j_{nu,1}, the positive Bessel product and monotonicity of its first zero make ratio phi_l(at)/phi_l(bt) strictly increasing in t; det M_l<0 for u<v. Single observation sphere always has a nontrivial 1x2 null vector. The Bessel series cancels determinant leading terms and gives -kappa_l^2(abuv)^l (b²-a²)(v²-u²)/[4(l+nu+1)](1+O(1/l)). Bottom-right entry asymptotically dominates, and sigma_min=abs(det)/sigma_max gives stated sharp ill-conditioning. Independent 90-digit Bessel evaluations for d=2,3,5 and degrees 0,1,5,40 checked determinant sign and determinant/leading-term ratios 0.9966, 0.9931, 0.9896 at degree 40. All-l uniqueness rests on the proof, not finite samples.
 
-## Originality — PASS, qualified
+## originality
 
-The closest full-text primary source, González Vieli (2011 online; 2012 journal), treats one *source* sphere and one *observation* sphere. The later full-text Theorem 13 of Chattopadhyay–Ghosh–Giri–Srivastava (2020) treats multiple *observation* spheres but still one *source* sphere. Neither theorem implies invertibility of the two-independent-source degree matrices nor the displayed sharp high-degree conditioning. NIST DLMF provides the classical Bessel product and zero ordering, which are openly credited as proof ingredients; it does not state the combined two-shell Fourier recovery theorem. Lev and Sjölin's planar papers were compared through accessible bibliographic descriptions, not full text. Searches with exact/alias terms involving two concentric source spheres, two observation radii, Bessel cross-minors, and harmonic singular values found no directly covering theorem. These negative searches are not treated as proof of global novelty. Older inverse-source papers and inaccessible full texts remain residual priority risks.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge original surviving claim: Combining two copies of a one-shell uniqueness theorem does NOT separate two summands measured only through their sum; the 2x2 determinant proof is needed. Prior work and access risks as in structured comparisons.
 
-The number of complete frequency spheres required to recover two independent source shells is an intrinsic inverse-source measurement invariant. The theorem proves the sharp minimum \(2\) within an explicit open set of frequencies, in *every* spatial dimension \(d\ge2\). Its determinant mechanism couples the geometry of both source radii and both observation radii. The exact least-singular-value and condition-number asymptotics show why qualitative uniqueness can coexist with severe factorial/angular instability. This is a motivated, all-degree structural and quantitative result, rather than a numerical threshold for an unmotivated special case.
+## value
 
-## Scope and residual risks
+PASS
 
-The low-frequency bound is sufficient rather than maximal. The full two-shell inverse is unbounded; there are no claims about finite-angle or phaseless data, unknown shell centers, or optimal noisy inversion. An older Bessel-tomography or inverse-scattering theorem might imply some of these formulas and could alter publication priority; the indexed and inspected sources do not establish that implication. Independent checking remains outstanding.
+A natural two-shell inverse-source geometry is separated exactly by the minimal number of full measurement spheres and its ill-conditioning is quantified at the singular-value level. This is substantively stronger than bare uniqueness of a single-shell inverse problem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
