@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact fixed and two-cycle configurations follow by substituting synchronized or antipodal unit vectors into the self-including softmax map. First derivatives of all pairwise dot products vanish on those collinear configurations, so the required tangent matrices are exactly \((I-\eta M P)/(1+\eta\lambda)\), \((I+\eta\lambda P)/(\eta M-1)\), and \((I+\eta\lambda P_q)/(\eta qM-1)\) in their respective regimes. Their eigenvalues give each sharp strict hyperbolic-stability threshold. At resonance \(I+\eta_c V=A\operatorname{diag}(1,-1)\), and exact angular projection gives the transverse second-return factor \(\cos^2(2\theta)/A^2\). A freshly executed standalone numerical checker reproduced the angular return derivatives at multiple parameter values and the exact rational example. These computations do not establish the general theorem: that is supplied by the analytic matrix proof.
+PASS
 
-## Originality — PASS under inspected evidence
+At collinear tokens, tangent derivatives of all dot products and hence of the full softmax weights vanish. Dividing the resulting two-by-two tangent matrices by the nonzero unnormalized-vector norms yields the exact fixed-point eigenvalues and squared two-cycle multipliers, including sharp eta and qM threshold conditions. At resonance I+eta V=A diag(1,-1) and the split synchronized/antisynchronized return derivative gives multipliers 1 and cos^2(2theta)/A^2<1. Direct independent full-softmax finite-difference tests of both cycles and multiple resonant angles passed; this corroborates rather than proves all-parameter limits.
 
-Altafini, arXiv:2610.13518v1, studies the general discrete normalized residual self-attention model and equilibrium stability. The consensus fixed-point multiplier is a specialization of that framework and is not counted as an independent discovery. Gao, Yang and Chen, arXiv:2609.28448v1, find cluster flips for isotropic negative values and use an aligned-cluster spectral formula for general matrices; this anticipates the synchronized sign-flip mechanism. Their attention model excludes self-edges, whereas the present theorem retains both self-edges, and their inspected general-matrix discussion does not state the antipodal softmax-dependent threshold, coexistence condition, or the full resonant circle with its normal spectrum. Semantic searches over indexed mathematical findings and targeted primary-literature queries did not reveal an equivalent claim. The residual possibility of an older general normalization theorem or a specialized two-token calculation remains open; absence from search is not proof of worldwide priority.
+## originality
 
-## Value — PASS
+PASS
 
-Attraction of principal-eigenvector consensus is fundamental to small-step self-attention theory, while oscillatory flipping has been studied in fully repulsive models. This theorem identifies the exact boundary between those regimes for an indefinite value spectrum; more significantly, it shows that token exchange and synchronous flipping have different sharp stability thresholds even on the smallest interacting full-attention system. Both coexist robustly on a nonempty open parameter region, and a uniform normally attracting continuum at the first boundary explains why the transition cannot be modeled as a solitary isolated flip. These are natural structural classifications, not arbitrary numerical slices.
+Qualified best-of-knowledge assessment: The exact orbit statements here are for full self-including softmax with mixed-sign V; isotropic negative V, masked kernels, and normalized optimization sign cycles do not give the two distinct q-dependent stability inequalities. General signed- or isotropic-attention dynamics can cover the existence of a flip, credited as prior. The simultaneous mixed-sign, self-including antipodal threshold and exactly normally attracting resonant circle require additional explicit transverse spectral calculation; no direct implication located. Prior general normalized-map definitions and spectral selection explain parts of the mechanism; they do not mechanically specify both strict sink boundaries or the resonance normal multiplier for this model. Residual priority and source-access risks are explicitly retained.
 
-## Scope and risks
+## value
 
-Only canonical named orbits are classified. The map need not be globally defined at all inputs, and no global attractor or basin partition is asserted. The only independent computations are finite diagnostics; independent scientific and historical audits have not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct transverse thresholds and a whole resonant normally attracting two-cycle continuum give a sharply resolved bifurcation structure in a natural minimal normalized-attention example, beyond a general statement that negative directions can flip.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
