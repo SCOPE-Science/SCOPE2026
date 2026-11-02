@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:07:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/nilpotent-star-partial-isometries-exact-rank-index-spectrum-and--7b0d6d4d672f/RESULT.md",
+        "2026/10/26/nilpotent-star-partial-isometries-exact-rank-index-spectrum-and--7b0d6d4d672f/verify_star_nilpotent.py",
+        "/mnt/data/scope05_independent_checks.py (private independent check)"
+      ],
+      "rationale": "A metric-preserving partial injection of rank>=3 either stays in leaf-to-leaf symmetric inverse monoid or fixes hub; a hub-fixed map cannot be nilpotent. At rank2, hub crossings are directed i->0->j paths with i!=j, while hub 2-cycles are excluded; rank1 adds 2m single hub-leaf arrows. The remaining nilpotent leaf partial injections are exactly disjoint oriented directed paths, including isolated vertices. A j-chain contributes x^j u^{j-1} to a labeled EGF, so E_l=exp(sum_{j<=l}x^j u^{j-1}) and E_l-E_{l-1} extracts maximum chain size l (nilpotency index). This proves the exact joint polynomial and m![x^m]exp(x/(1-x))+m(m+1) total. Independently enumerated every partial injection on m+1 vertices and checked star metric/nilpotent powers for m=1..5, totals (3,9,25,93,531); the full original rank/index script was also read, but bounded counts do not prove m arbitrary. The Gumbel limit follows from independent Poisson chain counts with means rho_m^j conditioned on total size m, where rho/(1-rho)^2=m and rho=1-m^-1/2+O(m^-1). At L=floor(sqrt(m)(0.5logm+s)), tail Poisson mean rho^(L+1)/(1-rho)->e^-s; a Fourier lattice local CLT for total size has scale m^3/4 and truncated-tail mean/variance o(scale/scale^2), giving conditioning ratio1. The source provides the Fourier small/large arc estimates; the hub correction m(m+1) is negligible compared with at least m! leaf chains. The proof asserts weak convergence only, not a finite error bound.",
+      "residual_risks": [
+        "The local CLT is an analytic step based on Fourier inversion, not established by finite m<=5 enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fernandes–Paulista classifies the whole star partial-isometry monoid and its size, not nilpotent profile, rank/index polynomial or extreme-chain law.",
+          "Stark studies random injections with prescribed domain/codomain sets, including path and cycle counts, with a different sampling measure."
+        ],
+        "reasoning": "An overarching assembly extreme-value theorem might imply limiting Gumbel for exp(x/(1-x)), but no exact dominating published statement and star hub correction was identified in inspected sources. This remains a specific residual risk rather than falsely claiming general machinery is new.",
+        "searches": [
+          "Fernandes-Paulista 2022/2023 original full OA manuscript Proposition2.1 Theorem2.3",
+          "Stark 2021 The component counts of random injections complete PDF",
+          "\"random fragmented permutations longest block Gumbel\" web"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md, verify_star_nilpotent.py, VERIFICATION.md and exact Git tree/blob SHAs",
+        "independent direct star metric injection and nilpotent-power enumeration m=1..5",
+        "Fernandes-Paulista full OA manuscript Sections1-4 with Proposition2.1 and Theorem2.3",
+        "Stark 2021 full journal PDF introduction and model",
+        "Resultary semantic search for star nilpotents, longest chains and Gumbel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The algebraic hub behavior is explicitly borrowed from Prop2.1; deriving the nilpotent EGF requires the extra no-directed-cycle decomposition and counting maximal paths.",
+          "A generic Gumbel extreme theorem, if applicable after verifying conditioning regime, could subsume the asymptotic mechanism, but would still not automatically provide the finite rank/index spectrum with explicit hub terms."
+        ],
+        "reasoning": "The full combined claim is not an immediate corollary of all-isometry counts or Stark random injection results. The general-purpose Poisson method is not claimed original.",
+        "searches": [
+          "Fernandes Paulista full OA manuscript Propositions2.1,2.2, Theorem2.3",
+          "Stark full PDF model and component results",
+          "general assembly extreme-value literature Gumbel query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform nilpotent partial isometries decompose into uniformly weighted labeled assemblies of ordered paths plus hub exceptions; the nilpotency index is longest component size.",
+          "No published Resultary hit with the same star nilpotent distribution was identified; other chain-graph results use unrelated graph invariants."
+        ],
+        "reasoning": "The strongest plausible alias is extreme component length in random labeled sets of sequences/acyclic partial injections, not generic permutations with cycles. This equivalence is explicitly assessed, with residual priority risk.",
+        "searches": [
+          "\"nilpotent partial isometries finite star monoid rank index enumerator Gumbel largest chain partial injections\" Resultary",
+          "\"uniform nilpotent partial injection longest chain Gumbel star graph\" Resultary",
+          "\"random nilpotent partial injective maps longest chain Gumbel\" web"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fernandes–Paulista table counts *all* partial isometries for n<=20 and is not the nilpotent count m![x^m]exp(x/(1-x))+m(m+1).",
+          "Stark gives component count distributions under a different injection model."
+        ],
+        "reasoning": "No exact rank/index nilpotent coefficient table for DPS_n was located; all-isometry total cardinality does not determine its nilpotent subfamily.",
+        "searches": [
+          "Fernandes-Paulista Theorem2.3 cardinality table for DPS_n",
+          "Stark 2021 tables/distribution of component counts",
+          "\"uniform nilpotent partial injection longest chain Gumbel star graph\" Resultary"
+        ]
+      },
+      "rationale": "Fernandes–Paulista original full star monoid paper classifies all elements and gives monoid cardinality, Green classes, rank and presentation; its Proposition2.1 supplies the structural split, but does not treat nilpotent rank/index distribution or a Gumbel limit (relevant source sections and entire PDF search checked). Stark 2021 component counts of random injections uses fixed domain/codomain and allows cycles, not uniform nilpotent star maps; generic assembly extremes may nevertheless imply the Gumbel mechanism. Given original algebraic object and explicit distribution, best-of-knowledge originality passes with a genuine general-assembly priority risk.",
+      "residual_risks": [
+        "Generic combinatorial-assembly maximum component theorems may imply the asymptotic Gumbel law under an equivalent assembly measure; broad priority is not excluded.",
+        "The university PDF screenshot was blocked by a repository challenge, though indexed full text and original structural results were inspected; no bypass was attempted.",
+        "The local CLT is an analytic step based on Fourier inversion, not established by finite m<=5 enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The original structural classification and total monoid order are already established; no nilpotent rank/index or Gumbel claim found in full document",
+          "evidence": "Prop2.1 split into leaf inverse monoid, hub-fixed maps, rank2 hub swaps and singleton arrows; Theorem2.3 sums *all* maps. No occurrences of nilpotent or Gumbel.",
+          "identifier_or_url": "https://run.unl.pt/bitstreams/a452b46f-eec5-469f-9883-018bf1c1a4a4/download",
+          "material_read": "Full 22-page author manuscript text; Sections1-2, Proposition2.1 and decomposition (1), Theorem2.3 monoid cardinality; sections3-4 rank/presentation surveyed and full-document term search for nilpotent/Gumbel",
+          "method": "lawful university open-access PDF indexed text; screenshot endpoint denied by repository challenge after text access (no human verification bypass)",
+          "title": "On the monoid of partial isometries of a finite star graph (Fernandes and Paulista)",
+          "trigger": "Exact star monoid, strongest same-object prior and original structural split"
+        },
+        {
+          "assessment": "Studies injections domain A union B to codomain A union C, including cyclic components; not the uniform nilpotent star inverse-monoid measure",
+          "evidence": "Abstract explicitly defines fixed domain/codomain model and gives numbers of cycles/paths, not the listed nilpotent index law.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i1p5/pdf/",
+          "material_read": "Full 15-page primary PDF model, abstract/introduction and component count statements; visual page1",
+          "method": "lawful journal OA PDF text and visual screenshot",
+          "title": "The component counts of random injections (Dudley Stark)",
+          "trigger": "Random injection component count, closest random path extreme alias"
+        },
+        {
+          "assessment": "Not an additional distinct source; identical original structural result with publisher metadata",
+          "evidence": "Communications in Algebra 51 (2023) 1028-1048, original online 2022-09-14.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2022.2121404",
+          "material_read": "Journal metadata/abstract and paper outline; same accepted manuscript read in university archive",
+          "method": "publisher bibliographic page plus university licensed manuscript",
+          "title": "On the monoid of partial isometries of a finite star graph journal version",
+          "trigger": "Published bibliographic alias of the same available OA manuscript"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The star partial-isometry inverse monoid is a natural algebraic object whose full cardinality/rank and presentation were known. The exact joint *nilpotent* rank/index spectrum and uniform-element extremal index behavior are distinct meaningful invariants, with nontrivial low-rank hub corrections and a probabilistic extreme-value transition. Specific exact spectrum supports further semigroup and random-transformation comparisons; the Gumbel centering/scaling supplies information absent from the total order.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m>=1 labeled leaves and uniform distribution among nilpotent star isometries",
+    "No finite-size Gumbel rate or arbitrary graph/partial-mapping result claimed"
+  ],
+  "schema_version": 1
+}

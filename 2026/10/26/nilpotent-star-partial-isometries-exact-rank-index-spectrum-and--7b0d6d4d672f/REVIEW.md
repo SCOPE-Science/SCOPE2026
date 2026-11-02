@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The hub-distance dichotomy exhausts the partial isometries and shows that the only non-leaf nilpotents are exactly \(2m\) hub-crossing single arrows and \(m(m-1)\) two-step paths. The labeled-set exponential formula gives every coefficient of the rank/index enumerator. For the Gumbel law, the conditioned independent Poisson component model, a local central limit estimate on total size, explicit negligible tail moments, and the limiting Poisson void probability prove the convergence. Exhaustive direct finite enumeration for six star sizes agrees with the complete frequency tables.
+## correctness
 
-**Originality — PASS against inspected sources.** Fernandes–Paulista Proposition 2.1 already provides the basic hub classification and is credited. Their article addresses rank, presentation, cardinality, and Green structure, not the nilpotent rank/index generating polynomial or the stated Gumbel limit. Stark studies path counts and maximum path bounds in fixed-domain injection models; those results do not directly give the full uniform nilpotent star-monoid law. Related previous nilpotent partial-isometry computations for paths and cycles concern different graph families. A generic expansive-assembly extreme-value result might imply the conditioned-Poisson step; this remains a publication-priority risk, not a claim of absolute novelty.
+PASS
 
-**Value — PASS.** Nilpotency index and domain rank are intrinsic natural invariants of transformation semigroups. Their full joint spectrum records precisely the exceptional effect of a high-degree hub, while the nondegenerate Gumbel law locates the typical maximal nilpotent chain and describes its fluctuations. The result adds asymptotic structure rather than only another single small finite count.
+A metric-preserving partial injection of rank>=3 either stays in leaf-to-leaf symmetric inverse monoid or fixes hub; a hub-fixed map cannot be nilpotent. At rank2, hub crossings are directed i->0->j paths with i!=j, while hub 2-cycles are excluded; rank1 adds 2m single hub-leaf arrows. The remaining nilpotent leaf partial injections are exactly disjoint oriented directed paths, including isolated vertices. A j-chain contributes x^j u^{j-1} to a labeled EGF, so E_l=exp(sum_{j<=l}x^j u^{j-1}) and E_l-E_{l-1} extracts maximum chain size l (nilpotency index). This proves the exact joint polynomial and m![x^m]exp(x/(1-x))+m(m+1) total. Independently enumerated every partial injection on m+1 vertices and checked star metric/nilpotent powers for m=1..5, totals (3,9,25,93,531); the full original rank/index script was also read, but bounded counts do not prove m arbitrary. The Gumbel limit follows from independent Poisson chain counts with means rho_m^j conditioned on total size m, where rho/(1-rho)^2=m and rho=1-m^-1/2+O(m^-1). At L=floor(sqrt(m)(0.5logm+s)), tail Poisson mean rho^(L+1)/(1-rho)->e^-s; a Fourier lattice local CLT for total size has scale m^3/4 and truncated-tail mean/variance o(scale/scale^2), giving conditioning ratio1. The source provides the Fourier small/large arc estimates; the hub correction m(m+1) is negligible compared with at least m! leaf chains. The proof asserts weak convergence only, not a finite error bound.
 
-**Limits.** Only finite stars and their uniform nilpotent sampling distribution are addressed. The proof is not independently audited. The available literature comparisons do not establish exhaustive publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fernandes–Paulista original full star monoid paper classifies all elements and gives monoid cardinality, Green classes, rank and presentation; its Proposition2.1 supplies the structural split, but does not treat nilpotent rank/index distribution or a Gumbel limit (relevant source sections and entire PDF search checked). Stark 2021 component counts of random injections uses fixed domain/codomain and allows cycles, not uniform nilpotent star maps; generic assembly extremes may nevertheless imply the Gumbel mechanism. Given original algebraic object and explicit distribution, best-of-knowledge originality passes with a genuine general-assembly priority risk.
+
+## value
+
+PASS
+
+The star partial-isometry inverse monoid is a natural algebraic object whose full cardinality/rank and presentation were known. The exact joint *nilpotent* rank/index spectrum and uniform-element extremal index behavior are distinct meaningful invariants, with nontrivial low-rank hub corrections and a probabilistic extreme-value transition. Specific exact spectrum supports further semigroup and random-transformation comparisons; the Gumbel centering/scaling supplies information absent from the total order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
