@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:53:17.882953Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md, check_exact.py, tree SHA 679da1b8f49b0ee094e51882f1ea27d210eb9967",
+        "Independent rational SymPy 512-face enumeration; KKT realization argument"
+      ],
+      "rationale": "D_n has independent adjacent mixed-difference rows; every active subset is locally realizable by strict KKT complementarity, so the global infinity norm modulus equals max over P_A=I−D_A^T(D_AD_A^T)^−1D_A. Independently built D from four-corner coefficients and rationally enumerated all 2,16,512 active masks for n=2,3,4, obtaining sharp maxima 3/2,17/9,9/4; exactly mask 341 wins for n=4, while full-pooling mask 511 gives 17/8. The source supplies strictly feasible finite witness at eps 1/100 and proves embedding lower bound for n>4, not equality there.",
+      "residual_risks": [
+        "No exact n>=5 value is claimed; finite exhaustive enumeration is a valid proof only for the finitely many n<=4 active sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hütter, Mao, Rigollet and Robeva, Estimation of Monge Matrices, arXiv:1904.03136v1 (2019) provides minimax Frobenius statistical rates and an iterative projection algorithm.",
+          "Resultary 2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41 covers a different cross-polytope projection."
+        ],
+        "reasoning": "General piecewise-affine projection theory implies the active-set Jacobian method, which is credited; it does not evaluate 512 particular inverse Gram matrices or force checkerboard extremality. Statistical risk statements do not dominate deterministic sharp infinity-to-infinity modulus.",
+        "searches": [
+          "sharp infinity norm Lipschitz constant Euclidean projection onto anti-Monge supermodular matrix cone 4x4 checkerboard active constraints",
+          "polyhedral Euclidean projection sharp infinity norm stability active set Monge cone"
+        ]
+      },
+      "checked_sources": [
+        "Hütter, Mao, Rigollet and Robeva, Estimation of Monge Matrices, arXiv:1904.03136v1 (2019)",
+        "Chatterjee, Guntuboyina and Sen, On matrix estimation under monotonicity constraints, arXiv:1506.03430",
+        "Resultary query: sharp infinity norm Lipschitz constant Euclidean projection onto anti-Monge supermodular matrix cone 4x4 checkerboard active constraints"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hütter, Mao, Rigollet and Robeva, Estimation of Monge Matrices, arXiv:1904.03136v1 (2019) Section 4.1: projection onto intersection of adjacent plaquette halfspace cones, numerical algorithm and iteration convergence.",
+          "Hütter, Mao, Rigollet and Robeva, Estimation of Monge Matrices, arXiv:1904.03136v1 (2019) Sections 2 and 5 concern estimation risk bounds and their proofs."
+        ],
+        "reasoning": "Convergence of Dykstra iterates and statistical L2 risk cannot infer exact worst-case L-infinity sensitivity. The new theorem additionally proves a unique active face and explicit perturbation achieving the bound.",
+        "searches": [
+          "sharp infinity norm Lipschitz constant Euclidean projection onto anti-Monge supermodular matrix cone 4x4 checkerboard active constraints",
+          "arxiv:1904.03136 Section 4.1 Dykstra algorithm projection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hütter, Mao, Rigollet and Robeva, Estimation of Monge Matrices, arXiv:1904.03136v1 (2019) defines anti-Monge mixed inequalities and Frobenius-nearest least-squares estimator; Section 4.1 computes the same projection by Dykstra.",
+          "Chatterjee, Guntuboyina and Sen, On matrix estimation under monotonicity constraints, arXiv:1506.03430 concerns coordinatewise monotone bivariate constraints and stochastic risk."
+        ],
+        "reasoning": "Changing sign gives Monge convention with identical modulus. However the same projection operator in prior work alone does not imply an exact sharp infinity-norm sensitivity constant or its extremizing active set.",
+        "searches": [
+          "sharp infinity norm Lipschitz constant Euclidean projection onto anti-Monge supermodular matrix cone 4x4 checkerboard active constraints",
+          "anti-Monge supermodular isotonic regression projection Lipschitz l infinity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently enumerated 512 active subsets of the 3x3 plaquette grid; unique maximal mask 341, row-sum 9/4, next full-pooling 17/8.",
+          "Checked n=2 and n=3 with all 2 and 16 subsets and maxima 3/2 and 17/9."
+        ],
+        "reasoning": "The exhaustive finite rational table establishes this exact low-dimensional invariant but was generated independently this run; no identified published table already lists the result.",
+        "searches": [
+          "sharp infinity norm Lipschitz constant Euclidean projection onto anti-Monge supermodular matrix cone 4x4 checkerboard active constraints",
+          "anti-Monge 4x4 projection checkerboard 9/4 Jacobian rational masks"
+        ]
+      },
+      "rationale": "The original least-squares anti-Monge projection and Dykstra algorithm are pre-existing. The complete rational 4x4 infinity-norm Lipschitz classification, unique checkerboard active face and explicit sharp finite input pair were not stated in the inspected main results, algorithm, proof or appendix of the directly matched primary paper.",
+      "residual_risks": [
+        "A previously published cone-projection active-set sensitivity table or equivalent supermodular-regression stability theorem may contain the exact 4x4 value but was not located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same estimation map/constraint family, but no 4x4 L-infinity modulus or checkerboard active-set extremizer located.",
+          "evidence": [
+            "Hütter, Mao, Rigollet and Robeva, Estimation of Monge Matrices, arXiv:1904.03136v1 (2019)",
+            "Section 4.1, adjacent plaquette halfspaces, p.10-11"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.03136",
+          "material_read": "Complete 42-page PDF searched; introduction, main minimax results, Section 4.1 Dykstra algorithm, proof sections and references; inspected page 1 image",
+          "method": "Read primary arXiv PDF text and directly compared theorem statements and formulas",
+          "title": "Estimation of Monge Matrices",
+          "trigger": "Same anti-Monge inequality cone and unweighted least-squares projection"
+        },
+        {
+          "assessment": "Different coordinatewise order cone and statistical risk, so not same deterministic mixed-difference sensitivity theorem.",
+          "evidence": [
+            "Chatterjee, Guntuboyina and Sen, On matrix estimation under monotonicity constraints, arXiv:1506.03430"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.03430",
+          "material_read": "Abstract and main theorem descriptions concerning bivariate coordinatewise isotonic least-squares risk",
+          "method": "Read available arXiv abstract/main statements, compared cone definition and norms",
+          "title": "On matrix estimation under monotonicity constraints",
+          "trigger": "Possible earlier bivariate shape-constrained projection stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hütter, Mao, Rigollet and Robeva, Estimation of Monge Matrices, arXiv:1904.03136v1 (2019)",
+        "Exact 512-face enumeration"
+      ],
+      "rationale": "Provides a complete, natural, low-dimensional stability classification of the anti-Monge least-squares projection; the checkerboard face displaces full pooling at the first possible square size, with an exact sharp finite-pair witness. The precise constant informs deterministic maximum-error amplification of a widely used shape-constrained estimator.",
+      "residual_risks": [
+        "The classification stops at n=4; n>=5 has a lower bound rather than a complete formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, check_exact.py, tree SHA 679da1b8f49b0ee094e51882f1ea27d210eb9967",
+    "Independent rational SymPy 512-face enumeration; KKT realization argument",
+    "Hütter, Mao, Rigollet and Robeva, Estimation of Monge Matrices, arXiv:1904.03136v1 (2019)",
+    "Chatterjee, Guntuboyina and Sen, On matrix estimation under monotonicity constraints, arXiv:1506.03430",
+    "Resultary query: sharp infinity norm Lipschitz constant Euclidean projection onto anti-Monge supermodular matrix cone 4x4 checkerboard active constraints",
+    "Exact 512-face enumeration"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific conclusion is best-of-knowledge and not an external certificate. Independent finite checks only establish the explicitly described finite instances; analytically proved bounds apply to the quantified scope. Publication remains withheld for unsanitized provenance.",
+  "residual_risks": [
+    "No exact n>=5 value is claimed; finite exhaustive enumeration is a valid proof only for the finitely many n<=4 active sets.",
+    "A previously published cone-projection active-set sensitivity table or equivalent supermodular-regression stability theorem may contain the exact 4x4 value but was not located.",
+    "The classification stops at n=4; n>=5 has a lower bound rather than a complete formula."
+  ],
+  "schema_version": 1
+}

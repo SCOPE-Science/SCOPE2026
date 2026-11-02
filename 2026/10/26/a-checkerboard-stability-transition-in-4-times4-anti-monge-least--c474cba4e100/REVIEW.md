@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The constraints and norm are fully specified, and the mixed-difference operator is surjective. Every active-face Jacobian \(P_A\) is obtained from the KKT equations and is realized on an open region. A continuous piecewise-affine argument converts the global Lipschitz constant into the maximum of its exact absolute row sums. The standalone exact-fraction verifier exhausts all \(512\) subsets at size four (and all subsets at sizes two and three), checks projection identities, and certifies the cardinality-wise maxima and unique checkerboard winner. Its explicit finite-pair witness satisfies strict complementarity with rational positive bounds. The larger-grid lower bound uses an explicitly embedded five-constraint face, without claiming complete higher-dimensional norms.
+## correctness
 
-**Originality — PASS within checked sources.** The closest primary full text is Hütter–Mao–Rigollet–Robeva's *Estimation of Monge Matrices* (arXiv:1904.03136), which uses the identical cone for statistical estimation and provides projection algorithms, not this sharp \(4\times4\) coordinatewise amplification and active-face classification. Chatterjee–Guntuboyina–Sen (arXiv:1506.03430) study matrix isotonic risks under another cone. Published scalar isotonic and two-row supermodular stability results cannot imply a checkerboard face involving three independent plaquette rows and columns. Active-set calculus alone is not claimed new. Residual risk: historically equivalent small-grid calculations may be embedded in older approximation or Monge projection literature.
+PASS
 
-**Value — PASS.** The previously tempting complete-pooling maximizer is correct on square sizes two and three but becomes false for the first time at size four, with a qualitatively different unique central checkerboard maximizer. The exact constant \(9/4\) and a finite worst-case perturbation quantify deterministic entrywise-error propagation in supermodular matrix denoising, and the same instability appears as a lower bound for arbitrary larger squares. This is a motivated minimal structural boundary, rather than an arbitrary sampled slice, an epsilon-size numerical improvement, or a renamed known result.
+D_n has independent adjacent mixed-difference rows; every active subset is locally realizable by strict KKT complementarity, so the global infinity norm modulus equals max over P_A=I−D_A^T(D_AD_A^T)^−1D_A. Independently built D from four-corner coefficients and rationally enumerated all 2,16,512 active masks for n=2,3,4, obtaining sharp maxima 3/2,17/9,9/4; exactly mask 341 wins for n=4, while full-pooling mask 511 gives 17/8. The source supplies strictly feasible finite witness at eps 1/100 and proves embedding lower bound for n>4, not equality there.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original least-squares anti-Monge projection and Dykstra algorithm are pre-existing. The complete rational 4x4 infinity-norm Lipschitz classification, unique checkerboard active face and explicit sharp finite input pair were not stated in the inspected main results, algorithm, proof or appendix of the directly matched primary paper.
+
+## value
+
+PASS
+
+Provides a complete, natural, low-dimensional stability classification of the anti-Monge least-squares projection; the checkerboard face displaces full pooling at the first possible square size, with an exact sharp finite-pair witness. The precise constant informs deterministic maximum-error amplification of a widely used shape-constrained estimator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
