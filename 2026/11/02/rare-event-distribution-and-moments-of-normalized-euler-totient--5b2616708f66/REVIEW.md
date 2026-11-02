@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The largest-prime-factor decomposition forces the cofactor to be bounded whenever the normalized deficiency complement exceeds a fixed threshold. Higher powers of that largest prime are finite exceptions; the remaining prime-multiple criterion holds at every strict threshold, including the equality boundary. The first moment follows from an exact prime-divisor decomposition, summably small higher prime powers, and dominated convergence using \(\varphi(m)\ge\sqrt{m/2}\). Boundedness of the normalized complement and prime-multiple truncation transfer the first moment to all fixed positive integral moments. Finite enumeration is supplementary, not the basis of the unrestricted proof.
+
+**Originality — PASS (best-knowledge; priority risk remains).** Ranjan–Singh's inequality proves the sign of the unnormalized deficiency, not its threshold distribution or Euler-product moments. Belbachir–Ranjan–Singh's later manuscript gives an expansion for the average *unnormalized* deficiency and explicitly asks for the normalized distribution; its Section 4 prime-multiple identities concern exact Diophantine equality, not these positive-threshold asymptotics. Alladi–Erdős study the distinct additive prime-factor average, not this ratio. Targeted mathematical-record queries and accessible earlier claims supplied no covering implication. A different formulation hidden in the broader historical prime-factor literature remains possible and requires independent priority assessment.
+
+**Mathematical value — PASS.** The theorem gives an explicit and complete rare-event law at every fixed positive threshold and an all-moment answer to the normalized deficiency's average-order problem. Its leading constant is an inverse-totient Euler product; the threshold coefficient is a finite, computable inverse-totient sum, with a meaningful discontinuity at every possible critical level. The result strengthens merely knowing that normalized deficiency approaches one.
+
+The theorem fixes the threshold and moment order; no uniform small-threshold law or central limit theorem is asserted. Its numerical program checks finitely many instances only. The 2025 originating inequality and 2026 follow-up are distinct from the claim established here.
+
+Self-review: passed. Independent audit: not yet performed.
