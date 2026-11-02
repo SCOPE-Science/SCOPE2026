@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Exact all-n parity calculation: det(J-I-P)=n-2 for odd n and 0 for even n, with verified Fourier eigenvalues and direct n=3..9 checks. Every exchange is an odd transposition; bipartite Hamiltonian paths require color classes differ at most one. The 80 lexicographic-state witness is exhaustive, closes, and is independently replayed in Python and C++; independent all-source BFS yields 207 edges and eccentricities 5:48,6:32. Direct exhaustive n=5 calculation gives 11+1+1 components. No inference from finite tests to an unbounded claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonamy et al., The Perfect Matching Reconfiguration Problem (2019), pages 2-4, define 4-cycle flips, explain connectivity/mixing, and give algorithms for selected hereditary classes.",
+        "Classical transposition Gray codes traverse all n! permutations, including forbidden cells."
+      ],
+      "reasoning": "Neither a general connected-flip decision algorithm nor a full-permutation Gray code forces Hamiltonicity on this restricted induced subgraph; no covering theorem for this board was found in material reviewed.",
+      "searches": [
+        "perfect matching reconfiguration 4 cycle bipartite host (Bonamy Bousquet Heinrich Ito Kobayashi Mary Mühlenthaler Wasa)",
+        "general transposition Gray code for all permutations",
+        "arxiv:1904.06184"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1101.5321",
+      "arxiv:1401.1089",
+      "arxiv:1904.06184",
+      "OEIS:A000179",
+      "published prior comparisons on permutation and matching switches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1101.5321 sections 1-2 describe permanents, refined counts.",
+        "arxiv:1401.1089 pages 1-4, restricted-permutation enumeration.",
+        "arxiv:1904.06184 pages 1-4, flip graph definitions, complexity and selected graph classes."
+      ],
+      "reasoning": "Permanent counts never determine parity classes or the edge relation. The all-permutation Gray code does not respect forbidden cells. Generic existence of a flip path is weaker than a Hamiltonian cycle and the 2019 work concerns reachability rather than exhaustive Gray-code tours.",
+      "searches": [
+        "Shevelev Moses 2011 ménage problem fixed couple",
+        "Zeilberger 2014 Automatic Enumeration of Generalized Menage Numbers",
+        "Bonamy et al. 2019 perfect matching reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shevelev and Moses (2011) explicitly give the permanent of J-I-P and classical ménage numbers, PDF Sections 1-2.",
+        "Zeilberger (2014) provides restricted-position permutation counts via rook polynomials, not Gray-code transitions."
+      ],
+      "reasoning": "The studied object is equivalent to one-factor switches on the bipartite complement of a spanning 2n-cycle; both row and column forbidden positions are retained. The papers enumerate but do not supply a cyclic swap traversal or signed determinant obstruction.",
+      "searches": [
+        "\"ménage\" \"Gray code\" permutations",
+        "\"menage\" Hamilton cycle transpositions restricted permutations",
+        "perfect matching 4-cycle switches on K_n,n minus a Hamiltonian cycle",
+        "arxiv:1101.5321",
+        "arxiv:1401.1089"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000179 tabulates |U_5|=13 and |U_6|=80, and older Shevelev paper does likewise.",
+        "The new certificate checks 80 cyclic swap transitions and all graph distances rather than only scalar counts."
+      ],
+      "reasoning": "Known scalar tables are not claimed; the signed count formula, Gray-code existence, and graph distance profile are different invariants. No exact-table source with these transition properties was found.",
+      "searches": [
+        "OEIS A000179 ménage numbers",
+        "n=6 80 ménage permutations 207 switch edges Hamilton cycle 5 6 diameter",
+        "restricted permutation swap graph 80 configurations"
+      ]
+    },
+    "rationale": "The scanned primary papers of Shevelev and Moses and Zeilberger enumerate constrained permutations, not their transposition Gray-code graph; Bonamy et al. discuss general perfect-matching flip reconfiguration and complexity but do not imply the particular Hamiltonian cycle nor signed parity theorem. Earlier derangement transposition results lack the second forbidden cyclic diagonal and do not imply these claims. Genuine residual possibility of unindexed equivalent Gray codes remains.",
+    "residual_risks": [
+      "Potential unindexed exact 80-ménage cyclic Gray code or signed determinant observation.",
+      "A broad theorem on restricted-permutation Gray codes could cover the special positive instance despite no match in accessible primary sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides counts and permanent interpretation, does not establish constrained transposition Gray-code or Hamilton-path obstruction",
+        "evidence": "First pages explicitly identify matrix J-I-P, U_5=13, U_6=80, and conditional counts.",
+        "identifier_or_url": "https://arxiv.org/pdf/1101.5321",
+        "material_read": "Introduction, sections 2-4 and numerical counting results",
+        "method": "read primary PDF text and page images 1-2",
+        "title": "The ménage problem with a fixed couple / with a known mathematician",
+        "trigger": "Exact classical forbidden-position board"
+      },
+      {
+        "assessment": "Counts restricted permutations using rook polynomials; no Gray-code or transposition reconfiguration theorem in inspected text",
+        "evidence": "Paper defines permanent/rook enumeration, and searches for Hamilton/swap in PDF gave no matches.",
+        "identifier_or_url": "https://arxiv.org/pdf/1401.1089",
+        "material_read": "Abstract, pages 1-4 and methods",
+        "method": "primary PDF textual inspection and page-1 image",
+        "title": "Automatic Enumeration of Generalized Ménage Numbers",
+        "trigger": "Generalized restricted permutation results could dominate enumeration"
+      },
+      {
+        "assessment": "General reachability/complexity and classes do not imply exact 80-state Hamiltonian Gray code",
+        "evidence": "Pages 2-4 discuss 4-cycle flips and switch-chain connectivity rather than Hamiltonian enumeration.",
+        "identifier_or_url": "https://arxiv.org/pdf/1904.06184",
+        "material_read": "Abstract, introduction, definition and related-work pages 1-4",
+        "method": "read primary PDF and image page 3",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Same 4-cycle switch model could imply claimed result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c71a68d0-2514-4bba-9b30-d80cd30b5647",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural ménage class and smallest nontrivial local cyclic Gray-code instance: n=5 has locked states, n=6 admits a full 80-arrangement cyclic listing. For every odd n>=5, the exact determinant parity defect prohibits even Hamiltonian paths. The contrast refines classical mere enumeration, supplies a positive reproducible Gray-code benchmark, and gives an infinite structural obstruction applicable to switch-chain and local enumeration. Diameter/radius are secondary, not the core novelty.",
+    "status": "PASS"
+  }
+}
