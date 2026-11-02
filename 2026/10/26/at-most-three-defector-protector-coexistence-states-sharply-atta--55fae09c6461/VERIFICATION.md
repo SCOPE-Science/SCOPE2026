@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-**Proof-level checks.** The group-conditioned focal-payoff subtraction in `RESULT.md` is derived from the specified failure probability \(1-\rho^{\#D}\) and activated multiplier \(1-\omega\). The Bernstein coefficient jump is at the pivotal coplayer count \(M-1\). The transformed polynomial \((1+t)^n(f(t/(1+t))-h)\) has the same nonzero coefficient sign sequence as \(b_j-h\), so Descartes' theorem is applicable with multiplicities. The derivative has positive initial value and at most two interior zeros counted with multiplicities, excluding a second negative-slope band. The four-player instance uses exact rational coefficients and explicitly checks the transverse growth of the missing strategy at the middle root.
+## correctness
 
-**Reproduction.** Save the complete embedded `verify.py` and run `python verify.py` with a standard Python 3 interpreter. Expected output: `PASS: 2169 exact checks; 3 simple D/S roots in disjoint rational intervals`. The program enumerates raw conditional payoffs independently of the derived Bernstein formula, over all permissible quorum counts through ten-player groups and rational values for risk, protection, and frequency. Its arithmetic uses Python `fractions.Fraction` without floating-point comparisons.
+PASS
 
-**Limitations.** Finite exact-arithmetic checks corroborate only the enumerated inputs and explicit algebraic witness. The infinite-family conclusions rely on the fully stated analytic proof. The check neither asserts a proof assistant certification nor independent audit. Originality remains subject to fuller priority examination.
+Conditioning on protective coplayers j gives focal S-minus-D payoff difference delta_j=a-k+Ld rho^(n-j)(1-omega 1_{j>=M})+L omega(1-rho^(n-j))1_{j=M-1}. The normalized Bernstein coefficients strictly rise before pivotal index M-1, may drop once, then are nondecreasing; subtracting any constant yields at most 3 sign changes. Substitution z=t/(1+t) converts roots in (0,1) into positive roots of a polynomial with those binomial-weighted coefficient signs, so Descartes bounds roots with multiplicity. Bernstein derivative has initially positive sign and at most 2 zeros; hence at most one negative-slope band and at most one two-sided attracting edge equilibrium. Exact rational N4 witness polynomial B=(528z^3-879z^2+474z-83)/125 changes signs -,+,-,+ at given brackets; middle is stable in edge and missing-C eigenvalue A(z)<0. Independent raw payoff and polynomial tests corroborate; no claim for other edges/interior equilibria or general full-simplex stability.
+
+## originality
+
+PASS
+
+Li–Li–He–Shi–Szolnoki define the exact same protection-quorum and exponential risk model, and analyze equilibria and saddle-node bifurcations. Archetti established generic Bernstein variation-diminishing method. Their inspected statements do not imply without additional model coefficient analysis the uniform sharp 3-root ceiling, uniqueness of edge attractor and four-player explicit witness.
+
+## value
+
+PASS
+
+An all-group-size ceiling of 3 in a selection gradient whose degree grows with N is a meaningful structural constraint. The minimal sharp N4 example and edge/full-simplex stability distinguish allowed coexistence patterns and clarify bifurcation diagrams in a natural game.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
