@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:10:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For a binary run decomposition with lengths a1,...,am, a left-minimal mixed interval starts exactly at the last letter of run i-1 and ends in run i. Thus L_w(h)=sum_{i=2}^m 1_{2<=h<=a_i+1}, delta(2)=m-1, delta(j+2)=-multiplicity of noninitial run length j. The multiset of noninitial run lengths is a partition of t=n-a1, 0<=t<=n-1, and every such partition is realizable by alternating runs. The sole negative jump outside observable lengths occurs at partition (n-1), which has unique delta2=1 and no later jump, distinct from the empty zero profile. Fibers have two initial letters and permutations k!/prod m_j!, with exceptional and empty fibers each of size two. Distinct k positive run lengths cost at least k(k+1)/2 symbols after the first, giving sharp d=1+floor((sqrt(8n-7)-1)/2) for n>=3 and 2k! shortest extremizers (k>=2); n=1,2 checked separately. Independent direct mixed-window enumeration of all words n<=11 matched cumulative partition counts 1,2,4,7,12,19,30,45,67,97,139 and total word mass.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bille et al. prove O(d) space and O(sqrt(nq)) general sparse-profile bounds, and a lower bound.",
+          "The present sharp binary count and fiber formulas use a fixed two-letter alphabet, not the broad q-letter setting."
+        ],
+        "reasoning": "No quantitative general theorem in the inspected primary sources dominates the stated exact fixed-alphabet image of the observation map. The big-O bound does not imply the exact triangular threshold and shortest extremizer counts.",
+        "searches": [
+          "arXiv:2206.10383 Sections 2 and 3",
+          "arXiv:2011.14460"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.10383 Lemma 1 and Section 2",
+        "arXiv:2011.14460",
+        "OEIS:A000070",
+        "Resultary binary co-occurrence/reconstruction semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bille Lemma 1 generates interval contributions but does not assert one partition per distinct profile.",
+          "The OEIS sequence provides numbers without the left-minimal observation-map theorem."
+        ],
+        "reasoning": "Deriving the profile bijection needs checking binary run structure, injectivity and the out-of-range exceptional endpoint; those are new mathematical deductions, not a renaming of the bound.",
+        "searches": [
+          "arXiv:2206.10383 Lemma 1 and sparse-bound proof",
+          "OEIS A000070"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General left-minimal co-occurrences decompose into intervals of lengths from minimal co-occurrences in Bille et al.; exact binary run classification is a specialization of that lemma plus new partition bijection.",
+          "Sobel et al. count ordinary mixed windows rather than left-minimal deletion-stable windows."
+        ],
+        "reasoning": "Different notions of co-occurrence are not conflated. The general interval lemma is a prior nontrivial ingredient; it does not itself provide enumerative profile equivalence classes and exact fiber sizes.",
+        "searches": [
+          "Resultary semantic query: binary left minimal co-occurrence profiles integer partitions run lengths all window answers",
+          "arXiv:2206.10383 Lemma 1",
+          "arXiv:2011.14460"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000070 is the exact numeric sequence of partial sums of partition numbers.",
+          "SCOPE binary two-multispectrum results refer to distinct reconstruction observations."
+        ],
+        "reasoning": "Exact database sequence is already known; originality limited to the natural co-occurrence interpretation, partition classes and fibers. No paper or table found containing the complete binary left-minimal profiles.",
+        "searches": [
+          "OEIS:A000070",
+          "Resultary semantic query: binary left minimal co-occurrence profiles integer partitions run lengths all window answers",
+          "web: binary left-minimal co-occurrence profile partitions"
+        ]
+      },
+      "rationale": "PASS, qualified: Bille–Gortz–Stordalen 2022 already prove generic left-minimal co-occurrence interval decomposition and sparse first-difference bounds; OEIS A000070 already lists the numerical cumulative partition sequence. The new contribution is the exact binary-specialized attainable-profile bijection, all fiber sizes and sharp extremal support, not the count sequence itself or a generic co-occurrence data structure. Sobel et al. 2021 use all-window co-occurrence queries, not left-minimal profile equivalence classes. A specialized unindexed binary example of the general lemma may exist.",
+      "residual_risks": [
+        "Unindexed algorithmic/string papers may already derive the binary partition fiber classification.",
+        "The numerical sequence and general interval decomposition are known; any novelty statement must explicitly exclude these ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Provides general interval lemma and O(d)/O(sqrt(nq)) bounds, not the exact partition bijection, ambiguity fibers or sharp binary support counts in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.10383",
+          "material_read": "Full 11-page PDF retrieved; read abstract, definitions, Lemma 1 on PDF page 4 and its proof, difference discussion and bound setup",
+          "method": "Lawful arXiv primary PDF text with page-image screenshot of Lemma 1",
+          "title": "The Complexity of the Co-Occurrence Problem",
+          "trigger": "Original paper defining left-minimal co-occurrence and sparse differences"
+        },
+        {
+          "assessment": "DISTINCT_OBSERVATION_AND_ALGORITHM",
+          "evidence": "Addresses numbers of all mixed windows (without left-minimal deletion requirement), so cannot be equated to target profile.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.14460",
+          "material_read": "Primary arXiv abstract, algorithmic statement and query definition",
+          "method": "Open-access indexed abstract",
+          "title": "AWLCO: All-Window Length Co-Occurrence",
+          "trigger": "Neighboring co-occurrence query problem"
+        },
+        {
+          "assessment": "EXACT_NUMERIC_SEQUENCE_ONLY",
+          "evidence": "Sequence is prior; binary query-profile interpretation and fibers are not a conclusion of the bare entry.",
+          "identifier_or_url": "https://oeis.org/A000070",
+          "material_read": "Sequence definition and initial terms",
+          "method": "Public mathematics sequence database",
+          "title": "OEIS A000070: partial sums of partition numbers",
+          "trigger": "Exactly matching numerical sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Profile ambiguity is central to the information content of all-window-length co-occurrence queries. Exact classes, fiber sizes and sparse-support extremizers are natural complete binary classifications not implied merely by big-O space bounds; the exceptional length-(n-1) run boundary is essential. Known integer partition numbers alone are not proposed as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Alphabet exactly {0,1}, required itemset {0,1}, and left-minimal intervals; not ordinary mixed-window counts or larger alphabet results."
+  ],
+  "schema_version": 1
+}
