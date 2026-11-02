@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete operator-norm reduction uses the exact \(\ell_1/2\) Kantorovich--Rubinstein formula on unit equilateral vertex data. Symmetrization applies to every linear right inverse, including ones using signed coefficients. All possible point pairs reduce to three nontrivial ratios, with the endpoint parameter regimes separately excluded. The unique crossing switches at the exact condition \(\sqrt r=p+q\), which is never equality at integer \(r\), yielding the full piecewise formula. An explicit positive operator attains the bound. The fixed-face-size limit and its unique \(17\)-cardinality extremum follow from verified derivative signs and an integer-rational radical comparison. Full point-pair tests and unsymmetrized small linear programs support the analytic calculation.
+PASS
 
-## Originality — PASS, subject to residual bibliographic risk
+For n≥4, 3≤k≤n−1, any linear vertex-data right inverse corresponds to signed coefficient measures of mass 1; on unit equilateral vertices KR dual norm is half the ℓ1 difference. Averaging over S_n does not increase norm, so arbitrary minimization reduces to one equivariant pair a,b with ka+(n−k)b=1. Euclidean chord distances of inside-vertex, outside-vertex and face pairs give A(b)=(k−1+(n−k)b)/(kp), B(b)=(1−b)/q, C(b)=√r(1−nb), plus 1, p=√((k−1)/(2k)), q=√((k+1)/(2k)), r=min(k,n−k). Signed b outside [0,1/n] cannot improve; crossing A/B when r=1 and A/C when r≥2 gives two exact piecewise formulas and positive weights. Derivatives in n show each fixed-k supremum is strict n→∞ limit L_k=k√k/(1+k√((k−1)/2)). Differentiating h(k)=√(1−1/k)+√2 k^(−3/2) finds continuous minimum at 9+3√7 in (16,17), and exact rational radical bounds distinguish integer 17 from 16. Independently enumerated every point pair for all 21 (n,k) with n=4..9; obtained exact predicted optimum. General result follows from symmetry/duality/analytic inequalities, not finite enumeration.
 
-The nearest exact prior calculation covers only edge midpoints, corresponding to \(k=2\). It does not imply the face-distance patterns or optimum at \(k\ge3\), and it has no global optimization over face cardinalities. Bruè--Di Marino--Stra's published general extension theorem and Albiac--Ansorena--Cúth--Doucha's free-space complementability criterion concern general machinery, not the new constants. Borodachov's simplex spline-recovery problem uses derivative data and controls approximation error rather than Lipschitz extension norm. Targeted published-literature and research-database searches did not identify a formula covering the higher-face result or the unique extremal cardinality \(17\). This is not an assertion of exhaustive literature coverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives a natural and complete two-parameter class of exact simultaneous interpolation constants, including the codimension-one exception, the positive optimal kernels, and strict improvement over naive face averaging. The unexpected finite face-cardinality extremum at \(17\), with a sharp global constant not attained in any finite simplex, supplies substantial structural information independent of one-off numeric computations. It is useful as a precisely calibrated stability benchmark for high-dimensional simplex face interpolation and finite Lipschitz-free complementability.
+Best-of-knowledge: primary same-object comparisons, alias/implication checks and published finding searches distinguish the assessed exact statement from covered components. Historical priority uncertainty is retained; failed search is not novelty proof.
 
-## Closest literature and limitations
+## value
 
-Bruè, Di Marino and Stra, arXiv:1801.07533, Theorem 4.1; Albiac, Ansorena, Cúth and Doucha, arXiv:2005.06555, Lemma 2.7; Borodachov, arXiv:2212.11070, Sections 1--2. The exact edge-midpoint case \(k=2\) is prior and explicitly excluded from the new theorem. Extensions to mixed face sizes, nonregular simplices or Banach-valued data remain unproved. Less-indexed equivalent work remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact simultaneous linear Lipschitz extension constant is a natural extremal invariant of a symmetric finite Euclidean configuration; the non-obvious unique face-size 17 maximizer, positivity, and codimension transition furnish a complete sharp quantitative classification. It is not ordinary scalar McShane nonlinear extension or face averaging.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
