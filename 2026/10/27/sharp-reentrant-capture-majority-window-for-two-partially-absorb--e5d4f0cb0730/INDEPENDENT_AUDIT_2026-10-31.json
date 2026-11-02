@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:57:51.659898Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For diffusion D∂xx with two delta killing hazards at −a and 2a and Poisson resetting to zero, each reset interval has 2x2 killed-resolvent occupation equations with positive determinant. Their explicitly solved local fluxes yield P_R/P_L=(B/A)e^(−t)[2t+A(1−e^(−2t))]/[2t+B(1−e^(−4t))], t=a√(r/D), A=κ_L a/D and B=κ_R a/D; renewal divides both capture fluxes by their positive sum. The continuous zero-reset limit is B(1+A)/[A(1+2B)]. Clearing positive terms gives P_R>1/2 iff A<H_B(t), with H_B(0)=B/(1+B), H_B(∞)=0, and positive derivative at 0 precisely for B>1. For B≤1 the comparison K(B,t) is affine in B, negative at endpoints B=0,1 by t<sinh(t); hence no window exists. For B>1 the positive slope creates the exact open A interval. The strict A=11/10,B=100 witness crosses at least twice. A separately formulated NumPy 2x2 matrix solve verified 175 parameter samples and the majority inequality; universal proof is the analytic affine argument, not those samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2019 primary source includes multi-defect propagators; 2021 work covers partially absorbing target competition in different dimensions."
+        ],
+        "reasoning": "These broader forward models mathematically contain the setup, but no inspected theorem states or immediately reduces to the global envelope bound H_B(t)<=B/(1+B) iff B<=1. Specialized unlocated analyses remain a residual risk.",
+        "searches": [
+          "arXiv:1901.03033",
+          "arXiv:2104.09372",
+          "two partially absorbing point sinks Brownian motion stochastic resetting reentrant target capture probability majority threshold dimensionless reactivity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.03033 / DOI:10.1088/1751-8121/aaf8cc (Giuggioli–Gupta–Chase, 2019)",
+        "arXiv:1301.2489 (Whitehouse–Evans–Majumdar, 2013)",
+        "arXiv:2104.09372 (Schumm–Bressloff, 2021)",
+        "Resultary semantic query: two partially absorbing point sinks Brownian motion stochastic resetting reentrant target capture probability majority threshold dimensionless reactivity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2019 propagator can supply the odds expression but does not in inspected sections analyze a critical B=1 condition for reentrant majority."
+        ],
+        "reasoning": "Recovering the forward ratio by specialization is routine and credited. Its global optimization over resetting and proof excluding reentrance for every B<=1 require the separate affine K inequality, which is the assessed additional claim.",
+        "searches": [
+          "arXiv:1901.03033 §§3 and 5",
+          "arXiv:1301.2489",
+          "two partially absorbing point sinks Brownian motion stochastic resetting reentrant target capture probability majority threshold dimensionless reactivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reset-killed Green resolvent and two-defect capture flux ratio are equivalent to a local-time-killing/renewal problem; the ratio can be derived from older propagators."
+        ],
+        "reasoning": "The novelty does not include the two-by-two resolvent or forward probabilities. The additional exact requirement is a sign-changing capture-odds curve and its globally sharp feasible reactivity region.",
+        "searches": [
+          "two partially absorbing point sinks Brownian motion stochastic resetting reentrant target capture probability majority threshold dimensionless reactivity",
+          "arXiv:1901.03033 §§3,5, Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identified exact two-delta-sink reentrant majority threshold table, only known splitting formulas and nonmonotonic phenomena."
+        ],
+        "reasoning": "The threshold is an inequality over all real positive strengths and reset rates, not a discrete table entry. No indexed identical phase diagram found; this absence alone is not a novelty certificate.",
+        "searches": [
+          "two partially absorbing point sinks Brownian motion stochastic resetting reentrant target capture probability majority threshold dimensionless reactivity",
+          "arXiv:1901.03033 Sec. 5"
+        ]
+      },
+      "rationale": "The older full two-defect resolvent already implies the forward two-flux ratio (not claimed new). What survives is the explicit global B>1 iff feasibility threshold and exact A-window for reentrant ultimate-capture majority under the asymmetric 1:2 geometry. The accessible sections of prior resetting papers do not give this completed threshold analysis.",
+      "residual_risks": [
+        "Because the 2019 general two-defect model supplies the complete forward odds, an unlocated specialization or a general selection theorem might already imply the same global phase boundary.",
+        "Precisely two delta sinks at −a and +2a, fixed local-time normalization; no exact count of crossings or universal extension to different geometries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its two partially absorbing trap propagator implies the forward flux odds after geometry specialization. The full sharp global reentrant majority B>1 criterion is not present in inspected sections.",
+          "evidence": [
+            "Section 3 and Appendix B give the two-trap resolvent with partial absorption; Section 5 solves perfect-target splitting; own result assesses a further optimization/inequality."
+          ],
+          "identifier_or_url": "arXiv:1901.03033 / DOI:10.1088/1751-8121/aaf8cc (Giuggioli–Gupta–Chase, 2019)",
+          "material_read": "Original primary full PDF relevant Sections 3 and 5 and Appendix B, including two-defect Green function and perfect-target splitting expressions, with examined page images",
+          "method": "lawful accepted manuscript/primary PDF reading and cross-reference",
+          "title": "Comparison of two models of tethered motion",
+          "trigger": "Closest two-defect resetting propagator and splitting literature"
+        },
+        {
+          "assessment": "One-target partial absorption does not settle two-target majority reentrance.",
+          "evidence": [
+            "Single absorber gives no competition between capture channels."
+          ],
+          "identifier_or_url": "arXiv:1301.2489 (Whitehouse–Evans–Majumdar, 2013)",
+          "material_read": "Abstract and source references only, not full paper",
+          "method": "arXiv bibliographic comparison",
+          "title": "Effect of Partial Absorption on Diffusion with Resetting",
+          "trigger": "Original resetting with one delta absorber"
+        },
+        {
+          "assessment": "Multi-target renewal and flux methods are prior, but 2D spatially extended sinks are a different boundary model.",
+          "evidence": [
+            "Quantitative one-dimensional delta-sink B=1 phase threshold not identified in accessible material."
+          ],
+          "identifier_or_url": "arXiv:2104.09372 (Schumm–Bressloff, 2021)",
+          "material_read": "Referenced §§ and bibliographic characterization; no complete primary full text read this run",
+          "method": "bibliographic/abstract comparison",
+          "title": "Search processes with stochastic resetting and partially absorbing targets",
+          "trigger": "Competing partially absorbing targets and renewal fluxes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ultimate capture selectivity among two imperfect targets is a natural transport observable. A sharp iff condition for a farther target winning only at intermediate reset rates provides a structurally nonmonotone phase diagram, not just a numerical crossing or re-evaluation of a known propagator.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1901.03033 / DOI:10.1088/1751-8121/aaf8cc (Giuggioli–Gupta–Chase, 2019)",
+    "arXiv:1301.2489 (Whitehouse–Evans–Majumdar, 2013)",
+    "arXiv:2104.09372 (Schumm–Bressloff, 2021)",
+    "Resultary semantic query: two partially absorbing point sinks Brownian motion stochastic resetting reentrant target capture probability majority threshold dimensionless reactivity",
+    "Pinned assigned Git source: https://github.com/SCOPE-Science/SCOPE2026/tree/7c81201545e08a0e1d9cf8ec6f25ce011da92e86/2026/10/27/sharp-reentrant-capture-majority-window-for-two-partially-absorb--e5d4f0cb0730",
+    "Independent checker: independent_checks_batch5039.py"
+  ],
+  "disposition": "passed",
+  "limitations": "Best-of-knowledge review of one exact final claim, not proof of historical priority or formal/expert certification. Finite corroboration not substituted for universal mathematical steps. Publication source requires provenance sanitization; no Git write or research publication.",
+  "residual_risks": [
+    "Because the 2019 general two-defect model supplies the complete forward odds, an unlocated specialization or a general selection theorem might already imply the same global phase boundary.",
+    "Precisely two delta sinks at −a and +2a, fixed local-time normalization; no exact count of crossings or universal extension to different geometries."
+  ],
+  "schema_version": 1
+}
