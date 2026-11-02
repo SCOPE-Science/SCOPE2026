@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Proved without computational extrapolation: all-positive arc labels forbid mixed in/out vertices, forcing source–sink bipartite selected graph; a selected three-edge path has the two outer positive labels forcing the middle arc positive, contradicting shattering. A bipartite connected graph with no three-edge path is a star. Conversely assign the center/leaf vertex bits independently to realize every prescribed pattern. For one-descent ranking, any permutation is two increasing runs, encoding the arc predicate exactly. The count \\(2^n-n\\) follows by quotienting n+1 initial-segment encodings of the identity. A spanning star gives lower bound \\(n-1\\); cardinality <2^n gives matching Littlestone upper bound; exponential-formula recurrence enumerates every eligible forest. Exhaustive verification independently checked all supports through n=6 and all 729 oriented graphs on four vertices.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf/ §3–§4: shattered coordinates are choices of edge orientations in classes constrained by strong connectivity, flows, or distances.",
+        "https://web.math.princeton.edu/~nalon/PDFS/abgls4.pdf §1–§3: maximize cardinality of a dicut and derive extremal size inequalities."
+      ],
+      "reasoning": "Neither of these broad graph theorems gives full trace sets of all vertex bipartitions on arbitrary edge supports. The coordinate variables and required quantifiers differ. The present theorem holds for any oriented simple graph; hence a prior result solely about transitive tournaments would be weaker, not broader.",
+      "searches": [
+        "web: VC dimension directed cut functions directed graph edges graph shattered biclique",
+        "web: VC dimension of all directed cuts of transitive tournament",
+        "web: Shattering, Graph Orientations, and Connectivity Kozma Moran 2013",
+        "semantic research query: directed cut edge indicator class shattered supports oriented stars star forests truth assignments"
+      ]
+    },
+    "checked_sources": [
+      "https://ojs.aaai.org/index.php/AAAI/article/view/16709/16516",
+      "https://web.math.princeton.edu/~nalon/PDFS/abgls4.pdf",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf/",
+      "https://weizmann.elsevierpure.com/en/publications/vc-dimension-of-sets-of-permutations/",
+      "semantic research query: one descent permutations pairwise comparison query supports star forests VC shattering polynomial Littlestone",
+      "semantic research query: directed cut edge indicator class shattered supports oriented stars star forests truth assignments",
+      "semantic research query: two increasing runs permutation rankings VC shattering and learning dimension"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://ojs.aaai.org/index.php/AAAI/article/view/16709/16516 §§1–6 proves entropy/insertion-sort bounds for Mallows, mixtures and Plackett–Luce, without one-descent trace classification.",
+        "https://weizmann.elsevierpure.com/en/publications/vc-dimension-of-sets-of-permutations/ defines VC on k selected labels realizing all k! orders, not Boolean shattering of selected pairwise predicates.",
+        "https://web.math.princeton.edu/~nalon/PDFS/abgls4.pdf investigates maximum directed-cut cardinality, a weaker scalar problem not furnishing supportwise binary traces."
+      ],
+      "reasoning": "The focal claim is not a corollary of the cited prior propositions under a change of parameters: complete Boolean support shattering and all-degree enumeration require positive/negative patterns simultaneously. Prior scalar sizes, entropy estimates, or alternate VC notions cannot imply the star-forest iff without an additional, unlocated theorem.",
+      "searches": [
+        "web: Preference Elicitation as Average-Case Sorting Peters Procaccia 2021",
+        "web: VC-dimension of sets of permutations Raz 2000",
+        "web: Maximum directed cuts in acyclic digraphs Alon Bollobas Gyarfas Lehel Scott",
+        "semantic research query: one descent permutations pairwise comparison query supports star forests VC shattering polynomial Littlestone"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For an arc u→v, the indicator is the Boolean conjunction ¬x_u ∧ x_v; on the transitive tournament this equals inversion of a one-descent permutation.",
+        "The searched indexed research records returned no identified claim of star-forest trace characterization; the nearest ranking related hit 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 concerns covariance matrices of unrestricted random rankings, not legal Boolean traces."
+      ],
+      "reasoning": "One-descent comparisons and directed cuts are exactly equivalent after two-increasing-block encoding; the proof explicitly handles this equivalence rather than counting it as separate novelty. A general Boolean-conjunction shattering theorem may exist under other terms; no matched published statement found.",
+      "searches": [
+        "semantic research query: one descent permutations pairwise comparison query supports star forests VC shattering polynomial Littlestone",
+        "semantic research query: directed cut edge indicator class shattered supports oriented stars star forests truth assignments",
+        "web: VC dimension edge incidence directed cuts shattered star forest orientations",
+        "web: shattered edge subsets rank one boolean matrix star forest"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The one-descent support counts through six labels are reproduced independently by verify.py: [1], [1,1], [1,3,2], [1,6,11,2], [1,10,35,30,2], [1,15,85,165,82,2].",
+        "Nearest indexed published ranking-covariance record 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 concerns correlations, not this table."
+      ],
+      "reasoning": "No located exact shattering-support table or labeled star-forest polynomial for one-descent rankings duplicates these coefficients. The all-order generating function is not claimed new merely because the first few coefficients are not found.",
+      "searches": [
+        "semantic research query: one descent permutations pairwise comparison query supports star forests VC shattering polynomial Littlestone",
+        "semantic research query: two increasing runs permutation rankings VC shattering and learning dimension",
+        "web: one descent permutations 2^n-n comparison queries VC dimension",
+        "web: directed cuts VC dimension edge query supports star forest"
+      ]
+    },
+    "rationale": "Direct structural implication comparisons with four relevant primary sources and six actual semantic research queries found no theorem that characterizes exactly the oriented-star-forest traces of arbitrary directed cuts, nor the one-descent comparison support polynomial. The comparison was made by concept universe and logical implication: prior graph-orientation shattering concerns edge orientation variables; prior maximum-dicut work concerns maximum cardinality of cuts, not traces; prior permutation VC uses a different k-point full-order-realization definition; prior preference elicitation concerns distribution-aware average number of sorting queries. Residual possible coverage under two-literal Boolean formula trace language is explicitly acknowledged.",
+    "residual_risks": [
+      "No exhaustive worldwide historical-priority assessment; an older result on directed-cut traces, rank-one Boolean products, or signed two-literal conjunctions might imply the star-forest theorem.",
+      "Raz full text was not read, but the official abstract confirms its definition differs; any indirect implication beyond this statement has not been excluded.",
+      "A potentially earlier open preprint of the 2021 focal paper may exist; the official May 18, 2021 publication date is the earliest independently verified publication date used here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as to the stated graph cut support classification; its query objective is average-case recovery from statistical priors.",
+        "evidence": "AAAI 35(6), 5647–5655; published 2021-05-18; PDF §§1–6, especially Theorem 1 and entropy models.",
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/16709/16516",
+        "material_read": "AAAI nine-page original: title/abstract, introduction and related work, insertion-sort theorem and theorems on Mallows entropy, mixture and Plackett–Luce entropy, Sections 2–6 and references",
+        "method": "Read open-access conference PDF text with page screenshots (including printed page 5648)",
+        "title": "Preference Elicitation as Average-Case Sorting",
+        "trigger": "Closest 2021 primary treatment of preference elicitation using pairwise comparisons and online sorting"
+      },
+      {
+        "assessment": "NOT_COVERING for complete shattering supports: studies maximum cut size, not independent 0/1 traces of selected arcs.",
+        "evidence": "June 27, 2007 manuscript, abstract and §1–3; no shattering/VC result located.",
+        "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/abgls4.pdf",
+        "material_read": "12-page primary PDF abstract, introduction, maximum directed-cut definitions and theorems in Sections 2–3; searched document for shattering and VC terminology",
+        "method": "Read primary PDF text, viewed page screenshots and searched theorem terminology",
+        "title": "Maximum directed cuts in acyclic digraphs",
+        "trigger": "Same directed-cut object, possible broader graph-theoretic coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: graph orientation bits are hypotheses, whereas here a vertex 0/1 cut determines edge bits. No direct-cut trace star-forest characterization located.",
+        "evidence": "Kozma and Moran, EJC 20(3), P44 (2013), Theorems 18–34 concern orientations, connectivity and flows.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf/",
+        "material_read": "18-page primary PDF introduction, preliminaries and claims in Sections 3–4 on shattering edge-orientation classes and flow/distance/strong-connectivity systems",
+        "method": "Read primary PDF, viewed title and introduction page screenshots and searched for cuts/star and theorem text",
+        "title": "Shattering, Graph Orientations, and Connectivity",
+        "trigger": "Direct graph-shattering primary paper with possibility of dominating statement"
+      },
+      {
+        "assessment": "DIFFERENT_NOTION: shatters sets of labels by all k! induced orders, not sets of binary pair queries; residual full-text priority limitation noted.",
+        "evidence": "Raz, Combinatorica 20 (2000), pp. 241–255; abstract explicitly defines k-label complete-order restriction.",
+        "identifier_or_url": "https://weizmann.elsevierpure.com/en/publications/vc-dimension-of-sets-of-permutations/",
+        "material_read": "Abstract and definition on university research publication page; complete paper not inspected",
+        "method": "Read official bibliographic abstract with mathematical definition",
+        "title": "VC-dimension of sets of permutations",
+        "trigger": "Plausible exact-title permutation dimension result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb609e65-2143-4ab9-be6c-508bcb0fb8fc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete forbidden-configuration and constructive realization theorem for all oriented graphs, rather than a single VC scalar or routine k=small computation. For a natural sparse ranking family it produces an all-degree labeled exponential generating function and rigid two-star maximum support theorem for every order. It identifies a structural contrast—full symmetric-group comparison learning dimensions remain \\(n-1\\) in a much smaller \\(2^n-n\\) family—useful when choosing restricted query models. It explicitly separates support combinatorics from adaptive dimension and from distribution-aware elicitation.",
+    "status": "PASS"
+  }
+}
