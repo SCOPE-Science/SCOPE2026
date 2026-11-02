@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:54:19.478417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual Git 2026/10/26/exact-fragmentation-length-covariance-in-an-interval-nearest-nei--c9d68f2da8c6/RESULT.md SHA 724747e598f1ea3f093d1bf9745317fbf116de28",
+        "Independent checks: independent_checks_batch4899.py, run output BATCH4899_INDEPENDENT_BOUNDED_CHECKS_OK"
+      ],
+      "rationale": "For n i.i.d. uniform sample points, the undirected distinct-edge nearest-neighbor graph is a chain of adjacent order statistics with an interior gap deleted exactly when it is a strict local maximum. Thus C_n=1+sum_{i=2}^{n-2} A_i, L_n=(W-sum A_i E_i)/S using independent exponential spacings with S their full n+1 sum and W internal sum. Conditioning on relative order, C is independent of W; independence from S of normalized proportions transfers Cov(C,L)=-Cov(C,B)/(n+1). Exact exponential rank probabilities give site covariance 11/27, nearest neighboring peak covariance -11/54 and distance-two covariance 139/5400; all farther disjoint triples are independent. Summing ordered covariances gives 0 for n<=3, -11/135 at n=4, -(139n+405)/(2700(n+1)) for n>=5. First moments n/3 and (7n+15)/(18(n+1)) follow directly. The source correctly distinguishes n=4 from n>=5 and undirected distinct edges from directed multiplicity. Independent rational rank-averaging on n=2..8 (seven cases) reproduced covariance, and the 5-order-statistic combinatorial count was inspected. Infinite n follows from finite-range local-dependence moment summation, not numerical extrapolation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stabilizing nearest-neighbor graph LLN/CLT cover broad graphs/variances, but do not imply exact rational finite-n covariance or its nonzero constant without a separate local-moment computation.",
+          "The exponential spacing representation is established background."
+        ],
+        "reasoning": "A broad normal limit does not mechanically determine the exact finite-size covariance coefficient. The result is a concrete specialization involving new cross moments.",
+        "searches": [
+          "Penrose–Wade arXiv:math/0603561 §§2.2,4.2,5",
+          "Baryshnikov–Yukich Gaussian Limits for Random Measures in Geometric Probability §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob 724747e598f1ea3f093d1bf9745317fbf116de28",
+        "Assigned verify_nearest_neighbor.py blob 014e7cedbc4bed3c44af5f6a7422e18f3fb41530",
+        "arXiv:math/0603561",
+        "DOI:10.1103/PhysRevE.63.027101 (abstract only)",
+        "Resultary One dimensional uniform nearest neighbor graph covariance number of connected components and total length of distinct edges exponential spacings local maxima"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Directed length sum counts each mutual nearest-neighbor edge twice; C_n and undirected distinct total L_n encode max-gap deletion, not inferable merely by reusing directed length expectation and variance.",
+          "Even knowing the component size marginal cannot fix mixed C_n,L_n covariance without a joint law."
+        ],
+        "reasoning": "The source computes five-local-variable mixed moments 413/1800 and 139/5400 that are needed beyond the cited separate observables.",
+        "searches": [
+          "Penrose–Wade arXiv:math/0603561 Theorem 2.3 directed length",
+          "Sadasiv–Meng PRE 63 027101 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Penrose–Wade analyze a directed nearest-neighbor total length (with mutual edges counted twice), especially its mean, variance and CLT.",
+          "The claim uses undirected distinct-edge length AND mixed covariance with connected components; this is not the directed total-length variance."
+        ],
+        "reasoning": "The different counting convention matters mathematically: local-max deletion turns undirected edges into a different observable, while C_n is an additional random variable.",
+        "searches": [
+          "Resultary: One dimensional uniform nearest neighbor graph covariance number of connected components and total length of distinct edges exponential spacings local maxima",
+          "Penrose–Wade arXiv:math/0603561 Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest-neighbor mentions relate to different geometric stability, graph percolation, or other random trees.",
+          "The Sadasiv–Meng abstract discusses nearest-neighbor clusters and size distributions, not explicitly this edge-length mixed moment; complete article unavailable."
+        ],
+        "reasoning": "No direct exact covariance table located; the plausible 2001 primary source is retained as an uninspected priority risk, not judged whole-document noncovering.",
+        "searches": [
+          "Resultary: One dimensional uniform nearest neighbor graph covariance number of connected components and total length of distinct edges exponential spacings local maxima",
+          "Sadasiv–Meng Physical Review E 63 027101 (2001) clustering of random points"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison of the same object, definitions, parameter quantifiers, and implication strength. Foundation and partial coverage are credited explicitly; neither failed searches nor inaccessible full literature alone are represented as novelty proof. The different counting convention matters mathematically: local-max deletion turns undirected edges into a different observable, while C_n is an additional random variable. The source computes five-local-variable mixed moments 413/1800 and 139/5400 that are needed beyond the cited separate observables.",
+      "residual_risks": [
+        "Sadasiv–Meng PRE (2001) is particularly relevant and unavailable in full text due to authorized VPN disconnection; its abstract alone cannot justify exclusion or an originality failure.",
+        "One-dimensional uniform spacing only; no higher-dimensional or nonuniform extension is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers useful spacing facts and directed total-length statistics; does not state the assessed distinct-undirected-edge component-length covariance in inspected analysis.",
+          "evidence": "Penrose and Wade arXiv:math/0603561; Theorem 2.3 and §4.2.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0603561",
+          "material_read": "Accessible full original 28-page PDF, particularly definition of directed nearest-neighbor length, Theorem 2.3, and uniform spacing treatment §§2.2,4.2,5.",
+          "method": "Primary arXiv full text with page image.",
+          "title": "Limit theory for the random on-line nearest-neighbour graph",
+          "trigger": "Same one-dimensional uniform point nearest-neighbor graph and length functional."
+        },
+        {
+          "assessment": "UNREAD FULL TEXT; mathematical coverage beyond the abstract is unknown. Abstract covers clusters but not explicitly mixed length covariance.",
+          "evidence": "Sadasiv and Meng, Physical Review E 63 (2001), 027101.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.63.027101",
+          "material_read": "Accessible bibliographic title and abstract only, no full body. OA PDF attempt failed HTTP 403; institutional attempt returned vpn_disconnected, job 8108d7cd34fcca0e0ba6ef7abda43b34.",
+          "method": "Abstract inspection, open-access attempt, authorized institutional retrieval (no bypass).",
+          "title": "Clustering of points randomly distributed in n-dimensional space",
+          "trigger": "Closest older same-object clustering paper could contain the exact joint moment."
+        },
+        {
+          "assessment": "General Gaussian-limit theory not equivalent to a fully explicit finite-n mixed C,L covariance.",
+          "evidence": "Baryshnikov and Yukich (2004) §3.1.",
+          "identifier_or_url": "https://www.lehigh.edu/~jey0/by2.pdf",
+          "material_read": "Relevant abstract and §3.1 framework cited as background; no complete exact-moment computation located.",
+          "method": "Primary manuscript contextual reading.",
+          "title": "Gaussian Limits for Random Measures in Geometric Probability",
+          "trigger": "General point-graph stabilization and dependency could dominate asymptotics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 724747e598f1ea3f093d1bf9745317fbf116de28",
+        "Assigned verify_nearest_neighbor.py blob 014e7cedbc4bed3c44af5f6a7422e18f3fb41530",
+        "arXiv:math/0603561",
+        "DOI:10.1103/PhysRevE.63.027101 (abstract only)",
+        "Resultary One dimensional uniform nearest neighbor graph covariance number of connected components and total length of distinct edges exponential spacings local maxima"
+      ],
+      "rationale": "A canonical stochastic-geometric network statistic is the dependence of fragmentation (component count) on total length of distinct nearest-neighbor edges. The exact finite-n covariance is strictly negative for all n>=4 yet converges to a nonzero constant rather than vanishing; this provides an interpretable, invariant coupling for one-dimensional random geometric graphs distinct from known separate LLNs/variances.",
+      "residual_risks": [
+        "Sadasiv–Meng PRE (2001) is particularly relevant and unavailable in full text due to authorized VPN disconnection; its abstract alone cannot justify exclusion or an originality failure.",
+        "One-dimensional uniform spacing only; no higher-dimensional or nonuniform extension is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob 724747e598f1ea3f093d1bf9745317fbf116de28",
+    "Assigned verify_nearest_neighbor.py blob 014e7cedbc4bed3c44af5f6a7422e18f3fb41530",
+    "arXiv:math/0603561",
+    "DOI:10.1103/PhysRevE.63.027101 (abstract only)",
+    "Resultary One dimensional uniform nearest neighbor graph covariance number of connected components and total length of distinct edges exponential spacings local maxima"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Sadasiv–Meng PRE (2001) is particularly relevant and unavailable in full text due to authorized VPN disconnection; its abstract alone cannot justify exclusion or an originality failure.",
+    "One-dimensional uniform spacing only; no higher-dimensional or nonuniform extension is proved.",
+    "All finite independent calculations corroborate only their tested domain; they do not alone prove infinite, all-real, all-parameter or asymptotic claims.",
+    "Complete publication-sanitation file changes were not prepared or exported; science assessment is complete but publication not ready."
+  ],
+  "residual_risks": [
+    "Sadasiv–Meng PRE (2001) is particularly relevant and unavailable in full text due to authorized VPN disconnection; its abstract alone cannot justify exclusion or an originality failure.",
+    "One-dimensional uniform spacing only; no higher-dimensional or nonuniform extension is proved."
+  ],
+  "schema_version": 1
+}

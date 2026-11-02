@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies the uniform sample law and undirected edge counting. Removing exactly the strictly local-maximum interior gaps gives the component count and edge length. Normalized independent exponentials yield the correct joint gap law, and the independent exponential sum permits covariance transfer. Independent rank calculations give on-site 11/27, adjacent -11/54, and distance-two 139/5400. Their finite-range sum gives the rational formula at all sample sizes, including \(n=2,3,4\). Exact rational computations using a standalone verifier reproduce the two-apart moment 413/1800 and the graph-covariance values for \(n=2\) through \(n=9\). Computation alone would not prove the infinite-family claim; the local-dependence argument does.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+For n i.i.d. uniform sample points, the undirected distinct-edge nearest-neighbor graph is a chain of adjacent order statistics with an interior gap deleted exactly when it is a strict local maximum. Thus C_n=1+sum_{i=2}^{n-2} A_i, L_n=(W-sum A_i E_i)/S using independent exponential spacings with S their full n+1 sum and W internal sum. Conditioning on relative order, C is independent of W; independence from S of normalized proportions transfers Cov(C,L)=-Cov(C,B)/(n+1). Exact exponential rank probabilities give site covariance 11/27, nearest neighboring peak covariance -11/54 and distance-two covariance 139/5400; all farther disjoint triples are independent. Summing ordered covariances gives 0 for n<=3, -11/135 at n=4, -(139n+405)/(2700(n+1)) for n>=5. First moments n/3 and (7n+15)/(18(n+1)) follow directly. The source correctly distinguishes n=4 from n>=5 and undirected distinct edges from directed multiplicity. Independent rational rank-averaging on n=2..8 (seven cases) reproduced covariance, and the 5-order-statistic combinatorial count was inspected. Infinite n follows from finite-range local-dependence moment summation, not numerical extrapolation.
 
-Penrose–Wade (2006, arXiv:math/0603561v1), notably Theorem 2.3 and Sections 4.2 and 5, analyze directed nearest-neighbor graph total length and use Dirichlet spacings, but do not give a closed exact finite-sample covariance between undirected distinct-edge length and connected-component count. Baryshnikov–Yukich (2004) develop limiting covariance functionals for geometric graph scores without evaluating this particular mixed moment. The accessible abstract of Sadasiv–Meng (2001) addresses nearest-neighbor cluster sizes, but the full text was inaccessible; that priority risk remains. Published general techniques are essential background, not themselves the present evaluated cross-covariance. Search noncoverage does not establish uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Total distinct-edge length measures geometric network cost, while component count measures failure of global connectivity. Their explicit covariance gives a quantitative tradeoff invisible to the separate first moments. The strictly negative dependence holds for all \(n\ge4\) and persists on an order-one scale as n grows. The nonzero limiting constant and exact small-sample boundary distinguish the result from a routine expectation calculation. Unlike directed-length statistics, the undirected graph's total length must account for mutual selections only once.
+Best-of-knowledge mathematical comparison of the same object, definitions, parameter quantifiers, and implication strength. Foundation and partial coverage are credited explicitly; neither failed searches nor inaccessible full literature alone are represented as novelty proof. The different counting convention matters mathematically: local-max deletion turns undirected edges into a different observable, while C_n is an additional random variable. The source computes five-local-variable mixed moments 413/1800 and 139/5400 that are needed beyond the cited separate observables.
 
-## Limitations and closest sources
+## value
 
-This result applies only to the one-dimensional uniform, undirected, distinct-edge model. The full text of the closely relevant 2001 cluster-size paper could not be inspected, so independent priority assessment remains necessary. The exact rational checks cover only \(n\le9\). Relevant primary sources are Penrose–Wade (arXiv:math/0603561v1), Baryshnikov–Yukich (2004), and Sadasiv–Meng (doi:10.1103/PhysRevE.63.027101).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical stochastic-geometric network statistic is the dependence of fragmentation (component count) on total length of distinct nearest-neighbor edges. The exact finite-n covariance is strictly negative for all n>=4 yet converges to a nonzero constant rather than vanishing; this provides an interpretable, invariant coupling for one-dimensional random geometric graphs distinct from known separate LLNs/variances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
