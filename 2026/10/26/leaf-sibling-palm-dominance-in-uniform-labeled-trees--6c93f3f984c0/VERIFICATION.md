@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The analytic deletion bijection, occupancy representation, one-step stochastic coupling, and asymptotic Taylor expansions prove the result for every integer \(n\ge4\). The finite checker `verify.py` enumerates every Prüfer word for \(4\le n\le8\), totaling 280388 trees, with counts recovered from actual adjacency lists. It verifies the full count-size-biased probability law, its moments, all stochastic survival tails, and the covariance identity with exact rational arithmetic. Additionally 497 finite sizes through \(n=500\) have their kernel inequality checked. All enumerated cases passed. Enumeration is not used as an infinite proof; it does not assert independence or any conditioned-on-\(C>0\) stochastic order. The historical overlap comparisons were based on accessible original sources, and older unindexed equivalents remain possible.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For any fixed labels a,b and center w, the event that a,b are leaves sharing w is in bijection with uniform trees on n−2 remaining labels. The Prüfer code has n−4 independent symbols in alphabet n−2; leaf count becomes 2+number empty among n−3 designated bins, proving exact PGF and falling moments. For the unweighted n-tree, count distinct symbols after first Prüfer entry, birth probability (n−1−k)/n; for Palm n−2 tree, eligible symbols birth probability (n−3−k)/(n−2). The difference 2(k+1)/(n(n−2))>0 allows monotone same-uniform coupling for n−4 steps and one extra birth in the unweighted process; yields strict Palm first-order dominance, not only increased expectation. Use E[C]=((n−1)/2)(1−2/n)^(n−3) and the two occupancy means to obtain exact covariance; log expansion gives (2−3/e)/(2e²)>0. Independent full Prüfer decoding at n=4,5,6,7 recovered exact finite covariance and means. Infinite claims rest on deletion and coupling, not finite tests.
+
+## originality
+
+PASS
+
+Targeted statement/implication comparison against related published Resultary research records and primary sources; best-of-knowledge originality with explicit risks. Exact cherry-pair-size-biased leaf law and strict stochastic enhancement for uniform labeled Cayley trees, including positive exact covariance and limit.
+
+## value
+
+PASS
+
+Local sibling-leaf motifs are natural measures of symmetry and clustering in Cayley trees; size-biasing by their number is the exact Palm interpretation of sampling a random cherry. The complete finite-n law, stochastic comparison and covariance constant quantify how selecting a local motif changes a global tree statistic. Neither separate marginal means nor the already-known cherry expectation determines these results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
