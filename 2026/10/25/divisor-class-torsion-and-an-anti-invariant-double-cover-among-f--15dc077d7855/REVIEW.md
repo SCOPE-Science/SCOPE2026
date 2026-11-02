@@ -1,11 +1,21 @@
-# Review of affine quotient divisor torsion
+# Independent mathematical audit
 
-**Correctness — PASS.** Benson's class-group theorem [2, Section 2.1] applies because no subgroup of \(\operatorname{SL}_4(\mathbb C)\) has nontrivial pseudo-reflections. The finite group closures and derived subgroups are exhaustive, computed using the exact Appendix A matrices. Coset order histograms fix each abelianization unambiguously. The index-two inclusion and seven inversion identities were reproduced in the accompanying standard-library checker; restriction of characters proves the vanishing pullback. Étaleness away from codimension-two fixed sets supplies the quasi-étale assertion. The published complete-intersection/nonresolution results are explicitly treated as inputs.
+## correctness
 
-**Originality — PASS, subject to stated priority risk.** Burek–Cynk [1] present these representations and compute Cox rings of terminalizations, but their inspected main text and Appendix A do not state the four affine class-group structures or the anti-invariant divisor-class cover. Schmitt [2] gives the general character-class-group identification but not these four calculations. Related public calculations of local class groups for toric fixed points concern different varieties and do not imply these four quotient invariants; targeted literature comparisons did not find an exact match. Explicit abelianizations may exist in older classification tables or computation repositories, and the inclusion is immediately visible from the generator lists; these are residual risks.
+PASS
 
-**Value — PASS.** Divisor classes and their orders measure the precise \(\mathbb Q\)-Cartier obstruction for the four flagship complete-intersection quotient counterexamples. The order-two quasi-étale cover changes base two-torsion into anti-invariant cover three-torsion, and the zero pullback is a useful nontrivial restriction on divisor descent, beyond a table of arbitrary group invariants. The object and torsion invariant are natural in birational geometry; the result is bounded to four known geometric examples and does not purport to classify all affine quotient singularities.
+PASS for the actual supplied integral matrices and standard quotient geometry. Independently generated G45,G105,G65,G66 by exact 4x4 integer matrix products and verified closures 36,24,288,576; checked determinant +1 for all actual listed generators, computed normal closure of generator commutators and their group closures 9,6,32,288; exact coset-order histograms determine G_ab=(C2)^2,(C2)^2,(C3)^2,C2. Every finite nonidentity SL4(C) element cannot be a pseudoreflection (its fourth eigenvalue must also be 1), so Benson–Nakajima Cl(A4/G)=Hom(G,C*) applies; torsion implies Q-factorial but nonfactorial. Independently verified G65 normal index two in G66, F not in G65, F² in G65 and each FgF^{-1}g in [G65,G65]; this gives -1 action on G65_ab, hence characters/affine class group, while restriction from C2 to (C3)^2 is zero. Absence of codimension-one fixed loci gives quasi-étale finite double cover. Limit: source matrices taken from package and not authenticated against inaccessible primary Appendix A; this is a source-verification risk not failure of the derived conditional mathematics.
 
-**Closest references and limitations.** Burek–Cynk, arXiv:2610.16962v1, Theorem 3.1, Section 12, Appendix A; Schmitt, DOI:10.1112/blms.13100, Section 2.1 (Benson). Complete primary text of both references was compared for exact and stronger implications. Possible implicit older character-group tables remain a priority risk. The finite verifier does not replace the invoked general invariant-theory theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge with clearly bounded literature/access risks. Applying Benson to these actual abelianizations gives the four affine class groups. The involution and vanishing pullback use specific inclusion and restrictions, not solely the crepant-resolution classification. Full Burek–Cynk original inaccessible, therefore best-of-knowledge PASS with uneliminated direct coverage risk, not a fabricated full-text noncoverage result.
+
+## value
+
+PASS
+
+PASS. These four distinguished complete-intersection quotient singularities are concrete test cases for differences among factorial, Q-factorial and crepant-resolvability behavior. Their exact affine divisor-class torsion and exponent, and the quasi-étale index-two geometric cover with inversion on 3-torsion, are natural birational invariants and a nontrivial geometric distinction from classes of terminalizations, not merely generic character-group theorem restatement. Specific finite computations are substantive because the representations and cover are actual objects of mathematical study.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
