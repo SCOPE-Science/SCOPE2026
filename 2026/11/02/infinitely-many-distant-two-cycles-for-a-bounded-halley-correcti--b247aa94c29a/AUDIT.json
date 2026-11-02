@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "A complete analytic proof derives the scalar cycle equation, eventual opposite endpoint signs, eventual strict monotonicity within each prescribed window, the unique-root displacement coefficient, and global Newton contraction for \\(\\delta<1/3\\). Critical limits are obtained directly from the rational-radical correction formula. The accompanying verifier passed 142 finite tests; no finite checks are used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published record 46b773bf52ed: undamped Newton is globally convergent for derivative-sector condition number up to two and may have a two-cycle beyond it. This is a Newton theorem, not a curvature-dependent correction theorem.",
+        "Mukasa arXiv:2609.08110v1 abstract and §§1–3: positive bounded correction and sufficient global convergence, without an accessible universal guarantee under mere first-derivative bounds."
+      ],
+      "reasoning": "A theorem for Newton under a derivative sector does not imply the nonlinear corrected map obeys the same contraction. The available motivating source establishes sufficient hypotheses, not a general derivative-sector claim; the oscillatory test function is designed to distinguish these premises. Later sections of that source were inaccessible and remain an explicit residual coverage risk.",
+      "searches": [
+        "global convergence bounded third order Halley versus Newton on monotone functions derivative close to one, two cycle",
+        "arxiv 2609.08110 Mukasa positive bounded correction global convergence theorem counterexample oscillations",
+        "\"positive bounded correction\" \"period-two\" root-finding Halley",
+        "Mukasa 2026 Third-order Halley-type iterative method \"Theorem 3.5\" global convergence conditions"
+      ]
+    },
+    "checked_sources": [
+      "Mukasa 2026 arXiv:2609.08110v1, available HTML §§1–3 (partial full text, later text failed).",
+      "Martin 2023 arXiv:2312.12305v1, full HTML text including examples.",
+      "Public mathematical record 46b773bf52ed, Newton derivative-sector theorem summary.",
+      "Targeted mathematical-record searches: positive bounded Halley, near-identity analytic cycles, derivative sectors and aliases.",
+      "Open-literature phrase searches for corrected Halley cycles and global convergence."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mukasa defines the same \\(C_*(z)\\) through \\(A(z)(\\sqrt{1+z^2}-z)\\); the retrieved parts establish \\(0<C_*(z)<2\\) and \\(C_*(z)\\to2\\) as \\(z\\to+\\infty\\), both used in the new proof.",
+        "Martin, arXiv:2312.12305v1 §2, states a tanh-cycle for Newton and a different correction, which does not imply cycling of Mukasa C* on near-linear monotone functions.",
+        "Newton derivative-sector record 46b773bf52ed provides Newton-only conditions and examples beyond condition number two, not a statement concerning C*."
+      ],
+      "reasoning": "Mukasa’s correction depends nonlinearly on the dimensionless curvature \\(L_f=f f^{\\prime\\prime}/(f^{\\prime})^2\\), unlike Newton’s correction factor or Martin’s correction. The central implication reversal—Newton always converges, while the new correction has infinitely many two-cycles on the same analytic equation—does not follow from those prior statements. Later sections of the motivating manuscript could not be read; their content is not asserted absent.",
+      "searches": [
+        "global convergence bounded third order Halley versus Newton on monotone functions derivative close to one, two cycle",
+        "\"Mukasa\" \"Theorem 3.5\" \"global convergence\" 2026",
+        "\"third-order Halley-type iterative method\" cycle convergence Mukasa September 2026",
+        "\"Newton\" \"Halley\" \"f(x)=x+epsilon sin x\" cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.08110v1 §§1–3 (retrieved through the statement of Theorem 3.4): correction formula and positivity; no matching near-linear two-cycle statement in material retrieved.",
+        "arXiv:2312.12305v1 §2: periodic examples for Newton and other corrections on a different equation, not the simultaneous Newton-contraction/new-correction-cycle statement."
+      ],
+      "reasoning": "The proposed statement requires infinitely many prime two-cycles for the specifically defined new bounded correction on analytic \\(f(x)=x+\\delta\\sin x\\) for every delta>0, alongside Newton global convergence for \\(\\delta<1/3\\). Merely stating that some Halley-like methods can cycle on other equations is not equivalent.",
+      "searches": [
+        "bounded positive correction Halley Mukasa 2609.08110 oscillatory scalar function x+epsilon sin x nonconvergence two cycles",
+        "near identity analytic strictly monotone equation Halley method has infinitely many periodic orbit two-cycle",
+        "\"Newton\" \"Halley\" \"f(x)=x+epsilon sin x\" cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked mathematical record or tabulation states \\(c_n=B_n-[1+1/(4\\delta^2)]/B_n+O_\\delta(B_n^{-2})\\) for this correction and family.",
+        "The source method is explicit enough to allow a direct formula-level comparison; the new cycles are defined by a scalar sign crossing, not by an imported table."
+      ],
+      "reasoning": "This is an infinite quantified family and asymptotic law rather than a lookup invariant. A finite table of roots, if found, would not by itself cover the all-delta theorem, eventual uniqueness, asymptotics, and Newton comparison. Lack of a database match is not treated as proof of absolute novelty.",
+      "searches": [
+        "one point third order solver Mukasa positive bounded correction exact behavior arctan hyperbolic tangent",
+        "bounded positive Halley-type correction C*(L) Mukasa 2026: scalar root iteration global dynamics, cycles, threshold, cubic convergence, power functions",
+        "\"Third-order Halley-type iterative method\" \"global convergence\" \"monotone\" convex"
+      ]
+    },
+    "rationale": "Statement-level comparisons with the retrieved motivating paper sections, the complete related 2023 method paper, public mathematical research records and targeted web searches did not identify a stronger covering result. Earlier cycle examples use different root maps or equations; Newton sector theory does not imply the new curvature-dependent correction result. Residual full-text coverage risk is explicit and unresolved priority remains open.",
+    "residual_risks": [
+      "The later full text of the highly relevant Mukasa 2026 paper remained inaccessible; it might contain stronger relevant statements. No claim of whole-document noncoverage is made.",
+      "Specialist literature on global dynamics of corrected Newton/Halley iterations may contain a more general covering theorem not retrieved by current searches.",
+      "The claimed cycles need not be dynamically attracting; they establish non-universal convergence but not typical-trajectory failure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The accessible source supports the method formula, positive bounded correction and asymptotics but does not in the retrieved portion imply the infinite analytic two-cycle family. The remaining manuscript was inaccessible, so whole-document noncoverage is not claimed.",
+        "evidence": [
+          "arXiv:2609.08110v1 §§1–3, notably equations (2.6)–(2.7), Proposition 3.1 and Theorem 3.4 as retrieved."
+        ],
+        "identifier_or_url": "arxiv:2609.08110v1; https://arxiv.org/html/2609.08110",
+        "material_read": "HTML introduction, full method construction in §2 and early theory in §3, including the displayed statement and beginning of proof of Theorem 3.4. Later portions were unavailable upon repeated attempts.",
+        "method": "Read HTML source text and formulae; compared the exact correction \\(C_*(z)\\), \\(A(z)\\), \\(R(z)\\) and the scope of the accessible convergence statements.",
+        "title": "Third-order Halley-type iterative method with positive and bounded correction function",
+        "trigger": "Identical correction function and principal motivating work."
+      },
+      {
+        "assessment": "Uses a different correction and documents cycling for a different equation; no implication of the new all-delta C* cycle family plus Newton convergence.",
+        "evidence": [
+          "arXiv:2312.12305v1 §§1.1–1.2 and 2, including tanh cycle example."
+        ],
+        "identifier_or_url": "arxiv:2312.12305v1; https://arxiv.org/html/2312.12305v1",
+        "material_read": "Full HTML introduction, formulas, comparisons, examples of a two-cycle on tanh and turning point behavior, and references.",
+        "method": "Read full available HTML text (sections 1–2 and references) and compared iteration formula and assumptions.",
+        "title": "Root-finding: from Newton to Halley and beyond",
+        "trigger": "Older positive correction and cycles could be equivalent/dominating."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b247aa94-c29a-4814-91ad-bd534526b221",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An arbitrarily small uniform first-derivative perturbation of the identity can make the new positive bounded cubic correction admit infinitely many exact nonroot periodic orbits, even though undamped Newton globally contracts on the same equations. This is a structural robustness separation in the natural numerical root-finding problem, with an explicit infinite family and asymptotic locations rather than a trivial isolated example.",
+    "status": "PASS"
+  }
+}
