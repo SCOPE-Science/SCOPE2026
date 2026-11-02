@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:13:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: An off-diagonal atom pair (a_i,a_j) forces exactly the left marker (a_i,0) and right marker (0,a_j) by meeting with the relevant diagonal pairs. Those marker conditions are sufficient because coordinatewise products of allowed pairs yield only a diagonal, one of the forced markers, or an already selected atom pair. Thus every relation is a unique (L,U,E) triple and corresponds exactly to a lower ideal of a two-level incidence poset. This proves distributivity and D_m=sum_{L,U}2^{|L||U|-|L cap U|}. Symmetry forces L=U and reciprocal pairs, giving T_m=sum_k binom(m,k)2^{binom(k,2)}. If distinct atoms are congruent then both join the zero class; any subset of zero-equivalent atoms gives a congruence, hence C_m=2^m. The dominant L=U=[m] term and missing-marker inequality bound the normalized remainder by (1+2^{-(m-1)/2})^{2m}->1. Independently checked every reflexive relation for m<=3, including transitivity; m=0 is an optional convention. This reconstructs the infinite proof beyond finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barber–Ruškuc 2026 Section 4 Theorem 4.2 bounds Clifford coefficients by the semilattice coefficient, treating chi(Y) as undetermined; its Rees analysis uses a different multiplication.",
+          "Their 2025 paper analyzes DSC=1, not full enumerators on flat meet-semilattices."
+        ],
+        "reasoning": "Neither cited theorem implies the enumerator for this branching flat semilattice. General congruence-lattice theorems only count 2^m part, not D_m or T_m.",
+        "searches": [
+          "Resultary query: flat meet semilattice diagonal subsemigroups congruences DSC coefficient order ideals height two poset exact counts",
+          "arXiv:2602.17286v2 sections 2-4",
+          "arXiv:2504.02428 abstract",
+          "web search On the lattice of congruences on a semilattice"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 5f1228c80487053cd0a534c5605387198b32b90d and source verify.py blob 4b835211c3aeab81a920d7190371a1968cf7c4d1",
+        "Barber–Ruškuc 2026 arXiv full HTML section 4 and 2025 abstract",
+        "Resultary semantic query 1 with 7 results (none direct)",
+        "Independent local exhaustive relation checker m<=3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their inequality chi(Clifford semigroup)<=chi(semilattice) uses chi(Y) as an input; it neither evaluates nor upper-bounds it sharply for F_m.",
+          "The qualitative paper proves conditions for all diagonal subsemigroups to be congruences; the current F_m has many nonsymmetric compatible relations."
+        ],
+        "reasoning": "The current claim yields exact coefficients chi(F_m) and an incidence-lattice description; these are not logical corollaries of the identified results.",
+        "searches": [
+          "Barber–Ruškuc arXiv:2602.17286v2 Theorem 4.2 and concluding questions",
+          "Barber–Ruškuc arXiv:2504.02428"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A reflexive compatible relation is exactly a diagonal subsemigroup, and the incidence-poset lower ideals encode forced markers and selectable directed atom edges.",
+          "The theorem provides all order ideals of P_m; generic Birkhoff representation is not an explicit count for this P_m."
+        ],
+        "reasoning": "Generic order-ideal theory describes all finite distributive lattices, but the nontrivial identification of this relation system with P_m is not explicitly in the sources inspected.",
+        "searches": [
+          "Resultary query: flat meet semilattice diagonal subsemigroups congruences DSC coefficient order ideals height two poset exact counts",
+          "web search semilattice reflexive compatible relation congruence flat meet semilattice order ideals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The package lists six small D_m numbers; new direct enumeration verifies up to m=3 and formula arithmetic through m=6.",
+          "No prior exact indexed sequence source for these specific DSC denominators was identified in the performed targeted searches."
+        ],
+        "reasoning": "The finite sequence alone would not constitute the full structural and asymptotic theorem, and absence of an indexed table does not prove novelty.",
+        "searches": [
+          "Resultary query: flat meet semilattice diagonal subsemigroups congruences DSC coefficient order ideals height two poset exact counts",
+          "search exact D_m 4 25 322 12643 2090884 1602951445 relation semilattice"
+        ]
+      },
+      "rationale": "PASS (qualified): Barber and Ruškuc introduce the DSC ratio and explicitly state in Section 4 that the semilattice coefficient spectrum remains unknown. Their Rees-matrix and Clifford-semigroup theorems do not determine this height-two meet-semilattice order-ideal count. The 2025 work asks qualitative equality of all diagonal subsemigroups with congruences rather than this full count. Standard distributive order-ideal lattice theory implies the final lattice structure once the forced-marker incidence is recognized, but does not alone supply that structural identification. No equivalent exact formula was found in Resultary or targeted semilattice relation searches. Older semilattice relation/census results remain a realistic priority risk.",
+      "residual_risks": [
+        "An older general formula for all meet-compatible reflexive relations on height-two semilattices could imply the exact enumerator under a different terminology.",
+        "Classical distributive-lattice/ideal enumeration is an immediate consequence once the key normal-form characterization is known; no claim of novelty for Birkhoff representation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No flat F_m enumeration; explicitly leaves semilattice coefficient spectrum unresolved.",
+          "evidence": [
+            "§4 Theorem 4.2, final paragraph on unknown possible values chi(Y)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.17286v2",
+          "material_read": "Full accessible arXiv HTML inspected: introduction, Rees and Clifford theorem statements, Section 4 conclusion and reference list.",
+          "method": "Read HTML article and searched semilattice mentions.",
+          "title": "Comparing Numbers of Diagonal Subsemigroups and Congruences for Semigroups",
+          "trigger": "Introduces exact same DSC invariant and explicitly discusses semilattices"
+        },
+        {
+          "assessment": "Cannot infer whole-paper noncoverage; directly cited qualitative DSC characterization differs from exact family count.",
+          "evidence": [
+            "Abstract concerns when all diagonal subsemigroups are congruences, not their number."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.02428",
+          "material_read": "Abstract and later 2026 paper reference to 2025 result; full original was not read.",
+          "method": "Read bibliographic abstract.",
+          "title": "Semigroup Congruences and Subsemigroups of the Direct Square",
+          "trigger": "Prior general theory of diagonal subsemigroups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The DSC proportion for the natural branching flat semilattice is an exact, non-chain infinite-family answer to a question raised in 2026 semigroup work. Identifying the full distributive incidence lattice and rapid decay (asymptotically 2^{-m(m-2)}) gives mathematically motivated structural and asymptotic information rather than a random finite cardinality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The object is the height-two meet-semilattice, not categorical flatness of a semilattice module.",
+    "No classification of arbitrary meet-semilattices; finite checks do not prove the asymptotic statement."
+  ],
+  "schema_version": 1
+}
