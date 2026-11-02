@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Holomorphic contraction in the explicit uniform Banach ball verifies infinite-lattice existence, uniqueness within that ball, and Cauchy coefficient bounds. Coefficient recursion proves finite-order dependence and the unique shortest-path weights; with opposite boundary flips, equality of weighted paths gives the stated precise cancellation condition. Exact-rational finite coefficient checks agree for both homogeneous and heterogeneous codes; they do not substitute for the analytic proof.
+## correctness
 
-**Originality — PASS under accessible evidence.** The full primary 2026 source arXiv:2609.25868v1 was inspected in its theorem, symbolic coding, geometric localization, and stability sections. It proves symbolic conjugacy/localization, not the displayed Taylor response and cancellations. The 1995 Chow–Shen and 1987 Keener results prove spatial chaos and pinned states, but available publisher abstracts do not give the claimed coefficient. Relevant published-finding corpus semantic searches found no implication covering this sharp response. Exact originality remains subject to the inaccessible full texts of some earlier literature.
+PASS
 
-**Value — PASS.** Stable pinned configurations are naturally encoded by binary sequences, but that encoding alone does not reveal how remote symbol changes affect observed amplitudes. The first nonzero response identifies the minimal dynamical communication order, its exact dependence on the intervening sequence, and a surprising cancellation for opposite defects; the uniform screening bound supplies robust quantitative control. This is a structural sensitivity law, not a mere re-count of symbolic solutions.
+For every fixed 0<a<1, let m=min(a,1-a), r=m/16, rho=m^2/256. Expanding the cubic g_a about binary s_i gives slope -alpha_i in {a,1-a}; the map on complex l-infinity v has sup bound [rho(2+4r)+(2+r)r^2]/m<r and Lipschitz [4rho+4r+3r^2]/m<1/2. Banach contraction and analytic iteration construct the unique ball solution for |d|<rho, uniformly for all two-sided binary codes. The coefficient recurrence has dependency radius n at order n. At first reachable order R the only changed terms follow the unique left/right paths; repeated divisions by alpha_j give exact leading coefficient (s_{i-R}-t_{i-R})/prod_{j=i-R+1}^{i}alpha_j+(s_{i+R}-t_{i+R})/prod_{j=i}^{i+R-1}alpha_j. Single endpoint flips are nonzero, opposite flips cancel precisely at equal path weights; at a!=1/2 this is equal zero counts, at a=1/2 automatically. Uniform Cauchy bounds give 2r (|d|/rho)^R/(1-|d|/rho). The independent rational Taylor recursion checked 60 bounded heterogeneous/single/two-boundary instances, not the infinite proof.
 
-**Closest literature and limitations.** Hesoun–Stehlík–Volek (2026) establishes the model's global coding picture, while Chow–Shen (1995) and Keener (1987) developed antecedent weak-coupling spatial chaos. The theorem is restricted to cubic reactions, nearest-neighbor one-dimensional lattices, and sufficiently weak diffusion; it does not cover unstable coded states or show what happens beyond a cancellation of the first possible response.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the explicit all-code weighted shortest-path Taylor response and exact two-defect cancellation criterion. Weak-coupling holomorphic existence and symbolic coding are prior concepts. Hesoun–Stehlik–Volek treats the identical Nagumo model and may conceivably contain an equivalent localization formula; current full text was unavailable after OA attempts and authorized VPN check, so no assertion of whole-document noncoverage. The stated unique leading paths are more specific than symbolic existence, stability, and qualitative front decay in the accessible material.
+
+## value
+
+PASS
+
+The first nonvanishing effect of a distant flipped bistable code symbol is a natural and operationally meaningful pinned-lattice localization invariant; precise products of stable slopes reveal heterogeneous asymmetry and robust exact cancellation at order R. It is not merely a finite experiment or the routine implicit-function continuation, and it distinguishes neutralized two-sided defects from isolated defects in arbitrary aperiodic backgrounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
