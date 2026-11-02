@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "A full all-triangle proof uses ordered nodal gaps and a convex quadratic on [0,1]^2; two exact completing-square identities give the metric-angle upper bound; explicit one-sided and bounded clipping values attain the upper bound at every obtuse vertex, and values inside clip interval attain one on nonobtuse triangles. The constant-diffusion affine coordinate transformation is exact. The rational-stiffness 120-degree counterexample and independent NumPy checker corroborate the equations. Limits: no global mesh sharpness beyond the summable upper bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Yang–Zhou, arXiv:2010.08789v1, pp.6–8 of PDF: Gauss–Lobatto cut-off with 1D and tensor-product discretizations; nodal boundedness and approximation are studied.",
+        "Huang, arXiv:1008.0562v1, §3: anisotropic diffusion metric and Delaunay-type nonpositivity of offdiagonal stiffness entries; not sharp gain of energy under nonlinear nodal maps."
+      ],
+      "reasoning": "Existing general energy diminution by pointwise Sobolev clipping is inapplicable to the original affine interpolant after vertex truncation. Qualitative nonobtuse mesh and Delaunay stiffness sign conditions describe related zero-gain settings but supply no exact csc-squared sharp local bound for arbitrary obtuse metric triangles. A global assembled-mesh Delaunay condition also does not imply each local triangle is nonobtuse.",
+      "searches": [
+        "Maximum principle preserving exponential cut-off integrator nodal projection increases Dirichlet energy on obtuse finite element mesh sharp graph Laplacian M-matrix criterion",
+        "Finite element triangle clipping shape regularity angle sine 1 over sin squared angle energy bound",
+        "Maximum principle preserving cut-off for finite element nodal data can increase stiffness energy on obtuse triangles",
+        "https://arxiv.org/abs/2010.08789",
+        "https://arxiv.org/abs/2102.13271",
+        "https://arxiv.org/abs/1008.0562",
+        "nodal truncation Dirichlet integral finite elements"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2010.08789",
+      "https://arxiv.org/abs/2102.13271",
+      "https://arxiv.org/abs/1208.3958",
+      "https://arxiv.org/abs/1008.0562",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-linear-energy-blow-up-for-the-nodal-interpolant-in-mani-s--2533caa7570d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 1D nodal H1 contraction holds because a mesh interval carries a single nodal difference, whereas a triangle carries a sum of two vectors whose angle can be obtuse.",
+        "Prior pointwise cutoff H1 energy decrease follows from the chain rule; the explicit three-node example has energy ratio 4/3 after nodal reinterpolation, so the two operators are mathematically inequivalent.",
+        "Delaunay-type maximum-principle mesh criteria do not specify an optimal amplification magnitude for the stated elementwise operator."
+      ],
+      "reasoning": "The older positive contraction statements do not imply the proposed theorem: one is restricted to 1D P1 intervals, the other uses pointwise spatial clipping. Conversely the new theorem reduces to the nonexpansive statement for nonobtuse transformed triangles and refines it to exact amplification in the obtuse case; it neither contradicts nor subsumes general maximum-principle error estimates. Specialized prior exact-angle results remain a documented risk.",
+      "searches": [
+        "https://arxiv.org/abs/2010.08789",
+        "https://arxiv.org/abs/2102.13271",
+        "https://arxiv.org/abs/1208.3958",
+        "https://arxiv.org/abs/1008.0562",
+        "Sharp Dirichlet energy amplification factor csc squared largest obtuse angle under nodal clipping on piecewise affine finite element triangle",
+        "Sharp local stiffness energy norm of componentwise clipping on triangular P1 simplex and anisotropic metric maximum angle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kreuzer 2012, arXiv:1208.3958, §§2–3: physical-space cutoff composition is admissible in the continuous H1 trial class; no nodal P1 reinterpolation is required.",
+        "Yang–Yuan–Zhou 2021, arXiv:2102.13271, Lemma 4.1: the interval finite-element nodal cutoff does not increase the H1-seminorm because each interval difference contracts."
+      ],
+      "reasoning": "The precise local operator is R_T(P(x)), where R_T is barycentric P1 reinterpolation of clipped nodal values. The spatial pointwise map P(R_T(x)) is generally piecewise affine only on a refined cut submesh and has a different gradient and energy. The 1D estimate lacks the interaction of two nonorthogonal gradients. Neither equivalent-looking assertion implies the obtuse-angle amplification factor.",
+      "searches": [
+        "Sharp Dirichlet energy amplification factor csc squared largest obtuse angle under nodal clipping on piecewise affine finite element triangle",
+        "Discrete H1 seminorm nonexpansiveness of nodal truncation box positive part finite element triangle nonobtuse mesh exact optimal constant",
+        "Sharp local stiffness energy norm of componentwise clipping on triangular P1 simplex and anisotropic metric maximum angle",
+        "H1 stability nodal positive part interpolation obtuse triangles sharp sin angle truncation clipping finite element",
+        "sharp H1 seminorm constant finite element piecewise linear nodal truncation one triangle obtuse angle",
+        "https://arxiv.org/abs/1208.3958"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published record: Exact positivity defect and max norm of the affine least-squares projector on a simplex, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 — an L2 projection with a different operator and norm.",
+        "Relevant published record: Exact linear energy blow-up for the nodal interpolant in Manià’s Lavrentiev example, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-linear-energy-blow-up-for-the-nodal-interpolant-in-mani-s--2533caa7570d — a singular nonlinear integral, not a local positive-part nodal clip."
+      ],
+      "reasoning": "Searches over research-record titles/summaries and primary literature surfaced distinct interpolation/projection phenomena, not an exact stored table or formula for the present nonlinear three-node stiffness-energy supremum. The absence of a match is evidence of limited overlap only, not a proof of mathematical novelty; the external records were evaluated from their returned claim descriptions and were not asserted to have been full-text read.",
+      "searches": [
+        "Two dimensional finite element nodal postprocessing H1 energy growth 120 degree obtuse triangle factor four thirds",
+        "Sharp local stiffness energy norm of componentwise clipping on triangular P1 simplex and anisotropic metric maximum angle",
+        "Interpolated positive part versus pointwise positive part energy nonlinear finite element nodal truncation",
+        "finite element nodal truncation positive part Dirichlet energy obtuse triangle amplification factor cosecant squared angle",
+        "published published-finding corpus semantic records on local finite-element H1 clipping, obtuse-triangle stiffness, and positive-part reinterpolation"
+      ]
+    },
+    "rationale": "Primary full-text comparisons distinguish this nodal-P1-reinterpolation operator from established pointwise cutoff energy diminution, the one-dimensional nodal H1 contraction, and qualitative anisotropic nonobtuse/Delaunay mesh criteria. Search of accessible mathematical record descriptions located unrelated local energy/interpolation formulas, but no theorem that implies the sharp csc-squared bound for every constant-SPD triangular element. Publication-priority uncertainty persists.",
+    "residual_risks": [
+      "Specialized FE texts or uncatalogued papers could contain the exact sharp single-triangle nodal-clipping angle bound.",
+      "The related published mathematical-record hits were compared on returned titles and summaries, not as inspected complete PDFs.",
+      "The claimed quantitative novelty does not mean qualitative nonobtuse-energy stability or the scalar clipping concept is new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides operation/motivation but no exact anisotropic obtuse-triangle stiffness-energy sharp factor",
+        "evidence": [
+          "arXiv:2010.08789v1, PDF pp.5–8; arXiv original public submission 2020-10-17"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.08789",
+        "material_read": "Full text inspected: definitions of nodal cut-off, error estimate, and 1D/tensor-product spatial analyses in PDF pp.5–8.",
+        "method": "Accessible arXiv full-text PDF, text and page-image inspection",
+        "title": "Arbitrarily high-order exponential cut-off methods for preserving maximum principle of parabolic equations",
+        "trigger": "Motivating public nodal cut-off finite-element scheme"
+      },
+      {
+        "assessment": "Explicit intervalwise H1 nonexpansivity; does not prove an obtuse 2D sharp factor",
+        "evidence": [
+          "arXiv:2102.13271v1, Appendix B, Lemma 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.13271",
+        "material_read": "Full PDF portions covering energy stabilization and Appendix B Lemma 4.1 (PDF page 18, printed page 19) inspected.",
+        "method": "Accessible arXiv PDF text and page-image inspection",
+        "title": "Arbitrarily High-order Maximum Bound Preserving Schemes with Cut-off Postprocessing for Allen-Cahn Equations",
+        "trigger": "Direct 1D P1 gradient-energy lemma with similar nodal clip"
+      },
+      {
+        "assessment": "Pointwise spatial truncation is covered, but nodally clipped P1 reinterpolation is not that operation",
+        "evidence": [
+          "arXiv:1208.3958v1, §§2–3, continuous cutoff energy argument"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.3958",
+        "material_read": "Accessible primary PDF first three pages inspected for actual cutoff operator and proof.",
+        "method": "arXiv full-text PDF text/page-image inspection",
+        "title": "A Note on Why Enforcing Discrete Maximum Principles by a Simple a Posteriori Cutoff is a Good Idea",
+        "trigger": "Potentially dominating H1 energy-reduction theorem"
+      },
+      {
+        "assessment": "Qualitative DMP matrix geometry without the current exact nonlinear local energy amplification",
+        "evidence": [
+          "arXiv:1008.0562v1, §3, equation (23) and Delaunay mesh theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1008.0562",
+        "material_read": "Accessible full-text portions covering anisotropic mesh angle transformation and Delaunay-type conditions inspected.",
+        "method": "arXiv PDF text/page-image inspection",
+        "title": "Discrete maximum principle and a Delaunay-type mesh condition for linear finite element approximations of two-dimensional anisotropic diffusion problems",
+        "trigger": "Metric triangle angles and anisotropic stiffness signs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7adca9d-f150-4a61-9d1e-29e226a447d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Elementwise nodal cutoff is a standard maximum-bound-preserving postprocessor for numerical PDEs. Its impact on the gradient-energy functional matters for simultaneous energy stability; the exact metric-angle amplification supplies a natural mesh-aware diagnostic, identifies an if-and-only-if elementwise energy-safe geometry for the specified clip, and quantifies deterioration for nearly degenerate obtuse cells. The theorem stands without claiming full-scheme performance or convergence.",
+    "status": "PASS"
+  }
+}
