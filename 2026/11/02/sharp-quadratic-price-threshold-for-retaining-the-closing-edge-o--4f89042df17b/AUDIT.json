@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3, B>0, r>0, the grounded inverse-trace Hessian is strictly positive along any nonzero edge-conductance change. Reflection and connectivity reduce possible ordinary-edge deletion to the opposite even-cycle edge, excluded by the exact lower bound n*sum(centered cumulative sqrt(price/cut-size))^2 >= 2n/(n-1)>1 against its unit-price KKT condition. On the closing-zero face, path Cauchy–Schwarz gives all other weights and Lagrange multiplier, and the missing-edge derivative gives the sharp iff price threshold. Improper Riemann sums converge uniformly to the integrated arcsine profile and yield pi^2/4-2. Exact n=3,4 symbolic checks, independent resistance formulas, derivative checks and finite optimization comparisons passed using files from this package; the proof, not finite sampling, establishes infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi: broad convex optimization of graph total effective resistance; Eq. (28) optimality conditions in the 2006 conference version and path/tree edge-weight formula in the 2008 journal version.",
+        "Bhoite et al. (2026): cost-aware augmentation of an already weighted base, with edge-choice variables and positivity bounds, plus a general KKT ratio."
+      ],
+      "reasoning": "The general optimization and optimality conditions cover the admissible graph class at an abstract level but do not algebraically classify its support under one heterogeneous price. The complete support theorem requires a separate reflection and endpoint-voltage inequality and the asymptotic requires a singular Riemann-sum limit. A specialist might nevertheless regard the threshold computation as an implicit consequence, which remains a priority risk.",
+      "searches": [
+        "cycle conductance resource allocation minimum Kirchhoff index single expensive closing edge exact support phase transition critical price",
+        "optimal allocation total effective resistance graph arbitrary edge prices convex SDP KKT cycle",
+        "doi:10.1137/050645452",
+        "arxiv:2609.29790"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh–Boyd–Saberi MTNS 2006, https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "Ghosh–Boyd–Saberi SIAM Review 2008, doi:10.1137/050645452",
+      "Bhoite–Dhuli–Werner–Kansanen 2026, arxiv:2609.29790",
+      "Zhang–Yang 2006 online, doi:10.1002/qua.21068 (abstract and metadata only)",
+      "Cost convexity controls the architecture of resistance-optimal networks (2026), accessible manuscript excerpts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi full journal transcription: §4.2 derives optimality conditions; §5.1 gives path conductances proportional to square roots of cut-pair counts, and §5.2 states edge-transitive equal-price cycles are uniform.",
+        "Bhoite et al. (2026) Proposition 2 generalizes marginal-benefit KKT under cost and candidate-selection constraints."
+      ],
+      "reasoning": "The present path-face formula uses prior square-root weighting, and the cutoff uses the prior KKT structure, so those parts are acknowledged as derived tools. Those statements alone do not force ordinary-edge positivity among arbitrary asymmetric allocations, the full support dichotomy, or an explicit nontrivial n-squared threshold constant. No inspected prior theorem states or directly provides those three facts together.",
+      "searches": [
+        "Ghosh Boyd Saberi 2008 optimality conditions tree path weights sections 4.2 5.1",
+        "Kirchhoff index optimization weighted cycle adding shortcut conductance optimal cost edge threshold",
+        "Bhoite 2026 cost normalized marginal benefit proposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi (2006 MTNS; 2008 SIAM Review) §§II, IV, V: weighted Laplacian inverse trace and KKT; no stated closing-link support classification.",
+        "Bhoite et al. (2026), arXiv:2609.29790, Proposition 2: normalized marginal benefit for graph augmentation."
+      ],
+      "reasoning": "Total pairwise resistance is Kirchhoff index and is n times the trace of the Laplacian pseudoinverse. Equivalence with A-optimal graph information design, mean-square diffusion coherence and rank-one edge sensitivity was considered. Those general formulations supply a way to test an allocation, but inspected texts do not state the sharp one-price cycle cutoff, ordinary-edge nondeletion for all prices, or quadratic constant.",
+      "searches": [
+        "critical edge-price threshold at which optimal total effective resistance Kirchhoff index allocation on a cycle deletes one edge; optimal remaining path weights sqrt{k(n-k)} and n-squared asymptotic",
+        "Kirchhoff index optimization weighted cycle adding shortcut conductance optimal cost edge threshold",
+        "cycle closing edge optimal Kirchhoff index weighted price reciprocal Laplacian trace"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact exceptional-edge Kirchhoff index threshold table was identified in the recorded public literature and mathematical finding searches.",
+        "Zhang and Yang, doi:10.1002/qua.21068, treats resistance and Kirchhoff index for unweighted circulants; the accessible article description does not establish optimized heterogeneous conductances."
+      ],
+      "reasoning": "The absence of an indexed match is only weak negative evidence. The exact results compared concern distinct determinant objectives, fixed-weight circulation, or abstract optimization, rather than this price-dependent minimax support boundary.",
+      "searches": [
+        "critical edge-price threshold at which optimal total effective resistance Kirchhoff index allocation on a cycle deletes one edge; optimal remaining path weights sqrt{k(n-k)} and n-squared asymptotic",
+        "cycle conductance resource allocation minimum Kirchhoff index single expensive closing edge exact support phase transition critical price",
+        "rank-one Laplacian edge insertion sensitivity sum squared effective voltages path optimal reciprocal square root weights",
+        "Ghosh Boyd Saberi effective resistance cycle priced edge deletion threshold varying edge costs analytic",
+        "optimal edge weights cycle total effective resistance heterogeneous costs closing edge"
+      ]
+    },
+    "rationale": "The unrestricted single-exception-price cycle support classification (ordinary-edge positivity at all prices, exact closing-edge cutoff and quadratic size law) was not found in the inspected primary treatments. Ghosh et al. establish general KKT conditions and optimal tree weights, and Bhoite et al. give cost-normalized marginal conditions for a distinct fixed-base augmentation design. The present geometric endpoint-exclusion and large-order asymptotic calculations are additional, explicit special-structure results. Since their starting machinery is classical, residual risk of implicit corollary status and specialized prior coverage is material.",
+    "residual_risks": [
+      "Specialized prior work may state the exact cycle one-price deletion cutoff under another equivalent network-coherence or optimal-design vocabulary.",
+      "Ghosh et al. general KKT plus path weights make the edge-threshold calculation an approachable corollary; independent priority assessment may judge part of the result covered.",
+      "Some potentially related monographs or specialized journal chapters were not inspected in full, and negative keyword searches are not proof of originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General condition and objective COVERED; exact heterogeneous cycle support theorem and asymptotic not identified.",
+        "evidence": "Proceedings first page identifies July 24–28, 2006; Eqs. (27)–(29) state general optimality and complementarity.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Original accessible conference PDF, including title/conference-date page, definition/objective, derivation of optimality conditions and pertinent symmetry/structure discussion.",
+        "method": "Public author-hosted PDF page text and visual inspection of its first and KKT pages.",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006 conference paper)",
+        "trigger": "Same objective, optimization over individual edge conductances, and necessary and sufficient KKT conditions."
+      },
+      {
+        "assessment": "Tree optimum and uniform-price symmetry COVERED. No specific nonuniform single-price cycle cutoff or scaling limit seen.",
+        "evidence": "Journal §§4.2 (optimality), 5.1 (tree allocation), 5.2 (symmetric rings), 8 (extensions).",
+        "identifier_or_url": "doi:10.1137/050645452",
+        "material_read": "Accessible reproduced full journal article text, focused on introduction, §§4.2, 5.1, 5.2 and 8 and their equations.",
+        "method": "Full-text searchable article transcription, checked by section and equation context.",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review 2008 journal paper)",
+        "trigger": "Same objective and potential analytically solved path and cycles."
+      },
+      {
+        "assessment": "General cost-normalized derivative COVERED; no freely reallocated one-cycle support classification identified.",
+        "evidence": "Proposition 2, cost-normalized marginal-benefit definition and base-graph/candidate-edge design formulation.",
+        "identifier_or_url": "https://arxiv.org/html/2609.29790v1",
+        "material_read": "Accessible HTML introduction, problem formulation and Proposition 2 cost-normalized marginal benefit.",
+        "method": "Primary arXiv HTML full article, relevant sections and targeted searches.",
+        "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+        "trigger": "Modern heterogeneous-cost formulation and a candidate stronger KKT result."
+      },
+      {
+        "assessment": "The studied nonlinear, free-topology architectures and cost exponents differ from the present fixed cycle with one relative linear price; no exact theorem identified in material read.",
+        "evidence": "Introduction contrasts linear classical convex allocation with nonlinear cost topology, and later passages concern cost-exponent controlled cycle ranks.",
+        "identifier_or_url": "https://www.researchgate.net/publication/415223800_Cost_convexity_controls_the_architecture_of_resistance-optimal_networks",
+        "material_read": "Accessible author manuscript transcription introduction and sections discussing the convex linear-cost case, graph support and nonlinear cost exponents; not every page examined.",
+        "method": "Public manuscript transcription and targeted relevant-term search.",
+        "title": "Cost convexity controls the architecture of resistance-optimal networks",
+        "trigger": "Potential closely related cost-induced support transition in electrical networks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f89042d-f17b-4da9-b1b9-1ba56a528aaf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete support/topology classification for a natural graph-resource design family under an arbitrary positive closing-edge price and freely chosen edge conductances. Every ordinary edge must remain positive, while a uniquely defined closing edge has an exact deletion price growing quadratically with cycle size and a universal nonzero limit constant. The exact crossing and scaling distinguish a nontrivial network reliability/resource allocation boundary from generic KKT recipes or an arbitrary numerical case.",
+    "status": "PASS"
+  }
+}

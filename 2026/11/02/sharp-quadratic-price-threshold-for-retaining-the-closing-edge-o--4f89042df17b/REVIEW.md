@@ -1,0 +1,19 @@
+# Review of the cycle closing-edge price transition
+
+## Correctness — PASS
+
+The claim has an analytic proof for every integer \(n\ge3\), every positive relative price, and every positive total budget. The weighted Kirchhoff index is strictly convex on connected feasible conductances by the inverse-trace Hessian; a minimizer therefore exists and is unique. Reflection plus a two-terminal squared-potential bound rules out deletion of every ordinary edge, including the only symmetry-fixed ordinary edge in even cycles. The path-face optimizer is given by exact Cauchy–Schwarz equality. The missing-edge marginal is an explicit squared norm of centered cumulative reciprocal-square-root edge loads, making its KKT inequality equivalent to the quoted threshold. The improper Riemann-sum argument yields the stated quadratic limiting constant. No discrete numerical enumeration is used to infer the infinite result. The independent resistance-sum formula, small exact examples, boundary derivatives, and numerical optimizations were checked by the supplied executable script.
+
+## Originality — PASS (best-knowledge; residual risk)
+
+The closest primary precedent is Ghosh–Boyd–Saberi's 2006/2008 effective-resistance optimization, whose general KKT conditions and optimal tree weights are acknowledged explicitly. Their inspected conference and journal arguments do not state the arbitrary-reallocation single-price cycle support boundary, prove that all ordinary edges must stay positive, or calculate the large-cycle quadratic price constant. The 2026 cost-aware augmentation treatment contains a general marginal-benefit condition but works with a fixed base graph and candidate-edge selection bounds, not free reallocation on one cycle. Earlier unicyclic determinant design optimizes spanning-tree information, not total pairwise resistance. The added support-rigidity argument and singular-integral asymptotic prevent this from being a mere rewording of those results; nevertheless, the precise boundary is obtained from known general optimization principles, so undiscovered specialized prior coverage and direct implication judgments remain real risks. Search coverage cannot establish absolute publication priority.
+
+## Mathematical value — PASS
+
+Whether a budget-optimal ring should retain its costly closing link is a natural network-design decision, not an arbitrary numerical slice. The finding gives a complete topology/support classification for all network sizes and all relative prices, together with the globally unique optimal conductances after deletion and a nontrivial quantitative \(\Theta(n^2)\) price law with exact constant. It distinguishes a locally budgeted cyclic redundancy problem from determinant or spectral-gap design, and the no-ordinary-edge-deletion theorem substantially strengthens a single-face derivative test. It does not assert a formula for interior optimal individual weights or claim a downstream algorithmic speedup.
+
+## Closest literature and limitations
+
+Primary inspected sources: Ghosh, Boyd, and Saberi (MTNS 2006 original paper; SIAM Review 2008 full article) and Bhoite, Dhuli, Werner, and Kansanen (arXiv 2026 HTML full article). Supplementary background: Zhang and Yang (2006 online publication, journal 2007) on Kirchhoff index of ordinary circulants. Limited-risk source: the available ResearchGate transcript of *Cost convexity controls the architecture of resistance-optimal networks* (2026) concerns nonlinear conductance costs and graph selection; the inspected passages do not contain the present explicit single-cycle transition. Possible specialist historical coverage remains. The below-threshold conductances have no claimed elementary closed form; the result is proof-backed but not independently validated.
+
+Self-review: passed. Independent audit: not yet performed.
