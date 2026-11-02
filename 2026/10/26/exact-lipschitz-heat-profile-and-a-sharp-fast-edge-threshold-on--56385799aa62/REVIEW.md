@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is proved for every \(w>0\), \(t\ge0\) through an exact parity-block decomposition of the graph generator and an optimization over the full graph-distance Lipschitz unit ball. The comparison of candidate edge norms yields the stated piecewise equality. Substochasticity of a two-state killed chain, a positive convolution representation of \(\beta\), and an explicit small-time derivative prove the contractivity threshold and sharp exponential rate. The fast-edge, vanishing-time limit proves the nonattained sharp envelope. The embedded numerical and symbolic checks support, but do not replace, those infinite-parameter arguments.
+PASS
 
-## Originality — PASS, subject to stated uncertainty
+Reconstructed exact block diagonalization f=(p+x,p-x,q+y,q-y), z=p-q with z_dot=-2z and (x,y)_dot=-[[2w+1,1],[1,3]](x,y). The Lipschitz unit ball is |x|,|y|<=1/2 and |z|+|x+y|<=1, whose extreme edge amplifications are max{alpha+(1+|w-1|)beta, e^-2t+|w-1|beta}. The killed-chain row sums are <=1. Spectral comparison alpha+beta>=e^-2t for w<=1 and <= for w>=1 produces the stated exact branches. Right derivative -min(2w,3-w) at 0 and semigroup submultiplicativity give best exponential exponent; w<=3 gives nonexpansion by beta<=t e^-2t and w>3 has positive short-time slope. The sharp global envelope 3/2 is unattained at finite w,t but attained in limit w->infinity, t=w^-1/2. Independent fresh 4x4 heat matrix and integral graph-Lipschitz polytope enumeration verified 50 w,t pairs, including thresholds; universal conclusions rest on analytic proof, not those finite cases.
 
-Relevant pre-2016 primary work on Wasserstein contraction and graph coarse Ricci curvature was compared by mathematical implication. Veysseire (arXiv:1202.0420, Theorem 9) establishes a general exponential contraction principle but does not give this one-edge weighted four-cycle's all-time exact norm or its singular uniform envelope. Lin–Lu–Yau (DOI:10.2748/tmj/1325886283) describe the *normalized unweighted* four-cycle and its curvature, not the unnormalized conductance deformation. Nearby published results about weighted *metric* cycles concern a different object. Previously available graph-heat findings on trees, pendant cliques, and symmetric bipartite graphs have different generators and do not imply the displayed two-branch formula. Search coverage is not a proof of uniqueness; an unindexed calculation may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The four-cycle is the smallest Cartesian square, and a single anomalous edge is a minimal natural loss of homogeneous heat dynamics. This exact classification distinguishes the intrinsic fastest exponential Lipschitz rate, the sharp edge-conductance threshold \(w=3\) for loss of contractivity, and the stronger universal transient envelope \(3/2\). The singular limit exhibits noncommuting high-conductance and short-time limits; neither that effect nor the all-time profile follows from a generic curvature inequality.
+Qualified PASS: Ollivier/Kantorovich duality and Veysseire W1 curvature contraction are general principles, not exact weighted one-edge C4 heat norms. Lin-Lu-Yau compute unweighted degree-normalized C4 curvature, not this generator. Resultary matches to four-state ell4 cyclic convolution norms or variable edge-metric numerical index concern different operators or quantities. No located theorem supplies the two-branch w,t norm and nonattained 3/2 envelope; unindexed transport computations remain a risk.
 
-## Limits
+## value
 
-The graph metric does not vary with conductance. Extension to normalized generators, weighted metric lengths, or larger cycles has not been established. Partial access to some neighboring literature and incomplete external indexing leave a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Single-edge jump-rate perturbation of the smallest square is a natural nonhomogeneous diffusion model. Exact contractivity breakdown w=3, sharp exponential rates and noncommuting fast-rate/short-time 3/2 amplification identify genuine transport stability boundaries beyond broad curvature bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
