@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Bidirectional signature/basis reduction; direct XOR basis witnesses for d=1..5; explicit node-by-node replay of three complete Littlestone trees; full nine-point basis exclusion by C(31,8)=7,888,725 complete search; all table upper bounds by hypotheses count and duplicate signature bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghazi et al., PMLR 132 (2021), Proposition 3, yields a general bound for Boolean aggregation of concept classes.",
+        "Guingona et al., arXiv:2109.04805v1, Theorem 3.10, gives uniform full-combination dimensions."
+      ],
+      "reasoning": "Neither general result specifies the signature-covering obstruction at n=10 or adaptive-vs-static gaps at n=5,9,10. Generic bounds do not imply the exact table.",
+      "searches": [
+        "VC dimension Littlestone dimension class of 2-sparse parities XOR of exactly two variables with arbitrary parity queries",
+        "adaptive edge identification using cuts of complete graphs Littlestone dimension pairwise XOR concept family"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2109.04805v1 (2021-09-10)",
+      "PMLR 132:686-696 (2021), https://proceedings.mlr.press/v132/ghazi21a.html",
+      "Relevant semantic mathematical-record searches using four scientifically specified queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-class Theorem 3.10 of arXiv:2109.04805v1 concerns a strictly larger hypothesis set.",
+        "PMLR 132:686–696 concerns general closure upper bounds, not exact two-sparse parity class tables.",
+        "Closest semantic records included randomized parity querying with affine subspaces and complete multipartite graph edge metric problems, neither with the same concept/query semantics."
+      ],
+      "reasoning": "Passing from a larger family to the present subset is monotone for VC and Littlestone dimensions, not equality-preserving; general closure bounds do not determine strict finite gaps. The exact claim therefore is not an implication of the inspected statements, while uninspected older literature remains a priority risk.",
+      "searches": [
+        "VC dimension Littlestone dimension class of 2-sparse parities XOR of exactly two variables with arbitrary parity queries",
+        "adaptive edge identification using cuts of complete graphs Littlestone dimension pairwise XOR concept family",
+        "additive 2-basis difference basis elementary abelian group GF(2)^5 size 10 nonadaptive edge-cut shattering",
+        "binary characters x_i xor x_j VC dimension cut queries separation 5 and 9 vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The column-signature identity gives exact equivalence with pairwise sums of a vertex-label set over GF(2).",
+        "Guingona et al., arXiv:2109.04805v1, Theorem 3.10, includes all nonzero linear-combination zero sets."
+      ],
+      "reasoning": "Complementing binary output interchanges zero-set and parity-one presentations without changing either dimension. This sparse restricted class is not the full nonzero-linear class, so the full-class equality does not entail its dimensions.",
+      "searches": [
+        "VC dimension Littlestone dimension class of 2-sparse parities XOR of exactly two variables with arbitrary parity queries",
+        "adaptive edge identification using cuts of complete graphs Littlestone dimension pairwise XOR concept family"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An exact finite-search enumerator checks 7,888,725 translated nine-point configurations of GF(2)^5; its source is included.",
+        "No retrieved published mathematical-record summary matched the exact two-parity VC/Littlestone sequence."
+      ],
+      "reasoning": "An older difference-basis table could cover the static obstruction, but it would not by itself imply the adaptive cut-query witnesses. This risk remains and has not been treated as absence proof.",
+      "searches": [
+        "additive 2-basis difference basis elementary abelian group GF(2)^5 size 10 nonadaptive edge-cut shattering",
+        "binary characters x_i xor x_j VC dimension cut queries separation 5 and 9 vertices"
+      ]
+    },
+    "rationale": "Current inspected primary literature establishes full-family linear zero-set dimensions and abstract closure inequalities; those claims do not imply sparse two-parity exact dimensions or adaptive-versus-static gaps. Record searches found no directly covering claim. Priority risks are acknowledged rather than silently discounted.",
+    "residual_risks": [
+      "Known catalogues of additive two-bases of GF(2)^5 could subsume the static nine-point obstruction.",
+      "Uninspected prior parity-edge search-tree or adaptive cut-query literature could imply the finite adaptive results.",
+      "Search-ranking coverage is incomplete; no uniqueness certification is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.10 gives equality for all nontrivial linear combinations; no implication of exact two-sparse restricted values.",
+        "evidence": [
+          "Theorem 3.10, page 9: both dimensions equal d−1 for full zero-set family.",
+          "Definition 3.1, page 5, fixes arbitrary nonzero linear coefficients, not two-sparse ones."
+        ],
+        "identifier_or_url": "arxiv:2109.04805v1 / https://arxiv.org/pdf/2109.04805",
+        "material_read": "Full theorem statement and construction in Section 3, pages 5–9; definitions and introduction on pages 1–4.",
+        "method": "Full primary PDF text plus visual inspection of theorem and relevant pages",
+        "title": "Littlestone and VC-Dimension of Families of Zero Sets",
+        "trigger": "Full nonzero-linear family could dominate sparse parity claims"
+      },
+      {
+        "assessment": "General aggregation bound is not an exact formula for two-coordinate XOR subclass; full-document noncoverage is not claimed.",
+        "evidence": [
+          "Proposition 3 gives a generic O(k d log k) closure upper bound."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+        "material_read": "Abstract, introduction and Proposition 3 in pages 1–3, plus relevant terminology search across primary PDF.",
+        "method": "Primary PDF with text and visual inspection",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Aggregation theorem might yield stronger universal coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7499a8b0-54ac-40cd-94b2-037454633946",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural exactly-two parity hypotheses form a basic restricted linear concept class; the result identifies first and recurring strict VC/Littlestone gaps, establishes a useful all-n additive covering equivalence, and provides exact sharp small-order dimensions rather than arbitrary output counts.",
+    "status": "PASS"
+  }
+}
