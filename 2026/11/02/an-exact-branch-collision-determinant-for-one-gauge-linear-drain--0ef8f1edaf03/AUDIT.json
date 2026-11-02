@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For a rooted passive zero-input system with known positive k_v,b_v and root measurement c x_r, the v-th transfer numerator is c g_v times the product over vertices outside the root-to-v path of (s+k_u). The monic characteristic denominator gives a unit-lower-triangular change from the first n outlet derivative coefficients to these polynomials. Leaf deletion and monic synthetic division give the exact determinant recursion with factor c g_leaf times the product of rate differences against incomparable earlier vertices. Induction covers all n and all positive rates including repeated ones; the n=1 base is c. The rank criterion follows directly; Cayley-Hamilton extends a zero initial jet to an identical entire curve, and perturbations of a strictly positive initial vector yield positive indistinguishable states. A standalone SymPy checker independently confirms the determinant on 34 symbolically parameterized rooted trees and 665 seeded exact-rational networks, including 105 singular cases. Those finite tests are not substitutes for the general induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fagarasan and DiStefano (1986), Hidden pools, hidden modes and visible repeated eigenvalues in compartmental models, https://doi.org/10.1016/0025-5564(86)90006-4",
+        "Cobelli, Lepschy and Romanin-Jacur (1979), Identifiability of compartmental systems and related structural properties, https://doi.org/10.1016/0025-5564(79)90026-9",
+        "Materassi and Salapaka (2016), Fully observable networks with polytree structure (accessible publication abstract)"
+      ],
+      "reasoning": "Classical LTI observability algorithms and general repeated-eigenvalue modal criteria certainly decide singularity once a matrix is specified, but are not automatically a pre-existing closed all-topology product. Fagarasan and DiStefano is a live priority risk because generalized-tree graph structure and repeated eigenvalues overlap the rank corollary. The available material did not provide the exact polynomial identity or a theorem mathematically implying its complete product factors.",
+      "searches": [
+        "observability of directed rooted tree networks single root measurement characteristic polynomial node dynamics rates",
+        "Fagarasan Distefano 1986 generalized trees hidden pools repeated eigenvalues theorem observability same rate",
+        "compartmental tree observability matrix determinant product eigenvalue differences incomparable",
+        "branched compartmental model observability from outlet signal equal decay constants upstream reservoirs"
+      ]
+    },
+    "checked_sources": [
+      "Nash (1957), The form of the instantaneous unit hydrograph, https://iahs.info/uploads/dms/045011.pdf",
+      "Pan and Wood (2013), Inverse streamflow routing, https://doi.org/10.5194/hess-17-4577-2013",
+      "Cobelli, Lepschy and Romanin-Jacur (1979), Identifiability of compartmental systems and related structural properties, https://doi.org/10.1016/0025-5564(79)90026-9",
+      "Fagarasan and DiStefano (1986), Hidden pools, hidden modes and visible repeated eigenvalues in compartmental models, https://doi.org/10.1016/0025-5564(86)90006-4",
+      "https://research.unipd.it/handle/11577/2509127",
+      "https://salapakalab.ece.umn.edu/publications/materassi-2016-fully-observable-networks-with-polytree-structure/",
+      "Published published-finding corpus ID 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pan and Wood (2013), Inverse streamflow routing, https://doi.org/10.5194/hess-17-4577-2013",
+        "Nash (1957), The form of the instantaneous unit hydrograph, https://iahs.info/uploads/dms/045011.pdf",
+        "Cobelli, Lepschy and Romanin-Jacur (1979), Identifiability of compartmental systems and related structural properties, https://doi.org/10.1016/0025-5564(79)90026-9",
+        "Fagarasan and DiStefano (1986), Hidden pools, hidden modes and visible repeated eigenvalues in compartmental models, https://doi.org/10.1016/0025-5564(86)90006-4",
+        "published-finding corpus 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f"
+      ],
+      "reasoning": "Nash introduces serial reservoir unit hydrographs and does not state observability for arbitrary branching rooted trees. Pan and Wood infer changing spatially distributed runoff using diffusion-wave routing/gauges rather than a no-input known-rate initial-storage inverse. Cobelli et al. provide general identifiability theory. The 1986 generalized-tree repeated-mode work is the closest potential source of a dominating structural condition; only its abstract was accessible, hence priority remains explicitly unresolved for that article. The published-finding corpus path theorem is not a reduction or stronger-coverage result for the directed-tree identity.",
+      "searches": [
+        "Inverse streamflow routing Pan Wood 2013 outlet observation inverse problem",
+        "tree ordered polynomial basis determinant incomparable differences path polynomial",
+        "exact formula determinant outlet gauge rooted tree linear reservoir observability product over incomparable vertex pairs equal rates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fagarasan and DiStefano (1986), Hidden pools, hidden modes and visible repeated eigenvalues in compartmental models, https://doi.org/10.1016/0025-5564(86)90006-4",
+        "Cobelli, Lepschy and Romanin-Jacur (1979), Identifiability of compartmental systems and related structural properties, https://doi.org/10.1016/0025-5564(79)90026-9",
+        "Published published-finding corpus 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f (abstract discusses normalized path endpoint Gramian, not the rooted directed drainage model)"
+      ],
+      "reasoning": "Linear-system observability, ability to recover initial compartments from one output, and visible repeated eigenmodes are equivalent perspectives for the rank criterion. The 1986 paper is relevant to that qualitative criterion but its accessible abstract does not give the factorized determinant or its transfer-weight multiplicities; no assertion that the full article lacks it is made. Normalized path Gramian optimization addresses a different symmetric graph operator and does not imply this directed tree factorization.",
+      "searches": [
+        "single outlet time series exact state observability of a rooted river routing tree with repeated decay rates; incomparable vertices equal rate",
+        "hydrological linear reservoir tree observability determinant product of rate differences for unrelated branches",
+        "linear reservoir tree observability determinant pairwise incomparable rates identical sibling rates hydrological network",
+        "cascade linear reservoirs tree observability single downstream measurement identical pole eigenvalues",
+        "Fagarasan Distefano 1986 generalized trees hidden pools repeated eigenvalues theorem observability same rate",
+        "product over incomparable vertices rate differences observability determinant rooted tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved published-finding corpus 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f concerns normalized path sensor Gramian determinants, not linear reservoir trees.",
+        "The 34 symbolic and 665 rational certificates are new direct algebraic checks of an infinite symbolic product, not values taken from a known table."
+      ],
+      "reasoning": "This is an arbitrary-size symbolic factorization, not a requested finite lookup invariant or a recomputation of tabulated graph cases. No retrieved exact-table result implied the factorization; negative search is not considered a proof of uniqueness.",
+      "searches": [
+        "exact formula determinant outlet gauge rooted tree linear reservoir observability product over incomparable vertex pairs equal rates",
+        "product over incomparable vertices rate differences observability determinant rooted tree",
+        "hydrological linear reservoir tree observability determinant product of rate differences for unrelated branches"
+      ]
+    },
+    "rationale": "Best-knowledge originality is confined to the exact all-parameter, all-rooted-tree observability determinant with edge-path weights and differences indexed precisely by incomparable vertex pairs. This is stronger than asserting generic observability or that identical sibling rates can hide states. The full 1986 study of hidden generalized-tree modes was unavailable and may imply the qualitative obstruction; its abstract does not establish the explicit determinant identity. Historical priority remains provisional and is not independently certified.",
+    "residual_risks": [
+      "The full Fagarasan and DiStefano 1986 paper was not accessible; its generalized-tree/hidden-mode theory may imply part or all of the proposed identity. Its abstract cannot justify a whole-paper NOT_COVERING assessment.",
+      "Other early compartmental observability determinant formulas may be omitted by bibliographic search or by semantic-result indexing.",
+      "The originality assessment is provisional best-knowledge and not independent historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses a diffusion-wave routing inverse for time-varying runoff fields; does not give the finite known-rate rooted-reservoir initial-storage determinant",
+        "evidence": "Publisher open full PDF https://hess.copernicus.org/articles/17/4577/2013/hess-17-4577-2013.pdf ; 3 June 2013 discussion page https://hess.copernicus.org/articles/17/4577/2013/hess-17-4577-2013-discussion.html",
+        "identifier_or_url": "https://doi.org/10.5194/hess-17-4577-2013",
+        "material_read": "PDF first pages, routing formulation, numerical-results and conclusions pages, plus accessible discussion-version publication record",
+        "method": "Opened original publisher PDF, read sections, inspected PDF page images",
+        "title": "Inverse streamflow routing",
+        "trigger": "Directly motivated inversion from monitored drainage flow and verified archival date"
+      },
+      {
+        "assessment": "Serial cascades, not a universal branched tree single-gauge determinant",
+        "evidence": "Nash (1957), The form of the instantaneous unit hydrograph, https://iahs.info/uploads/dms/045011.pdf",
+        "identifier_or_url": "https://iahs.info/uploads/dms/045011.pdf",
+        "material_read": "Original published PDF front and serial reservoir derivation pages; archive metadata gives 1957 year only",
+        "method": "Opened full public source PDF and inspected page images",
+        "title": "The form of the instantaneous unit hydrograph",
+        "trigger": "Classical linear-reservoir hydrology origin"
+      },
+      {
+        "assessment": "Abstract discusses hidden modes and repeated eigenvalues, possibly covering qualitative criterion; cannot rule out an exact factorization in full text",
+        "evidence": "https://crm.eurekamag.com/research/005/568/005568101.php",
+        "identifier_or_url": "https://doi.org/10.1016/0025-5564(86)90006-4",
+        "material_read": "Accessible abstract only; full paper unavailable from OA/preprint search; authorized Oxford retrieval reported download-storage limit",
+        "method": "Read indexed publication abstract; attempted primary full-text retrieval through lawful routes",
+        "title": "Hidden pools, hidden modes and visible repeated eigenvalues in compartmental models",
+        "trigger": "Highly relevant 1986 repeated-eigenmode and generalized-tree predecessor"
+      },
+      {
+        "assessment": "General identifiability framework, no matching closed tree determinant in accessible material",
+        "evidence": "https://research.unipd.it/handle/11577/2509127",
+        "identifier_or_url": "https://doi.org/10.1016/0025-5564(79)90026-9",
+        "material_read": "Accessible citation and abstract, not full original article",
+        "method": "Reviewed indexed university repository description and open bibliographic record",
+        "title": "Identifiability of compartmental systems and related structural properties",
+        "trigger": "Classical structural observability theory that might dominate a specific rank theorem"
+      },
+      {
+        "assessment": "Normalized path symmetric operator and Gramian versus one-gauge triangular directed reservoir-tree observability matrix",
+        "evidence": "published-finding corpus ID 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+        "material_read": "Published title and abstract from semantic search, not full repository manuscript",
+        "method": "Compared mathematical objects and operator in retrieved summary",
+        "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+        "trigger": "Closest semantic result in published mathematical records for an endpoint observability determinant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ef8f1ed-af03-4f02-963a-370d01683797",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An outlet hydrograph is a natural physically meaningful single-sensor bottleneck in branched drainage. The exact determinant identifies all algebraic losses of recoverable stored-volume information and explains why equal recession times on branches—but not in series—create indistinguishable initial states. Its explicit path-transfer product also flags weak sensitivity as branch rates approach collision. This is a structural all-network-size theorem, not a routine application of numerical rank to one chosen catchment. Its scope excludes unknown inputs, nonlinear flow and noisy inversion.",
+    "status": "PASS"
+  }
+}
