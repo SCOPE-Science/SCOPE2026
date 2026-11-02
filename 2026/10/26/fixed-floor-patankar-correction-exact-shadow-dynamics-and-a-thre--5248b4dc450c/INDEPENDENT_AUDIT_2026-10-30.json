@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:54:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expand the two SDIRK stage resolvents as Y_j=y+O(h), giving scaling s_i=y_i/max(y_i,eps)+O(h) uniformly on the mass simplex. The exact corrected resolvent then has drift G phi_eps(y)+O(h); uniform Lipschitz stability and discrete Gronwall yield global O(h) shadow-flow convergence including nonnegative boundary data. For α>β, monotonicity of phi_eps and the strictly decreasing scalar drift yield one attracting equilibrium. Solving respectively both-below-floor, mixed and both-above-floor balances gives the square-root, quadratic and true-equilibrium branches with exact matching boundaries. At exact ydagger the stage predictors equal ydagger for every h; inversion gives delta=h{β z^2/max(z,eps)-α x^2/max(x,eps)}/{1+h[α x/max(x,eps)+β z/max(z,eps)]}, strictly positive iff eps>x, with exact α=4,β=1,m=1,eps=2,h=1 value x_new=1/3. Direct rational tests and 21 branch checks corroborate, but analytic stability establishes the infinite limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "§3.3.2 predictor-corrector equations 23–25; §3.5 ε-dependent error account.",
+          "§2.7 steady-state preservation; §3 two-state PDS; numerical scheme definitions differ.",
+          "Retrieved hits primarily concerned unrelated dynamical systems."
+        ],
+        "reasoning": "General Patankar convergence/oscillation theory and the source O(epsilon) error bound predict possible bias but do not specify the exact modified flow or all-step displacement. Previous studies concern different scaling/corrector choices.",
+        "searches": [
+          "Patankar fixed denominator floor final-only correction shadow ODE equilibrium mass reversible exchange",
+          "arxiv:2602.15271 final-only Patankar equation (25) clipping epsilon SDIRK21",
+          "arxiv:2108.07347 section 2.7 steady state preservation",
+          "Resultary Patankar fixed denominator floor shadow vector field"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.15271",
+        "https://arxiv.org/html/2108.07347v5",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "§3.3.2 predictor-corrector equations 23–25; §3.5 ε-dependent error account.",
+          "§2.7 steady-state preservation; §3 two-state PDS; numerical scheme definitions differ.",
+          "Retrieved hits primarily concerned unrelated dynamical systems."
+        ],
+        "reasoning": "The prior error estimate allows a nonvanishing O(epsilon) term, not a proof of the exact O(h) convergence to the distinct shadow ODE or the sharp minority threshold. Independent expansion, scalar balance and Gronwall are necessary.",
+        "searches": [
+          "Patankar fixed denominator floor final-only correction shadow ODE equilibrium mass reversible exchange",
+          "arxiv:2602.15271 final-only Patankar equation (25) clipping epsilon SDIRK21",
+          "arxiv:2108.07347 section 2.7 steady state preservation",
+          "Resultary Patankar fixed denominator floor shadow vector field"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§3.3.2 predictor-corrector equations 23–25; §3.5 ε-dependent error account.",
+          "§2.7 steady-state preservation; §3 two-state PDS; numerical scheme definitions differ.",
+          "Retrieved hits primarily concerned unrelated dynamical systems."
+        ],
+        "reasoning": "The fixed-floor correction is a state-dependent resolvent whose first-order vector field is G(y_i^2/max(y_i,epsilon)). Its steady states solve αphi(x)=βphi(m-x), a different balance than the unmodified linear reversible exchange equilibrium.",
+        "searches": [
+          "Patankar fixed denominator floor final-only correction shadow ODE equilibrium mass reversible exchange",
+          "arxiv:2602.15271 final-only Patankar equation (25) clipping epsilon SDIRK21",
+          "arxiv:2108.07347 section 2.7 steady state preservation",
+          "Resultary Patankar fixed denominator floor shadow vector field"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "§3.3.2 predictor-corrector equations 23–25; §3.5 ε-dependent error account.",
+          "§2.7 steady-state preservation; §3 two-state PDS; numerical scheme definitions differ.",
+          "Retrieved hits primarily concerned unrelated dynamical systems."
+        ],
+        "reasoning": "This is a continuous-parameter three-branch equilibrium diagram and finite-h exact displacement, not an arbitrary finite numeric table. The single rational numerical example is a witness, while formulas cover all alpha>beta>0 and epsilon>0.",
+        "searches": [
+          "Patankar fixed denominator floor final-only correction shadow ODE equilibrium mass reversible exchange",
+          "arxiv:2602.15271 final-only Patankar equation (25) clipping epsilon SDIRK21",
+          "arxiv:2108.07347 section 2.7 steady state preservation",
+          "Resultary Patankar fixed denominator floor shadow vector field"
+        ]
+      },
+      "rationale": "The 2026 Nurkhametova et al. preprint defines the final-stage correction with a denominator floor and analyzes positivity, conservation and ε-dependent error; it does not in the read sections state the exact fixed-floor shadow ODE, three-branch equilibrium, or all-positive-h displacement at exact equilibrium. The complete 2022 Torlo–Öffner–Ranocha study of different modified Patankar methods treats equilibrium preservation and near-zero effects but not this final-only floor-correction formula. Qualitative fixed-floor bias may be inferred from original consistency analysis, but not these exact identities as stated.",
+      "residual_risks": [
+        "The original paper has multiple versions: the accessible full HTML is the revised August 2026 version; claims refer specifically to the v1 equation numbering (25),(29), so equivalent revision details should be checked if altered.",
+        "Known analyses of other Patankar-type schemes may contain related fixed-floor phenomena; applicability to this exact corrector is not assumed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVIDES algorithm and positivity/conservation, includes ε-error and recommends scaling epsilon; inspected sections do not give fixed-positive-floor shadow equation or exact three regimes.",
+          "evidence": "§3.3.2 predictor-corrector equations 23–25; §3.5 ε-dependent error account.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.15271",
+          "material_read": "Full available arXiv HTML (revised August 2026), §3.3 predictor equations (23), scaling and corrector (25), §3.5 error discussion, numerical tests",
+          "method": "Read HTML rendered equations and surrounding descriptions; inspect original source version notes",
+          "title": "A Patankar predictor-corrector approach for positivity-preserving time integration",
+          "trigger": "Source defining the exact algorithm and denominator floor"
+        },
+        {
+          "assessment": "PRIOR adverse Patankar behavior and equilibrium/near-zero effects but a different numerical update, not this fixed-floor final-only corrector.",
+          "evidence": "§2.7 steady-state preservation; §3 two-state PDS; numerical scheme definitions differ.",
+          "identifier_or_url": "https://arxiv.org/html/2108.07347v5",
+          "material_read": "Full accessible arXiv HTML, §2.1–2.7, §3 simple production-destruction system, §4 stability and discussion",
+          "method": "Read the source article and compare update rules",
+          "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+          "trigger": "Closest earlier steady-state anomalies"
+        },
+        {
+          "assessment": "No direct same-method record among retrieved hits; search failure alone is not priority proof.",
+          "evidence": "Retrieved hits primarily concerned unrelated dynamical systems.",
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Semantic search hits and summaries; no specific relevant published Patankar result returned",
+          "method": "Resultary semantic search",
+          "title": "Resultary Patankar fixed denominator floor shadow ODE query",
+          "trigger": "Published mathematical findings about the same algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp method-design boundary shows unconditional positivity and conservation can coexist with systematic equilibrium bias under refinement. The three regimes quantify exactly when a minority component is biased, and the all-h explicit equilibrium displacement gives a useful well-balancing diagnostic for a natural two-state test problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the final-only fixed-epsilon Patankar SDIRK21 correction applied to a two-state reversible exchange generator alpha>beta>0, timestep refinement converges with O(h) error to xprime=beta phi_eps(m-x)-alpha phi_eps(x), phi_eps(u)=u^2/max(u,eps), not generally to the original linear ODE; the shadow equilibrium has exactly three explicit regimes, and the original equilibrium moves at every h>0 whenever eps exceeds its minority component.",
+  "limitations": [
+    "The original paper has multiple versions: the accessible full HTML is the revised August 2026 version; claims refer specifically to the v1 equation numbering (25),(29), so equivalent revision details should be checked if altered.",
+    "Known analyses of other Patankar-type schemes may contain related fixed-floor phenomena; applicability to this exact corrector is not assumed."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact update is reconstructed from the published final-only correction (25) with SDIRK2 coefficients (29). An explicit rank-one two-state inverse proves mass conservation and positive states and gives the all-stepsize equilibrium displacement. A uniform resolvent expansion identifies the shadow vector field; compact-simplex Lipschitz estimates and discrete Grönwall imply first-order convergence to that modified flow for every fixed finite horizon. Strict monotonicity and mutually exhaustive threshold inequalities establish the exact three-branch attracting equilibrium with coincident boundary values. A standalone checker independently solves predictor and corrector linear systems and tests rational identities, not replacing the proof.
+## correctness
 
-**Originality (PASS, bounded bibliographic risk).** The motivating 2026 preprint defines denominator flooring and states an \(O(\varepsilon)\) accuracy term, recommending a floor shrinking with timestep; neither its equation (34) nor the full Section 3.3/3.5 discussion gives the fixed-floor shadow ODE, exact phase diagram, or nonzero limit at a stationary exact solution. The 2021 work on other Patankar schemes treats invariant states and near-zero effects but does not analyze these same equations. published literature-index searches for the exact algorithm, equivalents, shadow fields and equilibrium thresholds found no stronger implying statement. A specialized source not retrieved could conceivably contain the same explicit characterization.
+PASS
 
-**Mathematical value (PASS).** This is a structural method-design boundary: positivity and conservation coexist with a nonvanishing refinement bias, and the three natural mass/floor regimes specify exactly when rare-species equilibria become biased. The exact all-step witness is a reproducible well-balancing stress test with useful scale information, not an arbitrary numerical table or unmotivated substitution.
+Expand the two SDIRK stage resolvents as Y_j=y+O(h), giving scaling s_i=y_i/max(y_i,eps)+O(h) uniformly on the mass simplex. The exact corrected resolvent then has drift G phi_eps(y)+O(h); uniform Lipschitz stability and discrete Gronwall yield global O(h) shadow-flow convergence including nonnegative boundary data. For α>β, monotonicity of phi_eps and the strictly decreasing scalar drift yield one attracting equilibrium. Solving respectively both-below-floor, mixed and both-above-floor balances gives the square-root, quadratic and true-equilibrium branches with exact matching boundaries. At exact ydagger the stage predictors equal ydagger for every h; inversion gives delta=h{β z^2/max(z,eps)-α x^2/max(x,eps)}/{1+h[α x/max(x,eps)+β z/max(z,eps)]}, strictly positive iff eps>x, with exact α=4,β=1,m=1,eps=2,h=1 value x_new=1/3. Direct rational tests and 21 branch checks corroborate, but analytic stability establishes the infinite limit.
 
-**Scope and risks.** The fixed floor, final-only corrector, constant two-state generator, and exact arithmetic are essential. The formal \(O(\varepsilon)\) source error bound and other Patankar equilibrium results are acknowledged; no theorem is asserted for stepsize-coupled floor choices or other correctors. This review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Nurkhametova et al. preprint defines the final-stage correction with a denominator floor and analyzes positivity, conservation and ε-dependent error; it does not in the read sections state the exact fixed-floor shadow ODE, three-branch equilibrium, or all-positive-h displacement at exact equilibrium. The complete 2022 Torlo–Öffner–Ranocha study of different modified Patankar methods treats equilibrium preservation and near-zero effects but not this final-only floor-correction formula. Qualitative fixed-floor bias may be inferred from original consistency analysis, but not these exact identities as stated.
+
+## value
+
+PASS
+
+A sharp method-design boundary shows unconditional positivity and conservation can coexist with systematic equilibrium bias under refinement. The three regimes quantify exactly when a minority component is biased, and the all-h explicit equilibrium displacement gives a useful well-balancing diagnostic for a natural two-state test problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
