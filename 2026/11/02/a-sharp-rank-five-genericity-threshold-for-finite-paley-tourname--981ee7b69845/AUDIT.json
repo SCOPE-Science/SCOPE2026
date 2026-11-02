@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The exact q-domain and edge language are stated. Four-character expansion plus Weil degree-3/4 bounds proves positivity for every q>=191. An actual compiled C++17 program exhausts all q<191, reduces all four-subsets by translation, verifies all sixteen sign patterns with bitsets, independently tabulates S4 minima, and verifies q27 via irreducible cubic representation. Five-round Ehrenfeucht–Fraïssé equivalence to the random tournament holds iff all rank-five P4 extension axioms hold; q=3 is explicitly excluded because its P4 is vacuous.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonato–Gordinowicz–Prałat (2010) cites a sufficient Paley n-e.c. threshold q>n^2 2^(2n-2); for n=4 this is q>1024 and gives neither a sharp threshold nor exceptions.",
+        "Graham–Spencer (1971) concerns the all-dominated property S_k for sufficiently large primes.",
+        "Javier–Llano–Zuazua (2026) proves the S3 versus P3 equivalence for vertex-transitive doubly regular tournaments, not the S4 versus P4 implication in all orders."
+      ],
+      "reasoning": "Earlier general or asymptotic criteria do cover sufficiently large instances but not the exact finite threshold 107, sporadic orders 67–83, or equivalence S4 iff P4 throughout the prime-power family; a stronger precise theorem would be needed to subsume this claim.",
+      "searches": [
+        "Paley 4-e.c. tournament dominates all four vertices P4 equivalent S4 q=103",
+        "Bounds and constructions for n-e.c. tournaments Bonato Gordinowicz Pralat 2010",
+        "A constructive solution to a tournament problem Graham Spencer 1971"
+      ]
+    },
+    "checked_sources": [
+      "https://cdm.ucalgary.ca/article/view/62061",
+      "https://real.mtak.hu/62873/1/Bozoki-MiskolcMathNotes-2014.pdf",
+      "https://cdm.ucalgary.ca/article/download/78881/58831/277078",
+      "https://aeb.win.tue.nl/graphs/Paley.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Javier–Llano–Zuazua (2026), Problem 5.6, leaves the general implication open and explicitly treats k=3 and P4 at q=67; the paper does not state the full Paley k=4 classification.",
+        "The current exact theorem is limited to Paley prime-power tournaments and does not settle the general vertex-transitive doubly regular case."
+      ],
+      "reasoning": "P4 entails S4 for any tournament, but S4 by itself does not entail P4 in general. The missing reverse implication on this particular infinite family is supplied by a new finite exhaustive argument up to 190 plus the Weil-based universal P4 bound from 191 onward.",
+      "searches": [
+        "Javier Llano Zuazua 2026 full text P4 S4 Problem 5.6",
+        "Paley tournament 4-existentially closed property P4 finite field orders 67 71 79 83 103 107 sharp cutoff",
+        "Paley 4-e.c. tournament dominates all four vertices P4 equivalent S4 q=103"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Javier–Llano–Zuazua (2026), Problem 5.6 explicitly asks S_k iff P_k for vertex-transitive doubly regular tournaments; their p.74 and p.85 mention QR67 P4, not the full field-size characterization.",
+        "Rank-five equivalence to random tournament is mathematically equivalent to P4 for nonvacuous tournaments, by four-point extension axioms and five-round EF games."
+      ],
+      "reasoning": "The relevant alias is the full four-orientation extension condition (P4), not merely the common-dominator S4 property. The literature identifies the concepts but does not establish the exact equivalence for all prime-power Paley tournaments or the sharp order classification.",
+      "searches": [
+        "Paley tournament 4-existentially closed property P4 finite field orders 67 71 79 83 103 107 sharp cutoff",
+        "Paley tournaments rank five Ehrenfeucht Fraisse random tournament four-extension property",
+        "2- and 3-existentially closed tournaments, Problem 5.6, PDF pp.89-90"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A. E. Brouwer Paley table lists domination size 5 for 67–83 and 107–311, but size 4 for 103; that table is about S4 only, not all 16 four-point orientation patterns.",
+        "Bozóki (2014), p.43, Proposition 1: Paley tournaments have least S4 prime 67.",
+        "The new verifier tests each of sixteen patterns for each four-set, not only domination."
+      ],
+      "reasoning": "The published table correctly anticipates the S4 pass/fail partition; no equality of S4 with P4 follows without extra argument. All sixteen patterns and the missing 103 example are independently checked in the new exact finite census, and all larger prime powers are proved with character sums.",
+      "searches": [
+        "quadratic residue tournament exact classification four existential extension patterns nonmonotonic 103",
+        "Brouwer Paley tournament domination number table q 67 83 103 107",
+        "Bozoki Nontransitive dice sets Proposition 1 Paley S4"
+      ]
+    },
+    "rationale": "The 2010 n-e.c. construction and 2026 paper know a P4 example at q=67 and nonsharp large-field sufficient bounds. Bozóki and Brouwer give the weaker S4 or domination tables, not the all-pattern P4 classification. The 2026 work leaves S4=>P4 open for vertex-transitive doubly regular tournaments generally. The exact q list and the Paley-restricted implication were compared by claim implication, with no observed covering theorem; this is a qualified search-based assessment, not proof of priority.",
+    "residual_risks": [
+      "Possible unindexed older results giving full P4 Paley criterion, which would cover the finding.",
+      "2010 publisher PDF not retrievable as PDF in current access, though substantial text was available; priority comparison to uninspected appendices remains incomplete.",
+      "The published S4 exact table matches the resulting allowed orders; if an unlocated general theorem already equates S4 and P4 throughout Paley tournaments, originality would fail."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sufficient large-field n-e.c. criterion and QR67 P4 documented; no exact field-size four-extension classification established by inspected text. The restricted full-text access remains an originality risk.",
+        "evidence": [
+          "2010-09-28 publication; n-e.c. definition; general q>n^2 2^(2n-2) sufficient condition; QR67 computational example."
+        ],
+        "identifier_or_url": "https://cdm.ucalgary.ca/article/view/62061",
+        "material_read": "Abstract, introduction and several substantial full-text sections visible in accessible authorized textual rendering; the journal PDF download was blocked by content-type restrictions.",
+        "method": "Publisher journal abstract and accessible textual full-text excerpts; attempted official PDF URL.",
+        "title": "Bounds and constructions for n-e.c. tournaments",
+        "trigger": "Original four-extension construction and earliest precisely dated archive source."
+      },
+      {
+        "assessment": "Reports least Paley prime satisfying S4 and historical computation, not P4 membership or rank-five class.",
+        "evidence": [
+          "Proposition 1: least prime Paley S4 order 67; Graham–Spencer bound."
+        ],
+        "identifier_or_url": "https://real.mtak.hu/62873/1/Bozoki-MiskolcMathNotes-2014.pdf",
+        "material_read": "Relevant full-text pp.41–43 and Proposition 1 on p.43, plus surrounding framework and references.",
+        "method": "Lawful open-access PDF text and direct page-image inspection.",
+        "title": "Nontransitive dice sets",
+        "trigger": "Paley S4 minimum and previous threshold evidence."
+      },
+      {
+        "assessment": "Confirms QR67 P4 and asks S_k iff P_k generally; does not state exact P4 finite-field cutoff or solve Paley k=4 for all prime powers.",
+        "evidence": [
+          "p.74 smallest QR67 P4; p.85 confirms P4; p.89 Problem 5.6."
+        ],
+        "identifier_or_url": "https://cdm.ucalgary.ca/article/download/78881/58831/277078",
+        "material_read": "Abstract, introduction pp.73–75, property definitions, §4 conclusion p.85, Problem 5.6 p.89, references p.90.",
+        "method": "Official open-access full PDF with text and page-image inspection.",
+        "title": "2- and 3-existentially closed tournaments",
+        "trigger": "High-priority close comparator, including explicit open problem."
+      },
+      {
+        "assessment": "Correctly records S4 classification for many finite orders, including q103, but not all sixteen orientation patterns and not the exact P4 equivalence.",
+        "evidence": [
+          "Tournament domination numbers: size4 for q=103, size5 for q=67–83 and 107–311."
+        ],
+        "identifier_or_url": "https://aeb.win.tue.nl/graphs/Paley.html",
+        "material_read": "Domination-number entries for Paley tournaments, together with page definitions and citation of Lee (2001).",
+        "method": "Direct HTML material review.",
+        "title": "Paley graphs (dominating sets section)",
+        "trigger": "Exact preexisting S4 parameter table might imply a covered result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "981ee7b6-9845-40b5-85b7-a5f53e8d3c81",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves the P4/S4 implication in a natural Paley subfamily, supplies an explicit complete membership test for the quantifier-rank-five random tournament theory, identifies the sharp eventual cutoff 107 and the nonmonotone failure at 103, and refines a much weaker prior large-field sufficient bound. The exact cutoff has clear structural and logical use, beyond mere numeric computation.",
+    "status": "PASS"
+  }
+}
