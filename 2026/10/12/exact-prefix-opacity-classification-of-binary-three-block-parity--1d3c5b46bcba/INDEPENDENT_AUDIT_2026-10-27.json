@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T05:47:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "J.-P. Allouche and J.-Y. Yao, Opacity complexity of automatic sequences. The general case, arXiv:2404.13601v1 (2024), published in Acta Informatica 63:7 (2026), DOI:10.1007/s00236-026-00521-6; https://arxiv.org/pdf/2404.13601",
+        "Pinned seven-file Git source tree at commit 6c379935c2e469fc18959fc6c387e31328c64bcf, including exact RESULT.md, verify.py and VERIFICATION.md",
+        "Independent separately implemented full 256-mask finite-automaton minimization/profile-BFS verifier at /mnt/data/independent_3block_check.py"
+      ],
+      "rationale": "The source result fixes the input as standard unsigned base-2 numerals without leading zeros and counts overlapping length-3 factors in a chosen subset modulo 2. A suffix/parity transducer with one leading-zero initial state and at most 14 suffix/parity states computes it by induction. Reachability restriction followed by stable Moore color refinement yields the unique intrinsic minimal DFAO, preserving the initial zero-loop. In the quotient, a state of a finite-path search is (current quotient state, for each target the subset of 0/1 incoming labels already used on this path). This is a complete sufficient statistic for future conflicts. A conflict is precisely an inhomogeneous path (a target previously entered under the opposite label), and BFS yields its shortest possible length; absence upon exhausting the finite profile graph proves transparency for all path lengths. Allouche--Yao Theorem 1 identifies the intrinsic automaton and their Theorem 2 makes the normalized opacity 0 when no conflict, or 2^(2-ell) at shortest conflict length ell (binary maximum unnormalized opacity 1/2). An independent differently structured implementation enumerated all 256 masks, independently minimized every transducer, and exhausted every path-profile graph: ell 2 exactly masks [0,68,136,204], ell 3 exactly [85,170], ell 4 exactly [255], ell=0 otherwise (249 masks). It counted a maximum 10 minimal states and 572 reachable profile configurations, with 256 direct numeral crosschecks per mask. The infinite sequence conclusion uses the finite automata argument, not the bounded numeral checks. Distinctness is analytically proved because u_F(1ab) recovers membership of 1ab, while u_F(10ab)=1_{10a in F} XOR 1_{0ab in F} recovers 0ab for all a,b in {0,1}. The empty mask and the full mask, the n=0 representation, 000 and 111 factors, and masks with zero or more exceptions are explicitly covered.",
+      "residual_risks": [
+        "The 256-times-256 direct numeral tests alone are finite; only the exact finite automaton and graph-completeness argument proves all n>=0.",
+        "No formal Lean proof or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "J.-P. Allouche and J.-Y. Yao, Opacity complexity of automatic sequences. The general case, arXiv:2404.13601v1 (2024), published in Acta Informatica 63:7 (2026), DOI:10.1007/s00236-026-00521-6; https://arxiv.org/pdf/2404.13601",
+          "R. J. Hendel, Runs, Squares, Palindromes, and Unbordered Factors of a Family of Binary Pattern Sequences with the All-One Pattern, arXiv:2505.20547v5; https://arxiv.org/html/2505.20547v5",
+          "E. Grant, J. Shallit and T. Stoll, Bounds for the discrete correlation of infinite sequences on k symbols and generalized Rudin-Shapiro sequences, arXiv:0812.3186; https://arxiv.org/abs/0812.3186",
+          "Allouche–Yao Theorem 2 determines opacity given shortest inhomogeneous path; it does not specify shortest paths for arbitrary subset of the eight length-three patterns."
+        ],
+        "reasoning": "The generic computability criterion is strictly more general as an algorithm, but does not itself tabulate or prove the seven exceptional F. No published stronger numerical/structural classification covering every 3-block parity predicate was found in the sources inspected. The existing generic theorem is acknowledged as essential to correctness and not claimed new.",
+        "searches": [
+          "arXiv:2404.13601v1 Theorems 1–2 and Section 4",
+          "arXiv:2505.20547v5 Definition 1, Theorem 3 and later sections",
+          "arXiv:0812.3186 title and abstract",
+          "Resultary semantic query: Allouche Yao opacity complexity automatic sequences finite word pattern counting generalized Rudin Shapiro parity 3-block Boolean predicates"
+        ]
+      },
+      "checked_sources": [
+        "J.-P. Allouche and J.-Y. Yao, Opacity complexity of automatic sequences. The general case, arXiv:2404.13601v1 (2024), published in Acta Informatica 63:7 (2026), DOI:10.1007/s00236-026-00521-6; https://arxiv.org/pdf/2404.13601",
+        "R. J. Hendel, Runs, Squares, Palindromes, and Unbordered Factors of a Family of Binary Pattern Sequences with the All-One Pattern, arXiv:2505.20547v5; https://arxiv.org/html/2505.20547v5",
+        "E. Grant, J. Shallit and T. Stoll, Bounds for the discrete correlation of infinite sequences on k symbols and generalized Rudin-Shapiro sequences, arXiv:0812.3186; https://arxiv.org/abs/0812.3186"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "J.-P. Allouche and J.-Y. Yao, Opacity complexity of automatic sequences. The general case, arXiv:2404.13601v1 (2024), published in Acta Informatica 63:7 (2026), DOI:10.1007/s00236-026-00521-6; https://arxiv.org/pdf/2404.13601",
+          "R. J. Hendel, Runs, Squares, Palindromes, and Unbordered Factors of a Family of Binary Pattern Sequences with the All-One Pattern, arXiv:2505.20547v5; https://arxiv.org/html/2505.20547v5",
+          "The given 7-mask partition requires calculating quotient transition coincidences for XOR combinations, not merely inspecting the opacity of each singleton-pattern sequence."
+        ],
+        "reasoning": "Prior generic theorems reduce the question to a finite state algorithm, but the exact exceptional set and class counts require additional nontrivial finite minimization/case analysis. None of the inspected primary stated results alone implies the particular seven masks without such a calculation. It is a natural complete finite classification, not a new general-purpose method or a larger-pattern theorem.",
+        "searches": [
+          "arXiv:2404.13601v1 Theorem 1, Theorem 2, Corollaries 1–2, examples 3–11",
+          "arXiv:2505.20547v5 Theorem 3 (minimal all-ones-pattern DFAO), introduction and main results",
+          "Resultary semantic query: opacity complexity of automatic sequences Allouche Yao 3-letter patterns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "J.-P. Allouche and J.-Y. Yao, Opacity complexity of automatic sequences. The general case, arXiv:2404.13601v1 (2024), published in Acta Informatica 63:7 (2026), DOI:10.1007/s00236-026-00521-6; https://arxiv.org/pdf/2404.13601",
+          "R. J. Hendel, Runs, Squares, Palindromes, and Unbordered Factors of a Family of Binary Pattern Sequences with the All-One Pattern, arXiv:2505.20547v5; https://arxiv.org/html/2505.20547v5",
+          "The 256 F are all Boolean functions on the eight 3-bit blocks, equivalently XOR combinations of individual length-3 pattern parity counters."
+        ],
+        "reasoning": "Aliases include generalized Rudin–Shapiro parity patterns, XOR sums of length-three pattern counters, Boolean 3-block local rules and minimized 2-DFAO opacity. The foundational paper gives the algorithm for each sequence; its named examples are not a joint exact classification of the 256 Boolean masks. The all-one-pattern paper studies a restricted family and other complexity invariants.",
+        "searches": [
+          "Resultary semantic query: normalized prefix opacity complete classification binary parity of occurrences of arbitrary 3-bit digit patterns modulo two, 256 masks, exceptions",
+          "Resultary semantic query: intrinsic binary automaton inhomogeneous path opacity three block parity counter singleton and XOR multiple patterns",
+          "Web: \"opacity complexity\" \"three\" \"parity\" patterns Allouche Yao; \"opacity complexity\" \"Rudin\" \"pattern\" 2026",
+          "arXiv:2404.13601v1 Sections 2–4, pp. 5–11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separately published 256-mask census or table was found in the retrieved semantic and bibliographic results. This negative result is not itself priority proof.",
+          "J.-P. Allouche and J.-Y. Yao, Opacity complexity of automatic sequences. The general case, arXiv:2404.13601v1 (2024), published in Acta Informatica 63:7 (2026), DOI:10.1007/s00236-026-00521-6; https://arxiv.org/pdf/2404.13601",
+          "Source enumerator has explicit mask table and verified finite-state witnesses; this is not a recomputation of a located published table."
+        ],
+        "reasoning": "A numerical-census lookup is directly applicable because the claimed contribution is a complete finite table. The inspected primary Section 4 comprises named sequences (constants, Thue–Morse, Rudin–Shapiro, etc.) rather than the requested 256-mask enumeration. An unindexed or unpublished table remains a real priority risk.",
+        "searches": [
+          "Web exact query: \"opacity\" \"249\" \"256\" \"automatic\" sequence",
+          "Web exact query: \"opacity complexity\" \"three-block\" parity",
+          "Resultary semantic query: normalized prefix opacity complete classification binary parity of occurrences of arbitrary 3-bit digit patterns modulo two, 256 masks, exceptions",
+          "Resultary semantic query: exact opacity complexity of all 3-bit single-pattern counters, minimize DFAO prefixes"
+        ]
+      },
+      "rationale": "The distinctive statement is the complete seven-exception classification among all eight-block Boolean parity predicates. The cited Allouche–Yao theorem supplies an algorithm and individual named examples, not the exact 256-mask result; an earlier restricted all-one-pattern study treats other invariants. The exception set requires additional nontrivial finite minimization and reachability computation. Priority is best-of-knowledge with risks recorded.",
+      "residual_risks": [
+        "The peer-reviewed 2026 Acta Informatica final-version text may differ from the fully inspected 2024 arXiv version; no whole-document noncoverage is asserted for the journal version.",
+        "An unindexed or unpublished table using another name for Boolean sliding-block parity might establish the same 256-mask census.",
+        "A prior source on generalized Rudin–Shapiro sequences (arXiv:0812.3186) was only inspected at abstract level; no assertion about its full text is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the requisite exact intrinsic-automaton formula and normalized 2^(2-ell) result; does not explicitly contain the 256-predicate classification in its inspected examples. The later journal DOI was bibliographically verified, but its distinct final-version full text was not independently read.",
+          "evidence": "Section 2, Theorem 1 (PDF p. 6); Section 3, Theorem 2 and binary normalizer M_2=1/2 (PDF pp. 6–7); Section 4 examples 3–11 (PDF pp. 8–11).",
+          "identifier_or_url": "arXiv:2404.13601v1; https://arxiv.org/pdf/2404.13601; DOI:10.1007/s00236-026-00521-6",
+          "material_read": "Entire 12-page primary arXiv PDF: Sections 1–5, especially pp. 5–7 Theorems 1–2, the opacity normalization and proofs, and pp. 8–11 named-example list. Page image 7 inspected.",
+          "method": "Open primary OA PDF; extracted text and page image independently cross-checked.",
+          "title": "Opacity complexity of automatic sequences. The general case",
+          "trigger": "Defines the same prefix-metric opacity and establishes potentially covering general results."
+        },
+        {
+          "assessment": "Restricted to the all-one pattern family and run/square/palindrome/unbordered invariants; no broader 256 Boolean mask prefix-opacity classification is established in material read.",
+          "evidence": "arXiv HTML Definition 1, Theorem 3, pp. introduction/section 2: P_m=1^m, minimal 2m-state automaton; abstract lists unrelated combinatorial invariants.",
+          "identifier_or_url": "arXiv:2505.20547v5; https://arxiv.org/html/2505.20547v5",
+          "material_read": "Primary OA HTML, abstract and Sections 1–3, including Definition 1, Theorem 3(a)–(e), minimal DFAO construction and 2-kernel discussion; browsed later section headings/abstract to check invariant scope.",
+          "method": "Direct text inspection of arXiv HTML; no reliance on search snippets for noncoverage.",
+          "title": "Runs, Squares, Palindromes, and Unbordered Factors of a Family of Binary Pattern Sequences with the All-One Pattern",
+          "trigger": "A closely matching family of automatic parity-of-pattern-occurrence sequences, whose n=3 case may overlap."
+        },
+        {
+          "assessment": "The accessible abstract discusses discrete correlation bounds rather than prefix-metric opacity, but whole-document noncoverage is NOT asserted.",
+          "evidence": "arXiv:0812.3186 abstract on correlation and generalized Rudin-Shapiro sequences.",
+          "identifier_or_url": "arXiv:0812.3186; https://arxiv.org/abs/0812.3186",
+          "material_read": "Bibliographic title and accessible abstract only, not full mathematical text.",
+          "method": "Primary arXiv abstract search result; explicitly limited reading.",
+          "title": "Bounds for the discrete correlation of infinite sequences on k symbols and generalized Rudin-Shapiro sequences",
+          "trigger": "Generalized Rudin–Shapiro construction and naming overlap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "J.-P. Allouche and J.-Y. Yao, Opacity complexity of automatic sequences. The general case, arXiv:2404.13601v1 (2024), published in Acta Informatica 63:7 (2026), DOI:10.1007/s00236-026-00521-6; https://arxiv.org/pdf/2404.13601",
+        "R. J. Hendel, Runs, Squares, Palindromes, and Unbordered Factors of a Family of Binary Pattern Sequences with the All-One Pattern, arXiv:2505.20547v5; https://arxiv.org/html/2505.20547v5",
+        "All 256 graph classifications from an independent finite verifier"
+      ],
+      "rationale": "An exact natural complete classification of the first multi-pattern binary parity family with all eight 3-block local contexts selectable. The exceptional masks quantitatively show that intrinsic prefix-opacity is not additive under XOR, with nonzero levels 1, 1/2, 1/4; this is not a recomputation of an identified table and is a useful reference for extending beyond single-pattern counters. No longer-window theorem or general algorithmic improvement is claimed.",
+      "residual_risks": [
+        "Finite parameter only: 3-bit windows over binary input and the specified prefix metric.",
+        "The natural next cases may be much more computationally complex; no downstream theorem is established or required."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "J.-P. Allouche and J.-Y. Yao, Opacity complexity of automatic sequences. The general case, arXiv:2404.13601v1 (2024), published in Acta Informatica 63:7 (2026), DOI:10.1007/s00236-026-00521-6; https://arxiv.org/pdf/2404.13601",
+    "R. J. Hendel, Runs, Squares, Palindromes, and Unbordered Factors of a Family of Binary Pattern Sequences with the All-One Pattern, arXiv:2505.20547v5; https://arxiv.org/html/2505.20547v5",
+    "E. Grant, J. Shallit and T. Stoll, Bounds for the discrete correlation of infinite sequences on k symbols and generalized Rudin-Shapiro sequences, arXiv:0812.3186; https://arxiv.org/abs/0812.3186"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all 256 Boolean subsets F of {0,1}^3, the parity of overlapping occurrences of words in F in unpadded binary n has normalized intrinsic prefix-opacity 0 for 249 masks; normalized opacity 1 for masks 0,68,136,204, 1/2 for masks 85,170, and 1/4 for mask 255. All 256 resulting automatic sequences are pairwise distinct.",
+  "limitations": [
+    "Ordinary binary numeral convention excludes padded leading zeros; n=0 represented as 0.",
+    "Correctness of infinite-sequence opacity rests on the general Allouche–Yao theorem and the exhaustive graph search, not on bounded numeral tests.",
+    "Only the arXiv version of the foundational full paper was thoroughly inspected; journal changes remain a residual priority risk."
+  ],
+  "schema_version": 1
+}
