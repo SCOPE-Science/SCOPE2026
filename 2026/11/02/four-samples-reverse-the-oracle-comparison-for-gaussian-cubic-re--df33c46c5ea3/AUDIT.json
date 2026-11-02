@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The OLS intercept identity decomposes into independent Gaussian sample-mean and residual terms. Wick formulas, a chi-square radius, and spherical-moment ratios give an exact rational risk for every integer \\(n\\ge2\\). The difference from \\(6/n\\) reduces to the sign of a quartic polynomial, negative at \\(n=2,3\\) and positive from \\(n=4\\); 1,790 exact-rational assertions and independent simulation diagnostics agree. No finite numerical check is treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Portier-Segers 2018 establishes OLS-control correspondence and first-order asymptotics, not this exact n-dependent variance.",
+        "Leluc et al. 2022 give a nonasymptotic concentration result under bounded control functions, unlike the standard Gaussian linear control here.",
+        "Blanchet et al. 2023 treat split-sample nonparametric control variates and different minimax aims."
+      ],
+      "reasoning": "The fixed-coefficient population variance optimum minimizes variance only over deterministic control coefficients, not data-dependent nonlinear fitted coefficients. Asymptotic equivalence cannot settle an order-n^{-2} finite-sample reversal. None of the checked broader theorems implies the quantified n=4 boundary without further nontrivial special-case moment evaluation.",
+      "searches": [
+        "regression control variates sample coefficient estimator variance lower than oracle Monte Carlo finite sample Gaussian cubic",
+        "\"control variate\" \"oracle\" \"finite sample\" \"OLS\" regression",
+        "\"finite sample\" \"better than oracle\" \"control variates\" regression"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1801.01797 (2018)",
+      "arxiv:2205.11890 (2022)",
+      "arxiv:2305.16527 (2023)",
+      "B. Ho, Control variates: a regression adjustment inside a Monte Carlo average (2026-10-12)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Portier-Segers 2018 equation (5) covers the fitted-intercept definition; their asymptotic variance comparison is 6/n in this cubic example to first order.",
+        "Leluc et al. 2022 Section 2 gives the same population-optimal fixed-control benchmark, and subsequent general bounds address a different hypothesis class.",
+        "The present nonasymptotic correction has a negative leading 1/n^2 term and changes sign between n=3 and n=4."
+      ],
+      "reasoning": "The new claim is not the generic CV estimator identity nor population optimality; it is the exact finite-n risk and full integer crossover. A fixed-coefficient inequality cannot dominate a nonlinear data-dependent coefficient, and a first-order CLT does not determine the sign of the finite-sample correction.",
+      "searches": [
+        "\"x^3\" \"control variates\" \"OLS\" \"variance\" Monte Carlo Gaussian",
+        "arxiv:1801.01797 Section 2.2 estimator equation (5) and Section 3 CLT",
+        "arxiv:2205.11890 Theorem 1 bounded controls and Section 2 asymptotic variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The estimator is the OLS intercept, equivalently the same-sample linear control-variate average (Portier-Segers 2018, equations (5),(10)).",
+        "A search for the cubic normal/Hermite reformulation returned neighboring but none with the stated risk curve and n=4 sign reversal."
+      ],
+      "reasoning": "The relevant aliases include Gaussian Hermite cubic, OLS intercept, post-hoc control variate, and regression-adjusted Monte Carlo. Equivalent naming is not treated as novelty. The general identity specifies the estimator but does not algebraically determine its sixth-order nonlinear finite-sample risk.",
+      "searches": [
+        "\"cubic\" \"OLS intercept\" \"control variate\" variance",
+        "Gaussian cubic integration X^3 control variate X sample-fitted OLS intercept variance finite sample n exact oracle coefficient three crossover four observations",
+        "Portier Segers Monte Carlo integration control variates Gaussian Hermite third polynomial X cubed finite sample estimated OLS intercept"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted public literature searches and three semantic searches of published mathematical research records did not return an exact cubic-Gaussian OLS finite-sample moment table.",
+        "Two nearest published records concern Gaussian OLS mirror statistics and Gaussian cross-validation, not Gaussian cubic control-variate integration."
+      ],
+      "reasoning": "No exact table with the listed rational sequence 6, 37/18, 8/7 or the all-n expression was identified. Failure of indexed retrieval is not evidence of unique publication priority; a specialized nonindexed source remains possible.",
+      "searches": [
+        "Monte Carlo integration least squares fitted control variate cubic Gaussian n=4 variance exact",
+        "OLS control variates exact variance crossing population optimal coefficient at n=4 Gaussian cubic polynomial",
+        "Gaussian quadrature cubic integrand regression intercept variance finite n fitted control x Hermite chaos"
+      ]
+    },
+    "rationale": "The general OLS control-variate formula and its asymptotic oracle variance are acknowledged as known. The candidate isolates the exact cubic-Gaussian finite-sample risk and a sharp four-sample reversal that were not found in materially inspected relevant literature or accessible same-topic research records; specialized historical coverage remains incomplete.",
+    "residual_risks": [
+      "Unindexed or otherwise inaccessible specialized publications may contain the same exact rational moment computation.",
+      "Generic OLS identities are known; the finite-n cubic risk is a special-case calculation, not a new general regression principle.",
+      "The 2023 related work was inspected at the abstract, introductory and method level, not every appendix; its stated split-sample problem is substantively distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The estimator identity and limiting oracle residual variance are prior; the exact cubic-Gaussian finite-n second moment and sharp comparison at n=4 were not present in inspected relevant material.",
+        "evidence": [
+          "arxiv:1801.01797, Section 2.2 and equations (5), (9)-(10)",
+          "arxiv:1801.01797, Section 3, limit (13) and Section 5 polynomial examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.01797",
+        "material_read": "PDF introduction, Sections 2.1-2.3 and 3, the general estimator formulas (5), (9), (10), the asymptotic discussion and polynomial example section; page screenshots 3 and 6.",
+        "method": "Public PDF full-text navigation and visual page inspection.",
+        "title": "Monte Carlo integration with a growing number of control variates",
+        "trigger": "Direct predecessor establishing least-squares regression intercept as control-variate estimator and fixed-control asymptotic oracle."
+      },
+      {
+        "assessment": "The regression estimator, asymptotic fixed-control comparison and concentration bounds are prior. Their bounded-control concentration hypothesis does not directly cover the unbounded standard Gaussian control. No finite-cubic exact risk or four-observation reversal identified in inspected relevant sections.",
+        "evidence": [
+          "arxiv:2205.11890, Sections 2-4, especially equation (5) and Theorem 1",
+          "arxiv:2205.11890, Section 5.1 orthogonal polynomial controls"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.11890",
+        "material_read": "PDF introduction, Section 2 equation (5), Sections 3-4, Theorem 1 and its assumptions, and Section 5 Gaussian polynomial controls; page screenshots 4 and 6.",
+        "method": "Public PDF full-text navigation and visual page inspection.",
+        "title": "A Quadrature Rule combining Control Variates and Adaptive Importance Sampling",
+        "trigger": "Overlapping least-squares quadrature rule with sample-fitted control coefficients."
+      },
+      {
+        "assessment": "Uses separate fitting and evaluation subsets for nonparametric Sobolev-function moment estimation. Its minimax bounds do not imply the exact same-sample cubic-Gaussian OLS intercept variance.",
+        "evidence": [
+          "arxiv:2305.16527, abstract and introduction describing sample split and Sobolev minimax objective"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.16527",
+        "material_read": "PDF abstract, introduction, method statement and first two pages, with visual first-page inspection.",
+        "method": "Public PDF full-text navigation and visual page inspection; no claim of exhaustive read.",
+        "title": "When can Regression-Adjusted Control Variates Help? Rare Events, Sobolev Embedding and Minimax Optimality",
+        "trigger": "Plausibly broader recent analysis of regression-adjusted Monte Carlo quadrature."
+      },
+      {
+        "assessment": "Gives generic regression-control identities and first-order asymptotics; reports finite-sample variance inflation as a qualitative common behavior, but no cubic-Gaussian all-n exact formula. Its fixed-coefficient risk bound does not imply an ordering of same-sample fitted coefficients.",
+        "evidence": [
+          "B. Ho, 2026-10-12, sections One control and Estimating the coefficient"
+        ],
+        "identifier_or_url": "https://callmequant.github.io/notes/control-variates-regression-in-monte-carlo/",
+        "material_read": "Whole short public note, especially equations and the finite-sample discussion after Proposition 1.",
+        "method": "Public HTML text inspection.",
+        "title": "Control variates: a regression adjustment inside a Monte Carlo average",
+        "trigger": "Contemporary explanatory treatment of finite-sample coefficient-estimation effects."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df33c46c-5ea3-4412-ade3-19b4002cd152",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cubic residual is the first nontrivial odd Gaussian Hermite component after removing the linear control, making its exact finite-sample OLS risk a natural benchmark rather than an arbitrary parameter slice. A complete all-n risk classification reveals that fitting a control from the same data can outperform even the population-best fixed coefficient for all n>=4, despite initial variance inflation at \\(n=2,3\\). This distinguishes practical finite-budget performance from asymptotic oracle statements without claiming broad algorithm dominance.",
+    "status": "PASS"
+  }
+}
