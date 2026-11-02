@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The greedy subsequence-occurrence transform is the product of independent geometric waiting-time generating functions, divided by \(1-z\) for cumulative occurrence. A unique shortest unbordered border gives the exact weighted recurrence. A separate marker-event argument proves strictly positive limiting unbordered density for all positive finite source laws; analyticity of the squared-weight correction and an aperiodic unique dominant pole yield the precise asymptotic coefficient. All boundary assumptions and quantifiers are explicit in `RESULT.md`. The standalone verifier reconstructs actual distinct subsequences over 30,260 source words under six rational iid distributions and checks independent coefficient calculations. Finite verification is not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual risks
+Greedy matching of a fixed scattered pattern in iid host yields independent geometric waits with GF product g_a(z), giving both exact expectation GFs by summing each distinct string once. Unique shortest unbordered border b shows w=bvb with 2|b|<=|w|; weighted series therefore (1-S)U=S-U(x²). The positive density theta(v) follows the finite-border probability limit plus a two-symbol first/last block lower bound. Analytic continuation of U(g(z)²) beyond unique positive r, and strict triangle inequality for S(z) on |z|=r, yield a unique simple dominant pole and exponentially smaller remainders. Independent brute-force host enumeration agrees with independently computed pattern-greedy expectation for binary and ternary cases; finite tests do not establish singularity claims.
 
-Gabric (2023) treats border recurrences and ranking; Holub–Shallit (2015) treats border probability of an entire word; Biers-Ariel–Godbole–Kelley (2017) treats unrestricted distinct subsequences; Cording–Gagie–Knudsen–Kociumaka (2017) treats contiguous unbordered factors. Harju–Nowotka (2005) and OEIS A099766 already cover fixed-weight unbordered pattern counts. The present contribution is the combined random-host scattered-pattern expectation and the explicit tilted-source mean ratio. Searches of semantic research records and relevant published mathematical claims did not identify an equivalent, but searches do not prove novelty. Harju–Nowotka full text and unindexed general pattern-transform literature pose residual risk. The standard component lemmas and unbordered density are not novel claims.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Unbordered patterns are central in synchronization and combinatorics on words. Their expected distinct scattered occurrence complexity is a natural language-constrained analogue of the previously studied unrestricted subsequence count. The exact generating transform and universal positive tilted density provide a meaningful characterization: for biased binary sources, the relevant law is the source square-root tilt rather than the source itself.
+Best-of-knowledge originality limited to the narrow final claim: Biers-Ariel’s unrestricted GF lacks the U(x²) border correction and thus does not imply the theta(v) ratio; Holub–Shallit whole-word density lacks the random-host distinct subsequence transform.
 
-## Limitations
+## value
 
-The theorem concerns fixed alphabets of size at least two and strictly positive independent letter distributions. It proves a ratio of expectations, not concentration or an almost-sure proportion. Earlier literature is credited for word-count recurrences and border-density constants; independent assessment of originality and proof has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unbordered pattern restrictions arise naturally in string algorithms and pattern avoidance, distinct scattered-subsequence complexity has independent interest, and the square-root probability tilt is a non-obvious asymptotic constant for biased hosts; exact expectation and limiting density can be directly reused in probabilistic combinatorics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
