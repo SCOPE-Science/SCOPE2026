@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** From the stationary length-biased renewal interval, the joint age–residual inspection identity yields the claimed covariance without invoking memorylessness. Direct differentiation gives law identifiability; integrating twice by parts produces an absolutely convergent, positive spectral representation. Dominated convergence, Fatou's lemma and Riemann–Lebesgue give the sharp third-moment and ultraviolet boundaries. The Lomax formulas follow from convergent integral evaluations for the stated parameter ranges. The packaged independent-formula numerical checks passed (27 assertion groups). Risk: stationarity requires the equilibrium renewal construction; no uniform claim is made for nonequilibrium initial conditions.
+## correctness
 
-**Originality — PASS, provisional.** Primary full-text inspection establishes that the de Mauro–Biroli–Majumdar–Schehr paper studies equal-time spatial correlations and stationary distributions, not a stationary two-time single-particle covariance and its complete spectral law. Majumdar–Oshanin derive covariance and spectrum for Poisson reset epochs; Stojkoski et al. also use constant hazard. Existing stationary renewal age/residual correlation results concern distinct statistics. The new result combines arbitrary-renewal spectrum positivity, exact reconstruction of the full renewal law, and a third-moment spectral threshold. Risk: a broad renewal-reward spectral identity might imply the formula after substitution; conceptual novelty is consequently less certain than mathematical correctness.
+PASS
 
-**Value — PASS.** The autocorrelation identifies the reset protocol from stationary position traces; the finite-versus-divergent zero-frequency spectral transition is controlled by a third moment, although positional variance needs only a second moment. Exact positive spectral formulas and high-frequency normalization permit experimental discrimination of resetting regimes. The result is more informative than merely restating the stationary positional density or computing a single parameter-specific moment.
+For a stationary two-sided renewal process with W>0, mu=E W>0, E W² finite, equilibrium inspection gives E f(A,R)=(1/mu)E integral_0^W f(a,W-a) da. Conditional Brownian covariance at nonnegative lag t equals 2D A iff residual R>t, and vanishes after reset by independence, giving C(t)=(D/mu)E[(W-t)_+²]. Conditional cross-particle position covariance vanishes despite common reset times. Differentiation yields C’(t)=-(2D/mu)E(W-t)_+ and C’’_+(t)=2D/mu P(W>t), hence full waiting-law identification. Two integrations by parts give absolutely convergent positive spectral formula 4D/(mu omega²) integral_0^infty P(W>s)(1-cos omega s)ds. Riemann-Lebesgue gives universal 4D/omega² ultraviolet; dominated convergence or Fatou gives finite zero-frequency value iff E W³ finite, equal 2D E W³/(3mu). Elementary tail substitution gives exact Lomax power-law/logarithmic regimes for alpha>2. Independent exact/numerical checks covered deterministic and exponential renewals and four Lomax moment limits; the unrestricted analytic argument is separate. Formula interpreted as improper cosine transform for nonzero frequencies, no claim of absolute C integrability for infinite third moment.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Compared mathematical objects and implications, not merely similar titles: De Mauro et al., original 35-page PDF, model and Sections II–III, focus on time-evolving ONE-TIME distributions, same-time squared-position cross-particle correlators and stationary density/order/spacing/counting, not C(t0,t0+t) or its spectrum. Knowing a stationary single-time Gaussian mixture and its equal-time inter-particle squared correlations does not alone give conditional survival across a lag; the new proof explicitly uses the joint age–residual inspection law and Brownian increments. Poisson spectra cannot imply all waiting distributions or third-moment equivalence. Residual priority risks documented, including uninspected plausible original sources; absence of search hits is not assumed to certify novelty.
+
+## value
+
+PASS
+
+The complete recovery of an arbitrary reset waiting-law from a single stationary Brownian trajectory covariance and a sharp third-moment spectral cutoff are natural inverse and fluctuation results in the same non-Poissonian reset gas, extending the previously studied equal-time observables and Poisson-only spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
