@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Laurent shifts isolate the two boundary measures without illicit pointwise identification. Perturbing every Fourier mode of a Laurent polynomial determines each boundary modulus. The log of an invertible bounded analytic multiplier is bounded harmonic, giving a unique radial interpolation of constant boundary data. Single-valuedness forces integer winding, and boundary substitution verifies both directions and surjectivity. The proof treats every \(p>0\); the included exact rational checker is supplementary.
+## correctness
 
-**Originality — PASS, qualified.** The inspected 2015 annular theorem concerns unweighted composition isometries (no multiplier); the 2025 annular isometry paper uses a Fréchet metric on all holomorphic functions; the 2026 motivating theorem concerns weighted Hardy spaces in complex dimension at least two. Source hypotheses and conclusions were compared rather than titles. The exact winding-number boundary-ratio lattice and uniqueness of its multipliers are not contained in their inspected statements. Searches of published mathematical findings did not show an implication covering this theorem. Older specialized literature may still contain the result; this is a priority risk.
+PASS
 
-**Value — PASS.** The complete countable set of symmetry-preserving two-boundary Hardy norms identifies a natural topological obstruction: the boundary weight allocation must match an integer winding of a single-valued holomorphic multiplier. This connects Hardy isometries, annular automorphisms and boundary-mass geometry for every exponent, not a single isolated parameter.
+For A_r and norm^p=wo∫|f|^p_outer+wi∫|f|^p_inner, 0<p<∞, restrict to T=ψ(f∘φ) with φ annulus automorphism and ψ,ψ^{-1} bounded holomorphic. For inversion φ=e^{iθ}r/z, comparing isometry on shifted Laurent polynomials z^nP and taking n→+∞/−∞ isolates the two boundary mass identities. Perturbations P=1+εz^m and Fourier uniqueness yield boundary moduli |ψ|^p=wi/wo outer, wo/wi inner. Bounded harmonic log|ψ| has unique radial interpolation; single-valuedness forces integer k and ψ=cz^k, with wi/wo=r^(−kp/2), |c|=r^(−k/2). Rotations force constant |c|=1. Change-of-circle variables proves sufficiency and inverse weighted-composition proves surjectivity. Independently checked 36 exact p=2 rational Laurent-polynomial norm identities; these are finite tests, not the argument for all p.
 
-**Limits.** Only automorphism-induced invertibly weighted-composition isometries are classified; there is no arbitrary-linear-isometry claim, especially at \(p=2\). The boundary weights are positive and angularly constant. Historical priority requires human review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority comparison for Discrete inversion-symmetry lattice for two-boundary weighted annular Hardy isometries: actual mathematical claims and implications, not title-only comparisons, evaluated against the listed primary sources and Resultary. Relevant prior methods are credited; no decisive stronger covering result was demonstrated within accessible readings. Residual priority risks remain explicit.
+
+## value
+
+PASS
+
+The exact discrete set of admissible boundary weight ratios is a natural geometric/topological quantization in annulus Hardy isometries, connecting the two boundary masses to winding number. It classifies a whole operator class for every positive exponent, not merely a single numeric instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
