@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks
 
-The attached `verify.py` may be run with Python, NumPy and SciPy. The code independently builds finite monomial-basis weighted-composition matrices using gamma functions; checks Hilbert–Schmidt coefficient orthogonality for complex nonmonomial polynomials; checks the singular-value perturbation inequality; and samples the predicted norm, all-\(p\) Schatten scaling (including a quasi-norm exponent), an exact Gaussian Fock Hilbert–Schmidt series and the two real Lambert-branch level counts.
+# Independent mathematical audit
 
-The packaged `verify.py` completed 42 finite checks. These are supplementary consistency checks, not an exhaustive computation over all parameters or proof of an infinite-dimensional limit.
+## correctness
 
-The proof's decisive steps are the exact gamma-ratio monomial singular values, their uniform envelope, Riemann-sum convergence, and \(o(\varepsilon^{-k/m})\) lower-degree operator-norm error together with the corresponding Schatten quasi-norm bound. Published source comparisons remain provisional because the 2013 and 2015 journal texts were not fully accessible.
+PASS
+
+Derived normalized monomial norm squared Γ((2n+2)/m)/(α^(2n/m)Γ(2/m)) by polar integration. Each monomial component sends e_n to e_{n+j} with singular weight e^-εn α^(-j/m) sqrt[Γ((2n+2j+2)/m)/Γ((2n+2)/m)]. Gamma-ratio asymptotics uniform on 0<c<=εn<=C give ε^(j/m) weights converging to (2/(mα))^(j/m)x^(j/m)e^-x, and polynomial/exponential global majorants rule out small/large scaled-index tails. Riemann sums establish superlevel counts; dominated sums establish all positive p moments including quasi-Schatten p<1. The lower-degree polynomial operator remainder is o(ε^-k/m) in norm and o(ε^(-k/m-1/p)) in Schatten p, via fixed finite sums; singular-value Lipschitz variational bounds transfer all level counts and rank quantiles. Solving two roots of unimodal g(x)=y gives Lambert W branches. Independently reproduced exact Gaussian-weight special case m=2,k=2 with squared Hilbert–Schmidt norm 2/(1-e^-2ε)^3 and numerical limit ε^3 HS²->1/4. This confirms constants, not the infinite law. All claims keep α,m,P and p fixed.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison against actual primary mathematical results and indexed records. Prior premises/special cases credited; no decisive prior coverage found, with non-zero priority risks.
+
+## value
+
+PASS
+
+The fixed-dilation qualitative compactness/membership question was previously studied; the singular limit toward identity raises a natural quantitative finite-rank approximation cost. Exact continuum spectral density and each S_p divergence coefficient are stronger invariants than membership, while leading-degree universality and the two spectral branches are meaningful structural conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
