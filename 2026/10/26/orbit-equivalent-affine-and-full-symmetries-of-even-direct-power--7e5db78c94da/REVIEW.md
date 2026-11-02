@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The identity-fixing symmetry equation implies the restriction to the doubled subgroup is an automorphism and determines all residual freedom as a parity-dependent, order-two displacement vanishing at zero. This yields the exact finite extension and subgroup index without assuming a split. The valuation filtration is invariant, and the canonical affine group is transitive on each layer; hence the ordered-pair orbit relations coincide. The included verifier exhaustively checks the order, pair orbit profile and identities for the rank-two modulus-four case. Unrestricted correctness rests on the proof, not this finite check.
+## correctness
 
-## Originality
-**PASS, with residual risk.** The direct motivating source, Bardakov--Sangare (arXiv:2610.18676v1, Section 3 and Question 3.5), explicitly leaves even direct products open; the Latin-odd formulas do not apply. Published comparisons concerning even Takasaki quandles either treat inner automorphism groups or require no 2-torsion. The precise canonical **affine-vs-full ordered-pair orbit equivalence**, accompanied by an exact growing subgroup index, was not identified in inspected sources or actual semantic searches. However, Hou's 2011 general Alexander-quandle automorphism theorem is a serious broader antecedent; only its abstract and later attribution were accessible, so implicit earlier coverage of the group formula or orbit profile cannot be excluded. The theorem does not claim that the general abstract automorphism group was first determined here.
+PASS
 
-## Value
-**PASS.** The canonical affine subgroup is strict yet has the same orbits on ordered pairs as the full quandle automorphism group, uniformly in infinitely many dimensions and moduli. The precise index \(2^{d(2^d-d-1)}\) quantifies a large, structurally motivated symmetry excess invisible to binary orbit data. The worked \(16\)-point case gives explicit distinct groups of orders \(1536\) and \(6144\) with identical pair orbitals. This is a natural permutation-group invariant associated with a directly posed quandle-automorphism question, not an arbitrary finite census.
+PASS: The equation g(2y-x)=2g(y)-g(x) with g(0)=0 forces g(-x)=-g(x), g(2x)=2g(x), and g(x+t)=g(x)+h(t) for t∈2A. The restriction h is invertible on 2A and all GL_d(Z/2^{k-1}) automorphisms lift. The kernel is exactly parity-coset functions e:A/2A→A[2], e(0)=0, bijective because A[2]⊆2A; its order is 2^{d(2^d-1)}. Combining GL cardinalities yields the stated index and |F|. Every g0 preserves the valuation filtration; affine GL transitive on each shell proves identical ordered-pair orbitals. At k=d=2 this gives F0 order384, F order6144, H order1536, shells of sizes1,3,12; verifier source enumerates 384 maps and all 16² quandle identities. No splitting of exact sequence claimed.
 
-## Closest literature and limits
-Bardakov--Sangare, *Constructions and automorphisms of quandles* (arXiv:2610.18676v1), Section 3 and Question 3.5; Hou, *Automorphism groups of Alexander quandles* (2011, DOI:10.1016/j.jalgebra.2011.06.027); Bardakov--Dey--Singh, *Automorphism groups of quandles arising from groups* (arXiv:1608.05178). General even mixed-modulus products are not classified, and no splitting claim is made. Hou's inaccessible complete 2011 text is a material originality uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified best knowledge: Bardakov–Sangare (arXiv:2610.18676v1, Sec.3 Question3.5) explicitly poses even direct-product quandle automorphisms; their Latin/odd case does not apply. The additional identity of ordered-pair orbitals for affine and full automorphism groups alongside strict index was not found in Resultary comparisons. X.-D. Hou (2011) has a general Alexander-quandle automorphism classification and may implicitly determine the group order or more; its full text was inaccessible after arXiv/OA attempts and authorized Oxford attempt returned vpn_disconnected. This remains a serious exact prior-implication risk, but no inspected result establishes the pair-orbital property; unknown access alone is not a scientific rejection.
+
+## value
+
+PASS
+
+PASS: The affine subgroup is a natural canonical subgroup; quantifying exponentially growing additional automorphisms that are invisible to the entire binary orbital algebra is a substantive permutation-group phenomenon. The uniform family answers a directly motivated even-dihedral direct-product question, with a complete structural kernel and exact index; it is not merely finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
