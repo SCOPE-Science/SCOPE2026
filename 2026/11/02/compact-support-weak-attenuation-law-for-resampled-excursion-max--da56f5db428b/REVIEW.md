@@ -1,0 +1,13 @@
+# Self-review
+
+**Correctness — PASS.** The starting hitting law is exactly Yoshida's finite scale formula [1, Theorem 1]. A uniform Riemann-sum argument on compact heights at every fixed interior parameter identifies the strictly convex potential \(F\) and its unique zero, and geometric domination gives the exact subcritical scale-function limit \(p/(2p-1)\). Bounded convergence over the uniform environment delivers the joint weak limit and the marked conditional law. A separate singular integral expansion proves the logarithmic endpoint coefficient. Finite rational recurrence checks (684 assertions) and finite-attenuation quadrature supplement the analytical proof; finite checks are not substituted for limiting proofs.
+
+**Originality — PASS, with historical uncertainty.** Yoshida [1, Sections 2–3, including Theorems 1 and 9] establishes the finite-height distribution but does not state the simultaneous weak-attenuation/macroscopic-height limit, the environment-dependent two-point law, its compact-support profile, or the logarithmic endpoint. Barrera–Bertoncini–Fernández [2] covers other birth-and-death asymptotic escape settings and does not directly imply the uniform resampled-parameter profile without additional nonuniform analysis. Targeted records and scientific literature queries for renewal-per-excursion height limits, dilogarithmic cutoff and spatially decaying gambler's ruin identified no equivalent complete statement. A general scale-function large-deviation or metastability theorem may imply portions of this result, and not all historical literature has been exhaustively reviewed. The finite height identity is expressly prior mathematics.
+
+**Mathematical value — PASS.** Yoshida's model includes qualitatively different fixed-attenuation and no-attenuation regimes. The exact macroscopic maximum law resolves the natural singular boundary between them: it identifies when an excursion escapes to distance of order inverse attenuation, describes the survivals and the environment under conditioning, and shows an unusual finite-height boundary with logarithmic rather than power-law decay. It is more than a numerical refinement or a relabeling of a fixed-parameter hitting formula.
+
+**Limitations.** The law is for one complete excursion with uniform parameter and geometric attenuation. It does not address general environments, long-time maxima, or finite-size rates. Bibliographic novelty is qualified pending independent priority review.
+
+Self-review: passed. Independent audit: not yet performed.
+
+References: [1] https://arxiv.org/html/2604.22644v1; [2] https://arxiv.org/abs/0903.1832.
