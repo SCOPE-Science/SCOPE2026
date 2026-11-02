@@ -1,19 +1,21 @@
-# Scientific review: sharp affine-projection norms under asymmetric Dirichlet weights
+# Independent mathematical audit
 
-## Correctness: PASS
-The affine kernel follows from the displayed Dirichlet first and second moments, with normalization and coordinate reproduction checked algebraically. Positivity and the simplex barycentric identity reduce the global Lebesgue function to vertex norms; full support and opposite kernel signs near suitable vertices establish strict nonvertex exclusion. A beta marginal and its truncated first moment yield the exact regularized-incomplete-beta expression, and the signed vertex kernel provides a sharp input. Kernel symmetry supplies equality of the \(L^1\) and \(L^\infty\) norms.
+## correctness
 
-The three-component Dirichlet coupling is a precise martingale relation for *mean-normalized* coordinates. Conditional Jensen is genuinely strict because the conditional support crosses the kink of the absolute-value function on an event of positive probability. This proves strict sensitivity ordering and unique balancing. Both boundary and dimension/concentration limits use explicitly stated convergence, moment bounds, and uniform-integrability arguments. The `checker.py` program passed 394 deterministic assertions, including exact-rational beta identities and direct kernel checks. The universal quantifiers depend on the written proof, not numerical sampling.
+PASS
 
-## Originality: PASS within inspected evidence
-Griffiths--Spanò, arXiv:1003.5131, contains the Dirichlet first-degree reproducing kernel, beta marginalization, and related polynomial theory. Those are acknowledged ingredients, not independent claims. The full published note *Exact positivity defect and max norm of the affine least-squares projector on a simplex* supplies the \(\alpha_i=1\) case, which is expressly excluded from any claim of first discovery. Arab--Oliveira--Wiklund's beta **convex-transform** ordering and exceedance results do not imply the exact mean-normalized **convex-order** inequality, vertex-maximization profile, or fixed-total optimal allocation. Li's degree-one Jacobi frames and Aktas--Xu's singular-weight Sobolev analysis concern different conclusions. Searches for weighted-affine-projector aliases and potential stronger prior work did not locate the full asymmetric sharp norm/optimization/scaling theorem.
+Dirichlet moment and covariance inversion give K(x,y)=(S+1) sum_i x_i y_i/p_i -S, reproducing constants and coordinates. Since row absolute integral is convex, a maximal row is at a vertex and strict Jensen plus sign-changing neighborhoods excludes all nonvertices. At vertex e_i, its value reduces to E|((S+1)/p_i)Y_i-S| with Y_i~Beta(Sp_i,S(1-p_i)); splitting at t=Sp_i/(S+1) yields exactly F_S(p_i). To compare 0<p<q<1, couple (A,B,C)~Dirichlet(Sp,S(q-p),S(1-q)); (A+B)/q=E[A/p | A+B] is a strict mean-preserving contraction across the absolute-value kink, so F_S(p)>F_S(q). This gives unique fixed-S balancing, boundary supremum and the fixed-alpha gamma, fixed-total and fixed-dimension Gaussian limits with uniform-integrability/moment bounds. Independent incomplete-beta evaluations for S=6,p=1/6 and 1/3 give 4.551972392 and 3.090557506; for S=7 and p=.05,...,.95 strict order holds; fixed-alpha n=240 gives normalized norm 0.736194 approaching 2/e=0.735759; S=5000,n=3 yields 1.128558 approaching sqrt(4/pi)=1.128379. The checker code uses exact rational integer beta moments, but universal strict inequality relies on the conditional Jensen proof.
 
-Residual historical-priority risk remains: some classical weighted-Jacobi projector discussion, an implicit consequence of a norm formula under different notation, or an unindexed special case may exist. Source coverage is not exhaustive. No independence or priority certificate is claimed.
+## originality
 
-## Value: PASS
-Dirichlet (Jacobi) weights are natural positive simplex densities, and worst-case endpoint norms measure the stability and positivity loss of degree-one weighted least squares. The exact maximum being governed solely by the smallest normalized concentration is a structural simplification unavailable from the kernel statement alone. Strict unique balancing solves a complete natural fixed-total design problem, and the three rigorously distinct asymptotic regimes show that bounded versus unbounded high-dimensional amplification depends on concentration scaling. This is more than a parameter substitution into the uniform simplex computation; the Dirichlet aggregation coupling is essential to the optimization theorem.
+PASS
 
-## Limits and closest published mathematics
-The projector is local and degree one; it is not a coupled finite-element projector or a higher-degree Jacobi projector. Source material closely inspected: Griffiths--Spanò (2010) Sections 1--2; Li (2012) Chapters 1, 5 and conclusion; Aktas--Xu (2011) introduction and sections on classical versus Sobolev weights; Arab--Oliveira--Wiklund (2020) Theorems 1--3 and Section 4; and the published full uniform-simplex result. Two potential access/search limitations persist: the broader classical Fourier--Jacobi norm literature was not exhaustively inspected, and differently phrased older weighted-simplex formulas may be unindexed.
+The first-degree Jacobi kernel and beta marginals are prior results of Griffiths--Spano and related classical orthogonal-polynomial theory. The equal-weight uniform simplex norm was already published. The assessed new theorem is the full asymmetric sharp norm profile together with strict convex-order balancing and three joint asymptotics, not a fresh claim to the kernel formula or beta identities.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Dirichlet/Jacobi densities are standard families of weighted polynomial approximation, and the endpoint projector norm is a natural stability/positivity invariant. Showing that only p_min matters and proving unique balancing at fixed total concentration solves a natural optimization problem; the qualitatively different high-dimensional regimes have direct stability meaning, rather than a mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

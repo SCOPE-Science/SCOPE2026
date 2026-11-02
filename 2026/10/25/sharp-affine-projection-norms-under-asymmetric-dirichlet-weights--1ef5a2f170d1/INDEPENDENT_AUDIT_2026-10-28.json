@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:10:21.732680Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dirichlet moment and covariance inversion give K(x,y)=(S+1) sum_i x_i y_i/p_i -S, reproducing constants and coordinates. Since row absolute integral is convex, a maximal row is at a vertex and strict Jensen plus sign-changing neighborhoods excludes all nonvertices. At vertex e_i, its value reduces to E|((S+1)/p_i)Y_i-S| with Y_i~Beta(Sp_i,S(1-p_i)); splitting at t=Sp_i/(S+1) yields exactly F_S(p_i). To compare 0<p<q<1, couple (A,B,C)~Dirichlet(Sp,S(q-p),S(1-q)); (A+B)/q=E[A/p | A+B] is a strict mean-preserving contraction across the absolute-value kink, so F_S(p)>F_S(q). This gives unique fixed-S balancing, boundary supremum and the fixed-alpha gamma, fixed-total and fixed-dimension Gaussian limits with uniform-integrability/moment bounds. Independent incomplete-beta evaluations for S=6,p=1/6 and 1/3 give 4.551972392 and 3.090557506; for S=7 and p=.05,...,.95 strict order holds; fixed-alpha n=240 gives normalized norm 0.736194 approaching 2/e=0.735759; S=5000,n=3 yields 1.128558 approaching sqrt(4/pi)=1.128379. The checker code uses exact rational integer beta moments, but universal strict inequality relies on the conditional Jensen proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Griffiths--Spano give a general all-degree Dirichlet Jacobi kernel identity; Aktas--Xu focus on singular Sobolev weights; existing uniform simplex theorem covers alpha_i=1 only."
+        ],
+        "reasoning": "The kernel identity is indispensable prior context but does not evaluate its absolute row integral at all weights nor prove strict minimax concentration ordering. A uniform case is a strict specialization, not dominating coverage.",
+        "searches": [
+          "arXiv:1003.5131 Griffiths--Spano Proposition 2.1",
+          "arXiv:1111.2994 Aktas--Xu",
+          "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 6edec0e79ef37178d6f562f27a214d133d0aca05",
+        "checker.py blob efc4c2a7c07e5e59cdf02c7830634a58bd857029",
+        "Independent scipy incomplete beta, dimension/concentration and strict-order calculations",
+        "arXiv:1003.5131 primary PDF",
+        "arXiv:2005.08204 primary PDF",
+        "arXiv:1111.2994 primary PDF",
+        "Resultary existing uniform-simplex projection norm finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general first-degree reproducing kernel can be deduced from Dirichlet moments, but neither the weighted endpoint norm nor strict beta centered-martingale convex-order minimization appears in the inspected comparisons."
+        ],
+        "reasoning": "The new conclusion is not an immediate kernel substitution: the strict ordering and unique balanced allocation require a nontrivial three-component coupling and strictness argument. The older symmetric case is explicitly excluded from first discovery.",
+        "searches": [
+          "Griffiths--Spano 2013 Section 2.1 Proposition 2.1",
+          "Arab--Oliveira--Wiklund 2020 Theorems 1-3",
+          "uniform-simplex exact norm theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sharp vertex kernel is a centered mean-normalized Beta absolute deviation; the comparison uses ordinary convex order of A/p across increasing p."
+        ],
+        "reasoning": "Searched Jacobi weight, Dirichlet kernel, weighted simplex degree-one projector, and Beta convex-order aliases. Convex-transform order compares skewness via inverse CDF compositions and is not the required mean-preserving convex order or exact norm.",
+        "searches": [
+          "Resultary: Dirichlet beta weighted affine orthogonal projector L infinity norm convex order balance asymmetric simplex",
+          "arXiv:1003.5131 first-degree orthogonal polynomial kernel",
+          "arXiv:2005.08204 beta convex transform order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact symmetric-simplex values already known; independent rational checks recover them as specialization when all alpha=1."
+        ],
+        "reasoning": "A special-case table does not determine the continuum of all positive real alpha_i nor the three scaling regimes; no inspected existing table supplies the final theorem.",
+        "searches": [
+          "Resultary exact positivity defect max norm affine projector simplex Oct 2026",
+          "arXiv:1003.5131 kernel examples",
+          "arXiv:2005.08204 beta ordering tables"
+        ]
+      },
+      "rationale": "The first-degree Jacobi kernel and beta marginals are prior results of Griffiths--Spano and related classical orthogonal-polynomial theory. The equal-weight uniform simplex norm was already published. The assessed new theorem is the full asymmetric sharp norm profile together with strict convex-order balancing and three joint asymptotics, not a fresh claim to the kernel formula or beta identities.",
+      "residual_risks": [
+        "An unindexed older weighted-Jacobi degree-one norm formula in alternative variables could imply the claim.",
+        "The theorem concerns strictly positive parameters, not singular or signed weights, and only degree-one projectors.",
+        "No high-degree Jacobi stability or entire finite-element stability is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives all-degree polynomial kernels and canonical correlation applications, but not sharp endpoint norm across asymmetric alpha or balanced concentration optimization.",
+          "evidence": "Griffiths--Spano 2013 Bernoulli, arXiv:1003.5131, Proposition 2.1",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.5131",
+          "material_read": "Read primary PDF introduction, detailed Section 2.1/Proposition 2.1, and a selected later canonical-correlation passage; visually inspected page images. The full 51-page PDF was available but not read exhaustively.",
+          "method": "Full primary text portions and theorem/parameter comparison",
+          "title": "Orthogonal polynomial kernels and canonical correlations for Dirichlet measures",
+          "trigger": "Same weight and degree-one reproducing kernels"
+        },
+        {
+          "assessment": "Compares beta skewness via convex-transform order; does not state E|A/p-a| strict ordinary convex order nor projection norms.",
+          "evidence": "Arab--Oliveira--Wiklund 2020 abstract and order definitions",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.08204",
+          "material_read": "Read primary PDF abstract, introduction, definition of convex-transform order and section scope; inspected a page image. Full 26-page text was available but not read exhaustively.",
+          "method": "Primary PDF and comparison of order notions",
+          "title": "Convex transform order of Beta distributions with some consequences",
+          "trigger": "Potential exact beta parameter-order domination"
+        },
+        {
+          "assessment": "Studies limiting singular weights and derivative inner products, not sharp positive Dirichlet degree-one endpoint norms.",
+          "evidence": "Aktas--Xu 2011 introduction, Sobolev singular weight scope",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.2994",
+          "material_read": "Read the primary PDF introduction and classical versus singular-weight setup; inspected a page image. The complete 32-page paper was not read.",
+          "method": "Primary PDF section/normalization comparison",
+          "title": "Sobolev orthogonal polynomials on a simplex",
+          "trigger": "Potential broader weighted Jacobi projector theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dirichlet/Jacobi densities are standard families of weighted polynomial approximation, and the endpoint projector norm is a natural stability/positivity invariant. Showing that only p_min matters and proving unique balancing at fixed total concentration solves a natural optimization problem; the qualitatively different high-dimensional regimes have direct stability meaning, rather than a mere parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed older weighted-Jacobi degree-one norm formula in alternative variables could imply the claim.",
+    "The theorem concerns strictly positive parameters, not singular or signed weights, and only degree-one projectors.",
+    "No high-degree Jacobi stability or entire finite-element stability is asserted."
+  ],
+  "schema_version": 1
+}
