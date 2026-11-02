@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The infinite construction is certified by a degree-four polynomial identity, a fully factored integral resultant, a Chinese-remainder congruence ray and exact prime-adic valuations. These steps prove strict increase, pairwise coprimality and Achilles status for every parameter in an infinite class. An exhaustive smallest-prime-factor classification of all integers through \(57967\) and all eligible ordered pairs proves the sharp first occurrence and its uniqueness. The standalone verifier recomputes the critical certificates; finite enumeration is not used to infer infinitude.
+
+**Originality — PASS within inspected evidence.** Chan (arXiv:2210.00281) and van Doorn (arXiv:2605.06697) exhibit infinite powerful progressions including two perfect squares. Bajpai, Bennett and Chan (arXiv:2302.03113, Theorem 1.2 and §5.1) exhibit primitive powerful progressions consisting of three squares, and their cubefull construction is also different. Their statements do not imply primitive progressions with all terms Achilles. OEIS A390953 lists the three seed integers but no sharp AP theorem. Explicit published-finding corpus and literature searches covered aliases, the exact conic, stronger ambient results and the numerical witnesses, and related mathematical statements were compared. No covering theorem was found; priority beyond the inspected material is not certified.
+
+**Value — PASS.** Existence of primitive all-Achilles progressions isolates a structurally meaningful, previously unaddressed subclass of the primitive squarefull AP problem. The exact minimal largest term \(57967\) gives a natural sharp boundary supported by a complete search rather than a guessed numerical example. The result does not characterize longer Achilles progressions or optimize the common difference.
+
+**Verification and limits.** The executable verifier uses exact integer operations and standard Python only. A separate correctness proof covers the unbounded parameter class, while finite checks cover all candidates through the sharp cutoff. Closest sources are Chan (2022), Bajpai–Bennett–Chan (2023), van Doorn (2026), and OEIS A390953; the inspected sources do not cover the claim, but unavailable or unindexed literature may.
+
+Self-review: passed. Independent audit: not yet performed.
