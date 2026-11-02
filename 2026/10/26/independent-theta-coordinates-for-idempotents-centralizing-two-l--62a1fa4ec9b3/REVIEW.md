@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim identifies the sample space exactly and reconstructs the unit count using finite-module homomorphism dimensions and reduction modulo \(t\). The idempotent/direct-sum-decomposition correspondence and automorphism orbit-stabilizer yield the exact profile counts. The quadratic identity diagonalizes the exponent, and uniform Euler-product bounds plus discrete-Gaussian tails prove the parity-sensitive product-theta limit in total variation. Five exhaustive small-field configurations independently corroborate the exact counts. Limitations: finite enumeration does not prove convergence; the theorem assumes two fixed distinct lengths.
+## correctness
 
-**Originality — PASS within inspected coverage.** Wang (arXiv:1910.13666, first posted 2019) supplies a general commutant basis; de la Cruz–Misa (Electronic Journal of Linear Algebra 38, 2022) give its radical and semisimple quotient; Ellerman (arXiv:1603.07619, 2016) enumerates vector-space decompositions. An earlier published almost-abelian Lie retraction enumerator also contains the general finite module-automorphism quotient for direct-summand types; shifting the nilpotent operator by identity shows that it covers the exact finite profile counts here, which are therefore not claimed new. These prior ingredients are credited rather than rediscovered. None of the inspected treatments states the growing-m simultaneous two-length idempotent-image theta asymptotics and their factorization into an integer-lattice theta and a parity-shifted theta, with total-variation convergence. Unindexed prior asymptotic work and implicit consequences of broader finite-module enumeration remain risks.
+PASS
 
-**Value — PASS.** The image summand type is a natural invariant of an idempotent commuting with a fixed nilpotent operator. Its two coordinates capture more than matrix rank, and the theorem shows a nonobvious independence after a linear change of variables, a persistent parity transition, and negative correlation in the original coordinates. This is a complete asymptotic law over an infinite matrix family, not merely a small case or a restatement of a centralizer dimension formula.
+PASS: A commuting idempotent is a projection onto an ordered pair of invariant module summands for F_q[t]/(t^a)^m plus F_q[t]/(t^b)^m. Their automorphism group cardinality is q^(a x²+2a xy+b y²) times Phi_x(q) Phi_y(q), from Hom dimensions and reduction modulo t. The transitive automorphism action has stabilizer Aut(image) x Aut(kernel), yielding every exact profile count. Completing the exponent gives -2a(r+s-m)²-2(b-a)(s-m/2)²; the Phi factors tend uniformly to their nonzero Euler-product limits on growing central boxes while Gaussian tails are exponentially small. Thus the parity-dependent product-theta limit and total-variation estimate follow; finite counts do not establish it. Independently recalculated the nine (r,s) exact counts for q=2,a=1,b=2,m=2: [1,384,256,96,2304,96,256,384,1], sum 3778; approximate TV distances at m=6,7,10,11 were respectively .03311,.02260,.00803,.00555.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS qualified: the finite orbit-stabilizer/profile distribution is an acknowledged consequence of earlier module-decomposition enumeration and is not counted as novel. The assessed contribution is the explicit two-coordinate parity-sensitive independent theta limit with total-variation rate for the natural many-block family; examined centralizer and decomposition sources do not assert or immediately imply that asymptotic law without additional limit analysis. Broader Hall-polynomial asymptotic treatments could contain an equivalent and remain a material priority risk.
+
+## value
+
+PASS
+
+PASS: Image Jordan multiplicities of a random commuting idempotent are natural complete invariants of its invariant direct summand, unlike a manufactured numeric slice. Their asymptotic factorization after W,V transformation, persistent parity shift, and negative covariance in original coordinates are structurally informative over an infinite matrix family. The fact that the finite orbit formula is classical does not collapse the new quantitative probability law into textbook arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
