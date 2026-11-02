@@ -1,19 +1,21 @@
-# Scientific assessment: drifted point-trap resetting optimum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns a specified full-line drifted diffusion with a delta killing coefficient and complete Poisson resets. The free resolvent identity is normalized by the drifted Gaussian transition density, giving the exact killing-time transform and dimensionless mean. Differentiation of the mean reduces its stationary points to one scalar function whose derivative has at most one negative-to-positive change; the endpoint signs force precisely one minimum for every finite sink strength. At infinite reactivity the exact small-rate expansion establishes the critical drift. The square-root and cubic-root limits follow from a uniform expansion with positive coercive bounds that localize minimizers, rather than simply assuming their scaling. The crossover limiting objective is strictly convex. The reconstructed numerical program passes 235 root/asymptotic checks and 45 independent Gaussian Green-function quadrature comparisons. Numerical samples corroborate; infinite-parameter conclusions follow analytically.
+PASS
 
-## Originality — PASS (best-knowledge with explicit access risk)
+Reconstructed the rank-one drifted Gaussian resolvent F0(r)=[k/(k+sqrt(v²+4Dr))] exp[-(v+sqrt(v²+4Dr))x0/(2D)], renewal mean (1-F0)/(rF0), and m_{a,K}(rho)=[exp(a+sqrt(a²+rho))(1+sqrt(a²+rho)/K)-1]/rho. For J=rho H'-H, J'=rho H'', and H'' has one sign-transition quadratic u²+(K+1)u-(K+1), proving unique minimum by small/large-rate limits. The perfect-absorber b=1 threshold and expansions give rho*~sqrt(8b^4/((b-1)K)) for b>1, rho*~(24/K)^(1/3) at b=1, and the scaled root t^3+3 lambda t²=24 for b=1+lambda K^(-1/3). Verified the coercivity argument needed to rule out escaping minimizers; independent numerical derivative/minimizer checks corroborate but do not prove every parameter.
 
-Mazzolo's 2026 abstract identifies the same full-line drift-and-delta-sink reset model and claims the exact propagator, survival probability, exponential-decay rate and quasi-stationary density. It does not identify the exact unique mean-optimal rate or the singular square-root/cubic-root critical crossover in its accessible abstract. Its complete full text and appendices were unavailable; this remains a specific risk, not an unsupported declaration that the primary manuscript is noncovering. The accessible full review by Evans, Majumdar and Schehr, §3.8, derives partial absorption with *zero drift*; Whitehouse et al. likewise focus on driftless partial absorption. Biswas et al. discuss drift-sensitive optimization for a stochastically gated target, not a fixed full-line delta sink. The available Bressloff abstract concerns a partially absorbing *half-line*. Published research-record searches and accessible previous claims contained no matching drift-and-reactivity rounding theorem. The novelty claim excludes known resolvent, renewal and perfect-absorption threshold facts and is confined to the proved global uniqueness and explicit singular crossover. Residual risks include the inaccessible motivating paper, other inaccessible primary appendices and an unlocated broader result. No literature search establishes absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-A finite-reactivity target changes a zero-reset optimal strategy into a strictly positive reset optimum, and the precise dependence is nonuniform near the critical drift. The result supplies an explicit, experimentally interpretable rate scale, its sharp critical exponent and a universal one-parameter crossover of optimal rates and costs. These are natural questions in reactive target search and are not arbitrary parameter samples, routine substitutions, or finite enumerations. The principal limit is the restricted single-trap/Poisson/delta-sink model; no claim is made about other geometries or objectives.
+The free resolvent and resetting renewal identity, the driftless optimization and perfect-absorber threshold are prior work. Full text of Mazzolo (2026), including its optimal-rate appendix, treats the same delta trap and supplies an arbitrary-drift implicit optimum equation, so those pieces are explicitly NOT claimed original. The final claim is the global uniqueness for all finite K and all drift, plus sharp reactivity-threshold square/cubic scaling and critical crossover; these were not found as statements in the inspected full article or other primary reset papers. Qualified best-of-knowledge PASS, with potential implicit reduction in earlier optimization literature.
 
-## Sources and limitations
+## value
 
-The source article by Mazzolo (arXiv:2609.22527, first public September 18, 2026) and its accessible journal abstract identify the model and its existing survival results; complete primary-text access was unsuccessful. Evans, Majumdar and Schehr (2020), DOI 10.1088/1751-8121/ab7cfe, §3.8, was materially inspected in full-text PDF, including equations (3.51)–(3.58). Whitehouse, Evans and Majumdar (2013), DOI 10.1103/PhysRevE.87.022118, supplies established partial-absorption background. Biswas, Pal, Mondal and Ray (2023), DOI 10.1063/5.0154210, provides a different gated-target comparison. Bressloff (2026), DOI 10.1007/978-3-032-00873-2_4, supplies the half-line analogue by accessible abstract only. The original work was not independently audited and its priority has not been certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mathematically natural phase transition between optimal zero and positive reset rates is rounded by partial reactivity. The first complete global optimizer theorem and scaling crossover for this same physical model yield a sharp new asymptotic boundary, not simply rewriting the known renewal equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

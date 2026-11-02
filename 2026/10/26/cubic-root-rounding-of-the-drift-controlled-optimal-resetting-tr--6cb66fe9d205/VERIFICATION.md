@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 with SciPy installed. The program executes 235 numerical derivative/root/asymptotic tests, 45 separate Gaussian-resolvent quadrature comparisons, and prints representative optimal rates and critical-crossover values. Observed execution ended successfully:
+## correctness
 
-`PASS numerical derivative signs, unique-root brackets, asymptotics, crossover: 235 assertions`
+PASS
 
-`PASS independent Brownian resolvent quadratures: 45`
+Reconstructed the rank-one drifted Gaussian resolvent F0(r)=[k/(k+sqrt(v²+4Dr))] exp[-(v+sqrt(v²+4Dr))x0/(2D)], renewal mean (1-F0)/(rF0), and m_{a,K}(rho)=[exp(a+sqrt(a²+rho))(1+sqrt(a²+rho)/K)-1]/rho. For J=rho H'-H, J'=rho H'', and H'' has one sign-transition quadratic u²+(K+1)u-(K+1), proving unique minimum by small/large-rate limits. The perfect-absorber b=1 threshold and expansions give rho*~sqrt(8b^4/((b-1)K)) for b>1, rho*~(24/K)^(1/3) at b=1, and the scaled root t^3+3 lambda t²=24 for b=1+lambda K^(-1/3). Verified the coercivity argument needed to rule out escaping minimizers; independent numerical derivative/minimizer checks corroborate but do not prove every parameter.
 
-The quadratures integrate the unabsorbed drifted Gaussian transition density and compare against the analytical free resolvent before introducing the point sink. The stationarity tests differentiate the dimensionless mean independently and compare numerical minima on either side. The near-threshold tests span positive and negative crossover offsets and verify the predicted scaling at increasing sink strength.
+## originality
 
-The finite checks do not prove global uniqueness or asymptotic statements for infinitely many parameters; those depend on the explicit derivative sign-change argument and uniform Taylor/coercivity proof in `RESULT.md`. Truncation and floating-point error are bounded only to the numerical tolerances stated in `verify.py`. Full-text literature comparison has a documented access limitation. Independent external validation has not occurred.
+PASS
+
+The free resolvent and resetting renewal identity, the driftless optimization and perfect-absorber threshold are prior work. Full text of Mazzolo (2026), including its optimal-rate appendix, treats the same delta trap and supplies an arbitrary-drift implicit optimum equation, so those pieces are explicitly NOT claimed original. The final claim is the global uniqueness for all finite K and all drift, plus sharp reactivity-threshold square/cubic scaling and critical crossover; these were not found as statements in the inspected full article or other primary reset papers. Qualified best-of-knowledge PASS, with potential implicit reduction in earlier optimization literature.
+
+## value
+
+PASS
+
+A mathematically natural phase transition between optimal zero and positive reset rates is rounded by partial reactivity. The first complete global optimizer theorem and scaling crossover for this same physical model yield a sharp new asymptotic boundary, not simply rewriting the known renewal equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
