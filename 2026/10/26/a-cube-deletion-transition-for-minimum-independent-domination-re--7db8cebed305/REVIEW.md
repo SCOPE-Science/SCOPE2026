@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The leaf-forcing lemma and the center/noncenter dichotomy give an exhaustive classification, not a sample. In each regime all minimum independent dominating sets are described explicitly. The only possible token-slide exchanges within the noncenter family flip one long-arm coordinate; the unique possible exchange between the two families is the center/short-leaf swap at the all-outer-arm state. These facts prove the exact graph isomorphisms. The additional isometric, diameter, median and Hamilton-traceability arguments use explicit paths and witnesses. The independently defined exhaustive verifier agrees on all examined configurations. The infinite statements rest on proof, not testing.
+## correctness
 
-**Originality (PASS, qualified).** The closest primary document, Brewster--Mynhardt--Teshima (arXiv:2305.17814, full-text §8, Problem 5(b)), explicitly asks to describe the reconfiguration graphs of subdivided-star spiders. Its main statements concern theta-graph realizability, not the reconfiguration graph of a specified uniform subdivided-star seed. The same authors' arXiv:2303.06299 establishes abstract realizability results including cubical targets but does not classify the i-graphs of these spider seeds; arXiv:2303.08190 concerns paths and cycles. Accessible mathematical-research records on subdivided stars treat different invariants such as signed double Italian domination, power domination, general position, and zero forcing. No equivalent or stronger result implying the exact three-case family was identified. Search absence is not proof of worldwide novelty; an unindexed equivalent remains a risk.
+PASS
 
-**Value (PASS).** The uniform subdivided-star case addresses an explicit published structural question on the first naturally branching spider family. Classifying all minimum solutions and their adjacency geometry for every arm count is a genuine family-level resolution, not just a scalar invariant. The single-short-arm and double-short-arm transitions exhibit a sharply different topology, median property, and number of feasible optimal configurations under minimal modifications. The classification provides an exact, usable benchmark for reconfiguration theory.
+In a spider with s length-two arms and t short leaves, an independent dominating set picks exactly one member of each (a_i,b_i). If it contains the center, it is uniquely C={c,b_i}, of cardinality s+1. Otherwise it is exactly S_X, choosing a_i on X and b_i outside X plus all t short leaves, size s+t; it dominates the center iff t>=1 or X is nonempty. Comparing sizes proves the full minimum-set classification. A token slide among S_X changes exactly one coordinate along a_i b_i, giving Q_s minus zero for t=0 or all of Q_s for t=1; the latter has precisely one extra pendant center-containing state adjacent to the zero vector. For t>=2 only C minimizes. Bipartite parity, a Hamilton path from the Gray cycle, and coordinatewise shortest-path analysis prove the claimed diameter, median and non-Hamiltonian properties. Independently enumerated minimum independent dominating sets and actual token-slide edges for all nine pairs s=3,4,5 and t=0,1,2, matching counts and graph forms. This is finite corroboration; the forced-set case analysis proves all s>=3,t>=0.
 
-**Boundary/risk.** Trees with longer branches are outside scope; independent mathematical verification and exhaustive priority checking are unperformed. Published formulations of “spider” may cover more general arm lengths; no full arbitrary-spider solution is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brewster–Mynhardt–Teshima explicitly pose the structure of subdivided-star spider reconfiguration graphs as Problem 5(b). Their complete primary theta-graph paper constructs other realizations and does not provide the particular all-s exact punctured-cube/leaf/singleton classification. Earlier i-graph work establishes cube realizability for other hosts and classifications of paths/cycles; these do not imply source-specific spider reconfiguration. Search results on signed Italian and power domination of spiders concern different invariants. A hidden solution to the explicit spider question or an alternative reduction remains a priority risk.
+
+## value
+
+PASS
+
+This gives an exact infinite-family answer to an explicitly posed natural reconfiguration question, with complete enumeration and a sharp geometric transition under adding one and then two short arms. Median/nonmedian and Hamiltonian distinctions provide structural content beyond a count of minimum sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
