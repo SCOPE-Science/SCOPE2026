@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The relation semantics are precisely the join of independently uniform set partitions, not independent-edge relations. The one-world isolation event has exact probability \((B_{n-1}/B_n)^r\); Bonferroni bounds intersections by \((B_{n-2}/B_n)^r\). Every disconnected join without a singleton contains a cut of size between 2 and half the universe. The proof controls small cuts by Bell-ratio upper bounds and large cuts using a uniform entropy estimate for \(B_kB_{n-k}/B_n\). This establishes the sharp leading equivalent and conditional one-singleton, one-remainder structure. Exact finite enumeration is a secondary check. The proof uses a standard, externally established Bell-ratio asymptotic.
+PASS
 
-## Originality — PASS, with priority risk
+Each chosen world is a singleton in all r independent random partitions with probability q_n^r, q_n=B_(n-1)/B_n; inclusion-exclusion shows Pr(at least one)~n q_n^r since pair overlap is (B_(n-2)/B_n)^r and n^2 overlaps=o(n q_n^r) for fixed r>=2. Disconnection without a common singleton implies a cut A with 2<=|A|<=n/2 not crossed by any partition; for given k the probability is (B_k B_(n-k)/B_n)^r. Uniform cut bound splits at k=n^(1/3). Small cuts have total <=sum epsilon_n^k=O(epsilon_n^2)=o(nq_n^r), epsilon_n=O((log n)^r/n^(2(r-1)/3)); larger cuts have logarithmic bound exp(-(r-1+o(1))H_(n,k)) with H=log binom(n,k)>=k log2, hence total superpolynomially small. Multiple common singletons negligible and a disconnected remainder of at least two further components would create a counted nonsingleton cut. Standard Bell ratio asymptotics q_n~rho_n/n close the statement. An independent exact component-count recurrence matches enumeration for n<=5, r=2,3; this does not prove asymptotics.
 
-The closest direct work is Pittel (2000), Theorem 5: it proves only an \(O((\log n)^{r+1}/n^{r-1})\) disconnection upper bound for **the same independent-uniform-partition join problem**. It does not state the sharp equivalent \(n(B_{n-1}/B_n)^r\), the leading factor one, or the unique-isolated-singleton conditional law; the new analysis must therefore compare implications, not mere shared vocabulary. Zenger (2026) provides the relevant S5 common-knowledge semantics, not a random-frame theorem; the 2000 Bell–Bender–Cameron–Richmond work supplies general component principles without this quantitative rate. Targeted semantic records contain related partition statistics and S5 frame studies but no direct implication found. Remaining risk: a historical general labeled-assembly rare-component theorem or uncatalogued set-partition refinement could imply the statement. No absolute priority is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The principal novelty is an exact leading disconnection rate and a high-probability description of *why* a random multi-agent common-knowledge frame fails to attain the universal accessibility relation. It improves the known upper bound by a growing logarithmic factor and determines the sole typical exceptional geometry, directly pertinent to random epistemic-model generation. The restriction to fixed agent count and uniformly random S5 partitions is motivated by the published same-object question rather than an arbitrary parameter slice.
+Pittel 2000 addresses the exact same random join model and already proves high-probability connectivity with a weaker O((log n)^(r+1)/n^(r-1)) failure bound. The present leading equivalent is strictly sharper and supplies conditional failure geometry not implied by that bound. Bell et al provide general decomposable-structure recurrence but not an identified same mathematical model sharp rate. An older rare-component analysis remains a real priority risk.
 
-## Limitations
+## value
 
-No extension to varying numbers of agents, nonuniform partition distributions, independent-edge accessibility, or full intuitionistic information orders. The standard Bell-ratio theorem is imported; priority remains subject to specialist review. Finite enumeration does not independently prove the asymptotic theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rate is a sharp first-order failure asymptotic and a conditional structural limit for a natural S5 random-frame model, improving the same mathematical model known O upper bound by an asymptotic logarithmic factor. It quantifies precisely when common knowledge becomes global and what rare obstructions look like.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
