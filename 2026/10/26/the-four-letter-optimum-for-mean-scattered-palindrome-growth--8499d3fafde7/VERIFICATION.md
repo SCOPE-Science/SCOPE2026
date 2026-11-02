@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and SymPy. The verifier exhaustively forms every nonempty positional subsequence of each tested source word, deduplicates palindrome strings and weights all source words using exact rational probabilities. It independently builds the formal expectation coefficients from geometric probability series and compares them term by term.
+## correctness
 
-Test distributions and maximum source-word lengths: \((1/2,1/2)\) through length 10; \((1/3,2/3)\) through 9; \((1/3,1/3,1/3)\) through 7; \((1/2,1/3,1/6)\) through 7; four equal quarter probabilities through 6. In total, 15,091 source words were examined (including length zero separately for each distribution). The same verifier computes seven exact rational values of the sharp \(z=4/5\) inequality and symbolically checks the four-uniform rational specialization.
+PASS
 
-Expected final line:
+For each fixed pattern, greedy embedding times are independent geometric variables with generating factors g_{letter}, and the cumulative occurrence series is their product divided by 1-z. Every even palindrome is uniquely v reverse(v) and every odd palindrome v a reverse(v), giving V^j and U V^j and hence the stated rational formal series without counting positional multiplicity. Positive coefficients and aperiodicity give a unique positive dominant simple pole r in (0,1), V(r)=1, with the displayed residue. At z=4/5 the exact identity pi_a-[4pi_a/(1+4pi_a)]^2=pi_a(4pi_a-1)^2/(1+4pi_a)^2 >=0 yields V(4/5)<=1, hence r>=4/5, with equality only pi_a=1/4 for every supported symbol and thus exactly four letters. Direct rational word/mask enumeration independently matched the coefficients for 29 finite tests and checked sharp test families. This proves the all-finite-alphabet bound analytically rather than experimentally.
 
-`VERIFY_OK distributions=5 exhaustive_source_words=15091 sharp_bound_trials=7 exact_q4_gf=true`
+## originality
 
-The infinite claim is proved by geometric waiting-time independence, the even/odd palindrome decomposition, strict nonnegative coefficient arguments, and the exact square-deficit identity. Tests only check representative cases and cannot establish originality or independent certification. The real analytic pole argument requires at least two positive source probabilities; deterministic singleton sources are excluded.
+PASS
+
+Biers-Ariel–Godbole–Kelley treat mean distinct scattered subsequences without a palindromic restriction; Mahalingam–Pandoh treat deterministic scattered palindrome counts and Rubinchik–Shur treat random contiguous palindromic factors. Their different counts cannot simply be substituted to yield the full series and universal sharp source optimization. No stronger identified primary result asserts this extremum. A generic weighted-language formula could implicitly include the first rational identity; this risk is recorded.
+
+## value
+
+PASS
+
+Distinct scattered palindromes combine a natural inverse-subsequence pattern statistic with random-source weighting. The exact first-moment rational series and a uniquely optimizing alphabet cardinality, independent of any finite alphabet bound, give a sharp new extremal phenomenon (5/4) that is neither a deterministic maximum nor a contiguous-palindrome statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
