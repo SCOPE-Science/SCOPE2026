@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The main assertion covers every finite fair tournament on \(n\ge3\) vertices and conditions on one specified outdegree. Conditioning on the complete incident star gives \(k(n-1-k)\) independent fair cross-edge triangle indicators, while all non-star triangle indicators have Bernoulli \(1/4\) means and are pairwise independent. Conditional cross-covariances vanish even for a shared edge because the latter triangle has conditional cyclicity probability \(1/4\) under either edge orientation. This proves the two moment formulas; a centered regression and Krawtchouk generating function prove the general covariance formula. Enumeration of all orientations at \(n=3,4,5,6\), using exact rational arithmetic, independently checks the finite consequences but does not establish the infinite statement.
+## correctness
 
-**Originality (O): PASS under bounded comparison, with historical-priority risk.** The deterministic identity relating circular triads to the sum of squared tournament scores, and the unconditional moments of circular-triad counts, are classical and not claimed new. Aldous–Kolesnik (2018) and Kolesnik–Sanchez (2020) address score-sequence realizability; Bucić et al. (2019) address local-count quasirandomness; Chatterjee–Bhattacharya (2026) address inhomogeneous asymptotic circular-triad fluctuations. The checked statements do not imply the exact variance conditional on one vertex's score and its all-additive-score Krawtchouk projection. The 1940 Kendall–Smith foundational primary text was not available in full; an equivalent older formula cannot be excluded. Further independent priority review is appropriate.
+PASS
 
-**Value (V): PASS.** Both circular-triad intransitivity and score-frequency histograms are natural tournament statistics. A rank-one orthogonal covariance projection on all additive score functions, paired with an exact conditional variance and sharp arithmetical sign boundaries, provides a nontrivial structural characterization beyond an isolated calculation. Nothing here asserts an asymptotic application, complete conditional distribution, or inference guarantee.
+Fix v with outdegree k and reveal its full N=n-1 star. Through-v cyclic triangles count a Binomial(k(N-k),1/2); avoiding-v triangles have marginal cyclicity 1/4 and pairwise-independent indicators even when sharing one edge. Pairwise covariance between through-v and avoiding-v sums is zero because for any shared edge the avoiding-v triangle cyclicity conditional on its direction is always 1/4. This establishes E[C|S_v=k]=binom(N,3)/4+k(N-k)/2 and Var(C|S_v=k)=3binom(N,3)/16+k(N-k)/4. Regression against f(S_v), summing over v, gives Cov(C,sum f(S_v))=-n E[((2X-N)^2-N)f(X)]/8. The K_2 identity and binomial orthogonality isolate degree two; zero k require N square >=4. Independently enumerated all 8,64,1024,32768 tournament orientations at n=3,4,5,6 and verified exact rational conditional means, variances and all frequency covariances. This finite check supports but is not the proof for all n.
 
-**Closest literature and limitations:** The sources are arXiv:1811.06662v1, arXiv:2009.09322v1, arXiv:1910.09936v1, arXiv:2606.02340v1, and the 1940 Kendall–Smith paper (doi:10.1093/biomet/31.3-4.324, abstract/citations only). The fair-independent-edge assumption is essential. Pairwise independence is not mutual independence, and the full historical priority is unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Deterministic identity expressing cyclic-triad count by scores and classical binomial/Krawtchouk orthogonality are explicitly prior mathematical ingredients. The assessed contribution is the fully conditional finite-n variance and entire additive-score covariance functional (including square-order exact zero cases). Inspected primary random-tournament literature focuses on score laws and asymptotic circular-triad fluctuations; historical Kendall–Babington Smith full text inaccessible and retained as priority risk.
+
+## value
+
+PASS
+
+The exact conditional variance of triad intransitivity given one vertex score and its degree-two projection to arbitrary score statistics are natural finite-sample statistics for fair paired comparisons. The square-order zero-covariance classification and universal sign pattern provide precise additional structure beyond a known mean/score identity; no broad downstream theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

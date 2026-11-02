@@ -1,15 +1,21 @@
-# Scientific review: Rule 22 periodic lifting
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-state labeled de Bruijn relation exactly encodes all local antecedents; a periodic image has an antecedent with spatial period dividing a multiple of its displayed period precisely when the corresponding relation power has a loop. The generated finite Boolean relation semigroup is exhaustively closed at 2375 elements, not truncated by output-word length. Every relation with a cycle has a return in one, two, or three steps; precisely the two powers of the one-symbol relation have first return in three steps. A separate finite-state flag excludes mixed words from these two relations. The all-one three-cycle and the `001` two-cycle give sharpness. `verify.py` independently checks all necessary exact integer assertions, including 2046 shorter cyclic words.
+## correctness
 
-## Originality — PASS (best-knowledge, historical uncertainty)
-Badii–Politi (1997) addresses Rule 22 spatial languages and entropy, not sharp periodic preimage periods. Gravner–Griffeath (2010) addresses finite-seed space-time dynamics. Mariot–Leporati (2015) gives periodic-preimage results for linear bipermutive CA, a hypothesis Rule 22 violates. Martínez et al. (2019) provides subset and de Bruijn methods without the specific uniform factor-three result or its sole exceptional output. Salo (2022) establishes general decidability and periodic lifting obstructions for related ECA but not this exact evaluated multiplier theorem. Accessible previous research claims and mathematical-record searches gave no equivalent or stronger explicit evaluated result. The semigroup method itself is classical and is not claimed as novel. An unindexed previous exact calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-Spatial period lifting is a natural question about surjectivity on finite cyclic quotients and obstructions to equivariant sections. The result is a complete, sharp classification of **all periods** for a classical nonlinear nonsurjective CA, not a finite-length census. It isolates two genuinely different nontrivial obstructions, proves a uniform preimage-period inflation bound, and identifies the unique family requiring tripling. This does not follow from image-language entropy or simply from Rule 22's local truth table without the finite-semigroup invariant.
+From exact Rule 22 truth table, two-bit overlap relations on states 00,01,10,11 are L0=(1,8,2,12), L1=(2,4,1,0) as four bit masks. A word w repeated cyclically has a kn-periodic antecedent iff the Boolean relation R(w)^k has a loop; any periodic image word yields a directed cycle in its four-state return graph. An independent exact integer BFS from the identity, closing under both symbols without word-length cutoff, found exactly 2375 reachable relations and multiplier classes {1:2012,2:130,3:2,4:0,none:231}. The only multiplier-three-first relations are L1 and L1². Augmenting reachable relation with a flag recording an encountered zero gives 2375 augmented states and no zero-containing path with first return 3. L1 is a directed 3-cycle, proving all-one output needs factor3 precisely when 3 does not divide n; the word 001 has no 3-period antecedent but has a 6-period one. Thus uniform multiplier≤3, mixed/zero≤2, and both sharpness witnesses hold for every n, by exhaustive state closure, not a finite word cutoff.
 
-## Limitations
-The proof needs the supplied 2375-state finite exhaustive certificate. The earlier published subset machinery renders the problem algorithmically solvable in principle. Historical priority has not been independently certified. The complete set of outputs requiring doubling is not explicitly enumerated, and time-periodic dynamics are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General four-state labeled de Bruijn and Boolean-semigroup techniques are established, and the broad theorem on periodic preimages of SURJECTIVE CAs by Mariot et al (2017), and WPP decidability by Salo (2022), were materially compared. Rule 22 is NONSURJECTIVE and nonlinear/non-bipermutive; the prior general statements do not give its exact 2375-relation exhaustive classification, only exceptional all-one triple inflation, or the mixed-output factor-two theorem. The 2019 Martínez et al Rule 22 de Bruijn/subset diagrams were acknowledged; no evaluated same-multiplier result in inspected primary material. Best-knowledge PASS with potential older exact CA computations risk.
+
+## value
+
+PASS
+
+Period lifting is a natural invariant of the image shift and periodic-point fibers of a classical nonlinear CA. An all-period exact and sharp multiplier classification (1,2,3), with the unique family requiring tripling and finite exhaustive semigroup proof, distinguishes strong periodic-point failure from complete image surjectivity; substantially more than numerical enumeration of short rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

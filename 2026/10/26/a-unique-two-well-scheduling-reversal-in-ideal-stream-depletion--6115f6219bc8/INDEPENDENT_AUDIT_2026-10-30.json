@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:49:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the ideal homogeneous Glover–Balmer step-response model K_i(t)=erfc(alpha_i/sqrt(t)), exact pulse superposition yields D_NF−D_FN=Q[G(z)−G(rz)] with z=alpha_1/sqrt(Delta), r=d_2/d_1>1, and G(z)=erfc(z/sqrt(2))−2erfc(z). G has a unique strict maximum at sqrt(3 log 2), since G′=(4e^(−z²)−sqrt(2)e^(−z²/2))/sqrt(pi). For each r>1, G(z)−G(rz) switches exactly once on (z0/r,z0), where its derivative is positive; hence the optimal order reverses once. Implicit differentiation gives strictly decreasing z_r versus r, and the limits bound Delta_c/alpha_1² between 1/(3log2) and 1/z_p². Independently checked the superposition and sign at sample durations for five r-values; finite tests supplement the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glover–Balmer gives the individual step response, Jenkins gives linear superposition for intermittent pumping.",
+          "Wallace–Darama–Annable abstract addresses cycling of a well; Bredehoeft–Kendy abstracts address seasonal pumping and recharge, different scheduling/criteria."
+        ],
+        "reasoning": "A general convolution/superposition formula implies the exact expression for two schedules but does not automatically prove the unique strict sign crossing or limiting transition constants without additional scalar analysis.",
+        "searches": [
+          "Glover Balmer River depletion resulting from pumping a well near a river 1954",
+          "Jenkins Computation of rate and volume of stream depletion by wells USGS 1968",
+          "Wallace Darama Annable Stream depletion by cyclic pumping of wells 1990",
+          "Bredehoeft Kendy Strategies for offsetting seasonal impacts of pumping on a nearby stream"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1029/TR035i003p00468",
+        "https://doi.org/10.3133/twri04D1",
+        "https://doi.org/10.1029/WR026i006p01263",
+        "https://doi.org/10.1111/j.1745-6584.2007.00311.x",
+        "https://doi.org/10.1111/j.1745-6584.2007.00367.x",
+        "GitHub RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pulse-response framework allows construction of D_NF−D_FN=Q(G(z)−G(rz)).",
+          "Inspecting G′, bracket monotonicity, and implicit differentiation adds strict global classification."
+        ],
+        "reasoning": "Underlying classical formulas cover the computational premises, not the precise if-and-only-if schedule reversal as an explicit implication established in inspected prior statements. Residual broader-control priority risk remains.",
+        "searches": [
+          "Jenkins 1968 pumping stream depletion rate pulse train near river",
+          "Wallace et al 1990 cyclic pumping wells stream depletion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The endpoint response includes depletion after a pumping pulse has ended; omitting this residual gives a different optimization problem.",
+          "Glover–Balmer step response and Jenkins pulse superposition are common underlying physics."
+        ],
+        "reasoning": "The claim is not mere kernel evaluation: optimize order of two nonoverlapping equal-duration pulses and classify every distance-ratio threshold via shape of G.",
+        "searches": [
+          "stream depletion two well order scheduling erfc",
+          "two wells near river sequential pumping instantaneous depletion reverse near first far first"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned no identifiable same mathematical model optimum-order table, only unrelated sign reversals and time-stepping phenomena."
+        ],
+        "reasoning": "This is a continuous-parameter exact scheduling boundary rather than a known discrete table entry; no apparent numerical table supplies all r>1.",
+        "searches": [
+          "Resultary search stream depletion two well order scheduling erfc",
+          "Glover Balmer threshold erfc two sequential wells"
+        ]
+      },
+      "rationale": "The Glover–Balmer kernel, intermittent pumping superposition and stream depletion factor methods are classical. The assessed result is the precise two-well equal-duration endpoint objective and its strict single ordering reversal with universal limiting constants; best-of-knowledge no exact prior coverage identified.",
+      "residual_risks": [
+        "Primary full texts of cyclic and seasonal pumping analyses were not fully available; an implicit optimal-order theorem in them is possible.",
+        "No field-calibrated or cumulative-depletion optimization is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_METHOD",
+          "evidence": "Step response and pulse convolution are known; no direct two-well one-switch theorem established from material read.",
+          "identifier_or_url": "https://doi.org/10.3133/twri04D1",
+          "material_read": "USGS report description and formula scope; complete report not independently read in this run",
+          "method": "Authoritative catalogue/abstract and model comparison",
+          "title": "Computation of rate and volume of stream depletion by wells",
+          "trigger": "Original intermittent pumping superposition"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT_RISK",
+          "evidence": "Single-well cyclic rate/volume objectives may contain related ordering insights; whole-document noncoverage not asserted.",
+          "identifier_or_url": "https://doi.org/10.1029/WR026i006p01263",
+          "material_read": "Publisher abstract and article scope, complete paper inaccessible",
+          "method": "Abstract inspection only",
+          "title": "Stream depletion by cyclic pumping of wells",
+          "trigger": "Closely related schedule variation"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "Stream-depletion factor corrections and bounded aquifer applications are not the exact two-well equal-duration endpoint ordering.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1745-6584.2007.00311.x",
+          "material_read": "Publisher full-text/synopsis of SDF response and bounded aquifer analysis as available",
+          "method": "Relevant scientific content comparison",
+          "title": "Stream depletion in alluvial valleys using the SDF semianalytical model",
+          "trigger": "Related Glover kernel and corrections"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT_RISK",
+          "evidence": "Seasonal pumping and offsetting recharge could have broader statements; its full coverage cannot be excluded.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1745-6584.2007.00367.x",
+          "material_read": "Publisher abstract only, complete paper inaccessible",
+          "method": "Abstract inspection",
+          "title": "Strategies for offsetting seasonal impacts of pumping on a nearby stream",
+          "trigger": "Potential broader scheduling optimality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A physically motivated scheduling order can invert with pumping duration even with equal discharge and fixed spatial well locations. The complete two-policy one-switch theorem and sharp dimensionless bounds provide a usable exact optimization criterion within an explicit aquifer model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1029/TR035i003p00468",
+    "https://doi.org/10.3133/twri04D1",
+    "https://doi.org/10.1029/WR026i006p01263",
+    "https://doi.org/10.1111/j.1745-6584.2007.00311.x",
+    "https://doi.org/10.1111/j.1745-6584.2007.00367.x",
+    "GitHub RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Audit restricted to the stated model and quantifiers in frozen RESULT.md; no generalization beyond source hypotheses.",
+    "Independent finite checks supplement reconstructed analytical arguments; finite numerical data is not proof of an infinite claim.",
+    "Scientific best-of-knowledge verdict distinct from publication readiness and absolute historical priority."
+  ],
+  "residual_risks": [
+    "Primary full texts of cyclic and seasonal pumping analyses were not fully available; an implicit optimal-order theorem in them is possible.",
+    "No field-calibrated or cumulative-depletion optimization is claimed."
+  ],
+  "schema_version": 1
+}

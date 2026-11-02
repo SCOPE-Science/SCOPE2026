@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the explicitly stated noninteracting Rabi Hamiltonian and full global Poisson reset, the stationary reset age is exponential and the conditioned spin outcomes are binomial. The exact probability generating function follows directly. Under the rescaling \(\gamma_N=c_N\Omega\sqrt N\), the conditional binomial intensity converges to \(E^2/c^2\), and dominated convergence yields the mixed-Poisson law. A uniform sine bound and conditional variance establish the two off-critical regimes, including the stated \(L^2\) coupling. Explicit factorial moments give the variance and Fano factor; a Poisson Chernoff sandwich establishes the sharp stretched-exponential log-tail. Independent-clock resets yield an ordinary binomial and hence Poisson law. All formulas were reconstructed independently and 132 numerical checks passed. The results require stationary preparation before each growing-\(N\) limit and fixed \(\Omega,\Delta\).
+PASS
 
-## Originality — PASS, subject to independent priority assessment
+At stationary Poisson age A_N=E/γ_N, E~Exp1, conditional count K_N is Bin(N,p(A_N)) with p(t)=Ω²/(Ω²+Δ²)sin²(sqrt(Ω²+Δ²)t). This yields exact PGF ∫e^{−u}[1−(1−s)p(u/γ_N)]^Ndu. At γ_N=c_NΩ√N, c_N→c>0, Np(u/γ_N)→u²/c², bounded dominated convergence proves mixed-Poisson PGF, factorial moments (2k)!/c^{2k}, mean 2/c² and variance 2/c²+20/c⁴. Exact finite formulas E p=2Ω²/(γ²+4ω²), E p²=24Ω⁴/[(γ²+4ω²)(γ²+16ω²)] and Var(p) were independently symbolically reconciled. For c_N→∞ Markov via E K≤2/c_N² gives zero; c_N→0 with γ_N→∞ conditional mean+variance give c_N²K_N→E² in L² under common age coupling. Independent clocks give Bin(N,μ_N)→Poisson(2/c²). Chernoff mixtures establish −logP(Z_c≥k)/√k→c. Independent high-precision PGF quadrature at c=.8,1.5 and N=512,4096,32768 found error decaying from 2.5×10^{−5} to 4×10^{−7}, corroborating but not replacing the proof.
 
-Magoni et al., arXiv:2202.12655, Protocol I equations (1)–(4), give the same spin model, fixed-rate renewal steady state, stationary mean and pair covariance; they are explicitly credited, not represented as new. Its supplement discusses finite-size excitation readout for conditional reset. The inspected main text and supplement do not give a simultaneous \(\gamma_N\propto\sqrt N\) unconditional-reset spin-count limit, its factorial moments, or its stretched-exponential tail. Perfetto et al. arXiv:2106.13761 give a broader quantum reset-renewal framework, not the evaluated mesoscopic law. Mukherjee et al. arXiv:1806.00019 address quantum resetting and Zeno at fixed system scale; Rose et al. arXiv:1806.01298 address general reset spectra. Carollo et al. arXiv:2310.06981 study ordering probabilities of quantum-jump observables. All are relevant methodological background but none of the inspected claims dominates the evaluated two-clock mesoscopic count comparison. The mixed-binomial Poisson limit uses standard probability approximation; the contribution is the nontrivial physical scaling and its evaluated limit, not the generic convergence method. A wider undiscovered specialization remains a priority risk; independent audit has not been performed.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The square-root-many-spin reset scaling is the natural boundary at which a finite number of excited spins survives the large-system limit. At that boundary the global reset clock generates a mixed-Poisson fluctuation law (Fano factor strictly above one) and stretched-exponential tails, whereas independent clocks with exactly the same single-spin stationary probability give an ordinary Poisson law. This quantitatively distinguishes mesoscopic burstiness caused exclusively by synchronized intervention and complements the established fixed-rate thermodynamic correlation divergence. The exact crossover is not a cosmetic restatement of a fixed-parameter mean: it controls a distinct point-process-scale observable and resolves its limiting count statistics.
+For Mixed-Poisson collective Zeno crossover of common-reset quantum spins: exact final statement and implication were compared against relevant published original mathematical statements and Resultary findings. Claim specializes general renewal/rare-event principles under a new thermodynamic scaling, so novelty is of exact sharp specialized law rather than new probabilistic method; if an earlier source explicitly spells out this scaling, originality is covered. Best-of-knowledge qualified by explicitly named risks.
 
-## Limitations and priority risk
+## value
 
-The external clock is Poisson, common to all spins, and independent of the coherent dynamics. Detuning is fixed. No resetting costs, interactions, or time-uniform convergence are addressed. A generic conditional-binomial mixture theorem could contain the probability limit as an unstated corollary; the literature search is evidence, not proof of uniqueness. Independent scholarly review is still required.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The √N reset-rate boundary, full limiting overdispersed count law, stretched-exponential tail, and strict shared-clock versus independent-clock contrast quantify a physically natural quantum Zeno scaling regime not determined by a fixed-N large-reset conclusion. The common environment creates a genuinely new distributional fingerprint despite identical single-spin marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

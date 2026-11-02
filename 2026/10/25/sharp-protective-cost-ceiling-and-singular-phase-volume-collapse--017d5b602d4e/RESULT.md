@@ -100,7 +100,7 @@ Nöldeke and Peña [2] analyze a classical two-action binary-contribution thresh
 
 ## Limitations
 
-The new result is a same-model mathematical derivation without independent priority certification. Historical equivalence under alternative evolutionary-games terminology remains a risk. The region \(P_S>P_C\) measures instantaneous relative fitness advantage, **not** evolutionary stability, persistence, equilibrium multiplicity, basin volume, or social welfare. Extinction under \(k\ge k_*\) assumes an initially positive ordinary-cooperator frequency. The distinct endpoint exponent requires \(b\ge2\), and the endpoint \(\rho=0\) is the infinite-risk-sensitivity limit of the original finite-risk-sensitivity model. Fixed-\(\rho\) asymptotics are not uniform as \(\rho\downarrow0\). No significance is claimed for generic textbook binomial maximization alone.
+The new result is a self-review mathematical derivation without independent priority certification. Historical equivalence under alternative evolutionary-games terminology remains a risk. The region \(P_S>P_C\) measures instantaneous relative fitness advantage, **not** evolutionary stability, persistence, equilibrium multiplicity, basin volume, or social welfare. Extinction under \(k\ge k_*\) assumes an initially positive ordinary-cooperator frequency. The distinct endpoint exponent requires \(b\ge2\), and the endpoint \(\rho=0\) is the infinite-risk-sensitivity limit of the original finite-risk-sensitivity model. Fixed-\(\rho\) asymptotics are not uniform as \(\rho\downarrow0\). No significance is claimed for generic textbook binomial maximization alone.
 
 ## References
 

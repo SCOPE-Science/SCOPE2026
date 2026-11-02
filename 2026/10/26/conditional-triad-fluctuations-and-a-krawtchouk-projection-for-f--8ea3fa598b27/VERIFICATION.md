@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification evidence
 
-The complete proof appears in `RESULT.md`; `verification/check.py` is an executable, standalone Python 3 standard-library exact-rational consistency checker. It enumerates each of the \(2^{\binom n2}\) tournaments for \(n=3,4,5,6\). For each \(k=0,\ldots,n-1\), it calculates the conditional mean and conditional variance of the circular-triad count given the score of a fixed vertex and the covariance of circular-triad count with the number of players having score \(k\), then checks them against the analytic expressions without floating-point rounding. The 54 exact rational comparisons consist of \(3(3+4+5+6)\) distinct reported comparisons. Enumerated orientation counts are \(8\), \(64\), \(1024\), and \(32768\), respectively.
+# Independent mathematical audit
 
-To replay: run `python3 verification/check.py` from the extracted package directory. The script uses only Python's standard library. This verifies finite instances; it is not an exhaustive proof for arbitrary tournament order and no independent audit has been performed. The proof is an analytic argument based on conditional pairwise independence, a centered regression, and finite orthogonal polynomials.
+## correctness
+
+PASS
+
+Fix v with outdegree k and reveal its full N=n-1 star. Through-v cyclic triangles count a Binomial(k(N-k),1/2); avoiding-v triangles have marginal cyclicity 1/4 and pairwise-independent indicators even when sharing one edge. Pairwise covariance between through-v and avoiding-v sums is zero because for any shared edge the avoiding-v triangle cyclicity conditional on its direction is always 1/4. This establishes E[C|S_v=k]=binom(N,3)/4+k(N-k)/2 and Var(C|S_v=k)=3binom(N,3)/16+k(N-k)/4. Regression against f(S_v), summing over v, gives Cov(C,sum f(S_v))=-n E[((2X-N)^2-N)f(X)]/8. The K_2 identity and binomial orthogonality isolate degree two; zero k require N square >=4. Independently enumerated all 8,64,1024,32768 tournament orientations at n=3,4,5,6 and verified exact rational conditional means, variances and all frequency covariances. This finite check supports but is not the proof for all n.
+
+## originality
+
+PASS
+
+Deterministic identity expressing cyclic-triad count by scores and classical binomial/Krawtchouk orthogonality are explicitly prior mathematical ingredients. The assessed contribution is the fully conditional finite-n variance and entire additive-score covariance functional (including square-order exact zero cases). Inspected primary random-tournament literature focuses on score laws and asymptotic circular-triad fluctuations; historical Kendall–Babington Smith full text inaccessible and retained as priority risk.
+
+## value
+
+PASS
+
+The exact conditional variance of triad intransitivity given one vertex score and its degree-two projection to arbitrary score statistics are natural finite-sample statistics for fair paired comparisons. The square-order zero-covariance classification and universal sign pattern provide precise additional structure beyond a known mean/score identity; no broad downstream theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

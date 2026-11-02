@@ -1,15 +1,21 @@
-# Review of the two-well endpoint stream-depletion ordering theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The step-response model \(K_i(t)=\operatorname{erfc}(\alpha_i/\sqrt t)\) and pulse superposition yield an exact difference \(Q[G(z)-G(rz)]\). The derivative of \(G\) changes sign at exactly \(z_0=\sqrt{3\log2}\), so the difference has one zero for each \(r>1\). The derivative signs at that zero establish strict parameter monotonicity, and the zero of \(G\) supplies the limiting threshold. All model assumptions, endpoint conventions, equality cases, and asymptotics are explicit. The program executed with 5,000 parameter draws and 999 ratio-pair comparisons; these finite tests are not substituted for proof.
+PASS
 
-## Originality — PASS with residual risk
+In the ideal homogeneous Glover–Balmer step-response model K_i(t)=erfc(alpha_i/sqrt(t)), exact pulse superposition yields D_NF−D_FN=Q[G(z)−G(rz)] with z=alpha_1/sqrt(Delta), r=d_2/d_1>1, and G(z)=erfc(z/sqrt(2))−2erfc(z). G has a unique strict maximum at sqrt(3 log 2), since G′=(4e^(−z²)−sqrt(2)e^(−z²/2))/sqrt(pi). For each r>1, G(z)−G(rz) switches exactly once on (z0/r,z0), where its derivative is positive; hence the optimal order reverses once. Implicit differentiation gives strictly decreasing z_r versus r, and the limits bound Delta_c/alpha_1² between 1/(3log2) and 1/z_p². Independently checked the superposition and sign at sample durations for five r-values; finite tests supplement the analytic proof.
 
-Published mathematical searches and available related records did not establish an equivalent two-well equal-duration endpoint order theorem. The Glover–Balmer kernel and Jenkins pulse superposition are foundational, not new. The 2007 accessible Miller et al. full-text analysis concerns semianalytical depletion response curves and aquifer boundaries rather than this exact scheduling comparison. Wallace–Darama–Annable (1990) treats cyclic pumping of a well, and Bredehoeft–Kendy (2007 online) concerns seasonal offsets by pumping and recharge. Their complete texts were not available; broader prior statements could imply this result. Search absence is not proof of worldwide uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Stream managers may need to minimize instantaneous river depletion at a specified end-of-operation low-flow date while meeting a fixed total two-well extraction schedule. The result provides a universal, computable *sharp duration policy boundary* rather than a simulation-specific comparison. Its strict transition law, dimensionless distance dependence, and sharp limiting range explain exactly when the natural near-first intuition fails. It is limited to the idealized, transparently specified physical setting.
+The Glover–Balmer kernel, intermittent pumping superposition and stream depletion factor methods are classical. The assessed result is the precise two-well equal-duration endpoint objective and its strict single ordering reversal with universal limiting constants; best-of-knowledge no exact prior coverage identified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A physically motivated scheduling order can invert with pumping duration even with equal discharge and fixed spatial well locations. The complete two-policy one-switch theorem and sharp dimensionless bounds provide a usable exact optimization criterion within an explicit aquifer model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
