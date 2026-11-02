@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof conditions on all two-level potential-contact counts, establishes a Bernstein-polynomial secant inequality for each potential first-generation child, and uses independent-sum and branching-transition preservation of convex order. Adjacent interchanges establish the arbitrary-horizon extremal ordering. The probability-generating-function commutator proves strict elimination under genuine branching, and a conditional-variance recursion establishes the exact variance gap. The finite-support checker passed 1,680 exact-rational assertions. Required limits: this is an early-epidemic branching approximation and terminal generation incidence, not cumulative cases; experiments support, but do not establish, the universal theorem.
+PASS
 
-## Originality — PASS (qualified)
+For K nonnegative integer with m>0 and finite second moment and independent thinning, a 2-generation adjacent swap p<q yields conditional offspring variables B_p Bin(K,q) and B_q Bin(K,p), same mean pqK. Convexity of Bernstein polynomials gives convex-order monotonicity of their zero-end secant slopes; independent sums and further branching preserve convex order, permitting bubble-sorting any rate multiset. PGF composition implies strict terminal P(Z_h=0) if P(K>=2)>0, and the variance recurrence gives the exact stated c2 swap increment. For K supported in {0,1} thinning pgfs commute. Independent exact rational checks: 432 stop-loss inequalities for K=1,2,3 and 3 rate levels; benchmark P0 2401/4096 versus 1849/4096 and variance gap 3/8.
 
-Compared exact mathematical assertions with Boudreau et al. (arXiv:2302.03210), Bertacchi–Rodriguez–Zucca (arXiv:1611.03286), Kersting (arXiv:1703.01960; DOI 10.1017/jpr.2019.84), and relevant previously reported work on cumulative two-generation Poisson epidemic cases. The available primary texts provide the varying-environment PGF framework, comparative forecasting, survival conditions, and limit theory; they do not state the finite-horizon **all-permutations convex-order extremal theorem**, sharp Bernoulli nonbranching equality boundary, or exact factorial-moment variance commutator. A previous cumulative-cases two-Poisson-generation tail result is incomparable: it changes the cumulative mean and establishes tail asymptotics rather than a fixed-mean terminal-generation convex-order statement. Research-record searches revealed no directly covering entry. Residual risk: the theorem might be an unstated corollary or known as a broader stochastic-order/rearrangement inequality; independent publication-priority assessment remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a decision-relevant structural explanation of why identical aggregate transmission multipliers can create more elimination opportunities yet more extreme surviving generation sizes under different chronological allocations. It holds for every finite horizon and a general finite-variance potential-contact distribution, not just Poisson or a hand-picked example. The sharp equality boundary and exact variance swap difference provide computable diagnostics and benchmarks for intervention comparisons. The scope is intentionally limited to temporary transmissibility changes without susceptible depletion, calendar-time dynamics, or cumulative-dose constraints.
+Qualified best-of-knowledge PASS for an exact convex-order rearrangement over all permutations of a FIXED multiset of thinning rates with sharp equality boundary and adjacent-swap variance identity, not for time-varying branching PGF models themselves.
 
-## Closest literature and scientific limitations
+## value
 
-The strongest direct comparator is the generational-intervention PGF formulation in Boudreau et al.; the broader mathematical comparators are the time-inhomogeneous Galton–Watson works of Bertacchi et al. and Kersting. Exact terminal-generation chronology is not the same observable as cumulative epidemic size. Numerical checks cover listed finite cases only; priority outside the inspected primary works and retrieved research records is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives a genuine finite-horizon optimization under fixed intervention levels for a natural Galton–Watson thinning model. Convex order simultaneously controls variances, elimination and stop-loss for any offspring distribution with finite second moment; exact swap increment and nonbranching equality cases make the chronology law informative and usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
