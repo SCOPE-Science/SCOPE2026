@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof classifies an involutive restriction as one extending identity, reflection, or (when available) half-turn; counts invariant domain subsets by fixed-point and transposition orbits; and explicitly subtracts the only overlap, one swapped restriction per antipodal pair. The direct partial-map census for \(3\le n\le10\) agrees coefficient-by-coefficient. The infinite family follows from the group-action proof, not those computations.
+
+**Originality — PASS relative to inspected sources.** Fernandes and Paulista's 2022 arXiv preprint 2205.02196 (the original study of the cycle partial-isometry inverse monoid) already proves the crucial antipodal rank-two nonunique-extension lemma. This geometric lemma is acknowledged and used, not claimed as new. Their paper computes semigroup size, structure, generator rank and presentation but does not supply an involution-domain-rank polynomial. Dimitrova et al.'s 2023 follow-up arXiv:2301.01519 computes related submonoid sizes and generator ranks, not this spectrum. No broader covering enumerator was found in the actual mathematical-record and literature searches. The remaining risk is an unlocated general restriction-semigroup torsion count that could specialize to these formulas, so publication priority is provisional.
+
+**Value — PASS.** Self-inverse elements are intrinsic algebraic invariants of inverse semigroups. The full rank distribution, not just a single total, is determined throughout the canonical dihedral restriction family. The even-cycle rank-two correction detects nonunique global extensions, and the theorem yields a sharp binomial concentration phenomenon despite the growing dihedral unit group. These are natural structural questions complementary to the previously studied generator rank and cardinality; the counting argument does not assert a generic classification of all inverse monoids.
+
+**Scientific limitations.** The result applies only to dihedral restrictions of a finite cycle; it does not cover arbitrary partial graph isomorphisms or general partial isometries. Its publication-priority assessment is non-exhaustive. The exhaustive checker covers only \(3\le n\le10\), whereas the mathematical proof is uniform.
+
+Self-review: passed. Independent audit: not yet performed.
