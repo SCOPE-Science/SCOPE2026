@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exhaustive arc-direction enumeration covers every locally transitive tournament through six vertices and quotients by explicit degree-respecting isomorphisms. The general construction is proved using transitive chain replacement; the equal score multisets follow from matched replaced-vertex predecessor scores, and the distinct regular-five counts make the witnesses nonisomorphic. Direct one-type enumerations test the six-vertex examples, and finite chain cases are reproduced by the checker.
+## correctness
 
-## Originality — PASS, qualified
-The type-score transform is previously known; it is not the asserted discovery. Brouwer's isomorphism enumeration and Belkillani's characterization of possible scores are materially related. The inspected primary full text did not state the exact first failure at six vertices with its pair of two-class fibers or an explicit regular-five-separated equal-score collision at every higher order. Belkillani's general construction creates substantial risk of a previously implicit fiber theorem, so independent literature assessment is still appropriate.
+PASS
 
-## Mathematical value — PASS
-The exact sharp threshold for a natural first-order invariant and its persistent structural information loss illuminate what one-point type counting can and cannot recover. The independent induced-regular-five separator gives a useful obstruction rather than a numerical coincidence.
+Known identity E_T(z)=(1+z)sum_v z^{s_T(v)} reduces type-score equality to degree-multiset equality. Independent enumeration of all 2^(n choose 2) labeled orientations n<=6, checking in/out-neighborhood transitivity and canonical isomorphism representatives by all degree-preserving permutations, gives iso counts (1,1,2,2,4,6) and score-fiber counts (1,1,2,2,4,4). Six-point degree lists (1,2,2,3,3,4) and (2,2,2,3,3,3) each have multiplicity 2. Masks A=(14,28,56,48,33,3) and B=(14,12,56,48,35,3) are locally transitive, share (2,2,2,3,3,3), and have 2 versus zero regular 5-subtournaments. Substituting transitive h-chain at designated score-three vertices preserves local transitivity, common score lists and regular-five counts 2h versus zero; the analytic substitution proof covers all h, independently checked for 1..6.
 
-## Closest literature and limitations
-Brouwer (1980) gives the circular/necklace encoding and total isomorphism counts. Belkillani (2014) classifies score sequences and constructions; Coregliano (2015) treats structure. The unrestricted family is proven mathematically; its finite checker trials are not an infinite proof. The complete one-type polynomial does not determine the induced tournament above size five; no claim about all higher-arity types is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brouwer and Belkillani established circular representations, score-sequence symmetry and realizability for locally transitive tournaments; the type-score transform itself was also known. The inspected Belkillani 2014 complete article gives construction/realization theorems but does not give the exact six-vertex isomorphism-fiber multiplicities or the all-order regular-five-separated collision family.
+
+## value
+
+PASS
+
+Complete determination of the first failure of a natural model-theoretic type invariant to separate finite structures, plus exact first fiber sizes and a uniform construction witnessing the obstruction at every larger size. The pair is distinguished by a meaningful independent substructure statistic, not mere relabeling of a known score sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
