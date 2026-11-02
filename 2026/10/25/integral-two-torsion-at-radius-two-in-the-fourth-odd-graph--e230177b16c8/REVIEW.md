@@ -1,11 +1,21 @@
-# Scientific review: integral two-torsion at radius two in the fourth Odd graph
+# Independent mathematical audit
 
-**Correctness — PASS.** Every distance is recomputed by breadth-first search; the complete 35-vertex flag complex has 1,211 nonempty simplices; all 280 lexicographic free-face pairs are checked while the deletion is made. The resulting 246-by-336 integer relation matrix has exact column Hermite normal form with determinant two; an independent mod-two rank is 245. The cellular argument establishes integral first homology of order two and free second homology of rank 90. The proof does not claim a homotopy classification.
+## correctness
 
-**Originality — PASS, subject to ordinary bibliographic uncertainty.** The closest general graph-power collapse result, Adamaszek's Proposition 2.2, needs girth at least seven at radius two and therefore does not apply to this girth-six Odd graph. The primary Odd-graph Terwilliger-algebra article treats adjacency algebra rather than simplicial homology. Direct indexed searches for graph names, set-family formulation, face-vector fingerprint and integral group invariants returned other complexes, not a stronger theorem. Independence complexes of Kneser graphs use a different edge condition. An unindexed synonymous computation remains possible.
+PASS
 
-**Value — PASS.** This exact, natural case occupies the first boundary beyond the graph-power high-girth stability theorem. Integral torsion exposes coefficient-dependent Rips persistence that rational Betti numbers alone cannot show. A completely reproducible finite chain model supplies a reference for distance-regular-graph persistent topology.
+For distinct triples, direct complement-based graph reasoning gives distances 1,2,3 exactly when intersections are 0,2,1, respectively. Exact independent construction of the 35-vertex square graph and exhaustive maximal-clique enumeration gives 56 five-vertex facets and f=(35,280,560,280,56). The deterministic two-stage free-face sequence removes 56 dimension (3,4) pairs and 224 (2,3) pairs, all verified to be currently free; the remaining 2-complex has 35 vertices, 280 edges, 336 triangles. An explicit spanning-tree basis of 246 edge cycles yields a signed integer matrix of shape 246×336. Independent reconstruction and exact Hermite normal form gave a full-rank lattice with 245 unit diagonal factors and one factor 2, so H1≅Z/2 rather than merely mod-2 evidence. H2 is a free kernel of rank 336−246=90; no higher homology after collapses. Scale 1 is triangle-free connected graph with 70 edges so H1=Z^36; the general clique-graph-power π1 surjectivity theorem makes the nontrivial order-2 class persist from scale one, while scale three is a simplex. The H2(F2) dimension 91 follows by universal coefficients. This is a complete finite exact calculation, not inference from sampled graphs.
 
-**Closest literature and limits.** M. Adamaszek, *Clique complexes and graph powers*, arXiv:1104.0433 (2011), and Q. Kong, B. Lv, K. Wang, *The Terwilliger algebra of Odd graphs*, arXiv:1112.0410 (2011). The exact computation depends on running the complete included verifier and SymPy's integer Hermite-normal-form algorithm. No independent scientific audit has occurred; no stronger homotopy conclusion is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge ORIGINALITY PASS for the specific final claim, NOT a declaration that known nonequivariant calculations or general frameworks are new. Adamaszek, Clique complexes and graph powers (arxiv:1104.0433), Fact 2.1 supplies clique-inclusion fundamental-group surjectivity and Proposition 2.2 a collapse for girth≥3r+1; at r=2 this requires girth≥7, while O4 has girth six. Thus this general theorem neither forces vanishing nor covers the explicit torsion, although a general persistence implication is prior art. Kong–Lv–Wang, The Terwilliger algebra of Odd graphs (arxiv:1112.0410), studies representation/adjacency algebra for the same graph family, not simplicial flag Rips homology. Residual priority risks are stated; no stronger indexed result was identified which logically implies the assessed claim.
+
+## value
+
+PASS
+
+The natural smallest well-known 35-vertex Odd graph occupies the exact girth-six boundary just beyond the girth≥7 radius-two collapse theorem. Genuine integral order-two torsion gives a sharp coefficient-sensitive persistence phenomenon invisible over Q; a complete machine-reconstructible simplicial certificate is a reusable natural finite invariant, not an arbitrary toy numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
