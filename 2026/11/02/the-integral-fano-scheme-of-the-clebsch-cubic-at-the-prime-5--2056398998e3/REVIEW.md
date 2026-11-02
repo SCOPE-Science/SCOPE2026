@@ -1,0 +1,19 @@
+# Scientific review: the integral Clebsch line scheme at five
+
+## Correctness — PASS
+
+The theorem is an isomorphism of finite flat schemes over \(\mathbb Z_{(5)}\), not merely a finite-field point count. The proof constructs all fifteen integral matching sections and six quadratic families with explicit coefficient-ring generators. It establishes geometric finiteness using the six transverse conic–cubic node directions and normal-bundle rigidity away from the node; the zero locus of the cubic section on a smooth relative Grassmannian is then finite flat of degree \(27\). The tangent-space calculation gives length at least two at each of six node-lines; the total length forces exactly two. The Plücker coordinate equal to the quadratic generator proves that the constructed ramified branches identify the full local rings. The \(K_6\) incidence is shown by a residue-pairing argument and the residual line in a plane section. The exact checker independently verifies the arithmetic and finite-field consequences, without mistaking finite examples for a universal proof.
+
+## Originality — PASS (best-knowledge, with risk)
+
+Vikulova's publicly accessible 2024 full text, *The most symmetric smooth cubic surface* (arXiv:2407.09997), states that the Clebsch cubic is singular in characteristic five (Introduction and Proposition 1), but treats automorphisms of **smooth** cubic surfaces and does not give its finite-flat relative Fano scheme at five. The classical fifteen and twelve line formulas, reproduced by the UCI Clebsch cubic gallery, cover the characteristic-zero generic fiber, not the thickness of the characteristic-five fiber. The six lines through the special node are also components of the characteristic-five Bring complete intersection; their existence alone is not presented as new. No inspected source gives the complete exact decomposition \(15\operatorname{Spec}R\sqcup6\operatorname{Spec}R[T]/(T^2+T-1)\) with the complete-graph incidence identification. The substantial residual risk is that classical work on the Clebsch double-six, the Hilbert modular surface or degenerations of nodal cubics may imply or contain an equivalent local calculation.
+
+## Mathematical value — PASS
+
+The Hilbert scheme of lines is a fundamental invariant of a cubic surface. The generic fiber has twenty-seven distinct lines, but its singular reduction has only twenty-one supports; without the integral scheme, the six lost geometric points are unaccounted for. The exact six ramified quadratic branches explain this specialization arithmetically and scheme-theoretically, and the complete-graph incidence gives a canonical organization of all twenty-one reduced supports. This resolves a natural degeneration question for a distinguished highly symmetric published surface rather than a gratuitous finite-field slice. The result concerns this chosen primitive integral model only and does not determine all cubic-surface Fano degenerations.
+
+## Source comparison and limits
+
+The source inspection included relevant full-text portions of arXiv:2407.09997 (Introduction, Clebsch-surface discussion, and concluding characteristic cases), the classical 27-line description in the UCI surface gallery, and the separate characteristic-two survey arXiv:2312.17032 (which concerns smooth surfaces in another characteristic). Mathematical-record searches tested characteristic-five Clebsch lines, nodal-surface Fano schemes, quadratic ramification and exact relative Hilbert decompositions. Their negative results do not prove global uniqueness. The generic line formula and the six node-line supports are independently antecedent or elementary, and novelty is restricted to the stated integral and incidence refinement. No independent verification or external mathematical audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
