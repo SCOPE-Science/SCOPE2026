@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:51:40.023394Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 1efa6eb2560d45dbf263b07a2e5576205b07d54e",
+        "independent_checks_batch4849.py, executed 2026-10-31 UTC, all five bounded checks succeeded"
+      ],
+      "rationale": "PASS. For p>=q>=3, deleting two edges leaves connected K_pq; Laplacian eigenspaces for the two parts and their contrast yield explicit r,k,c,d. Rank-two Woodbury inversion on the constant-orthogonal subspace gives Delta=2(p+q)[k(1-r)+cd]/[(1-r)^2-c²], and all denominators are strictly positive. Substitution for the three edge motifs gives positive pairwise interactions, Delta_A>Delta_D, Delta_A-Delta_B proportional to p-q, and Delta_B-Delta_D opposite in sign to cubic H_q(p). Descartes plus H_q(q)<0, H_q(T-1)<0, H_q(T)>0 with T=q(q-1)^2 establishes the sole p>=q crossover strictly inside (T-1,T), hence integer threshold with no tie. Independently checked all symbolic difference and bracket identities and 54 rational finite sign comparisons, including q=3 and boundary T-1,T; finite tests are not a substitute for the all-p,q proof.",
+      "residual_risks": [
+        "Only unit conductances, integer p>=q>=3, and exactly two distinct failed edges; no minimum graph size among all networks or higher-order deletions.",
+        "Independent bounded sign checks complement but do not prove the symbolic all-integer inequalities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ge–Dong cover arbitrary matching size, and bipartite extremal results address graphs with given part sizes or diameters."
+        ],
+        "reasoning": "Arbitrary-size matching deletion dominates D in a restricted failure shape, not the comparative ranking among overlapping pairs; abstract-level broad extrema do not logically provide the cubic p versus q ordering on K_pq minus a specified pair.",
+        "searches": [
+          "arXiv:1904.07766 Section 5.3",
+          "DOI:10.1155/2012/195242 overview",
+          "Resultary 2026-10-31: complete bipartite graph Kirchhoff index deleting two incident versus disjoint edges exact damage ranking crossover"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob 1efa6eb2560d45dbf263b07a2e5576205b07d54e",
+        "https://arxiv.org/pdf/1904.07766",
+        "https://doi.org/10.1016/j.dam.2020.01.035",
+        "Resultary query 2026-10-31 for complete-bipartite Kirchhoff 2-edge damage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known matching deletion evaluates Delta_D, and generic Woodbury gives a method for Delta_A and Delta_B but not the explicit H_q sign classification as a cited conclusion."
+        ],
+        "reasoning": "The final claim is a relation between three separately computed motifs, not the D formula alone. Existing stated comparisons do not imply exactly when B becomes less damaging than D, without the additional incident-motif algebra and sign certificate.",
+        "searches": [
+          "arXiv:1904.07766 Theorem 5.5 Section 5.3",
+          "DOI:10.1016/j.dam.2020.01.035 indexed abstract",
+          "Resultary 2026-10-31: complete bipartite graph Kirchhoff index deleting two incident versus disjoint edges exact damage ranking crossover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pairwise Kirchhoff-index damage is N times trace change of L+ after two incidence-rank updates, also expressible via resistance distances; Ge–Dong compute Kf after deleting matching p K2."
+        ],
+        "reasoning": "The D motif is equivalent to the matching t=2 result; the A and B shared-vertex two-edge motifs are not matching deletions and are not evaluated in that cited matching-only formula.",
+        "searches": [
+          "Resultary 2026-10-31: complete bipartite graph Kirchhoff index deleting two incident versus disjoint edges exact damage ranking crossover",
+          "arXiv:1904.07766 Sections 5.1–5.3",
+          "DOI:10.1016/j.dam.2020.01.035 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary summaries count other graph invariants of K_pq-matching; Ge–Dong gives the Kirchhoff formula for matching deletion, not a complete incident-versus-disjoint three-type table."
+        ],
+        "reasoning": "The D value is covered. Neither a same-three-type rank table nor integer root bracketing was identified from the concrete inspected materials; unindexed tables remain a priority risk.",
+        "searches": [
+          "Resultary 2026-10-31: complete bipartite graph Kirchhoff index deleting two incident versus disjoint edges exact damage ranking crossover",
+          "Resultary 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+          "arXiv:1904.07766 Section 5.3"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge. Ge and Dong explicitly evaluate effective resistances and Kirchhoff index for deletion of an arbitrary matching from K_mn, covering the D motif (which is credited), but not incident two-edge motifs or their sharp ranking with D. Yang gives general bipartite Kirchhoff extrema without this fixed-part-size deletion comparison. Jiang–He–Liu–Li give diameter-three bipartite extrema; only title/abstract were available, and its complete text remains an access risk, so no unsupported whole-document noncoverage claim is made. The finite sharp cubic crossing is additional to generic spectral rank-two update tools.",
+      "residual_risks": [
+        "Full text of Jiang–He–Liu–Li 2020 was not accessible; the authorized source returned vpn_disconnected. Any specific prior pairwise assertion inside it remains uninspected; the abstract, however, addresses diameter-constrained global extremes.",
+        "Older resistance-vulnerability literature may contain equivalent incident/disjoint pair ordering under alternative parameter notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers disjoint-pair D and arbitrary matching but not intersecting two-edge A/B or cubic comparison",
+          "evidence": [
+            "Section 5.3, Theorem 5.5, matching deletion"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.07766",
+          "material_read": "Sections 5.1–5.3 of the accessible primary PDF, especially classification of resistance values and Section 5.3 Kirchhoff indices of G(m,n,p)=K_mn-pK2; visually inspected page 17. Other pages were not individually assessed.",
+          "method": "Read pertinent full-text sections; visually inspected page 17 with resistance formulas",
+          "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+          "trigger": "Direct same graph and disjoint pair edge deletion; potential dominance"
+        },
+        {
+          "assessment": "Abstract concerns global diameter 2/3 extrema and not explicit fixed K_pq pair deletion; full-document overlap cannot be ruled out",
+          "evidence": [
+            "DOI 10.1016/j.dam.2020.01.035, 2020 abstract: second/third-smallest among diameter-three graphs"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2020.01.035",
+          "material_read": "Indexed abstract and bibliographic description only, not complete PDF",
+          "method": "ArXiv and lawful OA queries found no full text; authorized Oxford retrieval returned vpn_disconnected (no bypass)",
+          "title": "On the Kirchhoff index of bipartite graphs with given diameters",
+          "trigger": "Title suggests extremal bipartite Kirchhoff coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md blob 1efa6eb2560d45dbf263b07a2e5576205b07d54e",
+        "https://arxiv.org/pdf/1904.07766",
+        "https://doi.org/10.1016/j.dam.2020.01.035",
+        "Resultary query 2026-10-31 for complete-bipartite Kirchhoff 2-edge damage"
+      ],
+      "rationale": "PASS. Kirchhoff damage after two link failures measures network robustness, with three natural complete-bipartite edge motifs. The exact discontinuous integer threshold p=q(q-1)^2 at which the least damaging type flips from disjoint to a high-degree shared endpoint, alongside strict positive interactions, is a meaningful explicit structural vulnerability classification beyond known single-link or matching deletions.",
+      "residual_risks": [
+        "Full text of Jiang–He–Liu–Li 2020 was not accessible; the authorized source returned vpn_disconnected. Any specific prior pairwise assertion inside it remains uninspected; the abstract, however, addresses diameter-constrained global extremes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md blob 1efa6eb2560d45dbf263b07a2e5576205b07d54e",
+    "https://arxiv.org/pdf/1904.07766",
+    "https://doi.org/10.1016/j.dam.2020.01.035",
+    "Resultary query 2026-10-31 for complete-bipartite Kirchhoff 2-edge damage"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only unit conductances, integer p>=q>=3, and exactly two distinct failed edges; no minimum graph size among all networks or higher-order deletions.",
+    "Independent bounded sign checks complement but do not prove the symbolic all-integer inequalities."
+  ],
+  "residual_risks": [
+    "Full text of Jiang–He–Liu–Li 2020 was not accessible; the authorized source returned vpn_disconnected. Any specific prior pairwise assertion inside it remains uninspected; the abstract, however, addresses diameter-constrained global extremes.",
+    "Older resistance-vulnerability literature may contain equivalent incident/disjoint pair ordering under alternative parameter notation."
+  ],
+  "schema_version": 1
+}

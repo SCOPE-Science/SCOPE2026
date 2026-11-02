@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all integers \(p\ge q\ge3\), all distinct unordered pairs of unit-conductance edges of \(K_{p,q}\), and damage is the increment of the *unordered-pair* Kirchhoff index. The graph remains connected after two deletions. The Laplacian's three orthogonal nonzero spectral projectors yield explicit incidence-vector entries for \(L^+\) and \((L^+)^2\). A two-column Woodbury identity yields the full, rather than approximate, damage for each of the three symmetry classes. Symbolic cancellations and independent exact rational matrix inversions confirm the identities. All denominators and the interaction numerators are positive on the domain. The strictly positive numerator of \(\Delta_A-\Delta_D\), sign-controlled difference \(\Delta_A-\Delta_B\), and uniquely bracketed root of the cubic controlling \(\Delta_B-\Delta_D\) prove the precise integer transition. Finite computations only corroborate the infinite proof, and no result is asserted for other graph families or more deletions.
+PASS
 
-## Originality — PASS, subject to residual literature uncertainty
+PASS. For p>=q>=3, deleting two edges leaves connected K_pq; Laplacian eigenspaces for the two parts and their contrast yield explicit r,k,c,d. Rank-two Woodbury inversion on the constant-orthogonal subspace gives Delta=2(p+q)[k(1-r)+cd]/[(1-r)^2-c²], and all denominators are strictly positive. Substitution for the three edge motifs gives positive pairwise interactions, Delta_A>Delta_D, Delta_A-Delta_B proportional to p-q, and Delta_B-Delta_D opposite in sign to cubic H_q(p). Descartes plus H_q(q)<0, H_q(T-1)<0, H_q(T)>0 with T=q(q-1)^2 establishes the sole p>=q crossover strictly inside (T-1,T), hence integer threshold with no tie. Independently checked all symbolic difference and bracket identities and 54 rational finite sign comparisons, including q=3 and boundary T-1,T; finite tests are not a substitute for the all-p,q proof.
 
-Yang (2012, DOI `10.1155/2012/195242`) establishes the underlying complete-bipartite Kirchhoff-index extremal property, not the ordering of two-edge deletion damage. Ge and Dong (2019, arXiv:`1904.07766`) explicitly obtain the Kirchhoff index for a matching-deleted complete bipartite graph; the disjoint-pair value is therefore prior art. Their full text does not provide the adjacent pair or the sharp incident-versus-disjoint ordering and its integer threshold. The potentially related Jiang et al. (2020, DOI `10.1016/j.dam.2020.01.035`) deals with global diameter-three extremal graphs and is not known to settle this fixed-partition comparison; its complete article could not be inspected. Searches for an exact pair comparison, its cubic threshold and alternative deletion descriptions found no covering theorem in the accessible material. Absence from a search catalog does not prove uniqueness, and further human literature checking is warranted.
+## originality
 
-## Value — PASS
+PASS
 
-The question asks which two links cause most and least global resistance damage in an important, scalable heterogeneous bipartite network. The exact sharp boundary \(p=q(q-1)^2\) reveals a non-obvious reversal: an incident pair at a high-degree endpoint, although geometrically concentrated, becomes *less* damaging than two disjoint failures. The complete ranking, counts of minimizers/maximizers, and strict positivity of every interaction together give a meaningful global failure-comparison theorem and a benchmark for network-interdiction heuristics. This is more than a substitution into an existing disjoint-edge formula, while claiming neither a general graph theorem nor a new inverse identity.
+PASS, best-of-knowledge. Ge and Dong explicitly evaluate effective resistances and Kirchhoff index for deletion of an arbitrary matching from K_mn, covering the D motif (which is credited), but not incident two-edge motifs or their sharp ranking with D. Yang gives general bipartite Kirchhoff extrema without this fixed-part-size deletion comparison. Jiang–He–Liu–Li give diameter-three bipartite extrema; only title/abstract were available, and its complete text remains an access risk, so no unsupported whole-document noncoverage claim is made. The finite sharp cubic crossing is additional to generic spectral rank-two update tools.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. Kirchhoff damage after two link failures measures network robustness, with three natural complete-bipartite edge motifs. The exact discontinuous integer threshold p=q(q-1)^2 at which the least damaging type flips from disjoint to a high-degree shared endpoint, alongside strict positive interactions, is a meaningful explicit structural vulnerability classification beyond known single-link or matching deletions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
