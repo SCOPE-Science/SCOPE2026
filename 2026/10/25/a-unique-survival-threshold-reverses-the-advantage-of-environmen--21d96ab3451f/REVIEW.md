@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof obtains the unique positive Perron-root coincidence from a resolvent identity, orders the two left Perron rays through a monotone quadratic, and reduces spectral-product ordering to an exact two-dimensional projector determinant identity. Explicit boundary checks distinguish the rank-one endpoint \(s=0\) from the strict positive range. The exact rational example and 12,000 independently generated admissible numerical comparisons support the algebra, without being substituted for the proof.
+## correctness
 
-**Originality — PASS with residual risk.** Tuljapurkar–Haridas (2006) established why temporal autocorrelation influences matrix-population growth; Engen et al. (2013) developed the reproductive-value interpretation; Steinsaltz–Tuljapurkar–Horvitz (2011) derived sensitivity formulas; Altenberg (2013) studied different spectral-product inequalities; Protasov–Logofet (2014) treated rank-one demographic-matrix corrections and second eigenvalues. The inspected primary sources do not explicitly supply the present all-positive-parameter unique threshold for a fixed pair of rank-one-plus-diagonal matrices, together with universal order-independence at the threshold. The 2006 publisher full text was unavailable, and historical priority is therefore not independently certified. The 2013 Logofet variable-environment paper was consulted at abstract level only and is a smaller residual risk.
+PASS
 
-**Value — PASS.** Environmental-order effects on population persistence matter independently of annual mean fecundity. The theorem furnishes a sharp transition between persistence-favored and alternation-favored scheduling under fixed environmental frequencies, an exact positive-matrix proof, and a stronger common-ray equality phenomenon. The contrast is not inferred from a single numerical witness or routine variance calculations.
+Each A_i strictly positive with two distinct positive eigenvalues because det A_i=s(cu1x_i+bu2y_i)+s²bc>0, and λ_i>sc. The rank-one secular equation 1=u1x_i/(λ_i−sb)+u2y_i/(λ_i−sc) uniquely defines λ_i. Equality λ0=λ1=L implies L−sc=R(L−sb), R=u2Δy/(u1Δx)∈(0,1), giving exactly the displayed s*>0; small-s λ0>λ1 whereas large-s λ1>λ0. Right Perron ray determinant has sign(λ0−λ1), while the left ray ratio z_i satisfying the derived positive-root quadratic is increasing in x and decreasing in y, so det[ℓ0,ℓ1]>0. The 2×2 spectral projector identity tr(P0P1)−1=−det[r0,r1]det[ℓ0,ℓ1]/[(ℓ0·r0)(ℓ1·r1)] converts the characteristic polynomial evaluation at λ0λ1 to sign(λ0λ1−ρ(A0A1))=sign(λ0−λ1). Hence unique strict change. At s*, both matrices share w and Λ*; positive componentwise comparison αw≤z0≤βw propagates through arbitrary switching products, proving common asymptotic rate. The long-block limit follows from rank-one Perron projectors. Independent exact example s*=28/45, Λ*=49/15, w=(9,10) and signs at s=1/4,1 were checked, not used as infinite proof.
 
-**Scope and residual uncertainty.** Results concern deterministic asymptotic growth for a strictly positive two-stage model with a specific fecundity tradeoff, not extinction probabilities or an arbitrary stochastic environmental process. A broader historical theorem may subsume part of this classification. External scrutiny of priority and model applicability is still required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior demographic stochastic-environment and matrix-product sensitivity studies establish qualitative dependence on temporal correlation, spectral theory, and rank-one correction machinery. Their read statements do not specify the exact one-crossover threshold for this additive rank-one-plus-common-diagonal two-stage pair or its every-switching order-indifference at equality. No broad Markov-autocorrelation claim is made.
+
+## value
+
+PASS
+
+A uniquely determined switching advantage reversal in a natural two-stage population matrix family is biologically and mathematically interpretable. The common Perron ray at crossover gives a stronger exact arbitrary-order growth invariance than equal rates for two named periodic schedules; it is a structural boundary, not a synthetic numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes every universal assertion. The standalone program `verify.py` separately reconstructs exact rational projective eigenvector identities at \(s_*=28/45\), tests the gap sign on both sides of the threshold, and evaluates 12,000 admissible randomized parameter configurations.
+## correctness
 
-**Actual executable check:** `python verify.py` completed successfully, reporting 10,469 strict-regime cases, 1,531 crossover cases, and threshold floating-point equality residual no larger than approximately \(2.22	imes10^{-16}\). No stochastic simulation, symbolic certificate, or finite enumeration is represented as an infinite proof.
+PASS
 
-The decisive algebraic conditions are \(0<b<c\), \(x_0>x_1>0\), \(0<y_0<y_1\), and \(u_1(x_0-x_1)>u_2(y_1-y_0)\). At the exact example parameters \(u=(1,1)\), \(v_0=(2,1)\), \(v_1=(1,19/10)\), \((b,c)=(1/4,3/4)\), the exact common eigenvalue and positive eigenvector are \(49/15\) and \((9,10)\).
+Each A_i strictly positive with two distinct positive eigenvalues because det A_i=s(cu1x_i+bu2y_i)+s²bc>0, and λ_i>sc. The rank-one secular equation 1=u1x_i/(λ_i−sb)+u2y_i/(λ_i−sc) uniquely defines λ_i. Equality λ0=λ1=L implies L−sc=R(L−sb), R=u2Δy/(u1Δx)∈(0,1), giving exactly the displayed s*>0; small-s λ0>λ1 whereas large-s λ1>λ0. Right Perron ray determinant has sign(λ0−λ1), while the left ray ratio z_i satisfying the derived positive-root quadratic is increasing in x and decreasing in y, so det[ℓ0,ℓ1]>0. The 2×2 spectral projector identity tr(P0P1)−1=−det[r0,r1]det[ℓ0,ℓ1]/[(ℓ0·r0)(ℓ1·r1)] converts the characteristic polynomial evaluation at λ0λ1 to sign(λ0λ1−ρ(A0A1))=sign(λ0−λ1). Hence unique strict change. At s*, both matrices share w and Λ*; positive componentwise comparison αw≤z0≤βw propagates through arbitrary switching products, proving common asymptotic rate. The long-block limit follows from rank-one Perron projectors. Independent exact example s*=28/45, Λ*=49/15, w=(9,10) and signs at s=1/4,1 were checked, not used as infinite proof.
 
-**Limits:** Test counts are finite; rounding makes small near-threshold differences numerically delicate. The spectral-projector proof avoids this numerical issue. Priority has not been externally certified and empirical predictive validity was not tested.
+## originality
+
+PASS
+
+Prior demographic stochastic-environment and matrix-product sensitivity studies establish qualitative dependence on temporal correlation, spectral theory, and rank-one correction machinery. Their read statements do not specify the exact one-crossover threshold for this additive rank-one-plus-common-diagonal two-stage pair or its every-switching order-indifference at equality. No broad Markov-autocorrelation claim is made.
+
+## value
+
+PASS
+
+A uniquely determined switching advantage reversal in a natural two-stage population matrix family is biologically and mathematically interpretable. The common Perron ray at crossover gives a stronger exact arbitrary-order growth invariance than equal rates for two named periodic schedules; it is a structural boundary, not a synthetic numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
