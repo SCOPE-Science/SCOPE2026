@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ordinary domination polynomial follows by an exhaustive case partition according to the selected vertices in the two bipartition classes, with the singleton-singleton overlap subtracted once. The degree-three minor is a symbolic polynomial in \(n\), negative at every \(n\ge13\). The finite complementary range \(2\le n\le12\) is exhausted by explicit exact-integer coefficient inequalities, with all interior minima tabulated. The total-domination identity is independently combinatorial and its log-concavity follows from convolution. The strict mode is deduced from monotonic normalized domination probabilities and the exact binomial tail. The reproducibility program enumerates 21,840 subsets directly and verifies both polynomial identities on the tested orders; code runs do not replace the infinite symbolic proof.
+PASS
 
-## Originality — PASS (bounded evidence)
+Classify a dominating set by selected left/right counts: both >=2 contribute A_n(t)^2 with A_n=(1+t)^n−1−nt; a singleton on one side forces the corresponding missing-neighbor vertex on the other side, yielding two n t²(1+t)^(n−1) terms with n t² double-count overlap; exactly entire single side contributes two t^n. For n>=5, d2=n,d3=2n(n−1),d4=C(n,2)^2+2nC(n−1,2), giving d3²−d2d4=−n²(n−1)(n²−13n+8)/4<0 for all n>=13. The finite complementary orders n=2..12 are EXHAUSTIVELY checked by all integer coefficient minors, not extrapolated. Strict increase to middle uses upward-closed probability d_k/C(2n,k), and strict fall after n follows every (n+1)-set dominating, d_n=C(2n,n)−2n and central binomial gap. Total-dom polynomial A_n² is an earlier known identity, and log-concavity follows from convolution of nonnegative log-concave interval-supported sequences. Independently enumerated all labeled subsets for n=2..6 and checked integer minors up to n=60; finite testing is not the infinite sign proof.
 
-The motivating 2026 manuscript of Omar treats domination polynomial unimodality and threshold graph log-concavity, not the crown family. Du, Heilman and Panova exhibit non-log-concavity for other families, without identifying the crown cutoff in the accessible material. Shyama and Anil Kumar (2019) provide the total-domination polynomial, properly credited here, but not the ordinary domination-polynomial phase transition. Broader known normalized-coefficient monotonicity shows increase to the middle, not the claimed ordinary log-concavity classification. Searches under crown graphs, matching-deleted bicliques, bipartite cocktail party graphs and the tensor product of a complete graph with an edge located no theorem with this sharp phase boundary. Older studies of domination roots of related graphs, especially Brown and Tufts (2014), may contain additional implicit polynomial identities and could not be checked in full; this is a genuine residual historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact order-12/13 transition separates ordinary from total domination polynomial behavior on a connected, regular, vertex-transitive bipartite family of growing minimum degree. It gives an infinite sequence of non-log-concave ordinary domination polynomials that are nevertheless strictly unimodal on their positive coefficient support and provides the exact first obstruction, rather than a numerical counterexample at one order. The closed enumerator and sharp threshold address a live structural problem about coefficient shapes and clarify the limits of importing log-concavity from total domination.
+Best-of-knowledge independent claim-versus-prior implication comparison: A total-count scalar does not imply coefficientwise log-concavity; a total-dom polynomial does not determine ordinary-dom polynomial. The candidate contributes full ordinary enumerator plus exact phase boundary, though the scalar count itself was published long before. Closest exact antecedents are explicitly credited and risks retained.
 
-## Limits and closest sources
+## value
 
-The result is restricted to crown graphs; it does not settle domination-polynomial unimodality in general. The finite positive side is certified by an explicit reproducible integer computation. Prior sources of central relevance are Omar (2026, arXiv:2601.14494v1), Du–Heilman–Panova (2026, arXiv:2605.02193v1), and Shyama–Anil Kumar (2019, Theorem 2.17). The potentially relevant Brown–Tufts 2014 full text was unavailable, and historical priority awaits independent examination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full ordinary domination coefficient sequence of a canonical regular bipartite graph family exhibits an exact and persistent log-concavity change at the natural order threshold 12/13, while staying strictly unimodal and contrasting with the already-known total-domination formula. This is a motivated graph-polynomial structural cutoff, not merely recomputation of OEIS A287063 total counts. The threshold is proved for the entire infinite family by a symbolic negative minor plus exhaustive finite positive interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

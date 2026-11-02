@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:48:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob f21b37decd70ad1304d576de4cc19dd01c2550bd",
+        "frozen verify.py blob 15c2351533c3a806241d2fc7bb82ee4c83aff3e8",
+        "independent_checks.py direct graph subsets n=2..6, all coefficient minors n=2..12, algebraic obstruction n=13..60"
+      ],
+      "rationale": "Classify a dominating set by selected left/right counts: both >=2 contribute A_n(t)^2 with A_n=(1+t)^n−1−nt; a singleton on one side forces the corresponding missing-neighbor vertex on the other side, yielding two n t²(1+t)^(n−1) terms with n t² double-count overlap; exactly entire single side contributes two t^n. For n>=5, d2=n,d3=2n(n−1),d4=C(n,2)^2+2nC(n−1,2), giving d3²−d2d4=−n²(n−1)(n²−13n+8)/4<0 for all n>=13. The finite complementary orders n=2..12 are EXHAUSTIVELY checked by all integer coefficient minors, not extrapolated. Strict increase to middle uses upward-closed probability d_k/C(2n,k), and strict fall after n follows every (n+1)-set dominating, d_n=C(2n,n)−2n and central binomial gap. Total-dom polynomial A_n² is an earlier known identity, and log-concavity follows from convolution of nonnegative log-concave interval-supported sequences. Independently enumerated all labeled subsets for n=2..6 and checked integer minors up to n=60; finite testing is not the infinite sign proof.",
+      "residual_risks": [
+        "The n<=12 portion is a complete finite integer certificate, not a single symbolic uniform positive inequality.",
+        "Ordinary and total domination use different closed/open neighborhood conditions; do not transfer polynomial identity from one to other."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Omar establishes log-concavity for threshold graphs; Cr_n for n>=3 is not threshold (contains induced C4 or C6).",
+          "Du–Heilman–Panova construct other families with arbitrary many minors failing."
+        ],
+        "reasoning": "Neither general known result provides this regular, bipartite, vertex-transitive crown family exact cutoff or ordinary-versus-total contrast. General unimodality of domination coefficients cannot imply log-concavity.",
+        "searches": [
+          "crown graph domination polynomial log concavity coefficient cutoff 12 13 total domination",
+          "arxiv:2601.14494v1 threshold graph log concavity",
+          "arxiv:2605.02193v1 domination non-log-concavity"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A287063, Number of dominating sets in the n-crown graph, formula first entered 2017",
+        "Omar, New Perspectives on the Unimodality of Domination Polynomials, arxiv:2601.14494v1 full HTML",
+        "Du–Heilman–Panova, Trees and Graphs with Non Log-concave Dominating Set Sequence, arxiv:2605.02193v1 full HTML",
+        "Shyama–Anil Kumar 2019 Total Domination Stable Graphs, Theorem 2.17 PDF indexed mathematical statement; screenshot retrieval failed",
+        "Resultary query crown graph domination polynomial log concavity coefficient cutoff 12 13 total domination and restrained-domination crown record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "OEIS A287063 counts all dominating sets but does not give coefficients by set size.",
+          "Omar 2026 supplies normalized probability monotonicity/threshold graph result, not crown log-concavity.",
+          "Known total-domination factor A_n² supplies a different polynomial."
+        ],
+        "reasoning": "A total-count scalar does not imply coefficientwise log-concavity; a total-dom polynomial does not determine ordinary-dom polynomial. The candidate contributes full ordinary enumerator plus exact phase boundary, though the scalar count itself was published long before.",
+        "searches": [
+          "crown graph domination polynomial log concavity coefficient cutoff 12 13 total domination",
+          "https://oeis.org/A287063",
+          "https://arxiv.org/html/2601.14494v1",
+          "https://arxiv.org/html/2605.02193v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cr_n = K_{n,n}−M_n is also bipartite cocktail-party graph and direct/tensor graph product K_n×K_2.",
+          "Earlier Shyama–Anil Kumar Theorem 2.17 specifically concerns total domination of the same graph."
+        ],
+        "reasoning": "Graph-name aliases identify exactly the same ordinary polynomial, but total domination is genuinely different because every selected vertex must itself have a selected neighbor; the known total formula alone cannot establish the ordinary cutoff.",
+        "searches": [
+          "crown graph domination polynomial log concavity coefficient cutoff 12 13 total domination",
+          "\"bipartite cocktail party\" \"domination polynomial\"",
+          "\"K_n tensor K_2\" ordinary domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A287063 (known by 2017) gives the TOTAL number of dominating sets of n-crown as 4^n−2^n(n+2)+n²+n+3, i.e., D(Cr_n;1), matching the new polynomial at t=1.",
+          "Shyama–Anil Kumar 2019 gives the known total-domination polynomial, not ordinary coefficient sequence.",
+          "Resultary record 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa covers a stricter restrained domination variant."
+        ],
+        "reasoning": "The scalar D(1) is already tabulated and is NOT a novelty contribution; it does not determine every coefficient or the sharp n=12/13 log-concavity boundary. A historical table of full coefficients remains possible.",
+        "searches": [
+          "crown graph domination polynomial log concavity coefficient cutoff 12 13 total domination",
+          "https://oeis.org/A287063",
+          "\"crown graph\" \"dominating sets\" OEIS",
+          "\"domination polynomial\" \"crown graph\""
+        ]
+      },
+      "rationale": "Best-of-knowledge independent claim-versus-prior implication comparison: A total-count scalar does not imply coefficientwise log-concavity; a total-dom polynomial does not determine ordinary-dom polynomial. The candidate contributes full ordinary enumerator plus exact phase boundary, though the scalar count itself was published long before. Closest exact antecedents are explicitly credited and risks retained.",
+      "residual_risks": [
+        "The exact scalar total count is already known since 2017 (OEIS A287063); never claim it novel.",
+        "Brown–Tufts 2014 On the Roots of Domination Polynomials: full text not inspected, may contain a polynomial or an implication; abstract alone cannot exclude coverage.",
+        "The Shyama–Anil Kumar PDF screenshot was unavailable, limiting independent visual confirmation of the text-indexed theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Threshold graph theorem and general bounds do not imply crown family phase threshold",
+          "evidence": "Abstract and Perspective 3 restrict new log-concavity claim to threshold graphs; crown is not threshold.",
+          "identifier_or_url": "https://arxiv.org/html/2601.14494v1",
+          "material_read": "Full arxiv HTML abstract, introductory claims, normalized-coefficient and threshold-graph log-concavity sections",
+          "method": "Read original full text relevant theorem areas and match graph class",
+          "title": "New Perspectives on the Unimodality of Domination Polynomials",
+          "trigger": "Most relevant contemporary ordinary-domination coefficient shape methods"
+        },
+        {
+          "assessment": "Contains other graph families and arbitrary many defects, not a crown n=12/13 cutoff in inspected text",
+          "evidence": "Main theorem constructs specific trees/gadgets and describes examples rather than this crown enumerator.",
+          "identifier_or_url": "https://arxiv.org/html/2605.02193v1",
+          "material_read": "Arxiv HTML introduction, non-logconcavity graph examples, tree constructions and results",
+          "method": "Read full-access primary article sections and checked crown graph aliases",
+          "title": "Trees and Graphs with Non Log-concave Dominating Set Sequence via AI Tools",
+          "trigger": "Recent constructions of graphs whose domination polynomial is non-log-concave"
+        },
+        {
+          "assessment": "Covers total dominating-set NUMBER, not full coefficients by size or log-concavity",
+          "evidence": "Formula 4^n−2^n(n+2)+n²+n+3, OEIS entry originally May 19 2017.",
+          "identifier_or_url": "https://oeis.org/A287063",
+          "material_read": "Entire public OEIS entry, coefficient formula, comments, references, historical 2017 authorship",
+          "method": "Read primary integer-sequence table and compared substitution D(Cr_n;1)",
+          "title": "A287063 — Number of dominating sets in the n-crown graph",
+          "trigger": "Exact earlier database/table of same family and invariant at t=1"
+        },
+        {
+          "assessment": "Previously known total domination A_n²; no independent whole-document noncoverage conclusion",
+          "evidence": "Theorem 2.17 stated total-domination rather than ordinary domination.",
+          "identifier_or_url": "https://fs.unm.edu/IJMC/TotalDominationStableGraphs.pdf",
+          "material_read": "PDF indexed text on bipartite cocktail-party theorem 2.17; screenshot tool attempted but returned 403",
+          "method": "Read indexed PDF theorem text with failed visual screenshot; cannot claim complete visually inspected PDF",
+          "title": "Total Domination Stable Graphs",
+          "trigger": "Same crown family total-domination exact formula"
+        },
+        {
+          "assessment": "Potential priority risk; does not license a claim of whole-document NOT_COVERING",
+          "evidence": "Title and accessible root-focus abstract, unknown if paper contains relevant appendix/table.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-013-1306-z",
+          "material_read": "Publisher abstract and metadata only; full text not obtained",
+          "method": "Abstract-level check only, no full-paper judgement",
+          "title": "On the Roots of Domination Polynomials",
+          "trigger": "Older plausible exact domination polynomial source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A287063, Number of dominating sets in the n-crown graph, formula first entered 2017",
+        "Omar, New Perspectives on the Unimodality of Domination Polynomials, arxiv:2601.14494v1 full HTML",
+        "Du–Heilman–Panova, Trees and Graphs with Non Log-concave Dominating Set Sequence, arxiv:2605.02193v1 full HTML",
+        "Shyama–Anil Kumar 2019 Total Domination Stable Graphs, Theorem 2.17 PDF indexed mathematical statement; screenshot retrieval failed",
+        "Resultary query crown graph domination polynomial log concavity coefficient cutoff 12 13 total domination and restrained-domination crown record",
+        "frozen RESULT.md blob f21b37decd70ad1304d576de4cc19dd01c2550bd",
+        "frozen verify.py blob 15c2351533c3a806241d2fc7bb82ee4c83aff3e8",
+        "independent_checks.py direct graph subsets n=2..6, all coefficient minors n=2..12, algebraic obstruction n=13..60"
+      ],
+      "rationale": "The full ordinary domination coefficient sequence of a canonical regular bipartite graph family exhibits an exact and persistent log-concavity change at the natural order threshold 12/13, while staying strictly unimodal and contrasting with the already-known total-domination formula. This is a motivated graph-polynomial structural cutoff, not merely recomputation of OEIS A287063 total counts. The threshold is proved for the entire infinite family by a symbolic negative minor plus exhaustive finite positive interval.",
+      "residual_risks": [
+        "Some of the ordinary enumerator is easily derived by casework and its t=1 specialization is already tabulated; value resides in complete coefficient-shape classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the matching-deleted balanced complete bipartite crown graph Cr_n with n>=2, the ordinary domination polynomial has the displayed exact coefficient formula and is log-concave exactly for 2<=n<=12; from n=13, the degree-three minor is negative, but for n>=4 ordinary coefficients remain strictly unimodal with unique mode n. The previously known total-domination polynomial stays log-concave for all n.",
+  "limitations": [
+    "All integer n>=2; n=2 disconnected special case, n>=4 strict mode.",
+    "No claim for arbitrary regular bipartite graphs or global domination polynomial conjectures.",
+    "The exact scalar total count is already known since 2017 (OEIS A287063); never claim it novel.",
+    "Brown–Tufts 2014 On the Roots of Domination Polynomials: full text not inspected, may contain a polynomial or an implication; abstract alone cannot exclude coverage.",
+    "The Shyama–Anil Kumar PDF screenshot was unavailable, limiting independent visual confirmation of the text-indexed theorem."
+  ],
+  "schema_version": 1
+}

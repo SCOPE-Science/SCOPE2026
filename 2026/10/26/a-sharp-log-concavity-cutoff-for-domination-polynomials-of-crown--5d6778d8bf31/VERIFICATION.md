@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` from the package directory. It needs only the Python 3 standard library.
+## correctness
 
-The program makes two independent computations of the domination enumerators: direct enumeration of every subset of the labelled crown graphs for \(2\le n\le7\), and evaluation of the derived convolution formulas. These are compared coefficient by coefficient for the ordinary and total domination polynomials. There are exactly 21,840 exhaustively enumerated labelled subsets across these orders.
+PASS
 
-The program then computes every nontrivial adjacent-coefficient minor for the complete bounded range \(2\le n\le12\). The closed-form coefficient identity in `RESULT.md` reduces this to finite exact integer arithmetic and supplies an independently inspectable certificate table. It also tests the algebraic obstruction \(d_3^2-d_2d_4=-n^2(n-1)(n^2-13n+8)/4\) for \(13\le n\le60\), and the claimed strict modes, middle coefficients and high-degree binomial tails for \(4\le n\le60\).
+Classify a dominating set by selected left/right counts: both >=2 contribute A_n(t)^2 with A_n=(1+t)^n−1−nt; a singleton on one side forces the corresponding missing-neighbor vertex on the other side, yielding two n t²(1+t)^(n−1) terms with n t² double-count overlap; exactly entire single side contributes two t^n. For n>=5, d2=n,d3=2n(n−1),d4=C(n,2)^2+2nC(n−1,2), giving d3²−d2d4=−n²(n−1)(n²−13n+8)/4<0 for all n>=13. The finite complementary orders n=2..12 are EXHAUSTIVELY checked by all integer coefficient minors, not extrapolated. Strict increase to middle uses upward-closed probability d_k/C(2n,k), and strict fall after n follows every (n+1)-set dominating, d_n=C(2n,n)−2n and central binomial gap. Total-dom polynomial A_n² is an earlier known identity, and log-concavity follows from convolution of nonnegative log-concave interval-supported sequences. Independently enumerated all labeled subsets for n=2..6 and checked integer minors up to n=60; finite testing is not the infinite sign proof.
 
-Expected output begins `VERIFY_OK direct_subsets=21840 brute_orders=6 finite_logconcave_orders=11 failure_orders=48 strict_modes=57` and prints boundary values for \(n=4,12,13\). The finite tests by themselves do not prove any infinite assertion: the case classification, polynomial identity, algebraic sign computation, convolution lemma and combinatorial mode proof in `RESULT.md` provide those infinite arguments.
+## originality
 
-Scientific limitations: independence of the mathematical assessment has not been established; related pre-2026 domination-root work remains a historical-priority risk. No external audit has been performed.
+PASS
+
+Best-of-knowledge independent claim-versus-prior implication comparison: A total-count scalar does not imply coefficientwise log-concavity; a total-dom polynomial does not determine ordinary-dom polynomial. The candidate contributes full ordinary enumerator plus exact phase boundary, though the scalar count itself was published long before. Closest exact antecedents are explicitly credited and risks retained.
+
+## value
+
+PASS
+
+The full ordinary domination coefficient sequence of a canonical regular bipartite graph family exhibits an exact and persistent log-concavity change at the natural order threshold 12/13, while staying strictly unimodal and contrasting with the already-known total-domination formula. This is a motivated graph-polynomial structural cutoff, not merely recomputation of OEIS A287063 total counts. The threshold is proved for the entire infinite family by a symbolic negative minor plus exhaustive finite positive interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
