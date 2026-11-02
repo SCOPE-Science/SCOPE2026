@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone script `verify_s7_kneser.py` uses only Python's standard library and terminates with `VERIFY_OK` when every exact assertion succeeds. Execute from the directory containing the script via `python3 verify_s7_kneser.py`. The corresponding captured output is `character_table.txt`.
+# Independent mathematical audit
 
-It checks the seven six-symbol cross-polytopal supporting complexes, their chosen ten-triple maximal facets, and the fact that each facet has no common neighbor among the other 35 triple vertices. It independently checks all 720 permutations on each standardized six-point cross-polytope for the orientation sign rule. For each of the 15 conjugacy types of \(S_7\), it constructs the orbit incompatibility graph and compares a memoized independence-polynomial recurrence against a direct nonmemoized enumeration of every invariant simplex. Character calculations are exact integer counts. At the identity type, the direct enumeration covers 1,278,686 faces including the empty face.
+## correctness
 
-The proof additionally invokes Feng's published arXiv Theorem 18 (arXiv:2610.17394v1) for the rational Betti dimensions and vanishing outside degrees six and nine. This script does not independently reprove that external non-elementary theorem. It does not test integral torsion, integral homotopy type, or larger ground sets. Independent scientific audit remains unperformed.
+PASS
+
+The complex consists of pairwise-intersecting families of 35 three-subsets of [7], equivalently Ind(KG(3,1)); rational degree concentration and Betti ranks 29 (degree 6) and 7 (degree 9) are an explicit external theorem of Feng 2026 (Theorem 18), with full proof read and correctly delimited. For each six-subset S, the ten complementary triple pairs give an embedded (S0)^*10 = S9; independently checked the seven chosen 10-vertex maximal 9-simplex detectors, no outside triple compatible with them, and diagonal cohomology pairings, proving a rational basis. The stabilizer S6 acts on each sphere by sign, giving Λ^6 Q7 and trace sign(g)*F1(g). Independently constructed orbit-conflict graphs and evaluated exact signed reduced Lefschetz sums for all fifteen S7 conjugacy types; every class agrees with H6 trace 1+(1+sign(g))*(F3(g)-F2(g)), using Lefschetz L=traceH6-traceH9. Young-rule subset-character identities and conjugate partitions give the stated irreducible S7 decomposition and one invariant line. No integral homology classification, geometric H6 basis or k>1 generalization is asserted.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact natural S7 representation, not the rational Betti numbers or six-set embedded sphere lower bound. Feng 2026 Theorem 18 already proves the 29/7 dimensions and degree vanishing for this same complex; Feng–Wang 2024 constructs relevant cross-polytopal classes. Neither materially inspected full text gives the fifteen-class homology character or the two conjugate 14-dimensional degree-six irreducible constituents. The earlier same-object results are credited explicitly rather than relabeled as novel.
+
+## value
+
+PASS
+
+Determining an actual S7 module rather than its Betti dimension identifies a unique invariant sixth-degree class and two inequivalent conjugate 14-dimensional irreducibles. This is a natural complete representation refinement for a prominent 35-vertex intersection complex and complements the known all-k rational rank theorem without claiming a new rank formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
