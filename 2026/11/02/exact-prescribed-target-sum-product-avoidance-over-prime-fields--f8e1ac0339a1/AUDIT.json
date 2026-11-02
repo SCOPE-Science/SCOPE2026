@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Every prime p≥5 and c≠0 is covered, including the unique unipotent c=4 case. The two involutions encode both forbidden equations including repeated inputs; their projective components and loop endpoints determine independence exactly. The two eigenvalue tori yield a bijective count of exceptional nonzero targets after removal of z=−1 and inversion pairing. The packaged program checked 4,178 targets by exact graph dynamic programming and independently enumerated every subset for 48 small targets; the proof does not rely on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang Theorem 2.2: a size (p−1)/2 set avoiding the single target 1.",
+        "Tang Proposition 2.1: size >p/2 forces full sumset but cannot distinguish (p−3)/2 from (p−1)/2 for general target.",
+        "Bloom et al. abstract concerns sum/product set size growth rather than prescribed target membership."
+      ],
+      "reasoning": "The general sumset pigeonhole upper bound is (p−1)/2 for every target; it does not decide whether the upper bound is attained. Tang supplies the lower bound for c=1, not for all c. Known stronger sumset covering results require larger A and therefore do not subsume targetwise exact maxima.",
+      "searches": [
+        "\"Sárközy\" \"Tang\" \"arbitrary\" \"residue\" \"sum\" \"product\"",
+        "\"Sarkozy\" \"A+A\" \"AA\" prescribed element independent set 2026",
+        "\"Sárközy\" \"avoiding\" \"nonzero\" \"sumset\" \"product set\" target",
+        "arXiv:2605.28781 abstract finite field"
+      ]
+    },
+    "checked_sources": [
+      "Tang, arXiv:2603.29992v1, complete main text",
+      "Sárközy 2001 Conjecture 65, as cited and described in Tang introduction",
+      "Bloom et al., arXiv:2605.28781, title and abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tang fixes c=1 and proves (p−1)/2.",
+        "For p=17 the new theorem gives the strictly smaller maximum 7 exactly for c=2,8,13, compared with 8 at c=1.",
+        "The exceptional count is (L/2−L/2^v−1)/2, which depends on the binary valuation of p−(−1|p)."
+      ],
+      "reasoning": "The new conclusion is not a numerical rephrasing or corollary of Tang: the earlier fixed-target graph has bounded six-point orbits whereas general targets can have projective order up to p+1; deciding the smaller-max cases and counting them requires a new semisimple-orbit/torus argument.",
+      "searches": [
+        "https://arxiv.org/html/2603.29992 lines 70–230",
+        "https://arxiv.org/abs/2605.28781",
+        "\"Sarkozy\" \"A+A\" \"AA\" prescribed element independent set 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An admissible set is an independent set in the finite graph with edges x+y=c or xy=c and loops 2x=c or x²=c.",
+        "Tang handles the special c=1 graph, whose projective composition has order 3."
+      ],
+      "reasoning": "The present equivalent graph and projective-involution formulations were compared. Scaling x by u changes the sum target by u but product target by u², so it cannot simultaneously normalize arbitrary nonzero c to 1. For c=1 the composition order is odd and no smaller-extremum target is detected; the variable-order classification and distribution require additional arguments.",
+      "searches": [
+        "\"x+y=t\" \"xy=t\" \"independent set\" prime field",
+        "\"sum and product\" \"target\" \"Möbius\" \"independent\" finite fields",
+        "\"t-x\" \"t/x\" graph finite field independent number",
+        "\"x+y=c\" \"xy=c\" finite field maximum independent subsets",
+        "arXiv:2603.29992 Theorem 2.2 and Remark 2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching explicit infinite prime-indexed exception-count table or full targetwise spectrum was identified in the returned literature results."
+      ],
+      "reasoning": "The theorem is a uniform infinite classification indexed by both p and nonzero c, plus an explicit count over c. The reported 4,178-case computation is corroboration, not a claim of exhaustive online-table novelty. Prior hidden tables remain a residual risk.",
+      "searches": [
+        "\"x+y=c\" \"xy=c\" finite field maximum independent subsets",
+        "\"Sárközy\" \"Tang\" \"arbitrary\" \"residue\" \"sum\" \"product\"",
+        "\"t-x\" \"t/x\" graph finite field independent number"
+      ]
+    },
+    "rationale": "The closest fully inspected paper, Tang arXiv:2603.29992, proves only target 1 and uses an order-3 anharmonic graph. No inspected statement covers the targetwise two-valued spectrum and its exact prime-dependent count. Actual targeted literature and research-record searches did not identify equivalent or dominating coverage; earlier implicit Möbius/dihedral treatment is a documented residual risk.",
+    "residual_risks": [
+      "An earlier unindexed or implicit result on dihedral involution graphs could subsume the classification.",
+      "Only the title and abstract of Bloom et al. were read; its abstract addresses a different invariant, but whole-document noncoverage is not asserted.",
+      "The 2001 original source was compared through the statement transcribed in Tang, not via independent full-text inspection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.2 and Remark 2.4 establish the exact maximum only for target 1. Its involutions have composition order 3, whereas varying the target yields genuinely varying projective orders, exceptional path parities and an exact nonzero-target distribution absent from that paper.",
+        "evidence": [
+          "Theorem 2.2 (lines 89–214) fixes right sides equal to 1.",
+          "Remark 2.4 (lines 224–230) fixes 1 in both avoidance conditions.",
+          "Lines 149–155 use the special order-three identity (st)^3=id, inapplicable generally."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.29992",
+        "material_read": "Entire accessible HTML scholarly article, including abstract, introduction, main proof, Remark 2.4 and references (lines 21–278).",
+        "method": "Direct reading of complete arXiv HTML full text; comparison of theorem statement, all graph components and parameter ranges.",
+        "title": "A counterexample to a conjecture of Sárközy on sums and products modulo a prime",
+        "trigger": "Primary recent origin of the exact single-target sum/product avoidance problem and its involution graph method."
+      },
+      {
+        "assessment": "Abstract concerns cardinality growth |A+A| and |AA| for large sets and associated real, p-adic and finite-field constructions, not maxima for avoiding a prescribed element in both sets. Whole-document noncoverage is not claimed.",
+        "evidence": [
+          "Abstract establishes max(|A+A|,|AA|)<=|A|^(2-c) for large real sets, a different invariant."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.28781",
+        "material_read": "Title, abstract, submission history and topical summary; not full text.",
+        "method": "Read public arXiv abstract and metadata, compared objects and quantifiers.",
+        "title": "The sum-product conjecture is false for real numbers",
+        "trigger": "Similar sum-product title and broad finite-field extensions required implication check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f8e1ac03-39a1-4fe1-9aba-5690d2d03f42",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact maximum of a natural prescribed-residue avoidance invariant for every nonzero target, and counts exactly how many targets lose one element relative to the benchmark found by Tang for target 1. The split/nonsplit projective orbit mechanism explains the dichotomy and applies uniformly to infinitely many primes. This is structurally and mathematically motivated rather than a small numerical increment or arbitrary slice.",
+    "status": "PASS"
+  }
+}
