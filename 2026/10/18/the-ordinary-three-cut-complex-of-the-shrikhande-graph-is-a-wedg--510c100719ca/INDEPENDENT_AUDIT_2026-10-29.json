@@ -1,0 +1,203 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:12:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob ddaa85b0d39a5ebf4b06e6f0417c962f6b25c427",
+        "Assigned verify.py Git blob c08adb69a33c9300d8abab67230f95d9eefb4e05",
+        "Independent /mnt/data/independent_shrikhande_check.py using sympy Hermite normal form, verified 105x105 identity",
+        "Primary cut-complex definition Bayer, Denker, Jelić Milutinović, Rowlands, Sundaram, Xue, Topology of Cut Complexes of Graphs, arXiv:2304.13675v2 (2024), https://arxiv.org/pdf/2304.13675, definition pp.1-2; Theorem 6.1 pp.17-18; family results §§5-7"
+      ],
+      "rationale": "For the stated 16-vertex Cayley graph with step set ±(1,0), ±(0,1), ±(1,1), independent exhaustive enumeration gives 48 edges, exactly two shared neighbors for every pair, 176 connected triples, 60 qualifying four-subsets (48 with five graph edges and 12 induced four-cycles), no qualifying five-subset, hence Alexander dual face counts (1,16,120,176,60). Each of the sixty tetrahedra possesses at least two private triangular facets, so the specified sixty elementary collapses leave a 2-dimensional complex Y with complete K16 one-skeleton and 116 triangles. An independently constructed signed 105x116 boundary matrix in a fundamental-cycle basis has Hermite normal form I105, proving integer surjectivity and no torsion, with H2(Y;Z)=Z^11 and H1=0. Integral combinatorial Alexander duality sends dual degree 2 to original degree 16-2-3=11, with unique reduced H11=Z^11. No 5-vertex dual faces entails full 10-skeleton of the original, hence 9-connectivity; H10=0 and Hurewicz give 10-connectivity; maps representing H11 generators plus homological Whitehead yield the wedge of eleven S11. Original has 13-vertex facets, so dimension 12 and its H11 obstruction proves nonshellability. Every conclusion is for this fixed graph only, and the finite certificate does not assert any all-graph statement.",
+      "residual_risks": [
+        "Integer Hermite normal form is a finite exact algorithm, independently implemented here; it is not a formal proof checker.",
+        "Non-equivariant homotopy only; the full automorphism representation was not computed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foundational Theorem 6.1 explicitly assumes complete codimension-one skeleton; source cut complex lacks exactly sixty 11-dimensional faces corresponding to dual tetrahedra.",
+          "The four-cycle-free RESULT.md requires no four-cycle, while Shrikhande has 12 induced quadrilaterals and 48 diamonds (the latter also contain four-cycles).",
+          "The high-girth theorem requires girth at least k+2=5; Shrikhande has triangles.",
+          "The sequel classifies ordinary cuts of rectangular path grids, not a Cayley strongly regular graph with triangles."
+        ],
+        "reasoning": "The strongest plausible general cut-complex classifications have mathematical hypotheses contradicted by the enumerated graph; they cannot imply the target homotopy type. Their result statements and proof mechanisms were compared, not just titles.",
+        "searches": [
+          "graph cut complexes four-cycle-free high girth three-cuts homology spheres",
+          "Bayer, Denker, Jelić Milutinović, Rowlands, Sundaram, Xue, Topology of Cut Complexes of Graphs, arXiv:2304.13675v2 (2024), https://arxiv.org/pdf/2304.13675, definition pp.1-2; Theorem 6.1 pp.17-18; family results §§5-7",
+          "Bayer, Denker, Jelić Milutinović, Sundaram, Xue, Topology of Cut Complexes II, arXiv:2407.08158v1 (2024), https://arxiv.org/pdf/2407.08158, contents and introduction p.1, grid calculations §5, conclusion",
+          "Resultary/2026, 2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce/RESULT.md, Git blob ef31d835aa33a6aa1aa7fa7a73a18922dbf941fe",
+          "Resultary/2026 high-girth-cut-complexes-are-wedges-of-top-dimensional-spheres--ec8bbe3d352b"
+        ]
+      },
+      "checked_sources": [
+        "Bayer, Denker, Jelić Milutinović, Rowlands, Sundaram, Xue, Topology of Cut Complexes of Graphs, arXiv:2304.13675v2 (2024), https://arxiv.org/pdf/2304.13675, definition pp.1-2; Theorem 6.1 pp.17-18; family results §§5-7",
+        "Bayer, Denker, Jelić Milutinović, Sundaram, Xue, Topology of Cut Complexes II, arXiv:2407.08158v1 (2024), https://arxiv.org/pdf/2407.08158, contents and introduction p.1, grid calculations §5, conclusion",
+        "Resultary/2026, 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f/RESULT.md, Git blob 8ed811129d2748ccc31dd4e6a6de3ed4f7d7e519",
+        "Resultary/2026, 2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce/RESULT.md, Git blob ef31d835aa33a6aa1aa7fa7a73a18922dbf941fe",
+        "Resultary/2026, 2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187/RESULT.md, Git blob ea6933c8395a56d81aaf2db804cdd6ce3b31a026",
+        "Resultary/2026, 2026/10/11/SCOPE-scale-two-ech-homotopy-distinguishes-the-shrikhande-and-rook-gra--5b6e4436155e/RESULT.md, Git blob da895240d8c50a2f3ad373f1a355d9d1dcf07284",
+        "Resultary semantic searches by query1/query2/query3",
+        "Web exact-alias searches by the quoted Shrikhande/cut/Alexander-dual phrases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rook theorem depends on maximal faces consisting of rook rows, columns and rectangles; the Shrikhande dual has exactly 60 qualifying tetrahedra and no corresponding row/column clique decomposition.",
+          "Same strongly regular (16,6,2,2) parameters do not force ordinary 3-cut homology: independently computed rank 11 differs from published rook rank 27.",
+          "Theorem 6.1 of arXiv:2304.13675 is conditional on a false 11-skeleton hypothesis here.",
+          "Other Shrikhande invariants are not functorially identified with the cut complex and their 23-sphere conclusions have different degrees."
+        ],
+        "reasoning": "None of the inspected prior mathematical statements implies this fixed Shrikhande integral 11-sphere wedge. The general theorem has a demonstrably false necessary condition and the rook graph is a distinct graph. Prior exact results distinguish the strongly regular twins by other invariants, so no first-distinction or parameter-only theorem is claimed.",
+        "searches": [
+          "three-cut complex rook graph Shrikhande strongly regular (16,6,2,2) topology",
+          "Bayer, Denker, Jelić Milutinović, Rowlands, Sundaram, Xue, Topology of Cut Complexes of Graphs, arXiv:2304.13675v2 (2024), https://arxiv.org/pdf/2304.13675, definition pp.1-2; Theorem 6.1 pp.17-18; family results §§5-7",
+          "Bayer, Denker, Jelić Milutinović, Sundaram, Xue, Topology of Cut Complexes II, arXiv:2407.08158v1 (2024), https://arxiv.org/pdf/2407.08158, contents and introduction p.1, grid calculations §5, conclusion",
+          "Resultary/2026, 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f/RESULT.md, Git blob 8ed811129d2748ccc31dd4e6a6de3ed4f7d7e519",
+          "Resultary/2026, 2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce/RESULT.md, Git blob ef31d835aa33a6aa1aa7fa7a73a18922dbf941fe",
+          "Resultary/2026, 2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187/RESULT.md, Git blob ea6933c8395a56d81aaf2db804cdd6ce3b31a026",
+          "Resultary/2026, 2026/10/11/SCOPE-scale-two-ech-homotopy-distinguishes-the-shrikhande-and-rook-gra--5b6e4436155e/RESULT.md, Git blob da895240d8c50a2f3ad373f1a355d9d1dcf07284"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Alexander dual is the complex whose vertex sets avoid disconnected induced triples; its face predicate differs from both the graph independence complex and the scale-two graph Čech nerve.",
+          "The complete full texts of the two published Shrikhande independence/Čech RESULT.md files give 23-sphere homotopy for different complexes, not ordinary three-cut homology.",
+          "Bayer et al. define ordinary cuts separately from total cuts; a triple with exactly one graph edge is disconnected in this problem."
+        ],
+        "reasoning": "Connected-triple 3-uniform clique-complex language and Alexander duality are equivalent formulations of the target; they do not turn the target into the independence, clique, total-cut, or intrinsic Čech complexes. Searches by exact graph aliases, dual, and triple conditions did not identify a previously proved rank-11 homotopy theorem.",
+        "searches": [
+          "ordinary three-cut complex Shrikhande graph wedge eleven eleven spheres homology Alexander dual connected triples 16 vertex",
+          "\"Shrikhande\" \"cut complex\" \"three\"",
+          "\"Shrikhande\" \"Alexander dual\" simplicial complexes",
+          "\"Shrikhande\" \"connected triples\" simplicial homotopy",
+          "Bayer, Denker, Jelić Milutinović, Rowlands, Sundaram, Xue, Topology of Cut Complexes of Graphs, arXiv:2304.13675v2 (2024), https://arxiv.org/pdf/2304.13675, definition pp.1-2; Theorem 6.1 pp.17-18; family results §§5-7",
+          "Resultary/2026, 2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187/RESULT.md, Git blob ea6933c8395a56d81aaf2db804cdd6ce3b31a026",
+          "Resultary/2026, 2026/10/11/SCOPE-scale-two-ech-homotopy-distinguishes-the-shrikhande-and-rook-gra--5b6e4436155e/RESULT.md, Git blob da895240d8c50a2f3ad373f1a355d9d1dcf07284"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Target 16-vertex ordinary 3-cut complex has reduced integral H11=Z^11 after HNF; the published Resultary rook graph three-cut result reports H11=Z^27 for K4 square K4.",
+          "Existing Shrikhande Resultary records compute independence H2=Z^23 and intrinsic scale-two Čech H2=Z^23, not the target H11.",
+          "The primary cut-complex family papers do not tabulate the Shrikhande ordinary cut complex in their inspected families."
+        ],
+        "reasoning": "The exact named graph, strongly regular parameters, aliases, the numeral 11, the dual face counts and same-parameter rook comparator were searched. No exact table or repository result covers this claim; lack of a hit alone is not proof of originality.",
+        "searches": [
+          "ordinary three-cut complex Shrikhande graph wedge eleven eleven spheres homology Alexander dual connected triples 16 vertex",
+          "three-cut complex rook graph Shrikhande strongly regular (16,6,2,2) topology",
+          "\"Shrikhande\" \"cut complex\" \"three\"",
+          "\"Shrikhande graph\" \"homology\" \"cut complex\"",
+          "\"Shrikhande\" \"3-cut\" homology",
+          "Resultary/2026, 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f/RESULT.md, Git blob 8ed811129d2748ccc31dd4e6a6de3ed4f7d7e519",
+          "Resultary/2026, 2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187/RESULT.md, Git blob ea6933c8395a56d81aaf2db804cdd6ce3b31a026",
+          "Resultary/2026, 2026/10/11/SCOPE-scale-two-ech-homotopy-distinguishes-the-shrikhande-and-rook-gra--5b6e4436155e/RESULT.md, Git blob da895240d8c50a2f3ad373f1a355d9d1dcf07284"
+        ]
+      },
+      "rationale": "Best-of-knowledge original fixed-graph ordinary three-cut homotopy classification. Independent searches identified the foundational ordinary cut-complex definition but no Shrikhande value, and the nearest same-cut-size rook result has rank 27 only for the nonisomorphic K4 square K4. Theorem 6.1 of Bayer et al. cannot give the present result: its complete (n-k-2)=11 skeleton hypothesis fails, since the sixty connected four-subsets omit sixty 12-vertex faces from the cut complex. The 2024 sequel concerns disjoint unions, squared paths and rectangular path-grid graphs. The four-cycle-free and high-girth theorems do not apply to the 32-triangle/12-induced-four-cycle Shrikhande graph. Related Shrikhande independence and Čech complexes are different functors with different simplices; their homology does not imply this result. The claim has no asserted generalization beyond the fixed graph. Web and indexed-record negative hits do not establish global novelty; priority remains qualified.",
+      "residual_risks": [
+        "An unindexed or inaccessible older calculation of the Shrikhande connected-triple Alexander dual may exist.",
+        "The 2023/2024 primary full PDFs were inspected in relevant sections and searched, not exhaustively rederived line-by-line.",
+        "Previously published comparisons are scientific literature evidence, not external certification of this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary cut definition matches; Theorem 6.1 not applicable because the target lacks the complete 11-skeleton. Families do not include Shrikhande. No whole-document noncoverage is inferred solely from a snippet.",
+          "evidence": [
+            "Theorem 6.1 equates a Boolean truncated face lattice with the complete (n-k-2)-skeleton property.",
+            "The source cut complex has 60 missing size-12 faces; its full skeleton stops at dimension ten.",
+            "Paper discusses trees, cycles, complete multipartite graphs, clique prisms and squared cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "Primary PDF introduction/definition on pp.1-2, Theorem 6.1 and proof on pp.17-18, Section 7 family headings/results and conclusion; full-document text search for Shrikhande",
+          "method": "Open-access arXiv PDF text examination and inspected page screenshots (pp.1 and 17)",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Same ordinary cut-complex object, foundational definition and possible dominating face-lattice theorem"
+        },
+        {
+          "assessment": "New results concern disjoint unions, squared paths, path grids and group actions, not Shrikhande ordinary three-cuts.",
+          "evidence": [
+            "The source Section 5 states rectangular path-grid graph G(m,n) and its ordinary three-cut calculation.",
+            "Source contents and conclusion restrict described graph families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+          "material_read": "Primary PDF contents, introduction, grid Section 5 calculations, conclusion and full-document Shrikhande term search",
+          "method": "Open-access arXiv PDF text and page screenshots (pp.1 and 17)",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Sequel to foundational same-object work with new cut-complex family calculations"
+        },
+        {
+          "assessment": "Computes rank 27 in H11 for K4 square K4 using row/column rectangle decomposition, not Shrikhande.",
+          "evidence": [
+            "Rank formula binom(m,2)binom(n,2)-(m-1)(n-1).",
+            "Rook dual facets are rows/columns and rectangles, unlike target dual tetrahedron collapse."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f",
+          "material_read": "Full published RESULT.md theorem, Alexander-dual maximal-face classification, proof, scope, limits",
+          "method": "Authorized read-only GitHub fetch_file",
+          "title": "Integral and equivariant homology of three-cut complexes of rook graphs",
+          "trigger": "Closest ordinary three-cut result for a nonisomorphic graph with identical strongly regular parameters"
+        },
+        {
+          "assessment": "Not applicable because Shrikhande contains numerous four-cycles and 60 dual tetrahedra.",
+          "evidence": [
+            "Source forbids all four-cycles, including those with chords.",
+            "Target has 12 induced 4-cycles and 48 five-edge 4-subsets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce",
+          "material_read": "Full published RESULT.md theorem, hypotheses and free-edge collapse proof",
+          "method": "Authorized read-only GitHub fetch_file",
+          "title": "Three-cut complexes of four-cycle-free graphs with triangles",
+          "trigger": "Potentially broader three-cut wedge theorem with triangles"
+        },
+        {
+          "assessment": "Computes a different complex, giving Shrikhande independence H2 rank23, not ordinary 3-cut homotopy.",
+          "evidence": [
+            "Independence faces have no graph edge; target dual faces have no disconnected induced triple."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+          "material_read": "Full published RESULT.md with exact face predicate, proof and limitations",
+          "method": "Authorized read-only GitHub fetch_file",
+          "title": "Independence complexes of the Shrikhande and 4×4 rook graphs have different sphere-wedge homotopy types",
+          "trigger": "Same graph pair and potentially equivalent topological functor"
+        },
+        {
+          "assessment": "The closed-neighborhood nerve is different; its H2 rank23 does not imply the present H11 rank11.",
+          "evidence": [
+            "Čech facets are radius-one closed neighborhoods of size seven, not complements of disconnected triples."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-scale-two-ech-homotopy-distinguishes-the-shrikhande-and-rook-gra--5b6e4436155e",
+          "material_read": "Full published RESULT.md definition, proof and limitations",
+          "method": "Authorized read-only GitHub fetch_file",
+          "title": "Scale-two Čech homotopy distinguishes the Shrikhande and rook graphs",
+          "trigger": "Same graph pair with potentially equivalent 16-vertex nerve"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary/2026, 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f/RESULT.md, Git blob 8ed811129d2748ccc31dd4e6a6de3ed4f7d7e519",
+        "Resultary/2026, 2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187/RESULT.md, Git blob ea6933c8395a56d81aaf2db804cdd6ce3b31a026",
+        "Resultary/2026, 2026/10/11/SCOPE-scale-two-ech-homotopy-distinguishes-the-shrikhande-and-rook-gra--5b6e4436155e/RESULT.md, Git blob da895240d8c50a2f3ad373f1a355d9d1dcf07284",
+        "Assigned RESULT.md and independently verified full boundary computation"
+      ],
+      "rationale": "The two 16-vertex strongly regular graphs with parameters (16,6,2,2), Shrikhande and 4x4 rook, are a canonical pair with the same local numerical parameters. A complete integral homotopy type for the ordinary three-cut complex of the Shrikhande member is a naturally motivated missing exact invariant, not an arbitrary slice. Its rank 11 is distinct from the previously established rank 27 for the other member, showing that this cut-topology invariant is not determined by the usual strongly regular parameters. The result determines torsion-freeness, all homology degrees, a genuine wedge homotopy equivalence, and a non-shellability obstruction in a pure 12-complex, all supported by a nontrivial integral certificate. It does not claim to be the first invariant distinguishing the pair, nor a general classification.",
+      "residual_risks": [
+        "Single fixed graph and ordinary cut size k=3; no statement for all strongly regular graphs.",
+        "No equivariant homology or general formula for higher cut sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is a finite, exact mathematical classification for one labeled graph; no all-graphs claim.",
+    "The finite integer computation is independently reproduced but not formalized in Lean or externally attested.",
+    "Priority is best-of-knowledge, with residual risk of unindexed work and no unsupported novelty guarantee.",
+    "No source edits or publication; existing public-facing metadata requires complete confidential sanitization."
+  ],
+  "schema_version": 1
+}
