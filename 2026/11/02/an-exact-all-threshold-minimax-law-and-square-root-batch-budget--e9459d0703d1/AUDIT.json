@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs exact line minimizer and fractional gain for every SPD planar quadratic, radial Gaussian direction density, strictly increasing angular success away from the small-eigenvalue axis, exact Cauchy CDF and iid batch law. SPD energy covariance equivalence proves unique minimax up to scalar. Arctangent asymptotics prove sharp sqrt condition-number scaling and limiting windows. A standalone stdlib verifier passed 849 analytic/rational/numerical assertions; finite tests are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shao thesis arXiv:2206.03371 Chapter 4 and Cartis--Fowkes--Shao arXiv:2211.09873 give generic convergence/high-probability results for random subspace models rather than an exact planar objective-gain quantile.",
+        "Roberts--Royer arXiv:2204.01275 studies general probabilistic descent/polling and sketch embeddings."
+      ],
+      "reasoning": "A theorem about nonconvex gradient-norm complexity or probabilistically sufficient descent does not imply the specific attained worst-direction CDF, exact m ceiling, or covariance uniqueness; no dominating exact distributional result was found in the inspected material.",
+      "searches": [
+        "random pursuit best of multiple Gaussian directions exact line search quadratic minimax",
+        "arxiv:2206.03371 Chapter 4",
+        "arxiv:2211.09873 Sections 3-5 and Appendix",
+        "arxiv:2204.01275 randomized reduced space polling"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.0194",
+      "arxiv:1210.5114",
+      "arxiv:2206.03371v1",
+      "arxiv:2211.09873v1",
+      "arxiv:2204.01275",
+      "arxiv:2308.04734",
+      "doi:10.1137/140961602",
+      "published semantic results on Haar subspaces and inverse-positive coordinate descent"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Expected progress bounds at fixed Gaussian covariance do not fix the threshold-wise law, much less the unique all-threshold optimal SPD covariance.",
+        "The searched published Haar-subspace moments result concerns expectation and restricted Haar moments; the coordinate-sampling result concerns discrete coordinate choices, not continuous Gaussian directions.",
+        "A separate earlier two-query orthogonal sampling analysis concerns sequential exact line minimizations, whose second search starts from an updated point; here all candidates are computed independently from one common start."
+      ],
+      "reasoning": "No implication from the closest retrieved results to the joint quantified theorem was established. The batch power law uses simultaneous independent candidates and cannot be inferred from sequential two-query convergence without additional assumptions.",
+      "searches": [
+        "arxiv:1210.5114 Lemmas 5-6 Theorem 3",
+        "arxiv:2308.04734 expected decrease",
+        "arxiv:2204.01275 probabilistic descent",
+        "published scientific study: exact Haar moments for sparse stochastic subspace descent",
+        "published scientific study: optimal inverse-positive coordinate sampling for SPD quadratics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Variable Metric Random Pursuit arXiv:1210.5114 uses Hessian-guided Gaussian covariance and expected progress; its special case supplies the line-search mechanism but not the full angle-wise CDF and strict all-quantile minimax.",
+        "Hare--Roberts--Royer arXiv:2308.04734 focuses on expected decrease per function evaluation using locally linear approximations rather than the exact quadratic-line candidate distribution."
+      ],
+      "reasoning": "The optimization problem is equivalent to squared alignment of a fixed energy direction with a Gaussian angular direction; a covariance design objective based on **every success threshold** is stricter than an expected-progress objective. The proof establishes the additional stochastic-order minimax, not merely equivalence of algorithms.",
+      "searches": [
+        "planar anisotropic Gaussian exact-line directional minimization probability quantile Cauchy",
+        "arxiv:1210.5114 Section 4",
+        "arxiv:2308.04734 Sections 2-5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The one-line Gaussian Cauchy ratio is classical and available by elementary calculation, but no consulted source furnished a published table of the best-of-m all-threshold minimax probability as a function of transformed covariance condition number."
+      ],
+      "reasoning": "This is a continuous all-SPD-matrices theorem, not an extraction of an already enumerated finite table. Absence in checked records does not prove universal novelty.",
+      "searches": [
+        "exact planar random-line descent m candidate CDF arctan condition number",
+        "arxiv:1111.0194 random pursuit",
+        "arxiv:1210.5114 variable metric pursuit"
+      ]
+    },
+    "rationale": "The inverse-Hessian direction-covariance idea is acknowledged as known (Stich--Müller--Gärtner). The targeted full claim is an exact planar all-orientation, all-threshold distributional minimax theorem with strict covariance uniqueness plus the exact iid best-of-m and sharp sqrt-condition reliability law. Source treatments of expected progress, JL sketching, stochastic polling, and average-case derivative-free performance do not logically imply this distributional joint conclusion; residual specialized earlier overlap is possible.",
+    "residual_risks": [
+      "An earlier specialized parallel random-direction/anisotropic angular-order-statistics theorem may establish the same CDF and candidate budget, despite no direct match in retrieved material.",
+      "The nearest 2022 probabilistic-polling paper was compared at abstract/method level; its complete proof was not inspected.",
+      "The novelty comparison does not amount to a global proof of publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers covariance motivation and expected progress; no exact simultaneous best-of-m all-threshold stochastic minimax formula in the material checked.",
+        "evidence": [
+          "Sections 1 and 4 describe single-direction expected progress and fixed-metric convergence, with variable Hessian metric adaptation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1210.5114",
+        "material_read": "Sections 1, 3, 4.1 and 4.2 (Lemmas 5-6, Theorem 3), numerical line oracle section",
+        "method": "Accessible lawful HTML full-text reading and targeted section/lemma comparisons",
+        "title": "Variable Metric Random Pursuit",
+        "trigger": "Same Gaussian directional search and inverse-Hessian metric"
+      },
+      {
+        "assessment": "Introduces line-search method and convergence, not exact anisotropic planar best-of-m quantile minimax.",
+        "evidence": [
+          "Its random pursuit scheme takes one direction per accepted step and studies convergence rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.0194",
+        "material_read": "Abstract, introduction, algorithm, convergence analysis and supporting content",
+        "method": "Accessible full HTML text with theorem/algorithm inspection",
+        "title": "Optimization of Convex Functions with Random Pursuit",
+        "trigger": "Original exact line-search random pursuit definition and rate literature"
+      },
+      {
+        "assessment": "Public as of 2022-06-07; generic random subspace framework with high-probability convergence, not the planar simultaneous exact-line quantile formula.",
+        "evidence": [
+          "Chapter 4 studies general random subspace models, safeguarded iterative convergence and Gaussian sketches."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.03371v1",
+        "material_read": "Submission metadata and Chapter 4 structure, introductory contributions, first-order random subspace/sketch methodology",
+        "method": "Accessible full thesis HTML, selective relevant chapter/theorem inspection",
+        "title": "On Random Embeddings and Their Application to Optimisation",
+        "trigger": "Earlier public source of overlapping random-subspace theoretical framework"
+      },
+      {
+        "assessment": "Provides a distinct general nonconvex/least-squares framework and global iteration complexity, not exact planar single-objective best-of-m line search.",
+        "evidence": [
+          "Sections 3-5 and Appendices analyze randomized projected-model quality and high-probability convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.09873v1",
+        "material_read": "Introduction contributions, Sections 3-5 sampling and methods, Appendix A/B theorem and Gaussian sketch proof regions",
+        "method": "Accessible lawful arXiv HTML, direct relevant-section/theorem/appendix inspection",
+        "title": "Randomised Subspace Methods for Non-Convex Optimization, with Applications to Nonlinear Least-Squares",
+        "trigger": "Gaussian sketching, random subspace models, nonlinear least squares"
+      },
+      {
+        "assessment": "Abstract asserts generic random-subspace probabilistic descent and complexity, not specific exact minimax CDF; incomplete full-text reading is a residual risk.",
+        "evidence": [
+          "Abstract describes polling-direction probability and randomized reduced-space direct search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.01275",
+        "material_read": "Abstract and methods framework from public source; full main proof not read",
+        "method": "Public arXiv abstract and journal/optimization-online abstract comparison",
+        "title": "Direct Search Based on Probabilistic Descent in Reduced Spaces",
+        "trigger": "Closest probabilistic polling and random one-dimensional subspaces"
+      },
+      {
+        "assessment": "Focuses on expected decrease under locally linear models; no direct all-quantile exact 2D quadratic candidate minimax formula in inspected material.",
+        "evidence": [
+          "Introduction identifies mean improvement per evaluation, not threshold-wise best-of-independent lines, as central objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.04734",
+        "material_read": "Full HTML introduction and Sections 1-2 and theorem/objective descriptions; abstract explicitly notes multidimensional integral formulas",
+        "method": "Accessible arXiv full HTML, selected relevant section comparisons",
+        "title": "Expected Decrease for Derivative-Free Algorithms Using Random Subspaces",
+        "trigger": "Very close expected-decrease direction sampling literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e9459d07-03d1-4f81-b7bf-9fdc67543bfe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural reliability problem for parallel random line minimization is solved exactly: for any specified fractional gain and confidence, the theorem gives the sharp number of Gaussian candidate lines for all starts, identifies the unique covariance minimizing **every** failure threshold, and proves a condition-number sqrt phase threshold, contrasting sharply with the mean/median gain gap. This is a meaningful stochastic and computational design boundary, not just a restatement of expected convergence.",
+    "status": "PASS"
+  }
+}
