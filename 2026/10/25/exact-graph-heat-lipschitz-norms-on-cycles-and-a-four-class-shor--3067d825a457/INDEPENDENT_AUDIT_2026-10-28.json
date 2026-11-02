@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:59:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — On C_n (n≥5), a graph-Lipschitz potential corresponds exactly to mean-zero edge gradients g_j of magnitude ≤1. ℓ1/ℓ∞ duality makes norm equal min_c Σ|p_t(j)−c|. For t>0, radial heat differences solve irreducible Metzler tridiagonal ODE with positive initial first coordinate, so p_t(0)>p_t(1)>...>p_t(⌊n/2⌋). Counting radial multiplicities proves the same median p_t(k), k=⌊(n+2)/4⌋, for all t. The stated zero-sum gradient g=1,(n−4k)/2,−1 is a simultaneous extremizer. Unique shortest k-walk gives p_t(k)=t^k/k!+O_n(t^(k+1)), hence leading defect (4k+2−n)/k!, positive for each residue class n mod 4. Positivity and semigroup norm submultiplicativity give strict all-time decay; t=0 and fixed-n asymptotic handled. Independently checked 24 LP norms against median and 11 exact Taylor coefficients, not as proof of infinite n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Veysseire 2012 continuous-time curvature sufficient contraction theorem; Ollivier 2007 curvature/transport framework."
+        ],
+        "reasoning": "General curvature criteria give bounds rather than the exact per-n all-time finite-cycle norm, and do not force the t^floor((n+2)/4) initial coefficient.",
+        "searches": [
+          "published-Resultary semantic search: cycle graph continuous time heat semigroup exact Lipschitz operator norm median heat kernel Wasserstein high-order short time (2026-10-28; limit=15)",
+          "https://arxiv.org/html/1202.0420v1",
+          "https://arxiv.org/abs/math/0701886",
+          "https://arxiv.org/abs/1103.4037"
+        ]
+      },
+      "checked_sources": [
+        "Veysseire 2012 arxiv:1202.0420",
+        "Ollivier 2007 arxiv:math/0701886",
+        "Jost–Liu 2011 arxiv:1103.4037",
+        "Cloez 2012 arxiv:1202.1259 (background only)",
+        "Published Resultary semantic 15-hit search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dual LP: min_c Σ|p_t(j)−c|; independent positive radial order and count identify time-invariant median k."
+        ],
+        "reasoning": "Known transport duality plus generic heat kernel alone leaves nontrivial radial positivity, median index and simultaneous extremizer to prove; no inspected statement supplies them.",
+        "searches": [
+          "published-Resultary semantic search: cycle graph continuous time heat semigroup exact Lipschitz operator norm median heat kernel Wasserstein high-order short time (2026-10-28; limit=15)",
+          "https://arxiv.org/html/1202.0420v1",
+          "https://arxiv.org/abs/math/0701886",
+          "https://arxiv.org/abs/1103.4037"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kantorovich–Rubinstein duality identifies sharp Lipschitz contraction with W1 transport of translated heat kernels."
+        ],
+        "reasoning": "Checked both dual graph-Lipschitz norm and cyclic heat/earth-mover formulations, not just the theorem title.",
+        "searches": [
+          "published-Resultary semantic search: cycle graph continuous time heat semigroup exact Lipschitz operator norm median heat kernel Wasserstein high-order short time (2026-10-28; limit=15)",
+          "https://arxiv.org/html/1202.0420v1",
+          "https://arxiv.org/abs/math/0701886",
+          "https://arxiv.org/abs/1103.4037"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published Resultary hits concern ℓ4 four-state cyclic convolution and other spectral/curvature constants, not these all-time Lipschitz norms."
+        ],
+        "reasoning": "No exact matching indexed norm table was found; isolated small-cycle computations would not cover every n≥5.",
+        "searches": [
+          "published-Resultary semantic search: cycle graph continuous time heat semigroup exact Lipschitz operator norm median heat kernel Wasserstein high-order short time (2026-10-28; limit=15)",
+          "arxiv:1202.0420",
+          "arxiv:1103.4037"
+        ]
+      },
+      "rationale": "PASS, qualified — Ollivier/Veysseire/Jost–Liu provide transport-curvature and general nonexpansivity/contraction tools, not the sharp all-t norm for every n≥5 nor the median p_t(⌊(n+2)/4⌋) and one time-independent extremizer. General curvature upper estimates need not yield the high-order t^k contraction defect; for large n curvature bounds are too coarse. No covering published finding in Resultary top hits. Prior spectral/cyclic-transport exact calculations under alternate vocabulary remain a risk.",
+      "residual_risks": [
+        "Older exact optimal-transport/cyclic random-walk coupling papers might yield the median formula by implication.",
+        "Only unweighted undirected cycles and fixed-n asymptotics; no uniform-in-n claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes general sufficient curvature-to-contractivity statements; no exact all-time norm on each finite unweighted cycle, no simultaneous extremizer or high-order defect coefficient.",
+          "evidence": "Veysseire (2012), continuous-time coarse Ricci curvature contraction statements.",
+          "identifier_or_url": "https://arxiv.org/html/1202.0420v1",
+          "material_read": "Full accessible mathematical HTML, definition and main contraction theorem",
+          "method": "Primary full-text theorem/assumption comparison",
+          "title": "Coarse Ricci curvature for continuous-time Markov processes",
+          "trigger": "Continuous-time optimal-transport contraction may dominate a graph heat Lipschitz norm"
+        },
+        {
+          "assessment": "Introduces curvature and dual contraction language, not explicit finite cyclic heat median law.",
+          "evidence": "Ollivier (2007), Ricci curvature definition and transport contraction framework.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0701886",
+          "material_read": "Accessible overview and relevant transport-curvature statements; not claimed to have read every historical appendix",
+          "method": "Primary preprint relevant theorem comparison",
+          "title": "Ricci curvature of Markov chains on metric spaces",
+          "trigger": "Wasserstein–Lipschitz duality and graph curvature"
+        },
+        {
+          "assessment": "Graph-local estimates do not state exact global all-time cycle semigroup norms.",
+          "evidence": "Jost and Liu (2011), graph curvature inequalities.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.4037",
+          "material_read": "Abstract and relevant result statements; not independently certified exhaustive whole-paper coverage",
+          "method": "Primary arXiv result comparison",
+          "title": "Ollivier’s Ricci curvature, local clustering and curvature dimension inequalities on graphs",
+          "trigger": "Specialized graph curvature and cycle local estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Graph heat transport/Lipschitz decay on all finite unweighted cycles is a canonical model. The exact all-time norm, simultaneous maximizing potential, and growing residue-dependent first nonzero contraction derivative quantify regularization not obtainable from mere curvature/nonexpansivity bounds. All-n structural theorem with sharp coefficient has independent geometric meaning.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Veysseire 2012 arxiv:1202.0420",
+    "Ollivier 2007 arxiv:math/0701886",
+    "Jost–Liu 2011 arxiv:1103.4037",
+    "Cloez 2012 arxiv:1202.1259 (background only)",
+    "Published Resultary semantic 15-hit search"
+  ],
+  "disposition": "passed",
+  "limitations": "Edge gradient operates on quotient by constants; source short-time error O_n is not dimension-uniform.",
+  "residual_risks": [
+    "Older exact optimal-transport/cyclic random-walk coupling papers might yield the median formula by implication.",
+    "Only unweighted undirected cycles and fixed-n asymptotics; no uniform-in-n claim."
+  ],
+  "schema_version": 1
+}

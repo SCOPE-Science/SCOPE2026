@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact cyclic-gradient duality identifies the sharp seminorm as an \(\ell^1\) deviation about a median. The reflection-symmetric heat differences satisfy a positive irreducible tridiagonal system, guaranteeing strict radial ordering for positive times. Counting the radial multiplicities proves that distance \(\lfloor(n+2)/4\rfloor\) indexes a median for every time; an explicit zero-sum gradient then produces one time-independent extremizer. The small-time coefficient follows from the unique shortest walk, and semigroup submultiplicativity gives strict all-time decay. All quantifiers are for fixed integer cycle order at least five. A checker independently solved 60 finite Lipschitz linear programs, 15 symbolic Taylor coefficients and 288 radial comparisons; the infinite statement is established analytically, not by those tests.
+## correctness
 
-## Originality — PASS, with residual risk
-The nearest primary material comprises Ollivier (2007, arXiv:math/0701886), Jost–Liu (2011, arXiv:1103.4037), Veysseire (2012, arXiv:1202.0420), and Cloez (2012, arXiv:1202.1259). These develop discrete graph transport curvature, continuous-time contraction criteria, and one-dimensional Wasserstein bounds; their inspected passages do not give the all-order exact cycle heat norm, fixed simultaneous extremizer, or the four residue-class high-order defect formula. Comparisons with related finite cyclic convolution, Fejér smoothing, and four-cycle heat results distinguished the generators and the quantifiers. An equivalent result in an unindexed optimal-transport study could remain; this is a scientific risk, not a claim of exhaustive novelty.
+PASS
 
-## Mathematical value — PASS
-These finite graph-heat semigroups are canonical boundary cases of transport curvature and discrete Lipschitz contraction. A closed formula at all times, one extremizer valid at all times, and a growing first nonzero contraction derivative characterize the onset of regularization far more sharply than a nonexpansivity bound or local curvature estimate. The result covers every cycle length at least five, with a nontrivial modulo-four stability pattern, rather than a single arbitrary numeric example.
+PASS — On C_n (n≥5), a graph-Lipschitz potential corresponds exactly to mean-zero edge gradients g_j of magnitude ≤1. ℓ1/ℓ∞ duality makes norm equal min_c Σ|p_t(j)−c|. For t>0, radial heat differences solve irreducible Metzler tridiagonal ODE with positive initial first coordinate, so p_t(0)>p_t(1)>...>p_t(⌊n/2⌋). Counting radial multiplicities proves the same median p_t(k), k=⌊(n+2)/4⌋, for all t. The stated zero-sum gradient g=1,(n−4k)/2,−1 is a simultaneous extremizer. Unique shortest k-walk gives p_t(k)=t^k/k!+O_n(t^(k+1)), hence leading defect (4k+2−n)/k!, positive for each residue class n mod 4. Positivity and semigroup norm submultiplicativity give strict all-time decay; t=0 and fixed-n asymptotic handled. Independently checked 24 LP norms against median and 11 exact Taylor coefficients, not as proof of infinite n.
 
-## Boundaries
-No result is asserted for normalized heat generators, weighted or directed cycles, or uniform-in-dimension short-time limits. Scientific checking here is not independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified — Ollivier/Veysseire/Jost–Liu provide transport-curvature and general nonexpansivity/contraction tools, not the sharp all-t norm for every n≥5 nor the median p_t(⌊(n+2)/4⌋) and one time-independent extremizer. General curvature upper estimates need not yield the high-order t^k contraction defect; for large n curvature bounds are too coarse. No covering published finding in Resultary top hits. Prior spectral/cyclic-transport exact calculations under alternate vocabulary remain a risk.
+
+## value
+
+PASS
+
+PASS — Graph heat transport/Lipschitz decay on all finite unweighted cycles is a canonical model. The exact all-time norm, simultaneous maximizing potential, and growing residue-dependent first nonzero contraction derivative quantify regularization not obtainable from mere curvature/nonexpansivity bounds. All-n structural theorem with sharp coefficient has independent geometric meaning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
