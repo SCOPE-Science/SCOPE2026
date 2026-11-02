@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The total-progeny generating function gives the Borel mass \(e^{-n}n^{n-1}/n!\), and Stirling's formula gives the \(n^{-3/2}\) order. The conditioned-tree height theorem supplies a positive-probability diameter of order \(\sqrt n\). A path-coordinate test function gives \(\lambda_2(\Delta_T)\le 12/d^2\). Summing the resulting normalized spectral mass over \(n\ge K/E\) yields the stated \(cE^{3/2}\) lower bound.
+PASS
 
-## Originality
+The critical Poisson(1) total progeny generating function obeys F(z)=z exp(F(z)-1). Lagrange inversion gives the exact Borel law P(N=n)=e^(-n)n^(n-1)/n!, whose Stirling expansion is comparable to n^(-3/2). The finite-variance conditioned Galton–Watson height-limit theorem implies a uniform positive probability of height >= a sqrt(n) for all sufficiently large n, and diameter d>=height. On any diameter path v_0,...,v_d, taking test function f(v_i)=i and extending constantly on attached branches has energy exactly d and variance at least d(d+1)(d+2)/12, hence lambda_2(Delta_T)<=12/((d+1)(d+2))<=12/d^2. Independently checked this exact Rayleigh certificate on all 94 unlabeled trees of orders 2 through 9. On the long-height event with n>=12/(a^2 E), there is at least one positive eigenvalue <=E, contributing >=1/n to the normalized trace. Thus E[spectral weight] >= p_0 sum_{n>=K/E}P(N=n)/n >= c E^(3/2). The power lower bound excludes an exp(-c_0 E^(-1/2)) upper tail for every positive c_0. This is a full all-E analytic proof, not an extrapolation from small trees; no exact asymptotic or matching upper bound is proved.
 
-PASS on the checked literature. The closest primary results cover the strict subcritical range or the strict supercritical range; the recent supercritical paper explicitly leaves the critical case unstudied. Searches for the critical Poisson Galton–Watson Laplacian spectral edge and its aliases returned no directly equivalent claim. The statement is a new critical lower bound, not a claim of a complete asymptotic.
+## originality
 
-## Value
+PASS
 
-PASS. The critical mean is the phase boundary between the cited subcritical and supercritical regimes. A polynomial lower bound rules out extending their exponential-in-\(E^{-1/2}\) upper-tail form to the critical tree-law measure, giving a concrete constraint on the open critical problem.
+Best-of-knowledge new critical-parameter polynomial lower bound for the annealed normalized combinatorial-Laplacian spectral measure of critical Poisson(1) Galton–Watson trees. The closest full-text 2026 primary theorem treats strictly supercritical mean and explicitly says the critical case is not studied. The 2006 Lifshitz-tail theorem treats strictly subcritical mean. Kersting supplies the conditioned-tree height input, not the spectral-measure consequence. Potential implicit estimates in older conditioned-tree spectral literature are a residual priority risk; no exhaustive novelty guarantee is made.
 
-## Closest literature and limitations
+## value
 
-The main comparison is Heydenreich–Müller–Terveer, arXiv:2603.00344, Theorem 1.4 and Remark 1.5(i), together with Khorunzhiy–Kirsch–Müller, Theorem 2.5 and Remark 2.6(iii). Kersting's conditioned-tree height theorem supports the geometric input. No exact asymptotic or finite-graph zero-atom convergence claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The critical mean 1 is a mathematically distinguished phase boundary separating the previously proved strictly subcritical and supercritical Lifshitz regimes. The explicit c E^(3/2) lower bound forces positive low-energy spectral weight far above exp(-c E^(-1/2)), ruling out an otherwise plausible critical extension of those theorems for precisely defined normalised-trace annealed tree-law measure. This is a motivated qualitative boundary obstruction, not a routine type check or a claim to the exact spectral exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
