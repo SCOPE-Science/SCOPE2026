@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The greedy factorization of a subsequence-avoiding word proves that the explicit host contains every allowed bounded subsequence, while a greedy progress invariant proves that the host avoids the forbidden word. The distinct insertion count follows from equivalence of insertion gaps within equal-letter runs. The unary lower bound forces exactly the maximum permissible number of marker letters and separates the host into forced universal gaps. The matching construction embeds any allowed target using an explicit block allocation inequality. The standalone finite checker verifies small independent instances; it is not used as a proof for unbounded parameters.
+
+**Originality — PASS, subject to stated risk.** Full text of Fleischmann et al. (2022), especially Theorems 3.3 and 4.1, was inspected. Theorem 3.3 solves the different problem of exactly one missing word at the same length, while Theorem 4.1 notices that a shorter missing word forces multiple longer missing words. Neither inspected statement contains the quantified relative host with its exact full missing insertion sphere or the unary optimal-length formula. Adamson et al. (2023) study universal words inside regular languages; their inspected overview does not establish this relative extremum. published-finding corpus claim searches produced related but nondominating results on universality, shortest absent words and insertion radius. An earlier general subword-ideal or shortest common supersequence result could imply part of the construction; no claim of absolute novelty is made.
+
+**Mathematical value — PASS.** The result resolves a natural finite-horizon relative-universality problem with a realizability theorem for every principal forbidden-subsequence ideal, a sharp all-alphabet jump in absent spectrum, and an exact infinite-parameter optimal host length for the unary obstruction. These go beyond a single finite census or merely restating a standard universality definition.
+
+The proof does not settle shortest hosts for nonunary patterns, and independent literature review is still needed for obscure equivalent formulations.
+
+Self-review: passed. Independent audit: not yet performed.
