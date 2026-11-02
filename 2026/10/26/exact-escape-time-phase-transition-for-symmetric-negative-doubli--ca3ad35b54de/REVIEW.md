@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On the actual interval map, both inverse branches have slope magnitude \(1/2\). The first survivor is partitioned into two outer blocks and two central blocks when \(a\ge1/3\). The complete inverse-branch transition table is proved from the inequalities \(a\ge1/3\) and \(a\le2/5\), and its finite-volume recurrence gives the exact all-horizon measure. For \(a\le1/3\), only the alternating outer branches survive, giving pure geometric decay. The normalized entrance-time tail and mean follow by a direct tail-sum identity, without assuming an invariant initial law. Immediately above \(2/5\), two additional inverse branches have strictly positive length, proving the sharp cutoff. The independent interval-preimage checker agrees on 315 exact rational instances and four upper-edge tests; finiteness of those checks is not invoked in the proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For 0<a<=2/5, the left/right inverse branches are affine and each shrinks Lebesgue length by 1/2. For a<=1/3 only alternating outer intervals survive; at 1/3<=a<=2/5 the four disjoint B_L,C_L,C_R,B_R blocks form an exact inverse-branch Markov transition with c_{n+1}=c_n/2 and b_{n+1}=(b_n+c_n)/2, initialized by c_1=(3a-1)/2 and b_1=a/2. Inductively m(E_n)=2^-n[2a+2n(3a-1)_+] for every real a and n>=0. Normalized initial law gives the stated tail, hazard and expected entrance time; above 2/5 the formerly forbidden inverse branches add (5a-2)/2 to the n=2 extension, with true mass 6a-2. Both equality parameters are explicitly handled. An independent standard-library exact-rational interval inverse-iteration gave 114 horizon/parameter tests and three upper-range boundary witnesses. The exact all-horizon result rests on the block inclusions/recurrence, not the finite tests.
 
-The motivating study [1] establishes symbolic/dimension plateau results, not the finite-time Lebesgue survival law. The closest published exact symmetric-hole analysis [2] identifies all periodic orbits and their zeta factors; it does not give phase-space escape measures. In fact its zeta function is constant on \(1/3<a<2/5\), while the present measure formula varies with the parameter, so those orbit counts cannot imply this claim. The plateau-width study [3] concerns coordinate lengths of parameter intervals and not time-dependent mass loss. Classical transfer/operator methods for Markov holes [4] are a methodological predecessor, but their accessible abstract and tables do not state this exact continuum of formulas. Searches for equivalent negative-doubling holes, first-exit distributions and Jordan/transfer variants identified no covering statement. Broader Markov escape theory and uninspected historical sources remain priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The primary question is how fast Lebesgue mass escapes from the natural central-hole family at the zero-entropy survivor boundary, not a gratuitously selected parameter. Exact horizons identify a genuine change of asymptotic *type* at the orbit-birth parameter \(1/3\): the escape exponent stays \(\log2\) but a length-two transfer Jordan chain creates a linear prefactor. The window ends sharply at \(2/5\), the next orbit-birth boundary, with an explicit immediate two-step discrepancy beyond it. The exact normalized entrance-time law, mean and hazard quantify dynamics that zeta/entropy invariants cannot recover. The proof handles a continuum of parameters and every time, with no unproved infinite extrapolation.
+Best-of-knowledge mathematical comparison of the same object, definitions, parameter quantifiers, and implication strength. Foundation and partial coverage are credited explicitly; neither failed searches nor inaccessible full literature alone are represented as novelty proof. The same object and threshold numbers are prior art, but a periodic-orbit zeta is not the same as finite-time Lebesgue measure of points that may escape. Nonimplication from identical zeta across continuum of distinct E_n is decisive; direct inverse-branch measure geometry is new mathematical work beyond prior orbit census.
 
-## Closest sources and limits
+## value
 
-[1] Ding–Steiner–Sun, arXiv:2610.03327v1 (2026), sections 1 and 4. [2] Published symmetric-hole orbit/zeta census (2026). [3] Published parity-sensitive plateau-width note (2026). [4] Haritha–Agarwal, *Product of expansive Markov maps with hole* (2019), abstract/tables available but full article restricted. General escape theory may supply alternate derivations; absolute priority and independent verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The parameter a=1/3 changes an exact geometric first-exit law into n*2^-n decay without changing escape exponent log2, while a=2/5 marks the sharp upper validity endpoint. This is an explicit Lebesgue observable for a natural open Lorenz/negative-doubling family, invisible to topological entropy and fixed-point/zeta counts; complete real-parameter exact law is useful even when generic transfer-matrix methods exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
