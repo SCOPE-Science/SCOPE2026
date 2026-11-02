@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytical theorem follows from (i) the barycentric half-space description of simplex intersections, (ii) the exact Euclidean radial covariogram integral, (iii) the maximum of finitely many subset-gradient linear forms, (iv) a geometrically justified interval of pairwise disjoint first caps, and (v) an elementary beta-function limit. These are complete proof steps for every integer dimension at least three. The numerical program verifies examples and does not independently certify the infinite-dimensional theorem or establish historical novelty.
+## correctness
 
-The standalone file `simplex_distance_checker.py` uses Python 3, NumPy and SciPy. Execute `OPENBLAS_NUM_THREADS=1 python simplex_distance_checker.py`. It independently constructs original/translated facet half-spaces and enumerates the feasible intersection vertices; ConvexHull volumes test the closed simplex covariogram. For tetrahedra it separately performs Sobol-sphere integration of the radial correction and compares with the analytically integrated cap expression. The tested polyhedra are an orthogonal-coordinate tetrahedron, a regular tetrahedron, a scalene planar triangle (control only), and a four-dimensional coordinate simplex. Direct numerical cap integrals also verify the predicted power and leading coefficient. In the checked execution all four cases reported `INTERSECTION_AND_CAP_CHECK_OK`, ending in `SIMPLEX_DISTANCE_ONSET_CHECK_OK`.
+PASS
 
-The first branch is certified analytically only until the explicitly defined positive threshold \(\(r_1\)\). The later distribution remains outside scope. Independence of scientific review and priority certification have not been established.
+For a nondegenerate Euclidean d-simplex d>=3, the barycentric lower bounds on T intersect (T+z) give exact normalized covariogram (1-q(z))_+^d, where q=max over proper subset gradient sums. Integrating radially gives initial polynomial P until inradius a=1/max norm L. Below the minimum of submaximal normal activation and maximal-cap overlap radius, all active caps are disjoint; inside each cap the maximizing functional is q, giving exact m equal cap corrections with sign (-1)^{d+1}. Spherical cross-section integration gives the beta coefficient and exponent (3d+1)/2; for d=3 independent symbolic integration matches pi*(r-a)^5*(a+5r)/(60a^3). Repeated maximal normals, antipodes and infinite threshold conventions are addressed, and nothing is claimed after r1.
+
+## originality
+
+PASS
+
+Known covariogram and simplex homothety identities supply starting premises, and existing planar triangle exact laws and gauge-distance beta laws concern different domains/statistics. No inspected stronger source directly gives all-dimensional Euclidean first cap interval and sharp onset coefficient. Historical stereology remains a risk.
+
+## value
+
+PASS
+
+Natural exact location and first full branch of a geometric-probability distribution for every simplex shape, including multiplicity and dimension-specific onset exponents, not an arbitrary finite numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
