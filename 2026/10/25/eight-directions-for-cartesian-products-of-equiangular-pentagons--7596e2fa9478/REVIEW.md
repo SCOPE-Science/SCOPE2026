@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The direction sets illuminating vertices of an equiangular pentagon are open arcs of length \(3\pi/5\) with bisectors at multiples of \(2\pi/5\). At most two adjacent vertices are lit by any direction, and every adjacent pair can be lit. Cartesian-product interiors factor, so every product direction illuminates a subset of one cyclic \(2\times2\) tile. The row-incidence lower bound gives \(I\ge8\). The eight listed tiles cover all 25 vertices, checked by exact arithmetic, yielding \(I\le8\). Summing 25 vertex weight constraints gives \(I^*\ge25/4\), and 25 tiles of weight \(1/4\) attain equality. Vertex-to-face coverage is justified by active facets. Boundaries, strictness and arbitrary equiangular side lengths are addressed in the proof. Numerical or finite checks are not used as substitutes for universal geometric claims.
+## correctness
 
-## Originality: PASS under inspected evidence
-The 2026 fractional illumination paper proves a general bound, not an exact pentagon Cartesian-product number. Sriamorn's 2023 paper treats multiple illumination of a *single* regular polygon. The publicly available full result for products of simplices explicitly restricts its product theorem to simplex factors, and the pentagon is not a simplex. The publicly available full result for all equiangular polygons treats a single planar factor, not the four-dimensional product. The full result for antipodal-normal fan polygons does not apply to odd pentagons. Searches for a pentagon-product illumination value, equivalent toroidal \(2\times2\) covering patterns, and a nonmultiplicative illumination example did not yield a dominating proof or table. The eight-cover construction and row obstruction go beyond the closest identified results. Historical priority risk remains for an older, differently indexed product-cover theorem.
+PASS
 
-## Value: PASS
-The result solves two geometric invariants exactly on a natural non-simplex four-dimensional family, simultaneously across all deformations preserving equiangular normal fans. Its strict counterexample to ordinary multiplicativity, \(8<3\cdot3\), has independent meaning for product behavior in illumination theory. The row-count obstruction and sharp fractional certificate show precisely how a continuous illumination problem reduces to a cyclic torus-covering problem, providing a motivated template for other product cases. The result is not claimed to settle product illumination in general.
+A pentagon vertex interior tangent cone has opening 3π/5; five evenly spaced inward bisectors at angular gaps 2π/5 imply a real planar direction illuminates at most two cyclically adjacent vertices and every adjacent pair is attainable with strict inequalities. Product tangent cones factor, so every product direction is contained in one of exactly 25 cyclic 2×2 tiles; this is a theorem about ALL real directions, not a finite-direction assumption. Each of five rows of the 5×5 vertex grid needs three covering tiles, while every tile intersects two rows: 2N≥15 gives N≥8. Independently checked the specified 8 tiles cover all 25 cells with exact row multiplicities and are realizable. Every vertex is contained in four tiles, so uniform weight 1/4 on all 25 achieves fractional 25/4; dual vertex summation 25≤4W gives optimality. Vertex illumination implies boundary illumination via active facet inclusion. Exact geometry plus combinatorial certificates prove all pentagon side lengths; finite tile checks alone would not prove the geometry.
 
-## Closest literature and limits
-Gorodzha (arXiv:2609.23913v1), Sriamorn (arXiv:2306.13517v1), Naszódi (2009), and the three full publicly accessible related results cited in RESULT.md were inspected or compared at material scope. General product-of-simplices formulas do not imply the pentagon-product values. The main residual risk is equivalent historical coverage under a different indexing scheme. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Naszódi defines fractional illumination; Sriamorn covers polygon multiple illumination and hence I(pentagon)=3; Resultary publishes 5/2 fractional illumination for equiangular planar pentagons and an exact theorem for products of simplices. None of those inspected statements implies 8 (vs 9) for the non-simplex four-dimensional Cartesian product or its 25/4 fractional optimum. Cyclic torus tile covering may exist separately in design theory, recorded as risk.
+
+## value
+
+PASS
+
+Strict nonmultiplicativity on a natural product family and the exact integral/fractional gap are motivated basic illumination invariants, with sharp unrestricted-direction proof and useful product-geometry counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
