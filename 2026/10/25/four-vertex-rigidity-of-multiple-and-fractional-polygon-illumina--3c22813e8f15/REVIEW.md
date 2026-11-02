@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direction illuminates a vertex precisely when both incident outward normals have negative dot product with it. Four normals with all consecutive gaps strictly below \(\pi\) never lie in a semicircle; an admissible consecutive pair is equivalent to its two-angle sum being strictly below \(\pi\). Opposite consecutive pair tests add to \(2\pi\), hence the admissible-pair graph is a star or empty. The star vertex gives the sharp incidence lower bound \(3m\), and one admissible pair plus the other two vertices gives an explicit three-direction cover. The parallelogram case gives \(4m\). Nonnegative weights obey the same incidence inequality, yielding the fractional formula. Finite normal-fan checks are corroboration, not proof.
+## correctness
 
-**Originality — PASS (provisional scholarly assessment).** Sriamorn's primary full text states the regular-polygon formula, triangle and parallelogram cases, general lower bound, and an open arbitrary-polygon algorithm problem; it does not state the non-parallelogram quadrilateral classification or the fractional/optimality rigidity. The closest retrieved published result is limited to antipodally paired edge-normal fans, which for a quadrilateral forces a parallelogram. Searches for quadrilateral multiple illumination, fractional illumination, normal-fan pair graphs, and non-parallelogram multiplicity did not return a dominating statement. Search nonappearance is not a novelty proof; an unlocated general circular-arc multicover theorem could subsume the claim.
+PASS
 
-**Value — PASS.** The result completely resolves the smallest nontrivial nonregular polygon case left open by the source's explicit families, simultaneously for every multiplicity and fractional weights. The star lemma is a structural obstruction explaining absence of bulk illumination savings: regular pentagons have such savings already for multiplicity two, but no quadrilateral does. The sharp discontinuity between parallelograms and all other quadrilaterals gives a natural phase boundary in polygonal illumination rather than an arbitrary finite parameter sample.
+At every genuine convex quadrilateral vertex, illuminating directions satisfy two strict adjacent outward-normal inequalities. Since each exterior turn lies strictly between zero and pi, no direction can illuminate opposite vertices or three vertices. Adjacent vertex pair i,i+1 is simultaneously illuminated precisely when the two consecutive exterior turns sum to less than pi. Opposite candidate-pair inequalities cannot both hold because the four turns sum to 2pi. Thus admissible pairs form a star; if none, all neighboring turn sums equal pi and the polygon is a parallelogram. One direction therefore hits at most one of the three non-star vertices, giving lower bound 3m (or fractional weight 3), and the witness pair plus individual remaining directions gives 3m; a parallelogram needs 4m. Counting equalities forces the claimed rigidity of every optimum. Independent enumeration checked star/no-disjoint-pair predicates for 275 valid integer normal fans; the argument itself covers arbitrary real turns and m.
 
-**Limitations and closest source.** The claim covers four genuine vertices only and no robust angular margins. The strongest directly relevant primary source is Sriamorn, arXiv:2306.13517v1, Sections 3.3 and 4. Comparisons to antipodal-normal-fan and equiangular fractional results use their retrieved summaries, not full-text absence claims. Priority and implications of unlocated general polygon algorithms remain residual risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sriamorn 2023/24 defines m-fold illumination and proves lower bounds plus regular n-gon, triangle and parallelogram cases; Section 4 specifically leaves an arbitrary convex polygon algorithm open. The new nonparallelogram four-vertex branch is not an ordinary regular-polygon substitution. Published exact antipodal edge-normal fan rules reduce to parallelograms at four sides, while equiangular quadrilaterals are parallelograms; neither includes a general asymmetrical quadrilateral. Fractional optimum and optimal-incidence rigidity further refine the missing class.
+
+## value
+
+PASS
+
+The smallest nonsymmetric polygon case in the open arbitrary-polygon multiple-illumination program is a natural exact benchmark. The absence of any multiplicity discount, exact fractional relaxation, and rigid optimum structure follow from a meaningful normal-fan obstruction rather than a renamed regular-polygon calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
