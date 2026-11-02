@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:54:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform G(n,m) with n>=r+3, 3<=k<=n-r, k-1<=m<=P=C(n-r,2), the exact chance of specified e=k-1 tree edges is (m)_e/(N)_e; conditioning on an ordered r-tuple of isolated vertices yields uniform G(n-r,m). Dividing the exact mixed moment by positive marginal expectations proves R(n,r,k)=((n-k)_r/(n)_r)*((N)_{k-1}/(P)_{k-1}), independent of tree automorphisms, shape and edge count m. Direct cancellation gives adjacent ratio (n-k-r)/(n-k)*(N-k+1)/(P-k+1), whose comparison with 1 has numerator (r/2)[n²-nr-2-k(2n-r-3)], decreasing in k; R(2)=1 and R(3)>1, giving the one-positive-block, optional zero, terminal-negative finite classification. For fixed r and k/n=x in compact interior, logarithmic expansion of the two products gives r[log(1-x)+2x]+(r/n)[-2+(r+1)x+2x²-(r-1)x/(2(1-x))]+O_r(n^-2), whence rho solves (1-rho)e^(2rho)=1, rho=0.796812130020..., with unique interpolated branch crossing rho*n+kappa_r+O_r(n^-1). Independent-edge conditioning drops the hypergeometric factor and leaves a strictly negative normalized covariance. Independently enumerated all 32,768 labeled simple n=6 graphs, built distinct path/star edge masks, and checked 52 exact Fraction mixed-moment cases across admissible m,k,r. Analytic count and expansion, not the finite enumeration, prove the entire theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Ruciński Theorem 3.1 is on upper-tail probabilities for rooted fixed small graphs in G(n,p), not signs of G(n,m) isolate/tree covariances for k/n approaching a positive constant.",
+          "Janson 1990 abstract explicitly fixes graph type as n grows and proves CLTs for subgraph counts, without the macroscopic variable tree order."
+        ],
+        "reasoning": "A general large-family moment identity would dominate the new formula if it explicitly handles arbitrary k and isolated factorial moments. The read theorems are instead about fixed-motif probability tails/limits, not growing-k conditional covariance or the 0.7968 threshold.",
+        "searches": [
+          "Janson and Ruciński Upper tails for counting objects in randomly induced subhypergraphs and rooted random graphs arXiv:0905.0972",
+          "Svante Janson A functional limit theorem for random graphs with applications to subgraph count statistics 1990"
+        ]
+      },
+      "checked_sources": [
+        "Janson and Ruciński 2009 arXiv:0905.0972 full HTML",
+        "Janson 1990 Random Structures & Algorithms 1(1), publisher abstract only",
+        "Tomescu 1994 Random Structures & Algorithms 5, abstract only",
+        "Resultary semantic search for isolated vertices, macroscopic trees and fixed-edge covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2009 full text bounds upper tails for rooted fixed graphs in independent-edge G(n,p), not a fixed-edge cross covariance normalized by isolated factorial moments.",
+          "1990 functional CLT concerns fixed graph type and n→infinity under G(n,p) and G(n,m), not k/n→u>0.",
+          "The source proof uses conditioning on isolated vertices; no cited theorem automatically provides its root at rho or interpolation correction."
+        ],
+        "reasoning": "The fixed-edge condition changes the sign: the corresponding G(n,p) ratio is (n-k)_r/(n)_r <1. The earlier fixed-motif distribution theorems do not imply positive covariance at small proportional k, a sign switch at rho or an order-one shift for macroscopic trees. The exact hypergeometric counting lemma is standard, but its sharp all-size classification is the assessed contribution.",
+        "searches": [
+          "Janson–Ruciński 2009 full arXiv HTML Theorem 3.1 and proof",
+          "Janson 1990 primary abstract",
+          "Tomescu 1994 primary abstract",
+          "Resultary targeted search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Potential aliases include factorial moments of degree-zero vertices, subgraph-copy/isolate overlap, normalized cross moment and hypergeometric random graph dependence.",
+          "Resultary returned unrelated spanning-forest ratios, Cayley-tree degree covariances and graph invariant results; none provided the same mixed factorial tree/isolate expression."
+        ],
+        "reasoning": "Normalize the covariance by the two positive marginals; the central ratio can be written as a hypergeometric conditional effect. This equivalence was explicitly used to search for known formulas; no covering published formula found, but failed search is not priority proof.",
+        "searches": [
+          "Resultary: Fixed edge G(n,m) covariance isolated vertices falling factorial and labeled copies of trees large k n universal sign threshold 0.796812",
+          "web: fixed edge random graph covariance number isolated vertices tree subgraph counts positive negative transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tomescu abstract studies counts of subtrees in random graphs, not the specified mixed factorial isolate/tree sign table.",
+          "No table of all edge budgets and shapes with a crossing near rho*n was identified in examined records."
+        ],
+        "reasoning": "The finite ratio is an all-n analytic expression rather than a census; even if tree enumerations are known, the shape-independent mixed isolated-vertex dependence across m and linear k and its order-one crossover were not shown in available tables. Inaccessible 1994 full text remains a caveat.",
+        "searches": [
+          "Ioan Tomescu On the number of subtrees for almost all graphs, Random Structures and Algorithms 5 (1994)",
+          "Resultary tree isolate covariance search",
+          "arXiv:0905.0972"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact all-m, all-shapes mixed factorial isolate/tree ratio, finite unimodality sign law and sharp macroscopic threshold with order-one correction. The hypergeometric edge-inclusion probability and subgraph expectation are standard and explicitly credited; older random-graph fluctuation and upper-tail papers were compared by mathematical statements, not titles. The threshold is not covered by fixed-small-subgraph CLTs or upper-tail bounds for rooted fixed graphs. Earlier general mixed factorial moment formulas may imply the ratio with an extra asymptotic calculation; genuine priority risk remains.",
+      "residual_risks": [
+        "Older general random-graph factorial-moment formula or mixed cumulant expansion may subsume the exact R(n,r,k) identity.",
+        "Janson 1990 and Tomescu 1994 original full texts were not available in the audit, so their complete mathematical scopes were not ruled out.",
+        "No raw covariance scaling law at arbitrary edge densities is asserted; the transition is a sign law for positive-normalization ratios."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_MIXED_FIXED_EDGE_GROWING_TREE_COVARIANCE",
+          "evidence": [
+            "Treats probability upper tails for rooted graph counts in G(n,p); conditional on edge budget appears as a proof device, not the isolate factorial/tree mixed-moment sign threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0905.0972",
+          "material_read": "Full arXiv HTML including Theorem 3.1, Sections 2–3, proof and Eqs. (3.7)–(3.17), rooted random graph upper-tail bounds",
+          "method": "primary arXiv full text",
+          "title": "Upper tails for counting objects in randomly induced subhypergraphs and rooted random graphs",
+          "trigger": "Same random graph subgraph counts and rooted conditioning"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_READ_PRIORITY_RISK",
+          "evidence": [
+            "Abstract explicitly speaks of fixed graph G with n varying and normal limits for G(n,p) and G(n,m); stronger exact joint identities in inaccessible proofs cannot be excluded."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010103",
+          "material_read": "Publisher abstract, statement of fixed-graph type and main CLT; full original not retrieved",
+          "method": "primary publisher abstract; authorized full-text attempt unavailable",
+          "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+          "trigger": "Primary original G(n,m) subgraph-count fluctuations and possible stronger coverage"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_READ_PRIORITY_RISK",
+          "evidence": [
+            "Study of subtree counts in almost all graphs; possible hidden mixed moments require full reading."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240050119",
+          "material_read": "Bibliographic abstract/searchable summary only, no full article",
+          "method": "primary bibliographic abstract",
+          "title": "On the number of subtrees for almost all graphs",
+          "trigger": "Potential equivalent counting or tree dependence table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The universal m-independent, tree-shape-independent covariance sign is a structural property of sampling graphs with exactly m edges. Unlike a routine fixed-motif expectation, it has a nontrivial sign transition for macroscopic tree size near rho*n≈0.7968n, a sharp order-one finite-size correction, and a contrasting strictly negative independent-edge ensemble. Such an exact dependence classification is a natural useful invariant for large subgraph statistics and conditioning effects, even without a separate downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Janson and Ruciński 2009 arXiv:0905.0972 full HTML",
+    "Janson 1990 Random Structures & Algorithms 1(1), publisher abstract only",
+    "Tomescu 1994 Random Structures & Algorithms 5, abstract only",
+    "Resultary semantic search for isolated vertices, macroscopic trees and fixed-edge covariance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Counts non-induced copies of trees, not induced trees or tree components; requires exact stated edge-count admissibility.",
+    "Fixed r asymptotics and x=k/n in interior; sign at k/n→rho requires order-one crossing analysis.",
+    "Independent enumeration covers only n=6 and does not prove the asymptotic theorem.",
+    "Primary full texts of 1990 and 1994 relevant publications unavailable; residual originality risk is named."
+  ],
+  "residual_risks": [
+    "Older general random-graph factorial-moment formula or mixed cumulant expansion may subsume the exact R(n,r,k) identity.",
+    "Janson 1990 and Tomescu 1994 original full texts were not available in the audit, so their complete mathematical scopes were not ruled out.",
+    "No raw covariance scaling law at arbitrary edge densities is asserted; the transition is a sign law for positive-normalization ratios."
+  ],
+  "schema_version": 1
+}
