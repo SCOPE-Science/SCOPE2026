@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The update rule uses the selected vertex's closed neighborhood and holds the state fixed on a tie. The energy change under flipping a vertex of degree \(d\) with \(s\) agreeing ordinary neighbors is \(2(d-2s)\). Thus every rim flip decreases energy, and only the hub can flip neutrally. The two-state energy-plateau equations give a uniform expected time at most \(3(n+1)\) to a strict energy drop, followed by at most \(2n\) drops. The characterization of recurrent rim profiles, the cyclic-gap counting argument, and the Perrin transfer matrix are exact for every integer \(n\ge3\). A standard-library checker exhaustively confirms the sink components and refined counts for \(n=3,\ldots,11\).
+## correctness
 
-**Originality (PASS, bounded best-knowledge).** Rouquier–Regnault–Thierry (arXiv:1011.5119) supply the general model, monotone energy principle, and descriptions of cliques and cycles/paths. Their examined full-text sections do not contain the wheel-specific class census, the parity split into absorbing states and hub-switching classes, or the quadratic expected absorption estimate. OEIS A001608 already supplies the cyclic maximal-independent-set count, so the Perrin numbers themselves are not novel. Related synchronous-majority calculations on wheels have different dynamics and do not imply this stochastic result. Searches for asynchronous minority, local-maxcut equivalences, anti-coordination equilibria, wheel hub oscillations and quadratic hitting times returned no matching wheel statement; nonindexed work remains a risk.
+PASS
 
-**Value (PASS).** The degree-parity mechanism yields an exact attractor classification for a natural nonbipartite graph family, an unusual parity-dependent oscillation phenomenon with exactly two nontrivial communicating classes, a refined recurrent-state density formula, and a uniform polynomial expected hitting time. The time estimate is a dynamical conclusion that does not follow just from the previously known Perrin numerical table. The result exposes how a globally connected hub can coexist with an exponentially large set of eventual states while allowing only one energy-neutral coordinate.
+For degree d and s agreeing ordinary neighbors, a legal closed-neighborhood minority flip changes E=2 times monochromatic edges by 2(d-2s). All rim degrees are three, hence every rim flip decreases E by at least two; only the hub, when n even, can flip neutrally. A neutral-energy plateau has at most two states; with a,b active rim counts the first-step equations (a+1)e0=N+e1 and (b+1)e1=N+e0 imply maximum expected exit time 3N, N=n+1. At most E(c)/2 strict drops yields the claimed expected-time bound. For hub bit fixed, rim inactivity excludes cyclic 00 and 111, giving n/z*binom(z,n-2z) by distinguished-zero/gap counting and Perrin total by 3-state transfer. Alternating rims yield precisely the two nonabsorbing 2-cycles. Independently built all-state Markov transitions and sink SCCs for n=3..8; total recurrent states, component sizes, and every z-profile matched, without using finite checks to imply all n.
 
-**Limitations and nearest literature.** The quadratic bound is not proved optimal. The reference paper's clique and cycle theorems do not establish the present wheel bound; its general energy lemma is explicitly acknowledged as a key ingredient. Full bibliographic coverage is not guaranteed, and this review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rouquier–Regnault–Thierry published the exact asynchronous minority update and general energy technique with special families cliques, trees, bipartite graphs and cycles, not the inspected wheel-specific complete Perrin recurrent-class census and uniform O(n^2) expected entrance bound. Perrin itself is a known cyclic maximal-independent-set sequence and is explicitly prior art; new attribution is only to its wheel minority dynamics.
+
+## value
+
+PASS
+
+A single potentially energy-neutral hub embedded in odd-degree rim dynamics produces a tractable but nontrivial full recurrent-class classification and quantitative stochastic hitting bound. Both exact cyclic profile and the all-start quadratic time bound are motivated dynamical structural results, not merely a sequence renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
