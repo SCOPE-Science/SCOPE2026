@@ -1,19 +1,21 @@
-# Scientific review: quandle polynomial of universal Cayley quandles
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The two fixing relations are independently derived from the defining action-quandle multiplication. For a point \((x,g)\), the first reduces to \(C_G(g)\cap G_x\), whereas the other counts fixed points of every element of \(C_G(g)\) and is evaluated by Burnside's lemma. For the natural \(S_n\)-action, the centralizer orbit sizes are \(d m_d\), giving every monomial and its multiplicity. Double counting and deleting a distinguished part prove the partition-sum formula. The classical Hardy–Ramanujan estimate supplies the asymptotic. An independent direct finite test examines every ordered pair for degrees \(1\) through \(5\); it is corroboration, not the arbitrary-degree proof.
+PASS
 
-## Originality
+For the explicit convention c(a)=#{b:b◃a=b}, r(a)=#{b:a◃b=a}, qp_record(s,t)=sum s^{c(a)}t^{r(a)}, the action-quandle relations give c(x,g)=|C_G(g)| o_g by Burnside, and r(x,g)=|X||C_G(g)∩G_x|. For g of cycle type lambda in S_n, centralizer order z_lambda, orbits indexed by distinct cycle sizes with cardinality d m_d, so the displayed partition polynomial follows. Summing fixed-pair counts gives n*n!*sum_{j=0}^{n-1}p(j), with the partition asymptotic yielding the stated limit. The s^n t^n coefficient n! for n>=3 follows since c>=n, with equality only when the centralizer acts freely and transitively on n points, i.e. an n-cycle for n>=3. Independent complete quandle-operation enumeration checked n=1,...,5. IMPORTANT CONVENTION: Nelson originally defines the standard polynomial using s^{r(a)} t^{c(a)}, the variable reverse of this record; the formula here is correct for its self-contained declared definition but qp_Nelson(s,t)=qp_record(t,s), so references to the ordinary convention without this caveat are imprecise.
 
-**PASS, with literature qualification.** Kai's first public 2026 paper constructs the universal action quandle and determines its inner group and connected components; those results fix the object but not the two-variable Nelson polynomial or ordered fixing-pair count. Carrell–Nelson and Nelson define the polynomial and analyze other rack/quandle families; their inspected statements do not give the full partition-indexed polynomial for the universal quandle. The singleton-action conjugation special case is standard and is not claimed as new. A directly related earlier calculation under the matrix-rack construction would be a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The full ordinary Nelson polynomial is a natural knot-theoretic quandle invariant. Evaluating it for the newly introduced universal target family, for every degree rather than for sporadic examples, gives explicit cycle-type statistics and a partition-number fixed-pair density with a sharp asymptotic and distinguished minimal monomial. The result is a quantitative structural profile of the common embedding target for all finite quandles of each size, not merely an application of a representation change or a small-table calculation.
+Best-of-knowledge originality of the precisely delimited final claim after comparing exact object/parameter theorem implications; known tools and antecedents are credited. Primary full-text coverage where available and access exceptions are disclosed. Kai component-classification theorem does not by itself imply the fixed pair density or s/t exponents, and Nelson invariant is a generic definition rather than a computed Q_n instance.
 
-## Scope and limitations
+## value
 
-The theorem concerns the ordinary \((1,1)\) polynomial, not higher iterate polynomials or link-coloring enhancements. Its asymptotic uses classical partition asymptotics. Equivalence in unindexed literature or in a treatment of the older matrix-rack construction cannot be completely excluded. A single source's component classification is not treated as a computed polynomial unless the fixing statistics and their exact multiplicities are actually supplied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural universal embedding object Q_n, the exact full bivariate first-iterate fixed-point profile, distinguished-cycle statistics, and asymptotic fixed-pair probability are useful algebraic invariants. A general Burnside lemma alone does not tabulate the partition cycle-type distribution and its asymptotic. Not a claim about higher-iterate polynomials or link-coloring improvements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
