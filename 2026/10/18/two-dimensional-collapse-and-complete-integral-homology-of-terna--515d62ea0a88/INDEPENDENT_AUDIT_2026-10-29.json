@@ -1,0 +1,225 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:43:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "frozen verify_hamming_open.py inspected (not executed)",
+        "independent_hamming_check.py independently created and executed",
+        "T. Matsushita, Fundamental groups of neighborhood complexes, J. Math. Sci. Univ. Tokyo 24 (2017), Theorem 1.1, https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf",
+        "K. Behal and A. Chih, Fundamental Groups of Hamming Graphs, arXiv:2308.02938v3, Theorem 4.14, https://arxiv.org/abs/2308.02938",
+        "M. Kahle, The neighborhood complex of a random graph, JCTA 114 (2007), Lemma 2.3, https://arxiv.org/abs/math/0512077"
+      ],
+      "rationale": "PASS for the stated domain all integer d>=1 and q=3,4 (ordinary OPEN neighborhood). Distinct neighborhood simplices N(v), N(w) intersect in q-2 vertices at distance one, two at distance two, and none farther; since q<=4, every >=3-vertex face has a unique center. Fix anchor a_v in each N(v) and, in descending |sigma|>=3, remove each sigma subset N(v) minus anchor together with sigma+anchor. Any larger coface of the lower simplex lies in that same simplex and was already removed, so these are genuine elementary free-face removals on the ORIGINAL triangulation; only faces of dimension <=2 remain. When d(q-1)<4 no removal is necessary. The original graph is in the complex 1-skeleton, so connected. f0=q^d, f1=q^d/2 [d(q-1)+binom(d,2)(q-1)^2], and the unique-center contribution of size>=3 faces gives chi3=3^d(d-1)(d-2), chi4=4^(d-1)(9d^2-15d+8). Matsushita Thm1.1 and Behal-Chih Thm4.14 give pi1 and integral H1 via even-coordinate parity: Z^d for q3, (Z/2)^(d-1) for q4. Since the collapsed 2-complex has no 3-cells, H2 is a subgroup of free C2 and therefore free, with beta2=chi-1+beta1 as stated. d=1 boundary cases match K3 circle and K4 tetrahedral boundary. Independent checker reconstructed all faces and each elementary free-face incidence for seven (d,q) cases, specifically (1,3),(2,3),(3,3),(4,3),(1,4),(2,4),(3,4), with 432 pairs for (3,3), 8019 for (4,3), 256 for (2,4), 14016 for (3,4), and chi values 0,0,54,486,2,56,704; modular H1 ranks over F2,F3,F5 corroborate torsion. Symbolic Euler simplification checked independently. Finite checks are not a proof for all d, and the independent argument uses the identified primary group theorems.",
+      "residual_risks": [
+        "Only 7 finite examples checked; all-d validity uses stated local intersection/free-coface argument and primary group theorems",
+        "No formal proof assistant or expert attestation is claimed"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Every pair of distinct Hamming graph vertices has at most max(q-2,2)=2 common neighbors for q=3 or4; therefore all G_{d,q} are K_{2,3}-free. Kahle Lemma 2.3 applies for ALL d and already implies H_i=0 for i>2, with H2 torsion free as a subgroup of a free 2-chain group of its low-dimensional homotopy model.",
+          "Combining this with Matsushita and Behal–Chih first-homology input and the elementary closed-form Euler characteristic yields the entire displayed integral H2 rank formula; the homology classification is thus mathematically IMPLIED by prior general theorems plus standard counting, even without an earlier paper printing the formula.",
+          "The multinary Hamming scale-two Cech result concerns the nerve of closed radius-one balls, a different simplicial complex; its broader q-domain does not itself cover the original-face open-neighborhood collapse."
+        ],
+        "reasoning": "Decisive priority distinction: the all-d homology consequences are already available from Kahle+Matsushita+Behal–Chih and do NOT independently establish novelty. An explicit elementary collapse inside the original triangulation, preserving all original vertices and avoiding barycentric subdivision, remains a genuinely stronger combinatorial statement not supplied by the inspected broader theorem.",
+        "searches": [
+          "Lovasz open neighborhood complex of Hamming graph Cartesian products K3 K4 high dimensional collapse integral homology H2",
+          "Hamming graph categorical product clique complex nerve common neighbor simplicial collapse dimension two",
+          "K2,3 free graphs neighborhood complex elementary collapse original triangulation dimension two",
+          "M. Kahle, The neighborhood complex of a random graph, JCTA 114 (2007), Lemma 2.3, https://arxiv.org/abs/math/0512077",
+          "T. Matsushita, Fundamental groups of neighborhood complexes, J. Math. Sci. Univ. Tokyo 24 (2017), Theorem 1.1, https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf",
+          "K. Behal and A. Chih, Fundamental Groups of Hamming Graphs, arXiv:2308.02938v3, Theorem 4.14, https://arxiv.org/abs/2308.02938",
+          "Resultary/2026, Scale-two Cech complexes of multinary Hamming graphs collapse to wedges of two-spheres, 2026/10/11/SCOPE-scale-two-ech-complexes-of-multinary-hamming-graphs-collapse-to--dc62d4e0316e"
+        ]
+      },
+      "checked_sources": [
+        "M. Kahle, The neighborhood complex of a random graph, JCTA 114 (2007), Lemma 2.3, https://arxiv.org/abs/math/0512077",
+        "T. Matsushita, Fundamental groups of neighborhood complexes, J. Math. Sci. Univ. Tokyo 24 (2017), Theorem 1.1, https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf",
+        "K. Behal and A. Chih, Fundamental Groups of Hamming Graphs, arXiv:2308.02938v3, Theorem 4.14, https://arxiv.org/abs/2308.02938",
+        "D. N. Kozlov, Simple homotopy types of Hom-complexes, neighborhood complexes, Lovasz complexes, and atom crosscut complexes, arXiv:math/0503613, https://arxiv.org/abs/math/0503613",
+        "Resultary/2026, A perfect discrete-Morse matching for the ternary three-cube neighborhood complex, 2026/10/11/SCOPE-a-perfect-discrete-morse-matching-for-the-ternary-three-cube-nei--ae99e924c723",
+        "Resultary/2026, Integral homology of the rook-graph neighborhood complex, 2026/10/11/SCOPE-integral-homology-of-the-rook-graph-neighborhood-complex--00c7d8853dcb",
+        "Resultary/2026, Mixed-dimensional neighborhood homotopy of complete-graph cycle products, 2026/10/11/SCOPE-mixed-dimensional-neighborhood-homotopy-of-complete-graph-cycle--3a53c8927b3c",
+        "Resultary/2026, Scale-two Cech complexes of multinary Hamming graphs collapse to wedges of two-spheres, 2026/10/11/SCOPE-scale-two-ech-complexes-of-multinary-hamming-graphs-collapse-to--dc62d4e0316e",
+        "Resultary searches for original Lovasz Hamming complexes, exact tables and related collapses"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kahle Lemma 2.3 with a=2,b=3 implies an abstract 2-dimensional strong deformation retract; his proof works on the face poset/order complex of the barycentric subdivision, not a list of free-face pairs on the original neighborhood simplices.",
+          "The submitted ORIGINAL-triangulation pairing is sigma subset N(v) minus anchor with |sigma|>=3, paired with sigma union anchor, in descending cardinality. Pairing works because any >=3-vertex face is contained in a unique F_v; our independent checker confirmed all free-coface conditions on seven finite examples.",
+          "Matsushita + Behal–Chih imply all H1 formulas; adding Kahle and the f-vector count implies all H2 formulas, so no independent priority is attributed to the homology expressions.",
+          "An earlier original-face optimal Morse matching exists for H(3,3); a complete K_m square C_n homotopy result exists for n>=5 and m>=4, not applicable to arbitrary powers of K3 or K4."
+        ],
+        "reasoning": "The only surviving new mathematical contribution is a uniform, direct, explicit simplicial collapse on the unsubdivided original Hamming neighborhood complex. The homological formulas are consequences and valid, but prior literature already implies them. This limitation narrows the novelty claim without altering the final mathematical theorem; priority of the stronger collapse remains best-of-knowledge.",
+        "searches": [
+          "Lovasz open neighborhood complex of Hamming graph Cartesian products K3 K4 high dimensional collapse integral homology H2",
+          "perfect discrete Morse matching ternary three cube neighborhood complex and four by four rook graph neighborhood complex homology",
+          "Hamming graph categorical product clique complex nerve common neighbor simplicial collapse dimension two",
+          "K2,3 free graphs neighborhood complex elementary collapse original triangulation dimension two",
+          "M. Kahle, The neighborhood complex of a random graph, JCTA 114 (2007), Lemma 2.3, https://arxiv.org/abs/math/0512077",
+          "T. Matsushita, Fundamental groups of neighborhood complexes, J. Math. Sci. Univ. Tokyo 24 (2017), Theorem 1.1, https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf",
+          "K. Behal and A. Chih, Fundamental Groups of Hamming Graphs, arXiv:2308.02938v3, Theorem 4.14, https://arxiv.org/abs/2308.02938",
+          "Resultary/2026, A perfect discrete-Morse matching for the ternary three-cube neighborhood complex, 2026/10/11/SCOPE-a-perfect-discrete-morse-matching-for-the-ternary-three-cube-nei--ae99e924c723",
+          "Resultary/2026, Mixed-dimensional neighborhood homotopy of complete-graph cycle products, 2026/10/11/SCOPE-mixed-dimensional-neighborhood-homotopy-of-complete-graph-cycle--3a53c8927b3c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kahle Lemma 2.3 proves a K_{2,3}-free graph has a neighborhood complex strongly deformation retracting to dimension at most 2, via the face-poset double-neighborhood map and its barycentric order complex. It does not assert an elementary collapse of the original unsubdivided simplicial complex.",
+          "Matsushita Theorem 1.1 relates fundamental groups of open-neighborhood complexes to the even subgroup of the 2-walk group; Behal–Chih Theorem 4.14 computes the Hamming graph groups. These cover fundamental groups and first homology.",
+          "Kozlov proves several simple-homotopy equivalences involving Hom and Lovasz neighborhood complexes, with barycentric subdivisions; not a uniform original-face elementary collapse to dimension 2 for the precise graph family."
+        ],
+        "reasoning": "The important equivalence is the broad K_{2,3}-free two-dimensional deformation-retract bound. It covers an abstract 2-dimensional model, but not the stronger constructive claim that the exact original face poset can be reduced by ordinary free-face removals without subdivision. The claimed group/H1 ingredients are expressly prior work.",
+        "searches": [
+          "Lovasz open neighborhood complex of Hamming graph Cartesian products K3 K4 high dimensional collapse integral homology H2",
+          "Hamming graph categorical product clique complex nerve common neighbor simplicial collapse dimension two",
+          "K2,3 free graphs neighborhood complex elementary collapse original triangulation dimension two",
+          "M. Kahle, The neighborhood complex of a random graph, JCTA 114 (2007), Lemma 2.3, https://arxiv.org/abs/math/0512077",
+          "D. N. Kozlov, Simple homotopy types of Hom-complexes, neighborhood complexes, Lovasz complexes, and atom crosscut complexes, arXiv:math/0503613, https://arxiv.org/abs/math/0503613",
+          "T. Matsushita, Fundamental groups of neighborhood complexes, J. Math. Sci. Univ. Tokyo 24 (2017), Theorem 1.1, https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf",
+          "K. Behal and A. Chih, Fundamental Groups of Hamming Graphs, arXiv:2308.02938v3, Theorem 4.14, https://arxiv.org/abs/2308.02938"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior H(3,3) exact original-face Morse matching has critical-cell vector (1,3,56) and complete H1=Z^3, H2=Z^56, which are exactly this theorem at d=3,q=3.",
+          "Prior H(2,4) rook neighborhood calculation gives H1=Z/2, H2=Z^55, covered special case. Its target file was not accessible via the attempted exact GitHub path; that source was evaluated only to the returned indexed summary.",
+          "No indexed database or table was found specifying a uniform unsubdivided simplicial elementary collapse for all d and both alphabets. Absence from searches is not positive novelty proof."
+        ],
+        "reasoning": "Earlier exact examples are credited as covered. Their computations do not logically imply the all-parameter elementary collapse; conversely, the H2 numbers follow from older general theorems and basic Euler arithmetic, even if an all-parameter table is absent.",
+        "searches": [
+          "Lovasz open neighborhood complex of Hamming graph Cartesian products K3 K4 high dimensional collapse integral homology H2",
+          "perfect discrete Morse matching ternary three cube neighborhood complex and four by four rook graph neighborhood complex homology",
+          "Resultary/2026, A perfect discrete-Morse matching for the ternary three-cube neighborhood complex, 2026/10/11/SCOPE-a-perfect-discrete-morse-matching-for-the-ternary-three-cube-nei--ae99e924c723",
+          "Resultary/2026, Integral homology of the rook-graph neighborhood complex, 2026/10/11/SCOPE-integral-homology-of-the-rook-graph-neighborhood-complex--00c7d8853dcb",
+          "Resultary H(3,3) perfect Morse match and H(2,4) rook exact homology"
+        ]
+      },
+      "rationale": "PASS only for the stronger explicit, un-subdivided elementary simplicial collapse and its fully uniform constructive pairing, to the best of inspected literature. Important qualification: the mere existence of a dimension<=2 homotopy model AND the entire integral H2/Higher homology list are mathematically IMPLIED by Kahle 2007 Lemma2.3 for K_{2,3}-free graphs together with Matsushita+Behal-Chih and elementary Euler characteristic. Thus the H2 formulas are correct but not independently novel; earlier self-review overlooked the dominating Kahle lemma. Prior specific H(3,3) and H(2,4) cases were already known, and Kozlov works in subdivisions. No inspected source asserts the exact direct original-face elementary collapse across all d and both alphabets. This is a qualified best-of-knowledge priority finding, not proof of novelty; need update public priority language and source citations before any publication.",
+      "residual_risks": [
+        "Kahle 2007 general K_{2,3}-free dimension-two retract already covers the higher-homology limit; Matsushita and Behal-Chih plus elementary Euler counts imply all H2 formulas. All claims of H2 novelty require rewording before public use.",
+        "Uniform original-face collapse might already appear in an unindexed general simplicial-complex cone-overlap lemma; priority of that stronger constructive assertion is not certified.",
+        "Rook-graph finite-case primary full text not retrieved, only indexed summary read.",
+        "Some other possible original-face collapses could be published under simplicial gluing, shelling or discrete-Morse language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER COVERAGE of two-dimensional homotopy model, higher-homology vanishing, and hence combined H2 calculation; does not assert original-simplicial-elementary collapse",
+          "evidence": [
+            "Lemma 2.3: K_{a,b}-free -> strong deformation retract to dimension <= a+b-3. Proof passes to order complex of face poset using double common-neighbor closure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0512077",
+          "material_read": "Full accessible arXiv HTML sections 1-3; Lemma 2.3 statement and proof (face-poset closure map, barycentric order complex); relevant general theorems and hypotheses; specifically source lines 25-40 and 74-83",
+          "method": "Read original author text and compare hypotheses and conclusion with the Hamming overlap lemma",
+          "title": "The neighborhood complex of a random graph",
+          "trigger": "General K_{2,3}-free neighborhood-complex dimension theorem can dominate the main claimed homology consequences"
+        },
+        {
+          "assessment": "Covers parity-subgroup group/H1 transfer for relevant graphs; no asserted direct original-face 2D collapse",
+          "evidence": [
+            "Theorem 1.1, even subgroup of the graph two-fundamental group."
+          ],
+          "identifier_or_url": "https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf",
+          "material_read": "Full-access primary PDF, intro, definitions and Theorem 1.1 relating neighborhood fundamental group to even graph 2-walk subgroup",
+          "method": "Primary PDF material inspected, including page rendering",
+          "title": "Fundamental groups of neighborhood complexes",
+          "trigger": "Potential direct group and first-integral-homology prior theorem"
+        },
+        {
+          "assessment": "Determines graph walk groups Z^d for K3 factors and (Z/2)^d for K4 factors; with Matsushita gives full H1",
+          "evidence": [
+            "Theorem 4.14 product group classification with factor size 3 vs >=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.02938",
+          "material_read": "Primary arXiv v3 manuscript, relevant definitions, coordinate square relations and Theorem 4.14, q=3 and q>=4 cases",
+          "method": "Read primary arXiv manuscript and relevant theorem pages",
+          "title": "Fundamental Groups of Hamming Graphs",
+          "trigger": "Existing Hamming graph 2-fundamental group could imply all H1 claims"
+        },
+        {
+          "assessment": "Different standard Hom/Lovasz simple-homotopy equivalences; does not specifically supply the un-subdivided dimension-two Hamming collapse",
+          "evidence": [
+            "Theorem 4.4 involves collapse in a barycentric-subdivision setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0503613",
+          "material_read": "Primary arXiv full PDF, neighborhood/Hom comparison and Theorem 4.4 on barycentric subdivision",
+          "method": "Read theorem, surrounding constructions, and inspected PDF rendering",
+          "title": "Simple homotopy types of Hom-complexes, neighborhood complexes, Lovasz complexes, and atom crosscut complexes",
+          "trigger": "General simple-homotopy and collapse results may duplicate original simplicial collapse"
+        },
+        {
+          "assessment": "Entire d=3,q=3 case is covered including H2=Z^56 and an original-face optimal matching; not an all-d formula or uniform collapse",
+          "evidence": [
+            "Original d=3,q=3 matching has 672 pairs and critical vector (1,3,56); cites Kahle K_{2,3}-free dimensional-retract bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-perfect-discrete-morse-matching-for-the-ternary-three-cube-nei--ae99e924c723",
+          "material_read": "Full RESULT.md via connected GitHub read; proof and prior-results section including Kahle citation",
+          "method": "Repository primary text inspection, not merely indexed summary",
+          "title": "A perfect discrete-Morse matching for the ternary three-cube neighborhood complex",
+          "trigger": "Exact small-parameter result and known K_{2,3}-free observation"
+        },
+        {
+          "assessment": "The graph is K_m square C_n, n>=5, not K3^d or K4^d; related technique but not claim containment",
+          "evidence": [
+            "Construction uses uniquely centered opposite-layer pairs; different graph family and mixed-dimension wedge conclusion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-mixed-dimensional-neighborhood-homotopy-of-complete-graph-cycle--3a53c8927b3c",
+          "material_read": "Full RESULT.md from connected GitHub, including collapse construction and n>=5,m>=4 scope",
+          "method": "Primary repository source reading",
+          "title": "Mixed-dimensional neighborhood homotopy of complete-graph cycle products",
+          "trigger": "Similar original-face neighborhood collapse for Cartesian complete-graph products"
+        },
+        {
+          "assessment": "Known special case H1=Z/2, H2=Z^55; insufficient access to inspect more detailed findings",
+          "evidence": [
+            "Search result asserts the 4x4 rook case groups agreeing with the submitted specialization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-integral-homology-of-the-rook-graph-neighborhood-complex--00c7d8853dcb",
+          "material_read": "Resultary indexed title/summary only; full RESULT.md requested at expected path but not found (404), no claim of full reading",
+          "method": "Semantic record query and attempted GitHub source read",
+          "title": "Integral homology of the rook-graph neighborhood complex",
+          "trigger": "Exact q=4,d=2 case"
+        },
+        {
+          "assessment": "Not the same complex: closed-radius-one Cech nerve differs from ordinary open neighborhood complex",
+          "evidence": [
+            "Its object is the intrinsic scale-two Cech nerve; source complex is defined by sets with common open adjacent vertex."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-scale-two-ech-complexes-of-multinary-hamming-graphs-collapse-to--dc62d4e0316e",
+          "material_read": "Resultary indexed title/abstract only, specifically its closed radius-one Cech nerve definition",
+          "method": "Compare indexed theorem object and face predicate, not whole-document noncoverage claim",
+          "title": "Scale-two Cech complexes of multinary Hamming graphs collapse to wedges of two-spheres",
+          "trigger": "Plausibly stronger all-q Hamming graph dimension collapse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "M. Kahle, The neighborhood complex of a random graph, JCTA 114 (2007), Lemma 2.3, https://arxiv.org/abs/math/0512077",
+        "D. N. Kozlov, Simple homotopy types of Hom-complexes, neighborhood complexes, Lovasz complexes, and atom crosscut complexes, arXiv:math/0503613, https://arxiv.org/abs/math/0503613",
+        "Resultary/2026, A perfect discrete-Morse matching for the ternary three-cube neighborhood complex, 2026/10/11/SCOPE-a-perfect-discrete-morse-matching-for-the-ternary-three-cube-nei--ae99e924c723",
+        "Resultary/2026, Mixed-dimensional neighborhood homotopy of complete-graph cycle products, 2026/10/11/SCOPE-mixed-dimensional-neighborhood-homotopy-of-complete-graph-cycle--3a53c8927b3c"
+      ],
+      "rationale": "PASS, qualified and narrow: a constructive ordinary elementary collapse of the ORIGINAL often high-dimensional Lovasz complex, without introducing barycentric vertices, is a mathematically natural stronger combinatorial reduction beyond the already-known abstract two-dimensional retraction. It supplies a uniform explicit sequence of free-face cancellations on a natural infinite family (both K3 and K4 Hamming powers), useful for chain-level models and reproducible simplicial calculations, not an arbitrary parameter slice. The H2 numbers and higher-vanishing themselves should NOT be advertised as previously unknown because a Kahle-based deduction already exists. This is a modest structural contribution rather than an independent new homology theorem or full homotopy classification.",
+      "residual_risks": [
+        "Value is confined to stronger explicit original-face collapse, not the known homology implications or the existence of an abstract 2D deformation retract."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each d>=1, q in {3,4}, N(K_q^{square d}) admits an explicit ORIGINAL-triangulation simplicial collapse to dimension at most 2. It is connected, with H1=Z^d (q3) or (Z/2)^(d-1) (q4); H2=Z^{3^d(d-1)(d-2)+d-1} (q3) or Z^{4^(d-1)(9d²-15d+8)-1} (q4), and H_i=0 above 2. Algebraic homology formulas are already implicit in Kahle/Matsushita/Behal-Chih and only the constructive direct collapse is assessed as potentially original.",
+  "limitations": [
+    "Homology group formulas are covered by implication of broad prior theorems; novel priority applies only to direct un-subdivided elementary collapse.",
+    "Searches and full primary source reading do not exclude unindexed equivalent direct-collapse lemmas.",
+    "Finite exact computations test seven cases, not all d.",
+    "No complete sanitized final public replacements staged; operational publication blocker is distinct from scientific acceptance.",
+    "No Lean or external human expert proof certification is asserted; existing channels preserved."
+  ],
+  "schema_version": 1
+}

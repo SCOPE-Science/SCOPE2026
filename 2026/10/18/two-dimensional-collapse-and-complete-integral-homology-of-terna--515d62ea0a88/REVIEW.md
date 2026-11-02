@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the specified Hamming graphs with alphabets three and four, any two distinct open-neighborhood simplices share at most two vertices; the face/coface collapse is then globally well defined, covers every face of cardinality at least four, and is ordered by descending face size. The edge count and alternating higher-face contribution independently produce the closed Euler-characteristic formulas. Published four-cycle graph-homotopy and even-parity results determine the full first integral homology, while the two-dimensional collapse proves that second integral homology is free, completing the Euler–Poincaré argument. Exact finite elimination verifies seven instances, including the nontrivial two-primary first homology for four-letter alphabets.
+## correctness
 
-## Originality — PASS (with residual bibliographic risk)
-Matsushita's neighborhood fundamental-group theorem (arXiv:1210.2803) and Behal–Chih's complete Hamming-graph group calculation (arXiv:2308.02938) already cover the group and first-homology ingredients, which are explicitly credited and not presented as discoveries. Indexed calculations for the ternary three-cube and four-by-four rook graph are recovered as proper isolated cases. The new uniform two-dimensional simplicial collapse and the resulting integral second-homology classification for *all* exponents were not found in the inspected sources or semantic searches; other Čech complexes have different face conditions. Unindexed literature may contain an equivalent collapse.
+PASS
 
-## Mathematical value — PASS
-The neighborhood complexes have dimension \(d(q-1)-1\) before reduction, growing without bound with \(d\), while their homology is always concentrated at most in dimension two for both natural nonbinary alphabets. The explicit elementary collapse is a structural geometric theorem rather than an arbitrary finite census; it permits a complete integral top-homology count, including torsion exclusions beyond rational Betti numbers. It unifies but goes substantially beyond the two known isolated cases.
+PASS for the stated domain all integer d>=1 and q=3,4 (ordinary OPEN neighborhood). Distinct neighborhood simplices N(v), N(w) intersect in q-2 vertices at distance one, two at distance two, and none farther; since q<=4, every >=3-vertex face has a unique center. Fix anchor a_v in each N(v) and, in descending |sigma|>=3, remove each sigma subset N(v) minus anchor together with sigma+anchor. Any larger coface of the lower simplex lies in that same simplex and was already removed, so these are genuine elementary free-face removals on the ORIGINAL triangulation; only faces of dimension <=2 remain. When d(q-1)<4 no removal is necessary. The original graph is in the complex 1-skeleton, so connected. f0=q^d, f1=q^d/2 [d(q-1)+binom(d,2)(q-1)^2], and the unique-center contribution of size>=3 faces gives chi3=3^d(d-1)(d-2), chi4=4^(d-1)(9d^2-15d+8). Matsushita Thm1.1 and Behal-Chih Thm4.14 give pi1 and integral H1 via even-coordinate parity: Z^d for q3, (Z/2)^(d-1) for q4. Since the collapsed 2-complex has no 3-cells, H2 is a subgroup of free C2 and therefore free, with beta2=chi-1+beta1 as stated. d=1 boundary cases match K3 circle and K4 tetrahedral boundary. Independent checker reconstructed all faces and each elementary free-face incidence for seven (d,q) cases, specifically (1,3),(2,3),(3,3),(4,3),(1,4),(2,4),(3,4), with 432 pairs for (3,3), 8019 for (4,3), 256 for (2,4), 14016 for (3,4), and chi values 0,0,54,486,2,56,704; modular H1 ranks over F2,F3,F5 corroborate torsion. Symbolic Euler simplification checked independently. Finite checks are not a proof for all d, and the independent argument uses the identified primary group theorems.
 
-## Verification boundary
-The general conclusion depends on the elementary-collapse proof and the published fundamental-group equivalences, not on extrapolation of finite tests. Complete homotopy classification is not asserted. Human review of other literature remains useful.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only for the stronger explicit, un-subdivided elementary simplicial collapse and its fully uniform constructive pairing, to the best of inspected literature. Important qualification: the mere existence of a dimension<=2 homotopy model AND the entire integral H2/Higher homology list are mathematically IMPLIED by Kahle 2007 Lemma2.3 for K_{2,3}-free graphs together with Matsushita+Behal-Chih and elementary Euler characteristic. Thus the H2 formulas are correct but not independently novel; earlier self-review overlooked the dominating Kahle lemma. Prior specific H(3,3) and H(2,4) cases were already known, and Kozlov works in subdivisions. No inspected source asserts the exact direct original-face elementary collapse across all d and both alphabets. This is a qualified best-of-knowledge priority finding, not proof of novelty; need update public priority language and source citations before any publication.
+
+## value
+
+PASS
+
+PASS, qualified and narrow: a constructive ordinary elementary collapse of the ORIGINAL often high-dimensional Lovasz complex, without introducing barycentric vertices, is a mathematically natural stronger combinatorial reduction beyond the already-known abstract two-dimensional retraction. It supplies a uniform explicit sequence of free-face cancellations on a natural infinite family (both K3 and K4 Hamming powers), useful for chain-level models and reproducible simplicial calculations, not an arbitrary parameter slice. The H2 numbers and higher-vanishing themselves should NOT be advertised as previously unknown because a Kahle-based deduction already exists. This is a modest structural contribution rather than an independent new homology theorem or full homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
