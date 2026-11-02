@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Definitions, quantifiers, range 0<=s<=log n and exact normalizations are fixed. The proof reproduces the connectivity-window isolate lemma by factorial moments and a spanning-tree union bound; a two-replica marked-isolation factorial-moment argument establishes the crucial joint law, which in turn supplies conditional L² profile convergence. An explicit isolate-variance bound controls the entire integrated tail in L². A standard-library checker passed 226 exact/numerical assertions on independent finite expressions; such computations do not certify the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical G(n,(log n+a)/n) connectivity gives a one-replica marginal limit; the present proof reconstructs that lemma.",
+        "DOI 10.1002/net.22215, Sections 3 and 6: degree-based reliability approximations for fixed networks, without the joint conditional two-replica theorem.",
+        "Public record 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174: covariance with triangle count in independent bond percolation, not critical quenched reliability area."
+      ],
+      "reasoning": "A single-replica connectivity theorem suffices for the annealed mean, which is not treated as independently original. It does not in itself determine variance or whether individual networks are self-averaging. A stronger marked-isolate process theorem could encompass the present result after mapping and integration; none was identified in inspected material and this implication risk is explicitly retained.",
+      "searches": [
+        "published-record search: Two independent bond thinnings of same Erdos Renyi graph, shared isolated vertices, joint connectivity probability exp(-lambda(e^s+e^t-1))",
+        "published-record search: Critical network reliability polynomial conditional connected uniform percolation threshold, L2 profile limit",
+        "web search: \"random graph\" \"reliability polynomial\" \"asymptotic\" \"isolated\" conditioning",
+        "web search: \"random graph\" \"average reliability\" \"distribution\" G(n,p)"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1002/net.22215 (full HTML, 2024-03-04)",
+      "DOI:10.1016/j.dam.2014.05.048 (abstract only)",
+      "arXiv:2112.14289v2 (full HTML)",
+      "Classical Erdős–Rényi connectivity-window result (reproved in the package for the needed range)",
+      "Public record 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4: fragile power-dominating sensors on complete multipartite graphs, not bond-percolation all-terminal G(n,p) reliability.",
+      "Public record 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174: covariance with triangle count in independent bond percolation, not critical quenched reliability area.",
+      "Public record 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d: discounted hitting domination, not percolated connectivity.",
+      "Primary source DOI 10.1002/net.22215 expressly asks its Erdős–Rényi average-reliability question rather than supplying the two-replica limit."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brown–Kolokolnikov–Kooij (2024) Theorem 2.1: (edge-count+1) times average reliability equals the expected number of random edge deletions before disconnection.",
+        "Brown–Kolokolnikov–Kooij (2024) Open Question 2: seeks average reliability of Erdős–Rényi graphs.",
+        "Brown–Cox–Ehrenborg (2014): defines the invariant and fixed-graph bounds in abstract.",
+        "2022 semi-regular network paper, arXiv:2112.14289v2, studies algebraic connectivity, not this reliability functional."
+      ],
+      "reasoning": "The first-moment identity E A(G)=int P(G(n,pt) connected)dt is an immediate thinning observation; together with classical connectivity it implies the displayed annealed mean and is not asserted as new. The claimed advance requires a joint two-thinning limit with a shared baseline isolate Poisson component, deduces conditional L² convergence, and yields the nonzero limiting variance and two-atom quenched law. None of the inspected theorems directly yields that claim without this additional probabilistic argument.",
+      "searches": [
+        "published-record search: Quenched Erdős–Rényi graph all terminal reliability polynomial critical connectivity threshold q=(log n+x)/n scaled average reliability Bernoulli atom at zero exponential integral",
+        "web search: \"average reliability\" \"Erdős-Rényi\" asymptotic network reliability",
+        "primary DOI: 10.1002/net.22215, Sections 2, 3, 6 (full article)",
+        "primary DOI: 10.1016/j.dam.2014.05.048 (bibliographic abstract)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.1002/net.22215, Open Question 2, asks for Erdős–Rényi average reliability.",
+        "The 2014 average-reliability definition is for arbitrary fixed graphs rather than a random critical-window profile.",
+        "Public record 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4: fragile power-dominating sensors on complete multipartite graphs, not bond-percolation all-terminal G(n,p) reliability."
+      ],
+      "reasoning": "The candidate equivalently states that conditional on connectivity, log(n) times average all-terminal reliability converges to exp(lambda) E1(lambda), while unconditionally it has a Bernoulli atom at zero. Checks considered average edge-deletion stopping times via the 2024 identity, connectivity profiles, and exponential-integral constants. No searched statement was seen to imply the conditional L² limit.",
+      "searches": [
+        "published-record search: Quenched all-terminal average reliability in G(n,(log n+x)/n), conditional no isolates, exponential integral e^(e^-x) E1(e^-x), two-point weak limit",
+        "published-record search: Brown Kolokolnikov Kooij 2024 new approximations network reliability open question 2 Erdős Rényi solved",
+        "web search: \"average reliability\" \"Erdos-Renyi\" \"connectivity threshold\" critical fluctuations",
+        "web search: \"quenched\" \"reliability\" \"Erdos Renyi\" Poisson isolated vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public record 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4: fragile power-dominating sensors on complete multipartite graphs, not bond-percolation all-terminal G(n,p) reliability.",
+        "Public record 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174: covariance with triangle count in independent bond percolation, not critical quenched reliability area.",
+        "DOI 10.1016/j.dam.2014.05.048 abstract discusses general fixed-graph bounds, no ER critical tabulation in the accessible abstract."
+      ],
+      "reasoning": "Searches for exact random-network average reliability tables and a matching exponential-integral law did not produce a comparable table or formula. Absence from searches is not proof of uniqueness. The theorem covers an asymptotic distribution over graph realizations, not merely a fixed-graph number, and no finite table would prove this distribution limit.",
+      "searches": [
+        "published-record search: network reliability random G(n,p) conditional connected critical window distribution asymptotic",
+        "web search: \"The average reliability of a graph\" Ehrenborg 2014 random graph",
+        "web search: \"average reliability\" \"Erdős-Rényi\" Brown Kolokolnikov subsequent 2025"
+      ]
+    },
+    "rationale": "The asserted contribution is not the classical Erdős–Rényi connectivity threshold or its integrated annealed first moment, but the two-replica shared-isolate theorem proving a random quenched profile and L² two-atom integrated limit. The 2024 primary full article states the Erdős–Rényi average-reliability question and gives no corresponding limiting conditional law. The inspected 2022 graph paper considers spectral algebraic connectivity; 2014 accessible abstract treats fixed-graph average reliability and extremal bounds. Scientific searches located no covering result; broad marked-Poisson implications remain possible and historical priority is not certified.",
+    "residual_risks": [
+      "Historical priority is not definitive; broad marked-Poisson rare-event theorems may imply the specific two-thinning law or the area limit.",
+      "The complete 2014 fixed-graph source text was unavailable; comparison with it is limited to the abstract.",
+      "No independent mathematical audit or publication-level peer review has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains fixed-graph integral identity and heuristic network approximations, not the two-thinning quenched critical-window law.",
+        "evidence": [
+          "Theorem 2.1 states the edge-deletion stopping-time/area identity.",
+          "Section 6 asks Open Question 2, what the average reliability of Erdős–Rényi graphs is.",
+          "Version of record first published 2024-03-04."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/net.22215",
+        "material_read": "Full open HTML article: introduction, Sections 2–4, and discussion/Open Question 2 with references.",
+        "method": "Primary open full-text HTML inspection and within-document searches for Erdős–Rényi, average reliability, and Open Question 2.",
+        "title": "New approximations for network reliability",
+        "trigger": "The 2024 motivating primary paper explicitly asks for Erdős–Rényi average reliability."
+      },
+      {
+        "assessment": "Accessible material concerns fixed-graph reliability, bounds and extremal examples; no full-text negative-coverage claim is made.",
+        "evidence": [
+          "2014 abstract defines mean all-terminal reliability and discusses bounds and extremal graphs.",
+          "Uninspected full text remains a priority risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.05.048",
+        "material_read": "Bibliographic abstract and metadata only; full paper was not retrieved.",
+        "method": "Publisher/academic repository searches, DOI and abstract inspection.",
+        "title": "The average reliability of a graph",
+        "trigger": "Foundational source for the same graph invariant, cited by 2024 primary paper."
+      },
+      {
+        "assessment": "Its main observable is algebraic connectivity in semi-regular networks and random regular comparisons, not the area under the bond-percolation connectivity polynomial.",
+        "evidence": [
+          "Introduction relates sparse Erdős–Rényi graphs to a connectivity threshold.",
+          "Main theorems are spectral/algebraic connectivity calculations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.14289v2",
+        "material_read": "Open arXiv HTML full scientific paper, including introduction and main results.",
+        "method": "Full article HTML inspection for connectivity, average reliability and reported statistics.",
+        "title": "It is better to be semi-regular when you have a low degree",
+        "trigger": "Search surfaced a network paper discussing sparse Erdős–Rényi connectivity and network robustness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "838f3ec7-012c-4406-a6bd-1c4ba969b995",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source poses the natural Erdős–Rényi average-reliability question. In its connectivity window, the non-self-averaging phenomenon is not an arbitrary sliced statistic: reliability is exactly zero for disconnected networks, and the theorem identifies the sharp conditional area, full near-unit retention curve and a strictly positive limiting ensemble variance. This distinction is useful when interpreting robustness of random network realizations. The first moment alone is recognized as implied by classical connectivity and is not relied upon to justify value.",
+    "status": "PASS"
+  }
+}
