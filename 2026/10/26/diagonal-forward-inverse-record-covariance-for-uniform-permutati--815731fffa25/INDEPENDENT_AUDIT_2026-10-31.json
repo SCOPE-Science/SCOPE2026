@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:11:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Each marginal record probability is 1/i or 1/j. For i<j condition on unordered values of first i positions: the event B_j requires j to lie in suffix (because j>i); A_i depends only on the independent order of the prefix and is 1/i conditionally. For i>j condition instead on positions of values 1..j: B_j depends on their ordering, while A_i sees a larger value in first i and depends only on complementary values, giving independent conditioned indicators. At i=j, the only conditional overlap is when first i values are exactly 1..i, an event probability 1/binom(n,i); then A_i=B_i marks the event pi(i)=i, adding conditional variance (i-1)/i^2. Total covariance is exactly delta_ij*(i-1)/(i^2 binom(n,i)); summing yields 1/n+1/(2n^2)+O(n^-3) and correlation ~1/(n log n). Fully independent exact enumeration n<=7 of inverse words and both flag vectors checked all n^2 entries including n=1; finite tests are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marginal record independence gives H_n-H_n^(2), not covariance with the inverse",
+          "Jin main generating functions include inverse descent statistics, distinct from inverse upper-record positions"
+        ],
+        "reasoning": "Aggregate distributions or inverse descents in the cited theorems do not entail a diagonal indexed cross-covariance matrix without a stronger joint two-vector generating function; searched direct cross-moment and right-minimum aliases.",
+        "searches": [
+          "arXiv:math/0611538 Gnedin coherent record permutations",
+          "arXiv:1202.3680 Gnedin Gorin inverse record-dependent measures",
+          "arXiv:2210.08789 Jin Euler Stirling inverse descents"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0611538",
+        "arXiv:1202.3680",
+        "arXiv:2210.08789",
+        "Resultary:2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+        "Resultary query: uniform random permutation record indicators inverse permutation same index covariance diagonal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known record marginals and Euler–Stirling statistics have no stated row/column zero covariance in reviewed results",
+          "The conditional unordered-prefix event pi([i])=[i] is a separate rare overlap of probability 1/binom(n,i)"
+        ],
+        "reasoning": "The candidate law requires conditioning on the actual coupling of permutation and inverse; marginal or distributional results alone do not imply this exact diagonal behavior.",
+        "searches": [
+          "arXiv:2210.08789 main theorem variables",
+          "Gnedin 2006 §§1–5 and Gnedin–Gorin 2012 joint statistics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An inverse upper record at inverse index j corresponds to a right-to-left minimum of original permutation of value j",
+          "Gnedin studies upper/lower record value processes, which is related language but not the exact pairwise matrix"
+        ],
+        "reasoning": "The value-indexed right-to-left-minimum wording is genuinely equivalent and was compared, not confused with records at two original positions.",
+        "searches": [
+          "uniform random permutation record indicators inverse permutation same index covariance diagonal",
+          "right-to-left minima indexed by value vs left-to-right maxima indexed by position random permutation covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits concern inversion-indicator precision and non-identically distributed observation records, not forward/inverse permutation upper-record index coupling",
+          "Direct exhaustive rational entries n<=7 match the exact diagonal closed form"
+        ],
+        "reasoning": "No exact record-table ref was retrieved; the finite checks validate bounded instances and do not establish literature absence.",
+        "searches": [
+          "uniform random permutation record indicators inverse permutation same index covariance diagonal",
+          "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+          "2026/9/21/SCOPE-nonidentical-record-indicator-independence-counterexample--638a911adad4"
+        ]
+      },
+      "rationale": "Exact index-resolved diagonal matrix and off-diagonal Bernoulli independence are not implied by inspected marginal or aggregate permutation record statistics, including inverse-descent generating functions. Historical refined record point-process work may nevertheless contain an equivalent law.",
+      "residual_risks": [
+        "An older refined Euler–Stirling joint point-process formula could imply the diagonal covariance without matching titles or notation.",
+        "The theorem proves only pairwise independence, not independence of whole forward and inverse record vectors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides record-statistic framework, not identified indexed upper-record/inverse-upper-record covariance theorem",
+          "evidence": [
+            "Gnedin (2006), Sections 1–5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611538",
+          "material_read": "Definitions and principal model/results on upper and lower records, selected relevant sections",
+          "method": "Open full arXiv PDF, textual reading and relevant page images",
+          "title": "Coherent random permutations with record statistics",
+          "trigger": "Primary record statistics that could encompass record-value distributions"
+        },
+        {
+          "assessment": "Different probability families and record-dependent measures; no direct exact covariance in examined statements",
+          "evidence": [
+            "Gnedin–Gorin (2012), §§1–3 and 6"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.3680",
+          "material_read": "Abstract, record-dependent measures and inverse construction in relevant sections",
+          "method": "Open arXiv preprint and inspected definitions/inverse-related passages",
+          "title": "Record-dependent measures on the symmetric groups",
+          "trigger": "Potential inverse-word record coupling statement"
+        },
+        {
+          "assessment": "Inverse descents are not inverse upper records; its stated main variables do not directly yield the full cross-index matrix",
+          "evidence": [
+            "Jin (2022), Theorems 1–5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.08789",
+          "material_read": "Introductory statistic definitions and main theorems using inverse descents and maxima",
+          "method": "Open primary arXiv PDF, text and visual inspection of introductory theorem pages",
+          "title": "Symmetric generating functions and Euler–Stirling statistics on permutations",
+          "trigger": "Possible stronger multivariate generating formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Pairwise independence off matching position/value indices and an explicit positive diagonal cross-covariance are a sharp coupling law not visible in marginal record-count distributions. The O(1/n) total covariance and O(1/(n log n)) correlation quantify this near-independence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No assertion of mutual independence of the two entire record vectors.",
+    "Exhaustive independent check through n=7 supplements exact conditional proof.",
+    "Best-of-knowledge priority; incomplete published text cannot be treated as whole-document noncoverage.",
+    "No GitHub write or publication occurred; external Lean/expert channels unchanged."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Conditioning on the unordered first-\(i\) values for \(i<j\), on the positions of labels at most \(j\) for \(i>j\), and on the exceptional prefix-set alignment when \(i=j\) gives exact conditional independence or the precise extra conditional variance. The constant conditional record probability avoids a hidden total-covariance term. Independent exact permutation enumeration verifies \(204\) matrix entries for \(n\le8\) and positive aggregate covariance for \(2\le n\le100\). The analytic proof, not those finite calculations, establishes the theorem for all \(n\).
+## correctness
 
-## Originality — PASS (within searched sources)
-Compared the claim at both indicator level and its equivalence to right-to-left minimum *values*, including the total-count corollary, with three relevant full texts and published research-record matches. Gnedin's upper/lower record measure constructions and the Gnedin–Gorin record-dependent measures do not contain the stated cross-index law in the inspected material; Jin's Euler–Stirling generating functions consider inverse descents and selected totals, not both upper-record indicator vectors. Existing record marginal laws do not imply the two-direction diagonal matrix. The closest records concerning fixed-point/record regression, inversion indicators, and heterogeneous record indicators have different objects or parameters. Historical-priority risk remains for alternative equivalent record-value formulations.
+PASS
 
-## Mathematical value — PASS
-The two natural descriptions of records on the permutation graph are functions of exactly the same object, yet the entire \(n\)-by-\(n\) cross-dependence vanishes away from matching position/value indices. A single rare prefix-set coincidence explains the positive diagonal; the exact formula handles all finite sample sizes and weighted aggregates and quantifies the asymptotically vanishing coupling. This is a structural two-directional probability identity, not an arbitrary finite slice or a restatement of the marginal independent-record theorem.
+PASS: Each marginal record probability is 1/i or 1/j. For i<j condition on unordered values of first i positions: the event B_j requires j to lie in suffix (because j>i); A_i depends only on the independent order of the prefix and is 1/i conditionally. For i>j condition instead on positions of values 1..j: B_j depends on their ordering, while A_i sees a larger value in first i and depends only on complementary values, giving independent conditioned indicators. At i=j, the only conditional overlap is when first i values are exactly 1..i, an event probability 1/binom(n,i); then A_i=B_i marks the event pi(i)=i, adding conditional variance (i-1)/i^2. Total covariance is exactly delta_ij*(i-1)/(i^2 binom(n,i)); summing yields 1/n+1/(2n^2)+O(n^-3) and correlation ~1/(n log n). Fully independent exact enumeration n<=7 of inverse words and both flag vectors checked all n^2 entries including n=1; finite tests are not the proof.
 
-## Closest literature and limitations
-Gnedin (2006), Gnedin–Gorin (2012), and Jin (2022) establish background on record-dependent permutation measures and Euler–Stirling statistics. This review does not assert a complete historical-priority certificate. It does not establish joint vector independence or non-uniform-model analogues.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact index-resolved diagonal matrix and off-diagonal Bernoulli independence are not implied by inspected marginal or aggregate permutation record statistics, including inverse-descent generating functions. Historical refined record point-process work may nevertheless contain an equivalent law.
+
+## value
+
+PASS
+
+PASS: Pairwise independence off matching position/value indices and an explicit positive diagonal cross-covariance are a sharp coupling law not visible in marginal record-count distributions. The O(1/n) total covariance and O(1/(n log n)) correlation quantify this near-independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
