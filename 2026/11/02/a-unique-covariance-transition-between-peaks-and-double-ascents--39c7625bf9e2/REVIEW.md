@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Consecutive-window Mallows homogeneity and disjoint-window independence reduce the covariance to five local overlaps. Their exact inversion-enumerator expressions combine to the stated degree-eight numerator, with a positive denominator. Descartes' rule proves exactly one positive root at each order, and evaluating the next-order polynomial at the current root proves strictly decreasing critical parameters. An independent full-enumeration checker and a separate integer-polynomial identity checker passed 285 exact assertions. Finite computation is corroborative, not the infinite proof.
+
+**Originality — PASS (qualified).** The 2016 Crane–DeSalvo–Elizalde paper proves homogeneous weakly dependent consecutive patterns and provides single-pattern variance formulas. The 2020 He paper treats descent and inverse-descent normal limits, not this pair of counts. The 2019 Pan–Zeng and 2024 Dong–Lin–Pan generating functions encompass the underlying joint distribution, but the inspected 2024 formulas and their surrounding statements do not supply the explicit covariance sign phase, unique roots, strict movement, or limiting threshold. Dedicated mathematical-result and literature searches found no matching phase theorem. The important residual risk is that the sign result may have been derived implicitly elsewhere, especially from the 2019 generating function whose full text could not be inspected directly.
+
+**Value — PASS.** Peaks and double ascents are two standard local slope types in biased ranking models. Their covariance contributes to the joint fluctuation matrix, so a sharp change in dependence with the Mallows parameter, at every sample size, is a structural property rather than a single finite computation. The unique transition, its monotone finite-size drift, and exact limiting constant answer a natural model-level classification question. The limiting algebraic boundary remains meaningful even though the multivariate count generating functions were known.
+
+No statement is made about independent validation, uniqueness in all literature, or any unproved generalization.
+
+Self-review: passed. Independent audit: not yet performed.
