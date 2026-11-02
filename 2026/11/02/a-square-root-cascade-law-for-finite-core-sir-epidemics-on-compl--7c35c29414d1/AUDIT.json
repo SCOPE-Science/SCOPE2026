@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Proved from an exact directed epidemic-percolation construction. A same-peripheral two-arc overlap has o(1/n) probability at the critical scale using E[J]<infinity; conditional Poisson counts yield independent core arcs. Uniform conditional binomial approximation over all 2^b core subsets yields the joint infection-count limit. Endpoint regimes follow union/product bounds. The b=2 Markovian law, Laplace transform and exact binomial formulas have independent exact-state CTMC checks (70 rational equalities). Finite tests are not used as a substitute for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2204.06902, sections 2.1/2.4: equal growing community sizes with strong internal and weak between-community transmission",
+        "DOI:10.1137/16M1065392: deterministic two-group mass-action final-size model, not fixed-width stochastic K_n,b",
+        "arXiv:1802.05011: clustered random graph bounded-degree contact structure, not fixed-b/n growing degrees"
+      ],
+      "reasoning": "Potentially broader SIR results were checked for whether their hypotheses admit a growing peripheral class connected exclusively to b fixed vertices with zero within-class contact. Inspected main assumptions do not; their epidemic thresholds or final-size results do not by themselves imply the critical directed-core mark law.",
+      "searches": [
+        "stochastic SIR epidemic complete bipartite graph K_{m,n} limiting distribution fixed m weak infection recovery epidemic percolation",
+        "SIR epidemic complete bipartite graph K_{n,m} finite m infection rate n^{-1/2} outbreak size limit",
+        "arxiv:2204.06902",
+        "arxiv:1802.05011"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2204.06902",
+      "arxiv:q-bio/0610057",
+      "doi:10.4108/ICST.BIONETICS2007.2399",
+      "arxiv:1802.05011",
+      "doi:10.1137/16M1065392",
+      "doi:10.1103/PhysRevE.88.052801"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.4108/ICST.BIONETICS2007.2399: SIS persistence and steady-state, not permanent recovery",
+        "arXiv:q-bio/0610057: rigorous general SIR path representation, not fixed-b square-root limit",
+        "arXiv:2204.06902: stochastic SIR weak coupling among large internally transmitting communities, not complete biclique with fixed core"
+      ],
+      "reasoning": "The SIS square-root spectral threshold has the same scaling exponent but concerns repeated infections and cannot imply SIR final outbreak distributions; the general percolation theorem supplies a tool but not the present asymptotic coefficients or conditional core graph. The large-subcommunity theorem does not specialize directly to fixed core width and no within-part transmission. Historical implication risk remains for yet-unlocated fixed-b SIR work.",
+      "searches": [
+        "Two-step epidemic transmission via n common peripheral intermediates, fixed b core, sparse n^-1/2 infection rate, independent Poisson directed arcs, sharp core-cascade threshold",
+        "site:arxiv.org \"bipartite\" \"SIR\" \"finite\" \"threshold\" epidemic",
+        "arxiv:2204.06902",
+        "arxiv:q-bio/0610057"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kenah & Robins, arXiv:q-bio/0610057, §§2 and Appendix A Theorem 7: SIR final outcome is a directed out-component; no stated fixed-core sparse two-step limit",
+        "Ball–Sirl–Trapman, arXiv:2204.06902, §§1–2 and Theorem 2.2: outbreaks over weakly coupled *large* communities"
+      ],
+      "reasoning": "Equivalent directed percolation formulations were sought, including orientation reversal and two-hop reduction. The epidemic-percolation mapping is exact prior work, but deriving the finite-core, conditional independent Poisson-arc law and joint mesoscopic periphery count requires additional scaling arguments not stated in the inspected papers.",
+      "searches": [
+        "For stochastic SIR on complete bipartite K_{n,2} starting at one high-degree core vertex with contact rate c / sqrt(n) and rate-one recovery, the secondary core is infected asymptotically with probability c²/(1+c²), and the number infected peripheral vertices divided by sqrt(n) tends to c(R1+B R2) with B|R1 Bernoulli(1-exp(-c²R1)).",
+        "In fixed-b complete bipartite graph K_{n,b}, independent directed percolation rare two-step paths converge to conditional independent Poisson core arcs with rates c² mu R_i and infected peripheral final size divided by sqrt n tends to c sum_{i reachable} R_i.",
+        "arxiv:q-bio/0610057"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kenah & Robins epidemic percolation network provides a general representation but no matching K_n,2 binomial-integral table in inspected §§2 and Appendix A",
+        "Omic–Kooij–Van Mieghem DOI:10.4108/ICST.BIONETICS2007.2399 analyzes SIS steady-state quantities by abstract"
+      ],
+      "reasoning": "No matching exact two-core SIR infection and expected peripheral-size binomial identities were located in the inspected sources. This is an incomplete catalogue search, not a proof of absence from all tables or theses.",
+      "searches": [
+        "Exact finite probability that epidemic infected other core in K_(n,2) SIR, E[1/(1+lambda Binomial(n,lambda/(1+lambda)))]",
+        "bipartite star SIR epidemic outbreak size Markovian asymptotic large number of leaves lambda sqrt n",
+        "doi:10.4108/ICST.BIONETICS2007.2399"
+      ]
+    },
+    "rationale": "No identified prior scientific result implies the new combined statement: fixed-b complete biclique Markov/general SIR at n*lambda^2 finite, directed core reachability law jointly with X/(n*lambda), including explicit b=2 distribution and finite formulas. The general epidemic-percolation mapping, SIS square-root scaling and heterogeneous epidemic theories are openly credited; priority remains qualified due to possible unlocated historical work.",
+    "residual_risks": [
+      "Unlocated earlier work may already derive the finite-core K_n,b SIR limit via generalized epidemic percolation; current comparisons support best-knowledge originality, not certified priority.",
+      "Some possible related deterministic two-group or bipartite epidemic works were accessed only at abstract level, so no whole-document NOT_COVERING conclusion is drawn for those works.",
+      "Dependent heterogeneity and growing-core regimes are outside the claim; the comparison is only for the specified SIR fixed-core setting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Important motivation and weak-coupling predecessor, but not a direct fixed-width exclusively bipartite law",
+        "evidence": "The paper takes large internally interacting communities whose population size diverges; it studies chaining of their large internal outbreaks.",
+        "identifier_or_url": "https://arxiv.org/abs/2204.06902",
+        "material_read": "Full-text Introduction, model/scaling §2.1, fixed-number-of-communities §2.4 and Theorem 2.2, with references to within-group outbreak mechanism",
+        "method": "HTML open and section-specific reading",
+        "title": "SIR epidemics in populations with large sub-communities",
+        "trigger": "Closest middle-age stochastic SIR final-outcome literature about random spreading among weakly coupled groups"
+      },
+      {
+        "assessment": "Provides foundational exact reachability construction and is fully credited; no finite-core n^-1/2 asymptotic statement in inspected material",
+        "evidence": "Appendix A Theorem 7 equates SIR infected set and directed percolation out-component.",
+        "identifier_or_url": "https://arxiv.org/abs/q-bio/0610057",
+        "material_read": "Full-text Introduction, §2 construction, Appendix A Theorem 7 and proof, conclusion",
+        "method": "HTML full-text section reading",
+        "title": "Second look at the spread of epidemics on networks",
+        "trigger": "Exact directed epidemic-percolation mapping might imply entire claim"
+      },
+      {
+        "assessment": "Decisively different SIS dynamics with recoveries returning to susceptible, and steady-state persistence rather than permanent-recovery final infected set; known inverse-square-root scale explicitly credited",
+        "evidence": "On PDF page 1 the authors define SIS recovery-to-susceptible transitions; §3 Eq. (6) and Eq. (7) analyze a two-state endemic equilibrium, while §6 Eq. (22) analyzes the quasi-stationary number currently infected.",
+        "identifier_or_url": "https://doi.org/10.4108/ICST.BIONETICS2007.2399",
+        "material_read": "Publisher PDF Introduction, §3 bipartite SIS derivation, §6 steady-state distribution, and closing remarks, with screenshots of pages 2, 6, 8",
+        "method": "Publisher PDF text extraction and three page-image inspections",
+        "title": "Virus spread in complete bipartite graphs",
+        "trigger": "Exact graph family and known inverse-square-root spectral scale"
+      },
+      {
+        "assessment": "Random clustered configuration graph and branching approximations, not deterministic fixed-core complete biclique",
+        "evidence": "The model permits random triangles and degree-type branching structures rather than b fixed universal core vertices.",
+        "identifier_or_url": "https://arxiv.org/abs/1802.05011",
+        "material_read": "Abstract and Introduction, model overview",
+        "method": "HTML overview reading",
+        "title": "SIR epidemics and vaccination on random graphs with clustering",
+        "trigger": "General heterogeneous SIR epidemic limit may dominate fixed-core graph"
+      },
+      {
+        "assessment": "Deterministic two-group final-size ODE, not the finite-core random final-size distribution",
+        "evidence": "Describes reproduction-number/final-size analysis of deterministic infection classes.",
+        "identifier_or_url": "https://doi.org/10.1137/16M1065392",
+        "material_read": "Abstract and bibliographic metadata; full text not inspected",
+        "method": "Publisher abstract",
+        "title": "Final Size of an Epidemic for a Two-Group SIR Model",
+        "trigger": "Crisscross two-group epidemic could cover bifurcated core/periphery"
+      },
+      {
+        "assessment": "General bipartite threshold theory, with different graph assumptions; full implication unresolved",
+        "evidence": "Abstract concerns mean-field thresholds and nonlinear corrections, not a stated finite-core SIR limit.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.88.052801",
+        "material_read": "Publisher abstract and metadata; full text not inspected",
+        "method": "Publisher abstract",
+        "title": "Epidemic thresholds for bipartite networks",
+        "trigger": "Prior bipartite epidemic threshold theory might dominate new scaling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c35c294-14d1-446b-bc45-2a0e0f761914",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the natural sparse-to-mesoscopic SIR crossing regime on an extreme two-type graph, not an arbitrary slice. The theorem gives the actual random finite-core cascade and the correlated peripheral infected count simultaneously, including boundaries on each side of the square-root contact scaling. The explicit b=2 Laplace distribution and exact finite formulas offer a sharp interpretable benchmark for heterogeneous-source epidemic studies; the known general percolation representation and SIS spectral scale alone do not state this claim.",
+    "status": "PASS"
+  }
+}
