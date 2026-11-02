@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:15:36.685003Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Every monotone sample vector is a convex combination of the two constant and three increasing-step vectors; linearity reduces all coefficient and x quantifiers to those five. Terminal-step L3=(x+1)(x²-a²)/[2(1-a²)] has sole negative critical value E(a) at (sqrt(1+3a²)-1)/3; middle-step sum L2+L3=1/2+x(1+a+a²-x²)/[2a(1+a)] has extrema ±H(a), while first step reflects L3. Exact derivative signs show E increases 0→∞ and H decreases ∞→0, giving one global minimax intersection. Independently reconstructed Lagrange basis and step critical values at a=1/3,2/5,0.4458209225,1/2,7/10. Original verify.py provides rational interval signs enclosing a* in (0.4458209224,0.4458209226). The proof covers endpoints x=±1 and all admissible samples, including ties; does not imply interpolant monotonicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berrut–Trefethen (SIAM Rev 2004) derives barycentric interpolation formulas and discusses Chebyshev nodes/unrestricted Lebesgue stability.",
+          "Fritsch–Carlson (SIAM J Numer Anal 1980) constructs monotonicity-preserving piecewise cubic Hermite schemes, unlike the unmodified global four-point cubic here."
+        ],
+        "reasoning": "The general interpolation representation proves feasibility and provides norm bounds but no exact optimizer for the order-cone full-range excursion; a shape-preserving Hermite construction solves a different operator problem.",
+        "searches": [
+          "Resultary search: sharp minimax monotone bounded data four node symmetric cubic Lagrange interpolation overshoot range excursion",
+          "DOI:10.1137/S0036144502417715",
+          "DOI:10.1137/0717021"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 892b5fa512f216756f61dd180016331f60b40671 RESULT.md, verify.py, REVIEW.md, AUDIT.json, VERIFICATION.md",
+        "Resultary full uniform central-cell RESULT.md, blob 6f2780a92664e671c10828b0e0f370ea8d3d69cd",
+        "DOI:10.1137/S0036144502417715",
+        "DOI:10.1137/0717021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published uniform proof extremizes over step vectors for a restricted x∈middle cell but does not optimize free node spacing.",
+          "General Lebesgue constant bounds all sign choices, whereas monotone data restrict coefficient increments to a simplex; the sharp constrained norm requires separate extrema."
+        ],
+        "reasoning": "Prior statements entail the interpolation representation, not the two branch envelope or unique equioscillating minimax parameter.",
+        "searches": [
+          "Resultary full uniform four-node RESULT.md",
+          "Berrut–Trefethen 2004 §§2,5-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full published RESULT.md in Resultary/2026: uniform four-node theorem is explicitly restricted to the central cell and has √3/27 excursion; the assessed result allows variable a and x over all [-1,1].",
+          "Affine rescaling of [-1,-a,a,1] retains one shape parameter; the uniform grid corresponds to a=1/3 and its full-interval defect is (13√39)/108-1/2, not √3/27."
+        ],
+        "reasoning": "No equivalence: a central-cell bound at one node choice cannot determine a full-interval minimax across symmetric grids.",
+        "searches": [
+          "Resultary search: sharp minimax monotone bounded data four node symmetric cubic Lagrange interpolation overshoot range excursion",
+          "Resultary 2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary contains fixed-grid Floater–Hormann and uniform cubic defect constants; neither is a table of full-interval defects as a function of symmetric a.",
+          "Explicit checked special grid values: Δ(1/3)=0.251712722..., Δ(1/2)=0.176050982..., unique Δ(a*)=0.1296867734... ."
+        ],
+        "reasoning": "No equivalent exact minimax table identified; an older unindexed interpolation table remains possible and absence of a database hit is not proof of novelty.",
+        "searches": [
+          "Resultary search: sharp minimax monotone bounded data four node symmetric cubic Lagrange interpolation overshoot range excursion",
+          "Resultary 2026/10/4/SCOPE-sharp-monotone-range-defect-of-four-point-degree-one-floater-hor--588356639a12"
+        ]
+      },
+      "rationale": "PASS, best knowledge: full symmetric variable-node and entire-interval minimax statement differs both in interval and parameter quantifiers from the published uniform four-node central-cell finding (its √3/27 bound). Berrut–Trefethen barycentric formula and unrestricted Lebesgue constants do not optimize the order-constrained cone. The shape-preserving Fritsch–Carlson Hermite procedure changes the interpolant and is not stronger coverage. Source comparison is substantive, but unindexed small-degree interpolation formulae may already contain the same optimizer.",
+      "residual_risks": [
+        "Historical interpolation tables and unindexed small-degree minimax calculations may contain the variable-node optimum.",
+        "Only symmetric endpoint-fixed grids covered; asymmetry and degree>3 not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Narrower central cell, fixed a=1/3; not full symmetric minimax",
+          "evidence": "Theorem explicitly excludes nonuniform nodes and endpoint cells; its sharp δ=√3/27 is for x in the middle interval only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445/RESULT.md",
+          "material_read": "Complete RESULT.md, including finding, assumptions, proof, limitations and bibliography",
+          "method": "Fetched actual published GitHub blob 6f2780a92664e671c10828b0e0f370ea8d3d69cd",
+          "title": "Sharp monotone range defect of uniform four-point cubic Lagrange interpolation",
+          "trigger": "Same interpolation operator and monotone data"
+        },
+        {
+          "assessment": "Provides standard Lagrange representation and unrelated unrestricted Lebesgue stability, not stated monotone-cone optimum",
+          "evidence": "Berrut–Trefethen SIAM Rev 46 (2004) §2 and node/stability discussion; no monotone-data minimax formula in inspected material.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144502417715",
+          "material_read": "Public 17-page manuscript, relevant barycentric representation, Chebyshev-grid and stability/Lebesgue sections",
+          "method": "Read public PDF with page image inspection and extracted text",
+          "title": "Barycentric Lagrange Interpolation",
+          "trigger": "Potential general stronger interpolation/optimal-node theorem"
+        },
+        {
+          "assessment": "Not adequate to assert whole-document exclusion; operator is different by construction",
+          "evidence": "Shape-preserving piecewise cubic Hermite method uses derivative selection, unlike global four-point Lagrange.",
+          "identifier_or_url": "https://doi.org/10.1137/0717021",
+          "material_read": "Bibliographic citation, title and description of piecewise Hermite method; full manuscript not read",
+          "method": "Literature metadata and cited methodology",
+          "title": "Monotone Piecewise Cubic Interpolation",
+          "trigger": "Possible shape-preserving domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: choosing inner interpolation nodes to minimize worst overflow for bounded ordered measurements is a natural numerical safety/design problem, distinct from best Lebesgue stability. The exact minimax optimum balances terminal versus central step defects, and is strictly better than the uniform a=1/3 and Chebyshev–Lobatto a=1/2 grids for this objective. It is a nontrivial exact small-degree extremal result, not a renamed fixed-grid constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical interpolation tables and unindexed small-degree minimax calculations may contain the variable-node optimum.",
+    "Only symmetric endpoint-fixed grids covered; asymmetry and degree>3 not assessed.",
+    "No GitHub write, publication sync, Lean proof or expert attestation was performed. Scientific PASS is best-of-knowledge, not an external mathematical or priority certificate."
+  ],
+  "schema_version": 1
+}
