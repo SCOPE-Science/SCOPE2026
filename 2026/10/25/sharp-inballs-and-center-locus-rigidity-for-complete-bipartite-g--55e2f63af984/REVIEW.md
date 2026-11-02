@@ -1,11 +1,21 @@
-# Review: sharp inballs and center-locus rigidity
+# Independent mathematical audit
 
-**Correctness — PASS.** Cut support normalization and the facet-normal classification are explicit. The nontrivial inequality uses the exact nonzero minimum Laplacian eigenvalue of \(K_{p,q}\), followed by strict separation for every cut of cardinality at least two when \(p+q\ge6\). Both smaller orders are checked directly. Tight antipodal cut inequalities identify the affine hull of all centers, and the explicit two-row and four-cycle intervals follow from necessary-and-sufficient cut containment inequalities. The standalone checker corroborates the cut minima with exact rational arithmetic and the intervals with 75-digit arithmetic; these finite tests are not presented as general proof.
+## correctness
 
-**Originality — PASS with priority risk.** The published general graphical-zonotope inradius theorem already gives the minimum-over-cuts formula, and that reduction is not claimed as new. Padrol and Poullot's 2025 study of complete-bipartite graphical zonotopes concerns indecomposable deformations; their relevant full-text sections do not give these intrinsic Euclidean optima. Earlier normal-fan work and existing vertex-transitive-zonotope inradius formulas do not give the full \(K_{p,q}\) incenter-locus classification. Published minimum enclosing ellipsoid results for \(K_{p,q}\) optimize a different quantity. The new closed cut optimization, exceptional tangent-facet switch, uniqueness/dimension theorem and explicit two-row intervals are not covered by inspected statements. Equivalently phrased older work remains a genuine originality risk.
+PASS
 
-**Value — PASS.** Complete-bipartite graphical zonotopes are a canonical family in polyhedral geometry. Their intrinsic inball sizes, the sharp exceptional four-cycle, and the full possible dimensions of maximal-ball centers distinguish geometry invisible to face enumeration and to the enclosing ellipsoid. The result gives a natural complete two-parameter classification of those invariants plus exact center intervals for the smallest unbalanced class. No claim is made for arbitrary weighted graphs.
+The theorem is intrinsic to the zero-sum Euclidean hyperplane and uses unit edge generators. A facet normal of a connected graphical zonotope is a bond cut; distance is |∂S|sqrt(N/[k(N-k)])/2. The Laplacian of K_{p,q}, p<=q, has eigenvalues p (q-1), q (p-1), N,0 and gives |∂S|>=p k(N-k)/N. For N>=6 and 2<=k<=N-2, k(N-k)>=2(N-2)>N²/(N-1), excluding every nonsingleton cut strictly. N=5 uses explicit mixed cuts; K_{2,2} has mixed-cut distance 1, below singleton 2/sqrt3. Equality of antipodal supporting inequalities forces all degree-minimum singleton coordinates to zero and yields center dimensions p-1 or 0. For p=2<q, cuts with exactly one A-vertex give |t|<=q/2-sqrt((b+1)(q+1-b)/(q+1)); maximizing the quadratic yields the exact interval. For K_{2,2}, mixed cuts constrain t and singleton cuts give |t|<=1-sqrt3/2. Independent exact enumerator checked all 2,026 cut-size types in 44 p,q pairs; this does not prove the all-parameter inequalities.
 
-**Closest sources and limits.** Padrol–Poullot, arXiv:2512.05307 (2025-12-04), §3; Padrol–Pilaud–Poullot, arXiv:2111.12422, §1.3; *Euclidean inradius of weighted graphical zonotopes is a cut expansion constant* (public source; cut-minimum reduction); *Exact Euclidean radii and tangent facets of vertex-transitive zonotopes* (balanced-family overlap); *Exact Löwner ellipsoid and contact vertices of complete-bipartite graphical zonotopes* (different extremal objective). Exact vertex/facet enumeration of the general \(p>2\) center polytope is outside the claim. Independently resolving historical priority is also outside this review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The broad weighted-graph graphical-zonotope inradius identity already supplies the cut-minimum reduction, so that component is credited, not claimed as new. The surviving additional result is the exact all-(p,q) minimization including exceptional K_{2,2}, tangent-facet types, affine dimensions of all incenter loci, and complete p=2 center intervals. Closely related full texts on K_{p,q} zonotopes study their truncations/deformation cones, not these metric center loci. Best-of-knowledge priority is qualified.
+
+## value
+
+PASS
+
+For the canonical complete-bipartite graphical zonotopes, an exact intrinsic ball radius and all max-ball-center dimensions give a natural metric invariant and a geometric rigidity/freedom phase transition. The K_{2,2} exception and explicit two-row interval are not mere normalized cut identities. This is a usable family-wide geometric classification independent of broad speculative applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

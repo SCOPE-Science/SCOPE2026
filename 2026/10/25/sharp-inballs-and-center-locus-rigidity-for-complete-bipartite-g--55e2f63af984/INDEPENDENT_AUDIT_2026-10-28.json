@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:50:10.976636Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md blob 3eef6752b6e81d6ecb420a5a8128e583047abb5d",
+        "Independently verified Git tree a28ff95e28876157cdb65d4c137ff01002170d7f",
+        "independent_checks.py and independent_check_results.json"
+      ],
+      "rationale": "The theorem is intrinsic to the zero-sum Euclidean hyperplane and uses unit edge generators. A facet normal of a connected graphical zonotope is a bond cut; distance is |∂S|sqrt(N/[k(N-k)])/2. The Laplacian of K_{p,q}, p<=q, has eigenvalues p (q-1), q (p-1), N,0 and gives |∂S|>=p k(N-k)/N. For N>=6 and 2<=k<=N-2, k(N-k)>=2(N-2)>N²/(N-1), excluding every nonsingleton cut strictly. N=5 uses explicit mixed cuts; K_{2,2} has mixed-cut distance 1, below singleton 2/sqrt3. Equality of antipodal supporting inequalities forces all degree-minimum singleton coordinates to zero and yields center dimensions p-1 or 0. For p=2<q, cuts with exactly one A-vertex give |t|<=q/2-sqrt((b+1)(q+1-b)/(q+1)); maximizing the quadratic yields the exact interval. For K_{2,2}, mixed cuts constrain t and singleton cuts give |t|<=1-sqrt3/2. Independent exact enumerator checked all 2,026 cut-size types in 44 p,q pairs; this does not prove the all-parameter inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Resultary cut theorem proves r_G=(1/2) min |∂S|sqrt(N/[k(N-k)]) for all weighted G.",
+          "K_pq Löwner RESULT.md gives minimal enclosing ELLIPSOID and contact VERTICES, not inscribed ball and its center SET.",
+          "Vertex-transitive RESULT.md gives chamber-ray radius, tangent facets, and specifically declines incenter uniqueness."
+        ],
+        "reasoning": "Weighted-graph result dominates the general radius-to-cut reduction, but not the explicit evaluation and center-locus theorem. Equal p=q vertex-transitive case does not imply the unbalanced/full locus case.",
+        "searches": [
+          "Resultary same query top hits: weighted graphical zonotope inradius; exact Löwner ellipsoid for K_pq; vertex-transitive zonotope Euclidean radii"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git source tree a28ff95e28876157cdb65d4c137ff01002170d7f",
+        "Pinned RESULT.md 3eef6752b6e81d6ecb420a5a8128e583047abb5d",
+        "arXiv:2512.05307v5 §§3.2–3.3",
+        "Resultary weighted graphical zonotope cut-expansion full RESULT",
+        "Independent exact enumerator / independent_check_results.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General min-cut theorem plus spectral bound produces radius only after new K_pq spectral analysis, while any one incenter does not determine all incenters.",
+          "Ellipsoid outer optimization concerns opposite extremum, so it does not logically imply center locus."
+        ],
+        "reasoning": "The new theorem requires stringent equality cases for all supporting cut inequalities; prior generic radius formula and enclosing ellipsoid do not supply them.",
+        "searches": [
+          "Resultary 2026/10/11 weighted graphical zonotope radius; Löwner ellipsoid K_pq",
+          "Padrol–Poullot section 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary weighted graphical-zonotope cut-expansion theorem (2026/10/11/...cb1eceb082ab) exactly implies cut-normal inradius formula but explicitly does not characterize every Chebyshev center.",
+          "Padrol–Poullot K_pq source construction and deformation cone: https://arxiv.org/html/2512.05307v5"
+        ],
+        "reasoning": "General L² cut expansion is an alias for centered ball radius; explicitly separated as prior. Searching incenter locus, Chebyshev center and facets gives no established formula for dimensions/intervals, a qualified not-covered comparison.",
+        "searches": [
+          "Resultary semantic query: Euclidean Chebyshev centers maximal inscribed balls graphical zonotope complete bipartite K_pq cut expansion inradius center locus",
+          "Padrol–Poullot arXiv:2512.05307v5 sec.3.2–3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "K_pq graph associahedra are different polytopes; their radius tables cannot be substituted.",
+          "Full 2025/2026 Padrol paper section 3.3 contains truncations and indecomposability, no incenter tables."
+        ],
+        "reasoning": "No exact K_pq all-center table encountered in checked primary and indexed result set; this is not a proof that none exists.",
+        "searches": [
+          "Resultary K_pq ellipsoid; graph associahedron inball; published graphical zonotope cut expansion",
+          "Padrol–Poullot arXiv:2512.05307 search inradius"
+        ]
+      },
+      "rationale": "The broad weighted-graph graphical-zonotope inradius identity already supplies the cut-minimum reduction, so that component is credited, not claimed as new. The surviving additional result is the exact all-(p,q) minimization including exceptional K_{2,2}, tangent-facet types, affine dimensions of all incenter loci, and complete p=2 center intervals. Closely related full texts on K_{p,q} zonotopes study their truncations/deformation cones, not these metric center loci. Best-of-knowledge priority is qualified.",
+      "residual_risks": [
+        "Historical synonyms: graph cut-expansion equality classification or Chebyshev-center geometry may yield an unindexed equivalent statement.",
+        "Only affine dimension is given for p>2 unbalanced incenter polytopes; vertices not enumerated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary text treats deformation/indecomposability of truncated K_pq zonotopes; it does not state metric incenter-locus classification.",
+          "evidence": [
+            "web  lines 943–1021,1478–1481; "
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.05307v5",
+          "material_read": "HTML full table of contents and sections 3.2–3.3 including 3.3 definitions, truncation theorems, and surrounding discussion",
+          "method": "read full searchable HTML relevant sections; web open/find",
+          "title": "The graph of implicit edge dependencies for indecomposability and beyond",
+          "trigger": "Same explicit K_pq graphical zonotopes"
+        },
+        {
+          "assessment": "COVERS the generic cut-inradius identity; does not determine complete center set or K_pq exceptional phase.",
+          "evidence": [
+            "2026/10/11/...cb1eceb082ab RESULT.md full via connected GitHub read"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab",
+          "material_read": "Full RESULT.md, including finding/proof and explicit limitation about nonunique centers",
+          "method": "GitHub connector raw RESULT.md",
+          "title": "Euclidean inradius of weighted graphical zonotopes is a cut expansion constant",
+          "trigger": "Potential stronger general theorem directly covering radius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Mathematical motivation and non-implication reasoning in originality comparisons",
+        "Reviewed exact theorem / scope / boundaries in RESULT.md"
+      ],
+      "rationale": "For the canonical complete-bipartite graphical zonotopes, an exact intrinsic ball radius and all max-ball-center dimensions give a natural metric invariant and a geometric rigidity/freedom phase transition. The K_{2,2} exception and explicit two-row interval are not mere normalized cut identities. This is a usable family-wide geometric classification independent of broad speculative applications.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git source tree a28ff95e28876157cdb65d4c137ff01002170d7f",
+    "Pinned RESULT.md 3eef6752b6e81d6ecb420a5a8128e583047abb5d",
+    "arXiv:2512.05307v5 §§3.2–3.3",
+    "Resultary weighted graphical zonotope cut-expansion full RESULT",
+    "Independent exact enumerator / independent_check_results.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality is conditional, not a priority certification.",
+    "Bounded independent computational checks corroborate, not replace, all-parameter mathematical proofs.",
+    "Historical synonyms: graph cut-expansion equality classification or Chebyshev-center geometry may yield an unindexed equivalent statement.",
+    "Only affine dimension is given for p>2 unbalanced incenter polytopes; vertices not enumerated."
+  ],
+  "residual_risks": [
+    "Historical synonyms: graph cut-expansion equality classification or Chebyshev-center geometry may yield an unindexed equivalent statement.",
+    "Only affine dimension is given for p>2 unbalanced incenter polytopes; vertices not enumerated."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses Python 3 standard-library arithmetic only. Replay by running `python3 verify.py` from this directory.
+## correctness
 
-The exact-rational phase enumerates all nontrivial cut-size types \((a,b)\) for \(345\) complete-bipartite parameters with \(2\le p\le24\) and \(p\le q\le27\). It compares each squared facet-support distance with the proposed exact squared radius and identifies every minimizing cut type. It checks \(79{,}994\) cut-size types without floating-point thresholds.
+PASS
 
-A separate Decimal phase at precision \(75\) checks the center-interval inequalities for all two-row graphs with \(3\le q\le70\), plus the exceptional four-cycle, totaling \(7{,}521\) constraints. It also checks that a nearest-middle cut attains the two-row endpoint bound. Tolerances are explicitly confined to this corroborative Decimal phase.
+The theorem is intrinsic to the zero-sum Euclidean hyperplane and uses unit edge generators. A facet normal of a connected graphical zonotope is a bond cut; distance is |∂S|sqrt(N/[k(N-k)])/2. The Laplacian of K_{p,q}, p<=q, has eigenvalues p (q-1), q (p-1), N,0 and gives |∂S|>=p k(N-k)/N. For N>=6 and 2<=k<=N-2, k(N-k)>=2(N-2)>N²/(N-1), excluding every nonsingleton cut strictly. N=5 uses explicit mixed cuts; K_{2,2} has mixed-cut distance 1, below singleton 2/sqrt3. Equality of antipodal supporting inequalities forces all degree-minimum singleton coordinates to zero and yields center dimensions p-1 or 0. For p=2<q, cuts with exactly one A-vertex give |t|<=q/2-sqrt((b+1)(q+1-b)/(q+1)); maximizing the quadratic yields the exact interval. For K_{2,2}, mixed cuts constrain t and singleton cuts give |t|<=1-sqrt3/2. Independent exact enumerator checked all 2,026 cut-size types in 44 p,q pairs; this does not prove the all-parameter inequalities.
 
-Observed local replay output:
+## originality
 
-`EXACT_OK bipartite_pairs=345 cut_types=79994; CENTER_OK high_precision_constraints=7521; q=3..70 and C4`
+PASS
 
-These tests do not prove any universal statement outside the tested ranges. The general theorem uses the analytic Laplacian bound, strict finite-order exceptions, and exact supporting inequalities in `RESULT.md`; no sampling or linear-program termination claim replaces proof.
+The broad weighted-graph graphical-zonotope inradius identity already supplies the cut-minimum reduction, so that component is credited, not claimed as new. The surviving additional result is the exact all-(p,q) minimization including exceptional K_{2,2}, tangent-facet types, affine dimensions of all incenter loci, and complete p=2 center intervals. Closely related full texts on K_{p,q} zonotopes study their truncations/deformation cones, not these metric center loci. Best-of-knowledge priority is qualified.
+
+## value
+
+PASS
+
+For the canonical complete-bipartite graphical zonotopes, an exact intrinsic ball radius and all max-ball-center dimensions give a natural metric invariant and a geometric rigidity/freedom phase transition. The K_{2,2} exception and explicit two-row interval are not mere normalized cut identities. This is a usable family-wide geometric classification independent of broad speculative applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
