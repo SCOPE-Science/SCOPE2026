@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof exactly factors the two-step companion product into the consistency mode and a quadratic. The real quadratic Schur inequalities reduce to a single palindromic quartic with an explicit reciprocal critical ratio. The endpoint roots are simple; an exact determinant inequality establishes the unexpectedly unstable individual factor on a stable-product subinterval. `check.py` verifies the rational identities and representative cases.
+## correctness
 
-**Originality — PASS (qualified by bibliographic risk).** The source introduces variable-step BDFL2 and analyzes frozen-coefficient stability, rather than giving the sharp reciprocal two-cycle classification. Searches in related published mathematical research found first-order periodic recurrence estimates and fixed-step BDF2 positivity results but no directly dominating theorem. An older specialized two-period multistep analysis might cover this result and remains a material risk. A nonmatch in a database is not a proof of novelty.
+PASS
 
-**Value — PASS.** The exact two-cycle represents a natural varying-step mesh and supplies a complete transition and a strict range of periodic stabilization despite frozen-stage instability. This directly illustrates why frozen-root plots are not sufficient for the source's stated variable-step stability question.
+The exact homogeneous 3×3 companion matrix C(w,v) has unit constant vector. For alternating reciprocal ratios t,1/t, direct symbolic multiplication produces characteristic polynomial (λ−1)(λ²−S(t)λ+P(t)), with S,P rational as stated. For t>0, the Jury expressions 1−P and 1−S+P are everywhere strictly positive; the third 1+S+P is positive precisely for 4(t+t^(−1))²−10(t+t^(−1))−49<0. This yields closed zero-stable [t*,t*^(−1)], strict interior parasitic stability, and simple −1 root on the boundaries; outside one parasitic modulus exceeds 1. The explicit determinant of the frozen C(t,1/t) exceeds 1 in modulus for 0<t<1/4, providing a strict stable-product/unstable-factor interval, reciprocal counterpart by phase reversal. Independently recomputed symbolic trace, determinant and critical Jury factor with exact SymPy algebra. No claim about arbitrary variable-step schedules.
 
-**Scope and limitations.** Exact arithmetic, scalar homogeneous zero-equation BDFL2, and strict reciprocal two-period steps only. No arbitrary-step or full stiff convergence theorem, and no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: primary same-object comparisons, alias/implication checks and published finding searches distinguish the assessed exact statement from covered components. Historical priority uncertainty is retained; failed search is not novelty proof.
+
+## value
+
+PASS
+
+The precise period-two monodromy gives a motivated sharp necessary-and-sufficient stability window for an existing variable-step method and an explicit phenomenon where the switched product is stable although a frozen factor is unstable. This identifies a nontrivial dynamics overlooked by frozen-root checks, not a generic Jury recitation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

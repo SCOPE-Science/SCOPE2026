@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:59:40.653819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact homogeneous 3×3 companion matrix C(w,v) has unit constant vector. For alternating reciprocal ratios t,1/t, direct symbolic multiplication produces characteristic polynomial (λ−1)(λ²−S(t)λ+P(t)), with S,P rational as stated. For t>0, the Jury expressions 1−P and 1−S+P are everywhere strictly positive; the third 1+S+P is positive precisely for 4(t+t^(−1))²−10(t+t^(−1))−49<0. This yields closed zero-stable [t*,t*^(−1)], strict interior parasitic stability, and simple −1 root on the boundaries; outside one parasitic modulus exceeds 1. The explicit determinant of the frozen C(t,1/t) exceeds 1 in modulus for 0<t<1/4, providing a strict stable-product/unstable-factor interval, reciprocal counterpart by phase reversal. Independently recomputed symbolic trace, determinant and critical Jury factor with exact SymPy algebra. No claim about arbitrary variable-step schedules.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jensen–Lóczi–Ketcheson arXiv:2610.22685 Sections 6.2–6.3 derive the exact adaptive coefficients.",
+          "Section 6.3 p27 explicitly states they do not analyze products of varying companion matrices, opting for frozen-coefficient root checks."
+        ],
+        "reasoning": "The motivating source does not imply the two-step necessary-and-sufficient product window; frozen instability in the claimed stabilized subinterval makes this inequivalence especially decisive.",
+        "searches": [
+          "Resultary published findings semantic query: Variable step BDFL2 alternating reciprocal step ratios period two zero stability Floquet root -1",
+          "web search: variable-step BDFL2 Jensen Lóczi Ketcheson arXiv 2610.22685 alternating reciprocal ratios",
+          "primary https://arxiv.org/pdf/2610.22685"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git RESULT.md 919ca2bfcdb670b7f348d2f0ab33c57cf3435bcf and check.py a2422df2d2e18d6176cd4806d2c7acf9b0e4f8ea",
+        "Jensen, Lóczi & Ketcheson arXiv:2610.22685 Sections 6.2–6.3 primary 35-page PDF",
+        "Jury/Schur quadratic criterion, classical",
+        "Resultary 2-periodic/variable-step/Floquet semantic query",
+        "Independent BDFL2_SYMBOLIC_MONODROMY_OK"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Section 6.3 says frozen coefficient criterion is a practical indicator but does not characterize arbitrary ratio sequences.",
+          "Current explicit 2-periodic monodromy has stable regions even with one individually unstable coefficient matrix."
+        ],
+        "reasoning": "The existing frozen coefficient theorem cannot imply this full 2-periodic conclusion; source method and model coefficients are duly credited.",
+        "searches": [
+          "Resultary published findings semantic query: Variable step BDFL2 alternating reciprocal step ratios period two zero stability Floquet root -1",
+          "web search: variable-step BDFL2 Jensen Lóczi Ketcheson arXiv 2610.22685 alternating reciprocal ratios"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The object is BDFL32/BDFL2 source homogeneous recurrence under reciprocal 2-periodic step ratios; this is exactly a Floquet multiplier/root-condition statement on the two-matrix product.",
+          "General scalar two-periodic recurrence spectra concern different matrices."
+        ],
+        "reasoning": "Searched aliases product stability, monodromy, Floquet, alternating reciprocal step-size, BDFL. The starting frozen-coefficient root region is a different claim.",
+        "searches": [
+          "Resultary published findings semantic query: Variable step BDFL2 alternating reciprocal step ratios period two zero stability Floquet root -1",
+          "web search: variable-step BDFL2 Jensen Lóczi Ketcheson arXiv 2610.22685 alternating reciprocal ratios"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits on two-periodic scalar energy-norm stability, BDF2 sign-loss and other Floquet recurrences involve different methods/observables."
+        ],
+        "reasoning": "No published BDFL32 reciprocal 2-cycle table identified; specialized numerical-methods literature might be imperfectly indexed.",
+        "searches": [
+          "Resultary published findings semantic query: Variable step BDFL2 alternating reciprocal step ratios period two zero stability Floquet root -1",
+          "web search: variable-step BDFL2 Jensen Lóczi Ketcheson arXiv 2610.22685 alternating reciprocal ratios"
+        ]
+      },
+      "rationale": "Best-of-knowledge: primary same-object comparisons, alias/implication checks and published finding searches distinguish the assessed exact statement from covered components. Historical priority uncertainty is retained; failed search is not novelty proof.",
+      "residual_risks": [
+        "Other specialized period-two variable-step root-condition results, perhaps under BDFL32 naming, might evaluate same window.",
+        "Only scalar u′=0 exact recurrence, not all step schedules or nonlinear stiff ODE stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method coefficients match pinned RESULT; paper expressly postpones varying-product analysis and does not state this reciprocal Floquet boundary.",
+          "evidence": [
+            "Section 6.2 p26 adaptive BDFL32 coefficients",
+            "Section 6.3 p27: rather than studying products of varying coefficient companion matrices, use frozen coefficient stability"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22685",
+          "material_read": "Full 35-page primary PDF accessible; read Section 6.2 pp25–27 formula (38), α0/α1 expressions; Section 6.3 p27–28 explicit frozen-stability scope; visual pages p0, p26, p28 inspected",
+          "method": "Primary open-access full-text PDF, text extraction and visual page inspection",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Exact same variable-step method and coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise period-two monodromy gives a motivated sharp necessary-and-sufficient stability window for an existing variable-step method and an explicit phenomenon where the switched product is stable although a frozen factor is unstable. This identifies a nontrivial dynamics overlooked by frozen-root checks, not a generic Jury recitation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git RESULT.md 919ca2bfcdb670b7f348d2f0ab33c57cf3435bcf and check.py a2422df2d2e18d6176cd4806d2c7acf9b0e4f8ea",
+    "Jensen, Lóczi & Ketcheson arXiv:2610.22685 Sections 6.2–6.3 primary 35-page PDF",
+    "Jury/Schur quadratic criterion, classical",
+    "Resultary 2-periodic/variable-step/Floquet semantic query",
+    "Independent BDFL2_SYMBOLIC_MONODROMY_OK"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific best-of-knowledge novelty with explicit inaccessible/uninspected priority risks; no external attestation.",
+    "Finite independent computations do not prove unrestricted quantifiers; analytical proof judged separately.",
+    "Potentially public provenance and earlier-literature first-public date remain unsanitized; publication withheld."
+  ],
+  "residual_risks": [
+    "Other specialized period-two variable-step root-condition results, perhaps under BDFL32 naming, might evaluate same window.",
+    "Only scalar u′=0 exact recurrence, not all step schedules or nonlinear stiff ODE stability."
+  ],
+  "schema_version": 1
+}
