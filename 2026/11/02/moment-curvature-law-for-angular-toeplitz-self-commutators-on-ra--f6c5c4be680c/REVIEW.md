@@ -1,0 +1,15 @@
+# Mathematical assessment
+
+## Correctness — PASS
+The normalized radial probability moment \(M(x)\) makes \(e_n=z^n/\sqrt{M(n)}\) orthonormal. Projection of \(e^{im\arg z}e_n\) onto the analytic subspace has one nonzero coefficient, giving the exact positive weighted shift. Its squared weights equal \(e^{-B(n)}\), where \(B\) is the symmetric central difference of \(g=\log M\). The triangular integral of \(g''\) gives \(B>0\), and that of \(g'''\) gives \(B'<0\), so the self-commutator has a strictly positive diagonal. The derivative asymptotic supplies the coefficient \(\gamma cm^3/4\) by integrating over one winding interval. The diagonal trace telescopes, and two-sided counting proves the ordered singular-value asymptotic and exact Schatten threshold without assuming diagonal monotonicity. Gamma formulas and polygamma integral signs verify the weighted disk and power-Fock examples. The finite checker tests only instances, not all indices.
+
+## Originality — PASS, with residual priority risk
+The quasihomogeneous/quasi-radial moment reductions appear in earlier literature and are not new. Dewage--Ólafsson (arXiv:2107.01465) treat quasi-radial Fock Toeplitz operators; their diagonal spectral formulas do not state curvature-controlled self-commutator asymptotics for the nonradial angular phase. Rodríguez Rodríguez (arXiv:2206.11557) studies commutative Bergman quasi-homogeneous algebras. Dong--Zhou (arXiv:1411.0213) classify *finite-rank* commutators for quasihomogeneous symbols, a logically different statement from an exact asymptotic for a strictly positive infinite-rank commutator. Fredholm index statements in Al-Qabani--Virtanen are distinguished from the claimed singular-value asymptotic. Searching titles, aliases, the moment-curvature formulation, and the specific \(m^3\) coefficients did not identify direct prior coverage. Historical priority remains provisional, especially against unindexed quasihomogeneous pseudodifferential treatments.
+
+## Mathematical value — PASS
+The result identifies one mechanism that converts second and third logarithmic moment curvature into an exact noncommutative spectral law, with a cubic winding coefficient, a sharp weak-Schatten endpoint and an exact logarithmic residue. The two canonical analytic spaces exhibit different decay powers (three versus two) despite the same bounded angular phase symbol. This classification is more informative than simply computing one weighted shift or using its familiar index/trace. The assumptions are explicit and verifiable in both analytic families; the result is not a statement about arbitrary symbols or dimensions.
+
+## Limits and comparison
+Only one-complex-dimensional radial polynomial Hilbert closures are covered, with strictly decreasing positive moment curvature obeying a differentiable asymptotic power law. General radial measures may not satisfy this hypothesis. Earlier work on Toeplitz commutators might contain a stronger spectral theorem expressed by different methods; no comprehensive independence or priority certification is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
