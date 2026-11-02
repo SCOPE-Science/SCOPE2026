@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For K_{a,2}, the case split on whether the two B-agents share a block is exhaustive. Payoff comparisons reduce to strict density inequalities; all one-B and two-B blockers are classified or subsumed, yielding necessary and sufficient phase criteria and exact minimum sizes. Simple inequalities force the global cutoff; an explicit construction attains it and yields an exact count. A separate integer-only labeled-partition brute force on a=2,...,6 passed (5287 partitions and 217392 blocking coalitions), corroborating rather than replacing the all-a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fanelli et al. 2021 §3: general q-size core convergence and welfare, no graph-specific sharp q cutoff.",
+        "Demeulemeester and Peters MFCS 2023 pp.1-5 and 2024 expanded HTML §§4-7: bounds on multiplicative improvement for larger deviations given q-size core stability.",
+        "Aziz et al. 2017 §5.3: existence and strict-core equal-ratio theorem for arbitrary complete multipartite types."
+      ],
+      "reasoning": "Generality in preference graphs, payoff factors or strong/strict core does not dominate a graph-specific attained cutoff for how large the first STRICT blocking coalition can be. Neither general sufficient q-size stability nor core existence supplies an exact extremum over partitions.",
+      "searches": [
+        "hedonic games complete bipartite friendship simple fractional utility core stable partition blocking coalition",
+        "fractional hedonic games k-core stability no small blocking coalition complete bipartite Bakers Millers",
+        "web: \"Relaxed Core Stability for Hedonic Games with Size-Dependent Utilities\" MFCS 2023"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1705.10116 (primary §5.3 full text)",
+      "doi:10.24963/ijcai.2021/26 (official full extracted text)",
+      "doi:10.4230/LIPIcs.MFCS.2023.41 (first-party PDF with page screenshot)",
+      "arxiv:2311.11101v2 (full relevant HTML sections/appendices)",
+      "arxiv:2412.01666v1 (later expanded publication, conceptual comparison)",
+      "Previously established size-resolved blocker-count polynomial on complete bipartite valuation graphs (scientific implication comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fioravanti et al. arXiv:2311.11101v2 §5 and Appendix B: algorithm constructing exponentially small fractional-error partitions on general graphs, not a sharp universal upper bound on the first blocker in arbitrary K_{a,2} partitions.",
+        "Prior exact K_{a,b} polynomial: P_pi(z) formula for one pi, plus fixed matched-pair examples; no extremal statement over all pi.",
+        "Current proof derives necessary-and-sufficient instability conditions in both placements of the two rare-type agents, then globally optimizes them and constructs a sharp family."
+      ],
+      "reasoning": "The asserted maximum is not a verbal restatement of q-size definitions, an immediate numerical specialization of the general fractional-core guarantees, or a corollary of strict-core existence. The fixed-partition enumerator makes individual minima computable but does not prove the unbounded exact global maximum without the present structural analysis. The current theorem is narrower but substantively different from prior results.",
+      "searches": [
+        "Sharp q-size core threshold for complete bipartite K_{a,2} simple symmetric fractional hedonic games: every unstable partition has a blocker of size <= floor(a/2)+1, and bound sharp",
+        "Two millers many bakers coalition partition exact minimum blocking coalition cardinality macroscopic size fractional core",
+        "web: Fioravanti epsilon fractional core arxiv 2311.11101 full §5 appendix B",
+        "web: MFCS 2023 q-size improvement theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aziz et al. 2017 §5.3: Bakers/Millers type proportions characterize strict core, while a three-agent partition shows the ordinary core differs.",
+        "An earlier size-generating polynomial for arbitrary K_{a,b} fixed partitions explicitly counts strictly blocking subsets by x,y."
+      ],
+      "reasoning": "An equivalent form of the present claim is that q-size core stability on K_{a,2} is equivalent to full core stability for q=floor(a/2)+1, and this fails for each smaller q>=2 (except the trivial a=2 boundary). The prior fixed-partition polynomial can compute minimum size for one specified partition but its statement does not maximize the minimum across all partitions. The earlier strict-core ratio characterization uses weak blocking, which is not equivalent.",
+      "searches": [
+        "fractional core blocking coalitions simple fractional hedonic games complete bipartite graph exact count polynomial time",
+        "counting blocking coalitions by bipartite sizes fractional hedonic games graph twins",
+        "sharp minimal size of a blocking coalition in K_{n,2} fractional hedonic game",
+        "web: \"fractional hedonic\" \"smallest blocking coalition\" \"bipartite\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest indexed topical results concern unrelated complete-bipartite graph invariants such as discounted hitting domination, not hedonic coalition blocking.",
+        "An earlier exact fixed-partition generating polynomial counts the blocking subsets on K_{a,b} without optimizing the minimum blocking size across all partitions."
+      ],
+      "reasoning": "An exact fixed-partition generating polynomial counts all blockers and is expressly credited, but no examined prior record supplies the all-partitions sharp minimum-witness envelope, its full two-miller phase diagram or the construction with linearly large, polynomially many blockers. Sparse search returns do not establish uniqueness.",
+      "searches": [
+        "epsilon fractional core complete bipartite graph count blocking coalitions coalition composition",
+        "number of core blocking coalitions in simple fractional hedonic game bipartite exact",
+        "sharp minimal size of a blocking coalition in K_{n,2} fractional hedonic game"
+      ]
+    },
+    "rationale": "Inspected relevant full texts and documented literature searches did not yield this sharp all-partitions minimum-blocker cutoff or exact sharpness family. A prior full size-generating polynomial on K_{a,b} for any fixed partition is credited as stronger in per-instance counting but is not the sharp global minimax theorem over all partitions. General existence of core and q-core approximation-factor bounds do not imply the claimed exact two-special-agent threshold.",
+    "residual_risks": [
+      "An unlocated specialist paper or non-indexed result might have an equivalent sharp K_{a,2} minimax theorem.",
+      "2024 published expanded work compared via its HTML text; other later versions or supplementary work might contain additional results.",
+      "No independent expert priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_CLAIM",
+        "evidence": [
+          "Theorem 5.3 characterizes strict core by equal type ratios; grand coalition strict-core stable; ordinary core converse explicitly fails for a three-player example.",
+          "No minimax first-strict-blocker threshold for K_{a,2} given in the inspected relevant full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.10116; https://paperzz.com/doc/7147299/fractional-hedonic-games",
+        "material_read": "Full-text §5.3 (Theorem 5.3, Corollary 5.4) and adjacent §5.5, introduction/definitions",
+        "method": "Web full-text HTML reading; arXiv preprint metadata checked",
+        "title": "Fractional Hedonic Games",
+        "trigger": "Original complete-multipartite Bakers and Millers model and known core theorems"
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_CLAIM",
+        "evidence": [
+          "Defines q-size core, proves existence of 2-size stable outcomes and convergence in simple games for 3-size deviations.",
+          "Does not optimize smallest blockers over all partitions for K_{a,2}."
+        ],
+        "identifier_or_url": "https://ijcai.org/proceedings/2021/26",
+        "material_read": "Official IJCAI proceedings full-text HTML, model/definitions, §§3-5, theorems and references",
+        "method": "Web first-party extracted full-text HTML",
+        "title": "Relaxed Core Stability in Fractional Hedonic Games",
+        "trigger": "Introduces q-size core with direct conceptual overlap"
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_CLAIM",
+        "evidence": [
+          "Theorem 2 relates q-size stability to multiplicative improvement factors in m-size deviations.",
+          "No sharp exact minimum-blocker witness-size cutoff over partitions of K_{a,2} is stated."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2023.41",
+        "material_read": "2023 14-page paper main results, definitions, main theorem and graphical table (page 5 screenshot), plus expanded 2024 preprint HTML §§4-7",
+        "method": "Official open-access MFCS PDF text and page screenshot plus public HTML preprint",
+        "title": "Relaxed Core Stability for Hedonic Games with Size-Dependent Utilities",
+        "trigger": "General q-size stability comparison might imply upper bound"
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_CLAIM",
+        "evidence": [
+          "§5 gives learning/stabilizing algorithms with 2^{-Omega(n^{1/3})} blocked-subset fractions.",
+          "The mathematical statements do not quantify a universal first-blocker size on K_{a,2} or count blockers in the sharp minimax family."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.11101v2",
+        "material_read": "Relevant full HTML §§1,3,5,7 and appendices A-B; arXiv original public date verified 2023-11-18",
+        "method": "Public arXiv HTML full-text section and appendix reading",
+        "title": "ε-fractional Core Stability in Hedonic Games",
+        "trigger": "Motivation and closest direct study of rare blocking coalitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3784aa4d-228e-44c6-86f8-61751248ebc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact universal coalition-size threshold distinguishes full core stability from q-size relaxations on a nontrivial two-type graph family and is sharp for every order. Complete phase criteria and the polynomial-count, exponentially rare sharpness construction quantify a motivated gap between the existence of blocking groups, the number of people needed to coordinate, and uniform random-blocker detection.",
+    "status": "PASS"
+  }
+}
