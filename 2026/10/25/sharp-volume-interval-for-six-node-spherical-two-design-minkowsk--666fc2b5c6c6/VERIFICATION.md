@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical boundaries
+# Independent mathematical audit
 
-The exact statement and full proof appear in `RESULT.md`. Run `python verify.py` with NumPy, SciPy and SymPy installed. The script separately constructs the six unit normals, verifies their first and second moments, computes the convex hull of the intersection of six halfspaces, and independently compares the resulting vertex count, surface area and volume with the analytical expressions. The tested twists are \(0\), \(10^{-5}\), \(\pi/12\), \(\pi/6\), \(0.7\), and \(\pi/3\). It also tests the symbolic facet-area reduction, scale-normalization formula, derivative and both exact endpoint values. All tests passed in the execution environment.
+## correctness
 
-The numerical hull checks are finite corroboration only: they do not certify all twists, nor do they test an exhaustive census of arbitrary frame configurations. Universality instead follows from the complementary-projector and self-inversive-polynomial argument together with the closed convex-geometric calculation. The planar root-factorization argument allows coincident roots at the degenerate endpoint. The main proof uses only classical finite-dimensional linear algebra, elementary symmetric-polynomial identities, convex polarity, the divergence theorem and Minkowski uniqueness.
+PASS
 
-No independent review, external formal certificate or third-party reproducibility attestation has been performed. The priority comparison is best-knowledge only and retains the limitations recorded in `REVIEW.md`.
+For six distinct unit normals sum x_i=0 and sum x_i x_i^T=2I, E=M^TM/2 is a rank-three projector orthogonal to the all-ones vector, and its complement F=I-J/6-E is a rank-two constant-diagonal 1/3 projector. Six unit-modulus complex coordinates z_i obey sum z_i=sum z_i^2=0; self-inversive symmetry forces characteristic polynomial z^6-e3 z^3+e6 and partitions them into two equilateral triples. The original normals therefore split into two orthonormal triples with opposite sums; one twist phi in [0,pi/3] parametrizes all configurations. The polar unit-support hexahedron/prism has area A0=18t/(t+1)^2 per normal and volume 36t/(t+1)^2, t=2cos(pi/3-phi); scale to facet areas 2pi/3 to obtain V=4pi^(3/2)(t+1)/(9sqrt(3t)), increasing across t in [1,2]. Exact endpoint volumes 8pi^(3/2)/(9sqrt3) and (2pi/3)^(3/2) with triangular bipyramid/cube shapes. Degenerate endpoint treated; numerical convex hulls are supplementary, not universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality qualified by material actually accessed. The exact continuous volume equation and endpoint uniqueness require additional geometry beyond the visible prior general existence results. Relevant literature not wholly indexed or accessible; see source_inspections and residual_risks.
+
+## value
+
+PASS
+
+Six is the first nonrigid cardinality for equally weighted spherical 2-designs in dimension three (four is tetrahedral and five impossible), so an exact one-modulus classification plus sharp equal-facet-area Minkowski volume interval addresses a canonical smallest-flexible design family, not an arbitrary sampled polyhedron. All twists and equality types are described.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

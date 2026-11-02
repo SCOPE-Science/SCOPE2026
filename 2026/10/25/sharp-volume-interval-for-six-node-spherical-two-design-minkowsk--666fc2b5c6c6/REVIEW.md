@@ -1,19 +1,21 @@
-# Scientific review: six-node two-design Minkowski volume classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is every set of six distinct, equally weighted unit normals in three dimensions satisfying the exact spherical second-design moment equations. The proof does not assume symmetry in advance: complementary orthogonal projectors construct a planar constant-norm tight frame, unit-circle root reciprocity forces the two equilateral triples, and the original vectors consequently partition into two orthonormal bases. The sums of the bases are opposite, giving the complete one-angle normal form. This handles the repeated-root endpoint as well as the generic case. The support-one polytope is the polar of a triangular-prism/antiprism normal hull; its listed vertices and one facet's diagonal-area calculation give the exact common area. A symmetry map permutes all six normals, and the divergence theorem gives volume. The unique Minkowski body is the exact uniform rescaling, after which a one-variable derivative yields strict endpoint optimization. The symbolic identities and independent numerical halfspace computations in `verify.py` passed; the all-parameter claim rests on the proof, not numerical sampling. Possible issue to monitor: one must keep the six-facet area normalization \(2\pi/3\), rather than the unit-support normalization; both are distinguished throughout.
+PASS
 
-## Originality — PASS (best-known evidence, residual priority risk)
+For six distinct unit normals sum x_i=0 and sum x_i x_i^T=2I, E=M^TM/2 is a rank-three projector orthogonal to the all-ones vector, and its complement F=I-J/6-E is a rank-two constant-diagonal 1/3 projector. Six unit-modulus complex coordinates z_i obey sum z_i=sum z_i^2=0; self-inversive symmetry forces characteristic polynomial z^6-e3 z^3+e6 and partitions them into two equilateral triples. The original normals therefore split into two orthonormal triples with opposite sums; one twist phi in [0,pi/3] parametrizes all configurations. The polar unit-support hexahedron/prism has area A0=18t/(t+1)^2 per normal and volume 36t/(t+1)^2, t=2cos(pi/3-phi); scale to facet areas 2pi/3 to obtain V=4pi^(3/2)(t+1)/(9sqrt(3t)), increasing across t in [1,2]. Exact endpoint volumes 8pi^(3/2)/(9sqrt3) and (2pi/3)^(3/2) with triangular bipyramid/cube shapes. Degenerate endpoint treated; numerical convex hulls are supplementary, not universal proof.
 
-The closest primary article is Congpei An, arXiv:2608.11570v1 (2026-08-12), with its relevant full accessible text inspected: Theorems 3.1 and 3.4 give the normalized equal-area polytope association and Theorem 4.2 gives moment isotropy, but none classifies the six-node normal configurations or provides a closed volume profile. Chien and Kang, arXiv:2508.12580v1, classify finite-group spherical design orbits through representation data rather than determining this specific six-node Minkowski volume interval. An, arXiv:2609.02439v1, gives polarity, polar moment transfer and self-polarity criteria, not the objective optimized here. A published mathematical record on fourth-order affine equal-area rigidity of Minkowski design polytopes covers a different deformation problem: its affine-rigidity conclusion does not imply the shape-dependent volume profile across arbitrary distinct six-node two-designs. Search terms also compared equal-area hexahedra, twisted trapezohedra, six-node isotropic normals and two orthonormal bases. No source establishing the complete integrated statement was located. Some ingredients may be classical in balanced tight-frame theory or antiprism geometry; classical unindexed overlap remains possible and the absence of search hits is not an absolute originality proof. No independent literature audit has been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Six is the first cardinality beyond the regular tetrahedral case that admits such an isotropic-normal design at all: the rank-one complementary projector for five nodes would require five equal-magnitude signed coordinates summing to zero, which is impossible. Six then admits a continuous shape variation while retaining isotropic surface normals. Fixing facet area \(2\pi/3\) makes volume a geometrically meaningful, nonlinear observable that is not determined by degree-two moments alone. The finding completely classifies this naturally delimited configuration space, obtains every volume in a sharp closed interval, proves rigidity of the bipyramid and cube endpoints, and exhibits a combinatorial change at one endpoint. This is an exact constrained Minkowski realization problem, not an arbitrary finite slice or a previously known table entry. The normalization and endpoint transitions are central to the convex-geometric interpretation of spherical quadrature designs.
+Best-of-knowledge originality qualified by material actually accessed. The exact continuous volume equation and endpoint uniqueness require additional geometry beyond the visible prior general existence results. Relevant literature not wholly indexed or accessible; see source_inspections and residual_risks.
 
-## Remaining scope and evidence limitations
+## value
 
-The result covers exactly six distinct equal-weight normals in \(\mathbb R^3\), not arbitrary six-facet equal-area polytopes or designs of larger cardinality. The result makes no independent-acceptance or formal-certification claim. The source-overlap check has residual risk from inaccessible or unindexed classical work on isotropic tight frames, prism/antiprism polars, and equal-area trapezohedra; the result's exact volume optimization was not found in the inspected sources. Symbolic and numerical checks corroborate the proof but do not replace its universal quantifiers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Six is the first nonrigid cardinality for equally weighted spherical 2-designs in dimension three (four is tetrahedral and five impossible), so an exact one-modulus classification plus sharp equal-facet-area Minkowski volume interval addresses a canonical smallest-flexible design family, not an arbitrary sampled polyhedron. All twists and equality types are described.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
