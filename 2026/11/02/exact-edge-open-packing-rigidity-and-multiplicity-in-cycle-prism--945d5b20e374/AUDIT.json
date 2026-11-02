@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact edge-open packing definition checked against 2022 and 2026 primary originals, including the permitted selected star edges. A complete forbidden-pair table yields 37 admissible triples and a 17-state transition graph for all n>=4. The explicitly stated 0/1 potential makes n minus packing size exactly the number of unit-slack arcs. An exact standard-library integer certificate verifies every one of the 37 arc inequalities, A^8=A^2, and six base trace values, proving all residue classes. The triangular prism is handled separately. Independent brute enumeration over all candidate edge subsets for n=3..8 reproduces all cases, but is not used to extrapolate beyond those orders.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar et al., Section 5, Corollary 5.3, presents general product lower bounds, not a full circular-ladder optimum-count classification.",
+        "Das and Santra, arXiv:2610.02275, Theorems 4, 8 and 13 are class-wise computational algorithms, not the exact formula or multiplicity here."
+      ],
+      "reasoning": "A procedure able to calculate an optimum on input is not itself a mathematical statement of the uniform residue-class sizes and counts. General product lower bounds do not fix the sharp circular closure cases, and none of the inspected results implies the exact 6/4n/2n multiplicity partition.",
+      "searches": [
+        "\"edge open packing\" \"Cartesian product\" \"cycle\" \"K2\"",
+        "\"Induced matching versus edge open packing: trees and product graphs\" prism Cartesian",
+        "arXiv:2406.04020 Section 5",
+        "arXiv:2610.02275 maximum-edge-open-packing algorithms"
+      ]
+    },
+    "checked_sources": [
+      "Das–Santra 2026 arXiv:2610.02275 (maximum edge open packing algorithms)",
+      "Brešar–Dravec–Hedžet–Samadi arXiv:2406.04020 (2024, Cartesian products)",
+      "Chelladurai–Kalimuthu–Soundararajan 2022 DOI 10.1051/ro/2022171 (definition and standard families)",
+      "Bhanupriya–Dominic–Sunitha 2023 DOI 10.2298/FIL2312963K (prism injective chromatic index)",
+      "Semantic mathematical-record queries for circular ladder, edge open packing, injective edge colouring and equivalent maximum colour-class language"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Filomat 2023 gives 3 colour classes when 6 divides the circumference and 4 otherwise for lengths at least 6, along with small cases 3–5; it supplies no exact maximum colour-class counts.",
+        "The 2024 Cartesian-product lower bound uses factor packing and independence numbers, not a phase-counting transfer for the prism."
+      ],
+      "reasoning": "At multiples of six, a known three-colouring and a new upper bound can jointly certify existence of an n-edge class, so scalar existence there must not be claimed independent of that implication. But neither such an implication nor the other published statements gives exactly six distinct n-edge sets, the n−1 threshold for all remaining residues, or the 2n/4n counts. The full enumerator and its exact transfer certificate are the claim being assessed.",
+      "searches": [
+        "doi:10.2298/FIL2312963K Proposition 2.19 Theorem 2.20",
+        "arXiv:2406.04020 Corollary 5.3",
+        "doi:10.1051/ro/2022171 Section 2",
+        "arXiv:2610.02275 Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Filomat 2023 prism theorem computes the minimum number of injective-edge-colouring classes for each cycle length; a largest individual class is a different optimisation invariant.",
+        "The 2022 defining paper equates edge-open packing with induced star forests; the same invariant is not ordinary induced matching."
+      ],
+      "reasoning": "The theorem is phrased and checked both as maximum edge-open packing and as maximum injective-edge-colouring colour-class size. In a prism, induced matching is strictly more restrictive because multiple incident edges can form an allowed star. The inspected injective-index theorem determines neither the exact largest single class for nonmultiples of six nor the number of classes attaining this maximum.",
+      "searches": [
+        "\"edge open packing\" \"prism\" graph",
+        "\"edge open packing\" \"circular ladder\"",
+        "\"injective edge coloring\" \"prism\"",
+        "\"strong induced star forest edge packing circular ladders exact cardinality optimum configurations\"",
+        "doi:10.2298/FIL2312963K"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record queries returned other packing invariants and product bounds, but no statement of the labelled maximum-edge-open-packing enumeration.",
+        "Chelladurai et al. list standard families including cycles, wheels and Petersen; circular ladders do not appear in their reported standard-family values."
+      ],
+      "reasoning": "No exact counted prism table was located in the inspected records. Absence from search results is not proof of nonexistence; the finite certificate and explicit comparison to close primary sources support only best-knowledge originality.",
+      "searches": [
+        "\"edge open packing number\" \"prism graphs\" \"P(n,1)\"",
+        "\"edge open packing\" \"ladder\"",
+        "\"number of maximum induced matchings\" \"prism\" graph",
+        "\"edge open packing number\" \"circular ladder\"",
+        "\"edge open packing number and all maximum edge open packing sets for circular ladders prism graphs C_n Cartesian K_2\""
+      ]
+    },
+    "rationale": "The full primary descriptions and relevant proof sections of four close sources were compared by mathematical implication. The 2023 injective-index theorem gives a related scalar colour count, and the 2024 product results give inequalities, but neither controls the distinct maximum colour classes. No inspected source states the exact 6/4n/2n classification; novelty remains best-knowledge and historically qualified.",
+    "residual_risks": [
+      "Complete historical-priority verification against all papers, databases and unpublished versions has not been performed.",
+      "An undiscovered earlier treatment of the exact circular-ladder optimum multiplicities under injective edge-colouring terminology could cover this claim.",
+      "Generic exact algorithms could compute finite instances but have not been shown to imply the closed all-length enumerator in any inspected source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States star-forest definition and algorithms, no exact prism maximum enumeration.",
+        "evidence": [
+          "arXiv:2610.02275 pp. 1–3, 5, 8–11; first version dated 2026-10-01."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.02275",
+        "material_read": "Introduction, Observation 1, algorithmic Theorems 4, 8, 13, conclusion and reference list in the primary 11-page PDF.",
+        "method": "Read primary PDF text, checked relevant section statements and diagram.",
+        "title": "Maximum Edge Open Packing on AT-Free, Chordal, and Convex Bipartite Graphs",
+        "trigger": "Recent foundational algorithms and exact definition of edge-open packing"
+      },
+      {
+        "assessment": "General bounds and hypercube-specific statements; no all-length prism optimum enumerator.",
+        "evidence": [
+          "arXiv:2406.04020 Section 5, especially Proposition 5.2 and Corollary 5.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.04020",
+        "material_read": "Abstract, preliminaries and Section 5 Cartesian/strong-product propositions and corollaries from the primary 27-page PDF.",
+        "method": "Inspected theorem hypotheses and concrete inequalities, searched prism/cycle family.",
+        "title": "Induced matching versus edge open packing: Trees and product graphs",
+        "trigger": "Possible dominating general Cartesian-product theorem covering prisms"
+      },
+      {
+        "assessment": "Determines minimum number of colour classes; no maximum class counts or all maximum edge-set classification.",
+        "evidence": [
+          "Filomat 37:12 (2023), pp. 3969–3970, Proposition 2.19 and Theorem 2.20."
+        ],
+        "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2023/37-12/37-12-20-18771.pdf",
+        "material_read": "Abstract and Section 2 including Proposition 2.19 and Theorem 2.20, with the relevant proof on pp. 6–7 of the 21-page PDF.",
+        "method": "Read original statements and check logical implication to maximum size and enumerations.",
+        "title": "Injective edge coloring of product graphs and some complexity results",
+        "trigger": "Exact same labelled prism graph and equivalent colour-class feasibility model"
+      },
+      {
+        "assessment": "Provides definition and several exact values, not cycle prisms or optimum multiplicities.",
+        "evidence": [
+          "RAIRO Operations Research 56 (2022), Definition 1.1 and Propositions 2.1–2.3."
+        ],
+        "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+        "material_read": "Original definitions and Section 2 standard graphs including path/cycle/multipartite propositions, pp. 3765–3768.",
+        "method": "Read the open-access primary PDF text and visual page, checked named graph classes.",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Source of the exact edge-open packing definition, and possible old standard-family coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "945d5b20-e374-4d3b-a5fd-e5c6b7c4fa0f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph family is canonical in product graph theory and injective edge colouring; the question is a natural precise optimum-set counting problem for a recently active packing invariant. The result isolates an arithmetic six-periodic rigidity threshold, characterises its exceptional six optimum phases and proves linear enumerators in other congruence classes. This is more than a table lookup or a numerical lower-bound substitution and supplies exact benchmarks for algorithms and robustness questions. The scientific value rests on structural and counting information, not an unproved downstream theorem.",
+    "status": "PASS"
+  }
+}
