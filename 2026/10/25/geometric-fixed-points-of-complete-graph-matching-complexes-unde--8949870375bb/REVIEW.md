@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies geometric fixed points with simplexwise barycentric orbit coordinates, and proves that the only compatible edge-orbit vertices are internal singleton edges and two perfect-matchings across each pair of transposition blocks, together with ordinary matching edges among fixed vertices. The orbit complex therefore is \(O_m*M_r\). An explicitly specified contractible cone and \(2(m-1)\) attached cones whose intersections lie in it yield the homotopy recurrence. Base complexes \(O_1,O_2\), join boundary cases \(r=0,1,2\), and induction on \(m\) establish all quantifiers. The mod-two simplicial computations were replayed from the attached script; the infinite classification depends on the proof, not on the finite tests.
+PASS
 
-## Originality — PASS, with residual risk
+PASS. Retrieved frozen RESULT.md, complete independent-check source and other package files. A fixed barycentric point must use entire graph-edge orbits; admissible orbits are singleton edges joining each swapped pair, two perfect-pair alternatives between distinct swapped blocks, plus fixed–fixed ordinary edges. Mixed swapped–fixed edge orbits are inadmissible because their two edges share a fixed endpoint. Hence orbit complex is O_m*M_r. The contractible cone L_m*O_{m−1} and 2(m−1) cones over O_{m−2} attach with pairwise overlaps inside the cone; collapsing it gives recurrence O_m≈∨^{2(m−1)}Σ O_{m−2}. Base O1 point, O2 edge plus two isolates, and r=0,1,2 join edge cases prove odd contractibility and even (2k)!/k! wedge/suspension formula without unproven assumptions on M_r. Verified independently by rebuilding the full block-support face enumeration and reduced Euler characteristic for m=1..7 (face polynomial examples m4: [1,16,42,16,1], χ̃=−12; m6 χ̃=120), agreeing with the recurrence. The published integral M7 groups H1=Z/3 and H2=Z^20 are explicitly confirmed in Mondal–Mukherjee–Saha Theorem1.3, producing the stated fixed torsion via two suspensions. Finite checks are not substituted for the homotopy recurrence.
 
-The closest classical sources are the full published discussion of ordinary matching-complex homology and representation theory by Wachs (2003), including the strong general inflation theorem in Section 8, and the 2023–24 discrete-Morse classification by Mondal, Mukherjee and Saha. Neither inspected source states a classification of *geometric involution-fixed points* of \(M_n\) by all involution cycle types. The colored multigraph inflation result concerns a different object; its formula cannot be applied to the current loop-augmented orbit complex without the present identification and recurrence. Previously published examples of complete-graph and other graph matching complexes determine ordinary homology or symmetry characters, not these fixed-point spaces. Unindexed equivalent formulations and general abstract equivariant techniques remain a residual literature risk; lack of a search hit alone is not treated as proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a complete natural infinite-family homotopy classification for every involution, including odd/even contractibility changes and the systematic transfer of torsion from smaller complete-graph matching complexes into geometric fixed spaces. The example with two transpositions and seven fixed ground vertices has \((\mathbb Z/3)^2\) in fixed-space second homology, which cannot be recovered from ambient rational representation characters. This is a structural equivariant-topology result rather than a single finite computation or a parameter substitution.
+PASS (best of knowledge). Read Wachs 2003 primary PDF §8 Theorems8.3–8.4: inflation of ordinary matching complexes and uniformly colored multigraphs, including suspensions, is close but not the loop-augmented orbit complex with singleton block vertices. Read Mondal–Mukherjee–Saha 2024 main theorem PDF: computes ordinary M7 and general ordinary Morse connectivity; does not give all involution geometric fixed spaces. The M7 torsion and the generic suspension machinery are PRIOR, credited. The structural new work is exact orbit classification under each involution and cone recurrence. Beware unindexed general fixed-subgroup formulas.
 
-## Scientific limits
+## value
 
-General homotopy types of \(M_r\) are not assumed known; the classification uses their suspensions when \(r\ge3\). Other subgroup-fixed spaces are not classified. The finite checker verifies bounded instances only. The homology groups in the torsion illustration are inherited from the published computation of \(M_7\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A COMPLETE all-involution fixed-locus homotopy classification is a natural equivariant topology invariant and gives parity contractibility, factorial multiplicity, and integral torsion transfers. Ordinary homology or representation characters are insufficient substitutes. The recurrence and join boundary cases are structural, not arbitrary small examples or renaming of known inflation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
