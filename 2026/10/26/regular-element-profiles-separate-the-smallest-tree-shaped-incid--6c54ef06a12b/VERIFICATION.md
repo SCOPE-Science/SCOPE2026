@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproducible finite-field tests
+# Independent mathematical audit
 
-`python3 verify.py` constructs the two finite-dimensional incidence-algebra products directly from the three strict comparabilities. It tests the existence of an inner inverse by solving the linear system associated to the map \(b\mapsto aba\), with no use of the proposed diagonal-zero criterion. It separately enumerates all idempotents and all ordered commuting-idempotent pairs. For all elements over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\), it matches the exact induced-edge formula and the difference \(q(q-1)^3\). The output marker is `VERIFY_OK_INCIDENCE_REGULARITY_SEPARATION`.
+## correctness
 
-This checks finite instances only. The theorem for every finite height-two poset and every finite field, the subgraph expansion, and the large-field asymptotic are established by the written algebraic and inclusion-exclusion arguments, not by finite enumeration. The comparison of earlier literature does not constitute independent mathematical validation.
+PASS
+
+PASS: For every height≤2 poset, incidence multiplication makes the strict-interval radical square zero. Solving aba=a vertexwise and edgewise proves a is regular exactly when each edge coordinate connecting two ZERO diagonal endpoints vanishes. For diagonal-zero set T there are (q−1)^(n−|T|) q^(m−e_G(T)) choices, giving the exact all-prime-power count. Inclusion--exclusion of bad edges gives Σ_{F⊆E}(−1)^|F|(q−1)^|F|/q^(|F|+|V(F)|), and the q^(−3) coefficient m+h(G) arises only from singleton and incident-edge-pair sets (bipartite triangle-free). Independent evaluation for all q=2..16 reproduces the path/star degree-7 polynomials and difference q(q−1)^3. More strongly, a freshly written direct linear-system solver (no use of this criterion) counts (path,star) regular elements as (89,91) over F2, (1777,1801) over F3 and (14377,14485) over F4. Simultaneous diagonal idempotent conjugacy and weighted tree-coloring prove that every commuting idempotent t-tuple count equals 2^t[1+(2^t−1)q]^3; independently checked 16 t,q parameter pairs. Includes char2 and isolated vertices; asymptotic keeps graph fixed.
+
+## originality
+
+PASS
+
+PASS (qualified): The 2008/2009 Khripchenko--Novikov theorem already proves regular elements are two-sided unit-equivalent to diagonal idempotents in general finitary incidence algebras; idempotent diagonal conjugacy is also prior. Neither inspected theorem supplies the field-counting partition function, its induced-edge subgraph expansion, or the fully quantified pair of indistinguishable idempotent-tuple profiles separated by regularity. Such counts could be readily derived by specializing older incidence algebra techniques, a residual priority concern.
+
+## value
+
+PASS
+
+PASS: The exact regularity count is a natural semigroup/algebra invariant; the first connected tree-shape pair (path vs star) has identical all-arity commuting-idempotent tuples but distinct regularity polynomials, visibly detecting incident edge pairs not encoded by the free graphic matroid. This is a complete structural separation rather than a random field-size sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
