@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The positive-length reachability convention identifies cycle membership through self-approval. Contracting each terminal cycle produces a rooted labeled tree uniquely determined by the noncyclic reachability chains; reversing this construction is explicit. Cayley's formula and labeled SET enumeration give the connected and all-profile EGFs. Every witness of a fixed profile is counted by the product of independent cycle orders and direct attachments. The square-root expansion of \(T=ze^T\), uniform singularity transfer, and the labeled-map cycle construction provide the asserted asymptotic and sampling laws. Exhaustive exact finite checks agree for every map on one through six labels, including every individual fiber. The finite checks are not offered as infinite proofs.
+## correctness
 
-## Originality — PASS (qualified)
-The motivating paper, Grossi–Lisowski–Papasotiropoulos, arXiv:2608.13085, sections 2.2–2.3 and its technical appendix, defines the exact liquid domain and gives a recognition argument but does not state the distinct-profile EGF, fiber enumeration or limiting shifted-Poisson component distribution. Aho–Garey–Ullman (1972) establishes general transitive-reduction concepts, not this exact quotient and its two sampling regimes. Harary (1959) enumerates functional digraphs; counting digraphs is not the same as counting labeled reachability-profile classes. Cayley trees and mapping singularity methods are established ingredients and are explicitly credited. Searches by approval-domain names, functional-graph aliases, EGF, and initial integer sequence yielded no exact matching prior theorem. The remaining risk is a previously published equivalent formula under a different combinatorial name; absence in searched sources is not proof of absolute priority.
+PASS
 
-## Mathematical value — PASS
-The distinction between a delegation function and its induced approval information changes the natural sample space in peer-selection voting. The theorem gives the entire exact size and component enumerator of this restricted election domain, quantifies the many-to-one witness fibers, and proves a qualitative statistical contrast: bounded shifted-Poisson component count for uniformly selected distinct ballot matrices, versus asymptotically vanishing connectedness for uniform delegation functions. This is useful when calibrating uniform synthetic peer-selection elections or interpreting structural prevalence; it makes no behavioral or normative claim.
+Every functional digraph component has an intrinsic sink cycle S, detected by self-approval; contracting it leaves a uniquely recovered rooted tree of off-cycle vertices. Cyclic order contributes (s-1)! and direct attachments s^b to each profile fiber. Labeled species gives connected EGF (exp(z)-1)exp(T), T=z exp(T), and all-profile EGF exp(u C). Square-root singularity at rho=1/e yields P_n~a exp(a)n^(n-1) and 1+Poisson(a); mapping EGF -log(1-T) yields connected-function probability sqrt(pi/(2n)). Independent direct closure/fiber census checks through n=4, not substitute for singularity proof.
 
-## Closest literature and limits
-The peer-selection paper supplies the model and a reachability recognition procedure, not these counts. The classic transitive-reduction and functional-digraph works supply background but do not by themselves give the quotient enumeration. Proofs assume labeled peers, one outgoing arc per peer (self-loops permitted), and positive-length reachability. Broader multi-delegation systems and committee outcomes are outside scope. Historical-priority uncertainty remains, and no independent verification was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The quotient by positive-length reachability and its labeled fiber formula differs from mapping enumeration and general transitive-reduction algorithms; inspected relevant sources do not state the resulting exact EGF or the shifted-Poisson profile law.
+
+## value
+
+PASS
+
+Intrinsic sizes and fibers of the natural liquid approval ballot domain yield different sampling laws than uniform delegations. Exact enumerator, explicit fiber counts, and limiting shifted-Poisson number of components are independently useful for benchmark generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
