@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The independent BSC transition matrix and constant conditional entropy are exact. Invertibility gives strict concavity over the input simplex for 0<p<1/2; output reversal/complement symmetry forces the two endpoint weights equal. The explicit second derivative is negative on the symmetric segment, while F_t′(0)>0 and F_t′(1)<0, giving a unique strictly interior optimizer and all-noise gain. At both endpoints direct channel limits resolve equality/strictness. Analytic implicit-function expansion with rational coefficient checks establishes beta=t²−3t⁴+34t⁶/3+O(t⁸), and gain=(t⁶−3t⁸+32t¹⁰/3+O(t¹²))/ln2. Saved exact fraction and high-precision checks passed; they corroborate the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A. Kobovich, E. Yaakobi and N. Weinberger, M-DAB, arXiv:2309.17193 (2023).",
+        "A. Kobovich and N. Weinberger, Input Optimization in the Composite DNA Storage Channel, DOI:10.1109/JSAIT.2025.3595005 (2025)."
+      ],
+      "reasoning": "The general entropy-maximization principle includes this three-input channel formally but does not produce the specific strict inequality or asymptotic coefficients without analyzing the transition matrix. The cited multinomial channel models have different conditional output distributions and do not imply this theorem.",
+      "searches": [
+        "input distribution symmetric 00 01 11 binary-symmetric noise maximizing mutual information",
+        "three allowed binary pairs (00 01 11) double BSC capacity optimal distribution",
+        "multinomial composite DNA channel input optimization ordered read binary symmetric"
+      ]
+    },
+    "checked_sources": [
+      "B. Dollma, O. Elishco and E. Yaakobi, Coding for Ordered Composite DNA Sequences, arXiv:2509.26119 (2025), §VI.",
+      "A. Kobovich, E. Yaakobi and N. Weinberger, M-DAB, arXiv:2309.17193 (2023).",
+      "A. Kobovich and N. Weinberger, Input Optimization in the Composite DNA Storage Channel, DOI:10.1109/JSAIT.2025.3595005 (2025).",
+      "M. Mitzenmacher, On the Theory and Practice of Data Recovery with Multiple Versions, 2006."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "B. Dollma, O. Elishco and E. Yaakobi, Coding for Ordered Composite DNA Sequences, arXiv:2509.26119 (2025), §VI.",
+        "A. Kobovich, E. Yaakobi and N. Weinberger, M-DAB, arXiv:2309.17193 (2023).",
+        "A. Kobovich and N. Weinberger, Input Optimization in the Composite DNA Storage Channel, DOI:10.1109/JSAIT.2025.3595005 (2025).",
+        "M. Mitzenmacher, On the Theory and Practice of Data Recovery with Multiple Versions (2006)."
+      ],
+      "reasoning": "The first paper supplies the model and symmetric reduction; adding the derived endpoint derivative signs proves a strictly stronger conclusion. The repeated binary-input channel has no third input and fixes beta=0. Multinomial channel capacity optimization does not algebraically give the signed gain for this specific ordered-pair channel.",
+      "searches": [
+        "Dollma Elishco Yaakobi ordered composite DNA channel capacity strict superiority over two identical BSC copies all crossover probabilities",
+        "2509.26119 ternary ordered composite binary resolution 2 sixth-order high-noise capacity gain (1-2p)^6",
+        "input distribution symmetric 00 01 11 binary-symmetric noise maximizing mutual information",
+        "three allowed binary pairs (00 01 11) double BSC capacity optimal distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "B. Dollma, O. Elishco and E. Yaakobi, Coding for Ordered Composite DNA Sequences, arXiv:2509.26119 (2025), §VI.",
+        "arXiv:2509.26119 §VI computes the symmetric capacity optimization numerically and discusses near-equality at high noise."
+      ],
+      "reasoning": "The numerical symmetric maximization in the antecedent does not logically imply a positive optimum mixed-symbol probability for every strict noise parameter, nor the explicit sixth-order gap. The new derivative-sign and Taylor arguments are additional.",
+      "searches": [
+        "Dollma Elishco Yaakobi ordered composite DNA channel capacity strict superiority over two identical BSC copies all crossover probabilities",
+        "2509.26119 ternary ordered composite binary resolution 2 sixth-order high-noise capacity gain (1-2p)^6",
+        "ordered composite DNA capacity optimal mixed symbol probability sixth order high noise"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2509.26119 §VI reports numerical comparisons and optimization curves, not the exact all-noise statement or the displayed high-noise coefficients."
+      ],
+      "reasoning": "Matching numerical near-equality plots or a finite table would not determine the exact sign on the continuum or the order-six asymptotic constant. No accessible exact tabulation of these coefficients was located.",
+      "searches": [
+        "Dollma Elishco Yaakobi ordered composite DNA channel capacity strict superiority over two identical BSC copies all crossover probabilities",
+        "2509.26119 ternary ordered composite binary resolution 2 sixth-order high-noise capacity gain (1-2p)^6",
+        "ordered composite DNA two BSC capacity numerical table weak noise asymptotic"
+      ]
+    },
+    "rationale": "The 2025 source derives the channel and a one-variable maximization and compares its rate numerically with two-copy repetition. Its numerical near-equality is not an all-noise strict-improvement theorem or a sixth-order asymptotic calculation. The present proof establishes these as analytic statements. Related ordered read, repeated read and multinomial-channel sources were compared by implications. Nonindexed and inaccessible literature pose residual priority risk.",
+    "residual_risks": [
+      "Not every relevant earlier preprint or unpublished analysis is indexed or searchable.",
+      "The complete text of the 2025 multinomial optimization journal article was not inspected; although its model differs, an incidental comparable example cannot be excluded.",
+      "The source paper might contain unindexed supplementary calculations not visible in the accessible rendered text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same object and channel, supplies central baseline; no exact strict all-noise inequality or sixth-order series in the inspected material",
+        "evidence": [
+          "Source Section VI compares the numerical optimized capacity and repetition and describes their near-equality when bit noise is large."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.26119",
+        "material_read": "Accessible rendered primary text including model and Section VI capacity reduction, optimization and numerical discussion",
+        "method": "Read the rendered arXiv paper and compared its displayed input law, objective and stated numerical conclusions with the asserted derivative and asymptotic theorem",
+        "title": "Coding for Ordered Composite DNA Sequences",
+        "trigger": "Defines precisely the binary resolution-two channel and compares capacity to repeated binary input"
+      },
+      {
+        "assessment": "Different channel transition law; no direct implication to the strict ordered-channel comparison",
+        "evidence": [
+          "The multinomial channel samples from distributions rather than fixed bit-pair order."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.17193",
+        "material_read": "Accessible arXiv abstract and model/introductory discussion",
+        "method": "Compared the sample-from-probability-vector multinomial model to fixed ordered bit pairs with two independent BSCs",
+        "title": "M-DAB: An Input-Distribution Optimization Algorithm for Composite DNA Storage by the Multinomial Channel",
+        "trigger": "Could imply general input optimization for composite DNA"
+      },
+      {
+        "assessment": "Reported multinomial input optimization differs from the ordered two-BSC model, but full-text exclusion not claimed",
+        "evidence": [
+          "Accessible abstract discusses composite DNA input optimization in the multinomial channel."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/JSAIT.2025.3595005",
+        "material_read": "Bibliographic metadata and publicly accessible abstract only; full paper not inspected",
+        "method": "Checked abstract-level model assumptions and recorded full-text access risk",
+        "title": "Input Optimization in the Composite DNA Storage Channel",
+        "trigger": "Relevant contemporary composite DNA capacity optimization"
+      },
+      {
+        "assessment": "Baseline comparison, not a general three-input channel capacity theorem",
+        "evidence": [
+          "Multiple noisy versions of one binary input do not include the mixed ordered symbol."
+        ],
+        "identifier_or_url": "https://www.eecs.harvard.edu/~michaelm/ListByYear.html",
+        "material_read": "Accessible bibliography and abstract, not full text",
+        "method": "Compared the two repeated binary input symbols to the permitted three-symbol ordered composite alphabet",
+        "title": "On the Theory and Practice of Data Recovery with Multiple Versions",
+        "trigger": "Two-copy repetition comparator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d74d06ca-4f8d-48c6-aeab-92bd4d98ed74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2025 channel study numerically observes that allowing a mixed symbol seems to provide very little benefit when reads approach maximal noise. A strict theorem for every nonmaximal noise level and the sharp t⁶ coefficient identify both the structural fact that optimal signaling uses all three symbols and the quantitative mechanism for near-equality, useful when comparing ordered composite letters to repeated binary reads.",
+    "status": "PASS"
+  }
+}
