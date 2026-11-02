@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The kernel is derived from the explicit uniform conditional-expectation matrices. The mismatch-class computation gives the exact total-variation identity for every finite depth. Bellman induction proves a two-affine-function envelope with alternating switching points \(\lambda=1/q\) and \(c=1-1/q\), and strictness away from switching values establishes all maximizing masks. The finite geometric-series evaluations yield the displayed operator norms and asymptotic slope. A separate exact-rational checker tests all masks for small depths and reconstructs smaller matrices. Finite checks are supportive, not a replacement for proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The previously established \(q=2\) binary result is excluded from the contribution. The closest accessible full primary article, Osękowski 2013 (DOI 10.1155/2013/646012), concerns sharp restricted weak-type inequalities for Haar and martingale transforms, not finite-depth q-ary strong-endpoint all-mask optimization. Dyadic multiplier norm results by Semenov–Uksusov 2012 and Wark 2015 are plausible background but their full texts were inaccessible. published-finding corpus searches for regular-branching, q-adic Haar, and finite-tree level multiplier aliases found no theorem with the new equality classification; that search result is not treated as a uniqueness proof. Risk remains from alternative terminology and unread older papers.
+PASS
 
-## Mathematical value — PASS
-The exact optimizer classification is a natural finite model of worst-case loss under discarded martingale-difference levels. Branching changes the asymptotic amplification per level to \((q-1)/(q+1)\), and for every \(q\ge3\) the odd-depth equality case becomes unique, contrasting with the earlier binary exception. This explains a genuine multiscale, nonbinary sensitivity effect rather than a single computed example.
+PASS: Reconstructed kernel according to longest initial coordinate agreement and mismatch proportions (q-1)/q^j, giving row absolute norm r_n+Σ|r_{k+1}-r_k| with r_{k+1}=r_k/q+(1-1/q)b_k; kernel symmetric so L1 equals Linfinity. Dynamic programming V_t(r) obeys max{c r+V_(t-1)(λr), c(1-r)+V_(t-1)(λr+c)} and reduces by induction to affine candidates crossing only at λ for even remaining depth and c for odd remaining depth (n>=2); c>λ assures rigidity, with depth-one exception. Pairwise bit-interaction expansion and finite geometric sums give exact formulas and slope. Independently enumerated all 2^n masks at q=3..7, n=1..10, computing signed kernel class rows with exact rational fractions and matching every norm, optimizer and parity formula. This finite enumeration corroborates but does not replace the Bellman induction.
 
-## Limits
-All results require uniform finite q-ary branching and whole-level masks; they do not cover arbitrary Haar multipliers, nonuniform measures, infinite-horizon boundedness, or intermediate-exponent estimates. Historical priority is provisional pending independent literature assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: The existing q=2 whole-level mask result is excluded. Osękowski 2013 establishes martingale/Haar sharp restricted weak-type inequalities, not these q>=3 finite strong endpoints and equality masks; Semenov–Uksusov 2012 and Wark 2015 study Haar multiplier spaces for binary Haar systems. No checked primary statement dominates this nonbinary full-mask optimization; full texts of two close multiplier papers remained unavailable, so priority remains qualified.
+
+## value
+
+PASS
+
+PASS: Projection norm amplification under deleting entire levels of a branching martingale filtration is an intrinsic and motivated endpoint invariant. Closed norms, limit slope and full equality-mask rigidity quantify genuinely different behavior between binary and q>=3 branchings, valuable without a larger infinite-filtration result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
