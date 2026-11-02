@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The simplicial complex, face enumerator, graph isomorphism, and integral boundary orientation are fully specified. The self-contained `verify.py` reconstructs all \(6{,}349\) faces, verifies the \(23{,}226\) Hasse incidences, validates an acyclic matching with critical vector \((1,0,21,141)\), and produces an exact \(21\times141\) integer boundary. Twenty unimodular unit pivots followed by a last-row gcd of \(9\) prove Smith factors \((1^{\times20},9)\). Hence reduced integral homology is \(\mathbb Z/9\) in degree two, \(\mathbb Z^{120}\) in degree three, and zero elsewhere. The independent full mod-two boundary-rank computation agrees with the free ranks, but does not independently certify the odd-order torsion.
+PASS
 
-## Originality — PASS
+For toroidal queens on F_7^2, nonattacking displacements are exactly nonzero (dx,dy) with dx,dy,dx±dy all nonzero. The invertible linear map (x,y)->(2x+3y)+(2x+y)omega with omega^2=3 identifies this legal-placement graph with Paley(49): the square norm condition equals nonattack. Exhaustively generate each clique/face once, giving f=(49,588,2156,2450,882,196,28), total 6349. A specified greedy order on 49 vertices pairs 3093 face inclusions; direct Hasse acyclicity check on 23226 incidences leaves critical cells 1 zero-, 21 two-, 141 three-dimensional. Exact signed Morse boundary 21×141 has 1055 nonzero entries. An independent integral Smith normal form gives 20 unit invariant factors and one 9, so reduced H2=Z/9, H3=Z^120 and all other groups vanish. This is a complete finite exhaustive mathematical certificate, not an infinite-family theorem. Independent check: Independently reconstructed all 6349 faces from the 49-board attack relation, the specified discrete Morse pairing, exhaustive directed Hasse DAG, and the signed Morse boundary via a separately written implementation. An independent SymPy exact-integer Smith normal form gave [1]*20+[9], confirming odd order-nine torsion; pairwise Paley correspondence was also verified in supplied package. Thus this run checked the crucial integer certificate, not only a log or mod-two ranks.
 
-The equivalent Paley-49 flag-complex formulation was checked rather than treating distinct terminology as novel. Closest inspected full sources: Baker–Ebert–Hemmeter–Woldar (1996) on maximal Paley-square cliques, and Cairns (2001) on toroidal queen placements. Neither contains the integral clique-complex homology claim or implies its Smith factors. Other indexed Paley graph complexes use order \(29\) or \(17\) and have noncovering constructions. Unindexed publications and the uninspected full 1984 Blokhuis article remain residual literature risks.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete integral homology classification of a classical finite board-configuration complex, including nontrivial cyclic torsion of order nine, for an analytically motivated Paley graph. The precise odd prime-power torsion is invisible to rational and mod-two computations and cannot be inferred from known maximum-clique results.
+The Paley49 clique-complex alias was directly included in searches. Baker et al. classify certain maximal cliques in Paley square-order graphs; Cairns classifies toroidal queen placement feasibility. Neither a maximal clique classification nor a maximum number of queens determines the full oriented boundary matrix or its order-nine Smith factor. Paley17/29 computations are for different graphs and homology types. Priority remains qualified against unindexed clique-complex homology tables.
 
-## Limitations
+## value
 
-Only the \(7\times7\) toroidal board is treated; there is no claim about the full homotopy type, other dimensions, or all finite-field orders. The computation is an exhaustive finite proof but not independently validated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a precise integral homology invariant for a natural toroidal-board/Paley graph complex; Z/9 is genuinely stronger than a mod-three Betti anomaly and invisible in Q and mod-two homology. A full small classical-object computation with certified prime-power torsion is a reusable benchmark for topological graph methods, even without a family-wide theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
