@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact channel-power identity follows from commutation of homogeneous rotations with maximally mixed reinjection and the nilpotence-to-depolarization property of the shift. The upper diamond-norm estimate remains valid for every ancilla; a product computational-basis input and a right-tail projector provide a matching asymptotic lower bound. Binomial central limits prove the complete Gaussian profile, and monotonicity gives its sharp mixing-time inversion. The numerical verification is supplementary and does not replace the proof.
+## correctness
 
-**Originality — PASS (best-knowledge).** The originating dissipative Floquet-shift study specifies the quantum channel, its Floquet atlas, and local binomial spin-wave propagation, but not the full quantum diamond-norm mixing profile. Earlier quantum cutoff theorems considered tensor-power or commuting-generator structures and do not give this specialized nonnormal-channel profile. Classical shift-register cutoff constructions use different state updates and do not state an ancilla-uniform quantum distinguishability law. Searches of published mathematical findings and accessible earlier claims did not identify the same statement or a demonstrated implication of it. **Residual risk:** a broader coupling-based quantum mixing theorem could already imply this specific result; the source's local binomial formula makes the new argument short. Priority has not been independently established.
+PASS
 
-**Value — PASS.** The result answers an operational question not resolved by pseudospectral residuals: after how many whole cycles is the entire many-qubit channel indistinguishable from complete depolarization, even to an ancilla-assisted observer? It gives the sharp location, window, Gaussian profile, and coefficient, contrasting linear mixing time with fixed nonstationary Floquet eigenvalue moduli. The model's strong algebraic structure is part of the physical motivation, not an arbitrarily chosen finite slice.
+For every N>=1, fixed g in (0,1), a=1-g, the given homogeneous single-site rotation Ad_{R_N} commutes with the replacement/shift E_N(X)=(I/2) tensor Tr_N X. Direct tensor computation gives E_N^k(X)=(I/2)^tensor k tensor Tr_last-k(X), and E_N^N=D_N. Therefore T_N^t is a final unitary rotation followed by a Binomial(t,g) mixture of E_N^k. Unitary invariance of half diamond distance and maximal channel distance 2 gives uniform all-ancilla upper tail P(K<=N-1). A product input |0>^tensor N and a rightmost-L all-zero projector yields trace-distance witness P(K<=N-L)-2^{-L}, so the same holds for the diamond distance, even though the lower witness uses no ancilla. Choosing L=floor(N^(1/4)) yields vanishing projector baseline and L=o(sqrt N); the binomial triangular-array CLT at t=floor((N+s sqrt(N(1-g)))/g) squeezes to Phi(-s). CPTP contractivity gives monotone mixing times and the stated inverse-quantile N/g - Phi^-1(epsilon) sqrt(N(1-g))/g +o(sqrt N); endpoint g=1 saturates at t=N and g=0 remains unitary. Fresh independent binomial/measurement calculations verified finite-size inequalities for N=1..6 and g=1/4,1/2,2/3 and sampled normal profile at N=200, which corroborate rather than prove the infinite CLT.
 
-**Closest literature and limits.** Xie et al., arXiv:2609.37523, define the model; Kastoryano–Reeb–Wolf, arXiv:1111.2123, supply the general quantum cutoff framework; Levin–Tankala, arXiv:2109.05387, treat different classical shift-register chains. Fixed \(0<g<1\), exactly commuting global pulse and maximally mixed reinjection are required. No statement is made for correlated histories, alternative reset states, or an \(N\)-dependent \(g\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh best-of-knowledge statement-and-implication comparison across standard aliases, general theorems and exact tables. Inspected primary material does not establish the same final claim at the assessed level, although stated full-text access gaps and unindexed equivalences leave explicit priority risks. Once full shift-binomial decomposition is granted, upper tail is elementary; the matching trace/diamond lower witness and inversion are substantive additional results. Since the highly relevant same mathematical model full text is inaccessible, priority is best-of-knowledge and explicitly qualified, not certified.
+
+## value
+
+PASS
+
+A sharp global *operational* mixing-time window in diamond norm, including arbitrary entangled reference systems, is a natural quantum-information invariant. The analytic Gaussian profile quantifies a sharp cutoff for a nonnormal quantum shift where the set of nontrivial multiplier moduli by itself fails to encode system-size mixing. Unlike a local observable bound, it resolves full distinguishability, including worst-case ancillary choices, in a physical model with exact finite-size Bernoulli erasure structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

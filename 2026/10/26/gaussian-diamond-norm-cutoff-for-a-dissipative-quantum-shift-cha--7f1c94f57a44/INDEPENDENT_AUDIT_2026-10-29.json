@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:59:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every N>=1, fixed g in (0,1), a=1-g, the given homogeneous single-site rotation Ad_{R_N} commutes with the replacement/shift E_N(X)=(I/2) tensor Tr_N X. Direct tensor computation gives E_N^k(X)=(I/2)^tensor k tensor Tr_last-k(X), and E_N^N=D_N. Therefore T_N^t is a final unitary rotation followed by a Binomial(t,g) mixture of E_N^k. Unitary invariance of half diamond distance and maximal channel distance 2 gives uniform all-ancilla upper tail P(K<=N-1). A product input |0>^tensor N and a rightmost-L all-zero projector yields trace-distance witness P(K<=N-L)-2^{-L}, so the same holds for the diamond distance, even though the lower witness uses no ancilla. Choosing L=floor(N^(1/4)) yields vanishing projector baseline and L=o(sqrt N); the binomial triangular-array CLT at t=floor((N+s sqrt(N(1-g)))/g) squeezes to Phi(-s). CPTP contractivity gives monotone mixing times and the stated inverse-quantile N/g - Phi^-1(epsilon) sqrt(N(1-g))/g +o(sqrt N); endpoint g=1 saturates at t=N and g=0 remains unitary. Fresh independent binomial/measurement calculations verified finite-size inequalities for N=1..6 and g=1/4,1/2,2/3 and sampled normal profile at N=200, which corroborate rather than prove the infinite CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kastoryano–Reeb–Wolf, arXiv:1111.2123, quantum cutoff machinery for tensor product/commuting Liouvillian settings.",
+          "Levin–Tankala, arXiv:2109.05387, classical XOR-feedback register evolution, a different Markov chain.",
+          "Xie et al., arXiv:2609.37523 abstract identifies nonnormal Floquet spectra and local dynamics; whole paper inaccessible this run."
+        ],
+        "reasoning": "General quantum cutoff theory defines the phenomenon but does not automatically furnish this discrete non-tensor shift Gaussian coefficient; classical register cutoff under XOR update is not an implication. Yet Xie is the *same* physical model: its inaccessible complete supplement prevents any categorical claim of noncoverage.",
+        "searches": [
+          "dissipative quantum shift channel diamond norm Gaussian cutoff coherent permutation quantum Markov",
+          "Kastoryano Reeb Wolf quantum cutoff theorem commuting Liouvillians diamond norm tensor powers",
+          "Xie Shi Ma Chu Gong arxiv 2609.37523 dissipative shift channel"
+        ]
+      },
+      "checked_sources": [
+        "Xie et al. arXiv:2609.37523 (self-review; abstract only; material full-text access blocked)",
+        "Kastoryano, Reeb, Wolf arXiv:1111.2123, full primary quantum cutoff",
+        "Levin, Tankala arXiv:2109.05387, full primary classical register",
+        "Resultary semantic query dissipative quantum shift channel diamond norm Gaussian cutoff coherent permutation quantum Markov"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same mathematical model Xie 2026 proves or cites a binomial propagation formula for local observables, but accessible abstract does not establish a global diamond-norm lower bound.",
+          "Kastoryano et al. 2011 and Levin–Tankala 2021 do not provide the named channel-specific all-ancilla Gaussian mixing profile."
+        ],
+        "reasoning": "Once full shift-binomial decomposition is granted, upper tail is elementary; the matching trace/diamond lower witness and inversion are substantive additional results. Since the highly relevant same mathematical model full text is inaccessible, priority is best-of-knowledge and explicitly qualified, not certified.",
+        "searches": [
+          "dissipative quantum shift channel diamond norm Gaussian cutoff coherent permutation quantum Markov",
+          "non-normal Floquet quantum shift diamond cutoff depolarizing ancilla"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xie et al. (2026) arXiv:2609.37523 introduces the same quantum shift and local-spin binomial propagation (Eq S43 referenced in source), thus the same shift powers can be expressed as a random-replacement process.",
+          "Kastoryano, Reeb & Wolf (2011) defines quantum cutoff and diamond/trace mixing, but its accessible results address other structures."
+        ],
+        "reasoning": "Equivalent mixing representations as a binomial randomized shift were explicitly considered. The novelty is not the binomial decomposition alone but the matching *global diamond* lower witness and sharp CLT profile. Full Xie manuscript could not be inspected, so its possible stronger coverage remains a material risk.",
+        "searches": [
+          "dissipative quantum shift channel diamond norm Gaussian cutoff coherent permutation quantum Markov",
+          "arxiv:2609.37523 dissipative Floquet shift binomial propagation diamond norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite-size inequalities are analytical uniform bounds over all N, t, L, including ancillas; direct finite matrix checks and sampled CLT values are corroborative.",
+          "No prior published exact full diamond-distance table for this channel was found from the actual targeted searches."
+        ],
+        "reasoning": "The theorem bounds rather than exactly evaluates d_N at finite N; it is the asymptotically matching sandwich that yields the exact Gaussian limit. Pre-existing local-spin binomial tables cannot independently give a worst-case diamond norm mixing cutoff.",
+        "searches": [
+          "dissipative quantum shift channel diamond norm Gaussian cutoff coherent permutation quantum Markov",
+          "diamond norm distance binomial shift depolarizing channel Gaussian cutoff table"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge statement-and-implication comparison across standard aliases, general theorems and exact tables. Inspected primary material does not establish the same final claim at the assessed level, although stated full-text access gaps and unindexed equivalences leave explicit priority risks. Once full shift-binomial decomposition is granted, upper tail is elementary; the matching trace/diamond lower witness and inversion are substantive additional results. Since the highly relevant same mathematical model full text is inaccessible, priority is best-of-knowledge and explicitly qualified, not certified.",
+      "residual_risks": [
+        "Full Xie et al. 2026 same-model paper and supplement could contain the global diamond cutoff; no whole-paper NOT_COVERING verdict is justified.",
+        "Authorized full-text retrieval was stopped by safety checks; no retry or bypass. This is an access limitation, not falsification or automatic originality failure.",
+        "The theorem is specific to fixed g in (0,1), independent Bernoulli decisions, homogeneous rotation and mixed reinjection; no correlated-bath or joint-parameter theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest residual priority risk. Only locally accessible abstract and pre-existing package references were compared; entire article must not be marked noncovering.",
+          "evidence": "Title and abstract focus pseudospectra, nonnormal Floquet eigenoperators and observable dynamics; no full-text negative conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37523",
+          "material_read": "Title, abstract and cited Eq. S43 description available; full paper and supplement not obtained. Open routes attempted without full-text access; authorized further retrieval was blocked by safety checks, with no bypass or retry.",
+          "method": "arXiv abstract and lawful public access attempts",
+          "title": "Asymptotic Pseudospectra in Dissipative Floquet Quantum Systems: Geometric Structures and Observable Dynamics",
+          "trigger": "Same channel, parameter and originally published model"
+        },
+        {
+          "assessment": "General conceptual predecessor, not the specific discrete Bernoulli shift diamond profile in inspected theorems",
+          "evidence": "Kastoryano, Reeb and Wolf (2011), quantum Markov cutoff and tensor powers.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.2123",
+          "material_read": "Accessible full arXiv primary article, quantum cutoff definitions and tensor/commuting-generator results",
+          "method": "arXiv full text",
+          "title": "A Cutoff Phenomenon for Quantum Markov Chains",
+          "trigger": "General quantum cutoff could dominate this special case"
+        },
+        {
+          "assessment": "Classical XOR-feedback register transition differs from quantum mixed-site reinjection; not a direct prior implication.",
+          "evidence": "Levin and Tankala (2021), randomized shift-register model.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.05387",
+          "material_read": "Accessible full article including model definitions and mixing results",
+          "method": "arXiv full text",
+          "title": "Fast mixing of a randomized shift-register Markov chain",
+          "trigger": "Name suggests analogous shift-register cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp global *operational* mixing-time window in diamond norm, including arbitrary entangled reference systems, is a natural quantum-information invariant. The analytic Gaussian profile quantifies a sharp cutoff for a nonnormal quantum shift where the set of nontrivial multiplier moduli by itself fails to encode system-size mixing. Unlike a local observable bound, it resolves full distinguishability, including worst-case ancillary choices, in a physical model with exact finite-size Bernoulli erasure structure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Xie et al. arXiv:2609.37523 (self-review; abstract only; material full-text access blocked)",
+    "Kastoryano, Reeb, Wolf arXiv:1111.2123, full primary quantum cutoff",
+    "Levin, Tankala arXiv:2109.05387, full primary classical register",
+    "Resultary semantic query dissipative quantum shift channel diamond norm Gaussian cutoff coherent permutation quantum Markov"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full-cycle integer t, fixed g; no assertion for chiral XY chain, noncommuting controls or variable bath correlations. Universal upper bound includes arbitrary ancillas, lower bound achieved as witness without ancilla.",
+    "Independent verification: Fresh independent binomial finite-size inequalities N1..6 and g1/4,1/2,2/3, t<=3N; Gaussian comparisons at N200 with fixed g; original script not sole validation.",
+    "METADATA.json/AUDIT.json retain the stable scientific scope_run_id; first_public_date=2026-09-29 refers to same mathematical model Xie paper, not to a verified first publication of this diamond-norm theorem."
+  ],
+  "residual_risks": [
+    "Full Xie et al. 2026 same-model paper and supplement could contain the global diamond cutoff; no whole-paper NOT_COVERING verdict is justified.",
+    "Authorized full-text retrieval was stopped by safety checks; no retry or bypass. This is an access limitation, not falsification or automatic originality failure.",
+    "The theorem is specific to fixed g in (0,1), independent Bernoulli decisions, homogeneous rotation and mixed reinjection; no correlated-bath or joint-parameter theorem."
+  ],
+  "schema_version": 1
+}
