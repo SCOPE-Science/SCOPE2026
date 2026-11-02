@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` with Python 3 and no third-party packages. This checks multiplication-table associativity for both five-element examples, exhaustive homomorphism cases for all loopless bipartite digraph targets on two and three labelled vertices and all loop-allowed input digraphs on at most three vertices, and oriented odd cycles through nine vertices. It also checks the three-level transitive-tournament criterion in the indicated finite range.
+# Independent mathematical audit
 
-Observed output:
+## correctness
 
-`VERIFY_OK bipartite finite targets: [14, 25] odd obstructions tested through size 9`
+PASS
 
-These tests are finite corroboration. The infinite family of critical odd-cycle obstructions, the finite-basis dichotomy, and the four-variable bound require the mathematical argument in `RESULT.md` and the cited general finite-basis theorem. No independent audit has been performed.
+The finite-nilpotent S³={0}, S²≠{0}, directed nonzero product relation, and bipartite underlying support are essential. If the target has no length-two directed walk, every source digraph without one maps by source/sink coloring to any target arc, and the directed two-arc path is the unique three-vertex critical obstruction, hence b(D)=3. If p→q→r is in the bipartite target, H_(2m+1) with alternately directed path edges and closing arc has odd underlying cycle, fails any two-coloring target map, but each vertex deletion admits a map to p→q→r; this is an infinite family of critical obstructions, so no finite duality. Published 2026 nilpotent-semiring equivalence then gives finite/nonfinite basis; its stated variable bound max(4,b) gives 4. In the five-element examples all products except ab=bc=z (and optionally ac=z) vanish and z annihilates, hence associativity; the transitive tournament T3 admits exactly digraphs with no directed three-walk, so b=4. Independently checked both 5-element tables for every triple and small directed homomorphisms. Small checks do not replace the unbounded odd-cycle proof or cited correspondence.
+
+## originality
+
+PASS
+
+The published Wang–Yin–Wang reduction establishes the equivalence between finite semiring basis and finite homomorphism duality but the inspected abstract/identified examples do not explicitly supply the bipartite directed-two-walk dichotomy, all-size critical odd-cycle construction, or one-product five-element boundary pair. The result is an explicit specialization with genuine structure, not a new general reduction. Primary full text was not retrieved; retain equivalence-priority risk.
+
+## value
+
+PASS
+
+A complete, checkable graph criterion for an algebraic finite-basis problem and a sharp one-product boundary at the first possible semigroup order meaningfully simplify a broader difficult classification; the obstruction-variable bound is exact in the finite branch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
