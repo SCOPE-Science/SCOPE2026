@@ -1,0 +1,19 @@
+# Review: A unique pairwise fixed-point dependence transition in balanced two-block Gibbs permutations
+
+## Correctness — PASS
+
+The exact weighted permutation count is \((m!)^2\binom{m}{k}^2\). Conditional on the block count, the probability that one tagged same-block label is fixed is \(k/m^2\), and for two labels it is \(k(k-1)/[m^2(m-1)^2]\). These identities directly yield the exact covariance rational function. The Legendre polynomial correspondence supplies distinct negative roots; the derivative of \(S_1^2/S_2\) is strictly positive by strict Cauchy--Schwarz, so the covariance changes sign exactly once. Its signs at zero and one establish existence and location. A differentiated Gaussian Laplace estimate of the exact trigonometric integral gives the mean and variance of the block count, the limiting rescaled covariance, and convergence of the unique threshold to \(1/4\). All hypotheses and finite/infinite quantifiers are specified in RESULT.md. Running the independent exact enumeration/recurrence checker in `verify.py` returned 633 assertions passed; it is corroboration, not an infinite proof. Risk: the integral asymptotic invokes standard parameter-uniform Laplace remainder differentiation, for which a local Gaussian domination argument is included in the proof.
+
+## Originality — PASS, with priority qualification
+
+Ottolini--Starr (arXiv:2605.25274), Sections 2 and Appendix A, give precisely the same two-block partition polynomial, its Legendre form and block-uniform permanent asymptotics. That much is fully credited as prior work; their inspected full text does not state pairwise covariance of tagged diagonal fixed points, the finite-size unique sign switch, or the 1/4 limiting boundary. Duan--Lyu--Powell (arXiv:2610.14616), especially (1.10)--(1.12), Proposition 4.1 and Theorem 2.10, give the general weighted-permutation/block-count identification and macroscopic Gaussian linear-statistic limits. Their paper was inspected at its abstract, model definitions, principal results and relevant proof passages. The new tagged microscopic fixed-point covariance threshold is not a direct corollary of their macroscopic fixed-test-function CLT, and no matching claim was found in those inspected sections or their searchable text. Classical Fisher noncentral hypergeometric theory gives the law of \(K\) but does not state the threshold or its limiting value. Johnson--Leader--Long (arXiv:1909.03770) establish positive association for strong Bruhat-order up-sets under different hypotheses; a diagonal fixed-point event is not such a general up-set and the observed negative-covariance regime prevents application. Searches for equivalent Legendre/conditional-matching, broader permutation covariance and table formulations found no directly covering result. Risk: a classical noncentral-hypergeometric or permanent identity may implicitly contain an equivalent result; originality has not been independently audited and search absence is not uniqueness proof.
+
+## Value — PASS
+
+The exact theorem gives the entire parameter-dependent sign geometry of a natural microscopic observable in a nonuniform random-matching ensemble. The finite-size uniqueness and universal threshold \(1/4\) distinguish competition for matching slots (negative covariance) from common block-preservation fluctuations (positive covariance). This is a nontrivial dependency question despite the classical one-dimensional block-count distribution, with an exact sharp phase boundary for every size and a normalized limiting effect. It is not a formula for arbitrary Gibbs permutations or a generic consequence of FKG.
+
+## Limitations
+
+Only within-block tagged pairs, exactly balanced blocks and fixed positive asymptotic bias are addressed. Independent validation, publication and definitive historical priority are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
