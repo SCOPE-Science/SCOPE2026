@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "rationale": "For all \\(\\gamma>0\\), \\(m\\ge0\\) and symmetric positive-definite \\(Q\\), stationary OU existence is established. Differentiating H(m)S+SH(m)=Q at m=0 yields \\(S'(0)=-(LQ+QL)/(4\\gamma^2)\\), giving exact general path and two-site derivatives. For \\(Q_\\delta={\\bf1}{\\bf1}^{\\mathsf T}+vv^{\\mathsf T}+\\delta I\\), \\(\\delta>0\\) guarantees SPD and positive pairwise environmental covariances; substitution gives \\((2\\delta^2+28\\delta-27)/(2\\gamma[(\\delta+2)(\\delta+17)]^{3/2})\\) and sole positive zero \\((5\\sqrt{10}-14)/2\\). The zero-mode spectral projection forces \\(r(m)\\to1\\) and hence an attained positive finite minimum in the negative-slope regime. For \\(\\delta=1/4\\) the exact 6-entry Lyapunov solution gives \\(r=K/\\sqrt{AC}\\), the derivative numerator has exactly one positive root by a complete explicit 14-coefficient Descartes certificate, and rational root endpoints have opposite signs. The included CHECK.py reconstructs each algebraic identity from the package. Finite sample tests are not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abbott (2011), DOI 10.1111/j.1461-0248.2011.01670.x, section Synchronising effects of dispersal: Jansen (2001) U-shaped, Ripa (2000) hump-shaped, and Koelle/Vandermeer (2005) decreasing relations were already known.",
+        "Wang, Haegeman and Loreau (2015), DOI 10.7717/peerj.1295, Methods and Discussion: symmetric homogeneous many-patch dispersal with equicorrelated environmental noise; heterogeneous cases two-patch.",
+        "Lande, Engen and Sæther (1999), DOI 10.1086/303240, publisher abstract: spatially homogeneous dynamics and dispersal; environmental correlation decays with distance."
+      ],
+      "reasoning": "Prior studies dominate any generic claim that dispersal cannot desynchronize or that nonmonotonicity is new; no such broad claim is made. Lande is a continuum homogeneous spatial-scale result and does not directly impose a sign on endpoint Pearson correlation under non-distance-monotone heterogeneous factor loadings. In inspected Wang full text the many-site covariance assumes spatially homogeneous environmental-response variance/correlation; it does not cover the positive-definite unequal-variance three-path family.",
+      "searches": [
+        "dispersal induces nonmonotone synchrony stationary covariance linear stochastic three site network equal regulation positive correlated forcing",
+        "positive environmental correlations yet increased symmetric dispersal reduces endpoint synchrony on three patch linear stochastic metapopulation",
+        "DOI:10.1111/j.1461-0248.2011.01670.x (Abbott 2011 review and model)",
+        "DOI:10.1086/303240 (Lande et al. 1999 abstract)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1034/j.1600-0706.2000.890119.x",
+      "doi:10.1086/303350",
+      "doi:10.1111/j.0030-1299.2007.16101.x",
+      "doi:10.1111/j.1461-0248.2011.01670.x",
+      "doi:10.7717/peerj.1295",
+      "doi:10.1086/303240"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kendall et al. (2000), full original manuscript The Model and Discussion: an explicit two-patch stochastic model, equal marginal noise variance, with synchrony increasing with their dispersal parameter.",
+        "Vasseur (2007), DOI 10.1111/j.0030-1299.2007.16101.x, full PDF: heterogeneous temporal dynamics and environmental colour, with no explicit symmetric three-path white-noise derivative threshold.",
+        "Abbott (2011), full text: nonmonotone dispersal synchrony predates this work, but the cited mechanisms include nonlinear population dynamics and other dispersal patterns."
+      ],
+      "reasoning": "A prior result with general positive correlation and two-patch equal damping implies positive *two-patch initial* slope, not the opposite three-patch result. A general Lyapunov solution technique does logically allow calculation of the present example but is not an earlier theorem asserting the exact closed sign boundary and unique minimizer; originality is restricted to these precise structural claims. The result does not claim an entirely new ecological mechanism without precedent.",
+      "searches": [
+        "three patch chain Ornstein Uhlenbeck symmetric dispersal heterogeneous environmental covariance initial decrease endpoint Pearson correlation followed by rise positive noise correlations",
+        "positive environmental correlations yet increased symmetric dispersal reduces endpoint synchrony on three patch linear stochastic metapopulation",
+        "DOI:10.1111/j.0030-1299.2007.16101.x (Vasseur 2007 full text)",
+        "DOI:10.1086/303350 (Kendall et al. 2000 full text)",
+        "two-factor environmental driver positive noise three patch dispersal initial desynchronization threshold delta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kendall et al., American Naturalist 155:628–636 (2000), DOI 10.1086/303350, equations (3)–(17): two-patch discrete-time correlated-environment covariance and its nonadditive interaction.",
+        "Wang et al., PeerJ 3:e1295 (2015), DOI 10.7717/peerj.1295, equation (3): continuous-time stationary Lyapunov formulation already established.",
+        "An accessible earlier two-patch OU result with heterogeneous local damping exhibits another nonmonotone-correlation pattern; it does not provide a three-patch equal-damping negative initial derivative."
+      ],
+      "reasoning": "The general Lyapunov covariance formula is equivalent to known continuous-time formulations, so it is not claimed as new. The present derivative sign formula is an endpoint-specific first-order path-Laplacian contraction, depends on independent neighbor-to-endpoint covariances, and is not a restatement of the two-patch formula. Unlike the older two-patch heterogeneous-damping case, the new negative derivative arises with common local damping and strictly positive-definite noise.",
+      "searches": [
+        "three patch chain Ornstein Uhlenbeck symmetric dispersal heterogeneous environmental covariance initial decrease endpoint Pearson correlation followed by rise positive noise correlations",
+        "two patch stationary Gaussian dispersal Pearson synchrony correlation monotonicity heterogeneous noise intensities",
+        "DOI:10.1086/303350 (Kendall et al. 2000 original full text)",
+        "DOI:10.7717/peerj.1295 (Wang et al. 2015 full text)",
+        "A sharp three-patch desynchronization threshold under positively correlated forcing equal local relaxation OU path covariance nonmonotone Pearson endpoint"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A semantic database result on Brownian covariance normalization in stochastic SIRS sensitivity concerns different dynamics and parameters, not dispersal-induced OU path synchrony.",
+        "A semantic database result on invariant May–Leonard correlations concerns nonlinear ecological cyclic dynamics, not stationary path-OU covariance.",
+        "Accessible prior scientific claims were compared for source, object, parameter and implication; no exact path-OU sign threshold or 14-term polynomial instance was found."
+      ],
+      "reasoning": "The searched scholarly records are semantically related but not statement-equivalent; no matching numerical covariance table or exact polynomial was found in accessible prior own records. Absence from the search is not evidence of global novelty, and the original literature comparison is primary.",
+      "searches": [
+        "exact Lyapunov stationary correlation derivative three-node path and spatial forcing covariance Qδ=11ᵀ+vvᵀ+δI",
+        "finite-dispersal synchronization reentrant desynchronization heterogeneous two-patch stationary Gaussian",
+        "dispersal and metapopulation stability Wang Haegeman Loreau 2015 Abbott 2011 Ripa 2000 Lande 1999",
+        "DOI:10.1034/j.1600-0706.2000.890119.x (Ripa 2000 publisher abstract)",
+        "three patch path local stationary noise covariance q13 over q11 and q33 derivative negative dispersal positive correlation"
+      ]
+    },
+    "rationale": "Known general Moran/dispersal synchrony, stationary Gaussian covariance methods, and even qualitative nonmonotone synchrony are explicitly excluded from the novelty claim. In the inspected closest full original manuscripts, Kendall et al. treat a discrete-time two-patch equal-variance case; Wang et al. use homogeneous many-patch equicorrelation or heterogeneous two-patch settings; Abbott reviews prior nonlinear and other nonmonotone cases; Vasseur treats temporal colour. None inspected states or implies the exact arbitrary-Q three-site initial-response identity, positive-covariance delta threshold, and certified unique intermediate minimum for the explicit family. Search cannot prove priority; relevant inaccessible older full text remains a specified risk.",
+    "residual_risks": [
+      "The full early Ripa (2000) and Lande et al. (1999) papers were not available; a specialized equivalent or stronger covariance result might predate this claim.",
+      "The general Lyapunov method and broader qualitative nonmonotone dispersal–synchrony mechanisms are established prior work; originality concerns only the explicit three-path derivative criterion and exact sharp family/minimum.",
+      "Some equivalent reformulations in general stochastic network, reaction–diffusion or linear systems literature may not appear under ecological titles; an independent human priority review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Two-patch discrete-time setup with equal noise variances and nonadditive covariance; no three-path equal-damping heterogeneous covariance threshold.",
+        "evidence": [
+          "DOI:10.1086/303350",
+          "Equations (3)–(17), full manuscript sections The Model and Discussion"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/12540185_Dispersal_Environmental_Correlation_and_Spatial_Synchrony_in_Population_Dynamics",
+        "material_read": "Author-posted full manuscript, especially The Model, Covariance, equations (3)–(17), and Discussion",
+        "method": "Examined text of the original full manuscript",
+        "title": "Dispersal, Environmental Correlation, and Spatial Synchrony in Population Dynamics",
+        "trigger": "Closest original analytic correlated-environment/dispersal model"
+      },
+      {
+        "assessment": "Lyapunov method is established, but homogeneous many-patch environmental covariance and heterogeneity analysis do not encompass arbitrary positive three-path Q as classified.",
+        "evidence": [
+          "DOI:10.7717/peerj.1295",
+          "Methods Eq. (3), Discussion and Figures 4–5"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4636407/",
+        "material_read": "Full HTML text, Methods, homogeneous model equations, heterogeneous two-patch comparisons, Discussion",
+        "method": "Read full original OA article and compared model covariance assumptions",
+        "title": "Dispersal and metapopulation stability",
+        "trigger": "General stationary covariance and dispersal analysis in multiple patches"
+      },
+      {
+        "assessment": "Preempts general nonmonotonicity novelty; does not establish the stated arbitrary three-path covariance criterion.",
+        "evidence": [
+          "DOI:10.1111/j.1461-0248.2011.01670.x",
+          "Synchronising effects section refers to Ripa (2000), Jansen (2001), Koelle/Vandermeer (2005)"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2011.01670.x",
+        "material_read": "Full article; Lessons from literature, Synchronising effects, and role of environmental variability",
+        "method": "Read publisher full text, reviewed named nonmonotone predecessors",
+        "title": "A dispersal-induced paradox: synchrony and stability in stochastic metapopulations",
+        "trigger": "Review of nonmonotone synchrony and a stochastic metapopulation analytical example"
+      },
+      {
+        "assessment": "Focus on temporal colour and heterogeneity in environmental/population responses, rather than exact white-noise three-node path derivative.",
+        "evidence": [
+          "DOI:10.1111/j.0030-1299.2007.16101.x",
+          "Original Oikos PDF and discussion"
+        ],
+        "identifier_or_url": "https://vasseurlab.yale.edu/sites/default/files/2007_vasseur_oikos.pdf",
+        "material_read": "Full 11-page original PDF including model, results, discussion, references and first/final page images",
+        "method": "Read OA full PDF and inspected representative PDF pages",
+        "title": "Environmental colour intensifies the Moran effect when population dynamics are spatially heterogeneous",
+        "trigger": "Known heterogeneous synchrony and correlation assumptions in earlier ecological models"
+      },
+      {
+        "assessment": "Conceptually close, potentially broader general synchrony theory; not asserted non-covering beyond material read.",
+        "evidence": [
+          "DOI:10.1034/j.1600-0706.2000.890119.x",
+          "First published online 2003-04-24 per publisher"
+        ],
+        "identifier_or_url": "https://nsojournals.onlinelibrary.wiley.com/doi/10.1034/j.1600-0706.2000.890119.x",
+        "material_read": "Publisher abstract, citation metadata and first-public online date; original full manuscript unavailable",
+        "method": "Inspected publisher abstract and publication-history panel",
+        "title": "Analysing the Moran effect and dispersal: their significance and interaction in synchronous population dynamics",
+        "trigger": "Potential broad linearized prior theory and older nonmonotonicity"
+      },
+      {
+        "assessment": "Spatially homogeneous assumptions and spatial decay differ from nonmonotone teleconnection covariance; historical-priority risk retained.",
+        "evidence": [
+          "DOI:10.1086/303240",
+          "Publisher abstract specifies homogeneous local dynamics and dispersal"
+        ],
+        "identifier_or_url": "https://www.journals.uchicago.edu/doi/abs/10.1086/303240",
+        "material_read": "Publisher abstract and model assumptions only; original full manuscript unavailable",
+        "method": "Inspected abstract; full document could not be accessed",
+        "title": "Spatial Scale of Population Synchrony: Environmental Correlation versus Dispersal and Density Regulation",
+        "trigger": "Early analytic spatial synchrony and dispersal model potentially containing broader formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aef74138-d0d1-4dfa-b065-c05b81202133",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sign of dispersal-induced change in spatial population synchrony is a motivated quantity in the Moran-effect literature. The arbitrary-Q three-patch initial sign criterion separates environmental factor geometry from local damping, and the two-patch positivity theorem shows a genuine change in minimal network complexity. The sharp independent-noise intensity threshold and unique-interior-minimum example answer when extra migration initially decouples, rather than couples, endpoint fluctuations despite positive environmental pair covariances. The underlying ecological teleconnection-plus-local-noise construction has explanatory content independent of numerical coefficient choices. The observed difference is small and no empirical magnitude or conservation benefit is asserted.",
+    "status": "PASS"
+  }
+}
