@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:46:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Independently checked exact companion M^7=I+2E, H=(E+E²) mod2 nonzero, base M^1792 congruent I mod512 and e3^T M^1280 H v0=1 mod2. The binomial valuation bound for j>=3 in (I+2E)^{2^r} gives M^{7·2^r}=I+2^{r+1}H_r mod2^{r+2} and H_r≡H mod2 for all r>=1. Replacing the difference t-s with odd·2^j forces normalized F(t)=T_{1280+1792t}/512 to preserve every 2-adic distance; its extension to Z2 is a bijective isometry on all finite residue quotients and has a unique zero tau. Then ν2(T)=9+ν2(t-tau) for every nonnegative integer t. Checked independently root congruences through 2^18 (tau mod2^18=9928), base T1280 mod8192=4096 and modular lift. Samples do not substitute for the binomial/isometry argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published general valuation classification excludes this one congruence class; the manuscript expressly says the induction cannot handle the exceptional indices."
+        ],
+        "reasoning": "A classification expressly excluding an arithmetic progression does not entail the remaining valuation law. General 2-adic interpolation/exact lifting theorems are tools, but the necessary mod2 coefficient and distinguished root are specific to this recurrence.",
+        "searches": [
+          "DOI:10.3906/mat-1907-40 Theorem1.3",
+          "Díaz Noguera 2022 Thesis Ch5",
+          "Resultary query: Tripell sequence 2-adic valuations exceptional n congruent 1280 modulo 1792 unique p-adic zero"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3906/mat-1907-40",
+        "https://www.researchgate.net/publication/345388239_The2-adic_and3-adic_valuation_of_the_Tripell_sequence_and_an_application",
+        "https://repositorio.unicauca.edu.co/handle/123456789/4945",
+        "https://oeis.org/A077939"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit M^7=I+2E, H=E+E² mod2, and M^{1792*2^j}=I+2^{j+9}H_j with coefficient e3^T M^1280 H v0 odd gives ν2(F(t)-F(s))=ν2(t-s), uniquely extends F to Z2 and produces tau."
+        ],
+        "reasoning": "The old formula n≡6 mod14 except n≡1280 mod1792 has no conclusion for these indices; the new isometry and root formula supply exactly the missing case, not a renaming of the known valuation.",
+        "searches": [
+          "Bravo Díaz Ramírez 2020 theorem exception n=1280 mod1792",
+          "Resultary query: Tripell sequence 2-adic valuations exceptional n congruent 1280 modulo 1792 unique p-adic zero"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exceptional progression n=1280+1792t lies inside n≡6 mod14 and is explicitly excluded in Bravo–Díaz–Ramírez; the formula amounts to an isometric normalized 2-adic analytic function with unique zero."
+        ],
+        "reasoning": "Matched exact congruence under two descriptions (n mod1792 and n=1792t+1280) and root characterization, not merely matching titles; no earlier exact treatment found.",
+        "searches": [
+          "Resultary query: Tripell sequence 2-adic valuations exceptional n congruent 1280 modulo 1792 unique p-adic zero",
+          "Tripell 1280 mod 1792 root 2-adic ν2 isometry",
+          "Tripell p-adic valuations exceptional 6 modulo14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS records the recurrence; exact modular lifting gives tau mod1024=712 and tau mod2^18=9928 in independent computation."
+        ],
+        "reasoning": "Finite tabulations of Tripell values or their 2-adic valuations cannot establish the isometry for every t; no earlier exact all-t exceptional table/formula identified.",
+        "searches": [
+          "OEIS A077939 Tripell sequence",
+          "Tripell exceptional ν2(T_1280+1792t) table",
+          "Resultary query: Tripell sequence 2-adic valuations exceptional n congruent 1280 modulo 1792 unique p-adic zero"
+        ]
+      },
+      "rationale": "PASS, best of knowledge with clearly bounded literature/access risks. The old formula n≡6 mod14 except n≡1280 mod1792 has no conclusion for these indices; the new isometry and root formula supply exactly the missing case, not a renaming of the known valuation.",
+      "residual_risks": [
+        "The 2020 original journal article full author-uploaded text was read, including Section 3; the 2022 thesis Chapter 5 was only available by metadata/secondary quotation, so a later implicit treatment/erratum remains a priority risk.",
+        "The two-adic root is characterized by compatible modular residues; it is not a simple closed form, but uniqueness and valuation formula are proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1.3 explicitly omits n≡1280 mod1792 from n≡6 mod14; Remark 3.2 explains the induction base case fails for that exceptional class. No exact replacement formula is provided in the material-read original article.",
+          "evidence": [
+            "Theorem 1.3: for n≡6 mod14, nu2(T_n)=nu2(n)+1 except n≡1280 mod1792. Section 3 Remark 3.2 explicitly says the base case fails."
+          ],
+          "identifier_or_url": "DOI:10.3906/mat-1907-40",
+          "material_read": "Full author-uploaded published article text, including Theorem 1.3, congruence exception, Section 3 proof and Remark 3.2; the original PDF file was not separately obtained.",
+          "method": "full 2020 primary paper author-uploaded ResearchGate HTML transcription, Theorem 1.3 and entire Section 3 checked",
+          "title": "The 2-adic and 3-adic valuation of the Tripell sequence and an application",
+          "trigger": "exact parent classification and stated exceptional arithmetic progression"
+        },
+        {
+          "assessment": "The record attributes Remark 5.1 to the unresolved progression; without full original chapter noncoverage remains uncertain.",
+          "evidence": [
+            "Chapter5, Theorem5.3/Remark5.1 quoted in RESULT as same exception."
+          ],
+          "identifier_or_url": "https://repositorio.unicauca.edu.co/handle/123456789/4945",
+          "material_read": "Repository metadata/description and as quoted in supplied RESULT, but original Chapter 5 not independently obtained.",
+          "method": "thesis landing-page/secondary quotation",
+          "title": "p-adic valuation and linear forms in Fibonacci-like recurrence sequences",
+          "trigger": "doctoral followup might already resolve exceptional case"
+        },
+        {
+          "assessment": "Not a source covering 2-adic exceptional root relation.",
+          "evidence": [
+            "Sequence recurrence and terms, not an all-t valuation theorem."
+          ],
+          "identifier_or_url": "https://oeis.org/A077939",
+          "material_read": "Sequence definition and referenced bibliography, no exceptional valuation formula located in inspected content.",
+          "method": "OEIS entry and metadata",
+          "title": "Tripell sequence A077939",
+          "trigger": "exact-database inclusion for sequence valuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. This resolves the explicit exceptional congruence progression left open in a published partial valuation theorem for a natural third-order recurrence. An exact 2-adic root, isometric normalization and all-t valuation law close a meaningful natural boundary, not an arbitrary unmotivated slice; the remaining root’s lack of closed expression is immaterial to exactness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3906/mat-1907-40",
+    "https://www.researchgate.net/publication/345388239_The2-adic_and3-adic_valuation_of_the_Tripell_sequence_and_an_application",
+    "https://repositorio.unicauca.edu.co/handle/123456789/4945",
+    "https://oeis.org/A077939"
+  ],
+  "disposition": "passed",
+  "final_claim": "For Tripell recurrence T_(n+3)=2T_(n+2)+T_(n+1)+T_n, every t≥0 satisfies ν2(T_(1280+1792t))=9+ν2(t−τ) for a unique τ∈Z2 determined by exact modular roots.",
+  "limitations": [
+    "The 2020 original journal article full author-uploaded text was read, including Section 3; the 2022 thesis Chapter 5 was only available by metadata/secondary quotation, so a later implicit treatment/erratum remains a priority risk.",
+    "The two-adic root is characterized by compatible modular residues; it is not a simple closed form, but uniqueness and valuation formula are proved."
+  ],
+  "residual_risks": [
+    "The 2020 original journal article full author-uploaded text was read, including Section 3; the 2022 thesis Chapter 5 was only available by metadata/secondary quotation, so a later implicit treatment/erratum remains a priority risk.",
+    "The two-adic root is characterized by compatible modular residues; it is not a simple closed form, but uniqueness and valuation formula are proved."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Theorem 1.3 explicitly omits n≡1280 mod1792 from n≡6 mod14; Remark 3.2 explains the induction base case fails for that exceptional class. No exact replacement formula is provided in the material-read original article.",
+      "evidence": [
+        "Theorem 1.3: for n≡6 mod14, nu2(T_n)=nu2(n)+1 except n≡1280 mod1792. Section 3 Remark 3.2 explicitly says the base case fails."
+      ],
+      "identifier_or_url": "DOI:10.3906/mat-1907-40",
+      "material_read": "Full author-uploaded published article text, including Theorem 1.3, congruence exception, Section 3 proof and Remark 3.2; the original PDF file was not separately obtained.",
+      "method": "full 2020 primary paper author-uploaded ResearchGate HTML transcription, Theorem 1.3 and entire Section 3 checked",
+      "title": "The 2-adic and 3-adic valuation of the Tripell sequence and an application",
+      "trigger": "exact parent classification and stated exceptional arithmetic progression"
+    },
+    {
+      "assessment": "The record attributes Remark 5.1 to the unresolved progression; without full original chapter noncoverage remains uncertain.",
+      "evidence": [
+        "Chapter5, Theorem5.3/Remark5.1 quoted in RESULT as same exception."
+      ],
+      "identifier_or_url": "https://repositorio.unicauca.edu.co/handle/123456789/4945",
+      "material_read": "Repository metadata/description and as quoted in supplied RESULT, but original Chapter 5 not independently obtained.",
+      "method": "thesis landing-page/secondary quotation",
+      "title": "p-adic valuation and linear forms in Fibonacci-like recurrence sequences",
+      "trigger": "doctoral followup might already resolve exceptional case"
+    },
+    {
+      "assessment": "Not a source covering 2-adic exceptional root relation.",
+      "evidence": [
+        "Sequence recurrence and terms, not an all-t valuation theorem."
+      ],
+      "identifier_or_url": "https://oeis.org/A077939",
+      "material_read": "Sequence definition and referenced bibliography, no exceptional valuation formula located in inspected content.",
+      "method": "OEIS entry and metadata",
+      "title": "Tripell sequence A077939",
+      "trigger": "exact-database inclusion for sequence valuations"
+    }
+  ]
+}
