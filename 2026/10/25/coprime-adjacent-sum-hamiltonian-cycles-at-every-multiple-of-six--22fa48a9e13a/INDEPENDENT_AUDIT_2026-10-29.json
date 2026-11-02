@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:16:23.101622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md safe offsets, auxiliary cycles, reflection lift",
+        "independent_five_checks.py: SUN_REFLECTION_200_MULTIPLES_PASS"
+      ],
+      "rationale": "For 6|n, n±1 odd and indivisible by3, so offsets 0,±2,±3,±5 around n yield safe sums. Explicit cyclic auxiliary ordering of 0..m-1 with jumps 2,3 (exceptional m=6,9 allow5) lifts by reflection to an alternating ordering missing only m=n/2. The adjacent pair (m+3,m-3) is present, and inserting m replaces safe sum n by n±3, preserving endpoints and wraparound. n=6 checked separately. Independently reconstructed all 200 positive multiples through n=1200 with exact integer gcd and permutation checks; unrestricted proof is the explicit parameter formula.",
+      "residual_risks": [
+        "Independent finite checks are bounded; full quantifiers depend on inspected analytic or finite-exhaustive reduction arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source Sun theorem proves odd parameters by a distinct construction and leaves even cases conjectural; the result n=6k is disjoint from the proven odd class. General Hamiltonicity of gcd(vertex labels) graph has a different edge rule."
+        ],
+        "reasoning": "The source Sun theorem proves odd parameters by a distinct construction and leaves even cases conjectural; the result n=6k is disjoint from the proven odd class. General Hamiltonicity of gcd(vertex labels) graph has a different edge rule.",
+        "searches": [
+          "Sun arXiv:1309.1679 version9 Conj 3.9 Remark3.9; arXiv:2005.06308"
+        ]
+      },
+      "checked_sources": [
+        "Zhi-Wei Sun, Some new problems in additive combinatorics, arXiv:1309.1679, Conjecture 3.9",
+        "OEIS A228886 original finite counting table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd-n theorem does not cover any n=6k, nor do tables imply its reflection construction; the theorem establishes only a natural infinite subclass, not full conjecture."
+        ],
+        "reasoning": "The odd-n theorem does not cover any n=6k, nor do tables imply its reflection construction; the theorem establishes only a natural infinite subclass, not full conjecture.",
+        "searches": [
+          "Sun Conjecture 3.9; RESULT.md reflection lift"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each valid cyclic permutation is a Hamilton cycle in the sum-coprimality graph on {0,...,n}, with required endpoints 0,n. This is Sun Conjecture 3.9 for the subclass n divisible by six, not general coprime-label graphs."
+        ],
+        "reasoning": "Each valid cyclic permutation is a Hamilton cycle in the sum-coprimality graph on {0,...,n}, with required endpoints 0,n. This is Sun Conjecture 3.9 for the subclass n divisible by six, not general coprime-label graphs.",
+        "searches": [
+          "Sun arXiv:1309.1679 Conjecture 3.9; Bani Mostafa-Ghorbani arXiv:2005.06308"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A228886 enumerates finite instances and examples; finite counts do not imply an explicit infinite parameter-uniform construction."
+        ],
+        "reasoning": "OEIS A228886 enumerates finite instances and examples; finite counts do not imply an explicit infinite parameter-uniform construction.",
+        "searches": [
+          "OEIS A228886; Resultary query: Zhi Wei Sun conjecture 3.9 adjacent sums coprime n-1 n+1 n divisible six Hamiltonian"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: The odd-n theorem does not cover any n=6k, nor do tables imply its reflection construction; the theorem establishes only a natural infinite subclass, not full conjecture. Prior formulation/implication comparisons are documented; search nonhits are not proof of priority.",
+      "residual_risks": [
+        "An independently discovered or unindexed solution of the same n divisible6 class cannot be ruled out.",
+        "The remaining even residue classes and separate 2n±1 variant are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Asserts general problem and proves odd values; no even multiple-of-six proof in the relevant passage",
+          "evidence": [
+            "Conjecture 3.9 and Remark 3.9"
+          ],
+          "identifier_or_url": "arXiv:1309.1679, version 9",
+          "material_read": "full accessible primary PDF, Conjecture 3.9, Remark 3.9 and worked odd-n construction, references",
+          "method": "primary PDF text plus page screenshot",
+          "title": "Some new problems in additive combinatorics",
+          "trigger": "original stated adjacent-sum conjecture and odd-case proof"
+        },
+        {
+          "assessment": "Finite counts show instances, not infinite reflection-lift theorem",
+          "evidence": [
+            "sequence definition and finite data"
+          ],
+          "identifier_or_url": "https://oeis.org/A228886",
+          "material_read": "sequence definition and finite entries/examples, not a proof for all multiples six",
+          "method": "database text search",
+          "title": "OEIS A228886: adjacent-sum coprimality permutations",
+          "trigger": "exact database possible"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md safe offsets, auxiliary cycles, reflection lift",
+        "independent_five_checks.py: SUN_REFLECTION_200_MULTIPLES_PASS",
+        "Zhi-Wei Sun, Some new problems in additive combinatorics, arXiv:1309.1679, Conjecture 3.9",
+        "OEIS A228886 original finite counting table"
+      ],
+      "rationale": "Establishes a natural infinite progression of previously conjectured arithmetic Hamiltonian cycles using an explicit low-jump reflection construction; meaningful unbounded progress on Sun Conjecture 3.9, not a finite numerical table.",
+      "residual_risks": [
+        "Value judgment is restricted to the precise bounded claim; no additional unproved extension or certification is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An independently discovered or unindexed solution of the same n divisible6 class cannot be ruled out.",
+    "The remaining even residue classes and separate 2n±1 variant are outside scope."
+  ],
+  "schema_version": 1
+}
