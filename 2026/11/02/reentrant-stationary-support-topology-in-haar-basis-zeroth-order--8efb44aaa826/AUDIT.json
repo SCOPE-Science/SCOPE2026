@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every integer d≥2 and every normalized step 0<γ<2, expanding the actual forward differences in a Haar full basis gives X_next=(1−γ)X−aV, with a=γδ√d/2 and V uniform on the unit sphere. The geometric random series converges absolutely and is the unique stationary law; synchronous coupling gives the exact Wasserstein contraction. The polygon inequality and connectedness of spheres (d≥2) identify every attainable radius, yielding the sharp closed annulus/ball/sphere support. Independent zero-mean increments give dγδ²/[4(2−γ)] exactly. Addition of two nonparallel independent sphere vectors has a full-rank derivative almost everywhere, establishing absolute continuity when γ≠1. The packaged checker passed 780 exact rational checks, 750 independent finite-difference tests and five stationary diagnostics. The nonstandard support and regularity steps have explicit proof in RESULT.md; no finite test is treated as an infinite proof.",
+    "residual_risks": [
+      "The model excludes dimension one, non-isotropic curvature, noisy evaluations and non-Haar direction laws.",
+      "Absolute continuity is proved for the invariant law, not a smooth or everywhere positive invariant density."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kozak et al. (2021), Theorem 3.1 parts (i)-(iv) and Example 2.4, provide rate/convergence information for the algorithm but no explicit invariant support of the nonvanishing-discretization iteration.",
+        "Rando et al. (2022), Algorithm 1, Assumptions 2–3, and associated convergence results, principally study decaying steps/discretization; the specific fixed-parameter stationary geometry is absent from inspected sections and full-text searches."
+      ],
+      "reasoning": "The cited general convergence statements do not determine whether the stationary support is an annulus, sphere or disk, or determine its exact inner radius. Convergence to a neighborhood or a bounded error does not imply the stated topological classification.",
+      "searches": [
+        "zeroth order optimization with orthogonal random directions arxiv 2107.03941 constant finite differences convergence",
+        "stochastic zeroth order descent structured directions arxiv 2206.05124 stationary fixed step support",
+        "stochastic gradient descent random unit circle noise invariant measure annulus disk support"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2107.03941",
+      "https://arxiv.org/html/2206.05124v3",
+      "https://arxiv.org/abs/1403.0098"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The supporting geometric principle, polygon closure for freely oriented vectors, is elementary and explicitly reconstructed; the new claim includes a specific finite-difference-to-spherical-innovation identity and exact normalized stepsize parameter ranges.",
+        "The nearby scientific results on residual error floors, proximal stochastic noise and circle-valued invariant laws analyze other update operators and do not entail this Haar-basis surrogate or its stated support radii."
+      ],
+      "reasoning": "A general theorem providing the support of all isotropic circle-innovation affine recursions could cover the geometric portion after a one-line reduction; no such decisive source was located and a potential overlap is recorded. The inspected optimization papers do not state nor imply the complete fixed-step stationary geometry.",
+      "searches": [
+        "random walk sum geometric uniform planar directions annulus disk support threshold one half",
+        "unit circle convolution iterated geometric weights radial support annulus threshold",
+        "2021 Kozak Molinari Rosasco Tenorio Villa zeroth order Haar full basis fixed discretization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source algorithm, including its full-basis specialization, is explicitly specified in Kozak et al., arXiv:2107.03941, Section 2, Examples 2.2 and 2.4.",
+        "Rando et al., arXiv:2206.05124, Algorithm 1 and formula (3), treat the same structured forward-difference estimator but do not classify any fixed-stepsize stationary support.",
+        "General affine random-series geometry is classical; Banakh et al., arXiv:1403.0098, treats finite-alphabet self-similar sumsets, not this Haar sphere-noise optimization rule."
+      ],
+      "reasoning": "The algorithm is exactly equivalent, for this quadratic and a full Haar basis, to an isotropic sphere-innovation affine AR(1) recursion. Searches for that equivalent model did not identify a prior result explicitly making this full algorithmic step-size phase diagram. The geometric support argument is not claimed as a new abstract random-series theorem.",
+      "searches": [
+        "stochastic zeroth order orthogonal finite difference quadratic Haar random basis stationary distribution annulus disk support stepsize phase transition random walk on circles",
+        "randomized finite differences orthogonal directions isotropic quadratic invariant measure circle annular hole sampling step-size",
+        "random affine recursion isotropic circle noise annulus support threshold contraction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available scientific records of related zeroth-order methods and geometric random sums did not yield a table or exact-support classification with the two disk thresholds and sphere midpoint.",
+        "The primary article full-text searches for stationary and invariant yielded no matching stationary-law discussion."
+      ],
+      "reasoning": "No exact matching record or classification table was observed. A negative search is not a proof of novelty; the residual literature-risk statement explicitly permits unlocated equivalent random-sumset formulas.",
+      "searches": [
+        "exact invariant support disk annulus randomized orthogonal finite difference gradient descent on isotropic quadratic",
+        "ring hole stationary error derivative free method random orthogonal gradients fixed finite difference step size",
+        "geometrically weighted sum independent uniform unit vectors support annulus disk q one half"
+      ]
+    },
+    "rationale": "The inspected mathematical primary sources state the structured forward-difference algorithm and its convergence/error guarantees, but not its exact invariant support, its three stable-stepsize topology transitions, or the disparity between fixed outer support and vanishing mean-square error. The derivation explicitly credits classical affine-contraction and polygon-sum geometry. No inspected source establishes the complete algorithm-specific claim or a stronger result from which that claim is supplied without a new specialization; a specialist geometric random-series priority risk remains.",
+    "residual_risks": [
+      "Classical work on stationary isotropic AR(1) processes, Minkowski sums of spheres, or planar random flights might already state the geometric support formula; a bibliography search cannot rule out an equivalent stronger formulation.",
+      "There was no external independent mathematical priority review; the originality claim is restricted to inspected sources and best-knowledge comparison.",
+      "The cited 2014 self-similar-set item was inspected at abstract level only, so no full-text noncoverage claim is made for it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALGORITHM_PRIOR_NOT_COVERING_STATIONARY_SUPPORT",
+        "evidence": "Algorithm definition (2.1), Haar full-basis Example 2.4, Theorem 3.1 and discussion cover convergence/error but do not give the claimed support diagram.",
+        "identifier_or_url": "https://arxiv.org/abs/2107.03941",
+        "material_read": "Full-text HTML; Section 2 algorithm and Examples 2.2–2.4, Section 3 Theorem 3.1 and discussion, and supplementary Section 9.1 on Haar bases; full-text searches for stationary/invariant",
+        "method": "Read accessible arXiv full text with targeted section inspection and find across the full document",
+        "title": "Zeroth order optimization with orthogonal random directions",
+        "trigger": "Exact full Haar orthogonal finite-difference construction and nonvanishing finite differences"
+      },
+      {
+        "assessment": "MORE_GENERAL_ALGORITHM_NOT_EXACT_STATIONARY_SUPPORT",
+        "evidence": "Algorithm 1 matches the forward finite-difference form; main fixed asymptotic-support geometry is not stated, and summability condition uses decaying step/discretization.",
+        "identifier_or_url": "https://arxiv.org/html/2206.05124v3",
+        "material_read": "Accessible full-text HTML: Section 2 formula (3), Algorithm 1, Assumptions 2–3, Sections 1–2, Appendix D.4 basis construction, related-work section and full-text searches for stationary/invariant",
+        "method": "Read accessible arXiv full-text HTML of v3, with inspected principal mathematical definitions and related appendices",
+        "title": "Stochastic Zeroth order Descent with Structured Directions",
+        "trigger": "Closely related finite-difference estimator and structured stochastic directions"
+      },
+      {
+        "assessment": "RELATED_GENERAL_FINITE_ALPHABET_GEOMETRY_PRIORITY_RISK",
+        "evidence": "The cited finite-alphabet set K(Sigma;q) concerns discrete digit sets, rather than the exact full-sphere alphabet induced by a random orthogonal basis.",
+        "identifier_or_url": "https://arxiv.org/abs/1403.0098",
+        "material_read": "Public abstract and mathematical model in bibliographic search result; full proof not inspected",
+        "method": "Literature abstract search",
+        "title": "Topological and measure properties of some self-similar sets",
+        "trigger": "General set-valued geometric sums could dominate a proposed sphere-innovation support statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8efb44aa-a826-4e74-a53c-1b663b397594",
+  "self_review_status": "passed",
+  "value": {
+    "limitations": [
+      "No general theorem for other objective functions or reduced-batch sketches.",
+      "The support statement describes possible stationary errors, not their probabilities or finite-time confidence intervals."
+    ],
+    "rationale": "Constant-step forward finite differences are a standard practical zeroth-order choice, yet norm/expectation bounds do not determine whether stationary iterates can approach the optimizer at all. The theorem identifies the exact missing central ball for an entire open stepsize region, its reentrant return to full support for both smaller and larger stable steps, and the isolated spherical state at the exact-gradient cancellation step. It shows that the worst supported deviation can remain at a fixed nonzero radius even while the stationary mean-square error tends to zero. These are sharp, all-dimensional structural constraints on one concrete algorithm and provide a reproducible benchmark for confidence and tuning; the result is not a claim of overall algorithmic superiority.",
+    "status": "PASS"
+  }
+}
