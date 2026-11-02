@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The fully quantified proof derives an invertible fourth-order recurrence for cubes, reduces any common odd prime to an impossible odd period by Cassini identities and four initial Lucas congruences, and treats the complete two-adic boundary. The extracted exact integer verifier tests the recurrence and independent window GCDs; the infinite proof is symbolic.
+## correctness
 
-## Originality
-PASS within inspected literature. The relevant 2022 primary article establishes the square-power counterpart and explicitly raises higher powers as a new question in Section 6.1; Adegoke’s 2017 summations concern stride-two indices. Previously established even-cubic window formulas do not imply the complementary odd-window case. All comparisons are statement-level; an earlier unindexed derivation is possible.
+PASS
 
-## Value
-PASS. Complete odd-length classification for both Fibonacci and Lucas cubic window GCDs is a natural missing part of a published higher-power GCD program, not a numerical cutoff or a routine isolated small case. The uniformly small GCD and the exact mod-six parity dichotomy are proved for every odd length.
+Reconstructed four-root characteristic polynomial (z²−4z−1)(z²+z−1)=z⁴−3z³−6z²+3z+1 and its unit constant, which back-propagates congruences. A putative odd prime divisor of all translated sums forces cubic k-periodicity. Fibonacci t=0,1 and Cassini yield F_{k+1}^6=1=−1 mod p, contradiction. Lucas t=0..3 yields a=2b even at p=3; Lucas Cassini similarly excludes p≠5 and Lucas mod-5 period four excludes p=5 for odd k. Parity period three and a mod-four difference at k≡3 mod6 give exact 2-adic exponent, while other k yield an odd neighboring-window difference. Independently checked both sequences for odd k≤99 and 180 recurrence instances. Finite checks corroborate, not prove all k.
 
-## Limits
-No claim beyond standard Fibonacci/Lucas initial conditions and odd cubic windows. Independent publication-priority confirmation would be useful.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge accepted after statement-level primary-literature and published mathematical-record comparisons; no decisive antecedent implication was identified. Source-reading limits and plausible unindexed-priority risks are explicit; a failed keyword search is not treated as novelty proof.
+
+## value
+
+PASS
+
+Complete cubic-power odd-window arithmetic classification fills the natural counterpart to published square-power GCDs and the identified higher-power question. Uniform exclusion of all odd primes and sharp mod-six parity across both recurrences is a meaningful number-theoretic result, not a single table value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
