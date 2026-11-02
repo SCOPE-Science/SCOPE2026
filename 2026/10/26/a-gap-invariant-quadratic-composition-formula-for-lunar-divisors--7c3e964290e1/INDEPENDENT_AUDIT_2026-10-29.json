@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:03:23.405178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary Boolean multiplication, support of W_hn occupies residues 0 and 1 mod h. For h>=3, if both factors contain a residue-1 term, their sum forces forbidden residue 2; thus one factor is pure residue 0. For a degree n-b support, convolution with a full width-b window covers Q_n iff its ordered gaps are <=b, counted by c_b(n-b). Pure factors contribute one c_b, mixed factors two independent rows contribute c_b^2, summed over b=1..n. All n>=1 and h>=3; h=2,n=2 yields 5 instead of 4. An independently written support-subset enumerator verified all h=3,4,5 and n=1..5, plus the boundary; finite cases do not prove the universal formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 12 gives divisors of all-ones targets and Theorem 14 considers the distinct 2^k-3 target; neither covers all (1+X)Q_n(X^h), h>=3."
+        ],
+        "reasoning": "General Boolean factorization or arithmetic literature may imply it, but the inspected primary results do not determine the square term.",
+        "searches": [
+          "Applegate LeBrun Sloane Theorems 12,14,17",
+          "arXiv:1107.1130v2 Section 6"
+        ]
+      },
+      "checked_sources": [
+        "Applegate–LeBrun–Sloane 2011 arXiv:1107.1130v2 Section 6 full PDF",
+        "OEIS A188288 one-hole sequence",
+        "Resultary 2026 query dismal lunar divisor binary periodic support two residue class gaps composition formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single-row full-window lemma from the 2011 work is necessary in the new proof; the simultaneous two-row cofactor count c_b(n-b)^2 is not asserted there."
+        ],
+        "reasoning": "The residue-exclusion condition and separation into pure/mixed factors are nontrivial additional deductions, not corollaries of a general prior two-row theorem located in material read.",
+        "searches": [
+          "arXiv:1107.1130v2 Theorem 12 and 14",
+          "periodic Boolean polynomial products"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W_hn=(1+X)Q_n(X^h) in the Boolean semiring corresponds exactly to 3(2^(hn)-1)/(2^h-1) in binary lunar arithmetic."
+        ],
+        "reasoning": "The all-ones formula is equivalent to a *one-row* bounded-gap count, not this two-row quadratic composition formula.",
+        "searches": [
+          "dismal lunar divisor binary periodic support two residue class gaps composition formula",
+          "Applegate LeBrun Sloane Dismal Arithmetic 2011",
+          "Boolean semiring factorization periodic support 110"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing short sequences count divisors of particular targets; original Theorem 12 supplies the all-ones list."
+        ],
+        "reasoning": "No exact all-h family formula identified; coincident initial counts would be partial finite coverage, not the infinite statement.",
+        "searches": [
+          "OEIS A188288 dismal divisor one-hole",
+          "OEIS binary lunar divisor table",
+          "dismal lunar divisor binary periodic support two residue class gaps composition formula"
+        ]
+      },
+      "rationale": "Compared Applegate–LeBrun–Sloane 2011 complete primary Section 6 Theorems 12,14; those treat all-ones binary targets and the one-hole family, providing a bounded-composition lemma but not the periodic two-residue support count or the quadratic sum. Resultary search for Boolean semiring/dismal/lunar aliases gave no equivalent indexed theorem. Classical single-row counting is acknowledged, while the residue-exclusion and two-row decomposition are additional arguments.",
+      "residual_risks": [
+        "Potential older Boolean-polynomial specialist factorization results remain a search risk.",
+        "Proved only binary lunar multiplication and exact two occupied residue classes; not usual divisor function or arbitrary targets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers repunits and one-hole counts, not asserted full periodic two-row formula.",
+          "evidence": [
+            "Applegate, LeBrun, Sloane 2011, Section 6 Theorems 12 and 14."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.1130",
+          "material_read": "Primary 34-page arXiv PDF: introduction and Section 6, especially Theorem 12 proof on page 16 and Theorem 14 on page 19, linked arguments in later sections; PDF screenshot at printed page 16.",
+          "method": "Primary PDF proof comparison and relevant page screenshot.",
+          "title": "Dismal Arithmetic",
+          "trigger": "Foundational exact same lunar multiplication and divisor function"
+        },
+        {
+          "assessment": "Sequence addresses one-hole binary dismal divisors, not shown to dominate the formula.",
+          "evidence": [
+            "OEIS A188288 referenced by Applegate et al., Theorem 14."
+          ],
+          "identifier_or_url": "https://oeis.org/A188288",
+          "material_read": "OEIS descriptions and article references available via search; complete database not systematically searched.",
+          "method": "Metadata/sequence scope comparison.",
+          "title": "OEIS divisor count descriptions",
+          "trigger": "Possible exact table with the same initial outputs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural, explicitly defined periodic family of Boolean-polynomial targets has an exact divisor enumeration invariant under arbitrary gaps >=3, with a sharp failure at gap2. The extra quadratic term measures simultaneous factor coverage of two residue rows; it is a structurally motivated extension, not mere reprinting of the known all-ones counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Applegate–LeBrun–Sloane 2011 arXiv:1107.1130v2 Section 6 full PDF",
+    "OEIS A188288 one-hole sequence",
+    "Resultary 2026 query dismal lunar divisor binary periodic support two residue class gaps composition formula"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "h>=3,n>=1; factor distinctness, not number of factorizations; finite checks h=3..5,n=1..5; gap h=2 counterexample."
+  ],
+  "residual_risks": [
+    "Potential older Boolean-polynomial specialist factorization results remain a search risk.",
+    "Proved only binary lunar multiplication and exact two occupied residue classes; not usual divisor function or arbitrary targets."
+  ],
+  "schema_version": 1
+}
