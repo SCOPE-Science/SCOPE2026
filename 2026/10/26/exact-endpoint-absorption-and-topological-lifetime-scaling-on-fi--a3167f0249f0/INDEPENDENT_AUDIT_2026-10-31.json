@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:50:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md and verify_ssh.py",
+        "independent_ssh_ig_checks.py",
+        "independent_ssh_ig_results.json"
+      ],
+      "rationale": "The positive real Jacobi matrix has simple spectrum and cyclic lossy endpoint, so the non-Hermitian generator is strictly stable and integrated survival solves an exact Lyapunov equation. Its energy-basis diagonal and off-diagonal identities force an exact alpha/gamma+beta*gamma law for real initial vector; reflection symmetry gives alpha=m. A fixed-m rank-one Schur complement reduces beta to an odd alternating chain. Its nonzero sine modes contribute 2(m-1)a^2/b^2 and zero mode contributes (b/a)^(2m-2), giving the stated beta including m=1. Independent actual Gramian checks for 24 parameter combinations m=1,2,3,4,5,7 had max relative deviation 1.7e-13; m=1 separately symbolic. Optimization follows by convexity in gamma.",
+      "residual_risks": [
+        "Numerical checks finite; general conclusion relies on reviewed fixed-size Lyapunov and explicit singular-mode argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang-Zhang accessible full preprint and section summary focus Liouvillian spectra, spectral-gap asymptotics, exceptional points and a single bulk loss; no optimized opposite-endpoint Gramian found in examined primary text.",
+          "Rudner-Levitov uses sublattice-wide non-Hermitian loss and mean displacement; Varbanov Poisson-timed detection is another process."
+        ],
+        "reasoning": "Broad physical model coverage does not imply the exact all-size integrated single-state observable.",
+        "searches": [
+          "https://arxiv.org/abs/2607.10218",
+          "https://arxiv.org/abs/0803.3446",
+          "https://arxiv.org/abs/0807.2048",
+          "arxiv:1910.07439 scattering non-Hermitian tight binding"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.10218",
+        "https://arxiv.org/abs/0807.2048",
+        "https://arxiv.org/abs/0803.3446",
+        "independent_ssh_ig_results.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spectral gap Delta_L ~ gamma^(-1) at strong loss concerns slowest mode, not integral ||e^(-itK)e_(2m)||^2 dt, which depends on all modes and interference.",
+          "SSH exact beta includes nonzero modes (m-1)/b² plus boundary zero mode b^(2m-2)/(2a^(2m))."
+        ],
+        "reasoning": "The source convergence exponents and qualitative topological effect do not imply the exact finite-size affine-in-loss law, coefficient or optimum.",
+        "searches": [
+          "https://arxiv.org/abs/2607.10218",
+          "https://arxiv.org/abs/0807.2048",
+          "https://arxiv.org/abs/0803.3446",
+          "Pinned RESULT.md vs same-object spectral primary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T_m is Q_(2m,2m) with A^dagger Q+QA=-I, distinct from smallest-real-part eigenvalue or Liouvillian gap.",
+          "The primary 2607.10218 paper analyzes the same local-loss spectral family but observables are rapidities and gaps."
+        ],
+        "reasoning": "Compared aliases hitting time, integrated survival, rank-one loss Green/Lyapunov matrix and SSH boundary-mode slowdown.",
+        "searches": [
+          "Rank-one imaginary absorber on finite open SSH chain mean survival integral Lyapunov inverse",
+          "Wang Zhang arxiv:2607.10218 local loss SSH",
+          "Rudner Levitov arxiv:0807.2048"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent Gramian directly confirms several exact values not present as identified tables in relevant sources."
+        ],
+        "reasoning": "No known exact value table under different notation was found; unindexed time-delay/Green-function formulas remain possible.",
+        "searches": [
+          "SSH finite-chain rank-one absorber exact m/gamma+gamma geometric mode lifetime",
+          "Wang-Zhang 2026 full article",
+          "Resultary semantic query: non-Hermitian SSH finite chain endpoint sink mean absorption lifetime optimal gamma Lyapunov inverse"
+        ]
+      },
+      "rationale": "Highly relevant full primary July 2026 Wang-Zhang paper addresses the SAME non-Hermitian one-body SSH defect but studies many-body Liouvillian spectral gaps, local decay modes, exceptional points, and weak/strong-loss exponents; its model uses a single bulk loss; no exact integrated remote-end survival Gramian or all-m gamma optimizer was located in the examined portions or document-wide keyword search. Prior Rudner-Levitov loses an entire sublattice; Varbanov measures at Poisson times. Spectral-gap scaling does not mathematically give a fixed-initial-state integrated norm time or its optimum. The exact finite dimerized formula is novel best-of-knowledge, with possible broader time-delay theory risk.",
+      "residual_risks": [
+        "General finite-dimensional rank-one absorber time-delay/Gramian identities could indirectly imply the result; no equivalent evaluated dimerized coefficient found.",
+        "A gap formula does not determine all-state integrated survival."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO EXACT REMOTE-END INTEGRATED LIFETIME IDENTIFIED IN MATERIAL READ; the full publicly accessible article emphasizes spectral-gap/EP/Zeno results. An unexamined equivalence is retained as priority risk",
+          "evidence": [
+            "Section I defines Liouvillian gap as smallest nonzero decay rate; Section II single bulk loss; abstract Delta_L~gamma N^-3 and gamma^-1, no exact T_m."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10218",
+          "material_read": "Public CC BY full preprint accessible as ResearchGate HTML; abstract, detailed Introduction and opening of Section II materially read; section organization inspected and document-wide text searched for integrated survival, mean survival, time integral, absorption time. Not a line-by-line full manuscript reading",
+          "method": "Public OA full-text HTML page researchgate.net/publication/409443321, browsed and searched",
+          "title": "From local weight selection to Zeno slowdown in an open Su-Schrieffer-Heeger chain with a single local loss",
+          "trigger": "Same local-loss SSH model, strongest priority trigger"
+        },
+        {
+          "assessment": "Different loss geometry and observable; not asserted whole-document noncoverage",
+          "evidence": [
+            "Loss on entire sublattice and mean displacement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0807.2048",
+          "material_read": "Abstract and accessible summaries of sublattice-wide loss / mean displacement; full document not independently compared",
+          "method": "ArXiv abstract and bibliographic search",
+          "title": "Topological Transition in a Non-Hermitian Quantum Walk",
+          "trigger": "Related topology and irreversible loss"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.10218",
+        "Pinned RESULT.md"
+      ],
+      "rationale": "Single-endpoint loss and transport across finite SSH chains are natural physical observables. The exact all-m time and unique optimal loss give a substantive geometric zero-mode contribution and exponential-versus-linear optimized scaling; it is not a renaming of the uniform chain or another numerical spectral-gap plot.",
+      "residual_risks": [
+        "Fixed a,b before m large; no disordered or many-body generalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 2m alternating SSH sites with hoppings a,b>0, one endpoint loss -i gamma at site 1 and initial opposite endpoint, T_m=m/gamma+gamma[(m-1)/b^2+b^(2m-2)/(2a^(2m))]; optimized lifetime scales exponentially when b>a and linearly otherwise.",
+  "limitations": [
+    "Only fixed finite even chain and one imaginary endpoint loss, real hopping and pure one-particle evolution.",
+    "Conclusions are about integrated survival, not universal Liouvillian spectral gap."
+  ],
+  "schema_version": 1
+}
