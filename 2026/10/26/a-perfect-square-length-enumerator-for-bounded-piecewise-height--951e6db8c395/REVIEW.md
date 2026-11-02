@@ -1,11 +1,21 @@
-# Scientific review — four-run piecewise-height enumerator
+# Independent mathematical audit
 
-**Correctness: PASS.** The object and quantifiers are exact: all positive quadruples, fixed binary alphabet, every integer height threshold \(H\ge3\), and length marked by \(z\). The proof uses the published deletion-distance characterization of piecewise height and gives each of the four within-run distance sums, including the singleton cases. The resulting pairwise height function yields disjoint admissibility cases and two independent identical weighted enumerators. A verifier reconstructs insertion distinguishers from greedy subsequence automata, checks \(4096\) parameter quadruples, and separately checks generating polynomial coefficients for nine heights. This is support for, not a substitute for, the infinite proof.
+## correctness
 
-**Originality: PASS, with substantial scope qualification.** [1] proves the general side-distance characterization and [2] already states the individual-word height formula for non-singleton internal binary blocks and the global length maximum. These ingredients and any immediate special-case height formulas are **not** claimed as new. The narrower final claim is the exact length-by-height generating polynomial for all four-run binary words, including interior singleton runs, and its perfect-square factorization. The inspected relevant full-text sections of [1] and [2], and the searched published records, did not state this polynomial or its full coefficient distribution. A source may nonetheless implicitly contain this short enumerative corollary; that is the main residual originality risk.
+PASS
 
-**Mathematical value: PASS.** Piecewise height is a natural descriptive-complexity invariant used for determining how much scattered-subsequence information uniquely characterizes a string. Exact counts at every length and height, not just the ability to compute height word-by-word, resolve the four-run family as a complete enumeration problem. The factorization exposes independent opposite-run contributions and covers all singleton exceptional regimes, providing a benchmark for enumerative questions about piecewise-testable singleton languages. The result is specialized and is not asserted to be a new general complexity algorithm.
+Used the published right/left insertion-distance recurrence (including singleton internal runs) to reconstruct the four-run exact height h=max{a+min(c,2)+1,b+2,c+2,d+min(b,2)+1}. Independently reimplemented the side-distance recurrence, not the packaged verifier, and exhaustively checked all 1296 tuples (a,b,c,d) with entries 1..6. The expression separates into max(g(a,c),g(d,b)), where g(x,y)=max(x+min(y,2)+1,y+2). For threshold H>=3 admissible pairs split disjointly as y=1,1<=x<=H-2 and 2<=y<=H-2,1<=x<=H-3, giving pair enumerator P_H=z S_(H-2)+S_(H-3) T_(H-2). Independence yields the complete four-run polynomial P_H^2, total (H^2-5H+7)^2; threshold H=3 has only 0101, and the exact height H>=4 enumerator is P_H^2-P_(H-1)^2. An independent combinatorial polynomial enumeration checked H=3..11. The full all-positive-run conclusion is from the analytic distance recurrence and disjoint pair parametrization, not the finite tests.
 
-**Closest literature and limits.** [1] M. Praveen et al., arXiv:2311.15431v1, Sections 3--4; [2] Ph. Schnoebelen and I. Vialard, arXiv:2412.16560v1, Section 5 and Appendix A.1. The already-published binary run-height formula for the interior-non-singleton regime and the global maximum-length result limit novelty; only the complete bivariate fixed-four-run enumeration is asserted as the contribution. No analogous statement for five or more runs is established, and no independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precise final mathematical claim, not novelty of standard premises or algorithms: The four-run height formula is essentially a specialization of published run-block algorithms and is NOT claimed as original. The assessed assertion is the cumulative all-length polynomial and square-product count over all positive run lengths. Checked relevant primary statements and Resultary semantic results. Failed searches alone are not novelty proof; risks explicitly retained.
+
+## value
+
+PASS
+
+The complete length-height distribution for a natural four-alternation word family is a precise combinatorial enumerator, rather than just an individual word decision procedure or maximal length. Its perfect-square factorization exposes an exact decoupling of opposite-run constraints and accommodates singleton interior runs. It is a relatively compact, non-landmark consequence of prior methods, but the exact all-length polynomial and cumulative cardinality can directly serve classification and word-combinatorics calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:58:59.716885Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The result is only binary, exactly four nonempty alternating runs; the height formula itself is existing knowledge.",
+      "rationale": "Used the published right/left insertion-distance recurrence (including singleton internal runs) to reconstruct the four-run exact height h=max{a+min(c,2)+1,b+2,c+2,d+min(b,2)+1}. Independently reimplemented the side-distance recurrence, not the packaged verifier, and exhaustively checked all 1296 tuples (a,b,c,d) with entries 1..6. The expression separates into max(g(a,c),g(d,b)), where g(x,y)=max(x+min(y,2)+1,y+2). For threshold H>=3 admissible pairs split disjointly as y=1,1<=x<=H-2 and 2<=y<=H-2,1<=x<=H-3, giving pair enumerator P_H=z S_(H-2)+S_(H-3) T_(H-2). Independence yields the complete four-run polynomial P_H^2, total (H^2-5H+7)^2; threshold H=3 has only 0101, and the exact height H>=4 enumerator is P_H^2-P_(H-1)^2. An independent combinatorial polynomial enumeration checked H=3..11. The full all-positive-run conclusion is from the analytic distance recurrence and disjoint pair parametrization, not the finite tests.",
+      "status": "PASS",
+      "verification": "/mnt/data/scope_worker04_audit_20261030T0146Z/checks.py and /mnt/data/scope_worker04_audit_20261030T0146Z/side_distance_check.py"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2311.15431 / https://arxiv.org/pdf/2311.15431",
+          "arXiv:2412.16560 / https://arxiv.org/pdf/2412.16560"
+        ],
+        "reasoning": "General algorithms for piecewise height dominate the wordwise computation, and global upper bounds on length are known; computing each word does not by itself provide an enumerator of all words and lengths in closed factorized form.",
+        "searches": [
+          "Resultary semantic search: piecewise height Simon congruence four-run binary words generating polynomial square enumeration",
+          "GitHub frozen record: 2026/10/26/a-perfect-square-length-enumerator-for-bounded-piecewise-height--951e6db8c395/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.15431 / https://arxiv.org/pdf/2311.15431",
+        "arXiv:2412.16560 / https://arxiv.org/pdf/2412.16560",
+        "Resultary targeted semantic search: piecewise height Simon congruence four-run binary words generating polynomial square enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2311.15431 / https://arxiv.org/pdf/2311.15431",
+          "arXiv:2412.16560 / https://arxiv.org/pdf/2412.16560"
+        ],
+        "reasoning": "Published Lemma 5.3 and Theorem 5.6 can be specialized to derive the run-height condition; the new contribution adds complete disjoint pair enumeration and multiplication. This is a short implication of established machinery, a residual priority risk, not a claim of fundamentally new piecewise-complexity algorithms.",
+        "searches": [
+          "Resultary semantic search: piecewise height Simon congruence four-run binary words generating polynomial square enumeration",
+          "GitHub frozen record: 2026/10/26/a-perfect-square-length-enumerator-for-bounded-piecewise-height--951e6db8c395/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2311.15431 / https://arxiv.org/pdf/2311.15431",
+          "arXiv:2412.16560 / https://arxiv.org/pdf/2412.16560"
+        ],
+        "reasoning": "The four-run height formula is essentially a specialization of published run-block algorithms and is NOT claimed as original. The assessed assertion is the cumulative all-length polynomial and square-product count over all positive run lengths.",
+        "searches": [
+          "Resultary semantic search: piecewise height Simon congruence four-run binary words generating polynomial square enumeration",
+          "GitHub frozen record: 2026/10/26/a-perfect-square-length-enumerator-for-bounded-piecewise-height--951e6db8c395/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:2311.15431 / https://arxiv.org/pdf/2311.15431",
+          "arXiv:2412.16560 / https://arxiv.org/pdf/2412.16560"
+        ],
+        "reasoning": "Finite tables H=3..11 were independently checked, but the theorem concerns a polynomial valid for every H, and no exact published four-run length coefficient table or generating function was identified in the inspected primary sections.",
+        "searches": [
+          "Resultary semantic search: piecewise height Simon congruence four-run binary words generating polynomial square enumeration",
+          "GitHub frozen record: 2026/10/26/a-perfect-square-length-enumerator-for-bounded-piecewise-height--951e6db8c395/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final mathematical claim, not novelty of standard premises or algorithms: The four-run height formula is essentially a specialization of published run-block algorithms and is NOT claimed as original. The assessed assertion is the cumulative all-length polynomial and square-product count over all positive run lengths. Checked relevant primary statements and Resultary semantic results. Failed searches alone are not novelty proof; risks explicitly retained.",
+      "residual_risks": [
+        "An appendix, independent combinatorics article, or easy unstated specialization of the published algorithms may already tabulate the same four-run generating polynomial.",
+        "The result is only binary, exactly four nonempty alternating runs; the height formula itself is existing knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the wordwise insertion-distance algorithm; those components are known. No four-run all-length generating polynomial identified in inspected sections.",
+          "evidence": "Lemma 3.6 recurrence for r(x,t) and binary height/minimality equation lead to a wordwise numerical h, not an all-(a,b,c,d) enumeration.",
+          "identifier_or_url": "arXiv:2311.15431 / https://arxiv.org/pdf/2311.15431",
+          "material_read": "Full accessible preprint PDF; inspected Sections 3.1-3.4, especially Lemma 3.6, Proposition 3.4 and Theorem 3.11, plus relevant binary-algorithm statement",
+          "method": "full primary PDF section and equation comparison",
+          "title": "On the piecewise complexity of words and periodic words",
+          "trigger": "Source of the general side-distance characterization and binary height identity used verbatim"
+        },
+        {
+          "assessment": "The prior direct wordwise run formula agrees on b,c>=2 and general algorithm encompasses each word, but inspected theorems give maximum length rather than the complete four-run coefficient polynomial.",
+          "evidence": "Lemma 5.3 covers wordwise h of runs; Theorem 5.7 determines a global maximum feasible length. Neither displays P_H(z)^2 or every fixed-length count.",
+          "identifier_or_url": "arXiv:2412.16560 / https://arxiv.org/pdf/2412.16560",
+          "material_read": "Accessible full preprint PDF; inspected §5, Lemma 5.3 for non-singleton internal runs, Lemmas 5.4-5.5 for isolated letters, Theorems 5.6-5.7 and Appendix A.1 references",
+          "method": "primary PDF theorem-to-claim implication comparison",
+          "title": "On the piecewise complexity of words",
+          "trigger": "Most directly plausible stronger classification via run-block formulas and height-length extremal results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete length-height distribution for a natural four-alternation word family is a precise combinatorial enumerator, rather than just an individual word decision procedure or maximal length. Its perfect-square factorization exposes an exact decoupling of opposite-run constraints and accommodates singleton interior runs. It is a relatively compact, non-landmark consequence of prior methods, but the exact all-length polynomial and cumulative cardinality can directly serve classification and word-combinatorics calculations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2311.15431 / https://arxiv.org/pdf/2311.15431",
+    "arXiv:2412.16560 / https://arxiv.org/pdf/2412.16560",
+    "Resultary targeted semantic search: piecewise height Simon congruence four-run binary words generating polynomial square enumeration"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An appendix, independent combinatorics article, or easy unstated specialization of the published algorithms may already tabulate the same four-run generating polynomial.",
+    "The result is only binary, exactly four nonempty alternating runs; the height formula itself is existing knowledge.",
+    "Finite independent computations supplement full parameter proofs; no external expert attestation, legal publisher access bypass, or publication is asserted."
+  ],
+  "residual_risks": [
+    "An appendix, independent combinatorics article, or easy unstated specialization of the published algorithms may already tabulate the same four-run generating polynomial.",
+    "The result is only binary, exactly four nonempty alternating runs; the height formula itself is existing knowledge."
+  ],
+  "schema_version": 1
+}
