@@ -1,11 +1,21 @@
-# Scientific review: two-marker circular palindromes
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof partitions every cyclic factor of permissible length by whether it contains zero, one, or two marked letters; within the two-letter class it handles the equal-gap duplication explicitly. All cases, including the length-two degenerate circle, are covered. The exact orbit-size calculation produces the labeled distribution, and rational moment identities produce the asymptotic parity dichotomy. A separate direct palindrome enumerator agrees on 1,510 tested configurations, and exhaustive finite necklace/labeled counts agree through length 45. The infinite claim rests on the combinatorial partition and orbit argument, not finite extrapolation.
+## correctness
 
-**Originality (PASS, priority risk retained).** The general circular-palindrome bound of Simpson (2014), the finite global-maxima table OEIS A247000, and the circular-square study of Amit--Gawrychowski (2017) were compared by scientific implication and subject. Their established general bounds, maxima, and square results do not imply the exact fixed-weight-two distribution or the odd/even variance law. Literature searches using alternate wording found no matching stated claim. Simpson's full paper could not be read: publisher and institutional access failed, leaving a material possibility of an uninspected special-case discussion. This is a best-knowledge originality assessment, not a proof of historical uniqueness.
+PASS
 
-**Value (PASS).** This is a complete all-length classification of a natural sparse layer of the circular-palindrome problem. Its substantive feature is an exact parity rigidity phenomenon: the statistic is deterministic for odd block lengths but has variance growing linearly along even block lengths, caused by an orbit of vanishing relative frequency and linear-scale deficit. The theorem identifies every exceptional necklace and each level's multiplicity. It neither claims the unrestricted extremum nor rests on an arbitrary isolated finite parameter.
+PASS: Every cyclic factor of length at most n in the two-one circle has 0, 1 or 2 ones. Distinct zero-only palindromes contribute max(a,b), one-one centered palindromes contribute min(a,b)+1, and two-one palindromes contribute floor(a/2)+floor(b/2)+2 when a!=b, or floor(a/2)+1 when a=b because the two gap families coincide. Summation proves exact P(w). For odd n, a+b odd forces distinct opposite-parity gaps and P=(3n−1)/2; for even n=2m, unordered gap pairs classify H=3m (A=floor(m/2)), H−1 (B=ceil(m/2)−1) and unique antipodal H−D, D=floor(m/2)+1. Orbit sizes n except antipodal n/2 establish labeled probabilities and exact mean/variance, with even variance n/16+O(1) and odd variance identically zero. Independently generated distinct cyclic palindromic substrings for 1,275 ordered gap cases through n=51, including tiny boundary n=2, and matched formula. Infinite identities rest on gap proof, not finite tests.
 
-**Closest literature and limitations.** Simpson (2014), DOI 10.1016/j.tcs.2014.07.012; OEIS A247000; Amit and Gawrychowski (2017), arXiv:1708.00639. Priority risk arises from inaccessible full Simpson text and possible earlier equivalent formulations. All independent external audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Simpson establishes general global upper bound <5n/3 and extremal families; OEIS A247000 tabulates global maxima. Those do not imply the complete fixed-Hamming-weight-two gap classification, exact necklace distribution or parity-dependent variance. The 2017 cyclic squares paper concerns square factors, not palindromes. Best-of-knowledge PASS with priority risk for overlooked special cases in early literature.
+
+## value
+
+PASS
+
+PASS: Weight two is the first genuinely nontrivial circular binary support pattern, and the complete necklace-level classification has a surprising exact parity rigidity: all odd lengths have zero variance while even lengths have linearly diverging variance from one antipodal orbit. This is a motivated structural counting result, not an arbitrary small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

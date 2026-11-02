@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:50:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Every cyclic factor of length at most n in the two-one circle has 0, 1 or 2 ones. Distinct zero-only palindromes contribute max(a,b), one-one centered palindromes contribute min(a,b)+1, and two-one palindromes contribute floor(a/2)+floor(b/2)+2 when a!=b, or floor(a/2)+1 when a=b because the two gap families coincide. Summation proves exact P(w). For odd n, a+b odd forces distinct opposite-parity gaps and P=(3n−1)/2; for even n=2m, unordered gap pairs classify H=3m (A=floor(m/2)), H−1 (B=ceil(m/2)−1) and unique antipodal H−D, D=floor(m/2)+1. Orbit sizes n except antipodal n/2 establish labeled probabilities and exact mean/variance, with even variance n/16+O(1) and odd variance identically zero. Independently generated distinct cyclic palindromic substrings for 1,275 ordered gap cases through n=51, including tiny boundary n=2, and matched formula. Infinite identities rest on gap proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simpson’s bound is a universal upper bound for all circular words, not an equality theorem for two-marker words.",
+          "Amit–Gawrychowski treat distinct squares in circular words, a different combinatorial statistic."
+        ],
+        "reasoning": "A stronger general upper bound would not imply gap-by-gap equality or an exact variance; the inspected prior theorem is weaker in that dimension.",
+        "searches": [
+          "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "https://arxiv.org/abs/1708.00639",
+          "Resultary semantic query: distinct palindromes circular binary words weight two two ones parity gaps variance"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.tcs.2014.07.012",
+        "https://oeis.org/A247000",
+        "https://arxiv.org/abs/1708.00639",
+        "Assigned RESULT.md/checker.py; independent direct palindrome sets for n<=51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An all-word upper bound does not logically entail a lower value attained by every odd-length two-one circle.",
+          "The unique antipodal even-length orbit with deficit Θ(n) drives Var(X_n)∼n/16 and is not implied by a maximum table."
+        ],
+        "reasoning": "The detailed three-family disjointness/overlap argument, not substitution into a known formula, is needed to deduce the parity/variance claims.",
+        "searches": [
+          "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "https://oeis.org/A247000",
+          "https://arxiv.org/abs/1708.00639",
+          "Resultary semantic query: distinct palindromes circular binary words weight two two ones parity gaps variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Simpson 2014 uses same circular distinct palindrome statistic and n-length cap, but studies general upper bound <5n/3.",
+          "Here one explicitly classifies every two-one necklace by the parity/equality of its two zero gaps, including distribution and moments."
+        ],
+        "reasoning": "General extremal results cannot determine fixed-weight-two exact distribution; even if particular two-one maximizers occur in older examples, the parity-rigid all-length law and variance require separate counting.",
+        "searches": [
+          "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "https://oeis.org/A247000",
+          "Resultary semantic query: distinct palindromes circular binary words weight two two ones parity gaps variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A247000 gives overall maximum counts for binary circular words of each n; no distribution over all words with exactly two ones.",
+          "The new formula enumerates all m necklaces at even n and derives weighted probabilities under uniform two-one strings."
+        ],
+        "reasoning": "Known global-maxima tables cannot be substituted for the requested count distribution and second moment; overlap on individual small words is acknowledged but is not whole-family coverage.",
+        "searches": [
+          "https://oeis.org/A247000",
+          "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "Resultary semantic query: distinct palindromes circular binary words weight two two ones parity gaps variance"
+        ]
+      },
+      "rationale": "Simpson establishes general global upper bound <5n/3 and extremal families; OEIS A247000 tabulates global maxima. Those do not imply the complete fixed-Hamming-weight-two gap classification, exact necklace distribution or parity-dependent variance. The 2017 cyclic squares paper concerns square factors, not palindromes. Best-of-knowledge PASS with priority risk for overlooked special cases in early literature.",
+      "residual_risks": [
+        "Simpson’s long 2014 paper may contain an unindexed special-case two-one observation not independently located.",
+        "Result is specific to two binary ones and length <= circumference; not a global binary extremal theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the general stat and near-sharp bound but no identified full two-marker necklace moments; priority risk remains for overlooked minor passages.",
+          "evidence": [
+            "Theoretical Computer Science 550 (2014) 66–78; main global upper-bound theorem and constructions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Primary article available from Murdoch institutional open repository; main theorem, bounds, examples and problem discussion inspected via text extraction.",
+          "method": "Compared general all-word bound <5n/3 and construction examples with gap-by-gap two-marker distribution.",
+          "title": "Palindromes in circular words",
+          "trigger": "Originating work on exactly the same circular-factor statistic and n cap"
+        },
+        {
+          "assessment": "Global maxima only; does not give two-one distribution or fluctuations.",
+          "evidence": [
+            "OEIS A247000 description, table and examples."
+          ],
+          "identifier_or_url": "https://oeis.org/A247000",
+          "material_read": "Public sequence entries, definition and small-word examples read.",
+          "method": "Check whether global table determines restricted-weight variance.",
+          "title": "OEIS A247000: maximal number of palindromes in a circular binary word",
+          "trigger": "Exact public table for same circular count"
+        },
+        {
+          "assessment": "Different combinatorial observable; not a covering prior result.",
+          "evidence": [
+            "arXiv:1708.00639 abstract/introduction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.00639",
+          "material_read": "Title and introductory characterization checked; no complete article comparison required since different invariant.",
+          "method": "Compare square factors to palindrome factors.",
+          "title": "Distinct Squares in Circular Words",
+          "trigger": "Nearby circular string combinatorics cited with Simpsons bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Weight two is the first genuinely nontrivial circular binary support pattern, and the complete necklace-level classification has a surprising exact parity rigidity: all odd lengths have zero variance while even lengths have linearly diverging variance from one antipodal orbit. This is a motivated structural counting result, not an arbitrary small table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1016/j.tcs.2014.07.012",
+    "https://oeis.org/A247000",
+    "https://arxiv.org/abs/1708.00639",
+    "Assigned RESULT.md/checker.py; independent direct palindrome sets for n<=51"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only binary circular words with two ones; not all binary necklaces.",
+    "Distinct palindromes are strings, not occurrences; factors capped at circumference n."
+  ],
+  "residual_risks": [
+    "Simpson’s long 2014 paper may contain an unindexed special-case two-one observation not independently located.",
+    "Result is specific to two binary ones and length <= circumference; not a global binary extremal theorem."
+  ],
+  "schema_version": 1
+}

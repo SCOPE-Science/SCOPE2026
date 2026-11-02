@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the circular-palindrome classification
+# Independent mathematical audit
 
-Execute `python3 checker.py` with Python 3. No dependency other than the standard library is used. The program enumerates all distinct palindromic cyclic factors of each specified test word directly from the doubled string. It does not use the factor-family classification when generating these test values. Separate routines compute the theorem's closed-form predictions.
+## correctness
 
-Observed check output:
+PASS
 
-```
-PASS: direct distinct-palindrome comparisons: 1510
-PASS: exact necklace and labeled-word distributions: 44
-PASS: exact first/second moments: 44
-PASS: all stated formulas and parity boundaries.
-```
+PASS: Every cyclic factor of length at most n in the two-one circle has 0, 1 or 2 ones. Distinct zero-only palindromes contribute max(a,b), one-one centered palindromes contribute min(a,b)+1, and two-one palindromes contribute floor(a/2)+floor(b/2)+2 when a!=b, or floor(a/2)+1 when a=b because the two gap families coincide. Summation proves exact P(w). For odd n, a+b odd forces distinct opposite-parity gaps and P=(3n−1)/2; for even n=2m, unordered gap pairs classify H=3m (A=floor(m/2)), H−1 (B=ceil(m/2)−1) and unique antipodal H−D, D=floor(m/2)+1. Orbit sizes n except antipodal n/2 establish labeled probabilities and exact mean/variance, with even variance n/16+O(1) and odd variance identically zero. Independently generated distinct cyclic palindromic substrings for 1,275 ordered gap cases through n=51, including tiny boundary n=2, and matched formula. Infinite identities rest on gap proof, not finite tests.
 
-Coverage: every ordered nonnegative gap pair at length 2 through 55 (1,485 cases), 25 longer boundary samples at lengths 57, 88, 139, 200, and 301, and every labeled two-one word and unordered gap pair at lengths 2 through 45. Exact moments use `fractions.Fraction`.
+## originality
 
-Finite checks are corroboration only. The all-length result is proved by the explicit partition into zero-, one-, and two-marker palindromes, the equal-gap overlap correction, and rotation-orbit counting, as laid out in `RESULT.md`. No independent external proof check or certification has been performed. The primary 2014 article's full text was not accessible for a definitive historical-priority comparison.
+PASS
+
+Simpson establishes general global upper bound <5n/3 and extremal families; OEIS A247000 tabulates global maxima. Those do not imply the complete fixed-Hamming-weight-two gap classification, exact necklace distribution or parity-dependent variance. The 2017 cyclic squares paper concerns square factors, not palindromes. Best-of-knowledge PASS with priority risk for overlooked special cases in early literature.
+
+## value
+
+PASS
+
+PASS: Weight two is the first genuinely nontrivial circular binary support pattern, and the complete necklace-level classification has a surprising exact parity rigidity: all odd lengths have zero variance while even lengths have linearly diverging variance from one antipodal orbit. This is a motivated structural counting result, not an arbitrary small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
