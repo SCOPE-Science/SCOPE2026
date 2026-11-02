@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T13:08:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned frozen RESULT.md (Git blob 360f0b52b9fa1f421d8a48999b7c6dd1610df3a5), mathematical theorem and complete proof",
+        "Assigned frozen VERIFICATION.md and verify.py (Git blobs e25b72deae9c09e2fbdae14611511a4d8e07363d and 32be462d646b290b2ac612306642657abdfc4a0b), inspected but original script not run",
+        "Independent symbolic Legendre check 0..9 and self-written direct area quadrature/finite difference l=0..4",
+        "Standard Funk--Hecke formula with P_l(1)=1 and measure d omega(S^2)=4pi"
+      ],
+      "rationale": "The frozen seven-file package and current main directory have the same seven Git blob IDs; constructing the Git tree from actual sorted 100644 entries reproduces def2ce0baeb2eddc05b335d36b7c2e4d373296bd. For each smooth radial graph r_epsilon(omega)=1+epsilon phi(omega), the area density differentiates to 2 phi d omega. Differentiating the fixed signed-height slab indicator contributes t phi delta(t-s) and -t phi delta(t-s-h), because -1<s<s+h<1 gives transverse boundary circles. Applying Funk--Hecke with P_l(1)=1 and surface area measure 4pi yields 2pi times [2 integral_s^{s+h}P_l(t)dt+s P_l(s)-(s+h)P_l(s+h)], equal by integration by parts to 2pi J_l(s,h), J_l=integral_s^{s+h}(P_l-tP_l')dt. For l=0 J_0=h; l=1 J_1=0. For l>=2, P_l(t) has leading coefficient c_l=(2l)!/[2^l(l!)^2], so J_l as a polynomial in s has leading coefficient h(1-l)c_l !=0 and degree l. Each exceptional zero set is finite; all degrees union countable, so outside it harmonic projections l>=2 are forced zero, with H_1 the exact translation kernel. The same polynomial argument handles any nonempty open interval of offsets; odd Legendre parity annihilates all odd degrees at centered s=-h/2. A separately written exact symbolic calculation checked the integral/boundary identities, nonzero leading coefficients and parity through l=9, and independent direct radial-area finite differences for zonal l=0..4 at h=.73,s=-.39 agreed with 2pi J_l to better than 1e-10. These checks only corroborate the analytic infinite-degree proof, and no unproved nonlinear inverse or stability statement is inferred.",
+      "residual_risks": [
+        "No uniform lower bound on nonzero |J_l| or stable inverse; smooth injectivity alone can be very ill conditioned.",
+        "The angular/full-offset measurement is linearized only at unit sphere; no nonlinear one-offset recovery is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lai Theorem A requires fixed-width area equals 2pi h for every direction AND every admissible slab translation, yielding a translated unit sphere via convexity and potential/wave methods.",
+          "Ghomi--Howard--Lai Theorems 1.1-1.2 require the same entire continuum of translated width-h slab data for each direction, and conclude global spherical rigidity; Section 3 gives height density R(u,t+h)=R(u,t)."
+        ],
+        "reasoning": "Neither stronger nonlinear rigidity on full offset data nor its periodicity identity implies a one-fixed-height derivative kernel; injectivity of a nonlinear full-data map does not imply injectivity of a restricted linearization. The proof techniques are distinct, although the natural problem and coarea setup are prior.",
+        "searches": [
+          "Lai, The sphere is the only closed surface satisfying the fixed-width Archimedean property, arXiv:2610.01550v1, ResearchGate public full text",
+          "Ghomi--Howard--Lai, A Converse to the Archimedes Sphere Theorem, author PDF https://ghomi.math.gatech.edu/Papers/archimedes.pdf, Theorems 1.1-1.2 and Sections 2-7",
+          "Web search: Ghomi Howard Lai Archimedes theorem spherical harmonic linearization infinitesimal sphere rigidity single slab offset"
+        ]
+      },
+      "checked_sources": [
+        "Lai, arXiv:2610.01550v1, complete October 1 preprint text lawfully accessible at ResearchGate (CC BY).",
+        "Ghomi, Howard, Lai, A Converse to the Archimedes Sphere Theorem, full author PDF, 17 pages; arXiv:2610.06261.",
+        "Published Resultary semantic searches of current and earlier exact/related records; exact target hit excluded as independent evidence.",
+        "Standard Funk--Hecke spherical convolution harmonic eigenspaces; source of diagonalization not claimed as new.",
+        "Relevant distinct published Resultary entries: Barker--Larman tangent-chord transform, Goodey surface projection linearization, spherical harmonic linearization of unrelated flows."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing nonlinear theorems show that exact full-displacement slab equality characterizes spheres; they do not constrain the differential of fixed-s map to have any particular kernel.",
+          "The boundary-normal variation and exact leading coefficient h(1-l)c_l require an additional calculation, yielding residual H_1 and exceptional-offset spectrum.",
+          "Centered symmetry makes all odd first-order modes invisible despite full-offset nonlinear rigidity, demonstrating nonimplication."
+        ],
+        "reasoning": "Prior full-data theorem cannot dominate restricted-data first-order recovery as a matter of logical implication. Funk--Hecke alone gives diagonalization but not the evaluated multiplier or its nonzero-degree polynomial property; no stronger result checked implies all stated one-offset conclusions.",
+        "searches": [
+          "Complete accessible Lai arXiv:2610.01550v1 via ResearchGate, Theorem A and Sections 2-4/Appendix A",
+          "Complete Ghomi--Howard--Lai author PDF, Theorems 1.1-1.2, Lemma 3.1 and equation (3), Sections 5-7",
+          "Standard Funk--Hecke identity for spherical harmonics; explicit comparison J_l(s,h) formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-offset differential equivalently is zonal spherical convolution with distribution 2 1_[s,s+h](t)+t delta(t-s)-t delta(t-s-h); Funk--Hecke multiplier is 2pi J_l(s,h).",
+          "Lai v1 and Ghomi--Howard--Lai inspect the nonlinear coarea height density under all offsets, without this boundary-weighted fixed-offset differential spectrum."
+        ],
+        "reasoning": "A generic spherical band convolution may share diagonalization techniques, but no retrieved primary theorem gives this specific shape-derivative kernel or all-degree polynomial zero-set classification. The exact submitted match in Resultary is the record under audit itself, not independent priority evidence.",
+        "searches": [
+          "Resultary semantic search: Exact one-offset linearized Archimedean tomography centered slab surface area sphere deformation harmonic multipliers Legendre",
+          "Resultary semantic search: Funk-Hecke spherical band transform first variation surface area radial sphere generic slab offset odd harmonics",
+          "Web searches: linearized Archimedean hat box surface area slab single height spherical harmonics Legendre transform injectivity; surface area spherical slab transform linearized sphere harmonics fixed width cap band moving boundary; \"Legendre\" \"slab-area\" \"first variation\" sphere"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the same submitted record (2026/10/11/...5072691b12b7), plus separate records on Goodey surface-area projections, Barker--Larman chords, and spherical harmonic flows, involving different measurements.",
+          "The object is a full analytic operator indexed by degree and offset rather than a finite database of exact numerical values."
+        ],
+        "reasoning": "No distinct published exact-record or table coverage was located; a nonmatching title alone is not considered novelty evidence. For a hypothetical general Funk--Hecke spectral table, its implications were explicitly compared rather than dismissed by terminology.",
+        "searches": [
+          "Resultary published semantic search: Archimedes hatbox fixed width slab area infinitesimal rigidity sphere translations",
+          "Resultary published semantic search: Funk-Hecke spherical band transform first variation surface area radial sphere generic slab offset odd harmonics",
+          "Published aliases queries: \"one offset\" \"spherical\" \"slab\" tomography area; fixed width spherical band kernel Legendre; arXiv:2610.01550"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS for the exact one-absolute-height linearized measurement kernel, generic-in-offset injectivity modulo translations, and infinitely many centered odd blind modes. The complete lawful public full text of Lai's earlier arXiv:2610.01550v1, accessible via ResearchGate's CC BY full-text presentation, was materially read across the theorem, convexity argument, coarea-periodicity, periodic-wave method, elementary width lemma and appendix. It proves nonlinear sphere characterization under all translated width-h slabs, not an infinitesimal single-offset spectrum. The revised Ghomi--Howard--Lai full 17-page author-hosted manuscript likewise proves nonlinear rigidity using all offsets, periodic height densities, potential averaging and microlocal arguments; it supplies no shape derivative, Legendre multiplier or kernel at one fixed signed height. These two global theorems do not imply injectivity of the differential of a strictly weaker single-offset data operator. Standard Funk--Hecke is acknowledged; obtaining the particular boundary-weighted kernel and proving nonzero polynomial eigenvalues in every degree are the submitted mathematical steps. Fresh independent published Resultary semantic searches found the exact submitted entry and mathematically different spherical-spectrum, Radon and rigidity findings, not a separate covering predecessor. The near-contemporary source set and preexisting harmonic-transform techniques are recorded as priority/implicit-corollary risks, not a guarantee of historical priority.",
+      "residual_risks": [
+        "The formula is obtained by a short first-variation plus classical Funk--Hecke argument, so one could treat it as an implicit but not stated consequence of existing spherical-convolution machinery; historical novelty is best-of-knowledge only.",
+        "An older geometric-tomography paper may have the same shape-derivative or kernel under terminology outside the queries; no universal literature-completeness claim.",
+        "The metric-space inverse may be ill-conditioned because nonzero Legendre multipliers can be small; no stability/noise theorem is asserted.",
+        "A requested alternative institutional paper route reported vpn_disconnected; the primary earlier v1 text was nevertheless obtained through an authorized public CC BY transcription, so that route failure is not itself missing primary evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_IN_READ_FULL_TEXT: global nonlinear sphere rigidity with all offsets; no same linearized one-offset harmonic kernel.",
+          "evidence": "Theorem A and equation (1.1) require all admissible translated slabs; Section 2 equation (2.4) proves height-density periodicity, Section 3 Theorem 2 uses Newtonian potential and wave equation, Section 4 special case uses support-function Laplacian.",
+          "identifier_or_url": "arXiv:2610.01550v1; public CC BY full text https://www.researchgate.net/publication/415153392_The_sphere_is_the_only_closed_surface_satisfying_the_fixed-width_Archimedean_property",
+          "material_read": "Full public text of original v1 displayed at ResearchGate, including Theorem A, Sections 2-4 on convexity, coarea height-density periodicity, periodic-wave uniqueness and special integer-width argument, Appendix A on wave singularities, and targeted complete-text checks for Legendre, linearization, infinitesimal, variation and spherical harmonics. A first-variation formula there is for changing slab direction of terminal caps, not the radial surface deformation at fixed offset.",
+          "method": "Lawful public CC BY full-text HTML transcription of archived 1 October 2026 arXiv v1; whole-document text inspection. Direct withdrawn arXiv PDF/HTML and alternative ar5iv access were unavailable.",
+          "title": "The sphere is the only closed surface satisfying the fixed-width Archimedean property",
+          "trigger": "Earliest named full-object primary theorem about fixed-width Archimedean surface-area data; possible hidden infinitesimal result."
+        },
+        {
+          "assessment": "NOT_COVERING: stronger nonlinear all-displacements rigidity but no one-offset first-order spectrum; primary result method is potential/coarea/microlocal not harmonic diagonalization of radial deformation.",
+          "evidence": "Theorems 1.1-1.2 (all translated slabs), Section 3 equation (3) (R(u,t+h)=R(u,t)), Sections 5-7 (microlocal/convexity/cylinder).",
+          "identifier_or_url": "https://ghomi.math.gatech.edu/Papers/archimedes.pdf ; arXiv:2610.06261",
+          "material_read": "Full author-hosted 17-page revised PDF, main Theorems 1.1-1.2, Sections 2-7 including averaging identity, height density equation (3), analytic continuation, microlocal Radon proof, convexity and higher-dimensional cylinder extension; page screenshots 1 and 5, global full-text checks for Legendre, first variation, lineariz*, spherical harmonics.",
+          "method": "Author-hosted lawful PDF, parsed page text and selected actual page images; source revision dated 19 October 2026 in text.",
+          "title": "A Converse to the Archimedes Sphere Theorem",
+          "trigger": "Later full-object, stronger published/preprint theorem with same sphere and parallel slab-area data."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lai v1 Theorem A, full-offset Archimedean inverse surface problem",
+        "Ghomi--Howard--Lai Theorems 1.1-1.2, same nonlinear problem",
+        "Assigned RESULT.md proof and complete harmonic kernel classification"
+      ],
+      "rationale": "This is a natural structural measurement-kernel question arising immediately from the recently studied fixed-width Archimedean sphere problem. A geometric observer may acquire every normal direction at only one absolute position; identifying precisely when those measurements distinguish infinitesimal shapes (up to unavoidable translational motions) is useful even without nonlinear inversion. The theorem gives the complete per-offset kernel, an all-degree countable exceptional set with at most l roots for degree l, and a qualitative sensor-placement dichotomy: a generic offset detects all shape modes, whereas the geometrically natural centered offset misses the infinite-dimensional odd subspace. The boundary-motion term distinguishes the physical surface-area derivative from textbook fixed-domain spherical convolution. It is a modest but motivated exact inverse-geometric structural classification, not just a named formula, a routine parameter substitution, an arbitrary low-mode check, or a stability claim. Its narrow scope (one round sphere, smooth deformations, first order only, implicitly described exceptional set) is acknowledged.",
+      "residual_risks": [
+        "Novelty/value are focused on exact one-offset identifiability and centered information loss, not a general tomography inversion or constructive stable estimator.",
+        "The proof uses classical tools in a short computation; contribution is specialized rather than a broad new method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strictly infinitesimal operator at the centered unit sphere and fixed signed heights; not nonlinear one-offset recovery.",
+    "No uniform stability, quantitative small-singular-value bound or fully enumerated exceptional offsets.",
+    "Generic one-offset statement quantifies over all directions u for each fixed s, not just one measured direction.",
+    "Publication withheld for existing public-file provenance until all affected files are safely sanitized and verified."
+  ],
+  "schema_version": 1
+}
