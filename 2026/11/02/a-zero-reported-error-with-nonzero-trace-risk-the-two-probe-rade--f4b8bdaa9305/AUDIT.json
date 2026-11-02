@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every nonzero real diagonal A, both Rademacher sketches A*g and A*h have squared norm S2. A direct residual-projector expansion makes both XTrace basic estimates the same polynomial in xi_i=g_i*h_i, forcing the two-term empirical squared error to zero. Expanding the polynomial in orthogonal degree-two Walsh characters gives exact unbiasedness and the sum-of-squares risk. Its zero set is completely classified (rank <=1 or exactly two opposite nonzero entries). Exact rational independently evaluated projector formulas confirm 7,168 probe pairs across thirteen sample matrices. Finite tests do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2301.07825: Proposition 3.1 characterizes the expected diagnostic through pairwise correlation abstractly, and explicitly notes possible modest underestimation in applications; it does not give a uniform calibration guarantee.",
+        "https://www.ethanepperly.com/index.php/2024/01/28/dont-use-gaussians-in-stochastic-trace-estimation/: discusses relative suitability of fixed-norm, Rademacher and Gaussian probes for Hutchinson/trace estimation but not XTrace error-indicator degeneracy.",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12338724/: describes implementation and probe distributions without the diagonal perfect-correlation classification."
+      ],
+      "reasoning": "No primary source inspected supplies the samplewise equality, the diagonal Walsh expansion, or a theorem covering it via an explicit perfect-correlation classification. The generic correlation identity does predict zero once perfect correlation is established; the existence and full exact scope are the distinguishing content, not any claim of contradicting that identity.",
+      "searches": [
+        "XTrace variance estimate perfect correlation rank one projection constant-norm sign vectors 4 matvecs adaptive stopping",
+        "exchangeable stochastic trace estimation posterior uncertainty estimator degenerate zero for isotropic matrices fixed norm probes",
+        "four matvec exchangeable trace estimation zero variance estimator diagonal identity counterexample",
+        "\"XTrace\" \"identity\" \"error estimator\" correlation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2301.07825",
+      "https://www.ethanepperly.com/index.php/2024/01/28/dont-use-gaussians-in-stochastic-trace-estimation/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12338724/",
+      "2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c",
+      "2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2301.07825: equations (1.4)–(1.6) define exactly the estimator and (3.1) its internal squared-error indicator. Proposition 3.1 gives E[reported error]/E[actual error] as a correlation ratio, not the explicit diagonal correlation or actual risk.",
+        "https://www.ethanepperly.com/index.php/2024/01/28/dont-use-gaussians-in-stochastic-trace-estimation/: original author emphasizes Rademacher signs as natural probes."
+      ],
+      "reasoning": "The claim is a fully quantified degeneracy/classification for every nonzero real diagonal matrix and exactly two independent sign probes, including nonzero risk for all diagonal PSD rank >=2. The primary paper supplies the algorithm and a general dependence law; it does not explicitly demonstrate that the pairwise correlation can equal one throughout this natural input class or quantify the surviving risk. The statement is not just the generic formula restated with a renamed parameter.",
+      "searches": [
+        "XTrace leave-one-out posterior error estimator exactly zero Rademacher identity matrix two probes despite stochastic trace error",
+        "four matvec exchangeable trace estimation zero variance estimator diagonal identity counterexample",
+        "\"XTrace\" \"zero\" \"error estimate\" \"Rademacher\"",
+        "\"XTrace\" \"identity\" \"error estimator\" correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Epperly–Tropp–Webber https://arxiv.org/abs/2301.07825, equations (1.4)–(1.6), (3.1), Proposition 3.1, sections 2.3 and 5.6; their general correlation law is relevant but the diagonal two-probe identity was not located.",
+        "Independent Rademacher signs imply quadratic Walsh-character orthogonality, yielding an exact new diagonal risk formula rather than a generic empirical-correlation assertion."
+      ],
+      "reasoning": "The general XTrace correlation relation applies after proving the basic-estimate correlation. Here both basic estimates are algebraically identical samplewise for all diagonal matrices; the full exact mean-squared-error formula and zero-risk classification require a separate projector/Walsh calculation. No equivalent instance was found in the inspected primary sections or topical searches. A hidden equivalent specialized treatment remains possible.",
+      "searches": [
+        "XTrace leave-one-out posterior error estimator exactly zero Rademacher identity matrix two probes despite stochastic trace error",
+        "XTrace variance estimate perfect correlation rank one projection constant-norm sign vectors 4 matvecs adaptive stopping",
+        "Epperly Tropp Webber XTrace trace estimator leave-one-out posterior diagonal Rademacher",
+        "XTrace two probe equal leave-one-out estimates Rademacher diagonal spectrum Walsh quadratic",
+        "\"XTrace\" \"zero\" \"error estimate\" \"Rademacher\"",
+        "\"XTrace\" \"diagonal\" \"perfectly correlated\" trace"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned related but different numerical/trace topics, including 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c and 2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4; their summaries do not address XTrace leave-one-out uncertainty.",
+        "The source paper contains an abstract correlation proposition, not a tabulation of diagonal Rademacher estimator risks."
+      ],
+      "reasoning": "The claimed invariant is an exact symbolic function of arbitrary real diagonal entries and n, not a database table entry. Checked records do not provide an equivalent identity. A semantic search alone cannot establish uniqueness.",
+      "searches": [
+        "XTrace leave-one-out posterior error estimator exactly zero Rademacher identity matrix two probes despite stochastic trace error",
+        "Epperly Tropp Webber XTrace trace estimator leave-one-out posterior diagonal Rademacher",
+        "XTrace two probe equal leave-one-out estimates Rademacher diagonal spectrum Walsh quadratic",
+        "\"XTrace\" \"two\" \"Rademacher\" \"variance\" posterior error"
+      ]
+    },
+    "rationale": "Closest source Epperly–Tropp–Webber (arXiv:2301.07825) contains the XTrace estimator and a generic correlation formula. The diagonal two-probe perfect correlation, explicit Walsh MSE and complete zero-risk classification were not found there or in relevant searched records. Novelty is qualified because an unlocated earlier specialized computation or an implication not noticed in other full texts remains possible.",
+    "residual_risks": [
+      "The original source already provides a general correlation law; this result is novel only insofar as the complete concrete perfect-correlation family and exact risk classification are not otherwise previously derived.",
+      "Topical semantic and web searches cannot exclude an obscure equivalent specialized calculation.",
+      "Only the original unnormalized two-probe estimator is covered; alternative normalization changes the model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source covers the estimator and generic correlation-dependent underestimation, but no exact diagonal Rademacher samplewise-collapse/risk classification was identified in the inspected sections. The present finding is compatible with and instantiates an extreme case of Proposition 3.1.",
+        "evidence": [
+          "arXiv:2301.07825, equations (1.4)–(1.6), (3.1), Proposition 3.1 and sections 2.3/5.6."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+        "material_read": "Full-text sections 1.1, 1.2.1 (equations 1.4–1.6), 2.3, 3.1 (equation 3.1 and Proposition 3.1), and 5.6 including the proof of Proposition 3.1; source abstract, methods and test distribution discussion.",
+        "method": "Opened original lawful open arXiv PDF, read relevant formula lines and inspected page images 4 and 12.",
+        "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+        "trigger": "Defines the target estimator and proposed internal uncertainty diagnostic; direct potential covering source."
+      },
+      {
+        "assessment": "Explains constant-norm and Rademacher-probe benefits for classical trace estimation, not the XTrace internal error-indicator collapse.",
+        "evidence": [
+          "https://www.ethanepperly.com/index.php/2024/01/28/dont-use-gaussians-in-stochastic-trace-estimation/"
+        ],
+        "identifier_or_url": "https://www.ethanepperly.com/index.php/2024/01/28/dont-use-gaussians-in-stochastic-trace-estimation/",
+        "material_read": "Article text including Rademacher, sphere and Gaussian probe comparisons and diagonal-matrix remarks.",
+        "method": "Read original author-hosted public article dated 2024-01-28.",
+        "title": "Don't Use Gaussians in Stochastic Trace Estimation",
+        "trigger": "Probe-distribution choice and diagonal Rademacher behavior are central to the comparison."
+      },
+      {
+        "assessment": "Discusses implementations and average trace-estimate accuracy, without giving the two-probe samplewise diagnostic identity.",
+        "evidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC12338724/"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12338724/",
+        "material_read": "Abstract, method overview, supported probe distributions, experiment discussion and bibliography.",
+        "method": "Read lawful full-text HTML preprint archived by PMC.",
+        "title": "traceax: a JAX-based framework for stochastic trace estimation",
+        "trigger": "Plausible later general coverage of XTrace probe distributions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f4b8bdaa-9305-4392-9a17-172392e84f89",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural four-matvec XTrace procedure with independent Rademacher probes, including n>=5 below full input dimension, reports zero squared error for every sample of a full diagonal positive-definite family although the actual mean-squared trace error is strictly positive. This is a substantive stopping/uncertainty diagnostic boundary. It also reverses the expected advantage over classical one-probe Hutchinson, which is exact on every diagonal input. The exact sum-of-squares formula and zero-risk classification distinguish the cases requiring safeguards; no downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
