@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The fixed-dimension source equations were rewritten as the single level relation
-\[
-H_p(r)=\frac{M_1}{M_2},\qquad
-H_p(x)=\frac{\int_{R_1}^{x}s^{-p-1}\,ds}{\int_{x+R}^{R_2}s^{-p-1}\,ds},\qquad p=n-2\ge0.
-\]
-For \(p=0\), direct integration reproduces the logarithmic two-dimensional equation. For \(p>0\), direct integration reproduces the power-law equation in dimensions \(n\ge3\).
+# Independent mathematical audit
 
-For fixed \(p\), \(H_p\) is strictly increasing in \(x\). For fixed \(x\), differentiating the logarithm gives the upper weighted mean of \(\log s\) minus the lower weighted mean of \(\log s\). Because the two integration intervals are separated by the positive gap \(R\), the derivative is strictly positive. These two strict monotonicities prove the dimension ordering without numerical sampling.
+## correctness
 
-For the asymptotic, setting \(\delta_p=r_{p+2}-R_1\) yields an exact identity whose right side is bounded by \((M_1/M_2)(R_1/(R_1+R))^p\). This first forces \(p\delta_p\to0\). Substitution back into the same identity makes both remaining multiplicative correction factors converge to one and gives the claimed equivalent. The strict condition \(R_1+R<R_2\) is used precisely to make the outer-endpoint factor vanish exponentially.
+PASS
 
-No conclusion is drawn for the endpoint \(R_1+R=R_2\), for nonradial domains, or before taking the segregation limit.
+Verified full RESULT.md against Chuah 2026 Theorem 1.1 equations (1.13)-(1.14). For p=n-2, H_p is quotient of positive integrals over [R1,x] and [x+R,R2]; p^{-1} factors cancel for p>0, and p=0 gives exact logarithmic formula. Both intervals are nonempty for x in (R1,R2-R), with finite endpoints R1>R>0. H_p is increasing from 0 to infinity in x, so the level alpha=M1/M2>0 has a unique interior solution. Differentiating under finite integrals gives d_p log H_p=E_upper(log s)-E_lower(log s)>0, since every s on the second interval exceeds every s on the first by at least R. With x-monotonicity this forces r_{n+1}<r_n including n=2 to3. For p>0 exact equality yields 1-(1+delta/R1)^(-p)=alpha*(R1/(R1+R+delta))^p*[1-((R1+R+delta)/R2)^p]. Bound by alpha*q^p with q=R1/(R1+R)<1; using -log(1-t), obtain p log(1+delta/R1)->0, thus p delta/R1->0. Fixed strict R1+R<R2 gives the outer-endpoint factor->1; p delta->0 yields the middle factor->1, while left side~p delta/R1. Hence delta~alpha*R1*q^p/p. Covers n>=2, positive boundary data, fixed R>0 and strict annular gap. No numerical extrapolation or unproved PDE existence is asserted beyond the cited source.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge: the exact motivating 2026 paper gives fixed-n implicit equations but not cross-n strict ordering or the sharp exponential high-dimensional distance. Fresh Resultary searches surfaced the assessed record itself, not a distinct published derivation, and public-primary searches found no equivalent annular comparison. The dimension parameter is varied in the weight s^{-p-1}, giving a strict weighted-log-mean inequality; a separate exact boundary-layer limit yields its prefactor. This is not the earlier parameter-R monotonicity, and no compared result states an implication-equivalent dimension theorem. The proof uses existing explicit formulas, and an equivalent potential-theoretic reduction remains a genuine priority risk.
+
+## value
+
+PASS
+
+The annular PDE model is a naturally dimension-indexed family, and understanding how a fixed interaction separation redistributes its two interfaces is a meaningful structural comparison, not an arbitrary finite parameter slice. The theorem gives strict order uniformly across every integer dimension and a sharp leading exponentially small boundary-layer width and prefactor. These are quantitative information beyond fixed-n uniqueness and the R->0 transition. The derivation is short and grounded in elementary radial potential integrals, so value is bounded to this annular family and not presented as a general free-boundary theorem or a new PDE technique.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
