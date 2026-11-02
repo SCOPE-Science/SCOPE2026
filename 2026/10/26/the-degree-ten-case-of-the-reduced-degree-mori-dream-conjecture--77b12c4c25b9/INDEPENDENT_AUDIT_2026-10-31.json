@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T03:09:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the cited He column-count lemma, the ten low columns are 2,...,9,10,10 split across two strictly increasing side sequences; reflection reduces to the 163 subsets with size<=4. An independently implemented integer enumeration yields only empty,(4,7),(4,8). The (4,8) left sequence contradicts floor(3s2)-ceil(3s1)+1=10; (4,7) implies 0<s2<1/3, while its right r1=2 forces s3>=2 and r2=3 forces s3<2. The remaining empty shape is exactly the Gonzalez–Karu n=10 interpolation configuration; their published theorem then yields non-Mori-dreamness for 10s2 not integral. The independent rational mesh tested the combined left/right constraints and is not the unrestricted proof. No claim for d'>10 or 10s2 integral.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He explicitly proves the reduced-degree conjecture only through nine.",
+          "Gonzalez–Karu gives non-finite generation for a family with arbitrary parameter n but not every degree-ten shape."
+        ],
+        "reasoning": "A general universal theorem would dominate the claim, but the cited original proposes this as a conjecture. The later weighted-projective-plane conditions cannot be assumed to cover all rational-slope Picard-one toric surfaces.",
+        "searches": [
+          "He arXiv:1703.00819 Theorem 2.13 Lemma 9.1",
+          "Gonzalez and Karu arXiv:1407.6344 theorem on Cox rings",
+          "Zhou DOI:10.1007/s00013-021-01621-0"
+        ]
+      },
+      "checked_sources": [
+        "Full assigned RESULT.md and verification/degree10_shape_check.py",
+        "Independent column and rational checks independent_checks.out",
+        "He arXiv:1703.00819 relevant full primary theorem text",
+        "Gonzalez–Karu arXiv:1407.6344 Theorem1.2",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "He necessary c_nk inequality excludes all but three patterns; exact floor/ceil excludes two; Gonzalez–Karu handles the last."
+        ],
+        "reasoning": "Existing theorems plus the newly checked degree-ten elimination imply the final claim; the published d'<=9 bound alone leaves this case genuinely undetermined.",
+        "searches": [
+          "He Conjecture 2.10 and Theorem 2.13",
+          "Gonzalez–Karu Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He arXiv:1703.00819 Theorem 2.13 covers d'<=9, Conjecture 2.10 proposes general statement.",
+          "Gonzalez–Karu arXiv:1407.6344 covers one n=10 interpolation shape."
+        ],
+        "reasoning": "Equivalent formulations of Mori dream failure as Cox ring not finitely generated were checked. The present classification rules all other nonintegral degree-ten shapes out, so the prior single-shape theorem does not cover it without this new shape reduction.",
+        "searches": [
+          "RESULTARY query reduced degree Mori dream conjecture degree ten toric surface blown-up identity all slopes He Gonzalez Karu",
+          "He reduced degree 10 Mori dream blowup toric surface column counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent complete 163-partition arithmetic enumerator yields three necessary survivors.",
+          "No exact published table classifying all d'=10 shapes located."
+        ],
+        "reasoning": "The source shape census is independently reconstructed; failure to locate a prior table is not proof of originality.",
+        "searches": [
+          "RESULTARY query reduced degree Mori dream conjecture degree ten toric surface blown-up identity all slopes He Gonzalez Karu",
+          "degree ten d prime 10 column shape Mori dream classification"
+        ]
+      },
+      "rationale": "He establishes the conjecture for d'<=9; the d'=10 combinatorial elimination is the new work and uses Gonzalez–Karu as the final theorem. Later weighted-projective-plane papers are on a proper subclass or different numerical criterion, not an explicit all rational-slope d'=10 theorem in inspected material.",
+      "residual_risks": [
+        "He column-count lemma and full minimal-degree-to-column profile are external hypotheses; our code checks the finite necessary combinations only.",
+        "Full 2021 weighted-projective-plane extremal-curves paper not read; possible overlapping subclass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing theorem stops at degree nine; the necessary column-count lemma is applicable to degree ten",
+          "evidence": [
+            "Conjecture 2.10; Theorem 2.13; Lemma 9.1"
+          ],
+          "identifier_or_url": "arXiv:1703.00819",
+          "material_read": "Full lawful PDF sections on Conjecture 2.10, Theorem 2.13 and Lemma 9.1 including its proof",
+          "method": "open-access PDF text extraction and theorem/lemma examination",
+          "title": "New Examples and Non-examples of Mori Dream Spaces when Blowing up Toric Surfaces",
+          "trigger": "Same conjecture/parameters"
+        },
+        {
+          "assessment": "Applies to the remaining degree-ten shape; no evidence it classifies all degree-ten shapes",
+          "evidence": [
+            "Theorem 1.2"
+          ],
+          "identifier_or_url": "arXiv:1407.6344",
+          "material_read": "Named Theorem 1.2 and its n-parameter configuration as cited in the exact source proof",
+          "method": "bibliographic and theorem statement comparison, not whole-paper negative search",
+          "title": "Some non-finitely generated Cox rings",
+          "trigger": "Theorem invoked to finish empty-column case"
+        },
+        {
+          "assessment": "Comparison incomplete; a weighted-plane d=10 corollary is possible",
+          "evidence": [
+            "abstract"
+          ],
+          "identifier_or_url": "arXiv:2002.07123",
+          "material_read": "Abstract only",
+          "method": "lawful open abstract",
+          "title": "Curves generating extremal rays in blowups of weighted projective planes",
+          "trigger": "Closest later subclass of toric blow-ups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First previously unsettled adjacent degree of a published non-Mori-dream conjecture; exact elimination of two feasible-at-necessary-inequality shapes is a meaningful boundary case, not arbitrary finite data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "He column-count lemma and full minimal-degree-to-column profile are external hypotheses; our code checks the finite necessary combinations only.",
+    "Full 2021 weighted-projective-plane extremal-curves paper not read; possible overlapping subclass.",
+    "Computational checks, whether exhaustive in a finite domain or bounded illustrations, do not by themselves establish literature priority or external certification."
+  ],
+  "schema_version": 1
+}
