@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The package reconstructs \(1{,}090\) faces, all \(96\) automorphisms, the mod-\(101\) boundary-rank profile, and a concrete \(100\)-term integral four-cycle. Exact rational ranks \(58\) and \(59\) respectively for \(\partial_5\) and \([\partial_5\mid c]\) establish that the cycle is rationally nonzero. The reduced Euler characteristic and mod-prime bounds give rational homology dimensions \(4,1\) in degrees three and four. Every full-group top-cycle action and signed Lefschetz character identity is computed, identifying the two representations and quotient invariants. The proof does not infer rational nonvanishing from a mod-prime experiment.
+## correctness
 
-**Originality (PASS, with residual risk).** The same-graph 2015 preprint establishes only nonequivariant homotopy; the closest publicly recorded automorphism result treats only a cyclic subgroup of order eight. Full corresponding result statements were read and do not give the action of all \(96\) automorphisms. Berghoff's general independence-homology work and Knill's graph-level Lefschetz study have different conclusions. Targeted searches for the exact automorphism, graph aliases, quotient cube and character did not locate an implication-equivalent result. The 2019 publisher paper was not fully accessible; unindexed equivalences remain possible.
+PASS
 
-**Value (PASS).** The object is a canonical highly symmetric cubic graph with a natural central two-cover of the cube; its quotient's four antipodal pairs provide a canonical finite symmetry set, rather than an arbitrary parameter slice. The result distinguishes the full modules from their previously known dimensions and restricted cyclic characters and computes homology of natural quotient spaces. It is an exact natural representation classification, not a claim to a general graph-family theorem.
+For GP(8,3), independently constructed all 1090 nonempty independent simplices with face vector (16,96,272,376,240,72,16,2), all 96 graph automorphisms, and cube quotient/4 antipodal pairs. Boundary ranks ∂4=181 and ∂5=58 mod101 match known rational homotopy ∨4S³∨S⁴. A nonzero degree-four cycle modulo im∂5 determines its sign b under all 96 automorphisms; signed Lefschetz fixed-face traces agree with b−b*sgn(pi)*Fix_D(pi), so χ3=b*sgn(pi)*Fix_D(pi). All 48 pairs (pi,b) occur twice, kernel {id,z}. Semisimplicity yields the stated rational H3 twisted permutation module and H4 sign line. Averaging over finite G and barycentric subdivision proves rational quotient invariants. No integral equivariant decomposition claimed.
 
-**Limitations.** Rational coefficients only; one finite graph; no independent audit. The incomplete publisher access creates a residual priority risk, not a mathematical implication from the available nonequivariant theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the precisely restricted final claim: The previous order-eight rotation characters are a necessary subgroup restriction but do not determine the full G-character. The signed fixed-simplex calculation for all 96 elements, rank-one action and surjectivity verify strictly stronger coverage. Sources were compared for logical implication, not merely title and number overlap. Residual risks retained rather than treating unsuccessful searches as novelty proof.
+
+## value
+
+PASS
+
+Computing the full rational homology representation under the natural 96-element automorphism group of a canonical highly symmetric 16-vertex graph reveals equivariant information and exact quotient homology invisible in known nonequivariant topology or a cyclic-subgroup character. This is a motivated natural finite classification, not an arbitrary graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

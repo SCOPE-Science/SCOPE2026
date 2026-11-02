@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification protocol
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and the NetworkX and SymPy libraries.
+## correctness
 
-The program constructs all graph vertices, edges, independent simplices and all graph automorphisms from the definitions. It checks the face vector \((16,96,272,376,240,72,16,2)\), the augmented mod-\(101\) boundary ranks \((1,15,81,191,181,58,14,2)\), and an explicit integral four-cycle with \(100\) terms. The cycle boundary vanishes over the integers. Exact SymPy rational ranks are \(58\) for the degree-five boundary and \(59\) when adjoining the cycle, establishing rational nontriviality.
+PASS
 
-For all \(96\) graph automorphisms the program checks that the induced action on the top class is the bipartition sign and that signed simplicial Lefschetz traces equal the derived full-group formula. It checks the cube quotient, the induced \(S_4\)-action on four antipodal pairs, the two-element kernel and the three quotient fixed-subspace dimensions.
+For GP(8,3), independently constructed all 1090 nonempty independent simplices with face vector (16,96,272,376,240,72,16,2), all 96 graph automorphisms, and cube quotient/4 antipodal pairs. Boundary ranks ∂4=181 and ∂5=58 mod101 match known rational homotopy ∨4S³∨S⁴. A nonzero degree-four cycle modulo im∂5 determines its sign b under all 96 automorphisms; signed Lefschetz fixed-face traces agree with b−b*sgn(pi)*Fix_D(pi), so χ3=b*sgn(pi)*Fix_D(pi). All 48 pairs (pi,b) occur twice, kernel {id,z}. Semisimplicity yields the stated rational H3 twisted permutation module and H4 sign line. Averaging over finite G and barycentric subdivision proves rational quotient invariants. No integral equivariant decomposition claimed.
 
-The homology result is rational. The checker does not claim an integral equivariant representation classification, an all-parameter theorem, or independent external validation.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the precisely restricted final claim: The previous order-eight rotation characters are a necessary subgroup restriction but do not determine the full G-character. The signed fixed-simplex calculation for all 96 elements, rank-one action and surjectivity verify strictly stronger coverage. Sources were compared for logical implication, not merely title and number overlap. Residual risks retained rather than treating unsuccessful searches as novelty proof.
+
+## value
+
+PASS
+
+Computing the full rational homology representation under the natural 96-element automorphism group of a canonical highly symmetric 16-vertex graph reveals equivariant information and exact quotient homology invisible in known nonequivariant topology or a cyclic-subgroup character. This is a motivated natural finite classification, not an arbitrary graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
