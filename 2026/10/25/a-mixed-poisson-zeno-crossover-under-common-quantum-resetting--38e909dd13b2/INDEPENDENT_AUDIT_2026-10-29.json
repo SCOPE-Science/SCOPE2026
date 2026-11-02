@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:52:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At stationary Poisson age A_N=E/γ_N, E~Exp1, conditional count K_N is Bin(N,p(A_N)) with p(t)=Ω²/(Ω²+Δ²)sin²(sqrt(Ω²+Δ²)t). This yields exact PGF ∫e^{−u}[1−(1−s)p(u/γ_N)]^Ndu. At γ_N=c_NΩ√N, c_N→c>0, Np(u/γ_N)→u²/c², bounded dominated convergence proves mixed-Poisson PGF, factorial moments (2k)!/c^{2k}, mean 2/c² and variance 2/c²+20/c⁴. Exact finite formulas E p=2Ω²/(γ²+4ω²), E p²=24Ω⁴/[(γ²+4ω²)(γ²+16ω²)] and Var(p) were independently symbolically reconciled. For c_N→∞ Markov via E K≤2/c_N² gives zero; c_N→0 with γ_N→∞ conditional mean+variance give c_N²K_N→E² in L² under common age coupling. Independent clocks give Bin(N,μ_N)→Poisson(2/c²). Chernoff mixtures establish −logP(Z_c≥k)/√k→c. Independent high-precision PGF quadrature at c=.8,1.5 and N=512,4096,32768 found error decaying from 2.5×10^{−5} to 4×10^{−7}, corroborating but not replacing the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Magoni et al fix γ for N many spins and compute mean and two-spin connected correlations; the supplement contains finite-N binomial measurement probabilities for majority-conditioned resetting. General quantum resetting work gives renewal and high-rate Zeno suppression."
+        ],
+        "reasoning": "These results provide ingredients, but their inspected theorems do not analyze joint γ_N~√N, mixed-Poisson upper tail or global-versus-independent clock limit.",
+        "searches": [
+          "Resultary semantic search: globally reset noninteracting quantum spins Poisson shared clock mixed Poisson Zeno N square root N",
+          "Magoni et al 2022 Protocol I/II and supplement",
+          "Perfetto et al arXiv:2106.13761",
+          "Mukherjee et al arXiv:1806.00019"
+        ]
+      },
+      "checked_sources": [
+        "Actual assigned RESULT.md, checker.py and CHECK_RESULTS.json tree identifiers; finite and asymptotic distributions reconstructed.",
+        "Exact single/two-spin covariance formula and independent numerical PGF quadrature at c=.8,1.5 and three N values.",
+        "Magoni et al arXiv:2202.12655 full 12-page original including supplement; Perfetto et al 2021 abstract context.",
+        "Resultary top-8 semantic findings; none exact many-spin count-law crossover."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source exact age-integral and conditional Binomial allow one to derive the new result with a uniform rare-event limit, but source does not itself state that limit; the coupling, factorial-moment/tail and clock protocol calculations are additional mathematical assertions."
+        ],
+        "reasoning": "Claim specializes general renewal/rare-event principles under a new thermodynamic scaling, so novelty is of exact sharp specialized law rather than new probabilistic method; if an earlier source explicitly spells out this scaling, originality is covered.",
+        "searches": [
+          "Resultary semantic search: globally reset noninteracting quantum spins Poisson shared clock mixed Poisson Zeno N square root N",
+          "Magoni et al Eqs (2) renewal and Protocol I connected correlation",
+          "Magoni supplement Eq (S4) binomial formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary common reset age generates a mixed binomial law, already accessible through published renewal formulas; conditional binomial-to-Poisson is standard, but γ_N/(Ω√N) selects a quadratic-exponential random intensity E²/c²."
+        ],
+        "reasoning": "The mathematics is a physically motivated nontrivial many-body scaling specialization of known renewal statistics, not a claim of novelty for Poisson mixtures or single-time covariance formulas.",
+        "searches": [
+          "Resultary semantic search: globally reset noninteracting quantum spins Poisson shared clock mixed Poisson Zeno N square root N",
+          "Magoni et al arXiv:2202.12655",
+          "generic Poisson-binomial rare-event mixing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numerical finite table could imply the full limiting distribution and tail; existing same mathematical model plots concern finite γ and order parameter/discord rather than count-law scaling."
+        ],
+        "reasoning": "Database/table search was relevant only to potential previous analytic count distributions; none found, no novelty inference from absence.",
+        "searches": [
+          "Resultary semantic search: globally reset noninteracting quantum spins Poisson shared clock mixed Poisson Zeno N square root N",
+          "Resultary top-8 semantic results",
+          "Magoni et al 2022 Sections II–IV, supplement"
+        ]
+      },
+      "rationale": "For Mixed-Poisson collective Zeno crossover of common-reset quantum spins: exact final statement and implication were compared against relevant published original mathematical statements and Resultary findings. Claim specializes general renewal/rare-event principles under a new thermodynamic scaling, so novelty is of exact sharp specialized law rather than new probabilistic method; if an earlier source explicitly spells out this scaling, originality is covered. Best-of-knowledge qualified by explicitly named risks.",
+      "residual_risks": [
+        "Published fixed-rate renewal and conditional Binomial machinery make the √N mixed-Poisson limit technically accessible; an earlier implicit or explicit specialization could affect priority.",
+        "Conclusions assume common perfect Poisson resets, stationary observation before large-N limit, and fixed Ω,Δ; interacting spins and nonstationary readouts are outside scope.",
+        "Generic rare-event mixture techniques themselves are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-rate stationary global reset ingredients are prior, but not the joint √N count distribution and clock contrast in inspected sections.",
+          "evidence": [
+            "Eq2 renewal state; Protocol I stationary connected covariance; supplementary (S4) binomial measurement probability for majority events."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12655",
+          "material_read": "Full 12-page arXiv primary PDF with main text Protocol I (renewal Eq2, density/correlations), Protocol II, supplement binomial tail Eq S4, and page screenshots.",
+          "method": "Primary PDF text plus relevant screenshots and formula inspection.",
+          "title": "Magoni, Carollo, Perfetto and Lesanovsky, Emergent quantum correlations and collective behavior in non-interacting quantum systems subject to stochastic resetting",
+          "trigger": "Identical common Poisson reset noninteracting Rabi spin model"
+        },
+        {
+          "assessment": "General reset state design, insufficient full text to make a whole-paper noncoverage finding.",
+          "evidence": [
+            "Renewal framework cited explicitly by Magoni 2022."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.13761",
+          "material_read": "Public abstract and bibliographic context examined; full original not materially read this run.",
+          "method": "Arxiv abstract and cross-reference in Magoni source.",
+          "title": "Perfetto et al, Designing non-equilibrium states of quantum matter through stochastic resetting",
+          "trigger": "Possible general quantum renewal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The √N reset-rate boundary, full limiting overdispersed count law, stretched-exponential tail, and strict shared-clock versus independent-clock contrast quantify a physically natural quantum Zeno scaling regime not determined by a fixed-N large-reset conclusion. The common environment creates a genuinely new distributional fingerprint despite identical single-spin marginals.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual assigned RESULT.md, checker.py and CHECK_RESULTS.json tree identifiers; finite and asymptotic distributions reconstructed.",
+    "Exact single/two-spin covariance formula and independent numerical PGF quadrature at c=.8,1.5 and three N values.",
+    "Magoni et al arXiv:2202.12655 full 12-page original including supplement; Perfetto et al 2021 abstract context.",
+    "Resultary top-8 semantic findings; none exact many-spin count-law crossover."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Published fixed-rate renewal and conditional Binomial machinery make the √N mixed-Poisson limit technically accessible; an earlier implicit or explicit specialization could affect priority.",
+    "Conclusions assume common perfect Poisson resets, stationary observation before large-N limit, and fixed Ω,Δ; interacting spins and nonstationary readouts are outside scope.",
+    "Generic rare-event mixture techniques themselves are not claimed as new."
+  ],
+  "residual_risks": [
+    "Published fixed-rate renewal and conditional Binomial machinery make the √N mixed-Poisson limit technically accessible; an earlier implicit or explicit specialization could affect priority.",
+    "Conclusions assume common perfect Poisson resets, stationary observation before large-N limit, and fixed Ω,Δ; interacting spins and nonstationary readouts are outside scope.",
+    "Generic rare-event mixture techniques themselves are not claimed as new."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact stationary spin-count generating function follows from the exponential reset-age representation and conditional independent Bernoulli readouts. The variance identity and individual first/second transition-probability moments were algebraically reconstructed and compared with numerical quadrature. The mixed-Poisson limit uses a dominated convergence argument, the subcritical statement uses an explicit \(L^2\) coupling, and the tail statement uses Poisson Chernoff inequalities on both sides of the mixing-age transition.
+## correctness
 
-The included `checker.py` (Python with `mpmath` 1.3.0; installation range in `requirements.txt`) was executed in the package working directory. It passed 132 deterministic assertions, including quadrature of finite-size generating functions for multiple \(N\), independent evaluations of stationary moments, limiting generating-function identity with `erfc`, analytic factorial moments and off-critical numerical trends. The execution summary is `CHECK_RESULTS.json`. The code is an independent numerical corroboration, not a proof of the asymptotic statement, which is given in `RESULT.md`.
+PASS
 
-The claimed domain assumes fixed Hamiltonian coefficients, global complete Poisson resets, stationary preparation, and one projective readout; it does not establish finite-time uniformity, interactions, or cost of reset operations. Priority has been compared with the identified underlying published model and general renewal literature; independent scholarly verification is not yet available.
+At stationary Poisson age A_N=E/γ_N, E~Exp1, conditional count K_N is Bin(N,p(A_N)) with p(t)=Ω²/(Ω²+Δ²)sin²(sqrt(Ω²+Δ²)t). This yields exact PGF ∫e^{−u}[1−(1−s)p(u/γ_N)]^Ndu. At γ_N=c_NΩ√N, c_N→c>0, Np(u/γ_N)→u²/c², bounded dominated convergence proves mixed-Poisson PGF, factorial moments (2k)!/c^{2k}, mean 2/c² and variance 2/c²+20/c⁴. Exact finite formulas E p=2Ω²/(γ²+4ω²), E p²=24Ω⁴/[(γ²+4ω²)(γ²+16ω²)] and Var(p) were independently symbolically reconciled. For c_N→∞ Markov via E K≤2/c_N² gives zero; c_N→0 with γ_N→∞ conditional mean+variance give c_N²K_N→E² in L² under common age coupling. Independent clocks give Bin(N,μ_N)→Poisson(2/c²). Chernoff mixtures establish −logP(Z_c≥k)/√k→c. Independent high-precision PGF quadrature at c=.8,1.5 and N=512,4096,32768 found error decaying from 2.5×10^{−5} to 4×10^{−7}, corroborating but not replacing the proof.
+
+## originality
+
+PASS
+
+For Mixed-Poisson collective Zeno crossover of common-reset quantum spins: exact final statement and implication were compared against relevant published original mathematical statements and Resultary findings. Claim specializes general renewal/rare-event principles under a new thermodynamic scaling, so novelty is of exact sharp specialized law rather than new probabilistic method; if an earlier source explicitly spells out this scaling, originality is covered. Best-of-knowledge qualified by explicitly named risks.
+
+## value
+
+PASS
+
+The √N reset-rate boundary, full limiting overdispersed count law, stretched-exponential tail, and strict shared-clock versus independent-clock contrast quantify a physically natural quantum Zeno scaling regime not determined by a fixed-N large-reset conclusion. The common environment creates a genuinely new distributional fingerprint despite identical single-spin marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
