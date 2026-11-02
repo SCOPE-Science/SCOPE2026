@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact normal equations for a two-column Euclidean least-squares correction reduce to \(Q=uvxz\) and \(y(ux+vz)=-Q\). Because \(xz>0\), eliminating the normalized residual gives the exact one-variable frontier. Attainment and divergence at both ends prove necessity and sufficiency, not just a numerical witness. Compactness gives a uniform contraction below threshold. An exact rational-radical example and a balanced polynomial factorization verify the sharp boundaries. The accompanying checker replays the symbolic facts and numerical constructions, but finite checks are not used as an infinite proof.
+## correctness
 
-**Originality — PASS (bounded source search).** The algorithm and the equal-weight Jordan stagnation theorem are established prior work. The claimed new portion is the prescribed unequal two-edge Euclidean frontier, exact same-product balanced-versus-anisotropic reversal, and its direct first-cycle consequence for the motivating accelerator. Diagonal similarity to a Jordan block is not unitary and does not transport Euclidean GMRES minima. The strongest reviewed GMRES history and arbitrary-matrix construction results do not impose the two prescribed weights. Searches of related primary literature and mathematical result records found no stronger statement covering this weight-specific sharp criterion, with residual risk from unindexed or older weighted-bidiagonal work.
+PASS
 
-**Value — PASS.** This exact classification exposes a hidden failure mode of residual-minimizing acceleration: matrices with identical eigenvalues and identical coupling products can be respectively safe or stalled according to anisotropy, even while the underlying elementary fixed-point scheme solves in three steps. The weight-ratio frontier supplies a precise diagnostic for a natural three-site prototype rather than an arbitrary numerical example.
+Zero GMRES(2) correction is optimal exactly when r^T Mr=r^T M²r=0. Writing Q=x²+y²+z² and P=y(ux+vz), normal equations give Q+P=0, Q+2P+uvxz=0, so Q=uvxz>0 and xz>0. Normalize xz=1, t=x²>0, eliminate y to obtain exactly uv=G_{v/u}(t), with converse. The function diverges at both ends and attains a positive minimum, proving iff. Q>x²+z²≥2xz implies threshold>2; test t=1 gives bound≤2+2rho/(rho²+rho+1)≤8/3; the balanced factorization proves 8/3. Exact radical example u=(5+sqrt5)/(2sqrt2), v=(5-sqrt5)/(2sqrt2), r=(1,-1/sqrt2,1) satisfies both normal equations. The TGA subspace span{r,Mr} gives the same first-cycle minimum; unaccelerated (I-M)^3=0. Five independent symbolic assertions corroborated critical identities, with analytic proof for all weights.
 
-**Closest literature.** Adler–He–Hu–Lefebvre (2026) supply the two-grid algorithm, Tichý–Liesen (2006) the equal-coupling Jordan theory, and Soodhalter (2026) general prescribed stagnation phenomena. None of these inspected sources supplies the ratio-dependent prescribed-weight law. This does not certify global uniqueness.
+## originality
 
-**Limitations.** Real three-dimensional positive upper links, exact arithmetic, Euclidean residual, and one specified accelerator cycle; no higher-dimensional or floating-point stability guarantee. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The known standard-Jordan (equal-superdiagonal) GMRES theory is explicitly excluded from novelty. The ratio-dependent Euclidean frontier for fixed unequal upper links, and same-product reversal, are not implied by equal-link bounds: diagonal similarity is nonunitary. A paper constructing some matrices with prescribed stagnation cannot solve the fixed pair (u,v) classification. The originating two-grid paper supplies algorithmic context but its full technical version was inaccessible; this remains a qualified best-knowledge assessment.
+
+## value
+
+PASS
+
+A sharp readily evaluated two-weight failure boundary for a natural three-site Krylov prototype shows that identical spectra and positive link products can have opposite acceleration behavior. The comparison with finite-terminating Richardson demonstrates a genuine algorithmic instability mechanism without claiming higher-dimensional universality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
