@@ -1,15 +1,21 @@
-# Review: exact two-adic cap spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized cap multiplier follows from the classical Funk--Hecke formula, with the cap mass divided out. Differentiating the Gegenbauer primitive supplies the displayed closed expression. The nonstandard arithmetic lemma is fully proved: for the half-integer Gegenbauer polynomial, each lower coefficient relative to its leading coefficient has an odd denominator and integral numerator, so at any reduced rational of even denominator the leading term uniquely minimizes the two-adic valuation. A separate highest-power argument gives the exact cap-mass valuation. These yield the stated closed factorial valuation, including degree zero. No multiplier vanishes, and spherical-harmonic completeness gives injectivity. The normalized cap indicator is Hilbert--Schmidt, hence compact, so unrestricted inversion is unbounded. The exact checker independently matches the full cap integral against the formula on 700 test instances; these finite tests support but do not replace the proof.
+## correctness
 
-## Originality — PASS, qualified
-Frye--Efthimiou (arXiv:1205.3548v1, full text inspected, Chapter 4) establishes general Funk--Hecke diagonalization and Gegenbauer formulas, not the two-adic spectral identity or the dense all-degree injective family. Jahn--Bokor (arXiv:1302.5261v1, full text inspected) establishes bandlimited fixed-cap spatial concentration for vector fields, which is not convolution by a cap moving with the evaluation point. Campi--Gardner--Gronchi--Kiderlen (*Lightness functions*, 2012) concerns convex-geometric lightness/cosine transforms; introductory material was accessible, but the complete paper was not. Actual targeted searches in published research records for even-denominator rational cap transforms, prime-adic Gegenbauer zeros, and their implication equivalents found no directly covering theorem; this is not proof of global priority. A classical arithmetic polynomial-root statement could still imply the nonvanishing lemma. See AUDIT.json for exact queries, nearest findings, readings, and residual risk.
+PASS
 
-## Mathematical value — PASS
-Determining whether a fixed-width spherical scanning aperture loses harmonic information is a natural inverse problem. The result gives an explicit dense set of cap radii that preserve **every** harmonic mode, simultaneously on all even-dimensional spheres, and computes the precise arithmetic denominator of each multiplier. This distinguishes injectivity from numerical stability: despite every nonzero eigenvalue, the inverse is unbounded. It is more informative than checking finitely many modes or invoking a generic almost-every-aperture theorem, and no quantitative numerical stability is claimed.
+Funk–Hecke on S^(2k) with alpha=k-1/2 and rational c=p/q (q even, p odd, s=nu2(q)>=1) yields multipliers from cap integrals. Gegenbauer Rodrigues integral gives Lambda_ell=(2k-1)(1-c^2)^k C_(ell-1)^(k+1/2)(c) /[ell(ell+2k-1) binom(ell+2k-2,ell) B_k(c)]. In the explicit Gegenbauer coefficient expansion all nonleading ratios have nonnegative 2-adic valuations, while c has valuation -s; unique leading term gives nu2(C_m)=-nu2(m!)-ms. In B_k a unique highest-degree monomial dominates, nu2(B_k)=-(2k-1)s; 1-c² has valuation -2s. Combining gives nu2(Lambda_ell)=-ell*s-nu2((ell+2k-1)!/(2k-2)!) including ell=0 by 2k-1 odd. Thus all multipliers nonzero, hence injective by harmonic completeness; Hilbert–Schmidt compactness means unbounded inverse. Independently integrated rational Funk–Hecke multipliers and verified exact valuations in 108 cases k=1..4, ell=0..8, c=1/2,-1/4,3/8; infinite claim follows from p-adic dominance, not finite sample.
 
-## Limits and literature
-The theorem does not classify odd-dimensional spheres or general cutoffs, nor assert full historical priority over classical Gegenbauer zero/irreducibility theorems. The unavailable full text of *Lightness functions* remains an access-related comparison risk, without evidence of direct coverage from its available description. Independent mathematical review is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Bilyk–Mastrianni–Steinerberger (2023) Lemma 7 already contains the cap/Gegenbauer integral identity and Example 3 proves C_n^(3/2)(±1/2) never vanishes, hence the S² at ±1/2 injectivity special case is COVERED and is not claimed new. Their focus on Gegenbauer lower bounds and radius discrepancy does not give the all-k, all-even-denominator rational height 2-adic valuation formula; Frye–Efthimiou gives diagonalization, not arithmetic valuations. The proposed full two-adic spectrum and resulting dense injective family survive the narrower prior coverage.
+
+## value
+
+PASS
+
+The precise prime-adic denominator formula over every even-dimensional sphere and a dense arithmetically specified family of injective moving-cap transforms is a natural harmonic-inverse invariant. It sharply separates uniqueness from ill-conditioned inversion and is not implied by one special nonvanishing cap radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
