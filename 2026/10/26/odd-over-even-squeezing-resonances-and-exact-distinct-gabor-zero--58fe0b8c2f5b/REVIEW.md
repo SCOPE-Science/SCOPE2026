@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized Gaussian Bargmann integral is evaluated directly and its factorization gives an entire trinomial in the squared complex coordinate. The simultaneous equations for a multiple zero uniquely fix both exponential values; positive moduli and the incompatible/satisfiable angular congruences give a necessary-and-sufficient odd-over-even test. The second derivative \(G''=A\alpha\beta\) is nonzero there. A self-contained strip argument using the Chebyshev property of three real exponentials gives multiplicity-weighted disk counts with bounded error, and the exact arithmetic progression of double zeros gives the distinct-count deficit. Direct Gaussian quadrature, symbolic polynomial factorization, and lattice counts provide finite independent consistency checks.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Zhang's squeezed-vacuum superpositions provide motivation without a zero-density calculation; the Cappiello–Rodino–Toft quadratic Bargmann characterization is not a zero multiplicity classification. Heittokangas–Wen explicitly credit the classical Langer formula for multiplicity-weighted exponential-sum zeros, and the present theorem does not claim that classical law as new. The asserted additional point is an exact criterion for double STFT zeros and its rational-denominator correction to the *distinct* planar-zero count. In the inspected material, neither the qualitative Gabor-zero theorems nor the exponential-sum counting paper states that coefficient-dependent arithmetic multiplicity result. The possibility of an older equivalent trinomial calculation remains open.
+PASS
 
-**Mathematical value — PASS.** Whether Gabor spectrogram zeros are simple matters to phase-space interpolation and the conditioning of local zero tracking. The classification identifies an exceptional but infinite positive-coefficient family with nonisolated-in-parameter multiplicity resonances, and quantifies their effect on a natural global distinct-zero invariant by a sharp denominator law. The distinction between known total density and new distinct density is essential; finite computations or correctness alone would not establish the motivating result.
+Completing the Bargmann Gaussian integral gives Bf(z)=e^(mu1 z^2)G(z^2), G(w)=A+B exp(alpha w)+C exp(beta w), A,B,C>0, 0<alpha<beta; G(0)>0 excludes branched zeros. G=Gprime=0 forces B exp(alpha w)=-A beta/(beta-alpha), C exp(beta w)=A alpha/(beta-alpha). The magnitudes require equal explicit log-real coordinates, and phases alpha Im w odd pi, beta Im w even pi yield reduced alpha/beta=p/q with p odd q even. At each solution Gsecond=A alpha beta !=0, so exactly double. The zeros are w_j=xstar+pi i q(2j+1)/beta and z=+-sqrt(w_j). An exponential-Chebyshev three-function argument principle gives strip count beta T/pi+O(1) with multiplicity; bounded horizontal real strip transports count to disks, and w=z^2 yields weighted planar 2beta R^2/pi+O(1). Subtract the double-zero progression (beta/(pi q))*R^2 before lifting for distinct count 2beta(1-1/q)R^2/pi+O(1). Independent high-precision direct exponential tests on 14 double zeros at p/q=1/2 and 1/4 confirmed simultaneous G,Gprime=0 and Gsecond nonzero. Finite checks do not prove the bounded counting remainder.
 
-The theorem is restricted to three centered positive Gaussian scales and a Gaussian window. The numerical tests are finite. A specialist comparison with historical exponential-trinomial multiplicity literature remains advisable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only for exact coefficient-balance and odd-over-even multiple-zero resonance and its change to DISTINCT two-dimensional Gabor-zero density. Classical Langer exponential-polynomial zero count already covers total multiplicity-weighted density. Broader STFT zero-free criteria do not provide the explicit double-zero arithmetic surface in inspected full text. Residual risk: overlooked general exponential-polynomial multiple-zero theorem may contain this specialization.
+
+## value
+
+PASS
+
+Gaussian-window STFT zeros are natural phase-space invariants of squeezed Gaussian superpositions. The claim classifies exactly where repeated zeros arise in a positive three-scale model and quantifies a macroscopic discontinuity between weighted and geometrically distinct zero densities. This is a motivated singular resonance classification, not a recomputation of the known total count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
