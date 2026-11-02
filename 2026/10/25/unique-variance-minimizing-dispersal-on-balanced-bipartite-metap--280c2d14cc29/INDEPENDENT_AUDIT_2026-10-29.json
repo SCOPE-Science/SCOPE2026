@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:52:55.491013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "P is the normalized adjacency of complete balanced bipartite K_{m,m} with eigenprojectors J,H,R and eigenvalues +1,-1,0^(N-2), so the stationary Lyapunov series converges for all a in (0,1) and produces the displayed common diagonal variance sigma^2/N[1/(1-a²)+1/(1-a²(2d-1)²)+(N-2)/(1-a²(1-d)²)]. The function f(x)=1/(1-a²x²) has f\"(x)=2a²(1+3a²x²)/(1-a²x²)^3>0, so the nonconstant variance is strictly convex in dispersal d; endpoint derivative signs yield one minimizer. Substitution gives N=4 optimum 2/3 exactly, and for even N>4 derivative signs give 2/3<d*<N/(N+2). The implicit ratio has positive derivatives in d and a for x=2d-1>y=1-d, forcing d* strictly decreasing in a. Expanding the root with delta=1-d=O_a(N^-1) gives the stated size asymptotic. 84 fresh direct real-space Kronecker-Lyapunov calculations verified equal diagonals and dispersal-invariant mean variance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ripa (2000) abstract describes population synchrony in general spatial linearized models, not an explicit all-size optimum for K_{m,m}.",
+          "Abbott 2011 discusses when dispersal aids synchrony/stability under complete mixing."
+        ],
+        "reasoning": "The general linear systems framework subsumes the covariance setup but a stronger result implying the optimizer would require this specific variance function and strict global optimum/monotonicity. No such implication was established from inspected full Abbott text; full Ripa text is a priority risk.",
+        "searches": [
+          "Ripa 2000 Moran effect dispersal synchronization general linearized spatial model",
+          "Abbott 2011 synchrony stability stochastic metapopulations",
+          "Resultary: balanced bipartite metapopulation dispersal stochastic variance minimizing rate stationary AR1"
+        ]
+      },
+      "checked_sources": [
+        "Abbott 2011 DOI:10.1111/j.1461-0248.2011.01670.x (full HTML)",
+        "Ripa 2000 DOI:10.1034/j.1600-0706.2000.890119.x (abstract)",
+        "Resultary search for balanced bipartite stationary AR1 variance optimization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abbott full article model uses uniform mixing among all other populations and analyzes synchrony/stability tradeoffs.",
+          "Ripa accessible abstract emphasizes synchronization patterns and environmental correlations."
+        ],
+        "reasoning": "Neither inspected statement implies the unique minimizer on balanced bipartite patches or its 2/3 and N/(N+2) bounds. Full Ripa unavailable, so broad-method special-case novelty remains qualified.",
+        "searches": [
+          "Abbott Ecology Letters 2011 DOI:10.1111/j.1461-0248.2011.01670.x",
+          "Ripa Oikos 2000 DOI:10.1034/j.1600-0706.2000.890119.x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P has eigenvalues 1,-1,0 with multiplicity N-2, making exact local variance a three-mode expression.",
+          "Abbott (2011) treats AR(1) response with all-to-all migration in a different topology."
+        ],
+        "reasoning": "Equivalent expressions involve minimizing trace/diagonal of the stationary covariance or an eigenmode-weighted sum f(2d-1)+(N-2)f(1-d). Global-mixing results with only one transverse eigenvalue do not give this three-eigenspace optimizer.",
+        "searches": [
+          "Resultary: balanced bipartite metapopulation dispersal stochastic variance minimizing rate stationary AR1",
+          "Abbott 2011 dispersal induced paradox synchrony stability stochastic metapopulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh 84 Lyapunov matrices and 12 numeric roots reproduced the analytical formulas.",
+          "No indexed exact K_{m,m} minimizer table found in the searches."
+        ],
+        "reasoning": "N=4 optimum 2/3 is an exact structural special case, not a table lookup, and arbitrary even N and a are covered by an implicit unique root; no finite table is known to dominate the continuum theorem.",
+        "searches": [
+          "metapopulation balanced bipartite migration stationary variance optimal rate",
+          "Resultary balance variance AR1 spatial dispersal"
+        ]
+      },
+      "rationale": "Known Moran-effect and AR(1) metapopulation literature contains general covariance/synchrony methods. Abbott 2011 full accessible article uses all-to-all uniform migration, not K_{m,m} with spectral values 1,-1,0; Ripa 2000 considers general linearized spatial synchronization but its full article was unavailable and its abstract alone cannot rule out an implicit specialization. In Resultary and adjacent published SCOPE results no identical local-variance optimizer was found. The exact bipartite unique optimum, four-patch exception, monotone response dependence and large-N correction were not identified in the inspected primary statements; originality is qualified.",
+      "residual_risks": [
+        "A general formula in inaccessible Ripa (2000) could specialize to this optimum, although accessible summary does not state it.",
+        "Prior network-spectral Lyapunov methods are known; only explicit bipartite optimization is assessed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING: uniform global dispersal network, different objective",
+          "evidence": [
+            "Abbott (2011), Ecology Letters 14, 1158–1169, explicitly uses uniform dispersal among populations, not bipartite migration."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1461-0248.2011.01670.x",
+          "material_read": "Accessible full HTML article, introduction, stochastic population model, dispersal topology, stability and synchrony discussion",
+          "method": "Publisher full HTML",
+          "title": "A dispersal-induced paradox: synchrony and stability in stochastic metapopulations",
+          "trigger": "Strong same-field AR(1) dispersal/synchrony predecessor"
+        },
+        {
+          "assessment": "LIMITED: cannot claim full-paper noncoverage",
+          "evidence": [
+            "Ripa (2000) derives population-synchrony relations in a general linearized model, with no explicit balanced-bipartite stationary-local-variance optimizer in accessible abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1034/j.1600-0706.2000.890119.x",
+          "material_read": "Abstract and citation metadata; full journal text not retrieved",
+          "method": "Publisher/University scholarly records",
+          "title": "Analysing the Moran effect and dispersal: their significance and interaction in synchronous population dynamics",
+          "trigger": "Possibly broader general linearized dispersal theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp exact migration policy for a symmetric but nontrivial network topology, with an exceptional N=4 rate and sensitive AR(1) dependence, directly addresses a natural variance-mitigation design problem in coupled stochastic populations; its large-N law is structurally informative, despite relying on standard spectral Lyapunov techniques.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Abbott 2011 DOI:10.1111/j.1461-0248.2011.01670.x (full HTML)",
+    "Ripa 2000 DOI:10.1034/j.1600-0706.2000.890119.x (abstract)",
+    "Resultary search for balanced bipartite stationary AR1 variance optimization"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Homogeneous stable linear stochastic fluctuations with isotropic temporally independent innovations; not a nonlinear count model, extinction result or arbitrary weighted/irregular migration graph.",
+    "N=2 excluded, 0<a<1 fixed for all statements, large-N expansion not uniform as a approaches one."
+  ],
+  "residual_risks": [
+    "A general formula in inaccessible Ripa (2000) could specialize to this optimum, although accessible summary does not state it.",
+    "Prior network-spectral Lyapunov methods are known; only explicit bipartite optimization is assessed as new."
+  ],
+  "schema_version": 1
+}

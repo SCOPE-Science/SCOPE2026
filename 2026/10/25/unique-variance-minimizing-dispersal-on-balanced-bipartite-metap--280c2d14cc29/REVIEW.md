@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The projectors onto the spatially uniform, between-group, and within-group fluctuation modes diagonalize the migration operator. The exact stationary Lyapunov solution yields the patch variance; strict convexity and the derivative signs prove unique interior minimization and all bounds. An explicit root-ratio comparison proves strict response monotonicity. The size asymptotic follows by a controlled small-distance expansion. Exact rational matrix checks at 54 parameter triples support, but are not used in place of, the general proof.
+## correctness
 
-**Originality — PASS with residual bibliographic risk.** Abbott (2011), DOI 10.1111/j.1461-0248.2011.01670.x, analyzes global interpatch mixing and stochastic stability, not the bipartite optimum and its scaling. Ripa (2000), DOI 10.1034/j.1600-0706.2000.890119.x, develops general linearized synchrony relations and might contain methods covering the calculation, but the accessible abstract does not assert this exact special result. Direct database searches for graph-specific minimizers, alternate terms such as Lyapunov covariance and overmigration, and existing local archive claims found no statement implying the present optimized theorem. Uninspected source supplements and unindexed equivalent spectral specializations remain risks; lack of retrieved matches is not a proof of priority.
+PASS
 
-**Mathematical value — PASS.** The spatial topology has a sign-changing between-bank mode, so excessive movement amplifies a mode while within-bank modes continue to be damped. The resulting rigorous and sharp optimum includes a universal four-patch value, strict network-size bounds, a monotone dependence on ecological memory, and a controlled large-network scaling. It distinguishes locally minimized environmental fluctuations from the invariant variance of total abundance. These are structural and operationally motivated claims rather than an isolated numerical minimization.
+P is the normalized adjacency of complete balanced bipartite K_{m,m} with eigenprojectors J,H,R and eigenvalues +1,-1,0^(N-2), so the stationary Lyapunov series converges for all a in (0,1) and produces the displayed common diagonal variance sigma^2/N[1/(1-a²)+1/(1-a²(2d-1)²)+(N-2)/(1-a²(1-d)²)]. The function f(x)=1/(1-a²x²) has f"(x)=2a²(1+3a²x²)/(1-a²x²)^3>0, so the nonconstant variance is strictly convex in dispersal d; endpoint derivative signs yield one minimizer. Substitution gives N=4 optimum 2/3 exactly, and for even N>4 derivative signs give 2/3<d*<N/(N+2). The implicit ratio has positive derivatives in d and a for x=2d-1>y=1-d, forcing d* strictly decreasing in a. Expanding the root with delta=1-d=O_a(N^-1) gives the stated size asymptotic. 84 fresh direct real-space Kronecker-Lyapunov calculations verified equal diagonals and dispersal-invariant mean variance.
 
-**Limitations.** Homogeneous linear response, isotropic innovations, discrete annual updates, and balanced bipartite edges only. No claim for extinction probability, demographic noise with state dependence, general connected graphs or full nonlinear ecological dynamics. Earlier linearized general-network formulas may permit a short specialization; publication priority needs an independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known Moran-effect and AR(1) metapopulation literature contains general covariance/synchrony methods. Abbott 2011 full accessible article uses all-to-all uniform migration, not K_{m,m} with spectral values 1,-1,0; Ripa 2000 considers general linearized spatial synchronization but its full article was unavailable and its abstract alone cannot rule out an implicit specialization. In Resultary and adjacent published SCOPE results no identical local-variance optimizer was found. The exact bipartite unique optimum, four-patch exception, monotone response dependence and large-N correction were not identified in the inspected primary statements; originality is qualified.
+
+## value
+
+PASS
+
+A sharp exact migration policy for a symmetric but nontrivial network topology, with an exceptional N=4 rate and sensitive AR(1) dependence, directly addresses a natural variance-mitigation design problem in coupled stochastic populations; its large-N law is structurally informative, despite relying on standard spectral Lyapunov techniques.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
