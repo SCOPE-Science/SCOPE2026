@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "A canonical greedy embedding of the proper prefix of each MAS determines a subset of source one-indices; removing a zero in any nonterminal block forces its exact threshold and the final symbol determines the final threshold. Therefore the map (subset,terminal bit) is injective, giving the binomial upper bound. On (010)^k, an explicit zero-gap formula realizes every pair and single-letter deletion of each resulting word re-embeds by a one-index shift or a threshold adjustment. Direct enumeration of all 4094 binary words of lengths 1..11 and each constructed witness for k=1..9 agrees. The all-k result depends on the proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kosche et al. analyze exponential families over larger alphabets and shortest versus minimal absences; no stated stronger binary bound by letter count is present in the inspected sections.",
+        "Adamson et al. count all absent patterns of a fixed length at a given universality index, not inclusion-minimal ones or source Parikh coordinates.",
+        "Manea et al. provide output-linear-delay MAS enumeration and longest-MAS algorithms, not a quantitative parameterized extremal theorem."
+      ],
+      "reasoning": "A general set-of-MAS characterization does not numerically dominate this count; the other papers quantify different metrics. No verified stronger theorem implying the claim was identified.",
+      "searches": [
+        "arxiv:2108.13968 Propositions 3.6 and 3.10",
+        "arxiv:2407.18599 abstract, introduction and main bounds",
+        "arxiv:2504.21471 introduction, MAS algorithm results, conclusion"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2108.13968 — first made public 2021-08-31; primary MAS structural source.",
+      "https://arxiv.org/abs/2407.18599 — first made public 2024-07-26; different absent-subsequence counting statistic.",
+      "https://arxiv.org/abs/2504.21471 — first made public 2025-04-30; algorithmic context.",
+      "Published mathematical findings indexed under shortest absent subsequences and binary subsequence universality were compared semantically; neither entails the minimal-absence fixed-source-content profile."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.1 of arXiv:2108.13968 describes greedy embeddings for a fixed MAS; it does not count the possible embeddings as a function of one-symbol occurrences.",
+        "The latter two sources either drop inclusion-minimality or study an algorithmic task, so their conclusions do not give M_r(w)<=binom(k+1,r) or equality for (010)^k."
+      ],
+      "reasoning": "The new proof uses a threshold uniqueness argument to collapse all zero-count choices to a single coding subset, then a separate constructive deletion proof establishes equality. Those steps cannot be obtained by merely plugging the parameters into the quoted conclusions.",
+      "searches": [
+        "arxiv:2108.13968 Definition 2.4, Theorem 3.1, Propositions 3.6–3.10",
+        "arxiv:2407.18599 first two sections and counting theorems",
+        "arxiv:2504.21471 Sections 2–3, 5–6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.13968, Theorem 3.1 reconstructs MAS using greedy positions, without stating a rare-letter upper envelope or Pascal-layer extremum.",
+        "The proposed equivalent statement is that the complement of the subsequence language has at most 2^(k+1) minimal generators when a binary source contains k ones, with exact rank-by-one-count bounds. No matching statement was found in the compared source."
+      ],
+      "reasoning": "The paper provides a candidate technical foundation, but an injection into subsets of rare-letter positions and a witness realizing every codeword still need proof. Search failure alone is not treated as a proof of novelty.",
+      "searches": [
+        "\"minimal absent subsequences\" \"binary\" \"number of ones\" bound",
+        "\"minimal absent subsequences\" \"fixed\" \"ones\" cardinality",
+        "\"minimal absent subsequences\" \"binomial\" \"binary\" extremal",
+        "arxiv:2108.13968 Theorem 3.1 and Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result is quantified over all k and has exact layer counts for the infinite family (010)^k, rather than an empirical finite table.",
+        "The closest inspected arXiv publications concern MAS membership or source-length/universality counting; no exact fixed-letter-count table was found."
+      ],
+      "reasoning": "Finite test values are presented solely to check the proof. No existing table implied the general formula in the material inspected.",
+      "searches": [
+        "maximum number minimal absent subsequences binary string fixed frequency one letter",
+        "how many minimal absent subsequences binary words few 1s sharp bound",
+        "minimal absent subsequences binary words worst case exponential"
+      ]
+    },
+    "rationale": "The 2021 original MAS theory gives a general characterization, not a sharp upper bound parameterized by the source number of occurrences of one letter with the exact joint Pascal profile. The 2024 absent-subsequence bounds use length and universality rather than minimality and letter content. The 2025 MAS literature focuses on optimal enumeration and longest-MAS extraction. The quantitative injection and simultaneous extremizer are not logical specializations of a stated stronger source theorem. Indexed equivalent formulations and closest published results were compared; a residual unindexed-equivalent risk remains.",
+    "residual_risks": [
+      "An unindexed equivalent under the terminology minimal excluded subword or subsequence-language antichain remains possible.",
+      "The general greedy characterization could have an unrecorded folklore parameterized corollary not written explicitly in accessible publications.",
+      "No independent expert audit has been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATION_NOT_NUMERICAL_COVERAGE",
+        "evidence": [
+          "Definition 2.4 gives MAS minimality; Theorem 3.1 gives embedding intervals; Propositions 3.6 and 3.10 concern exponential general-alphabet examples. No fixed number of one-symbol occurrences or binomial layer bound is stated in these inspected passages."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Definitions and Theorem 3.1 (PDF pp. 3–5); selected combinatorial propositions and examples (pp. 6–10); selected MAS representation statements (pp. 30–31).",
+        "method": "Full-text PDF passage reading with page-level visual inspection of the definitions.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Same primary objects: minimal absent scattered subsequences, greedy canonical embeddings, and exponential-size MAS examples."
+      },
+      {
+        "assessment": "DIFFERENT_COUNTING_PARAMETER",
+        "evidence": [
+          "The abstract and introduction optimize counts of all absent subsequences at prescribed pattern length and fixed universality index, not minimal absences stratified by source one-count."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+        "material_read": "Abstract, introductory problem statement and main counting/enumeration theorem descriptions, with first PDF page visually inspected.",
+        "method": "PDF text and rendered page review, with searches for the specific MAS concept.",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Title suggests possible stronger counting inequalities for absent subsequences."
+      },
+      {
+        "assessment": "ALGORITHMIC_NOT_FIXED_CONTENT_EXTREMAL",
+        "evidence": [
+          "The main results are output-linear-delay enumeration and longest-MAS computation, not a maximum count at fixed occurrences of a designated source letter. Its general bounds citation refers to Kosche et al. and Adamson et al."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+        "material_read": "Abstract, introduction, definitions, algorithmic MAS enumeration results, concluding questions, and references, including a visual inspection of the first pages.",
+        "method": "PDF section reading and rendered page inspection.",
+        "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+        "trigger": "Modern paper about exactly MAS, potentially superseding older combinatorial bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0f0075f-0551-4358-9290-81d4d326c82f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The size of the antichain of minimal forbidden scattered subsequences is a natural combinatorial parameter of the downward-closed subsequence language. A source with k instances of a rare letter can have arbitrarily many copies of the other letter, making input-length bounds poorly informative. The full binomial spectrum and source-length-independent sharp bound give a complete composition-sensitive extremal answer for the binary alphabet. The explicit family (010)^k simultaneously saturates all layers and provides structured witnesses, rather than an arbitrary finite census or a tiny numerical gain.",
+    "status": "PASS"
+  }
+}
