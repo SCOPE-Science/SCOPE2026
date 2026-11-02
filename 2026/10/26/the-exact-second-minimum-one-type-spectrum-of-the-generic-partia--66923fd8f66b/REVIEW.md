@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-point ideal/filter characterization is an established consequence of the finite-poset Fraïssé extension property. For a maximal parameter \(x\), the displayed three-way compatibility test proves the exact increment formula \(t(P)-t(Q)=J(D)+J(Q\setminus D)+E_Q(D)\). The proof explicitly handles empty lower/upper sets, the unique triple-extension type, and the case where both second-extension tests could appear false. Ideal lower bounds and a strict increment for nonchain remainders give the runner-up gap. The equality cases are exhausted by the induced-ideal counts and a second-extension witness. Independent direct enumeration of naturally labelled posets to six elements agrees with all extrema and equality shapes. This is a proof for all sizes, not an extrapolation from finite tests.
+## correctness
 
-## Originality — PASS (with residual risk)
-The established description of one-point extensions in Dolinka–Mašulović (arXiv:1009.2892, Lemma 3.3) is prior work. The published finding “Finite-parameter 1-type counting in the random poset is #P-complete” explicitly already includes the chain/antichain values and general counting hardness. A separate pre-existing finite-bipartite-poset finding studies the local change when one comparison is inserted; it does not classify the global second minimum on all finite posets. The present result goes beyond these antecedents by proving the exact nonchain gap and classifying all equality shapes for every size. Focused searches found no covering published theorem. The possibility of an unindexed or implicit earlier extremal classification remains.
+PASS
 
-## Mathematical value — PASS
-The general counting problem is computationally hard, while its extremal geometry is natural and structurally meaningful. The sharp additive separation from the minimum identifies exactly how many one-types the first departure from a chain forces, even though local addition of an order comparison is not monotone for the type count. The equality theorem shows that precisely a single doubled level or a completely isolated parameter realizes the smallest nonchain spectrum. This supplies a reusable all-size extremal boundary, rather than a routine special value, a relabelling or a finite table alone.
+The Fraïssé extension property identifies one-types with ideal/filter pairs L<U, with no quotient by automorphisms of named parameters. For maximal parameter x, D={q<x} ideal of Q=P\{x}, F=Q\D, an exact trichotomy of x<new, new<x and incomparable yields t(P)-t(Q)=J(D)+J(F)+E_Q(D). Lower bounds J(R)>=|R|+1 give chain minimum; at most 2t(Q)+1 gives antichain maximum. For Q chain and D prefix length k, excess g(P)=(k+1)(m-k), minimized for nonchain at k=0,m−1. For Q nonchain induction and equality of ideal-count contributions imply only doubled-level or one isolated-point families. Independent new subset-based type enumerator checked all naturally ordered transitive relations n2..5 (2,7,40,357), confirming both extrema, runner-up value and exact equality shapes. Infinite induction, not finite scan, establishes all n.
 
-## Scope and limitations
-The invariant counts nonalgebraic complete one-types over named finite parameters in the countable generic partial order. The previous characterization and endpoint formulas are not claimed as novel. The all-size result rests on the displayed maximal-element recurrence and equality analysis; enumeration through size six is a separate finite consistency check. Residual originality risk is implicit prior coverage not identified in available literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published Resultary random-poset #P-completeness result proves the ideal/filter characterization, chain and antichain formulas and counting hardness, but no second-minimum nonchain gap or equality classification. Dolinka–Mašulović provide classical one-point poset extension normal form, not sharp runner-up spectrum. Search targeted one-type, finite named stabilizer orbits, near-chain/doubled-level extremizers; no prior implication of complete equality shapes found. Best of knowledge with potential literature alias risk.
+
+## value
+
+PASS
+
+For a natural homogeneous structure, the count of one-point types over a named finite parameter configuration is a standard orbit-growth invariant. The exact strict gap above chains and classification of all minimizers is a meaningful structural extremal theorem rather than a routine count for a single chosen finite poset; it identifies the first two tiers of the full n-parameter type spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
