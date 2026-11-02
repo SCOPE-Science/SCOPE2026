@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "An explicit two/three-letter alternating bridge proves strong connectivity; duplicating the specified nonfully alternating edges balances every original constrained vertex. The Eulerian tour gives the exact upper length; a potential on all 2^(n-1) binary vertices bounds the increment of every possible supplementary edge by one and forces precisely 2F_(n-1)-2 extras even if forbidden windows are allowed. The counting bijection gives the same number of duplicated edges. Standard-library verification of degrees, actual tours and all binary-edge inequalities at n=3..16 returned VERIFY_OK. A separate Hungarian min-cost postman checker n=3..13 returned CROSSCHECK_OK. No finite test substitutes for the quantified proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moreno 2005 analyzes existence and construction of exact-once restricted cycles, not arbitrary repeated-window shortest covers.",
+        "Chee et al. 2024 maximize run-length-limited sequences with distinct windows, a different direction of optimization.",
+        "The all-binary-edge potential lower bound is not an implication of the universal exact-once Eulerian criterion."
+      ],
+      "reasoning": "Neither source gives the stronger objective (minimum length among circular words covering every ordinary finite factor), with unrestricted supplementary windows. Constrained cycles with only cyclically admissible factors can omit finite words that fail cyclic wrap constraints, so they do not dominate the stated theorem.",
+      "searches": [
+        "published-finding corpus: Run-length limited (d,k) constrained de Bruijn universal cycles covering all finite admissible words optimal length",
+        "published-finding corpus: RLL (0,2) finite words cyclic shortest common superstring / circular universal word",
+        "Web: minimum run-length limited de Bruijn all strings",
+        "Web: De Bruijn sequences and De Bruijn graphs for a general language pdf Moreno 2005"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/0711.1695",
+      "https://arxiv.org/pdf/2403.01454",
+      "https://theses.hal.science/tel-00628709",
+      "https://arxiv.org/pdf/1711.07029",
+      "published-finding corpus published mathematical research index (semantic searches for exact and equivalent targets)",
+      "Earlier accessible scientific claims, compared by mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For n=4 the required-edge graph has 10 edges but is unbalanced, whereas the exact optimum is 12, so Euler-tour existence theorems for balanced restricted de Bruijn graphs do not apply directly.",
+        "Single forbidden-pattern formulas involve different sets of admissible finite factors; restricting a universal covering sequence or taking the minimum of those results does not imply this two-pattern optimum.",
+        "The 2024 maximum-RLL-distinct-window objective forbids repetitions, while the optimal covering cycle here provably needs repetitions."
+      ],
+      "reasoning": "A shortest cover of each one-forbidden superset need not remain shortest after simultaneous exclusion, and there is no implication from max-distinct-window path length to min-all-window cyclic cover length. Exact-once restricted cycles, where they exist, solve a different optimization or omit transient factors. The new upper construction and full binary-edge potential bound are needed.",
+      "searches": [
+        "published-finding corpus: Shortest circular binary covering sequence containing every finite length n word avoiding both 000 and 111 (run length at most 2); graph augmentation minimum",
+        "published-finding corpus: cyclic shortest common superstring all binary finite words no 000 111",
+        "Relevant existing findings: single forbidden triple 001 and 010, all four-bit forbidden patterns, and 00 avoidance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno–Matamala 2007 defines restricted exact-once de Bruijn cycles and lexicographic minimal Euler tours; its language universe is periodically admissible.",
+        "The proposed theorem optimizes the shortest circular *cover* of all finite admissible factors, permitting repeated windows and even forbidden extras.",
+        "Indexed search found no same-object all-order identity."
+      ],
+      "reasoning": "A cyclic de Bruijn sequence of all admissible finite factors would require a balanced required-edge graph, which fails already at n=4. Unlike lexicographic minimum Euler tours, this theorem proves minimum length of a repeated-edge covering closed walk. The directly relevant exact-once and periodic-language results therefore do not imply it; absent equivalent search hits is supporting evidence, not proof of novelty.",
+      "searches": [
+        "published-finding corpus: Shortest circular binary covering sequence containing every finite length n word avoiding both 000 and 111 (run length at most 2); graph augmentation minimum",
+        "published-finding corpus: Shortest cyclic covering string all length-n binary words without 000 and 111 exactly 2(Lucas_n-1)",
+        "Web: shortest universal cycle length words avoiding 000 and 111 simultaneous forbidden run length bound",
+        "Web: Lucas numbers de Bruijn no three consecutive circular sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact sequence or all-order shortest-cover identity was identified in the queried indexed records or accessible historical claims.",
+        "Relevant historical claims include single-forbidden-factor cyclic covers, RLL subsequence invariants, and non-overlapping coding results, none covering this joint constraint."
+      ],
+      "reasoning": "The quantitative identity and the dual augmentation certificate were compared both against the exact parameter pair and structurally adjacent variants. A database partition cannot certify uniqueness; the residual risk of an unindexed table or an unexamined equivalent algorithmic corollary remains.",
+      "searches": [
+        "published-finding corpus: de Bruijn shortest closed walk constrained run-length ≤2 words n, adding each start/end transition word except alternating, Fibonacci Lucas exact",
+        "published-finding corpus: Eulerization graph avoiding consecutive triples 000 111 shortest covering cycle",
+        "Web: 6, 12, 20, 34, 56, 92, 150 de Bruijn",
+        "Relevant prior-claim comparison: avoiding 000, 111; run length; shortest circular; Lucas; cyclic covering"
+      ]
+    },
+    "rationale": "Originality is assessed against claim implication, not lexical similarity. The all-order optimum for a single circular cover of every ordinary binary length-n factor avoiding both 000 and 111 is not implied by the inspected exact-once restricted de Bruijn results, by maximum distinct-window RLL problems, or by the accessible prior scientific claims of other forbidden-factor and code problems. Searches did not identify a matching identity or stronger all-finite-factor circular covering theorem. The assessment remains qualified by inaccessible historical thesis pages and possible unindexed prior literature.",
+    "residual_risks": [
+      "Historical 2005 thesis PDF retrieval incomplete; available abstract/chapter excerpts and 2007 preprint were inspected but cannot categorically exclude all thesis results.",
+      "An unindexed earlier exact table, unpublished result or implicit corollary of general directed Chinese-postman theory could have prior claim overlap, despite targeted comparisons.",
+      "No independent historical-priority assessment or scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It optimizes lexicographic labels of an Eulerian cycle for cyclically admissible exact-once factors; no stated shortest repeated-window covering optimum for all finite 000/111-avoiding words.",
+        "evidence": [
+          "arXiv:0711.1695, introductory definitions and theorems in sections 1–4; first public 2007-11-12."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+        "material_read": "Full nine-page primary preprint including definitions, theorems, proofs and appendices/references; inspected PDF pages 1, 2, and 8 visually.",
+        "method": "Read extracted full text and PDF page screenshots; compared quantifiers and the meaning of minimum.",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Terminological match minimum + de Bruijn + forbidden factors"
+      },
+      {
+        "assessment": "Studies maximum-length RLL sequences without repeating n-windows; it does not state the minimum-length all-finite-factor cyclic cover theorem.",
+        "evidence": [
+          "arXiv:2403.01454, first posted 2024-03-03, main problem statement and results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.01454",
+        "material_read": "Abstract, formulation, main theorems and selected proof/results sections, including pages 1–5 and 18–21; PDF pages 1 and 4 visually checked.",
+        "method": "Compared maximum distinct-window RLL path objective with minimum universal circular covering length.",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "Natural run-length-limited overlap and de Bruijn optimization"
+      },
+      {
+        "assessment": "Accessible text addresses exact-once sequences, symbolic dynamics and lexicographic constrained tours. Inaccessible sections prevent a whole-thesis exclusion; this is a residual historical-priority risk, not an affirmative coverage result.",
+        "evidence": [
+          "HAL tel-00628709 dated 2005-05-30; source document originally dated 2005."
+        ],
+        "identifier_or_url": "https://theses.hal.science/tel-00628709",
+        "material_read": "Repository abstract and available indexed chapter 3–4 excerpts; original PDF could not be completely fetched (403 in one retrieval).",
+        "method": "Read accessible repository metadata, abstract and indexed full-text excerpts; compared core definition and results without claiming full-document coverage.",
+        "title": "De Bruijn graphs and sequences in languages with restrictions",
+        "trigger": "Foundational general-language thesis and exact-once restricted factors"
+      },
+      {
+        "assessment": "The explicitly inspected definitions and examples concern universal cycles of other restricted combinatorial objects. The full article was not excluded chapter-by-chapter; low but nonzero residual risk remains.",
+        "evidence": [
+          "arXiv:1711.07029, 2017, abstract/introduction and page 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1711.07029",
+        "material_read": "Abstract and introduction from extracted text, visual inspection of page 1; not a complete paper inspection.",
+        "method": "Compared exact-once cyclic order of combinatorial objects with repeated-window shortest-cover objective.",
+        "title": "Universal Cycles of Restricted Words",
+        "trigger": "Potential broader universal-cycle coverage of restricted binary languages"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0f1ce441-b5be-4a0a-933f-90ec85de6501",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Maximum constant run length two is a standard symmetric binary constrained language, while covering every finite admissible factor (including transient factors not periodic on their own) is a naturally stronger objective than exact-once constrained de Bruijn sequencing. An exact all-order circular covering length, the sharp unavoidable overhead 2F_(n-1)-2, a forbidden-free optimal tour, and a uniform global dual certificate resolve a motivated information/word-combinatorial invariant; this is not a parameter renaming, known-table recomputation, or isolated numerical increment.",
+    "status": "PASS"
+  }
+}
