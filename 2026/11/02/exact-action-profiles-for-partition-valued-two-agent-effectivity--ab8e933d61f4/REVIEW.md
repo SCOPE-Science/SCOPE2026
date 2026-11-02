@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Determinism confines a profile for neighborhood types \(P_i,Q_j\) to \(C_{ij}\). Partition disjointness forces every fixed action to realize each cross-intersection element through only the other agent's copies of that specific type, giving both sharp lower bounds. The cyclic modular construction attains the entire orthant of feasible copy counts, and independent cell-array choices give the exact census. Inclusion-exclusion counts arrays whose rows and columns all contain every symbol. All hypotheses and boundary cases \(q_{ij}=1\) and single-block partitions are handled explicitly. The bundled checker verified 21,297 finite intersection-size patterns and independent small array counts.
+
+**Originality — PASS on inspected evidence, with residual historical risk.** Ciardelli's 2026 Theorem 2.2 gives representability but no exact copy vector. The 2026 sharp universal root-size action result provides a uniform per-neighborhood bound, and its homogeneous two-agent extremum is prior coverage; it does not yield the heterogeneous instancewise vector or exact product census. The 2015/2016 Goranko–Jamroga work studies monotone coalition/path effectivity, not these exact local output-set resource profiles. Latin squares themselves are classical and explicitly acknowledged. Search limitations leave possible older game-form equivalents as a priority risk.
+
+**Value — PASS.** In a natural independent two-agent observation model, actual-effectivity representation can require duplicate actions even when each neighborhood is listed just once. The theorem completely determines the feasible resource region from the cross-intersection matrix and gives simultaneous minima, a constructive optimizer, and all labelled realization counts. The heterogeneous example with matrix \(\begin{pmatrix}2&1\\1&3\end{pmatrix}\) has just five actions per agent and 24 optimal outcome functions, whereas a uniform seven-copy-per-type construction would use 14 actions per agent. This answers a representation-cost question left by qualitative and universal bounds.
+
+The result is limited to finite, partition-valued neighborhoods, two agents, and deterministic one-step realization; it is not a classification for arbitrary effectivity systems.
+
+Self-review: passed. Independent audit: not yet performed.
