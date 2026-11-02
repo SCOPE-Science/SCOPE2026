@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The definitions and all ranges m>=3, n->infinity are explicit. The absorbing-race calculation gives exact petal avoidance probabilities under true nonbacktracking, including the forced second outer vertex; exact independent rational-state calculations pass 114 comparisons for m=2..7. The hub-memory correction is bounded at O(n^-2) per tagged-set excursion after conditional survival: the chance the prior incoming vertex was in one of finitely many marked petals is O(1/n). Factorial moments yield the Poisson uncovered-site limit, concentration of exponential-tailed excursion lengths yields edge-step Gumbel convergence, and a uniform one-site hazard union bound plus Wald yields expected cover times. Monte Carlo is not substituted for analytic proof. No result is claimed for growing m.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tishby–Biham–Katzav, arXiv:2110.13592, pp. 1-4 and section 14, gives a regular-random-network master equation and discusses its nonbacktracking analogue; our hub has degree nm, not a fixed random regular degree.",
+        "Breen et al., arXiv:2203.12049, title/abstract/introduction, addresses Kemeny constants (mean hitting to a random target), not all-vertex cover distributions.",
+        "Berestycki–Hermon–Teyssier, arXiv:2202.02255, abstract states bounded-degree vertex-transitive graph hypotheses, violated by clique windmills."
+      ],
+      "reasoning": "Broad Gumbel and nonbacktracking results do not imply the two explicit petal-hit constants or speedup here: the topology is deterministic and highly inhomogeneous with a growing hub degree, and cover all targets is not the same statistic as mean hitting a random target.",
+      "searches": [
+        "Analytical results for the distribution of cover times of random walks on random regular graphs arxiv 2110.13592",
+        "Kemeny's constant for non-backtracking random walks arxiv 2203.12049",
+        "On the universality of fluctuations for the cover time arxiv 2202.02255"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2102.12356 (primary PDF examined)",
+      "arxiv:2110.13592 (primary PDF with nonbacktracking section examined)",
+      "arxiv:2203.12049 (primary PDF introductory theorem scope examined)",
+      "arxiv:2202.02255 (abstract scope screened)",
+      "Accessible prior-claim ledger: nonbacktracking cycle bouquet and simple-walk friendship windmill claims checked for implication overlap",
+      "Public indexed research records searched under windmill/clique-bouquet/nonbacktracking aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of Sylvester (arXiv:2102.12356) gives finite rationality only, which does not determine a large-n Gumbel law.",
+        "Tishby et al. give nonbacktracking Gumbel asymptotics for random regular graphs; transferring their coefficient is invalid on a windmill with hub degree proportional to n.",
+        "The exact old triangle-bouquet m=2 phenomenon cannot imply m>=3 because multiple outer vertices can remain uncovered after one petal visit; this difference is quantified by h_N(s)."
+      ],
+      "reasoning": "None of the close claims logically implies the exact h_N(s)=(1-((m-s)(m-s-1))/(m(m-1)(s+1))), the m>=3 marked-set factorization with hub memory, or the ratio (m+1)/(m+2). These distinctions concern mathematical assumptions and conclusions, not merely title wording.",
+      "searches": [
+        "arxiv:2110.13592 cover time section 14 non-backtracking random regular",
+        "arxiv:2203.12049 Kemeny cover time windmill",
+        "arxiv:2102.12356 cover time rational theorem",
+        "non-backtracking walk friendship graph cover time exact 2020"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The windmill is the one-vertex bouquet of (m+1)-cliques; the m=2 bouquet-of-triangles calculation gives an exact special case only.",
+        "Tishby et al., arXiv:2110.13592, section 14, considers nonbacktracking cover laws on random regular graphs, not the irregular clique windmill with hub degree nm."
+      ],
+      "reasoning": "Searching the natural synonymous names windmill, generalized friendship graph, clique bouquet, and nonbacktracking cover time yielded no equivalent m>=3 asymptotic law. Equating windmills to cycle bouquets works only for triangles (m=2): for m>=3 each excursion can miss a positive fraction of the petal. A failed search is treated as residual risk, not uniqueness proof.",
+      "searches": [
+        "nonbacktracking random walk cover time friendship graph windmill graph",
+        "nonbacktracking random walk on flower graph bouquet of complete graphs vertex cover time and coupon collector",
+        "nonbacktracking random walk cover time on windmill graphs clique bouquet friendship graph K1 join n copies of Km asymptotic Gumbel law sharp constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publicly indexed related windmill findings concerned graph polynomials (for example the dissociation polynomial of generalized windmills), not random-walk cover distributions.",
+        "The accessible local deduplication ledger contains a nonbacktracking law for cycle bouquets and a simple-walk limit for triangle-petal windmills, but neither yields the m>=3 full-graph nonbacktracking law."
+      ],
+      "reasoning": "The exact quantities sought are the m>=3 first-petal avoidance constants, Gumbel centering and expected cover-time ratio. None of the retrieved entries was a table of those quantities. This index cannot establish comprehensive absence from all literature.",
+      "searches": [
+        "Cover time nonbacktracking walk on windmill K1 vee nKm generalized friendship graphs for fixed m with Gumbel limit ratio (m+1)/(m+2)",
+        "K1 join n Km nonbacktracking vertex cover time clique bouquet excursions probability all peripheral nodes visited",
+        "Random walks excursion site avoidance probability windmill graph clique petals Poisson missing vertices cover time"
+      ]
+    },
+    "rationale": "The sharpened finding is a fixed-m>=3 cover-time Gumbel distribution and an explicit nonbacktracking-to-simple mean ratio on clique windmills. Published random-regular cover-time theory is nonapplicable at the n-dependent-degree hub, nonbacktracking Kemeny results concern a different invariant, and finite-chain rationality does not provide a sharp limit. The exact triangle-bouquet case m=2, previously established separately, is excluded rather than repackaged. No implication-equivalent result was identified in the actual literature/index and accessible-history comparisons; independent historical priority is not certified.",
+    "residual_risks": [
+      "Historical priority is not independently certified; niche earlier cover-time analyses or book chapters could contain an equivalent fixed-m windmill formula.",
+      "The general bounded-degree vertex-transitive Gumbel paper was scope-screened at abstract level, not comprehensively read; its stated hypotheses are inapplicable.",
+      "Only fixed m>=3 is proved; extending to m growing with n requires new uniform estimates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not implication-covering: random regular graphs differ from the single-hub clique windmills",
+        "evidence": [
+          "arXiv:2110.13592 pp. 1-4, 28-29, explicit RRG degree c model and nonbacktracking discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2110.13592",
+        "material_read": "Full-text PDF pp. 1-4 for model and main claims, section 14 pp. 28-29 on nonbacktracking walks, section 15 summary, references; keyword tests for windmill and nonbacktracking",
+        "method": "Primary arXiv PDF text and visual page inspection, targeted section comparison",
+        "title": "Analytical results for the distribution of cover times of random walks on random regular graphs",
+        "trigger": "Highly relevant Gumbel cover-time and nonbacktracking comparison"
+      },
+      {
+        "assessment": "No implication established: Kemeny expected random-target hitting differs from all-vertex cover-time law",
+        "evidence": [
+          "arXiv:2203.12049 introduction and abstract on nonbacktracking Kemeny constant"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.12049",
+        "material_read": "Full-text PDF introductory definition and main aim pp. 1-2, keyword searches of document for cover-time and windmill statements",
+        "method": "Primary arXiv PDF text and first-page image inspection, theorem-scope comparison",
+        "title": "Kemeny's constant for non-backtracking random walks",
+        "trigger": "Same walk type and comparative performance"
+      },
+      {
+        "assessment": "Finite expected-time rationality does not supply the candidate asymptotic fluctuation or coefficient",
+        "evidence": [
+          "arXiv:2102.12356 Theorems 1 and 3, pp. 1-3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.12356",
+        "material_read": "PDF pp. 1-3 including stated Theorems 1 and 3 and their assumptions; keyword test for Gumbel limit",
+        "method": "Primary arXiv PDF text and first-page visual inspection",
+        "title": "The Cover Time of a (Multiple) Markov Chain with Rational Transition Probabilities is Rational",
+        "trigger": "Potential broad finite-chain coverage"
+      },
+      {
+        "assessment": "Bounded-degree vertex-transitive hypotheses incompatible with clique windmills; a whole-paper noncoverage claim is not made",
+        "evidence": [
+          "arXiv:2202.02255 abstract: finite vertex-transitive graphs of bounded degree"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.02255",
+        "material_read": "Public title and author abstract only, not full text",
+        "method": "Scope screening through primary abstract",
+        "title": "On the universality of fluctuations for the cover time",
+        "trigger": "Potentially dominating Gumbel theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ebe962cf-66b0-485b-a665-9738a0f2e41b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural windmill family, a central hub presents a distinctive bottleneck, and each clique excursion has equal mean duration under both walks. The exact marked-petal avoidance laws show how nonbacktracking explores cliques more effectively; the genuinely dependent hub-excursion process nonetheless has Poisson last-site statistics and a sharp Gumbel law. The exact leading expected speedup (m+1)/(m+2) is an object-specific natural invariant, not just an exercise in applying an unrestricted coupon collector or a numerically tiny arbitrary perturbation.",
+    "status": "PASS"
+  }
+}
