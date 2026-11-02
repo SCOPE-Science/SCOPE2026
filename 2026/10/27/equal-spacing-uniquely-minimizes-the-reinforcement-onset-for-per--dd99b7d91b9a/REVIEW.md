@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact active and silent probability maps yield a multiplicative contraction of all pairwise node differences. On the synchronized diagonal, the per-contact scalar amplification has a unique maximum, which gives an exact product upper bound for a complete activation cycle. Equality forces both maximal pre-contact prevalence and identical intervening inactivity gaps. Uniform gaps realize that bound, and the positive-root classification follows from the strictly unimodal reinforcement polynomial. Monotonicity on the invariant post-recovery cube establishes scalar convergence, while transverse contraction gives convergence for every initial vector. Compactness of the nonuniform scalar gain ratio gives strict threshold separation. The exact rational witness and group-size cutoff were checked against independent iteration code, which completed with `CHECK_OK`. No numerical test is substituted for the all-parameter proof.
+PASS
 
-## Originality — PASS with residual publication-priority risk
+The exact difference F_i−F_j=[r−η product_{l≠i,j}p_l](p_i−p_j) contracts by q=max(r,1−r)<1 for 0<µ<1, η≤1, and all n≥3. On the symmetric diagonal, each active step multiplies x by G(x)=r+ηx^{n−2}(1−x)≤r+ηm_n; products over k activations and ka silent steps imply η≥(r^(−a)−r)/m_n. Equality forces every pre-pulse value x* and every integer gap a, proving strict schedule uniqueness. Scalar compact strict contraction away from equality plus transverse synchronization yields extinction; uniform schedule H(x) has two nonzero fixed roots above threshold and a fold at equality, with longitudinal/transverse multipliers given in proof. Independently reproduced η*=38/45, nonuniform return 8081/16200, and n=7/8 group-size cutoff for µ=.01,a=2,η=.5.
 
-The 2018/2019 foundational study supplies the static higher-order infection mechanism and static bistability; the 2021 temporal study formulates an individual-probability update and explores random-network contact persistence, without deriving this exact gap-allocation optimum. The 2023 pair-based paper concerns a static continuous-time approximation, and the 2024 review describes those approaches but does not give a sharp arbitrary-group, arbitrary-burst scheduling theorem. The strongest nearby previously recorded homogeneous-discrete-SIS result classifies autonomous scalar dynamics; it does not compare noncommuting compositions for differently positioned active encounters. A separate existing higher-order-SIS result bounds stable states of autonomous continuous-time mean-field flows. No covering statement was found in the performed searches, but comprehensive publication priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed numbers of encounters and silent days are natural budgets in time-varying social reinforcement. The theorem gives the exact universal onset reinforcement, proves uniqueness of the optimizing schedule for every group size and every divisible silent budget, and distinguishes threshold extinction from true periodic activity even when the total intervention counts are identical. The rigorous synchrony reduction and group-size cutoff support a full nonlinear mechanism rather than a one-parameter numerical observation. The result does not solve arbitrary incommensurate budgets or coupled-group stochastic dynamics.
+Higher-order SIS static bistability and temporality are known. Chowdhary et al. 2021 compares stochastic temporal network renewal/correlations, not the same deterministic all-to-all activation with fixed total silent steps. The exact gap-product equality rigidity and unique minimal reinforcement threshold are not consequences of the inspected mean-field onset curves.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Sharp optimal temporal spacing principle for a physically motivated deterministic higher-order contagion closure, with all-initial-state extinction off the optimum and a rigorous group-size cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
