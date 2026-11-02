@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-In the ternary three-cube the degree is six, and a colour class must induce minimum degree at least three. A class of at most four vertices would contain a four-clique, impossible in a graph whose maximal coordinate-line clique has size three. A five-vertex class cannot have an induced degree-four vertex because the open neighbourhood of every vertex is three disjoint edges; it also cannot be three-regular by parity. Thus every class has at least six vertices, so 27 vertices support at most four classes. The partition with induced subgraphs \(K_3\square K_3\) and three copies of \(K_3\square K_2\) meets the majority condition. The lifting proof gives \(3+2r\) monochromatic neighbours of degree \(2(2r+3)\). The supplied standalone verifier independently confirms all small-subset obstructions and the constructions in four odd dimensions. Finite checks are not used as a substitute for the all-parameter proof.
+PASS
 
-## Originality — PASS (qualified)
+In K_3^square3 each vertex has degree six. A valid majority colour class induces minimum internal degree at least 3. A class of <=4 vertices would require a K4, but cliques occupy coordinate lines of size at most 3. In a five-set, a degree-four vertex makes every other member adjacent to at most two other members because its open neighbourhood comprises three disjoint edges; otherwise the five-set would be 3-regular, ruled out by the handshake parity lemma. So classes have >=6 vertices and at most floor(27/6)=4 colours. The displayed disjoint 9/6/6/6 rectangular partition induces one K3 square K3 and three K3 square K2 blocks, attaining four colours. For d=2r+3, using base three-coordinate class plus r retained coordinates gives 3+2r same-colour neighbours out of degree 2d, and exactly 4*3^r colours. Independent bitmask enumeration checked all 101583 nonempty <=5 vertex sets; independent full-vertex lifted checks d=3,5,7, with infinite lifting proved algebraically.
 
-The closest primary literature is *Majority C-coloring in Cartesian products* (arXiv:2608.27669): it establishes exact values in even-dimensional Hamming graphs and a lower bound in odd dimensions, but its stronger odd-dimensional construction requires alphabet sizes five or at least seven. Its Open problem 3 includes the ternary case. The older *Improper C-colorings of graphs* (DOI 10.1016/j.dam.2010.11.004) has the equivalent degree-six improper C-colouring formulation and product inequalities, but its exact hypercube result concerns the binary alphabet. Targeted comparisons with accessible mathematical finding records uncovered no equivalent claim. An earlier unindexed priority occurrence cannot be ruled out and should be independently checked.
+## originality
 
-## Value — PASS
+PASS
 
-The first ternary odd-dimensional Hamming case is a natural parameter cell in an explicit new open problem, not an arbitrary graph slice. Its exact value distinguishes three known obtainable colours from four optimal colours, and its construction lifts to a strict \(4/3\) improvement on the established lower bound in every odd ternary dimension \(2r+3\). The theorem does not assert higher-dimensional optimality.
+The exact open parameter cell K_3^square3 is explicitly within Open Problem 3 of Bujtás et al. 2026. Its Proposition 6 gives the weaker odd-dimensional baseline 3^floor(d/2); Theorem 7 improves it only for alphabet size n=5 or n≥7, not n=3. The prior 2011 improper C-colouring language is equivalent for regular degree six and includes binary cube results, not a quoted value for this ternary cube. Other published Resultary result on complete multipartite graphs has different adjacency. Searches and actual full relevant sections of the strongest paper support best-of-knowledge novelty, retaining old impropriety literature priority risk.
 
-## Limitations
+## value
 
-Exactness is restricted to dimension three. For larger odd dimensions only the lower bound is proved. Published-priority evaluation has not been independently performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ternary dimension-three case is a natural smallest unsolved odd-alphabet parameter explicitly listed in the recent majority C-colouring problem. The exact sharp four-colour bound gives a nontrivial local-degree obstruction plus a construction and propagates a factor-4/3 improvement over the previous ternary lower bound through every odd higher dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

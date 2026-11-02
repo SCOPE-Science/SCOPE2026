@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:44:49Z",
+  "axes": {
+    "correctness": {
+      "finite_check_path": "independent_checks.py (private auditor-created; bounded only)",
+      "rationale": "In K_3^square3 each vertex has degree six. A valid majority colour class induces minimum internal degree at least 3. A class of <=4 vertices would require a K4, but cliques occupy coordinate lines of size at most 3. In a five-set, a degree-four vertex makes every other member adjacent to at most two other members because its open neighbourhood comprises three disjoint edges; otherwise the five-set would be 3-regular, ruled out by the handshake parity lemma. So classes have >=6 vertices and at most floor(27/6)=4 colours. The displayed disjoint 9/6/6/6 rectangular partition induces one K3 square K3 and three K3 square K2 blocks, attaining four colours. For d=2r+3, using base three-coordinate class plus r retained coordinates gives 3+2r same-colour neighbours out of degree 2d, and exactly 4*3^r colours. Independent bitmask enumeration checked all 101583 nonempty <=5 vertex sets; independent full-vertex lifted checks d=3,5,7, with infinite lifting proved algebraically.",
+      "specific_checks": [
+        "All 101583 small vertex subsets; 3,5,7 lifted Hamming colourings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 6 supplies 3^floor(d/2) in odd ternary Hamming dimensions; Theorem 7 assumes n=5 or n>=7",
+          "Open problem 3 explicitly asks the missing n>=3 odd-dimensional family"
+        ],
+        "reasoning": "The paper determines all balanced even dimensions and certain larger alphabets in odd dimension, but none of those hypotheses covers the ternary odd family. Product amplification needs the new 4-colour base case.",
+        "searches": [
+          "https://arxiv.org/abs/2608.27669 Proposition 6, Theorem 7, Open problem 3",
+          "majority C colouring Hamming graph K3 cartesian cube ternary 3 dimensional four colour impropriety 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.27669",
+        "https://doi.org/10.1016/j.dam.2010.11.004",
+        "Resultary majority C colouring Hamming graph K3 cartesian cube ternary 3 dimensional four colour impropriety 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7 hypothesis alphabet 5 or >=7 excludes 3; Proposition 6 gives only 3 colours at d=3 via general construction",
+          "Four class sizes 9,6,6,6 and 5-vertex obstruction give a sharp independent base case; the lifted constant 4/3 follows from it"
+        ],
+        "reasoning": "General product lifting can produce the d>3 lower bound after the new 3D construction, but does not already imply the sharper base. This is a new input to a known propagation method.",
+        "searches": [
+          "https://arxiv.org/abs/2608.27669 Theorem 7 and Open problem 3",
+          "https://doi.org/10.1016/j.dam.2010.11.004",
+          "majority C colouring Hamming graph K3 cartesian cube ternary 3 dimensional four colour impropriety 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2608.27669, §§1.2 and 2.3: majority C-coloring and k-improper C-coloring of regular graphs are equivalent",
+          "https://doi.org/10.1016/j.dam.2010.11.004: k-improper upper C chromatic number formalism applies to the same condition"
+        ],
+        "reasoning": "Translating to minimum-degree-three induced class partitions, 3-improper upper C-colouring, or sum-satisfactory partitions leaves the same four-class exact question; the inspected Hamming primary does not resolve it for alphabet 3.",
+        "searches": [
+          "majority C colouring Hamming graph K3 cartesian cube ternary 3 dimensional four colour impropriety 2026",
+          "3-improper C-coloring K3 Cartesian power 3",
+          "sum satisfactory partition ternary Hamming three-cube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5 is for complete multipartite graphs, unlike Cartesian K3 cube",
+          "Resultary 2026/9/15/SCOPE024 concerns a different threshold-Hamming graph and ordinary/quantum chromatic numbers"
+        ],
+        "reasoning": "No exact table entry found for majority C-colouring ternary Hamming cube under aliases. Lack of search hit is a residual uncertainty rather than proof of priority.",
+        "searches": [
+          "ternary K3^square3 3-improper C coloring exact upper chromatic four",
+          "majority C colouring Hamming graph K3 cartesian cube ternary 3 dimensional four colour impropriety 2026"
+        ]
+      },
+      "rationale": "The exact open parameter cell K_3^square3 is explicitly within Open Problem 3 of Bujtás et al. 2026. Its Proposition 6 gives the weaker odd-dimensional baseline 3^floor(d/2); Theorem 7 improves it only for alphabet size n=5 or n≥7, not n=3. The prior 2011 improper C-colouring language is equivalent for regular degree six and includes binary cube results, not a quoted value for this ternary cube. Other published Resultary result on complete multipartite graphs has different adjacency. Searches and actual full relevant sections of the strongest paper support best-of-knowledge novelty, retaining old impropriety literature priority risk.",
+      "residual_risks": [
+        "Earlier improper C-colouring or sum-satisfactory partition literature may have recorded this ternary graph under alternate vocabulary.",
+        "No exact optimality assertion is made for higher odd dimensions d>3; only constructive lower bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_TERNARY_ODD_CELL",
+          "evidence": [
+            "Theorem 7 uses alphabet 5 or at least 7; Proposition 6 gives lower bound 3^(r+1) for d=2r+3; Open Problem 3 includes n=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.27669",
+          "material_read": "Full web-readable arXiv HTML Introduction, §§2.1–2.3 including Proposition 6, Theorem 7, Conclusion Open Problem 3",
+          "method": "Read primary full HTML relevant sections and explicit parameter hypotheses",
+          "title": "Majority C-coloring in Cartesian products",
+          "trigger": "Exact same invariant and odd balanced Hamming graphs"
+        },
+        {
+          "assessment": "EQUIVALENT_FORMALISM_FULL_TEXT_NOT_READ",
+          "evidence": [
+            "Earlier binary hypercube result is cited by Bujtás et al. 2026; the uninspected original may contain additional values and remains priority risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2010.11.004",
+          "material_read": "Abstract and publication metadata, with binary cube exact result cross-referenced by the 2026 primary; 2011 full text not independently read",
+          "method": "Read bibliographic abstract and cross-checked specific older theorem citation through Bujtás 2026 §2.3",
+          "title": "Improper C-colorings of graphs",
+          "trigger": "Older equivalent k-improper C-colouring terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ternary dimension-three case is a natural smallest unsolved odd-alphabet parameter explicitly listed in the recent majority C-colouring problem. The exact sharp four-colour bound gives a nontrivial local-degree obstruction plus a construction and propagates a factor-4/3 improvement over the previous ternary lower bound through every odd higher dimension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact only for d=3, constructive lower bound for d=2r+3; no classification of all optimal colourings.",
+    "The exhaustive 101583 subset check is finite and not a replacement for the structural upper bound or infinite lifting.",
+    "2011 equivalent-language full text not examined."
+  ],
+  "schema_version": 1
+}
