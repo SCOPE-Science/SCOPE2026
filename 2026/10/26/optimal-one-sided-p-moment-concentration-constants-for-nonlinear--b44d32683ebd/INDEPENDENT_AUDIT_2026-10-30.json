@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T18:59:38.300602Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1<p<=2, F(u)=u-1+e^-u and k(u)=u Fprime(u)/F(u) decrease from 2 to1 with kprime=e^-u(u^2+2-2cosh u)/F(u)^2<0. Therefore C_p=sup_{u>0}F(u)/u^p has unique positive maximum u_p for 1<p<2; p=2 gives C_2=1/2 at u down to zero. Apply sharp scalar e^-u<=1-u+C_p u^p conditionally to one-sided deficits D_i=sup_{change Xi} f - f, and published reverse-KL tensorization Proposition 3.4 to derive log E exp(beta(f-Ef))<=C_p V beta^p for independent coordinates and bounded-above integrable f. Chernoff minimization yields c_p=(p-1)/p (p C_p)^(-1/(p-1)). To establish global optimality, additive f=-sum Bernoulli(epsilon) has V=n epsilon and its lower-tail rate d(kappa epsilon||epsilon); as n->infty then epsilon->0, rate tends to epsilon(1-kappa+kappa log kappa). Choosing kappa=e^-u_p produces exactly c_p, p=2 by kappa->1. Thus any larger uniform coefficient fails. Separate rare-event argument yields lim_{p downarrow1}c_p=1. Independent numerical optimization and nonlinear MGF tests corroborate, not prove, full theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinelis assumes first/second moments, whereas 1<p<2 allows infinite variance.",
+          "Other heavy-tail deviation results assume iid sums/truncation conditions, not the same nonlinear conditional deficit V."
+        ],
+        "reasoning": "No inspected theorem dominates the claimed best c_p under the identical one-sided p-deficit normalization.",
+        "searches": [
+          "sharp one sided concentration heavy tailed nonlinear product functions optimal p moment deficit Chernoff reverse KL tensorization",
+          "arXiv:1503.06482 first/second-moment binomial domination",
+          "arXiv:2003.13819 heavy-tail concentration"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21103v1 Theorem 3.1, Proposition 3.4, Appendix A.2 full primary HTML",
+        "PMLR 300 Aminian 2026 (abstract and coefficient context)",
+        "arXiv:1503.06482 (abstract/moment assumptions)",
+        "arXiv:2003.13819 (other heavy-tail setup)",
+        "Resultary semantic search: sharp one sided concentration heavy tailed nonlinear product functions optimal p moment deficit Chernoff reverse KL tensorization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source reverse-KL tensorization gives global nonlinear bound but uses F(u)<=u^p/p, leading to smaller c_old=(p-1)/p.",
+          "Current optimized F(u)<=C_pu^p with C_p<1/p for 1<p<2, plus Bernoulli tail-rate lower obstruction, produces c_p>c_old and its sharpness."
+        ],
+        "reasoning": "The strictly weaker source theorem does not imply a stronger exponent, still less the matching optimality proof; the cited tensorization is properly attributed.",
+        "searches": [
+          "arXiv:2610.21103v1 Theorem 3.1, Proposition 3.4 and Appendix A.2",
+          "sharp one sided concentration heavy tailed nonlinear product functions optimal p moment deficit Chernoff reverse KL tensorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent optimality is the universal log-MGF coefficient C_p under the essential supremum of conditional uncentered one-sided p-moment deficits.",
+          "The scalar optimizer alone is known elementary calculus but does not assert the sharp nonlinear probability tail without tensorization and rare-event obstruction."
+        ],
+        "reasoning": "The exact condition on V and all nonlinear product functions makes this a sharp uniform theorem rather than an additive reformulation.",
+        "searches": [
+          "sharp one sided concentration heavy tailed nonlinear product functions optimal p moment deficit Chernoff reverse KL tensorization",
+          "arXiv:2610.21103v1 Theorem 3.1 and Proposition 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed sharp tails involve different random structures/norms, no exact same nonlinear deficit coefficient.",
+          "Original Eshima Theorem 3.1 explicitly displays weaker (p-1)/p coefficient."
+        ],
+        "reasoning": "The essential evidence is direct prior inequality comparison; a failed database search is not proof of historical priority.",
+        "searches": [
+          "sharp one sided concentration heavy tailed nonlinear product functions optimal p moment deficit Chernoff reverse KL tensorization",
+          "Resultary ranked hits: sparse Bernoulli tensor fiber extremes and sharp reverse Holder"
+        ]
+      },
+      "rationale": "Compared exact statements and implications with same-object original papers, published related mathematical records, and alternatives. The strictly weaker source theorem does not imply a stronger exponent, still less the matching optimality proof; the cited tensorization is properly attributed. Residual historical priority and access risk explicitly retained.",
+      "residual_risks": [
+        "Possible older sharp one-sided p-moment binomial or entropy bounds may already give equivalent c_p under another normalization.",
+        "The proof uses the specifically cited reverse-KL tensorization proposition and its hypotheses; no claim of universal two-sided tail, variance proxy or optimal fixed-n pointwise envelope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_TENSORIZATION_VALID_BUT_COEFFICIENT_WEAKER",
+          "evidence": "Published bound has c_old=(p-1)/p; the new scalar optimization yields c_p larger for 1<p<2, and sharpness needs separate binomial asymptotics.",
+          "identifier_or_url": "arXiv:2610.21103v1",
+          "material_read": "Accessible full primary arXiv HTML: assumptions, Theorem 3.1, Proposition 3.4, Appendix A.2 entropy-telescoping proof and scalar estimate.",
+          "method": "Primary open-access HTML: relevant full theorem and appendix read.",
+          "title": "A One-Sided McDiarmid-Type Inequality for Heavy Tails via Reverse KL Tensorization",
+          "trigger": "Identical nonlinear product-space setup and required structural lemma"
+        },
+        {
+          "assessment": "ADDITIVE_WEAKER_BOUND",
+          "evidence": "Earlier additive context reportedly uses unoptimized exponent, not nonlinear universal sharp constant.",
+          "identifier_or_url": "https://proceedings.mlr.press/v300/aminian26a.html",
+          "material_read": "Publisher OA article landing/abstract and original source comparison of its coefficient; full article not claimed read.",
+          "method": "Publisher open abstract/metadata.",
+          "title": "Generalization Bounds Under Heavy-Tailed Losses",
+          "trigger": "Earlier additive heavy-tailed benchmark"
+        },
+        {
+          "assessment": "DIFFERENT_MOMENT_BUDGET",
+          "evidence": "First/second moment normalization does not cover all finite-p uncentered deficit V with potentially infinite variance.",
+          "identifier_or_url": "arXiv:1503.06482",
+          "material_read": "Abstract and mathematical assumptions on first two moments available; no full-text noncoverage claimed.",
+          "method": "OA abstract/relevant cited statement.",
+          "title": "Optimal binomial, Poisson, and normal left-tail domination for sums of nonnegative random variables",
+          "trigger": "Potential dominating sharp left-tail bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines the sharp constant for a genuinely nonlinear product-space one-sided heavy-tail inequality, strictly improving the published (p-1)/p for 1<p<2, matching rare Bernoulli obstruction and endpoint behavior; not a mere scalar inequality or unproved generalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.21103v1 Theorem 3.1, Proposition 3.4, Appendix A.2 full primary HTML",
+    "PMLR 300 Aminian 2026 (abstract and coefficient context)",
+    "arXiv:1503.06482 (abstract/moment assumptions)",
+    "arXiv:2003.13819 (other heavy-tail setup)",
+    "Resultary semantic search: sharp one sided concentration heavy tailed nonlinear product functions optimal p moment deficit Chernoff reverse KL tensorization"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only independent inputs, bounded-above integrable f, finite one-sided essential conditional p-deficit budget V, 1<p<=2, upper deviations."
+  ],
+  "residual_risks": [
+    "Possible older sharp one-sided p-moment binomial or entropy bounds may already give equivalent c_p under another normalization.",
+    "The proof uses the specifically cited reverse-KL tensorization proposition and its hypotheses; no claim of universal two-sided tail, variance proxy or optimal fixed-n pointwise envelope."
+  ],
+  "schema_version": 1
+}

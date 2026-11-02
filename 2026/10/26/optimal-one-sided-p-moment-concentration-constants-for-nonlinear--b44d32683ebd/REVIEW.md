@@ -1,15 +1,21 @@
-# Review of optimal one-sided \(p\)-moment concentration
+# Independent mathematical audit
 
-## Correctness — PASS
-The pointwise optimal exponential-remainder inequality follows from a strictly decreasing elasticity, with derivative sign certified by \(2\cosh u>2+u^2\). The nonlinear moment-generating estimate follows from the published reverse-KL tensorization Proposition 3.4; its complete conditional-density/entropy-telescoping proof was inspected. Chernoff optimization yields the stated coefficient. For sharpness, additive Bernoulli deficits give exact binomial Cramér rates, and the special choice \(\kappa=e^{-u_p}\) forces the same coefficient. This argument handles \(p=2\) through a separate boundary limit. The 3,600 program checks supplement, rather than establish, these infinite statements.
+## correctness
 
-## Originality — PASS, qualified
-The closest motivating primary source, Eshima–Esposito–Paudice (arXiv:2610.21103v1), proves a weaker non-sharp coefficient; neither its theorem nor its detailed proof asserts optimality of the universal coefficient. The earlier Aminian inequality also uses the weaker coefficient and concerns empirical averages. Published record searches found related sharp binomial and moment inequalities but no same conditional-deficit nonlinear characterization. The result does not claim novelty of scalar differentiation or reverse-KL tensorization, only of the exact globally optimal concentration constant and sharp rare-event extremizers. The exact coverage of older one-sided probability literature remains a nonzero originality risk; the Aminian full text was not accessible in the attempted retrieval.
+PASS
 
-## Mathematical value — PASS
-The constant is a natural minimax quantity needed to translate a conditional \(p\)-moment budget into a sharp uniform exponential confidence exponent. The bound is valid for nonlinear estimators and possibly infinite variance. The improvement is not uniformly small: for \(p=3/2\) the exponent constant rises from \(1/3\) to \(0.917935\ldots\), and the improvement factor diverges near \(p=1\). A binomial large-deviation obstruction proves no further universal coefficient improvement is possible under the same budget.
+For 1<p<=2, F(u)=u-1+e^-u and k(u)=u Fprime(u)/F(u) decrease from 2 to1 with kprime=e^-u(u^2+2-2cosh u)/F(u)^2<0. Therefore C_p=sup_{u>0}F(u)/u^p has unique positive maximum u_p for 1<p<2; p=2 gives C_2=1/2 at u down to zero. Apply sharp scalar e^-u<=1-u+C_p u^p conditionally to one-sided deficits D_i=sup_{change Xi} f - f, and published reverse-KL tensorization Proposition 3.4 to derive log E exp(beta(f-Ef))<=C_p V beta^p for independent coordinates and bounded-above integrable f. Chernoff minimization yields c_p=(p-1)/p (p C_p)^(-1/(p-1)). To establish global optimality, additive f=-sum Bernoulli(epsilon) has V=n epsilon and its lower-tail rate d(kappa epsilon||epsilon); as n->infty then epsilon->0, rate tends to epsilon(1-kappa+kappa log kappa). Choosing kappa=e^-u_p produces exactly c_p, p=2 by kappa->1. Thus any larger uniform coefficient fails. Separate rare-event argument yields lim_{p downarrow1}c_p=1. Independent numerical optimization and nonlinear MGF tests corroborate, not prove, full theorem.
 
-## Limitations and closest literature
-The statement does not yield fixed-sample exact tail envelopes or two-sided concentration. The main nonlinear tensorization lemma is borrowed and attributed, not rediscovered. Closest works: arXiv:2610.21103v1, Aminian (PMLR 300, 2026), Pinelis (EJP 2016), Bakhshizadeh–Maleki–de la Peña (2023). Prior implicit equivalences remain possible. The scientific review is not independent replication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact statements and implications with same-object original papers, published related mathematical records, and alternatives. The strictly weaker source theorem does not imply a stronger exponent, still less the matching optimality proof; the cited tensorization is properly attributed. Residual historical priority and access risk explicitly retained.
+
+## value
+
+PASS
+
+Determines the sharp constant for a genuinely nonlinear product-space one-sided heavy-tail inequality, strictly improving the published (p-1)/p for 1<p<2, matching rare Bernoulli obstruction and endpoint behavior; not a mere scalar inequality or unproved generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
