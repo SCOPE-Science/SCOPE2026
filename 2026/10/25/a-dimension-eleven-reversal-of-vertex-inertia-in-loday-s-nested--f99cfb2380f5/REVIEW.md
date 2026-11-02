@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three random-vertex distributions use the canonical vertex parameterizations in the cited source. The permutahedron radius follows from the centered consecutive-integer sum; the parallelepiped's signed edge-root covariance has no mixed terms. For the associahedron, the root split into two Catalan subtrees yields an exact quadratic-toll generating function, whose binomial coefficients give the claimed polynomial moments. The two difference polynomials factor explicitly, establishing all dimensional boundaries. Exact rational enumeration and coefficient recurrence independently check the calculations in the companion script. The arguments hold for every integer dimension claimed, rather than only for the enumerated cases.
+PASS
 
-## Originality — PASS, with residual bibliographic uncertainty
+Every permutahedral vertex has centered squared norm n(n²−1)/12. Independent Rademacher edge-root signs for Para yield (n−1)³/2. For Loday tree vertices x_i=left_leaf_count×right_leaf_count, the additive squared-coordinate toll has Catalan GF S(z)=2z C(z) S(z)+z A(z)², A(z)=(1−2z)/(1−4z)^{3/2}; coefficient gives average coordinate square n(n+1)(n²+7n+7)/30. Subtracting n(n+1)²/4 using the known common vertex barycenter yields Asso inertia n(n−1)(n+1)(2n+1)/60. Differences factor as n(n−2)(n−1)(n+1)/30 and −(n−2)(n−1)(2n²−23n+15)/60, giving equality at n2 and sharp flip at integer n11. Fresh independent exact rational recursion checked tree toll through n30 and all inertias/order through n50, including n10 Asso=693/2 Para=729/2 and n11 Asso=506 Para=500; proof is symbolic all n.
 
-Pilaud–Santos–Ziegler (arXiv:2305.08471v1, Section 1) gives the three canonical embedded vertex sets, geometric inclusions, and shared vertex barycenter, but not the full three-way vertex second moments or an ordering reversal. Loday's original realization (arXiv:math/0212126v1) concerns polytope construction; Hohlweg–Lortie–Raymond (arXiv:0910.0265v1) proves barycenter equality. The closest published mathematical-record entries concern shared Euclidean inradii and associahedral facet shells, neither of which implies second moments of uniform vertex measures. A separate exact second-moment record concerns *regular nested permutohedra*, not the three polytopes here. No covering result emerged from the inspected texts or statement-level searches, but a calculation in older or unindexed Catalan tree-statistic literature could still exist.
+## originality
 
-## Value — PASS
+PASS
 
-The observation is not an isolated arithmetic identity: it characterizes a canonical Euclidean statistic of three naturally nested infinite polytope families and gives a sharp phase reversal at intrinsic dimension ten. Convex-body containment ordinarily controls support functions, yet does not control uniform-vertex inertia. The Catalan decomposition explains a genuine asymptotic separation—the associahedron grows on the order of \(n^4\), compared with \(n^3\) for its parallelepiped container—which is not a consequence of known barycenter or inradius results. The exact finite cutoff is a natural geometric boundary.
+PASS best of knowledge: canonical vertex/barycenter and nested inclusion are established, and a published same-triple inradius result concerns a different geometric functional. The exact Asso Catalan vertex-second-moment formula and dimension-eleven reversal were not found in those primary works; older Catalan additive-functionals or inertia tables remain a plausible source of overlap.
 
-## Limits
+## value
 
-The result concerns the standard unweighted coordinate embeddings, not arbitrary associahedron realizations, arbitrary vertex weights, or volume-uniform sampling. No claim of independent mathematical validation is made. Literature coverage is qualified as stated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Although J is a single natural finite-dimensional statistic, the canonical nested Loday triple is mathematically motivated and the exact Catalan-tree computation uncovers a sharp n=11 nonmonotonicity of uniform-vertex dispersion, contradicting naive monotonicity from convex containment. The all-n expressions and boundary crossing give a reusable quantitative discrete geometry example, not a trivial reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
