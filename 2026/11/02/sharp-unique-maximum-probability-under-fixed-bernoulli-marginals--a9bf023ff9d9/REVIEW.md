@@ -1,0 +1,11 @@
+# Review: sharp unique-maximum probability under fixed marginals
+
+**Correctness: PASS.** The proof supplies both inequalities and their exact attainability, rather than relying on finite numerics. Integer-slice convex-hull integrality gives distributions supported on subsets of sizes \(1\)–\(2\) or \(2\)–\(d\). The upper endpoint is constructed from the capped incidences \(z_i=\min(p_i,s_*)\); the nontrivial \(s_*\le S-q\) step is proved separately. Edge cases \(q=0\), \(S=q\), and \(S=2q\) are included. A standard-library verifier reproduces 190 exact LP comparisons for feasible three-coordinate quarter-grid parameters; this finite experiment does not prove the general theorem.
+
+**Originality: PASS, subject to historical priority.** Ansari (arXiv:2610.30642v1) proves existence under a fixed maximum law, but does not identify the unique-maximum probability interval. Bartl et al. (arXiv:1709.00641v2, Corollary 2.5) give a **general** maximum-transport dual which encompasses the optimization abstractly; the new part is its elementary explicit water-filling resolution for this discrete payoff, complete attainment, and heterogeneity-sensitive formula. Prékopa (1990) and Boros–Prékopa (1989) have general sharp moment-based LP event bounds, but full texts were not obtained; implicit equivalent coverage remains a specific risk. Pinelis (arXiv:2102.05170v1) treats different constraints. Direct claim comparisons and mathematical-record searches did not locate the same explicit result; absence of a search hit is not proof of originality.
+
+**Value: PASS.** Prescribing the maximum law plus all Bernoulli marginals does not determine the chance of a unique maximizer. The complete attainable interval quantifies precisely that remaining uncertainty, has an efficient non-exponential computation, and changes by \(3/8\) between two marginals with the same union probability and the same total expected number of successes. No general continuous-margin extension or new transport duality is asserted.
+
+**Limitations.** The result is a sharp special case of general constrained-coupling optimization, not a replacement for those theories. Full historical priority and independent mathematical validity remain to be assessed.
+
+Self-review: passed. Independent audit: not yet performed.
