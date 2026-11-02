@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Every cyclic order-m word has a unique \\(0^m\\) edge, so a complete non-repeating DFS through the de Bruijn graph lists each canonical linearization exactly once; 1,1,2,16,2048 words are obtained for \\(m=1,\\ldots,5\\). For each completed word all nonempty substrings are tested directly for a border with exactly two overlapping-allowed occurrences, then checked for left/right maximality. A separate strict-record-LCP method produces precisely the same endpoint pairs for every word. Exact histograms and witness strings replay successfully from the standalone standard-library program; no extrapolation or solver claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shibata et al. arXiv:2607.00612, introduction and algorithm sections, prove online MCS enumeration bounds, not the finite de Bruijn spectrum.",
+        "Umezaki et al. arXiv:2607.02838, sections 1–4, prove compressed MCS family bounds and definitions, not these cycle-count multiplicities.",
+        "Kosolobov arXiv:2410.00209, Theorems 1–2, gives universal \\(O(n\\log n)\\) and random-string \\(\\Omega(n\\log n)\\) counts, not precise values here.",
+        "Fischer and Köppl, arXiv:2610.38114v1 (first submitted October 28, 2026), gives output-sensitive MCS algorithms but no de Bruijn census; it is not the motivating public source for cohort assignment."
+      ],
+      "reasoning": "A generic algorithm for listing a fixed input does not imply the numerical distribution over all 2048 rooted Euler tours without further exhaustive computation. General asymptotic inequalities similarly do not fix any of the specified 15 order-five frequencies.",
+      "searches": [
+        "arxiv:2607.00612 full-text check for de Bruijn",
+        "arxiv:2607.02838 full-text check for de Bruijn",
+        "arxiv:2410.00209 full-text check for de Bruijn",
+        "web search: \"de Bruijn\" \"maximal closed substring\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.00612",
+      "https://arxiv.org/abs/2607.02838",
+      "https://arxiv.org/abs/2410.00209",
+      "https://arxiv.org/html/2610.38114v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary July 2026 works give algorithms and structural conditions for individual MCSs, not statistics for all binary de Bruijn order-five words.",
+        "The 2024 general \\(O(n\\log n)\\) theorem provides no exact fixed-length counts."
+      ],
+      "reasoning": "None of the compared claims logically entails the full {40:8,...,54:8} distribution or its eight minimizers and eight maximizers. The present result is a complete finite computation with a proof of enumeration completeness, rather than an immediate symbolic corollary of an algorithmic existence theorem.",
+      "searches": [
+        "Binary de Bruijn words of order 4 and 5 maximal closed repeats distributions and 2026 string algorithms exact enumeration",
+        "arxiv:2607.00612 Lemma 1 and online algorithm",
+        "arxiv:2607.02838 Theorem 1.1",
+        "arxiv:2410.00209 Theorems 1–2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Umezaki et al. arXiv:2607.02838, section 2, identify maximal closed occurrences with valid pairs of consecutive occurrences of longest borders.",
+        "Kosolobov arXiv:2410.00209, introduction and section 2, identifies closed repeats with maximal closed substrings."
+      ],
+      "reasoning": "The equivalent maximal-closed-repeat and consecutive-border descriptions were explicitly considered. Those source statements define or enumerate occurrences in an arbitrary input, but do not classify the order-five de Bruijn input class by exact MCS counts.",
+      "searches": [
+        "closed repeats maximal closed substrings de Bruijn sequences exact distribution MCS",
+        "web search: \"de Bruijn\" \"closed repeats\" number occurrences",
+        "arxiv:2607.02838 Lemma 1",
+        "arxiv:2410.00209 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact MCS/de Bruijn table was located in the targeted scholarly and mathematical-record searches.",
+        "The most similar available result concerns maxima of distinct closed factors for unrestricted binary strings of lengths 25–27, a different statistic and input domain."
+      ],
+      "reasoning": "The known count 2048 of binary order-five de Bruijn cycles enumerates inputs only. The available distinct-closed-factor and string-attractor tables cannot supply MCS-occurrence frequencies, which require checking both one-character maximality conditions.",
+      "searches": [
+        "maximal closed substring counts de Bruijn words order five linearized binary Eulerian cycles exact extremal output size enumeration",
+        "Exact histogram and extremal number of maximal closed substring occurrences among the 2048 binary de Bruijn sequences of order five, canonical linearization 0^5, counts from 40 to 54",
+        "web search: \"de Bruijn\" \"MCS\" string maximum",
+        "web search: de Bruijn sequences \"closed substrings\" maximal enumeration"
+      ]
+    },
+    "rationale": "The inspected 2024–2026 primary papers introduce equivalent closed-repeat statistics and algorithms or general bounds but do not report the rooted de Bruijn order-five 15-bin output-size spectrum. Targeted searches of aliases, broader claims and numerical tables, plus comparisons with accessible prior records, located no dominating exact result. Residual risk is an unindexed census or supplementary dataset.",
+    "residual_risks": [
+      "An unindexed code artifact or numerical census using the equivalent term maximal closed repeats could already contain the same table.",
+      "The exact distribution is tied to canonical linearization; a result for all cyclic cuts would not automatically be equivalent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and computes MCS occurrences; no order-four/five de Bruijn histogram or equivalent extremal classification located.",
+        "evidence": [
+          "Section 2 definition and Lemma 1: closedness and adjacent maximality conditions.",
+          "Introduction: \\(O(n\\log n)\\) online algorithm for arbitrary strings; text search yielded no de Bruijn mention."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.00612",
+        "material_read": "Full-text HTML introduction, preliminary definitions, Lemma 1 on one-character extensions, statement of algorithmic contributions; full-text search for de Bruijn.",
+        "method": "arXiv HTML read and in-document text search",
+        "title": "Online computation of maximal closed substrings",
+        "trigger": "First verified 2026 public source, identical MCS definition and natural online output count."
+      },
+      {
+        "assessment": "Valid-pair characterization and compressed enumeration, not an exact de Bruijn MCS-count table.",
+        "evidence": [
+          "Theorem 1.1 bounds compressed MCS enumeration; Section 2 Lemma 1 establishes correspondence with valid pairs; no de Bruijn match."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.02838",
+        "material_read": "Full-text HTML introduction, Section 2 definition and valid-pair Lemma 1, Sections 3–4 structure and main theorem; text search for de Bruijn.",
+        "method": "arXiv HTML read and in-document search",
+        "title": "Compact Enumeration of Maximal Closed Substrings in Run-Length Encoded Strings",
+        "trigger": "Same occurrence statistic with alias maximal closed repeats and an independent representation."
+      },
+      {
+        "assessment": "Universal \\(O(n\\log n)\\) count and random expected lower bound do not determine the finite universal-cycle spectrum.",
+        "evidence": [
+          "Theorem 1: universal \\(O(n\\log n)\\) bound; Theorem 2: random \\(\\Omega(n\\log n)\\) expectation; no de Bruijn match."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.00209",
+        "material_read": "Full-text HTML abstract, Sections 1–3 and Theorems 1–2, check for de Bruijn.",
+        "method": "arXiv HTML read and in-document search",
+        "title": "Closed Repeats",
+        "trigger": "An equivalent earlier name for MCSs and stronger universal counting bound."
+      },
+      {
+        "assessment": "Output-sensitive enumeration complexity and valid-pair structure, without the finite de Bruijn histogram.",
+        "evidence": [
+          "Section 1 states input-sensitive complexity bounds; Section 2 defines MCS occurrences; Section 3 gives record/next-occurrence structure; no de Bruijn string found."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.38114v1",
+        "material_read": "Full-text HTML introduction, preliminaries, Lemmas 1–3, Corollary 1 on maximality, and checks for the term de Bruijn.",
+        "method": "arXiv HTML read and in-document search",
+        "title": "Output-Sensitive Enumeration of Maximal Closed Substrings in Linear Space",
+        "trigger": "Most recent closely related MCS algorithmic work available for current priority comparison, first submitted October 28, 2026; not used for primary source cohort."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fe114578-f77d-4808-a98b-8866561f65ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of maximal closed substring occurrences is the output-dependent cost parameter of current enumeration algorithms. Binary de Bruijn cycles are standard maximally factor-diverse benchmarks, and order five has a complete, naturally bounded population of 2048 cycles (the next order has 67,108,864). The complete exact histogram, including eight minimizers at 40 and eight maximizers at 54, quantifies real 35% variation on inputs of identical length and window coverage; this is a nontrivial finite classification rather than a generic example or arbitrary slice.",
+    "status": "PASS"
+  }
+}
