@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The exact binary-carry identity is derived column-by-column, with equality iff no carry. This yields an exact lower bound for spans of successive one-positions and identifies every tight window. The residue classification is proved injective by contrasting a specific consecutive-one gap at the least differing bit; the zero-run argument rigorously proves the Abelian-complexity corollary. The standalone checker independently enumerated finite factors for bases 3–7 and returned `VERIFY_OK` (102 threshold cases), without treating those tests as an infinite proof.
+
+**Originality: PASS, with residual risk.** Classical base-three prefix normality and Abelian complexity are already in Chen–Lü–Wu (2017), so neither is claimed new. Cicalese–Lipták–Rossi (2018) gives general prefix-normal framework without this family-wide threshold-factor spectrum. The checked material for Lü–Chen–Wen (2022) treats two-Abelian regularity, not the explicit count of distinct maximum-weight words. Related published work on generalized Cantor palindromes and squares addresses different invariants. Targeted scholarly and public mathematical-results searches did not reveal the all-base threshold classification; this is evidence of noncoverage, not a proof of global priority. The inaccessible full text of the 2022 paper and unindexed results remain risks.
+
+**Mathematical value: PASS.** The natural threshold length for obtaining \(k\) marked symbols is classified simultaneously with every extremal word, not just its weight. The exact count exhibits an unbounded multiplicity jump from \(1\) at \(k=2^m\) to \(2^m\) at \(k=2^m+1\). This supplies a structural invariant for sparse automatic words and concrete canonical representatives relevant to factor enumeration and binary jumbled matching; it is not an arbitrary finite cutoff or merely a recomputation of Abelian complexity.
+
+No generalization to other digit sets or arbitrary-length maximizers is asserted. The complete 2022 generalized-Cantor two-Abelian article was not available for full-text comparison. All claims of novelty are qualified by these access and indexing limits.
+
+Self-review: passed. Independent audit: not yet performed.
