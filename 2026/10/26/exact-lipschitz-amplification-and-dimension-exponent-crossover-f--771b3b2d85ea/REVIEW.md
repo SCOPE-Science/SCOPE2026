@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-graph energy has a unique minimizer by strict convexity under connected Dirichlet constraints. Permutation invariance forces radiality, and the exact number of edges between Hamming shells reduces the energy to a weighted chain. Hölder equality provides the unique optimal increment vector for either orientation of boundary data. The finite graph Lipschitz norm equals the maximum edge slope, attained on an edge adjacent to either labeled antipode. The p-dependent monotonicity and all three moving-exponent regimes follow from pointwise binomial facts, binomial unimodality, and uniformly controlled entropy Riemann sums. The accompanying independent full-graph exact-rational and nonlinear checks pass. The proof—not finite data—supplies all infinite-family quantifiers.
+## correctness
 
-## Originality — PASS with residual risk
-The underlying p-Dirichlet minimization is classical, and the existence of p-voltage solutions with two labels was established by Bridle–Zhu (2013). The qualitative dimension/exponent issue and continuum p/d transitions are also documented in El Alaoui et al. (2016) and Flores–Calder–Lerman (2019). Bruè–Di Marino–Stra (2018) address general linear Lipschitz extension operators, but not sharp instability of p-energy-selected extensions. Sedlák (2026) documents known opposite-corner electrical resistance when p=2, but the resistance formulas do not imply the all-p sharp Lipschitz norm or moving-exponent entropy profile. Inspected primary text and the research-record searches listed in the structured review show no published statement covering this exact family and profile; less-indexed hypercube p-energy calculations remain a bibliographic risk.
+PASS
 
-## Value — PASS
-With only two specified antipodal scalar labels, a graph energy minimizer need not be Lipschitz-stable even though a norm-one interpolation exists. The theorem gives the exact amplification factor for every dimension and finite p, and a complete sharp classification of the exponent scale required to avoid diverging Lipschitz distortion. The nontrivial integral profile at the critical scale provides a quantitative benchmark for sparse-label p-Laplacian regularization, not just a fixed small graph computation. This is a natural finite-graph counterpart to earlier continuum degeneracy work; it does not claim a new continuum threshold or a general-extension theorem.
+Strict convexity of |t|^p and connectedness yield a unique minimizer; cube coordinate permutation invariance makes it radial by Hamming layer. There are d*binom(d-1,k) edges between consecutive layers; Hölder gives unique increments proportional to binom(d-1,k)^(-1/(p-1)), establishing linearity for two boundary values despite nonlinear energy. Graph Lipschitz seminorm is max absolute edge increment, while boundary Lipschitz norm is |Δf|/d, giving exact d/S. Interior binomials >1 prove finite-d monotonicity; only two endpoint terms survive for fixed p as d grows. Uniform binomial entropy estimates and Riemann sums prove the p/d finite-ratio integral; central strip bounds yield divergence for ratio0, uniform bounded entropy gives limit1 at infinity. Independently tested nonlinear radial Euler equations and edge slopes for d<=8 and multiple p. Those checks are corroboration; the universal proof is analytic.
 
-## Boundaries and verification
-The coefficient is for a specific variational rule, not the minimum over every linear extension. All weights are unit and distances are shortest-path distances. The tests include 52 exact-rational vertex values, 128 rational edges, 1,968 nonlinear Euler equations, 7,152 nonlinear edge values, and three asymptotic probes. Exhaustive finite tests do not certify the all-dimensional asymptotic. Mathematical independence has not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Graph p-voltage minimization for two terminals and the p=2 electrical-resistance specialization are prior art. Bounded arbitrary Lipschitz extension operators differ from the specific variational selector: a norm-one extension exists, but this selector has larger norm. Earlier p/d transitions in random geometric graphs do not entail the Hamming cube exact binomial sum or entropy crossover.
+
+## value
+
+PASS
+
+A sharp, nontrivial operator norm of a natural variational extension on an infinite canonical graph family, and the exact critical scaling where energy selection ceases to amplify Lipschitz data, are mathematically motivated beyond a routine p-Laplacian existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
