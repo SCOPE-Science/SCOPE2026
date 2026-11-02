@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T15:08:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-rank-one-norm-profile-under-scaled-q-numerical-disk-contai--d16087e82e79/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-rank-one-norm-profile-under-scaled-q-numerical-disk-contai--d16087e82e79/VERIFICATION.md",
+        "https://arxiv.org/pdf/2503.05036",
+        "https://arxiv.org/pdf/2608.09866",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e/RESULT.md"
+      ],
+      "corroborations": [
+        "Actual Git tree reconstructed from exact six SHA-1 Git blob identifiers, matching 730ddab212a202152b46cf92f98e88198b15bd7e.",
+        "Re-derived all endpoint conditions, r=1 and 4/5 boundaries directly from exact normalized rank-one formula; no finite sampling or saved log used to stand in for proof."
+      ],
+      "rationale": "The frozen six-file Git tree was independently reconstructed from the real blob SHAs and matched the assigned source SHA. The nonstandard input is Denčić--Stanković--Krstić--Damnjanović Theorem 2.1, examined in its full proof, which gives omega_r(A)=(||A||/2)[1+r c+sqrt(1-r^2)sqrt(1-c^2)] for rank-one A, c=|tr A|/||A|| in [0,1]. For complex q the scaled q-range is phase invariant, so Omega_q(A) contained in the closed disk iff omega_r(A)<=r. Rearranging gives the stated pointwise inequality for ||A||. For each 0<r<1, g(c)=rc+s sqrt(1-c^2) has g''(c)=-s(1-c^2)^(-3/2)<0 on (0,1), so its minima are exactly endpoints c=0 or c=1; when s=r the endpoints tie and no interior c minimizes. For r=1, g(c)=c, so c=0 is uniquely minimizing. Every c in [0,1] is realized by a rank-one operator on complex H of dimension>=2, using unit factors e1 and c e1+sqrt(1-c^2)e2. The equality condition c=1 gives a scalar multiple of an orthogonal rank-one projection by Cauchy--Schwarz; c=0 gives A^2=(tr A)A=0. The threshold r=s occurs only at 1/sqrt(2). The square-zero branch solves 2r/(1+sqrt(1-r^2))=1 exactly at r=4/5, and r=1 yields R1(1)=2. Strict inequalities and equality cases hold with r>0; no invalid r=0 division or claim about rank>=2 is made.",
+      "residual_risks": [
+        "Correctness depends on the prior fully proved rank-one q-numerical radius formula, not on an independent derivation of every line of that paper.",
+        "The domain is nonzero bounded rank-one operators over complex Hilbert spaces with dimension at least two and 0<|q|<=1; no norm profile for higher rank or q=0 is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The q/rho rank-one theorem covers the submitted result as the rho=1 instance of a simultaneous, all-rho, all-q sharp ratio theorem, with all maximizing overlaps classified.",
+          "Denčić et al. 2025 proves the stronger exact pointwise formula for every normalized trace overlap and each r in [0,1].",
+          "Aouichaoui--O'Loughlin 2026 Theorem 4.1 gives the universal coefficient and its explicit 2-by-2 square-zero sharpness example, but does not by itself cover the low-rank projection branch."
+        ],
+        "reasoning": "Stronger published all-rank-one comparison and pointwise formula dominate the new optimization. The universal spectral-set theorem is contextual rather than the basis for the low-parameter originality rejection.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e/RESULT.md",
+          "https://arxiv.org/pdf/2503.05036",
+          "https://arxiv.org/pdf/2608.09866",
+          "https://arxiv.org/abs/2610.00443",
+          "Resultary semantic query: q numerical range spectral norm inequality rank one universal bound projection square zero 1/sqrt 2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2503.05036",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e/RESULT.md",
+        "https://arxiv.org/pdf/2608.09866",
+        "https://arxiv.org/abs/2610.00443",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57/RESULT.md",
+        "Resultary semantic queries on rank-one q/rho ratios and scaled q numerical disk containment"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Denčić Theorem 2.1: omega_r(T)=||T||[1+rc+sqrt(1-r^2)sqrt(1-c^2)]/2 for all nonzero rank-one T.",
+          "For 0<r<1 the c-dependent summand has strictly negative second derivative on (0,1), so its minimum is min{r,sqrt(1-r^2)} at c=1 or c=0 (or both when equal). At r=1 it equals c, minimizing only at c=0.",
+          "Published q/rho ratio M_{1,r}=max{2/(1+r),2/(1+sqrt(1-r^2))}, with strict equality classes from its sign analysis; multiplying by r reproduces the exact requested R_1(r) and both extremizer regimes.",
+          "Aouichaoui--O'Loughlin Theorem 4.1 establishes rho_q=max{1,2r/(1+sqrt(1-r^2))}; solving 2r=1+sqrt(1-r^2) under r>1/2 gives r=4/5."
+        ],
+        "reasoning": "Published theorems plus positive scaling and an elementary endpoint comparison prove the complete submitted result. This is a direct full implication; unprinted wording and the same-day unknown order of the separate q/rho paper do not create an uncovered independent theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e/RESULT.md",
+          "https://arxiv.org/pdf/2503.05036",
+          "https://arxiv.org/pdf/2608.09866",
+          "https://arxiv.org/abs/2610.00443"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published sharp q/rho comparison gives sup_{rank-one nonzero T} omega_rho(T)/omega_q(T) and complete endpoint equality classification for every rho>0; rho=1 is the operator norm.",
+          "The 2025 primary paper Theorem 2.1 and Corollary 2.3 give the same normalized radius as an explicit function of c=|tr T|/||T||.",
+          "Scaling omega_q(T)<=r gives R_1(r)=r sup ||T||/omega_r(T), literally the rho=1 case of the prior q/rho quotient."
+        ],
+        "reasoning": "The constrained disk norm problem is equivalent, by positive operator scaling, to maximizing the preexisting sharp gauge ratio omega_1(T)/omega_r(T) on rank one. This is a mathematical equivalence, not title or parameter coincidence.",
+        "searches": [
+          "Resultary semantic query: rank one q numerical range norm containment scaled unit disk exact projection nilpotent transition",
+          "Resultary semantic query: sharp rank one q numerical radius ratio operator norm trace scaled omega q disk",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e/RESULT.md",
+          "https://arxiv.org/pdf/2503.05036"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical published target finding was returned and excluded as self-evidence.",
+          "A separate published Resultary mathematical record supplies the exact ratio M_{1,r} and full overlap equality cases after rho=1 specialization; this is a theorem rather than a finite data table.",
+          "No independent finite database table is needed because the q/rho comparison supplies the full analytic function of r."
+        ],
+        "reasoning": "No claim of exhaustive database search is made; an actual stronger exact analytic entry covers the whole continuum. Absence of a stand-alone printed table is immaterial.",
+        "searches": [
+          "Resultary semantic query: rank one q numerical range norm containment scaled unit disk exact projection nilpotent transition",
+          "Resultary semantic query: sharp rank one q numerical radius ratio operator norm trace scaled omega q disk",
+          "web: q-numerical radius of rank-one operators generalized Buzano inequality 2503.05036",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e/RESULT.md"
+        ]
+      },
+      "rationale": "The submitted rank-one scaled-disk envelope and both endpoint extremizer classes are mathematically contained in already published results. In particular, the complete published sharp two-sided rank-one comparison of q- and rho-numerical radii yields, on setting rho=1 (so omega_rho(T)=||T||), the exact sharp constant M_{1,r}=max{2/(1+sqrt(1-r^2)),2/(1+r)} for ||T||/omega_r(T). Because Omega_q(T) subset closed disk iff omega_r(T)<=r and positive scaling is unrestricted, the submitted supremum is exactly R_1(r)=r M_{1,r}. The comparison theorem proves endpoint maximizers: trace overlap zero (square-zero rank one) versus overlap one (scalar rank-one projection), switching exactly when r=sqrt(1-r^2), i.e. r=1/sqrt(2). Its q=1 boundary is included. Thus the whole sharp envelope, strict classifications and equality case are a direct rho=1 specialization, rather than new operator geometry; both relevant records have public date 2026-10-11 so no finer same-day chronological priority is asserted. Independently and earlier (2025-03-06), Denčić et al. Theorem 2.1 and Corollary 2.3 establish the exact normalized q-radius for every rank-one T: omega_r(T)/||T||=(1+r c+sqrt(1-r^2)sqrt(1-c^2))/2. Minimizing the final concave term on c in [0,1] immediately gives the same two endpoints, with all equality cases. The 2026 universal scaled q-spectral theorem supplies the separate coefficient rho_q=max{1,2r/(1+sqrt(1-r^2))}; the submitted 4/5 comparison is solving an elementary scalar equality using already established constants. No exact printed phrase need match: the full mathematical claim is covered by stronger published statements.",
+      "residual_risks": [
+        "The two same-day 2026-10-11 published findings have no established within-day priority; the conclusion is mathematical coverage rather than an allegation of copying or chronological precedence.",
+        "The complete Kaunisto--O'Loughlin--Virtanen paper could not be retrieved because public PDF/HTML access failed and authorized institutional access reported disconnected VPN. This is an access limitation, not a reason for scientific failure.",
+        "No claim is made that every unindexed source was searched; the inspected 2025 theorem and q/rho comparison already supply explicit positive coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_DIRECT_ELEMENTARY_OPTIMIZATION",
+          "evidence": "Theorem 2.1 and Corollary 2.3 give exact omega_r(T)/||T|| for every trace overlap; the candidate minimization is immediate scalar endpoint calculus.",
+          "identifier_or_url": "arXiv:2503.05036v1 / https://arxiv.org/pdf/2503.05036",
+          "material_read": "11-page primary PDF: introduction, complete Theorem 2.1 proof, Corollaries 2.2--2.3 (especially normalized lambda_q), Section 3 Theorem 3.3 on parameter dependence, functions-of-rank-one discussion and references; theorem and corollary page images visually inspected.",
+          "method": "Full-text public arXiv PDF reading with page screenshots for Theorem 2.1 and Corollary 2.3.",
+          "title": "q-numerical radius of rank-one operators and the generalized Buzano inequality",
+          "trigger": "Pre-2026 exact q-numerical radius on precisely the same rank-one operators and overlap parameter."
+        },
+        {
+          "assessment": "COVERING_BY_SPECIALIZATION",
+          "evidence": "rho=1 makes omega_rho=||T|| and M_{rho,q}=max{2/(1+sqrt(1-q^2)),2/(1+q)}. Its equality cases coincide exactly with those submitted. Public date same day, order unresolved.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e/RESULT.md",
+          "material_read": "Complete published RESULT.md including definitions, both constant formulas, derivative G(c), q=1 boundary, all extremizers, source references and limitations.",
+          "method": "Read full primary published mathematical record through authorized GitHub read-only connector.",
+          "title": "Sharp two-sided comparison of rank-one q- and rho-numerical radii",
+          "trigger": "Resultary semantic match for sharp ratio omega_rho/omega_q with endpoint overlap classification."
+        },
+        {
+          "assessment": "COVERING_UNIVERSAL_COEFFICIENT_ONLY",
+          "evidence": "Theorem 4.1 establishes the universal coefficient and demonstrates its sharpness using rank-one square-zero N; it does not alone state the low-r rank-one projection bound.",
+          "identifier_or_url": "arXiv:2608.09866v1 / https://arxiv.org/pdf/2608.09866",
+          "material_read": "Public 9-page primary PDF, introductory definitions, similarity theorem, transfer argument and full Theorem 4.1 proof on pages 7--8 with rank-one nilpotent lower-bound example; page screenshot inspected.",
+          "method": "Full-text public arXiv PDF reading with visual page verification.",
+          "title": "Sharp spectral constants for scaled q-numerical ranges",
+          "trigger": "Earlier sharp universal bound and the 4/5 threshold in the candidate comparison."
+        },
+        {
+          "assessment": "FULL_TEXT_UNAVAILABLE_WITH_RESIDUAL_RISK",
+          "evidence": "Abstract confirms universal rho_q dilation; no whole-document noncoverage conclusion is made. The independently inspected 2025 and q/rho sources already give complete coverage.",
+          "identifier_or_url": "arXiv:2610.00443v1, v2 / https://arxiv.org/abs/2610.00443",
+          "material_read": "Official public abstract and version metadata only. Direct full PDF and ar5iv full HTML access failed; authorized institutional retrieval reported disconnected VPN.",
+          "method": "Read public arXiv abstract; tried official preprint PDF and lawful alternative OA; institutional access attempted without bypass.",
+          "title": "Dilation Theory for Scaled q-Numerical Ranges",
+          "trigger": "Focal scaled-q disk containment and universal unitary dilation bound."
+        },
+        {
+          "assessment": "CONTEXT_DISTINCT_OBJECT",
+          "evidence": "Studies contractive spectral disks for fixed J_n and affine norm-pencil minimizers, not the global rank-one operator norm envelope. Its n=2 threshold 4/5 is consistent with the published universal coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57/RESULT.md",
+          "material_read": "Complete published RESULT.md: theorem, singular-vector argument, exact threshold, prior-work comparison, limitations.",
+          "method": "Read complete primary mathematical record through authorized GitHub read-only connector.",
+          "title": "The sharp affine Jordan norm pencil and its scaled q-spectral-set transition",
+          "trigger": "Nearby published exact q-threshold for rank-one 2-by-2 nilpotent operator and higher Jordan blocks."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-rank-one-norm-profile-under-scaled-q-numerical-disk-contai--d16087e82e79/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e/RESULT.md",
+        "https://arxiv.org/pdf/2503.05036",
+        "https://arxiv.org/pdf/2608.09866"
+      ],
+      "rationale": "The constrained norm bound for nonzero rank-one operators is a natural, motivated operator-theoretic observable, and the projection/nilpotent switch is an interpretable parameter boundary. Nevertheless this submission does not determine an independently unknown exact invariant: the complete rank-one operator norm/q-radius comparison with the same equality classes is already a published rho=1 specialization of a two-parameter theorem, and even the older 2025 exact normalized formula reduces the work to a two-endpoint concavity check. The only extra 4/5 observation equates a branch of that known ratio with a known universal coefficient. No new structural lemma, motivated counterexample beyond the already covered extremizers, or uncovered classification remains. This is a useful worked corollary, not a new mathematically valuable result under the stated nontriviality bar.",
+      "residual_risks": [
+        "A special-case exposition can retain pedagogical utility; this FAIL refers to independent new mathematical value, not to the usefulness of the formula in applications.",
+        "The value judgment rests on explicit coverage and elementary implications, not merely on the short proof or lack of a downstream theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Same-day publication ordering of two October 11 published mathematical records not established; scientific rejection asserts coverage and direct theorem specialization, not chronological priority or plagiarism.",
+    "Scientifically complete rejected finding, publication operationally not ready because sanitized complete public-file bytes are absent.",
+    "No GitHub writes, dispatcher closeout or formal/expert attestation were performed."
+  ],
+  "schema_version": 1
+}
