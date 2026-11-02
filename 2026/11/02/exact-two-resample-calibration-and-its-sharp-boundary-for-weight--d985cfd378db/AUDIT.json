@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Three exhaustive collision cases yield the stated exact masses: all distinct D=1-3s2+2s3 gives each rank equally likely, each double pattern has probability E=s2-s3 and nonidentity involutive comparisons are fair, and all equal has probability s3. Pairwise probability transfers strictly increase both relevant CDFs until uniform. Two score orders for the fully exchangeable four-coordinate null give distinct M=3 laws by exact integer summation. A standalone program passed 5163 rational assertions across 165 weight vectors and all 24 four-state score orders, plus the witness and smoothing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ramdas et al. (2023), Theorems 2.2–2.3 are stronger in permissible q and groups for validity but weaker in stated calibration detail.",
+        "Hemerik–Goeman (2018), Theorem 2 and Proposition 3 cover uniform sampled subgroup validity and randomized exactness, without arbitrary weighted iid finite-rank mass characterization."
+      ],
+      "reasoning": "Validity for general groups implies conservative CDF bounds but not exact masses, optimizer or first failure at M=3. Rank exchangeability enables one proof step but does not eliminate multiplicity-rank dependence when three auxiliary draws are used. The main result is a finite-law strengthening for a restricted group, not a new general validity theorem.",
+      "searches": [
+        "nonuniform permutation test finite sample p value exact mass at 1/3 and 2/3; Monte Carlo random tie multiplicities; comparison failure for three resamples",
+        "Ramdas Barber Candes Tibshirani 2022 2023 arbitrary permutation distributions generalized permutation test iid q exactly two Monte Carlo draws null p-value law collision probability sum q^2 sum q^3 involution sign flips uniform q minimizes conservativeness stochastic majorization",
+        "Monte Carlo permutation test nonuniform sampling exact p value distribution ties ranked transformations null collisions",
+        "probabilistic rank tests arbitrary group nonuniform transformations sharp distribution two resamples stochastic order uniform"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.13581",
+      "doi:10.1007/s13171-023-00308-8",
+      "doi:10.1007/s11749-017-0571-1",
+      "doi:10.2202/1544-6115.1585",
+      "arxiv:1808.10483"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ramdas et al. 2023 Section 2.2 defines iid q generalized p-values; Section 2.5 establishes index exchangeability; Section 5 notes conservativeness of valid p-values and asks how to reduce it.",
+        "Hemerik–Goeman 2018 Section 3.4 gives precise level and tie treatments under uniform sampling.",
+        "Exact enumeration of a fully exchangeable four-coordinate example gives different M=3 laws for identical q, confirming a boundary not implied by a validity-only theorem."
+      ],
+      "reasoning": "Prior theorem implies only validity of the p-value, not the sharp law for all nonuniform q on involutive groups. The moment law depends on collisions and fair involutive comparisons, absent from those reported theorems. The earlier rank-exchangeability result supplies necessary background and could facilitate deriving the identities, but neither its stated conclusion nor direct corollaries explicitly classify the optimizer or sharp M=3 counterexample. All historical-priority claims remain qualified.",
+      "searches": [
+        "exact null p-value distribution for generalized permutation tests with two Monte Carlo resamples arbitrary nonuniform weights and sign-flip involutions; collision moments sum q squared and cubed; majorization conservative calibration",
+        "sign-flip randomization tests Monte Carlo p-values two resamples exact probabilities in terms of weight power sums, sharp uniform sampling least conservative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ramdas et al. Theorem 2.3, Section 2.5, shows the rank representation for exchangeable transformation samples but no weighted moment formula; its proof uses an empirical distribution of transformations.",
+        "Hemerik–Goeman 2018 Section 3.4 examines p-values from random transformations and ties under uniform group sampling."
+      ],
+      "reasoning": "Any exact law of the rank of a distinguished transformation among three iid weighted samples, or a tie-adjusted rank law for the same experiment, would cover the primary formula even with different terminology. The inspected primary texts show validity and uniform-sampling exactness, not the power-sum masses with arbitrary nonuniform q or the simultaneous sharp CDF maximum. A general theorem specifying the full conditional rank distribution for every nonuniform q could imply the claim, but none was located.",
+      "searches": [
+        "exact null p-value distribution for generalized permutation tests with two Monte Carlo resamples arbitrary nonuniform weights and sign-flip involutions; collision moments sum q squared and cubed; majorization conservative calibration",
+        "sign-flip randomization tests Monte Carlo p-values two resamples exact probabilities in terms of weight power sums, sharp uniform sampling least conservative",
+        "generalized permutation tests arbitrary nonuniform permutation sampling exact null rejection probabilities two resamples conservativeness",
+        "arbitrary weighted permutation distribution exact null p value law power sum collision distribution sign flips"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published mathematical-record hits listed above address antithetic dependence, independent pairwise ranks or heteroscedastic permutation size, not an identical weighted involutive-group experiment.",
+        "Phipson–Smyth (2010) and its cited implementations give exact p-values based on counts under standard random permutation draws, not a tabulated arbitrary-q two-draw null law."
+      ],
+      "reasoning": "This is an analytical distribution formula rather than a particular database table entry. The record and permutation-calibration searches yielded no matching formula or dominating recorded table; the absence of a hit alone is not used as proof of novelty.",
+      "searches": [
+        "exact null p-value distribution for generalized permutation tests with two Monte Carlo resamples arbitrary nonuniform weights and sign-flip involutions; collision moments sum q squared and cubed; majorization conservative calibration",
+        "Ramdas Barber Candes Tibshirani 2022 2023 arbitrary permutation distributions generalized permutation test iid q exactly two Monte Carlo draws null p-value law collision probability sum q^2 sum q^3 involution sign flips uniform q minimizes conservativeness stochastic majorization"
+      ]
+    },
+    "rationale": "The motivating primary source establishes general validity and rank exchangeability, not the exact two-draw arbitrary-weight null masses, sharp optimizer or three-draw failure. Earlier uniform-permutation tests treat ties and validity; targeted semantic and primary full-text comparisons did not reveal direct coverage. Historical priority is not certified.",
+    "residual_risks": [
+      "Equivalent finite-rank/tie distribution derived elsewhere, particularly in broader Monte Carlo testing literature, could imply the same formula.",
+      "The 2010 Phipson–Smyth full text was not inspected directly; the material reviewed indicates different uniform-sampling scope but cannot categorically rule out an appendix formula.",
+      "Arbitrary data-statistic ties break the formula and are excluded.",
+      "The prior generalized validity theorem supplies a substantial part of the framework, and this work claims a calibration refinement, not a new validity result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUND foundational randomized-center validity and exchangeability, NOT an explicit arbitrary-weight two-resample collision moment law, its sharp stochastic optimum, or the stated M=3 nonuniversality construction.",
+        "evidence": [
+          "Theorem 2.2 and Section 2.5 (equations 2.6, 2.12) describe the model and rank exchangeability.",
+          "Section 5 explicitly discusses excess conservativeness and asks which tests mitigate it."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13171-023-00308-8",
+        "material_read": "Open-access HTML: introduction, all of Section 2 (especially 2.2-2.5), the exchangeable-rank proof, Section 4.2 and concluding open questions; references and theorem contexts.",
+        "method": "Direct primary full-text HTML inspection with targeted searches and section navigation.",
+        "title": "Permutation Tests Using Arbitrary Permutation Distributions",
+        "trigger": "The precise generalized p-value was introduced here; same objects and sampling procedure."
+      },
+      {
+        "assessment": "Presents uniform-group sampling exactness, randomized ties and validity. No inspected result computes arbitrary nonuniform q power-sum masses or the M=3 statistic-dependent witness.",
+        "evidence": [
+          "Section 3.4 specializes the plus-one p-value to independent uniform transformations from a group.",
+          "Proposition 3 presents a randomized tie correction different from the present nonrandomized-rank formula."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11749-017-0571-1",
+        "material_read": "Open-access primary full-text HTML: Sections 2.2, 3.1-3.4, Theorem 2, Propositions 2-3, tie discussion and references.",
+        "method": "Direct primary HTML reading and targeted term search.",
+        "title": "Exact testing with random permutations",
+        "trigger": "A strong possible earlier tie-corrected exact null calibration result."
+      },
+      {
+        "assessment": "Uniform-permutation with-replacement precision can motivate similar combinatorics, but a directly covering nonuniform weighted moment result is not established from this material. Material-access risk retained.",
+        "evidence": [
+          "2010 abstract and statistical software implementations emphasize exact p-value corrections from random permutation counts.",
+          "Hemerik–Goeman 2018 discusses its uniform-with-replacement treatment in Section 3.4."
+        ],
+        "identifier_or_url": "https://doi.org/10.2202/1544-6115.1585",
+        "material_read": "Public abstract and documented implementation synopsis, plus citation and comparison inside Hemerik–Goeman (2018); complete paper not materially inspected.",
+        "method": "Abstract and cross-reference inspection; no claim of a complete full-text exclusion.",
+        "title": "Permutation P-values Should Never Be Zero: Calculating Exact P-values When Permutations Are Randomly Drawn",
+        "trigger": "Classical precise calibration of Monte Carlo permutation tests with replacement."
+      },
+      {
+        "assessment": "Addresses generalized tests for nonexchangeable null densities and optimized tests, not the same iid weighted random-center permutation rank distribution.",
+        "evidence": [
+          "Abstract and Section 2 introduce density-dependent exact generalized test functions rather than iid q centered resampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1808.10483v1",
+        "material_read": "Search result and primary accessible HTML abstract/section-level material concerning alternative density-based exactness; not a full exclusion check.",
+        "method": "Scope comparison from accessible primary text.",
+        "title": "Permutation tests of non-exchangeable null models",
+        "trigger": "Uses the phrase generalized permutation tests; might imply stronger finite exact calibration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d985cfd3-78db-4aaa-a0ac-58cb5685a006",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Explicitly motivated by the conservativeness issue highlighted in Section 5 of Ramdas et al.; exact two-draw size law and globally sharp null-calibration choice answer a nontrivial discrete sampling-budget question without depending on test statistic, while the finite M=3 witness establishes the first statistical boundary. Does not conflate null-calibration extremality with alternative statistical power.",
+    "status": "PASS"
+  }
+}
