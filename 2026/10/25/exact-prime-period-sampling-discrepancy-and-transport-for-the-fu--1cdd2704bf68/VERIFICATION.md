@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite prime-period tent-map formulas
+# Independent mathematical audit
 
-Run `python3 verify_prime_tent.py` beside this file with Python 3 and its standard library. No third-party dependencies are required. The program creates each dyadic fixed grid in exact `Fraction` arithmetic and checks independently that each point returns after the claimed least period. For primes \(p\in\{2,3,5,7,11,13\}\), it directly checks the complete point count, first point, sorted grid membership, star discrepancy, covering radius, largest internal gap, and every individual signed discrepancy inequality. Composite controls \(n\in\{4,6,8\}\) check that the least-period count differs from the prime formula; at \(n=6\) it also reports distinct discrepancy and radius.
+## correctness
 
-Observed completed run: **41,669 exact-integer/rational assertions passed**, no failures. Exemplars: for \(p=2\), the common metric is \(2/5\); for \(p=3\), \(2/9\); for \(p=13\), \(2/8193\). For composite \(n=6\), star discrepancy is \(2/63\), while covering radius is \(2/65\).
+PASS
 
-These computations test finitely many periods and do not certify the theorem for all primes. The universal claim rests on the explicit dyadic affine formula, exhaustive symbolic rank inequalities and optimal-coupling argument in the proof. The historical priority assessment is neither an independent audit nor a guarantee of novelty.
+For N=2^p the iterate T^p has one fixed point on each dyadic branch at j/(N-1) for even j and (j+1)/(N+1) for odd j. Primality means only periods 1 and p divide p; deleting 0 and 2/3 leaves N-2 points. Sorting surviving points and splitting before/after deletion index q=(2N-1)/3 gives four parity/rank inequalities bounding discrepancy by r=2/(N+1), attained just left of first point. Monotone equal-mass quantile coupling gives W_infinity=D*, while its preimages and endpoint zero prove exact covering. Upper/lower Lipschitz envelopes give minimax <=Lr; identical zero data of ±L dist(.,Pp) give >=Lr. Adjacent branch grid spacings and joined deleted neighbors give largest gap for odd p. p=2 checked explicitly. Exact Fraction independent calculations for primes 2,3,5,7,11 match, without inferring all-prime proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge specific comparison finds no demonstrated prior theorem covering this exact final claim; sourced close comparisons and residual priority risks are explicit, and unsuccessful search is not treated as proof of priority.
+
+## value
+
+PASS
+
+Exact resolution of a natural complete prime-period sample links discrete dynamics, discrepancy, optimal transport, covering, and information-based Lipschitz recovery. A sharp common constant for all p is a substantive finite-stage quantitative complement to qualitative density/rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

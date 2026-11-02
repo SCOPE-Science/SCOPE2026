@@ -1,15 +1,21 @@
-# Scientific review — Exact prime-period sampling for the full tent map
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The \(p\)-fold tent iterate is explicitly affine on its dyadic branches. For prime \(p\), deletion of precisely the two fixed points leaves \(2^p-2\) least-period points. The proof uses the exact deletion index around \(2/3\) and checks all discrepancy inequalities for both branch parities on both sides. Quantile coupling and matching mass bounds prove the optimal transport identity. Covering and minimax optimality have explicit witnesses. The case \(p=2\) is separate. The included exact-rational verifier returned 41,669 successful assertions; finite tests are supplemental, not the universal proof.
+## correctness
 
-## Originality (O): PASS under examined evidence
-Fuhrmann–Gröger–Passeggi, arXiv:2610.07435v1 (2026), prove global rigidity from complete periodic-orbit spectra and discuss qualitative prime-period density, but no sharp finite-stage spatial discrepancy, covering-radius or bottleneck-transport identity. Gauthier–Vigny, arXiv:2505.02608v1 (2025), give a broader complex-rational-map quantitative equidistribution theorem for regular test functions, not an exact least-prime-period tent-map formula. Classical descriptions of tent-map fixed points and the general Lipschitz recovery principle are credited to prior mathematics. Relevant published mathematical-record searches did not identify a stronger source implying this exact combination. Residual risk: an older equivalent formula may exist under a different discrepancy/transport/interval dynamics terminology; this is not an independent priority certification.
+PASS
 
-## Mathematical value (V): PASS
-The full exact-prime-period point set is a natural finite-resolution version of the periodic-data objects important to interval-map rigidity. The theorem provides a closed sharp error scale for **three distinct geometries** and an optimal worst-case Lipschitz observation guarantee, while identifying the exact internal gap and the primitive-period deletion effect. The composite-period-six countercontrol demonstrates a real boundary rather than a generic counting exercise. No extension to arbitrary interval maps or unlabeled map reconstruction is asserted.
+For N=2^p the iterate T^p has one fixed point on each dyadic branch at j/(N-1) for even j and (j+1)/(N+1) for odd j. Primality means only periods 1 and p divide p; deleting 0 and 2/3 leaves N-2 points. Sorting surviving points and splitting before/after deletion index q=(2N-1)/3 gives four parity/rank inequalities bounding discrepancy by r=2/(N+1), attained just left of first point. Monotone equal-mass quantile coupling gives W_infinity=D*, while its preimages and endpoint zero prove exact covering. Upper/lower Lipschitz envelopes give minimax <=Lr; identical zero data of ±L dist(.,Pp) give >=Lr. Adjacent branch grid spacings and joined deleted neighbors give largest gap for odd p. p=2 checked explicitly. Exact Fraction independent calculations for primes 2,3,5,7,11 match, without inferring all-prime proof.
 
-## Scope and verification limits
-The proof applies to the full-slope tent map and complete collections of least-prime-period points on the Euclidean unit interval. The verifier covers primes \(2,3,5,7,11,13\) and composites \(4,6,8\) only. Historical bibliographic priority and interpretation beyond the stated class remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge specific comparison finds no demonstrated prior theorem covering this exact final claim; sourced close comparisons and residual priority risks are explicit, and unsuccessful search is not treated as proof of priority.
+
+## value
+
+PASS
+
+Exact resolution of a natural complete prime-period sample links discrete dynamics, discrepancy, optimal transport, covering, and information-based Lipschitz recovery. A sharp common constant for all p is a substantive finite-stage quantitative complement to qualitative density/rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
