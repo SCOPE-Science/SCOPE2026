@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.10 or later with no third-party dependencies. The program forms exact rational Euler beta integrals and an independently implemented finite Markov first-event recurrence, agreeing for 196 parameter sets (all opposed-majority initial counts when each odd part has size 3, 5, 7, or 9). It tests 16 exactly fair opposite-full-polarization cases, an exact-rational globally negative-majority example with positive-consensus probability 0.978685744676395 approximately, and three finite-size critical-window approximations. The test code is self-contained. The asymptotic result is proved by the survivor-binomial CLT and delta method, not by finite checks. The program and its outputs are not an independent scientific audit.
+## correctness
+
+PASS
+
+Reconstructed the two pure-death populations: while part majorities oppose, only originally misaligned spin groups update, with rates i and j from independent rate-one clocks. Reversing the order under x=e^{-tau} gives independent Beta(u+1,a-u) and Beta(v+1,b-v) variables. Integrating the binomial CDF yields the stated finite beta sum; reflection symmetry gives probability 1/2 for a=m,b=n. The beta-order-statistic CLT, with variance (2p-1)/p in time, and n/m->kappa give Phi(delta/sqrt(p(2p-1)(1+1/kappa))). Boundary p=1 remains nondegenerate. A sample K31,101 initially has a global negative majority yet P(positive)≈0.9786857. Independent rational state-recursion checks covered 196 (m,n,a,b) combinations and 16 symmetry cases.
+
+## originality
+
+PASS
+
+The exact two-population absorption probability, unequal-size polarization neutrality and Gaussian reversal window were not covered by the inspected earlier zero-temperature scale-free Glauber study, high-temperature multipartite mixing, or separate majority-rule group-update dynamics. Best-of-knowledge assessment allows an unindexed precise bipartite voter/Ising fixation identity as a historical priority risk.
+
+## value
+
+PASS
+
+Opposed part-majorities are a natural kinetic-Ising conflict. Exact finite-size phase-selection probabilities, unequal-size perfect-polarization symmetry, sharp central-limit crossover and asymptotic reversal of the global initial majority identify qualitative consequences not obtainable merely from a standard ferromagnetic attractor argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

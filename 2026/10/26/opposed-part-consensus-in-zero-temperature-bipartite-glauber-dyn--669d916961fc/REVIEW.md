@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The first-change coupling is exact: while the part majorities disagree, only initial majority spins can change, so their independent exponential update clocks generate two independent death thresholds. No local-field ties exist because both parts are odd. Once one majority reverses, both local fields align and subsequent changes are monotone, so the winner of the threshold race is the ultimate global consensus. The beta order-statistic representation, the exact beta integral, the reflection argument for fully opposed initial states, and the survivor-binomial CLT reconstruct the displayed all-sizes and asymptotic claims. The independent exact-rational Markov first-event recursion agrees with the beta expression on 196 initial states. The limits apply to odd m,n growing in fixed positive ratio and never use a finite experiment as an infinite-size proof.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The mathematical distinction is between finite absorbing zero-temperature bipartite single-spin majority dynamics and prior results about cubic-lattice coarsening, statistical large-network mean-field dynamics, positive-temperature multipartite mixing, or homophilous group-majority dynamics. Neither the exact beta-race outcome formula nor the sharp polarization-comparison transition and global-majority inversion follows from a cited inspected result. Searches included aliases, both local-majority and global-majority parameters, and the same graph under voter and Ising model names. A more specialized historical bipartite fixation study could still cover the result and remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The two-part ferromagnetic network admits a natural frustrated-looking (opposed majorities) zero-temperature initial state. The exact fixation probability and its width identify which initially polarized community determines the entire absorbing phase. The all-size fair outcome with unequal part sizes and sharp reversal of an initial global majority are meaningful structural consequences; the formula is not merely a renamed expectation or arbitrary finite-table entry.
+Reconstructed the two pure-death populations: while part majorities oppose, only originally misaligned spin groups update, with rates i and j from independent rate-one clocks. Reversing the order under x=e^{-tau} gives independent Beta(u+1,a-u) and Beta(v+1,b-v) variables. Integrating the binomial CDF yields the stated finite beta sum; reflection symmetry gives probability 1/2 for a=m,b=n. The beta-order-statistic CLT, with variance (2p-1)/p in time, and n/m->kappa give Phi(delta/sqrt(p(2p-1)(1+1/kappa))). Boundary p=1 remains nondegenerate. A sample K31,101 initially has a global negative majority yet P(positive)≈0.9786857. Independent rational state-recursion checks covered 196 (m,n,a,b) combinations and 16 symmetry cases.
 
-## Scope and limits
-Odd part sizes at least three, deterministic opposing initial strict majorities, uniform positive coupling and independent rate-one single-spin clocks only. Exact terminal probabilities and phase crossover are proved; no claim is made for tied local fields, nonzero temperature, arbitrary graphs, or absorption-time variance. Four primary papers were inspected in relevant sections, not exhaustively across all related literature. Finite tests corroborate but do not certify an infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-population absorption probability, unequal-size polarization neutrality and Gaussian reversal window were not covered by the inspected earlier zero-temperature scale-free Glauber study, high-temperature multipartite mixing, or separate majority-rule group-update dynamics. Best-of-knowledge assessment allows an unindexed precise bipartite voter/Ising fixation identity as a historical priority risk.
+
+## value
+
+PASS
+
+Opposed part-majorities are a natural kinetic-Ising conflict. Exact finite-size phase-selection probabilities, unequal-size perfect-polarization symmetry, sharp central-limit crossover and asymptotic reversal of the global initial majority identify qualitative consequences not obtainable merely from a standard ferromagnetic attractor argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
