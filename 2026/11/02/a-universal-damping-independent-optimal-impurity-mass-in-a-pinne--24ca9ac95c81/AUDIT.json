@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Full finite-dimensional Ornstein--Uhlenbeck Lyapunov equation is stable by energy decay and endpoint observability. Exact solution of its 21 symmetric equations gives the displayed rational flux and verifies all 36 residual entries. Derivative factors with a single changing-sign term, and strict negative quadratic discriminant makes denominator positive. Twelve independent SciPy Lyapunov solves agree to under 7e-15; finite checks supplement the all-parameter symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kim 2013 derives a general quantum chain current in a Drude bath and specializes to equal masses and coupling optimization.",
+        "Nicacio et al. 2014 give covariance framework for RWA and spring-mass quantum chains with different dissipators.",
+        "Pereira--Solha 2010 abstract covers alternating-mass boundary-bath chains and asymptotic mass-contrast suppression."
+      ],
+      "reasoning": "General harmonic covariance methods imply computability but do not themselves state or trivially force the sharp damping-independent center-mass optimum. The closest inaccessible alternating-mass paper might contain a stronger formula; it is a priority risk and prevents any assertion of exhaustive novelty.",
+      "searches": [
+        "Harmonic oscillator three particle heat transport exact mass matching maximum current boundary reservoirs central mass",
+        "Analytic N=3 harmonic chain with two heat reservoirs and onsite pinning optimize mass impurity conductivity",
+        "arxiv:1304.1283",
+        "arxiv:1410.7604",
+        "doi:10.1103/PhysRevE.81.062101"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math-ph/0307035",
+      "arxiv:1304.1283",
+      "arxiv:1410.7604",
+      "doi:10.1103/PhysRevE.81.062101"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bonetto--Lebowitz--Lukkarinen treat interior self-consistent baths, absent from the claim.",
+        "Kim assumes uniform mass and focuses on varying spring or bath coupling, not optimizing a middle defect mass at fixed damping.",
+        "Nicacio spring-mass section maintains a different quantum master-equation convention.",
+        "Pereira--Solha alternate-mass model is potentially a direct antecedent and its full text is not available."
+      ],
+      "reasoning": "The claimed universal optimum follows from a precise rational current/derivative identity. Published linear-response frameworks are more general algorithmically but do not visibly report the same optimization. The abstract-only Pereira--Solha comparison is nondecisive, so priority remains provisional; no independent novelty certification is asserted.",
+      "searches": [
+        "Three-oscillator harmonic chain two Langevin baths classical heat current optimal central mass universal independent of damping gamma",
+        "Pereira Solha heat conductivity alternating masses harmonic chains 2010 mass resonance current optimization",
+        "arxiv:math-ph/0307035",
+        "arxiv:1304.1283",
+        "arxiv:1410.7604",
+        "doi:10.1103/PhysRevE.81.062101"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Subject-matter searches returned harmonic integrator stability and oscillator dynamical results rather than a trimer-mass optimum.",
+        "The exact candidate is a symmetric endpoint-bath three-oscillator optimization, equivalently a mass-impurity transmission extremum.",
+        "Pereira--Solha (2010) considers alternating masses with endpoint baths, but the accessible abstract does not give a specific optimum."
+      ],
+      "reasoning": "Compared the defined stochastic model, objective and quantifiers (all positive damping) rather than title/parameters. A paper with the full current as a function of the central mass could imply this optimum, so the inaccessible Pereira--Solha text remains a non-negligible risk rather than a claimed exclusion.",
+      "searches": [
+        "Three-oscillator harmonic chain two Langevin baths classical heat current optimal central mass universal independent of damping gamma",
+        "Optimal isotope impurity mass heat conductance harmonic trimer pinned chain m center mass ratio 1+k omega/(k+omega)^2",
+        "Exact pinned harmonic three-particle chain central mass optimizing stationary Langevin heat current independent of friction: m_middle=1+k omega/(k+omega)^2",
+        "three harmonic oscillators middle mass optimal heat current pinning Langevin baths gamma analytic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-formula and mass-matching searches yielded no verified table for this trimer model; closest subject results concerned numerical Langevin integrators and band-density problems, whose statements do not imply the heat-current optimum.",
+        "Previously recorded results checked for duplicate coverage concern a two-oscillator allocation optimization, infinite alternating-mass phonon dispersion and a three-site bosonic Lindblad device."
+      ],
+      "reasoning": "A search absence is not proof of novelty. Explicit compared formulas do not equal the claimed classical pinned Langevin trimer optimum; catalog completeness and inaccessible tables are not assumed.",
+      "searches": [
+        "Optimal isotope impurity mass heat conductance harmonic trimer pinned chain m center mass ratio 1+k omega/(k+omega)^2",
+        "Exact pinned harmonic three-particle chain central mass optimizing stationary Langevin heat current independent of friction: m_middle=1+k omega/(k+omega)^2",
+        "Pereira Solha heat conductivity alternating masses harmonic chains 2010 mass resonance current optimization"
+      ]
+    },
+    "rationale": "Statement-and-implication comparisons against six actual semantic database queries, earlier mathematical research claims, and four named primary sources did not establish coverage of the exact global all-damping center-mass optimizer. The Pereira--Solha 2010 alternating-mass study is the closest unresolved historical-priority risk because its full text could contain a directly implying formula. Originality is assessed on the evidence available, not certified independent priority.",
+    "residual_risks": [
+      "Pereira and Solha (2010), DOI 10.1103/PhysRevE.81.062101, plausibly contains a broader exact alternating-mass current formula. Only abstract accessible; full prior-implication comparison unresolved.",
+      "The general harmonic Lyapunov and Landauer literature is broad; an equivalent previously unrecognized mass-matching rule cannot be excluded from bounded literature retrieval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_BATH_GEOMETRY",
+        "evidence": "Interior sites are equipped with self-consistent reservoirs; the claim uses only two endpoint reservoirs and a variable central mass.",
+        "identifier_or_url": "https://arxiv.org/abs/math-ph/0307035",
+        "material_read": "Full accessible arXiv rendered text: model and covariance setup in Sections 1--2, physical bath distinctions and main theorem outline in Sections 3--7.",
+        "method": "Accessible full-text reading",
+        "title": "Fourier's Law for a Harmonic Crystal with Self-consistent Stochastic Reservoirs",
+        "trigger": "Oldest boundary-driven pinned harmonic Langevin chain analytical framework"
+      },
+      {
+        "assessment": "NOT_SAME_OPTIMIZATION",
+        "evidence": "Uniform oscillator mass and Drude-Ullersma damping in the displayed exact chain formulas; focus on hopping/bath coupling optimum.",
+        "identifier_or_url": "https://arxiv.org/html/1304.1283v4",
+        "material_read": "Accessible full HTML, model setup, end-bath equations, general current expression and specialization to equal oscillator mass; sections 1--5 and spectral formulas.",
+        "method": "Accessible full-text reading and model parameter comparison",
+        "title": "Heat transport through a quantum Brownian harmonic chain beyond the weak-coupling regime: An exact treatment",
+        "trigger": "Exact chain current and bath coupling optimization"
+      },
+      {
+        "assessment": "DIFFERENT_TRANSPORT_MODEL",
+        "evidence": "Quantum Lindblad/RWA and spring-mass variants, without displayed exact central classical mass optimum.",
+        "identifier_or_url": "https://arxiv.org/abs/1410.7604",
+        "material_read": "Accessible full arXiv rendered text, introduction, dynamical setup and Section IV examples, including IV.5 disorder and IV.6 spring-mass.",
+        "method": "Accessible full-text reading, specifically relevant current and disorder sections",
+        "title": "Thermal transport in out of equilibrium quantum harmonic chains",
+        "trigger": "General harmonic covariance methods and spring-mass transport"
+      },
+      {
+        "assessment": "UNRESOLVED_PRIORITY_RISK",
+        "evidence": "Abstract reports heat-flow suppression with mass differences, not an explicit global central mass optimum; absence from the full text is not asserted.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.81.062101",
+        "material_read": "Publisher abstract and publication metadata only; full text required authentication and was not available.",
+        "method": "Publisher abstract, public metadata and OA/arXiv title searches",
+        "title": "Some properties of the thermal conductivity of chains of oscillators",
+        "trigger": "Alternating masses and end-only baths make a close possible implied antecedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24ca9ac9-5c81-45df-9c98-cba2402e058d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Central isotope/impurity mass is a natural one-parameter heat-flux design variable in the smallest chain with a distinct interior particle. The exact unique optimum is a nontrivial global all-positive-friction structural rule, independent of bath damping and thermal contrast, with sharp universal bound on mass enhancement. It identifies a measurable mass-matching effect and a motivated benchmark for testing larger chains, not an arbitrary finite enumeration or parameter relabeling.",
+    "status": "PASS"
+  }
+}
