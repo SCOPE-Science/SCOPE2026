@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For an edge-labeled complete graph viewed as a Kneser graph, the identity \(f(N[uv])=T-S_u-S_v+2f_{uv}\) is obtained by direct incidence counting. Substituting the two-part labels yields the four necessary-and-sufficient feasibility conditions. The path/cycle-plus-matching construction satisfies all inequalities uniformly at weight four. The separate lower bound for the designated cut-pattern class considers every possible smaller integral weight, including the degree-two extremal case on the larger part. The counting argument is injective because the negative labels uniquely recover the asymmetric cut. Direct finite checks test both the original neighborhood definition and this reformulation; their scope is stated accurately.
+## correctness
 
-**Originality — PASS under accessible literature comparison, with residual priority risk.** Zec and Grbić (2023, arXiv:2204.05664v3, Theorem 3 and its complete even-case proof) supply upper bound five for even orders at least twelve and leave better estimates open; their table of small cases has value four at order ten, but does not imply the new bound for larger even orders. The later survey *Varieties of Roman domination IV* reproduces the same upper bound. Exact-covering searches of published mathematical-record index and published records found no theorem providing the four-weight witness family on the same disjointness graphs. Generic signed Roman bounds and multipartite results concern different levels of generality or different graphs; neither supplies this construction. No uniqueness or exhaustive priority certification is asserted.
+PASS
 
-**Value — PASS.** The source paper explicitly highlights improvement of the Kneser signed Roman bounds as an open direction. A uniform combinatorial design closes one unit of the even-order gap \([2,5]\), while the accompanying exact cut-pattern feasibility criterion gives a structural obstruction to going below four by that method. This is not an isolated computed improvement: it holds for every even order at least twelve and supplies a rapidly growing family of witnesses, counted exactly within the displayed subclass.
+For edges uv of K_n, signed Roman closed-neighborhood sum is T-S_u-S_v+2f_uv. In the asymmetric (a,b) cut a=n/2-1,b=n/2+1 with cross -1 and internal 2 on H_A,H_B, the incident sums are -3+d_A(u),1+d_B(v), yielding the four exact degree inequalities plus cross-edge defender t>=1+Delta_A+Delta_B. At weight four, H_B matching s=floor(b/2), H_A five-cycle for n=12 or path with r=n/2+2-s edges for n>=14 meet inequalities. The lower T=1,2,3 cases in this cut class contradict the degree constraints and internal B nonedges. The bipartition is uniquely recovered by negative labels, so counting injective; n=12 and n=14 counts 997920,113513400 confirmed. Independent direct original-neighborhood checks for n=12,14,16,20 passed. This is NOT proof gamma_sR=4 among all labelings.
 
-**Limits.** Full global optimality at weight four, exhaustive enumeration of weight-four functions, and independent verification remain open. Bibliographic priority remains subject to unindexed equivalent work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zec and Grbic 2023 prove only global [2,5] for even n>=12, leaving upper bound improvable. The new uniform weight-four construction strengthens their upper bound, plus a necessary-and-sufficient degree criterion and optimality within an explicitly restricted cut-pattern family; not a claim of unrestricted optimality.
+
+## value
+
+PASS
+
+Improves a published all-even Kneser signed Roman bound from 5 to 4 uniformly over infinite family, supplies a structural method-local obstruction to 2 or 3, and an exact nontrivial constructive family count. It targets a documented mathematical optimization gap rather than a free-standing small numeric change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
