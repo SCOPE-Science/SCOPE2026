@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional hub-event probability is positive under all w_ij>0. Independent leaf attachments yield m_ij=1+sum_{k!=j}p_ik. Summing over j recovers p_ij, and independence of entire degree arrays forces p_ij constant in j. Conversely the weighted Matrix-Tree cofactor for multiplicatively separated weights factors, giving two independent multinomial degree arrays. Fourteen exact-rational small cases independently corroborated all identities. Finite tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fita Sanmartín et al. arXiv:2409.13472v1 Sections 3-4 and Appendix A derive single-node moments and pairwise covariances on arbitrary weighted graphs.",
+        "Dong and Ge arXiv:2103.05294v1 Theorem 4 counts spanning trees containing a given forest in unweighted complete bipartite graphs."
+      ],
+      "reasoning": "The general Laplacian covariance machinery yields numerical moments for prescribed weights but no stated logical implication classifying *independence of whole partwise vectors* over every positive matrix. Forest-constrained unweighted counting does not imply the strictly-positive matrix necessity. The proof adds a full positive-weight structural classification and explicit inverse conditional statistic.",
+      "searches": [
+        "\"spanning tree\" \"independence\" \"degree sequences\" \"bipartite\" weighted",
+        "rank one positive weight matrix independence left right degree sequence random spanning tree complete bipartite graph",
+        "arxiv:2409.13472v1 Sections 3-4 and Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2409.13472",
+      "https://arxiv.org/abs/2103.05294",
+      "https://doi.org/10.1002/jgt.22449",
+      "https://arxiv.org/abs/2107.08452"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2103.05294 treats forced-forest subgraph counts for uniform spanning trees; its stated result does not quantify over weight matrices.",
+        "Fischer and Fischer 2019 study the size equality of two degree-sequence support sets, not joint probabilistic independence."
+      ],
+      "reasoning": "Even knowing that rank-one weights give two multinomial arrays is a one-way result; the present converse exploits positive-probability all-A-star events and proves p_ij from conditional means, distinguishing arbitrary positive matrices. Finite examples or moment algorithms alone do not imply the whole theorem without this separate comparison.",
+      "searches": [
+        "arxiv:2103.05294v1 Theorem 4 and Sections 1,4",
+        "doi:10.1002/jgt.22449 accessible publisher preview abstract/introduction",
+        "\"rank one\" \"spanning trees\" \"degree\" \"independent\" bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2409.13472 describes Gibbs spanning-tree degree moments, not a full side-vector independence iff rank-one theorem.",
+        "The classical bipartite degree enumerator implies factorized joint degree laws under rank-one weights, not the converse under arbitrary weights."
+      ],
+      "reasoning": "The equivalent formulation is factorization of the full multivariate degree pgf iff every positive weight 2-by-2 minor vanishes. Existing source statements give general first/second moments or unweighted enumerators, with no comparison result proving this equivalence.",
+      "searches": [
+        "\"weighted spanning tree\" \"bipartite\" \"independent\" \"degrees\" \"rank one\"",
+        "\"independence of degree sequences\" \"random spanning tree\" \"complete bipartite\"",
+        "Complete bipartite graph K_{a,b} random weighted spanning tree distribution of left and right degree vectors independent exactly if weights w_ij factor as u_i v_j; rank-one characterization."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cited 2019 graph-theoretic degree-sequence paper concerns numbers of attainable degree sequences, not a weighted-probability table.",
+        "The cited 2021 forest-count paper gives tree counts for unweighted graphs, not tables of rank-one independence classification."
+      ],
+      "reasoning": "No exact numerical table or finite database subsumes the all-sizes/all-positive-weights rank-one iff theorem. The theorem is not an invariant tabulation.",
+      "searches": [
+        "weighted complete bipartite spanning trees degree sequence independence factorization theorem",
+        "bipartite degree generating function spanning trees x_i y_j rank one",
+        "Weighted random spanning tree complete bipartite rank-one edge weights two independent multinomial degree arrays, converse based on hub conditional degrees."
+      ]
+    },
+    "rationale": "The precise iff classification and the reconstruction of normalized weights from conditional degree means were not located in the relevant prior literature or queried research records. Prior general covariance identities and classical bipartite tree enumeration supply context and the sufficiency half but do not themselves supply the rank-one necessity/identification argument. Historical priority is qualified by partly inaccessible older material.",
+    "residual_risks": [
+      "Fischer–Fischer 2019 publisher full text beyond the accessible first-page preview could not be inspected.",
+      "Older folklore about weighted bipartite Prüfer codes may contain an equivalent converse not indexed by searched terms.",
+      "The result requires full-vector independence; independence of one opposite-part vertex pair is a different question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general degree and covariance formulas, but no explicit bipartition independence iff rank-one classification or conditional weight-recovery identity",
+        "evidence": [
+          "arxiv:2409.13472v1, Sections 3-4 and Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.13472",
+        "material_read": "HTML introduction, Sections 3-4 formulas, covariance theorem, conclusion, and Appendix A on pairwise covariance",
+        "method": "Read arXiv HTML extraction and searched within the article for bipartite/independent terms",
+        "title": "Expectation and Variance of the Degree of a Node in Random Spanning Trees",
+        "trigger": "Same Gibbs weighted spanning tree model and degree covariance results"
+      },
+      {
+        "assessment": "Results concern forest containment counts in unweighted complete bipartite graphs; no weighted independence iff characterization detected",
+        "evidence": [
+          "arxiv:2103.05294v1, Theorem 4 and Sections 1,4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+        "material_read": "HTML introduction and Theorem 4, Section 4 weighted multigraph setup and recurrence, searches across page for independence/rank/degree-sequence",
+        "method": "Read lawful arXiv HTML full-text extraction and term-scanned",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "Unweighted complete bipartite tree enumeration could dominate weight-independent sufficiency"
+      },
+      {
+        "assessment": "Accessible theorem counts feasible degree-sequence supports, not the weighted joint probability distribution; cannot exclude an unstated later-page discussion",
+        "evidence": [
+          "DOI 10.1002/jgt.22449, Abstract and Theorem 1 on page 230"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.22449",
+        "material_read": "Publisher abstract and first-page scholarly preview (introduction, theorem on equality of support-set cardinalities); remaining pages inaccessible",
+        "method": "Read publisher abstract and lawful first-page preview; attempted authorized institutional retrieval after arXiv/OA searches failed, but delivery unavailable",
+        "title": "Counting degree sequences of spanning trees in bipartite graphs: A graph-theoretic proof",
+        "trigger": "Very similar degree-sequence terminology for bipartite spanning trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d559f655-b24a-435e-9d09-d61048ddd0bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural classification of when opposite-side degree profiles of a Gibbs spanning tree decouple over all strictly positive edge-weight matrices and every nontrivial complete bipartite size. Unlike a routine isolated moment, the theorem includes a positive-weight rigidity converse and an exact inverse map from conditional degree means, useful to detect and quantify heterogeneous edge preference without observing individual edges. The positivity/no-star restrictions are mathematically justified.",
+    "status": "PASS"
+  }
+}
