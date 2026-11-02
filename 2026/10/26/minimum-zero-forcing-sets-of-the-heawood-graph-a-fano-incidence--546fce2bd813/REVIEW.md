@@ -1,11 +1,21 @@
-# Research review: Heawood minimum zero-forcing configurations
+# Independent mathematical audit
 
-**Correctness (PASS).** The claim is a finite classification on the 14-vertex Fano incidence graph. Exhaustive enumeration rules out all initial sets of cardinality at most five and examines all 3,003 sets of cardinality six. The independently expressed Fano-triangle criterion selects 700 of the 784 balanced noncollinear/nonconcurrent pairs and matches the separately computed zero-forcing family exactly. Both synchronous mask closure and an independently written sequential color-change procedure agree for all six-subsets. The complete 336-member collineation-plus-duality action gives five successful orbits and an 84-set failure orbit; the claimed induced shapes and propagation times are invariant across those orbits. Complete breadth-first searches establish exchange connectivity, edge count, and the diameter-six distance distribution. The packaged standard-library verifier runs successfully. Scientific scope is a finite graph, not an untested extension to projective planes of higher order.
+## correctness
 
-**Originality (PASS, conditional on surveyed literature).** The zero-forcing invariant, propagation-time concept, general girth lower bound, and the Heawood value \(Z(H)=6\) are prior work. In particular, Hogben et al. (arXiv:1410.4191) define propagation time; Gentner and Rautenbach (arXiv:1608.00747) prove the cubic girth-six lower bound; Deaett and Hall (arXiv:1708.07741) discuss the Heawood graph and zero forcing in minimum-rank analysis. The examined full-text passages do not classify its 700 ordinary minimum sets, establish the three-incidence Fano criterion or five automorphism orbits, tabulate the two propagation strata, or determine the minimum-basis exchange graph. Searches for Heawood/Fano-incidence zero forcing, ordinary forcing versus positive-semidefinite forcing, geometric triplet descriptions, propagation-time profiles, and exchange reconfiguration found no covering published statement in retrieved material; the closest indexed published-finding corpus results address different graph families or different Heawood invariants. The specific residual risk is an unindexed numerical computation or table, not a demonstrated prior implication.
+PASS
 
-**Value (PASS).** Classifying all optimal forcing-controller placements in the smallest nontrivial projective-plane incidence graph is a natural equality-case problem. The criterion is geometric and immediately interpretable (noncollinear point triple, nonconcurrent line triple, and incidence threshold), instead of an arbitrary bit-mask list. The five symmetry types and two distinct propagation speeds explain which optimum placements force quickly; connectivity and diameter six establish that all optima are reachable by local single-site exchanges. These structural invariants are not supplied by the already-known value \(Z(H)=6\).
+Independently reconstructed the synchronous legal-force closure: it is monotone and has the same terminal hull as sequential forces. Exact independent integer/set implementation exhausted all 3473 subsets of sizes 0..5 (none force) and all 3003 size-six subsets (exactly 700 force). Separate Fano incidence construction verified all 28x28 noncollinear point/nonconcurrent line triples, with exactly 700 >=3-incidence cases matching forcing sets. Recomputed the 196/504 propagation split, five six-vertex induced-degree shapes (orbit sizes 28, 168, 168, 168, 168), the 336 GL(3,2)+polarity automorphisms, all 700 exchange neighborhoods and 700 BFSs. Exchange edges = 5712 and unordered distance counts (5712,34524,86184,87192,28056,2982), maximum 6. Finite exhaustive universe makes exact claims proven without extrapolation.
 
-**Limitations.** An independently conducted mathematical audit has not been performed. The literature comparison is bounded by accessible indexed research and primary-paper inspection. Results for larger finite projective planes, larger forcing sets, and other variants of forcing are outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously established scalar Z(H)=6, generic forcing propagation definitions, girth bounds and projective-plane symmetry are not claimed as new. The classified 700 optimal sets, five orbit/shape strata, exact propagation and exchange geometry are separate mathematical invariants not determined by those scalar results. No comparable Heawood 700-basis table identified in the inspected primary passages or semantic search, with an unindexed prior enumeration remaining possible.
+
+## value
+
+PASS
+
+The Heawood incidence graph is the smallest projective-plane incidence network, and minimum zero forcing models canonical minimal infection/control seed locations. All minimum placements have a sharp geometric iff condition, and their symmetry, propagation-speed and exchange/reconfiguration invariants classify the whole natural optimizer family. The previously known value Z=6 alone neither implies nor trivializes these facts; finite exhaustive classification is appropriate for this distinguished finite graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
