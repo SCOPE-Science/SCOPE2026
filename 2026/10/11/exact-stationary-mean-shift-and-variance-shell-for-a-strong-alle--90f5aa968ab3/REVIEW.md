@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a compact invariant measure supported in the open positive quadrant, \(\log x\) and \(\log y\) are legitimate bounded smooth observables on the support. Averaging their derivatives gives the two stationary equations used in the proof. The Holling-II identity factors exactly around \(x_*\) and yields a nonnegative weighted-square defect; the quadratic prey per-capita growth converts the second stationary equation exactly into the variance shell. Equality in the first defect forces support on \(x=x_*\), and invariance then forces \(y=y_*\). The proof therefore establishes the stated strict inequality for every non-equilibrium compact interior invariant measure, not merely for a numerical orbit.
+## correctness
 
-Risk: the result does not cover invariant measures touching an axis or noncompact invariant measures. Those cases are expressly outside the claim.
+PASS
 
-## Originality
-**PASS.** The primary article was inspected through its full text, including the model, positive-equilibrium formula, Hopf calculation, and numerical limit-cycle section. It establishes a supercritical Hopf bifurcation and displays stable cycles but does not state the finite-amplitude mean-shift or variance-shell identities. Searches for the DOI and title together with “mean,” “average,” “variance,” “periodic orbit,” “weighted variance,” and equivalent Holling-II formulations did not locate the paired statement. The accessible full text of Xie's related 2021 model and bibliographic/abstract evidence for Zu–Mimura's 2010 model were also compared.
+For every compactly supported invariant Borel probability measure in the strict positive quadrant, log x and log y are smooth and bounded on support so their generator integrals vanish. The exact predator identity ωx/(1+ηx)-σ=ω(x-x*)/[(1+ηx)(1+ηx*)] gives E[(x-x*)/(1+ηx)]=0. Writing x=x*+(x-x*) in the decomposition of E[x-x*] proves E[x]-x*=ηE[(x-x*)²/(1+ηx)] ≥0. A vanishing square forces x=x* on invariant support; invariance then forces dot x=0 there and y=K(1-x*)(x*-α), hence only the coexistence Dirac. Averaging log x gives E[y]/K=E[(1-x)(x-α)]=(1-E[x])(E[x]-α)-Var(x), exactly the second formula. E[y]>0 yields α<E[x]<1. The parameter inequality is precisely α<x*<1 and makes equilibrium y*>0. Exact arithmetic independently verified both rational identities, numerical x*=110265/183841, and a nondegenerate two-point weighted-moment check. These finite checks corroborate, but do not replace, the all-measure analytic proof.
 
-The closest literature uses related Holling-II predator growth but different prey equations. That can motivate an analogous first mean-bias calculation, but it does not imply the exact quadratic shell \(\bar y/K+\operatorname{Var}_\mu(x)=(1-\bar x)(\bar x-\alpha)\) for this source model. Residual risk remains that the generic first component has appeared in classical averaging literature; the accepted claim is the paired source-specific finite-amplitude statement.
+## originality
 
-## Value
-**PASS.** The source's main nonlinear phenomenon is oscillatory coexistence born at Hopf and followed numerically away from the bifurcation. The finding supplies exact finite-amplitude constraints valid on every compact interior recurrent statistical state, rather than only an infinitesimal Hopf approximation: oscillations necessarily raise the time-mean prey density above \(x_*\), and prey variance trades exactly against mean predator density. These identities are useful as analytic diagnostics for computed cycles and as a quantitative ecological interpretation of the source's oscillatory regime.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality of the PAIRED source-specific invariant-measure mean-shift and predator/prey-variance-shell constraint, not the generic Holling-II Jensen bias alone. The primary Ma–Zhao–Du article was materially read, including model, positive equilibrium, Hopf and numerical cycles; it does not state the paired stationary identities. The published Rosenzweig–MacArthur fiberwise theorem supplies the identical saturating-response mean-excess algebra after rescaling h=1/η and is PRIOR coverage of that first ingredient (and even strengthens it conditionally), but is for a different prey vector field and has no stated or implied Ma–Zhao–Du quadratic-prey mean-predator shell. Xie and Zu–Mimura involve different prey equations; published delayed, cooperation and food-chain results establish analogous moment laws for different systems without an exact implication for this paired statement. No examined general theorem dominates the complete two-identity claim. An inaccessible plausible 2010 source remains a disclosed historical-priority risk, not a reason to claim proven novelty or automatic failure.
+
+## value
+
+PASS
+
+The natural objects are the compact positive stationary statistics and finite-amplitude periodic cycles of the established Ma–Zhao–Du strong-Allee Holling-II flow, where source research highlights Hopf-born coexistence oscillations. Beyond the familiar Jensen mean-elevation ingredient, the paired exact quadratic prey-variance/mean-predator shell controls the biological mean predator abundance in terms of mean prey density and prey fluctuation for every invariant measure, without near-Hopf or stability assumptions. The resulting strict prey-mean > x* ordering is an observable cycle diagnostic and the shell quantitatively constrains any numerical periodic-state estimates. It is a modest model-specific structural lemma, not a new global classification or a general averaging principle, yet it supplies a precise exact natural fact not found as an already stated implication of the inspected primary papers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
