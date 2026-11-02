@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For a marked succession, its starting value is uniform over n-1 values and all remaining values are uniformly bijected. Each fixed-point conditional probability is exactly 1/(n-1) on the two endpoint/incident classes or (n-3)/((n-1)(n-2)) otherwise. Multiplication by P(succession)=1/n and subtraction of independent marginals produces the claimed matrix. Row sums give endpoint concentration and total covariance; solving its linear homogeneous system gives the exact odd/even ranks. Variance of U follows from the standard block-enumeration probability P(B_i=B_k=1)=1/[n(n-1)] for distinct indices. A standalone independently implemented enumerator verified all matrix entries through n=8 and rank through n=30.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma–Qi–Yeh–Yeh, Section 3 Theorem 9 and Section 4 Theorem 22; https://arxiv.org/pdf/2401.01760",
+        "Chen–Fu, Introduction and Section 2; https://arxiv.org/pdf/2402.02743",
+        "Ma–Ma–Yeh–Yeh, Sections 1–2; https://arxiv.org/pdf/2002.06930"
+      ],
+      "reasoning": "These papers offer multivariate Eulerian/succession enumerators and fixed-point/Eulerian generating functions, but the inspected transformations equate distributions of distinct statistic families; they do not jointly mark original same-permutation fixed points and original successions. Hence differentiating those displayed generating functions does not yield the claimed cross-covariance. A more general uninspected joint enumerator would remain a priority risk.",
+      "searches": [
+        "\"fixed points\" \"successions\" joint generating function permutation",
+        "On the joint distributions of succession and Eulerian statistics fixed points",
+        "A Grammar of Dumont and a Theorem of Diaconis-Evans-Graham fix succession",
+        "The gamma-positivity of Eulerian polynomials and succession statistics"
+      ]
+    },
+    "checked_sources": [
+      "https://mathweb.ucsd.edu/~ronspubs/14_05_pairs.pdf",
+      "https://statistics.berkeley.edu/tech-reports/822",
+      "https://arxiv.org/pdf/2401.01760",
+      "https://arxiv.org/pdf/2402.02743",
+      "https://arxiv.org/pdf/2404.00607",
+      "https://arxiv.org/pdf/2002.06930",
+      "https://doi.org/10.1002/sapm197961173"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diaconis–Evans–Graham (2013/2014) computes the law of S={i:Pi(i+1)=Pi(i)+1} and equates it to law of truncated Fix, not law of the pair (Fix(Pi),S(Pi)).",
+        "Ma–Qi–Yeh–Yeh (2024) equidistribution is between (bAsc,Des,Suc) and (Exc,Drop,Fix), so it does not identify a same-permutation joint Fix/Suc law.",
+        "Published boundary-localization of fixed-point/descent indicators involves strict inequalities rather than the equation Pi(i+1)=Pi(i)+1; its statements do not determine adjacency of consecutive VALUES."
+      ],
+      "reasoning": "None of these statements implies the specific conditional count P(Pi(j)=j | Pi(i+1)=Pi(i)+1), the exact n-by-(n-1) matrix, or its parity-dependent nullspace. The kernel theorem implies the aggregate covariance, not conversely.",
+      "searches": [
+        "Unseparated pairs and fixed points in random permutations Theorem 1.1 Remark 1.2",
+        "On the joint distributions of succession and Eulerian statistics Theorem 9",
+        "A Refinement of a Theorem of Diaconis-Evans-Graham Theorem 1.4",
+        "fixed-point descent dependence local covariance permutation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Diaconis–Evans–Graham, Theorem 1.1: succession-position set equals in law the truncated fixed-point set; https://arxiv.org/abs/1308.5459",
+        "Du–Ji, Theorem 1.4: a bijection between two different permutations transports fixed points and successions; https://arxiv.org/pdf/2404.00607"
+      ],
+      "reasoning": "A same-distribution statement does not determine Cov(1{Pi(j)=j},1{Pi(i+1)=Pi(i)+1}) within a single Pi. A bijection Pi to a different permutation is not a coupling identity with the original Pi. Searches for the direct covariance, alternating null contrast, and conditional fixed-point law did not identify a statement implying the matrix.",
+      "searches": [
+        "\"fixed points\" \"successions\" \"covariance\" permutations",
+        "random permutation fixed point unseparated pair covariance correlation matrix",
+        "permutation succession indicators fixed-point indicators orthogonality alternating"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct scholarly and full-text searches returned the 2013 set-equidistribution theorem and later succession/Eulerian generating functions; none of the inspected result tables gave the specified fixed-point/succession cross-covariance matrix."
+      ],
+      "reasoning": "The finite covariance matrix is not an existing table recomputation identified by the searches; explicit finite enumeration was used solely as a check. Search absence is not treated as a uniqueness proof.",
+      "searches": [
+        "\"fixed points\" \"successions\" \"covariance\" permutations",
+        "joint distribution fixed points successions random permutation covariance",
+        "random permutation succession fixed point covariance matrix rank"
+      ]
+    },
+    "rationale": "The assessed result is the cross-covariance of fixed-point and succession indicators on the SAME uniform permutation and its parity-dependent linear kernel. The closest original 2013 theorem proves only equality in marginal distribution of sets, which leaves their within-permutation coupling unspecified. Later 2024 bijections and joint Eulerian polynomials concern different pairs of statistics, or equidistribution of statistics on different permutations. No precise same-permutation cross-moment matrix or stronger theorem determining it was identified in the inspected primary material; historical priority remains an explicit residual risk.",
+    "residual_risks": [
+      "Historical combinatorial generating-function literature may encode the within-permutation joint Fix/Suc law without naming covariance.",
+      "Full text of the 1979 Reilly–Tanny article was unavailable; publisher abstract alone cannot exclude broader results.",
+      "No independent human priority review was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes marginal distribution equality and set enumerations; does not specify within-permutation cross-covariance or kernel",
+        "evidence": [
+          "Theorem 1.1 and Remark 1.2, pp. 104–105; Section 2 inclusion-exclusion, pp. 105–106"
+        ],
+        "identifier_or_url": "https://mathweb.ucsd.edu/~ronspubs/14_05_pairs.pdf",
+        "material_read": "Full-text Introduction, Theorem 1.1 and Remarks 1.2–1.4, Sections 2–3 passages, selected Sections 5–6, global covariance/joint term searches; page images of theorem and introduction",
+        "method": "Page-text reading, theorem/assumptions comparison, PDF page screenshot",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Exact same permutation features and the strongest known marginal equivalence"
+      },
+      {
+        "assessment": "The pairs equated by its enumerators differ from original same-permutation fixed-point/succession indicators",
+        "evidence": [
+          "Section 3 Theorem 9, pp. 7–8; Section 4 Theorem 22, pp. 14–15"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.01760",
+        "material_read": "Abstract, Introduction, Section 3 Theorem 9, Section 4 Theorem 22 and adjacent definitions, PDF screenshot of introduction",
+        "method": "Primary full-text inspection and equation-to-claim implication comparison",
+        "title": "On the joint distributions of succession and Eulerian statistics",
+        "trigger": "Potential stronger multivariate succession enumerator"
+      },
+      {
+        "assessment": "Provides generating functions of (exc,fix) and (jump,left-successions) as equidistributed, not their covariance on the same permutation",
+        "evidence": [
+          "Introduction pp. 1–2, Section 2 pp. 3–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2402.02743",
+        "material_read": "Abstract, Introduction and Sections 2–3 definitions/generating-function setup; screenshot of introduction",
+        "method": "Primary PDF reading and distinction between bijective equidistribution and same-object coupling",
+        "title": "A Grammar of Dumont and a Theorem of Diaconis-Evans-Graham",
+        "trigger": "Possible joint fixed-point/succession generating function"
+      },
+      {
+        "assessment": "Maps fixed points of a source permutation to successions of a different permutation; no same-object cross-moment result",
+        "evidence": [
+          "Theorem 1.4, p. 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.00607",
+        "material_read": "Abstract, Introduction and Theorem 1.4 with its constructed bijection, screenshot of theorem",
+        "method": "Direct theorem/bijection comparison and PDF screenshot",
+        "title": "A Refinement of a Theorem of Diaconis-Evans-Graham",
+        "trigger": "Directly relevant further fixed-point/succession refinements"
+      },
+      {
+        "assessment": "Multivariate enumerators relate to other Eulerian statistics; no fixed-point/succession covariance for the same permutation identified in read material",
+        "evidence": [
+          "Abstract and Sections 1–2, pp. 1–7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2002.06930",
+        "material_read": "Abstract, Introduction, Section 2 initial multivariate formulas and definitions; first page screenshot",
+        "method": "Primary text and formula comparison",
+        "title": "The gamma-positivity of Eulerian polynomials and succession statistics",
+        "trigger": "Joint enumerators potentially including fixed points and successions"
+      },
+      {
+        "assessment": "Marginal succession enumerations are clearly stated in abstract; no full-text NOT_COVERING conclusion is asserted",
+        "evidence": [
+          "Publisher abstract identifies enumeration of successions and recurrence, not its complete text"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/sapm197961173",
+        "material_read": "Publisher abstract and bibliographic record; full text not accessible",
+        "method": "Publisher record reading; preprint and open-access source searches did not supply full text",
+        "title": "Counting Successions in Permutations",
+        "trigger": "Older primary enumeration of the same succession statistic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "22fd1b3c-42ea-48eb-bc18-b56730049044",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The directly motivating 2013 theorem finds a surprising identity of the MARGINAL distributions of successions and truncated fixed points. Their dependence on the original same permutation is a separate natural mathematical question. The full signed matrix exposes positive local/boundary correlations and negative bulk; its rank has an odd/even dichotomy and a nonconstant exactly uncorrelated alternating succession mode. The endpoints explain precisely (n-1)/n of total covariance, while the overall correlation decays as 2/n². These are structural, complete linear-dependence facts across all orders, not arbitrary finite slices or trivial renamings.",
+    "status": "PASS"
+  }
+}
