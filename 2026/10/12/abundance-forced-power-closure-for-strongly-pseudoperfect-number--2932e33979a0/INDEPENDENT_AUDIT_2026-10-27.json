@@ -1,0 +1,199 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T00:37:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>1 strongly pseudoperfect, the complement of every complement-closed divisor representation has positive-or-zero mass A=sigma(n)-2n. Each omitted nonsquare orbit contributes d+n/d<=A, giving d^2-Ad+n<=0 and roots (A±sqrt(A^2-4n))/2 when A>=2sqrt(n); if A<2sqrt(n) no two-member orbit may be omitted. The square-root singleton is expressly excepted. When sigma(n)<=3n, A<=n<n+1, hence the (1,n) orbit is in every representation; Wang--Zelinsky Theorem 5 applies to any one such representation and proves strong pseudoperfectness of n^k for all integers k>=1. For n=720, sigma=2418, A=978 and the five omitted orbits (1,720),(10,72),(16,45),(18,40),(20,36) sum to 978 and are pairwise disjoint; the retained complement-closed divisor set sums to 1440. Independently implemented exact set-valued subset-sum DP over every integer 2<=n<720, removing distinguished orbit (1,n) and allowing each other complement orbit independently, gave zero escape candidates; an independent integer bitset DP agreed on each of 719 integers 2..720. Each orbit including square-root singleton is considered exactly once, so this proves the finite leastness claim. Neither the finite calculation nor the checker proves an unbounded power theorem; that step comes from cited Theorem 5.",
+      "risks": [
+        "Theorem 5 is an external mathematical theorem, not re-proved in the assigned package; primary theorem statement and constructive proof inspected.",
+        "Finite cutoff is an exhaustive finite computation only through 719; no inference about larger n or absence of extremely-strong representations at n=720."
+      ],
+      "sources": [
+        "Assigned RESULT.md, all 7 assigned files at frozen commit, current main blob match, direct algebra",
+        "Wang and Zelinsky, Strongly Pseudoperfect Numbers, arXiv:2609.36068v1, Theorem 5 and proof (arxiv.org/abs/2609.36068), inspected full accessible text",
+        "Independent exact rational/integer DP for 2..720, reproduced with two distinct reachable-subset representations; exact 720 witness"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang--Zelinsky Proposition 15 uses pair bound d+n/d>=2sqrt(n) in a narrow nonsquare exclusion, and Theorem 5 gives conditional power closure (arxiv.org/abs/2609.36068).",
+          "McCormack--Zelinsky Question 39 concerns existence of SOME representation containing n (arxiv.org/html/2312.11661v4).",
+          "No inspected theorem provides the unrestricted first n at which the pair (1,n) can be omitted in SOME representation."
+        ],
+        "reasoning": "The pairwise inequality itself is already implicit in the primary proof and merits limited novelty weight. Neither stronger conditional power closure nor the question of at least one distinguished-pair-containing representation implies the finite first-escape classification.",
+        "searches": [
+          "Wang--Zelinsky arXiv:2609.36068v1 primary Sections 1--5, Proposition 15, Theorem 5, tables",
+          "McCormack--Zelinsky arXiv:2312.11661v4 primary Sections 4--5 and Question 39",
+          "Resultary semantic: pseudoperfect representations complementary subset sums first non-extremely strongly pseudoperfect example omitted 1 and n"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.36068",
+        "https://arxiv.org/html/2312.11661v4",
+        "https://oeis.org/A334405",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-strongly-pseudoperfect-integers-with-omega-n-le3--e44b0bb26fb1/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-dyadic-multiples-60-cdot-2-n-are-strongly-pseudoperfect--bfd0e030e549/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Resultary 2^a p theorem classifies a family with exactly one odd prime to exponent one and its first multi-omission at 11776; 720=2^4*3^2*5 lies outside it.",
+          "The Omega<=3 result covers n with at most three prime factors counted with multiplicity; 720 has seven and is outside it.",
+          "The dyadic-60 result proves existence of strong representations in one multiplicative family; it does not classify when a distinguished pair can be omitted in arbitrary representations."
+        ],
+        "reasoning": "Theorem 5 supplies the power implication after forced inclusion is known; it does not itself force that inclusion from abundancy. Previous restricted families do not mathematically imply the all-n least 720 statement, even though low-parameter examples and mechanical inequalities overlap.",
+        "searches": [
+          "Resultary semantic: strongly pseudoperfect omitted pairs least power closure",
+          "Resultary published 2026/10/4 2^a p two-pair classification",
+          "Resultary published 2026/10/4 omega(n)<=3 classification",
+          "Resultary published 2026/10/4 all dyadic multiples 60*2^n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinguished-pair omission is equivalent to subset sum A-(n+1) of other complement orbit weights. The term extremely strongly pseudoperfect means existence of some representation including n, not the property that ALL representations include n (arXiv:2312.11661v4 §5, Question 39).",
+          "Wang--Zelinsky arXiv:2609.36068v1 §2 Theorem 5 requires a representation containing (1,n), not all representations."
+        ],
+        "reasoning": "Theorem 5 and the older extreme-strong property are logically weaker than uniform forcing of (1,n) over all representations. The first escape at 720 is a representation-specific counterexample to universal forced inclusion, NOT a counterexample to extremely-strong existence or to power closure. Prior language about these two quantifiers was explicitly distinguished.",
+        "searches": [
+          "Web: Wang Zelinsky Strongly Pseudoperfect Numbers theorem 5 powers containing 1 n arxiv 2609.36068",
+          "Resultary semantic: strongly pseudoperfect numbers omitted complementary divisor pairs abundance sigma(n)-2n, least number whose strong representation omits (1,n), power closure",
+          "Web: extremely strongly pseudoperfect 720"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A334405 includes 720 among strongly pseudoperfect terms and provides a generating-function membership computation, but does not specify which n first admits a representation omitting (1,n); accessed October 27 2026.",
+          "Wang--Zelinsky Table 2 first ten even examples ends at 216, and there is no 720 text match in the complete accessible arXiv paper.",
+          "McCormack--Zelinsky mentions 720 as a Zaremba record setter, a different invariant."
+        ],
+        "reasoning": "Ambient sequence membership or divisors of 720 does not imply existence, exact witness, or leastness of a representation omitting (1,n). The explicit first-escape classification is not a direct table lookup from inspected prior sources.",
+        "searches": [
+          "OEIS A334405 exact database entry https://oeis.org/A334405",
+          "Web: strongly pseudoperfect 720 omitted",
+          "Wang--Zelinsky arXiv:2609.36068v1 tables for first even examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS applies to the natural representation-level least-escape boundary 720 in conjunction with the global abundance region. The omitted-mass bound and quadratic band are elementary observations already essentially present as the inequality used in Wang--Zelinsky Proposition 15; they are not credited as standalone major novelties. The sigma<=3n power consequence is likewise a short corollary of Theorem 5 plus the elementary mass bound. Nevertheless, the exact least n>1 admitting ANY strongly pseudoperfect representation with (1,n) omitted, including the five-orbit witness and exhaustive lower bound, is not stated or implied by the inspected primary text, known full published Resultary cases, or the OEIS entry; it identifies a natural sharp first failure of representation-wise forcing relevant to Theorem 5. No assertion is made that 720 lacks another representation containing (1,n), or that power closure fails at 720.",
+      "residual_risks": [
+        "The core pair inequality and power corollary are cheap deductions from the published primary argument; positive originality depends materially on the exact natural 720 first-escape classification, not on repackaging Proposition 15.",
+        "Historical unpublished divisor-subset computations might record the same first escape without a searchable title; failed searching cannot certify novelty.",
+        "Some papers classify related constrained factor shapes or exactly one omitted pair; no exhaustive scan of every article or private database was possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE: conditional power theorem and elementary omitted-pair bound known; exact 720 first representation-level escape not found",
+          "evidence": [
+            "Theorem 5 at paper §1 and proof §2",
+            "Proposition 15 at §3",
+            "Question 19 §4",
+            "Section 5 Table 2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.36068",
+          "material_read": "Full accessible HTML-rendered paper: definitions and constructions; Theorem 5 and its constructive proof; Proposition 15; Question 19; Section 5 tables of first strong numbers",
+          "method": "Primary lawful arXiv textual full version, inspected relevant sections and full-document text search",
+          "title": "Strongly Pseudoperfect Numbers",
+          "trigger": "Same integer objects, Theorem 5 dependency, Proposition 15 omission bound and open power question"
+        },
+        {
+          "assessment": "NOT_COVERING: neither the abundance-forcing theorem nor first omission-at-720 classification; quantifiers carefully distinguished",
+          "evidence": [
+            "§5 strongly pseudoperfect definition and Question 39",
+            "§5 first examples; §2 Zaremba 720 mention"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.11661v4",
+          "material_read": "Accessible full HTML searched and relevant §4 and §5 portions read, especially strong definition, Question 39, examples and mention of 720 in unrelated Zaremba tables",
+          "method": "Primary arXiv legal HTML inspection",
+          "title": "Weighted Versions of the Arithmetic-Mean-Geometric Mean Inequality and Zaremba’s Function",
+          "trigger": "Origin of strong versus extremely strong representation definitions and closest earlier question"
+        },
+        {
+          "assessment": "NOT_COVERING: membership table does not classify representations omitting n",
+          "evidence": [
+            "A334405 includes 720 among terms and a membership-generating function but no n-omission witness or minimality claim"
+          ],
+          "identifier_or_url": "https://oeis.org/A334405",
+          "material_read": "Entry definitions, terms, examples, bibliographic references and supplied coefficient-computation code",
+          "method": "Direct database entry read",
+          "title": "A334405, strongly pseudoperfect numbers",
+          "trigger": "Exact existing number database includes 720"
+        },
+        {
+          "assessment": "NOT_COVERING: exactly 2^a p family; 720 is not of this shape",
+          "evidence": [
+            "Formula p=(M-A_I)/(1+B_I), first two-orbit omission at 11776 restricted to 2^a p"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02/RESULT.md",
+          "material_read": "Complete RESULT.md including exact binary mask theorem, finite boundary proof, assumptions and limitations",
+          "method": "Read-only GitHub connector full file fetch",
+          "title": "The first multi-pair strongly pseudoperfect number of the form 2^a p",
+          "trigger": "Nearest published full exact omitted-pair classification"
+        },
+        {
+          "assessment": "NOT_COVERING: 720 has Omega=7",
+          "evidence": [
+            "Only strongly pseudoperfect n with Omega<=3 are 6 and 28"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-strongly-pseudoperfect-integers-with-omega-n-le3--e44b0bb26fb1/RESULT.md",
+          "material_read": "Complete RESULT.md with cases and quantitative scope",
+          "method": "Read-only GitHub connector full file fetch",
+          "title": "Strongly pseudoperfect integers with Omega(n)<=3",
+          "trigger": "Possible stronger low-parameter classification"
+        },
+        {
+          "assessment": "NOT_COVERING: 720 is not 60*2^n; even within family, existence not omission-classification",
+          "evidence": [
+            "Constructs strong representations for n=60*2^k, all k>=0; does not classify existence of omissions of (1,n)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-dyadic-multiples-60-cdot-2-n-are-strongly-pseudoperfect--bfd0e030e549/RESULT.md",
+          "material_read": "Complete RESULT.md including explicit orbit selections and limitations",
+          "method": "Read-only GitHub connector full file fetch",
+          "title": "All dyadic multiples 60*2^n are strongly pseudoperfect",
+          "trigger": "Includes 720 only as a potential ambient family? Check divisibility and implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is the standard complement-closed strong-pseudoperfect divisor representation; the distinguished (1,n) orbit is exactly Wang--Zelinsky Theorem 5’s hypothesis for power closure. The abundance threshold provides a clean structural region where that hypothesis holds for EVERY representation, and the independently verified first integer permitting its failure in some representation is precisely 720 with an explicit five-pair witness. The number 720 is not an arbitrary slice: it is a natural first boundary for an inclusion property singled out by the motivating open question. The exact cutoff serves as a small reproducible benchmark for studies of representation quantifiers and non-forced-pair phenomena. Standalone innovation in the one-line omitted-pair bound is modest and must not be overstated. No claim that 720 disproves extremely strong pseudoperfectness or power closure.",
+      "risks": [
+        "The forced band and abundance corollary alone would be routine; value hinges on the motivated exact representation-level cutoff.",
+        "The first-escape example is a failure of every-representation forcing, not of existence of another good representation, which limits downstream conclusions."
+      ],
+      "sources": [
+        "Wang--Zelinsky Theorem 5 and Question 19, arXiv:2609.36068",
+        "McCormack--Zelinsky Question 39, arXiv:2312.11661v4",
+        "Independent exact exhaustive orbit-subset DP and explicit 720 witness",
+        "OEIS A334405 for ambient first-number sequence"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.36068",
+    "https://arxiv.org/html/2312.11661v4",
+    "https://oeis.org/A334405",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-strongly-pseudoperfect-integers-with-omega-n-le3--e44b0bb26fb1/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-dyadic-multiples-60-cdot-2-n-are-strongly-pseudoperfect--bfd0e030e549/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The finite bound is n<720 only; integer-DP exhaustiveness is backed by complement-orbit characterization, not an infinite general theorem.",
+    "For square n, singleton sqrt(n) can be omitted independently of the nonsquare pair band.",
+    "The 720 witness does NOT show absence of any representation including (1,n), nor failure of power closure.",
+    "Originality is qualified best-of-knowledge, with mechanical parts credited to prior literature."
+  ],
+  "residual_risks": [
+    "The core pair inequality and power corollary are cheap deductions from the published primary argument; positive originality depends materially on the exact natural 720 first-escape classification, not on repackaging Proposition 15.",
+    "Historical unpublished divisor-subset computations might record the same first escape without a searchable title; failed searching cannot certify novelty.",
+    "Some papers classify related constrained factor shapes or exactly one omitted pair; no exhaustive scan of every article or private database was possible.",
+    "Theorem 5 is an external mathematical theorem, not re-proved in the assigned package; primary theorem statement and constructive proof inspected.",
+    "Finite cutoff is an exhaustive finite computation only through 719; no inference about larger n or absence of extremely-strong representations at n=720.",
+    "The forced band and abundance corollary alone would be routine; value hinges on the motivated exact representation-level cutoff.",
+    "The first-escape example is a failure of every-representation forcing, not of existence of another good representation, which limits downstream conclusions."
+  ],
+  "schema_version": 1
+}
