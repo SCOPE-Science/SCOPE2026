@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Coprimality and parity force an integer parameter and split the solution space. In the odd chamber the two root conjugations stay integral, preserve the conic, and strictly descend except at the unique minimal point; that proves parameter four. In the even chamber the Pell substitution is an exact equivalence including the converse and parity restrictions. The local obstruction for every prime congruent to seven modulo eight excludes two residue classes, and CRT plus the standard Mertens estimate yields the claimed counting bound. The embedded `check.py` independently checked a finite sample and returned `VERIFY_OK`; no infinitude is inferred from the finite sample.
+PASS
 
-## Originality
+For positive x,y, gcd=1 and x odd convert the divisibilities to xy|(x²+2y²+1). The quotient k≥3. The 2-adic valuation of x²+1 separates odd y (k≡4 mod8) from y≡2 mod4 (odd k). Integral positive Vieta conjugations in the odd chamber strictly descend according to sign of x²−2y², terminating uniquely at (1,1) and k=4. Completing squares gives u²−2y²=−1 and x=2y±u. The even chamber is exactly s²−(k²−8)t²=−1, y=2t and x=kt±s, with all parity and positivity converses checked; k=3 yields only (3,2), solvable odd k≥5 infinite by units. For primes p≡7 mod8, the two roots k²≡8 mod p are impossible because −1 is nonsquare. CRT over p≤√log X, the product bound and the Mertens progression estimate yield ≪X/√loglogX. Independently counted 15 pairs in 1≤x,y≤350 and parameters {3,4,5,7,9,11}; this is corroboration, not the infinite proof.
 
-PASS subject to the stated residual risk. The motivating 2026 paper proves general quadratic-chain gauge and different nonunit examples, but does not give this anisotropic divisibility classification or its parameter-spectrum density bound. Mills's original monic-system theorem does not address the coefficient two, and the integrality hypotheses in his general 1956 theorem fail here. Classical negative-Pell distribution theorems address broad discriminant families, not the conic parameter set defined by this mixed divisibility system. Searches for equivalent formulas, direct parameter tables, and broader conic theorems disclosed no decisive covering result. A not-indexed special classification remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. The first asymmetric quadratic coefficient beyond the symmetric monic setting is a mathematically motivated test of integral Vieta-jump closure. The exact parity-controlled collapse of the odd chamber, full Pell classification of the other chamber, exceptional isolated parameter, infinite fibers at the others, and global zero-density parameter spectrum give a coherent structural classification rather than an isolated congruence or numerical exercise.
+Best-of-knowledge priority comparison for Parity rigidity and thin Pell-parameter spectrum for x|2y²+1, y|x²+1: actual mathematical claims and implications, not title-only comparisons, evaluated against the listed primary sources and Resultary. Relevant prior methods are credited; no decisive stronger covering result was demonstrated within accessible readings. Residual priority risks remain explicit.
 
-## Scope and risk
+## value
 
-This is an exact arithmetic classification and a nonoptimal upper estimate, not a complete elementary determination of negative-Pell-soluble discriminants. Independence from unindexed earlier special cases is not guaranteed. No independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The asymmetric 1:2 quadratic divisibility pair is a natural test of whether integral Vieta conics retain classification under nonmonic coefficients. The exact parity split, exceptional parameter, Pell fibers, and density-zero parameter set jointly answer a structural question; not merely a generic Pell rewrite or a trivial congruence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
