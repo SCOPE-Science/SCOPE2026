@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local charge \(q(v)\) is at least one for every original vertex, and its sum equals the total label weight. Equality at every vertex limits incident edge labels to one full pair or two opposite singleton labels, forcing vertex-disjoint matching edges and alternating even cycles. Testing an unselected edge-vertex identifies precisely the residual proper two-coloring condition. Conversely all extracted configurations satisfy the original rainbow condition and have weight \(|V|\). The proof treats isolated vertices, empty matching/cycle families, cycles with chords, and disconnected graphs. The path recurrence follows from a two-state tiling grammar. Exhaustive enumeration directly against the original definition matched 86 instances and checked the claimed specializations; it does not establish the infinite statement alone.
+PASS
 
-## Originality — PASS (qualified by priority risk)
+For every finite simple graph, the charge q(v)=|f(v)|+1/2 sum_{e incident v}|f(e)| sums to total token weight and is >=1 for each original vertex, including isolated vertices; a maximal matching realizes |V|. Equality forces each original vertex to bear either one singleton and no selected incident edges, one incident {1,2} edge, or exactly two opposite singleton incident edges. The latter edges form vertex-disjoint alternating even cycles, the doubles a matching disjoint from cycles; all other original vertices U are singletons and the remaining empty edge-vertices impose a proper two-coloring of G[U]. Converse verification proves the bijection and sum over matching/cycle packs. Path tiling states yield (1+z)/(1-z-z^2-z^3); star formula follows. Direct independent exhaustive checks of all 75 simple labelled graphs on 1..4 vertices, counting all feasible weight-|V| assignments from adjacency rather than from the structural formula, agreed, including N(K4)=21. Finite checks are not the all-orders proof.
 
-Kim's 2020 preprint and its 2021 publication develop middle-graph rainbow domination, primarily for three colors. Kim's 2024 RAIRO article proves the scalar minimum \(\gamma_{r2}(M(G))=|V(G)|\) and studies stability, with a separate classification of minimum Roman functions. Neither inspected text enumerates all minimum two-rainbow functions with cycles; their results do not imply the present equality-case parameterization merely from the scalar value. The nearest indexed records address other graph classes or other domination variants. The shifted tribonacci path sequence is already OEIS A047081 and is not claimed as a new sequence. An unindexed equivalent combinatorial classification or stronger theorem is a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The full minimizer set is a natural next invariant after Kim's equality of optimal weights for all middle graphs. The structural description distinguishes previously invisible alternating even-cycle solutions from matching-only Roman-type solutions and gives a uniform exact sum for every finite graph. The forest specialization, path recurrence, and cycle-rich \(K_4\) instance exhibit this distinction in explicit natural families. This is substantially more than repeating the preexisting optimum or reinterpreting an integer sequence.
+The minimum rainbow weight |V(G)| is prior (Kim 2024) and the path integer recurrence is prior (OEIS A047081). The full equality-case bijection with arbitrary alternating even cycle packs and residual proper-colorings is not established by the inspected middle-graph scalar optimum or Roman minimum classifications. Best-of-knowledge originality holds for this structural counting theorem only; unindexed overlap remains possible.
 
-## Scientific limits
+## value
 
-Counting graph-wide configurations via the formula need not be computationally efficient; unindexed priority overlaps remain possible. The proof's infinite scope is mathematical; the standalone finite enumeration is supporting verification only. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifying every minimizer is the canonical structural refinement of a known sharp graph-parameter minimum. Alternating even cycles produce optimal two-rainbow labelings beyond matching-derived Roman configurations; the formula treats all finite graphs and yields natural forest, path and star specializations. This is not a rename of the known optimum or a new claim for the classical recurrence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
