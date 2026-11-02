@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:58:48.824317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a deck with n fixed types each of multiplicity m, the pathwise identity T-m=count of correct predictions at multi-maximal ties follows by telescoping the maximum remaining count. The exact score compensator is S=sum_k W_k/(nm-k). Centered hypergeometric counts have the n-bridge martingale FCLT; on intervals away from endpoints, bounded jumps and quadratic variation give joint convergence with the noise. Martingale-integrand convergence for argmax requires smoothing: Gaussian pairwise near-tie occupation tends to zero and Itô-isometry bounds control the approximation. Endpoint hypergeometric sqrt(1-u) estimates control the compensator tail; qv controls the martingale tail. Brownian rank Tanaka yields 1/2 symmetric local time of the top two coordinate gap; n=2 yields the Rayleigh law. Direct independent finite-deck enumeration verified exact pathwise score-tie identity and compensator equality for five small n,m, but does not prove weak convergence. A specialist proof check of selector smoothing remains a stated risk.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dey–Manthripragada analyze the same complete feedback model and show a Brownian bridge integral for S, its compensator.",
+          "Kuba–Panholzer obtain the n=2 score Rayleigh law.",
+          "General ranked semimartingale Tanaka identity yields local-time term once a stochastic limit exists."
+        ],
+        "reasoning": "All structural prerequisites acknowledged; none of the accessible statements directly gives the actual-score fixed n>=3 convergence including discontinuous argmax integrand.",
+        "searches": [
+          "Dey–Manthripragada arXiv:2610.17479",
+          "Kuba–Panholzer arXiv:2303.04609",
+          "Ghomrasni–Menoukeu Pamen arXiv:0807.5001"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 0f97c21db5b4540be4774e0647ff79144503d402",
+        "Dey–Manthripragada arXiv:2610.17479 abstract/index only, full text inaccessible",
+        "Kuba–Panholzer arXiv:2303.04609",
+        "Ghomrasni–Menoukeu Pamen arXiv:0807.5001",
+        "Resultary query: complete feedback card guessing fixed number types limit local time Brownian bridge top rank score"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A convergence theorem for S alone cannot imply convergence for T without treating its martingale difference.",
+          "n=2 Rayleigh confirms normalization but is not a theorem for n>=3."
+        ],
+        "reasoning": "The new nontrivial step is joint stochastic integral convergence with discontinuous maximizing selector. General continuous rank Tanaka closes the argument after that step but does not subsume the discrete-card law.",
+        "searches": [
+          "Dey–Manthripragada fixed-n compensator Proposition 1.4",
+          "Kuba–Panholzer n=2 limit",
+          "semimartingale order statistics rank Tanaka"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claimed law is equivalent via ranked Brownian Tanaka to integral of top bridge/(1-u) plus selected-noise stochastic integral. General rank decompositions express the continuous identity, not its discrete deck convergence."
+        ],
+        "reasoning": "Both the compensator and the full score share the bridge signal but differ at scale sqrt(m) by non-negligible martingale noise. A known compensator law is not an equivalent actual-score limit.",
+        "searches": [
+          "complete feedback card guessing fixed number types limit local time Brownian bridge top rank score",
+          "Dey Manthripragada 2610.17479 fixed n score limit local time",
+          "Brownian bridge max top two rank local time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct fixed-n>=3 score distribution was returned among Resultary semantic neighbors; many hits concerned unrelated rank martingales or card statistics."
+        ],
+        "reasoning": "No matching exact probability law found, but absence in indexed catalogue is not priority proof.",
+        "searches": [
+          "complete feedback card guessing fixed number types limit local time Brownian bridge top rank score",
+          "fixed n 3 complete feedback card guessing score law local time"
+        ]
+      },
+      "rationale": "The same card-guessing model is studied by Dey–Manthripragada in 2026; their accessible result is the fixed-n predictable compensator bridge integral, and the cited primary account says n>=3 actual-score law remained open. Kuba–Panholzer n=2 Rayleigh is prior. A general semimartingale rank/local-time decomposition is prior, but its application requires discrete-score martingale functional convergence, not supplied by that identity. The relevant Dey full text was inaccessible and an institutional retrieval attempt safety-blocked; best-of-knowledge originality is expressly qualified.",
+      "residual_risks": [
+        "Most relevant Dey–Manthripragada complete original full text could not be freshly inspected; authorized retrieval was safety-blocked, not retried or bypassed.",
+        "Ranked stochastic-integral convergence with discontinuous argmax needs specialist technical checking; bounded deck tests are not convergence proof.",
+        "Possible broader unindexed FCLT/rank diffusion theorem or recent preprint could already imply same score law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Compensator bridge limit clearly relevant; complete full-source overlap of actual score not excluded",
+          "evidence": [
+            "Abstract concerns complete feedback score and fixed-n/large-n asymptotics; package cites Proposition 1.4 for S, not T."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.17479",
+          "material_read": "Accessible arXiv abstract, bibliographic data and indexed description only; full HTML/PDF inaccessible this run",
+          "method": "Compared accessible theorem scope against package, attempted lawful full-text, then one institutional attempt was safety-blocked",
+          "title": "Limit Theorems for the Complete Feedback Card Guessing Game",
+          "trigger": "Same exact n,m score and compensator, strongest potential coverage"
+        },
+        {
+          "assessment": "Known two-type limit supports normalization, cannot cover n>=3 statement",
+          "evidence": [
+            "Two-type complete feedback model limiting Rayleigh law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.04609",
+          "material_read": "Accessible cited result and arXiv indexed abstract/description; not a full-paper fresh read",
+          "method": "Compare two-type score normalization with stated Rayleigh CDF",
+          "title": "On Card guessing with two types of cards",
+          "trigger": "Exact n=2 boundary case of claim"
+        },
+        {
+          "assessment": "Rank local-time identity is prior, not model-specific score convergence",
+          "evidence": [
+            "Semimartingale rank decomposition and local times."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0807.5001",
+          "material_read": "ArXiv abstract and indexed description; full source not reread",
+          "method": "Mathematical implication comparison with discrete-deck FCLT",
+          "title": "Decomposition of order statistics of semimartingales using local times",
+          "trigger": "Potential general theorem underlying local-time representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The actual greedy score, unlike only its predictable compensator, is the natural statistic in a sequential-feedback guessing game. Identifying its fixed-type non-Gaussian distributional limit by top-rank collision local time answers a concrete statistical probability question, with an exact known two-type normalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md Git blob 0f97c21db5b4540be4774e0647ff79144503d402",
+    "Dey–Manthripragada arXiv:2610.17479 abstract/index only, full text inaccessible",
+    "Kuba–Panholzer arXiv:2303.04609",
+    "Ghomrasni–Menoukeu Pamen arXiv:0807.5001",
+    "Resultary query: complete feedback card guessing fixed number types limit local time Brownian bridge top rank score"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Most relevant Dey–Manthripragada complete original full text could not be freshly inspected; authorized retrieval was safety-blocked, not retried or bypassed.",
+    "Ranked stochastic-integral convergence with discontinuous argmax needs specialist technical checking; bounded deck tests are not convergence proof.",
+    "Possible broader unindexed FCLT/rank diffusion theorem or recent preprint could already imply same score law."
+  ],
+  "residual_risks": [
+    "Most relevant Dey–Manthripragada complete original full text could not be freshly inspected; authorized retrieval was safety-blocked, not retried or bypassed.",
+    "Ranked stochastic-integral convergence with discontinuous argmax needs specialist technical checking; bounded deck tests are not convergence proof.",
+    "Possible broader unindexed FCLT/rank diffusion theorem or recent preprint could already imply same score law."
+  ],
+  "schema_version": 1
+}
