@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact conditioning gives p(k|L=l)=D(n-k)/[(k-l)!(n-k)!]. A Pascal-matrix and generalized-Vandermonde factorization proves every interior ordered minor strictly positive via a specific positive Cauchy-Binet term. Rodrigues orthogonality gives k positive simple Laguerre roots; the resulting affine-factor product has an explicitly strictly negative logarithmic second derivative on every allowed count for n>=2. The boundary/support exclusions have been handled, and verify.py passed 2563 exact finite diagnostics (not substitutes for general proof).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Galvin–Pacurar, arXiv:1807.08658, introduction and Theorem 1.2: the Pascal binomial matrix is totally nonnegative.",
+        "NIST DLMF 18.2(i),(vi): positive-weight orthogonal polynomials have simple zeros inside the support interval.",
+        "Classical rectangular-board rook polynomials are related to generalized Laguerre polynomials; this provides an alternate known route to the real-rooted polynomial factor."
+      ],
+      "reasoning": "These broad established theorems supply algebraic ingredients but do not explicitly identify the particular full matching-count likelihood as a strictly totally positive parameter kernel, or state its exact statistical Hessian. The application relies on the specialized factorial-size-bias identity. The possibility of an implicit but unstated immediate corollary in older total-positivity treatments is acknowledged.",
+      "searches": [
+        "total non-negativity of some combinatorial matrices binomial coefficients Galvin Pacurar",
+        "DLMF generalized Laguerre zeros positive alpha orthogonality Rodrigues",
+        "Pascal matrix totally positive minors binomial coefficients factorization"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2112.12442",
+      "https://doi.org/10.1007/s11009-023-10067-6",
+      "https://dlmf.nist.gov/18.2",
+      "https://arxiv.org/abs/1807.08658"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "O'Neill, sections 5–6, explicitly asserts unimodality/unique MLE and monotone likelihood-ratio order; these weaker conclusions are prior results.",
+        "The present factorization gives the exact formula d²log p/dtheta²=-(n-k)/(1-theta)²-sum (z-1)²/(1+(z-1)theta)²<0 and proves all minors of order 1 through n strictly positive."
+      ],
+      "reasoning": "The exact curvature identity is strictly stronger than a unique maximum or unimodality, and all-order strict total positivity is stronger than TP2/likelihood-ratio order. The original mass formula plus classical polynomial and matrix theory is sufficient to derive the results, but the identified application and explicit universal certificates are not stated in the inspected primary text. The value and originality depend on the substantive inferential shape strengthening, not on redescribing the earlier PMF.",
+      "searches": [
+        "O'Neill 2023 matching distribution log likelihood unimodal unique MLE",
+        "O'Neill 2023 generalized matching distribution monotone likelihood ratio test",
+        "Laguerre polynomial matching rook polynomial complete bipartite graph real zeros"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "O'Neill, arXiv:2112.12442 / DOI:10.1007/s11009-023-10067-6, sections 3 and 6: provides exact binomial-matching convolution and discusses the monotone-likelihood-ratio property, not all-order strict minors.",
+        "NIST DLMF 18.2(vi) supplies simple positive zeros for orthogonal polynomials on a positive interval."
+      ],
+      "reasoning": "Parameter likelihoods may be viewed as binomial mixtures of factorial-size-biased fixed-point laws or rectangular-board rook polynomials. Both equivalent descriptions were used to compare implications. The source order-two likelihood-ratio statement alone does not imply higher-order strict determinants; its explicit formula enables the new structural deduction only after independent identification and proof of the requisite total-positivity factors.",
+      "searches": [
+        "generalised matching distribution random permutation partially known fixed points total positivity strict total positive likelihood ratio order",
+        "Ben O'Neill generalized matching distribution Laguerre polynomial factorization log concavity",
+        "card matching known matches Laguerre polynomials likelihood concavity total positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published matching source provides its full probability mass function, not the claimed determinants or curvature identity.",
+        "Related indexed findings concern fixed-point–descent covariance and other polynomial real-rootedness questions, with different measures and parameters."
+      ],
+      "reasoning": "No exact claim match was found among accessible indexed research summaries or the own-claim deduplication set. This is only a bounded literature-overlap check, not a theorem of absence or uniqueness; no full-text noncoverage inference is made from snippets.",
+      "searches": [
+        "partial-information matching distribution O'Neill 2021 polynomial generalized Laguerre real rooted strict log-concavity likelihood total positivity of all orders",
+        "factorial size biased fixed point count random permutation matching distribution",
+        "random permutation fixed points independent preallocated correct matching Laguerre zeros"
+      ]
+    },
+    "rationale": "O'Neill 2021/2023 supplies the distribution and states likelihood-ratio ordering and likelihood unimodality, so these are NOT claimed as new. The specific strict positivity of all ordered minors, positive Laguerre zero factorization of each parameter likelihood, and exact strict curvature identity were not found in the accessible full primary article or targeted comparisons. General classical results on Pascal total nonnegativity and orthogonal-polynomial zeros are credited as proof ingredients; an unindexed earlier direct application remains possible.",
+    "residual_risks": [
+      "Older, unindexed statistical total-positivity literature could contain the same specialized application.",
+      "Classical general factorization/zero theorems imply the conclusion after identifying the matching mass formula, so priority of the combined application should be independently checked.",
+      "No independent mathematical audit or external certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes first public posting 2021-12-23; abstract alone is not used for a full-text noncoverage inference",
+        "evidence": [
+          "ArXiv abstract and 2021-12-23 posting metadata"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.12442",
+        "material_read": "ArXiv abstract, author/title and date; full arXiv HTML was unavailable",
+        "method": "Read public abstract and metadata before inspecting the same paper in lawful open-access full text",
+        "title": "A generalised matching distribution for the problem of coincidences",
+        "trigger": "Earliest public version and exact model/date"
+      },
+      {
+        "assessment": "Covers mass function, known stochastic and likelihood-ratio ordering, and assertion of unimodality; does not explicitly contain all-order strict determinants or Laguerre-root likelihood curvature",
+        "evidence": [
+          "Section 3, definition and convolution of generalized matching distribution",
+          "Section 5, unimodality and likelihood-score discussion",
+          "Section 6, monotone-likelihood-ratio statement and tests"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11009-023-10067-6",
+        "material_read": "Complete accessible journal HTML, including distribution definitions, theorems, inference and hypothesis tests, discussion and notes",
+        "method": "Read open-access full article, specifically sections 1, 3, 5, 6, conclusion and proof text; searched its content for Laguerre, log-concavity and total positivity",
+        "title": "A Generalised Matching Distribution for the Problem of Coincidences",
+        "trigger": "Same object, same parameter, exact model and directly plausible covering paper"
+      },
+      {
+        "assessment": "Supports positive simple zeros of the generalized Laguerre polynomial once its positive orthogonality measure is identified",
+        "evidence": [
+          "Section 18.2(i), positive-weight orthogonality",
+          "Section 18.2(vi), all zeros simple in interval of orthogonality"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/18.2",
+        "material_read": "Sections 18.2(i) and 18.2(vi), including simple-zero statement",
+        "method": "Read NIST mathematical reference section and use Rodrigues orthogonality proof in the manuscript",
+        "title": "General Orthogonal Polynomials",
+        "trigger": "Critical classical lemma on zeros"
+      },
+      {
+        "assessment": "Confirms Pascal binomial total nonnegativity, an essential known ingredient, without explicitly treating this parameterized matching likelihood",
+        "evidence": [
+          "Introduction explicitly lists [binom(m,k)] as totally nonnegative",
+          "Theorem 1.2 gives a broader combinatorial matrix characterization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1807.08658",
+        "material_read": "Introduction, binomial matrix example and Theorem 1.2 from accessible arXiv HTML",
+        "method": "Read actual mathematical framework and theorem, then give a direct bidiagonal proof independently",
+        "title": "Total non-negativity of some combinatorial matrices",
+        "trigger": "Potential general dominating theorem for Pascal matrix ingredient"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8d739bd-6b19-4ab7-b6b9-95ec92e39ad4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-order likelihood determinant classification and exact negative Hessian formula address the published model's core matching-ability inference. They strictly strengthen the earlier order-two MLR and asserted unimodality into universal finite-sample structural constraints and a globally certified one-dimensional optimization geometry, for every n and every allowable observation. This is an exact natural invariant of a motivated statistical law rather than a selected numerical slice; known ingredient theorems are credited.",
+    "status": "PASS"
+  }
+}
