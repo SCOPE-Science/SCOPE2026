@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:13:49.706667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2, Q SPD, E_Q={x:x^T Q^-1 x<=1}, derive by affine coarea the (n-1)-section formula A_Q(u,s)=kappa_{n-1} sqrt(D)/sqrt(q) (1-s^2/q)_+^((n-1)/2), D=det Q, q=u^T Q u. Central observations yield u^T H u=kappa_{n-1}^2/A_Q(u,0)^2 with H=Q/D. The m=n(n+1)/2 normals e_i and (e_i+e_j)/sqrt2 reconstruct each H_ij by polarization; D=(det H)^(-1/(n-1)) then recovers Q without separately knowing volume. For arbitrary N<m normals, a nonzero kernel T of the symmetric quadratic sampling map exists. If normals span, no nonzero semidefinite kernel T is possible, hence T indefinite. If not, T=vw^T+wv^T with v perpendicular to all normals and w independent of v is indefinite and annihilates samples. The positive-definite pencil I+zT has bounded interval endpoints where determinant tends to zero; by IVT it admits distinct negative and positive z with equal positive determinant (e.g., 1/2), identical sampled q, hence identical complete all-offset section profiles and total volume. Scaling preserves pair ambiguity and forces arbitrarily large minimum eigenvalues. For single noncentral offset t>0 with known determinant and Q> n t^2 I, the scalar F_t(q)=(q-t^2)^((n-1)/2)q^(-n/2) has logarithmic derivative (n t^2-q)/(2q(q-t^2))<0 and each m-sample uniquely recovers q; the previous ambiguity persists under sufficient simultaneous scaling. Independent exact 3D inversion, 2D equal-determinant ambiguity and derivative checks passed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fish--Ryabogin--Sun--Yaskin arXiv:2610.10229v1, notably Theorems 6.1/6.2, study section functions with all directions/variable offset conditions.",
+          "Published Global Barker--Larman rigidity for ellipsoids uses a continuum of tangent normals, as its indexed statement says.",
+          "Published finite-moment reconstruction of ellipsoid axes uses Haar-random unoriented section-volume moments to recover unordered semiaxes, not a prescribed finite set of oriented quadratic samples."
+        ],
+        "reasoning": "All-direction injectivity alone does not imply m-direction injectivity or prove N<m impossibility even with a fixed determinant, and unoriented moments do not recover eigenvectors/orientation. The current claim is not a corollary of either inspected statement.",
+        "searches": [
+          "centered ellipsoids reconstruct from finite parallel hyperplane section volumes determinant known quadratic form measurements",
+          "arxiv:2610.10229v1 section-function determination all directions",
+          "global Barker Larman rigidity ellipsoids tangent normals all directions"
+        ]
+      },
+      "checked_sources": [
+        "Fish--Ryabogin--Sun--Yaskin arXiv:2610.10229v1 relevant Sections 1 and 6",
+        "Published Global Barker–Larman rigidity for ellipsoids (Resultary summary)",
+        "Published finite-moment reconstruction of ellipsoid axes (Resultary summary)",
+        "Gardner Geometric Tomography chapter 7 bibliographic description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work: all-direction section data determine body/ellipsoid under specified offset arrangements.",
+          "Current claim: every N<m fixed directions admit distinct same-volume ellipsoids whose entire offset profiles coincide, while one explicit set of m central sections determines Q."
+        ],
+        "reasoning": "All-direction rigidity is compatible with nonidentifiability from each smaller finite direction set. The equal-volume pair requires determinant crossing along an indefinite kernel matrix; not a consequence of simply counting variables.",
+        "searches": [
+          "centered ellipsoids reconstruct from finite parallel hyperplane section volumes determinant known quadratic form measurements",
+          "Fish Ryabogin Sun Yaskin Theorem 6.2 ellipsoid all normal sections",
+          "published Global Barker Larman rigidity for ellipsoids"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Central sections invert to q/D, so the model is a projective quadratic measurement problem on SPD matrices.",
+          "Known polarization determines a symmetric bilinear form from m quadratic samples but does not alone settle the volume-preserving N<m ambiguity across every normal design."
+        ],
+        "reasoning": "Compared finite tomography, phase-retrieval/quadratic-form interpolation and moment inversion aliases. The elementary algebraic ingredient is acknowledged as known; no existing result with the exact determinant-constrained global ambiguity and one-height thick class was identified in inspected sources.",
+        "searches": [
+          "centered ellipsoids reconstruct from finite parallel hyperplane section volumes determinant known quadratic form measurements",
+          "ellipsoid finite directions tomography quadratic form polarization central sections equal determinant ambiguity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "m=n(n+1)/2 is the dimension of Sym_n, but the determinant-constrained sharp lower bound is not merely a local dimension count.",
+          "The source includes an explicit m-normal design, a universal obstruction for arbitrary N<m, and no finite n-only table."
+        ],
+        "reasoning": "The result is an every-n structural identifiability theorem with adversarial normals and fixed-volume ambiguity, not a known computed table of individual ellipsoids. Older matrix tomography texts remain a priority risk.",
+        "searches": [
+          "centered ellipsoids reconstruct from finite parallel hyperplane section volumes determinant known quadratic form measurements",
+          "minimal number of central section normals for n-dimensional centered ellipsoid reconstruction table",
+          "quadratic forms finite measurement designs n(n+1)/2"
+        ]
+      },
+      "rationale": "Qualified PASS for the sharp number of prescribed angular directions for oriented centered ellipsoid reconstruction, including equal-volume ambiguity from every smaller fixed direction set and fixed noncentral-height thickness regime. Classical ellipsoid section formula, quadratic-form polarization and all-direction geometric tomography are prior work. A textbook finite quadratic-form sampling result might imply some portions, but the volume-preserving all-offset lower bound is an additional universal quantifier not shown in inspected all-angle articles.",
+      "residual_risks": [
+        "An equivalent finite-direction quadratic-form interpolation or determinant-constrained tomography lemma may appear in older inverse geometry texts.",
+        "Gardner chapter and published Resultary comparators were not read in full, so comparisons limited to identified statements.",
+        "Exact noiseless reconstruction only, no numerical conditioning or nonellipsoidal uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The all-direction statements do not contain sharp prescribed finite-direction cutoff or determinant-matched N<m pairs in inspected portions",
+          "evidence": [
+            "Theorems 6.1/6.2 assume section information over all directions or suitable all-angle families"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.10229v1",
+          "material_read": "Original full HTML problem setup, section-function definition, Section 6 and Theorems 6.1/6.2 concerning all-direction determination",
+          "method": "primary arXiv HTML full text of relevant sections",
+          "title": "On determination of convex bodies by their section functions",
+          "trigger": "Direct recent primary tomography theorem covering ellipsoids"
+        },
+        {
+          "assessment": "Summary is full tangent-normal continuum, so cannot infer finite-direction optimality; full text not read",
+          "evidence": [
+            "Published summary says all hyperplanes tangent to one fixed inner ball determine the ellipsoid"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-global-barker-larman-rigidity-for-ellipsoids--75abc96cf1f6",
+          "material_read": "Published finding title and abstract-level semantic summary only",
+          "method": "Resultary search index",
+          "title": "Global Barker–Larman rigidity for ellipsoids",
+          "trigger": "Very close object and section-volume information"
+        },
+        {
+          "assessment": "Haar moments determine unordered axis lengths, not full oriented shape matrix from m named directions",
+          "evidence": [
+            "Summary describes d inverse-square moments and d-1 with known volume"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-finite-moment-reconstruction-of-ellipsoid-axes-from-unorie--dce61c5feeed",
+          "material_read": "Published finding title and semantic summary only",
+          "method": "Resultary index",
+          "title": "Sharp finite-moment reconstruction of ellipsoid axes from unoriented central sections",
+          "trigger": "Possible finite-dimensional dominating reconstruction"
+        },
+        {
+          "assessment": "No whole-document coverage claim; could contain equivalent finite-quadratic-measurement material",
+          "evidence": [
+            "Chapter 7 is a canonical section-functions reference"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/CBO9781107341029.010",
+          "material_read": "Bibliographic reference and chapter 7 description only; original chapter not read",
+          "method": "bibliographic catalogue description",
+          "title": "Geometric Tomography",
+          "trigger": "Classical all-angle sections and potential quadratic-form tomography"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite-angle tomography design problem is solved exactly: m viewing angles are both necessary and sufficient even with infinitely many offsets and a known volume. The indistinguishable equal-volume pairs identify a real global identifiability obstruction; the explicit optimal design and thick-body single-offset variant are useful exact benchmarks, rather than an unmotivated finite invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fish--Ryabogin--Sun--Yaskin arXiv:2610.10229v1 relevant Sections 1 and 6",
+    "Published Global Barker–Larman rigidity for ellipsoids (Resultary summary)",
+    "Published finite-moment reconstruction of ellipsoid axes (Resultary summary)",
+    "Gardner Geometric Tomography chapter 7 bibliographic description"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Centered full-dimensional ellipsoids Q SPD, n>=2, unit known normal directions, exact noiseless sections.",
+    "One-height sufficiency requires known volume and Q>nt^2 I, not arbitrary thin Q.",
+    "No noncentered or nonellipsoidal identifiability statement, nor conditioning/stability estimates.",
+    "An equivalent finite-direction quadratic-form interpolation or determinant-constrained tomography lemma may appear in older inverse geometry texts.",
+    "Gardner chapter and published Resultary comparators were not read in full, so comparisons limited to identified statements.",
+    "Exact noiseless reconstruction only, no numerical conditioning or nonellipsoidal uniqueness."
+  ],
+  "schema_version": 1
+}

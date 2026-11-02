@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact affine-change-of-variables section formula is derived using coarea. Central area measurements uniquely determine \(H=Q/\det Q\); an explicit polarization array then recovers every matrix entry, and its determinant recovers the original scale for every \(n\ge2\). For arbitrary \(N<n(n+1)/2\) normals, a nonzero indefinite symmetric matrix annihilating all quadratic samples is constructed whether or not the normals span. The determinant along the resulting positive-definite pencil tends to zero at both ends, so two different parameters have exactly equal positive determinant and samples, yielding identical complete section profiles. The one-height refinement follows by a strictly decreasing scalar response on \(q>nt^2\). This covers all quantifiers and the precise thickness boundary. Exact symbolic tests are supplementary, not used as the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The primary October 2026 article of Fish–Ryabogin–Sun–Yaskin concerns section-function determination under continuum-direction information. The closest indexed ellipsoid Barker–Larman result likewise uses all tangent normals; an unrelated inverse moment study reconstructs semiaxes, not a fully oriented shape matrix. Actual searches for fixed finite directions, determinant-calibrated tomography, and quadratic-measurement aliases returned no covering statement. The potential overlap with standard quadratic-form interpolation and inaccessible tomography monographs remains nonzero, and the literature search does not certify global priority.
+PASS
 
-## Value — PASS
-The central inverse-geometric design question is how many *viewing directions*, rather than how many height samples, suffice for parametric shape tomography. The exact count matches the number of symmetric-matrix coefficients but does not fall to one fewer even when total volume is provided: the volume-constrained global ambiguity is an additional substantive rigidity obstruction. A finite explicit optimal design, a universal impossibility theorem for arbitrarily dense offset sampling, and a noncentral single-height regime answer the same motivated question. Scope excludes noisy and nonellipsoidal settings.
+For n>=2, Q SPD, E_Q={x:x^T Q^-1 x<=1}, derive by affine coarea the (n-1)-section formula A_Q(u,s)=kappa_{n-1} sqrt(D)/sqrt(q) (1-s^2/q)_+^((n-1)/2), D=det Q, q=u^T Q u. Central observations yield u^T H u=kappa_{n-1}^2/A_Q(u,0)^2 with H=Q/D. The m=n(n+1)/2 normals e_i and (e_i+e_j)/sqrt2 reconstruct each H_ij by polarization; D=(det H)^(-1/(n-1)) then recovers Q without separately knowing volume. For arbitrary N<m normals, a nonzero kernel T of the symmetric quadratic sampling map exists. If normals span, no nonzero semidefinite kernel T is possible, hence T indefinite. If not, T=vw^T+wv^T with v perpendicular to all normals and w independent of v is indefinite and annihilates samples. The positive-definite pencil I+zT has bounded interval endpoints where determinant tends to zero; by IVT it admits distinct negative and positive z with equal positive determinant (e.g., 1/2), identical sampled q, hence identical complete all-offset section profiles and total volume. Scaling preserves pair ambiguity and forces arbitrarily large minimum eigenvalues. For single noncentral offset t>0 with known determinant and Q> n t^2 I, the scalar F_t(q)=(q-t^2)^((n-1)/2)q^(-n/2) has logarithmic derivative (n t^2-q)/(2q(q-t^2))<0 and each m-sample uniquely recovers q; the previous ambiguity persists under sufficient simultaneous scaling. Independent exact 3D inversion, 2D equal-determinant ambiguity and derivative checks passed.
 
-## Closest sources and limitations
-- Fish, Ryabogin, Sun, Yaskin, *On determination of convex bodies by their section functions* (2026), arXiv:2610.10229v1 (primary full-text portions inspected).
-- *Global Barker–Larman rigidity for ellipsoids* (indexed research record; title and summary inspected, not full file).
-- Gardner, *Geometric Tomography*, Chapter 7 (chapter summary inspected; full chapter inaccessible here).
-Potential equivalent formulations in the established inverse-quadratic-measurement literature and full chapter text remain residual originality risks. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the sharp number of prescribed angular directions for oriented centered ellipsoid reconstruction, including equal-volume ambiguity from every smaller fixed direction set and fixed noncentral-height thickness regime. Classical ellipsoid section formula, quadratic-form polarization and all-direction geometric tomography are prior work. A textbook finite quadratic-form sampling result might imply some portions, but the volume-preserving all-offset lower bound is an additional universal quantifier not shown in inspected all-angle articles.
+
+## value
+
+PASS
+
+A natural finite-angle tomography design problem is solved exactly: m viewing angles are both necessary and sufficient even with infinitely many offsets and a known volume. The indistinguishable equal-volume pairs identify a real global identifiability obstruction; the explicit optimal design and thick-body single-offset variant are useful exact benchmarks, rather than an unmotivated finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
