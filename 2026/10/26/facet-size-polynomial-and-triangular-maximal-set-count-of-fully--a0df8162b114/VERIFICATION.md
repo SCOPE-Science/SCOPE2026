@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Computational verification
-Run `python3 verify.py`. The program uses only the Python standard library. For each positive bundle vector with between two and five spine vertices, pendant bundles of size one or two, and at most fourteen graph edges, it enumerates every edge subset. Each candidate is independently checked against every unique shortest path by a breadth-first search in the tree. The program also constructs the predicted sets from the mathematical classification and identifies inclusion-maximal subsets by direct attempted single-edge extension. Exact equality holds for both complete families and facet families, for 60 configurations and 135,720 tested edge subsets. The expected output is in `verification_output.txt`.
+# Independent mathematical audit
 
-This is a finite consistency test, not a certificate of the infinite theorem. The proof in `RESULT.md` handles arbitrary positive bundle multiplicities and arbitrary spine length. No independent mathematical audit was performed.
+## correctness
+
+PASS
+
+PASS. In a tree any geodesic includes ≤2 pendant edges, and all spine edges lie on the spine-endpoint geodesic, so any edge-general-position set has 0,1 or 2 selected spine edges. With 0, any pendants are compatible; with one e_i, pendants must all be on one side; with two e_i,e_j, selected pendant edges must lie at spine coordinates i+1..j. The converse follows from unique simple paths. Inclusion-maximality forces every allowed pendant, and positivity t_1,t_m≥1 blocks adding other spine edges. The disjoint facet families are P, 2(m−1) left/right ones, and binomial(m−1,2) two-spine ones; count 1+2(m−1)+binomial(m−1,2)=m(m+1)/2, sizes read directly from allowed pendant sums, and minimum formula follows from shortest prefix/suffix/interior block, with m=2 handled separately. Independent fresh BFS shortest-path enumerator checked every subset on 28 test trees with m=2..4 and t_i∈{1,2}, 11,304 edge subsets; computed facets exactly equal structural predictions. Prior packaged verifier reports 60 cases/135,720 subsets, inspected code but not substituted for proof. Does not assert facet result for t_i=0 or arbitrary trees.
+
+## originality
+
+PASS
+
+PASS, qualified. Manuel–Prabha–Klavžar Theorem 3.3 determines only maximum EGP cardinality on trees, whereas the present result counts and sizes all inclusion-maximal sets. Tian–Klavžar–Tan study numerical extremal values and block graphs; a general all-feasible-set polynomial is known and excluded from novelty. Published Resultary spider-tree classification is a different topology (one branching center), not fully whiskered paths with arbitrarily many branching spine vertices.
+
+## value
+
+PASS
+
+PASS. All inclusion-maximal rather than just maximum-cardinality feasible edge sets are natural extremal combinatorial data. The exact structural facet classification for a growing multi-branching family yields a surprising triangular number independent of arbitrary positive pendant multiplicities and a full size-spectrum polynomial; sizes can diverge without limit while facet count stays constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

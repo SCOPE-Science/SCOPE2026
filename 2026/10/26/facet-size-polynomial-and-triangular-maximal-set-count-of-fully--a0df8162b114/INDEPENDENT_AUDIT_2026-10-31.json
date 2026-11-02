@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:04:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. In a tree any geodesic includes ≤2 pendant edges, and all spine edges lie on the spine-endpoint geodesic, so any edge-general-position set has 0,1 or 2 selected spine edges. With 0, any pendants are compatible; with one e_i, pendants must all be on one side; with two e_i,e_j, selected pendant edges must lie at spine coordinates i+1..j. The converse follows from unique simple paths. Inclusion-maximality forces every allowed pendant, and positivity t_1,t_m≥1 blocks adding other spine edges. The disjoint facet families are P, 2(m−1) left/right ones, and binomial(m−1,2) two-spine ones; count 1+2(m−1)+binomial(m−1,2)=m(m+1)/2, sizes read directly from allowed pendant sums, and minimum formula follows from shortest prefix/suffix/interior block, with m=2 handled separately. Independent fresh BFS shortest-path enumerator checked every subset on 28 test trees with m=2..4 and t_i∈{1,2}, 11,304 edge subsets; computed facets exactly equal structural predictions. Prior packaged verifier reports 60 cases/135,720 subsets, inspected code but not substituted for proof. Does not assert facet result for t_i=0 or arbitrary trees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manuel, Prabha, Klavžar, Edge general position problem, arxiv:2105.04292 (2021), full 13-page PDF Theorem 3.3 maximum = number of pendant edges.",
+          "Tian, Klavžar, Tan, Extremal Edge General Position Sets in Some Graphs, arxiv:2302.01587 and Graphs & Combinatorics 40 (2024), full 13-page PDF Section 3 block graph numerical extremal bounds.",
+          "Resultary 2026-10-04 All edge general-position sets of spider trees SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123 (abstract, different family)."
+        ],
+        "reasoning": "Theorem 3.3 Manuel et al: maximum size equals number of pendant edges, supplies only the leading cardinality and one class of facets. Tian et al block-graph results are scalar. General full-set counting algorithms do not provide an explicit all-facets shape theorem or triangular count without additional analysis.",
+        "searches": [
+          "Resultary: edge general position maximal sets caterpillar fully whiskered paths polynomial facets leaf counts",
+          "Resultary 2026-10-04 All edge general-position sets of spider trees SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+          "arxiv:2105.04292 Manuel Prabha Klavzar edge general position problem",
+          "arxiv:2302.01587 Tian Klavzar Tan extremal edge general position sets"
+        ]
+      },
+      "checked_sources": [
+        "Manuel, Prabha, Klavžar, Edge general position problem, arxiv:2105.04292 (2021), full 13-page PDF Theorem 3.3 maximum = number of pendant edges.",
+        "Tian, Klavžar, Tan, Extremal Edge General Position Sets in Some Graphs, arxiv:2302.01587 and Graphs & Combinatorics 40 (2024), full 13-page PDF Section 3 block graph numerical extremal bounds.",
+        "Resultary 2026-10-04 All edge general-position sets of spider trees SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123 (abstract, different family)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Manuel, Prabha, Klavžar, Edge general position problem, arxiv:2105.04292 (2021), full 13-page PDF Theorem 3.3 maximum = number of pendant edges.",
+          "Tian, Klavžar, Tan, Extremal Edge General Position Sets in Some Graphs, arxiv:2302.01587 and Graphs & Combinatorics 40 (2024), full 13-page PDF Section 3 block graph numerical extremal bounds.",
+          "Resultary 2026-10-04 All edge general-position sets of spider trees SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123 (abstract, different family)."
+        ],
+        "reasoning": "The maximum EGP cardinality |P| implied by Manuel et al is expressly prior and not separately claimed. Neither gpe(T)=|P| nor knowledge of all feasible-set counts alone implies inclusion-maximal multiplicity m(m+1)/2 and facet-size polynomial: one must classify extension-maximal configurations.",
+        "searches": [
+          "Resultary: edge general position maximal sets caterpillar fully whiskered paths polynomial facets leaf counts",
+          "Resultary 2026-10-04 All edge general-position sets of spider trees SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+          "arxiv:2105.04292 Manuel Prabha Klavzar edge general position problem",
+          "arxiv:2302.01587 Tian Klavzar Tan extremal edge general position sets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Manuel, Prabha, Klavžar, Edge general position problem, arxiv:2105.04292 (2021), full 13-page PDF Theorem 3.3 maximum = number of pendant edges.",
+          "Tian, Klavžar, Tan, Extremal Edge General Position Sets in Some Graphs, arxiv:2302.01587 and Graphs & Combinatorics 40 (2024), full 13-page PDF Section 3 block graph numerical extremal bounds.",
+          "Resultary 2026-10-04 All edge general-position sets of spider trees SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123 (abstract, different family)."
+        ],
+        "reasoning": "Facet means inclusion-maximal feasible edge set, not maximum-cardinality EGP or merely a coefficient in the all-feasible-subsets generating polynomial; converting between these notions requires actual incidence/extension structure. Spider case has at most one branching hub, not this family for arbitrary m.",
+        "searches": [
+          "Resultary: edge general position maximal sets caterpillar fully whiskered paths polynomial facets leaf counts",
+          "Resultary 2026-10-04 All edge general-position sets of spider trees SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+          "arxiv:2105.04292 Manuel Prabha Klavzar edge general position problem",
+          "arxiv:2302.01587 Tian Klavzar Tan extremal edge general position sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact tests: Independent graph construction, BFS all-pair unique geodesics and exhaustive edge mask EGP predicate; 28 bundle vectors and 11,304 edge subsets, every predicted facet equals true inclusion-maximal feasible set.",
+          "Manuel, Prabha, Klavžar, Edge general position problem, arxiv:2105.04292 (2021), full 13-page PDF Theorem 3.3 maximum = number of pendant edges.",
+          "Tian, Klavžar, Tan, Extremal Edge General Position Sets in Some Graphs, arxiv:2302.01587 and Graphs & Combinatorics 40 (2024), full 13-page PDF Section 3 block graph numerical extremal bounds.",
+          "Resultary 2026-10-04 All edge general-position sets of spider trees SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123 (abstract, different family)."
+        ],
+        "reasoning": "Facet polynomial, its z=1 triangular count and exact smallest maximal size were independently checked by BFS exhaustive subsets for 28 graphs; no matching published table found in Resultary. Spider-tree all-set polynomial is distinct. Negative search not novelty proof.",
+        "searches": [
+          "Resultary: edge general position maximal sets caterpillar fully whiskered paths polynomial facets leaf counts",
+          "Resultary 2026-10-04 All edge general-position sets of spider trees SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+          "arxiv:2105.04292 Manuel Prabha Klavzar edge general position problem",
+          "arxiv:2302.01587 Tian Klavzar Tan extremal edge general position sets"
+        ]
+      },
+      "rationale": "PASS, qualified. Manuel–Prabha–Klavžar Theorem 3.3 determines only maximum EGP cardinality on trees, whereas the present result counts and sizes all inclusion-maximal sets. Tian–Klavžar–Tan study numerical extremal values and block graphs; a general all-feasible-set polynomial is known and excluded from novelty. Published Resultary spider-tree classification is a different topology (one branching center), not fully whiskered paths with arbitrarily many branching spine vertices.",
+      "residual_risks": [
+        "The standard general-tree cardinality algorithms may be specialized to this caterpillar class, but calculating the all-feasible-set polynomial is not the same as enumerating inclusion-maximal subsets; claim novelty limited to exact facets.",
+        "Unindexed facet-enumeration or maximal set classifications for caterpillars may predate this result; full corpus priority not guaranteed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides largest possible edge-general-position cardinality, not the classification of all inclusion-maximal subsets",
+          "evidence": [
+            "Theorem 3.3: gpe(T) equals number of pendant edges of a tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.04292",
+          "material_read": "Full 13-page primary PDF; read definitions and Section 3 Theorem 3.3 (pendant maximum) and proof",
+          "method": "Web PDF full-text reading and screenshot",
+          "title": "Edge general position problem",
+          "trigger": "Original tree edge-geodesic general-position result potentially covering family"
+        },
+        {
+          "assessment": "Scalar extremal values and block graphs, not fully whiskered-path facet enumerator",
+          "evidence": [
+            "Proposition 1.1 recalls tree maximum; Theorems 3.1–3.2 discuss gpe(G) on block graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.01587",
+          "material_read": "Full 13-page PDF accessible; inspected Introduction and Section 3 Theorems 3.1,3.2 on block-graph extremal cardinality",
+          "method": "Web PDF text, screenshot page2",
+          "title": "Extremal Edge General Position Sets in Some Graphs",
+          "trigger": "Near-topic extremal sets and block-graph theory"
+        },
+        {
+          "assessment": "Spider-tree one-hub topology and all-set enumerator do not cover multi-hub fully whiskered paths",
+          "evidence": [
+            "For spiders, all-set polynomial is prod_i(1+ell_i z)+z^2 sum_i binom(ell_i,2), distinct from maximal-set polynomial for path whiskerings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+          "material_read": "Resultary semantic result title and abstract, not full repository contents",
+          "method": "Resultary semantic search",
+          "title": "All edge general-position sets of spider trees",
+          "trigger": "Published nearby result, possible family overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. All inclusion-maximal rather than just maximum-cardinality feasible edge sets are natural extremal combinatorial data. The exact structural facet classification for a growing multi-branching family yields a surprising triangular number independent of arbitrary positive pendant multiplicities and a full size-spectrum polynomial; sizes can diverge without limit while facet count stays constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The standard general-tree cardinality algorithms may be specialized to this caterpillar class, but calculating the all-feasible-set polynomial is not the same as enumerating inclusion-maximal subsets; claim novelty limited to exact facets.",
+    "Unindexed facet-enumeration or maximal set classifications for caterpillars may predate this result; full corpus priority not guaranteed.",
+    "Finite independently rerun enumerations corroborate but do not replace proofs for infinite ranges; correctness depends on explicit mathematical reductions and case analysis.",
+    "Publication not ready because sensitive provenance exists in public metadata and complete neutral replacement bytes were not delivered."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives a complete and disjoint trichotomy according to the number of spine edges in a feasible set, then proves maximality and exhaustiveness of three explicitly listed facet families. Positive pendant multiplicities supply the selected end-bundle edges needed to exclude additional spine edges. From the facet bijection the polynomial, triangular count and lower facet-size formula follow by exact counting. Independently implemented geodesic enumeration and mask-set comparisons checked every subset of 60 small graphs (135,720 selected-edge subsets), including the complete facet families; these finite checks do not establish the infinite theorem.
+## correctness
 
-## Originality — PASS (qualified)
-The original theorem for trees in Manuel–Prabha–Klavžar gives only the **maximum** edge-general-position size, not the inclusion-maximal spectrum. Tian–Klavžar–Tan address extremal scalar values, not this facet census. A known exact all-tree cardinality-distribution algorithm covers the ancillary all-feasible-set formula algorithmically; it does **not** specify or directly imply the family of inclusion-maximal sets, their size enumerator, or the independence of their number from pendant multiplicities. Spider classifications treat trees with at most one branching hub, while the stated family may have arbitrarily many branching hubs. The novelty claim is deliberately limited to the facet classification and its corollaries, not generic all-set polynomial computation or the known maximum. Equivalent unindexed studies may exist.
+PASS
 
-## Value — PASS
-The number and size distribution of maximal feasible configurations are natural invariants distinct from the largest-size statistic. This result completely classifies them in a growing, nontrivial tree class and reveals a rigidity law: changing arbitrarily many leaf multiplicities leaves the total number of facets at a triangular number, even as the facet sizes become arbitrarily far apart. The exact smallest maximal size supplements the known largest size without relying on arbitrary finite parameter slices.
+PASS. In a tree any geodesic includes ≤2 pendant edges, and all spine edges lie on the spine-endpoint geodesic, so any edge-general-position set has 0,1 or 2 selected spine edges. With 0, any pendants are compatible; with one e_i, pendants must all be on one side; with two e_i,e_j, selected pendant edges must lie at spine coordinates i+1..j. The converse follows from unique simple paths. Inclusion-maximality forces every allowed pendant, and positivity t_1,t_m≥1 blocks adding other spine edges. The disjoint facet families are P, 2(m−1) left/right ones, and binomial(m−1,2) two-spine ones; count 1+2(m−1)+binomial(m−1,2)=m(m+1)/2, sizes read directly from allowed pendant sums, and minimum formula follows from shortest prefix/suffix/interior block, with m=2 handled separately. Independent fresh BFS shortest-path enumerator checked every subset on 28 test trees with m=2..4 and t_i∈{1,2}, 11,304 edge subsets; computed facets exactly equal structural predictions. Prior packaged verifier reports 60 cases/135,720 subsets, inspected code but not substituted for proof. Does not assert facet result for t_i=0 or arbitrary trees.
 
-## Literature and limits
-Relevant full texts inspected: Manuel–Prabha–Klavžar, arXiv:2105.04292v1; Tian–Klavžar–Tan, arXiv:2302.01587v1 and openly available journal text. The related spider-tree classification is restricted to a different branching regime; known general-tree all-set counting is expressly excluded from this originality claim. No independent audit and no exhaustive proof of literature priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Manuel–Prabha–Klavžar Theorem 3.3 determines only maximum EGP cardinality on trees, whereas the present result counts and sizes all inclusion-maximal sets. Tian–Klavžar–Tan study numerical extremal values and block graphs; a general all-feasible-set polynomial is known and excluded from novelty. Published Resultary spider-tree classification is a different topology (one branching center), not fully whiskered paths with arbitrarily many branching spine vertices.
+
+## value
+
+PASS
+
+PASS. All inclusion-maximal rather than just maximum-cardinality feasible edge sets are natural extremal combinatorial data. The exact structural facet classification for a growing multi-branching family yields a surprising triangular number independent of arbitrary positive pendant multiplicities and a full size-spectrum polynomial; sizes can diverge without limit while facet count stays constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
