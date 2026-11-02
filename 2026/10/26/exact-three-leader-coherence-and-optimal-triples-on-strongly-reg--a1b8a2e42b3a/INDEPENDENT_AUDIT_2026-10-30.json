@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:02:40Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Exactly three noise-free perfectly pinned leaders with equal follower noise on unweighted connected noncomplete strongly regular graphs; C is unnormalized tr inverse (steady variance equals C/2)."
+      ],
+      "rationale": "For connected noncomplete strongly regular G, the defining identity A²=(k-mu)I+(lambda-mu)A+mu J and k(k-lambda-1)=(v-k-1)mu yield the stated resolvent (zI+L)^-1=[(z+b)I+A+(mu/z)J]/[z²+pz+v mu] for z>0. Jacobi complementary minor identity converts det(zI+L_FF) for any three-leader S to the global determinant times the 3x3 resolvent minor. Separating its universal logarithmic derivative K_G and computing det(rI+A_S), 1^Tadj(rI+A_S)1 for the four induced 3-vertex graphs gives all Phi_e(b,mu). Since connected noncomplete SRG has b>=3 and mu>=1, the three exact consecutive Phi gaps have strictly positive factored numerators and denominators. Therefore each C(S) strictly increases with induced leader-edge count. In the complement, degree d=v-k-1 and adjacent common-neighbor number t=v-2k+mu-2 imply that the first existing pattern is a triangle (t>0), a length-2 path (t=0,d>=2), or matching edge (d=1), yielding respective complete optimal counts vdt/6, vd(d-1)/2, and v(v-2)/2. All classifications use only actual graph triples and do not assume SRG vertex-transitivity.",
+      "status": "PASS",
+      "verification": [
+        "Independent exact rational grounded-Laplacian inversions for C5 (five e1 triples cost1; five e2 cost4/3), Petersen (30 e0 triples cost91/30; 60 e1 and 30 e2), and 4x4 rook graph (96 e0, 288 e1, 144 e2, 32 e3), matching every corresponding Phi formula and complement counts.",
+        "Independent SymPy symbolic identities checked all three positivity-gap factorizations. Inspected frozen RESULT.md SHA aad072c67551a6ba562706febe8a44649f8812d7 and presence of verify.py Git blob 6d28d950a6f497c68656ee7e6f4daac705122447."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strongly regular resistance matrices have only two off-diagonal pair-distance classes, and general joint-centrality formulas describe arbitrary leader sets."
+        ],
+        "reasoning": "Two-class pair resistances provide a plausible reduction of triple optimization, but do not automatically settle whether triangle/path/nonedge patterns are globally ordered or count how many occur. The exact Φ_e inequalities and complement trichotomy are additional specializations; hidden prior work remains possible.",
+        "searches": [
+          "three leader strongly regular graph grounded Laplacian trace inverse coherence induced subgraph edges optimal leader triple",
+          "DOI:10.37236/5295",
+          "arXiv:1407.1569"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1407.1569",
+        "https://arxiv.org/pdf/1708.06873",
+        "https://doi.org/10.37236/5295",
+        "Resultary:2026/10/11/SCOPE-exact-fourier-algebra-norm-from-induced-edges-in-symmetric-rank--cc9bfa588c17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General arbitrary-leader formulas can in principle derive this theorem, but are not stated in the simple four-cost and strict total order form."
+        ],
+        "reasoning": "A corollary is covered if a published stronger theorem already proves it. The inspected general formulas provide tools rather than the signs and exhaustive SRG parameter classification themselves; this remains a best-of-knowledge statement with explicit potential hidden-specialization risk.",
+        "searches": [
+          "three leader strongly regular graph grounded Laplacian trace inverse coherence induced subgraph edges optimal leader triple",
+          "arXiv:1407.1569",
+          "arXiv:1708.06873"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fitch–Leonard derive joint centrality and arbitrary leader-set performance; Patterson–Yi–Zhang derive resistance-based graph coherence formulas for noise-free and noisy leaders."
+        ],
+        "reasoning": "The objective is equivalent (up to uniform noise factor), so broad frameworks are credited, not passed off as new. The examined source theorems do not directly give the four SRG-induced-triple rational costs and strict e hierarchy; applying them requires the nontrivial three-minor resolvent calculation.",
+        "searches": [
+          "three leader strongly regular graph grounded Laplacian trace inverse coherence induced subgraph edges optimal leader triple",
+          "arXiv:1407.1569",
+          "arXiv:1708.06873"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary identifies a different SRG invariant (Fourier-algebra norm from induced edges) and no matching exact three-leader table; Patterson work tabulates cycles/paths/trees."
+        ],
+        "reasoning": "There is no direct precomputed table for the exact trace((L_FF)^-1) four induced triple classes in the inspected material. Matching the same combinatorial parameter e(S) for a different invariant is not an implication or novelty conflict.",
+        "searches": [
+          "three leader strongly regular graph grounded Laplacian trace inverse coherence induced subgraph edges optimal leader triple",
+          "Resultary:2026/10/11/SCOPE-exact-fourier-algebra-norm-from-induced-edges-in-symmetric-rank--cc9bfa588c17",
+          "arXiv:1708.06873"
+        ]
+      },
+      "rationale": "The general grounded-Laplacian trace and joint-centrality/resistance identities are older foundational theory. The assessed addition is the closed four-pattern three-leader cost table and a strict all-parameter hierarchy with exhaustive parameter-only optimal-pattern counts for every connected noncomplete SRG, even those not vertex-transitive.",
+      "residual_risks": [
+        "The theorem could be a known unpublished/specialized corollary of the general joint-centrality formula; no complete SRG-specific survey was possible.",
+        "Noise convention tr inverse versus half trace must be preserved exactly; an incorrectly normalized prior value could falsely appear different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies foundational performance function; inspected results do not state the exact SRG three-leader four-pattern hierarchy/count.",
+          "evidence": [
+            "General arbitrary-leader joint centrality; two-leader corollary; cycles/paths examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "Full arXiv primary paper: model, joint centrality, main identities and two-leader/network examples, discussion of path/cycle optimizing; PDF page 13 screenshot examined.",
+          "method": "Read primary PDF text and theorem sections, inspected relevant page screenshot and compared graph classes.",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Same pinned-leader H2 coherence objective and arbitrary leader-set framework."
+        },
+        {
+          "assessment": "General formulas and special solutions for selected cycles/paths/trees, not explicit strongly-regular universal three-leader trichotomy in the material examined.",
+          "evidence": [
+            "Abstract: optimal leader selection on several special graph classes; search for strongly regular returned no text match."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+          "material_read": "Full accessible 12-page arXiv preprint: introduction/model, resistance formulas and named optimizing graph classes; inspected title-page screenshot; searched strongly regular (no match).",
+          "method": "Read primary PDF text and model/result passages and inspected PDF screenshot.",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "Alternative general noise-free leader objective and closed-form resistance identities."
+        },
+        {
+          "assessment": "Pair resistance classification may underlie, but is not itself verification of triple grounded-Laplacian cost ordering; full text priority risk retained.",
+          "evidence": [
+            "Resistance matrix theory is existing groundwork rather than asserted new."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/5295",
+          "material_read": "Accessible bibliographic result description, not full article.",
+          "method": "Compared title/topic and graph parameters at statement level.",
+          "title": "On the Resistance Matrix of a Graph",
+          "trigger": "Potential domination from explicit SRG pair resistance identities."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "Applies only to noise-free triple selection on unweighted connected noncomplete SRGs, not to arbitrary or vertex-transitive network classes in general."
+      ],
+      "rationale": "Selecting three pinned leaders to minimize follower variance is a natural structural optimization in noisy consensus. A universal four-class exact formula and sharp strict order collapses a potentially combinatorial optimization over binom(v,3) sets to induced-edge type, and gives the exact number and value of all minimizers from SRG parameters. This is a motivated complete classification rather than routine numerical evaluation for a single graph.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1407.1569",
+    "https://arxiv.org/pdf/1708.06873",
+    "https://doi.org/10.37236/5295",
+    "Resultary:2026/10/11/SCOPE-exact-fourier-algebra-norm-from-induced-edges-in-symmetric-rank--cc9bfa588c17"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unnormalized coherence tr(L_FF^-1); physical variance is half for unit-intensity white noise.",
+    "No more-than-three-leader or general graph claim."
+  ],
+  "residual_risks": [
+    "The theorem could be a known unpublished/specialized corollary of the general joint-centrality formula; no complete SRG-specific survey was possible.",
+    "Noise convention tr inverse versus half trace must be preserved exactly; an incorrectly normalized prior value could falsely appear different."
+  ],
+  "schema_version": 1
+}
