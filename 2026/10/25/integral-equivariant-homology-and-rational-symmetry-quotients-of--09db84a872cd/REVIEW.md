@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The augmented exterior-chain model identifies top homology of the simplex skeleton with the augmentation-kernel wedge. Relative attachments by part simplices yield the exact quotient of lattices; the inclusion is primitive by an explicit abelian direct-summand decomposition. The rational fixed-space and quotient arguments follow from finite-group averaging and standard exterior powers. The standalone checker independently evaluates augmented mod-two ranks, signed Lefschetz traces and invariant multiplicities across exact small cases; the proof, not the tests, establishes the general result.
+## correctness
 
-**Originality — PASS (with residual uncertainty).** Deshpande–Singh's inspected Theorem 3.5 establishes the sphere-wedge homotopy type and numerical ranks, not a natural integral automorphism module, all-character formula, or rational quotient homology. Patra–Roy's inspected Theorem 4.4 concerns algebraic graded Betti numbers, not graph-permutation topological homology actions. Closest published related symmetry results have different complexes. The search cannot exclude all unindexed literature or historical unpublished notes.
+PASS
 
-**Mathematical value — PASS.** A complete equivariant integral refinement and its quotient homology answer natural symmetry questions not determined by Betti ranks; notably the within-part quotient has a size-independent topological invariant while the full equal-part symmetry quotient loses every reduced rational class. The result works uniformly for arbitrary part sizes and all permitted degrees, without asserting that ordinary wedge counts are novel.
+For K_{m1,...,ms}, s>=2, 2<=r<=N-1, the face set consists of every set of <=r vertices and all sets in one part. Thus X is full (r-1)-skeleton plus part simplices. Augmented simplex chain C_{r-1}=Λ^r Z^V, boundary contraction with augmentation, and relative attachments produce an exact sequence ⊕_i Λ^r L_i -> Λ^r L -> H_{r-1}(X;Z) -> 0 with no other reduced homology. Choice of one vertex per part exhibits ⊕L_i as direct summand of L with complement Z^{s-1}, hence the exterior-power quotient is torsion-free and has the stated binomial rank. Natural maps are equivariant under all graph automorphisms; determinant cycle products give the full character. Over Q, within-part invariants are Λ^r Q^{s-1} (dimension binom(s-1,r)) and part exchanges act by standard S_s exterior power with no positive-degree fixed vectors. Quotient rational homology equals invariants after barycentric subdivision. Small-case independently reconstructed face enumeration/Euler checks corroborate the formula.
 
-**Limitations.** No integral homotopy classification of orbit spaces or integral torsion analysis of orbit-space homology. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified). Deshpande–Singh Theorem 3.5 proves the nonequivariant sphere-wedge type and Betti rank for this exact graph family, but does not provide an integral natural automorphism representation or rational homology of symmetry quotients. The exterior lattice and determinant-character formula are additional equivariant data not determined from Betti numbers or homotopy equivalence. General augmentation-chain representation theory makes the proof concise but is not a printed exact classification found in checked source.
+
+## value
+
+PASS
+
+Automorphism representations and orbit-space homology are natural questions for multipartite graph complexes and inform symmetry reduction. This gives an all-parameter integral lattice and exact rational quotient-invariant classification, not merely a recomputation of known nonequivariant Betti numbers. The all-parameter full group character and rational quotient homology are natural symmetry-sensitive invariants and are not determined by known Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
