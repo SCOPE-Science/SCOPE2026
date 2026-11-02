@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Jacobian criterion reduces potential singularities to coordinate values satisfying one quadratic, and the exhaustive multiplicity argument excludes all two-value patterns over the algebraic closure. The count of zero rational points is an exact three-nonzero-coordinate argument. The published rational Jacobian isogeny and good reduction transfer the elliptic Frobenius characteristic polynomial; the exact verified Hasse–Witt matrix provides a separate check. Explicitly, the genus is four, the trace is four, the elliptic trace is one, and the zeta polynomial follows for every extension. Finite enumeration does not replace the geometric argument or the published isogeny input.
+
+**Originality — PASS, qualified.** The generic Bring curve and the rational isogeny to a fourth power of a conductor-50 elliptic curve are established antecedents and are not claimed as new. The distinct statement assessed is that the elementary-symmetric integral equations give genuinely smooth characteristic-three reduction, contrary to the non-flat power-sum specialization, with explicit special-fiber zeta and ordinary invariants. In the inspected primary treatments, [1] discusses characteristic-zero models and periods, while [2, Proposition 4.5] establishes a characteristic-zero isogeny without stating a characteristic-three good model. Targeted mathematical-record and literature searches did not find an exact or dominating treatment. Unindexed older characteristic-three reduction statements remain a priority risk.
+
+**Mathematical value — PASS.** Good reduction at a small prime dividing the order of the full symmetry group is a natural arithmetic question for this distinguished genus-four curve. The explicit integral model addresses a genuine failure of the most familiar equations and yields all extension-field counts as well as a concrete ordinary genus-four curve with no base-field rational point. This is a complete arithmetic invariant at a motivated exceptional prime, not a parameter increment or a finite search alone.
+
+**Limitations.** The rational isogeny is used as an external theorem. The contribution does not determine all models or reduction at every prime. Full historical priority remains subject to additional specialist checking.
+
+Self-review: passed. Independent audit: not yet performed.
