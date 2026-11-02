@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Uniform reduction-factorization counts and branch-lifting laws form a complete proof for every odd prime. Exact rational substitution for p=3 agrees with exhaustive direct enumeration of 531441 polynomials, including all eight observed root-count classes and 81 maximizers; the proof, not the census, establishes all-prime validity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cheng et al., arXiv:1711.01355, Theorem 1.1 computes root counts for individual polynomials, and Theorem 4.1 reduces a fourth-level branch to a finite-field point count; no coefficient-average of all reduction types appears in the inspected full paper.",
+        "Nir, arXiv:2608.00668, Lemmas 5.8–5.10 bound the number of lifting-tree nodes, but do not tabulate probability masses over monic cubics."
+      ],
+      "reasoning": "General algorithms encompass each individual coefficient choice, and Nir provides bounds on branching, but the new object is their evaluated joint enumeration over all coefficient choices. It is not the mere bound or a special case of an already evaluated distribution.",
+      "searches": [
+        "Counting Roots of Polynomials Over Prime Power Rings Theorem 4.1 arXiv:1711.01355",
+        "Faster Deterministic Integer Root Finding for Integer Polynomials Section 5 Lemma 5.10 arXiv:2608.00668",
+        "Cheng Gao Rojas Wan p^4 root counting distribution cubic Hensel repeated root probability, and Jain random polynomial finite ring"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.00668",
+      "arXiv:1711.01355",
+      "arXiv:2409.06866",
+      "arXiv:2110.03942",
+      "previously reported cubic result, opaque ID 605e551d-6abd-4bf4-bf1a-63aedcb8625a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cheng et al., Theorem 4.1 describes p² times a finite-field root count on one branch, not how often the branch arises from a uniformly random monic cubic.",
+        "Jain Theorem 2 determines E[R]=1, which all proposed laws satisfy; infinitely many distributions share that mean.",
+        "Caruso arXiv:2110.03942 studies genuine p-adic roots and correlations, which cannot recover the number of temporary solutions modulo p⁴ without additional data."
+      ],
+      "reasoning": "The claimed generating function needs the exact double-root quadratic discriminant and triple-root cubic branching probabilities as well as the five reduction-class weights. Neither a pointwise counting algorithm, a lifting-tree node bound, a first moment, a p-adic-root law, nor a lower-modulus distribution implies those masses without the new arithmetic case analysis.",
+      "searches": [
+        "Cheng Gao Rojas Wan p^4 root counting distribution cubic Hensel repeated root probability, and Jain random polynomial finite ring",
+        "Where are the zeroes of a random p-adic polynomial Caruso arXiv:2110.03942",
+        "Counting Roots for Polynomials Modulo Prime Powers Section 4",
+        "full probability distribution of number of distinct roots of a uniformly random monic cubic modulo p^4 prime fourth power"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cheng et al., arXiv:1711.01355, Sections 2 and 4, classify pointwise repeated-root lift counts algorithmically.",
+        "Nir, arXiv:2608.00668, Section 5, provides weighted lifting trees without a random coefficient generating function.",
+        "Accessible private previous-claim ID 605e551d-6abd-4bf4-bf1a-63aedcb8625a determines the distinct third-level cubic distribution, not the fourth-level one."
+      ],
+      "reasoning": "Exact subject and formula queries did not retrieve a statement with the fourth-level coefficient law; the existing third-level identity does not algebraically fix two new fourth-level conditional laws. Negative search evidence is not proof of novelty.",
+      "searches": [
+        "full probability distribution of number of distinct roots of a uniformly random monic cubic modulo p^4 prime fourth power",
+        "random monic cubic modulo p^4 root count values 0 1 3 p 1+2p 1+p^2 p^2 2p^2 3p^2",
+        "monic cubic modulo p^4 maximal number of roots 3p^2 all splitting three roots probability count extremal cubics",
+        "root count cubic polynomial modulo prime fourth power 3p squared exact maximizers and distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jain, arXiv:2409.06866v2, Theorem 2, gives only expectation over general finite rings; Theorem 1 is a field distribution under a larger function-class condition.",
+        "The complete result modulo p^3 in prior accessible claim ID 605e551d-6abd-4bf4-bf1a-63aedcb8625a gives no fourth-level table."
+      ],
+      "reasoning": "No exact p^4 cubic histogram or table was located in the checked published sources, mathematical-record matches, or previously recorded results. The p^3 table is a different modulus and not covering.",
+      "searches": [
+        "random monic cubic modulo p^4 root count values",
+        "monic cubics roots modulo p^4 histogram probabilities",
+        "uniform random polynomial finite commutative ring root distribution Jain",
+        "full probability distribution of number of distinct roots of a uniformly random monic cubic modulo p^4 prime fourth power"
+      ]
+    },
+    "rationale": "The claim evaluates an explicit random-coefficient generating function at the fourth prime-power level. Existing algorithmic pointwise methods and the available cubic third-level distribution do not imply this fourth-level coefficient histogram without new branching and discriminant averaging. Primary full-text comparisons found no stated covering formula; best-knowledge priority risk remains.",
+    "residual_risks": [
+      "An earlier equivalent coefficient-averaged fourth-level cubic distribution may be present in uninspected literature or a unpublished table.",
+      "The generic fourth-level root-counting algorithm can independently compute each coefficient case; originality is in the explicit integrated distribution, not the existence of a pointwise algorithm.",
+      "Independent mathematical and priority audits have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper provides an algorithm and bounded branching but not the uniform monic cubic mod p⁴ histogram. Its tree-width bound explains why 3p² is a plausible maximum; the full distribution is not stated.",
+        "evidence": [
+          "arXiv:2608.00668, Section 5.2, Lemmas 5.8–5.12"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.00668",
+        "material_read": "HTML introduction and Section 5 discussions, especially definitions and Lemmas 5.8–5.12; later algorithm details sampled rather than every line",
+        "method": "Read primary full text in browser HTML, including specific lifting statements",
+        "title": "Faster Deterministic Integer Root Finding for Integer Polynomials",
+        "trigger": "2026 source for weighted lifting of repeated roots; possible stronger finite-modulus coverage"
+      },
+      {
+        "assessment": "Theorem 4.1 covers an algorithmically evaluated fourth-level branch for a specified input polynomial, not the probability law over random monic cubics. It is the closest methodological antecedent.",
+        "evidence": [
+          "arXiv:1711.01355, Theorems 1.1 and 4.1; Section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1711.01355v1",
+        "material_read": "Full HTML introduction, Sections 2 and 4, including Theorems 1.1 and 4.1",
+        "method": "Read primary full-text HTML and compared pointwise root-count theorem to coefficient-averaged claim",
+        "title": "Counting Roots of Polynomials Over Prime Power Rings",
+        "trigger": "Closest fourth-prime-power general theorem; possible exact previous result"
+      },
+      {
+        "assessment": "The paper computes expectation for finite rings and distribution in the finite-field setting, not a full cubic distribution over Z/p⁴Z.",
+        "evidence": [
+          "arXiv:2409.06866v2, Theorems 1 and 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.06866v2",
+        "material_read": "HTML abstract, introduction, related work, and statements of Theorems 1 and 2 with their ring and field assumptions",
+        "method": "Read primary full-text HTML",
+        "title": "The number of solutions of a random system of polynomials over a finite field",
+        "trigger": "Potential stronger probability-distribution theorem for finite commutative rings"
+      },
+      {
+        "assessment": "It concerns p-adic zeros and correlations, not temporary roots modulo p⁴. Residual risk retained because later sections were not fully compared.",
+        "evidence": [
+          "arXiv:2110.03942, abstract/introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2110.03942v1",
+        "material_read": "Abstract and research scope; later sections not exhaustively examined",
+        "method": "Read the primary abstract and scope description, not a full-section proof comparison",
+        "title": "Where are the zeroes of a random p-adic polynomial?",
+        "trigger": "Potential distribution of cubic roots by prime-power approximation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8be6fb24-f21e-4d6f-8fa0-07d05cf33bbe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete fourth-level random monic cubic root-count distribution is a natural exact invariant of singular Hensel lifting. It includes every coefficient stratum and the rare 3p² clustering event, beyond previous expected-value, p-adic-root, and p³ results. The double and triple branch interactions at the first fourth level give genuinely additional mass categories and an explicit sharp extremizer census.",
+    "status": "PASS"
+  }
+}
