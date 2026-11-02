@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The integral composition identity and derivatives at ±2 prove exact p-adic valuations at ramified traces. At nonramified traces, the order of the squared root in a cyclic split/norm-one group gives ranks; root inversion and simple-root Hensel uniqueness give phi(r) parameters. A totient sum equals the number of all parameters. Direct complete finite-fiber checks passed for 7,129 parameters across 21 levels.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Park 2014 Theorem 20: r(p^k) <= p^k+1 for general t prime to p; Theorem 19 is modulo p only. Li 2000 is a rank/period constraint modulo p."
+      ],
+      "reasoning": "A general weaker upper bound does not imply either exact fibers or sharp upper bound p^k, and Park explicitly poses the prime-power coefficient problem. Fixed-recurrence period classifications do not cover variation of s modulo p^k.",
+      "searches": [
+        "Soohyun Park 2014 arithmetic properties generalized Fibonacci sequences rank p power bound relationship s",
+        "SL2 Z p^k trace order distribution characteristic polynomial semisimple norm one counts Euler totient",
+        "rank of apparition distribution Lucas parameter prime power"
+      ]
+    },
+    "checked_sources": [
+      "Soohyun Park, arxiv:1407.8086v1, Section 4, Theorems 19–21 (2014)",
+      "Hua-Chieh Li, Fibonacci Quarterly 38 (2000) 272–281",
+      "Aoki and Sakai, Journal of Integer Sequences 19 (2016), Article 16.2.6",
+      "Published mathematical records on even-even Lucas period equality and local Dold conditions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Park Section 4: root-order formula mod p, r(p^k)<=p^k+1, explicit request to relate r(p^k) to s. Li: modulus p. Published comparator records concern period equality and local Dold properties of fixed Lucas pairs."
+      ],
+      "reasoning": "The new family counts parameter fibers over p^k, an invariant neither implied by a fixed-parameter period equality nor by a mod-p root-order statement without the additional prime-power group and valuation lemmas. No checked comparator directly entails the full theorem.",
+      "searches": [
+        "Park arxiv:1407.8086 Theorems 19 20 21 Section 4",
+        "Li Complete and Reduced Residue Systems of Second-Order Recurrences Modulo p 2000",
+        "Even-even period equality for Lucas pairs with q=-1",
+        "All local prime parts are Dold for split companion Lucas sequences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Generalized Fibonacci rank is the order of a squared root of X^2-sX+1 for unit discriminant; equivalent to counting trace fibers of p-adic tori. Park Theorem 19 gives a finite-field version, not the all-level trace count."
+      ],
+      "reasoning": "The squared-root order is an equivalent parameterization but does not by itself give coefficient frequencies without nonramified group cyclicity, inversion pairing, and repeated-root analysis. No located equivalent all-prime-power trace-fiber statement covers the new formula.",
+      "searches": [
+        "rank of apparition U_n(s,-1) distribution over s mod p^k totient",
+        "rank distribution generalized Fibonacci sequence over coefficients modulo p powers cyclic tori phi",
+        "Chebyshev polynomial U_n trace roots modulo prime powers distribution least index totient phi"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Park 2014 Figure 1 plots rank versus s for p=31; no higher prime powers or exact counting table. Direct integer check in verify.py agrees through 21 prime/exponent cases."
+      ],
+      "reasoning": "A graph at a single prime and finite computations cannot furnish the general arbitrary-prime/arbitrary-depth result; no checked exact table or prior file contained this formula. Unlocated tables remain a residual risk.",
+      "searches": [
+        "number of rank of apparition s modulo p Chebyshev distribution table",
+        "distribution ranks generalized Lucas sequence modulo prime powers coefficients s"
+      ]
+    },
+    "rationale": "Soohyun Park (arXiv:1407.8086, Section 4) studies modulo-p ranks and raises the modulo-prime-power coefficient-dependence question; Theorem 20 gives only rank <= p^k+1. Li (2000) is modulo primes. The exact rank-and-fiber formula for all p^k is stronger and not stated in examined texts. Full search does not prove novelty; a specialized trace-order count could be relevant.",
+    "residual_risks": [
+      "A specialized formula counting orders of trace classes in split and unramified norm-one groups might be equivalent without using generalized-Fibonacci terminology; not all historic number-theory literature can be exhaustively ruled out.",
+      "The case t=-1, p>=5 is deliberately specialized; no assertion of an arbitrary-t or small-prime theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state an exact distribution over coefficients modulo p^k; Theorem 20 is a weaker bound",
+        "evidence": "Theorems 19 and 20, Figure 1 for p=31, final question on printed page 15.",
+        "identifier_or_url": "https://arxiv.org/pdf/1407.8086",
+        "material_read": "Full relevant Section 4 (especially printed pages 13-15, Theorems 19-21), and earlier rank/valuation definitions and Lemma 4",
+        "method": "Inspected the original openly available PDF text and page images",
+        "title": "Arithmetic properties of generalized Fibonacci sequences",
+        "trigger": "Same recurrence, rank, variable parameter, and explicit prime-power question"
+      },
+      {
+        "assessment": "Results are stated for prime moduli and do not classify coefficient frequencies at all prime-power depths",
+        "evidence": "Fibonacci Quarterly 38 (2000), pp. 272-281, prime-modulus scope.",
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/38-3/li2.pdf",
+        "material_read": "Opening pages containing problem setup and prime-modulus recurrence results",
+        "method": "Inspected lawful primary PDF and rendered page images",
+        "title": "Complete and Reduced Residue Systems of Second-Order Recurrences Modulo p",
+        "trigger": "Park attributes the repeated-root and quadratic-discriminant rank dichotomy to Li"
+      },
+      {
+        "assessment": "Focuses on equivalence classes of sequences/initial data, not the prime-power rank spectrum over varying recurrence coefficients",
+        "evidence": "Aoki and Sakai, Journal of Integer Sequences 19 (2016), Article 16.2.6.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL19/Aoki/aoki4.pdf",
+        "material_read": "Abstract, introduction and statement of the main theorems in the original publication",
+        "method": "Read original publisher PDF text and rendered first page; compared stated object and equivalence relation against the rank-count claim",
+        "title": "On Equivalence Classes of Generalized Fibonacci Sequences",
+        "trigger": "Possible general classification or parameter equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0afdf5c-daca-4bc6-91b2-28c24a219707",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Park 2014 explicitly identifies rank modulo prime powers as an interesting unsolved direction. The new theorem gives every possible rank and precise frequency for arbitrary coefficients across all p>=5 and all k, identifies the exceptional ramified stratum, and makes the known upper bound sharp in this family. It is a complete natural arithmetic classification rather than an isolated computation.",
+    "status": "PASS"
+  }
+}
