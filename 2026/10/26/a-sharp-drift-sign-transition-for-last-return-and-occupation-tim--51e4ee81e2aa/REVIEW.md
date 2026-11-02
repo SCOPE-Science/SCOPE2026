@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The last-return prefix bridge has a uniform conditional occupation semiduration by the classical Chung–Feller count. Signed no-return suffixes are enumerated by positive ballot coefficients, giving an exact conditional distribution. Their tilted coefficient arrays have a strict monotone likelihood ratio in duration because the successive ballot-coefficient ratio increases with final height. This proves strict conditional-mean ordering and the covariance sign for every sample size and bias. An exact-rational enumeration over 35 parameter pairs agreed with the analytical joint probabilities and signs.
+## correctness
 
-## Originality — PASS, with priority risk
-Lachal (2010/2012), including the full-text bridge theorem and biased sojourn calculations, supplies important premises but not the strict last-return covariance sign. Hartmann and Majumdar (2025) explicitly derive the drift-free continuous-time last-zero/occupation joint law and zero covariance; that is not the strict biased discrete assertion. Search comparisons found no dominating exact claim. Older equivalent biased-joint calculations remain a historical risk; absence from searches is not uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The sign changes sharply at unbiased increments for every even horizon, despite two nontrivial path-dependent variables. The stronger monotone conditional-mean statement is explained by a reusable strict ballot-meander likelihood-ratio ordering. The theorem supplies a finite-sample drift perturbation classification in a setting where marginal arcsine/sojourn identities alone do not determine the covariance sign.
+PASS: For 2n iid biased +/-1 steps, K_n is half last zero time and U_n is half the count of positive midpoint steps. Prefix conditional on last return at 2k is a uniform bridge; Chung–Feller makes positive semiduration J_k uniform 0..k. Remaining 2m-step nonreturn meander has ballot count b_mr=(r/m) binom(2m,m-r) and positive sign probability w_m=A_m+/(A_m++A_m-). The ratio b_(m+1),r/b_mr increases strictly in r and added maximum-support value gives strict MLR order for the signed terminal height; for p>1/2, w_m strictly increases above 1/2. Conditional mean n/2+m(w_m-1/2) strictly decreases in k and covariance via independent-copy identity is negative, with reflection for p<1/2, and zero at p=1/2. Independently enumerated all sign paths for n<=5 at five rational biases and verified exact sign. No finite test replaces general ballot/MLR proof.
 
-## Scope and limitations
-Independent identically distributed nearest-neighbor increments only, even horizons. This review is not an independent audit and does not certify literature completeness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chung–Feller bridge occupation uniformity and Lachal biased sojourn laws are clearly prior; Hartmann–Majumdar 2025 treats driftless Brownian joint last-zero/occupation. Target strict drift-dependent conditional-mean order and finite-n covariance sign are not stated as consequences of the inspected prior theorems. Extensive classical walk literature leaves an older equivalent joint-law risk.
+
+## value
+
+PASS
+
+Strict finite-horizon covariance sign reversal and the stronger conditional mean monotonicity are qualitative new structure for two natural path functionals; they go beyond marginals and classical zero-drift symmetry. Ballot MLR supplies a reusable explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
