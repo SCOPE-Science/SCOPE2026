@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The congruence CRT lemma, isolation-preservation proof, residue coverage for odd and even moduli, distinct ternary-prime representations, and product-exchange inequality were reconstructed under explicit hypotheses. Finite verifier checks agree; they are not substituted for proof. Dirichlet's and Vinogradov's classical theorems are used as named external inputs.
+## correctness
 
-**Originality — PASS, subject to remaining bibliographic uncertainty.** Campbell's 2026 theorem gives global unboundedness without congruence restrictions. An earlier multiplicity result for arbitrarily many prime-prefix offsets and an earlier isolation-radius improvement do not entail a full residue system from their statements. The new residue-programming lemma establishes that additional coverage. The 2015 bounded-sum maximization result uses a different invariant. Searches have not identified an all-progression theorem; inaccessible/unindexed equivalences remain a risk.
+PASS
 
-**Value — PASS.** The theorem rules out every modular obstruction to an established natural prime-partition discrepancy: unboundedness holds in each fixed arithmetic progression, not merely globally. This is a substantial universal refinement, with a constructive mechanism and a precise non-effective scope.
+Dirichlet plus CRT constructs arbitrarily large primes isolated throughout a prescribed finite ±H window in either unit class ±1 mod m. If A is product-minimal of product M, appending isolated q>s(A) preserves product minimality: any competing product <=qM has smaller-factor product T<4M^2, forcing its largest prime b into the excluded window around q and hence b=q. Starting from singleton 2 or 3 and appending t−1 isolated primes of classes ±1 programs every sum residue: 2j variation covers odd moduli, and the two seed parities cover even moduli, for t>=m+1. Vinogradov supplies a second representation of each sufficiently large offset as at most four distinct primes. Prime-prefix exchange Lemma 5 compares any inserted large primes against removed small primes: the gap G>11M forces product ratio v(U)/v(V)>M via sorted exchange and (a−1)!e^(−a)>=2e^(−3)>1/11. Thus maximum product omits exactly A (K=pi(x)−t), while a four-prime offset produces at least pi(x)−4 summands (L−K>=t−4>=R). Prime gaps of arbitrarily prescribed finite length in a suitable progression are unbounded by CRT-Dirichlet. Infinite sequence of different prefix sums completes the argument. Independently verified residue programming across m<=300 and key factorial inequality; finite checks do not substitute for Dirichlet/Vinogradov or the exchange proof.
 
-**Limitations.** No asymptotic density in a progression, optimal cutoff, or independent audit is asserted. Finite computations check only finite arithmetic claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the all-arithmetic-progressions conclusion. Campbell already proves global unboundedness and supplies isolation/product-exchange methods, so those are credited. Global unboundedness and multiplicity of offsets do not logically entail unboundedness for every fixed nonunit residue class. The new uniform-cardinality residue-programming supplies a concrete missing universal step. Campbell full text unavailable in this run; an equivalent all-progressions theorem could be in unread portions and is explicitly a priority risk.
+
+## value
+
+PASS
+
+Extending a natural globally unbounded partition discrepancy to every congruence class removes all congruence obstructions, including non-coprime classes, with common-cardinality programmable offset witnesses. The universal modular quantifiers are a nontrivial strengthening relevant to additive prime partitions, not an arbitrary residue sample. No density, least witness or effective upper bound is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
