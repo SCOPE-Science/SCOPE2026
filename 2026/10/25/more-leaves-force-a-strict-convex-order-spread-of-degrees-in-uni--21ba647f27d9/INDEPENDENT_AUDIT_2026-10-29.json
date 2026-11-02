@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T10:13:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Prüfer coding makes the leaf count n-j equivalent to exactly j occupied labels in an N=n-2 word. Conditioning gives P(X_j=c)=binom(N,c) S(N-c,j-1)/(n S(N,j)) (c>=1), and P(X_j=0)=(n-j)/n, with fixed EX_j=N/n. Size-bias gives q_j(c)=binom(N-1,c-1)S(N-c,j-1)/S(N,j). Real-rooted Bell polynomials imply log-concave Stirling coefficients; the Stirling recurrence proves strictly decreasing S(t,r-1)/S(t,r) in t. Therefore q_{j-1}/q_j increases in c (with endpoint support), yielding strict stochastic order of size biases. The increasing secant-slope representation transfers it into strict convex order of degrees and the covariance consequences. Independently enumerated all Prüfer words for n=4..7 (16,125,1296,16807), checking every adjacent conditional convex-hinge comparison. The universal conclusion rests on the recurrence proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O’Neill derives conditional laws for the number of occupied bins and spillage given occupied-bin count; it does not state tagged-bin multiplicity convex-order comparison.",
+          "Classical log-concavity is used to derive strict Stirling ratio; a generic total-positivity result may be stronger."
+        ],
+        "reasoning": "No inspected stronger theorem subsumes strict cross-j convex order, though a general occupancy TP theorem could; this is expressly a priority risk.",
+        "searches": [
+          "uniform random labeled Cayley trees conditioned on number of leaves strict convex stochastic order tagged vertex degree size biased Prüfer occupancy Stirling log concavity",
+          "conditional occupancy monotone likelihood ratio Stirling logconcavity",
+          "O’Neill 2023 Three Distributions in the Extended Occupancy Problem"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md blob 9f753f3fc828ff71b3865869b9afe357f16a58dd",
+        "assigned check.py blob a91885cbc187800d95f2625d92295dee30dd3db5",
+        "arXiv:1009.2060",
+        "arXiv:0712.2253",
+        "O’Neill 2023 doi:10.1007/s11009-023-10053-y",
+        "Resultary search Cayley degree and leaves"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remmel–Williamson counts and ranks fixed-leaf classes; O’Neill studies occupied-bin count and spillage conditionals.",
+          "The theorem additionally requires q_{j-1}>=MLR q_j and secant-slope transfer, neither read as an asserted result in these sources."
+        ],
+        "reasoning": "An explicit strict cross-conditioning comparison needs mathematical proof beyond known enumeration; exhaustive absence from all classical literature is not claimed.",
+        "searches": [
+          "arXiv:1009.2060",
+          "O’Neill 2023 Springer open-access article",
+          "uniform random labeled Cayley trees conditioned on number of leaves strict convex stochastic order tagged vertex degree size biased Prüfer occupancy Stirling log concavity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prüfer multiplicities are multinomial occupancy loads; exactly n-j leaves is exactly j nonempty urns.",
+          "The submitted assertion is a stochastic/convex order between tagged-bin loads as j changes, not only the PMFs."
+        ],
+        "reasoning": "This occupancy reduction was used explicitly for the priority search; having known PMFs does not automatically imply convex order without a monotone Stirling ratio.",
+        "searches": [
+          "uniform random labeled Cayley trees conditioned on number of leaves strict convex stochastic order tagged vertex degree size biased Prüfer occupancy Stirling log concavity",
+          "Stirling surjection fixed occupied boxes size biased load likelihood ratio",
+          "Remmel Williamson 1009.2060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant published SCOPE result concerns degree conditional on another vertex’s distance in Cayley trees, not leaves; classical occupancy tables give Stirling counts."
+        ],
+        "reasoning": "A known exact PMF or numerical Stirling table does not by itself supply the monotone likelihood-ratio implication. No claim that raw distribution counts are new.",
+        "searches": [
+          "uniform random labeled Cayley trees conditioned on number of leaves strict convex stochastic order tagged vertex degree size biased Prüfer occupancy Stirling log concavity",
+          "Resultary semantic Cayley tree leaves degree convex order"
+        ]
+      },
+      "rationale": "PASS (qualified): Tagged degree conditional on leaves is classical uniform-ball occupancy conditional on occupied-bin count, so general occupancy stochastic-order theorems are serious possible dominators. The accessible O’Neill 2023 complete article treats occupancy count and spillage, not the strict convex order of one specified bin load across fixed occupied-count classes. Remmel–Williamson ranks fixed-leaf trees; this does not itself establish the strict cross-class likelihood-ratio comparison. Historical general Stirling-TP or urn/occupancy order coverage remains a real risk.",
+      "residual_risks": [
+        "Classical occupancy size-biased stochastic-order or total-positivity theorem may already imply the result without matching wording; historical originality best of knowledge.",
+        "Relevant fixed-leaf Cayley paper not inspected in full due full-text access limitation.",
+        "Only uniform labeled trees; no joint vector convex order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING inspected strict tagged-load order",
+          "evidence": [
+            "The 2023 article gives distribution of occupancy number and spillage, not a fixed-box load ordered in convex order as the number of occupied boxes varies."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11009-023-10053-y",
+          "material_read": "Open-access HTML: introduction, Markov occupancy model, conditional occupancy formulas, Section 5 spillage, term searches for convex/size-biased (none found)",
+          "method": "Read original Springer HTML sections and search body",
+          "title": "Three Distributions in the Extended Occupancy Problem",
+          "trigger": "Strongest natural occupancy formulation"
+        },
+        {
+          "assessment": "PLAUSIBLE_SOURCE_NOT_READ_IN_FULL",
+          "evidence": [
+            "Describes enumeration and algorithms for classes with fixed numbers or sets of leaves; full text not verified against conditional degree monotonicity."
+          ],
+          "identifier_or_url": "arXiv:1009.2060",
+          "material_read": "Abstract and bibliographic statement; full PDF unavailable through attempted open-access and authorized institutional routes",
+          "method": "Publisher/abstract inspection only",
+          "title": "Ranking and unranking trees with a given number or a given set of leaves",
+          "trigger": "Same uniform Cayley trees conditioned on leaves"
+        },
+        {
+          "assessment": "DIFFERENT_REGIME",
+          "evidence": [
+            "Studies Gibbs random-tree degree frequency and large deviations, not a stated finite all-leaf-count tagged convex order."
+          ],
+          "identifier_or_url": "arXiv:0712.2253",
+          "material_read": "Public abstract and bibliographic record; complete body not independently read",
+          "method": "Abstract-only comparison",
+          "title": "Large Deviations for Random Trees",
+          "trigger": "Adjacent random-tree degree model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact leaf count is a natural degree constraint for Cayley trees; all strictly convex local degree costs increase while the conditional mean stays fixed. This stronger finite-n comparison clarifies how hub concentration responds to leaf conditioning and is not simply a variance calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md blob 9f753f3fc828ff71b3865869b9afe357f16a58dd",
+    "assigned check.py blob a91885cbc187800d95f2625d92295dee30dd3db5",
+    "arXiv:1009.2060",
+    "arXiv:0712.2253",
+    "O’Neill 2023 doi:10.1007/s11009-023-10053-y",
+    "Resultary search Cayley degree and leaves"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical occupancy size-biased stochastic-order or total-positivity theorem may already imply the result without matching wording; historical originality best of knowledge.",
+    "Relevant fixed-leaf Cayley paper not inspected in full due full-text access limitation.",
+    "Only uniform labeled trees; no joint vector convex order.",
+    "Publication is withheld pending public metadata sanitization; this is an operational limitation, not a scientific FAIL.",
+    "No Lean or expert attestation claimed; no GitHub changes or dispatcher closeouts."
+  ],
+  "schema_version": 1
+}
