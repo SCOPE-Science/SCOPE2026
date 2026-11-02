@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:55:37.370565Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 421f2d4fca4cdc61e0d6b0f7f646b48475459b62",
+        "Frozen verify_induced_matching_polynomial.py blob 08769d8770bf6aab41529b8afe855c947a77d6c5",
+        "independent_mathematical_checks.py"
+      ],
+      "rationale": "For induced matchings in rook graph K_m square K_n, each selected row-oriented edge uses 1 dedicated row and 2 dedicated columns, while each column-oriented edge uses 2 dedicated rows and 1 dedicated column. Inducedness means all row coordinates from distinct selected edges and all column coordinates from distinct selected edges are disjoint, so h+2v<=m,2h+v<=n are necessary and sufficient. Choose h rows, v columns, pair and assign remaining 2v rows to column edges and 2h columns to row edges. This bijection yields m!n!/[h!v!2^(h+v)(m-h-2v)!(n-v-2h)!]. Summing z^(h+v) gives full polynomial for every positive m,n including singleton dimensions. These inequalities imply k=h+v<=m,n,floor((m+n)/3); choose h=max(0,2k-m), v=k-h to realize k=min(m,n,floor((m+n)/3)). The equivalent object is vertex-disjoint P3 (two-edge) packing in K_{m,n}, via rook graph=L(K_{m,n}); the exact factorial profile is the count of such packings. Independent exhaustive enumeration of induced matchings on all 16 boards m,n<=4 reproduces every coefficient, not used as infinite proof.",
+      "residual_risks": [
+        "No asymptotic coefficient law, weighted generalization, or arbitrary graph result is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polynomial-time algorithms for maximum induced matching in weakly chordal graphs may optimize the size but are not an explicit all-size coefficient formula for labeled rectangular rook graphs."
+        ],
+        "reasoning": "A general matching algorithm does not output the factorial enumeration. Complete-bipartite P3 packing partitions concern different data, so do not immediately imply N_{m,n}(h,v).",
+        "searches": [
+          "Resultary query: rook graph induced matching polynomial K_m cartesian K_n packing paths P3 complete bipartite counting polynomial",
+          "Cameron–Sritharan–Tang DOI:10.1016/S0012-365X(02)00803-8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 421f2d4fca4cdc61e0d6b0f7f646b48475459b62",
+        "Frozen verify_induced_matching_polynomial.py blob 08769d8770bf6aab41529b8afe855c947a77d6c5",
+        "Raja et al DOI:10.1080/23799927.2020.1871418 abstract",
+        "Cameron et al DOI:10.1016/S0012-365X(02)00803-8 abstract",
+        "Klavzar–Peterin DOI:10.1002/jgt.20084 abstract",
+        "Resultary query: rook graph induced matching polynomial K_m cartesian K_n packing paths P3 complete bipartite counting polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Characterizations of Hamming graph subgraphs establish geometry, while packing partition parameters do not determine counts of all possible induced matchings."
+        ],
+        "reasoning": "A classical labeled path-packing enumeration, if published, would cover the factorial formula; no such explicit implication established from inspected sources, but the risk remains significant because the counting argument is elementary.",
+        "searches": [
+          "Resultary query: rook graph induced matching polynomial K_m cartesian K_n packing paths P3 complete bipartite counting polynomial",
+          "Klavžar–Peterin DOI:10.1002/jgt.20084; Raja et al 2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An induced matching of edges of L(G) is a family of pairwise vertex-disjoint pairs of incident edges in G; each pair is a P3 for G bipartite."
+        ],
+        "reasoning": "The equivalent complete-bipartite 3-vertex path-packing formulation is explicitly part of the prior-art search; paper titles about maximum induced matching alone are not a complete comparison.",
+        "searches": [
+          "Resultary query: rook graph induced matching polynomial K_m cartesian K_n packing paths P3 complete bipartite counting polynomial",
+          "Induced matching in line graph L(K_m,n) = vertex-disjoint P3 packing in K_m,n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior induced H-packing k-partition article concerns minimal partition counts and existence; no inspected source tabulates the exact generating polynomial for all m,n."
+        ],
+        "reasoning": "The claim concerns all coefficient values and profile counts, not merely the maximum value; targeted Resultary results about rook graph topological invariants and bipartite packing did not give the stated formula.",
+        "searches": [
+          "Resultary query: rook graph induced matching polynomial K_m cartesian K_n packing paths P3 complete bipartite counting polynomial",
+          "Raja–Rajasingh–Xavier DOI:10.1080/23799927.2020.1871418"
+        ]
+      },
+      "rationale": "The line graph identity R_{m,n}=L(K_{m,n}) is standard, as are general induced-matching algorithms; previously studied P3-packing k-partition parameters of K_{m,n} focus on partitioning/perfect packings, not the all-k enumerator of vertex-disjoint path selections. The new claimed contribution is the labeled two-profile factorial polynomial and the consequent all-size maximum, with the caveat that similar classical rook/P3 packing generating functions may exist under different terminology. Targeted Resultary and primary-literature searches did not identify the exact all-parameter polynomial, not proof of absolute priority.",
+      "residual_risks": [
+        "A classical vertex-disjoint P3-packing enumeration of K_{m,n} under another name could already give exactly this profile formula; targeted searches are not priority proof.",
+        "No whole-document inspection of the three original journal articles was obtained in this run; all article-level comparisons explicitly limited to abstracts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Packings into partitions, not explicitly the labeled all-sizes induced-matching polynomial; whole-document noncoverage not asserted",
+          "evidence": "Its stated object is induced H-packing k-partition of graphs; a partition-size parameter does not determine coefficient counts N_{m,n}(h,v).",
+          "identifier_or_url": "https://doi.org/10.1080/23799927.2020.1871418",
+          "material_read": "Available original article abstract, title and bibliographic details; full article not read",
+          "method": "Public primary journal abstract/description and comparison of definitions",
+          "title": "Induced H-packing k-partition of graphs",
+          "trigger": "Same P3-packing vocabulary and complete bipartite graph class"
+        },
+        {
+          "assessment": "Prior maximum induced matching algorithm, not inspected as an enumerator",
+          "evidence": "The assigned polynomial is an exact combinatorial count, not only existence or a search algorithm.",
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(02)00803-8",
+          "material_read": "Bibliographic abstract and title, not complete manuscript",
+          "method": "Primary bibliographic search and claim comparison",
+          "title": "Finding a maximum induced matching in weakly chordal graphs",
+          "trigger": "Broad induced-matching theorem potentially stronger at optimization level"
+        },
+        {
+          "assessment": "General structural antecedent, no exact all-size induced-matching polynomial inspected",
+          "evidence": "Graph family and Cartesian product structure are standard and not claimed as new.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.20084",
+          "material_read": "Available original article abstract/bibliographic description",
+          "method": "Title and graph-family comparison",
+          "title": "Characterizing subgraphs of Hamming graphs",
+          "trigger": "Rook graphs as Hamming/Cartesian complete-graph products"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 421f2d4fca4cdc61e0d6b0f7f646b48475459b62",
+        "Raja et al DOI:10.1080/23799927.2020.1871418 abstract",
+        "Cameron et al DOI:10.1016/S0012-365X(02)00803-8 abstract"
+      ],
+      "rationale": "The rook graph is a canonical graph (Hamming graph H(2,m,n)), and its induced-matching polynomial counts every conflict-free edge selection by size, beyond a single optimum. The rectangular boundary and exact maximum min(m,n,floor((m+n)/3)) are complete, useful invariants that can serve as exact benchmark instances for induced-packing enumerators; a natural self-contained fact need not yield a broader theorem.",
+      "residual_risks": [
+        "May be mathematically elementary or already encoded in a general P3-packing factorial identity; priority remains best-of-knowledge."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 421f2d4fca4cdc61e0d6b0f7f646b48475459b62",
+    "Frozen verify_induced_matching_polynomial.py blob 08769d8770bf6aab41529b8afe855c947a77d6c5",
+    "Raja et al DOI:10.1080/23799927.2020.1871418 abstract",
+    "Cameron et al DOI:10.1016/S0012-365X(02)00803-8 abstract",
+    "Klavzar–Peterin DOI:10.1002/jgt.20084 abstract",
+    "Resultary query: rook graph induced matching polynomial K_m cartesian K_n packing paths P3 complete bipartite counting polynomial"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No asymptotic coefficient law, weighted generalization, or arbitrary graph result is claimed.",
+    "May be mathematically elementary or already encoded in a general P3-packing factorial identity; priority remains best-of-knowledge.",
+    "The finite independent checker is corroboration, not an infinite proof or originality/value certification.",
+    "Scientific judgment is best-of-knowledge; publication remains withheld because public metadata cannot be sanitized with validated guarded complete bytes."
+  ],
+  "residual_risks": [
+    "A classical vertex-disjoint P3-packing enumeration of K_{m,n} under another name could already give exactly this profile formula; targeted searches are not priority proof.",
+    "No whole-document inspection of the three original journal articles was obtained in this run; all article-level comparisons explicitly limited to abstracts."
+  ],
+  "schema_version": 1
+}

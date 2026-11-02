@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS — The feasible row/column profiles are characterized by \(h+2v\le m\) and \(2h+v\le n\). Choosing and pairing the remaining row and column coordinates gives the stated factorial coefficient. The two inequalities give the upper bound \(\min\{m,n,\lfloor(m+n)/3\rfloor\}\), and the explicit profile \(h=\max\{0,2k-m\}\), \(v=k-h\) attains it for \(k\) equal to that bound.
+## correctness
 
-## Originality
-PASS — published-finding corpus searches for the exact rook-graph induced-matching polynomial and its equivalent complete-bipartite \(P_3\)-packing formulation returned adjacent work on rook-graph topology, general induced-matching algorithms, and packing-partition parameters, but no direct all-size count. The inspected 2021 packing-partition paper treats a different parameter. Residual risk remains that an equivalent formula appears in unindexed literature.
+PASS
 
-## Value
-PASS — The result supplies the full size distribution, not only the maximum, for a standard family of conflict graphs. This is a reusable exact benchmark for counting noninterfering edge pairs / vertex-disjoint \(P_3\)-packings on complete bipartite networks. No downstream algorithm or asymptotic consequence is claimed.
+For induced matchings in rook graph K_m square K_n, each selected row-oriented edge uses 1 dedicated row and 2 dedicated columns, while each column-oriented edge uses 2 dedicated rows and 1 dedicated column. Inducedness means all row coordinates from distinct selected edges and all column coordinates from distinct selected edges are disjoint, so h+2v<=m,2h+v<=n are necessary and sufficient. Choose h rows, v columns, pair and assign remaining 2v rows to column edges and 2h columns to row edges. This bijection yields m!n!/[h!v!2^(h+v)(m-h-2v)!(n-v-2h)!]. Summing z^(h+v) gives full polynomial for every positive m,n including singleton dimensions. These inequalities imply k=h+v<=m,n,floor((m+n)/3); choose h=max(0,2k-m), v=k-h to realize k=min(m,n,floor((m+n)/3)). The equivalent object is vertex-disjoint P3 (two-edge) packing in K_{m,n}, via rook graph=L(K_{m,n}); the exact factorial profile is the count of such packings. Independent exhaustive enumeration of induced matchings on all 16 boards m,n<=4 reproduces every coefficient, not used as infinite proof.
 
-## Closest literature and limitations
-Cameron, Sritharan, and Tang study maximum induced matchings algorithmically on weakly chordal graphs; Klavžar and Peterin discuss Hamming graphs as Cartesian products of complete graphs; Raja, Rajasingh, and Xavier study induced \(P_3\)-packing partition numbers under perfect or almost-perfect packing assumptions. None of the inspected statements supplies the polynomial coefficient formula here. The search is not exhaustive, and independent audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The line graph identity R_{m,n}=L(K_{m,n}) is standard, as are general induced-matching algorithms; previously studied P3-packing k-partition parameters of K_{m,n} focus on partitioning/perfect packings, not the all-k enumerator of vertex-disjoint path selections. The new claimed contribution is the labeled two-profile factorial polynomial and the consequent all-size maximum, with the caveat that similar classical rook/P3 packing generating functions may exist under different terminology. Targeted Resultary and primary-literature searches did not identify the exact all-parameter polynomial, not proof of absolute priority.
+
+## value
+
+PASS
+
+The rook graph is a canonical graph (Hamming graph H(2,m,n)), and its induced-matching polynomial counts every conflict-free edge selection by size, beyond a single optimum. The rectangular boundary and exact maximum min(m,n,floor((m+n)/3)) are complete, useful invariants that can serve as exact benchmark instances for induced-packing enumerators; a natural self-contained fact need not yield a broader theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
