@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "For the stated 4x4 rank-two input and b=2, a.e. the first unpivoted QR block spans the image, yielding zero second residual. Exact algebra reconstructs both coefficient row norms and shows two-column retention iff t<Z<1-t; Cauchy integration gives P0; the independent chi-square bound controls first-test exclusion by 1-exp(-tau^2). Endpoint limits give (2/pi)arcsin(c) with no reliance on sampling. Exact SVD of the 2x4 available coefficient block yields singular values 1,delta and a rank-one error delta<tau. Replayed standalone checker verifies 4 symbolic, 2016 rational, 180 direct QR/SVD identities and 480000 seeded draws.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Martinsson--Voronin (2015) gives alternative blocked rank-revealing factorization, with qualitative numerical rank optimality, not Smith--Do--Chen Algorithm 3 probability.",
+        "randUTV (2017) applies transformations to concentrate singular value information, so its results concern a different factorization and do not bound the unrotated 2026 pruning event.",
+        "Grigori--Xue (2025) proves strong rank-revealing QR properties after column selection on sketched matrices; no direct inclusion of the no-pivot row norm selection."
+      ],
+      "reasoning": "Known optimal SVD truncation is a broader deterministic tool, but it implies only that a rank-one solution exists, not the stochastic probability for failure of unrotated pruning. The new probability is method specific; the classical remedies are explicitly credited.",
+      "searches": [
+        "adaptive matrix-free low-rank approximation rank pruning rank revealing QR versus SVD exact probability high overestimate",
+        "Smith Do Chen 2026 randQB_MF_Fro Prune_Rank_Fro unpivoted QR rank overestimation Cauchy 1/3 fixed tolerance",
+        "arxiv:1503.07157",
+        "arxiv:1703.00998",
+        "arxiv:2503.18496v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.06758v1",
+      "Smith--Do--Chen public MATLAB randQB_MF_Fro.m and Prune_Rank_Fro.m",
+      "arxiv:2105.07388",
+      "arxiv:1503.07157",
+      "arxiv:1703.00998",
+      "arxiv:2503.18496v1",
+      "doi:10.1137/0911030 abstract only",
+      "published research-record semantic results published multistage adaptive randomized pivoting error study, published weighted-mass ACA deflation study, published complete-pivot ACA Frobenius growth study, published singular-value-thresholding rank-staircase study"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Smith--Do--Chen (2026) Theorem 8 computes squared errors for chosen retained rows and proves no relative closeness to the best rotated singular-vector subset.",
+        "Meier--Nakatsukasa (2021) sketches on both sides and estimates singular spectrum; its convergence claims do not describe the first-column orientation in Smith--Do--Chen unpivoted QR followed by Algorithm 3.",
+        "published research-record deflation-history ACA concerns stale pivot scores; sharp multistage ARP concerns expected approximation-error multipliers; neither concerns this QB last-block rank-retention probability."
+      ],
+      "reasoning": "Prior results justify energy accounting or different estimators; they do not imply the reported P0 finite envelope nor its arcsine asymptotic without additional, method-specific Gaussian QR and Cauchy calculations.",
+      "searches": [
+        "randomized QB final-block row norm pruning rank overestimation despite optimal truncation threshold arcsine Cauchy Gaussian QR",
+        "adaptive matrix-free low-rank approximation rank pruning rank revealing QR versus SVD exact probability high overestimate",
+        "Smith Do Chen 2026 randQB_MF_Fro Prune_Rank_Fro unpivoted QR rank overestimation Cauchy 1/3 fixed tolerance",
+        "arxiv:2607.06758v1",
+        "arxiv:2105.07388"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meier--Nakatsukasa (2021) analyzes singular values of two-sided sketched matrices, not per-row post-QR pruning of an already spanning block.",
+        "Foster (1990) abstract concerns diagonal entries of a QR triangular factor; the present object is row energies of Q-transformed A and a second residual lookahead."
+      ],
+      "reasoning": "The result can be rephrased as a Cauchy-angular event for the first Gaussian column or as the failure of a basis-dependent row-norm choice to attain a singular-value-optimal truncation. The 2026 algorithm-dependent rank-two probability and exact first-stop error are not stated in inspected equivalent formulations. A historical QR re-expression remains plausible but not established by the Foster abstract.",
+      "searches": [
+        "randQB_MF_Fro Smith Do Chen rank pruning Gaussian two by two diagonal overrank arcsine law",
+        "randomized QB final-block row norm pruning rank overestimation despite optimal truncation threshold arcsine Cauchy Gaussian QR",
+        "Gaussian QR anisotropic two dimensional matrix singular values epsilon fixed ratio row norm pruning failure probability",
+        "arxiv:2105.07388",
+        "doi:10.1137/0911030"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual semantic published research-record searches returned closest distinct IDs published multistage adaptive randomized pivoting error study, published weighted-mass ACA deflation study, published complete-pivot ACA Frobenius growth study.",
+        "Original row-norm pruning code [3] and algorithm paper [1] describe the same selection procedure without a 4x4 diagonal probability table."
+      ],
+      "reasoning": "No exact published database/table match for the diagonal family and arcsine law appeared in the actual record searches. This is evidence of no observed overlap, not proof of mathematical uniqueness.",
+      "searches": [
+        "randQB_MF_Fro Smith Do Chen rank pruning Gaussian two by two diagonal overrank arcsine law",
+        "Smith Do Chen 2026 randQB_MF_Fro Prune_Rank_Fro unpivoted QR rank overestimation Cauchy 1/3 fixed tolerance",
+        "Frobenius QB last-block row norm pruning rotated basis arcsin spectral tail nonvanishing probability"
+      ]
+    },
+    "rationale": "The source proves exact error accounting for any chosen retained rows, not rank optimality across rotations. Published randomized rank estimation and QR/UTV papers use distinct factorization/selection principles. published research-record searches and previously checked scientific claims revealed no statement implying the algorithm-specific finite enclosure or arcsine limit. The classical Cauchy law and SVD fix are not presented as new. Foster 1990 remains an explicitly named abstract-only risk.",
+    "residual_risks": [
+      "Full text of Foster (1990) is inaccessible; a more general older QR probability argument could simplify part of the derivation, though no direct claim coverage has been observed.",
+      "Semantic and web literature searches are not exhaustive; the exact algorithm-dependent law may have an unindexed equivalent.",
+      "Algorithmic implementations using SVD-based orthogonalization or pivoted QR have different behavior; theorem does not extend to those methods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines unpivoted thin-QR basis and row-energy pruning; no theorem for the exact two-eigenvalue rank-retention asymptotic",
+        "evidence": "§3.2 Equation (7), Theorem 8, Algorithm 3; §5 rank-efficiency numerics; first arXiv date 2026-07-07",
+        "identifier_or_url": "https://arxiv.org/html/2607.06758v1",
+        "material_read": "Full accessible HTML including abstract, §§2–6, Algorithms 2–4 and conclusions, focusing §§3.1–3.2 and §4.2",
+        "method": "Read HTML text and compared the displayed algorithm, mathematical identities, and reported rank results",
+        "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+        "trigger": "Defines motivating estimator and rank-pruning rule"
+      },
+      {
+        "assessment": "Two loop iterations possible and second lookahead with zero residual prunes the first accepted block; QR is unpivoted",
+        "evidence": "maxit=ceil(min(m,n)/b); [Qi,~]=qr(Y,econ); call Prune_Rank_Fro when estimator<tau",
+        "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m",
+        "material_read": "Full MATLAB source including lines defining maxit, Gaussian blocks, QR, and return paths",
+        "method": "Read source code, matched branch semantics to 4x4 block-width-two construction",
+        "title": "randQB_MF_Fro.m",
+        "trigger": "Implementation operational semantics: initial test, QR, maxit"
+      },
+      {
+        "assessment": "Sorted row norms are pruned iff accumulated row-energy remains strictly below the tolerance; no basis rotation",
+        "evidence": "w=vecnorm(B,2,2), ascending sort, if alpha_new>=tau break",
+        "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+        "material_read": "Complete 45-line MATLAB source",
+        "method": "Read source code and checked row-order and >= threshold behavior",
+        "title": "Prune_Rank_Fro.m",
+        "trigger": "Determines strict row-energy pruning condition"
+      },
+      {
+        "assessment": "Uses two-sided Gaussian sketches and their singular values, does not instantiate the 2026 per-row QR-pruning event",
+        "evidence": "Intro §1; §3 singular-value preservation; §5.1 numerical rank in randomized low-rank approximation",
+        "identifier_or_url": "https://arxiv.org/abs/2105.07388",
+        "material_read": "Full arXiv HTML-style textual source including algorithms, proofs and §5.1 discussion",
+        "method": "Read available arXiv text of singular-value sketching and numerical rank estimation",
+        "title": "Fast Randomized Numerical Rank Estimation for Numerically Low-Rank Matrices",
+        "trigger": "Plausible older Gaussian numerical rank theory"
+      },
+      {
+        "assessment": "Foundational blocked factorization, but no quantification of this final-prune selection probability",
+        "evidence": "§1.2 greedy template; rank-revealing algorithms and experiments",
+        "identifier_or_url": "https://arxiv.org/abs/1503.07157",
+        "material_read": "Full arXiv textual manuscript, algorithms and theory, especially §§1–4",
+        "method": "Read text and compared chosen basis/truncation with 2026 final row-energy algorithm",
+        "title": "A Randomized Blocked Algorithm for Efficiently Computing Rank-Revealing Factorizations",
+        "trigger": "Foundational blocked QB and near-optimal rank claims"
+      },
+      {
+        "assessment": "Alternative algorithm with stronger singular-value concentration, not the source algorithm’s failure probability",
+        "evidence": "Intro UTV decomposition; §4 orthogonal transformation construction",
+        "identifier_or_url": "https://arxiv.org/abs/1703.00998",
+        "material_read": "Full arXiv textual manuscript including introduction, factorizations and §4 construction",
+        "method": "Compared UTV rank-revealing rotations with no-rotation row-norm pruning",
+        "title": "randUTV: A Blocked Randomized Algorithm for Computing a Rank-Revealing UTV Factorization",
+        "trigger": "SVD-like rotation as potentially dominating prior method"
+      },
+      {
+        "assessment": "Different pivoted factorization and guarantees; no direct covering implication",
+        "evidence": "§2 strong RRQR property; §3 angle/volume preservation; §4 factorization",
+        "identifier_or_url": "https://arxiv.org/html/2503.18496v1",
+        "material_read": "Full HTML including §§2–4 with randomized strong RRQR geometry",
+        "method": "Compared embedding-based strong RRQR estimates with unpivoted QR row-norm selection",
+        "title": "Randomized Strong Rank-Revealing QR for Column Subset Selection and Low-Rank Matrix Approximation",
+        "trigger": "Potential generalized QR rank selection theorem"
+      },
+      {
+        "assessment": "Studies triangular QR diagonals and probability; relationship to source-specific B row norms not resolved by full text",
+        "evidence": "SIAM abstract; institutional access status vpn_disconnected",
+        "identifier_or_url": "https://doi.org/10.1137/0911030",
+        "material_read": "Only bibliographic abstract; full text inaccessible after arXiv/OA search and institutional access attempt",
+        "method": "Compared abstract statement and variables; not designated whole-paper noncoverage",
+        "title": "The Probability of Large Diagonal Elements in the QR Factorization",
+        "trigger": "Highly plausible QR rank-diagnostic historical equivalent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e078e250-fc79-4300-b533-16deb249715d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A source-designed rank-efficiency mechanism suffers a nonvanishing, tunable probability of retaining an unnecessary rank on a family where best rank one already satisfies tolerance and the current residual indicator is exactly zero. The result quantitatively disentangles bad basis orientation from residual estimator noise, and exhibits a no-new-operator-query singular-value rotation remedy. It is a meaningful sharp diagnostic of an explicitly published numerical rank-pruning strategy, not merely a renamed elementary distribution.",
+    "status": "PASS"
+  }
+}
