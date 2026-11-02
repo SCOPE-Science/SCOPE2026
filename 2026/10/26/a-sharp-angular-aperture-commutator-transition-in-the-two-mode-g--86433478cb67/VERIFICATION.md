@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the angular-aperture commutator theorem
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, SymPy, NumPy, and SciPy installed. The script reports its assertion count and the critical radii used for numerical cross-checks; `verification_output.txt` contains the actual output of the packaged checker.
+## correctness
 
-Analytical verification consists of: (i) polar integration in the orthonormal basis of constant and linear Fock monomials; (ii) a sharp first-Fourier-coefficient rearrangement with a unique-arc equality case; (iii) a two-by-two Hermitian commutator cross-product identity, followed by concave quadratic optimization; and (iv) a monotonic-integral representation proving the transition radius is unique for every pair of angular fractions strictly between zero and one.
+PASS
 
-The symbolic tests independently verify the commutator and both optimization branches. Numerical quadrature checks Gaussian normalization; finite sampled angular masks test only a subset of all measurable sets. Neither these finite samples nor finite root computations certify the universal claim. The proof uses no computer-assisted infinite certificate. No independent external mathematical audit has been performed.
+Recomputed the Gaussian radial integrals in the normalized 1,z basis: diagonal entries a(1-e^-t), a(1-(1+t)e^-t), off diagonal c_E=G(t)/(2 pi)*integral_E e^{i theta}. The circle rearrangement bound |integral_E e^{i theta}|<=2 sin(pi a), equality only for a single arc, remains sharp for arbitrary measurable masks. Traceless Hermitian matrices become Bloch vectors (Re c,Im c,h); Pauli commutator has norm twice cross product magnitude. For nonpositive cosine of angle, its squared norm increases with the horizontal radii, so both masks must be arcs. Strict concavity of the residual quadratic in cos delta gives the stated two branches and exact equality. rho_a(t) strictly decreases from infinity to zero by positive integral representation, yielding one radius. Independently recomputed representative Gaussian sector matrices and commutator norm at four parameter sets. No full Fock-space assertion is made.
+
+## originality
+
+PASS
+
+General polyanalytic Fock Toeplitz calculus treats arbitrary symbols but does not state sharp geometric optimization of measurable apertures compressed to span{1,z}; the radial/quasi-radial commutative Toeplitz results study a distinct class of symbols. Elementary Bloch-vector commutators and circular rearrangement are acknowledged premises, not claimed original. The new intersection is all-measurable-mask equality rigidity and unique radius-driven angle transition, with residual risk of an older two-dimensional angular special case.
+
+## value
+
+PASS
+
+The exact extremal noncommutativity under fixed aperture masses, geometry of every maximizing set, and discontinuous switch in optimizer orientation at a unique geometric threshold form a natural nontrivial small-Fock-sector phenomenon. Although only two modes, it is a complete sharp optimization over unrestricted measurable masks rather than an arbitrary numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
