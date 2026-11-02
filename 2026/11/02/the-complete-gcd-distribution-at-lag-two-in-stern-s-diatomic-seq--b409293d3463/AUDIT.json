@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly reduces each two-step gcd to gcd(2k+1,s(u)-s(u+1)); this identity follows from Reznick Corollary 2.4 and coprime consecutive Stern terms. Reznick Theorem 4.7 establishes the required fixed-modulus uniform distribution. CRT counts the congruent primitive pairs exactly, a geometric series sums the run-length density, and a uniform exponential tail validates density limits and absolutely convergent Möbius inversion. The finite checker has passed all 262144 lag-two instances and CRT ratios for d<100; these checks do not replace infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reznick Corollary 2.4 provides the general digital interpolation and Theorem 4.7 provides modular equidistribution of primitive adjacent pairs",
+        "Bettin–Drappeau–Spiegelhofer Theorem 1.1 is a Gaussian law for log Stern values, rather than shifted gcds"
+      ],
+      "reasoning": "The 2006 results are genuinely stronger general tools underlying the proof. They do not explicitly classify any nonadjacent gcd statistic. The present derived classification additionally requires a nontrivial index run decomposition, gcd reduction, an infinite weighted sum, and tight Möbius inversion. A possibly implicit specialization of those results is a residual risk.",
+      "searches": [
+        "arxiv:math/0610601 Corollary 2.4 Theorem 4.7",
+        "Stern sequence nonconsecutive gcd shifts general theorem",
+        "arxiv:1704.05253 Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0610601, Corollary 2.4; Theorem 4.7; §3 (3.15)",
+      "arxiv:1704.05253v1, introduction and Theorem 1.1",
+      "Journal of Integer Sequences 24 (2021), article 21.10.3 abstract",
+      "OEIS A002487 and targeted sequence-name/shifted-gcd queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reznick equation (2.7) is the digital splitting input; equation (4.11) equidistributes primitive adjacent pairs",
+        "Reznick §3 (3.15) mentions average ratios s(n)/s(n+t) for t≥2 as a separate question, without the gcd statistic",
+        "No inspected later source states the divisor-density product or full Möbius-inverted law"
+      ],
+      "reasoning": "The new formula follows by synthesizing two established inputs with a specific exact lag-two identity; this is an original application rather than an independent foundational theorem. A stronger preexisting theorem directly giving all shifted gcd frequencies would dominate it and would negate originality; none was located.",
+      "searches": [
+        "arxiv:math/0610601 2.7 4.11 shifted gcd",
+        "arxiv:1704.05253 Stern distribution theorem",
+        "\"gcd\" \"stern\" \"n+2\" diatomic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bruce Reznick, arXiv:math/0610601, §§2 and 4, gives modular adjacent-pair statistics, not a lag-two gcd law",
+        "OEIS A002487 identifies the underlying Stern sequence but no corresponding lag-two distribution"
+      ],
+      "reasoning": "Shifted gcd, two-step coprimality, lag-two Stern divisibility, and fusc nomenclature were compared at the level of the exact statistic. No explicitly equivalent distribution was located. Absence of hits is not proof of priority.",
+      "searches": [
+        "\"gcd(s(n),s(n+2))\" Stern",
+        "\"fusc\" \"gcd\" \"n+2\"",
+        "Stern diatomic sequence gcd distance two limiting distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002487 records Stern values, not the lag-two gcd density",
+        "The examined OEIS-indexed shifted-gcd searches showed unrelated gcd arrays/recurrences, not the claimed distribution"
+      ],
+      "reasoning": "A table of the original Stern terms cannot itself imply the analytic density formula without new reasoning; no table matching the transformed gcd values or densities was found.",
+      "searches": [
+        "site:oeis.org \"gcd\" \"Stern's diatomic\" \"n+2\"",
+        "site:oeis.org \"gcd(fusc(n),fusc(n+2))\"",
+        "OEIS A002487 Stern diatomic sequence"
+      ]
+    },
+    "rationale": "Neither inspected antecedent explicitly contains the nonadjacent two-step gcd distribution, its full support, or its Möbius-inverted exact law. The result is a derived classification from strong existing Reznick inputs, not a new modular equidistribution theorem; unindexed specializations remain a credible priority risk.",
+    "residual_risks": [
+      "Reznick 2006 provides nearly all general machinery; an implicit or preexisting special-case calculation in the broader literature might reduce priority",
+      "Later or nonindexed work on gcds of nonconsecutive Stern terms may exist",
+      "The 2021 Stern-polynomial paper was inspected only at the abstract-level, not considered evidence of whole-text noncoverage"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_INPUT_NOT_DIRECT_CLASSIFICATION",
+        "evidence": [
+          "Equation (2.7) supplies the needed binary-splitting law; Theorem 4.7 supplies uniform distribution over primitive residue pairs",
+          "Equation (3.15) concerns ratios s(n)/s(n+t), not gcd(s(n),s(n+2))"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0610601",
+        "material_read": "Introduction including (1.5)-(1.14), Corollary 2.4 and its proof (2.7), Section 4 through Theorem 4.7 with its statement and proof; Section 3 near (3.15)",
+        "method": "Full accessible arXiv HTML text, specific theorem sections and searches for shifted gcd expressions",
+        "title": "Regularity properties of the Stern enumeration of the rationals",
+        "trigger": "Exact adjacent primitive-pair equidistribution and general digit interpolation potentially dominate a lag-two formula"
+      },
+      {
+        "assessment": "SINGLE_VALUE_LOG_NORMAL_NOT_SHIFTED_GCD",
+        "evidence": [
+          "Theorem 1.1 is an effective Gaussian limit theorem for logarithms of s(n)",
+          "The paper specifies primary MSC 11B57 and first public date 2017-04-18"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.05253",
+        "material_read": "Full accessible arXiv HTML introduction and Theorem 1.1 description and context; searched for gcd and modular conditions",
+        "method": "ArXiv rendered HTML page, sections 1 and stated theorem plus targeted text searches",
+        "title": "Statistical distribution of the Stern sequence",
+        "trigger": "Motivating middle-period statistical study of Stern values and possible stronger distribution results"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_NO_DECISIVE_COVERAGE",
+        "evidence": [
+          "The reported subject is polynomial factorizations, roots, coefficients, and combinatorial interpretations; no shifted gcd distribution in the abstract"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Dilcher/dilcher51.html",
+        "material_read": "Journal public title, full abstract, bibliographic information, not the complete paper",
+        "method": "Journal abstract page",
+        "title": "Polynomials Whose Coefficients Are Stern Numbers",
+        "trigger": "Potential Stern arithmetic enumerations in later work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b409293d-3463-46ee-8a65-de4a29d78c42",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first nontrivial neighboring Stern gcd (lag two, vs identically coprime lag one) has a complete and nondegenerate natural distribution. All odd gcd values occur with positive frequencies, even values never occur, divisibility has an explicit product law, and exact-value probabilities arise from an exponentially convergent Möbius series. These are specific natural arithmetic invariants, not arbitrary finite slices.",
+    "status": "PASS"
+  }
+}
