@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T23:57:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two fixed distinct singleton indicators in n independent uniform allocations to m boxes, the exact probabilities are P1=(n/m)(1-1/m)^(n-1) and P11=n(n-1)/m^2(1-2/m)^(n-2). For m>=3 the covariance sign equals F_m(n), where F_m(x)=log(1-1/x)-2log(1-1/m)+(x-2)log(1-1/(m-1)^2). The exact derivative F_m'' = -(2x-1)/[x^2(x-1)^2]<0, with F_m(2)<0 for m>=4, F_m(m)>0 by Bernoulli bound 1+1/(m-1)^3, and F_m(∞)=-∞, yields precisely two real positive-interval roots alpha_m<m<beta_m. Cases m=2 and m=3 follow from exact formulas. Independently expanded F_m(m+s sqrt(m)) symbolically as m^-2(1/2-s²)+m^-5/2(s³-s)+O(m^-3), giving roots m±sqrt(m/2)-1/4+O(m^-1/2) and m² covariance ->e^-2(1/2-s²). Source verifier is finite corroboration only; all-m/n signs are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose derives normal approximation for count of isolated balls. Barbour–Gnedin develop asymptotic small-count covariance structures in infinite occupancy."
+        ],
+        "reasoning": "The CLT regimes are broader in distributional goals but do not imply strict finite n covariance signs for a fixed pair, particularly negative-positive-negative switches and a -1/4 root correction.",
+        "searches": [
+          "Penrose, Normal approximation for isolated balls in an urn allocation model, arXiv:0901.3493",
+          "Barbour–Gnedin, Small counts in the infinite occupancy scheme, arXiv:0809.4387",
+          "Resultary semantic search: uniform occupancy singleton indicators covariance positive negative sign switch n=m sqrt m critical window"
+        ]
+      },
+      "checked_sources": [
+        "Penrose, Normal approximation for isolated balls in an urn allocation model, arXiv:0901.3493",
+        "Barbour–Gnedin, Small counts in the infinite occupancy scheme, arXiv:0809.4387",
+        "Resultary: Occupied-box indicators have a strictly positive precision matrix, 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+        "Resultary: A one-switch covariance law for occupancy richness and frequency counts, 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+        "Resultary semantic search: uniform occupancy singleton indicators covariance positive negative sign switch n=m sqrt m critical window"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Occupied-box (positive count) indicators have nonpositive pair covariance, unlike singleton indicators. Aggregate richness-frequency covariance has a one-switch in the frequency index r, not two switches in ball count n for a fixed r=1 box pair."
+        ],
+        "reasoning": "Neither the known count CLTs nor the related Resultary SCOPE results imply the claimed pairwise two-root sign phase. The covariance formula itself is elementary and is not presented as a novel probability identity.",
+        "searches": [
+          "Penrose, Normal approximation for isolated balls in an urn allocation model, arXiv:0901.3493",
+          "Barbour–Gnedin, Small counts in the infinite occupancy scheme, arXiv:0809.4387",
+          "Resultary: Occupied-box indicators have a strictly positive precision matrix, 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+          "Resultary: A one-switch covariance law for occupancy richness and frequency counts, 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cov(I_i,I_j) equals a pairwise frequency-one indicator covariance, not the covariance between aggregate singleton count and observed richness."
+        ],
+        "reasoning": "Exchangeable pairwise event covariance is distinct from fluctuations of total isolated boxes; aggregate covariance can incorporate both diagonal variance and m(m-1) times the pair term, but extracting the exact finite sign window requires a new inequality and root analysis.",
+        "searches": [
+          "Resultary semantic search: uniform occupancy singleton indicators covariance positive negative sign switch n=m sqrt m critical window",
+          "Penrose, Normal approximation for isolated balls in an urn allocation model, arXiv:0901.3493",
+          "Barbour–Gnedin, Small counts in the infinite occupancy scheme, arXiv:0809.4387"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite exact tables follow by elementary multinomial evaluation, but the main claim asserts two real roots and a unique sign window for all integers m>=4 and arbitrarily large n."
+        ],
+        "reasoning": "No published exact tabulation of the two thresholds or all-m sign classification was identified. A finite table cannot prove the global strict concavity or uniform asymptotic root expansion.",
+        "searches": [
+          "Resultary semantic search: uniform occupancy singleton indicators covariance positive negative sign switch n=m sqrt m critical window",
+          "Resultary: Occupied-box indicators have a strictly positive precision matrix, 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+          "Resultary: A one-switch covariance law for occupancy richness and frequency counts, 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+        ]
+      },
+      "rationale": "The pair probabilities and their binomial/multinomial covariance are standard. Penrose’s isolated-ball urn analysis studies singleton-count normal approximation, while Barbour–Gnedin examine infinite frequency-count covariance limits; neither inspected primary result gives the fixed pair’s exact two-switch sign window and its sqrt(m) location/shift. Resultary surfaced related theorems about occupied boxes (nonempty, different indicators) and richness-frequency covariance (aggregate counts, different pairs), but not the fixed-singleton-pair theorem. Best-of-knowledge original refinement with possible classical implicit covariance formula qualification.",
+      "residual_risks": [
+        "An older probability monograph (Kolchin–Sevastyanov–Chistyakov, Random Allocations 1978) or lesser-known multinomial occupancy identities may have this exact phase diagram; full monograph not read.",
+        "The exact joint probability is elementary; priority claim is restricted to two-root global classification and sharp asymptotics.",
+        "Uniform equal box probabilities, independent assignments, two fixed distinct singleton indicators required."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_COUNT_VARIANCE_NOT_PAIR_SIGN_WINDOW",
+          "evidence": "Focus on total number of singleton boxes, its variance and CLT; pair probabilities enter aggregates but the exact fixed-pair two-threshold classification is not a stated inspected result.",
+          "identifier_or_url": "https://arxiv.org/abs/0901.3493",
+          "material_read": "Read accessible primary PDF sections on isolated counts, expectation/variance, normal approximation and proportional scaling; inspected page images.",
+          "method": "Open-access PDF text and visual pages",
+          "title": "Normal approximation for isolated balls in an urn allocation model",
+          "trigger": "Identical isolated-ball occupancy setup, potential exact covariance source"
+        },
+        {
+          "assessment": "DIFFERENT_INFINITE_FREQUENCY_MODEL",
+          "evidence": "Infinite frequency-box regimes and covariance among frequency counts do not directly imply the uniform finite-m fixed-pair sign window.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.4387",
+          "material_read": "Read primary PDF sections on small frequency counts and covariance limit structures and inspected visual pages.",
+          "method": "Open-access PDF text and page images",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Potential stronger count covariance asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The strict transition from negative pairwise singleton dependence to a positive window near n=m and back to negative is a natural nonmonotone correlation phenomenon in finite occupancy, quantified by a sharp sqrt(m)-scale window and finite constant shift. An exact sign classification of a natural statistic can be useful without a new CLT; it is more than a routine restatement of the pair probability formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual RESULT.md and verify.py inspected; independent symbolic Taylor series through m^-5/2 at n=m+s sqrt(m).",
+    "Penrose arXiv:0901.3493; Barbour–Gnedin arXiv:0809.4387; Resultary related occupied-box and richness-frequency findings.",
+    "Penrose, Normal approximation for isolated balls in an urn allocation model, arXiv:0901.3493",
+    "Barbour–Gnedin, Small counts in the infinite occupancy scheme, arXiv:0809.4387",
+    "Resultary: Occupied-box indicators have a strictly positive precision matrix, 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+    "Resultary: A one-switch covariance law for occupancy richness and frequency counts, 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No negative association result for arbitrary occupancy events, no unequal-box frequencies or full distributional CLT theorem.",
+    "Flooring n=m+floor(s sqrt(m)) affects lower-order terms, not the stated scaled limit."
+  ],
+  "residual_risks": [
+    "An older probability monograph (Kolchin–Sevastyanov–Chistyakov, Random Allocations 1978) or lesser-known multinomial occupancy identities may have this exact phase diagram; full monograph not read.",
+    "The exact joint probability is elementary; priority claim is restricted to two-root global classification and sharp asymptotics.",
+    "Uniform equal box probabilities, independent assignments, two fixed distinct singleton indicators required."
+  ],
+  "schema_version": 1
+}

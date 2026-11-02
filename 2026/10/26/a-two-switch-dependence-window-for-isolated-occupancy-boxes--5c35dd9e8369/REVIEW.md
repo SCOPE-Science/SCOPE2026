@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The multinomial joint probabilities, exact covariance ratio, strict concavity, endpoint signs and asymptotic expansions were independently reconstructed. The analytic proof covers every allowed parameter. A separate exhaustive enumerator and exact-rational grid verified the stated formulas and signs; numerical asymptotic spot checks are ancillary only.
+## correctness
 
-## Originality: PASS (with historical-priority risk)
-The closest publications examined were Penrose (arXiv:0901.3493v1), on total isolated-count Gaussian approximations and variance bounds, and Barbour–Gnedin (arXiv:0809.4387v1), on infinite-box occupancy frequency-count covariance limits. The global two-switch sign classification and precise square-root critical root expansion were not found in the inspected relevant sections. Related database findings on occupancy-positive indicators and richness-frequency covariances concern different statistics; the basic joint occupancy probability is recognized as classical, not claimed novel. Other sections and a 1978 occupancy monograph remain priority risks, so an independent literature audit is needed.
+PASS
 
-## Mathematical value: PASS
-The finite occupancy model is a standard testbed for singleton/isolated-birthday statistics. Its sharp two-switch pair dependence is qualitatively surprising, and the square-root critical window supplies an order-one cross-pair contribution to the variance, which leading-order normal approximations cannot resolve. The closed sign classification has an intrinsic statistical interpretation rather than simply repeating known count formulas.
+For two fixed distinct singleton indicators in n independent uniform allocations to m boxes, the exact probabilities are P1=(n/m)(1-1/m)^(n-1) and P11=n(n-1)/m^2(1-2/m)^(n-2). For m>=3 the covariance sign equals F_m(n), where F_m(x)=log(1-1/x)-2log(1-1/m)+(x-2)log(1-1/(m-1)^2). The exact derivative F_m'' = -(2x-1)/[x^2(x-1)^2]<0, with F_m(2)<0 for m>=4, F_m(m)>0 by Bernoulli bound 1+1/(m-1)^3, and F_m(∞)=-∞, yields precisely two real positive-interval roots alpha_m<m<beta_m. Cases m=2 and m=3 follow from exact formulas. Independently expanded F_m(m+s sqrt(m)) symbolically as m^-2(1/2-s²)+m^-5/2(s³-s)+O(m^-3), giving roots m±sqrt(m/2)-1/4+O(m^-1/2) and m² covariance ->e^-2(1/2-s²). Source verifier is finite corroboration only; all-m/n signs are analytic.
 
-## Scientific limitations
-Equal independent allocation only, with no assertions for biased boxes or conditional sampling. Exact finite checks do not replace general proof. No historical priority or independent validation is certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The pair probabilities and their binomial/multinomial covariance are standard. Penrose’s isolated-ball urn analysis studies singleton-count normal approximation, while Barbour–Gnedin examine infinite frequency-count covariance limits; neither inspected primary result gives the fixed pair’s exact two-switch sign window and its sqrt(m) location/shift. Resultary surfaced related theorems about occupied boxes (nonempty, different indicators) and richness-frequency covariance (aggregate counts, different pairs), but not the fixed-singleton-pair theorem. Best-of-knowledge original refinement with possible classical implicit covariance formula qualification.
+
+## value
+
+PASS
+
+The strict transition from negative pairwise singleton dependence to a positive window near n=m and back to negative is a natural nonmonotone correlation phenomenon in finite occupancy, quantified by a sharp sqrt(m)-scale window and finite constant shift. An exact sign classification of a natural statistic can be useful without a new CLT; it is more than a routine restatement of the pair probability formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
