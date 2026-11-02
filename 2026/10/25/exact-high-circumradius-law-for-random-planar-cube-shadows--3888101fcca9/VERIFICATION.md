@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` in an environment with NumPy and SciPy installed. The program constructs all eight projected cube vertices independently of the four-axis identity, verifies the triple-contact operator norm over all row triples and all eight sign corners, compares a one-dimensional latitude integral with a scrambled spherical Sobol sample of \(2^{20}\) orientations at six thresholds, and checks the first two nonzero pair-overlap Taylor coefficients as well as both endpoints.
+## correctness
 
-The following checks were executed on the actual standalone verifier source:
+PASS
 
-```text
-EXACT_TRIPLE_BELT_THRESHOLD_AND_TIGHT_FRAME_OK
-DIRECT_EIGHT_VERTEX_PROJECTED_CIRCUMRADIUS_IDENTITY_OK
-BELT_TAIL_DISTRIBUTION_OK (six parameter thresholds)
-EXACT_PAIR_OVERLAP_TAYLOR_COEFFICIENTS_OK
-ENDPOINT_SUPPORT_AND_SQUARE_ROOT_TAIL_NORMALIZATION_OK
-ALL_CUBE_SHADOW_CIRCUMRADIUS_CHECKS_OK
-```
+The centered cube projection is centrally symmetric; hence its minimum enclosing disk is centered at zero and maximization over the eight projected vertices gives R²=3-min_j(v_j·U)² for four antipodal tetrahedral axes. Their tight-frame identity gives support [sqrt(2),sqrt(3)]. Each axis defines a belt of probability t/sqrt(3); conditioning on one latitude gives the stated arcsine integral J(t) for each of six equal belt pairs. Inversion of any three rows gives 1=||U||²=[(q+h)²+(p-h)²+(p-q)²]/4<=3t², excluding positive-area triple intersections for 0<t<=1/sqrt(3); an explicit normal produces triple overlap above. Therefore inclusion-exclusion gives 4t/sqrt(3)-6J(t), exactly on the claimed interval. Taylor expansion of the joint two-axis density and t²=2sqrt(3)epsilon-epsilon² verifies coefficients, including the negative linear epsilon correction. Independent random-sphere 500,000-normal checks at three thresholds agree with analytic quadrature (not proof of continuity). The lower-radius distribution is unproved.
 
-The formal proof relies on a finite matrix identity, exact spherical conditional probabilities, analytic integrals and inclusion–exclusion—not empirical convergence. The executable checks provide corroboration, not an independent mathematical certificate or a proof of novelty. The formula does not claim the complete lower-radius distribution.
+## originality
+
+PASS
+
+Qualified PASS: direct primary and published-mathematical comparisons distinguish projected-cube circumradius (equivalently octahedron-section inradius, twice shadow-diameter) from cube-line directional width, octahedron-section diameter (cube-projection inradius), and octahedron-projection inradius (cube-section circumradius). Finch treats cube shadow area/perimeter. No independently published exact formula for this same high-tail event was found in the inspected source material, without treating search absence as priority proof.
+
+## value
+
+PASS
+
+The radius of the smallest disk enclosing a random planar cube shadow is a canonical geometric-probability functional, distinct from area and perimeter. An exact probability law over the maximal-radius regime, a sharp triple-belt intersection threshold and explicit endpoint correction are useful self-contained projection benchmarks, not a mere renamed first moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

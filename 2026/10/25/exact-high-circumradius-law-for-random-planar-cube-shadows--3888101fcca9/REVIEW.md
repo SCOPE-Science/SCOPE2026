@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The radius identity follows directly from orthogonal projection of all eight cube vertices and central symmetry of the smallest enclosing disk. The four diagonal-vector tight-frame identity proves its full support. Pairwise spherical-belt probabilities follow from exact latitude-circle conditioning; all triple overlaps are excluded up to the sharp threshold by an elementary three-row inversion inequality. Direct integration of the analytic joint density proves the two tail expansions with controlled remainders. A standalone replay checked the nonstandard matrix identities, direct eight-vertex radii, pair integral and endpoint coefficients. Numerical tests do not establish the continuous theorem.
+PASS
 
-## Originality — PASS relative to checked sources
+The centered cube projection is centrally symmetric; hence its minimum enclosing disk is centered at zero and maximization over the eight projected vertices gives R²=3-min_j(v_j·U)² for four antipodal tetrahedral axes. Their tight-frame identity gives support [sqrt(2),sqrt(3)]. Each axis defines a belt of probability t/sqrt(3); conditioning on one latitude gives the stated arcsine integral J(t) for each of six equal belt pairs. Inversion of any three rows gives 1=||U||²=[(q+h)²+(p-h)²+(p-q)²]/4<=3t², excluding positive-area triple intersections for 0<t<=1/sqrt(3); an explicit normal produces triple overlap above. Therefore inclusion-exclusion gives 4t/sqrt(3)-6J(t), exactly on the claimed interval. Taylor expansion of the joint two-axis density and t²=2sqrt(3)epsilon-epsilon² verifies coefficients, including the negative linear epsilon correction. Independent random-sphere 500,000-normal checks at three thresholds agree with analytic quadrature (not proof of continuity). The lower-radius distribution is unproved.
 
-The motivating Finch arXiv manuscript (1203.2464v1, §2.2) studies precisely random planar cube projections, but calculates area and perimeter statistics, not enclosing-circle radius. The complete published mathematical results for octahedron **section diameter**, octahedron **projection inradius**, and cube **line width** were read and compared via polarity: those statistics are, respectively, cube projection inradius, cube section circumradius, and a scalar directional width, none of which gives the present cube projection circumradius law. Targeted searches also used the equivalent *octahedron section inradius* formulation and four-tetrahedral-zone intersection language. No claim with stronger implication was found; unindexed prior treatments remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The minimum enclosing circle of a random planar cube shadow is a natural projection functional with direct radial meaning. The result supplies its full high-radius tail (not just a moment), identifies a sharp threshold where triple spherical belts first intersect, and gives the leading square-root probability and the negative overlap correction. This supplies a geometric-probability benchmark for random-orientation enclosure questions.
+Qualified PASS: direct primary and published-mathematical comparisons distinguish projected-cube circumradius (equivalently octahedron-section inradius, twice shadow-diameter) from cube-line directional width, octahedron-section diameter (cube-projection inradius), and octahedron-projection inradius (cube-section circumradius). Finch treats cube shadow area/perimeter. No independently published exact formula for this same high-tail event was found in the inspected source material, without treating search absence as priority proof.
 
-## Closest literature and limitations
+## value
 
-The main direct source is Steven R. Finch, *Planar Projections and Second Intrinsic Volume*, arXiv:1203.2464v1 (12 March 2012). Further checked sources are the published exact octahedron section-diameter law, octahedron projection-inradius law and cube directional-width law (identifiers and implications detailed in `AUDIT.json` and `RESULT.md`). The lower part of the cube-shadow circumradius distribution and nonuniform directions remain untreated. Independent mathematical validation and exhaustive historical priority verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The radius of the smallest disk enclosing a random planar cube shadow is a canonical geometric-probability functional, distinct from area and perimeter. An exact probability law over the maximal-radius regime, a sharp triple-belt intersection threshold and explicit endpoint correction are useful self-contained projection benchmarks, not a mere renamed first moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
