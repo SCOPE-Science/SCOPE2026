@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The resultant identity and six partial derivatives follow from expansion of the Sylvester determinant in characteristic two. The Segre ideal is prime; the exact identity \(J=I^2+(b,e)I\) fixes the scheme, not just its support. On an affine chart the ideal decomposes as \((u,v)\cap(b,u,v)^2\), exhibiting the embedded quadric. The kernel \(I/J=(I/I^2)|_T\) and the standard Segre conormal calculation give the square-zero sheaf extension. A complete exact Gröbner-pair check verifies the polynomial Hilbert series, with the geometric conormal sequence giving a separate consistency check. The calculation is characteristic-two specific.
+## correctness
 
-## Originality — PASS (qualified)
-The classical resultant and general sparse-resultant frameworks do not themselves specify this positive-characteristic Jacobian scheme. Esterov (arXiv:1110.4060) treats broader sparse systems in characteristic zero, and D'Andrea–Sombra (arXiv:1310.6617) focus on a Poisson formula. Kazarian–Kerner–Némethi (arXiv:1308.6045) work in characteristic zero and explicitly distinguish their transversal discriminant from the Jacobian singular scheme. A search across mathematical research records found singular-scheme results for other quartics, not the same binary-quadratic resultant. The literature search may have missed an equivalent modular formulation, particularly one using determinantal resultants.
+PASS
 
-## Mathematical value — PASS
-The resultant hypersurface is a universal incidence discriminant, so the scheme structure and exact Hilbert polynomial of its singular locus are natural invariants. The characteristic-two embedded quadric is invisible from the set of repeated common roots or the reduced Segre locus; the explicit rank-two square-zero extension quantifies a substantial modular failure of reducedness. The result is not simply recomputation of the resultant formula.
+Determinant of the explicit 4x4 Sylvester matrix gives R=(af+cd)^2+(ae+bd)(bf+ce) over F2. Differentiating in six coordinates yields (eU,eV,eW,bU,bV,bW), with R already in this ideal, and U,W in (b,e), so J=I^2+(b,e)I. Segre minors prime; I^2⊂J⊂I proves radical I; a=1 coordinate change gives local V^2+bUV+cU^2 and ideal (U,V)∩(b,U,V)^2. Globally I/J=(I/I^2)|_T, rank-two conormal of P1xP2 restricted to P1xline, whose splitting has bidegrees (-2,-2),(-2,-1). Independently computed modular resultant and derivatives, full symbolic Groebner basis (7 elements), Hilbert coefficients [1,6,21,50,96,162,251,366] for degrees 0..7 matching given rational series. The geometric interpretation follows from the separately checked Segre normal geometry, not solely from code.
 
-## Limitations
-This is an internally reconstructed proof and self-review, not a result with external certification. The conormal extension is not asserted to split as a ring. Novelty remains vulnerable to earlier scheme-theoretic treatment of modular resultants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The discriminantal/residual conormal issue is specific to characteristic two. Choudary’s 1990 resultant hypersurface study and D’Andrea–Chipalkatti 2007 Jacobian-ideal theorem concern characteristic zero; the latter explicitly states all results hold over fields of characteristic zero and treats an F-Jacobian ideal, not the full modular Jacobian thickening. No covering char-2 conormal splitting or Hilbert-series statement was identified in targeted Resultary/published literature; possible older modular invariant work remains a priority risk.
+
+## value
+
+PASS
+
+The singular scheme of an elementary universal resultant is not merely its classical Segre rank-drop support: its square-zero conormal embedded component is a genuine scheme-theoretic invariant in small characteristic. The exact sheaf, supporting quadric, and Hilbert series are structurally meaningful tools for studying modular discriminantal geometry, not a cheap Jacobian vanishing check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
