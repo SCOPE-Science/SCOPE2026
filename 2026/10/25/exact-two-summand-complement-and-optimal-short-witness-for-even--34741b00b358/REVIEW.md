@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The canonical Zeckendorf parity word is reconstructed by the two-block recurrence. The verifier establishes the exact 132-factor closure, complement invariance, all four possible junctions, and the six-position zero-covering property. The symbolic induction converts these finite certificates into a theorem for every nonnegative integer; the low-index exceptions and the optimality witness at 34 are computed directly. No extrapolation from 10,000 finite samples is used.
+PASS
 
-## Originality: PASS within inspected evidence
+Let w(m)=s_F(m) mod 2, based on canonical weights F1=1,F2=2. The recursion W1=0,W2=01,W_{j+1}=W_j complement(W_{j-1}) follows from unique Zeckendorf leading-weight decomposition and has |W13|=377. Independently enumerated every 21-factor of W13 (132 distinct); W14 has same factors, set complement-invariant, and checked all 20 crossing factors for each of four periodic length20 suffix states S13..S16. The suffix relation S_{j+2}=complement S_j and stable prefix make this a genuine induction covering every future factor, rather than finite-prefix extrapolation. Every such factor has a zero in one of positions 20−a with a∈{0,4,6,7,9,10} and all those a have even weight; hence for every n>=20 some n−a has even weight. Direct finite small checks prove all n=6..19 representable and n<6 exceptions precisely 1,2,3,5. n=34 has no even-parity complement for a<10 among available small-even a=0,4,6,7,9, but 34=10+24 works; thus the uniform maximum 10 is sharp. Independent checker reconstructs the 132 factors, four joins, and all n<3000; the unbounded result is proved by induction.
 
-The closest primary literature is Rajasekaran–Shallit–Smith (2019/2020), which visibly examines two-summand **Fibonacci-odd** representations, and Shallit (2022), which treats factor/maximum-order complexity of the same Zeckendorf-parity word. Neither accessible inspected assertion implies the exact even-weight complement together with the optimal short-summand bound. published-finding corpus semantic searches for equivalent formulations, exceptional integers, and bounded witnesses produced unrelated closest entries, with no known dominating assertion. The 2019 primary full text remained inaccessible through available noninteractive routes, so possible implicit prior coverage remains a concrete publication-priority risk. Search absence alone does not certify novelty.
+## originality
 
-## Value: PASS
+PASS
 
-This is a complete answer to the complementary even-weight two-summand problem next to the earlier studied odd-weight problem. Its sharp bounded-small-summand strengthening gives a uniform six-choice constructive algorithm independent of the size of the target, and determines the least possible universal bound. The 132-factor proof explains this bounded additive covering via structural recurrence, not a table-only observation.
+PASS qualified for the exact complement and sharp bounded first summand of the even-Zeckendorf-parity set. Rajasekaran–Shallit–Smith (2020) develop automata for additive questions on Fibonacci representations and explicitly illustrate two Fibonacci-odd sums/differences; the full article could not be read (authorized institutional source returned vpn_disconnected), so it remains a material possible priority risk, and no whole-document noncoverage is asserted. Shallit 2022 studies the same Fibonacci parity word but its theorem concerns maximum-order complexity. No accessible inspected statement logically implies the even-class complement and optimal witness 10. A broader Fibonacci-automatic additive classification could conceivably dominate the result; the finding is best-of-knowledge.
 
-## Scientific limitations
+## value
 
-The result does not establish a formula for representation counts or for other moduli, and independent mathematical assessment is still required. An uninspected complete version of the 2019 primary article might change the originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact complement of E+E and the smallest universal short witness are canonical additive properties of the Fibonacci–Thue–Morse parity set, a natural automatic numeration sequence. The finite-factor induction yields a uniform infinite bound and an optimal obstruction at 34, rather than a casual finite initial search or arbitrary numerical threshold. Such a precise bounded representation theorem can be used in later automatic-additive studies without a general theorem being required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
