@@ -1,19 +1,21 @@
-# Review: dominating induced matching rigidity in \(GP(n,2)\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The vertex-state proof is constructive and covers every integer \(n\ge5\). The cyclic outer-white gaps must each have length two or three; the inner-neighbor parity condition at every white outer vertex forces those gaps to alternate, proving \(5\mid n\). Inner states and black matching edges are then uniquely forced, giving exactly five rotations. All five are constructed and checked; the edge partition yields the coloring result. Counting closed edge neighborhoods establishes the saturation statement with the equality case. The independent exhaustive exact-cover and vertex-state programs check orders \(5\)–\(30\) and \(5\)–\(20\), respectively; their logs match the packaged scripts. Finite checks corroborate, rather than replace, the infinite proof.
+PASS
 
-## Originality — PASS, with residual uncertainty
+The black/white characterization of an induced dominating matching requires every covered vertex to have exactly one covered neighbor, and every uncovered vertex to have no uncovered neighbor. Outer white gaps must be 2 or 3 because adjacent whites and three consecutive blacks are forbidden. At each outer white u_i, the black inner spoke endpoint v_i has exactly one of v_{i-2},v_{i+2} black; the neighboring outer-gap lengths force those two states to correspond to gap length 2. Thus successive 2/3 gaps alternate, giving n divisible by 5. The outer black/white pattern fixes all inner states; all five shifts of the explicit period-five pattern satisfy the complete vertex constraints. The five shift matchings partition all 3n edges. For a cubic graph an edge dominates itself and four incident edges, hence a maximal matching needs >=|E|/5=3n/5 edges. Equality makes these closed edge neighborhoods disjoint and yields a DIM; similarly five strong colors force each color class to be a DIM. Independent exact-cover reconstruction for every n=5..15 found five solutions exactly at multiples of five, including edge partition. Finite checks corroborate but do not prove all n.
 
-The strongest nearby source, *Dominating induced matchings and other graph parameters* (2024), Observation 7, already exhibits the periodic DIM and establishes its cardinality, so those are not claimed novel. The new assertion counts and classifies **all** DIMs at every order, rules them out at every other order, identifies **all** minimum maximal matchings, and proves uniqueness of the five-color partition. The Yang–Wu (2018) article's available abstract establishes exact strong edge chromatic indices but does not mention classification of optimal colorings; its full text was inaccessible, which is a specific unresolved risk. The Chen–Miao–Zhou (2020) full text treats the distinct \(k\ge4\) range. Relevant published-finding corpus indexed matching-complex records concern homotopy types on individual graphs, not universal classifications of efficient edge-dominating matchings. Non-indexed equivalent characterizations cannot be excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural efficiency-equality problem is upgraded from a known witness to an exhaustive infinite-family rigidity theorem. The classification simultaneously settles the equality cases for minimum maximal matching size and the uniqueness of optimal strong edge coloring. Neither is merely a numerical recomputation: the alternating-gap mechanism is a structural global constraint on local cubic matching patterns.
+The periodic construction and its size were previously known (2024 Observation 7); reported strong chromatic index values for GP(n,k), k=1..3, were also known from Yang--Wu 2018. Neither the accessible inspected prior statements nor other close published indexed records established that these are the only five DIMs, all minimum maximal matchings, and the unique strong five-edge-coloring. Best-of-knowledge PASS concerns those complete equality classifications, not existence/index numbers. The 2018 full article was not obtained, and its possible uniqueness statement is a substantive residual priority risk.
 
-## Limits
+## value
 
-The construction and uniqueness are specific to \(GP(n,2)\). No exact claim for nonmultiples of five beyond the obstruction to strong five-edge-coloring is asserted, and no independent external audit or publication-priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete characterization of efficient edge domination in the natural generalized Petersen family, plus a classification of all saturation minimizers and strong-coloring rigidity, is an independent graph-structural result. It determines the equality structures, rather than merely rechecking known numerical parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
