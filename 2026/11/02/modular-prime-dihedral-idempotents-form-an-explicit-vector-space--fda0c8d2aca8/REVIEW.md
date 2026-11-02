@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The associative encoding \(f\star g=\iota(f)\sigma(g)\) agrees on every basis product. In characteristic \(p\), the augmentation kernel has nilpotency index \(p\); an augmentation-zero idempotent therefore vanishes by iterated squaring of its ideal filtration. The truncated exponential/logarithm is a group isomorphism since every discarded monomial has degree at least \(p\), and the involution/doubling eigenspace decomposition gives exactly \(W\). Doubling orbits prove its dimension; multiplication of exponentials proves the core-quandle law. The verifier independently checks direct products and exhaustive sets for the cases claimed. The prime and characteristic hypotheses cannot be dropped from this proof.
+
+## Originality — PASS relative to inspected records
+Closest literature: Bardakov–Passi–Singh (arXiv:2001.06843) calculate integral \(R_3\); Narayanan–Panja (arXiv:2206.10386) calculate integral \(R_5\); Elhamdadi–Nunez–Singh–Swain (arXiv:2204.11288) classify covering-derived idempotents and (arXiv:2207.09257) analyze integral and characteristic-two small quandles; Sangare–Ta (arXiv:2608.01550) address a different commutative-quandle hypothesis. More recent exact comparisons include Bardakov–Elhamdadi (arXiv:2601.07057), whose Section 4 concerns integral low-order dihedral cases, and Kaur–Singh (arXiv:2609.09183), whose Theorem 2.5 is about integral dihedral quandle rings. The known characteristic-three line and related signed-doubling derivation eigenspace are acknowledged rather than claimed anew. None of the inspected source statements implies the full defining-characteristic prime-modulus idempotent classification and connected core-quandle structure for \(p\ge5\). A previously unnoticed equivalent theorem in broader literature remains possible; no global priority guarantee is made.
+
+## Mathematical value — PASS
+The complete idempotent subquandle is an intrinsic nonlinear object of quandle algebra, used in the cited link-coloring construction. Identifying it with an explicit vector-space core quandle, not merely counting isolated elements, makes those enhancements computable and reveals an arithmetic threshold: nonbasis idempotents over \(\mathbb F_{p^e}\) occur exactly when \(ed>1\). The families at primes \(17\) and \(31\) demonstrate nontrivial higher-dimensional behavior. The proof applies to all fields in the specified characteristic rather than an arbitrary finite sample.
+
+## Boundaries and risk
+The result is restricted to prime modulus matching the field characteristic; prime powers require different methods. There is no independent audit. Earlier literature might hide a general modular idempotent classification. Earlier related modular derivation work has the same eigenspace \(W\), but not the exponential idempotent identification; this distinction, rather than the eigenspace dimension alone, supports the originality and value assessment.
+
+Self-review: passed. Independent audit: not yet performed.
