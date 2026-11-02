@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof is algebraic for all even prime powers \(q>2\): the norm-one parameter inverts under iteration, the second iterate scales by a nonzero base-field square, and all orbit lengths on paired fibers follow from multiplicative order. The quadratic trace criterion bijects paired fibers with \(S_q\); direct character orthogonality yields the Kloosterman coefficient count. The elliptic-curve point count and Hasse bound establish the sharp existence threshold. The independently implemented verifier replayed 57 coefficient cases across five field sizes and found no discrepancies.
+
+**Originality — PASS with residual risk.** Hou [1] determines permutation coefficients and explicitly exhibits a semilinear factorization that is the main starting point, but no cycle decomposition or coefficient census is stated in the inspected theorem, proof, or relevant full-text searches. Gerike–Kyureghyan [2] concern trace perturbations \(x+\gamma\operatorname{Tr}(x^{2q-1})\), and Zeng et al. [3] concern distinct four structured families. Direct searches for the trinomial with cycle terms and three mathematical-record comparisons found no matching or dominating result. The closeness of the semilinear identity to the cycle argument is a real originality risk; the Kloosterman distribution and sharp field threshold provide an additional nontrivial claim not supplied by Hou's permutation criterion.
+
+**Value — PASS.** The full disjoint-cycle spectrum of a natural, previously classified but dynamically uncharacterized permutation family determines every periodic stratum for infinitely many extensions. The coefficient census distinguishes the unique small-field obstruction from all larger binary fields and identifies an elliptic-curve/Kloosterman mechanism controlling how frequently short cycles appear. The conclusion is more informative than a mere restatement of the permutation criterion.
+
+**Limits.** This is not a new permutation-classification theorem, an inversion algorithm, or an independent priority certification. The bound on Kloosterman sums uses the classical Hasse theorem; finite replay does not establish a universal theorem. The published semilinear formula makes part of the new proof short.
+
+Self-review: passed. Independent audit: not yet performed.
