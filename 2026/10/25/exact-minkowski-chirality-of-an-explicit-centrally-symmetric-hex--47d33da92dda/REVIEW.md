@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support function is the sum of the three absolute scalar products. For a fixed reflection line, the containment dilation is the maximum support-function ratio. On each sign cell the ratio is a quotient of linear sine-cosine forms and is monotone or constant, so only the three support breakpoints and their reflected counterparts need be checked. The four-interval lower bound is explicit; the candidate angle attains it at two reciprocal active ratios. The included symbolic checker verifies the exact radical identities and strict comparisons used in the proof.
+PASS
 
-## Originality — PASS on inspected evidence
+Support h(phi)=|cos phi|+2|sin phi|+|cos phi+sin phi|, from the three actual centered segment generators. Center symmetry removes translation advantages. For fixed x=2theta, directional containment maximum reduces to h-breakpoints phi=0,pi/2,3pi/4 and reciprocal ratios by monotonicity of a quotient of sine-cosine forms between sign changes. Four interval lower bounds yield lambda(x)>=9/sqrt61. The sole minimizer x=pi/2+arctan(5/6) matches all six breakpoint constraints; support values (2,3,3sqrt2/2) and candidate evaluations (18/sqrt61,27/sqrt61,23/sqrt122) give maximum 9/sqrt61. Independent checks: Independently reconstructed all support values from generators and evaluated 100001 support angles for each test reflection x, using bounded scipy minimization; optimal x near 2.26553 and dilation 1.15233 agrees with 9/sqrt61. Read complete symbolic checker verify_chirality.py (Git blob ec3b2e6719ce77e2b47ca7b420df3989244fcbf8), which checks candidate radical identities, three breakpoint ratios, interval separation. Global lower bound rests on analytic 4-interval proof not sampling.
 
-The closest primary source is Caragea et al., arXiv:2504.13013v1 (17 April 2025). It defines Minkowski chirality, proves broad bounds, and treats triangles and parallelograms, but the inspected theorem statements do not give the exact value for this three-generator hexagon. Related database searches returned a three-dimensional nonattainment result for the point-symmetric bound, a hexagon enclosing-parallelogram profile, and a Minkowski-asymmetry formula for parallel-opposite hexagons; these concern other dimensions or other invariants. This is a bounded best-knowledge originality assessment, not a proof that no unindexed source exists.
+## originality
 
-## Value — PASS
+PASS
 
-A centrally symmetric hexagon is the smallest planar centrally symmetric polygon that is not a parallelogram. The exact value and optimizer provide a reproducible benchmark for the recently introduced containment-based chirality invariant, and demonstrate a strict, explicit gap below the universal \(\sqrt2\) bound for planar point-symmetric bodies.
+Caragea et al. arXiv:2504.13013v1 define alpha_1 chirality and solve triangles and parallelograms with general universal inequalities for centrally symmetric planar bodies. The hexagon is neither triangle nor parallelogram, and neither broad bound supplies its exact radical or unique minimizing line. Resultary related centrally symmetric hexagon results measure alpha_0 or translative enclosure, not alpha_1. Residual limits explicitly listed in originality.residual_risks.
 
-## Closest literature and limitations
+## value
 
-The calculation is for the single zonotope specified in `RESULT.md`; no classification of all centrally symmetric hexagons follows. The primary preprint's open-problem discussion emphasizes that optimal containment can be difficult to characterize for general bodies, so the result should be read as an exact model case, not a general formula.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This concrete small-integer 3-generator zonotope represents the minimal nonparallelogram centrally symmetric polygon class. Its exact nontrivial reflection-optimization value and unique angle provide a tractable first benchmark for the comparatively new alpha_1 invariant beyond known exact triangle/parallelogram cases; an isolated computation, not a classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
