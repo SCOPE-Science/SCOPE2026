@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exact binary deletion-shadow incidence program is equivalent to the list-decoding definition. All seven lower witnesses are independently checked against distinct output-parent incidence. All upper bounds follow from rational nonnegative dual weights at every leaf of a complete binary branching tree: one node each at n=1,...,6; 101 nodes/51 leaves at n=7. An independent 25-node/13-leaf tree proves unique-decoding capacity 16 at n=7. A standard-library verifier checks every fraction, residual capacity, branch and witness from certificate.json; no floating-point solver is trusted for the proof. No assertion is made for other n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin (2026), Theorem 1.1 is an existential asymptotic bound and the k=1 proof uses union of t VT classes (PDF p. 6). A 32-word union at n=7 is a lower bound, not a dominating upper bound over arbitrary list-two codes.",
+        "No (2019), Sections 2-4 treat t=1 and report optimality of the 16-word VT code at n=7. This does not bound unrestricted t=2 by 32; it bounds only a union of two t=1 codes.",
+        "Song, Cai and Nguyen (2022) Theorem 1 constructs list-two codes correcting both deletion and substitution, a strictly smaller feasible class and no exact n=7 optimum."
+      ],
+      "reasoning": "A stronger-channel construction supplies admissible lower examples, not an upper bound for the weaker deletion-only channel. Unique decoding is not general two-list decoding. The inspected asymptotic theorems do not numerically determine M_2(7).",
+      "searches": [
+        "binary t-list decodable single deletion finite lengths 2-list optimum 2024 2025",
+        "binary single deletion list decoding size two exact code size 7 33",
+        "Two-list decoding one deletion seven-bit binary codes cannot partition into two single-deletion correcting codes"
+      ]
+    },
+    "checked_sources": [
+      "Andrew D. Lin, arXiv:2609.26650v1, initially public September 22, 2026, full PDF and relevant statements read",
+      "Albert No, Entropy 21(12) 1202 (2019), full PDF and Sections 2-4 read",
+      "Song, Cai and Nguyen, arXiv:2201.02013v2 (2022), primary PDF relevant model and theorem read",
+      "Public mathematical-findings index semantic searches of list-two one-deletion exact capacities, aliases, and 33/32 numerical boundary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lin (2026) establishes the VT union construction for k=1: selecting two residue classes always gives a two-list code, but no upper-bound claim follows.",
+        "No (2019) reports the known single-deletion unique-decoding optimum 16 at n=7, used only for the structural implication that a union of two such codes has at most 32 words.",
+        "The new explicit code has 33 members, and a separate exact rational tree yields the unrestricted t=2 upper bound 33; a 25-node t=1 tree independently confirms 16."
+      ],
+      "reasoning": "The earlier t=1 statement implies at most 32 only for decomposable two-list codes, not for arbitrary two-list codes. The new result proves the strict separation and optimality. None of the inspected claims logically contains the new t=2 finite maximum.",
+      "searches": [
+        "maximum binary 2 list decodable single deletion code size n 7 n 6 33",
+        "one deletion list decodable code size exceeds union of two VT syndrome classes seven 33",
+        "binary one-deletion two-list capacity exactly 33 length seven hypergraph independent set 3-uniform"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin (arXiv:2609.26650v1), Definition 2.1 defines t-list k-deletion codes; Definition 2.2 gives the equivalent (t+1)-uniform deletion hypergraph. Theorem 1.1 and proof concern general asymptotic lower bounds, not a seven-bit exact extremum.",
+        "Direct capacity-two incidence packing is a 3-uniform hypergraph independent-set problem; the exact rational certificate solves the binary n=7 instance.",
+        "No (2019) Section 2.3 formulates unique decoding as a graph independent-set problem, which is the t=1 instance, not t=2."
+      ],
+      "reasoning": "The equivalent hypergraph/packing formulation is accounted for. The inspected work provides the framework but no stated exact 33-word maximum or first nondecomposability threshold. Equivalence of problem definitions does not imply equality with any asymptotic lower bound.",
+      "searches": [
+        "Binary one-deletion two-list capacity exactly 33 length seven hypergraph independent set 3-uniform",
+        "binary length seven 2-list single deletion optimal size thirty three 33 vs union two Varshamov Tenengolts",
+        "list-decodable deletion codes small blocklength 2-list one deletion 33"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed mathematical record: Exact length-six binary two-list two-deletion code size, public indexed record 9d20b24dd814, studies two deletions and a seven-word length-six optimum.",
+        "Closest one-deletion record: Complete census of maximum binary length-six single-deletion codes, public indexed record 235d4ba50b9c, studies unique decoding (list one), not list two.",
+        "Additional indexed record: Exact binary one-deletion one-substitution codes at lengths seven and eight, public indexed record 49b7ae777343, concerns a different stronger channel."
+      ],
+      "reasoning": "No indexed result was found asserting the seven-bit deletion-only list-two maximum, its short-length profile or the nondecomposable boundary. The nearby records are distinguished by quantifiers, deletion count, list size and substitution allowance; absence of a hit is not treated as a proof of priority.",
+      "searches": [
+        "binary one deletion 2-list codes exact n 2 through 7 3 4 7 12 19 33",
+        "Exact binary one deletion list size two capacity packing benchmark n=7 33",
+        "One-deletion two-list code 7-bit 33 words exceeds 32 VT syndrome union",
+        "2026 one deletion two list decodable codes exact 7 block length 33 capacity"
+      ]
+    },
+    "rationale": "A comparison of exact numerical claims and parameter implications against recently published list-deletion hypergraph bounds, classical unique-deletion optima, joint deletion-substitution constructions, accessible mathematical-claims indexing and the existing accessible nonoverlapping claims found no covering result. Novelty remains subject to unindexed-priority uncertainty.",
+    "residual_risks": [
+      "Unindexed, unpublished or incompletely catalogued exact small-block tables could contain an equivalent result.",
+      "Search ranking and keyword variants do not guarantee exhaustiveness.",
+      "The paper asserting one-deletion list-size-two exact n=7 optimum could be embedded in a broader source not identified by these searches.",
+      "Independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines equivalent t-list deletion hypergraph and derives asymptotic results, but does not state exact length-seven list-two code size or nondecomposability threshold.",
+        "evidence": [
+          "Definitions 2.1 and 2.2 on PDF page 3; Theorem 1.1 on page 2; k=1 case in the proof on page 6."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.26650v1",
+        "material_read": "Open-access eight-page PDF, definitions, all principal theorems, proof of the k=1 case and supporting arguments",
+        "method": "Direct primary PDF text and page inspection",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Direct source of the current list-deletion model and relevant single-deletion VT-union comparison"
+      },
+      {
+        "assessment": "Contains only the uniquely decodable t=1 optimum framework, not the t=2 hypergraph capacity; reports 16 as the known n=7 t=1 optimum.",
+        "evidence": [
+          "Section 2.2 describes VT classes and their known optimality through length 10; Section 2.3 defines the t=1 independent-set graph."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/e21121202",
+        "material_read": "Open-access 15-page published PDF, introduction, Sections 2-4 and relevant theorem/conjecture statements",
+        "method": "Direct primary PDF text and page inspection",
+        "title": "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming",
+        "trigger": "Potential stronger small-block exact code tables and a previous n=7 optimum"
+      },
+      {
+        "assessment": "A constructive lower bound under joint deletion-plus-substitution; no n=7 deletion-only exact maximum is asserted.",
+        "evidence": [
+          "Opening abstract and Theorem 1 in Section III concern redundancy of a code correcting both errors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.02013",
+        "material_read": "Open-access PDF introduction, preliminaries, error-ball definition and main construction theorem",
+        "method": "Direct primary PDF text and page inspection",
+        "title": "List-decodable Codes for Single-deletion Single-substitution with List-size Two",
+        "trigger": "Same list size and deletion, but with an added substitution"
+      },
+      {
+        "assessment": "Different blocklength and two deletions, so not an equivalent or dominating claim.",
+        "evidence": [
+          "Indexed result says length six, two-list two-deletion optimum 7."
+        ],
+        "identifier_or_url": "public mathematical-result index: 9d20b24dd814",
+        "material_read": "Index title and scientific result summary, not the complete proof or repository files",
+        "method": "Public mathematical-results index abstract-level comparison",
+        "title": "Exact length-six binary two-list two-deletion code size",
+        "trigger": "Highest-ranked nearby exact list-decoding record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fcf59d2e-1812-4532-bf39-3c4893c303bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the first exact nondecomposable-optimum boundary in the natural two-list one-deletion packing problem: at lengths one through six two disjoint uniquely decodable VT classes attain capacity, while at length seven a 33-word code outperforms every union of two uniquely decodable codes (at most 32). The result is structural, motivated by the VT-union construction in current list-deletion literature, and includes an exact reproducible capacity benchmark rather than an arbitrary weak numerical improvement.",
+    "status": "PASS"
+  }
+}
