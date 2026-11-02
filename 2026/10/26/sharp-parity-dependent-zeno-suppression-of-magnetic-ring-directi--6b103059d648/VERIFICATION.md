@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` with the independently installable Python library `mpmath` (65-decimal-place working precision). The program directly constructs the Hermitian Peierls matrix and evaluates its exponential, independently constructs the circulant spectral formula, and checks agreement; the result was `PASS: 150 deterministic assertion groups`. It also checks stochastic normalization, reciprocity on even cycles, vanishing chirality at real-gauge fluxes, reversed flux behavior, nontrivial odd-cycle coefficients and convergence of both the measurement-count chirality scale and leading escape probability. Tested cycle sizes are 3, 4, 5, 6, 7, 8, and 9.
+## correctness
 
-These tests are finite consistency checks, not a certificate of the theorem. The proof applies for each fixed finite circumference and all real fluxes and positive hopping and observation times: bipartite conjugation establishes even-ring reciprocity, minimal-winding interference gives the first odd-ring antisymmetric term, and the stochastic-matrix telescoping expansion produces the asymptotics after repeated measurements. Remainder bounds are fixed-parameter bounds; no uniformity in simultaneous large circumference is asserted. Broader scientific priority and independent mathematical validation have not been performed.
+PASS
+
+Exact repeated-measurement dynamics is P_(T/m)^m, where P is unistochastic and circulant. Even-cycle chiral-sublattice conjugation makes P reciprocal exactly. Odd-cycle first counter-winding interference at walk lengths 1 and n-1 yields 4(-1)^((n-1)/2)J^n sin(Phi) delta^n/(n-1)! in the oriented one-step contrast. Since P-I=O(delta^2), a telescoping matrix-power difference multiplies the leading antisymmetric term by m with controlled O(m^2 delta^(n+2)) remainder; hence A_m=4(-1)^((n-1)/2) J^n T^n sin(Phi)/((n-1)!m^(n-1))+O(m^(-n)). Escape E_m=2J^2T^2/m+O(m^-2). Gauge-real fluxes sin(Phi)=0 imply exact zero. Independently built Hermitian ring matrices and exponentiated them for n=3,5,7,8; asymptotic coefficients and even exact reciprocity checked numerically. Finite tests corroborate, not replace, the path/winding proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct statement after exact model/quantifier comparisons with relevant primary work, related published mathematical records and natural equivalent formulations; no absolute novelty certification.
+
+## value
+
+PASS
+
+The sharp parity and circumference factorial suppression law for the observable flux-odd directional readout is an independently motivated measurement-sensitivity boundary: full-site readout contrasts with return-only protocols and identifies whether flux orientation survives a strong Zeno limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

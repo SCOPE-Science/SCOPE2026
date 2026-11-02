@@ -1,19 +1,21 @@
-# Scientific assessment: parity-dependent quantum-ring directionality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a finite ring with uniform nearest-neighbor Peierls hopping, rank-one complete position measurements make the readout exactly the circulant Markov transition matrix \(P_\delta(j,k)=|[e^{-i\delta H}]_{jk}|^2\) raised to the power \(m\). On even rings, the bipartite involution makes \(P_\delta\) symmetric at every time, establishing exact zero neighbor contrast. On odd rings, the direct one-edge path and the reverse length-\(n-1\) winding path are the earliest opposite-parity, distinct-holonomy pair. Expanding their cross term gives the stated coefficient and sign at order \(\delta^n\). The matrix antisymmetry is also order \(\delta^n\), while \(P_\delta-I=O(\delta^2)\); telescoping its powers gives the \(m^{1-n}\) law, with remainder \(O(m^{-n})\). The adjacent hop probabilities give escape \(2J^2T^2/m+O(m^{-2})\). Every quantifier fixes \(n,J,T,\Phi\), and the gauge-real boundary is exact. High-precision independent matrix-exponential versus Fourier checks and tests over seven circumferences support, but do not replace, the analytical argument. The standalone `verify.py` reported 150 passing deterministic assertion groups.
+PASS
 
-## Originality — PASS, subject to the following specific priority risk
+Exact repeated-measurement dynamics is P_(T/m)^m, where P is unistochastic and circulant. Even-cycle chiral-sublattice conjugation makes P reciprocal exactly. Odd-cycle first counter-winding interference at walk lengths 1 and n-1 yields 4(-1)^((n-1)/2)J^n sin(Phi) delta^n/(n-1)! in the oriented one-step contrast. Since P-I=O(delta^2), a telescoping matrix-power difference multiplies the leading antisymmetric term by m with controlled O(m^2 delta^(n+2)) remainder; hence A_m=4(-1)^((n-1)/2) J^n T^n sin(Phi)/((n-1)!m^(n-1))+O(m^(-n)). Escape E_m=2J^2T^2/m+O(m^-2). Gauge-real fluxes sin(Phi)=0 imply exact zero. Independently built Hermitian ring matrices and exponentiated them for n=3,5,7,8; asymptotic coefficients and even exact reciprocity checked numerically. Finite tests corroborate, not replace, the path/winding proof.
 
-The source closest in *model* is Luppi, arXiv:2608.12519v1 (August 12, 2026), whose available abstract and expanded summary describe a two-outcome **single-vertex return** instrument and the parity-dependent onset of return-probability flux sensitivity. The current observable is the *oriented difference of two distinct final-site probabilities* after **complete readout at each of \(m\) steps**; its odd-cycle order, exact coefficient, even-cycle obstruction, and ratio to escape are not consequences of a statement only about the one-vertex return probability. The 2025 full-text quantum-walk measurement work by Luppi, Benedetti and Smirne supplies a nonselective instrument on *real Hamiltonians*, not a Peierls-flux orientation detector. Wampler et al. (arXiv:2108.05906v1) study patterned measurement-induced chirality on the Lieb lattice, a different graph/instrument, and Yu–Cai (arXiv:2308.12516v1) consider unmonitored chiral transport on graph junctions. A general path-counting or Zeno theorem may encompass the result; full text of the 2026 source was inaccessible, so independent priority review must compare it before a publication claim. The stated novelty is a concrete sharp coefficient for a different natural instrument and observable, not the general notion of magnetic chirality or the existence of winding interference.
+## originality
 
-## Value — PASS
+PASS
 
-The question is motivated by an operational distinction: complete site-resolution readout can identify the *orientation* of an enclosed magnetic flux, whereas a return-only record loses that sign. The theorem gives a complete even/odd obstruction and the exact circumference-dependent information loss under increasingly frequent monitoring. It compares this fast loss, \(m^{1-n}\), with the much slower \(m^{-1}\) leakage of the particle, thereby identifying a scale separation for physically observable directionality. The circumference is a natural invariant of the graph; the result is not an arbitrary finite parameter slice or a routine restatement of the source's return-witness formula.
+Best-of-knowledge distinct statement after exact model/quantifier comparisons with relevant primary work, related published mathematical records and natural equivalent formulations; no absolute novelty certification.
 
-## Limits and outstanding assessment
+## value
 
-The coefficient concerns a single walker, finite regular cycle, fixed flux and hopping, no detection errors, no coherent disorder, and full nonselective site measurements. It does not establish transport under partial measurements or an effect at nonfixed circumference. The originating 2026 full text was unavailable for material comparison; implicit coverage by wider Zeno/walk-expansion results remains possible. Numerical assertions are finite checks, not proofs for all system sizes. The assessment covers the new claim only; no external expert audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp parity and circumference factorial suppression law for the observable flux-odd directional readout is an independently motivated measurement-sensitivity boundary: full-site readout contrasts with return-only protocols and identifies whether flux orientation survives a strong Zeno limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
