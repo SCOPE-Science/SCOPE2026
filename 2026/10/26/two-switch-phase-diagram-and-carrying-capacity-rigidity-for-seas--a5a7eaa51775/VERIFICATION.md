@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10+; there are no third-party dependencies. The program checks 12,000 randomized direct-composition/log-ratio identities, 2,500 exact open-wedge root bracketing cases, 6,000 shared-positive-equilibrium sign checks, the algebraic exact two-root witness, the near-tangency square-root scaling, and 2,000 Beverton--Holt structural comparison cases. Executing this finite test cannot prove a universal inequality or establish priority; the proof rests on the elementary analytic derivative, convexity and Taylor arguments in `RESULT.md`.
+## correctness
 
-Direct boundary checks: at the lower open-wedge boundary the function has a zero only at the excluded point of zero initial abundance and one additional positive zero. At the upper boundary it has a positive tangency and no negative interval. Positive asymptotic output values may be arbitrarily small numerically, which is why the analytic sign proof uses their log ratio. The statement is about positive real initial abundance and precisely two deterministic updates; no uncertain observational or infinite-orbit conclusions are claimed.
+PASS
+
+Direct composition yields exact normalized log-ratio g(x)=(b−a)+aR₂e^{−bx}−bR₁e^{−ax}. g’=ab(R₁e^{−ax}−R₂e^{−bx}) has at most one positive stationary point, a strict minimum if R₂>R₁; g(∞)=b−a>0. Strict g(0)>0 and g(x*)<0 are equivalent to R₁>1 and 1+(b/a)(R₁−1)<R₂<R₁^{b/a}, giving exactly two positive simple crossings and exterior/interior opposite preferred order. Equal carrying capacity R₁=e^{aK},R₂=e^{bK} reduces to convex u^{b/a}−(b/a)u+(b/a−1)≥0 with equality only x=K. At the upper boundary R₂=R₁^{b/a}e^{−δ}, Taylor at x*=K−δ/(b−a) yields crossings x*±√[2δ/(b(b−a))]+O(δ). Independent fresh checker compared 3,000 randomized direct compositions/signs and the rational a=1,b=2,R₁=2,R₂=7/2 witness; finite checking is not the universal proof.
+
+## originality
+
+PASS
+
+This is a sharp parameter characterization for ordering two distinct-crowding Ricker environments and its common-equilibrium tangency, not a recurrence stability theorem. Earlier periodic Ricker work uses fixed crowding or a modified Allee map; a 2022 proper-periodic-Ricker study is a plausible uninspected source. Wider exponential-polynomial comparison theory supplies basic root-count tools, but was not found to imply the model-specific complete wedge and square-root coefficient verbatim.
+
+## value
+
+PASS
+
+The order of environmental regimes affects finite-horizon population output; knowing exactly when preference reverses twice with initial population, and when common capacity forces no reversal, answers a natural scheduling/sequence problem with a sharp bifurcation boundary. It does not claim ecology field forecasts or long-term stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

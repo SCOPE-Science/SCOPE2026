@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The log of the positive output ratio, divided by the input, is an explicit two-exponential function. Its derivative has at most one positive root; when present it is a strict minimum. Endpoint inequalities then give a necessary-and-sufficient open wedge for exactly two positive crossovers and exclude a third. Exact substitutions prove the rational witness, the common-capacity convexity bound, and the local square-root onset. The included standard-library checker independently confirms representative formulas and parameter tests, but numerical testing is not a global proof.
+## correctness
 
-**Originality (O): PASS with residual risks.** The 2006 Syta--Litak full public article concerns static-map chaos; Sacker's 2007 article studies stability of periodic Ricker compositions with fixed crowding coefficient; Yang and Sacker's 2014 full PDF concerns \(\lambda\)-Ricker with \(\lambda>1\) and Allee thresholds. Relevant published mathematical research records also concern periodic mosquito scaling and invariant Ricker distributions, not this pointwise sign classification. A related earlier harvest-pulse timing result compares a different pair of maps and has different exponential coefficients; it neither supplies the stated sharp wedge nor common-equilibrium tangency for season swaps. A general theorem for noncommuting unimodal maps or two-term exponential polynomials may nonetheless subsume parts of the claim. The complete Cánovas (2022) proper-periodic-Ricker text was unavailable and remains a priority risk; no categorical noncoverage is asserted.
+PASS
 
-**Mathematical value (V): PASS.** The theorem characterizes an application-motivated full four-parameter regime rather than an arbitrary slice, distinguishes two strict order switches from rigid common-carrying-capacity non-reversal, and quantifies how the switches appear. Environmental sequencing in a density-dependent recruitment law is a natural decision-relevant structure even without a claim of empirically achievable control. The result is restricted to two deterministic updates and does not establish cycle stability, ecology field relevance, stochastic robustness or long-run ordering.
+Direct composition yields exact normalized log-ratio g(x)=(b−a)+aR₂e^{−bx}−bR₁e^{−ax}. g’=ab(R₁e^{−ax}−R₂e^{−bx}) has at most one positive stationary point, a strict minimum if R₂>R₁; g(∞)=b−a>0. Strict g(0)>0 and g(x*)<0 are equivalent to R₁>1 and 1+(b/a)(R₁−1)<R₂<R₁^{b/a}, giving exactly two positive simple crossings and exterior/interior opposite preferred order. Equal carrying capacity R₁=e^{aK},R₂=e^{bK} reduces to convex u^{b/a}−(b/a)u+(b/a−1)≥0 with equality only x=K. At the upper boundary R₂=R₁^{b/a}e^{−δ}, Taylor at x*=K−δ/(b−a) yields crossings x*±√[2δ/(b(b−a))]+O(δ). Independent fresh checker compared 3,000 randomized direct compositions/signs and the rational a=1,b=2,R₁=2,R₂=7/2 witness; finite checking is not the universal proof.
 
-## Closest literature and limits
+## originality
 
-Sacker (2007), doi:10.1080/10236190601008752; Yang--Sacker (2014), doi:10.3934/dcdsb.2014.19.589; and Syta--Litak (2006), arXiv:nlin/0610019v1, were examined with substantive primary text. The 2022 Cánovas article, doi:10.1063/5.0085571, is an unresolved full-text priority risk, as is potential broad exponential-composition coverage. Independent validation remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a sharp parameter characterization for ordering two distinct-crowding Ricker environments and its common-equilibrium tangency, not a recurrence stability theorem. Earlier periodic Ricker work uses fixed crowding or a modified Allee map; a 2022 proper-periodic-Ricker study is a plausible uninspected source. Wider exponential-polynomial comparison theory supplies basic root-count tools, but was not found to imply the model-specific complete wedge and square-root coefficient verbatim.
+
+## value
+
+PASS
+
+The order of environmental regimes affects finite-horizon population output; knowing exactly when preference reverses twice with initial population, and when common capacity forces no reversal, answers a natural scheduling/sequence problem with a sharp bifurcation boundary. It does not claim ecology field forecasts or long-term stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
