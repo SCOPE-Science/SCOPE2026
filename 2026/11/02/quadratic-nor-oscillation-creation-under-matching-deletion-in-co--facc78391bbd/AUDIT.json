@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For all integer p,q≥2 and 0≤k≤min(p,q), the open-neighbor update factors as (f(B),g(A)); the two one-sided maps send empty to full, each of the k matched singletons to itself across the bipartition, and every other subset to empty. Their images have k+2 labels each and the global rule restricts to an involution, proving all orbit counts, with every input periodic within one update. Exact fiber weights h_q and h_p for empty images give all seven basin categories; their sum is 2^(p+q). Only (2,2,2) has no transient input. The formula for universal basin concentration follows by direct division and k≤min(p,q). Independently coded graph-level Python and bit-mask C++ exhaustive checks passed 105/86,384 and 213/804,208 parameter/configuration checks from actual package source and outputs; finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aledo et al. 2020 DOI 10.1155/2020/9708347, §§2–3: general maximum/minimum periodic-point statements, with explicit t-partite cases in the paper’s local-function convention; no matching-deletion basin formula.",
+        "Aledo et al. 2015 DOI 10.1155/2015/594294: qualitative fixed/two-period restrictions but no exact basin profile for missing matchings.",
+        "Known open-neighborhood NOR join formulas cover \\(k=0\\), and the general identity \\(F^3=F\\) is background; neither covers \\(k>0\\) for these non-join graphs."
+      ],
+      "reasoning": "The two cited general maxterm/minterm sources classify broader qualitative periodic possibilities and some cycle populations, but do not imply the exact seven-category basin spectrum under the present open-neighborhood rule. The graph-join special case covers only the undeleted complete bipartite graph; for positive matching defect the graph is not a join of the two independent bipartition classes. The present assertion excludes novelty for those covered components.",
+      "searches": [
+        "Open-neighborhood NOR graph joins exact orbit basin formula and matching defects / crown graph",
+        "\"Counting Periodic Points in Parallel Graph Dynamical Systems\" crown complete bipartite matching",
+        "\"Parallel Dynamical Systems over Graphs and Related Topics: A Survey\" first published date"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s12190-011-0517-9",
+      "https://doi.org/10.1155/2015/594294",
+      "https://doi.org/10.1155/2020/9708347",
+      "Matching-defected complete bipartite NOR comparison with existing graph-join, leaf-corona, rook and crown majority/excitation mathematical statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2011 paper abstract concerns fixed points and maximal independent sets; at most the \\(k+2\\) fixed-point result is antecedent.",
+        "2015 survey states the qualitative eventual periods 1 and 2 for its parallel minterm classes, while the present full basin formula depends on the open-neighbor omission of self.",
+        "Known open-NOR join computation proves \\(F^3=F\\) and the \\(k=0\\) complete bipartite case; the present explicit \\(k>0\\) orbit creation and fiber census is not a specialization of a join statement."
+      ],
+      "reasoning": "The scientific claim is not mere period ≤2 or fixed-point existence. It specifies exact counts of primitive two-cycle orbits and all attraction basins for every \\(p,q,k\\), including a uniform limiting probability. No inspected stronger theorem was found whose stated assumptions and conclusion directly yield this whole family-specific classification. A possibility of unindexed prior treatment is explicitly retained.",
+      "searches": [
+        "\"On the computation of fixed points in Boolean networks\" \"arxiv\"",
+        "\"Counting Periodic Points in Parallel Graph Dynamical Systems\" crown complete bipartite matching",
+        "Open-neighborhood NOR graph joins exact orbit basin formula and matching defects / crown graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Veliz-Cuba–Laubenbacher 2011 DOI 10.1007/s12190-011-0517-9: fixed-point/maximal-independent-set emphasis, online 15 October 2011.",
+        "Aledo–Martínez–Valverde 2015 DOI 10.1155/2015/594294: minterm/NOR qualitative period discussion in §§2–3.",
+        "Exact local map for this family distinguishes empty, matched singleton, and other inputs, giving an involutive recurrent image with \\(k+2\\) labels per side."
+      ],
+      "reasoning": "A crown graph is a complete bipartite graph with a perfect matching deleted, so synonyms and the NOR = conjunction-of-complemented-inputs formulation were checked. The known fixed-point characterization, and general fixed/two-period statements, do not imply the new labelled matching-defect attraction-fiber profile or quadratic orbit count without the specific map reduction. A complete 2011 manuscript was unavailable, so its possible specialized examples remain a risk.",
+      "searches": [
+        "Finite synchronous NOR AND-NOT Boolean networks and maximum independent sets: exact oscillations and basin counts on edge-subdivided cliques",
+        "\"NOR\" \"crown graph\" attractors fixed points binary",
+        "\"NOR\" \"crown\" \"Boolean networks\" limit cycles",
+        "\"On the computation of fixed points in Boolean networks\" pdf Veliz Cuba Laubenbacher arxiv 2011"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full text of Aledo et al. 2020 does not contain matches for matching or basin and presents no table indexed by \\(p,q,k\\).",
+        "Specific graph-join, leaf-corona and rook-NOR exact formulas concern other graph families; prior crown records examined used majority or multi-state excitation, not NOR.",
+        "No indexed exact census of the stated kind was recovered in the performed query set."
+      ],
+      "reasoning": "A numerical-table or equivalent formula for the family would cover the claim even if the title or indexing differs. The actual searches and inspected full-text sections yielded related but structurally distinct results; this is positive comparative evidence, not a claim that failed searches prove novelty.",
+      "searches": [
+        "\"complete bipartite minus a perfect matching\" \"NOR\" Boolean network",
+        "\"NOR\" \"crown graph\" \"dynamics\" \"cycles\" Boolean",
+        "find::matching; find::basin",
+        "Exact cycle and basin census of synchronous open-neighborhood NOR on matching-defected complete bipartite and crown graphs; one dominant all-zero/all-one oscillation basin tends to probability one."
+      ]
+    },
+    "rationale": "The previously known general F³=F identity and k=0 complete-bipartite join case are explicitly excluded from novelty. Existing fixed-point theory can explain k+2 stationary states. The new asserted result is the matching-deletion-size quadratic primitive-cycle census together with each individual attraction-basin size and uniform giant-basin concentration; the inspected plausible primary literature did not state or imply the full claim. The older 2011 primary article was not inspected in full and an unindexed exact treatment remains possible.",
+    "residual_risks": [
+      "Full extracted text of the 2011 fixed-point paper was unavailable, though its publisher abstract was inspected.",
+      "An unindexed or differently termed exact NOR attraction-basin calculation on crown graphs or partial matching defects could exist.",
+      "The qualitative period bound and no-deletion case are established background and are not included as novel components."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the known fixed-point context; no text inspected that covers the full new basin claim; uninspected material is a residual risk",
+        "evidence": [
+          "Publisher online date 2011-10-15; abstract says fixed points are related to maximal independent sets; full text not recovered."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s12190-011-0517-9",
+        "material_read": "Publisher abstract, online date, bibliography, author-hosted page; full article text unavailable",
+        "method": "Publisher bibliographic record and author-hosted lawful-access landing page",
+        "title": "On the computation of fixed points in Boolean networks",
+        "trigger": "Direct historical work on AND-NOT Boolean networks and maximal-independent-set fixed points"
+      },
+      {
+        "assessment": "Covers general qualitative orbit restrictions, not the matching-deleted bipartite orbit/basin formulas; the model convention can include the updating vertex",
+        "evidence": [
+          "Published 2015-03-24; local functions use own and neighbor states; §3.1 gives qualitative period restrictions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2015/594294",
+        "material_read": "Full open-access HTML: local input convention and §§2–3, plus references to 2012 maxterm/minterm original work",
+        "method": "Full research article HTML read and mathematical statement comparison",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+        "trigger": "Direct review of minterm NOR dynamics on graphs"
+      },
+      {
+        "assessment": "Counts fixed points and periodic points in its Boolean minterm/maxterm convention but contains no matching-deletion individual attraction-basin theorem or matching-indexed tables",
+        "evidence": [
+          "Published 2020-09-14; §3 focuses on NAND-PDS periodic point bounds and complete multipartite instances; text searches for matching and basin returned no matches."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+        "material_read": "Full open-access HTML introduction and §§2–3, especially Theorems 2, 6, 7 and Corollary 4; searched full article for matching and basin",
+        "method": "Full research article HTML and targeted text searches",
+        "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+        "trigger": "Plausible stronger general periodic-point counts for Boolean maxterm and minterm systems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "facc7839-1bbd-4b18-8b24-a8b5dbc9df4b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Missing matchings are a canonical sparse perturbation of complete bipartite graphs, including all crown graphs. The result gives a natural complete orbit-and-basin classification for the entire two-part-size and matching-size family, with quadratic growth of distinct oscillatory cycles from only linearly many removed edges yet uniform concentration on a single oscillation. Individual basins, transition boundaries, and an exact random-initial-condition probability are mathematically substantive beyond correctness or mere enumeration.",
+    "status": "PASS"
+  }
+}
