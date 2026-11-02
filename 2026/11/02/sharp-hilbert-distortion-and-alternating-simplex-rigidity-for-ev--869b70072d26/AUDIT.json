@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary noncontracting real Hilbert embeddings, m alternating rim points pairwise distance at least 2 and hub distance at most sqrt(T); the centroid identity forces T>=2-2/m and equality rigidity. Explicit 2m-by-2m Gram blocks have Fourier eigenvalues 2±2u[1+4(1-u²)/m]; for m>=8 monotonicity bounds u[1+4(1-u²)/m]<=1, and m=7 has a strict rational cosine estimate. A direct exact metric-pair check gives all squared distances T, 4, or 4+2/m, so the upper construction matches. The actual checker passed exact Schur-complement PSD and every pair for m=7..18. Infinite validity is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vallentin arxiv:math/0509716, introduction and Section 2, covers distance-regular graphs (Hamming, Johnson, strongly regular), which excludes nonregular wheel families.",
+        "Cioabă et al. arxiv:2109.09708, introduction, Theorems 1.1-1.4, Section 4, also concern distance-regular graphs.",
+        "Abraham et al. arxiv:1708.04073, Theorems 1-3 give O(depth^alpha) family-level embeddings, not a sharp finite-size distortion."
+      ],
+      "reasoning": "Universal distortion upper bounds or the existence of polynomial-time semidefinite programs do not imply this specific exact wheel distortion, rigidity, or explicit positive-semidefinite construction. All plausible named stronger families were checked for direct wheel inclusion.",
+      "searches": [
+        "Least Hilbert distortion of wheel graph metric apex cycle even rim positive semidefinite embedding",
+        "Wheel graphs Hilbert embedding distortion Gram matrix finite metric shortest path quadratic Semidefinite programming",
+        "web: Cioaba Gupta Ihringer Kurihara distortion distance regular graphs Kneser Johnson graphs exact euclidean distortion 2022",
+        "web: wheel graph least Euclidean distortion Hilbert minimum"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2006.03289v1",
+      "arxiv:math/0509716",
+      "arxiv:2109.09708v1",
+      "arxiv:1708.04073v1",
+      "public mathematical record b4b280a696c2",
+      "public mathematical record 39d62ea47ea0",
+      "mathematical comparison: weighted-wheel powered-distance threshold",
+      "mathematical comparison: wheel circulation projections"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2006.03289 proves the **unsquared graph distance** matrix is Euclidean distance type, implying an isometric Hilbert embedding for sqrt(d) and a generic distortion sqrt(2) for d, but not the strictly smaller finite-size sqrt(2-2/m).",
+        "arxiv:math/0509716 and arxiv:2109.09708 are limited to distance-regular families; the wheel is not regular for m>=7.",
+        "A prior mathematical statement on weighted-wheel powered-distance negative type gives the powered-distance negative-type threshold of weighted wheels; this determines isometric snowflake exponents, not optimal bi-Lipschitz distortion of d itself.",
+        "A prior mathematical statement on wheel cycle-space projections concerns real l_1 cycle-space projection constants, not metric embeddings."
+      ],
+      "reasoning": "A square-root isometric embedding yields sqrt2 but not the sharp deficit 2/m. A negative-type exponent does not yield the optimum bilipschitz embedding distortion. Polytope ellipsoid and circulation projection results are for different norms/objects. No inspected prior theorem dominates the claimed wheel metric c_2 formula or the equality rigidity.",
+      "searches": [
+        "Exact Euclidean distortion of unweighted wheel graph W_n shortest path metric 2 - 4/n even number rim vertices embedding into Hilbert",
+        "Cones over cycles K_1 join C_{2m} sharp Euclidean bi-Lipschitz graph metric distortion, alternating independent-set simplex lower bounds",
+        "web: \"wheel graph\" \"Euclidean distortion\" Hilbert minimum 2",
+        "web: 2021 distance regular graph euclidean distortion wheel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact Hilbert graph-metric distortion c_2 is not the Euclidean Banach–Mazur distortion of a Lipschitz-free unit ball. The same wheel can have its graph-distance matrix squared-Euclidean, making the square-root metric Hilbertian, without determining c_2 of the original metric.",
+        "Relevant record b4b280a696c2 gives a wheel symmetric-edge-polytope inradius, not c_2 of a graph metric."
+      ],
+      "reasoning": "Checked aliases include wheel/W_{2m+1}, odd-order wheel, K_1 join C_{2m}, hub cycle cone, quadratic Gram embedding, and c_2. A covering graph-metric c_2 formula or equivalent optimizer statement was not identified.",
+      "searches": [
+        "Exact Euclidean distortion of unweighted wheel graph W_n shortest path metric 2 - 4/n even number rim vertices embedding into Hilbert",
+        "Least Hilbert distortion of wheel graph metric apex cycle even rim positive semidefinite embedding",
+        "Wheel graph even rim size 2m sharp c_2 least Euclidean metric distortion equals square root of 2 minus 2/m, explicit Gram embeddings",
+        "web: \"wheel graph\" \"Euclidean distortion\" Hilbert minimum 2",
+        "web: wheel graph optimal least Euclidean distortion shortest path metric embedding into Hilbert space formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct wheel-distance paper arxiv:2006.03289 is about a distance-matrix pseudoinverse and a square-root-metric Hilbert embedding; it has no tabulation of c_2(W_{2m+1}).",
+        "Published record 39d62ea47ea0 concerns a Löwner ellipsoid of a wheel symmetric edge polytope; record b4b280a696c2 is about inradius; neither tabulates graph-metric distortion."
+      ],
+      "reasoning": "The numerical expression 2-2/m was compared with wheel geometry, Euclidean distortion, distance matrices, and broader graph-embedding resources. No exact previously recorded wheel c_2 table or a stronger invariant implying it was found. This is not a uniqueness proof.",
+      "searches": [
+        "Exact Euclidean distortion of unweighted wheel graph W_n shortest path metric 2 - 4/n even number rim vertices embedding into Hilbert",
+        "Wheel graph even rim size 2m sharp c_2 least Euclidean metric distortion equals square root of 2 minus 2/m, explicit Gram embeddings",
+        "web: \"wheel graph\" \"least distortion\" embedding Euclidean",
+        "web: \"An inverse formula for the distance matrix of a wheel graph with an even number of vertices\" arxiv"
+      ]
+    },
+    "rationale": "Comparison of exact graph metric c_2 claims (not just names) with the same-wheel distance-matrix paper, the stronger distance-regular graph Euclidean-distortion literature, general graph embedding bounds, mathematical-record search hits and accessible own claims found no dominating implication. Same-wheel d-as-EDM yields c_2<=sqrt2, not sqrt(2-2/m); prior wheel snowflake negative type is a different optimization. An overlooked graph-specific prior embedding remains a real risk.",
+    "residual_risks": [
+      "A prior exact wheel metric c_2 computation may exist under cone metric, pyramid graph, or semidefinite dual terminology despite targeted searches.",
+      "Available mathematical-record retrieval is not an exhaustive proof of literature priority; independent novelty assessment not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same graph; derives a pseudoinverse and square-root-metric EDM property, not exact c_2 of the original graph metric",
+        "evidence": [
+          "arxiv:2006.03289v1 page 3 states graph distance matrix is an EDM",
+          "arxiv:2006.03289v1 Theorem 1 page 26 gives D pseudoinverse decomposition"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.03289",
+        "material_read": "Full original PDF, abstract, Sections 1-3, discussion of Euclidean distance matrices on pages 1-3, and the main pseudoinverse theorem on page 26",
+        "method": "Public arXiv PDF text and screenshots",
+        "title": "On distance matrices of wheel graphs with odd number of vertices",
+        "trigger": "Identical odd-order wheel graph and squared Euclidean distance questions"
+      },
+      {
+        "assessment": "Results determine distance-regular graph families, not nonregular wheels",
+        "evidence": [
+          "arxiv:math/0509716 abstract lists Hamming, Johnson and strongly regular graphs",
+          "Section 2 defines distance-regular setting"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0509716",
+        "material_read": "Original PDF abstract, introductory scope and theorem statements, Sections 2-4 describing distance-regular families",
+        "method": "Public arXiv PDF text and screenshots",
+        "title": "Optimal distortion embeddings of distance regular graphs into Euclidean spaces",
+        "trigger": "Classical spectral/SDP graph-distortion methodology could dominate exact value"
+      },
+      {
+        "assessment": "Distance-regular scope excludes the wheel graph with degree-varying hub",
+        "evidence": [
+          "arxiv:2109.09708 Theorems 1.1 and 1.4 state distance-regular hypotheses",
+          "Section 4.1 treats strongly regular graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.09708",
+        "material_read": "Public arXiv PDF abstract, introduction, Theorems 1.1-1.4, Sections 3-5 and special families",
+        "method": "Public arXiv PDF text and screenshots",
+        "title": "The least Euclidean distortion constant of a distance-regular graph",
+        "trigger": "Later stronger coverage of graph Euclidean distortion"
+      },
+      {
+        "assessment": "Asymptotic depth-dependent bounds, no exact wheel-specific Euclidean metric distortion",
+        "evidence": [
+          "arxiv:1708.04073 Theorems 1-3 and Table 1 give order-type bounds for graph families"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.04073",
+        "material_read": "Public arXiv full PDF introduction, Theorems 1-3, graph-family bounds and Table 1, method sections",
+        "method": "Public arXiv PDF text and screenshots",
+        "title": "Metric Embedding via Shortest Path Decompositions",
+        "trigger": "Possible general planar/low-depth embedding bound implying wheel c_2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "869b7007-2d26-486c-b9d3-686888736f02",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete exact Hilbert metric-distortion law on an infinite natural nonregular planar graph family, a sharp 2/m correction below the generic sqrt2 bound, and forced centered regular simplices in every optimizer. The explicit feasible Gram construction and matching dimension-free lower obstruction are structural, not just a small enumeration or a routine consequence of a known distance-matrix inverse. Scope excludes smaller and odd-rim wheels.",
+    "status": "PASS"
+  }
+}
