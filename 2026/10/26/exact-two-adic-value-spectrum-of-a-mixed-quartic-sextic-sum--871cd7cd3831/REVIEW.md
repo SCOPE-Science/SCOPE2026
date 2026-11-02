@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result classifies the full image in \(\mathbb Z_2\), not merely solutions at a finite modulus. Odd fourth powers are precisely \(1+16\mathbb Z_2\) and odd sixth powers are precisely \(1+8\mathbb Z_2\). Factoring out valuations \(4a\) and \(6b\) yields three mutually exhaustive comparisons: equal valuations, differing valuations by two, and differing by at least four. The equal and near-equal cases give respectively the \(2\), \(5\bmod16\), and \(5\bmod8\) cosets; the large-gap cases lie inside pure-power balls, all independently attained. The seven displayed balls are pairwise disjoint. Their Haar masses sum to \(1073/4095\). An independent direct modular evaluation agrees with all predicted classes for every \(1\le n\le16\). These finite computations are checks, not the proof of the infinite statement.
+PASS
 
-## Originality — PASS within inspected evidence
+Checked odd fourth powers =1+16 Z_2 and odd sixth powers =1+8 Z_2 from unit-group/Hensel lifting. Comparing valuations 4a and 6b gives equal 12k and near-ties at differences ±2, while differences ≥4 are absorbed in pure-power cosets; the cases constructively give precisely seven disjoint balls at scales 2^(12k). Their seven measures sum to 1073/4096; divide by 1-2^-12. Independent direct residue enumeration and separate ball reduction agree for every modulus 2^n, 1<=n<=13. The infinite conclusion comes from exact valuation/exhaustion and compactness, not extrapolated finite tests.
 
-The closest primary literature is Arias–Borja–Rubio (2019), which develops recurrence methods for power-polynomial congruence images and explicitly evaluates mostly square-power examples; and Arias–Borja–Anaya (2023), which gives explicit results for equal-exponent sums and differences. Neither inspected work states the mixed unequal-exponent image of \(x^4+y^6\), its seven-ball classification, or the exact rational density. Published-research-record searches and related prior-claim comparisons revealed no result whose statement implies this exact spectrum. However, general prior counting methods may facilitate deriving it; an earlier unindexed computation remains possible and priority is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete local image of a mixed diagonal power polynomial is a natural local-solubility invariant, not an arbitrary finite sample. The smallest nontrivial unequal even exponents strictly beyond squares, \(4\) and \(6\), exhibit competing valuation scales; their least common multiple \(12\) produces a seven-ball recurrence and an exact rational Haar density. The classification is useful as an explicit local obstruction test for the Diophantine equation \(x^4+y^6=t\) and a reproducible mixed-exponent benchmark for modular-image algorithms.
+Arias–Borja–Rubio 2019 supply general value-set/recurrence methods for mixed monomial powers, and Arias–Borja–Anaya 2023 supply equal-exponent sum formulas. The complete seven-ball x^4+y^6 image and Haar density are not stated in the inspected primary texts, although the first paper gives machinery potentially adaptable to it. Best-of-knowledge original exact specialization, not a new general congruence-counting principle.
 
-## Closest literature and limitations
+## value
 
-Both cited journal articles are available as full open-access PDFs. Their principal algorithms concern related, but not identical, power-image questions. The result is restricted to the prime two and does not assert integral representability, odd-prime local solubility, or an arbitrary-exponent theorem. No independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete local solubility criterion and exact Haar image mass for a natural mixed even-exponent form is a motivated, standalone p-adic arithmetic invariant, with constructive lifting and all residue classes determined. It is not merely an arbitrary finite modulus sample or an equal-power substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

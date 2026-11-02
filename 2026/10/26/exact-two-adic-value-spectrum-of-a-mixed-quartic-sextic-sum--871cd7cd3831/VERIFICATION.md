@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the local image theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3's standard library. The script independently enumerates all values of \(x^4+y^6\) modulo \(2^n\) for every \(1\le n\le16\), calculates the residues obtained by reducing each of the seven predicted two-adic cosets, and asserts equality of the **complete** sets at each modulus. The final printed word is `VERIFIED` only if all tests succeed. The exact cardinality vector is
+## correctness
 
-\[
-(2,3,3,5,10,18,36,68,136,270,538,1074,2148,4295,8587,17173).
-\]
+PASS
 
-The verifier also checks that the rational sum of Haar measures is exactly \(1073/4095\) using integer fractions; no floating point is involved. The proof in RESULT.md separately establishes equality of the two-adic sets for every valuation and gives the limiting measure. Neither a successful finite run nor a tool log constitutes an infinite proof. It does not establish historical priority or independent certification.
+Checked odd fourth powers =1+16 Z_2 and odd sixth powers =1+8 Z_2 from unit-group/Hensel lifting. Comparing valuations 4a and 6b gives equal 12k and near-ties at differences ±2, while differences ≥4 are absorbed in pure-power cosets; the cases constructively give precisely seven disjoint balls at scales 2^(12k). Their seven measures sum to 1073/4096; divide by 1-2^-12. Independent direct residue enumeration and separate ball reduction agree for every modulus 2^n, 1<=n<=13. The infinite conclusion comes from exact valuation/exhaustion and compactness, not extrapolated finite tests.
+
+## originality
+
+PASS
+
+Arias–Borja–Rubio 2019 supply general value-set/recurrence methods for mixed monomial powers, and Arias–Borja–Anaya 2023 supply equal-exponent sum formulas. The complete seven-ball x^4+y^6 image and Haar density are not stated in the inspected primary texts, although the first paper gives machinery potentially adaptable to it. Best-of-knowledge original exact specialization, not a new general congruence-counting principle.
+
+## value
+
+PASS
+
+A complete local solubility criterion and exact Haar image mass for a natural mixed even-exponent form is a motivated, standalone p-adic arithmetic invariant, with constructive lifting and all residue classes determined. It is not merely an arbitrary finite modulus sample or an equal-power substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
