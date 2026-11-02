@@ -1,119 +1,140 @@
 {
-  "claim": "Let \\(X=\\ell_3-\\ell_1\\) be the real Day--James plane with\n\\[\n\\|(s,t)\\|=\n\\begin{cases}\n\\bigl(|s|^3+|t|^3\\bigr)^{1/3},&st\\ge0,\\\\\n|s|+|t|,&st<0.\n\\end{cases}\n\\]\nFor Birkhoff--James orthogonality \\(x\\perp_B y\\), define\n\\[\ng_\\perp(X)=\n\\inf_{\\substack{x,y\\in S_X\\\\x\\perp_B y}}\n\\max\\{\\|x-y\\|,\\|x+y\\|\\}.\n\\]\nThen\n\\[\ng_\\perp(X)=\n\\left(1+\\frac{3}{2^{4/3}}\\right)^{1/3}\n=\n1.298726719564592\\ldots .\n\\]\nEquality is attained by\n\\[\nx=(2^{-1/3},2^{-1/3}),\n\\qquad\ny=(1/2,-1/2),\n\\]\nand by their images under the norm symmetries.",
+  "claim": "For the real Day--James plane \\(X=\\ell_3-\\ell_1\\) with \\(\\|(s,t)\\|=(|s|^3+|t|^3)^{1/3}\\) if \\(st\\ge0\\) and \\(\\|(s,t)\\|=|s|+|t|\\) if \\(st<0\\), the Birkhoff--James orthogonal Schäffer constant satisfies \\[g_\\perp(X)=\\inf_{x,y\\in S_X,\\ x\\perp_B y}\\max\\{\\|x-y\\|,\\|x+y\\|\\}=\\left(1+\\frac3{2^{4/3}}\\right)^{1/3}.\\] The value is attained at \\(x=(2^{-1/3},2^{-1/3})\\), \\(y=(1/2,-1/2)\\) and their norm-symmetry images.",
   "correctness": {
-    "rationale": "The sphere is exhaustively split into same-sign cubic arcs, opposite-sign taxicab facets, and axes. Smooth strata have unique Birkhoff directions from their norming functionals; axes use the full norming-functional cone. A strict 4/3 bound removes noncompetitive regimes. On the remaining cubic branch, an exact derivative factorization proves monotone decrease to the diagonal. The balanced diagonal/taxicab pair attains the radical.",
+    "rationale": "All unit vectors are on same-sign cubic arcs, opposite-sign taxicab facets, or coordinate axes. Norming functionals yield the full Birkhoff--James direction set, including the subdifferential cone at axes. For the cubic arc the derivative of the remaining lower-bound function is negative on [1/2,1]; the other pieces have strict or sharp elementary lower bounds. The balanced pair realizes (1+3/2^(4/3))^(1/3).",
     "risks": [
-      "The exponent-three derivative argument is not asserted for general p.",
-      "The symbolic checker validates algebraic identities; the global inequality proof is in the written proof."
+      "Only the cubic exponent is proved; the algebra-check program is not a substitute for the stated global analytic inequalities."
     ],
     "sources": [
-      "doi:10.33205/cma.1067323",
-      "doi:10.1007/s10114-016-5423-5"
+      "RESULT.md",
+      "algebra_check.py"
     ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Baronti--Papini give general g_perp theory but leave this same-space value numerical.",
-        "Yang--Li give the classical James constant, not the orthogonally restricted Schäffer infimum.",
-        "Closest indexed exact orthogonality calculations concern other spaces or other constants."
+        "Baronti--Papini 2022 general estimates concern g_perp and its relation to classical constants; Example 5.7 gives only an approximate value.",
+        "Martín--Papini 2024 Section 5 recalls g_perp and J_perp but computes h_-/h_+ on different spaces.",
+        "Yang--Li 2016 computes J, not Birkhoff-restricted g_perp."
       ],
-      "reasoning": "No inspected broader theorem supplies a closed g_perp formula for all Day--James planes; the decisive same-object source leaves precisely this value numerical.",
+      "reasoning": "The general inequalities and different invariant definitions do not determine the exact cubic Day--James infimum or its equality witness.",
       "searches": [
         "doi:10.33205/cma.1067323",
+        "doi:10.7153/mia-2024-27-28",
         "doi:10.1007/s10114-016-5423-5",
-        "orthogonal Schaffer constant Banach plane exact"
+        "Resultary Day-James ell2 ell1 orthogonal Schaffer rigidity"
       ]
     },
     "checked_sources": [
       "doi:10.33205/cma.1067323",
+      "doi:10.7153/mia-2024-27-28",
       "doi:10.1007/s10114-016-5423-5",
-      "Exact orthogonal James constant of a mixed Euclidean--taxicab Banach plane",
-      "Exact T-perpendicular constant of real ell_3^2"
+      "Resultary: 2026/10/11/SCOPE-orthogonal-sch-ffer-rigidity-in-the-day-james-ell-2-ell-1-plane--74c16ccb72ef",
+      "Resultary: 2026/10/4/SCOPE-exact-orthogonal-james-constant-of-a-mixed-euclidean-taxicab-ban--d257b41cb57c"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Baronti--Papini state the same g_perp only numerically.",
-        "Yang--Li's exact J determines the classical g=2/J but not g_perp.",
-        "Exact Birkhoff constants on other planes optimize different expressions."
+        "2022 Example 5.7 confirms the same numerical constant without proving a closed expression.",
+        "2024 paper introduces h_- and h_+ and only relates them by inequalities to g_perp, with no cubic Day--James evaluation.",
+        "Ell_2--ell_1 is another norm; its square-root constant does not imply the cubic case."
       ],
-      "reasoning": "The final result strengthens a same-object numerical evaluation to an exact formula and proof; none of the compared statements implies the radical.",
+      "reasoning": "A decimal approximation or comparison inequality does not logically entail the proposed exact radical or extremal-stratum proof. Parameter p=2 alone cannot determine p=3.",
       "searches": [
         "doi:10.33205/cma.1067323 Example 5.7",
-        "doi:10.1007/s10114-016-5423-5",
-        "exact orthogonal James constant mixed Euclidean taxicab",
-        "exact T perpendicular constant real ell_3^2"
+        "doi:10.7153/mia-2024-27-28 Section 5",
+        "Resultary ell_2 ell_1 g_perp and mixed Euclidean taxicab J_perp"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The object was searched under cubic Day--James and ell_3-ell_1 terminology.",
-        "The invariant was searched under orthogonal Schäffer, g_perp, and Birkhoff terminology.",
-        "Both the source decimal 1.2987 and the exact radical were searched without an exact match."
+        "Baronti--Papini, Example 5.7 (2022) gives g_perp about 1.2987, not the closed algebraic value."
       ],
-      "reasoning": "This covers the main object and invariant aliases and the distinctive numerical fingerprint.",
+      "reasoning": "Searched the object under Day--James and ell_3--ell_1 and the invariant under Birkhoff--James/orthogonal Schäffer/g_perp. The matching decimal is prior approximate coverage, not exact-profile coverage.",
       "searches": [
         "cubic Day-James ell_3 ell_1 orthogonal Schaffer constant exact",
         "Day-James ell3 ell1 g perpendicular exact Birkhoff",
-        "ell3-ell1 orthogonal Schaffer constant (1+3/2^(4/3))^(1/3)",
         "g_perp ell3 ell1 1.2987267195645926"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The same-space benchmark is 1.2987 approximately, not an exact table entry.",
-        "The closest exact orthogonal-James record is for a different mixed plane.",
-        "The closest exact T-perpendicular record is for ell_3^2, a different norm and invariant."
+        "Resultary exact-title hit was this assigned finding and excluded as independent priority evidence.",
+        "Related published Resultary findings treat the ell_2--ell_1 plane with g_perp=sqrt(3/2) or J_perp on a different mixed plane."
       ],
-      "reasoning": "Negative index evidence is used only together with direct full-text comparison of the exact same object and invariant.",
+      "reasoning": "There is a direct historical numerical benchmark but no inspected independently prior exact table/formula. Self-matches are not independent evidence.",
       "searches": [
-        "Baronti Papini Example 5.7 g perpendicular exact",
-        "Day-James l3-l1 orthogonal Schaffer 1.2987",
-        "g_perp ell3 ell1 1.2987267195645926"
+        "Resultary semantic search exact Birkhoff-James orthogonal Schäffer cubic Day-James 1.2987",
+        "exact orthogonal Schäffer constant Day-James real plane",
+        "Baronti Papini Example 5.7 g perpendicular exact"
       ]
     },
-    "rationale": "Baronti--Papini Example 5.7 treats exactly the same norm and invariant but reports only g_perp approximately 1.2987 and remarks that the calculations are not simple. The exact radical matches that decimal and is absent from the inspected full text. Yang--Li concern the classical James constant. Targeted alias, decimal, and radical searches found no equivalent exact statement.",
+    "rationale": "The primary 2022 paper treats exactly the same cubic norm and g_perp but reports only about 1.2987, with no radical or complete extremizer proof. The 2016 work treats classical J; the 2024 follow-up develops h_- and h_+ and only invokes g_perp for general comparisons, not this exact benchmark. Published records for the quadratic Day--James case and a different mixed-plane James constant are not implication sources.",
     "residual_risks": [
-      "A later exact derivation may exist under unusual notation outside the checked indexes.",
-      "The Yang--Li full article was not open in the inspected publisher route, though it is not the decisive same-invariant source."
+      "Exact expression may exist in an unindexed later source despite searches.",
+      "The Yang--Li classical-James full text was unavailable through lawful OA and authorized institutional access, though its stated theorem concerns a distinct invariant."
     ],
     "source_inspections": [
       {
         "assessment": "SAME_OBJECT_SAME_INVARIANT_NUMERICAL_ONLY",
-        "evidence": "Example 5.7 states J_perp=J and g_perp approximately 1.2987 greater than g, remarks that calculations are not simple, and does not display an exact closed form.",
-        "identifier_or_url": "doi:10.33205/cma.1067323",
-        "material_read": "Full public article, including definitions of J_perp and g_perp, general results, and Example 5.7 on the cubic ell_3-ell_1 norm.",
-        "method": "Full-text PDF and page-image inspection.",
+        "evidence": "Example 5.7 states J_perp=J and g_perp approximately 1.2987; no exact radical or minimizer proof is presented.",
+        "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/2229265",
+        "material_read": "All nine pages, Sections 2--7 and especially Section 5, Example 5.7 (printed page 42).",
+        "method": "Open-access full PDF text and rendered page 6/9",
         "title": "Parameters in Banach spaces and orthogonality",
-        "trigger": "Decisive same-object and same-invariant source."
+        "trigger": "Identical norm and invariant; decisive historical benchmark"
       },
       {
-        "assessment": "SAME_OBJECT_DIFFERENT_CLASSICAL_INVARIANT",
-        "evidence": "Springer records publication on 2016-08-15 and states that the article obtains the exact classical James constant, not g_perp.",
+        "assessment": "RELATED_DIFFERENT_INVARIANTS",
+        "evidence": "The article studies h_- and h_+, cites g_perp/J_perp (page 411), and gives other polygonal and ell_p examples, without the cubic Day--James radical.",
+        "identifier_or_url": "https://files.ele-math.com/articles/mia-27-28.pdf",
+        "material_read": "Complete 15-page article; Sections 1--6, especially Section 5 and Examples 1--8.",
+        "method": "Open-access full PDF text and rendered page 11/15",
+        "title": "Moving around the sums of orthogonal unit vectors",
+        "trigger": "2024 follow-up by one of the original authors, involving extreme orthogonal sums"
+      },
+      {
+        "assessment": "DIFFERENT_CLASSICAL_INVARIANT_FULL_TEXT_UNAVAILABLE",
+        "evidence": "Abstract states exact value of classical James constant J(ell_3--ell_1), not the orthogonal Schäffer infimum.",
         "identifier_or_url": "doi:10.1007/s10114-016-5423-5",
-        "material_read": "Publisher metadata, abstract, publication date, subject classification, and references.",
-        "method": "Publisher HTML inspection; full article text was not open in the inspected route.",
+        "material_read": "Publisher bibliography/abstract and indexed summary; full paper unavailable through OA, Oxford VPN disconnected.",
+        "method": "Targeted metadata/OA search and authorized institutional retrieval attempt",
         "title": "The James constant for the l3-l1 space",
-        "trigger": "Earliest verified source for the cubic Day--James object and closest classical invariant."
+        "trigger": "Same Banach plane and possible stronger covering result"
+      },
+      {
+        "assessment": "DIFFERENT_POWER_PARAMETER_NOT_COVERING",
+        "evidence": "Proves sqrt(3/2) for the quadratic ell_2--ell_1 plane, not the cubic ell_3--ell_1 plane.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-orthogonal-sch-ffer-rigidity-in-the-day-james-ell-2-ell-1-plane--74c16ccb72ef",
+        "material_read": "Full RESULT.md with definitions, proof, equality classification and references",
+        "method": "Published repository source file read",
+        "title": "Orthogonal Schäffer rigidity in the Day--James ell_2--ell_1 plane",
+        "trigger": "Closest published related-result search hit"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT_NOT_COVERING",
+        "evidence": "Determines an orthogonal supremum J_perp in a different plane; cannot imply the cubic orthogonal infimum g_perp.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-orthogonal-james-constant-of-a-mixed-euclidean-taxicab-ban--d257b41cb57c",
+        "material_read": "Full RESULT.md proof and statement",
+        "method": "Published repository source file read",
+        "title": "Exact orthogonal James constant of a mixed Euclidean-taxicab Banach plane",
+        "trigger": "Same geometry at p=2 but orthogonal James instead of Schäffer"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "mathematical_review",
   "schema_version": 1,
-  "scope_run_id": "7a4ab771-5813-4bce-8361-8e0a9207d071",
   "value": {
-    "rationale": "Baronti--Papini introduced g_perp as a natural Birkhoff--James restriction of the classical Schäffer constant and singled out this cubic Day--James example with only a numerical value. The exact radical is a natural completion of an explicitly nontrivial benchmark and identifies the extremal sphere stratum and pair.",
+    "rationale": "The established g_perp invariant is evaluated exactly on a mathematically canonical mixed cubic/taxicab Banach plane previously left at only a decimal benchmark. The complete Birkhoff support-functional stratum analysis supplies an attaining closed radical and explains its location. This is a motivated small exact fact, not a general ell_p classification.",
     "risks": [
-      "This is a single exact benchmark, not a full Day--James family theorem."
+      "Narrow single-space evaluation; no full p-family theorem, no external formal verification."
     ],
     "sources": [
-      "doi:10.33205/cma.1067323",
-      "doi:10.1007/s10114-016-5423-5"
+      "doi:10.33205/cma.1067323"
     ],
     "status": "PASS"
   }
