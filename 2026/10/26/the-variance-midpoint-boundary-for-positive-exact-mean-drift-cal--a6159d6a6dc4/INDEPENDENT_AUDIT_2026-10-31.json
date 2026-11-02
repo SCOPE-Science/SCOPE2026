@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:08:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For actual positive Gaussian noise-first fixed exponential, E exp(Z_i)=exp(c_i h) independently of cross-coordinate covariance. Exact first-mean identity is exp(hC)exp(h(K-C))=exp(hM). Q=exp(-hC)exp(hM) is positive-spectrum upper triangular. A Metzler logarithm H=K-C with exp(hH)=Q cannot have below-diagonal positive entries (nonnegative power-series argument); its upper entries are uniquely determined by divided differences. The resolvent formula for (log Q)_13 has sign sign(sqrt(d1 d3)-d2), where d_i=exp(-hc_i), via reciprocal substitution and strict J monotonicity, equivalent to 2c2>=c1+c3. Both nearest couplings strictly positive; in 2x2 the sole logarithmic divided difference is positive. h>0 exact, including equal variances, noncommuting original matrices. Independent SciPy logm/expm checked 21 parameter-step settings, sign and exact moments; examples with (1,0,1) give K13<0. Numerical checks are secondary to integral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matrix embeddability of positive products and general numerical integrator positivity.",
+          "Actual primary-source comparison: arXiv:2607.03952 / public preprint at ResearchGate: Algorithm 1 uses time-dependent stochastic conjugation and exponential evolution for positivity; it does not solve exp(hC)exp(h(K-C))=exp(hM) for one fixed K, nor state variance midpoint threshold. ; arXiv:1510.07282: Deals with stochastic row-sum-1 matrices and generators; the target Q=e^{-hC}e^{hM} need not be stochastic, and no uniform iff c2>=(c1+c3)/2 condition was identified."
+        ],
+        "reasoning": "General embeddability obstruction exists, but no inspected theorem gives an iff variance midpoint criterion for all h and all positive two-arc weights. Gurpegui Algorithm 1 is a distinct time-varying transformed algorithm.",
+        "searches": [
+          "https://arxiv.org/abs/1510.07282",
+          "https://www.researchgate.net/publication/408521526_L1_Optimal_Control_of_Continuous-Time_Stochastic_Positive_Systems"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.03952 / public preprint at ResearchGate",
+        "arXiv:1510.07282",
+        "Resultary semantic search: positive Metzler embedding of 3x3 triangular Gaussian split step exact mean positivity geometric mean diagonal threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior general 3-state Markov embedding conditions do not force this nonconservative triangular drift criterion.",
+          "Actual primary-source comparison: arXiv:2607.03952 / public preprint at ResearchGate: Algorithm 1 uses time-dependent stochastic conjugation and exponential evolution for positivity; it does not solve exp(hC)exp(h(K-C))=exp(hM) for one fixed K, nor state variance midpoint threshold. ; arXiv:1510.07282: Deals with stochastic row-sum-1 matrices and generators; the target Q=e^{-hC}e^{hM} need not be stochastic, and no uniform iff c2>=(c1+c3)/2 condition was identified."
+        ],
+        "reasoning": "The matrix Q here is not in general row-stochastic, and the original simulation does not optimize K to make exp(hC)exp(h(K-C))=exp(hM). Thus inspected prior results neither contradict nor entail the stated three-site criterion.",
+        "searches": [
+          "https://arxiv.org/abs/1510.07282",
+          "https://www.researchgate.net/publication/408521526_L1_Optimal_Control_of_Continuous-Time_Stochastic_Positive_Systems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Real Metzler logarithm of exp(-hC)exp(hM); sign of three-node triangular log second superdiagonal.",
+          "Actual primary-source comparison: arXiv:2607.03952 / public preprint at ResearchGate: Algorithm 1 uses time-dependent stochastic conjugation and exponential evolution for positivity; it does not solve exp(hC)exp(h(K-C))=exp(hM) for one fixed K, nor state variance midpoint threshold. ; arXiv:1510.07282: Deals with stochastic row-sum-1 matrices and generators; the target Q=e^{-hC}e^{hM} need not be stochastic, and no uniform iff c2>=(c1+c3)/2 condition was identified."
+        ],
+        "reasoning": "The mean correction question reduces exactly to a constrained logarithm with forced off-diagonal; it is not the usual stochastic-matrix generator embedding because row sums are unrestricted.",
+        "searches": [
+          "https://www.researchgate.net/publication/408521526_L1_Optimal_Control_of_Continuous-Time_Stochastic_Positive_Systems",
+          "https://arxiv.org/abs/1510.07282",
+          "Resultary semantic query: positive Metzler embedding of 3x3 triangular Gaussian split step exact mean positivity geometric mean diagonal threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search universal noise midpoint positivity and triangular logarithm tables.",
+          "Actual primary-source comparison: arXiv:2607.03952 / public preprint at ResearchGate: Algorithm 1 uses time-dependent stochastic conjugation and exponential evolution for positivity; it does not solve exp(hC)exp(h(K-C))=exp(hM) for one fixed K, nor state variance midpoint threshold. ; arXiv:1510.07282: Deals with stochastic row-sum-1 matrices and generators; the target Q=e^{-hC}e^{hM} need not be stochastic, and no uniform iff c2>=(c1+c3)/2 condition was identified."
+        ],
+        "reasoning": "No matching explicit 3x3 midpoint threshold found in actual semantic/general searches; a general divided-difference database might imply it, retained as residual risk.",
+        "searches": [
+          "positive Metzler embedding of 3x3 triangular Gaussian split step exact mean positivity geometric mean diagonal threshold",
+          "web: matrix logarithm positive upper triangular 3x3 midpoint geometric mean embedding criterion"
+        ]
+      },
+      "rationale": "Metzler matrix logarithms and positive integrating-factor schemes are prior art. After examining the 2026 public preprint Algorithm 1, its method uses a time-varying conjugated drift rather than this exact frozen noise-first product. Existing stochastic Markov embedding theory studies different generator constraints. The specific all-h iff variance midpoint threshold was not located in inspected primary sources; possible implicit coverage by classical triangular divided-difference theory is a priority risk.",
+      "residual_risks": [
+        "Classical embedding theory may contain the same logarithm divided-difference geometric-mean condition implicitly for positive triangular 3x3 matrices.",
+        "The positive-system preprint Algorithm 1 is a different time-dependent-conjugated method, so no claim of correction to that exact algorithm is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSITIVITY_PRESERVATION_NOT_EXACT_FIRST_MEAN_METZLER_LOG",
+          "evidence": "Algorithm 1 uses time-dependent stochastic conjugation and exponential evolution for positivity; it does not solve exp(hC)exp(h(K-C))=exp(hM) for one fixed K, nor state variance midpoint threshold.",
+          "identifier_or_url": "arXiv:2607.03952 / public preprint at ResearchGate",
+          "material_read": "Public original preprint full-text transcription, especially §1.1, Theorem 2, Algorithm 1 lines 504-573, positive control discussion and Examples 1-2.",
+          "method": "Lawfully accessible public preprint text; arXiv HTML extraction was corrupt template, so used full public preprint text",
+          "title": "L1 Optimal Control of Continuous-Time Stochastic Positive Systems",
+          "trigger": "Original positivity-preserving integrating-factor simulation directly motivating the corrected split"
+        },
+        {
+          "assessment": "MATRIX_EMBEDDING_BACKGROUND_NONIMPLYING",
+          "evidence": "Deals with stochastic row-sum-1 matrices and generators; the target Q=e^{-hC}e^{hM} need not be stochastic, and no uniform iff c2>=(c1+c3)/2 condition was identified.",
+          "identifier_or_url": "arXiv:1510.07282",
+          "material_read": "Full arXiv extracted text, definitions and 3-state embedding analysis for stochastic transition matrices.",
+          "method": "Public full-text arXiv HTML",
+          "title": "From empirical data to continuous Markov processes: a systematic approach",
+          "trigger": "Broader three-state positive matrix logarithm and embedding theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp iff midpoint inequality identifies the first dimension where a positive exact-first-moment drift calibration can fail under the specified noise-first exponential splitting, uniformly for every step size. This is a structural positivity obstruction for motivated stochastic simulation, not a generic assertion about all integrators.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical embedding theory may contain the same logarithm divided-difference geometric-mean condition implicitly for positive triangular 3x3 matrices.",
+    "The positive-system preprint Algorithm 1 is a different time-dependent-conjugated method, so no claim of correction to that exact algorithm is made.",
+    "The independent crosschecks are finite where enumerative; all unbounded quantifiers rely on the reconstructed deductive proof.",
+    "Publication not staged; no external attestation and no alteration of proof text."
+  ],
+  "schema_version": 1
+}
