@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:48:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on Pi(i)=i, delete that fixed entry, and standardize to uniform sigma in S_{n-1}. Inserting i retains all old upper records, adding exactly one when the first m=i-1 standardized values are {1,...,m}; the event has probability 1/binom(n-1,m). On that event the two blocks are independent uniform permutations, so E[t^R|fixed_i]=[t^(overline(n-1))+(t-1)t^(overline(i-1))t^(overline(n-i))]/(n-1)!. Reflection of the two block sizes gives full conditional distribution symmetry. Differentiation yields Cov(1_{Pi(i)=i},R)=1/(n binom(n-1,i-1))-1/n². Binomial unimodality proves positive exactly i=1,2,n-1,n for n>=5, negative otherwise, and sum over i proves total-fixed-point covariance positive with n times covariance approaching 1. Independent exact enumeration of permutations for n=2..7 verified every conditional mean and reflection, not the all-n theorem. All-complex-t polynomial identity, n>=2; four-label sign result n>=5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dubach Theorem 2.10 concerns the asymptotic record law under a sequence of entire cycle types with prescribed total number of fixed points.",
+          "Gnedin–Gorin record-dependent measures classify different coherent permutation laws rather than a single pinned label in the uniform law."
+        ],
+        "reasoning": "Conditioning on a particular fixed point is strictly finer than conditioning on the total fixed count; the general asymptotic theorem does not yield an exact finite-n, position-specific polynomial.",
+        "searches": [
+          "Dubach 2025/2026 Theorem 2.10 records conjugation invariant permutations fixed point count",
+          "arxiv:math/0611538 Gnedin coherent record statistics",
+          "uniform random permutation upper records conditioned on specified fixed point position complete joint probability generating function"
+        ]
+      },
+      "checked_sources": [
+        "assigned Git RESULT.md, REVIEW.md and verify.py",
+        "Dubach 2025/2026 full HTML Theorem 2.10",
+        "Brändén–Claesson arXiv:1102.4226 (limited)",
+        "Gnedin–Gorin arXiv:1202.3680 (limited)",
+        "Resultary query uniform random permutation upper records conditioned on specified fixed point position complete joint probability generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dubach conditions on cycle type, with total nonfixed count n-t1(n); the statement is asymptotic.",
+          "Brändén–Claesson describes mesh patterns, not the pinned conditional closed polynomial; Gnedin–Gorin changes the permutation law."
+        ],
+        "reasoning": "No inspected stronger theorem supplies the exact one-position conditioned distribution or four-label covariance signs without a new pinned deletion argument.",
+        "searches": [
+          "Dubach Theorem 2.10 DOI:10.1007/s00440-025-01449-7",
+          "Bränden Claesson arxiv:1102.4226",
+          "Gnedin Gorin arxiv:1202.3680",
+          "uniform random permutation upper records conditioned on specified fixed point position complete joint probability generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brändén–Claesson arXiv:1102.4226 represents left-to-right maxima and fixed points as mesh patterns, separately; that is a language for the statistics, not a stated exact conditional probability generating law.",
+          "Classical record indicators are independent under uniform permutations with product t^overline{n}/n!, but conditioning on the pinned one-line event is different."
+        ],
+        "reasoning": "The explicit E[t^{R_n}|Pi(i)=i] depends on i, whereas the marginal Stirling law does not. Mesh-pattern formalism might derive it with additional work; no exact equivalent statement was found in inspected examples.",
+        "searches": [
+          "uniform random permutation upper records conditioned on specified fixed point position complete joint probability generating function",
+          "random permutation fixed point position left-to-right records conditional distribution joint 2024",
+          "record-fixed-point mesh pattern expansion joint permutation statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495 concerns fixed-point indicators versus descents, not upper record counts.",
+          "No exact table of fixed-label record PGFs appeared in searches."
+        ],
+        "reasoning": "The neighboring exact fixed-point/descents result uses a local adjacent-comparison statistic; it does not imply the present nonlocal record generating function. The natural invariant is an all-n conditional law, not table recomputation.",
+        "searches": [
+          "uniform random permutation upper records conditioned on specified fixed point position complete joint probability generating function",
+          "Resultary fixed point descent dependence permutation pinned record generating function"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: classical record Bernoulli/Stirling law and mesh-pattern expansions are prior, as are total-fixed-point-conditioned asymptotics. The explicit exact generating polynomial for conditioning on a particular one-line fixed point, reflection of the pinned label, four-boundary covariance sign classification and positive aggregate despite negative interiors were not stated/implied by the materially inspected named earlier results.",
+      "residual_risks": [
+        "Older joint record/fixed-point enumeration or combinatorial species identity may contain equivalent polynomial without wording overlap.",
+        "Single-label conditioning does not establish joint conditioning on several fixed points."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Total cycle-type/fixed-count conditioned record asymptotics, not labeled fixed-point conditioned finite law",
+          "evidence": "Dubach, Theorem 2.10 uses t_1^(n) total fixed points.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00440-025-01449-7",
+          "material_read": "Open full HTML: introduction, Section 2.3 record theorems including Theorem 2.10, and associated proof passages",
+          "method": "primary Springer full HTML of published version, Theorem 2.10 inspected",
+          "title": "A geometric approach to conjugation-invariant random permutations",
+          "trigger": "Direct records under fixed-point constraints"
+        },
+        {
+          "assessment": "Gives representations for the marginal statistics, not a stated single-position conditioned PGF",
+          "evidence": "Brändén–Claesson, 2011.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.4226",
+          "material_read": "Named mesh-pattern examples and background; not full paper independently reread here",
+          "method": "limited accessible sections and cited original result",
+          "title": "Mesh patterns and the expansion of permutation statistics as sums of permutation patterns",
+          "trigger": "Both upper records and fixed points in a general statistic language"
+        },
+        {
+          "assessment": "Record-dependent sampling laws not the finite conditional law of a uniform permutation under Pi(i)=i",
+          "evidence": "Gnedin–Gorin 2012.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.3680",
+          "material_read": "Abstract and classification description; not entire text in this run",
+          "method": "limited primary abstract/sections",
+          "title": "Record-dependent measures on the symmetric groups",
+          "trigger": "Prior exact permutation records research"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete conditional law of a standard random permutation statistic under a natural label-pinning event, unexpected reflection symmetry of a directional record count, and position-dependent sign reversal form a coherent finite-sample dependence classification. This is not a relabeling of the marginal Stirling generating function.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned Git RESULT.md, REVIEW.md and verify.py",
+    "Dubach 2025/2026 full HTML Theorem 2.10",
+    "Brändén–Claesson arXiv:1102.4226 (limited)",
+    "Gnedin–Gorin arXiv:1202.3680 (limited)",
+    "Resultary query uniform random permutation upper records conditioned on specified fixed point position complete joint probability generating function"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older joint record/fixed-point enumeration or combinatorial species identity may contain equivalent polynomial without wording overlap.",
+    "Single-label conditioning does not establish joint conditioning on several fixed points."
+  ]
+}
