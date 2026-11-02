@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Complete parity proof: factors of length >=2 contain zero, images have nonempty ones solely on odd positions, so no odd cyclic conjugating shift exists. Even shifts descend uniquely through the injective length-two code. Every length-2n factor arises from one of the two substitution phases, yielding surjectivity. Length one handled separately. Enumeration of first 100 lengths supports, but does not replace, proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cassaigne et al. 2014 general Proposition 17 gives only c(2^{k})=2 in the period-doubling specialization.",
+        "Charlier-Puzynina-Zamboni 2016 discusses only the known liminf cyclic complexity of period doubling."
+      ],
+      "reasoning": "No inspected stronger known theorem covers the all-length injective morphism transport. The general proposition gives surjectivity and a nonincrease, not equality.",
+      "searches": [
+        "published-finding corpus: Exact dyadic scaling of cyclic complexity for period doubling words: c(2n)=c(n), odd part invariance",
+        "web: cyclic complexity words period doubling morphism scaling theorem",
+        "Charlier-Puzynina-Zamboni group complexity PDF concluding discussion"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1402.5843 (first public 2014-02-24)",
+      "https://orbi.uliege.be/bitstream/2268/192556/1/Group%20Complexity-orbi.pdf",
+      "Published published-finding corpus semantic findings queried with precise morphism/odd-part variants",
+      "Accessible earlier prior research records, overlap checks by claim and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published proof observes each length-2n cyclic class has a representative of the form mu(u); it establishes no general converse equivalence between input and image classes.",
+        "New proof's nonstandard step rules out odd shifts by the fixed zero/even-position structure."
+      ],
+      "reasoning": "Published powers-of-two equalities are special instances; conversely infinitely many isolated dyadic equalities do not imply equality at arbitrary n. The all-n result is not a renaming of the earlier statement.",
+      "searches": [
+        "arXiv:1402.5843 Proposition 17, Example 1",
+        "Charlier-Puzynina-Zamboni 2016 final discussion",
+        "published-finding corpus: For the period-doubling word p, cyclic complexity c_p(2n)=c_p(n) for all n; conjugacy classes preserved by morphism 0->01,1->00"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1402.5843 Proposition 17 and Example 1 concern c(2^k)=2 and a surjection; exact c(2n)=c(n) is not stated in inspected sections."
+      ],
+      "reasoning": "The theorem is equivalently a bijection of necklace classes of factors induced by the substitution, or invariance under removal of all factors of 2 in the length. The class-level statement implies the numeric identity, but a mere surjective morphism map does not imply either bijectivity or count equality.",
+      "searches": [
+        "published-finding corpus: For the period-doubling word p, cyclic complexity c_p(2n)=c_p(n) for all n; conjugacy classes preserved by morphism 0->01,1->00",
+        "web: cyclic complexity period doubling 2n n equality",
+        "web: period-doubling cyclic complexity odd part"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct finite factor-class census for n=1..100 agreed with the identity; this is fresh computation, not an external novelty assertion.",
+        "published-finding corpus searches returned no corresponding cyclic-complexity statement among the closest hits."
+      ],
+      "reasoning": "No checked existing exact table or record asserts the universal doubling identity; finite evidence cannot by itself establish novelty.",
+      "searches": [
+        "published-finding corpus: For the period-doubling word p, cyclic complexity c_p(2n)=c_p(n) for all n; conjugacy classes preserved by morphism 0->01,1->00",
+        "web: \"cyclic complexity\" \"period doubling\" \"2n\" \"n\" equality",
+        "web: \"period-doubling\" \"cyclic complexity\" scaling law"
+      ]
+    },
+    "rationale": "The directly inspected foundational cyclic-complexity paper proves c(2^k)=2 and a general surjective morphism-class mapping, but not the reverse injectivity for every length. The new class-level dyadic bijection is strictly stronger: c(2n)=c(n) for arbitrary n, preserving every odd-part class profile. Group-complexity comparison and published-record searches found no equivalent statement; historical-priority risk remains.",
+    "residual_risks": [
+      "Earlier equivalent recognition theorem outside checked sources may imply this specialization even without spelling out the count equality.",
+      "No independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves representation/surjection and equality on powers of two; does not state or prove injectivity at all lengths.",
+        "evidence": [
+          "Proposition 17 on PDF page 12, Example 1 on pages 12-13"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1402.5843",
+        "material_read": "Introduction, definitions, complete Section 5.1 including Proposition 17 proof and Example 1 on PDF pages 12-13",
+        "method": "Read full textual section with page screenshot of the pertinent result",
+        "title": "Cyclic Complexity of Words",
+        "trigger": "Primary source originally proving the period-doubling dyadic minimum"
+      },
+      {
+        "assessment": "Cites earlier liminf property, not the factor-class doubling bijection.",
+        "evidence": [
+          "Period-doubling comparison in concluding discussion, PDF page 13"
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/192556/1/Group%20Complexity-orbi.pdf",
+        "material_read": "Abstract, introductory framework, concluding period-doubling and group-complexity discussion on PDF page 13",
+        "method": "Read indexed PDF text and inspected page image",
+        "title": "On a group theoretic generalization of the Morse-Hedlund theorem",
+        "trigger": "Follow-up comparison of cyclic complexity and period-doubling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8148ba3a-1211-4504-a30c-657fe8daa677",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural whole-profile invariant for the cyclic factor complexity of a classical morphic word: not just its known minimal subsequence c(2^k)=2, but a lossless bijection of all factor necklace classes at every doubled length. This gives exact reductions of all even-length instances to their odd parts and isolates the mechanism of parity recognizability; this is a structural class-level result, not a recomputation of a finite table.",
+    "status": "PASS"
+  }
+}
