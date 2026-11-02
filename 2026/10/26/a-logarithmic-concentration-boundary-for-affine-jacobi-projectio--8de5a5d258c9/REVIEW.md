@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Dirichlet covariance identifies the reproducing kernel exactly. Convexity reduces the negative kernel mass to a vertex; positivity of the interior density supplies strictness. Beta recurrences give the all-parameter exact formula. For the fixed-total-mass scaling, beta-normalizer expansion, a digamma tail identity and a separate truncated first moment derive both the logarithmic and constant terms; Dirichlet/gamma central limits with second-moment control establish the other limits. The checker's exact rational tests verify kernel moment identities and beta integrations but are not substitutes for proofs of infinite limits.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Griffiths–Spanò 2010 develops Dirichlet polynomial kernels, not the sharp L1/L-infinity affine projector norm or concentration boundary. Xu 2013 develops multivariate Jacobi bases but not the endpoint norm. The public 2026 simplex projector result covers alpha=1 only; that already-known case is expressly not the new contribution. The exact alpha=lambda/n double scaling and explicit log(n)/n digamma correction do not follow from the alpha=1 theorem or from the kernel representation without further beta-tail analysis. Separate searches for aliases, stronger multivariate Jacobi Lebesgue constants, and parameter limits found no demonstrated covering theorem. Residual risk: older equivalent weighted orthogonal polynomial Lebesgue constants under other names.
+PASS
 
-## Mathematical value — PASS
-For weighted local least-squares approximation, the full sharp amplification determines whether rare boundary-mass data can generate negative fitted values and how that risk varies with concentration. The fixed-total-mass regime yields bounded endpoint instability despite increasing dimension; the fixed-coordinate-concentration regime yields linear instability. The logarithmic boundary correction identifies the precise finite-size approach in the sparse Dirichlet regime, not merely a routine special-value computation.
+On the frozen RESULT.md, Dirichlet covariance (δ_ij−1/n)/[n(nα+1)] gives K(x,y)=−nα+n(nα+1)Σx_i y_i. K integrates to 1 and reproduces the affine span. Convexity of its negative part in x reduces the L∞ norm and positivity defect to a vertex, and interior-positive Dirichlet density makes nonvertex maxima strict. With Y_1~Beta(α,(n−1)α), the beta recurrence gives C=(nα+1)c^α(1−c)^b/[α B(α,b)]−I_c(α,b), hence both endpoint norms 1+2C and min_{0≤f≤1} Pf=−C. For α=λ/n, expanding the beta tail after splitting at c=λ/[n(1+λ)] proves λ−C=(λ²/n)[log n+1+log((1+λ)/λ)−ψ(λ)−γ]+o_λ(1/n). Fixed-α n→∞ uses gamma convergence and uniform integrability, fixed-n α→∞ Gaussian convergence; these regimes are distinct. Independently evaluated high-precision beta values for λ=.5,1,3 and n=300,3000; the claimed second-term errors decreased, but numerical checks are not proofs. Source check.py was inspected as exact-rational finite checker, not relied upon for the limiting theorem.
 
-## Limitations and closest literature
-The result is limited to symmetric Dirichlet measures and degree-one orthogonal projection. It neither asserts a uniform-in-lambda error nor covers higher degrees. Closest sources: Griffiths–Spanò, arXiv:1003.5131 (full introduction, kernel framework and Proposition 2.1 examined); Xu, arXiv:1309.1510 (Jacobi/Hahn framework examined); Aktaş–Xu, arXiv:1111.2994 (Jacobi simplex setting examined); *Exact positivity defect and max norm of the affine least-squares projector on a simplex* (2026), full RESULT.md examined (alpha=1 case covered). Bibliographic priority requires independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for weighted endpoint norm and double scaling, expressly excluding the already published α=1 result. The 2010 primary canonical-correlation/Jacobi kernel article supplies the kernel framework; its inspected portions did not establish the present beta negative-part norm or fixed-total-mass logarithmic coefficient. Literature under orthogonal-polynomial Lebesgue constants may contain a disguised equivalent.
+
+## value
+
+PASS
+
+Symmetric Dirichlet concentration is a natural deformation of simplex affine least squares; endpoint loss of positivity matters for projection stability. The singular fixed-total-mass scaling α=λ/n produces a genuine logarithmic correction that cannot be recovered from the unweighted α=1 case. The exact all-n beta law and distinct linear-growth fixed-α limit are reusable operator invariants, not a cosmetic parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

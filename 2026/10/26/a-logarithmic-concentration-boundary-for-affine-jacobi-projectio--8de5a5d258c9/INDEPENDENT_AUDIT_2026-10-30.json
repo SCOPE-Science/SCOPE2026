@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:01:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the frozen RESULT.md, Dirichlet covariance (δ_ij−1/n)/[n(nα+1)] gives K(x,y)=−nα+n(nα+1)Σx_i y_i. K integrates to 1 and reproduces the affine span. Convexity of its negative part in x reduces the L∞ norm and positivity defect to a vertex, and interior-positive Dirichlet density makes nonvertex maxima strict. With Y_1~Beta(α,(n−1)α), the beta recurrence gives C=(nα+1)c^α(1−c)^b/[α B(α,b)]−I_c(α,b), hence both endpoint norms 1+2C and min_{0≤f≤1} Pf=−C. For α=λ/n, expanding the beta tail after splitting at c=λ/[n(1+λ)] proves λ−C=(λ²/n)[log n+1+log((1+λ)/λ)−ψ(λ)−γ]+o_λ(1/n). Fixed-α n→∞ uses gamma convergence and uniform integrability, fixed-n α→∞ Gaussian convergence; these regimes are distinct. Independently evaluated high-precision beta values for λ=.5,1,3 and n=300,3000; the claimed second-term errors decreased, but numerical checks are not proofs. Source check.py was inspected as exact-rational finite checker, not relied upon for the limiting theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Griffiths–Spanò develop Dirichlet orthogonal-polynomial canonical-correlation kernels, the relevant general framework.",
+          "Xu develops Jacobi and Hahn systems on a simplex; the source framework alone does not state an L∞ negative-part integration formula."
+        ],
+        "reasoning": "General existence/representation of polynomial kernels does not imply sharp absolute integral norm or the coefficient of a singular double-scaling expansion. Broader orthogonal-polynomial kernel theories are credited as premises.",
+        "searches": [
+          "Dirichlet Jacobi affine degree one projection endpoint Lebesgue norm beta logarithmic mass simplex",
+          "arXiv:1003.5131",
+          "arXiv:1309.1510"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob d64c4f1f612295c57ad3afade1d50af1688de92b",
+        "Frozen check.py blob e285e96e1a25d21b3a466044d8f67d54c7961360",
+        "arXiv:1003.5131 (part of primary PDF, not exhaustive)",
+        "arXiv:1309.1510 citation/framework",
+        "Resultary same mathematical model α=1 publication summary and exact formula",
+        "Independent mpmath beta-tail asymptotic spot checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published unweighted value is C=n[n/(n+1)]^(n−1)−1, exactly the α=1 specialization of the new C.",
+          "The new λ/n expansion concerns α→0 with n, outside the prior α=1 assumptions."
+        ],
+        "reasoning": "The known unweighted corollary is covered and explicitly not new. No theorem available in inspected sources determines the weighted endpoint integral or logarithmic boundary; a broader hidden Lebesgue-constant theorem would alter this finding.",
+        "searches": [
+          "Dirichlet Jacobi affine degree one projection endpoint Lebesgue norm beta logarithmic mass simplex",
+          "Resultary 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric Jacobi degree-one reproducing kernel is equivalent to the Dirichlet covariance projector; its signed L1 mass, not the reproducing property itself, defines the endpoint norm.",
+          "The Resultary uniform-volume affine-simplex result has α=1 only."
+        ],
+        "reasoning": "The weighted exact beta negative-part and α=λ/n noncommuting limit are not obtained by merely renaming the unweighted projector. Potential equivalence under multivariate Jacobi Lebesgue-constant notation remains a risk.",
+        "searches": [
+          "Dirichlet Jacobi affine degree one projection endpoint Lebesgue norm beta logarithmic mass simplex",
+          "arXiv:1003.5131"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search hit the published α=1 result and other endpoint projectors but no displayed weighted α=λ/n expansion.",
+          "The source checker computes selected integer α values; finite tables are not the fixed-λ asymptotic."
+        ],
+        "reasoning": "The available exact table specializes to α=1 or finite integer parameters; neither dominates the all-positive-real-α formula and scaling law.",
+        "searches": [
+          "Dirichlet Jacobi affine degree one projection endpoint Lebesgue norm beta logarithmic mass simplex",
+          "Resultary exact positivity defect affine simplex 2026/10/4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for weighted endpoint norm and double scaling, expressly excluding the already published α=1 result. The 2010 primary canonical-correlation/Jacobi kernel article supplies the kernel framework; its inspected portions did not establish the present beta negative-part norm or fixed-total-mass logarithmic coefficient. Literature under orthogonal-polynomial Lebesgue constants may contain a disguised equivalent.",
+      "residual_risks": [
+        "A multivariate Jacobi Lebesgue-constant paper could contain an identical beta integral or fixed-mass asymptotic under different notation.",
+        "The earlier kernel paper was not fully inspected beyond accessible relevant portions, so no full-text noncoverage conclusion is drawn.",
+        "Second-term asymptotics are pointwise in λ; uniformity in drifting λ is neither proved nor claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides multivariate orthogonal kernel/correlation starting point but inspected passages do not settle the exact degree-one signed endpoint mass or double scaling. No whole-paper noncoverage claim.",
+          "evidence": [
+            "Dirichlet polynomial kernels and canonical correlations are the motivating topics; no conclusion inferred from mere title."
+          ],
+          "identifier_or_url": "arXiv:1003.5131 | https://arxiv.org/pdf/1003.5131",
+          "material_read": "Primary PDF opened and initial relevant portions inspected; full text not exhaustively searched for equivalent Lebesgue-constant formulas.",
+          "method": "Lawful open-access PDF, introductory and mathematical kernel comparison, rendered first page",
+          "title": "Orthogonal polynomial kernels and canonical correlations for Dirichlet measures",
+          "trigger": "Primary source on exact same Dirichlet Jacobi projection kernel objects"
+        },
+        {
+          "assessment": "Explicitly covers α=1, and only that published specialization is credited as prior.",
+          "evidence": [
+            "C=n[n/(n+1)]^(n−1)−1 in dimension n−1, matched by current α=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+          "material_read": "Resultary result summary and exact α=1 formula; not a new full manuscript inspection in this execution.",
+          "method": "Semantic Resultary search and formula comparison with current proof",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Direct published same affine simplex projector at uniform concentration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Symmetric Dirichlet concentration is a natural deformation of simplex affine least squares; endpoint loss of positivity matters for projection stability. The singular fixed-total-mass scaling α=λ/n produces a genuine logarithmic correction that cannot be recovered from the unweighted α=1 case. The exact all-n beta law and distinct linear-growth fixed-α limit are reusable operator invariants, not a cosmetic parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob d64c4f1f612295c57ad3afade1d50af1688de92b",
+    "Frozen check.py blob e285e96e1a25d21b3a466044d8f67d54c7961360",
+    "arXiv:1003.5131 (part of primary PDF, not exhaustive)",
+    "arXiv:1309.1510 citation/framework",
+    "Resultary same mathematical model α=1 publication summary and exact formula",
+    "Independent mpmath beta-tail asymptotic spot checks"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Symmetric positive Dirichlet weights and affine (degree-one) projection only; higher-degree/nonsymmetric weights excluded.",
+    "Fixed-λ and fixed-α limits do not commute; no globally uniform remainders claimed."
+  ],
+  "residual_risks": [
+    "A multivariate Jacobi Lebesgue-constant paper could contain an identical beta integral or fixed-mass asymptotic under different notation.",
+    "The earlier kernel paper was not fully inspected beyond accessible relevant portions, so no full-text noncoverage conclusion is drawn.",
+    "Second-term asymptotics are pointwise in λ; uniformity in drifting λ is neither proved nor claimed."
+  ],
+  "schema_version": 1
+}
