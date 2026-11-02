@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of stated mathematics
+# Independent mathematical audit
 
-The mathematical proof has four independently inspectable parts: (1) a right-special factor at every length follows from the deterministic-suffix-state obstruction to aperiodicity; (2) complement closure gives a distinct pair, yielding \(p(n)\ge2n\); (3) complement is a weight-changing free involution on the subgroup-orbit classes when \(n\) is odd; (4) the numerical gap \(p^{\mathrm{ab}}(n)+1\le n+2\le2n\) works at every odd \(n\ge3\). The small-length sharpness check exhausts all subgroups of \(S_1\) and \(S_2\).
+## correctness
 
-Execute `python3 verification.py` from these files; `verification_output.txt` records its actual result. The program checks finite factors of Thue--Morse for lengths through ten, and enumerates every subgroup of \(S_2\) and \(S_3\), including exactly two subgroup values \(2\), three values \(4\), one value \(6\) at length three. This finite check is not an infinite proof, and no equivalence or independent audit is claimed from it.
+PASS
 
-The closest published source already records a Thue--Morse parity counterexample, and the complete 2026 primary manuscript was not inspectable here; an unindexed or uninspected class-wide equivalent theorem remains a priority risk.
+A non-ultimately-periodic word has a right-special factor at every n, otherwise length-n windows evolve deterministically in a finite state space. Complement closure gives a distinct complementary right-special factor, hence p(n+1)-p(n)>=2 and p(n)>=2n. At odd n, complementation freely pairs any coordinate-permutation orbit classes because their Hamming weights differ, giving even class counts. p_ab<=n+1 then forces p_ab+1<2n<=p for odd n>=3. Exhaustive independently enumerated S3 subgroup and Thue–Morse factor checks matched the six subgroup values; this is not the infinite proof.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge assessment: An example-specific parity obstruction for Thue–Morse is not statement-equivalent to the quantified class-wide 2n growth and all-odd-length gap; however identical generalization may be hidden in inaccessible full primary text. Broader question covered by prior 2026 work, and specific Thue–Morse failure is prior. The class-wide theorem is not an immediate corollary of general Morse–Hedlund lower bounds; priority remains conditional on unread primary sections. No checked stronger theorem states the entire all-odd-length class-wide gap; the original July 2026 manuscript could contain it and its absence is not asserted. Residual priority and source-access risks are explicitly retained.
+
+## value
+
+PASS
+
+A uniform, all-odd-length missing group-complexity value and sharp first possible obstruction classify a natural infinite family of factor languages, unlike a single automatic-word example or a general lower-bound inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

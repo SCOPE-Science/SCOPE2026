@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first argument is a complete finite-successor proof that aperiodicity forces right-special factors at every length. Complement closure provides a distinct second right-special factor, so \(p(n+1)-p(n)\ge2\) and \(p(n)\ge2n\) by induction. For odd \(n\), complementation is a fixed-point-free involution on any coordinate-group orbit partition, forcing all group-complexity values even. Since \(p^{\mathrm{ab}}(n)+1\le n+2\le2n\le p(n)\) at odd \(n\ge3\), this odd candidate is rigorously missing. Endpoints at lengths one and two exhaust all intermediate integers. General claims need no finite experiments.
+## correctness
 
-**Originality — PASS within examined material.** The 2026 Launer--Puzynina--Voloshinova paper defines the recent universal-complexity problem and a public independent review expressly credits its negative **Thue--Morse parity example**. Thus neither that example nor the basic parity mechanism is presented as novel. Charlier--Puzynina--Zamboni (2015) give the group-action framework and Morse--Hedlund bounds. The new assertion covers all non-ultimately-periodic complement-closed binary languages, proves obstruction at every odd length and its sharp first possible length. Focused published research-record queries and own prior-claim searches did not identify this generality. The 2026 full manuscript remained inaccessible, so explicit equivalent general coverage therein is a real unresolved priority risk.
+PASS
 
-**Mathematical value — PASS.** This is an infinite-family nonuniversality theorem for a natural symmetry class and a sharp lower structural cutoff, not a finite table or renamed identity. Its negative conclusion contrasts meaningfully with the positive Sturmian cases. The proof supplies the independently useful linear factor-growth lower bound and a specific missing value at every odd length.
+A non-ultimately-periodic word has a right-special factor at every n, otherwise length-n windows evolve deterministically in a finite state space. Complement closure gives a distinct complementary right-special factor, hence p(n+1)-p(n)>=2 and p(n)>=2n. At odd n, complementation freely pairs any coordinate-permutation orbit classes because their Hamming weights differ, giving even class counts. p_ab<=n+1 then forces p_ab+1<2n<=p for odd n>=3. Exhaustive independently enumerated S3 subgroup and Thue–Morse factor checks matched the six subgroup values; this is not the infinite proof.
 
-The included verifier confirms the six length-three Thue--Morse subgroup classes; it does not prove the general theorem. Limitations include complement symmetry, binary alphabet and odd length only. No external independent assessment has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge assessment: An example-specific parity obstruction for Thue–Morse is not statement-equivalent to the quantified class-wide 2n growth and all-odd-length gap; however identical generalization may be hidden in inaccessible full primary text. Broader question covered by prior 2026 work, and specific Thue–Morse failure is prior. The class-wide theorem is not an immediate corollary of general Morse–Hedlund lower bounds; priority remains conditional on unread primary sections. No checked stronger theorem states the entire all-odd-length class-wide gap; the original July 2026 manuscript could contain it and its absence is not asserted. Residual priority and source-access risks are explicitly retained.
+
+## value
+
+PASS
+
+A uniform, all-odd-length missing group-complexity value and sharp first possible obstruction classify a natural infinite family of factor languages, unlike a single automatic-word example or a general lower-bound inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
