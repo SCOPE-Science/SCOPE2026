@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T18:43:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Steps 1–4 and assumptions; frozen SLOGAN.txt",
+        "Seven frozen Git source blobs incl. verify.py; full rational algorithm source inspected",
+        "Independent SymPy derivations and direct inverse calculations in windmill_independent_check.py"
+      ],
+      "rationale": "For n=rm+1 the orthogonal Laplacian eigenspaces have eigenvalues 0 (constants), 1 (r−1 blade-balanced modes), m+1 (r(m−1) blade-internal modes), and n (one hub-against-blades mode). The stated projectors therefore give the exact G=L^+ and G². Writing s=e_a+e_b and d=e_a−e_b, the two diagonal leader penalties equal κ(ssᵀ+ddᵀ)/2. Eliminating the constant mode by the Schur complement leaves L restricted to 1-perp plus κddᵀ/2; applying Sherman–Morrison gives exactly J=n/(2κ)+tr G+(n/4)sᵀGs−κ[dᵀG²d+(n/4)(sᵀGd)²]/(2+κdᵀGd). All possible two-vertex sets belong to exactly A (hub/peripheral), B (same blade), C (distinct blades). Projector substitution yields all three rational formulas in RESULT.md, independently cross-checked by direct rational inverse for six r,m,κ triples. Symbolic simplification independently reproduced JB−JA=m(r−1)(3κ+2m+2)/[2(m+1)(κ+m+1)]>0 and JC−JA=P/[2(m+1)(κ+m+1)(2κ+m+1)], P=(r−2)m(2κ+m+1)²−4κ²−(m²+8m+7)κ−(m+1)². For r=2, P<0. For r≥3, P strictly grows with r and at r=3 equals 4(m−1)κ²+(m+1)(3m−7)κ+(m−1)(m+1)²; for m≥3 all coefficients positive and at m=2 it is 4κ²−3κ+9>0 (discriminant −135). Hence C uniquely minimizes when r=2 and A uniquely minimizes when r≥3, modulo graph automorphisms, for EVERY integer r,m≥2 and finite real κ>0, without gain-dependent ties.",
+      "residual_risks": [
+        "Finite independent inverse tests are not a proof for infinite r,m and continuous κ; analytical Schur complement and polynomial signs are decisive.",
+        "Normalization uses unit conductance and equal leader gains; κ=0 excluded and no mixed-noise/generalized gains claim is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Fardad–Jovanović gives the exact same objective and general convex/greedy algorithms on any connected graph, not the windmill parameter comparison in the inspected text.",
+          "Fitch–Leonard gives general two-leader formulas and explicit results for paths and cycles but no clique-windmill r-threshold in inspected text.",
+          "Patterson–Yi–Zhang arXiv:1708.06873 uses resistance-distance leader optimization for different graph families; no inspected theorem dominates this full finite-κ windmill statement.",
+          "Sun–Li–Liu 2020 abstract signals exact arbitrary-leader coherence on windmill graphs but the full theorem has not been obtained."
+        ],
+        "reasoning": "General formulas can compute each candidate but do not mechanically reveal the global all-positive-gain strict inequality unless the parameter-specific algebra is carried out. A more specialized 2020 exact result may dominate; comparison cannot be finalized from abstract alone, so its priority risk is retained rather than assumed away.",
+        "searches": [
+          "arXiv:1302.0450 Sections II-IV all-graph algorithms",
+          "arXiv:1407.1569 two-leader general theorem and cycles/paths",
+          "arXiv:1708.06873 effective resistance leader selection",
+          "optimal placement two finite-gain leaders clique windmill K1 join r copies Km noisy consensus trace Laplacian inverse r two three hub periphery",
+          "leader selection stochastic consensus noisy windmills diagonal pinning gain two leaders"
+        ]
+      },
+      "checked_sources": [
+        "Lin--Fardad--Jovanović, Algorithms for leader selection in stochastically forced consensus networks, arXiv:1302.0450",
+        "Fitch--Leonard, Joint Centrality Distinguishes Optimal Leaders in Noisy Networks, arXiv:1407.1569",
+        "Patterson--Yi--Zhang, A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks, arXiv:1708.06873",
+        "Sun--Li--Liu, Noisy consensus dynamics in windmill-type graphs, Chaos 30 (2020) 123131, DOI:10.1063/5.0020696 / PMID:33380064 (abstract only)",
+        "Resultary hit 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc (different invariant)",
+        "Resultary hit 2026/10/11/SCOPE-euclidean-inballs-of-clique-windmill-symmetric-edge-polytopes--3dbe8167618b (different invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted C−A sign is controlled by a specific polynomial P(r,m,κ), negative for exactly r=2 and positive for all r≥3,m≥2,κ>0, including r=3,m=2.",
+          "General known joint-centrality and optimization formulas are broad methods but do not themselves give the sign factorization or strict all-parameter minimizer in inspected results.",
+          "Path/cycle exact optimality theorems are different graph classes; the windmill r blade threshold cannot be inferred by replacing a single parameter.",
+          "Sun–Li–Liu 2020 may contain full explicit windmill trace formulas and optimizers; inaccessible complete text prevents decisive coverage/noncoverage comparison."
+        ],
+        "reasoning": "The novelty claimed is not the objective, spectrum of windmills, or existence of general two-leader trace formulas. It is the complete strict optimal-set classification for all integers r,m≥2 and all positive finite gains. The graph-specific inequalities are an additional step beyond cited general methods, but a specialized prior theorem in Sun–Li–Liu could imply the claim. Record that risk and do not claim universal priority certification.",
+        "searches": [
+          "arXiv:1302.0450 equations (1)-(2), algorithms and examples",
+          "arXiv:1407.1569 Sections II,V and Corollaries 2-3",
+          "arXiv:1708.06873 graph family statements",
+          "DOI:10.1063/5.0020696 exact windmill coherence abstract",
+          "generalized windmill graph noisy coherence leader follower fixed leaders r cliques exact stationary variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective J=tr(L+κdiag(1_S))^{-1} equals twice steady-state total covariance under independent unit-intensity white noise; Lin–Fardad–Jovanović arXiv:1302.0450 Section II.",
+          "The same placement problem can be parameterized by two-leader joint centrality and resistance metrics; Fitch–Leonard arXiv:1407.1569 Sections II,V.",
+          "Sun–Li–Liu DOI:10.1063/5.0020696 abstract discusses exact coherence on windmill-type graphs with freely assigned leaders, a plausible same-object alias; detailed gain model not accessible."
+        ],
+        "reasoning": "Noise-corrupted finite-gain leader variance, joint centrality optimization and inverse pinned-Laplacian trace are mathematical equivalents after a positive factor. General all-graph evaluation methods do not alone assert the strict K1∨rKm phase boundary. Perfectly anchored (infinite-gain) leader coherence is not automatically the same quantified finite κ>0 theorem. The 2020 specific paper is not declared noncovering.",
+        "searches": [
+          "optimal placement two finite-gain leaders clique windmill K1 join r copies Km noisy consensus trace Laplacian inverse r two three hub periphery",
+          "generalized windmill graph noisy coherence leader follower fixed leaders r cliques exact stationary variance",
+          "leader selection stochastic consensus noisy windmills diagonal pinning gain two leaders",
+          "arXiv:1302.0450 Section II finite-gain noisy leader objective",
+          "arXiv:1407.1569 joint centrality of two noisy leaders",
+          "DOI:10.1063/5.0020696 leader-follower coherence windmill"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed same graph family dissociation-polynomial record, but this is a set-counting graph invariant, not Laplacian inverse trace.",
+          "Resultary indexed same graph family symmetric-edge-polytope inball record, but this is convex-polytope geometry, not leader placement.",
+          "Three targeted semantic Resultary queries returned no hit displaying the same strict κ-uniform optimal pair classification; retrieval incompleteness does not prove novelty.",
+          "PMID:33380064 indexes the 2020 windmill-coherence source, which might contain an equivalent table inaccessible here."
+        ],
+        "reasoning": "Database comparisons require equality of objective and parameterized conclusion, not shared graph nomenclature. The close published corpus records above have different invariants. No exact table was verified; the indexed directly relevant 2020 paper remains an explicit open historical-priority possibility.",
+        "searches": [
+          "optimal placement two finite-gain leaders clique windmill K1 join r copies Km noisy consensus trace Laplacian inverse r two three hub periphery",
+          "generalized windmill graph noisy coherence leader follower fixed leaders r cliques exact stationary variance",
+          "leader selection stochastic consensus noisy windmills diagonal pinning gain two leaders",
+          "Resultary hit 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+          "Resultary hit 2026/10/11/SCOPE-euclidean-inballs-of-clique-windmill-symmetric-edge-polytopes--3dbe8167618b"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the explicit strict gain-uniform transition, with substantial qualification. Lin–Fardad–Jovanović already formulate precisely the finite-gain trace objective; Fitch–Leonard already provide general two-leader joint-centrality evaluation. Their inspected full texts do not present the all-parameters clique-windmill minimizer phase classification. Independently proving strict orbit inequalities for every r,m,κ is additional graph-specific information, not merely a new notation for the prior general formula. The directly relevant Sun–Li–Liu 2020 windmill coherence work was inaccessible beyond abstract; it MAY already cover the theorem and therefore remains a material residual priority risk. Unavailable full text alone is not used as scientific FAIL or as evidence of noncoverage.",
+      "residual_risks": [
+        "Directly relevant Sun–Li–Liu 2020 Chaos windmill-coherence paper DOI:10.1063/5.0020696 is not read beyond abstract; its exact model/gain assumptions and potential strict optimizer theorem may cover the present result. Authorized Oxford full-text retrieval was blocked by vpn_disconnected, with no bypass.",
+        "General Fitch–Leonard two-leader joint centrality is clear prior art; the contribution is only the new all-parameter minimizer and strict inequality, not a new universal objective or algorithm.",
+        "Older unpublished dissertations, synonyms such as friendship/windmill/clustered star, or nonindexed control papers could contain an equivalent gain-dependent table. Search failure is not absolute novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The same noisy finite-gain inverse-Laplacian trace objective is prior art. The inspected paper offers general leader-selection methods, not strict universal two-leader orbit choices on K1 join rKm.",
+          "evidence": "Section II, equations (1)-(2) for stochastic covariance and trace; general relaxations and greedy selection in later sections; no explicit r=2 vs r>=3 windmill rule in inspected primary content.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "Complete arXiv paper text searched for windmill/friendship, with detailed reading of Section II objective/covariance normalization and Sections III-IV algorithms and graph examples; original PDF page 4 visually inspected.",
+          "method": "Lawful open preprint full text, text search, PDF page-image inspection, theorem-to-claim comparison",
+          "title": "Algorithms for leader selection in stochastically forced consensus networks",
+          "trigger": "Original same finite-gain stochastic consensus objective and general leader placement algorithms"
+        },
+        {
+          "assessment": "General two-leader joint-centrality evaluation is known, as are path/cycle optima. The exact all-r,m,kappa clique-windmill parameter comparison is not stated in inspected paper; its general method can be specialized but does not by itself assert the strict blade threshold.",
+          "evidence": "Sections II and V; two-leader effective-resistance/joint-centrality expressions, explicit optimal cycle/path configurations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "Primary preprint full text searched for windmill and friendship; detailed reading of Sections II and V, two-leader centrality formulas, Corollaries for path/cycle placements, and PDF page images.",
+          "method": "Lawful open preprint, math/theorem statement comparison beyond title, PDF screenshot",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Potential dominating exact two-noisy-leader formula valid for arbitrary graphs"
+        },
+        {
+          "assessment": "Develops effective-resistance leader selection on cycles, paths and certain other families; no inspected theorem gives the r-clique windmill two-equal-finite-gain optimum for all graph orders.",
+          "evidence": "Model for noisy consensus and resistance-distance evaluation, graph-specific cycle and path results.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+          "material_read": "Full primary preprint text searched, model/objective passages and special graph-family statements inspected; first PDF page visually inspected.",
+          "method": "Open preprint text and PDF screenshot, comparison of model variants and named graph classes",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "Possible general leader-selection theorem using effective resistance and covering all graph families"
+        },
+        {
+          "assessment": "MATERIAL PRIORITY RISK. The accessible abstract mentions exact coherence formulas and freely assigned leaders, but does not identify whether finite positive gains and precisely the two-leader objective or optimizer threshold are covered. It is not legitimate to label the whole paper noncovering from its abstract.",
+          "evidence": "Chaos 30 (2020), 123131, DOI:10.1063/5.0020696, PMID:33380064; 2020 abstract. Full-text access blocked by disconnected institutional VPN.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0020696",
+          "material_read": "PubMed/publisher abstract and bibliographic information only. Searches for the same paper on arXiv and lawful open-access copies did not produce the complete text. Authorized Oxford retrieval returned vpn_disconnected; no article theorem/proof read.",
+          "method": "Abstract and index inspection; arXiv/OA searches; attempted authorized institutional retrieval without bypass",
+          "title": "Noisy consensus dynamics in windmill-type graphs",
+          "trigger": "Direct overlap: same windmill graph class, arbitrary leader placement, exact leader-follower coherence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Assumptions and Step 4 sharp transition",
+        "General objective Lin–Fardad–Jovanović arXiv:1302.0450",
+        "General two-leader framework Fitch–Leonard arXiv:1407.1569",
+        "Direct primary windmill article abstract DOI:10.1063/5.0020696"
+      ],
+      "rationale": "The two-leader placement problem with finite pinning gains is a motivated stochastic-control graph-design problem; choosing where to place leaders affects total steady-state variance. The theorem completely solves the optimal pair and exact objective over the natural two-parameter clique-windmill family. It establishes a non-obvious structural phase discontinuity at three blades: with two blades the central maximum-degree hub is strictly suboptimal, while with three or more it is indispensable in every optimal pair; this holds for all finite positive gain strengths and clique sizes, with no ties up to automorphism. These strict gain-uniform inequalities give reusable exact benchmarks for placement heuristics and show why degree-only placement can fail, without inventing a downstream theorem. This is more than a routine isolated numerical example or a mere coefficient calculation; the result concerns an infinite graph family and a sharp parameter boundary. It does not address heterogeneous gains, nonuniform noise/edge conductance, singular zero gain or three-plus leaders.",
+      "residual_risks": [
+        "Historical priority could be weakened by existing windmill-specific finite-gain solutions, especially Sun–Li–Liu 2020; value pertains to exact all-parameter structural classification if not already known.",
+        "The formula does not generalize established optimality to unequal gains or other noise models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For W_{r,m}=K_1∨(rK_m), integers r,m≥2 with unit conductances, exactly two distinct equally weighted finite-gain leaders and κ>0, minimize J(S)=tr[L+κdiag(1_S)]^{-1}. The unique optimal automorphism orbit is two peripheral vertices in distinct blades if r=2, and the hub plus one peripheral vertex if r≥3, with strict inequalities for all finite κ>0. Exact rational J_A,J_B,J_C stated in RESULT.md; white-noise variance J/2 has same minimizers.",
+  "limitations": [
+    "Only two distinct leaders, identical finite positive κ, unit-weight windmill edges, equal independent white-noise intensities. No κ=0, unequal gain, weighted graph or other cardinalities.",
+    "A highly relevant complete primary windmill-coherence paper (Sun–Li–Liu 2020 DOI:10.1063/5.0020696) was inaccessible beyond abstract, with Oxford institutional access reporting disconnected VPN. It is not legitimate to assert whole-paper noncoverage.",
+    "Independent finite tests cover six concrete graphs/gains only, not the quantified all-r,m,κ statement; the exact spectral/projector argument and polynomial positivity support that theorem.",
+    "All external Lean/expert/independent formal attestation states remain unchanged; no fabricated certification.",
+    "Public metadata contains operational provenance, so publication is withheld until entire neutral replacement content and blob guards are validated."
+  ],
+  "schema_version": 1
+}
