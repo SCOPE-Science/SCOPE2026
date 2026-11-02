@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytical derivation in `RESULT.md` proves the support-function reduction, exact distribution and all asymptotics. The standalone `verify.py` independently recomputes the bounding-box area from the original vertex coordinates, checks all polygon orders 3 through 100, tests the first and second moments via direct angular quadrature, compares cumulative probabilities, and checks the sharp arithmetic variance and Kolmogorov constants. Invoke `python3 verify.py` in the directory containing these files; no optional Python libraries are required.
 
-Observed output of the packaged checker:
+# Independent mathematical audit
 
-```
-CARTESIAN_VERTEX_SUPPORT_ALL_ORDERS_3_TO_100_OK 25186
-DIRECT_COORDINATE_FIRST_SECOND_MOMENTS_OK
-COMPLETE_CDF_ALL_THREE_ARITHMETIC_REGIMES_OK
-SHARP_MOD_FOUR_VARIANCE_AND_BETA_KOLMOGOROV_CONSTANTS_OK
-ALL_REGULAR_POLYGON_BOUNDING_BOX_TESTS_OK
-```
+## correctness
 
-All computation is finite, so it is diagnostic only and does not independently establish the theorem for every integer polygon order. Absolute historical priority has not been independently certified. The cited minimum-area endpoint values are prior results, not claims of new discovery.
+PASS
+
+The bounding-box area is w_n(theta)w_n(theta+pi/2), the product of two perpendicular support-function widths. Reduction of the nearest-vertex phase modulo 2pi/n for even n and modulo pi/n for odd n gives a uniform cosine phase with (C,D,b)=(2R^2,1,2pi/n) for 4|n; (2R^2,cos(pi/n),pi/n) for n=2 mod 4; and (2R^2 cos^2(pi/(2n)),cos(pi/(2n)),pi/(2n)) for n odd. These identities hold for n=3,4 and all larger n without degeneracy. Uniform |T| in [0,b] proves the arccos CDF on the exact interval and zero endpoint atoms. Integrating cos(T), cos^2(T) establishes exact moments. Since Var(cos T)=b^4/45+O(b^6), the n^4/R^4 variance limits are 64pi^4/45, 4pi^4/45, pi^4/180, hence 256:16:1. For X=(U-B)/(U-L), the arcsin CDF yields a uniform b-expansion; maximizing sqrt(x)-x^(3/2) at x=1/3 gives sharp b^2/(36sqrt(3)) Kolmogorov correction. Independent Cartesian vertex-width quadrature checked 12 n cases, orientation samples, and moments, independent of the source phase code. Finite checks corroborate but do not prove universal n.
+
+## originality
+
+PASS
+
+Best-of-knowledge new content is the full Haar push-forward law, its three variance asymptotics, and normalized limiting distribution; pre-existing minimum enclosing-parallelogram endpoints are expressly not new. The closest fully read prior exact polygon formula is for the minimum over optimizable orientations, not random fixed-axis bounding-box area.
+
+## value
+
+PASS
+
+Random orientation versus optimal placement is a genuine geometric-probability distinction: this all-n law quantifies uncertainty in standard axis-aligned bounding rectangles. The arithmetic mod-four fluctuation hierarchy and exact universal normalized loss law are natural sharp invariants, not arbitrary sampled values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

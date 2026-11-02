@@ -1,15 +1,21 @@
-# Scientific assessment: exact orientation law of regular-polygon bounding boxes
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns a deterministic regular polygon of circumradius \(R>0\), rotated by a uniform angle. An enclosing Cartesian rectangle has area equal to the product of its two perpendicular widths, and both widths are determined exactly by vertex-support maximization. The proof handles all three mutually exhaustive residue classes: a quarter-turn aligned with the support lattice when \(4\mid n\); a half-cell shift when \(n\equiv2\pmod4\); and the shorter width period when \(n\) is odd. In each case an explicit measure-preserving folding of the uniform angle produces the cosine law. Elementary integration then determines the CDF and moments. Uniform Taylor expansions establish both the variance trichotomy and the sharp normalized-loss convergence rate. The original-vertex Cartesian checker passes for every order from \(3\) to \(100\), and independent quadrature and CDF checks pass. These computations corroborate, but do not substitute for, the proof. No singular or degenerate polygon orders are omitted.
+## correctness
 
-## Originality — PASS relative to inspected material
-The 1975 Freeman--Shapira primary text, the 1983 rotating-calipers account, and the 2014 geometric algorithm tutorial concern selecting a minimum-area enclosing rectangle, not the full Haar orientation distribution. The materially read published study *Exact minimum-area enclosing parallelograms for regular polygons* already establishes all three minimum-area values: these are the lower support endpoints of the present law and are **explicitly not claimed new**. The materially read *Exact translative convex-hull profile of every regular polygon* computes a longest-chord times transverse-width product, not the perpendicular-width product governing bounding-box area. Their statements do not imply the new CDF, variance ratio, and sharp Beta approximation without an additional all-orientation geometric reduction and integration. Targeted semantic and exact-phrase searches found no equivalent distribution, but absolute historical priority cannot be guaranteed.
+PASS
 
-## Mathematical value — PASS
-Bounding-box area under unknown uniform orientation is a natural orientation-robustness statistic in layout and geometric measurement, distinct from optimizing over all angles. The result completes the exact distribution for every regular polygon rather than presenting a chosen sample shape or a single isolated moment. It proves that polygons becoming geometrically circular have the same leading mean but three sharply separated fourth-order fluctuation coefficients with ratio \(256:16:1\), and gives the universal limiting normalized loss together with the sharp rate. These statements quantify a meaningful mismatch between mean approximation and risk of orientation sensitivity. This value does not rely on a speculative downstream theorem.
+The bounding-box area is w_n(theta)w_n(theta+pi/2), the product of two perpendicular support-function widths. Reduction of the nearest-vertex phase modulo 2pi/n for even n and modulo pi/n for odd n gives a uniform cosine phase with (C,D,b)=(2R^2,1,2pi/n) for 4|n; (2R^2,cos(pi/n),pi/n) for n=2 mod 4; and (2R^2 cos^2(pi/(2n)),cos(pi/(2n)),pi/(2n)) for n odd. These identities hold for n=3,4 and all larger n without degeneracy. Uniform |T| in [0,b] proves the arccos CDF on the exact interval and zero endpoint atoms. Integrating cos(T), cos^2(T) establishes exact moments. Since Var(cos T)=b^4/45+O(b^6), the n^4/R^4 variance limits are 64pi^4/45, 4pi^4/45, pi^4/180, hence 256:16:1. For X=(U-B)/(U-L), the arcsin CDF yields a uniform b-expansion; maximizing sqrt(x)-x^(3/2) at x=1/3 gives sharp b^2/(36sqrt(3)) Kolmogorov correction. Independent Cartesian vertex-width quadrature checked 12 n cases, orientation samples, and moments, independent of the source phase code. Finite checks corroborate but do not prove universal n.
 
-## Closest sources and remaining limits
-The minimum-enclosing-rectangle optimization theorem is due to Freeman--Shapira (1975), and related rotating-calipers methods were developed by Toussaint (1983). A dated full tutorial (2014-01-23) provides the precisely dated motivating public source. The closest published all-regular-polygon minimum-area evaluation and translative-chord-width study were also inspected in full. The theorem does not address nonregular polygons, higher dimensions, or nonuniform rotations. A previously unindexed note containing the same full orientation law remains a residual historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new content is the full Haar push-forward law, its three variance asymptotics, and normalized limiting distribution; pre-existing minimum enclosing-parallelogram endpoints are expressly not new. The closest fully read prior exact polygon formula is for the minimum over optimizable orientations, not random fixed-axis bounding-box area.
+
+## value
+
+PASS
+
+Random orientation versus optimal placement is a genuine geometric-probability distinction: this all-n law quantifies uncertainty in standard axis-aligned bounding rectangles. The arithmetic mod-four fluctuation hierarchy and exact universal normalized loss law are natural sharp invariants, not arbitrary sampled values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
