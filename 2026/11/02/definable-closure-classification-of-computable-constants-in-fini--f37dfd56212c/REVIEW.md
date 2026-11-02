@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+The statement is exact for nonempty finite relational structures. For every presentation, unique parameter-definability of a finite element yields an effectively evaluable probability of its definitional formula, and a successful metric approximation search proves closure of computable constants under definability. Finite atomic diagrams identify definable closure with the fixed set of the pointwise automorphism stabilizer. Conversely, each nontrivial stabilizer permutation is activated on a separate rational interval over a subinterval of noncomputable relative measure. The transformed computable presentation keeps precisely the standard atomic diagram, while any constant moved by the stabilizer would compute that measure, a contradiction. The construction and the finite pure-set stabilizer argument establish the claimed possibilities. Finite checker output is auxiliary corroboration and not a substitute for the computability proof.
+
+## Originality: PASS within inspected evidence
+Zhao (2026, arXiv:2610.30569v1) already proves the zero-computable-constants case for the two-element pure set and supplies the automorphic-transport method. Cuervo Ovalle and Goldbring (2025, arXiv:2506.06187) establish awareness and computable-presentability criteria. Andrews, Goldbring and Keisler (2013, arXiv:1304.7797v1) establish model-theoretic definable-closure properties of randomizations. These full texts do not state or cover the exact attained lattice of finite-model computable constants. Semantic database searches for spectra, fixed sets, computable presentations, and finite randomizations returned tangential results rather than an equivalent implication. The new assertion combines the exact closure obstruction and the general constructive realization. An equivalent result in unlocated specialist literature remains a priority risk; searches cannot prove uniqueness.
+
+## Value: PASS
+The classification captures every possible partially recoverable family of externally distinguished constants and expresses the answer by a standard invariant of the finite base model. It has a sharp and unexpected consequence for pure sets: one missing constant is impossible but any number of missing constants from two upward is realizable. It also resolves finite-model awareness behavior, with all realizations even computably isomorphic to the standard presentation. This is a structural classification, not a routine numerical subcase of the binary example.
+
+## Verification and limitations
+`checker.py` checks all six pure-set sizes up to six, all 530 directed binary structures through three vertices, all 64 simple four-vertex graphs, and 490 finite event identities; it returned `ALL_CHECKS_OK`. The proof, not these finite tests, establishes the infinite assertions about algorithms and noncomputable reals. Sources and residual priority risks are documented in `AUDIT.json`. No independent verification has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
