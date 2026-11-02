@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Every circular run of least period p begins with a primitive p-square whose preceding letter prevents left extension. The primitive-square minimum-period claim follows from Fine-Wilf, the de Bruijn short-factor count is exact, and left/right boundary counts prove the general total and length formulas. A repeated n-window forbids p>=n and bounds the length by n+p-1. For binary order five, the exhaustive bijection of cycles with single-orbit 16-bit feedback tables gives a complete 65,536-case proof; independently generated Euler circuits give the same 2,048 cycles, and distinct maximal-equality and direct-interval detectors agree on every run. The actual standalone checker returned VERIFY_OK and asserts all six profile and period-length totals. No infinite statement is inferred from finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bannai et al. prove the general runs theorem for arbitrary linear strings and give a global strict linear bound; no exact order-five cyclic de Bruijn profile appears in its accessible full text.",
+        "Ilie–Yu–Zhang Section 7 Theorem 17 gives an asymptotic repetition-compression lower bound for de Bruijn words; the measured invariant differs.",
+        "Fredricksen 1982 survey abstract addresses de Bruijn/shift-register construction algorithms, not run multiplicities."
+      ],
+      "reasoning": "The strongest relevant inspected results are either universal upper bounds or different complexity invariants. The ordinary de Bruijn factor-balance identity can support the low-period formula once the primitive run-start bijection is added, but cannot by itself determine the longer length-six-to-eight factors responsible for the nonrigid period-three/four distribution at order five.",
+      "searches": [
+        "\"de Bruijn\" \"runs theorem\" count repetitions exact formula",
+        "periodic substring runs exact counts de Bruijn sequences qary",
+        "arxiv:1406.0263 The Runs Theorem",
+        "doi:10.1142/S0129054104002297 Word Complexity and Repetitions in Words"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1406.0263",
+      "https://www.csd.uwo.ca/~ilie/IJFCS04.pdf",
+      "https://doi.org/10.1137/1024041",
+      "https://dblp.org/rec/journals/jct/ChanGK82",
+      "https://debruijnsequence.org/db/home"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical runs bound applies to all strings but supplies no exact cyclic 32-position profile.",
+        "Ilie–Yu–Zhang prove a lower bound on a different optimization functional; their Theorem 17 cannot yield the listed positioned-run frequencies.",
+        "An earlier maximal-run classification on binary Cantor morphic words concerns a different word family.",
+        "An exact BWT-run table for order-five de Bruijn cycles concerns runs of the transformed word rather than maximal periodic factors of the original cycle."
+      ],
+      "reasoning": "Neither a restriction of a prior stronger theorem nor an equivalent reparametrization was located for the six order-five profiles. The universal small-p law is treated as a structurally motivated elementary bridge, not the sole reason for originality. No known cited result implies the exact distribution of p=3 and p=4 run counts across all 2048 cycles.",
+      "searches": [
+        "The \"Runs\" Theorem arxiv 1406.0263 de Bruijn circular",
+        "WORD COMPLEXITY AND REPETITIONS IN WORDS Section 7 de Bruijn",
+        "A Survey of Full Length Nonlinear Shift Register Cycle Algorithms Fredricksen 1982",
+        "maximal run spectrum binary Cantor word",
+        "BWT-run spectrum binary order-five de Bruijn cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bannai et al., arXiv:1406.0263, Definition 1: a run is a least-period maximal periodic interval of exponent at least two.",
+        "Ilie, Yu, Zhang 2004, doi:10.1142/S0129054104002297, Definition of repetition complexity measures the optimum compressed description length, not positioned maximal run count."
+      ],
+      "reasoning": "The claim uses the classical run notion on a bi-infinite periodic extension and counts starts modulo cycle length. It is not the binary symbol-run count (maximal constant blocks), not the Burrows-Wheeler run count, not repetition complexity, and not a factor-distinctness count. The checked alternative names did not reveal the same period profiles.",
+      "searches": [
+        "\"de Bruijn\" \"runs\" \"period\" \"primitive\" maximal repetitions",
+        "number of runs of period p de Bruijn sequences independent of sequence",
+        "\"circular runs\" \"de Bruijn\"",
+        "arxiv:1406.0263 Definition 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete table computed here is (8,2,2,0):768; (8,2,2,1):608; (8,2,2,2):304; (8,2,1,1):224; (8,2,1,2):128; (8,2,0,2):16.",
+        "Targeted public exact-table searches did not produce an identified equivalent indexed table."
+      ],
+      "reasoning": "A missing hit is not priority proof. The checked indexed materials did not give the six profile entries or an equivalent table in a stronger encoding. The finite table is therefore a best-knowledge original result with acknowledged unindexed-table risk.",
+      "searches": [
+        "\"1008\" \"736\" \"304\" \"de Bruijn\" runs",
+        "\"2048\" \"12\" \"13\" \"14\" \"runs\" de bruijn",
+        "site:oeis.org \"1008, 736, 304\" \"de Bruijn\"",
+        "Exact circular run spectrum of 2048 binary order-five de Bruijn cycles counts 12 13 14, period profiles"
+      ]
+    },
+    "rationale": "The main distinguishing contribution is the complete binary order-five circular maximal-run period profile, including the six exact multiplicities. The general low-period count is acknowledged as a fairly direct, though explicitly proved, consequence of uniform de Bruijn factor frequencies and primitive-square detection. Published global runs bounds, de Bruijn generation algorithms, and repetition-compression complexity bounds do not imply the cycle-dependent period-three/four profile. Indexed semantic and literature searches did not disclose a covering profile; unresolved historical priority remains a stated risk.",
+    "residual_risks": [
+      "The complete early Fredricksen survey and Chan–Games–Key article were not available for full-text priority comparison; their abstracts do not indicate covering run tables.",
+      "Unindexed or privately circulated tables of exact order-five de Bruijn circular runs cannot be excluded by negative search results.",
+      "The period-three and period-four finite classification depends on executable exhaustive enumeration, not a separate closed-form symbolic count of its six multiplicities."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General finite-string run bound and algorithm; not an exact circular de Bruijn run distribution",
+        "evidence": [
+          "Definition 1 defines least period and two-sided maximality",
+          "Theorem and conclusion treat arbitrary linear words and Lyndon-tree computations; no de Bruijn-specific period profile"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.0263",
+        "material_read": "Accessible complete article text, including Definition 1, introductory statements and results on runs, algorithm section, and conclusion",
+        "method": "Read public full-text HTML and searched the full text for de Bruijn and circular-specific theorems",
+        "title": "The “Runs” Theorem",
+        "trigger": "Exact run definition, general upper bounds, possible global dominance"
+      },
+      {
+        "assessment": "Different invariant: shortest repetition encoding cost, not counts of positioned maximal runs",
+        "evidence": [
+          "Section 7, page 10, Theorem 17 establishes asymptotic repetition-compression lower bound",
+          "The definition of repetition complexity uses nested power-encoding reductions"
+        ],
+        "identifier_or_url": "https://www.csd.uwo.ca/~ilie/IJFCS04.pdf",
+        "material_read": "Full document text searched for de Bruijn and theorem; introduction and complete de Bruijn Section 7 including Theorem 17 examined; relevant page image inspected",
+        "method": "Public author-manuscript PDF text plus visual page inspection",
+        "title": "Word Complexity and Repetitions in Words",
+        "trigger": "Plausible paper combining de Bruijn words and repetitions"
+      },
+      {
+        "assessment": "Provides the construction context but insufficient full-text evidence to exclude every potential run table",
+        "evidence": [
+          "Abstract discusses shift-register generation of length-2^n binary full cycles; no circular maximal-period run formula in the available abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1024041",
+        "material_read": "Published abstract and bibliographic references; full text not accessed",
+        "method": "Publisher abstract-level inspection",
+        "title": "A Survey of Full Length Nonlinear Shift Register Cycle Algorithms",
+        "trigger": "Early canonical source on enumeration of de Bruijn cycles"
+      },
+      {
+        "assessment": "Defined complexity is shortest linear recursion, rather than circular maximal repetition count; full-text historical uncertainty retained",
+        "evidence": [
+          "Accessible description specifies linear complexity of de Bruijn sequences, not a run-position spectrum"
+        ],
+        "identifier_or_url": "https://dblp.org/rec/journals/jct/ChanGK82",
+        "material_read": "Bibliographic entry and accessible abstract/summary only, not complete journal text",
+        "method": "Bibliographic inspection and accessible summary comparison",
+        "title": "On the Complexities of de Bruijn Sequences",
+        "trigger": "Title suggests a possibly stronger de Bruijn complexity classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b165a7bd-8aa1-48de-a415-099b3efae99c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the canonical family of universal cyclic strings, and maximal repetitions are a classical string-algorithm invariant. A natural exact question asks which run statistics are forced by short-factor balance and which begin to depend on the Euler cycle. The general q-ary period and exact-length laws identify a rigid range, and the complete first large binary order-five census classifies the genuinely variable period-three/four boundary into exactly six period profiles and three total-run levels. This is a nontrivial complete natural finite classification with a reusable baseline for studying higher orders and checking circular run enumerators, not an arbitrary slice or re-labeled historical table.",
+    "status": "PASS"
+  }
+}
