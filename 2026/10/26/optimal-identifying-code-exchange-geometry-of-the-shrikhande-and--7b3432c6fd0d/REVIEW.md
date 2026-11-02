@@ -1,15 +1,21 @@
-# Scientific review of the identifying-code geometry comparison
+# Independent mathematical audit
 
-## Correctness — PASS
-For the Shrikhande graph, the bound \(2^4-1<16\) rules out codes of size four; the stated five-code has sixteen explicitly listed distinct nonempty closed-neighborhood signatures. Translation and linear Cayley symmetries produce the proposed \(96\) code templates. Two different exhaustive source programs verify that this family contains *every* five-code among exactly \(\binom{16}{5}=4368\) candidates. The parity-coset invariant gives a structural proof that each of the sixteen optimum exchange components is the line graph of a six-cycle. For the rook graph, both programs test the complete size-six universe, obtain \(2208\) minima, and compute every exchange edge and shortest-path eccentricity. Verification outputs were produced by executing the included source; the method does not infer infinite statements from sampling.
+## correctness
 
-## Originality — PASS, residual risk noted
-The strongest direct prior result is Gravier–Moncel–Semri (2008), which *already* gives the rook identifying-code minimum of six, but not the Shrikhande code classification or either exchange-graph structure. The relevant sections and original text of Gravier–Parreau–Rottey–Storme–Vandomme (2015) concern identifying codes in strongly regular and vertex-transitive graphs and quote the rook formula, without supplying the new classification. Published results for the same strongly regular pair about independence and Čech complexes have unrelated conclusions and cannot imply a census or exchange graph of identifying codes. Semantic searches of published mathematical records have not revealed a covering result. Unindexed or inaccessible equivalent computations remain possible; bibliographic priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The motivating invariant is the minimum number of sensors that give a distinct nonempty closed-neighborhood signature at every vertex, whose graph-specific determination is a standard coding-theoretic problem. The Shrikhande optimum meets the universal information bound with equality, in sharp contrast with the rook optimum despite identical strongly regular parameters. The full geometric classification and the disconnected-versus-connected minimum-code exchange graphs distinguish existence of optimum solutions from flexibility to replace them at fixed cost. This is an exact natural finite case, not an arbitrary unmotivated slice or an asserted infinite generalization.
+The universal signature bound 2^m-1≥16 gives m≥5. A representative Shrikhande five-code was checked by its 16 nonempty distinct signatures; all 16·6 parity-coset/local-edge templates are valid, and every one of all C(16,5)=4368 candidate five-sets was independently tested, yielding exactly 96 and the same family. A single exchange preserves the unique three-member parity coset and its missing point, so each q-indexed component is the line graph of its six-neighbor C6, hence C6. In the rook graph independent closed-neighborhood signature enumeration over all subsets through size6 gives exactly 2208 minima; every pair differing by one code point was joined, yielding 28800 edges and a single component, and BFS from all 2208 states yielded eccentricity 6 each. Both supplied C++ and Python algorithms were inspected and independent Python recomputation reproduced the counts. This exhaustive finite proof has no generalization to larger Doob graphs.
 
-## Limitations
-The rook minimum size is known and is not claimed as a contribution. No conclusion is drawn for other strongly regular graphs or alternate reconfiguration operations. Exhaustive computations have been independently implemented in two source programs but not externally peer reviewed. Remaining risk of unnoticed equivalent literature is documented in the structured review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gravier–Moncel–Semri 2008 Theorem 1 already proves rook minimum size floor(3n/2), so n=4 gives 6 as known background (no claimed new gamma_ID(R)). Their even-n construction and optimal-size theorem do not enumerate 2208 labelled minima or optimum replacement connectivity. Gravier et al. 2015 discuss vertex-transitive and strongly regular identifying codes and recall Cartesian clique products, but explicitly note few known optimal SRG cases; the inspected material lacks this Shrikhande classification and both exchange graphs. Prior homology distinctions for this SRG pair in Resultary use a different invariant, not these code signatures.
+
+## value
+
+PASS
+
+Identifying-code minima are standard sensor placement quantities. A graph with only 16 vertices that meets the sharp information-theoretic size bound, and the contrast between disconnected and connected optimum-preserving sensor exchange despite identical SRG(16,6,2,2) parameters, form a natural and nontrivial geometric classification, not an unmotivated arbitrary graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

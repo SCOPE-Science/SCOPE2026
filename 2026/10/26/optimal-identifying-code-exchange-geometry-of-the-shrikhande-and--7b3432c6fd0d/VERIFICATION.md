@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Reproduction and scope
-Run the C++17 and Python 3 commands from `RESULT.md` within the directory containing the accompanying source. There are no external data dependencies. The scripts independently reconstruct both graphs from their sixteen labeled coordinate vertices, verify all graph degrees and common-neighbor counts, exhaustively test every possible subset through size five or six as appropriate, and reconstruct the optimum exchange graphs from the enumerated configurations.
+# Independent mathematical audit
 
-## Actual checks
-`cpp_output.txt` and `python_output.txt` record successful executions. Both report exactly \(96\) optimum Shrikhande codes and \(16\) six-vertex cycle components, and exactly \(2208\) optimum rook codes, \(28800\) exchange edges, a single component, and eccentricity \(6\) at all \(2208\) states. The checks also compare the Shrikhande optima against the geometric construction, and the Python program verifies their affine automorphism orbit.
+## correctness
 
-## Limits
-This is a complete computation on two explicit finite graphs, not a theorem about all graphs with similar parameters. A printed success marker alone is not a proof; the included source, exact finite universes and assertions are necessary for reproduction. An independent scientific audit has not been performed.
+PASS
+
+The universal signature bound 2^m-1≥16 gives m≥5. A representative Shrikhande five-code was checked by its 16 nonempty distinct signatures; all 16·6 parity-coset/local-edge templates are valid, and every one of all C(16,5)=4368 candidate five-sets was independently tested, yielding exactly 96 and the same family. A single exchange preserves the unique three-member parity coset and its missing point, so each q-indexed component is the line graph of its six-neighbor C6, hence C6. In the rook graph independent closed-neighborhood signature enumeration over all subsets through size6 gives exactly 2208 minima; every pair differing by one code point was joined, yielding 28800 edges and a single component, and BFS from all 2208 states yielded eccentricity 6 each. Both supplied C++ and Python algorithms were inspected and independent Python recomputation reproduced the counts. This exhaustive finite proof has no generalization to larger Doob graphs.
+
+## originality
+
+PASS
+
+Gravier–Moncel–Semri 2008 Theorem 1 already proves rook minimum size floor(3n/2), so n=4 gives 6 as known background (no claimed new gamma_ID(R)). Their even-n construction and optimal-size theorem do not enumerate 2208 labelled minima or optimum replacement connectivity. Gravier et al. 2015 discuss vertex-transitive and strongly regular identifying codes and recall Cartesian clique products, but explicitly note few known optimal SRG cases; the inspected material lacks this Shrikhande classification and both exchange graphs. Prior homology distinctions for this SRG pair in Resultary use a different invariant, not these code signatures.
+
+## value
+
+PASS
+
+Identifying-code minima are standard sensor placement quantities. A graph with only 16 vertices that meets the sharp information-theoretic size bound, and the contrast between disconnected and connected optimum-preserving sensor exchange despite identical SRG(16,6,2,2) parameters, form a natural and nontrivial geometric classification, not an unmotivated arbitrary graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
