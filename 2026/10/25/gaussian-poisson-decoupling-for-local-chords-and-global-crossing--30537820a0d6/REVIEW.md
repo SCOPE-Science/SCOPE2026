@@ -1,15 +1,21 @@
-# Scientific review: Gaussian–Poisson decoupling for local chords and global crossings
+# Independent mathematical audit
 
-## Correctness — PASS
-Fixing endpoint-disjoint chords leaves a uniform matching on the remaining endpoints. Each fixed chord with \(j\) intervening endpoints crosses at most \(j\) others, so the crossing count differs from that of the surviving diagram by at most the total fixed short-arc lengths. Combined with Paguyo's quantitative Gaussian crossing theorem and the exact mean/variance, this yields the stated uniform conditional normal approximation. Counting compatible marked short chords and taking factorial moments yields the complete product Gaussian–Poisson limit. For length zero the exact factorial deletion identity holds for arbitrary test functions and all \(0\le k\le n\). Exact enumeration independently checks finite instances through \(n=7\). The asymptotic result is proved analytically, not extrapolated from the enumeration.
+## correctness
 
-## Originality — PASS on inspected evidence, residual historical risk
-Acan's Theorem 4.2 (arXiv:1501.01489) gives independence between the Poisson short-length coordinates, but not their joint dependence with the crossing count. Paguyo's Theorems 1.1 and 1.2 (arXiv:2104.01134) give separate Gaussian and simple-chord Poisson approximations; separate marginals do not entail independence. The exact factorial deletion transform and uniform conditional Gaussian conclusion were not found in those inspected full texts or in the searched published finding index. The earlier Flajolet–Noy chapter is highly pertinent but its full text was not accessible; a general earlier joint-marking argument might cover the conclusion. This is a substantive residual priority risk, not a claim that failed search proves novelty.
+PASS
 
-## Value — PASS
-Crossings fluctuate on the \(n^{3/2}\) scale while local short-chord counts have nondegenerate order-one Poisson fluctuations. Simultaneous Gaussian–Poisson inference requires a *joint* law, which separate central limit and Poisson approximation theorems do not supply. Uniformity under arbitrary prescribed local chord locations, the deterministic deletion bound, and an exact finite-sample marking transform explain the structural reason for scale decoupling. This is a natural full distributional phenomenon rather than a routine covariance calculation.
+Uniform chord diagrams on 2n labeled circular endpoints have X_n mean n(n-1)/6 and variance n(n-1)(n+3)/45 as in published crossing CLT. Conditioning on any fixed K pairwise endpoint-disjoint chords leaves uniform matching of remaining endpoints; deleting marked chords preserves crossing relation among survivors, and each chord of length j has <=j crossings. Thus X_n=X_{n-K}+R, 0<=R<=KJ, uniformly for fixed K,J. The known Paguyo Kolmogorov O(n^-1/2) bound for crossings transfers after deterministic means/variances differ by O_K(n), while sigma_n grows order n^(3/2), giving conditional O_{K,J}(n^-1/2). For K zero-length chords R=0 exactly. Ordered k-tuples of disjoint cycle-adjacent pairs number N_{n,k}=[2n/(2n-k)](2n-k)!/(2n-2k)!; each occurs with matching probability product_{h=0}^{k-1}(2n-(2h+1))^-1, proving factorial deletion for every bounded h and 0<=k<=n. For fixed lengths j<=J, O(n^{K-1}) overlapping arrays of O(n^K) total candidates are negligible; mixed factorial moments conditioned on a bounded continuous test f(W_n) factor, and multivariate Poisson moment determinacy yields independence from Z. Independently enumerated 3,15,105,945,10395 pairings for n=2..6, comparing all k factorial deletion identities by exact integer distribution coefficients. Infinite CLT relies explicitly on Paguyo, not finite tests. Inspected RESULT.md ee ad3e... and verify.py blob 109319..., plus status sources.
 
-## Boundaries
-The fixed-length and fixed-marking hypotheses are essential to the stated bounds. Claims for growing length cutoffs, full joint convergence rates, and exhaustive publication priority are not established. No independent validation or audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Acan Theorem 4.2 gives jointly independent Poisson local chord counts; Paguyo Theorems 1.1-1.2 give separately crossing normal and short-chord Poisson estimates. Neither conclusion alone implies their mutual Gaussian-Poisson independence. This result adds a uniform conditional CLT for any prescribed bounded-length finite chord collection and exact zero-length factorial deletion. The earlier Flajolet–Noy chapter may contain a broader mixed enumeration and remains a named priority risk, not an automatic O rejection.
+
+## value
+
+PASS
+
+Joint Gaussian–Poisson asymptotic independence of macroscopic crossing fluctuations from local short chords gives a meaningful new multiscale structural fact; the exact deletion identity strengthens this by a finite-n distributional transform and a uniform conditioning estimate. Natural probabilistic statistics, not a posthoc single small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

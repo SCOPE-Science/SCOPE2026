@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:50:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform chord diagrams on 2n labeled circular endpoints have X_n mean n(n-1)/6 and variance n(n-1)(n+3)/45 as in published crossing CLT. Conditioning on any fixed K pairwise endpoint-disjoint chords leaves uniform matching of remaining endpoints; deleting marked chords preserves crossing relation among survivors, and each chord of length j has <=j crossings. Thus X_n=X_{n-K}+R, 0<=R<=KJ, uniformly for fixed K,J. The known Paguyo Kolmogorov O(n^-1/2) bound for crossings transfers after deterministic means/variances differ by O_K(n), while sigma_n grows order n^(3/2), giving conditional O_{K,J}(n^-1/2). For K zero-length chords R=0 exactly. Ordered k-tuples of disjoint cycle-adjacent pairs number N_{n,k}=[2n/(2n-k)](2n-k)!/(2n-2k)!; each occurs with matching probability product_{h=0}^{k-1}(2n-(2h+1))^-1, proving factorial deletion for every bounded h and 0<=k<=n. For fixed lengths j<=J, O(n^{K-1}) overlapping arrays of O(n^K) total candidates are negligible; mixed factorial moments conditioned on a bounded continuous test f(W_n) factor, and multivariate Poisson moment determinacy yields independence from Z. Independently enumerated 3,15,105,945,10395 pairings for n=2..6, comparing all k factorial deletion identities by exact integer distribution coefficients. Infinite CLT relies explicitly on Paguyo, not finite tests. Inspected RESULT.md ee ad3e... and verify.py blob 109319..., plus status sources.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy historical chapter plausible but full text inaccessible",
+          "Acan gives local chord Poisson jointly",
+          "Paguyo gives O(n^-1/2) crossing CLT"
+        ],
+        "reasoning": "No inspected stronger result determines the cross-scale independence; older analytic-combinatorics chapter remains material risk.",
+        "searches": [
+          "Flajolet Noy 2000 analytic chord diagram methods",
+          "Acan 2015 intersection graph",
+          "Paguyo 2021 normal rates"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1501.01489",
+        "https://arxiv.org/abs/2104.01134",
+        "https://doi.org/10.1007/978-3-662-04166-6_17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local chord count Poisson plus crossing CLT need not be jointly independent in general",
+          "New deterministic |R_F|<=KJ and conditional law bridge the missing implication"
+        ],
+        "reasoning": "The implication is genuinely new relative to cited marginal theorems unless an uninspected general joint theorem already contains the coupling.",
+        "searches": [
+          "Acan Theorem 4.2",
+          "Paguyo Theorem 1.1",
+          "conditional deletion crossing bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan gives Poisson vector without X_n",
+          "Paguyo gives Gaussian X_n and separate Poisson simple chords"
+        ],
+        "reasoning": "Conditional decoupling is equivalent to mixed expectation factorization for fixed local marked chords; prior separate marginal limits do not imply it.",
+        "searches": [
+          "Acan Theorem 4.2",
+          "Paguyo Theorems 1.1-1.2",
+          "mixed factorial moments of short chords and crossings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact factorial deletion table among returned Resultary hits",
+          "Exact formula valid all n,k; numerical crossing tables are lower-dimensional marginals"
+        ],
+        "reasoning": "No matching table located, and numerical tables could not settle the all-order conditional CLT.",
+        "searches": [
+          "Resultary semantic chord Gaussian Poisson query",
+          "chord diagrams factorial deletion identity"
+        ]
+      },
+      "rationale": "Acan Theorem 4.2 gives jointly independent Poisson local chord counts; Paguyo Theorems 1.1-1.2 give separately crossing normal and short-chord Poisson estimates. Neither conclusion alone implies their mutual Gaussian-Poisson independence. This result adds a uniform conditional CLT for any prescribed bounded-length finite chord collection and exact zero-length factorial deletion. The earlier Flajolet–Noy chapter may contain a broader mixed enumeration and remains a named priority risk, not an automatic O rejection.",
+      "residual_risks": [
+        "Flajolet–Noy 2000 full chapter not inspected and could encode joint Gaussian-Poisson asymptotics",
+        "A later or obscure mixed-generating-function theorem might dominate the joint claim",
+        "Uniform fixed K,J is proved, not K or J increasing with n",
+        "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+        "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS marginal joint Poisson for L_0...L_J, not independence from normalized X_n",
+          "evidence": [
+            "Theorem 4.2, independent rate-one Poisson short chord count limits",
+            "arXiv:1501.01489"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+          "material_read": "Full arXiv PDF, definitions and Theorem 4.2 and its proof",
+          "method": "Read theorem and factorial moment proof, including parameter meaning",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Exact same local chord length variables and Poisson limit"
+        },
+        {
+          "assessment": "COVERS marginal crossing normal approximation O(n^-1/2) and marginal simple-chord Poisson, not stated conditional or mixed independence",
+          "evidence": [
+            "Theorem 1.1, crossing Kolmogorov rate",
+            "Theorem 1.2, local marginal Poisson",
+            "arXiv:2104.01134"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+          "material_read": "Full arXiv PDF opening theorem statements on pp. 2-3, proof structures",
+          "method": "Compared Theorems 1.1 and 1.2 and the crossing mean/variance",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Quantitative normal estimate used as premise; potential joint limit"
+        },
+        {
+          "assessment": "INACCESSIBLE_FOR_FULL_COMPARISON: do not claim whole chapter omits joint theorem",
+          "evidence": [
+            "Flajolet and Noy, 2000, chapter pp. 191-201, DOI:10.1007/978-3-662-04166-6_17"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-662-04166-6_17",
+          "material_read": "Bibliographic abstract and later full-text references only; full chapter not acquired",
+          "method": "Attempted lawful open-access retrieval; compared accessible description only",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Plausible broad historical enumeration of chord diagrams and crossings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Joint Gaussian–Poisson asymptotic independence of macroscopic crossing fluctuations from local short chords gives a meaningful new multiscale structural fact; the exact deletion identity strengthens this by a finite-n distributional transform and a uniform conditioning estimate. Natural probabilistic statistics, not a posthoc single small case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/75a66f878b7bc7bb89b24618f1adcf7e6624296f/2026/10/25/gaussian-poisson-decoupling-for-local-chords-and-global-crossing--30537820a0d6/RESULT.md",
+    "https://arxiv.org/abs/1501.01489",
+    "https://arxiv.org/abs/2104.01134",
+    "https://doi.org/10.1007/978-3-662-04166-6_17"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A finite numerical or exact enumeration check does not establish an infinite-parameter claim.",
+    "Best-of-knowledge originality does not certify absolute historical priority.",
+    "No GitHub writes, public artifacts, independent expert attestation, or Lean proof produced."
+  ],
+  "residual_risks": [
+    "Flajolet–Noy 2000 full chapter not inspected and could encode joint Gaussian-Poisson asymptotics",
+    "A later or obscure mixed-generating-function theorem might dominate the joint claim",
+    "Uniform fixed K,J is proved, not K or J increasing with n",
+    "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+    "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+  ],
+  "schema_version": 1
+}
