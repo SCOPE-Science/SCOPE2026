@@ -1,0 +1,205 @@
+{
+  "correctness": {
+    "rationale": "The support-function formula characterizes exact disk ranges by trace and square-zero Frobenius norm; a directly checked traceless 2-by-2 identity produces orthogonal top singular vectors for every input; Cauchy--Schwarz supplies an attained global lower bound, equality cases prove unique iff nonnormal, and real symmetric-part crossing establishes a real minimizer. All quantifiers (complex input/center, positive radius; real input/real center) and degenerate normal/scalar cases are explicit. Exact 1386 rational and 32810 complex numerical checks supplement but do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "R. T. Wang, C.-K. Li, L.-H. Lim, Generalized matrix nearness problems II, arXiv:2605.30181, first published 2026-05-28: inspected introduction and solution sections for affine, Kronecker and Schatten variants.",
+        "Z. Li, L.-H. Lim, Generalized Matrix Nearness Problems, DOI:10.1137/22M1526034: inspected full primary PDF Sections 1-2 and search across remainder; no fixed numerical-range disk constraint.",
+        "M. Gnazzo et al., Riemann-Oracle (2025), DOI:10.1007/s10208-025-09731-9, introduces a general manifold optimization framework, not an explicit result for the circular numerical-range target.",
+        "Gnazzo--Guglielmi--Poloni--Sicilia, Structured distance to singularity as a nonlinear system of equations (arXiv:2603.05419), develops general Frobenius-structured singularity algorithms, but does not prescribe a nonzero numerical-range disk radius."
+      ],
+      "reasoning": "The generality of nearness algorithms does not give a numerical value or uniqueness theorem for every arbitrary nonconvex target. The proposed domain has the additional simultaneous trace, nilpotency and prescribed Frobenius-norm structure; none of the materially examined broader papers states an equivalent exact formula or real-minimizer classification. General SVD and ellipse results are openly acknowledged as ingredients.",
+      "searches": [
+        "site:arxiv.org/abs/26 \"matrix nearness\" \"2026\"",
+        "2026 matrix nearness distance prescribed numerical range Frobenius low rank arxiv",
+        "Generalized matrix nearness problems 2023 Wang Li Lim nearest nilpotent trace fixed Frobenius norm",
+        "Matrix nearness constrained projection optimal spectral norm and Frobenius norm exact gap",
+        "2x2 numerical range disc prescribed center radius nearest Frobenius projection unique normal nonnormal"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.30181",
+      "https://arxiv.org/abs/2609.14828",
+      "https://www.stat.uchicago.edu/~lekheng/work/near.pdf",
+      "https://doi.org/10.1007/s10208-025-09731-9",
+      "https://doi.org/10.1007/s00013-023-01957-9",
+      "https://arxiv.org/abs/2307.04463",
+      "2026/10/11/SCOPE-the-incircle-is-the-unique-maximal-numerical-range-of-a-two-dime--9f87930b22d4",
+      "2026/10/11/SCOPE-sharp-elliptical-width-and-complete-compression-rigidity-for-fou--c714a536b540",
+      "2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57",
+      "2026/10/11/SCOPE-exact-rank-one-norm-profile-under-scaled-q-numerical-disk-contai--d16087e82e79",
+      "https://arxiv.org/abs/2603.05419",
+      "https://arxiv.org/abs/2504.05481"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li--Lim 2023 Sections 2.1-2.3: Eckart--Young and prescribed eigenvalue handled via rank constraints; the paper does not add fixed disk radius or square-zero constraints.",
+        "Noferini--Zhukov, arXiv:2609.14828, first submitted 2026-09-13: the paper studies closest normal and Hurwitz-stable matrices under real-vs-complex competition, not this target family.",
+        "Lakos 2024 proves elliptical-range geometry; combining geometry with a separate singular-pair orthogonality identity is needed for the claimed sharp projection and equality cases.",
+        "Gnazzo et al. arXiv:2603.05419, Section 1 and Sections 3-4: the structured distance to singularity framework could subsume a free-radius trace-free singularity objective but neither fixes the nonzero numerical-range radius nor gives the nearest fixed-disk multiplicity and reality criteria.",
+        "O'Loughlin arXiv:2504.05481 Theorem 1.1: fixed disk target is one unitary orbit of a rank-one nilpotent, while optimizing the Frobenius distance to this orbit remains an additional step not supplied there."
+      ],
+      "reasoning": "Nearest singular matrix to a trace-free input is a rank-one approximation; not every rank-one matrix is square-zero and fixed-radius normalization is another constraint. For trace-free dimension two a newly supplied identity makes an optimal rank-one singular pair orthogonal, so all added constraints are met. This implication is proved rather than assumed and is not explicitly in the checked stronger claims. Residual risk is that an unexamined source may state the same combination as a corollary.",
+      "searches": [
+        "\"nearest matrix\" \"prescribed numerical range\"",
+        "\"distance to circular numerical range\" matrix",
+        "2x2 nilpotent best approximation Frobenius rank one",
+        "\"nearest nilpotent\" \"2x2\" \"Frobenius\"",
+        "Exact Frobenius nearest 2x2 matrix with numerical range equal to prescribed disk, fixed center and radius, spectral norm of traceless part, singular vectors orthogonal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "G. Lakos, A short proof of the elliptical range theorem (2024), DOI:10.1007/s00013-023-01957-9, gives the underlying ellipse geometry, not this constrained Frobenius metric projection.",
+        "Z. Li and L.-H. Lim, Generalized Matrix Nearness Problems (2023), DOI:10.1137/22M1526034, Sections 2.1-2.3 distinguish rank, eigenvalue and norm constraints but do not formulate circular numerical ranges.",
+        "arXiv:2307.04463 (Mori) concerns operator-norm distance to nilpotents, a different distance and no fixed nonzero nilpotent Frobenius norm.",
+        "R. O'Loughlin, arXiv:2504.05481, Theorem 1.1 and Theorem 2.1, determines unitary orbit/numerical range through traces and an ellipse parameterization, but does not compute distance to a prescribed orbit."
+      ],
+      "reasoning": "The disk target can be rewritten as trace equal to the disk center plus square-zero rank one of specified Frobenius norm. General low-rank approximation minimizes over a superset and would not automatically ensure square-zero; the crucial trace-free singular-pair orthogonality is proved here. Targeted aliases involving field of values, nilpotency, fixed rank and fixed norm found no exact simultaneous theorem.",
+      "searches": [
+        "\"nearest\" \"circular numerical range\" matrix Frobenius",
+        "\"distance\" \"disk numerical range\" \"matrix\" Frobenius",
+        "\"prescribed numerical range\" \"nearest\" matrix 2x2 disk",
+        "closest 2x2 nilpotent matrix prescribed Frobenius norm singular value",
+        "Frobenius distance nilpotent matrix n=2 optimal closest nilpotent singular value trace-free",
+        "Exact Frobenius nearest 2x2 matrix with numerical range equal to prescribed disk, fixed center and radius, spectral norm of traceless part, singular vectors orthogonal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record 2026/10/11/SCOPE-the-incircle-is-the-unique-maximal-numerical-range-of-a-two-dime--9f87930b22d4: optimizes disks obtained by two-dimensional compressions of a three-spectral-point normal operator, not nearest arbitrary target matrix.",
+        "Published mathematical record 2026/10/11/SCOPE-sharp-elliptical-width-and-complete-compression-rigidity-for-fou--c714a536b540: optimizes elliptical width of compressions of four-corner normal matrices, not Frobenius distance to a prescribed numerical-range disk.",
+        "Published mathematical record 2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57: optimizes a Jordan operator-norm pencil and q-numerical spectral-set containment, not Frobenius disk projection."
+      ],
+      "reasoning": "The checked published records concern numerical-range optimizations with different quantified domains, objectives or constraints. No checked exact table or compiled projection rule covered all complex 2-by-2 inputs with prescribed center and radius. Ranked search absence is not asserted to prove nonexistence of a historical theorem.",
+      "searches": [
+        "Frobenius projection onto circular numerical range 2 by 2 matrix disk",
+        "closest real matrix with a given circular field of values, complex versus real Frobenius minimizer, numerical range disk",
+        "Nearest 2x2 nilpotent of prescribed Frobenius norm or exact circular numerical range, uniqueness for nonnormal matrix, continuum for normal matrix"
+      ]
+    },
+    "rationale": "The exact fixed-center, fixed-radius numerical-range disk projection, complete normal/nonnormal minimizer multiplicity, and reality of a minimizer for real data were not found in inspected full-text nearness papers or queried mathematical records. Standard elliptical range and SVD theorems imply supporting ingredients but do not themselves state the simultaneous circular-range constraint or its exact projection/equality cases. This is a best-knowledge originality judgment, not independent proof of historical priority.",
+    "residual_risks": [
+      "A classical theorem on nearest nilpotent orbits at prescribed norm may yield the same statement under a different name; targeted search is not an exhaustive literature census.",
+      "Two related published record full artifacts were not accessible; their retrieved claims target compressions rather than this projection, but undisclosed results could change priority.",
+      "An earlier paper combining elliptical-range geometry with constrained rank-one SVD may make this exact disk projection a corollary, even without a matching title.",
+      "The free-radius singularity corollary can be derived from classical SVD and is not asserted to have independent novelty; originality rests on the fixed positive radius, complete minimizers, and real-data guarantee.",
+      "The target is a single unitary orbit, and an older unitary-conjugacy Procrustes theorem might already evaluate its nearest-point distance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not found to cover exact numerical-range disk target or singular-pair rigidity",
+        "evidence": [
+          "arXiv:2605.30181v1, 2026-05-28, introduction Sections 1.1-1.3 and closed-form Sections 3.1-3.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.30181v1",
+        "material_read": "Full-text HTML, contents and introduction, Sections 3 and 4, representative Section 5 and algorithm results, conclusion; targeted text checks for numerical range and nilpotent",
+        "method": "Examine definitions, theorem targets and constraint families; compare the objective and implications",
+        "title": "Generalized matrix nearness problems II",
+        "trigger": "New public research on numerical matrix nearness and direct motivating source"
+      },
+      {
+        "assessment": "Covers best rank and norm separately; does not state the simultaneous exact circular numerical-range disk problem",
+        "evidence": [
+          "Li--Lim 2023, DOI:10.1137/22M1526034, introduction and Sections 2.1-2.3, formulas (2.1)-(2.3), Algorithms 1-2."
+        ],
+        "identifier_or_url": "https://www.stat.uchicago.edu/~lekheng/work/near.pdf",
+        "material_read": "Full paper text indexed, introduction and Sections 2.1-2.3 materially read; primary PDF pages 1 and 3 visually inspected; keyword checks across all indexed text",
+        "method": "Directly compare stated constraints, optimization variable sets, radius constraints and conclusions",
+        "title": "Generalized Matrix Nearness Problems",
+        "trigger": "Predecessor primary paper treats rank and norm constraints that might subsume the projection"
+      },
+      {
+        "assessment": "Real-versus-complex nonconvex nearness general context, but target classes are nearest normal and stable, not circular numerical ranges",
+        "evidence": [
+          "Noferini--Zhukov arXiv:2609.14828, original submission 2026-09-13, Sections 2-4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.14828",
+        "material_read": "Full arXiv HTML/text display; introduction, general-target results in Section 2, nearest-normal and nearest-stable sections with propositions",
+        "method": "Compare quantified target family and dimension-specific real-minimizer result",
+        "title": "Matrix nearness problems: Do real inputs admit real solutions?",
+        "trigger": "Potentially stronger real-versus-complex nearest-point theorem"
+      },
+      {
+        "assessment": "Useful context, but full coverage for all specialized nonconvex constraints not claimed from selected sections",
+        "evidence": [
+          "Gnazzo--Noferini--Nyman--Poloni 2025, introduction and general framework."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10208-025-09731-9",
+        "material_read": "Open-access HTML abstract and introduction, representative algorithm descriptions; text search for numerical range",
+        "method": "Distinguish generic numerical minimization from explicit algebraic distance and equality classification",
+        "title": "Riemann-Oracle: A general-purpose Riemannian optimizer to solve nearness problems in matrix theory",
+        "trigger": "General matrix-nearness framework may imply a universal projection algorithm"
+      },
+      {
+        "assessment": "Supplies known ellipse characterization, not a verified statement of nearest fixed numerical-range disk",
+        "evidence": [
+          "Lakos 2024, ellipse theorem; text inspection limited for priority comparison."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00013-023-01957-9",
+        "material_read": "Publisher full article title, abstract and main theorem/proof description",
+        "method": "Separate numerical-range geometry from matrix nearness optimization",
+        "title": "A short proof of the elliptical range theorem",
+        "trigger": "Classical characterization may cover disk normal form"
+      },
+      {
+        "assessment": "Different compression geometry problem; full-text residual risk recorded",
+        "evidence": [
+          "Published record: maximal compression disk is triangle incircle; not arbitrary prescribed target Frobenius metric projection."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-the-incircle-is-the-unique-maximal-numerical-range-of-a-two-dime--9f87930b22d4",
+        "material_read": "Published mathematical-record summary; full artifact inaccessible",
+        "method": "Compare optimized quantity, admissible matrices and quantifiers from record summary",
+        "title": "The incircle is the unique maximal numerical range of a two-dimensional compression of a three-point normal operator",
+        "trigger": "Strong title similarity to disks from two-dimensional compressions"
+      },
+      {
+        "assessment": "Different optimization objective and domain; full-text residual risk recorded",
+        "evidence": [
+          "Published record: maximal width for four-corner normal operator two-dimensional compression."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-sharp-elliptical-width-and-complete-compression-rigidity-for-fou--c714a536b540",
+        "material_read": "Published mathematical-record summary; full artifact inaccessible",
+        "method": "Compare maximization of compression width with matrix approximation of arbitrary inputs",
+        "title": "Sharp elliptical width and complete compression rigidity for four-corner normal matrices",
+        "trigger": "Record mentions circular two-dimensional numerical ranges"
+      },
+      {
+        "assessment": "General iterative structured singularity results cover the surrounding subject and potentially free-radius specializations, but not the fixed-disk theorem or its exact equality cases",
+        "evidence": [
+          "arXiv:2603.05419v1, 2026-03-05, Sections 1-4, equations (1)-(6) and rank-one projection statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.05419v1",
+        "material_read": "Original arXiv HTML primary full-text introduction, Sections 2-4, theorem and algorithm passages including rank-one projected perturbations; targeted full-text searches for nilpotent, traceless and numerical range",
+        "method": "Compare structured singularity with the stronger simultaneous fixed trace, square-zero and positive prescribed Frobenius-norm/disk radius constraint",
+        "title": "Structured distance to singularity as a nonlinear system of equations",
+        "trigger": "Could dominate the free-radius nilpotent-distance corollary via a tracefree structure"
+      },
+      {
+        "assessment": "Supplies the natural description of target matrices but does not state their Frobenius metric projection or its equality cases",
+        "evidence": [
+          "arXiv:2504.05481v4, Theorem 1.1 on unitary orbit traces, Theorem 2.1 on ellipse parameters; originally posted 2025-04-07."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.05481v4",
+        "material_read": "Full primary HTML abstract, introduction, Theorems 1.1 and 2.1 with supporting proofs; full-document targeted text searches for nearest, distance, Frobenius and minimization",
+        "method": "Compare orbit equivalence and elliptical-range characterization to a nearest-point optimization over a fixed orbit",
+        "title": "Describing the Numerical Range and C-Numerical Range of Matrices via Their Unitary Orbits and the Joukowsky Transform",
+        "trigger": "Unitary-orbit classification might directly include a nearest prescribed circular range formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ae3a04f-bb2a-4bee-a8d5-4bb57f86f198",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete closed-form nonconvex matrix-nearness projection onto a naturally prescribed field-of-values disk is a motivated numerical-linear-algebra invariant, computed via a single SVD. Exact normal-versus-nonnormal uniqueness and real-data solvability distinguish it from ordinary unconstrained rank-one approximation and supply a calibration case for numerical-range repair algorithms. It does not claim larger-dimensional, spectral-norm, or floating-point-stability generalizations.",
+    "status": "PASS"
+  }
+}
