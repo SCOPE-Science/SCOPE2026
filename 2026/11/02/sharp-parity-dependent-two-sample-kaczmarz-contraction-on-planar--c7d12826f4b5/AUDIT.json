@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For any direction, orthogonal projection removes its squared row correlation. Averaging the maximum of two distinct sampled correlations gives F_m=1/2+[m(m−1)]^(-1) Σ_{i<j}|r_i−r_j| from the tight-frame identity. Each correlation crossing lies on an angular half-grid, and between crossings F_m is strictly concave, hence every minimizer lies on the grid. There are precisely two symmetry classes: aligned and bisector; order-statistic sums and explicit finite geometric-series derivatives yield the odd/even values and the exact even orientation gap. Strict concavity excludes other minimizers. Conditional expectation iterates, with no asymptotic equality claimed. Reproducible Python checker enumerates all pairs for m=3..74, 7,200 angle probes and asymptotics. Numerical enumeration is supplementary, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Loera, Haddock and Needell (arXiv:1605.01418) establishes the broader algorithm, and Haddock and Ma (arXiv:1912.03544) gives improved convergence guarantees without this exact constant.",
+        "published-finding corpus 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f concerns sharp full-residual spikes under maximum-distance selection, a different observable and deterministic entire-row oracle.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 studies an optimally relaxed deterministic cyclic two-row update rather than random greedy pair selection among m rows."
+      ],
+      "reasoning": "Broader algorithmic theorems need not imply this *exact* constant or equality case. Conversely coherence-based full-residual monotonicity and cyclic overrelaxation quantify different objects; no logical implication to the claimed parity-sensitive angular optimum was found.",
+      "searches": [
+        "sampling Kaczmarz Motzkin exact expected contraction on equiangular rows subset sampling extremal",
+        "Kaczmarz-Motzkin worst-case two-sample sampling without replacement planar regular angular frame",
+        "Exact worst-case expected one-step contraction of best-of-two Kaczmarz-Motzkin with uniform two-row sampling without replacement on equally spaced planar harmonic frame, parity of row count, cotangent formula",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+        "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1605.01418v6",
+      "https://arxiv.org/html/1912.03544v2",
+      "https://arxiv.org/abs/2211.16682",
+      "Wright and Recht, Optimization for Data Analysis (2022), Section 5.2.2",
+      "Published published-finding corpus finding summaries for 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f, 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1, and 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wright and Recht, Section 5.2.2: the identical unit harmonic frame has expected progress 1/2 under one uniform row.",
+        "Haddock and Ma: analysis of greedy-sampling Kaczmarz gives general convergence bounds, without equality cases for the regular planar harmonic frame.",
+        "The new proof specifically computes all pairwise squared-correlation absolute differences and minimizes over every angular direction."
+      ],
+      "reasoning": "The claimed one-step exact α_m is strictly greater than the one-row frame fact and has parity-specific minimizers and a quartic gap. Neither the one-row identity nor generic SKM inequalities determine the exact pairwise order-statistic average and its global minimum; the new finite trigonometric identity is necessary.",
+      "searches": [
+        "equiangular frame greedy sampled pair projection expected norm contraction polygon trigonometric",
+        "Exact worst-case expected one-step contraction of best-of-two Kaczmarz-Motzkin with uniform two-row sampling without replacement on equally spaced planar harmonic frame, parity of row count, cotangent formula",
+        "arxiv:1912.03544",
+        "doi:10.1017/9781009004282"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Compared exact expected one-step contraction with analogous expected greedy projection progress, Kaczmarz--Motzkin rates and maximal-residual projection formulas.",
+        "Haddock and Ma, arXiv:1912.03544, provides residual dynamic-range rate bounds; Zhang and Li, arXiv:2211.16682, addresses generalized subset methods."
+      ],
+      "reasoning": "Exact equivalence here would require averaging the larger of two squared row correlations for every direction and optimizing the angle, not merely giving a state-dependent upper/lower convergence inequality. Inspected relevant methods did not evaluate the sharp periodic angular minimax formula.",
+      "searches": [
+        "sampling Kaczmarz Motzkin regular polygon tight frame two row subsample sharp worst case expected contraction parity orientation cotangent",
+        "Exact worst-case expected one-step contraction of best-of-two Kaczmarz-Motzkin with uniform two-row sampling without replacement on equally spaced planar harmonic frame, parity of row count, cotangent formula",
+        "Sharp odd-even minimizer orientation and m^-4 gap of greedy two-row projection progress over regularly spaced unit vectors in R2",
+        "arxiv:1912.03544",
+        "arxiv:2211.16682"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic queries targeting the two-sample planar harmonic frame returned the nearest coherence, cyclic Kaczmarz and coordinate sampling findings, none with the exact expression or parity minimizers.",
+        "The Section 5.2.2 harmonic-frame textbook example supplies the exactly one-row baseline 1/2, but not the two-row table."
+      ],
+      "reasoning": "Actual searches of published mathematical findings and exposed source claims revealed no pretabulated two-row sharp contraction. Absence from search results is not proof of uniqueness and a specialized published table remains a residual priority risk.",
+      "searches": [
+        "sampling Kaczmarz Motzkin regular polygon tight frame two row subsample sharp worst case expected contraction parity orientation cotangent",
+        "uniform planar tight frame sampling maximum two residuals exact convergence constant odd even",
+        "Exact worst-case expected one-step contraction of best-of-two Kaczmarz-Motzkin with uniform two-row sampling without replacement on equally spaced planar harmonic frame, parity of row count, cotangent formula",
+        "Sharp odd-even minimizer orientation and m^-4 gap of greedy two-row projection progress over regularly spaced unit vectors in R2"
+      ]
+    },
+    "rationale": "The original algorithms, exact regular planar frame and uniform single-row factor are preexisting. The additional claimed exact best-of-two, without-replacement mean-square minimax constant for every integer m≥3, its odd/even minimizers and explicit quartic alignment penalty were compared against inspected primary algorithm results, the directly matching frame textbook example, and searched published mathematical findings. None was found to assert or strongly imply the combined exact statement. This is a qualified priority judgment, not proof of uniqueness.",
+    "residual_risks": [
+      "Search cannot prove priority; an unlocated specialized regular-frame SKM computation or a stronger exact order-statistic result may already imply this formula.",
+      "Published mathematical finding summaries were used for initial database overlap, not as substitutes for full scientific inspection of plausible primary literature.",
+      "The algorithmic papers have much broader theoretical domains, though the inspected claims do not settle the *sharp exact* special-case minimum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the algorithm and generic bounds, not the parity-dependent exact planar harmonic-frame constant or minimizer set.",
+        "evidence": [
+          "De Loera, Haddock and Needell, arXiv:1605.01418, algorithm and convergence results."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1605.01418v6",
+        "material_read": "The open full-text HTML algorithm formulation and convergence statements, including sample selection and linear feasibility setting.",
+        "method": "Compared the original residual-based selection and convergence conclusions against explicit worst-case expected squared Euclidean projection progress on equally spaced planar rows.",
+        "title": "A Sampling Kaczmarz--Motzkin Algorithm for Linear Feasibility",
+        "trigger": "The original sampled-greedy Kaczmarz--Motzkin algorithm could include the same two-row sharp contraction in a special case."
+      },
+      {
+        "assessment": "The general residual-dependent rates do not determine the minimizing error directions or exact angular average over all unordered pairs.",
+        "evidence": [
+          "Haddock and Ma, arXiv:1912.03544, Theorem 1 and Corollary 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1912.03544v2",
+        "material_read": "Full-text HTML theorem statements, related corollary, and their dependence on residual dynamic range and sampling parameters.",
+        "method": "Checked whether any general lower bound becomes an identity after imposing normalized planar harmonic rows and sampling exactly two distinct indices.",
+        "title": "Greed Works: An Improved Analysis of Sampling Kaczmarz--Motzkin",
+        "trigger": "Improved SKM rates are plausibly stronger than the proposed specialized calculation."
+      },
+      {
+        "assessment": "No exact parity-separated infimum over angular state or explicit identity for the two-row without-replacement harmonic-frame sample was located in the inspected material.",
+        "evidence": [
+          "Zhang and Li, arXiv:2211.16682, first arXiv date 2022-11-30; analytical algorithm/convergence sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.16682",
+        "material_read": "The accessible full-text HTML algorithm and convergence sections, plus the dated abstract and subject/MSC information.",
+        "method": "Compared block/subset convergence estimates to an exact conditional one-step squared-error expectation over planar equally spaced rows.",
+        "title": "Randomized block subsampling Kaczmarz--Motzkin method",
+        "trigger": "Chosen period-eligible methodological source, directly involving randomized row subsets and greedy residual selection."
+      },
+      {
+        "assessment": "Contains the frame and the uniform-row baseline; does not give the best-of-two sharp constant, parity-resolved extremal orientations, or the quartic orientation gap.",
+        "evidence": [
+          "Wright and Recht, Optimization for Data Analysis (2022), Section 5.2.2, DOI 10.1017/9781009004282."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/books/optimization-for-data-analysis/C02C3708905D236AA354D1CE1739A6A2",
+        "material_read": "Accessible book text of Section 5.2.2 for uniform single-row randomized Kaczmarz and its planar harmonic example.",
+        "method": "Compared its one-row conditional expectation with best-of-two residual selection without replacement; its exact same frame was acknowledged rather than claimed as new.",
+        "title": "Optimization for Data Analysis",
+        "trigger": "Section 5.2.2 treats exactly the equally spaced planar harmonic frame used in the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c7d12826-f4b5-4ca6-9056-6da284de8c3c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classic SKM setting uses a budget of two residual evaluations per projection; one-step expected squared-error progress controls a uniform convergence bound. The natural finite unit harmonic frames are a canonical geometry with known single-probe contraction exactly 1/2, so the exact benefit of a two-row greedy choice is mathematically motivated rather than an arbitrary small-instance enumeration. The theorem covers every frame size, exhibits a nontrivial odd/even extremizer bifurcation and gives a sharp orientation penalty of order m^-4, enabling exact benchmarks for sampling analyses. It does not pretend to be an optimal runtime result or a general-matrix theorem.",
+    "status": "PASS"
+  }
+}
