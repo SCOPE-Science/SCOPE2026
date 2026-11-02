@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T23:48:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Seven pinned blobs and same current main files (all seven SHA-1s matched)",
+        "Git tree reconstructed with sorted actual blob IDs",
+        "Bárány–Hug–Reitzner–Schneider, Random points in halfspheres, arXiv:1505.04672v1, Theorem 3.1 and Lemma 4.1, https://discovery.ucl.ac.uk/1503478/1/1505.04672v1.pdf",
+        "Independent symbolic beta-tilt and convexity derivations",
+        "independent_facet_check.py, 63-case output and 29 convexity diagnostics"
+      ],
+      "rationale": "Independently checked seven actual pinned/current Git blobs and reconstructed source tree c0c0c6158266c9049da7e778110103a808cab531. Theorem 3.1 of Bárány et al. gives F/L=E[q(U²)^(d−1)] with U~Beta(d,n−d+1), q(z)=sin(π√z)/(π√z). The second beta moment E U²=d(d+1)/((n+1)(n+2)) and exact size-biasing change U² density to V~Beta(d+2,n−d+1), so R=E h_d(V²), h_d=(1−q^(d−1))/z. Since q(z)=∫_0^1 cos(πt√z)dt and d²/dz² cos(a√z)=a[sin(a√z)−a√z cos(a√z)]/(4z^{3/2})>0 for 0<a≤π, 0<z<1, q is strictly convex and nonnegative. q^(d−1) strictly convex for d≥2; hence h_d is strictly decreasing by strict concavity of 1−q^(d−1). Independent Gamma(d+2), Gamma(n−d+1), Gamma(1) coupling gives V_{n+1}<V_n almost surely, proving strict R growth. E V_n=(d+2)/(n+3)→0, bounded h yields limit (d−1)π²/6. n=d+1 gives a spherical simplex and F=d+1 exactly. Lower equality is unique n=d+1; finite-n upper is strict and its coefficient asymptotically optimal. No dimension-uniform limit is asserted. Independent mpmath checks covered 63 d,n pairs (d=2..8, nine n per d), max transformed-vs-original discrepancy 3.67e−55, 29 strictly positive q second derivatives; finite experiments corroborate rather than establish universal theorem.",
+      "residual_risks": [
+        "Proof imports the original geometric facet integral without reproving its Blaschke–Petkantschin derivation.",
+        "mpmath quadrature is finite numerical corroboration, not an infinite-dimensional or all-n certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonnet–Grote–Temesvari–Thäle–Turchi–Wespi, Monotonicity of facet numbers of random convex hulls, arXiv:1703.02321v1, Theorem 8 and gnomonic projection, https://arxiv.org/pdf/1703.02321",
+          "Kabluchko, Expected f-vector of the Poisson Zero Polytope and Random Convex Hulls in the Half-Sphere, arXiv:1901.10528v4, Theorem 2.2 and Eq. (2.3), https://arxiv.org/pdf/1901.10528",
+          "2017 Theorem 8 orders F_{n+1}>F_n in general hemispherical densities (includes uniform); 2020 Theorem 2.2 computes the entire finite-n expected f-vector."
+        ],
+        "reasoning": "The broader 2017 distribution family covers the random model but orders the unscaled expectation, which does not imply order of a deficit multiplied by the increasing factor (n+1)(n+2). Kabluchko gives more invariants than facets but a pointwise exact expression is not an explicit proof of this normalized n-order. Neither inspected result includes the two globally optimal deficit coefficients.",
+        "searches": [
+          "arxiv 1703.02321 monotonicity facet numbers random convex hulls theorem 8",
+          "Kabluchko 1901.10528 exact f-vector halfsphere theorem 2.2",
+          "arXiv:1703.02321v1 Theorem 8",
+          "arXiv:1901.10528v4 Theorem 2.2",
+          "Resultary: expected facet number uniform halfsphere random spherical polytope scaled n squared deficit strictly monotone sample size sharp inequality"
+        ]
+      },
+      "checked_sources": [
+        "Bárány–Hug–Reitzner–Schneider, Random points in halfspheres, arXiv:1505.04672v1, Theorem 3.1 and Lemma 4.1, https://discovery.ucl.ac.uk/1503478/1/1505.04672v1.pdf",
+        "Bonnet–Grote–Temesvari–Thäle–Turchi–Wespi, Monotonicity of facet numbers of random convex hulls, arXiv:1703.02321v1, Theorem 8 and gnomonic projection, https://arxiv.org/pdf/1703.02321",
+        "Kabluchko, Expected f-vector of the Poisson Zero Polytope and Random Convex Hulls in the Half-Sphere, arXiv:1901.10528v4, Theorem 2.2 and Eq. (2.3), https://arxiv.org/pdf/1901.10528",
+        "Resultary: expected facet number uniform halfsphere random spherical polytope scaled n squared deficit strictly monotone sample size sharp inequality",
+        "Resultary: beta integral sine kernel normalized finite sample facet deficit hemisphere sphere stochastic order",
+        "Resultary: sharp finite sample bounds expected faces halfsphere polytope Poisson zero polytope",
+        "halfsphere facet count normalized deficit (n+1)(n+2) monotonicity sharp bound",
+        "arxiv 1505.04672 random points in halfspheres theorem 3.1 Lemma 4.1",
+        "arxiv 1703.02321 monotonicity facet numbers random convex hulls theorem 8",
+        "Kabluchko 1901.10528 exact f-vector halfsphere theorem 2.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bárány–Hug–Reitzner–Schneider, Random points in halfspheres, arXiv:1505.04672v1, Theorem 3.1 and Lemma 4.1, https://discovery.ucl.ac.uk/1503478/1/1505.04672v1.pdf",
+          "Bonnet–Grote–Temesvari–Thäle–Turchi–Wespi, Monotonicity of facet numbers of random convex hulls, arXiv:1703.02321v1, Theorem 8 and gnomonic projection, https://arxiv.org/pdf/1703.02321",
+          "Kabluchko, Expected f-vector of the Poisson Zero Polytope and Random Convex Hulls in the Half-Sphere, arXiv:1901.10528v4, Theorem 2.2 and Eq. (2.3), https://arxiv.org/pdf/1901.10528",
+          "The original 2015 source implies 1-F/L~(d-1)d(d+1)π²/(6n²), but an asymptotic and monotone F alone do not order n²-times deficit at finite n."
+        ],
+        "reasoning": "2015 exact integral is a premise, and its asymptotic forces only the limit; 2017 gives F_{n+1}>F_n, a logically different inequality; 2020 gives exact F at every n but not a proved monotonic normalized-error envelope. The submitted proof adds the strict concavity/tilting mechanism; it does not merely rename a known all-n inequality. A hidden exact special-function result would alter priority and remains a risk.",
+        "searches": [
+          "halfsphere facet count normalized deficit (n+1)(n+2) monotonicity sharp bound",
+          "Resultary: expected facet number uniform halfsphere random spherical polytope scaled n squared deficit strictly monotone sample size sharp inequality",
+          "Resultary: beta integral sine kernel normalized finite sample facet deficit hemisphere sphere stochastic order",
+          "Resultary: sharp finite sample bounds expected faces halfsphere polytope Poisson zero polytope",
+          "arXiv:1505.04672v1 Theorem 3.1/Lemma 4.1",
+          "arXiv:1703.02321v1 Theorem 8",
+          "arXiv:1901.10528v4 Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bárány–Hug–Reitzner–Schneider, Random points in halfspheres, arXiv:1505.04672v1, Theorem 3.1 and Lemma 4.1, https://discovery.ucl.ac.uk/1503478/1/1505.04672v1.pdf",
+          "Kabluchko, Expected f-vector of the Poisson Zero Polytope and Random Convex Hulls in the Half-Sphere, arXiv:1901.10528v4, Theorem 2.2 and Eq. (2.3), https://arxiv.org/pdf/1901.10528",
+          "Exact equivalence R_{d,n}=E[h_d(V_n²)] for V_n~Beta(d+2,n-d+1) expresses the same inequality as a beta-tilted sinc-secant stochastic comparison."
+        ],
+        "reasoning": "Aliases checked include hemisphere/halfsphere, spherical facet deficit, beta-prime/gnomonic Cauchy random polytope, rescaled convergence error, and Poisson zero-polytope dual facet expressions. Published exact formulas can compute R pointwise but do not themselves assert its increasing n-order; the first-order stochastic-order comparison supplies that missing relation.",
+        "searches": [
+          "halfsphere facet count normalized deficit (n+1)(n+2) monotonicity sharp bound",
+          "Resultary: expected facet number uniform halfsphere random spherical polytope scaled n squared deficit strictly monotone sample size sharp inequality",
+          "Resultary: beta integral sine kernel normalized finite sample facet deficit hemisphere sphere stochastic order",
+          "arXiv:1505.04672v1 Theorem 3.1/Lemma 4.1",
+          "arXiv:1901.10528v4 Section 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary three semantic searches: the top exactly matching item was the audited record itself, excluded as independent priority evidence; other hits concerned different shapes/invariants.",
+          "Kabluchko, Expected f-vector of the Poisson Zero Polytope and Random Convex Hulls in the Half-Sphere, arXiv:1901.10528v4, Theorem 2.2 and Eq. (2.3), https://arxiv.org/pdf/1901.10528",
+          "2020 manuscript tables give specific low-dimensional face values, and Proposition 2.4 gives d+2,d+3 cases."
+        ],
+        "reasoning": "Existing tables/formulas determine finite instances and may numerically verify the bounds, but no finite lookup certifies a strict claim for every d>=2 and n>=d+1. As far as inspected, no exact database asserts the global all-n inequality or endpoint sharpness.",
+        "searches": [
+          "Resultary: expected facet number uniform halfsphere random spherical polytope scaled n squared deficit strictly monotone sample size sharp inequality",
+          "Resultary: sharp finite sample bounds expected faces halfsphere polytope Poisson zero polytope",
+          "arXiv:1901.10528v4 tables of expected f-vectors",
+          "arXiv:1901.10528v4 Proposition 2.4"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison against the three most relevant primary papers and independent semantic database searches finds prior exact F_{d,n}, its n^{-2} asymptotic, broader raw-facet monotonicity, and all-face finite-size formulas, but no prior strict ordering of R_{d,n} or the pair of globally sharp finite-sample deficit bounds. The new step is an explicit beta-second-moment tilt combined with strict decrease of a sinc-secants kernel, a mathematical all-n comparison not contained in raw monotonicity/asymptotics alone. The status is priority-qualified, not a guarantee of absolute novelty.",
+      "residual_risks": [
+        "An unindexed older special-function inequality for beta-weighted sinc secants could imply strict R_{d,n} ordering under a nongeometric formulation; the searches cannot rule it out.",
+        "Full-source targeted inspection is not a literal reading of every page of every 15–31 page article; an equivalent assertion outside the inspected sections could be missed.",
+        "Database result identical to assessed record is not independent evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the integral and n^{-2} leading asymptotic, not an all-integer strict monotonicity theorem for a quadratically normalized deficit.",
+          "evidence": "Theorem 3.1 (3)/(4), Lemma 4.1, discussion after (3). arXiv:1505.04672v1, PDF pp. 3, 6–7.",
+          "identifier_or_url": "arXiv:1505.04672v1; https://discovery.ucl.ac.uk/1503478/1/1505.04672v1.pdf",
+          "material_read": "Open-access 21-page primary PDF. Read definitions of spherical convex hull, Theorem 3.1 Eq. (3)/(4) on page 3, proof of integral normalization, Lemma 4.1 and its asymptotic calculation on pages 6–7. Targeted text inspection across the indexed PDF; not a claim that every page was read.",
+          "method": "Read searchable full PDF and rendered its formula-bearing pages 3, 6, 7 using screenshots; independently algebraically transformed its exact facet integral.",
+          "title": "Random points in halfspheres",
+          "trigger": "Exact same halfsphere sampling model and mean facet functional, possible direct coverage."
+        },
+        {
+          "assessment": "Theorem 8 proves F_{d,n+1}>F_{d,n} for more general halfsphere densities; does not supply increasing (n+1)(n+2)(1-F/L) nor its sharp endpoints.",
+          "evidence": "Theorem 1, Section 5, Theorem 8, pp. 13–14, gnomonic transfer of heavy-tail class to uniform halfsphere at alpha=0.",
+          "identifier_or_url": "arXiv:1703.02321v1; https://arxiv.org/pdf/1703.02321",
+          "material_read": "Open-access 15-page primary PDF. Read introduction and Theorem 1, Section 5 Theorem 8, its definition of spherical density class S, and its gnomonic projection argument through conclusion on pages 13–14; full text accessible but not read page-by-page.",
+          "method": "Opened and searched full primary PDF, rendered the title/introduction; compared Theorem 8 to the precise rescaled versus unscaled quantities.",
+          "title": "Monotonicity of facet numbers of random convex hulls",
+          "trigger": "A broad monotonicity theorem for exactly this spherical-halfspace model."
+        },
+        {
+          "assessment": "Explicit F_{d,n} and all face counts are known. Distinct strict ordering for scaled expectation deficit and jointly optimal lower/upper coefficients not asserted in inspected relevant theorem sections.",
+          "evidence": "Theorem 2.2 Eq. (2.2), facet Eq. (2.3), Proposition 2.4; Section 2.2–2.3.",
+          "identifier_or_url": "arXiv:1901.10528v4; https://arxiv.org/pdf/1901.10528; published Mathematika 66 (2020) 1028–1053",
+          "material_read": "Open-access 31-page primary PDF and journal open-access full HTML. Read main statement, Section 2.2 Theorems 2.1/2.2, facet specialization Eq. (2.3), finite n=d+2,d+3 special cases Proposition 2.4 and relevant discussion. Targeted search of complete PDF for monotonicity terminology; not a claim of page-by-page full reading.",
+          "method": "Read searchable full PDF, rendered pp. 1 and 7, and crosschecked Section 2.2 in the open-access journal HTML.",
+          "title": "Expected f-vector of the Poisson Zero Polytope and Random Convex Hulls in the Half-Sphere",
+          "trigger": "Potentially stronger all-face, all-finite-sample expectation theorem dominating numerical facet values."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bárány–Hug–Reitzner–Schneider, Random points in halfspheres, arXiv:1505.04672v1, Theorem 3.1 and Lemma 4.1, https://discovery.ucl.ac.uk/1503478/1/1505.04672v1.pdf",
+        "Bonnet–Grote–Temesvari–Thäle–Turchi–Wespi, Monotonicity of facet numbers of random convex hulls, arXiv:1703.02321v1, Theorem 8 and gnomonic projection, https://arxiv.org/pdf/1703.02321",
+        "Kabluchko, Expected f-vector of the Poisson Zero Polytope and Random Convex Hulls in the Half-Sphere, arXiv:1901.10528v4, Theorem 2.2 and Eq. (2.3), https://arxiv.org/pdf/1901.10528",
+        "Direct reconstructed monotonic kernel argument and independently checked two extremizing regimes"
+      ],
+      "rationale": "Natural question: the expected number of facets in a canonical uniform halfsphere sample has a finite limit with a known n^-2 convergence deficit. The new all-dimension strict normalized-error law upgrades the asymptotic coefficient to a globally sharp finite-n envelope. Both endpoint constants are best possible: n=d+1 is exactly attained on the lower side; the upper endpoint is the limit of all finite n. The ordering gives meaningful optimal nonasymptotic control and is not a finite table, raw-count monotonicity, or a cosmetic renormalization alone; its kernel convexity and beta-shift mechanism may be useful for other random-polytope convergence comparisons. It is specialized to a fixed dimension and exactly uniform halfsphere distribution, no claims about general densities or high-dimensional uniformity.",
+      "residual_risks": [
+        "The theorem has a narrow model-specific scope; general distributions or multi-dimensional scaling have not been investigated.",
+        "Broader extension to other facet functionals remains conjectural and is not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific result applies only to fixed d>=2 and n>=d+1 in the uniform independent halfsphere model.",
+    "Source geometric integral is imported, not rederived.",
+    "Best-of-knowledge novelty is not priority certification.",
+    "Publication operations withheld for confidentiality-neutral content reconstruction; research accepted scientifically but not published."
+  ],
+  "schema_version": 1
+}

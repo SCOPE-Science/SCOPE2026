@@ -70,7 +70,7 @@ Bárány, Hug, Reitzner and Schneider [1] proved the exact expected facet integr
 
 ## Limitations
 
-The statement is for uniform independent samples from an **exact halfsphere** and fixed dimension, not general hemispherical densities, proper caps, nonuniform sampling, or joint fluctuations. It relies on the exact expectation theorem [1], rather than deriving that integral from first principles. The sharpness at infinity is for each fixed \(d\); no dimension-uniform limiting exchange is asserted. Priority assessment of older equivalent inequalities cannot exclude unindexed presentations or equivalent results hidden within special-function identities. Verification is same-model only; no independent audit has been performed.
+The statement is for uniform independent samples from an **exact halfsphere** and fixed dimension, not general hemispherical densities, proper caps, nonuniform sampling, or joint fluctuations. It relies on the exact expectation theorem [1], rather than deriving that integral from first principles. The sharpness at infinity is for each fixed \(d\); no dimension-uniform limiting exchange is asserted. Priority assessment of older equivalent inequalities cannot exclude unindexed presentations or equivalent results hidden within special-function identities. Verification is self-review only; no independent audit has been performed.
 
 ## References
 
