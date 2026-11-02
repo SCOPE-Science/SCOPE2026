@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible computational checks and mathematical limits
+# Independent mathematical audit
 
-Use Python 3 with the pinned-lower-bound dependencies in `requirements.txt`, and execute `python verify_cycle_jamming.py` from this directory. The program independently implements a finite labeled-state continuous-time Markov generator using sparse matrix exponentials for cycles of 4 through 10 vertices, and compares finite-time availability to the exact infinite-line benchmark where relevant. It also independently sorts first Poisson arrival clocks to simulate later jammed configurations on cycles with 256 and 1024 vertices.
+## correctness
 
-Observed recorded output: for 256 vertices over 5,000 realizations, the empirical probability of being jammed at time \(\log n\) was 0.87100 and the mean available-pair count was 0.13700; for 1,024 vertices over 3,500 realizations these quantities were 0.87714 and 0.13286. The respective predictions are 0.87342 and 0.13534. The program returned `PASS: 71 deterministic and stochastic assertions`.
+PASS
 
-The numerical checks establish neither a proof for arbitrary cycles nor an exact asymptotic error constant. The theorem's proof instead uses the first-arrival graphical construction, exact half-line vacancy probability, decreasing-clock localization, the standard Stein–Chen dependency-neighborhood inequality, and mixed factorial-moment convergence. No independent audit or external validation has been performed.
+The first edge Poisson-clock reduction is exact by monotone blocking. Removing an edge factors half-lines, where terminal vacancy u(t)=exp(-(1-e^{-t})), giving p_infty(t)=e^{-t}u(t)^2. Strictly decreasing ancestral-clock paths yield uniform space-time localization with eps_R<=2^{R+2}/R!. With R=ceil(4 log n), edge indicators have O(R)-sized dependency neighborhoods, rare marginals e^{-2-x}/n+O_L(n^-2)+O(eps_R), and P(Y_e=Y_f=1)<=e^-2t for distinct edges; b1,b2=O_L(R/n), restoring coupling costs n eps_R. Mixed factorial moments with O(n^{k-1}R) nonseparated tuples give the spatial PPP. N=0 iff no future accepted deposition, so the zero-event CDF and Gumbel centering follow. Direct independent first-clock simulations at n=128 and 512 support but do not prove the limit.
+
+## originality
+
+PASS
+
+Classical infinite-line empty-pair probabilities, clock constructions, concentration and dependency-neighborhood Poisson bounds are prior. Materially inspected general-graph RSA treatment proves occupancy normal approximations, not the logarithmic rare-availability PPP and cyclic Gumbel jamming time; fully connected k-mer extreme-value time has a genuinely different geometry and scaling. Within inspected sources the combined spatial PPP, quantitative rate and cyclic jamming law are not shown. Historical priority remains best of knowledge only.
+
+## value
+
+PASS
+
+The natural terminal-time statistic of irreversible one-dimensional adsorption is characterized jointly in space and time, with an explicit geometric intensity and usable total-variation rate. This fills a distinct late rare-event regime not covered by finite-time density/jamming coverage alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
