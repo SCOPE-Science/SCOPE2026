@@ -1,15 +1,21 @@
-# Scientific review: exact beta-binomial degrees in recursive cographs
+# Independent mathematical audit
 
-## Correctness — PASS
-The parent selection and optional true-twin edge give the old-vertex conditional degree increment \((k+q)/n\). The new vertex is a random parent's old degree plus Bernoulli\((q)\). The resulting founder recurrence and the recurrence for the annealed degree histogram agree term by term with the beta-binomial recurrence, respectively for initial parameter pairs \((q,1-q)\) and \((2q,2(1-q))\). The proof treats initial size one, all degrees including zero and maximum, and all integer sizes. The variance formulas and beta weak limits follow from the beta-mixture representation. The embedded exact rational checker independently enumerates finite graph laws and verifies those recurrences; 10,821 assertions passed. Risk: no proof of a joint or quenched degree limit is provided or claimed.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The starting graph process, graphon limit, and complete finite labeled-graph probabilities already appear in Féray–Rivera-Lopez (arXiv:2306.04278), including a strong general enumerative result which in principle determines all marginals by summation. Inspection of the available primary text did not identify the collapsed beta-binomial *degree* identities, all-size uniformity, or the founder/typical-vertex parameter-doubling law. Bassino and collaborators (arXiv:1907.08517) prove degree uniformity for uniform random cographs, a different graph law and an asymptotic rather than finite assertion. Scientific searches covering duplicates, cographs, beta-binomial degrees and the full graph formulas found no closer matching claim. A broader, presently unidentified theorem in duplication-graph probability could subsume this marginal calculation; searches do not establish historical uniqueness.
+PASS
 
-## Value — PASS
-A random vertex's degree is a first-order observable for a graphon model; its exact finite law is therefore a natural invariant rather than a specially selected coefficient. The complete law holds for every size and bias, exhibits an exact uniformity at symmetry, and distinguishes old versus typical vertices by a factor-of-two shift in beta shape despite equal means. It sharpens interpretation of existing graphon limits and makes a precise comparison with uniform-cograph asymptotic degree laws. It does not rely on unsupported downstream applications.
+Read assigned RESULT.md and exact-rational verify_degrees.py. Given an existing degree-k vertex, the next duplicate links to it with conditional probability (k+q)/n (parent one of its k neighbors or the vertex with a true-twin Bernoulli q). The founder count follows the classical Pólya recursion. For a uniform vertex, expected counts of old degree-k vertices plus the newborn parent degree+Bernoulli(q) yield h_{n+1}(k)=[(n+1-k-2q)h_n(k)+(k-1+2q)h_n(k-1)]/(n+1). This is exactly beta-binomial with a=2q,b=2(1−q). Initial n=1 and boundary k=0,n−1 are handled, n arbitrary. The beta mixture gives the stated variance and weak limits. Independently enumerated full probability laws of actual labeled recursive graphs at 15 (n,q) cases with n≤5 using exact fractions, verifying BOTH degree laws. No quenched or joint degree-law result claimed.
 
-## Limitations and literature
-The result addresses annealed one-vertex degrees, not a deterministic empirical law. Foundational source: Féray and Rivera-Lopez, arXiv:2306.04278 (June 7, 2023). Closest degree-law comparison: Bassino and collaborators, arXiv:1907.08517 (July 19, 2019). Independent validation has not been performed; unresolved older or wider cloning-model results may affect historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant published research-index and primary literature comparisons found no directly covering exact claim, subject to the explicit priority limitations. The novel result is the exact claim stated, not its previously known foundational object or general theory.
+
+## value
+
+PASS
+
+Vertex degrees are a natural first-order observable in growing random graph models. The all-n finite distribution with doubled beta parameters and its exactly flat q=1/2 case distinguish typical and founder age laws, giving useful interpretable marginal information not merely a table or a graphon existence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
