@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T12:57:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Steps 1–4 at frozen Git blob 93f1962e5710b2ebafecb5168a27b2223622d4c4",
+        "Assigned verify_two_equivalence_forests.py blob 24b3bee41b481949bd28409df5a4121f62b32132 read but not blindly trusted",
+        "Independent direct partition-pair checker in container, all n=1..8; n=8 checks 91080/17378/388",
+        "Exact reconstructed 7-entry Git source-tree SHA 658aea9c23f9784d65d3b7e259cc417674d3ae78"
+      ],
+      "rationale": "A finite pair of genuine equivalences is exactly a bipartite class-incidence multigraph with one edge per universe element and parallel edges distinguished. From c_r(x), remove precisely the known occurrence for x in each E- or F-class multiset to recover depth-r+1 nonbacktracking rooted half-edge unfoldings; this induction preserves multiplicities. For an n-edge incidence forest, the full edge-rooted component has at most n−1 other edges, so depth n+1 cannot omit a branch. A cyclic n-edge competitor admits a nonbacktracking walk past n distinct edge positions, forcing an unfolding larger than any forest half-edge, even for a two-cycle of parallel edges. Thus equal color histograms imply both graphs forests and the same multiset of rooted component types, hence identical component multiplicities and side-preserving isomorphism. Each color condition is definable with two variables by counting its E/F-neighborhood color multisets and retaining the previous color; rank n+2 characterizes the n-element structure among the stipulated two-equivalence models. Stable colors coincide with edge-rooted component isomorphism types and with automorphism orbits. An independently constructed exact integer partition-pair enumerator checked all 91,080 configurations at n=8, with 17,378 acyclic configurations and 388 forest types, and no signature collisions; this is corroboration, not proof of the unrestricted statement.",
+      "residual_risks": [
+        "The conclusion is restricted to finite structures with E and F both equivalences; arbitrary binary relations or infinite cases are not proved.",
+        "The n+2 quantifier-rank bound is sufficient, with no optimality claim.",
+        "Enumeration is finite corroboration; only proof covers all n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jan Böker, Color Refinement, Homomorphisms, and Hypergraphs, arXiv:1903.12432 (2019), §2.1, Lemma 2.",
+          "Arvind, Köbler, Rattan and Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255 (2015), introduction and forest amenability result.",
+          "Böker Lemma 2 proves equivalence of hypergraph and colored-incidence-graph color-refinement indistinguishability, allowing parallel hyperedges.",
+          "Arvind et al state trees are amenable; their refinability hierarchy covers automorphism orbit partitions, and a typed forest is a disjoint union of typed trees."
+        ],
+        "reasoning": "Compose the established incidence-hypergraph equivalence with established forest amenability. For any two-equivalence competitor B with the same multiset of element colors as forest A, the colored incidence refinement stabilizes with matching class color profiles and thus a forest-equivalent incidence graph. It follows B is isomorphic to A. The named-side and exactly-two-hyperedge restrictions simplify, not strengthen, the broader mechanism.",
+        "searches": [
+          "Böker arXiv:1903.12432 primary full-text §1.1 and §2.1 Lemma 2 and proof",
+          "Arvind et al arXiv:1502.01255 full-text introduction, forest and compactness hierarchy"
+        ]
+      },
+      "checked_sources": [
+        "Jan Böker, Color Refinement, Homomorphisms, and Hypergraphs, arXiv:1903.12432 (2019), §2.1, Lemma 2.",
+        "Arvind, Köbler, Rattan and Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255 (2015), introduction and forest amenability result.",
+        "Scheidt and Schweikardt, arXiv:2407.16022 introduction/main results",
+        "Butti and Dalmau, arXiv:2107.02956 introduction/main results",
+        "Resultary semantic query: two equivalence relations partition pairs incidence forest acyclic bipartite multigraph identified by C2 counting logic color refinement orbits",
+        "Resultary semantic query: edge color refinement line graph forests universal cover equivalence classes C2 amenability",
+        "Resultary semantic query: graphs with two equivalence relations acyclic incidence tree uniquely reconstructed by Weisfeiler Leman 1 dimensional",
+        "Exact assigned Git RESULT.md/REVIEW.md/AUDIT.json/VERIFICATION.md/source checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Böker §2.1 explicitly says one hypergraph color-refinement step corresponds to two incidence-graph refinement steps; Lemma 2 formalizes equivalence.",
+          "Arvind et al list trees as amenable and prove the wider implication amenable => refinable; standard disjoint-union forest decomposition yields component recovery.",
+          "RESULT.md Steps 1-3 reconstruct marked-edge branches by removing the vertex itself once from each class multiset. That is the hypergraph incidence-refinement elimination step specialized to one hyperedge per tag."
+        ],
+        "reasoning": "The full finite identification and stable orbit assertion are a corollary of published hypergraph-to-incidence refinement plus standard colored-tree amenability. The explicit n+2 bound is a direct counting-logic translation of n+1 rounds of the elementary finite-depth nonbacktracking forest argument. Although the exact rank formula was not found verbatim in those sources, it does not restore originality to the covered main theorem.",
+        "searches": [
+          "Böker arXiv:1903.12432 §2.1 definition and Lemma 2 proof (material read)",
+          "Arvind et al arXiv:1502.01255 intro, forest amenability, refinability of amenable structures",
+          "RESULT.md Steps 1-4 at assigned exact Git tree"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An element x is an incidence edge joining its E-class and F-class; equivalently it is a hypergraph vertex incident with exactly two tagged hyperedges: its E-class and F-class.",
+          "The hypergraph incidence graph subdivides every edge of I(A) once; edge type labels E,F distinguish the two sides.",
+          "One round of tagged hypergraph color refinement returns the two named hyperedge neighbor-color multisets, the exact invariant computed by c_{r+1}(x).",
+          "Jan Böker, Color Refinement, Homomorphisms, and Hypergraphs, arXiv:1903.12432 (2019), §2.1, Lemma 2."
+        ],
+        "reasoning": "The two-equivalence model is a restricted, two-tag hypergraph model. The exact target colors are a standard hypergraph incidence-neighborhood refinement with its two tags kept distinct. This reformulation is direct and covers all finite orders and multiplicities, not merely sample parameters.",
+        "searches": [
+          "Resultary semantic query: two equivalence relations partition pairs incidence forest acyclic bipartite multigraph identified by C2 counting logic color refinement orbits",
+          "Resultary semantic query: edge color refinement line graph forests universal cover equivalence classes C2 amenability",
+          "Resultary semantic query: graphs with two equivalence relations acyclic incidence tree uniquely reconstructed by Weisfeiler Leman 1 dimensional",
+          "Böker arXiv:1903.12432 §2.1, hypergraph vertex refinement and colored incidence graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct numerical table was used for the all-size theorem; one independent finite enumeration gives 91,080 partition-pair representatives and 17,378 forest cases at n=8 with 388 distinct forest types and no collision.",
+          "The colored-incidence reduction and universal forest amenability provide stronger complete coverage than any finite database."
+        ],
+        "reasoning": "The claimed novelty is structural rather than a specific missing database entry. The exhaustive table through eight elements corroborates correctness but cannot distinguish a new theorem from an older implication. No database search can negate the decisive broader-coverage source.",
+        "searches": [
+          "Resultary semantic query: two equivalence relations partition pairs incidence forest acyclic bipartite multigraph identified by C2 counting logic color refinement orbits",
+          "Resultary semantic query: edge color refinement line graph forests universal cover equivalence classes C2 amenability",
+          "Resultary semantic query: graphs with two equivalence relations acyclic incidence tree uniquely reconstructed by Weisfeiler Leman 1 dimensional",
+          "The assigned exact checker verify_two_equivalence_forests.py",
+          "Independent small-case partition-pair enumerator, n<=8"
+        ]
+      },
+      "rationale": "The main identification mechanism is covered up to an elementary typed specialization of two established results. Böker (2019), §2.1 Lemma 2 identifies hypergraph vertex color refinement with color refinement on its colored incidence graph. Encode the universe X as hypergraph vertices; take one tagged hyperedge for each E-class and F-class. Every vertex belongs to exactly one hyperedge of each tag. One typed hypergraph refinement step computes precisely the two separate equivalence-class color multisets in the claim. Its colored incidence graph is the edge subdivision of the original E/F-class incidence multigraph; hence a forest. The classical amenability and orbit-refinability of vertex-colored forests then determine the colored incidence graph, hence the two-equivalence structure. The claimed finite quantifier-rank estimate uses the routine finite-depth unfolding bound on an n-edge forest and the standard C² counting translation, not an independent additional phenomenon. Earlier work need not use the exact two-equivalence phrasing to cover this consequence. These primary results were not substantively compared in the original self-review, and its positive originality conclusion is overridden. The comparison is an implication argument, not mere title overlap.",
+      "residual_risks": [
+        "The older hypergraph lemma is stated without E/F tags; the trivial typed extension has been checked at the level of refinement recurrences rather than quoted verbatim.",
+        "The precise n+2 quantifier-rank upper bound is not printed as a number in Böker or Arvind, but is a direct finite-depth tree unfolding and standard counting-logic translation.",
+        "The older papers give a broader implication rather than repeating this exact named-equivalence theorem; under the explicit corollary-coverage bar that is sufficient for originality failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader prior refinement theorem, with immediate typed-hyperedge specialization, substantially covers the asserted reconstruction mechanism",
+          "evidence": [
+            "§2.1 describes hypergraph vertex refinement via multisets of incident hyperedge-color multisets",
+            "Lemma 2 equates hypergraph refinement with two-color incidence graph refinement",
+            "The method accommodates parallel hyperedges and hence repeated class neighborhoods"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.12432",
+          "material_read": "Full primary arXiv text, §1.1 introduction; §2.1 complete formal hypergraph refinement definition, colored-incidence graph reduction, Lemma 2 statement and proof, including the multigraph/parallel-edge scope",
+          "method": "ArXiv open full-text and PDF page image; direct comparison with the assigned exact c_r recurrence",
+          "title": "Color Refinement, Homomorphisms, and Hypergraphs",
+          "trigger": "Hypergraph incidence refinement is the direct alias for the two-equivalence class-neighborhood process"
+        },
+        {
+          "assessment": "Ordinary tree and forest amenability plus amenable-implies-refinable form the second established implication needed to cover the claim",
+          "evidence": [
+            "Introduction explicitly states trees are amenable",
+            "Introduction gives the graph-identification/2-variable counting logic correspondence",
+            "Amenable subset of refinable ensures stable colors refine to orbit partition"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "Primary full-text introduction, definitions of amenability and refinability, amenable graph hierarchy and forest application",
+          "method": "ArXiv HTML primary text, section passages and PDF page cross-check",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Acyclic colored incidence graph reconstruction and automorphism-orbit refinement"
+        },
+        {
+          "assessment": "Relevant generalized setting but not required for rejection because the older explicit hypergraph specialization already supplies a decisive implication",
+          "evidence": [
+            "Defines relational color refinement and relates it to homomorphism equivalence over acyclic relational instances"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.16022",
+          "material_read": "Primary full-text introduction and main theorem statements; relation to homomorphisms and acyclic relational structures",
+          "method": "ArXiv full text, mathematical statement comparison",
+          "title": "Color Refinement for Relational Structures",
+          "trigger": "Broader relational refinement potentially subsumes named two-equivalence models"
+        },
+        {
+          "assessment": "Potential broader logical context, but no need to rest the decision on this theorem",
+          "evidence": [
+            "Develops relational WL/fractional-homomorphism invariants under general relation systems"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.02956",
+          "material_read": "Primary paper introduction and basic theorem discussion",
+          "method": "Open arXiv full text and PDF page inspection",
+          "title": "Fractional Homomorphism, Weisfeiler-Leman Invariance, and the Logic of Graph Neural Networks",
+          "trigger": "General relational 1-dimensional WL and fractional-isomorphism alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and its concrete statement, proof, quantifier bound, orbit consequence",
+        "Jan Böker, Color Refinement, Homomorphisms, and Hypergraphs, arXiv:1903.12432 (2019), §2.1, Lemma 2.",
+        "Arvind, Köbler, Rattan and Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255 (2015), introduction and forest amenability result."
+      ],
+      "rationale": "As a mathematical invariant, the claim is a useful complete classification of the logical recognition and automorphism-orbit behavior of incidence-acyclic pairs of equivalence relations. It gives a concrete uniform n+2 counting-logic rank bound and shows the separate E/F class neighbor-count refinement suffices despite large cliques in the Gaifman graph. This is a natural, independently usable exact structural fact rather than an arbitrary numerical slice. However its utility is independent of its historical originality: the behavior and proof mechanism are covered as a corollary of existing hypergraph-incidence refinement and forest amenability, so value PASS does not rescue originality FAIL.",
+      "residual_risks": [
+        "The theorem is not an original structural contribution because of the direct published-covering reduction.",
+        "No optimality of the C² rank bound is claimed or needed for its utility."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jan Böker, Color Refinement, Homomorphisms, and Hypergraphs, arXiv:1903.12432 (2019), §2.1, Lemma 2.",
+    "Arvind, Köbler, Rattan and Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255 (2015), introduction and forest amenability result.",
+    "Exact assigned Git source/verification files and independent n<=8 finite re-enumeration"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Only finite two-equivalence interpretations, not arbitrary binary relations or infinite models.",
+    "No optimality of rank n+2 or cyclic-case identification.",
+    "Finite computations corroborate but do not establish the all-size theorem."
+  ],
+  "residual_risks": [
+    "The mathematical theorem is correct and useful but is a typed hypergraph/colored-tree corollary of the prior literature.",
+    "Public administrative-file privacy sanitization remains a transport/publication blocker; no scientific failure has been attributed to that operational issue."
+  ],
+  "schema_version": 1
+}
