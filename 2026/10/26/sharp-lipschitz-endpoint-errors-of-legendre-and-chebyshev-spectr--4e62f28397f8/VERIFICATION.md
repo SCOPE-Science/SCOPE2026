@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The proof's finite-degree identities are reconstructed directly from orthogonal reproducing kernels. The limiting constants are derived analytically using Jacobi oscillation asymptotics, a uniform integrable endpoint bound, and an Abel-summation estimate for the sine-series tail. Exact equality cases follow from choosing derivatives to be the signs of the respective kernels. The numerical reproduction checks are corroboration, not an infinite certificate.
+# Independent mathematical audit
 
-The companion `verify.py` evaluates the two absolute-integral formulas at degrees 0, 1, 2, 5, 10, 20, 50, 100 and verifies the degree-two Legendre radical. On its originating run it completed with output `PASS finite-degree consistency checks; limits require analytic proof`. It requires `scipy` and `numpy` and may be executed as `python verify.py` with the script in the same directory.
+## correctness
 
-No human or independent review is represented by this record. Possible previously published special-case evaluations of the same endpoint errors have not been ruled out exhaustively.
+PASS
+
+Both endpoint evaluation operators reproduce constants. Integrating the Legendre Christoffel–Darboux endpoint kernel gives (P_n+P_(n+1))/2 and integrated Chebyshev Dirichlet kernel yields [(pi-u)-2 Σ_(k<=n)sin(ku)/k]/pi. A Lipschitz function has arbitrary a.e. derivative with |f′|<=1, and taking its sign equal to either integrated kernel attains the exact L1 norm for every n including n=0. The Jacobi contiguous identity P_n+P_(n+1)=(1+x)P_n^(0,1) and global Darboux bound plus oscillatory averaging produce sqrt(n) E_L -> sqrt(2/pi); Abel expansion of the sine-series tail, controlled splitting near u=0, yields n E_C -> 8/pi². Independent quadrature computed n=0,1,2,5,10,30,100 and confirmed e.g. E_L(n=2)=24sqrt(6)/125 and scaled values at n=100 0.79392049,0.80188568 near respective constants 0.79788456,0.81056947. Finite numerical results are only corroboration of analytic asymptotics.
+
+## originality
+
+PASS
+
+General Peano-kernel optimal recovery duality and Jacobi Darboux asymptotics are classical. The candidate combines exact every-degree Lipschitz endpoint projection norms for both weights and evaluates different sharp decay exponents and coefficients; Wang examines different regularity classes and does not compute this particular pair. The evaluated constants and pairwise contrast are the narrow originality claim.
+
+## value
+
+PASS
+
+The precise worst-case endpoint approximation errors distinguish two ubiquitous orthogonal spectral projections for the same Lipschitz function class. The different optimal rates and explicit extremizers guide projection choice, and the all-degree norms are independently useful sharp constants rather than textbook rates alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

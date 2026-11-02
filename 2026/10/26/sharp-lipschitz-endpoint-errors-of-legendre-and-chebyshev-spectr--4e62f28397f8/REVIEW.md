@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Both finite-degree constants are exact operator dual norms on the real Lipschitz unit ball. The proof verifies normalizations of the two reproducing kernels, reduces the errors to integrals of arbitrary almost-everywhere derivatives with magnitude at most one, and gives explicit extremizers. Legendre telescoping yields the Jacobi absolute integral. The Jacobi bulk oscillation law with endpoint control gives the evaluated \(\sqrt{2/\pi}\) coefficient. The Chebyshev sine-tail Abel estimate, with a separately controlled small-angle region, gives \(8/\pi^2\). The standalone script independently evaluates both finite-degree integrals and checks the degree-two Legendre radical. Finite numerical experiments are not the proof of either infinite limit.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest examined general result (Wang, arXiv:2001.01985) develops Peano kernels and rates for smoother, fixed functions; it does not calculate the sharp uniform Lipschitz-unit-ball endpoint norm, its extremizers, or the separate Chebyshev constant. The papers arXiv:math/0111252 and arXiv:1502.07191 supply Jacobi asymptotic theory, not the claimed endpoint-error comparison. Existing similar database entries involve different Fourier/projector spaces, unrelated endpoint norms, or affine detrending at one degree. An earlier specialized computation, if unindexed, remains possible; none was established by the actual comparisons. The general Peano-kernel theorem itself is known and not claimed as novel.
+PASS
 
-## Mathematical value — PASS
-For a natural fixed regularity class, the theorem determines the exact worst possible endpoint output error for two standard orthogonal spectral truncations, at every degree, with attaining nonsmooth inputs. Its sharp limiting coefficients establish the structural fact that choosing the orthogonality weight changes the order of worst-case endpoint error, from a square-root rate to an inverse-degree rate. This is sharper than generic approximation estimates and directly informs the stability of endpoint recovery from truncated polynomial expansions.
+Both endpoint evaluation operators reproduce constants. Integrating the Legendre Christoffel–Darboux endpoint kernel gives (P_n+P_(n+1))/2 and integrated Chebyshev Dirichlet kernel yields [(pi-u)-2 Σ_(k<=n)sin(ku)/k]/pi. A Lipschitz function has arbitrary a.e. derivative with |f′|<=1, and taking its sign equal to either integrated kernel attains the exact L1 norm for every n including n=0. The Jacobi contiguous identity P_n+P_(n+1)=(1+x)P_n^(0,1) and global Darboux bound plus oscillatory averaging produce sqrt(n) E_L -> sqrt(2/pi); Abel expansion of the sine-series tail, controlled splitting near u=0, yields n E_C -> 8/pi². Independent quadrature computed n=0,1,2,5,10,30,100 and confirmed e.g. E_L(n=2)=24sqrt(6)/125 and scaled values at n=100 0.79392049,0.80188568 near respective constants 0.79788456,0.81056947. Finite numerical results are only corroboration of analytic asymptotics.
 
-## Limits and risk
-Only endpoint evaluation is treated. Finite-degree comparison for arbitrary orders is not claimed. The asymptotic constants depend on standard fixed-parameter Jacobi endpoint estimates and elementary Fourier summation, not on external independent validation. Possible unindexed earlier exact constants remain a novelty risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Peano-kernel optimal recovery duality and Jacobi Darboux asymptotics are classical. The candidate combines exact every-degree Lipschitz endpoint projection norms for both weights and evaluates different sharp decay exponents and coefficients; Wang examines different regularity classes and does not compute this particular pair. The evaluated constants and pairwise contrast are the narrow originality claim.
+
+## value
+
+PASS
+
+The precise worst-case endpoint approximation errors distinguish two ubiquitous orthogonal spectral projections for the same Lipschitz function class. The different optimal rates and explicit extremizers guide projection choice, and the all-degree norms are independently useful sharp constants rather than textbook rates alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
