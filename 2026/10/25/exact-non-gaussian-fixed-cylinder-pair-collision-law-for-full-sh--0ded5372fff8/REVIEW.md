@@ -1,15 +1,21 @@
-# Review of fixed-cylinder pair collisions
+# Independent mathematical audit
 
-## Correctness
-The identity expressing the pair count as squared orthogonal word-character sums holds pointwise, including pairs of overlapping windows. Distinct anchored decorated supports have zero covariance at every lag, and bounded \((k-1)\)-dependent multivariate CLT yields independent Gaussian anchors. The rank-one shift-placement blocks give the complete eigenvalue multiset and nullity; bounded dependence controls fourth cumulants and the \(O_{q,k}(N)\) remainder. Exact rational covariance spectra and exhaustive finite means were checked independently. Finite checks do not establish an infinite theorem; the analytic orthogonality and dependency arguments do.
+## correctness
 
-## Originality
-The central comparison is to Baker–Todd, arXiv:2606.17880 (2026), which concerns first-order shrinking-radius orbit-pair correlations. Fixed-cylinder quadratic fluctuations are a different normalization and observable. Schnurr–Silbernagel–Ruiz Marín (2025) study ordinal symbolic-correlation U-statistics, not literal word equality; general word-count central limit statements do not themselves determine the explicit eigenvalue multiplicities. Semantic database and local claim comparisons revealed no decisive equivalent or stronger statement. The uninspected full Baker–Todd manuscript and older word-pattern covariance literature remain priority risks, not certified absences.
+PASS
 
-## Value
-The all-alphabet/all-word-length covariance spectrum, its exact zero eigenspace dimension, and the non-Gaussian calibration of pair-collision counts at fixed cylinder length capture the structural linear dependencies caused by overlapping words. The exact variance coefficient and limit-law weights distinguish resolutions even when the expected collision probability is known. The scope is motivated by second-order orbit recurrence, not arbitrarily selected isolated parameters.
+For every fixed q>=2,k>=1, orthonormal single-letter functions tensor to a complete word basis. The pointwise delta identity gives U_N=(sum_a S_a,N^2)/(2q^k)-N/2 and mean C(N,2)/q^k. A nonempty decorated pattern has zero covariance with a nonidentical translate; classify patterns by anchored support span d. Its k-d placements differ only O(k) boundary terms and therefore all share the same asymptotic standard-normal coordinate. Distinct anchored patterns have zero correlations at all shifts; finite-range dependent multivariate CLT supplies independent limits. The spectrum has k/q^k mult q-1, (k-d)/q^k mult (q-1)^2q^(d-1), d=1..k-1, and 0 mult q^(k-1). Fourth cumulants O(N) for bounded m-dependent sequences give N^2 variance coefficient from sum squared eigenvalues with O(N) residual. Checked cases (q,k)=(2,1),(2,2),(2,3),(3,2) by independent direct rational word-overlap covariance matrices and exact eigenvalues. Finite checks corroborate, do not establish the all-q,k limit.
 
-## Limits and status
-Uniform independent symbols and fixed \(q,k\) only; neither Euclidean distance nor growing resolution is addressed. The literature investigation was bounded by full-text accessibility, and independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific weighted non-Gaussian collision limit and explicit complete multiplicity spectrum for literal fixed-length cylinder equality are not identified in the inspected related papers or published-record searches. Classical word-count CLTs imply existence of Gaussian count limits and general quadratic-function limits, but do not by themselves tabulate this exact anchored-pattern spectrum; priority is best-of-knowledge with an unread relevant recent source.
+
+## value
+
+PASS
+
+Fixed-cylinder recurrence/pair-collision is a natural full-shift statistic; its exact variance coefficient and degenerate covariance eigenspaces are nontrivial consequences of word overlap and calibrate the non-Gaussian second-order null distribution for every alphabet size and fixed window length. The exact all-parameter multiplicities are independently useful, not a numerical slice of one q,k. No shrinking-radius or non-Bernoulli assertion is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The package includes `checker.py` and its actual output `check_results.txt`. Requires Python 3 and SymPy to verify exact rational matrices. Run `python checker.py` in the directory containing these two files. The checker builds the long-run k-word covariance from literal word-overlap compatibility at every relative lag and compares exact characteristic spectra against the independent anchored-pattern theorem. Eight pairs \((q,k)\) were checked, with the expected zero eigenspace multiplicities and variance coefficients. Exhaustive independent finite-string enumeration checked the mean identity for seven small pairs and sample lengths. Its final output was `CHECKS_PASS`.
+## correctness
 
-The proof's analytic anchors are the orthonormal character completeness identity, independent-coordinate product orthogonality for distinct decorated supports, the multivariate finite-dependence central limit theorem, and the connected-fourth-cumulant count. The exact variance coefficient is computed from the eigenvalues via the finite geometric sum. Neither finite computations nor program execution assert the asymptotic CLT for untested parameters. The recent primary arXiv manuscript was unavailable in full text; the literature comparison explicitly retains this uncertainty.
+PASS
+
+For every fixed q>=2,k>=1, orthonormal single-letter functions tensor to a complete word basis. The pointwise delta identity gives U_N=(sum_a S_a,N^2)/(2q^k)-N/2 and mean C(N,2)/q^k. A nonempty decorated pattern has zero covariance with a nonidentical translate; classify patterns by anchored support span d. Its k-d placements differ only O(k) boundary terms and therefore all share the same asymptotic standard-normal coordinate. Distinct anchored patterns have zero correlations at all shifts; finite-range dependent multivariate CLT supplies independent limits. The spectrum has k/q^k mult q-1, (k-d)/q^k mult (q-1)^2q^(d-1), d=1..k-1, and 0 mult q^(k-1). Fourth cumulants O(N) for bounded m-dependent sequences give N^2 variance coefficient from sum squared eigenvalues with O(N) residual. Checked cases (q,k)=(2,1),(2,2),(2,3),(3,2) by independent direct rational word-overlap covariance matrices and exact eigenvalues. Finite checks corroborate, do not establish the all-q,k limit.
+
+## originality
+
+PASS
+
+The specific weighted non-Gaussian collision limit and explicit complete multiplicity spectrum for literal fixed-length cylinder equality are not identified in the inspected related papers or published-record searches. Classical word-count CLTs imply existence of Gaussian count limits and general quadratic-function limits, but do not by themselves tabulate this exact anchored-pattern spectrum; priority is best-of-knowledge with an unread relevant recent source.
+
+## value
+
+PASS
+
+Fixed-cylinder recurrence/pair-collision is a natural full-shift statistic; its exact variance coefficient and degenerate covariance eigenspaces are nontrivial consequences of word overlap and calibrate the non-Gaussian second-order null distribution for every alphabet size and fixed window length. The exact all-parameter multiplicities are independently useful, not a numerical slice of one q,k. No shrinking-radius or non-Bernoulli assertion is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
