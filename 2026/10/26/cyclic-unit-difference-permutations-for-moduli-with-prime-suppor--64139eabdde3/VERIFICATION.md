@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem is proved algebraically in `RESULT.md` by a primitive-root construction modulo \(3p\) and a lifting lemma from \(m\) to \(mq\), for an odd prime \(q\mid m\). The script `verify.py` is standard-library-only and is supplementary, not an exhaustive infinite proof.
+# Independent mathematical audit
 
-To replay: use `python3 verify.py` with Python 3. The expected line is `VERIFY_OK moduli 137 largest_n 89373 total_units_and_edges 1041828`.
+## correctness
 
-The script checks prime inputs, generates all claimed cyclic vertices, checks equality with the exact reduced residue set and checks that the cyclic oriented differences give that same set. Every closing edge is included. The verification covers all claimed parameters up to the indicated finite bounds, not unbounded primes or exponents. The general proof rests on the invertibility of the two difference slopes in the lifting lemma and on the nonvanishing of the two CRT factors in the base construction.
+PASS
+
+For p≥5, CRT classes A_t=(1,g^t) and B_t=(2,cg^t) with c≠1,g alternate. Both classes cover their units once, and differences become (2,(1−c)g^t) and (1,(c−g)g^t), enumerating every unit. For odd q|m, the lift y_(rL+i)=x_i+mr α_i, α_i alternating 1,2, includes all q vertex lifts. Every ordinary edge difference varies with nonzero slope ±1 mod q, and the wrap edge varies with slope 1 because φ(m)=L is even. Thus all q lifts of each prior difference occur exactly once and induction covers every exponent. Independently constructed and fully verified cycles for p=5,7,11,13 and successive q=3,3,p, including the wrap.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the exact final statement after explicit comparison with related stronger/alternate formulations; any inaccessible source is recorded as a residual risk, not assumed noncovering.
+
+## value
+
+PASS
+
+The mixed-prime 3^a p^b family is a substantial infinite constructive extension from the known prime-power case toward an explicitly published all-odd-modulus conjecture. The CRT base and prime-factor exponent lifting give reusable structure; it is not a finite instance or computational curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
