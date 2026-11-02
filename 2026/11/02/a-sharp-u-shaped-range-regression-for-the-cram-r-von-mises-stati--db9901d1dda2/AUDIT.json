@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For all integer n>=2, the order-statistic representation and exact conditioning on minimum/maximum give the displayed quadratic conditional expectation. Uniformity of the minimum conditional on the range and Beta(n-1,2) moments produce the covariance. Differentiation gives an interior unique minimizer and crossings. Degenerate pair empirical-process decomposition yields Var(W)=(4n-3)/(180n), and hence the exact correlation. Every boundary is specified and 48 independently constructed exact-rational checks through n=7 passed; those checks do not substitute for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Laio (2004) handles EDF tests for families with estimated parameters, which is a different conditioning problem.",
+        "Frey and Wang (2014), DOI 10.1002/cjs.11224: available abstract concerns EDF tests of ranked-set samples, rather than the same-sample uniform range."
+      ],
+      "reasoning": "A known full joint distribution of the range and the CvM functional, or a universal quadratic functional conditional on extremes, would dominate this claim. The closest accessed text develops neither; absence of access to all historical works is not proof of uniqueness.",
+      "searches": [
+        "\"Cramer-von Mises\" \"extremes\" \"conditional\" sample",
+        "\"Cramer von Mises\" \"order statistics\" \"conditional\" uniform sample"
+      ]
+    },
+    "checked_sources": [
+      "F. Laio (2004), Water Resources Research, DOI 10.1029/2004WR003204, full HTML §§1–4",
+      "S. Csörgő and J. J. Faraway (1996), JRSS B 58(1), DOI 10.1111/j.2517-6161.1996.tb02077.x, published abstract",
+      "J. Frey and L. Wang (2014), Canadian Journal of Statistics 42, DOI 10.1002/cjs.11224, publisher abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Laio (2004) gives unconditional moments, including limiting mean 1/6 and variance 1/45.",
+        "Csörgő and Faraway (1996) study marginal CvM distributions, while the joint conditional relation is not a logical consequence of any one marginal distribution.",
+        "The range-vs-sample-variance literature concerns a different integrand and null model."
+      ],
+      "reasoning": "Neither the unconditional law of CvM nor the beta marginal law of the range uniquely determines their joint covariance or nonmonotone regression. The new proof supplies the missing coupling through the shared observations. Classical order-statistic conditioning could indirectly derive the identity; priority uncertainty is recorded.",
+      "searches": [
+        "\"Cramér-von Mises\" \"range\" \"covariance\" empirical",
+        "Csorgo Faraway 1996 Cramer von Mises paper open access pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Laio (2004), DOI 10.1029/2004WR003204, §§2–4: full text discusses the unconditioned squared-EDF statistic and fitted-parameter calibration.",
+        "Csörgő and Faraway (1996), DOI 10.1111/j.2517-6161.1996.tb02077.x: abstract describes exact/asymptotic marginal distributions, without mention of conditioning on sample extrema."
+      ],
+      "reasoning": "An equivalent formulation would be the conditional mean of the quadratic uniform empirical-process norm given the sample diameter, or its joint range moment. Neither is stated in material examined. The full 1996 article remained unavailable, so the comparison with that paper is risk-qualified.",
+      "searches": [
+        "Cramér-von Mises statistic sample range covariance conditional expectation uniform order statistics",
+        "Cramer von Mises W squared regression on sample range beta conditional U shape",
+        "\"Cramer-von Mises\" \"sample range\" conditional expectation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical tables reported in the inspected literature calibrate the marginal null distribution and quantiles of CvM, not joint range/CvM values.",
+        "The finite-size exact identities can be recomputed from explicit beta and empirical-process moments; small-size checks are generated from the standalone rational integration code."
+      ],
+      "reasoning": "Existing marginal CvM null-distribution tables cannot determine its covariance or regression against the sample range; no exact matching joint table was located.",
+      "searches": [
+        "\"Cramér von Mises\" \"range\" covariance uniform sample",
+        "\"Cramer von Mises statistic\" \"sample range\" moments"
+      ]
+    },
+    "rationale": "The accessible primary source by Laio (2004) gives the classical EDF statistic, case-zero moments and fitted-parameter transformations, but not its regression on the same-sample range. The other closest published results treat marginal CvM laws, ranked-set testing, or covariance of the sample range with different summaries, not the present joint range/CvM statistic. Full historic coverage by older sources remains a residual risk.",
+    "residual_risks": [
+      "The complete Csörgő–Faraway (1996) text was not accessible, so an equivalent conditional identity there or in cited appendices cannot be ruled out.",
+      "Classical order-statistics and empirical-process textbooks could contain a disguised derivation of the sample-range regression; historical novelty is not independently established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The null case-zero moment statements concern the marginal statistic; it does not report the joint conditional regression on the sample range.",
+        "evidence": [
+          "§2 defines the integrated squared difference between empirical and hypothesized CDFs.",
+          "§3 gives limiting case-zero mean 1/6 and variance 1/45; sections 3–4 address transforms for estimated distributions, not conditioning on extrema."
+        ],
+        "identifier_or_url": "doi:10.1029/2004WR003204",
+        "material_read": "Full HTML article, especially Introduction, §§2–4, and case-zero moments in §3",
+        "method": "Direct reading and comparison of estimands, sample assumptions and conditional quantities",
+        "title": "Cramer–von Mises and Anderson-Darling goodness of fit tests for extreme value distributions with unknown parameters",
+        "trigger": "Same classical one-sample EDF quadratic statistic, known null moments and fitted-parameter corrections"
+      },
+      {
+        "assessment": "The published abstract concerns marginal null distributions; exact full-text comparison remains unresolved, although no direct range-conditioning coverage is evidenced.",
+        "evidence": [
+          "Abstract: asymptotic one-term correction closely approximates the exact null distribution for small samples.",
+          "The work also addresses marginal Watson-statistic distributions; no visible abstract assertion concerns sample extrema."
+        ],
+        "identifier_or_url": "doi:10.1111/j.2517-6161.1996.tb02077.x",
+        "material_read": "Published abstract, bibliographic detail and cited-reference context; attempted author-access full text was unavailable",
+        "method": "Compared abstract statement and source scope; did not infer whole-document noncoverage",
+        "title": "The Exact and Asymptotic Distributions of Cramér-Von Mises Statistics",
+        "trigger": "Especially plausible stronger exact-distribution results for the identical classical CvM statistic"
+      },
+      {
+        "assessment": "Tests under ranked-set sampling and imperfect ranks have different sample laws; abstract does not state the uniform simple-sample range-conditional CvM law.",
+        "evidence": [
+          "Abstract studies combining empirical-CDF tests across judgment strata and their power.",
+          "First published online July 28, 2014."
+        ],
+        "identifier_or_url": "doi:10.1002/cjs.11224",
+        "material_read": "Publisher abstract and first-online date; full text inaccessible",
+        "method": "Compared sampling design and stated objective with the present i.i.d. uniform-range regression",
+        "title": "EDF-based goodness-of-fit tests for ranked-set sampling",
+        "trigger": "Another primary literature source combining order-statistic structure with EDF testing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db9901d1-dda2-469e-a62f-7fb24db0ecc3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The coupling of sample range (endpoint spread) to the integrated empirical-CDF deviation is a natural joint calibration problem for two distinct uniformity diagnostics. The exact U-shaped regression, precise interior minimum and crossing despite negative covariance reveal a nonmonotone dependence mechanism not implied by marginal CvM and beta-range laws. The exact correlation and inverse-n decorrelation rate quantify a finite-size phenomenon useful when interpreting ostensibly concordant diagnostics.",
+    "status": "PASS"
+  }
+}
