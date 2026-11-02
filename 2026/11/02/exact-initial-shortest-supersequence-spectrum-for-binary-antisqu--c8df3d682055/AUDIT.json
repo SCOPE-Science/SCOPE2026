@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "A complete finite binary prefix-tree recurrence tracks the longest embeddable prefix of every antisquare. The admissible pruning inequality is necessary, and induction proves exhaustiveness. Optimized C11 execution verified zero hosts at length 4k-2 for k=1..8 and exact k=1..7 counts at length 4k-1. An independent direct literal-target scan agreed at both lengths for k=1..5. The alternating upper bound is proved for every k; reversal/complement orbit and arch-index calculations are justified. No all-k lower bound is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson, arXiv:2304.04583, full HTML Sections 1-3, counts/ranks full-language k-universal words, not covering precisely the 2^k antisquares.",
+        "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 counts ordinary full-alphabet universal hosts.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949 concerns insertion distance to full universality."
+      ],
+      "reasoning": "Ordinary length-2k universality implies antisquare coverage but is stricter: its shortest host has length 4k, whereas antisquare hosts exist at 4k-1. Full-language enumerators do not give the restricted-language counts or orbit refinements. A general algorithm for shortest common supersequences could compute the values but is not itself a table or implication of the exact computed values.",
+      "searches": [
+        "published-finding corpus: antisquare universality shortest common supersequence all 2^k binary antisquares",
+        "published-finding corpus: count of pseudoperiodic finite binary words having pseudoperiod (1,3) growth entropy rational generating function",
+        "Web: shortest common supersequence of all words of equal numbers of zeros and ones"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.09223 (text; initial public 2022-09-19)",
+      "arxiv:2304.04583 (full HTML; 2023-04-10)",
+      "published-finding corpus: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 (summary only)",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949 (summary only)",
+      "published-finding corpus: 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baranwal et al. classify avoidance of contiguous antisquare factors; their factor notion cannot imply the scattered covering classification without additional arguments.",
+        "Adamson arXiv:2304.04583 full Sections 2-3 provides the arch theorem, used for the ordinary universality-index refinement, but does not constrain this restricted-language covering set.",
+        "published-finding corpus 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 concerns maximizing counts of shortest absent subsequences, not covering all antisquares."
+      ],
+      "reasoning": "The new claim is a finite extremal census for a proper complemented-square subset of all balanced patterns; both the exact sharp minimum (through k=8) and counts/orbits/histograms (through k=7) require information absent from the reported related claims. No cited prior statement logically yields them.",
+      "searches": [
+        "published-finding corpus: antisquare universality shortest common supersequence all 2^k binary antisquares",
+        "published-finding corpus: exact enumeration minimal absent words sliding window pseudoperiodic words finite combinatorics",
+        "Web: binary words all antisquares as subsequences shortest supersequence 4k-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No equivalent statement among reported published-finding corpus hits; closest full-language universality claims do not classify restricted antisquare covering.",
+        "Baranwal et al., arXiv:2209.09223, introduction and Sections 4-7 treat contiguous-factor avoidance and not the scattered-subsequence host census."
+      ],
+      "reasoning": "The same covering problem may be called a restricted-language shortest common supersequence or an antisquare test supersequence; neither searched formulation produced matching minimum-length tables or optimizer counts. A negative search does not establish uniqueness.",
+      "searches": [
+        "published-finding corpus: minimum-length supersequences containing every binary antisquare x complement x as a scattered subsequence, exact counts shortest universal hosts k",
+        "Web: antisquares subsequence universal shortest host",
+        "Web: antisquare shortest common supersequence binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No corresponding labeled count sequence or table appeared in those searches.",
+        "Closest published-finding corpus finite tables concern string attractors, generic universality, and subsequence spectra, not this antisquare language."
+      ],
+      "reasoning": "The database/sequence searches found no recorded table with the same object and parameter definition. This is limited negative evidence, not a global novelty certificate.",
+      "searches": [
+        "Web: OEIS antisquare universal subsequences 2 10 44 190 800",
+        "Web: 2 10 44 190 800 3266 antisquare",
+        "published-finding corpus: minimum-length supersequences containing every binary antisquare x complement x as a scattered subsequence, exact counts shortest universal hosts k"
+      ]
+    },
+    "rationale": "Comparison by target-language and logical implication distinguishes this finite antisquare scattered-host census from contiguous antisquare avoidance, complete-word subsequence universality, shortest-absent-pattern extrema, and generic SCS algorithms. Actual published-finding corpus and web searches found no matching table. Full arXiv scientific material was inspected for two closest primary papers. Residual literature gaps and broader implicit enumeration risks remain.",
+    "residual_risks": [
+      "Search and available summaries cannot exclude an unindexed finite restricted-language supersequence table.",
+      "Only two closest primary papers were read in detail; published-finding corpus repository full text was not accessible in this execution.",
+      "A more general restricted-language SCS theorem could imply the finite values without matching their wording."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this claim; focuses on contiguous factors and critical exponents, not shortest scattered supersequences",
+        "evidence": [
+          "arXiv:2209.09223 text lines 7-78 specify factors, avoidance and growth of good words; no scattered supersequence table in the inspected result statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.09223",
+        "material_read": "Full accessible HTML-derived text, introduction, problem statement, section summaries and antisquare definition, results on factor avoidance in sections 4-7",
+        "method": "Read the indexed full arXiv text and compared the literal definitions and theorem goals",
+        "title": "Antisquares and Critical Exponents",
+        "trigger": "Same pattern family and potential generalization from contiguous to scattered"
+      },
+      {
+        "assessment": "NOT_COVERING; ordinary full-universality counts are stronger host constraints and the arch result supplies only the index computation",
+        "evidence": [
+          "arXiv:2304.04583v1 Sections 1-3 define all patterns in the alphabet power and derive arch algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.04583v1",
+        "material_read": "Full accessible HTML Sections 1-3, particularly definitions 2.1-2.3 and Theorem 2.4 on arches",
+        "method": "Compared its full-language quantified target set and stated count algorithms with antisquare-only target set and exact computed table",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Possible enumeration of shortest hosts implied by generic k-universal counting"
+      },
+      {
+        "assessment": "No implication identified from the available summary; full record remains an access limitation",
+        "evidence": [
+          "Published summary states a bivariate full-universality-index distribution, not antisquare restricted covering"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "material_read": "published-finding corpus title and semantic-search abstract; repository full text not accessible",
+        "method": "Compared full-universality target quantifier in retrieved summary to antisquare-only coverage",
+        "title": "Published published-finding corpus summary: Closed-form law for binary subsequence universality",
+        "trigger": "Closest potential exact enumerative overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c8df3d68-2055-4f98-93e8-171792e4fc09",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An antisquare is a structurally natural complement-symmetric pattern family from contemporary combinatorics-on-words research. The shortest common supersequence length of its entire order-k language is a precise covering invariant; completing the first eight minimum-length instances and exact first seven extremal multiplicity, symmetry and ordinary-universality spectra exposes a sharp one-symbol gap from full universality and a quantitative distinction between restricted and unrestricted covering. This is a substantial finite census (up to 128 targets for complete counts and 256 for the length bound) rather than an arbitrary unmotivated sample; no infinite theorem is claimed.",
+    "status": "PASS"
+  }
+}
