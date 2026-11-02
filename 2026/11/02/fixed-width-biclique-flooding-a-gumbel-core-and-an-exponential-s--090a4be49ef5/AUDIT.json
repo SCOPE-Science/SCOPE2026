@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The independent-edge Poisson splitting, strong-Markov first-jump identities, exponential Chernoff saturation at a^(-1/3), remaining-pool Gumbel maximum, and uniform-integrability bound prove the finite stochastic ordering and fixed-b,k weak/mean limits. The standard-library checker passes 526 finite-generator and simulation diagnostics; no asymptotic statement relies on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leskelä and Ngo, arXiv:1806.09568, main theorems on sparse configuration models require finite limiting excess-degree behavior; for fixed-width K_{a,b} the high-degree side grows with a and size-biased degree moments diverge.",
+        "Doerr and Kostrygin, arXiv:2303.11150, study synchronous spreading rounds and mostly complete graph/random graph models, not asynchronous degree-normalized fixed-width bipartite source laws."
+      ],
+      "reasoning": "These neighboring papers supply methods and broad order-of-growth insight, not the stated O(1) centered distributional limits or the exact finite one-seed mean difference. Neither source framework satisfies all model hypotheses here.",
+      "searches": [
+        "fixed small part complete bipartite graph continuous time first passage infection flooding time Gumbel plus exponential shift source starting from large part",
+        "complete bipartite per-vertex Poisson calls infected rumor all vertices degree-normalized edge first passage time distribution",
+        "Leskelä Ngo boundary weights sparse random graphs flooding complete bipartite",
+        "Doerr Kostrygin randomized rumor spreading complete bipartite asynchronous"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1411.0948 (asynchronous edge-clock representation and star)",
+      "arXiv:1806.09568 (sparse graph first-passage and flooding)",
+      "arXiv:2303.11150 (synchronous rumor-spreading)",
+      "Semantic searches of published mathematical results for complete-bipartite flooding and source allocation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known star result b=1 is credited and does not directly cover two or more high-degree vertices.",
+        "Sparse random-graph flooding theory is inapplicable to the highly irregular fixed-width biclique degree sequence.",
+        "The centered limit retains an independent Exp(k) seed delay for peripheral-only starts, which is not determined by existing logarithmic first-order bounds."
+      ],
+      "reasoning": "Generic independent-edge representation is a premise, not an implication of the fixed-width singular regime; the main novelty candidate is the rapid hub saturation followed by a universal residual maximum, and the exact origin-dependent convolution. The finite first-jump relation is elementary and only accepted within this combined structural theorem.",
+      "searches": [
+        "asynchronous push pull SI epidemic complete bipartite graph K_{a,b}, seed in high degree part versus low degree, exact flooding time distribution, first-step source ordering",
+        "fixed small part complete bipartite graph continuous time first passage infection flooding time Gumbel plus exponential shift source starting from large part",
+        "complete bipartite asynchronous rumor spreading source starting vertex",
+        "complete bipartite Gumbel flooding time infection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1411.0948 gives independent undirected edge contact clocks and analyzes the one-hub star; this is the width-one boundary of the model.",
+        "The present state generator for width at least two has two nontrivial population coordinates, and its fixed-width distributional limit includes an independent exponential term absent from the known star classification as a general finite-width theorem."
+      ],
+      "reasoning": "The comparison explicitly included first-passage/per-edge-clock, asynchronous push-pull, complete-bipartite rumor-spreading, and population-state formulations. The star representation is reused and credited; the fixed-width multiseed Gumbel-versus-convolution classification was not found. A general representation alone does not imply the asymptotic classification without the rapid-saturation argument.",
+      "searches": [
+        "asynchronous push pull SI epidemic complete bipartite graph K_{a,b}, seed in high degree part versus low degree, exact flooding time distribution, first-step source ordering",
+        "fixed small part complete bipartite graph continuous time first passage infection flooding time Gumbel plus exponential shift source starting from large part",
+        "fixed-width complete bipartite SI rumor flooding K_{a,b} with b fixed a to infinity, Gumbel plus independent exponential initial seed delays for one or k vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete finite-size state generator has transitions at rates (a-i) j (1/a+1/b) and (b-j)i (1/a+1/b); the reported formula is not a tabulated small-instance value.",
+        "Available published discussions of asynchronous stars do provide a finite explicit formula for the one-hub case b=1; that case is excluded as a new result."
+      ],
+      "reasoning": "No cited numerical table or exact finite distribution was found that directly contains this fixed-width asymptotic multiseed classification. A complete search across all possible databases is not claimed.",
+      "searches": [
+        "fixed-width complete bipartite SI rumor flooding K_{a,b} with b fixed a to infinity, Gumbel plus independent exponential initial seed delays for one or k vertices",
+        "complete bipartite flooding fixed width exact distribution Gumbel exponential seed penalty",
+        "bipartite rumor spreading hitting-time Markov chain CDF exact"
+      ]
+    },
+    "rationale": "The known b=1 star and general edge representation in Acan et al. are credited rather than claimed. Sparse configuration-model flooding theorems and synchronous round results do not imply fixed-width K_{a,b} degree-normalized source-dependent O(1) law; no equivalent claim appeared in the searches and inspected full texts. Historical priority still requires independent assessment.",
+    "residual_risks": [
+      "Broad historical priority cannot be certified by finite literature searches.",
+      "Some uncatalogued complete-bipartite contact-process papers may contain equivalent results.",
+      "Asymptotic results for width b=1 are known and intentionally excluded from novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known b=1 reduction and source effect; not a theorem covering the fixed-width multiseed biclique classification",
+        "evidence": [
+          "Independent undirected exponential contacts at rate 1/deg(u)+1/deg(v)",
+          "Star case mean and source-dependence already known"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.0948",
+        "material_read": "Open-access preprint full text, including its independent edge clocks and star example",
+        "method": "Read model definitions, edge splitting, star calculation, and contrasted fixed-width width-two-or-greater state",
+        "title": "On the push&pull protocol for rumour spreading",
+        "trigger": "Same asynchronous Poisson-call process; star boundary and known edge-contact reduction"
+      },
+      {
+        "assessment": "Different hypotheses, sparse configuration-model setting, and precision; no implication of fixed-width centered biclique law",
+        "evidence": [
+          "First public submission dated June 25, 2018",
+          "Sparse excess-degree assumptions fail when the maximum degree is comparable to total vertices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.09568",
+        "material_read": "Open-access preprint principal model and theorem hypotheses, degree conditions, boundary-weight discussion",
+        "method": "Read model and relevant theorems and contrasted their sparse-degree hypotheses with fixed-width biclique degree distributions",
+        "title": "First passage percolation in sparse random graphs with boundary weights",
+        "trigger": "2018 probability reference for flooding and first-passage exponential random graphs; middle-period primary anchor"
+      },
+      {
+        "assessment": "Different process and graph assumptions; does not cover the exact fixed-b multiclass limit",
+        "evidence": [
+          "Discrete-round rumor-spreading analysis rather than independent Poisson edge-contact times"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.11150",
+        "material_read": "Open-access preprint model and principal results sections",
+        "method": "Compared synchronous push/pull rounds and graph setting to continuous-time Poisson biclique process",
+        "title": "Randomized Rumor Spreading Revisited",
+        "trigger": "Broad rumor-spreading distributional prior work potentially implying source-independent limits"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "090a4be4-9ef5-4647-b3f8-96de684805ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete centered-distribution and mean-level comparison across every fixed-size seed allocation for a natural core-periphery family. It shows the persistent, explicit Exp(k) delay for peripheral-only starting configurations, distinguishes seed location from seed count and supplies exact finite all-deadline ordering. Such an O(1) distributional penalty is not furnished by mere logarithmic flooding scale estimates.",
+    "status": "PASS"
+  }
+}
