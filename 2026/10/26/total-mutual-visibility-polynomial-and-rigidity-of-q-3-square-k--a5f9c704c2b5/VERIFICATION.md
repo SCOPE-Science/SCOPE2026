@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with Python 3.10 or newer and no third-party dependencies. The program constructs the labeled graph and enumerates the admissible vertex subsets by a forbidden-pair backtracking algorithm, independently of the proof's parity-and-component enumeration. It compares complete coefficient vectors for \(1\le n\le6\), including the exceptional \(n=2\) top coefficient. A separate breadth-first search tests shortest paths whose internal vertices avoid each selected set, on deterministic samples for \(1\le n\le3\); this checks the key criterion directly from the visibility definition on those samples.
+# Independent mathematical audit
 
-Passing output terminates with `VERIFY_OK all polynomial coefficients and sampled direct geodesics` and includes cardinality coefficient vectors for each checked \(n\). Finite verification cannot establish the formula or maximality for all \(n\); those are established by the proof. The exact sampling seed is included in the code. Independent external verification is not claimed.
+## correctness
+
+PASS
+
+Under established theorem that total mutual-visibility in a Hamming graph is equivalent to choosing no pair at distance two, each layer of Q3 x Kn contains at most one even and one odd 3-bit word. For occupied layer sets A,B, the off-diagonal constraint graph D(A,B) between parity labels enforces odd label=complement(even); each connected component has exactly 4 choices. For A,B nonempty the only disconnected patterns are coincident singleton, singleton contained in opposite support, and coincident doubletons, each with exactly 2 components. Baseline connected contribution plus 12 per disconnected case gives the full stated polynomial. For n>=3 its high-degree coefficients k>=n+2 are 4*C(2n,k), exactly the four disjoint antipodal cylinders, giving rigidity and 4 maxima; for n=2 extra 12 yield 16. Independent direct distance-two subset enumeration for n=2,3,4 recovered all coefficients. The infinite n claim follows from graph-component classification, not from these finite samples.
+
+## originality
+
+PASS
+
+The no-distance-two characterization and definition of total-visibility polynomial are prior theorems. A generic independent-set polynomial description and universal inclusion-exclusion machinery alone are not an evaluated closed polynomial or rigidity classification for Q3 x Kn; inspected Hamming theorem provides exactly three-factor extrema and general higher-dimensional bounds. Specific four-factor census not found; priority qualified.
+
+## value
+
+PASS
+
+The all-size total-visibility polynomial and n+2 rigidity threshold fill a natural four-factor Hamming graph case beyond known three-factor extrema. Exact coefficient counts and classification of all large sets can guide enumerative Hamming-avoidance and geodesic-visibility work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
