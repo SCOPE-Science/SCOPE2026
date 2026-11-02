@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact projection weights and tridiagonal Lanczos moments yield a nonnegative rational error for every n>=3, t>0 and sign count; the law of large numbers and CLT plus sub-Gaussian uniform integrability give the one-step extensive error, the two-step chi-square limit, and mean/variance. The standalone rational checker passed 1410 finite groups, including direct matrix solve comparisons; no finite check substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ubaru–Chen–Saad (2017), DOI 10.1137/16M1104974, provides general approximation-error bounds for matrix-function traces.",
+        "Chen–Trogdon–Ubaru (2021), arxiv:2105.06595, provides distributional spectrum-approximation bounds.",
+        "Chen–Hallman (2022), arxiv:2205.01736, develops Krylov-aware stochastic trace estimation."
+      ],
+      "reasoning": "General error estimates could bound this example but do not specify the exact binomial law, all-sign nonnegative residual, or a shifted chi-square limit; an uninspected specialized theorem could dominate the new claim, which remains a stated risk.",
+      "searches": [
+        "\"stochastic Lanczos quadrature\" \"chi-square\" graph",
+        "\"Lanczos\" \"star graph Laplacian\" \"resolvent\" quadrature",
+        "arxiv:2204.01941 randomized matrix-free quadrature spectrum spectral sum stochastic Lanczos star graph three eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2204.01941v1",
+      "arxiv:2105.06595",
+      "doi:10.1137/16M1104974",
+      "arxiv:2205.01736",
+      "Published searchable two-step Lanczos exponential-positivity result (2026), distinct object and theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The public finding titled “The exact positivity horizon of the two-step Lanczos exponential” concerns entrywise sign changes of a matrix-vector exponential approximation, not shifted-inverse stochastic trace estimation.",
+        "Chen–Trogdon–Ubaru (2022) establishes the general quadrature framework and analytic-function bounds but not the star-specific limiting law in material examined."
+      ],
+      "reasoning": "The numerical method and the sign of the Stieltjes Gauss-quadrature error are prior knowledge; neither alone implies the explicit Rademacher binomial coefficients or asymptotic shifted chi-square law without the additional graph-specific derivation. The closest two-step exponential result has different function, output object and quantifiers.",
+      "searches": [
+        "two-step stochastic Lanczos quadrature star graph Laplacian Rademacher resolvent chi square bias nondegenerate limit",
+        "outlier spectral trace estimation one vs two Lanczos steps star graph unbounded eigenvalue",
+        "Gauss quadrature error inverse shifted star graph Laplacian single Rademacher probe chi square limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The canonical equivalent formulation is two-point Gaussian quadrature for the three-atom Rademacher spectral measure of a combinatorial star; see the exact weights and residual identity in RESULT.md.",
+        "Chen–Trogdon–Ubaru (2022), arxiv:2204.01941, discusses general spectral sums and Lanczos quadrature, not this three-atom star law in inspected material."
+      ],
+      "reasoning": "Any work giving Gaussian quadrature for general three-atom measures implies an algorithmic recipe, but not necessarily the stated random-binomial closed expression or growing-outlier chi-square asymptotics. Search found no matching combined assertion. The broader mathematical ingredients are not claimed original.",
+      "searches": [
+        "\"star graph\" \"stochastic Lanczos quadrature\" trace",
+        "\"star graph Laplacian\" \"stochastic Lanczos\" Rademacher",
+        "star graph Laplacian randomized Rademacher stochastic Lanczos quadrature shifted inverse trace two step exact chi square limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The formulas involve a variable-size family and a binomial random spectral measure, not an entry from a finite tabulated matrix list.",
+        "No exact star-Rademacher 2-step resolvent-error table was retrieved in the searched material."
+      ],
+      "reasoning": "Finite matrix spectra of stars are classical and not novel; the new proposed contribution is the all-dimension stochastic quadrature classification. A negative table search is not a proof of originality.",
+      "searches": [
+        "\"star graph\" \"Lanczos quadrature\" resolvent",
+        "one-step two-step Gauss quadrature star graph inverse trace binomial Rademacher outlier moment escape"
+      ]
+    },
+    "rationale": "Published foundational work supplies Gaussian quadrature, stochastic trace estimation and moment matching. The inspected text and searchable earlier findings did not directly state the finite star-resolvent identity or the one-step versus two-step Rademacher limiting laws. Generic sign/bound theory is acknowledged; residual risk from specialized uninspected formulations remains.",
+    "residual_risks": [
+      "Classical Gauss-quadrature/Stieltjes error identities can be specialized to three atoms, so not all constituent techniques are new.",
+      "Uninspected specialized star-graph spectral estimation or asymptotic outlier literature might imply the same final statement.",
+      "Database semantic search and inaccessible earlier historical records do not prove absence of coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General bounds and method; no inspected statement of star-specific binomial residual and chi-square limits",
+        "evidence": "arxiv:2204.01941v1, first posted 2022-04-05; introductory definition, quadrature theory, convergence estimates and application sections",
+        "identifier_or_url": "https://arxiv.org/abs/2204.01941",
+        "material_read": "Full accessible HTML sections on method, Gaussian quadrature, stochastic trace convergence, numerical examples, and references",
+        "method": "Read HTML sections and searched within source for star/outlier/two-step family",
+        "title": "Randomized matrix-free quadrature: unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+        "trigger": "Earliest motivating work and plausible general coverage"
+      },
+      {
+        "assessment": "Covers the algorithm and general inverse-trace bounds, not the explicitly computed star-law/asymptotics in inspected material",
+        "evidence": "DOI:10.1137/16M1104974; Gaussian quadrature and trace estimator description, general method/theorem",
+        "identifier_or_url": "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+        "material_read": "Methods and main error-bound statements in freely available PDF, including original first page and later theorem page",
+        "method": "Read paper text and inspected relevant PDF page images",
+        "title": "Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature",
+        "trigger": "Foundational inverse-trace Gauss quadrature coverage"
+      },
+      {
+        "assessment": "Wasserstein and spectrum approximation results for randomized probes, not the finite star trace-resolvent law",
+        "evidence": "arxiv:2105.06595; May 2021 preprint and spectral quadrature analysis",
+        "identifier_or_url": "https://arxiv.org/abs/2105.06595",
+        "material_read": "Accessible HTML introduction, spectral estimates, quadrature sections",
+        "method": "Read primary HTML and compare algorithms/probe laws",
+        "title": "Analysis of stochastic Lanczos quadrature for spectrum approximation",
+        "trigger": "Closest broad spectral approximation analysis"
+      },
+      {
+        "assessment": "Different deflation/Krylov-aware algorithm, no matching single-star two-node limiting result in inspected material",
+        "evidence": "arxiv:2205.01736; May 2022 preprint, introduction and algorithm description",
+        "identifier_or_url": "https://arxiv.org/abs/2205.01736",
+        "material_read": "Accessible HTML introduction, algorithm definitions and stated main contributions",
+        "method": "Read primary HTML and compare output, probe, and parameters",
+        "title": "Krylov-aware stochastic trace estimation",
+        "trigger": "Plausible stronger trace-estimation framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6f6c2aa-217b-439e-b128-f44e7edb4875",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural singular-spectrum benchmark for matrix-free inverse-trace estimation: the star has vanishing outlier mass but an order-one contribution to the first Krylov moment. The theorem shows exact finite-sample bias sign and scale separation between one and two Lanczos nodes, including the unavoidable constant chi-square noise floor, useful for algorithmic evaluation beyond merely recomputing a spectrum.",
+    "status": "PASS"
+  }
+}
