@@ -1,0 +1,187 @@
+{
+  "correctness": {
+    "rationale": "PASS. Exact diagonal coordinate projection yields independent geometric survival factors for each coordinate; maximizing a diagonal weighted quadratic form yields the sharp rate for every t>=1. Sorted-index comparison proves the consecutive-window global optimum and strict window necessity for distinct weights. Finite inclusion-exclusion and summation establish exact completion-time distribution/expectation. All four rational candidates and the three-row divergent surrogate ratio were reconstructed. The extracted checker passed 15,133 exact-rational assertions, supplementary to the general proof. The result explicitly counts zero-update iid draws, avoiding confusion with rejection-resampling implementations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. Section 3.2: Frobenius residual / row interpolative decomposition is a proposed tractable surrogate for selecting pinned equations.",
+        "The published inverse-positive SPD coordinate-sampling note optimizes freely chosen iid coordinate probabilities for a fixed quadratic, not the choice of pinned rows with probabilities fixed proportional to projected row norms.",
+        "Anceaume et al., arXiv:1504.03878, Theorem 1 proves stochastic improvement under pairwise averaging of freely chosen coupon probabilities, rather than constrained row-subset optimization.",
+        "Sun et al. Algorithm 1 rejects zero-residual draws; that accepted-step process is explicitly excluded."
+      ],
+      "reasoning": "The 2026 source does not provide an approximation factor from residual Frobenius minimization to the projected rate criterion. Fixed-subset optimization and completion time are separate from variable-probability optimal coordinate sampling. The theorem is deliberately restricted to unconditional draws, so it does not claim slowdown for conditional accepted-step resampling.",
+      "searches": [
+        "row interpolative decomposition Frobenius selection arbitrarily suboptimal randomized Kaczmarz contraction tiny singular mode",
+        "fixed row constraint randomized Kaczmarz pin smallest row instead of largest eigenvalue spectral condition",
+        "Sun Qi Han Xie 2026 selection strategy Frobenius surrogate ill-conditioned diagonal counterexample",
+        "https://arxiv.org/html/2605.29304v1",
+        "published note Closed-form optimal coordinate sampling for inverse-positive SPD quadratics 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.29304v1 (Sections 3.1, 3.2, 5.2 and Appendix 7.1-7.3)",
+      "https://arxiv.org/html/2309.04889v2 (Algorithms 1 and Section 3.3.2)",
+      "https://arxiv.org/abs/math/0702226 (abstract only)",
+      "https://arxiv.org/abs/2006.16978 (abstract only)",
+      "https://arxiv.org/abs/1402.5245 (primary HTML Sections 1-2)",
+      "https://arxiv.org/abs/1504.03878 (primary HTML Sections 1-2)",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (public summary only)",
+      "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (public summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. Remark 3.3: an upper bound with σ_min squared divided by Frobenius squared; the present diagonal survival law attains that bound for suitable initial error.",
+        "Sun et al. Section 3.2 selects Frobenius minimization as a surrogate and does not claim rate approximation guarantees.",
+        "Standard weighted coupon-collector inclusion-exclusion yields the fixed-set completion formula; the new comparison needs four distinct pinned-subset evaluations.",
+        "The three-coordinate family explicitly gives exact gap fractions 1/5 and epsilon^2/(1+epsilon^2).",
+        "Anceaume et al. (2015) proves uniform distribution stochastic optimality when probabilities are freely chosen, not the best constrained pinned subset."
+      ],
+      "reasoning": "The general literature supplies the method and separate rate/expectation ingredients, so those are not claimed as new. The accepted contribution is the explicit global pinned-subset minimax and demonstration that its optimizer differs from the exact expected-completion optimizer and from Frobenius-proxy pinning. The cross-objective result is not a literal restatement of a general inequality. An earlier normalized-weight subset-selection theorem might imply the exchange lemma, so priority remains uncertain.",
+      "searches": [
+        "subspace-constrained randomized Kaczmarz diagonal exact optimal pinned row subset consecutive sorted weights worst rate",
+        "row interpolative decomposition Frobenius selection arbitrarily suboptimal randomized Kaczmarz contraction tiny singular mode",
+        "max min normalized weight k subset sorted consecutive window optimal minimum probability divided by sum",
+        "Sun Qi Han Xie 2026 selection strategy Frobenius surrogate ill-conditioned diagonal counterexample",
+        "https://arxiv.org/html/2605.29304v1#S3.SS2",
+        "https://arxiv.org/html/2309.04889v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lok–Rebrova, arXiv:2309.04889v2, Algorithm 1 and (1.4): fixed iid squared-projected-norm row draws and constrained projected updates.",
+        "Sun et al., arXiv:2605.29304v1, Remark 3.3 and (18)–(19): a general squared-error contraction upper bound involving a projected smallest singular value."
+      ],
+      "reasoning": "The established rate bound specializes to the diagonal ratio, but it is only an inequality for general matrices and does not itself classify all fixed-size pinned sets or rank expected finite completion. The new theorem adds exact equality for every initial mode, a sorted-set global optimizer, and a distinct completion-time optimization counterexample. Classical weighted coupon collection is credited for the fixed-set expectation identity.",
+      "searches": [
+        "subspace-constrained randomized Kaczmarz diagonal exact optimal pinned row subset consecutive sorted weights worst rate",
+        "max min normalized weight k subset sorted consecutive window optimal minimum probability divided by sum",
+        "randomized Kaczmarz subset selection minimax rate diagonal consecutive weights smallest singular Frobenius",
+        "https://arxiv.org/html/2309.04889v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sun et al. Section 5.2 compares several row-selection strategies on synthetic singular spectra; no exact diagonal all-budget selection or the four-specific-weight coupon table is stated there.",
+        "Lok–Rebrova Section 3.3.2 concerns selecting rows to approximate dominant subspaces, not an exact weighted-coupon completion-time census."
+      ],
+      "reasoning": "The four-set table is computed from the proved rational inclusion-exclusion formula and independently rechecked, not copied from a published exact database. No matching table was identified in the inspected primary materials; this absence is not taken as proof of priority.",
+      "searches": [
+        "subspace-constrained randomized Kaczmarz diagonal exact optimal pinned row subset consecutive sorted weights worst rate",
+        "row interpolative decomposition Frobenius selection arbitrarily suboptimal randomized Kaczmarz contraction tiny singular mode",
+        "subspace constrained randomized Kaczmarz selecting the smallest rows improve convergence counterexample",
+        "arxiv:2605.29304v1 Section 5.2 numerical comparison",
+        "arxiv:2309.04889v2 Section 3.3.2 sampling rows"
+      ]
+    },
+    "rationale": "PASS with priority risk. Original 2026 source Section 3.2 supplies a general rate proxy and Frobenius row-ID selector, but not an exact all-budget diagonal pin-set classification or a rate-vs-completion objective conflict. The earlier SCRK source supplies the update and rate estimate; classical randomized Kaczmarz/coupon formulas are explicitly prior knowledge. The new contribution is their sharp selection-level comparison, including a moderate four-row counterexample and an unbounded surrogate rate gap. Specific original source full text and appendix were examined. Older generic normalized-weight selection literature may contain a stronger equivalent principle; inaccessible published full text increases residual uncertainty and independent priority certification is absent.",
+    "residual_risks": [
+      "Earlier normalized-weight max-min subset selection or weighted coupon-collection optimization may imply parts of the elementary consecutive-window argument.",
+      "Public summaries of some relevant published notes were available, but their full texts could not be inspected.",
+      "Sun et al. Algorithm 1 rejects zero-residual row draws; the new unconditional iid-step theorem does not cover its accepted-step complexity.",
+      "Historical novelty is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the general projected rate and Frobenius surrogate, not the diagonal sharp all-cardinality optimizer or finite completion-time comparison. Crucial scope distinction: Algorithm 1 rejects zero-residual draws and is not claimed to exhibit the unconditional waiting-time slowdown.",
+        "evidence": [
+          "arXiv:2605.29304v1, Remark 3.1; Theorem 3.2; Remark 3.3; Section 3.2; Lemma 3.5; Algorithm 1 step 2; Section 5.2; Appendix 7.2–7.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.29304v1",
+        "material_read": "HTML full-text sections 1, 3.1, 3.2, 5.2 and Appendix 7.1–7.3, including equations (18)–(23), Algorithm 1 and proofs of rate and surrogate lemma.",
+        "method": "Read available arXiv full-text HTML and locate theorems, algorithm rejection condition, diagonal/coupon terms and appendix comparisons.",
+        "title": "On subspace-constrained preconditioning for randomized iterative methods",
+        "trigger": "Direct 2026 motivating method; rate, pin-set choice and Frobenius surrogate may dominate candidate"
+      },
+      {
+        "assessment": "Algorithm 1 is the unconditional fixed-probability scheme used here; the authors give a general rate bound and geometric subspace motivation, not all-budget diagonal pinning, finite coupon completion or exact disparity of selection objectives.",
+        "evidence": [
+          "arXiv:2309.04889v2, Algorithm 1 and equations (1.3)–(1.5), Section 3.3.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.04889v2",
+        "material_read": "HTML full-text Sections 1.2.1, 3.3, 3.3.2 and the algorithm definition, update equation (1.4), rate statement and subset-selection discussions.",
+        "method": "Read accessible primary arXiv full-text sections and search for diagonal and coupon comparisons.",
+        "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+        "trigger": "Original exact fixed-row randomized Kaczmarz update and possible dominating pin-selection theorem"
+      },
+      {
+        "assessment": "Establishes the standard expected exponential rate, not visibly the subset-optimal or completion-time comparison. Given the abstract-only access, no whole-document NOT_COVERING assertion is made.",
+        "evidence": [
+          "arXiv:math/0702226, 2007-02-08 abstract; cited and restated in Lok–Rebrova introduction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0702226",
+        "material_read": "ArXiv abstract and bibliographic submission information; full text not accessed in this comparison.",
+        "method": "Open and compare arXiv abstract with the fixed-subset selection claim.",
+        "title": "A randomized Kaczmarz algorithm with exponential convergence",
+        "trigger": "Classical randomized-row rate possibly implying the candidate by specialization"
+      },
+      {
+        "assessment": "The result concerns singular-mode convergence for a fixed matrix, not choice of which coordinate equations to pin. Full text not read; residual uncertainty disclosed.",
+        "evidence": [
+          "arXiv:2006.16978 abstract, 2020-06-30."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.16978",
+        "material_read": "ArXiv abstract only.",
+        "method": "Compare explicit stated slow-singular-vector phenomenon to a fixed-budget pinned-row optimization theorem.",
+        "title": "Randomized Kaczmarz converges along small singular vectors",
+        "trigger": "Sharpness of expected convergence for slow singular directions"
+      },
+      {
+        "assessment": "Optimizes freely chosen coordinate probabilities for SPD quadratics, unlike the present fixed norm-squared probabilities and chosen pinned subsets. A full-equivalence comparison is limited by lack of full text.",
+        "evidence": [
+          "Published note summary: optimum probability proportional to inverse-normalized-Hessian times the all-ones vector, with Poisson specialization."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Published title and accessible abstract/summary only; full source unavailable during comparison.",
+        "method": "Semantic published-record retrieval and comparison of the optimization variables and sharp contraction objects.",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Closest public mathematical result about optimal fixed iid coordinate sampling"
+      },
+      {
+        "assessment": "Supplies general weighted coupon formulas and uniform-probability stochastic optimality when probabilities can be freely set. It does not optimize selection of a fixed-size subset with probabilities constrained proportional to given diagonal weights, nor relate that optimizer to the Kaczmarz spectral rate.",
+        "evidence": [
+          "arXiv:1504.03878, Section 1 equations and Section 2 Theorem 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.03878",
+        "material_read": "Primary arXiv HTML introduction, Section 2, distribution formulas and Theorem 1 pairwise smoothing result.",
+        "method": "Read available full-text source and compare its free-probability stochastic optimization to a fixed-weight pinned-row subset selection problem.",
+        "title": "Optimization results for a generalized coupon collector problem",
+        "trigger": "Potential broad stochastic-optimality coverage of weighted finite completion time"
+      },
+      {
+        "assessment": "Provides general distribution, moments and uniform optimality for freely chosen probabilities. The present exact coupon formula is not claimed as new; it is combined with a constrained pin-set selection comparison.",
+        "evidence": [
+          "arXiv:1402.5245, Introduction and Section 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.5245",
+        "material_read": "Primary HTML abstract, introduction and Section 2 Markov-chain formula.",
+        "method": "Inspect original paper and directly credit the fixed-distribution coupon law as classical.",
+        "title": "New results on a generalized coupon collector problem using Markov chains",
+        "trigger": "General coupon collector distribution and moments might subsume a component of candidate"
+      },
+      {
+        "assessment": "Concerned with multistage adaptive randomized column pivoting rather than fixed constrained row Kaczmarz. It does not imply the stated selection classification on its available claim.",
+        "evidence": [
+          "Published note summary states sharp product error factors for MSARP."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "material_read": "Published title and summary.",
+        "method": "Compare an adaptive randomized pivoting error-product statement to a pinned-Kaczmarz contraction and coupon-time statement.",
+        "title": "Worst-case sharpness of multistage adaptive randomized pivoting",
+        "trigger": "Closest published row-pivoting performance limitation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf6d7342-f20f-4f50-9a89-99a35a2956a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS. Fixed-row selection is a current algorithm-design question, and sharp worst-case mean-square error plus exact finite completion are two motivated, genuinely distinct objectives. The consecutive-window theorem solves an entire exact diagonal model, the exact four-row table demonstrates a nontrivial objective conflict, and the three-row family quantifies a structurally unbounded Frobenius-surrogate gap. It does not claim wall-clock, noisy-data or Sun-algorithm accepted-step disadvantages; zero-residual conditional rejection removes the diagonal waiting-time effect.",
+    "status": "PASS"
+  }
+}
