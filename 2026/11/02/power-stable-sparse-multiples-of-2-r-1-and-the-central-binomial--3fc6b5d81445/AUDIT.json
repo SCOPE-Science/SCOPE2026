@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Token folding proves the >=r bound. Odd-prime LTE proves H(a)-H(b) has exactly the same M-adic congruence relation as a-b; this yields a bijective exponent lift and a weight-r witness for every k. Legendre gives nu2(C(2n,n))=s2(n); for each odd p an explicit base-p 0/1-digit multiple has zero carries. Universal quantifiers follow from algebra, not finite checking.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Elsholtz proves bounded-weight multiples for almost all primes and Mersenne-divisor restrictions.",
+        "Clokie et al. prove general decidability and digit-sum criteria, but their explicit sturdy class includes M itself, not all its powers."
+      ],
+      "reasoning": "General existence bounds and computability results do not provide the exact unrestricted power-tower formula. A generic finite automaton algorithm may compute individual cases but does not imply a constant closed formula for all r,k.",
+      "searches": [
+        "https://arxiv.org/pdf/1602.05974",
+        "https://arxiv.org/pdf/2002.02731",
+        "Minimum binary Hamming weight of multiples of arbitrary powers of a Mersenne number (2^r-1)^k remains r"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A086342",
+      "https://arxiv.org/pdf/1602.05974",
+      "https://arxiv.org/pdf/1409.3820",
+      "https://arxiv.org/pdf/2002.02731",
+      "https://math.stackexchange.com/questions/1477631/binary-expansion-of-2n-1",
+      "https://arxiv.org/abs/2606.20940"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Legendre identity makes 2-adic valuation equal binary weight but does not provide power-uniform attaining witnesses.",
+        "Wu's 2026 gcd takes k over a finite row at fixed parameters, not n over an infinite Mersenne-power progression."
+      ],
+      "reasoning": "The key novel fact is the uniform weight-attaining exponent lift; fixed-divisor equality additionally rules out all odd prime factors by an explicit zero-carry witness. Neither earlier factorial-valuation identities nor the differently indexed gcd implies the complete claimed statement.",
+      "searches": [
+        "https://arxiv.org/pdf/1409.3820",
+        "https://arxiv.org/abs/2606.20940",
+        "gcd of central binomial coefficients binom(2n,n) over all n divisible by 2^r-1 is exactly 2^r"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A086342 defines the same minimum-weight invariant and gives the k=1 case; Clokie et al. define swm(n) and sturdy numbers.",
+        "The new statement is swm((2^r-1)^k)=r, equivalently existence of an r-term binary zero-sum modulo all powers M^k."
+      ],
+      "reasoning": "The base-case formula and general algorithm do not state or imply uniform preservation of the optimum under powering. The exponent-lifting step supplies the missing simultaneous existence for arbitrary k.",
+      "searches": [
+        "Minimum binary Hamming weight of multiples of arbitrary powers of a Mersenne number (2^r-1)^k remains r",
+        "Sparse multiples of powers of 2^n - 1, digit weight exactly n for all powers, p-adic lifting",
+        "https://oeis.org/A086342",
+        "arxiv:2002.02731v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A086342 lists small-n values and the base-case formula a(2^k-1)=k.",
+        "No inspected exact table/formula presents a((2^r-1)^k)=r for all r,k."
+      ],
+      "reasoning": "Finite tables and formulas only for exponent 1 cannot subsume the all-exponent theorem; historical coverage beyond inspected database entries remains a risk.",
+      "searches": [
+        "https://oeis.org/A086342",
+        "https://arxiv.org/pdf/2002.02731",
+        "gcd of central binomial coefficients over multiples of odd integer is power of two given by minimum Hamming weight"
+      ]
+    },
+    "rationale": "The known k=1 identity is explicitly excluded from the novel part. A complete 2^r-1 power-tower weight formula is proved via an invertible exponent-lifting map; closely relevant original full texts, the OEIS invariant, past claims, and published-finding corpus semantic hits contain no identified statement covering this exact for-all-r,k theorem or its infinite fixed-divisor consequence. Priority remains uncertain outside inspected material.",
+    "residual_risks": [
+      "An unlocated historical sparse-multiple construction may implicitly yield the same r,k formula.",
+      "The gcd corollary is derived from classical Kummer/Legendre once minimal weight and odd-prime witnesses are known.",
+      "Semantic searches and accessible records do not establish absolute publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The k=1 formula is prior work. No all-k Mersenne-power identity stated in the inspected entry.",
+        "evidence": [
+          "Formula a(2^k-1)=k credited May 01 2013; author sequence entry September 02 2003."
+        ],
+        "identifier_or_url": "https://oeis.org/A086342",
+        "material_read": "Definition, 2013 formula, links to related work, sequence context",
+        "method": "Read OEIS entry and exact 2013 comment",
+        "title": "A086342: Smallest number of 1's in binary expansion of any positive multiple of n",
+        "trigger": "Defines the exact minimum-weight invariant and states the Mersenne base case"
+      },
+      {
+        "assessment": "Establishes density/existence assertions for primes and Mersenne-divisor obstructions, not the exact r,k Mersenne-power formula.",
+        "evidence": [
+          "arXiv 1602.05974v1, pp. 2–4 and proof of Theorem 5, pp. 7–9."
+        ],
+        "identifier_or_url": "arxiv:1602.05974v1",
+        "material_read": "Full 11-page preprint, especially pp. 1–4, Theorems 1–5, and discussion of Mersenne divisors and open questions",
+        "method": "Inspected text of full arXiv PDF and page image",
+        "title": "Almost all primes have a multiple of small Hamming weight",
+        "trigger": "Primary archival sparse-multiples research with Mersenne examples"
+      },
+      {
+        "assessment": "Supplies standard valuation background but does not evaluate the stated gcd over multiples of Mersenne powers.",
+        "evidence": [
+          "arXiv 1409.3820v1, introduction and sections on Lucas congruences."
+        ],
+        "identifier_or_url": "arxiv:1409.3820v1",
+        "material_read": "Introduction, Lucas/Kummer statements and contents/survey of binomial congruences",
+        "method": "Read PDF text and inspected page image",
+        "title": "Lucas' theorem: its generalizations, extensions and applications (1878–2014)",
+        "trigger": "Classical digit and valuation framework for binomial coefficients"
+      },
+      {
+        "assessment": "Defines swm(n), gives general algorithms and sturdy families, but no inspected result determines swm((2^r-1)^k)=r for every r,k.",
+        "evidence": [
+          "arXiv 2002.02731v1, Theorems 3–5 and Corollaries 7–8, §§2–4."
+        ],
+        "identifier_or_url": "arxiv:2002.02731v1",
+        "material_read": "Full manuscript text search; introduction, sections 2–5, results on sturdy numbers, algorithms, and Mersenne-divisor references",
+        "method": "Read full arXiv PDF text and section-3 page image",
+        "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+        "trigger": "Plausible strongest same-invariant literature on sparse multiples"
+      },
+      {
+        "assessment": "Shows the k=1 lower bound, but no claim on witnesses for Mersenne powers.",
+        "evidence": [
+          "2015 statement: every positive multiple of 2^n-1 has at least n ones."
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/1477631/binary-expansion-of-2n-1",
+        "material_read": "Question and complete answer dated October 13, 2015",
+        "method": "Read mathematical statement and argument",
+        "title": "Binary Expansion of 2^n-1",
+        "trigger": "Exact historical lower-bound proof for ordinary Mersenne multiples"
+      },
+      {
+        "assessment": "Its finite row gcd g(m,n)=gcd_{1<=k<n} binom(mn,mk) has different quantifiers and does not imply the gcd over all n divisible by M^k.",
+        "evidence": [
+          "arXiv 2606.20940, definition of g(m,n) and its statements."
+        ],
+        "identifier_or_url": "arxiv:2606.20940v1",
+        "material_read": "Full accessible introduction and theorem statements concerning gcd indexed by finite k at fixed mn",
+        "method": "Read online arXiv HTML text",
+        "title": "Computing the Greatest Common Divisor of Binomial Coefficients binom(mn,mk)",
+        "trigger": "Strongest title match for gcd of binomial families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3fc6b5d8-1445-488a-b861-4fe08c48f7da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimal binary weight is a known natural arithmetic invariant, but a complete all-power formula for every Mersenne base has motivated structural significance: modular height grows arbitrarily while the sparse optimum stays fixed. The exponent lift is constructive and uses one adjustable bit. The exact gcd over infinitely many central binomial coefficients is a natural independent arithmetic interpretation (a corollary), not a manufactured arbitrary slice.",
+    "status": "PASS"
+  }
+}
