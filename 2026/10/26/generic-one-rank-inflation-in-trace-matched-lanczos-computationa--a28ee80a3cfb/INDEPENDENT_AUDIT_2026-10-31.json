@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:44:49Z",
+  "axes": {
+    "correctness": {
+      "finite_check_path": "independent_checks.py (private auditor-created; bounded only)",
+      "rationale": "Under exact SPD Lanczos and beta_m*beta_(m+1)>0, the exact conditioned covariance R_m=A^-1-Q_m T_m^-1 Q_m^T has m-dimensional nullspace A range(Q_m) and rank d-m. Let B be the positive Schur-complement inverse, p_j=e1^T B^j e1, v=Q_perp Be1 and a=beta_m Q_m T_m^-1 e_m. On the orthogonal plane span(a,v), the analytic trace-matched approximation has 2x2 determinant ||a||²(p1 p3-p2²)/p2. Strict Cauchy–Schwarz holds since the next Lanczos coefficient makes e1 a non-eigenvector of S, hence of B; the remaining r-1 complement directions have positive isotropic coefficient omega. Rank is 2+(r-1)=d-m+1, with exact support rank d-m, so same-mean Gaussians are mutually singular and both KL directions infinite. Auditor-written exact rational reconstructions for epsilon in {1/40,1/7,1/2,1,6/5} recover the 3x3 certificate determinant epsilon²/[2(3-epsilon²)(4+epsilon²)²], observed-direction spurious variance 4epsilon²/(4+epsilon²)², exact covariance null vector, and rank mismatch. At epsilon->0 the covariance entries converge to the same matrix while support ranks differ, an analytic continuity argument rather than inference from tests. Limits: exact trace, not Monte Carlo; nontermination and complement size >=2; residual covariance not full inverse reconstruction.",
+      "specific_checks": [
+        "Exact rational Schur covariance reconstructions for five epsilon values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fifen et al. Proposition 14 provides operator/Frobenius approximation bounds for their inverse reconstruction; these permit nonzero support changes",
+          "Fifen et al. Proposition 16: exact conditional covariance Sigma_m^perp PSD of rank d-m with nullspace A range(Q_m)"
+        ],
+        "reasoning": "A general error bound does not imply an exact rank formula for approximated residual. The earlier exact conditioned rank theorem supplies one side but not the positivity of the approximant two-plane.",
+        "searches": [
+          "https://arxiv.org/abs/2609.10080 Proposition 14, Proposition 16",
+          "stochastic Lanczos quadrature computational uncertainty trace matched isotropic bulk covariance rank Schur complement KL singular"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.10080",
+        "https://arxiv.org/abs/1801.05242",
+        "https://doi.org/10.1007/s11222-019-09897-7",
+        "Resultary stochastic Lanczos quadrature computational uncertainty trace matched isotropic bulk covariance rank Schur complement KL singular"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact Sigma_m^perp in Fifen et al. equation (49) equals A^-1-Q_m T_m^-1 Q_m^T and by Proposition 16 has rank d-m",
+          "Their approximated complement replaces a positive full Schur block by a one-direction correction plus isotropic bulk; strict moment inequality with beta_(m+1)>0 forces additional rank"
+        ],
+        "reasoning": "The prior exact rank and covariance-approximation formulas are necessary ingredients. Determining that their specified approximate posterior universally has rank d-m+1 is a nontrivial specific implication not explicitly proved in the inspected statement, and full inverse covariance KL is a different comparison.",
+        "searches": [
+          "https://arxiv.org/abs/2609.10080 equations 43,49-52, Propositions 14/16",
+          "https://arxiv.org/abs/1801.05242",
+          "stochastic Lanczos quadrature computational uncertainty trace matched isotropic bulk covariance rank Schur complement KL singular"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2609.10080 §§4.3–4.4 differentiates analytic approximant Sigma_m and exact conditional Sigma_m^perp",
+          "https://arxiv.org/abs/1801.05242 studies exact Gaussian conditioning, not the later trace-matched Schur-Lanczos formula"
+        ],
+        "reasoning": "The same rank issue may be called posterior inconsistency, observation subspace leakage, or extra support dimension. Only the source-specific positive 2x2 boundary determinant proves a one-rank mismatch uniformly, rather than the abstract fact that covariance approximations can lose nullspaces.",
+        "searches": [
+          "stochastic Lanczos quadrature computational uncertainty trace matched isotropic bulk covariance rank Schur complement KL singular",
+          "arxiv:2609.10080 proposition 14 rank isotropic Schur complement",
+          "Bayesian conjugate gradient lost posterior nullspace trace bulk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2609.10080 §§4.3–4.4 has covariance formulas but no exact generic one-extra-rank table or the rational 3x3 example",
+          "Independent symbolic Schur computation gives the displayed rational approximate covariance determinant 1/100 and observed-direction variance 4/25"
+        ],
+        "reasoning": "No matching exact published table/certificate was identified from searched records; the supplied rational example does not make a paper-wide negative claim about older literature.",
+        "searches": [
+          "stochastic Lanczos quadrature computational uncertainty trace matched isotropic bulk covariance rank Schur complement KL singular",
+          "Lanczos trace corrected isotropic posterior approximation rank d-m+1 exact rational example"
+        ]
+      },
+      "rationale": "Fifen–Karambal–Hennig 2026 precisely define the target and rank-one-boundary-plus-isotropic covariance construction. Section 4.3 Proposition 14 bounds the matrix approximation error, while Section 4.4 Proposition 16 explicitly proves rank d-m of the EXACT conditional covariance, not of the approximating covariance. The source distinguishes full inverse covariance from residual computational-uncertainty covariance. Classical Bayesian CG conditional nullspaces do not give positivity of this specific approximant boundary plane. The audited strict next-beta moment condition and generic rank-plus-one phenomenon are not stated in the compared primary theorems, though generic support mismatch is a known possibility and broad Gaussian-conditioning literature remains a risk.",
+      "residual_risks": [
+        "Approximate-covariance support mismatch is possible in general; historical work may explicitly apply it to an equivalent Schur-isotropic model.",
+        "The original source uses multiple covariance notations; KL infinity applies only to the singular residual uncertainty laws, not the full inverse-covariance approximations.",
+        "The comparison with classical probabilistic linear-solver full texts beyond Fifen is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_TARGET_RANK_NOT_APPROXIMANT_RANK",
+          "evidence": [
+            "Proposition 16 says exact Sigma_m^perp rank d-m; Proposition 14 bounds approximate full inverse covariance, not its residual rank."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.10080",
+          "material_read": "Complete relevant arXiv HTML §4.3 corrected inverse, exact decomposition §4.4 equations (43),(49)-(52), Proposition 14 and Proposition 16",
+          "method": "Read actual primary full HTML sections and matched formula variables and rank objects",
+          "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+          "trigger": "Same exact Schur construction, prior rank theorem and approximation error"
+        },
+        {
+          "assessment": "GENERAL_CONDITIONING_ONLY_MATERIAL_READ_LIMITED",
+          "evidence": [
+            "Known posterior rank under exact linear observations predates the approximant; source-specific rank inflation is not addressed in the inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.05242",
+          "material_read": "Primary arXiv abstract and the conditional-posterior results as quoted and compared within the detailed Fifen §4.4 discussion; original paper not read through in this execution",
+          "method": "Read primary bibliographic material and Fifen exact comparison",
+          "title": "A Bayesian Conjugate Gradient Method",
+          "trigger": "Generic Gaussian-conditioning nullspace might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The additional positive eigenvalue and observed-direction variance are an exact calibration pathology of an explicitly proposed matrix-free uncertainty construction; the Gaussian measures become mutually singular even as operator-norm covariance error vanishes. This is a generic model-wide structural limitation, not a numerical tolerance artifact or arbitrarily chosen small matrix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Analytic exact-trace approximation, not finite-probe Monte Carlo, floating point or arbitrary solver implementation.",
+    "Mutual singularity for residual posterior covariance only, not full inverse Gaussian distributions.",
+    "Exact rank equality requires beta_m*beta_(m+1)>0 and d-m>=2."
+  ],
+  "schema_version": 1
+}

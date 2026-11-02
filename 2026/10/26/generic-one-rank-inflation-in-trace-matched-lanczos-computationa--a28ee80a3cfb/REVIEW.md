@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The universal rank identity follows by splitting the covariance into its boundary two-plane and a positive scalar bulk. Strict Cauchy--Schwarz gives a positive boundary determinant whenever the next Lanczos coefficient is nonzero; the exact conditional Gaussian has rank \(d-m\). The minimal example has exact rational determinant \(1/100\), an exact zero-variance observation under the true covariance, and approximate variance \(4/25\). The one-parameter positive-definite family proves persistent support mismatch despite vanishing matrix-norm error. `CHECK.py` independently reconstructs the rational example.
+PASS
 
-## Originality
+Under exact SPD Lanczos and beta_m*beta_(m+1)>0, the exact conditioned covariance R_m=A^-1-Q_m T_m^-1 Q_m^T has m-dimensional nullspace A range(Q_m) and rank d-m. Let B be the positive Schur-complement inverse, p_j=e1^T B^j e1, v=Q_perp Be1 and a=beta_m Q_m T_m^-1 e_m. On the orthogonal plane span(a,v), the analytic trace-matched approximation has 2x2 determinant ||a||²(p1 p3-p2²)/p2. Strict Cauchy–Schwarz holds since the next Lanczos coefficient makes e1 a non-eigenvector of S, hence of B; the remaining r-1 complement directions have positive isotropic coefficient omega. Rank is 2+(r-1)=d-m+1, with exact support rank d-m, so same-mean Gaussians are mutually singular and both KL directions infinite. Auditor-written exact rational reconstructions for epsilon in {1/40,1/7,1/2,1,6/5} recover the 3x3 certificate determinant epsilon²/[2(3-epsilon²)(4+epsilon²)²], observed-direction spurious variance 4epsilon²/(4+epsilon²)², exact covariance null vector, and rank mismatch. At epsilon->0 the covariance entries converge to the same matrix while support ranks differ, an analytic continuity argument rather than inference from tests. Limits: exact trace, not Monte Carlo; nontermination and complement size >=2; residual covariance not full inverse reconstruction.
 
-PASS on inspected published and indexed results, with priority uncertainty beyond them. The source paper's exact and approximate covariances and its rank claim for the exact posterior were compared directly; no inspected theorem asserts the generic rank inflation of the approximate posterior or mutual singularity under vanishing matrix error. Classical Gaussian-conditioning work gives the exact nullspace but not this specific approximation's changed rank. Focused record searches for equivalent Lanczos covariance rank and observed-direction variance found no covering statement. A general covariance-approximation principle could be used to derive aspects once this rank obstruction is known; older specialized literature may contain related support-mismatch observations.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A generic extra positive eigenvalue means an uncertainty distribution intended to quantify information left after exact linear observations assigns positive uncertainty to an observed direction. This changes the support dimension of the posterior and makes strict information divergence infinite, despite arbitrarily small operator error. This is a structural calibration boundary for a natural matrix-free covariance construction, not a numerical tolerance artifact or a single isolated counterexample.
+Fifen–Karambal–Hennig 2026 precisely define the target and rank-one-boundary-plus-isotropic covariance construction. Section 4.3 Proposition 14 bounds the matrix approximation error, while Section 4.4 Proposition 16 explicitly proves rank d-m of the EXACT conditional covariance, not of the approximating covariance. The source distinguishes full inverse covariance from residual computational-uncertainty covariance. Classical Bayesian CG conditional nullspaces do not give positivity of this specific approximant boundary plane. The audited strict next-beta moment condition and generic rank-plus-one phenomenon are not stated in the compared primary theorems, though generic support mismatch is a known possibility and broad Gaussian-conditioning literature remains a risk.
 
-## Scientific limitations
+## value
 
-Exact arithmetic and the exact-trace analytic approximation only. No assertion about actual finite-probe numerical implementations, full-rank inverse-covariance KL metrics, or a generic remedy. Independent priority and proof confirmation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The additional positive eigenvalue and observed-direction variance are an exact calibration pathology of an explicitly proposed matrix-free uncertainty construction; the Gaussian measures become mutually singular even as operator-norm covariance error vanishes. This is a generic model-wide structural limitation, not a numerical tolerance artifact or arbitrarily chosen small matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
