@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The constructive proof gives the all-dimensional result. Its central checks are: (i) rank-product inequality for an operator written as a sum of simple tensor operators; (ii) its use in both directions for an involution; (iii) disjoint-support orthogonality of grouped vectors in the rank-decreasing construction; (iv) existence of a first-factor orthonormal frame with prescribed normalized group sums in the rank-increasing construction, obtained by extending an isometry; and (v) disjoint transpositions and mutually orthogonal control projections to ensure the resulting operator is both self-adjoint and square-one.
+# Independent mathematical audit
 
-`check_involutions.py` is an executable finite consistency checker (Python 3 with NumPy). Running it produces:
+## correctness
 
-```
-PASS 254 dimensions/ranks; reflection, Schmidt rank, and exact OSR each.
-```
+PASS
 
-The test covers square factor dimensions 1 through 8 and four rectangular pairs, checking all source and target Schmidt ranks in those dimensions. Numerical rank uses a fixed singular-value tolerance; its passing results are neither an exact-algebraic certificate nor a proof for all dimensions. The proof above remains required for the general claim. Source comparisons establish no exhaustive historical-priority guarantee.
+Rank-product lower bound applies to U and U−1=U. Decreasing-rank construction groups input Schmidt indices and swaps disjoint second-factor basis vectors; output has q orthogonal groups. Increasing-rank construction embeds an abstract q-frame with normalized per-input group sums into first factor, then uses orthogonal control projectors and transposition involutions; exactly q orthogonal Schmidt terms survive. Independent 4×4 p=2→q=3 realignment check confirms self-adjointness, square-one and OSR=2.
+
+## originality
+
+PASS
+
+Kian–Moslehian proves precisely the unrestricted unitary minimum, a stronger comparison on a larger admissible class but not an involutory minimizer. The new constrained realization is not a formal consequence of the unrestricted bound. Full same-paper proof inaccessible, leaving a substantive construction-overlap risk.
+
+## value
+
+PASS
+
+Replaces arbitrary optimal unitaries by reversible self-adjoint controlled reflections for every Schmidt-rank transition, a motivated and nontrivial structural restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

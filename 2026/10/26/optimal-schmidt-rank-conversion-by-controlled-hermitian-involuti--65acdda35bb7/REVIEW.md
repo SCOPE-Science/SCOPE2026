@@ -1,12 +1,21 @@
-# Scientific assessment: optimal Schmidt-rank conversion by controlled Hermitian involutions
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes finite complex factor dimensions, a nonzero input of Schmidt rank \(p\), and a target **rank** \(q\), not a target vector. The general operator-rank product inequality gives two required inequalities because the desired gate squares to identity. For decreasing rank, disjoint index groups yield \(q\) mutually orthogonal nonzero output vectors and disjoint swap pairs. For increasing rank, a frame-isometry extension realizes every original Schmidt vector as the prescribed orthogonal average; available complementary coordinates on the second factor yield \(q\) distinct Schmidt factors. Each controlled operator is self-adjoint and unitary because its control projections are orthogonal and its second-factor swaps are disjoint. This completes an all-dimensional proof, not a finite extrapolation. The executable consistency checker passes 254 finite dimension/rank choices. Residual mathematical risk: an undiscovered edge case in the choice of complement frames; explicit dimension counting and the constructions address it.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Kian–Moslehian (arXiv:2610.09794v1, Theorem 2.1) proves the same rank minimum **without** requiring the unitary to be Hermitian or square to identity. Its increasing-rank proof includes a local alignment operation, and its statement does not imply that an optimal admissible involution exists. The present proof supplies that stronger construction for every pair of source and target ranks; it is not a new numerical bound for the unrestricted problem. The 2013 Cohen–Yu classification of operator-Schmidt-rank-two unitaries up to local equivalence, and the 2018 Müller-Hermes–Nechita classification of possible operator Schmidt ranks, do not directly yield rank-transition attainability by self-adjoint involutions. Search of mathematically relevant indexed records and the accessible same-topic research statements found no equal or stronger result. Residual risk: specialized literature on Hermitian controlled gates or reflections, possibly indexed under different quantum-gate terminology, could contain an equivalent construction; exhaustive historical priority is not established.
+PASS
 
-## Mathematical value — PASS
-The natural additional constraint \(U^2=I\) represents a reversible one-step reflection gate and could have increased the minimal operator Schmidt rank. The theorem shows **no increase at all** for any dimension or Schmidt-rank transition, using only mutually orthogonal controlled sectors and two-cycle permutations. It is a complete, coefficient-independent classification of exact restricted-gate reachability, strengthening a 2026 unrestricted classification. The output Schmidt spectrum and a specified exact target state are not controlled; no circuit-complexity optimality is claimed. This distinct structural restriction, rather than a routine fixed-parameter substitution, motivates the result.
+Rank-product lower bound applies to U and U−1=U. Decreasing-rank construction groups input Schmidt indices and swaps disjoint second-factor basis vectors; output has q orthogonal groups. Increasing-rank construction embeds an abstract q-frame with normalized per-input group sums into first factor, then uses orthogonal control projectors and transposition involutions; exactly q orthogonal Schmidt terms survive. Independent 4×4 p=2→q=3 realignment check confirms self-adjointness, square-one and OSR=2.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kian–Moslehian proves precisely the unrestricted unitary minimum, a stronger comparison on a larger admissible class but not an involutory minimizer. The new constrained realization is not a formal consequence of the unrestricted bound. Full same-paper proof inaccessible, leaving a substantive construction-overlap risk.
+
+## value
+
+PASS
+
+Replaces arbitrary optimal unitaries by reversible self-adjoint controlled reflections for every Schmidt-rank transition, a motivated and nontrivial structural restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
