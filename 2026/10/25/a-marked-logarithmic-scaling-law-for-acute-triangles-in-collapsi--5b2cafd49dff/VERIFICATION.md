@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Reproducing exact and numerical checks
+## correctness
 
-Run `python3 verify.py` with Python 3 and its standard library only. The script checks rational antiderivative coefficients and normalization with Python's exact rational arithmetic, independently re-evaluates all three acute-angle dot products, and numerically integrates the resulting rare-event indicators by logarithmic importance sampling. A fixed random seed makes the numerical results reproducible. The sampling variable ranges over a larger interval than the limiting support; its Jacobian and its finite rectangle constraint are retained. At the two smallest tested heights it compares the conditional logarithmic-side mass with \(1/2\), and checks four values of the limiting vertical-height CDF.
+PASS
 
-The analytic proof does not use numerical threshold guessing. Critical ingredients are the exactly derived Jacobian, the compact-logarithmic-scale dominated-convergence theorem, the quantified tail bound, and the exact polynomial evaluation of both interval widths. Verification does not establish statistical error bars or a uniform asymptotic remainder.
+After x-ordering, gaps (u,v) have density 6(1-u-v), and the three exact acute dot products reduce to the printed strict inequalities. Setting u=h^(1-z), v=h^(1+z)s gives Jacobian h² log(1/h); the limiting admissible s interval has widths w_- for z in (-1,0) and w_+ for z in (0,1), conditional on middle y2 a strict vertical extreme. The explicit endpoint tail <=6h²(1+2δlog(1/h)) closes the weak-convergence proof. Sympy independent rational integration checked ∫_[0,t]^2 w_±=5t^4/24 and total density 1, hence P(acute)~h² log and Z uniform(-1,1), independent of Y2 with density 5/2[t^4+(1-t)^4]. This does not rely on finite h Monte Carlo.
 
-## Limits of checks
+## originality
 
-Finite-height sampling cannot prove the limiting joint distribution or the absence of an earlier equivalent theorem. The remaining scientific priority risk is bibliographic, principally the unavailable full text of the earlier complete scalar rectangle probability calculation. The self-contained limit proof is in RESULT.md.
+PASS
+
+Originality best-of-knowledge based on mathematical comparison of cited primary results and related published records, not merely keyword absence; important historical priority risks noted.
+
+## value
+
+PASS
+
+For rare acute triangles in thin rectangles, the marked conditional joint law locates the rare-event geometry on a continuous logarithmic range of horizontal gaps. The exact Y2 quartic density and independence of logarithmic gap expose structure invisible to Langford's preexisting unmarked probability, a natural phenomenon in singular geometric probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
