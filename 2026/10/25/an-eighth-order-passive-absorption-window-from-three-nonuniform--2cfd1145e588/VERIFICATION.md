@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Execute `python certify.py` with SymPy and mpmath. This code reconstructs the precise scattering numerator jet equations, computes symbolic derivatives, and uses directed-rounded interval enclosures of their Jacobian and the fourth numerator derivative. The certified infinity-norm upper bounds on the Newton-map defect and center residual give a contraction into a closed rational box; Banach's fixed-point theorem supplies an actual positive solution. The nonzero fourth-derivative interval supplies exact multiplicity. The reproduced checks do not establish global optimality, uniqueness outside the displayed box, stability under parameter drift, or independence from existing literature. Independent validation has not been performed.
+## correctness
+
+PASS
+
+Reconstructed continued fraction g(E)=1/[E+ia-1/(E+ib-1/(E+ic))] and reflected amplitude r=-(t g(E)+exp(ik))/(t g(E)+exp(-ik)), E=-2 cos k. Vanishing order four at pi/2 imposes t g0=-i, 2t g1=1,4t g2=i,8t g3-2t g1=-1. Eliminating t=(abc+a+c)/(bc+1) gives three rational real F equations. Independently reconstructed symbolic derivatives and outward interval Newton contraction in the stated radius 10^-7 positive parameter box: ||I-A DF(B)||inf<0.000086365, ||A F(center)||inf<1.39e-15; hence self-map contraction and one genuine root by Banach. Independent interval evaluation shows N^(4)(0)/i in (-15.455,-15.453), excluding fifth order, and gives |r(pi/2+delta)|^2=C delta^8+o(delta^8), C≈0.10366. The central denominator is nonzero (-2i). Certified fixed-point calculation supports a rigorous finite-algebraic existence theorem; no numerical root assumptions or global claims.
+
+## originality
+
+PASS
+
+PASS for the exact certified strictly-passive three-independent-loss realization. Earlier uniform-loss three-site work and general arbitrary-loss transfer-matrix formulas are highly relevant, but the accessible material did not identify a proven fourfold center-zero positive solution in this geometry. General inverse-scattering and inaccessible appendices remain risks.
+
+## value
+
+PASS
+
+High-order local cancellation with all loss rates strictly positive is a motivated impedance-matching feasibility result. The explicit contraction certificate demonstrates a physical design with eighth-order reflection-power detuning, not merely evaluating a preselected parameter table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
