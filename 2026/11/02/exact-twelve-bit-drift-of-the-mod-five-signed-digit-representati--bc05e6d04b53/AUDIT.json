@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "An exact 24-state integer recurrence calculates the sums and all ordered prefix extrema for pairs of Stern residues modulo five, with digit maps (a,b)->(a,a+b),(a+b,b). The complete state certificate verifies S5=S1, U28=U16-4 and V28=V16+4, all as 24-component integer vector equalities. Those identities and induction prove 12-step extrema translation from r>=16; eight additional exact root checks give the sharp r>=8 threshold. The Monroe identity b_r(n)=s(2^r-n) proves the equivalent signed-digit claim. A saved checker rederives every certificate row, tests the finite premises, and directly checks 131072 Stern values and small signed-digit counts. Finite experiments beyond those premises are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reznick Section 4 proves each residue has an asymptotic frequency with sublinear error, too weak to determine an exact signed difference.",
+        "Reznick Theorem 5.6 bounds the modulo-three sign discrepancy by three; at the end of Section 5 he explicitly reports no theorem for d=5.",
+        "Monroe proves representation-count correspondence and efficient evaluation, not 5-adic residue-prefix extrema."
+      ],
+      "reasoning": "The earlier frequencies and representation identities do not dominate the exact period-twelve extrema or its sharp logarithmic magnitude. They involve either individual frequencies, a different modulus, or a pointwise correspondence, with no implication for the new claim.",
+      "searches": [
+        "StERN diatomic sequence exact prefix discrepancy modulo five between residues 1 and 4, max min over dyadic intervals grow logarithmically with period 12",
+        "arXiv:math/0610601 Theorem 5.6 and Section 4",
+        "arXiv:2108.11495 Sections 3-5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.05810 abstract/first-public date",
+      "arXiv:2108.11495 full mathematical article",
+      "arXiv:math/0610601 relevant full 16-page source and explicit gap statement",
+      "OEIS A002487 sequence definition",
+      "Public mathematical-record search for Stern mod-five discrepancy and signed-digit counts",
+      "Accessible current-week historical claim records for deduplication only",
+      "Public mathematical research-record semantic searches of source/claim/aliases/equivalences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Monroe Theorem 6 + a new 24-state max-min computation is needed to deduce this exact extremum.",
+        "Reznick quotes no d=5 theorem and his d=3 bound excludes an implication to d=5.",
+        "A residue-frequency asymptotic allowing O(N^tau) errors cannot imply an exact O(log N) extremal profile."
+      ],
+      "reasoning": "Neither the same-object correspondence nor the stronger-looking asymptotic equidistribution logically yields the specific period-twelve extrema. The result is not merely a corollary of any inspected prior statement.",
+      "searches": [
+        "Unbounded logarithmic residue imbalance in Stern's diatomic sequence mod 5, counterexample to bounded discrepancy numerical range minus five eleven",
+        "arXiv:2108.11495 Theorem 6",
+        "arXiv:math/0610601 Theorem 5.6 and concluding remarks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Monroe Theorem 6 identifies fixed-width signed-digit representation counts as reversed Stern values.",
+        "Reznick defines T(N;d,i) and studies the modulo-three difference T(N;3,1)-T(N;3,2)."
+      ],
+      "reasoning": "The two formulations of the new claim are mathematically equivalent by reversal; neither older identity determines extrema or the increment four across twelve widths. The modulo-three analogue uses a distinct modulus.",
+      "searches": [
+        "Signed-digit representation counts mod 5 difference between counts congruent 1 and 4, exact extrema recursion",
+        "arXiv:2108.11495 Theorem 6",
+        "arXiv:math/0610601 formula (1.11)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002487 lists values and standard Stern recurrences, but not the exact prefix-extremum drift.",
+        "Reznick reports a finite check through N<=2^19 with crude numerical bounds for T(N;5,1)-T(N;5,4), not an infinite statement.",
+        "Reznick identifies a recurrence for T(2^r;5,0), the count of zero residues, which is distinct from the 1-versus-4 signed prefix discrepancy."
+      ],
+      "reasoning": "The finite table is consistent with but cannot imply the unbounded infinite law; the known zero-residue recurrence is not a table of the new invariant. No exact database entry covering the twelve-step shifts was identified.",
+      "searches": [
+        "Projective line F5 Calkin Wilf Stern diatomic zero numerator mod 5 transfer matrix exact density one sixth",
+        "OEIS A002487 Stern diatomic series",
+        "arXiv:math/0610601 last paragraph Section 5"
+      ]
+    },
+    "rationale": "The 2021 BSD/Stern correspondence gives the object equivalence but no modular ordered-prefix extremal formula. Reznick's full inspected 2006 preprint proves a bounded residue-one-versus-two discrepancy modulo three and records only a numerical observation, without a theorem, for the modulo-five residue-one-versus-four discrepancy. His modulo-five zero-residue count and general equidistribution do not imply an unbounded signed difference with exact periodic extremal drift. Targeted public-record searches and accessible historical claim comparisons showed no covering theorem; 2012 class notes unavailable, so absolute priority is not claimed.",
+    "residual_risks": [
+      "Absolute bibliographic priority not certified; unindexed equivalent treatments are possible.",
+      "Reznick's 2012 course notes titled A Stern Introduction to Combinatorial Number Theory are cited elsewhere but full contents were not accessible; the original preprint offers no d=5 theorem.",
+      "Some older weekly research files are unavailable; accessible current-week historical claims were checked without treating inaccessible records as negative evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact BSD-to-Stern translation, but no modulus-five prefix-imbalance extrema.",
+        "evidence": [
+          "Theorem 6 gives f(n,i)=c(2^i-n).",
+          "Theorems 12-15 prove the hyperbinary link; Section 5 gives evaluation algorithms and arithmetic progressions, not residue-class signed prefix extremes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.11495",
+        "material_read": "Full open-access preprint, pages 1-13, especially Theorems 6, 12, 14, 16 and 19, and Sections 3-5.",
+        "method": "Page-level PDF text and first-page screenshot; compared definitions, theorem hypotheses and consequences.",
+        "title": "Binary Signed-Digit Integers and the Stern Diatomic Sequence",
+        "trigger": "Same representation object; possible domination by a general signed-digit theorem."
+      },
+      {
+        "assessment": "Supplies precise gap: bounded d=3 difference and no proved d=5 difference beyond a finite experiment; known d=5 zero-count recurrence is not covering.",
+        "evidence": [
+          "Formula (1.11) defines T(N;d,i).",
+          "Theorem 5.6 shows modulo-three difference takes values 0,1,2,3.",
+          "Final Section 5 paragraph states no result for d=5 and lists finite sample bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0610601",
+        "material_read": "Open-access 16-page paper, its abstract, Sections 1, 4-5, Theorem 5.6 and last paragraph on page 15; full critical mathematical text.",
+        "method": "Page-level PDF text and page-15 screenshot; compared result hypotheses and claimed modulus.",
+        "title": "Regularity Properties of the Stern Enumeration of the Rationals",
+        "trigger": "Exact same residue counts T(N;5,1)-T(N;5,4), potentially a stronger published coverage."
+      },
+      {
+        "assessment": "First source date for the signed-digit correspondence is 2021-03-10; no claim about exact mod-five extrema in the abstract.",
+        "evidence": [
+          "Original arXiv first posted 2021-03-10; its abstract identifies the fixed-width signed-digit/Stern correspondence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.05810",
+        "material_read": "arXiv metadata, first-posted date and full abstract; split-paper full text inspected separately.",
+        "method": "Original public abstract and posting metadata.",
+        "title": "Binary Signed-Digit Integers, the Stern Diatomic Sequence and Stern Polynomials",
+        "trigger": "Establish earliest public source date and relation to later split manuscripts."
+      },
+      {
+        "assessment": "Supports definitions and ordinary terms, not a proven twelve-step extrema law.",
+        "evidence": [
+          "Entry defines s(0)=0,s(1)=1 and binary recurrences and lists initial values."
+        ],
+        "identifier_or_url": "https://oeis.org/A002487",
+        "material_read": "Public sequence description, initial values and basic recurrences; no whole-reference exclusion claimed.",
+        "method": "Direct page inspection.",
+        "title": "OEIS A002487 Stern diatomic series",
+        "trigger": "Possible exact database or table coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc05e6d0-4b53-42a7-adb0-7bb5bf101e45",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact signed-prefix imbalance of fixed-width binary signed-digit representation counts is a natural arithmetic-statistical invariant, not an arbitrary sliced computation. The result gives a complete infinite twelve-step extremal classification from the sharp threshold eight, resolves a previously explicitly noted lack of a modulus-five discrepancy theorem, and proves optimal order one-third times binary length in either direction. This sharply contrasts the proved bounded modulo-three analogue. The finite vector certificate is a structural proof mechanism, not a replacement for motivation.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific review — exact mod-five signed-digit imbalance
+
+**Correctness (PASS).** The theorem is reduced by Monroe's exact signed-digit/Stern identity to the 24 nonzero pairs of residues modulo five. Two explicitly invertible digit transitions give exact recurrences for total, minimum prefix, and maximum prefix sums. A complete integer table verifies the two critical finite vector identities at depths 16 and 28, along with the four-step total identity. The induction and eight smaller starting comparisons prove the infinite sharp twelve-step law. The included checker reconstructs and rechecks every table entry and directly verifies the original arithmetic on independent finite ranges. Its finite enumerations are not substituted for the infinite induction.
+
+**Originality (PASS within inspected evidence).** Monroe (2021, `arXiv:2103.05810` and `arXiv:2108.11495`) proves the signed-digit representation correspondence, not the prefix residue-extremum law. Reznick (`arXiv:math/0610601`, first available 2006) explicitly leaves the mod-five residue-one versus residue-four prefix imbalance without a theorem, noting only a finite experiment, while proving a distinct *bounded* mod-three imbalance and a different mod-five zero-residue count. The new sharp diverging extrema are neither special cases nor corollaries of those assertions. Targeted mathematical-literature and public-record searches yielded no covering result. A possible unpublished or unindexed equivalent theorem, including inaccessible 2012 course notes, remains a residual priority risk.
+
+**Mathematical value (PASS).** The main invariant is the exact worst-case bias across natural ordered prefixes of a fixed-width representation-count sequence, itself a studied arithmetic coding object. The theorem resolves a clearly identified mod-five uncertainty in the underlying Stern sequence, establishes sharp logarithmic divergence as opposed to the proved bounded mod-three analogue, gives the precise period-twelve drift and sharp onset, and has a short reusable 24-state certificate. It is not a routine substitution or a finite sample statement.
+
+**Limitations.** No complete histogram of discrepancies or other-modulus classification is claimed. Absolute priority is not certified; no independent validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
