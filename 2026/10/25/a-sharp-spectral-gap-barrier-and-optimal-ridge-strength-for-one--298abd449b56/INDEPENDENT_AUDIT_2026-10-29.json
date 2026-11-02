@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:07:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For augmented normal G=diag(r+ℓ,1+ℓ) and sketched normal H=ℓI+2zzᵀ, exact 2D generalized eigenvalue ratio comparison reduces to sign of P via tr²/det=k+2+1/k. The t-quadratic discriminant is ℓ²(r−1)²(2ℓ+r+1)²(r²−6r+1), so no negative values when r≤3+2sqrt2. For r above barrier, roots t± cross physical cosine interval at L_−,L_+ with t−>−1; arcsine angle density gives the three probability cases. Root monotonicity and exact derivative-sign identity show strict rise to L_+ and strict fall thereafter. Independent exact symbolic reduction of derivative sign identity modulo δ²=r²−6r+1; independently compared direct 2x2 generalized-eigenvalue conditioning and 80,000-angle quadrature at r=6,ℓ=4: 0.41955 vs arccos(1/4)/pi≈0.4195694. Source verifier read but finite sampling is not the all-real proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meier–Nakatsukasa arxiv:2203.07329, sections 2–3 including Theorem 5, gives conditioning guarantees under sufficient embedding; with one row for two dimensions, that assumption generally fails.",
+          "Avron–Clarkson–Woodruff arxiv:1611.03220 concerns kernel ridge approximation with informative sketches."
+        ],
+        "reasoning": "The preconditioner framework is prior, but a broader algorithm class with an embedding assumption does not imply exact no-improvement threshold and optimizing ridge strength for a rank-deficient one-row sketch.",
+        "searches": [
+          "single row sketch precondition regularized least squares ridge spectral condition number probability sharp spectral gap threshold isotropic",
+          "arxiv:2203.07329",
+          "arxiv:1611.03220"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2203.07329 (Meier/Nakatsukasa full HTML relevant sections)",
+        "arxiv:1611.03220 (Avron/Clarkson/Woodruff reference-level comparison)",
+        "arxiv:2302.07202 (finite precision stability other regime, reference-level comparison)",
+        "Resultary single row sketch precondition regularized least squares ridge spectral condition number probability sharp spectral gap threshold isotropic",
+        "Resultary single-row random sketch Tikhonov ridge preconditioner exact condition-number improvement probability Gaussian spherical sketch two dimensions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The regularized normal matrix and Cholesky preconditioner form are prior; Meier–Nakatsukasa discuss partially sketched regularization.",
+          "The algebraic sign P and its discriminant, two thresholds and monotonic angular-integral probability are not stated in the relevant examined passages."
+        ],
+        "reasoning": "Prior sufficient sketch embedding guarantees do not imply necessity for arbitrary one-row orientation; the present result is a full necessary-and-sufficient planar rank-deficient classification.",
+        "searches": [
+          "arxiv:2203.07329",
+          "arxiv:2302.07202",
+          "single row sketch precondition regularized least squares ridge spectral condition number probability sharp spectral gap threshold isotropic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Improvement event expressed in equivalent condition-number ratio for generalized eigenvalues of H^(-1)G, trace²/det and a quadratic in cos2θ.",
+          "Meier–Nakatsukasa arxiv:2203.07329 uses the same regularized partially sketched normal form, while deriving sufficient regularized embedding bounds."
+        ],
+        "reasoning": "Equivalent expressions via generalized eigenvalues or arcsine angular measure are acknowledged, but the inspected published bound is not equivalent to this exact rank-one improvement region.",
+        "searches": [
+          "single row sketch precondition regularized least squares ridge spectral condition number probability sharp spectral gap threshold isotropic",
+          "single-row random sketch Tikhonov ridge preconditioner exact condition-number improvement probability Gaussian spherical sketch two dimensions",
+          "arxiv:2203.07329"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches returned row-coherence obstructions and other preconditioning/spectral results, not an exact 2D arcsine probability for the stated model."
+        ],
+        "reasoning": "The exact probability is a continuous angular integral, not a tabulated finite invariant; no exact database/table covers the new spectral-gap barrier.",
+        "searches": [
+          "single row sketch precondition regularized least squares ridge spectral condition number probability sharp spectral gap threshold isotropic",
+          "single-row random sketch Tikhonov ridge preconditioner exact condition-number improvement probability Gaussian spherical sketch two dimensions"
+        ]
+      },
+      "rationale": "Best-of-knowledge analysis compares the exact final theorem and logical implications with relevant primary full texts and published research records; known methods and special cases explicitly credited. No decisive coverage found in inspected theorem statements. Unindexed literature can still dominate; negative search is not proof of priority. See four structured comparisons and source-inspection details. An overlooked older 2x2 randomized preconditioning calculation or unpublished textbook exercise might yield the same arcsine threshold; current originality best-of-knowledge.",
+      "residual_risks": [
+        "An overlooked older 2x2 randomized preconditioning calculation or unpublished textbook exercise might yield the same arcsine threshold; current originality best-of-knowledge.",
+        "Two dimensions, one isotropic unbiased row, exact arithmetic and condition number only; no solver runtime or higher-dimensional assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS framework and high-probability sufficient bounds for adequate embeddings; not the exact rank-one orientation event or unique ridge optimum.",
+          "evidence": [
+            "arxiv:2203.07329 Theorem 5: regularized embedding-based conditioning, distinct from an underdetermined rank-one sketch."
+          ],
+          "identifier_or_url": "arxiv:2203.07329",
+          "material_read": "Full accessible arXiv HTML sections 2.1.2, 3.1 and 3.3, and Theorem 5 on preconditioning/embedding assumptions.",
+          "method": "Primary arXiv full HTML source.",
+          "title": "Randomized Algorithms for Tikhonov Regularization in Linear Least Squares",
+          "trigger": "Exact same partially sketched ridge normal matrix, potentially stronger result for arbitrary sketches."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One-row isotropic sketching of the smallest nontrivial regularized least-squares system is necessarily rank deficient, so sufficient subspace embedding bounds do not answer whether it ever improves conditioning. A sharp gap impossibility r≤3+2sqrt2 and complete probability/ridge-optimum law for favorable orientations constitute a meaningful exact design diagnostic, not a generic claim of solver speed or dimension-free performance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual Git tree a17e129297f620c532e4f83b529cb076c7845a5a at commit 4a3a3b26f6b337c3dc5991377e63d191d9dbe285; full scientific files RESULT.md, SLOGAN.txt, REVIEW.md, VERIFICATION.md, AUDIT.json, METADATA.json, verify_ridge_sketch.py; RESULT.md blob d9300075ce0a026c0b0904b454ea7986afdd4cc5",
+    "arxiv:2203.07329 (Meier/Nakatsukasa full HTML relevant sections)",
+    "arxiv:1611.03220 (Avron/Clarkson/Woodruff reference-level comparison)",
+    "arxiv:2302.07202 (finite precision stability other regime, reference-level comparison)",
+    "Resultary single row sketch precondition regularized least squares ridge spectral condition number probability sharp spectral gap threshold isotropic",
+    "Resultary single-row random sketch Tikhonov ridge preconditioner exact condition-number improvement probability Gaussian spherical sketch two dimensions",
+    "Independent exact symbolic derivative-sign identity and direct 2x2 generalized eigenvalue at selected orientations, plus 80,000-angle quadrature at r=6,ℓ=4; original verify_ridge_sketch.py inspected but finite checks do not establish all r,ℓ."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic; positive diagonal two-dimensional A, augmented ridge rows, single unbiased isotropic sketch row, λ>0; condition-number comparison only and no computational time or high-dimensional guarantee."
+  ],
+  "residual_risks": [
+    "An overlooked older 2x2 randomized preconditioning calculation or unpublished textbook exercise might yield the same arcsine threshold; current originality best-of-knowledge.",
+    "Two dimensions, one isotropic unbiased row, exact arithmetic and condition number only; no solver runtime or higher-dimensional assertion."
+  ],
+  "schema_version": 1
+}
