@@ -1,0 +1,21 @@
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The final claim and scope were reconstructed directly from frozen Git RESULT.md, source tree 0b14efa1165c45aa6e5bf079ad54f1d85a88d6a9, with all eight Git text/code/certificate files inspected. For each fixed positive guild split a+b=n, sorting the a nonempty b-bit plant neighborhoods gives one representative for every graph up to plant relabelling, while retaining all pollinator labels. Since the graph is connected only if each guild vertex participates and the incidence graph is one component, enumerating every weakly increasing tuple and testing connectivity is exhaustive; when min(a,b)=1 connectedness forces a unique star. A fresh independent union-find algorithm and independent Boolean failure-set counter (not the repository BFS/risk_counts implementation) re-enumerated every connected graph for n=2,...,9. Connected row-multiset totals at n=4,...,9 were 3,16,87,588,5158,58968; degree-matched distinct count-vector pair totals n=7,8,9 were 4,47,397. All such comparisons were componentwise ordered with zero exceptions. The exact count c_k of deleted k-sets containing any plant neighborhood satisfies R(q)=sum_{k=0}^b c_k q^k(1-q)^(b-k); nonnegative Bernstein weights transfer this order to every q in [0,1]. Independently confirmed both six-plant/four-pollinator graphs connected with equal plant/pollinator degree multisets, exact risk count vectors (0,1,6,4,1) and (0,2,5,4,1), and difference q(1-q)^2(2q-1). Direct exact rational checks at q=1/4, 1/2, 3/4 gave -9/128, 0, +3/128. Both expected lost-plant counts equal 2q+4q². Adding t singleton plants adjacent to pollinator 0 duplicates a preexisting neighborhood in both graphs, so the first-loss Boolean event and crossing persist for all t>=0 (not finite extrapolation). The finite boundary n<=9 is genuinely covered by complete enumeration and independent checker; no unseen infinite computational claim is made.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS for the sharp n=10 boundary under simultaneous plant and pollinator degree-multiset matching, not for the standard all-neighbors-lost rule, marginal extinction formulas, or reliability-polynomial definition. Read relevant biological primary literature and compared hypergraph upward-closure/reliability reformulations and publicly indexed related mathematics. Memmott et al. 2004 and Burgos et al. 2007 study robustness curves based on expected surviving fractions or nestedness. Jones, Zurell & Wiesner 2023 equations (2)–(5) compute single-plant probabilities and their mean, which are identical for the present pair but cannot imply the joint any-plant event; the source itself distinguishes mean robustness. Vieira & Almeida-Neto 2015 investigates stochastic cascades and one-primary-loss probabilities, not both-degree-preserving Bernoulli crossing or minimum order. Bane et al. 2018 compares knockout robustness statistics under differing models. No inspected primary source or indexed finding covers this exact classification; absence from searches is NOT proof of historical novelty. Equivalent results could lie in hypergraph upper-shadow/reliability or unindexed ecology supplements.
+
+## value
+
+PASS
+
+The event of any first secondary plant coextinction is a natural ecological risk invariant distinct from the commonly reported average fraction of survivors. The degree-matched pair has identical numbers of plants, pollinators, plant degrees, pollinator degrees, and identical expected total losses for every q, yet its probability of any loss reverses strictly at q=1/2. This demonstrates an operationally meaningful failure of mean-degree summaries to order first-event risk. The n=9 exhaustive lower bound and n=10 witness form a sharp non-arbitrary finite minimum under a strong natural constraint, not a tiny arbitrary sample, and the proof produces a connected equal-degree family at every larger order by adding duplicate singleton rows. Future theoretical comparisons of reliability/robustness based solely on degree sequences can use this exact boundary. No empirical prevalence, causal biological generality or full n=10 census claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
