@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Direct master-equation solution gives delta exp(-lambda T)+x tanh(theta)tanh(f/2)(1-exp(-lambda T))/2. Endpoint monotonicity gives exact C and B task thresholds, including equality. Optimizing min(dz,S-dz^c) over d∈[0,1/2] yields two strictly monotonic time branches meeting at the unique positive root z+(1+H)z^c=H, with only deterministic initializations at the optimum. The root identity gives weak-drive fractional corrections. The saved standalone checker completed 12,931 finite assertions; analyticity/globality follow from the proof, not tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Floyd et al. use stationary occupations lim_{t→∞}p(t), with no initial-state-dependent transient.",
+        "Aslyamov and Esposito prove general bounds for task count and a uniform-preparation example, not an exact arbitrary-preparation optimum."
+      ],
+      "reasoning": "General geometric bounds and steady-state response constraints do not entail this exact three-task attainable margin or a unique finite-time optimizer; in steady state the term responsible for the additional constant task vanishes.",
+      "searches": [
+        "kinetic gate two-channel Markov jump classifier asymmetric initial distribution input copy invert constant functions preparation bias",
+        "finite-time two-state stochastic switch constant copying inversion common initial bias optimal readout margin root power cosh b",
+        "arxiv:2409.05827v1 Section II",
+        "arxiv:2610.20481v1 Appendix C"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.20481v1 (full accessible application and Appendix C)",
+      "arxiv:2409.05827v1 (full accessible relevant Sections I–II)",
+      "published-finding corpus semantic searches with actual exact queries and closest matching IDs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior eq. (28) is exactly the candidate formula with delta=0; prior eq. (32) concerns only the copying/inversion margin at prescribed T.",
+        "The new constant-task threshold C=|delta|e^{-a}, the opposing B=H(1-e^{-ca})/2-|delta|e^{-ca}, and their unique crossing are not implied by fixing delta=0.",
+        "Steady-state occupation results discard delta by T→∞."
+      ],
+      "reasoning": "One must allow nonuniform preparation and solve a fresh max-min problem; neither primary theorem supplies the third task or the globally optimal finite readout. Their general setting contains the candidate as a model, but that alone does not cover an absent exact claim; the usual two-state ODE itself remains prior art.",
+      "searches": [
+        "arxiv:2610.20481v1 full application and Appendix C",
+        "arxiv:2409.05827v1 Sections I–II",
+        "two-state stochastic classifier nonuniform initial preparation allows constant copying inversion three tasks margin optimal observation time pure initial state",
+        "two-channel kinetic Markov switch weak-drive logarithmic optimal readout fractional power optimal initialization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source model shares the rates, but uniform initialization eliminates the input-independent memory term; candidate counts labelings when that term is nonzero.",
+        "Relevant published-finding corpus hits above did not describe same two-input rate family, initial bias, or optimal readout."
+      ],
+      "reasoning": "Equivalence would require a theorem that compares constant labels and copy/inversion at a common margin with arbitrary shared initialization. The source fixes the initialization at one half and excludes constant labels, so its statement cannot be equivalent. No matching record was found; search absence alone does not establish priority.",
+      "searches": [
+        "two-state stochastic classifier nonuniform initial preparation allows constant copying inversion three tasks margin optimal observation time pure initial state",
+        "binary stochastic Markov switch biased initialization finite time kinetic control three labelings exact margin phase diagram",
+        "Aslyamov Esposito \"Physical limits to stochastic classifiers\" biased preparation nonuniform initial occupation three Boolean tasks transient switch optimal observation",
+        "arxiv:2610.20481v1 eqs. (27),(28),(32)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or benchmark of nonuniform-preparation task counts appears in the inspected primary paper.",
+        "Closest database records were on other objects, as identified by their actual IDs and summarized comparisons."
+      ],
+      "reasoning": "The theorem concerns a continuous parameter domain rather than a finite tabulated dataset; no source table was identified for this joint initialization/time classification. This check does not prove uniqueness.",
+      "searches": [
+        "Aslyamov Esposito \"Physical limits to stochastic classifiers\" biased preparation nonuniform initial occupation three Boolean tasks transient switch optimal observation",
+        "two-channel kinetic Markov switch weak-drive logarithmic optimal readout fractional power optimal initialization",
+        "two-state stochastic classifier nonuniform initial preparation allows constant copying inversion three tasks margin optimal observation time pure initial state",
+        "arxiv:2610.20481v1 equations (27)-(32)"
+      ]
+    },
+    "rationale": "Source arXiv:2610.20481v1 treats uniform preparation and excludes constant tasks, while the new nonuniform transient classification and joint optimization require new statements. The other inspected work treats steady states. Searches of mathematical research records and primary sources found no exact equivalent or stronger covering claim; standard two-state relaxation is not claimed as novel. Best-knowledge priority remains qualified.",
+    "residual_risks": [
+      "An earlier transient classifier optimization could implicitly specialize to the same two-state switch despite not being returned by searches.",
+      "A general multi-task theorem with arbitrary initial preparation could imply the exact special case after substantial specialization; no independent literature-wide certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Eq. (27) defines the rates; eq. (28) explicitly takes p0(0)=p1(0)=1/2; eq. (32) optimizes copying/inversion at fixed T. Neither nonuniform common initialization nor joint preparation/readout optimization nor the associated three-task capability is covered.",
+        "evidence": [
+          "arXiv:2610.20481v1; source eqs. (27),(28),(32), Appendix C",
+          "Source text explicitly says constant tasks excluded by q(theta,+1)+q(theta,-1)=1 under its uniform preparation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.20481v1",
+        "material_read": "Full accessible HTML including application equations (27)-(32), Section Conclusions, and Appendix C switch bounds. The first-public source date was checked on the arXiv abstract history.",
+        "method": "Read equations and assumptions and compared input-dependent terms, initialization restrictions, attainable labelings and optimization variables.",
+        "title": "Physical limits to stochastic classifiers",
+        "trigger": "Exact same two-channel switch and its copying/inversion capacity; candidate might be a corollary."
+      },
+      {
+        "assessment": "Their trained output is explicitly steady-state occupation (Section II); it cannot imply a sharp finite-time preparation-memory maximum without additional transient analysis.",
+        "evidence": [
+          "arXiv:2409.05827v1, Section II: “steady-state properties ... occupancy of ... designated output nodes”; Markov generator and lim_{t→∞} p(t)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.05827v1",
+        "material_read": "Accessible full HTML, abstract, Sections I–II and treatment of steady-state occupations with input-varying rates and classification; table of contents and the structural assumptions in the methods.",
+        "method": "Compared asymptotic stationary-occupation observable against a time-T occupation with arbitrary input-independent preparation.",
+        "title": "Limits on the computational expressivity of non-equilibrium biophysical processes",
+        "trigger": "A stronger network expressivity theorem might imply the binary classification count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f842a17d-7add-4cd8-be17-bb3d18c9c3f9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact task-count and sharp common-margin solution answer a natural missing preparation-memory question in the motivating physical stochastic-classification model. The result gives a complete 3-versus-2 capability boundary, a uniquely selected finite observation time, rigorous pure preparation necessity, and a generally noninteger weak-driving correction. These are structural phase/design facts, not unrelated parameter substitutions or arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
