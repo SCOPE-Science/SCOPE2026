@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "rationale": "For n>=4, gamma>0 and mu>0, K=mu diag(1_unprotected)-Q is symmetric positive definite. The exact survival transform, K^-1 and K^-2 moments follow from finite killed-generator semigroups. The zero-column-sum identity proves E[T]=n/(mu(n-2)). The rank-two Woodbury formula yields Z_d(s)=n/(mu+s)+2mu/((mu+s)^2[1-mu(G_s(0)+G_s(d))]) with strictly positive denominator. The closed cycle Green kernel is cosh((n/2-d)theta)/(2gamma sinh(theta)sinh(n theta/2)); theta>0 for s>=0, so it strictly decreases for d=0..floor(n/2). Positive s^2 in L_d(s) proves the strict Laplace ordering, and the zero-shift moment formula proves strict variance and alternate all-site mean ordering. The actual standalone verify_refuges.py passed 138 exact rational checks and the n=6 benchmark; no finite extrapolation is used to prove the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Soler 1982 develops a general exact trap algorithm (abstract). Evans–Nord 1985 derive exact multi-trap lengths (abstract).",
+        "Mavroforakis et al. arXiv:1509.02533 §§III–V prove absorbing-set monotonicity/supermodularity; Ben Zion et al. 2010 full text concerns population checkerboard persistence."
+      ],
+      "reasoning": "General resolvent algorithms would calculate the present law but do not themselves state or logically force a strict monotonicity in pairwise separation without the positivity of the cycle Green differences. Absorbing-set supermodularity compares growing sets rather than moving two nonabsorbing safe sites. Old partial-absorption publications could contain stronger unseen assertions: this is an explicit residual risk, not a claim of full exclusion.",
+      "searches": [
+        "\"Random walks on finite lattices with multiple traps\" Evans Nord PDF freely available",
+        "\"Alternative exact method for random walks on finite and periodic lattices with traps\" Soler pdf",
+        "\"Optimizing Metapopulation Sustainability through a Checkerboard Strategy\" full text",
+        "absorbing random-walk centrality Theory algorithms arxiv"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1086/590962 — full text methods/results/discussion inspected",
+      "doi:10.1371/journal.pcbi.1000643 — full text methods/results/discussion inspected",
+      "arxiv:1509.02533 — complete preprint text and central theorem inspected",
+      "doi:10.1103/PhysRevA.32.2926 — abstract only, full-text limitation documented",
+      "doi:10.1103/PhysRevB.26.1067 — abstract only, full-text limitation documented",
+      "doi:10.1103/PhysRevB.21.1400 — abstract only, full-text limitation documented",
+      "doi:10.1890/07-1094.1 — abstract of restoration/protection, different occupied-patch dynamics",
+      "Indexed record 2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783 — summary of different restart model",
+      "Indexed record 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63 — summary of graph-indexed range theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Evans–Nord (1985) studies walkers terminated on traps, whereas the theorem protects exactly two sites and kills on the complement at arbitrary positive rate.",
+        "Elkin–Possingham (2008) occupancy CTMC includes 100 patch states with colonization/extinction; not a single-particle transport generator.",
+        "Ben Zion–Yaari–Shnerb (2010) checkerboard maximizes persistence in a nonlinear coupled-population model, not the proposed lifetime transform.",
+        "Mavroforakis et al. (2015) monoticity/supermodularity of absorbing centrality gives no strict fixed-cardinality placement ordering for zero-kill sites."
+      ],
+      "reasoning": "Comparison is at the claim/implication level: each strong accessible source differs in states, absorbing mechanism, measured quantity, or optimization quantifiers. Broad Green-function methods are admitted as known and do not alone settle strictness. Priority remains conditional on fuller examination of early trapping literature.",
+      "searches": [
+        "Cycle graph continuous-time random walk two zero-mortality refuges and uniform susceptible initial survival time mean independent placement variance optimized antipodal",
+        "Two protection sites on a ring, exponential killing at other sites, expected absorption time maximum adjacent, variance minimum antipodal, Green function",
+        "Balanced Markov generator invariant susceptible-start mean lifetime mortality refuge placement, variance relation uniform-all mean",
+        "\"killing rate\" \"protected sites\" \"cycle\" random walk",
+        "\"Random walks on finite lattices with multiple traps\" Evans Nord PDF freely available",
+        "\"Optimizing Metapopulation Sustainability through a Checkerboard Strategy\" full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Proposed equivalence forms: killed CTMC with two zero-potential vertices; lattice walk with finite killing on complement of two sites; two-site resolvent/Green correction; mean-matched lifetime with strict Laplace transform and variance ordering.",
+        "Closest indexed records: 2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783 (restarted generic task durations, not cyclic refuge geometry); 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63 (range statistic, not killing)."
+      ],
+      "reasoning": "The two indexed scientific problems have different random objects and hypotheses: a restarted attempt distribution at fixed success and graph-indexed range maxima. Neither contains the two-refuge killed-ring generator, equal mean initial selection, or strict all-shifts Laplace comparison. No equivalent theorem was found in the searches; failed searches alone cannot establish priority.",
+      "searches": [
+        "All cyclic nearest-neighbor killed random walks with exactly two protected zero-hazard sites have lifetime mean invariant for uniformly vulnerable starts and strictly variance separation ordering",
+        "Lifetime Laplace transform refuge separation ring random walk killing sites fixed average time but varying variance",
+        "Two-site rank two Green resolvent cyclic mortality survival Laplace monotonicity and initial-state conservation",
+        "\"refuge\" \"Laplace transform order\" \"random walk\" cycle",
+        "\"two refuges\" \"cycle\" \"mean lifetime\" Markov",
+        "\"killing rate\" \"protected sites\" \"cycle\" random walk",
+        "cycle graph Markov chain mortality kill on complement of two sites survival Laplace transform"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The proposed object is a parameter-wide theorem for every cycle size and positive pair of rates, not one fixed numerical table entry.",
+        "Closest indexed exact finite-process item, 2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783, has unrelated restart success and deterministic-duration extremizers."
+      ],
+      "reasoning": "No inspected exact table enumerates the all-positive Laplace-transform order for symmetric cyclic refuge placement. Finite numerical examples, including the six-site example, serve only as checks and are not the primary claim.",
+      "searches": [
+        "\"two refuges\" \"cycle\" \"mean lifetime\" Markov",
+        "cycle graph Markov chain mortality kill on complement of two sites survival Laplace transform",
+        "random walk ring two safe sites mortality killing mean time variance",
+        "\"refuge\" \"Laplace transform order\" \"random walk\" cycle",
+        "All cyclic nearest-neighbor killed random walks with exactly two protected zero-hazard sites have lifetime mean invariant for uniformly vulnerable starts and strictly variance separation ordering"
+      ]
+    },
+    "rationale": "Best-knowledge literature assessment found no previously stated theorem jointly asserting uniform-vulnerable-start mean conservation and all-positive-Laplace-argument strict ordering by cyclic refuge separation for every n>=4 and arbitrary positive rates. Classical fundamental matrices and periodic Green kernels are acknowledged, and a remaining uncertainty over early full trap-paper coverage is disclosed. The accessed closest works treat perfect absorbing traps, nonlinear metapopulation occupancy/synchronization, or generic restart variance rather than this statement. Search absence is not claimed to certify priority.",
+    "residual_risks": [
+      "Full text of Evans–Nord 1985 and Soler 1982 was not recovered. Their general exact finite/periodic trap methods may conceal an implicit or explicit special case; no full-text noncoverage claim is made.",
+      "The theorem is an exact consequence of classical two-site resolvent analysis, so specialized stochastic-order/rearrangement literature might contain an equivalent statement under other terminology.",
+      "Biological relevance is to an idealized single-migrant conditional-lifetime proxy, not to population persistence or conservation benefit without additional assumptions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not an equivalent theorem: state is a patch-occupancy configuration with colonization and extinction, not a single moving organism with mortality excluded at two nodes; results are simulated viability/occupancy measures.",
+        "evidence": [
+          "Full article methods (100 patches, occupied/empty state, colonization/extinction/disturbance) https://www.researchgate.net/publication/23225878_The_Role_of_Landscape-Dependent_Disturbance_and_Dispersal_in_Metapopulation_Persistence",
+          "Publisher DOI 10.1086/590962 (electronically published 2008-08-29)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/590962",
+        "material_read": "Full paper text, introduction, methods describing one-hundred-patch occupancy CTMC, stochastic experiments, results and discussion.",
+        "method": "Author-uploaded readable full article text; cross-checked first electronic publication on publisher page.",
+        "title": "The Role of Landscape-Dependent Disturbance and Dispersal in Metapopulation Persistence",
+        "trigger": "Biological model of habitat protection, stochastic migration and heterogeneous disturbances."
+      },
+      {
+        "assessment": "Does not imply proposed theorem: optimizes interpatch migration and spatially alternating population phases in nonlinear demographic-stochastic metapopulations; it does not consider placement of two nonlethal sites in one killed-walker generator or conditional lifetime Laplace-transform ordering.",
+        "evidence": [
+          "DOI 10.1371/journal.pcbi.1000643, full text Results and Materials and Methods",
+          "2010 PLoS Comput Biol e1000643, page discussion and Figure 9 analysis"
+        ],
+        "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1000643",
+        "material_read": "Full text, abstract, logistic/Ricker/Nicholson-Bailey dynamics, experiments, checkerboard persistence discussion and materials/methods.",
+        "method": "Open licensed readable article text at https://www.researchgate.net/publication/41123874_Optimizing_Metapopulation_Sustainability_through_a_Checkerboard_Strategy",
+        "title": "Optimizing Metapopulation Sustainability through a Checkerboard Strategy",
+        "trigger": "Potentially strong spatial arrangement and metapopulation lifetime coverage with alternating patterns."
+      },
+      {
+        "assessment": "Absorbing target sites shorten hitting times and terminate the walk; protected sites here have zero mortality but remain traversable while other sites kill at finite hazard. No present transformed initial ensemble, exact conserved conditional mean, or strict Laplace-distance ordering follows directly from their stated supermodularity theorem.",
+        "evidence": [
+          "arXiv:1509.02533, §§III–V including Problem 1 and Propositions 1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.02533",
+        "material_read": "Full preprint text, sections III–V (absorbing target nodes, fundamental matrix, monotonicity, supermodularity) and related work.",
+        "method": "Readable ar5iv HTML preprint https://ar5iv.labs.arxiv.org/html/1509.02533",
+        "title": "Absorbing random-walk centrality: Theory and algorithms",
+        "trigger": "Broad prior graph random-walk optimization/supermodularity results might dominate site-placement order."
+      },
+      {
+        "assessment": "Potential unresolved coverage; cannot label full text NOT_COVERING. Abstract concerns fully absorbing traps, average walk lengths and cluster aggregation, unlike two protected (nonabsorbing) refuges with nonzero killing elsewhere, but formulas in complete text might imply a special case.",
+        "evidence": [
+          "DOI 10.1103/PhysRevA.32.2926, publisher abstract; publication 1985-11-01"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevA.32.2926",
+        "material_read": "Publisher abstract and journal metadata only; complete paper unavailable.",
+        "method": "Publisher abstract and open-access search; authorized institutional retrieval attempt could not proceed while access was disconnected.",
+        "title": "Random walks on finite lattices with multiple traps: Application to particle-cluster aggregation",
+        "trigger": "Older multi-trap finite-lattice exact random-walk analysis could imply or cover specialization."
+      },
+      {
+        "assessment": "The abstract establishes a general exact method for trapping-time probabilities; this makes Green inversion classical, but does not establish by itself the strict two-refuge separation classification. Full-text implication remains unverified.",
+        "evidence": [
+          "DOI 10.1103/PhysRevB.26.1067, publisher abstract; publication 1982-07-15"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevB.26.1067",
+        "material_read": "Publisher abstract only; complete paper was not obtainable through accessible sources.",
+        "method": "Publisher landing page and bibliographic/open-access searches.",
+        "title": "Alternative exact method for random walks on finite and periodic lattices with traps",
+        "trigger": "General exact finite-periodic trap algorithms may dominate exact resolvent calculation."
+      },
+      {
+        "assessment": "Models random-walk reaction/diffusion and boundaries. No documented two-refuge separation theorem in accessible abstract; full-text inference withheld.",
+        "evidence": [
+          "DOI 10.1103/PhysRevB.21.1400; published 1980-02-15"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevB.21.1400",
+        "material_read": "Publisher abstract and journal metadata only.",
+        "method": "Publisher landing page and search.",
+        "title": "Random walks on finite lattices with traps",
+        "trigger": "Earliest identified published finite-lattice trap foundations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ca47d2f-1589-4cba-b48a-27f92ceac4e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivated refuge-placement question is natural for protected habitat islands and killed migration. A universal all-cycle result distinguishes mean-only measures from risk and full Laplace information: for uniform starts outside protected sites, mean cannot distinguish placement, yet every positive Laplace argument does; the variance is uniquely minimized by maximal separation. Allowing protected sites in the initial sample reverses the planning metric by making adjacent refuges maximize overall mean lifetime. The strict complete family for all positive rates is a structural statement, not a numerical slice, small gain, or unmotivated invariant. It can prevent false inference of geometry independence from a mean-only simulation. Scope does not extend to interacting metapopulations or stochastic dominance.",
+    "status": "PASS"
+  }
+}
