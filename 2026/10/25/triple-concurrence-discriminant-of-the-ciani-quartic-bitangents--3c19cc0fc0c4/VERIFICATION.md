@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` in a Python 3 environment with SymPy. The source is self-contained apart from SymPy. It constructs all 28 line vectors in \(\mathbb Q[t]^3\), checks the square-restriction identities for the bitangents, enumerates all 3276 unordered triple determinants, factors them in exact rational arithmetic, eliminates \(t\) by resultants to obtain the parameter polynomials, checks squarefreeness and pairwise disjointness, and reconstructs all intersection multiplicity counts from line pairs. The execution completed and returned `VERIFY_OK: 28 bitangents, 3276 triple determinants, 16 parameter strata, 27 smooth exceptional parameters`.
+## correctness
 
-For each root of every irreducible smooth exceptional factor, the corresponding number of double, triple and quadruple incidence points is compared with the displayed theorem, including every conjugate lift in the parameter \(t\). The code does not use floating-point approximations and does not infer global conclusions from sampled fibers.
+PASS
 
-**Limits:** The geometric step that a smooth complex quartic has 28 bitangent lines is classical. The exact-arithmetic checker supplies a finite symbolic certificate for the determinant classification but is not a formal proof assistant and has not been independently validated. The work does not address characteristic two, odd positive characteristic, or singular fibers.
+For complex lambda outside −2,−1,2, the given Ciani quartic is smooth and the source produces exactly 28 distinct explicit bitangent lines in three symmetry families of sizes 4,12,12. The derived square restrictions and identities under lambda=−2(t^4+1)/(t²+1)² establish bitangency, and the classical 28-bitangent theorem proves completeness. The inspected exact SymPy certificate computes each of C(28,3)=3276 determinants (36 generically zero), factors the 3240 nonzero polynomials, maps all 45 t-factors by exact resultants to 16 parameter strata (13 smooth, 3 singular), checks squarefreeness/disjointness, and recovers incidence points by line-pair closures, with 378 line pairs each time. Independent direct determinant incidence reconstructions confirmed generic (324,0,9), and sample exceptional spectra (312,4,9), (288,12,9), (252,24,9). The complete source certificate, not merely the four independent samples, supplies the remaining 16-factor exhaustion. Triple points occur at exactly 1+10+13=24 distinct smooth lambda; lambda=0 and lambda²+3lambda+18 produce only quadruple jumps; no multiplicity ≥5.
+
+## originality
+
+PASS
+
+Janasz–Pokora–Zieliński analyze this exact Ciani pencil, and provide three specialized bitangent-arrangement tables plus a uniform lower bound on quadruple points. Their inspected primary §3 does not provide the complete discriminant of triple concurrence, which is a different incidence invariant; coincidence of the family does not itself mean coverage. Classical automorphism/bielliptic-involution accounts for some quadruple structure, not 24 explicit triple-concurrence parameter values. Resultary searches yield nearby quartic arrangement studies without the same all-parameter polynomial. Older specialized incidence tables remain a credible originality risk.
+
+## value
+
+PASS
+
+The original family was studied specifically to understand the incidence structure of its 28 bitangents. A complete algebraic stratification that pinpoints exactly 24 exceptional smooth parameters with 4,12,24 ordinary triple points is a natural incidence discriminant, distinct from the three previously tabulated quartics and generic zero-triple behavior. It supplies an invariant with clear mathematical use for line-arrangement classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
