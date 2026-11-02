@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The action has no nonempty fixed face, preserves canonical row orientations, and gives quotient cell ranks \((4,24,48,24)\). Exact Smith reductions, chain relations, a primitive oriented top cycle, and the Alexander–Whitney evaluation \(2\pmod 5\) were reconstructed with the included runnable checker. The calculation applies to the quotient \(\Delta\)-complex and does not silently identify duplicate quotient simplices.
+## correctness
 
-**Originality: PASS on inspected evidence.** Goerner already identifies the underlying four-by-five chessboard complex as an ideal triangulation of a 20-cusped congruence manifold. Baker–Goerner–Reid classify the associated principal congruence link groups; their companion report includes homology computations for related congruence manifolds and covers. Jojić et al. treat ordinary chessboard complexes. None of the inspected relevant portions computes the particular C5-quotient Bockstein cup. An equivalent unpublished or unindexed cohomology calculation remains a risk.
+PASS
 
-**Value: PASS.** Beyond the quotient’s exact integral homology, the nonzero \(H^1(\mathbb F_5)\smile H^2(\mathbb F_5)\) product is a genuine homotopy invariant that obstructs the Moore-space/sphere-wedge homotopy type having precisely the same homology. The quotient is a natural symmetry reduction of a canonical hyperbolic-topology chessboard model, not an arbitrary search-selected cell complex.
+The C5 column shift acts freely on nonempty rook placements of 4x5 chessboard complex; quotient is a Delta-complex retaining all cell multiplicities, not an abstract vertex-set complex. Independently enumerated all 20,120,240,120 source faces and 4,24,48,24 orbit cells, built all signed quotient boundary matrices, verified both d²=0, and computed exact Smith invariants for d1 (1^3), d2 (1^20,5), d3 (1^23) via integer Smith normal form. This gives H_i(Z)=(Z,Z/5,Z^4,Z) for i=0..3, zero higher. Independently evaluated canonical column-difference edge cochain u and integer lift B=(δU)/5 on 24 top orbit cells against the primitive ±1 top cycle; sum is exactly integer 2, nonzero mod5. H^1(Y;Z)=0, so β_Z u is nontrivial 5-torsion; wedge Moore + four 2-spheres + 3-sphere has vanishing such degree3 cross-product. No extrapolation beyond this finite quotient.
 
-**Limits.** A complete integral cohomology ring, the identification of every arithmetic subgroup action, and independent validation are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the particular mod-five Bockstein–cup product in the C5 quotient Delta-complex. Goerner identifies the parent chessboard complex with a 20-cusp congruence manifold, Baker–Goerner–Reid classify related principal-congruence link complements, and Jojić et al. treat general chessboard complexes; these do not state the quotient chain complex or the specific Bockstein multiplication. Exact torsion homology could be obtainable from subgroup topology, but matching homology alone does not imply a nonzero cup product. Full subgroup/thesis coverage remains a bounded residual risk.
+
+## value
+
+PASS
+
+The canonical cyclic symmetry quotient of the standard 4x5 chessboard complex has natural arithmetic topology. Exact integral homology plus a genuinely nonzero degree-1 Bockstein × mod-five degree-2 cup evaluates to 2 on a primitive top class, distinguishing this quotient from an explicit wedge of Moore and sphere spaces with identical homology. This is substantive multiplicative homotopy information beyond bookkeeping, for a motivated single finite object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
