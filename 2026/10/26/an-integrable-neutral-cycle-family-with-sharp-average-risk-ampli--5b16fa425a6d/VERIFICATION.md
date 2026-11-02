@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the balanced collective-risk theorem
 
-`RESULT.md` supplies the complete analytic argument. In the attached `verify.py`, the symbolic check confirms that the displayed gradient of the first integral has vanishing dot product with the vector field and has commuting mixed partials, for formal positive parameters and exponent. The general equilibrium Hessian is checked against two explicit positive diagonal formulas, without treating finite integer samples as proof.
+# Independent mathematical audit
 
-For the admissible illustrations with \(a\in\{1,2,3\}\), \(b=1\), and \(c=\varepsilon=1/10\), the program solves the ODE at high tolerance, detects the first same-direction section return, and uses adaptive quadrature over exactly that computed physical-time period. It checks the mean-cooperation identity, the inverse-gain mean-risk identity, and the strict risk-variance inequality. Illustrative numerical return times are approximately \(9.93487185\), \(10.37701979\), and \(10.77704919\), respectively. These checks corroborate but do not establish the infinitely many cases in the theorem.
+## correctness
 
-To reproduce, use Python 3 with NumPy, SciPy, and SymPy installed, from the directory containing this file and `verify.py`, and execute `python verify.py`. The analytic proof needs no numerical quadrature, no database table, and no external certificate. Priority verification beyond the documented literature comparisons and independent scientific review have not been performed.
+PASS
+
+Writing s=x(1-x), q=(1-r)/r, lambda=ac/eps, H=q(r)^lambda/s^a+(ak/eps)integral_{1/2}^r q(v)^lambda/(1-v)dv gives H_x xdot+H_r rdot=0 identically. The Hessian at the interior equilibrium (1/2,r*) is positive definite, so by the Morse lemma sufficiently close regular levels form a period annulus with nonzero velocity. Exact time-average of d/dt log(r/(1-r)) yields mean x=1/2; averaging primitive with F'(x)=1/[x(1-x)A(x)] yields mean r=c mean1/A(x). Strict (1-4y^2)^(-a)>1+4a y^2 and nonconstant orbit give variance bound, and uniform small-orbit Taylor gives sharp coefficient. Cauchy--Schwarz proves negative covariance between A(x) and r.
+
+## originality
+
+PASS
+
+Liu--Chen--Szolnoki supply exactly this game, fixed point and linear-feedback Hopf threshold, but the inspected original equations/results/appendix do not furnish an explicit conserved H or the exact physical-time risk/variance law on the balanced odd-group period annulus.
+
+## value
+
+PASS
+
+Provides an explicit nonlinear center and a sharp physical-time fluctuation cost at an ecologically motivated critical feedback regime; distinguishes neutral from attracting oscillations and quantifies failure-risk amplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

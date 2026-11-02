@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The original linear-feedback gain and risk equations are reproduced with the balanced threshold and explicitly stated positivity assumptions. The proposed integral is well defined on the open state square. The derivatives of its two terms cancel exactly along the vector field; no division by the symmetry factor \(1-2x\) occurs. The sole interior equilibrium is a nondegenerate strict minimum of the conserved integral, and neighboring compact regular level curves carry nonvanishing flow, proving the existence of genuine finite-period orbits. Period integration of two independently derived coboundaries gives \(\overline x=1/2\), \(\overline r=c\overline{1/A(x)}\) and \(\overline{A(x)r}=c\). The binomial gain identity and strict Bernoulli inequality prove the stated risk gap; Taylor expansion uniformly over shrinking compact level sets proves sharpness of its coefficient. Direct symbolic differentiation and three full-period numerical integrations pass in the attached executable check. No finite numerical study is used as proof of the quantified result.
+## correctness
 
-## Originality: PASS (with publication-priority risk)
-Liu, Chen, and Szolnoki's source equations (3)-(7), equilibria, critical feedback parameter and both appendices were inspected in accessible full HTML. Their reported Hopf threshold \(u=(M-1)/(N-M)\) becomes \(u=1\) in the balanced odd-group subfamily, but the text does not give the explicit conserved quantity, a nonisolated neutral center, the exact time-average risk bias, or the optimal variance coefficient. The 2016 Weitz et al. and 2020 Tilman et al. feedback-game frameworks use different payoff structures and do not directly imply an explicit first integral for a binomial collective-risk payoff. Related mathematical findings on other models' invariant measures or neutral centers are not claim-equivalent. Narrower novelty is not inferred simply from absence of matching search keywords: the statements and reductions were compared. Indexed descriptions of some broader sources, not their entire full texts, were accessible, and an unlocated stronger theorem is a residual risk.
+PASS
 
-## Value: PASS
-The result resolves an exact symmetry-degenerate evolutionary-game regime at a naturally balanced collective goal, replacing inconclusive imaginary-eigenvalue/Hopf reasoning by a constructive first integral and a full period annulus. It also quantifies a decision-relevant cost of recurring cooperation: each oscillation preserves the equilibrium mean cooperator fraction but necessarily raises average failure risk, with the best possible leading variance coefficient. The same formula covers every odd group size and positive admissible parameter choice, not an arbitrary isolated numerical slice.
+Writing s=x(1-x), q=(1-r)/r, lambda=ac/eps, H=q(r)^lambda/s^a+(ak/eps)integral_{1/2}^r q(v)^lambda/(1-v)dv gives H_x xdot+H_r rdot=0 identically. The Hessian at the interior equilibrium (1/2,r*) is positive definite, so by the Morse lemma sufficiently close regular levels form a period annulus with nonzero velocity. Exact time-average of d/dt log(r/(1-r)) yields mean x=1/2; averaging primitive with F'(x)=1/[x(1-x)A(x)] yields mean r=c mean1/A(x). Strict (1-4y^2)^(-a)>1+4a y^2 and nonconstant orbit give variance bound, and uniform small-orbit Taylor gives sharp coefficient. Cauchy--Schwarz proves negative covariance between A(x) and r.
 
-## Closest sources and remaining limits
-Liu, Chen, and Szolnoki (2023), arXiv:2305.00253v1 and DOI:10.7554/eLife.82954, is the direct model source. Weitz et al. (2016), DOI:10.1073/pnas.1604096113, and Tilman et al. (2020), DOI:10.1038/s41467-020-14531-6, are broader feedback-game context with different payoff equations. Standard integrating-factor and Jensen arguments are building blocks, not independent priority claims. The result is limited to the balanced linear-feedback deterministic game and does not assert robust cycles under perturbations. External mathematical priority and independent validation remain unsettled.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Liu--Chen--Szolnoki supply exactly this game, fixed point and linear-feedback Hopf threshold, but the inspected original equations/results/appendix do not furnish an explicit conserved H or the exact physical-time risk/variance law on the balanced odd-group period annulus.
+
+## value
+
+PASS
+
+Provides an explicit nonlinear center and a sharp physical-time fluctuation cost at an ecologically motivated critical feedback regime; distinguishes neutral from attracting oscillations and quantifies failure-risk amplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
