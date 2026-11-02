@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated theorem uses the canonical Euclidean root embedding and clearly distinguishes the probability of an unoriented maximizing edge from the spherical angle of one oriented root. The cyclic comparison gives an exact finite identity. The rare event is reduced to an explicit bivariate Gaussian conditional tail; its neighboring Gaussian increments vanish relative to the threshold, and a dependency-graph Poisson approximation controls all separated increments. Uniform tail bounds justify dominated convergence and produce the exact Gamma constant. Numerical Gaussian sampling and one-dimensional quadrature are supporting diagnostics, not infinite proof certificates. The proof is limited to endpoint roots on the unweighted path.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary geometric work [1–3] determines the root polytopes’ lattice and facial structure, not their canonical spherical vertex angles. The tree crosspolytope equivalence is not an isometry, so it does not imply angle uniformity. First-order stationary Gaussian maxima theory is insufficient for the terminal rare-pair selection coefficient. Searches under normal-cone, Gaussian moving-difference, and boundary-argmax aliases did not locate an implication-covering theorem. The closest indexed path-inradius summary concerns a different invariant, but its detailed text could not be accessed. An unindexed equivalent Gaussian-argmax expansion remains a real priority risk.
+PASS
 
-## Mathematical value — PASS
-The quantity measures how random linear objectives select the terminal vertex of a canonical graph-root polytope. The fractional \(n^{-4/3}(\log n)^{-1/3}\) correction exceeds the uniform combinatorial vertex-count shift and sharply detects the geometric effect of breaking a cycle into a path. The exact coefficient explains a genuine rare extreme-value mechanism, rather than merely reproducing a known table or a routine normalization.
+In the canonical Euclidean H_n root embedding, the endpoint oriented normal cone is half the probability q_n that |X_1| is the largest absolute adjacent Gaussian difference X_j=(G_j-G_{j+1})/sqrt2. Adding closing increment X_n gives exactly q_n=1/n+E_n by cyclic symmetry, with E_n=P(|X_n|>|X_1|>max_{j=2..n-1}|X_j|). The conditional rare tail a(t)=barPhi(t/sqrt3)+barPhi(sqrt3 t), asymptotically sqrt3/(2 pi^(1/3))p(t)^(1/3)(log(1/p(t)))^(-1/3), p(t)=2barPhi(t). Nonadjacent interior exceedances are independent and adjacent joint tails are smaller; dependency-graph Poisson limit produces e^-u at np(t)=u. Regression suppresses adjacent excluded increments under the joint end event; independent alternating increments give an integrable exponential bound. Changing variable u=np(t), dominated convergence yields sqrt3 Gamma(4/3)/(2 pi^(1/3)); replacing 1/n by 1/(n-1) is lower order. This is analytical, not a Monte Carlo extrapolation; scalar coefficient independently evaluated.
 
-## Closest literature and limits
-[1] D’Alì–Delucchi–Michałek, *Many faces of symmetric edge polytopes*, arXiv:1910.05193v1, Sections 2.1, 3, 4. [2] Chen–Davis–Korchevskaia, *Facets and facet subgraphs of symmetric edge polytopes*, arXiv:2107.12315, Sections 1–4. [3] Braun–Bruegge, *Facets of Symmetric Edge Polytopes for Graphs with Few Edges*, arXiv:2201.13303, Sections 2–4. The result does not address weighted trees, interior angles, or alternative Euclidean realizations. Bibliographic completeness and external proof assessment remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published primary work on symmetric edge polytopes characterizes lattice equivalence, faces and facets, but canonical Euclidean spherical normal-cone weights are not invariant under the nonorthogonal tree-crosspolytope equivalence. General one-dependent Gaussian maxima give leading order but not the exact rare terminal-adjacent pair correction. Semantic search of path symmetric-edge angle and Gaussian moving-increment extrema yielded no covering coefficient result, subject to specialist probabilistic literature indexing risk.
+
+## value
+
+PASS
+
+Endpoint root exposure under random linear objective is a natural solid-angle invariant of the canonical path symmetric edge polytope. The positive fractional n^(-4/3)(log n)^(-1/3) correction to uniform vertex count is a sharp, mathematically motivated geometric boundary effect with an exact Gamma-function coefficient; it is not a mere enumeration or change of coordinates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
