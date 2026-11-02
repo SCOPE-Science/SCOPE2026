@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For zero diagonal G and arbitrary directed nonnegative extended weights, powering each finite forward pair by p gives acyclic index weights A_ij. Every ordered subsequence has weight at most the maximal 0-to-n path D_n, and because A>=0 can extend without lowering the sum. D_j=max_{i<j}(D_i+A_ij) is nondecreasing; intervals r_j^p=D_j-D_(j-1) dominate every A_ij by telescoping and total exactly D_n. Conversely every Cho interval certificate upper bounds all disjoint subsequence sums, proving exact grades. Separate max-monoid p=infinity argument, infinity scale/edge cases and degree zero are sound. Independently enumerated 909 finite upper-triangular matrices; the published 4-vertex example has D=(0,1,10,16), certificate (1,3,sqrt6), all pair bounds satisfied at radius 4. Exhaustive finite checks corroborate the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blaser et al define directed monoidal Rips and prove only Cho subset Rips, giving purported strict inequality for +_2; Ivanov–Xu work on metric spaces."
+        ],
+        "reasoning": "No general cited theorem establishes the inverse inclusion for all directed +_p networks. An earlier metric proof plausibly generalizes, so mark priority closely related but not identical to an explicit published nonmetric theorem.",
+        "searches": [
+          "Blaser–Brun–Gardaa–Salbu Example 3.6 DOI:10.1007/s41468-026-00237-z",
+          "Cho Prop.13",
+          "Ivanov–Xu Prop. 2.6"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md 24a73cce2db6aa3d351855378373da4ba6f3cdee",
+        "assigned verify.py 7e883e0bdb7849e840a15ba9e56fd3bf6464e4ac",
+        "Cho arXiv:1910.02905 Prop13 full PDF",
+        "Ivanov–Xu DOI 10.1007/s41468-026-00247-x Prop2.6 full HTML",
+        "Blaser et al DOI 10.1007/s41468-026-00237-z Example3.6 full HTML",
+        "independent_check_results.json: cho"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under zero diagonal, no directed triangle inequality was used in the presented D-recurrence proof; the source metric proof is close enough to suggest an immediate proof generalization. The later explicit assertion of separation nevertheless directly conflicts."
+        ],
+        "reasoning": "Metric-case equality does not logically imply directed equality without checking whether the proof uses metric hypotheses. That check finds the extension plausible, and this is retained as serious originality risk; exact O(n^2) certificate and published-error correction add specific content beyond quoting the metric statement.",
+        "searches": [
+          "Ivanov–Xu 2026 proof Prop2.6",
+          "Blaser et al 2026 Example3.6",
+          "Cho 2020 Prop13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ivanov–Xu prove equivalence of the ell_p tuple norm and Cho nerve for metric spaces; their inductive certificate proof seems not to use symmetry/triangle inequality. Cho Prop.13 already provides interval-parameter nerve over general V-graphs."
+        ],
+        "reasoning": "The core certificate idea is extremely close to prior work; it is not novel on metrics. The audited explicit all-directed theorem and optimal DP recover a nonmetric case not stated by the cited metric theorem, contradicting a later directed published assertion. High priority risk: a reader might regard direct generalization of Ivanov–Xu proof as already implied.",
+        "searches": [
+          "directed Rips Cho nerve ell p monoidal equivalence longest path certificates directed dissimilarity",
+          "Ivanov–Xu Prop. 2.6 DOI:10.1007/s41468-026-00247-x",
+          "Cho Prop.13 arXiv:1910.02905"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published alleged counterexample is a specific four-vertex table: D=(0,1,10,16), r=(1,3,sqrt6), with sum of squares 16, meeting all six inequalities."
+        ],
+        "reasoning": "The exact directed example in the primary paper is NOT a valid separation: one displayed inequality was reversed. The submitted result is an infinite equality theorem plus optimal algorithm, not just a recomputation of the table.",
+        "searches": [
+          "directed Rips Cho nerve ell p monoidal equivalence longest path certificates directed dissimilarity",
+          "Blaser Example 3.6 weights (1,3,4,3,3,1)"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the mathematically precise additional claim, not of a matching title, with the inspected primary papers and published research. Metric-case equality does not logically imply directed equality without checking whether the proof uses metric hypotheses. That check finds the extension plausible, and this is retained as serious originality risk; exact O(n^2) certificate and published-error correction add specific content beyond quoting the metric statement.",
+      "residual_risks": [
+        "Metric-case Ivanov–Xu Proposition 2.6 proof likely extends without using metric axioms; equivalence in directed setting may be considered an immediate proof-level corollary rather than new technique.",
+        "No equality claimed for arbitrary quantales, nonzero diagonal or p beyond (0,infinity].",
+        "Correction of the journal example should be confirmed against final typeset version; inspected live full text has reversed bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Metric equality already established; induction appears to avoid metric axioms, major proximity risk.",
+          "evidence": "Proposition 2.6 proves two definitions coincide for metric spaces; proof constructs admissible interval parameters.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s41468-026-00247-x",
+          "material_read": "Full open HTML: Section 1.1 tuple norms, Proposition 2.6 and its inductive proof",
+          "method": "Read full online journal article, theorem and adjacent proof",
+          "title": "On ell_p-Vietoris–Rips complexes",
+          "trigger": "Closest mathematical equivalence/proof; potential priority dominance"
+        },
+        {
+          "assessment": "Example 3.6 incorrectly rules out a valid +_2 Cho certificate.",
+          "evidence": "Weights (1,3,4,3,3,1), radius4; from 3<=sqrt(r1²+r2²) follows r1²+r2²>=9, not <=9.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s41468-026-00237-z",
+          "material_read": "Full online article: Definition 3.1, inclusion statement, Examples 3.5-3.6",
+          "method": "Read full Springer journal mathematical sections",
+          "title": "Monoidal Rips: stable multiparameter filtrations of directed networks",
+          "trigger": "Direct contrary literature assertion on exact directed weights"
+        },
+        {
+          "assessment": "Defines nerve and interval witnesses for general V-graphs; does not assert equality with monoidal Rips on every directed +_p network.",
+          "evidence": "Prop13 requires existence r_j with global monoidal total and interval pair constraints for 0<=i<=j<=n.",
+          "identifier_or_url": "arXiv:1910.02905 / https://arxiv.org/pdf/1910.02905",
+          "material_read": "Full 24-page PDF: especially Proposition 13 pages 9-10, definitions and Theorem18",
+          "method": "Read web PDF text and screenshot page 1; examined relevant Proposition 13",
+          "title": "Quantales, persistence, and magnitude homology",
+          "trigger": "Source of all-graph Cho nerve definition and potential generality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Corrects a concrete 2026 published purported directed-network separation between Cho and monoidal Rips, replacing it by exact equality for every zero-diagonal directed G in all ell_p monoids, and provides a longest-path O(n^2) optimal certificate useful for actual simplex membership. Correction of a claimed structural distinction is valuable even with a close preexisting metric-case induction. General arbitrary lattice monoids are not addressed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md 24a73cce2db6aa3d351855378373da4ba6f3cdee",
+    "assigned verify.py 7e883e0bdb7849e840a15ba9e56fd3bf6464e4ac",
+    "Cho arXiv:1910.02905 Prop13 full PDF",
+    "Ivanov–Xu DOI 10.1007/s41468-026-00247-x Prop2.6 full HTML",
+    "Blaser et al DOI 10.1007/s41468-026-00237-z Example3.6 full HTML",
+    "independent_check_results.json: cho"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge literature comparison does not establish absolute historical priority.",
+    "Bounded independent checks are not universal proofs; mathematical arguments and cited premises support infinite statements.",
+    "Publication blocked by operational provenance in public metadata, notwithstanding scientific PASS."
+  ],
+  "residual_risks": [
+    "Metric-case Ivanov–Xu Proposition 2.6 proof likely extends without using metric axioms; equivalence in directed setting may be considered an immediate proof-level corollary rather than new technique.",
+    "No equality claimed for arbitrary quantales, nonzero diagonal or p beyond (0,infinity].",
+    "Correction of the journal example should be confirmed against final typeset version; inspected live full text has reversed bound."
+  ],
+  "schema_version": 1
+}
