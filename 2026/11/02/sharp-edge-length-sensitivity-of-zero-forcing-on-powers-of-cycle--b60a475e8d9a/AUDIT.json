@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "First-force degree bound gives |B|>=2k-1; at equality the first force must be from a deleted-edge endpoint. For d<k the subsequent black neighborhood-with-hole has two white neighbors at every black non-endpoint and stalls, while an intact 2k interval forces using only distance-k edges. For d=k the first force turns its neighborhood into an intact 2k interval, which forces in the opposite direction using other distance-k edges. All 2(2k-1) distinct equality cases follow from first-move necessity. Standalone exhaustive direct simulator independently verified 80 parameter combinations and 341272 candidate configurations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deaett and Meyer (2015) study minimum rank of circulant graphs, not their nonsymmetric one-edge deletions.",
+        "The 2012 paper proves a universal spread bound, which allows all three values -1,0,1 and cannot select an edge length."
+      ],
+      "reasoning": "The graph H is not a circulant for the stated range; static circulant rank results do not cover the deleted graph. The generic absolute spread bound is strictly weaker than the exact distance dichotomy.",
+      "searches": [
+        "\"zero forcing\" \"circulant\" \"edge deletion\" 2k",
+        "\"zero forcing\" \"powers of cycles\" \"delete an edge\" exact",
+        "arxiv:1511.07920v1 minimum rank circulants"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.03892v1 Section 3, Proposition 8",
+      "Edholm et al., DOI:10.1016/j.laa.2010.10.015, Section 2.2 Theorem 2.17",
+      "arxiv:1511.07920v1 (scope/abstract)",
+      "Current accessible own week-4 ledger claims",
+      "Library searches of earlier combinatorics-recent claims",
+      "Actual published mathematical-record queries on cycle-power edge deletion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper proves Z(C_n^k)=2k, but gives no characterization of deletion by cyclic distance.",
+        "Edholm et al. allow a one-unit change and prove neither which edges induce it nor the 4k-2 exact minimizer count."
+      ],
+      "reasoning": "Conjunction of the strongest directly relevant published statements still permits Z(C_n^k-e) in {2k-1,2k,2k+1}; it cannot imply the explicit distance transition, nor classify the minimizing seeds.",
+      "searches": [
+        "arxiv:2610.03892v1 Proposition 8",
+        "Edholm Hogben Huynh LaGrange Row Theorem 2.17",
+        "zero forcing number powers of cycles after deleting one chord edge distance k length, 2k-1 iff longest"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Edholm et al. (2012), Theorem 2.17, states only -1 <= Z(G)-Z(G-e) <= 1.",
+        "Abiad et al. (arxiv:2610.03892v1), Proposition 8, states only Z(C_n^k)=2k."
+      ],
+      "reasoning": "The claim equivalently identifies the edge-spread function on distance classes d=1,...,k and enumerates the lower-degree attaining seeds; neither source determines this function or its optimizer count.",
+      "searches": [
+        "zero forcing number powers of cycles after deleting one chord edge distance k length, 2k-1 iff longest",
+        "zero forcing edge-deletion stability cycle powers maximal-distance chords 4k-2 minimum sets",
+        "\"zero forcing\" \"cycle powers\" \"delete an edge\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible result-record hits concern three-cut homology of cycle powers and unrelated edge-deletion invariants, not the exact zero-forcing edge spread.",
+        "Direct finite checks agree for 80 parameter cases and 341272 size-(2k-1) vertex subsets."
+      ],
+      "reasoning": "No matching indexed exact table or formula found; finite checks support correctness, not publication priority.",
+      "searches": [
+        "zero forcing number powers of cycles after deleting one chord edge distance k length, 2k-1 iff longest",
+        "zero forcing edge-deletion stability cycle powers maximal-distance chords 4k-2 minimum sets",
+        "\"zero forcing\" \"C_n^k\" \"edge\" \"2k-1\""
+      ]
+    },
+    "rationale": "Compared exactly stated hypotheses and consequences against full accessible primary Section 3 of arxiv:2610.03892, full accessible edge-spread Theorem 2.17 (2012), circulant rank scope, accessible owner claim history and actual published mathematical-record searches. Scalar Z=2k and universal bound are fully credited. No identified stronger result entails the edge-length phase and exact seed enumeration. Priority remains provisional against unindexed work.",
+    "residual_risks": [
+      "Unindexed or inaccessible edge-sensitive zero-forcing studies could contain an equivalent formula.",
+      "The 2015 circulant-rank paper was checked by abstract/scope only, though the one-edge-deleted object lies outside its circulant class."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the one-edge-deletion distance dichotomy or smaller-seed classification.",
+        "evidence": [
+          "Proposition 8 gives Z(C_n^k)=2k, not Z(C_n^k-e).",
+          "Remark 5 concerns a different edge deletion in a path power."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03892",
+        "material_read": "Full accessible HTML introduction, definitions, Proposition 8 and surrounding proofs in Section 3, including remark on deletion.",
+        "method": "Read substantive original HTML theorem statements and proof sections, compared the deletion and complete-minimizer implications.",
+        "title": "The Zero Forcing Number of Graph Powers",
+        "trigger": "Identical base graphs and scalar zero forcing values"
+      },
+      {
+        "assessment": "Universal absolute-one spread theorem does not select cycle-power edge lengths or enumerate attaining seeds.",
+        "evidence": [
+          "Theorem 2.17 establishes -1 <= Z(G)-Z(G-e) <=1.",
+          "Examples concern other graph families, including grids."
+        ],
+        "identifier_or_url": "https://paperzz.com/doc/7092884/vertex-and-edge-spread-of-zero-forcing-number--maximum-nu...",
+        "material_read": "Full HTML paper, abstract, Section 2.2 Theorem 2.17 and proof, and the graph examples in Section 2.",
+        "method": "Checked the actual universal edge-spread inequality, examples, and scope.",
+        "title": "Vertex and edge spread of zero forcing number, maximum nullity, and minimum rank of a graph",
+        "trigger": "Generic stronger coverage might subsume edge-deletion classification"
+      },
+      {
+        "assessment": "Circulant-rank invariant does not cover symmetry-breaking one-edge deletion; residual risk noted.",
+        "evidence": [
+          "Paper determines min circulant rank for symmetric circulants."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.07920",
+        "material_read": "Original abstract and scope; full manuscript not inspected.",
+        "method": "Compared explicit circulant symmetry assumption to edited graph.",
+        "title": "The minimum rank problem for circulants",
+        "trigger": "Potential linear-algebra coverage for powers of cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b60a475e-8d9a-4a68-bb01-2603676974db",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single-edge resilience is a natural structural refinement of zero forcing on circulants and of general edge-spread theory. The result gives a sharp metric criterion (only maximal-distance chords are fragile), the complete exceptional minimum seed geometry, and an n-independent count 4k-2 for an infinite two-parameter family. This resolves a meaningful sensitivity classification not implied by the scalar graph-power zero-forcing number.",
+    "status": "PASS"
+  }
+}
