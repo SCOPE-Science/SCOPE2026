@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The stated Cartier identities are obtained by coefficient extraction of the cubic power of the branch quartic. On the squarefree locus the Cartier operator has rank two, and its eventual rank is zero or two according to the equation of the divisor. The quartic discriminant identity, smoothness and irreducibility arguments, explicit inverse morphisms for two locally closed strata, and squarefree monic-quartic count prove the full all-extension census. A standard-library exact checker verifies coefficient identities and independently enumerates smooth parameter triples over fields of orders 5, 25, and 125; these tests supplement, not replace, the infinite-field proof.
+## correctness
 
-## Originality: PASS (qualified)
-The previously known Picard-curve model, special-characteristic examples, and general Cartier-matrix theory are credited. Malmskog–Rasmussen describe the Picard model, Kazemifard–Tafazolian study special equations, and Nourozi–Rahmati compute characteristic-dependent Cartier rank (the \(a\)-number). The assessed contribution is the complete stable Cartier-rank dichotomy together with the geometrically irreducible nonordinary divisor, its explicit two-stratum decomposition, motivic class and exact marked parameter counts over every finite extension of characteristic five. Estrada-Sarlabous's 1991 paper on Jacobians of Picard curves and Hasse–Witt conditions was accessible only by abstract: it may contain some coefficient-equation overlap; the claimed novelty is not the existence of Hasse–Witt equations in isolation. Other historical overlaps remain possible.
+PASS
 
-## Mathematical value: PASS
-This gives a complete arithmetic stratification of an entire natural three-dimensional family, proving two rank values impossible. The exceptional locus is not merely cut out by an equation: its geometrically irreducible, smooth structure, explicit constructible decomposition and motivic class explain the parity-independent exact all-extension census. The result is applicable to arithmetic moduli of Picard curves, rather than an arbitrary numerical slice.
+The genus is 3 by the 4+1 total ramification of the degree-3 superelliptic cover. In characteristic 5 with basis dx/y², x dx/y², dx/y, the semilinear Cartier map sends the first to the third, second to zero, and third to [x⁴]f³^(1/5) first + [x⁹]f³^(1/5) second, with [x⁴]f³=3(c²+a²c+ab²) and [x⁹]f³=3b. On the separable locus these two coefficients are not simultaneously zero, so Cartier rank is exactly 2 (a-number1); stable rank is 0 for P=0 and 2 for P≠0, excluding p-ranks 1 and 3. Independent symbolic discriminant computation modulo5 verified D=a⁴c+a³b²+2a²c²−ab²c−2b⁴+c³, and polynomial reduction gave a²D=−2c³(a²+c) modulo P. On P=0 smoothness is equivalent to b≠0. The partial derivatives (2ac+b²,2ab,2c+a²) make the hypersurface smooth there. As monic quadratic in c its discriminant a(a³+b²) has odd a-valuation, proving absolute irreducibility. For a=0 the smooth zero-rank locus is b∈G_m,c=0; for a≠0, t=b/a and s=c/a² give a=−t²/[s(s+1)], s∉{0,−1}, t≠0, with valid regular inverse charts. Thus [V]=[G_m]+[G_m]([A¹]−2)=[G_m]² and #V(F_q)=(q−1)² for every q=5^n. Translation by quartic cubic coefficient (invertible 4 in char5) gives #U(F_q)=(q⁴−q³)/q=q³−q², and complementary count (q−1)(q²−q+1). Independent polynomial-GCD enumeration over F_5 and F_25 confirmed (100,16,84) and (15000,576,14424), and a separate symbolic script verified [x⁴]f³ and [x⁹]f³. These finite checks corroborate but do not establish all-n proofs.
 
-## Limitations
-The result is for smooth, centered, monic marked models in characteristic five. It does not identify Newton polygons or all Ekedahl–Oort strata or geometric isomorphism classes. The 1991 full article was unavailable and no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: earlier Picard results already give quartic normal forms, the sparse Hasse–Witt/Cartier matrix, and a-number 1 in characteristic 5, and the 1991 article may imply the coefficient p-rank criterion. The final mathematical claim additionally classifies the full smooth p-rank-zero divisor geometrically, gives explicit inverse charts and motivic class (L−1)², and proves an exact census of all marked triples over every F_{5^n}. The primary material actually examined did not establish this combined geometric and counting assertion. No negative priority assertion is drawn from the inaccessible 1991 full text. The Resultary searches found no direct matching published item, but absence from search is not novelty proof.
+
+## value
+
+PASS
+
+The fixed monic centered smooth quartic family is a canonical three-dimensional parameter space for genus-three Picard curves; p-rank is a natural isogeny invariant. An entire rank-zero divisor is classified as smooth irreducible, with explicit charts, motivic class (L−1)² and exact marked F_{5^n} counts for every extension. Those are structurally useful finite-field moduli facts and not a routine isolated tabulation. The result explicitly distinguishes marked coefficients from curve isomorphism classes, and does not pretend to classify Newton polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

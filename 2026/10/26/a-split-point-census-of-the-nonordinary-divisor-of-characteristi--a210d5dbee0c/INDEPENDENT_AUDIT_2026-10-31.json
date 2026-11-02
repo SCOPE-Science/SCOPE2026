@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T21:49:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, sections Finding/Proof 1–4 and assumptions",
+        "Frozen verify_picard5.py inspected (not blindly executed)",
+        "Independent sympy modular discriminant/coefficient verification",
+        "Independent standard-library GF(5), GF(25) polynomial-GCD enumeration"
+      ],
+      "rationale": "The genus is 3 by the 4+1 total ramification of the degree-3 superelliptic cover. In characteristic 5 with basis dx/y², x dx/y², dx/y, the semilinear Cartier map sends the first to the third, second to zero, and third to [x⁴]f³^(1/5) first + [x⁹]f³^(1/5) second, with [x⁴]f³=3(c²+a²c+ab²) and [x⁹]f³=3b. On the separable locus these two coefficients are not simultaneously zero, so Cartier rank is exactly 2 (a-number1); stable rank is 0 for P=0 and 2 for P≠0, excluding p-ranks 1 and 3. Independent symbolic discriminant computation modulo5 verified D=a⁴c+a³b²+2a²c²−ab²c−2b⁴+c³, and polynomial reduction gave a²D=−2c³(a²+c) modulo P. On P=0 smoothness is equivalent to b≠0. The partial derivatives (2ac+b²,2ab,2c+a²) make the hypersurface smooth there. As monic quadratic in c its discriminant a(a³+b²) has odd a-valuation, proving absolute irreducibility. For a=0 the smooth zero-rank locus is b∈G_m,c=0; for a≠0, t=b/a and s=c/a² give a=−t²/[s(s+1)], s∉{0,−1}, t≠0, with valid regular inverse charts. Thus [V]=[G_m]+[G_m]([A¹]−2)=[G_m]² and #V(F_q)=(q−1)² for every q=5^n. Translation by quartic cubic coefficient (invertible 4 in char5) gives #U(F_q)=(q⁴−q³)/q=q³−q², and complementary count (q−1)(q²−q+1). Independent polynomial-GCD enumeration over F_5 and F_25 confirmed (100,16,84) and (15000,576,14424), and a separate symbolic script verified [x⁴]f³ and [x⁹]f³. These finite checks corroborate but do not establish all-n proofs.",
+      "residual_risks": [
+        "No formal proof assistant was used.",
+        "Only q=5,25 were independently enumerated; all-extension statements rest on the displayed algebraic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Estrada-Sarlabous 1991 abstract promises general Hasse–Witt ordinary/supersingular criteria; full source inaccessible, possible overlap specifically on p-rank equation.",
+          "Kazemifard–Tafazolian 2015 introduction and selected theorems specify special Picard curves x⁴−x and x⁴−1, not arbitrary centered quartic.",
+          "Bouw et al 2020 open article focuses on normal forms, discriminants and Picard curves over Q; its described database is not all F_{5^n} triples."
+        ],
+        "reasoning": "Published broader general-matrix methods plausibly imply a component of the final result; the inspected theorems do not themselves subsume the geometric irreducibility, two regular charts and K0/counting law for the marked divisor. Unseen 1991 text remains a named material risk.",
+        "searches": [
+          "Web: Picard curves genus 3 characteristic 5 Newton polygon p-rank 2 p-rank 0 stratum",
+          "Web: p-rank stratification Picard curves characteristic 5 family supersingular locus dimension",
+          "doi:10.1002/mana.19911520125 abstract (1991)",
+          "doi:10.1016/j.ffa.2014.12.002 sections 1–3 (2015)",
+          "doi:10.1112/jlms.12323 introduction (2020)"
+        ]
+      },
+      "checked_sources": [
+        "Nourozi & Rahmati, The Rank of the Cartier Operator on Picard Curves, arXiv:2306.07823 (2023), Theorem 3.1, Eq. (3.3), Example 3.2; full preprint text at https://www.researchgate.net/publication/371536804_The_Rank_of_the_Cartier_operator_on_Picard_Curves",
+        "Kazemifard & Tafazolian, A note on some Picard curves over finite fields, Finite Fields and Their Applications 34 (2015), 107–122, doi:10.1016/j.ffa.2014.12.002; indexed open-archive introduction and specific-curve theorem passages",
+        "Bouw, Koutsianas, Sijsling & Wewers, Conductor and discriminant of Picard curves, J. London Math. Soc. 102 (2020), doi:10.1112/jlms.12323; open full HTML introduction and main-result roadmap",
+        "Estrada-Sarlabous, On the Jacobian Varieties of Picard Curves Defined over Fields of Characteristic p>0, Math. Nachr. 152 (1991), 329–340, doi:10.1002/mana.19911520125; abstract only, full text inaccessible",
+        "Resultary published-research semantic queries (3): exact p-rank divisor polynomial, stable Cartier rank genus-three Picard characteristic five, and nonordinary Picard point-count locus; no close matching research record in inspected ranked hits",
+        "Assigned frozen Git tree ca425515b8642fbad5aab9dc1b871f06eb4aea7b at commit 7c5fbc1a424539d864d650d6cbe2d7a191885e8b, seven exact blobs including RESULT.md, AUDIT.json and verify_picard5.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nourozi–Rahmati Theorem 3.1 already implies a-number 1 (for nonzero constant term), and their Eq. (3.3) supplies matrix coefficients.",
+          "The final rank equation follows by stabilizing a specific semilinear 3x3 Cartier matrix and is not mathematically independent of classical Hasse–Witt theory.",
+          "Its motivic class and uniform (q−1)² divisor census require distinct geometric work on parameter space.",
+          "1991 Hasse–Witt source might imply the rank criterion and is not falsely declared noncovering."
+        ],
+        "reasoning": "The combined exact geometric classification and extension-field marked count is not established as a direct corollary of the inspected earlier theorem statements. The rank-only subclaim has substantial implicit antecedents; priority PASS is expressly bounded to the full conjunction and qualified for the unavailable 1991 article.",
+        "searches": [
+          "arXiv:2306.07823 Theorem 3.1, Eq. (3.3), and Example 3.2, p=5 Cartier rank not stable rank",
+          "doi:10.1002/mana.19911520125 explicit Hasse–Witt criteria announced by abstract",
+          "doi:10.1112/jlms.12323 description of Picard normal forms and small conductor database",
+          "Resultary: exact p-rank divisor coefficient polynomial and motivic class queries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nourozi–Rahmati Theorem 3.1 and Eq. (3.3) determine one-step Cartier rank, which is not the stable rank without iterating.",
+          "The complete source proof gives an explicit new-looking rank-zero divisor and point-class count, not merely an equivalent restatement of a-number one.",
+          "Resultary searches returned unrelated finite-field/geometric research items, no match to the concrete coefficient polynomial or census."
+        ],
+        "reasoning": "One-step Cartier rank two is common to all smooth members, but two distinct p-ranks are possible; the older a-number theorem therefore does not imply the full final statement. The general Hasse–Witt matrix is a genuine precursor to the rank dichotomy, not to the geometric divisor census without additional work.",
+        "searches": [
+          "Resultary: Picard curves characteristic 5 y^3=x^4+a x^2+b x+c p-rank zero nonordinary divisor c^2+a^2 c+a b^2 exact number finite fields",
+          "Resultary: genus 3 Picard curves characteristic five Cartier-Manin matrix stable Cartier rank p-rank 0 2 stratification",
+          "Web: Picard curves characteristic 5 p-rank zero family c^2+a^2 c+a b^2",
+          "arXiv:2306.07823 Theorem 3.1 and equation (3.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published specific-curve Newton polygon results concern selected equations, with no matching (q−1)² family census in examined portions.",
+          "Bouw et al. 2020 database is an arithmetic over-Q small-conductor collection, not a complete F_q marked-coefficient table.",
+          "Independent q=5 and q=25 exact counts corroborate but are not literature evidence for novelty."
+        ],
+        "reasoning": "The all-extension family count does not follow from a finite table or named isolated examples. No matching published exact database was identified by actual searches, which is a bounded negative search result rather than proof of priority.",
+        "searches": [
+          "Resultary: nonordinary locus of Picard curves over finite fields smooth irreducible divisor point counts",
+          "Web: number Picard curves finite field p-rank zero genus 3 characteristic 5",
+          "Web: Picard curves genus three zero p-rank finite fields exact counts q-1 squared",
+          "doi:10.1016/j.ffa.2014.12.002 published specific-curve finite-field Newton polygon tables"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: earlier Picard results already give quartic normal forms, the sparse Hasse–Witt/Cartier matrix, and a-number 1 in characteristic 5, and the 1991 article may imply the coefficient p-rank criterion. The final mathematical claim additionally classifies the full smooth p-rank-zero divisor geometrically, gives explicit inverse charts and motivic class (L−1)², and proves an exact census of all marked triples over every F_{5^n}. The primary material actually examined did not establish this combined geometric and counting assertion. No negative priority assertion is drawn from the inaccessible 1991 full text. The Resultary searches found no direct matching published item, but absence from search is not novelty proof.",
+      "residual_risks": [
+        "1991 Estrada-Sarlabous full article not accessed; its general Hasse–Witt criteria might include some or all of the stable-rank characterization.",
+        "A specialized arithmetic-moduli/finite-field Picard census could already yield the same (q−1)² parameter count under a different normalization.",
+        "The published 2015 article was accessed as indexed substantive sections, not completely in a contiguous full-text reading.",
+        "Best-of-knowledge priority only; no guarantee of historical novelty or external certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3.1 establishes a-number one for p≡2 mod3 with nonzero constant coefficient; Eq. (3.3) gives a general Hasse–Witt shape, and Example 3.2 specializes x^4+1. Its stated result does not count all marked coefficient triples nor describe smooth irreducible p-rank-zero divisor or motivic class. The matrix can support an elementary further stable-rank analysis, so the rank-only component has substantial antecedents.",
+          "evidence": [
+            "Theorem 3.1 at original pp.3–4: a(X)=1 for p≡2 mod3.",
+            "Eq. (3.3) provides sparse coefficient Hasse–Witt matrix.",
+            "Example 3.2 p=5 for y^3=x^4+1: rank(H)=2, a-number1.",
+            "The article does not state a formula for #V(F_{5^n}) in the inspected complete text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.07823",
+          "material_read": "Entire accessible original preprint text, introduction, Section 2, Section 3 Theorem 3.1, equation (3.3), Example 3.2 and bibliography, through the openly displayed CC-BY text of arXiv v1; the arXiv HTML endpoint itself was unavailable.",
+          "method": "Lawful full preprint transcription https://www.researchgate.net/publication/371536804_The_Rank_of_the_Cartier_operator_on_Picard_Curves (text lines 44–507).",
+          "title": "The Rank of the Cartier Operator on Picard Curves",
+          "trigger": "Direct general Cartier-matrix classification for exactly genus-three Picard quartics and p≡2 mod 3."
+        },
+        {
+          "assessment": "The authors explicitly specify their main classification for two special Picard equations and related Fermat-cover examples, not the three-coefficient centered quartic census. Other, uninspected material remains a residual risk.",
+          "evidence": [
+            "2015 abstract explicitly names y^3=x^4−x and y^3=x^4−1.",
+            "Introduction says classification of Newton polygons of these curves; Section 3.3 treats other named curves.",
+            "No verified statement for arbitrary triples (a,b,c) in material actually inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2014.12.002",
+          "material_read": "Accessible ScienceDirect open-archive indexed article text: abstract, introduction, preliminary section, specific equations and selected theorem passages, including its Theorems 3.3, 3.9 and named y^3=x^4-x and y^3=x^4-1 discussions; full publisher article could not be opened as a contiguous complete text.",
+          "method": "Open indexed ScienceDirect record and substantive displayed theorem passages (not claimed complete article reading).",
+          "title": "A note on some Picard curves over finite fields",
+          "trigger": "Potential stronger finite-field p-rank/Newton-polygon classification for Picard curves."
+        },
+        {
+          "assessment": "Covers normal forms, minimal discriminants, conductors and database of Q-curves, not a characteristic-five all-extension p-rank-zero marked coefficient census in inspected core results.",
+          "evidence": [
+            "Introduction defines degree-4 Picard model and smooth quartic.",
+            "Main result Theorem 4.4.54 concerns 800 special Picard isomorphism classes over Q with controlled bad reduction.",
+            "Appendix database concerns Picard curves over Q of small conductor, not F_5 coefficients."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12323",
+          "material_read": "Open full-text HTML, introduction, definition of Picard models, main theorem roadmap and stated database purpose; not a complete line-by-line review of all sections.",
+          "method": "Publisher open access full HTML (Bouw–Koutsianas–Sijsling–Wewers, first published 29 April 2020).",
+          "title": "Conductor and discriminant of Picard curves",
+          "trigger": "Potential broader Picard normal-form and database theorem covering the marked family."
+        },
+        {
+          "assessment": "Possible prior coverage of the rank-zero coefficient equation is not ruled out. This alone does not provide evidence for prior geometry/motivic class/count, but priority on the p-rank criterion remains materially qualified.",
+          "evidence": [
+            "1991 abstract says explicit conditions for ordinary or supersingular Picard Jacobians via Hasse–Witt matrix.",
+            "The 2023 article attributes a general Hasse–Witt matrix to Estrada-Sarlabous [4].",
+            "No claim about full-text absence of matching results is made."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/mana.19911520125",
+          "material_read": "Wiley bibliographic record and full abstract, plus the 2023 Nourozi–Rahmati paper citation to its Hasse–Witt matrix. No full article pages were available. A lawful institutional download attempt was blocked by safety checks and was not retried or bypassed.",
+          "method": "Public Wiley abstract, 2023 source cross-reference; failed lawful full-text access.",
+          "title": "On the Jacobian Varieties of Picard Curves Defined over Fields of Characteristic p > 0",
+          "trigger": "Highly relevant older source on Hasse–Witt conditions; could give a direct or stronger coefficient criterion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding/Assumptions/Proof 1–4",
+        "Bouw et al. 2020 Picard model and arithmetic motivation",
+        "Nourozi–Rahmati 2023 Cartier/a-number background"
+      ],
+      "rationale": "The fixed monic centered smooth quartic family is a canonical three-dimensional parameter space for genus-three Picard curves; p-rank is a natural isogeny invariant. An entire rank-zero divisor is classified as smooth irreducible, with explicit charts, motivic class (L−1)² and exact marked F_{5^n} counts for every extension. Those are structurally useful finite-field moduli facts and not a routine isolated tabulation. The result explicitly distinguishes marked coefficients from curve isomorphism classes, and does not pretend to classify Newton polygons.",
+      "residual_risks": [
+        "The object is a marked coefficient family, not a moduli-space isomorphism-class census.",
+        "The title phrase nonordinary divisor is imprecise because every smooth family member has a-number1; the mathematical statement precisely defines V as the zero-p-rank locus."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Nourozi & Rahmati, The Rank of the Cartier Operator on Picard Curves, arXiv:2306.07823 (2023), Theorem 3.1, Eq. (3.3), Example 3.2; full preprint text at https://www.researchgate.net/publication/371536804_The_Rank_of_the_Cartier_operator_on_Picard_Curves",
+    "Kazemifard & Tafazolian, A note on some Picard curves over finite fields, Finite Fields and Their Applications 34 (2015), 107–122, doi:10.1016/j.ffa.2014.12.002; indexed open-archive introduction and specific-curve theorem passages",
+    "Bouw, Koutsianas, Sijsling & Wewers, Conductor and discriminant of Picard curves, J. London Math. Soc. 102 (2020), doi:10.1112/jlms.12323; open full HTML introduction and main-result roadmap",
+    "Estrada-Sarlabous, On the Jacobian Varieties of Picard Curves Defined over Fields of Characteristic p>0, Math. Nachr. 152 (1991), 329–340, doi:10.1002/mana.19911520125; abstract only, full text inaccessible",
+    "Resultary published-research semantic queries (3): exact p-rank divisor polynomial, stable Cartier rank genus-three Picard characteristic five, and nonordinary Picard point-count locus; no close matching research record in inspected ranked hits",
+    "Assigned frozen Git tree ca425515b8642fbad5aab9dc1b871f06eb4aea7b at commit 7c5fbc1a424539d864d650d6cbe2d7a191885e8b, seven exact blobs including RESULT.md, AUDIT.json and verify_picard5.py"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The completed statement treats monic centered coefficient triples, not geometric curve-isomorphism classes or twists.",
+    "Does not classify full Newton polygons or Ekedahl–Oort strata.",
+    "Finite q=5,25 tests do not prove all-extension counts; universal proof uses algebraic charts and squarefree polynomial count.",
+    "Full Estrada-Sarlabous 1991 article inaccessible; possible significant earlier overlap in the Hasse–Witt criterion.",
+    "Full publisher body of the 2015 special Picard-curve paper not independently read in a contiguous version.",
+    "The title calls V a nonordinary divisor though the entire smooth family is nonordinary in the usual a-number>0 sense; V is explicitly the p-rank-zero locus."
+  ]
+}
