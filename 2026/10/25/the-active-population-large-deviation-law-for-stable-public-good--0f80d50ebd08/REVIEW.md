@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The claim follows from the exact block-word encoding, the binomial coefficient for nonconsecutive size-\(2\) blocks, Stirling's formula, and the dominant simple pole of \(1-x^2-x^5\). The strict concavity calculation identifies a unique typical active fraction. The proof applies on the open interval \(\delta\in(1/\varphi,1)\); the script checks only finite consistency cases and is not used as proof of the asymptotic statement.
+PASS
 
-## Originality
+The fixed parameter interval 1/phi<delta<1 ensures stable supports are exactly words of length-one and length-two positive blocks separated by single inactive vertices, with adjacent two-blocks forbidden (Misiak–Dziubiński classification). For k blocks and m length-two blocks, n=2k+m-1 and active count a=k+m, giving k=n-a+1, m=2a-n-1 and c_{n,a}=binom(k-m+1,m) on the stated feasible support. Independent breadth-first enumeration of all legal blocks up to n=40 matched every coefficient and the generating rational function F(x,y)=(xy+x^2y^2+x^4y^3)/(1-x^2y-x^5y^3). Perron/dominant denominator root r solves r^2+r^5=1. The nonnegative binomial coefficients have a uniform exponential Stirling profile h(alpha)=(2-3alpha)H((2alpha-1)/(2-3alpha)) on [1/2,3/5]. Polynomially many feasible a values plus attainable lattice approximants yield the full LDP upper/lower bounds after division by lambda^n. Strict h concavity and the root relation uniquely give alpha*=(1+3r^3)/(2+5r^3). Boundary h=0 is continuous; endpoints delta=1/phi and 1 excluded.
 
-The primary source already establishes the stable-support classification and total-count recurrence. The inspected text does not state the active-population coefficient formula or the large-deviation rate function for the uniform counting measure. Targeted searches of indexed mathematical records and the inspected related literature found no equivalent distributional claim. This is a refinement of known support structure, not a claim to have discovered that structure. Residual risk remains for unindexed prior work and for the possibility that the refinement is implicit in a source not located.
+## originality
 
-## Value
+PASS
 
-The number of stable equilibria alone does not reveal how their active populations are distributed. The rate function quantifies the exponential multiplicity of each active fraction and identifies the fraction favored by uniform counting. This complements results about maximum aggregate play and can serve as a baseline for later comparisons with dynamical equilibrium-selection measures.
+The Misiak–Dziubiński full HTML explicitly classifies the stable path supports and gives total recurrence e_n=e_{n-2}+e_{n-5}; these are not new. It examines dynamical convergence time and empirical observations, not the complete exponential law for the number of active agents among uniformly counted stable equilibria. The active-marked bivariate generating series, coefficient formula, entropy rate, and unique typical fraction refine the published combinatorial input. No Resultary semantic match or primary prior implication found; best-of-knowledge originality with the possibility of equivalent analytic-combinatorics deductions.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The proportion of active players across stable equilibria is a canonical statistic of the explicitly classified public-goods game. The exact coefficient formula, exponential rate function and unique concentration point quantify equilibrium diversity beyond the previously known total count, and can serve as a benchmark distinct from dynamical attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
