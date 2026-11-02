@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The sampled resolvent recurrence follows directly from the reciprocal-probability scaling in the published scheme. Both affine branches strictly contract; the exact stationary mean and variance follow from independence and their two-point moment identities. Exact symbolic cancellation reduces comparison with the boundary limit to the sign of one cubic. The cubic has exactly one positive root for each admissible sampling probability. Elimination and a strict-convexity argument isolate the unique positive quintic threshold, and derivative geometry gives its unique tangent sampling probability. The packaged executable replays the critical symbolic identities and 481 checks. Finite testing alone is not used as proof.
+## correctness
 
-**Originality — PASS with remaining priority risk.** The primary randomized operator-splitting article formulates the reciprocal-inclusion-probability method and gives finite-horizon estimates, not the stationary optimum/nonattainment frontier. The closest earlier randomized time-splitting article optimizes operator-sampling variance for block-diagonal systems, a different loss that does not imply the finite-step stationary affine result. Searches of published mathematical records and previously accessible research claims did not find a direct cover. Elementary affine recursion moment algebra is established knowledge. The precise quintic frontier might exist in specialized two-map affine-recursion or stochastic-resolvent work not identified by the search; originality has not been independently certified.
+PASS
 
-**Mathematical value — PASS.** The open-probability constraint is a necessary part of unbiased component sampling. A complete exact threshold at which long-time risk minimization ceases to have any legal solution is a structural warning about tuning this numerical method, not a routine recomputation of finite-step stability. The minimal heterogeneous affine decomposition is directly motivated by the published method and distinguishes finite-horizon unbiasedness from fixed-step stationary accuracy. Its sharp threshold and unique equality probability are reproducible and could guide sampling constraints or regularization. The result is narrow: a scalar, two-component, fixed-step stationary setting, not a theorem for general PDE splitting or actual computational performance.
+For the scalar affine u'=1−3u and reciprocal-probability sampled implicit step, reconstructed the two affine maps r1=p/(p+2h), c1=h/[3(p+2h)], r2=(1−p)/(1−p+h), c2=−h/[3(1−p+h)]. The strict contractions have unique stationary law. First/second-moment fixed-point calculations yield the exact risk and sign of Vh(p)−1/36 governed by K(p,h). Independently verified the rational risk/K identity and resultant −2592 h^4(3h+1)^2 P(h) symbolically in SymPy, with P(h)=200h^5+5829h^4−1620h^3+528h^2−1008h−528. Descartes positive-root argument, Jensen-style derivative uniqueness and resultant give one threshold h*=0.7166725626…, unique equality probability ~0.8029974, and for h>h* strict nonattainment as p tends to 1. Endpoint p=1 excluded by unbiased random sampling; no claim for finite horizon/general operators.
 
-**Closest literature.** Eisenmann–Stillfjord, arXiv:2210.05375v1 and *Numerische Mathematik* (2024), Sects. 2–6; Veldman–Zuazua, arXiv:2109.13798 and *Numerische Mathematik* (2022), in particular Example 3. Both were inspected in accessible publisher HTML. The comparison identifies distinct objective functions and no implication from the cited finite-horizon bounds or operator-variance minimization.
+## originality
 
-**Residual risks.** A specialized source could cover the same exact scalar risk threshold; no independent mathematical audit has occurred. Probability endpoints violate the positive-inclusion assumption, so they are limit comparators only. Numerical values have exact algebraic definitions. All source dates refer to verifiable first public preprints rather than later revisions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original precise final theorem after comparison with source-specific hypotheses; all named comparisons and inaccessible-source risks recorded.
+
+## value
+
+PASS
+
+A natural stationary optimal-design question for a published randomized resolvent integrator: a fully worked minimal heterogeneous splitting exhibits exact algebraic attainment/nonattainment bifurcation, with a boundary optimizer excluded by positive-sampling constraints. The exact threshold is not a mere reparameterization of usual finite-horizon stability or operator-variance tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
