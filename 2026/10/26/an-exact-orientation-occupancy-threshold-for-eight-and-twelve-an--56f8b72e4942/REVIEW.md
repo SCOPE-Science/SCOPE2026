@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Manufacturing words decompose uniquely into length-one-to-three runs on an undirected orientation graph. The two exact graphs give Perron roots from a positive equitable quotient or a regular cycle power; differentiating the tilted matrix gives exact letter frequencies. Primitive finite-state transfer matrices provide exponential Chernoff tails, so the strict threshold comparison is proved for every fixed noncritical quota. A standalone integer/counting and floating-point eigenvector checker independently reproduces the graph structure, relevant finite table entries, and spectral values.
+## correctness
 
-**Originality — PASS, with limited residual risk.** The accessible full 2026 source treats these exact alphabets and uses transfer matrices/dynamic programming to count particular lengths, without giving the analytic Perron occupancy thresholds or the abrupt eight-to-twelve exponential-versus-negligible quota cost. Generic regular-language concentration machinery exists (Bertoni–Choffrut–Goldwurm–Lonati 2003) and conceptually underlies the proof, but does not tabulate these exact constants or this design-rule distinction. Prior four-orientation entropy results do not imply the nonuniform eight-angle Perron eigenvector or the twelve-angle quota effect. A separate unindexed application of the general method remains possible.
+PASS
 
-**Value — PASS.** Whether the practical 10-percent requirement changes the exponential size of the feasible manufacturing search space is a structural quantity that finite tables alone cannot settle. The result finds an exact radical threshold for eight directions and an opposing threshold for twelve, with a generalizable spectral test for other orientation sets.
+Every legal word decomposes uniquely into constant-orientation runs 1,2,3 whose distinct successive letters form edges of H_q; terminal run length1 enforces symmetric stack join. Analytic Perron transfer matrix S(z) H_q determines growth and exponential concentration. Tilting a run by its letter occurrence count and differentiating the simple positive Perron pole shows mean letter proportion v_a² (normalized eigenvector). For 8 angles equitable quotient [[2,2],[2,1]] gives rho=(3+sqrt17)/2 and v_P²=(17+sqrt17)/136; 12 angles form C_12^3, six-regular with v_a²=1/12. Chernoff bounds and union bound give strict alpha< or > dichotomy, and 1/12<0.1<alpha_8. Independently rebuilt angle graphs and finite counts; critical alpha and balance not claimed.
 
-The claim is asymptotic, excludes signed-angle balance, and leaves the critical equality cases open. These boundaries are scientific restrictions rather than proof failures.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Langiu–Rubino–Canale formulate exactly the same angles, M1/M2 adjacency and terminal-run-one half-stack language, and count finite lengths using dynamic programming. Its relevant results do not give these exact stationary occupancies or noncritical exponential 10% quota dichotomy. General symbolic-language large-deviation and Perron theorems are acknowledged; their use is not claimed as new. The explicit model-specific constants and design contrast are the assessed finding.
+
+## value
+
+PASS
+
+The standard 10-percent lower-content guideline is a natural manufacturing feasibility constraint. Whether it discards almost all allowed designs or almost none at large stack length is a motivated structural question; exact 8-vs-12 threshold values answer it sharply, not a random numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
