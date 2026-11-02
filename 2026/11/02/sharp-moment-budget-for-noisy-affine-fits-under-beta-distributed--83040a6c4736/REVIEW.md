@@ -1,0 +1,15 @@
+# Scientific review: beta-sampled noisy affine least squares
+
+## Correctness — PASS
+For the exact stated Gaussian-noise model, the conditional slope-error variance is \(\sigma^2/S_m\), where \(S_m\) is the unnormalized sample variance. The sharp two-sided comparison of \(S_m\) with the squared sample range reduces every absolute error moment to a negative range moment. The exact minimum-order-statistic integral and the endpoint/interior beta-density decomposition prove the \(\min\{m-1,m\alpha,m\beta\}\) threshold, including logarithmic ties and divergent boundary moments. For the four-arcsine example, the rescaled endpoint integral equals \(3/4\) and leads to \(48/\pi^4\). Numerical quadrature and uniform-density identities were replayed from the included executable, but finite computation is not substituted for the proof.
+
+## Originality — PASS, qualified
+The motivating randomized least-squares analysis treats approximation and algorithmic sample selection/conditioning; the present theorem concerns *unconditional unweighted affine OLS* under iid beta samples with Gaussian measurement errors. The 2016 weighted-method paper conditions or truncates ill-conditioned designs, and the 2021 experimental-design study optimizes different asymptotic criteria. A published three-observation beta-variance lower-tail result covers \(m=3\) and provides a close structural comparator, but its indexed stated result does not imply the claimed finite-moment criterion for *all* \(m\ge4\), nor the four-to-five Chebyshev-vs-uniform noisy-regression threshold. The accessible full text of this most similar three-observation record could not be retrieved. The comparison is therefore evidence-based but does not establish absolute publication priority; a hidden general-\(m\) theorem in that record is a residual risk.
+
+## Value — PASS
+The least sample count permitting a finite *unconditional* slope mean-squared error is an exact and natural stability invariant for noisy random-node affine approximation. Four draws suffice under uniform sampling but fail under arcsine sampling, and five arcsine draws suffice; this distinguishes high-probability conditioning from the existence of a second moment and provides a concrete sampling-budget caution. The law covers arbitrary beta endpoint singularities, integer sample counts and positive real moments, rather than an arbitrary numerical parameter slice.
+
+## Related literature and scope limits
+Relevant comparisons: Chkifa–Dolbeault (2023), arXiv:2306.07435, full available arXiv text and discussion of uniform/arcsine samples; Cohen–Migliorati (2016), arXiv:1608.00512, full text with conditioning/truncation; Azriel (2021), arXiv:2112.14178, full text on random-design minimax methods; indexed three-observation beta-variance result at the published published-finding corpus record cited in RESULT.md (summary only). No claim about conditioned/weighted designs, higher-degree polynomial fitting, deterministic Chebyshev nodes, non-Gaussian errors, or independent publication validation is made.
+
+Self-review: passed. Independent audit: not yet performed.
