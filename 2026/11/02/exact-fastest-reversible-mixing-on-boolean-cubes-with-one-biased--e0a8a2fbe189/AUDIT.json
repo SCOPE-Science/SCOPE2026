@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary dimension and bias, convex averaging over target-preserving cube automorphisms reduces any feasible chain to three parameters; Walsh Fourier characters give all spectral blocks. Exact Loewner sandwich and a Cauchy/determinant obstruction yield a quadratic lower bound; strict derivative sign excludes a larger vertical flow at smaller mu. The explicit nonnegative detailed-balance kernel saturates the bound and the uniform endpoint is consistent with the known result. The standalone symbolic/numerical verifier completed 883 checks; finite checks are supporting, not proofs of universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2004 general reversible FMMC SDP includes this problem as a feasible instance but supplies no evaluated all-bias closed form in §6.",
+        "2009 uniform-target Cartesian-product/eigenvalue theorem explicitly evaluates only stationary-uniform cubes in §3.2.2.",
+        "2025 clique-lifted-graph result arXiv:2501.02421 has a different reduction framework and does not name this product-biased-cube optimization in the inspected abstract."
+      ],
+      "reasoning": "A general optimization framework is not itself an explicit solution of its biased-cube subcase. The uniform cube theorem cannot be transferred by an equality of graph Laplacians because changing stationary weights changes the reversible similarity transform and permits state-dependent flips.",
+      "searches": [
+        "fastest mixing Markov chain hypercube nonuniform stationary product measure coordinate random scan",
+        "fastest mixing Markov chains Cartesian product unequal stationary distribution",
+        "Saber Jafarizadeh fastest mixing reversible Markov chain hypercube nonuniform target measure one coordinate"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "https://arxiv.org/pdf/1109.6075",
+      "https://arxiv.org/pdf/2002.09059",
+      "https://arxiv.org/abs/2501.02421",
+      "Indexed binary conditional-expectation mixing-norm study (different objective)",
+      "Indexed tetrahedral-orbit-polytope mixing stability study (different graph family)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd--Diaconis--Xiao (2004), §6: nonuniform-stationary reversible FMMC is an SDP rather than an explicit biased-cube classification.",
+        "Boyd--Diaconis--Parrilo--Xiao (2009), §3.2.2: the uniform-target cube is solved, and is explicitly included as a known special case.",
+        "Collevecchio--Griffiths (2020), introduction/examples: a different iid-target and cutoff/long-range setting.",
+        "Existing adjacent network results on two-mass complete bipartite graphs and alternating cycles concern different off-diagonal supports; neither statement provides the cube family via graph isomorphism or a direct parameter substitution."
+      ],
+      "reasoning": "The new statement optimizes every reversible kernel on a cube with one weighted Bernoulli bit, explicitly solves a three-parameter block minimax, and proves strict monotone spectral improvement. The known \\(a=1/2\\) endpoint is subsumed and acknowledged; none of the other materially read source statements supplies the full \\(0<a<1/2\\) family or dominates it by implication.",
+      "searches": [
+        "fastest mixing Markov chain on graph Boyd Diaconis Xiao 2004 arbitrary stationary reversible",
+        "fastest mixing Markov chain graphs symmetries 2009 hypercube Cartesian product",
+        "reversible random walk hypercube one biased coordinate nonuniform stationary fastest mixing SLEM"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The object can also be described as one exceptional Bernoulli bit coupled to \\(d\\) fair bits, or nearest-neighbor reversible Markov design for \\(K_2\\square Q_d\\).",
+        "Collevecchio--Griffiths (2020) considers iid Bernoulli targets and finite-time mixing, not the heterogeneous one-bit target optimum.",
+        "An indexed conditional-expectation-chain comparison concerns Lp norms of compositions, rather than graph-supported SLEM optimization."
+      ],
+      "reasoning": "The binary conditional-expectation Lp norm and all-iid-target cube walks differ both in feasible kernels and in their target/objective. No logical implication to the displayed all-bias SLEM formula was identified.",
+      "searches": [
+        "nonuniform stationary binary hypercube nearest-neighbor fastest mixing reversible SLEM exact optimizer",
+        "product Bernoulli biased coordinate cube graph FMMC spectral gap semidefinite",
+        "fastest mixing reversible Markov kernels on Boolean hypercube coordinate bias nonuniform equilibrium exact SLEM",
+        "\"fastest mixing\" \"Bernoulli product\" nearest-neighbor random walk spectral"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicitly published exact hypercube table entry found is the known uniform target \\(\\mu=(D-1)/(D+1)\\), 2009 §3.2.2.",
+        "An indexed Boolean Walsh sampling spectrum is not a Markov-chain optimization table."
+      ],
+      "reasoning": "The uniform entry matches only the boundary \\(a=1/2\\), which is not claimed as new. No indexed exact one-bit-bias table was found; lack of a table match is not a proof of uniqueness.",
+      "searches": [
+        "product Bernoulli biased coordinate cube graph FMMC spectral gap semidefinite",
+        "hypercube one-coordinate bias optimal transition probabilities minimax eigenvalue",
+        "\"fastest mixing\" \"hypercube\" \"stationary distribution\" nonuniform"
+      ]
+    },
+    "rationale": "Exact all-parameter one-biased-coordinate FMMC formula and unique symmetry-invariant optimizer are distinct from the earlier uniform-cube specialization and the general convex program. Closest accessible primary sections were materially inspected; public record search uncovered no equivalent all-bias theorem. Residual unindexed-specialist risk is acknowledged, so PASS is evidence-qualified, not a novelty certificate.",
+    "residual_risks": [
+      "The reported literature search is not exhaustive; a specialized published exact biased-cube solution may be unindexed or use different terminology.",
+      "The 2025 clique-lifted-graph paper was considered at abstract level only, not full-text excluded; its stated mechanism concerns different graph reductions and no decisive coverage was suggested."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the convex FMMC objective and a generic nonuniform-stationary SDP; it does not state the biased-product Boolean cube closed formula in the inspected relevant discussion.",
+        "evidence": [
+          "PDF first page electronically published 2004-10-29.",
+          "§6, printed p.684: weighted detailed-balance SDP; §7.1, printed p.685: complete-bipartite uniform-stationary example."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "First page including dated publication statement, introduction, section 6 and section 7 through the complete-bipartite example (PDF pp. 1, 17--19).",
+        "method": "Read source PDF text and page images (first page, source page 684).",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "General reversible FMMC could contain a dominating all-stationary-distribution formula."
+      },
+      {
+        "assessment": "The known uniform hypercube spectral optimum is \\(d/(d+2)\\) when the full cube dimension is \\(d+1\\), and is explicitly contained as the \\(a=1/2\\) boundary of the new family. The manuscript assumes a uniform target in that calculation; no formula for one biased Bernoulli coordinate follows by numerical substitution of the uniform graph Laplacian.",
+        "evidence": [
+          "Printed p.800, §3.2.2: for \\(Q_D\\), optimal symmetric flip probability is \\(1/(D+1)\\) and SLEM is \\((D-1)/(D+1)\\).",
+          "The preceding Cartesian-product discussion uses the uniform-stationary graph Laplacian."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Introduction, §3.2 on Cartesian products and §3.2.2 on hypercubes (PDF pp. 1--3, 8--9), with page image of printed p.800.",
+        "method": "Source PDF text and rendered page image inspected.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Exact uniform hypercube optimum and Cartesian products plausibly dominate the present specialization."
+      },
+      {
+        "assessment": "Develops partial-order and finite-time mixing comparisons chiefly for path birth--death chains; it does not state the all-bias cubical SLEM minimizer in the inspected material. No claim about absence from every page is inferred solely from the search.",
+        "evidence": [
+          "arXiv v1 submitted September 28, 2011.",
+          "Introduction pp.1--2 describes the path-chain focus and contrasts its objective with the SLEM criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1109.6075",
+        "material_read": "Abstract and introduction, including the explicit objective distinction and path-chain results (PDF pp.1--2); full-text search for hypercube returned no match.",
+        "method": "Source PDF text, image of PDF p.2 and targeted term search.",
+        "title": "Comparison inequalities and fastest-mixing Markov chains",
+        "trigger": "Related claims of fastest mixing under arbitrary stationary laws."
+      },
+      {
+        "assessment": "Its modeled target is an iid Bernoulli product across all coordinates; the focal optimization has one exceptional Bernoulli coordinate and all remaining coordinates fair. Its main objective is finite-time cutoff and long-range updates, not exact unrestricted nearest-neighbor SLEM minimization.",
+        "evidence": [
+          "arXiv v1 dated February 20, 2020.",
+          "Introduction describes iid Bernoulli stationary distribution for all coordinates and three-step almost-perfect mixing of nonlocal walks."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2002.09059",
+        "material_read": "Abstract, contents, introduction and examples 1.1--1.4, plus literature overview (PDF pp.1--4).",
+        "method": "Source PDF text and page images of PDF pp.3--4.",
+        "title": "Three steps mixing for general random walks on the hypercube at criticality",
+        "trigger": "Bernoulli-product target distributions on Boolean cubes with reversible walks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0a8a2fb-e189-4ff8-9822-62c10ffb149a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural full-support product-target hypercube family is motivated by nearest-neighbor sampling of one exceptional Bernoulli variable and d fair variables. It yields a complete exact globally optimal SLEM and explicit transition rule, with strict improvement for every bias and a sharp limit agreeing with the lower-dimensional cube. The state-dependent fair-coordinate move rates reveal a nontrivial structural feature absent in uniform-coordinate random scans. This is not merely a restatement of an eigenvalue computation or an unmotivated finite slice.",
+    "status": "PASS"
+  }
+}
