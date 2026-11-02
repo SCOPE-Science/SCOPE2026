@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact-multiplicity lower bound is forced by constant patterns after deletion; \\(k+1\\) permutation blocks suffice. For \\(k\\ge2\\), deleting the last b forces \\(a_i<b_{i+1}\\) for \\(1\\le i<k\\), and deleting the first a forces the \\(i=k\\) inequality via pattern \\(a^{k-1}b\\). All \\(i\\)-th symbol occurrences thus precede all \\((i+1)\\)-st occurrences. This proves structural necessity and factorial counting, with \\(k=1\\) handled separately. Independent literal enumeration of 413244 multiset hosts across 11 parameter pairs matches without using these inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barker et al. 2020 give arch factorization and ordinary/circular universality properties.",
+        "Adamson et al. 2023 provide general regular-language k-universality counting algorithms, not the minimum one-erasure-host enumeration.",
+        "The new theorem gives a specific if-and-only-if characterization at length \\(q(k+1)\\), not just effective computability."
+      ],
+      "reasoning": "A general algorithm might be specialized to test the property, and known permutation-block enumeration counts ordinary \\((k+1)\\)-universal shortest words. Neither mathematically implies the asserted equivalence with one-deletion robustness without the new necessary occurrence-order inequalities.",
+      "searches": [
+        "arxiv:2003.04629v1 universality arch factorization",
+        "arxiv:2311.10658v1 regular-language k-universality counting",
+        "arxiv:2304.04583v1 counting k-universal words",
+        "\"subsequence universality\" \"resilient\" \"deletion\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2003.04629v1",
+      "arxiv:2007.09192v1",
+      "doi:10.4230/LIPIcs.STACS.2021.25",
+      "arxiv:2304.04583v1",
+      "arxiv:2311.10658v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 deletion-distance algorithm starts with a given word and index; no explicit classification of \\(q(k+1)\\)-length words meeting a universal single-deletion predicate occurs in its inspected theorem and extension material.",
+        "The 2023 counting algorithms do not identify robust minimizers from k+1 universality or distinguish \\(k=1\\)."
+      ],
+      "reasoning": "Published results supply definitions and general algorithms but not the all-parameter sharp criterion. In particular, the \\(k=1\\) exception shows that a naive blanket equivalence to \\((k+1)\\)-universality would be false. The new proof directly characterizes a condition that algorithms can check but do not resolve symbolically.",
+      "searches": [
+        "doi:10.4230/LIPIcs.STACS.2021.25 Section 4.2 Deletions",
+        "arxiv:2304.04583v1 Section 3.2 Counting k-subsequence universal words",
+        "arxiv:2311.10658v1 Section 5 counting universal paths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Day et al. STACS 2021 Theorem 4.4 computes minimal deletion distance to achieve an index; the full inspected theorem contains no quantification over all single deletions of all minimum-length hosts.",
+        "Adamson 2023 ranks and counts ordinary k-universal words, and identifies the ordinary k-universal language, without one-deletion resilience classification."
+      ],
+      "reasoning": "The event every one-position deletion preserves k-universality is equivalent to deletion distance at least two to the complement of k-universal words, not the distance from a given word to the k-universal language. An algorithm for general membership/counting does not by itself assert the explicit optimal-host equivalence and exceptional \\(k=1\\) count.",
+      "searches": [
+        "\"subsequence-universal\" \"robust\" deletion",
+        "\"k-rich\" \"deletion\" \"word\" \"every\"",
+        "\"universal\" \"after deleting any\" \"letter\" \"subsequence\"",
+        "arxiv:2007.09192v1 Section 4.2",
+        "doi:10.4230/LIPIcs.STACS.2021.25 Theorem 4.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or the all-alphabet factorial formula was identified by the named text and semantic research queries.",
+        "The independent verifier confirms small cases but does not establish a prior database record."
+      ],
+      "reasoning": "No exact record was identified; failure to locate one is supporting but not conclusive evidence of originality. The small entries can be derived from the theorem and could exist in unindexed tables.",
+      "searches": [
+        "\"one-deletion\" \"subsequence-universal\" \"permutation\" \"word\"",
+        "\"one deletion robust subsequence universality shortest words enumeration\"",
+        "\"shortest one-erasure-resilient complete k-spectrum words q(k+1) permutation concatenations\""
+      ]
+    },
+    "rationale": "Targeted primary full-text and mathematical-record comparisons did not identify the exact minimum-length one-deletion-resilience classification; the strongest related prior theorem computes deletion distance to a specified universality index, but does not characterize and enumerate all minimum-length hosts resilient to every individual deletion. This distinction is mathematical rather than titular: the new theorem proves robustness implies the strictly stronger \\((k+1)\\)-universality exactly at the optimum length for \\(k\\ge2\\), with a sharp \\(k=1\\) exception.",
+    "residual_risks": [
+      "An unindexed prior equivalence or a specialization embedded in a broader theorem may exist.",
+      "The novelty comparison rests on inspected relevant sections and mathematical-record coverage, not an exhaustive search of all mathematics literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "background only: no quantified every-single-deletion minimum-host theorem located",
+        "evidence": [
+          "arxiv:2003.04629v1 pages 0-1, 26-27, conclusion"
+        ],
+        "identifier_or_url": "arxiv:2003.04629v1",
+        "material_read": "primary PDF introduction, definitions, universality characterization and conclusion, including treatment of prefix/suffix deletion",
+        "method": "full-text indexed PDF section read plus on-page visual confirmation",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "foundational arch decomposition / minimum universal length"
+      },
+      {
+        "assessment": "computes optimal deletion count to a target universality index; no classification of all shortest erasure-resilient hosts",
+        "evidence": [
+          "arxiv:2007.09192v1 Section 4.2 pages 20-23, pages 15-16, appendix"
+        ],
+        "identifier_or_url": "arxiv:2007.09192v1",
+        "material_read": "primary PDF introduction, Section 4.2 Theorem 4 with recurrence and proof, Section 4 overview and appendix scope",
+        "method": "PDF section text read and first-page screenshot",
+        "title": "The Edit Distance to k-Subsequence Universality",
+        "trigger": "closest deletion/edit-distance analogue"
+      },
+      {
+        "assessment": "the published treatment likewise gives efficient deletion-distance algorithms but not the claimed minimum-length structural result",
+        "evidence": [
+          "STACS 2021 Article 25 pages 3-4 and 13-15"
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.STACS.2021.25",
+        "material_read": "primary published PDF introduction, results summary, Theorem 4.4, deletion algorithm, Section 5",
+        "method": "primary PDF section read and first-page visual confirmation",
+        "title": "The Edit Distance to k-Subsequence Universality (STACS 2021)",
+        "trigger": "published variant might contain stronger covering theorem"
+      },
+      {
+        "assessment": "ordinary k-universality enumeration; resilience under every deletion not classified",
+        "evidence": [
+          "arxiv:2304.04583v1 pages 0-4"
+        ],
+        "identifier_or_url": "arxiv:2304.04583v1",
+        "material_read": "primary PDF overview and Section 3.2 counting recurrence, introductory comparison to deletion work",
+        "method": "primary PDF section read and first-page visual confirmation",
+        "title": "Ranking and Unranking k-subsequence Universal Words",
+        "trigger": "could give dominating exact enumeration"
+      },
+      {
+        "assessment": "general algorithmic counting framework, no explicit one-erasure shortest-word spectrum",
+        "evidence": [
+          "arxiv:2311.10658v1 pages 0-2, 13-14"
+        ],
+        "identifier_or_url": "arxiv:2311.10658v1",
+        "material_read": "primary PDF introduction, results summary, Section 5 counting path tables and definitions",
+        "method": "primary PDF section read and first-page visual confirmation",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "general automata enumeration could subsume the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "781682ee-fd3f-4b1c-8f92-261ebd1e95af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest redundancy needed to retain complete subsequence coverage after an arbitrary erasure is a natural coding/string-design invariant. The theorem determines this threshold for every alphabet and pattern length, proves surprising permutation-block rigidity for \\(k\\ge2\\), exhibits a nontrivial exceptional \\(k=1\\) boundary, and enumerates every optimum. It is an all-parameter structural classification, not merely a small census.",
+    "status": "PASS"
+  }
+}
