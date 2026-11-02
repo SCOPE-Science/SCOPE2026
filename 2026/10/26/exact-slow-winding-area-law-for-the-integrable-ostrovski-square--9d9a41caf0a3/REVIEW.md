@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the special map of [1], the proof uses its already-proved polygon itinerary and annular foliation. Matching a starting point at \(rP_4\) to its quarter-turn after \(K\) corner and \(N\) shear steps gives exactly \(r=(1+N\delta)^{-1}\). The constant successive corner determinant follows from \(\det B=1\), while every bottom-triangle shear has the same signed determinant. The telescoped center term in the shoelace formula then yields the polygon area with exact endpoints, including \(N=0\). Monotonic foliation supplies the sublevel sets; the gap between consecutive thresholds gives a uniform \(O(\varepsilon^2)\) interpolation error. Tail integration rigorously proves infinite reciprocal mean. Finite numerical polygon-area checks for four parameter choices corroborated, but do not replace, the symbolic all-parameter proof.
+PASS
 
-## Originality — PASS (bounded comparison)
+Accept Ostrovski’s published polygon existence, rotation number, and foliation for his special parameter family, not any generic angle. Quarter-orbit closure after K corner steps and N bottom shears gives r_N(1+N delta)=1. Because det B=1, each corner or shear increment has raw determinant -t delta r_N^2. The fourfold shoelace identity, including its center-translation telescope, yields enclosed polygon area 1-4t r_N+2t(1-K delta)r_N^2, hence outer area 4t r_N-2t(1-K delta)r_N^2. At N=0 this equals 2t(1+K delta). Published continuous monotone foliation identifies the exact exterior-polygon area with the slow-rotation sublevel distribution at rho_N=1/[4(K+N)]. Since neighboring thresholds differ by O(N^-2), monotone sandwiching upgrades the discrete expansion to all eps: area=(16t/delta)eps+O_K(eps^2); normalize by the annulus area to obtain the reciprocal-rotation 1/R tail and divergent expectation. The reciprocal rotation number is not mistakenly interpreted as an orbital return period.
 
-Ostrovski's accessible full text [1], especially Theorem 5.1, Corollary 5.4 and the appendix, establishes **existence** and **rotation numbers** of special invariant polygons, but does not state their Lebesgue areas or the small-winding area law. Searches for the source title, the special parameter relation, polygon areas, slow-winding measure and equivalent tails found no matching formula. Bullett [2] and Lagarias–Rains [3] concern different piecewise-linear dynamical families; their accessible abstracts were checked without claiming full-text negative coverage. Residual risk remains from unindexed sources and uninspected extended literature. This is a quantitative refinement of [1], not a claim to originate its invariant circles.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Rotation number is the key invariant of the paper's integrable annuli, but the amount of conserved planar area carried by low rotation numbers is a distinct measurable quantity. Exact all-\(N\) area and the sharp coefficient at the zero-rotation boundary yield the heavy-tailed reciprocal winding frequency and its nonintegrability. This describes the prevalence of slow motion in an entire infinite family of area-preserving maps and provides a natural statistical complement to qualitative foliation.
+The exact all-level Lebesgue area law and the small-rotation measure tail are not contained in the inspected source theorem, which constructs/foliates the polygons and states their rotation numbers. They are additional geometric computations, although determined by published geometry.
 
-## Scope and limits
+## value
 
-Only the distinguished angles \(\theta_K\) with integers \(K\ge3\) and the outer foliated annuli are covered. The result does not concern generic parameters, the central region or temporal mixing. The independence of any future external validation is not claimed. References and residual novelty risks are recorded in the structured review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nontrivial quantitative invariant is the area distribution of invariant-circle rotation speeds in a known integrable island. The rational all-N formula, sharp small-winding coefficient, and heavy-tail exponent quantify a dynamical observable that cannot be read from qualitative foliation alone. An exact measure law of a natural invariant annulus is independently useful despite being derived from published orbit geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

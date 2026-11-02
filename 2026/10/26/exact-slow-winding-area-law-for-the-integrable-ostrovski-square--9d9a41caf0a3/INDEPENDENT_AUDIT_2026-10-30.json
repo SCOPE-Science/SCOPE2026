@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:02:40Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Uses Ostrovski Theorem 5.1 and Corollary 5.4 as external hypotheses; only the outer annulus for special K>=3 parameters."
+      ],
+      "rationale": "Accept Ostrovski’s published polygon existence, rotation number, and foliation for his special parameter family, not any generic angle. Quarter-orbit closure after K corner steps and N bottom shears gives r_N(1+N delta)=1. Because det B=1, each corner or shear increment has raw determinant -t delta r_N^2. The fourfold shoelace identity, including its center-translation telescope, yields enclosed polygon area 1-4t r_N+2t(1-K delta)r_N^2, hence outer area 4t r_N-2t(1-K delta)r_N^2. At N=0 this equals 2t(1+K delta). Published continuous monotone foliation identifies the exact exterior-polygon area with the slow-rotation sublevel distribution at rho_N=1/[4(K+N)]. Since neighboring thresholds differ by O(N^-2), monotone sandwiching upgrades the discrete expansion to all eps: area=(16t/delta)eps+O_K(eps^2); normalize by the annulus area to obtain the reciprocal-rotation 1/R tail and divergent expectation. The reciprocal rotation number is not mistakenly interpreted as an orbital return period.",
+      "status": "PASS",
+      "verification": [
+        "Independent symbolic corner-to-shear closure and shoelace identity checked at K=3 and N=0,1 with exact theta=pi/8: exterior areas approximately 0.55025253169417 and 0.43182407278437, matching formula. Analytical determinant argument supplies unrestricted K,N.",
+        "Inspected RESULT.md frozen SHA f3a6419f45c48846c3ba1612d8d751ef1fcb2bff and source check.py blob a6806f7d26845f3ded87ac7883faa56adef68c99; illustrative numerical checks are not a proof of foliation."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bullett studies a different piecewise-linear annulus twist map; Lagarias–Rains study piecewise-linear area-preserving plane maps and invariant circles."
+        ],
+        "reasoning": "Invariant-circle existence or qualitative twist-map dynamics alone does not imply the specific Ostrovski K-dependent rational area, but complete text of all nearby literature was not exhaustively inspected.",
+        "searches": [
+          "Ostrovski piecewise affine square map special K polygons invariant circles rotation number area distribution winding annulus",
+          "Bullett 1986 DOI:10.1007/BF01209394",
+          "arXiv:math/0303007"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1305.4282",
+        "https://doi.org/10.1007/BF01209394",
+        "https://arxiv.org/abs/math/0303007"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking a rational rotation number from Ostrovski is not the same implication as computing measure of its entire sublevel set."
+        ],
+        "reasoning": "The claimed identity follows with nontrivial but elementary additional calculation from published geometry. Source theorems imply input geometry, not explicitly the quantitative area-tail results inspected here.",
+        "searches": [
+          "Ostrovski piecewise affine square map special K polygons invariant circles rotation number area distribution winding annulus",
+          "arXiv:1305.4282",
+          "arXiv:math/0303007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ostrovski Theorem 5.1 constructs Gamma_K^N, and Corollary 5.4 asserts invariant-circle foliation and rotation changes."
+        ],
+        "reasoning": "Same invariant polygons and rotations are prior art. The exact area observable with shear and corner determinants, its epsilon distribution and 1/R normalized tail were not among these examined theorems; these stronger measure conclusions are the assessed remainder.",
+        "searches": [
+          "Ostrovski piecewise affine square map special K polygons invariant circles rotation number area distribution winding annulus",
+          "arXiv:1305.4282"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic results concern other polygonal area/moduli and rotation problems, not an Ostrovski K,N area lookup; source paper gives polygon coordinates."
+        ],
+        "reasoning": "Known polygon data are not an already tabulated distribution: the area requires evaluating a mixed corner/shear shoelace sum. No exact same observable table identified in genuine searches.",
+        "searches": [
+          "Ostrovski piecewise affine square map special K polygons invariant circles rotation number area distribution winding annulus",
+          "Resultary:area polygon rotation searches",
+          "arXiv:1305.4282"
+        ]
+      },
+      "rationale": "The exact all-level Lebesgue area law and the small-rotation measure tail are not contained in the inspected source theorem, which constructs/foliates the polygons and states their rotation numbers. They are additional geometric computations, although determined by published geometry.",
+      "residual_risks": [
+        "A prior note on area of Ostrovski special polygons could already contain the same formula.",
+        "The all-level area is an explicit computation from known vertices, so originality is narrower than polygon existence or a new dynamical theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers existence/rotation/foliation, but inspected theorem section does not provide all-N polygon area law or 1/R tail.",
+          "evidence": [
+            "Theorem 5.1 special invariant polygons; Corollary 5.4 all-area annular circle foliation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.4282",
+          "material_read": "Full accessible preprint: construction, Theorem 5.1, Lemmas 5.2–5.3, Corollary 5.4, surrounding proof and figure; PDF page screenshots examined.",
+          "method": "Read arXiv PDF text and manually examined page screenshots for main theorem and foliation.",
+          "title": "Dynamics of a Continuous Piecewise Affine Map of the Square",
+          "trigger": "Exact same map, special parameters, invariant polygons and rotation numbers."
+        },
+        {
+          "assessment": "Model differs from the Ostrovski square map; potential measure-theoretic generalization not ruled out from abstract.",
+          "evidence": [
+            "Piecewise-linear standard map rather than specified nine-piece square map."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01209394",
+          "material_read": "Bibliographic abstract and theorem topic only; no complete primary full-text assessment.",
+          "method": "Read bibliographic statement and compared model family.",
+          "title": "Invariant circles for the piecewise linear standard map",
+          "trigger": "Possible broader annular invariant-circle geometry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "No generic-parameter entropy, mixing, escape-time or central-region statement."
+      ],
+      "rationale": "The nontrivial quantitative invariant is the area distribution of invariant-circle rotation speeds in a known integrable island. The rational all-N formula, sharp small-winding coefficient, and heavy-tail exponent quantify a dynamical observable that cannot be read from qualitative foliation alone. An exact measure law of a natural invariant annulus is independently useful despite being derived from published orbit geometry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1305.4282",
+    "https://doi.org/10.1007/BF01209394",
+    "https://arxiv.org/abs/math/0303007"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Ostrovski special parameter family and outer foliated annulus only; foliation invoked from a primary theorem.",
+    "Pointwise rotation reciprocal is not temporal orbit period."
+  ],
+  "residual_risks": [
+    "A prior note on area of Ostrovski special polygons could already contain the same formula.",
+    "The all-level area is an explicit computation from known vertices, so originality is narrower than polygon existence or a new dynamical theorem."
+  ],
+  "schema_version": 1
+}
