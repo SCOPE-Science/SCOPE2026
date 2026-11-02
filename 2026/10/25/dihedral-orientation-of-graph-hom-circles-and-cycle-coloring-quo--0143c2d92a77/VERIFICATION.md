@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limitations
 
-Run `python3 verify_hom.py` from the folder containing this file. The checker is entirely self-contained and reconstructs finite simplicial incidence structures and exact one-step coloring moves. It is not a proof of arbitrary parameters.
+# Independent mathematical audit
 
-The executed checker printed the following exact successful completion lines:
+## correctness
 
-```
-CYCLE_COMPONENTS_AND_QUOTIENT_VERIFIED 50 48918 281144 934
-GENERAL_GRAPH_ORIENTATION_VERIFIED 15 2520
-EXACT_GF2_CELLULAR_H1_AND_PRIMITIVE_WINDING_VERIFIED 11 3348 7626 6108 18
-DOMAIN_SYMMETRY_POSITIVE_WINDING_VERIFIED 13240
-FULL_TARGET_DIHEDRAL_QUOTIENT_BETTI_VERIFIED 50
-```
+PASS
 
-Finite cellular calculations are over the field with two elements; the **integral sign** in the universal theorem is justified by the deck-group conjugation identity, not by these mod-two calculations. The integral component-generator primitivity is also tested independently by integer increment winding gcds in the finite cases. The full quotient statement follows from exact rational transfer and the published circle-component classification.
+Conjugate the positive diagonal deck shift T(a)=a+q1 in the published integer lift by target affine sign δ and coordinate permutation: F∘T=T^δ∘F; source maps and rotations give + while reflections give -. Nonextremal winding classes of cycle-to-cycle Hom produce circles, extremal classes isolated points. Color rotations merge gcd(2,k) phase components for each winding; reflection pairs ±w and reverses zero-winding classes, so rational transfer gives the stated Betti counts. The theorem is all-parameter subject to stated hypotheses, independent finite 1-skeleton tests supplement only.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the natural integral signed action and complete target-color dihedral rational quotient homology; established point/circle and winding classifications are explicitly credited, not claimed novel.
+
+## value
+
+PASS
+
+Natural symmetry quotient of graph-coloring Hom spaces asks for actual integral action and rational homology, not merely disconnected component types. Exact two-parameter classification distinguishes winding-zero quotients from nonzero classes and supplies an intrinsic invariant of an infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
