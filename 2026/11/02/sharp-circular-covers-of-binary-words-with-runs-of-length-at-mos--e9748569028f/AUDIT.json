@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Mandatory de Bruijn edge imbalance is computed exactly; the specified extra edge set cancels it; alternating bridge paths make the augmented graph strongly connected and Eulerian. The potential minus the first equal-pair index has edge increment at most one on the entire binary de Bruijn graph. Its exact tightness on every added edge makes a global circulation lower bound match the Euler tour. Two elementary Fibonacci composition counts complete the formula for all k>=3. Reproducible finite witnesses, balance, potential checks, and separate full-graph minimum-cost-flow optimization corroborate rather than substitute for this proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sawada et al., arXiv:2308.12405, treat concatenation and universal-cycle constructions including single forbidden-zero-run examples.",
+        "Chee et al., arXiv:2005.03102, study constrained de Bruijn codes with restrictions on close repetition of windows."
+      ],
+      "reasoning": "Neither inspected construction provides a proved shortest cover for all words avoiding both constant triples while allowing duplicated windows. Generic Eulerian augmentation methods would solve a supplied instance algorithmically, but the uniform sharp Lucas formula and specified tight extra edges are not obtained from the inspected statements.",
+      "searches": [
+        "arxiv:2308.12405",
+        "arxiv:2005.03102",
+        "shortest universal cycle constrained words avoiding 000 111 repeated k length covering all",
+        "run length limited universal cycles de Bruijn graph shortest covering 000 111",
+        "Fibonacci Lucas shortest cyclic superstring words avoid three consecutive equal binary"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.01454v1",
+      "arxiv:0711.1695",
+      "arxiv:1908.01116",
+      "arxiv:2308.12405",
+      "arxiv:2005.03102",
+      "OEIS:A168674",
+      "published-finding corpus semantic search of four explicit claim and alias queries",
+      "Prior accessible circular-cover and run-restriction claims, used only for deduplication",
+      "Accessible prior all-length cyclic four-gram profile result for the same two forbidden triples; compared claim and quantifiers for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen, Kitaev and Sun, arXiv:1908.01116, define exactly-once universal cycles for target subsets and count feasibility after deletions.",
+        "Moreno and Matamala, arXiv:0711.1695, optimize lexicographic order under an exactly-once language definition.",
+        "Chee et al., arXiv:2403.01454v1, seek maximum RLL distinct-window lengths."
+      ],
+      "reasoning": "An exactly-once result cannot yield our required repeated-factor cover when the target de Bruijn edge graph is imbalanced. None of the compared statements upper- or lower-bounds the exact repeated minimum for the symmetric forbidden-triple language; a new circulation dual certificate proves even forbidden host windows cannot reduce it.",
+      "searches": [
+        "arxiv:1908.01116",
+        "arxiv:0711.1695",
+        "arxiv:2403.01454v1",
+        "shortest cyclic word containing every binary k-word with neither 000 nor 111 Fibonacci Lucas length 2 Lucas k minus 2",
+        "Chinese postman run length 2 restricted binary de Bruijn graph cyclic shortest superstring",
+        "binary words avoiding 000 and 111 minimal circular universal cover with repetitions",
+        "minimal circular superstring for all run-length-limited binary words no three equal digits"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno and Matamala, Section 2.1, define admissible words through periodic repetition and study exactly-once de Bruijn cycles (arXiv:0711.1695).",
+        "Chee et al., Sections 1-2, maximize distinct windows in RLL de Bruijn graph sequences (arXiv:2403.01454v1)."
+      ],
+      "reasoning": "An arbitrary finite word avoiding triples may fail periodic-admissibility at its boundaries, so the exact-once language formulation is not equivalent to covering every finite locally valid word. The source RLL objective maximizes distinct windows and does not optimize repeated traversal.",
+      "searches": [
+        "shortest cyclic word containing every binary k-word with neither 000 nor 111 Fibonacci Lucas length 2 Lucas k minus 2",
+        "Chinese postman run length 2 restricted binary de Bruijn graph cyclic shortest superstring",
+        "binary words avoiding 000 and 111 minimal circular universal cover with repetitions",
+        "minimal circular superstring for all run-length-limited binary words no three equal digits",
+        "arxiv:0711.1695",
+        "arxiv:2403.01454v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A168674 lists 0,4,6,12,20,34,56,92,... and identifies the recurrence 2 a(n-1)-a(n-3), but its entry does not state a restricted circular-cover interpretation.",
+        "The prior related run-restriction ledger entry addresses a different language forbidding adjacent 11.",
+        "An accessible prior work on cyclic binary words avoiding both 000 and 111 counts length-four factor-count profile classes; it is a different observable and does not evaluate the shortest host covering every permitted length-k factor."
+      ],
+      "reasoning": "The sequence of optimum lengths coincides numerically with an already indexed sequence; **numerical values and recurrence alone are not claimed original**. This prior table does not imply the exact constrained-cover theorem or the factor multiplicities. In particular, the prior same-language four-gram profile enumeration counts distinct observations of source cycles, not shortest cyclic all-factor covers.",
+      "searches": [
+        "OEIS:A168674",
+        "OEIS:A001610",
+        "shortest cyclic word containing every binary k-word with neither 000 nor 111 Fibonacci Lucas length 2 Lucas k minus 2",
+        "Chinese postman run length 2 restricted binary de Bruijn graph cyclic shortest superstring",
+        "binary words avoiding 000 and 111 minimal circular universal cover with repetitions",
+        "minimal circular superstring for all run-length-limited binary words no three equal digits"
+      ]
+    },
+    "rationale": "No inspected primary result directly implies the all-length shortest circular cover for all finite words avoiding both 000 and 111 with repetitions permitted; the arithmetic sequence is known, and priority remains qualified. The new claim includes a full unrestricted-host dual optimum and constructive multiplicity law.",
+    "residual_risks": [
+      "An unindexed result in the constrained shortest common superstring, directed rural postman or two-sided run-length-limit literature could already imply this theorem.",
+      "Matching OEIS numbers establish no numerical novelty; only the extremal interpretation and full proof are asserted new.",
+      "Some relevant primary sources were inspected in their material sections rather than line-by-line across every appendix.",
+      "Bryant and Fredricksen, Covering the de Bruijn graph, Discrete Mathematics 89 (1991), 133–148, is bibliographically located but not materially inspected; its potential relevance is unresolved and may affect priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not establish shortest repeated covers of all two-sided run-two factors",
+        "evidence": "arXiv:2403.01454v1, March 3, 2024; Abstract and Sections 1-2; maximum-length and distinct-window goals.",
+        "identifier_or_url": "https://arxiv.org/html/2403.01454v1",
+        "material_read": "Version date, abstract and substantive introductory/model and maximum-length formulation paragraphs",
+        "method": "Open-access arXiv v1 full-text HTML inspection",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "Direct run-length-limited de Bruijn graph vocabulary and 2024 guiding publication"
+      },
+      {
+        "assessment": "Different target language and exactly-once/lexicographic task, not the all finite-word repeated-cover minimum",
+        "evidence": "arXiv:0711.1695, pages 1-2, Definitions: w is in the language if infinite periodic repetition is admissible.",
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+        "material_read": "Abstract, Introduction, Section 2.1 definitions including periodic-word language and exactly-once criterion; page-image inspection of Section 2",
+        "method": "Open-access arXiv PDF parsed text plus PDF page image",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Potential exactly-covering result for forbidden-substring language"
+      },
+      {
+        "assessment": "Exactly-once cycle existence with removed words, not shortest repeated coverage of run-two language",
+        "evidence": "arXiv:1908.01116, Abstract: universal cycle contains each member exactly once.",
+        "identifier_or_url": "https://arxiv.org/abs/1908.01116",
+        "material_read": "Abstract, universal-cycle exact-once definition and scope of enumerated deletion cases",
+        "method": "Open-access arXiv abstract and associated available HTML passages",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "Universal-cycle deletion and feasibility result"
+      },
+      {
+        "assessment": "Numerical law already known; no covered interpretation in record; explicitly restricts priority claim",
+        "evidence": "OEIS A168674, recurrence and listed terms with first indices and references.",
+        "identifier_or_url": "https://oeis.org/A168674",
+        "material_read": "Complete short OEIS entry including definition, initial terms, comments, formula, references and cross-references",
+        "method": "Public OEIS HTML entry inspection",
+        "title": "A168674",
+        "trigger": "Exact numerical sequence matching potential optimal length formula"
+      },
+      {
+        "assessment": "No exact shortest cover with both forbidden constant triples found in inspected relevant portions",
+        "evidence": "arXiv:2308.12405; restricted-word constructions and single-forbidden-run examples.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.12405",
+        "material_read": "Relevant construction and restricted-language examples including single zero-run case",
+        "method": "Open-access arXiv full-text passages",
+        "title": "Concatenation trees: A framework for efficient universal cycle and de Bruijn sequence constructions",
+        "trigger": "Restricted universal cycles and possible forbidden-run coverage"
+      },
+      {
+        "assessment": "Unresolved; no claim of noncoverage from title or metadata",
+        "evidence": "Roy D. Bryant and Harold Fredricksen, Discrete Mathematics 89(2) (1991), 133–148.",
+        "identifier_or_url": "https://dblp.org/rec/journals/dm/BryantF91",
+        "material_read": "Bibliographic title, authors and venue only; paper text unavailable in current source inspection",
+        "method": "Bibliographic metadata lookup",
+        "title": "Covering the de Bruijn graph",
+        "trigger": "Potentially relevant covering graph results from 1991"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e9748569-028f-4b42-8f88-eacaca6c9e97",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The symmetric prohibition of 000 and 111 is a canonical nontrivial run-length constrained language. The theorem determines a sharp minimum all-factor circular cover for every window length, including the exact unavoidable repetitions, a constructive Eulerian optimum, and a global lower bound robust to forbidden windows in the host. It is not merely a recurrence or a numerical table.",
+    "status": "PASS"
+  }
+}
