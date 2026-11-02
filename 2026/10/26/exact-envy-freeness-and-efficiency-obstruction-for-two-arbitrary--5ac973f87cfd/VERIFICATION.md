@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-`python3 check.py` uses exact integer truth-table masks. For each of the \(2^{2^{m+1}}\) pairs of valuations for \(m=1,2,3\), it enumerates all allocations, evaluates the two envy inequalities directly, and separately applies the definition of Pareto dominance to every realized pair of utilities. It compares both resulting feasibility bits to the complementary-support theorem and checks the exact EF, EF-and-PO, and conditional-by-normalization counts.
+## correctness
 
-Expected checked totals: \(16,256,65536\) profiles. Observed no-EF-and-PO totals: \(2,8,80\); no-EF totals: \(2,4,16\); EF-but-not-EF-and-PO totals: \(0,4,64\). Expected and observed normalized counts agree. The program terminates with `PASS` after all exact comparisons.
+PASS
 
-The general proof is the structural argument in `RESULT.md`. Exhaustive finite checks alone cannot establish the result for unbounded \(m\). The results do not assert a distributional law beyond the explicit independent fair Boolean truth-table model. Independent audit has not been performed.
+For nonidentical Boolean tables choose a subset of differing value and give it to the agent who values it 1. If (1,1) is realizable it is immediately EF+PO; otherwise this allocation is envy-free and has (1,0) or (0,1), which is on the binary Pareto frontier. For equal valuations an identical 11 complementary pair yields (1,1); if none, all Pareto allocations with a 1/0 utility split envy the winner, except the identically zero table, which is trivially EF+PO. EF alone requires equal valuations on both bundles in some complement pair, giving the all-01/10 excluded class. The 2^m bundles partition into L complementary pairs, each with 00,01,10,11; exclude 11 for all L and remove globally zero -> 3^L-1, while no-EF forces 01/10 ->2^L. Independently exhaustively checked all 65,808 ordered truth-table pairs for m=1..3 directly from EF inequalities and PO dominance, reproducing (2,8,80) failure counts.
+
+## originality
+
+PASS
+
+Fresh best-of-knowledge statement-level comparison with relevant published Resultary findings and primary articles, acknowledging known general methods and narrower ancestors; no inspected stronger theorem implies the exact final result. Priority is qualified by explicit residual risks.
+
+## value
+
+PASS
+
+This is a complete natural two-agent exact fairness-and-efficiency existence classification in the broad Boolean nonmonotone domain, distinguishing EF nonexistence from EF/PO incompatibility and quantifying obstruction rarity for a stated independent-table benchmark. The benchmark distribution is mathematically explicit, not a realistic preference model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

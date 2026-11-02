@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:09:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonidentical Boolean tables choose a subset of differing value and give it to the agent who values it 1. If (1,1) is realizable it is immediately EF+PO; otherwise this allocation is envy-free and has (1,0) or (0,1), which is on the binary Pareto frontier. For equal valuations an identical 11 complementary pair yields (1,1); if none, all Pareto allocations with a 1/0 utility split envy the winner, except the identically zero table, which is trivially EF+PO. EF alone requires equal valuations on both bundles in some complement pair, giving the all-01/10 excluded class. The 2^m bundles partition into L complementary pairs, each with 00,01,10,11; exclude 11 for all L and remove globally zero -> 3^L-1, while no-EF forces 01/10 ->2^L. Independently exhaustively checked all 65,808 ordered truth-table pairs for m=1..3 directly from EF inequalities and PO dominance, reproducing (2,8,80) failure counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bérczi et al. prove EF1/EFX claims for broader valuations, but EF1 is weaker than EF and does not decide exact EF+PO feasibility.",
+          "Strictly increasing valuation theorems impose monotonicity excluded here and often use EF1 not EF."
+        ],
+        "reasoning": "Neither broader preference domain with weaker fairness nor stronger fairness under stronger hypotheses logically covers the full arbitrary-Boolean EF+PO iff.",
+        "searches": [
+          "Resultary published findings: two arbitrary Boolean valuations envy-free Pareto-optimal complete allocations classification count",
+          "arXiv:2608.29497",
+          "arXiv:2006.04428v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.29497",
+        "arXiv:2006.04428v1",
+        "Resultary semantic query explicitly recorded under all four originality comparison fields"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shah–Verma Lemma 3 gives EF+PO for mixed empty-value normalization, which follows immediately because the two tables differ at empty set.",
+          "Their Proposition 6 concerns a separate EF1+PO impossibility, not this EF+PO full characterization."
+        ],
+        "reasoning": "The prior mixed-normalization positive result is properly credited as a special case; it cannot yield the exact necessary-and-sufficient condition for every equal/nonidentical pair.",
+        "searches": [
+          "Resultary published findings: two arbitrary Boolean valuations envy-free Pareto-optimal complete allocations classification count",
+          "arXiv:2608.29497",
+          "arXiv:2006.04428v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Obstruction is equivalently common nonempty preference support containing no complementary pair.",
+          "Shah–Verma have a positive existence lemma for exactly one zero empty-set valuation, not the complete pointwise iff."
+        ],
+        "reasoning": "A normalization-bound theorem is a consequence of, not an alternative statement equivalent to, the all-table obstruction.",
+        "searches": [
+          "Resultary published findings: two arbitrary Boolean valuations envy-free Pareto-optimal complete allocations classification count",
+          "arXiv:2608.29497",
+          "arXiv:2006.04428v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite counts (m=1,2,3) are 2,8,80 failures, exact because of combinatorial proof.",
+          "Related Resultary matching articles concern random priority, ordinal inefficiency or stochastic dominance, not arbitrary binary truth-table existence."
+        ],
+        "reasoning": "The power enumeration is a consequence, not an isolated sequence novelty claim. No same mathematical model table surfaced in searched records; negative search alone is inconclusive.",
+        "searches": [
+          "Resultary published findings: two arbitrary Boolean valuations envy-free Pareto-optimal complete allocations classification count",
+          "arXiv:2608.29497",
+          "arXiv:2006.04428v1"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge statement-level comparison with relevant published Resultary findings and primary articles, acknowledging known general methods and narrower ancestors; no inspected stronger theorem implies the exact final result. Priority is qualified by explicit residual risks.",
+      "residual_risks": [
+        "A simple two-agent dichotomous argument may be folklore or already in an unindexed appendix despite negative indexed searches.",
+        "Uniform independent truth-table probability is not calibrated to real preference populations and is not claimed to be."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows normalization-dependent existence and a distinct counterexample, not an all-pair EF+PO obstruction formula",
+          "evidence": [
+            "arXiv:2608.29497, Lemma 3 and Proposition 6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.29497",
+          "material_read": "Full accessible arXiv manuscript: setup, formal EF/PO, Section 4 Lemma 3, Proposition 6, related results",
+          "method": "Read actual primary text and compare hypotheses and conclusions",
+          "title": "Fair Division Under Boolean Valuations: Beyond Normalization",
+          "trigger": "Same exact unrestricted Boolean valuation setting and EF+PO question"
+        },
+        {
+          "assessment": "EF1/EFX relaxations do not imply exact EF+PO with arbitrary Boolean functions",
+          "evidence": [
+            "arXiv:2006.04428v1, Section 5."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2006.04428v1",
+          "material_read": "Full accessible arXiv HTML including preliminaries and Section 5, Theorems 5 and 6",
+          "method": "Read exact fairness definitions and Boolean results",
+          "title": "Envy-free Relaxations for Goods, Chores, and Mixed Items",
+          "trigger": "Broad arbitrary nonmonotone allocation fairness literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete natural two-agent exact fairness-and-efficiency existence classification in the broad Boolean nonmonotone domain, distinguishing EF nonexistence from EF/PO incompatibility and quantifying obstruction rarity for a stated independent-table benchmark. The benchmark distribution is mathematically explicit, not a realistic preference model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2608.29497",
+    "arXiv:2006.04428v1",
+    "GitHub frozen RESULT.md blob d1340628602b0cc073966094899d9d6a27fc1717",
+    "GitHub frozen check.py blob fae56d4d865ad89ab720b343823c9c29035c8e15",
+    "Independent checks at local independent_checks.py and independent_results.json"
+  ],
+  "disposition": "passed",
+  "final_claim": "For m>=1 goods, complete allocation between two agents with arbitrary (possibly nonmonotone, unnormalized) Boolean set functions is EF and Pareto optimal iff the valuations differ, or they coincide and are identically zero, or they coincide and some complementary bundles both have value 1. Thus failure iff identical nonzero functions have no complementary 11 pair. No EF iff identical valuation with each complement pair opposite bits. Under uniform independent truth-table bits L=2^(m-1), the respective failure counts are 3^L-1 and 2^L among 16^L valuation profiles.",
+  "limitations": [
+    "A simple two-agent dichotomous argument may be folklore or already in an unindexed appendix despite negative indexed searches.",
+    "Uniform independent truth-table probability is not calibrated to real preference populations and is not claimed to be.",
+    "Exact source tree SHA was copied from the actual assigned record; the accessible RESULT.md and verification script blobs were independently fetched at the frozen commit, but full tree object byte reconstruction was not available through the repository connector.",
+    "Public metadata contain source provenance and need verified confidentiality-safe complete replacement contents before publication.",
+    "Finite checks corroborate but do not constitute unrestricted proof."
+  ],
+  "schema_version": 1
+}
