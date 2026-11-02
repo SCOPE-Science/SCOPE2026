@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed object is the transitive-subtournament complex of the explicitly oriented Paley tournament of order \(23\); the action is restricted to its natural affine subgroup. The complete published classification in Govc (2020, Proposition 3.4) supplies the nonequivariant free ranks and cyclic \(23\)-torsion. A finite independent computation identifies the Paley representative in the unique order-\(23\) exceptional homotopy class. The included verifier enumerates each simplex, uses signs of induced vertex permutations, calculates eleven exact \(\mathbb F_{23}\)-eigenspace boundary ranks, and compares them with a separate characteristic-two invariant calculation. Equivariant universal coefficients isolate the unique extra character at \(\lambda=12\), which equals the inverse of the multiplier \(2\). The argument for translations uses the coprime orders \(23\) and \(22\).
+PASS
 
-## Originality — PASS
+PASS, using a published integral-homology premise. The natural affine subgroup preserves tournament directions. The 2020 Govc order-23 classification has precisely one doubly regular tournament homotopy type with integral H₃≅Z²³⊕Z/23 and H₄≅Z⁴⁵. The independently enumerated Paley face counts are (23,253,1265,2530,1518), and all eleven exact F₂₃ cyclic-eigenspace boundary ranks were independently recomputed: ranks (∂₁,∂₂,∂₃)=(2,21,94) throughout, and ∂₄ rank 133 exactly for λ=1 and λ=12, rank 134 for nine others, yielding H₄(F₂₃) dimensions 5,5, and nine 4s. A second independent F₂ orbit-invariant calculation yielded ranks (2,21,94,133) and H₄(F₂)^C11 dimension 5. Since the integral H₄ is free rank45 and has no 2-primary UCT extra, rational C11 module is 5 trivial plus four cyclotomic 10-dimensional modules; reducing its free lattice mod23 gives free H₄(F₂₃) multiplicities 5 at λ1 and 4 elsewhere. The unique UCT Tor quotient from H₃[23] is therefore λ=12=2^{-1}. Every translation of order23 acts trivially on Aut(Z/23) of order22, yielding all affine multipliers. The exact eigen ranks are a complete finite certificate; Govc supplies rather than the verifier recertifying the integral torsion premise.
 
-The nearest paper (Govc, 2020) classifies the homotopy type and the order of the torsion group, not the affine scalar induced on its generator. The earlier directed-clique source (Masulli–Villa, 2015) develops nonequivariant invariants. A relevant published-finding corpus affine-character result concerns the different Paley tournament of order \(19\). Neither determines the inverse-multiplier \(\mathbb F_{23}\)-character; no direct matching indexed result was found. The absence of a retrieved match does not establish absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact action has order \(11\), showing that the first exceptional cyclic \(23\)-torsion class carries faithful multiplier symmetry rather than a trivial action. This is an intrinsically motivated equivariant refinement of the published classification, not a recomputation of its Betti numbers. The exact eigenvalue matters for natural equivariant constructions and for distinguishing actions with identical nonequivariant homology.
+PASS to best of knowledge; Govc's complete order≤27 classification gives the nonequivariant Moore summand and is explicitly prior. Masulli–Villa describes directed flag homology but no 23-torsion affine character. Published Resultary Paley-19 affine homology character concerns a different prime and a free module, and cannot imply inverse-multiplier action on cyclic 23-torsion. Exact-source search did not identify this character. No claim of first discovery of the integral homology or full automorphism group is made.
 
-Scientific limits: the published nonequivariant classification is relied upon for the integral homology groups; it has not been independently recertified. The finite rank certificate concerns the claimed natural affine subgroup only. Literature searches are bounded, and no independent expert audit has occurred.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. The one-dimensional 23-torsion summand has a natural, mathematically significant nontrivial affine character of order eleven, an invariant not determined by its known nonequivariant homotopy type. The exact inverse multiplier records how arithmetic symmetry acts on torsion, and can distinguish equivariant constructions having the same integral Betti groups; this is a motivated small but complete equivariant invariant, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
