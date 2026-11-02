@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:48:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md Git blob b9787d42c68c1a66c66a5afe7b4b09f61187be0a",
+        "frozen color_path_verifier.py blob 927a6eea52f387c71faf3a6f4b4eb5e6a3845d27",
+        "independent_checks.py new literal-trace VC and recursive finite Littlestone checks"
+      ],
+      "rationale": "Static shattering cannot query two different colors at one vertex, establishing VC<=n. With two colors only two proper colorings exist, so both dimensions equal one. For q=3, any four consecutive targeted positions cannot all be shattered: all-ones makes targets proper; both 101 triple patterns force alternating target colors a,b,a,b, after which 1001 cannot be realized with proper adjacent internal colors. Disjoint four-vertex blocks force floor(n/4) unqueried vertices. Conversely query each first-three-of-four block with alternating 1,2,1 targets; each binary labeling of a run length <=3 is feasible, and the one unqueried separator can take a third color distinct from both neighboring runs. For q>=4, alternating (1,2) target and (3,4) off-target colors give any n-bit pattern. For all q>=3, adaptive prefix choices give a full n-level binary mistake tree; for any partial assignment family, each splitting positive branch fixes one previously unfixed coordinate, giving Ldim<=n by induction. Independently enumerated proper coloring hypotheses and computed VC/Ldim for q2 n<=5,q3 n<=5,q4 n<=3; direct argument handles all n.",
+      "residual_risks": [
+        "Proof assumes only binary equality literal queries, not revelation of an entire vertex color.",
+        "The q=3 four-position obstruction is a local feasibility argument, not a general graph theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walker 2022 Theorem 1.3/Corollaries 1.7,1.10 give general Sauer–Shelah/online shatter-function bounds.",
+          "Manurangsi 2023 studies inapproximability for explicitly represented arbitrary concept classes, not exact dimensions of path-color literals."
+        ],
+        "reasoning": "A general shatter-function bound or hardness theorem does not force the q=3 n−floor(n/4) exact value or the q>=4 collapse. No stronger coverage in inspected exact hypotheses was located.",
+        "searches": [
+          "VC dimension Littlestone dimension proper graph colorings path vertex color equality query palette three",
+          "https://arxiv.org/pdf/2203.12211",
+          "https://doi.org/10.4230/LIPIcs.ITCS.2023.85"
+        ]
+      },
+      "checked_sources": [
+        "Blanca–Chen–Štefankovič–Vigoda, Structure Learning of H-colorings, PMLR 83 (2018) primary PDF introduction, definitions, theorems, proper-coloring section",
+        "Roland Walker, Tree Dimension and the Sauer–Shelah Dichotomy, arxiv:2203.12211v2 primary PDF full mathematical content",
+        "Pasin Manurangsi, Improved Inapproximability of VC Dimension and Littlestone Dimension via (Unbalanced) Biclique, ITCS 2023 proceedings abstract/results",
+        "Resultary query VC dimension Littlestone dimension proper graph colorings path vertex color equality query palette three plus forced-coloring path record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Blanca et al 2018 §§1–3 focus on recoverability of unknown graph edges from random H-colorings; their Theorem 4 concerns identifiability/learning rates.",
+          "Walker 2022 §1 defines VC/Littlestone and proves general inequalities, with no graph-coloring palette theorem."
+        ],
+        "reasoning": "Neither prior target concerns the characteristic-bit family h_f(i,a)=1[f(i)=a] for a fixed known P_n. The explicit four-run obstruction and separator construction are additional natural combinatorial facts, not theorem renaming.",
+        "searches": [
+          "VC dimension Littlestone dimension proper graph colorings path vertex color equality query palette three",
+          "https://proceedings.mlr.press/v83/blanca18a/blanca18a.pdf",
+          "https://arxiv.org/pdf/2203.12211"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-hot membership-query concepts are distinct from graph-structure learning with colorings as random samples.",
+          "The same proper-coloring solution set can underlie different statistical concepts and query semantics."
+        ],
+        "reasoning": "An equality-literal query (i,a) has binary response about an unknown fixed coloring; sampling a random coloring to recover an unknown graph is a different target. Matching objects is insufficient for implication.",
+        "searches": [
+          "VC dimension Littlestone dimension proper graph colorings path vertex color equality query palette three",
+          "\"shatter\" \"proper coloring\" vertex color literals VC dimension",
+          "https://proceedings.mlr.press/v83/blanca18a.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary forced-three-coloring record treats extension/forced-coloring polynomials of paths and cycles, not VC or Ldim of literal concepts.",
+          "Finite proper-coloring counts q(q−1)^(n−1) are standard but do not determine shattering feasibility."
+        ],
+        "reasoning": "There is no identified existing table of the two particular dimensions. Recomputing ordinary coloring counts does not imply the per-target pattern obstruction or online decision-tree structure.",
+        "searches": [
+          "VC dimension Littlestone dimension proper graph colorings path vertex color equality query palette three",
+          "Resultary 2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+          "\"proper path colouring\" \"VC\" \"Littlestone\" table"
+        ]
+      },
+      "rationale": "Best-of-knowledge independent claim-versus-prior implication comparison: Neither prior target concerns the characteristic-bit family h_f(i,a)=1[f(i)=a] for a fixed known P_n. The explicit four-run obstruction and separator construction are additional natural combinatorial facts, not theorem renaming. Closest exact antecedents are explicitly credited and risks retained.",
+      "residual_risks": [
+        "Unlocated older literal-query graph coloring VC/Littlestone theorem could give same formula.",
+        "General hardness paper only abstract and proceedings overview inspected; not the full paper, though scope differs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Targets graph-edge reconstruction from random colorings, not VC/Ldim under equality literals",
+          "evidence": "Introduction defines unknown graph G and i.i.d. colorings; Theorem 4 graph identifiability/sample complexity.",
+          "identifier_or_url": "https://proceedings.mlr.press/v83/blanca18a/blanca18a.pdf",
+          "material_read": "PMLR published 34-page PDF: title/abstract, introduction, H-coloring and graph recovery definitions, main identifiability theorem statements, §3 proper-coloring discussion (text searched); screenshot page 1 visually inspected",
+          "method": "Read primary full PDF relevant mathematical sections with screenshot verification",
+          "title": "Structure Learning of H-colorings",
+          "trigger": "Directly treats proper q-colorings and learning, potentially stronger theorem"
+        },
+        {
+          "assessment": "General combinatorial shatter bounds; does not explicitly compute these path-coloring classes",
+          "evidence": "Corollaries 1.7/1.10 are quantitative generic bounds with no n−floor(n/4) constraint.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.12211",
+          "material_read": "Full nine-page arxiv PDF text §1 tree dimension, definitions 1.4–1.9 and Theorem 1.3/Corollaries 1.7,1.10, higher arity; screenshot p2 visually inspected",
+          "method": "Read primary PDF main theorems and definitions; screenshot page 2 checked",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "General VC/Littlestone exact shattering theory could dominate"
+        },
+        {
+          "assessment": "Main stated result is hardness for arbitrary listed classes; path literal exact value not in material read",
+          "evidence": "The paper develops biclique reductions and complexity assumptions for approximation.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+          "material_read": "Proceedings published abstract and problem statement only; original full PDF not read",
+          "method": "Read authoritative proceedings abstract; no whole-document NOT_COVERING conclusion",
+          "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+          "trigger": "Both VC and Littlestone dimensions, possible reductions"
+        },
+        {
+          "assessment": "Counts forced coloring extensions, not literal-query VC/Ldim; cannot declare whole-document noncoverage",
+          "evidence": "Summary states path coefficients are weighted Fibonacci; different invariant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+          "material_read": "Published title and Resultary abstract/summary only, not full proof",
+          "method": "Read Resultary research result summary with explicit limitation",
+          "title": "Exact forced three-colouring polynomials at maximum degree two",
+          "trigger": "Resultary published closest path coloring invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Blanca–Chen–Štefankovič–Vigoda, Structure Learning of H-colorings, PMLR 83 (2018) primary PDF introduction, definitions, theorems, proper-coloring section",
+        "Roland Walker, Tree Dimension and the Sauer–Shelah Dichotomy, arxiv:2203.12211v2 primary PDF full mathematical content",
+        "Pasin Manurangsi, Improved Inapproximability of VC Dimension and Littlestone Dimension via (Unbalanced) Biclique, ITCS 2023 proceedings abstract/results",
+        "Resultary query VC dimension Littlestone dimension proper graph colorings path vertex color equality query palette three plus forced-coloring path record",
+        "frozen RESULT.md Git blob b9787d42c68c1a66c66a5afe7b4b09f61187be0a",
+        "frozen color_path_verifier.py blob 927a6eea52f387c71faf3a6f4b4eb5e6a3845d27",
+        "independent_checks.py new literal-trace VC and recursive finite Littlestone checks"
+      ],
+      "rationale": "The palette size at which a connected graph of maximum degree two acquires a linearly growing adaptive-versus-nonadaptive shattering gap is a natural complete classification in concept learning. The q=3 four-consecutive-vertex obstruction and q>=4 alternate-color construction explain a genuine combinatorial transition, not a generic counting bound. Its precise linear gap floor(n/4) is needed to understand interaction between coloring constraints and one-hot query semantics.",
+      "residual_risks": [
+        "Result depends on one-hot membership queries and might change for full-color queries or general graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For proper q-coloring one-hot literal concepts of labeled path P_n, n>=1, q>=2, Littlestone dimension is 1 if q=2 and n if q>=3, while VC dimension is 1 if q=2, n−floor(n/4) if q=3, and n if q>=4. Thus an unbounded Ldim−VCdim gap occurs exactly at q=3.",
+  "limitations": [
+    "All n>=1 and integer q>=2, proper colorings of P_n only, one-hot equality literals.",
+    "No higher graph-degree or different learning-target theorem is asserted.",
+    "Unlocated older literal-query graph coloring VC/Littlestone theorem could give same formula.",
+    "General hardness paper only abstract and proceedings overview inspected; not the full paper, though scope differs."
+  ],
+  "schema_version": 1
+}
