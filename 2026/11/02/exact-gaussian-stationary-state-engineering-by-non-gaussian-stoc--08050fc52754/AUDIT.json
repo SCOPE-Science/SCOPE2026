@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact forward generator calculation gives unique source density rho=Gaussian*(1+(y^T Q y+h^T y-tr(S^-1Q))/r). Gaussian differentiation, normalization, the complete spectral-range quadratic nonnegativity criterion, completed square, and uniqueness of the OU-with-reset invariant law are explicitly derived. The isotropic variance minimization gives rate dk(2 beta-beta^2) for beta<1, unattained infimum dk for beta>=1, proving the three exact mean-reachability regimes. The lag-covariance identity is independently derived by conditional means. The packaged deterministic verifier passed 71 checks, including exact rational threshold calculations and Gaussian quadrature for nonnormal drift; finite checks corroborate but do not replace proof. The hypothesis D,S positive definite and A positive stable prevents boundary ambiguity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2310.04840 Section III formula (22) covers arbitrary-order forward moments for one-dimensional harmonic OU at any reset source",
+        "arxiv:2301.12304 Sections III-V address OU resetting and comb diffusion with fixed reset locations",
+        "2025 density-dependent stochastic resetting over networks uses state-dependent resetting, not independent vector refreshes"
+      ],
+      "reasoning": "The prior forward moment recursion potentially provides a starting point for inversion but does not itself supply positivity of the inverse source or the all-dimensional sharp reachable-mean boundary. The Fokker–Planck resolvent is explicitly acknowledged as established; no novelty claimed for it alone. Broad inverse-control literature remains a residual priority risk.",
+      "searches": [
+        "Web: \"inverse problem\" \"resetting distribution\" \"Ornstein-Uhlenbeck\"",
+        "Web: design reset position distribution prescribed stationary distribution Ornstein-Uhlenbeck inverse stochastic resetting exact",
+        "Web: \"design\" \"stationary distribution\" stochastic resetting \"harmonic\"",
+        "published-finding corpus: Poisson resetting of multivariate Ornstein Uhlenbeck drift stable Gaussian stationary marginal despite nonGaussian reset distribution; covariance Lyapunov supersolution; unique quadratic Gaussian tilt and sharp minimal reset rate"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.04840 full relevant primary text",
+      "arxiv:2301.12304 relevant primary text",
+      "doi:10.1103/PhysRevE.108.044120 open-access article",
+      "https://doi.org/10.1088/1742-5468/adde3f relevant HTML portions",
+      "published-finding corpus semantic query returns for Gaussian OU inverse reset source",
+      "Current-week prior research records claims through available collection snapshot"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Olsen 2023 source direction is supplied-reset-law to stationary moments, with Gaussian reset-law examples, not target-Gaussian to unique positive reset-law and sharp rate threshold",
+        "Trajanovski 2023 resets to point in OU model and computes density/MSD; no independent random-position source feasibility test",
+        "The derived inverse is a quadratic Gaussian tilt whose coefficient nonnegativity requires a PSD/range/pseudoinverse test; its isotropic optimization yields a nontrivial sharp reset-rate reachable-mean transition"
+      ],
+      "reasoning": "Existing master equations logically permit derivation of the inverse source, so that identity is not presented as new; published general moments do not directly state the necessary/sufficient realizability domain or the discontinuous finite-versus-unbounded mean reachability at reset rate equal to dimension times restoring rate. No stronger inspected theorem decisively subsumes the final claim.",
+      "searches": [
+        "PDF arxiv:2310.04840 Section III formulas (17)-(25)",
+        "PDF arxiv:2301.12304 Section III stationary fixed-position OU resetting formulas (19)-(29)",
+        "Web: \"resetting distribution\" \"target stationary\" \"inverse\" diffusion",
+        "published-finding corpus: Gaussian stationary distribution under resetting to probability distribution: complete positive inverse source characterization in harmonic trap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2310.04840, Sections II-III, pp. 2-4, gives forward OU reset moment recursion and Fokker-Planck equation (17)",
+        "Closest published-finding corpus top results 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4 and 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b concern different observation/integration questions"
+      ],
+      "reasoning": "Aliases included inverse stationary Gaussian design, source-measure synthesis and quadratic Gaussian tilting. Stationary Gaussian OU under NO resetting is an equilibrium law; it is not the same statement as realizing arbitrary Gaussian stationary targets by a non-Gaussian independent refresh distribution. The explicit matrix probability/nonnegativity conditions and sharp rate threshold do not appear in the inspected relevant sources.",
+      "searches": [
+        "published-finding corpus: Gaussian stationary distribution under resetting to probability distribution: complete positive inverse source characterization in harmonic trap",
+        "published-finding corpus: Stochastic resetting to distribution harmonic trap exact Gaussian stationary density inverse source Gaussian stationary characterization",
+        "Web: \"resetting\" \"Gaussian\" \"quadratic\" \"stationary distribution\" \"OU\"",
+        "Web: \"Gaussian steady state\" \"non Gaussian resetting distribution\" Ornstein Uhlenbeck"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned general OU sensor result 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4, no matching Gaussian inverse-source theorem among listed nearest hits",
+        "d13d7538 Gaussian covariance twins and displacement-only identification of Poisson-rethermalized Ornstein-Uhlenbeck velocity",
+        "ceffcd90 sharp Gaussianization regimes in fractional diffusion (different model and limit)"
+      ],
+      "reasoning": "The candidate is not a finite catalog entry or known numerical table: it is a continuous-dimensional matrix classification. The accessible current-week ledger contains no recovered equivalent Gaussian target-reset feasibility statement; disjoint historical claims were used only for deduplication.",
+      "searches": [
+        "published-finding corpus: Gaussian target covariance matrix attainable via jump reset to distribution OU drift diffusion; positivity semidefinite Lyapunov matrix and pseudoinverse displacement threshold",
+        "published-finding corpus: stochastic resetting Ornstein Uhlenbeck stationary Gaussian non-Gaussian source probability",
+        "Accessible ledger latest Part 1 available collection snapshot: 50 historical claim titles; targeted comparison of d13d7538, ceffcd90 and e140ac2f"
+      ]
+    },
+    "rationale": "The assessed claim is the exact attainable Gaussian target classification in arbitrary dimension with a positive resetting probability, its unique polynomial-Gaussian source, sharp singular-boundary and mean/rate threshold. Olsen (2023) derives all forward OU moments from a supplied reset distribution; its general generator Eq. (17) underlies the argument, but the inspected full preprint does not classify inverse Gaussian attainability or impose the global polynomial positivity/rate threshold. Trajanovski et al. (2023) treat fixed-location OU resets and comb constraints, not randomized inverse-source engineering. Closest local record d13d7538 concerns Gaussian covariance twins after equilibrium velocity resets, not Gaussian stationary position-law feasibility. This is a narrower claim than novelty of resetting, Gaussian OU, Fokker–Planck inversion, or moment recursion. Residual risk: a broader inverse-generator synthesis theorem might imply the classification.",
+    "residual_risks": [
+      "A broader inverse stationary-control or Gaussian invariant-measure feasibility theorem outside the checked papers might imply the matrix condition.",
+      "published-finding corpus semantic retrieval is not an exhaustive guarantee of uniqueness.",
+      "Density-dependent network paper was not read in entirety; its stated model differs.",
+      "No independent literature-priority audit was conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers stochastic resetting model, forward renewal identity, and OU moments, but not full inverse Gaussian stationary feasibility, multivariate positivity or mean-reachability jump",
+        "evidence": "arxiv:2310.04840 pp. 1-5, especially Eq. (17) and (22); DOI 10.1103/PhysRevE.108.044120",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.04840",
+        "material_read": "Abstract, Sections I-III, master equation (17), stationary moments (19)-(25), conclusions, and equations/figures in original preprint",
+        "method": "Full primary PDF text and visual inspection of pages 1 and 4; companion open-access APS full HTML",
+        "title": "Steady-state moments under resetting to a distribution",
+        "trigger": "Directly studies arbitrary resetting distributions in a harmonic OU potential"
+      },
+      {
+        "assessment": "Treats reset-to-point and comb anomalies, not distributions engineered to yield arbitrary Gaussian stationary marginals",
+        "evidence": "arxiv:2301.12304 pp. 1-5, especially Eqs. (22)-(29)",
+        "identifier_or_url": "https://arxiv.org/pdf/2301.12304",
+        "material_read": "Abstract, Sections I-III including stationary fixed-site OU differential equation and its Green-function solution, discussion of comb model and overall scope",
+        "method": "Primary PDF text and visual inspection of pages 1 and 5",
+        "title": "Ornstein-Uhlenbeck process and generalizations: particle's dynamics under comb constraints and stochastic resetting",
+        "trigger": "Primary preprint on OU steady state with resetting"
+      },
+      {
+        "assessment": "Discrete graph walks with state/density-dependent resetting, not independent Poisson refresh of a multivariate OU diffusion; no direct implication identified",
+        "evidence": "Published 2025 target-distribution network framework and displayed stationary graph balance equation",
+        "identifier_or_url": "https://doi.org/10.1088/1742-5468/adde3f",
+        "material_read": "Public page abstract and subsection 2.3 plus stationary-design discussion; not the entire primary manuscript",
+        "method": "Open-access HTML excerpt inspection",
+        "title": "Density-dependent stochastic resetting: a large deviations framework for achieving target distributions over networks",
+        "trigger": "Title suggests design of target stationary distributions; potential broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08050fc5-2754-44d7-86e4-0c85942e3f94",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural inverse nonequilibrium statistical-mechanics problem asks which exactly Gaussian stationary states can be fabricated by randomized instantaneous refreshing, rather than simply computing moments from given refresh laws. The result supplies a complete continuous matrix feasibility classification, a unique realizable law, explicit singular boundaries, and a sharp discontinuous expansion of attainable displacement means at r=dk when output variance is tunable. This is a structural reachable-set and design result, not a parameter substitution or recomputation of a forward moment. It distinguishes Gaussian one-time data from non-Gaussian reset mechanisms, and provides a temporal covariance diagnostic. Physical costs, noisy inference, and other reset protocols remain outside scope.",
+    "status": "PASS"
+  }
+}
