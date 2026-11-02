@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic identity for the BDF2 generating polynomial is \(\delta(\zeta)+s=(3/2+s)(1-\lambda_+\zeta)(1-\lambda_-\zeta)\). This leads exactly to \(w_n=(p_n(ha)-p_n(hb))/n\) for \(n\ge1\) and the positive zeroth logarithmic coefficient.
+## correctness
 
-Run `python3 checks/verify.py` using a standard Python 3 interpreter. Its exact-rational tests compare two independent coefficient generators: the two-root power recurrence and division of the derivative of the original logarithmic ratio. Checks cover 45 positive-index coefficients for six rational parameter cases, including the critical endpoint, then compare 150 complex-factor values for five cases. A positive instance with \(ha=1/4\) and negative instance with \(ha=1\) are included.
+PASS
 
-The strict positivity proof and infinitely-many-signs conclusion are analytical. The checker cannot certify infinitely many coefficients or novelty. Independent review has not been performed.
+Factor δ(ζ)+s=(3/2+s)(1−λ+(s)ζ)(1−λ−(s)ζ) with λ±=1/[2(1∓sqrt(1−2s)/2)] and differentiate the analytic logarithmic generating ratio. Then w0=log[(3/2+hb)/(3/2+ha)]>0, w_n=(p_n(ha)−p_n(hb))/n (n>=1), p_n=λ+^n+λ−^n. For s<=1/2, p_n(s) decreases strictly and p_n>=2^(1−n). For s>1/2, complex-conjugate eigenvalues have modulus (3+2s)^(−1/2)<1/2. Thus all weights positive iff ha<=1/2. For ha>1/2, the slower endpoint dominates exponentially and cos(nθ_ha) attains positive and negative values bounded from zero along infinite integer subsequences; both signs recur. Independent rational logarithmic-derivative series confirmed 50 exact coefficients for four parameter cases on both sides and at the boundary. Infinite sign recurrence follows analytically, not from finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact statement and implication comparison: closest accessible primary papers and ranked published findings do not establish this precise claim under the stated parameters. This is not a historical-priority certificate; see source inspections and risks.
+
+## value
+
+PASS
+
+Exact coefficientwise positivity is the precise condition for positivity preservation of arbitrary nonnegative discrete causal inputs and is stronger than positive-definiteness of quadratic forms. The sharp slow-endpoint threshold explains why broad high-frequency relaxation mixtures can remain positive and why all finite-horizon sign checks can miss eventual oscillation. This natural all-order design criterion has independent mathematical and numerical-analysis value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
