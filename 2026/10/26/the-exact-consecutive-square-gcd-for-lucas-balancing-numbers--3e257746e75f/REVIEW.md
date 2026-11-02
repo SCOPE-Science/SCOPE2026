@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the Binet identities, exact finite square sum \(2S_n(k)=k+B_k C_{2n+k+1}\), and successive differences. The full stride-two gcd is either \(1\) or \(6\), by a unimodular subsequence recurrence, reducing the infinite gcd to two ordinary integers. The odd-window reduction follows immediately from parity. For even windows, the proof treats prime \(3\) by the tripling identity, prime \(2\) by the doubling identity and congruences modulo \(4\), and all other odd primes directly; this proves equality of every prime valuation with \(\gcd(k,B_k)\). Boundaries include \(k=1\) and \(k=2\). The packaged verifier independently checks finite values but is not substituted for the infinite argument.
+PASS
 
-## Originality — PASS within inspected evidence
+The Binet pair for u=3+2sqrt2 yields the exact identity 2S_n(k)=k+B_k C_(2n+k+1). Consecutive differences equal 8B_k B_(2n+k+2). The stride-two subsequence has gcd 1 (k odd) or 6 (k even), by the order-two unimodular recurrence and parity residues. Thus the infinite GCD reduces to gcd(S_0,8B_k) or gcd(S_0,48B_k). For odd k, S0 and Bk odd and the identity gives gcd(k,Bk). For even k, odd primes not 3 follow from 2S0 congruent k mod Bk; prime 3 uses v3(Bk)>=v3(k)+1 and C_(k+1)=0 mod3, while prime 2 uses the doubling formula and mod4 congruences to obtain v2(S0)=v2(Bk)=v2(k). These complete prime valuation comparisons establish equality for every positive k, not just tested windows. Independently, 24 consecutive start positions for each k=1..110, exact sum identities and Python integer gcds all match; finite tests alone do not prove the infinite gcd.
 
-Question 30 of Mbirika--Schrader--Spilker, arXiv:2301.05758, expressly asks for closed forms for squared-term GCDs, including the Lucas-balancing case. The primary full text, including definitions and question, was inspected. Its unsquared-term results do not imply the square-sum formula. The generalized-Fibonacci-square GCD theorem of Mbirika--Spilker concerns characteristic recurrence \(X_{n+2}=X_{n+1}+X_n\), not the balancing recurrence. Komatsu--Panda addresses other balancing sums without this gcd. The matching OEIS entries provide base sequences, not the present gcd. Semantic mathematical-record searches located some work on Lucas sequences and balancing reciprocal sums, but none with an implication covering the stated identity. Publication priority is not independently certified: a later unindexed or hidden equivalent could exist.
+## originality
 
-## Value — PASS
+PASS
 
-The formula answers an explicitly published open question for a canonical pair of Pell-related recurrences, uniformly at every positive window length, without case tables or unspecified gcds of large expressions. It also isolates why the square-sum gcd differs in parity and involves a subtle prime-three and prime-two cancellation. This is a structurally complete natural invariant, not an arbitrary numerical slice.
+The strongest same-object primary source Mbirika--Schrader--Spilker (2023), Question 30, explicitly asks for the Lucas-balancing square GCD rather than giving the formula. Its earlier unsquared GCD formulas do not imply the square result. The generalized-Fibonacci square theorem has a different characteristic recurrence. Resultary and indexed sequence searches found no stronger theorem in this precise family. An important precision is that gcd(k,Bk) remains a gcd of a sequence term with its index, and the same source Question 31 warns such forms need not be a completely simplified closed form; originality attaches to the equality/reduction, not an unstated gcd-free factorization. Later/unindexed dominating results remain possible.
 
-## Scope and residual risk
+## value
 
-Other square-sum cases of Question 30 are not settled. A deeper comparison with all unindexed papers cannot be guaranteed. There is no independently performed mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The squared-sum Lucas-balancing GCD is singled out as an unsolved natural parameter family in Mbirika--Schrader--Spilker (2023) Question 30. A uniform exact reduction to gcd(k,Bk) replaces an infinite sliding-window GCD and isolates nontrivial 2-adic and 3-adic cancellations. The invariant is intrinsically natural and useful for later entry-point analysis even though the resulting gcd(k,Bk) is not itself a completely simplified prime-factor closed form (as their Question 31 explicitly notes). This mathematical usefulness does not require resolving all other Q30 families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
