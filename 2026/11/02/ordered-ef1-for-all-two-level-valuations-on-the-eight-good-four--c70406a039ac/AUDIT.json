@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Every complete feasible allocation has four size-two cross-category bundles. The standalone exhaustive C++ checker enumerates all 864 feasible labeled allocations and all 16,777,216 later-agent mask triples, proving complete coverage of all 256 first-agent masks for each triple (4,294,967,296 full profiles, zero failures). The predicate has an exact proof: under binary utilities, EF1 fails exactly when own approved count is zero and another pair has two approvals. The positive affine reduction retains ordered no-envy because bundle sizes agree, and retains EF1 because removing one good reduces the nonnegative baseline. Independent literal-EF1 spot checks also pass.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dror et al. arXiv:2010.07280 v4, pp. 1--5 and Table 1: heterogeneous binary for partition matroids, common base-orderable matroids up to three agents.",
+        "Akrami et al. DOI:10.1007/s00493-026-00217-y, Theorem 1.12: bi-valued maximin-share allocations for matroid bases.",
+        "Cookson--Shah arXiv:2608.31121 Appendix B explicitly isolates the four-agent key case as unresolved for arbitrary valuations."
+      ],
+      "reasoning": "None dominates this claim: partition matroid constraints exclude the essential total rank-two truncation with three capped classes; the base-orderable theorem stops at three agents; maximin-share lower bounds permit EF1 failures when an agent values zero of her pair but another pair contains two approved goods. The strong ordered-no-envy property is not supplied.",
+      "searches": [
+        "2026 binary valuations 4 agents laminar matroid EF1 ordered no-envy",
+        "fair division matroid binary valuations four agents ordered no envy property",
+        "Dror Feldman Segal-Halevi heterogeneous binary valuations base orderable matroid three agents"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.31121 (full primary text)",
+      "arxiv:2010.07280 (v4 PDF, primary full text relevant sections)",
+      "doi:10.1007/s00493-026-00217-y (full primary HTML)",
+      "targeted publicly indexed research findings and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cookson--Shah Definition 13 and Lemma 12: rank-two eight-good key and limitation of top-separation proof.",
+        "Dror et al. three-agent base-orderable and n-agent partition bounds; Akrami et al. non-identical bi-valued MMS result."
+      ],
+      "reasoning": "Ordinary EF1, MMS, and the existence of a feasible matroid partition do not entail a given no-envy order. The published four-agent reduction depends on this exact strengthened local property; the new verified finite statement is not merely the published three-agent result with relabeled parameters.",
+      "searches": [
+        "Heterogeneous bivalued additive agents key 8 good laminar matroid 4-colorable (3 3 2 category partition, rank two), ordered no-envy EF1 guaranteed for all four agents",
+        "four agent rank two laminar key matroid arbitrary binary valuations ordered EF1 exhaustive finite classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cookson--Shah arXiv:2608.31121 Appendix B defines the 8-good truncation (3,3,2) and states the unmet stronger ordered-no-envy requirement.",
+        "The binary search domain corresponds exactly to heterogeneous two-level utilities under cardinality-equal affine transformations."
+      ],
+      "reasoning": "The finite result is not simply existence of an EF1 allocation under category quotas: an additional rank-two cap couples all three categories, while the prescribed ordered no-envy condition is stronger than EF1. No equivalent statement appeared in the checked primary material.",
+      "searches": [
+        "four agents binary valuations laminar matroid EF1 ordered no-envy 8 goods key matroid",
+        "four-agent rank two laminar key matroid arbitrary binary valuations ordered EF1 exhaustive finite classification",
+        "four agents eight goods key laminar matroid shared top four items ordered no envy EF1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Appendix B Lemma 12 gives one obstacle to top-item dispersion; it is not a table of two-valued ordered-EF1 outcomes.",
+        "The standalone verification enumerates the complete 256-to-the-four labeled profile space rather than consulting a pre-existing table."
+      ],
+      "reasoning": "No inspected source gives the 8-good four-agent ordered-EF1 classification for heterogeneous two-level valuations. The local computation is new evidence, not a prior database lookup.",
+      "searches": [
+        "four-agent rank two laminar key matroid arbitrary binary valuations ordered EF1 exhaustive finite classification",
+        "size eight laminar key matroid top 2 top 3 top 4 favorite distinct bundles Hall obstruction exact count 5664 109760"
+      ]
+    },
+    "rationale": "The target eight-good key matroid is singled out as unresolved in Appendix B of the 2026 source for arbitrary additive valuations. This gives its complete heterogeneous two-level case under the stronger prescribed-order requirement. The known broad binary theorem covers partition matroids or at most three agents for base-orderable matroids; general bi-valued maximin-share guarantees do not imply EF1 or ordered nonenvy. Targeted literature and indexed mathematical-finding searches revealed no exact or stronger coverage, subject to unindexed-literature risk.",
+    "residual_risks": [
+      "Equivalent treatment in unindexed or recently revised literature may exist.",
+      "The C++ proof is an exact finite exhaustive computational certificate, not a human-only case classification.",
+      "Neither the twelve-good key case nor unrestricted heterogeneous additive valuations follows from this finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The target binary/two-level local assertion is not provided; Lemma 12 concerns failure of a different sufficient method",
+        "evidence": [
+          "Definition 13 gives eight goods in groups 3,3,2, total rank two",
+          "Appendix B explicitly leaves both four-agent key matroid base cases open for arbitrary additive values",
+          "Lemma 12 obstructs simultaneous dispersion of ranked top-good sets, not EF1 itself"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.31121",
+        "material_read": "Introduction, Definitions 11--14, Section 3.4, Section 5 discussion, Appendix B Lemmas 11--12 and proofs",
+        "method": "read accessible primary full text",
+        "title": "Constrained Fair Allocations via Partition Matroid Reductions",
+        "trigger": "Defines the same 8-good key matroid and its unresolved four-agent ordered no-envy condition"
+      },
+      {
+        "assessment": "General partition matroids arbitrary agents and common base-orderable matroids at most three agents; neither supplies four-agent rank-two truncation with ordered property",
+        "evidence": [
+          "Abstract, introduction, Table 1 and Section 1.1 identify precise scopes"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.07280",
+        "material_read": "Full preprint introduction and Table 1, pages 1--5 (v4, April 2022), and stated scope of Section 8",
+        "method": "primary full-text PDF and page image inspection",
+        "title": "On Fair Division under Heterogeneous Matroid Constraints",
+        "trigger": "Strongest plausible heterogeneous binary valuation guarantee under matroid feasibility"
+      },
+      {
+        "assessment": "Theorem 1.12 proves MMS with bi-valued agents, not EF1 or prescribed no-envy; identified nonimplication",
+        "evidence": [
+          "Theorem 1.12 and proof concern maximin share; the paper distinguishes heterogeneous binary EF1 bounds from MMS guarantees"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00493-026-00217-y",
+        "material_read": "Full accessible article, theorem statements 1.8--1.12, Section 5.2 and cited discussion of prior work",
+        "method": "primary full-text HTML",
+        "title": "Matroids are Equitable",
+        "trigger": "Heterogeneous bi-valued allocation result could dominate proposed special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c70406a0-39ac-4347-ab32-e44cb5426e50",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The eight-good four-agent laminar key matroid is one of exactly two currently identified finite bottlenecks in the published decomposition approach to four-agent EF1 with ordered no-envy. The result completely settles its heterogeneous two-level nonnegative valuation class (a continuum), including profiles not handled by the paper’s top-item-dispersion method, with the stronger order property required for component assembly. This is a natural complete finite classification of an explicitly motivated open base case, not an arbitrary computation of a small unmotivated invariant.",
+    "status": "PASS"
+  }
+}
