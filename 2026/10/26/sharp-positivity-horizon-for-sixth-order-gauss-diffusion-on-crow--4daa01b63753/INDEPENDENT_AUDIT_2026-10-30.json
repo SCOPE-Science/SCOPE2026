@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:55:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=3 the crown Laplacian splits into eigenvalue sectors 0,2n-2,n-2,n with multiplicities 1,1,n-1,n-1. Direct spectral projectors produce 2n*d=1+c+(n-1)(a+b), 2n*w=1+c-a-b, 2n*m=1-c+(n-1)(a-b), 2n*e=1-c-a+b with a=R(nh), b=R((n-2)h), c=R((2n-2)h), R=P/Q, P(z)=120-60z+12z^2-z^3, Q(z)=120+60z+12z^2+z^3. Independent exact symbolic polynomial multiplication using u=n-2 and positive common denominator Q(nh)Q((n-2)h)Q((2n-2)h) confirms w,m,e numerators have respectively 40,32,48 strictly positive integer monomials, beginning at powers h^2,h^3,h; this is an all-parameter identity, not sample numerics. Independently rederived R prime=-24[(z^2-15)^2+375]/Q(z)^2<0. Therefore d decreases strictly from 1 to -(n-1)/n, crossing zero exactly once H_n; all non-diagonal entries remain >0 for h>0. |R(z)|<1 for z>0, row sums 1 and Euclidean norm 1 for all h. Local uniform convergence d(x/n)->R(x) shows nH_n->the unique positive root P(rho)=0 (rho about 4.64437070925217). Independently inspected crown_verify.py with exact polynomial and rational matrix formulas; reconstructed the symbolic certificate rather than relying on a saved log.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SSP papers optimize monotonicity for broad semidiscretizations and generic timestep restrictions. A Resultary theorem exhibits an eight-state nonmonotone [2/2] Markov positivity window."
+        ],
+        "reasoning": "General positivity restrictions on all generators neither imply nor exclude this graph-specific complete [3/3] classification; positive results for [2/2] on different spectra do not dominate [3/3].",
+        "searches": [
+          "arXiv:1702.04621 SSP implicit RK",
+          "Gottlieb–Ketcheson–Shu 2008 survey",
+          "Resultary 2026/9/20 eight-state [2/2] Padé Markov positivity barrier"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1093/qmath/haab045",
+        "arXiv:1702.04621",
+        "Resultary/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-positivity-horizon-for-sixth-order-gauss-diffusion-on-crow--4daa01b63753/RESULT.md (Git blob bc01798a3aacdb9e1401482114f77243c856076f)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-positivity-horizon-for-sixth-order-gauss-diffusion-on-crow--4daa01b63753/crown_verify.py (Git blob 9b717a7ddff74fe2056cb310305d3e8ba3b8e21e)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known crown eigenspaces allow calculating the rational step; standard A-stability implies |R|<=1 but is silent about coordinatewise signs."
+        ],
+        "reasoning": "Neither graph spectrum alone nor a general SSP theory proves the strict positivity of w,m,e as exact two-variable polynomials, the single root of d, or nH_n->rho. This is a substantive comparison by implication, not title matching.",
+        "searches": [
+          "Klee–Stamps Eigenvalues of Graph Laplacians Via Rank-One Perturbations, crown section",
+          "arXiv:1702.04621",
+          "Spijker 2006 monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four crown Laplacian eigenvalues are established previously; three-stage Gauss method is [3/3] Padé. Neither source directly states four entry classes and a sharp positivity horizon."
+        ],
+        "reasoning": "The problem is a rational matrix function of a known spectrum, but the off-diagonal sign certificate and unique diagonal threshold are substantive new inequalities that do not follow from eigenvalues alone.",
+        "searches": [
+          "Resultary: crown graph sixth order Gauss Legendre Pade [3/3] diffusion matrix entrywise nonnegative timestep positivity threshold",
+          "Klee–Stamps crown Laplacian spectrum",
+          "arXiv:1702.04621"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits concerned two-stage Padé Markov examples, Crank–Nicolson, Lanczos positivity and graph spectral thresholds, none directly with [3/3] crown heat-step horizon."
+        ],
+        "reasoning": "No indexed exact table of H_n or its universal diagonal sign threshold was found. Unindexed specialized numerical-PDE graph papers remain priority risks.",
+        "searches": [
+          "Resultary [3/3] crown graph positivity spectrum",
+          "crown K_n,n perfect matching deleted Gauss diffusion",
+          "Klee Stamps crown eigenvalues"
+        ]
+      },
+      "rationale": "The crown graph spectrum is known from Klee–Stamps and the [3/3] Gauss–Legendre rational stability function is classical. General SSP barriers and positive-systems results do not establish a universal exact diagonal threshold for this reversible crown family, nor do they imply all off-diagonal entries stay positive for ALL positive steps. Published Resultary [2/2] Padé examples involve a different order and different Markov generators, so their unusual positivity windows do not dominate this theorem. Best-of-knowledge PASS for the novel exact [3/3] crown positivity horizon and nH_n scaling.",
+      "residual_risks": [
+        "The Laplacian spectrum and Padé step are prior work; novelty applies to the exact coordinate positivity and horizon.",
+        "The Klee–Stamps full article was not independently read throughout; an unindexed related integrator study may overlap.",
+        "Stage positivity, weighted crowns and different Padé orders are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING eigenvalues; not observed covering [3/3] positivity horizon",
+          "evidence": "Crown spectrum 0,2n-2,n-2,n with the stated multiplicities is known and explicitly credited.",
+          "identifier_or_url": "DOI:10.1093/qmath/haab045",
+          "material_read": "Accessible primary abstract and crown-graph spectral proposition/section descriptions; full paper text not independently read throughout",
+          "method": "Read accessible original result description including crown eigenvalues",
+          "title": "Eigenvalues of Graph Laplacians Via Rank-One Perturbations",
+          "trigger": "exact same crown graph spectral decomposition"
+        },
+        {
+          "assessment": "NOT_COVERING graph-specific [3/3] exact positivity sign pattern",
+          "evidence": "General SSP coefficient guarantees concern broad generators, not exact symmetric crown matrix entries.",
+          "identifier_or_url": "arXiv:1702.04621",
+          "material_read": "Accessible full arXiv HTML, method structure and SSP objectives",
+          "method": "Read relevant primary SSP statements and scope",
+          "title": "Implicit and Implicit-Explicit Strong Stability Preserving Runge–Kutta Methods with High Linear Order",
+          "trigger": "general implicit RK monotonicity theory"
+        },
+        {
+          "assessment": "DISTINCT [2/2] scheme/directed witness; no whole-package noncoverage asserted",
+          "evidence": "The eight-state witness has a disconnected [2/2] positivity window unlike the single interval claimed here for undirected crowns and [3/3].",
+          "identifier_or_url": "Resultary/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Resultary published title and scientific summary; underlying full Git source not inspected",
+          "method": "Compared indexed proposition, order, generator and sign statement",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "nearest indexed prior Padé positivity record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Entrywise positivity is essential for nonnegative diffusion states but is independent from spectral contractivity of a high-order A-stable integrator. The crown networks form a natural regular bipartite spectral family. A unique sharp positivity interval, rigorously positive off-diagonal entries outside it, and n-scaling of the horizon are meaningful stability facts rather than textbook formulas.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1093/qmath/haab045",
+    "arXiv:1702.04621",
+    "Resultary/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-positivity-horizon-for-sixth-order-gauss-diffusion-on-crow--4daa01b63753/RESULT.md (Git blob bc01798a3aacdb9e1401482114f77243c856076f)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-positivity-horizon-for-sixth-order-gauss-diffusion-on-crow--4daa01b63753/crown_verify.py (Git blob 9b717a7ddff74fe2056cb310305d3e8ba3b8e21e)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The Laplacian spectrum and Padé step are prior work; novelty applies to the exact coordinate positivity and horizon.",
+    "The Klee–Stamps full article was not independently read throughout; an unindexed related integrator study may overlap.",
+    "Stage positivity, weighted crowns and different Padé orders are not established."
+  ],
+  "residual_risks": [
+    "The Laplacian spectrum and Padé step are prior work; novelty applies to the exact coordinate positivity and horizon.",
+    "The Klee–Stamps full article was not independently read throughout; an unindexed related integrator study may overlap.",
+    "Stage positivity, weighted crowns and different Padé orders are not established."
+  ],
+  "schema_version": 1
+}
