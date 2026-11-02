@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+The gradient test gives a unique geometric singular point, and the local quadratic tangent conic has rank three. Projection produces the exact cubic \(3\lambda Q+R\), with six reduced rational base points verified both algebraically (factorized cubic against a nonsingular conic, Bezout) and computationally. Resolving these base points provides the anticanonical model with one contracted \((-2)\)-conic. The line classification uses adjunction and Cauchy–Schwarz on the six-point blowup, establishing geometric completeness independently of finite searches. The point-count formula follows by replacing the exceptional conic with the rational node. `verify.py` reproduces the finite arithmetic and group checks over both \(\mathbb F_5\) and \(\mathbb F_{25}\). Scope is the coefficientwise characteristic-five model.
+
+## Originality: PASS, with explicit historical risk
+The same symmetric Clebsch equations, the six-point icosahedral action and the fact that this model has a singular point in characteristic five are known. Dolgachev–Duncan (Section 12.1) states the singular point but does not classify this singular model's six rational tangent directions, twenty-one split lines, or zeta function. Trepalin treats the characteristic-zero six-point construction, not the special fiber over \(\mathbb F_5\). A general \(A_1\)-cubic line-count table gives twenty-one geometrically, but does not force all lines rational in this form or determine the exceptional \(S_5\)-action and arithmetic counts. The inspected published sources and indexed mathematical statements yielded no equivalent or broader result explicitly implying the joint arithmetic refinement. This is a best-knowledge comparison, not a historical uniqueness certificate. Later unpublished computations and classical tabulations remain a residual priority risk.
+
+## Mathematical value: PASS
+This is a natural bad-reduction boundary of a highly symmetric cubic surface at the prime dividing the order of its exceptional symmetry group. The result explains both the loss of six geometric lines and the simultaneous arithmetic splitting of all remaining lines, exhibits the intrinsic six Sylow-five objects as a geometric exceptional conic, and determines the entire point-count sequence. These structural consequences go beyond reporting that the special fiber is singular or simply recomputing the standard twenty-one-line bound.
+
+## Limits and primary literature
+Dolgachev–Duncan's arXiv:1712.01167 Section 12.1 is the most relevant same-object source read in full; its stated characteristic-five singularity is not claimed as new. Trepalin arXiv:1506.05138v1 treats characteristic-zero Clebsch-equivariant blowups, while Baez's 2016 AMS exposition gives classical geometric background. Neither exact characteristic-five arithmetic refinement nor its consequences were present in the inspected material. The geometric line-count theorem is reconstructed rather than inferred from tables. No independent scientific audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
