@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The exact frozen entropy-production formula is verified from the forward and reverse currents. Dividing squared lag gives a continuous log-odds secant quotient with derivative numerator \\(h(x)-h(q)-(x-q)h'(x)\\). For \\(0<q<1/2\\), it rises past equilibrium to a unique turning point \\(x>1/2\\), then falls; reflection covers \\(q>1/2\\), and \\(h'(x)\\ge4\\) proves the balanced case. In the rare-output regime the reciprocal optimizer distance \\(y=(1-x_q)^{-1}\\) obeys a strictly increasing root equation and is bracketed by \\(L+\\log L\\pm\\delta\\) for arbitrary fixed \\(\\delta>0\\). Every rate and probability case is proved analytically; the included verifier passed 96,157 supplementary deterministic checks that are not treated as infinite-domain proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Limmer Supporting Material Eq. (S.23) gives an exact arbitrary-amplitude inequality with a modified log-Sobolev constant; the paper expressly describes its practical nonsharpness and then derives a small-lag approximation in Section II.",
+        "Aldous–Fill §8.4.3 Example 8.28 optimizes ℒ(g)/ℰ(g,g) for binary chains, not (x-q)^2/entropy-production rate; the known exact constant has a different rare-equilibrium dependence."
+      ],
+      "reasoning": "The general arbitrary-amplitude theorem is not a stronger implication with the sharp binary constant because its variational objective passes through Pinsker and entropy decay, losing equality at the non-equilibrium optimizer. Broader unexamined sharp two-point functional inequalities could still imply the result; this is an explicit priority risk.",
+      "searches": [
+        "\"two point space sharp variance entropy dissipation inequality chi square Fisher information optimized Bernoulli\"",
+        "https://arxiv.org/html/2608.23764v1",
+        "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch8.S4.html",
+        "https://doi.org/10.1214/aoap/1034968224"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2608.23764v1",
+      "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch8.S4.html",
+      "https://doi.org/10.1214/aoap/1034968224",
+      "https://arxiv.org/abs/2005.14177",
+      "https://arxiv.org/abs/2608.23764"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Limmer main Eq. (12) and Supplementary Eq. (S.23) concern arbitrary-lag modified log-Sobolev bounds, while main Eq. (17) and Supplementary Eqs. (S.43)–(S.47) concern leading-order near-equilibrium memory; the source explicitly limits the quadratic result to small deviations.",
+        "The new result has a uniquely attained biased full-amplitude optimum and asymptotics \\(y=L+\\log L+o(1)\\) and \\(1/(sC)=y+1+o(1)\\), beyond the previous local and nonsharp statements."
+      ],
+      "reasoning": "The known local coefficient tau_m=q(1-q)/s is recovered as the equilibrium limit, not claimed as novel. The exact global constant is strictly larger for biased q, hence it neither repeats nor contradicts a globally stated prior inequality. The arbitrary-amplitude prior result bounds the same error but does not supply the optimal constant; its existence is credited.",
+      "searches": [
+        "\"Entropy Production Bounds the Accuracy of Computation in Markov Networks\" 2026 Chen Limmer",
+        "https://arxiv.org/html/2608.23764v1",
+        "\"logarithmic Sobolev inequalities for finite Markov chains\" Diaconis Saloff-Coste"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For two states the target quotient is exactly (x-q)/(s(logit(x)-logit(q))), a secant reciprocal of the log-odds function; see the explicit reduction in the proof.",
+        "Chen–Limmer main equations (11)–(18) and Supporting Material I–II use dissipation, Pinsker, modified log-Sobolev, and near-equilibrium covariance, but do not display that optimized secant functional."
+      ],
+      "reasoning": "Equivalence includes exchange of the two states, ratio versus inequality form, and rate rescaling: all reduce to the same scalar supremum. A same-title search would be insufficient; comparison is against the actual functional being optimized.",
+      "searches": [
+        "\"sharp entropy production bound observable displacement two state Markov chain binary logistic secant maximum\"",
+        "\"two state Markov chain optimal inequality (p-q)^2 entropy production logarithmic odds\"",
+        "https://arxiv.org/html/2608.23764v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv source discusses exact vs approximate thermodynamic bounds but no table of optimized binary constants or the root equation; its examples are larger networks and biochemical models.",
+        "The classical exact two-state logarithmic Sobolev constant is present in Aldous–Fill Example 8.28 but is not a table of the present ratio."
+      ],
+      "reasoning": "Direct mathematical definitions were compared with plausible exact two-point tabulations. No matching numerical table or closed-form target ratio was verified in the inspected sources. This is a bounded best-knowledge check rather than a proof that no table exists.",
+      "searches": [
+        "\"optimal constant TV squared over relative entropy dissipation binary reversible continuous time Markov chain\"",
+        "\"finite amplitude sharp entropy production lag accuracy two state Markov network binary thermodynamic bound\"",
+        "https://doi.org/10.1214/aoap/1034968224"
+      ]
+    },
+    "rationale": "The reviewed 2026 study proves the entropy-production identity, a nonsharp arbitrary-lag modified-log-Sobolev estimate, and the equilibrium-correlation coefficient valid asymptotically at small lag; it does not state the optimized full-amplitude two-state constant or its unique equality distribution and rare-state expansion in the inspected main text and supplemental sections. The classical exactly solved two-state log-Sobolev example optimizes a different entropy/Dirichlet quotient. Prior overlap cannot be excluded exhaustively, especially implicit binary functional inequalities.",
+    "residual_risks": [
+      "A sharp binary nonlinear functional inequality elsewhere could imply the same root equation or the rare-state law despite no matching inspected result.",
+      "The original Diaconis–Saloff-Coste article and Karatzas–Maas–Schachermayer paper were not read in full; their broad theories were not exhaustively excluded.",
+      "Search and repository coverage are nonexhaustive and do not establish publication priority; independent audit has not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General finite-amplitude bound present but not sharp for the stated binary objective; small-lag susceptibility coefficient present and credited. No matching exact binary global optimization found in read sections.",
+        "evidence": [
+          "Main Eqs. (11)–(18), Supplementary Eqs. (S.23), (S.43)–(S.47), Section II small-deviation qualification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.23764v1",
+        "material_read": "Full arXiv HTML main portions defining lag, entropy production, Eqs. (6)–(18), main examples and Supporting Material Sections I–II (Eqs. S.1–S.47).",
+        "method": "Read original lawful open HTML text; compare hypotheses and actual equations, including exact versus small-lag regimes.",
+        "title": "Entropy Production Bounds the Accuracy of Computation in Markov Networks",
+        "trigger": "Same observable, entropy-production quantity, and current scientific motivation."
+      },
+      {
+        "assessment": "Exactly solves two-state log-Sobolev entropy/Dirichlet optimization, not this lag-squared/entropy-production optimization.",
+        "evidence": [
+          "Log-Sobolev quotient (8.53), two-state time (8.66), and its binary proof."
+        ],
+        "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch8.S4.html",
+        "material_read": "Sections 8.4.1 and 8.4.3, definitions (8.52)–(8.53) and complete binary Example 8.28 with its variational calculation.",
+        "method": "Read the freely accessible textbook chapter HTML and compare quotient definitions.",
+        "title": "Reversible Markov Chains and Random Walks on Graphs, Section 8.4",
+        "trigger": "Classical exact two-state functional-inequality formulas could subsume the target constant."
+      },
+      {
+        "assessment": "Potential implicit general coverage not ruled out; its publicly described exact constant is the classic log-Sobolev quotient, which differs.",
+        "evidence": [
+          "Article abstract describes sharp log-Sobolev constant on the asymmetric two-point space; full source comparison is a residual limit."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1034968224",
+        "material_read": "Abstract and publisher/repository bibliographic description; full original article not accessible in this check.",
+        "method": "Compare described theorem with the exact objective in the accessible detailed Aldous–Fill presentation.",
+        "title": "Logarithmic Sobolev inequalities for finite Markov chains",
+        "trigger": "Original source of exact asymmetric two-point log-Sobolev constants."
+      },
+      {
+        "assessment": "Related broad framework, no decisive implication established from the accessible material; uninspected full text remains a risk.",
+        "evidence": [
+          "Paper metadata and abstract for general Markov-chain relative entropy flow."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.14177",
+        "material_read": "Open abstract and publication identification; not the complete paper.",
+        "method": "Compare stated general scope of relative-entropy gradient flow with the specific binary sharp observable quotient.",
+        "title": "Trajectorial dissipation and gradient flow for relative entropy in Markov chains",
+        "trigger": "General reversible-chain entropy-dissipation principles might imply an observable-specific corollary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "67e1fbd0-a28d-4360-b910-2f02872ffba4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The optimal global lag-to-entropy-production ratio is a natural thermodynamic performance constant for a binary output network. Unlike the small-lag correlation-time coefficient, it is sharp at a non-equilibrium probability for every asymmetric equilibrium. Its unique optimizer and logarithmically corrected rare-output law establish how large finite-amplitude error can be at a given dissipation scale, supplying a motivated structural extension rather than an arbitrary isolated numerical special case.",
+    "status": "PASS"
+  }
+}
