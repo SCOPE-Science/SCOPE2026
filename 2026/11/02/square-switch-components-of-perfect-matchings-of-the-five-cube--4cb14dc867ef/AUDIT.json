@@ -1,0 +1,192 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive bipartite-partner recursion visits every matching exactly once and a necessary-and-sufficient partner-swap predicate visits all legal alternating squares. Independently, an eighty-edge bitset recursion and eighty-square toggling mechanism give the identical 589185 vertices, 3219360 edges and 120 singleton + 80 four-cycle + 99280 + 489465 component census. Exact union-find connectivity, degree-two certificates for each order-four component, and all 3840 cube automorphisms check the additional assertions. A sign-of-permutation argument proves bipartiteness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonamy et al. 2019 give complexity and connected special classes for four-cycle flips, not arbitrary hypercubes.",
+        "Ito et al. 2019 allow arbitrary alternating even cycles when relating matching polytopes; this is a broader move rule.",
+        "Mütze survey, matching section, discusses flip adjacency with general alternating cycles.",
+        "Klivans and Saldanha, arXiv:2007.08474, Example 2.2 identifies \\(Q_4\\) as 264+8 isolated while Theorem 2 requires enlarging a box and Corollary 1.2 is asymptotic as a side length grows.",
+        "Hartarsky–Lichev–Toninelli, arXiv:2304.10930, Theorem 6 allows length up to 4d−4, 16 for dimension five, unlike four-cycle-only changes.",
+        "Fink, DOI 10.1137/070697288, defines adjacency by union being a Hamiltonian cycle, not a local alternating square."
+      ],
+      "reasoning": "Arbitrary even-cycle flips may connect pairs that square-only flips cannot; a connectedness theorem for the permissive operation does not imply square-only connectivity. General computational-complexity results and \\(Q_4\\) analyses do not imply an exact \\(Q_5\\) component census. No decisive stronger prior theorem was identified. In particular, twist invariance and the existence of asymptotically giant components do not determine Q5 component sizes, and connectivity after permitting alternating cycles through length 16 cannot imply connectivity or exact component counts with length 4 only. Fink’s Hamiltonian-union operation is distinct.",
+      "searches": [
+        "arXiv:1904.06184",
+        "Shortest reconfiguration of perfect matchings via alternating cycles",
+        "combinatorial Gray codes survey matching alternating cycles",
+        "n-cube matching square flips connectivity",
+        "arXiv:2007.08474 Section 2 Example 2.2 and Theorems 1–2",
+        "arXiv:2304.10930 Theorems 5–6 and Section 1.2–1.3",
+        "doi:10.1137/070697288 Connectivity of Matching Graph of Hypercube"
+      ]
+    },
+    "checked_sources": [
+      "Graham–Harary, Applied Mathematics Letters 1 (1988), 45–48",
+      "Östergård–Pettersson, DOI 10.1007/s11083-012-9279-8 (abstract and metadata only)",
+      "Bonamy et al., arXiv:1904.06184 and DOI 10.4230/LIPIcs.MFCS.2019.80 (full OA text)",
+      "Mütze, Combinatorial Gray Codes survey (relevant matching section)",
+      "Diwan, arXiv:1712.03535 (relevant forcing introduction and theorem)",
+      "Klivans–Saldanha, arXiv:2007.08474 / DOI 10.5802/alco.205 (OA full HTML key sections)",
+      "Hartarsky–Lichev–Toninelli, arXiv:2304.10930 (OA full HTML definitions and Theorems 3–7)",
+      "Fink, DOI 10.1137/070697288 (publisher abstract, full article unavailable)",
+      "OEIS A005271 (static Q5 matching total)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 paper provides static enumeration and automorphism class results according to its accessible abstract.",
+        "Bonamy et al. define the same local operation, then prove complexity and class-specific results without stating \\(Q_5\\) component orders in inspected material.",
+        "Diwan 2017 concerns forcing numbers of individual hypercube matchings, not reconfiguration components.",
+        "The published \\(Q_4\\) census supplies no complete Q5 finite count.",
+        "Theorem 6 in Hartarsky et al. studies a supergraph of the square-flip reconfiguration graph."
+      ],
+      "reasoning": "Neither total matchings, forcing numbers, nor generic flip complexity determines all connected components and their exact sizes. A \\(Q_4\\) computation is a different dimension and cannot imply this census. The proposed novelty is specifically \\(Q_5\\) square-only connectivity, not the static matching count or invention of the operation. The earlier exact four-cube example and general frozen-state constructions do not entail the new exact five-cube 202-component census, nor its 120 frozen/80 four-cycle symmetry classification.",
+      "searches": [
+        "doi:10.1007/s11083-012-9279-8",
+        "doi:10.4230/LIPIcs.MFCS.2019.80",
+        "arXiv:1712.03535",
+        "hypercube Q5 matching square flip components",
+        "arXiv:2007.08474 exact example Q4 272 264 8",
+        "arXiv:2304.10930 hypercube 4d-4 long alternating cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonamy et al., MFCS 2019, DOI 10.4230/LIPIcs.MFCS.2019.80, define four-cycle flip reconfiguration.",
+        "Östergård and Pettersson, DOI 10.1007/s11083-012-9279-8, abstract reports static hypercube matchings and their symmetry classes."
+      ],
+      "reasoning": "Alternative names include square flip, domino switch, alternating quadrilateral, four-cycle flip, one-factor switch, and local dimer flip. The searched relevant publications do not, in the portions available and inspected, state the exact 202-component partition for \\(Q_5\\). Absence of search matches is not treated as proof of uniqueness.",
+      "searches": [
+        "five-dimensional hypercube perfect matchings flip components",
+        "Q5 perfect matching 4-cycle flip components",
+        "n-cube matching square flips connectivity",
+        "Q5 perfect matching 120 isolated 80 four-cycle components 99280 489465 square flips 202 connected components",
+        "arXiv:1904.06184"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Graham and Harary (1988) and Östergård and Pettersson (first published 2012) report static hypercube matching counts; the 2012 abstract also reports 336 \\(Q_5\\) symmetry classes.",
+        "The established total number of \\(Q_5\\) perfect matchings is 589185; this is not counted as novelty."
+      ],
+      "reasoning": "Static matching totals and automorphism-class tables do not encode edges or components of the matching flip graph. No exact table of 120 isolated states, 80 four-cycles and two connected giants was found in the inspected material. The 2012 full text remained inaccessible, so this is a qualified comparison.",
+      "searches": [
+        "Enumerating Perfect Matchings in n-Cubes Östergård Pettersson 2012",
+        "The number of perfect matchings in a hypercube Graham Harary 1988",
+        "OEIS A005271 Q5 589185",
+        "Q5 perfect matching square switch 202 components"
+      ]
+    },
+    "rationale": "The static total and cube-matching enumeration are known and explicitly disclaimed. The four-cycle flip concept and general complexity are known, but no inspected primary text or relevant database result implies this exact \\(Q_5\\) component census. \\(Q_4\\) matching-flip data and arbitrary-even-cycle adjacency do not subsume the \\(Q_5\\) square-only claim; inaccessible 2012 full text is a residual risk. Full-text comparisons against Klivans–Saldanha 2022 and Hartarsky–Lichev–Toninelli 2023/2024 identify distinct \\(Q_4\\) examples, stabilized/asymptotic results and longer-cycle ergodicity, none implying the exact fixed Q5 square-only component counts.",
+    "residual_risks": [
+      "The 2012 hypercube enumeration full text was not accessible, so an unobserved flip-graph result there cannot be excluded.",
+      "A differently named historical dimer/one-factor square-switch census, including unindexed tables or software, may duplicate the \\(Q_5\\) numbers.",
+      "No independent scholarly originality certification has been performed.",
+      "An additional matching-graph or twist-based table might contain an exact five-cube fixed-box square-flip census not found in the inspected literature; indexed searches are not a uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Static matching enumeration; no square-switch component census observed in inspected material.",
+        "evidence": [
+          "\\(Q_4\\)/\\(Q_5\\) static matching counts are discussed; no configuration-reconfiguration graph specified on examined pages."
+        ],
+        "identifier_or_url": "Graham and Harary, Applied Mathematics Letters 1 (1988), 45–48",
+        "material_read": "Scanned primary PDF, main mathematical pages 2–4 and available introductory material.",
+        "method": "Visual page inspection and checking main theorems, tables and discussion of matchings.",
+        "title": "The number of perfect matchings in a hypercube",
+        "trigger": "Earliest static matching enumeration; could contain adjacent constructions."
+      },
+      {
+        "assessment": "Abstract addresses enumeration and symmetry-class counts; unresolved risk of extra results in inaccessible body.",
+        "evidence": [
+          "Publisher shows online publication 2012-11-21 and 336 \\(Q_5\\) equivalence classes; says subscription content."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11083-012-9279-8",
+        "material_read": "Publisher abstract, publication metadata, references; full article inaccessible.",
+        "method": "Read primary publisher preview and searched arXiv/other lawful open-access sources; full text not obtained.",
+        "title": "Enumerating Perfect Matchings in n-Cubes",
+        "trigger": "Exact same graph family and matching objects; possible strongest historical overlap."
+      },
+      {
+        "assessment": "Defines local four-cycle flip and proves hardness/tractability for broad graph classes; no exact \\(Q_5\\) census in inspected text.",
+        "evidence": [
+          "Abstract explicitly specifies alternating four-cycles and treats complexity/special graph classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.06184",
+        "material_read": "Open full paper, introduction, definition, results on graph classes, and searched relevant graph-family terms.",
+        "method": "Read accessible arXiv text and MFCS PDF, and visually inspected PDF pages.",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Uses exactly the four-cycle flip operation."
+      },
+      {
+        "assessment": "Discussion permits alternating cycles of arbitrary lengths, a broader move set than square-only flips.",
+        "evidence": [
+          "Matching section describes flipping along general alternating cycles; no \\(Q_5\\)-specific square component table observed."
+        ],
+        "identifier_or_url": "Torsten Mütze, 2023/2024 survey, matching section 9.2",
+        "material_read": "Full open PDF relevant matching sections and their stated adjacency, not all unrelated survey chapters.",
+        "method": "Searched document and visually inspected the page containing matching-flip theorem.",
+        "title": "Combinatorial Gray Codes—An Updated Survey",
+        "trigger": "Could cover stronger matching transformation graphs."
+      },
+      {
+        "assessment": "Forcing cardinality is distinct from connectedness under local four-cycle exchanges.",
+        "evidence": [
+          "The stated result bounds forcing sets, not reconfiguration components."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1712.03535",
+        "material_read": "Open arXiv main theorem, abstract and introduction, including forcing-definition section.",
+        "method": "Textual inspection of available full arXiv text.",
+        "title": "The minimum forcing number of perfect matchings in the hypercube",
+        "trigger": "Same \\(Q_5\\) perfect matching objects and potentially flip rigidity."
+      },
+      {
+        "assessment": "Explicit finite 272-state \\(Q_4\\) example (264 plus eight frozen) and stabilized/asymptotic two-giant theorem; no exact fixed Q5 four-cycle component census found.",
+        "evidence": [
+          "Example 2.2 handles D=[0,2]^3 and N=2, not the five-dimensional unit cube; Theorem 2 permits added vertical space and Corollary 1.2 takes N to infinity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2007.08474v2",
+        "material_read": "Open full-text HTML, introduction, Theorems 1–2, Section 2 Example 2.2 and statements of high-dimensional results; keyword search for 589185 and five-dimensional.",
+        "method": "Primary OA HTML, compared graph domains, move definitions and theorem quantifiers, including whether extra space is permitted.",
+        "title": "Domino tilings and flips in dimensions 4 and higher",
+        "trigger": "Same local square-flip move, higher-dimensional cubes, direct \\(Q_4\\) example and twist invariant."
+      },
+      {
+        "assessment": "Connectivity for alternating cycles of length at most 4d−4 and lower-degree results for length at most 2d−2; these do not provide square-only Q5 connectivity counts.",
+        "evidence": [
+          "Theorem 6 permits cycles length ≤16 when d=5; Q5 square flips require length exactly 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.10930v2",
+        "material_read": "Full OA HTML, introduction, exact definitions and Theorems 3–7, and searched for the Q5 matching count.",
+        "method": "Compared the allowed maximum alternating-cycle lengths with the square-only operation and the theorem domains.",
+        "title": "Local dimer dynamics in higher dimensions",
+        "trigger": "Matches higher-dimensional unit hypercube and studies alternating-cycle reconfiguration."
+      },
+      {
+        "assessment": "A matching-graph edge requires union of the two perfect matchings to be a Hamiltonian cycle; this does not describe square-flip adjacency.",
+        "evidence": [
+          "Publisher abstract explicitly defines the Hamiltonian-union adjacency."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/070697288",
+        "material_read": "Primary publisher abstract, precise definition of graph adjacency and bibliography; full article unavailable.",
+        "method": "Checked definition against alternating-square flip rule.",
+        "title": "Connectivity of Matching Graph of Hypercube",
+        "trigger": "Title may sound equivalent to cube matching flip connectivity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4cb14dc8-67ef-42cb-990c-0f9a083d86dd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural fixed-dimension exact classification separates frozen, small cyclic, and two huge noncommunicating sectors of \\(Q_5\\) perfect matching configurations; this directly diagnoses irreducibility failure of local square-flip sampling. Frozen states and four-cycle components form full symmetry orbits, showing the exceptions are intrinsic rather than arbitrary examples. Exact finite component census is structurally meaningful even without a general all-dimension theorem.",
+    "status": "PASS"
+  }
+}
