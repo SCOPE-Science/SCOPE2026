@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The Fano-line Grassmannian chart is explicitly derived from the cubic equation; the four defining coefficient equations have invertible Jacobian in the eliminated variables (determinant 1296). Support classification yields four *exact*, distinct, smooth reduced branches, whose intersection ideal is (CG,DH), not just its initial ideal. Generic elliptic-branch points have independent transverse tangent directions in the smooth Fano fourfold and hence node-by-smooth-curve local form. The intrinsic Fitting singular ideal is the six squarefree pairwise products at every deep point and (u,v) on the open double curve. The local rings and claimed multiplicities follow from exact commutative algebra. Standalone symbolic verification succeeded.
+
+**Originality (PASS, historical uncertainty retained).** Gounelas--Kouvidakis classify 55 smooth components; the nearest published set-theoretic 180/405 singular-locus result expressly disclaims analytic germs and transversality. This finding proves the additional exact local complete intersections and radicality of the singular scheme; neither follows from prior support counts or component smoothness alone. Searches of the available literature, public mathematical records, and accessible historical claims identified no equivalent theorem. Later partially inspected sources and unindexed calculations remain residual priority risks.
+
+**Mathematical value (PASS).** The exact local analytic type resolves the specific geometric ambiguity left by the earlier singular-support classification. It determines whether the four components meet transversely, the intrinsic singular subscheme's reducedness, and Hilbert--Samuel multiplicities at distinguished points. These are natural invariants of the highly symmetric surface of second-type lines, not arbitrary numerical slices.
+
+**Limitations.** The theorem concerns the reduced special Fermat locus over the complex numbers, not all cubic fourfolds or any unverified original nonreduced determinantal scheme. Published 180/405 incidence counts are credited to the prior work. Historical priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
