@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:03:55.462116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md W,D,C matrices; verify.py source read; independent SymPy rational/sqrt3 identities and determinants; KGSM primary model."
+      ],
+      "rationale": "A=diag(1/2,sqrt(3)/2) and orthogonal Q with entries ±1/sqrt2 give B=QA and Gram diag(1/4,3/4). For M=1,beta=2/3, H(P)=[[I-P,I],[-P/3,I]], and E[P] equals the same Gram for both row distributions, so the signed means have the same stable 2x2 spectral blocks (squared moduli 5/6 and 1/2). For diagonal A, the W=diag(1/10,1) weighted moment increases by >=101/100: independent exact symbolic multiplication gave the surplus D with positive leading entry and determinant 163/1800000; the state-to-adjacent-error bound gives the 1/41 growth lower bound. For mixed B, the displayed 4x4 C is positive definite with rational 2x2 block determinants and E[H^T C H]=C-I_4; tr(C)=532/5 implies decay <=(527/532)^k and initial energy <=34/5 ||x0||^2. Hence divergent second moments of A (for e1) and uniform contraction on B coexist with identical signed mean. Verified exact identities independently using SymPy, not sample path simulation.",
+      "residual_risks": [
+        "Only given matrices and parameters, not general row-equivalent systems or almost-sure divergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Theorem 1.1 gives expected signed singular-vector error; published Resultary frontier is for uniform orthonormal 2x2 identity, whereas A here has squared row norms 1/4,3/4 and B has oblique row projectors."
+        ],
+        "reasoning": "Neither theorem covers two unequal-singular-value systems with matching Gram but opposite second-moment stability at equal momentum parameters.",
+        "searches": [
+          "Alderman–Luikart–Marshall arXiv:2401.09415 full PDF",
+          "Resultary 2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md, exact verify.py and verification",
+        "arxiv:2401.09415 original KGSM PDF model and first-moment theorem",
+        "Resultary published uniform frame mean-square frontier indexed result",
+        "General stochastic momentum arxiv:1712.09677 abstract-level background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean recurrence only knows G=E[P]; covariance recursion knows E[H(P)^T C H(P)] and varies under row mixing. Prior signed-mean convergence cannot imply mean-square stability, and uniform orthonormal frontier cannot handle differing row distributions."
+        ],
+        "reasoning": "The exact positive/negative Lyapunov certificates establish a genuinely new (under inspected comparisons) same-gram counterexample.",
+        "searches": [
+          "arxiv:2401.09415v3 Theorem 1.1, Corollary 1.2 signed mean",
+          "Resultary existing KGSM frontier statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two systems with the same normal equations have different fourth-order projector moment operators E[H⊗H], despite the same E[H]."
+        ],
+        "reasoning": "This is an exact failure of Gram/singular-value determination of second-moment stability, not merely a rotated coordinate-basis example; left row mixing changes the sampling distribution.",
+        "searches": [
+          "Resultary KGSM same Gram signed mean stability row mixing semantic query",
+          "Alderman Luikart Marshall arxiv:2401.09415",
+          "Stochastic momentum row normalization covariance Lyapunov switching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing published frontier provides an inequality for A=I_2, not the rational growth and Lyapunov certificates of the A vs QA pair."
+        ],
+        "reasoning": "An exact 4x4 stochastic Lyapunov example may exist under other terminology; no directly corresponding published certificate was identified.",
+        "searches": [
+          "Resultary KGSM mean-square frontier search",
+          "Alderman KGSM numerical cases"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Alderman–Luikart–Marshall original KGSM arXiv:2401.09415 derives expected signed error along singular vectors, not an invariance law for second moments; identical Gram forces that same first moment but does not fix distribution of projectors. A previously published exact KGSM mean-square frontier treats uniform orthonormal A=I2 and cannot imply a same-Gram counterexample with unequal row probabilities and non-axis projectors. Broader stochastic momentum theory may contain related generic representation dependence, but no direct coverage was established.",
+      "residual_risks": [
+        "An equivalent same-Gram row-mixing L2 counterexample could appear in older stochastic heavy-ball or random projection literature under another name.",
+        "The previously published uniform-orthonormal frontier was compared at indexed-statement level only, not full text; no whole-document noncoverage is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_ALGORITHM_AND_FIRST_MOMENT_NOT_COVARIANCE_REVERSAL",
+          "evidence": "Paper gives singular vector expected error; source does not establish equal-Gram second-moment equivalence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.09415",
+          "material_read": "28-page open PDF; model, sampling law, Theorem 1.1 and corollaries on signed expectation, rendered page 6",
+          "method": "ArXiv OA full text, section and PDF page inspection",
+          "title": "Randomized Kaczmarz with Geometrically Smoothed Momentum",
+          "trigger": "Original same-algorithm primary source"
+        },
+        {
+          "assessment": "SPECIAL_ORTHONORMAL_CASE_DIFFERENT_DISTRIBUTIONS",
+          "evidence": "A=I2 uniform orthonormal model does not cover mixed rows with unequal singular values; not a whole-document noncoverage claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+          "material_read": "Indexed complete finding statement and parameters from published record; full RESULT.md not obtained in this execution",
+          "method": "Resultary indexed semantic search and statement comparison",
+          "title": "Exact mean-square stability frontier and a signed-mean blind spot in KGSM",
+          "trigger": "Closest directly published same-method second-moment theorem"
+        },
+        {
+          "assessment": "POSSIBLE_GENERAL_BACKGROUND_RISK",
+          "evidence": "Different momentum schemes and sufficient convergence conditions; whole-document exclusion is not claimed.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.09677",
+          "material_read": "General title/abstract and model descriptions only; full source not read in this execution",
+          "method": "Literature comparison to stochastic momentum family",
+          "title": "Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods",
+          "trigger": "Potential dominating stochastic momentum convergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Stochastic iterative solvers, covariance stability, row representation and control-theoretic Lyapunov certificates."
+      ],
+      "rationale": "Orthogonal left multiplication preserves the deterministic least-squares Gram matrix, singular values, and mean error recurrence. The exact opposite stability under unchanged KGSM parameters proves singular-value-based first-moment tuning can fail decisively for mean-square convergence; a concrete positive definite certificate on each side makes the small counterexample reproducible and reusable for stochastic numerical method design. The example has a clear structural obstruction and is not merely a tiny-instance negative without motivation.",
+      "residual_risks": [
+        "Single model parameter pair, no general phase diagram or samplewise divergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Squared-row-norm independent sampling and zero auxiliary state, M=1,beta=2/3, two-dimensional exact arithmetic only.",
+    "No probability-one divergence of first frame claimed."
+  ],
+  "schema_version": 1
+}
