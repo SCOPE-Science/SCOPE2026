@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:08:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen 2026/10/26/a-sharp-mean-square-stability-island-for-fourth-order-two-deriva--980ee5bd2be3/RESULT.md",
+        "Frozen 2026/10/26/a-sharp-mean-square-stability-island-for-fourth-order-two-deriva--980ee5bd2be3/SLOGAN.txt",
+        "Frozen 2026/10/26/a-sharp-mean-square-stability-island-for-fourth-order-two-deriva--980ee5bd2be3/VERIFICATION.md"
+      ],
+      "rationale": "Independently expanded the per-step oscillator update R_q(z)=1+z+qz²/2+qz³/6+q²z⁴/24 and real planar norm multiplier a_q²+b_q². Shared q per step and independence between steps imply E||u_n||²=m_ε(θ)^n||u_0||² exactly. Symbolic expansion confirmed m−1=x²[(1+6s+s²)x²−(8+56s)x+192s]/576 for x=θ²,s=ε²; discriminant is 64(1+2s−23s²−12s³). Positive-root sign analysis gives the open stability band for 0<ε<ε_c, noise-free θ<2√2, neutral coalescence at ε_c and strict growth beyond. Noise law, positive θ and deterministic initial vector quantifiers are explicit.",
+      "residual_risks": [
+        "Strict convergence requires m<1; at ε=ε_c neutral step does not decay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stochastic RK papers distinguish moment stability for other randomized stage evaluations.",
+          "Source Gottlieb et al Section 5.2/Figure 3 addresses perturbed linear-stability regions, not iid moment stability."
+        ],
+        "reasoning": "General expected-amplification principles do not directly encode the exact two-derivative shared-curvature polynomial and its unique positive-noise threshold; possible general corollaries pose residual priority risk.",
+        "searches": [
+          "two derivative Runge Kutta stochastic multiplicative curvature perturbation mean square stability amplification",
+          "https://arxiv.org/abs/2006.12131",
+          "https://arxiv.org/abs/2404.19059"
+        ]
+      },
+      "checked_sources": [
+        "S. Gottlieb, Z. J. Grant, C. Herrera, Mixed Precision and Mixed Accuracy Explicit Two-Derivative Runge–Kutta Methods, arXiv:2602.14369v1 — https://arxiv.org/html/2602.14369v1",
+        "https://arxiv.org/abs/2006.12131",
+        "Actual Resultary semantic query: two derivative Runge Kutta stochastic multiplicative curvature perturbation mean square stability amplification",
+        "Assigned frozen package RESULT.md and self-review AUDIT.json (read as evidence only, not scientific authority)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original method and deterministic perturbation sensitivity are prior.",
+          "New identity m−1=x²[(1+6s+s²)x²−(8+56s)x+192s]/576 and threshold f(s)=1+2s−23s²−12s³."
+        ],
+        "reasoning": "A deterministic stability region at fixed perturbation q does not determine mean-square convergence for independent q across steps; averaging and discriminant yield an exact distinct assertion.",
+        "searches": [
+          "two derivative Runge Kutta stochastic multiplicative curvature perturbation mean square stability amplification",
+          "https://arxiv.org/html/2602.14369v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Per-step random scalar amplification R_q(iθ) and a planar rotation yield equivalent iid products of squared energy multipliers.",
+          "Source eq. (5.4) specifies same two-derivative method but not iid common-stage random curvature."
+        ],
+        "reasoning": "Mean-square stability is E|R_q|²<1 for this model, not simply the deterministic absolute stability |R|<1; step-correlated oracle choice matters.",
+        "searches": [
+          "two derivative Runge Kutta stochastic multiplicative curvature perturbation mean square stability amplification",
+          "https://arxiv.org/html/2602.14369v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical deterministic stability plots in Gottlieb et al are not expected squared-norm under iid draws.",
+          "Symbolic Q_s(x) from this model is an exact quadratic in x."
+        ],
+        "reasoning": "Sample figures and computed parameter tables do not establish the continuous, exact ε_c stability frontier; no matching published symbolic table was found in actual searches.",
+        "searches": [
+          "two derivative Runge Kutta stochastic multiplicative curvature perturbation mean square stability amplification",
+          "https://arxiv.org/html/2602.14369v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the inspected primary mathematical assertions and targeted Resultary/published-SCOPE comparisons do not establish the full exact final claim as a known corollary. The identified prior work covers premises, generic methodologies, or weaker/special cases, as specified in the four comparisons; inaccessible or uninspected high-relevance sources remain genuine priority risks, not automatic failures.",
+      "residual_risks": [
+        "The source deterministic perturbed-stability figures and general stochastic RK theory are close related predecessors; historical priority of the exact moment polynomial not guaranteed.",
+        "The iid shared-within-step curvature law is idealized, not physical floating-point roundoff, and cannot be reinterpreted as that.",
+        "Strict convergence requires m<1; at ε=ε_c neutral step does not decay."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original method and perturbation framework are established, but inspected article does not provide shared random curvature ±epsilon per step or its exact mean-square stability island.",
+          "evidence": "arXiv:2602.14369v1, eq. (5.4), §5.2, Fig. 3; https://arxiv.org/html/2602.14369v1",
+          "identifier_or_url": "https://arxiv.org/html/2602.14369v1",
+          "material_read": "Entire public arXiv HTML article accessible; Section 5.2, equation (5.4), Figure 3 and introduction/summary read",
+          "method": "Matched exact stage coefficients against R_q and compared deterministic perturbed stability regions with iid mean-square moment multiplier",
+          "title": "S. Gottlieb, Z. J. Grant, C. Herrera, Mixed Precision and Mixed Accuracy Explicit Two-Derivative Runge–Kutta Methods, arXiv:2602.14369v1",
+          "trigger": "Exact two-stage method, formula (5.4), and authors’ perturbation stability analysis"
+        },
+        {
+          "assessment": "The models are distinct based on the read material, but the full paper may contain general implications not checked.",
+          "evidence": "arXiv:2006.12131 abstract and cited Section 5",
+          "identifier_or_url": "https://arxiv.org/abs/2006.12131",
+          "material_read": "Public abstract and summary of randomized first-derivative method; full article not independently reread",
+          "method": "Compared first-derivative randomized stage-point model to stochastic shared curvature in a two-derivative method",
+          "title": "T. Bochacik et al., Randomized Runge–Kutta method — stability and convergence under inexact information",
+          "trigger": "General random Runge–Kutta mean-square stability could cover proposed special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "S. Gottlieb, Z. J. Grant, C. Herrera, Mixed Precision and Mixed Accuracy Explicit Two-Derivative Runge–Kutta Methods, arXiv:2602.14369v1 — https://arxiv.org/html/2602.14369v1"
+      ],
+      "rationale": "The sharp exact moment-stability island for a named fourth-order two-derivative integrator and natural shared-within-step stochastic curvature model establishes a striking instability at arbitrarily small step sizes and a critical perturbation amplitude; cannot be inferred from the deterministic stability plot or noisy finite trajectories.",
+      "residual_risks": [
+        "The iid shared-within-step curvature law is idealized, not physical floating-point roundoff, and cannot be reinterpreted as that.",
+        "Strict convergence requires m<1; at ε=ε_c neutral step does not decay."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The source deterministic perturbed-stability figures and general stochastic RK theory are close related predecessors; historical priority of the exact moment polynomial not guaranteed.",
+    "The iid shared-within-step curvature law is idealized, not physical floating-point roundoff, and cannot be reinterpreted as that.",
+    "Strict convergence requires m<1; at ε=ε_c neutral step does not decay."
+  ],
+  "schema_version": 1
+}

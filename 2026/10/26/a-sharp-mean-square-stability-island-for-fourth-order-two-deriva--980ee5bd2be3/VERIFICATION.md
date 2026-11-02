@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The attached \(\texttt{verify.py}\) is self-contained and uses Python 3.10 or newer, with no third-party packages. Extract it alongside the other files and run \(\texttt{python3 verify.py}\). A successful run prints \(\texttt{VERIFY_OK 10007}\), together with a numerical value of the positive noise threshold and corresponding neutral step.
+## correctness
 
-Checks include exact fractions for the single-step amplifier coefficient identity and the averaged quartic, 6,171 rational parameter-sign equalities, direct matrix-versus-complex updates across 2,520 combinations, explicit enumeration of all sign sequences of lengths 1 through 8 for five input pairs, and critical-root/phase-region spot checks. The proof of independence across arbitrary \(n\), the strict sign classification for every allowed \(\epsilon\) and \(\vartheta\), and uniqueness of the positive cubic root appear in the accompanying mathematical argument, not in a finite-test certificate.
+PASS
 
-The randomness model shares one independent two-point perturbation within a step, *including* the evaluation at the intermediate stage. A different correlation model changes the moment polynomial and must not be inferred to share this threshold. No independent mathematical validation has been performed.
+Independently expanded the per-step oscillator update R_q(z)=1+z+qz²/2+qz³/6+q²z⁴/24 and real planar norm multiplier a_q²+b_q². Shared q per step and independence between steps imply E||u_n||²=m_ε(θ)^n||u_0||² exactly. Symbolic expansion confirmed m−1=x²[(1+6s+s²)x²−(8+56s)x+192s]/576 for x=θ²,s=ε²; discriminant is 64(1+2s−23s²−12s³). Positive-root sign analysis gives the open stability band for 0<ε<ε_c, noise-free θ<2√2, neutral coalescence at ε_c and strict growth beyond. Noise law, positive θ and deterministic initial vector quantifiers are explicit.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the inspected primary mathematical assertions and targeted Resultary/published-SCOPE comparisons do not establish the full exact final claim as a known corollary. The identified prior work covers premises, generic methodologies, or weaker/special cases, as specified in the four comparisons; inaccessible or uninspected high-relevance sources remain genuine priority risks, not automatic failures.
+
+## value
+
+PASS
+
+The sharp exact moment-stability island for a named fourth-order two-derivative integrator and natural shared-within-step stochastic curvature model establishes a striking instability at arbitrarily small step sizes and a critical perturbation amplitude; cannot be inferred from the deterministic stability plot or noisy finite trajectories.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
