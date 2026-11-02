@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks
 
-Run `python3 verify.py` with Python 3.9 or later; no external libraries or network access are required.
+# Independent mathematical audit
 
-The checker performs synchronous sandpile updates from full integer chip vectors until a configuration recurs. It also regenerates the same firing sets independently with the defect recurrence. For \(5\le n\le81\), both single-vertex grain values are tested, including the exact transient position and first repeated time, rather than relying on a preselected stopping round. It verifies omitted-vertex blocks, the conical early stages, partition assertions and the special last simplex in the contractible branch. Translating the exceptional vertex is checked for \(5\le n\le18\). Finally, every filtered avalanche complex for \(5\le n\le12\) is directly expanded into simplicial faces; boundary matrices are reduced exactly over \(\mathbb F_2\) without using the nerve model. The expected reduced Betti ranks agree in each tested case.
+## correctness
 
-Observed final line: `VERIFY_OK orbit_cases=476 direct_mod2_stages=80`.
+PASS
 
-These checks do not establish the theorem for all \(n\), do not themselves certify integer torsion, and do not replace the proof of homotopy equivalence via the simplex-cover nerve theorem. No independent scientific audit was performed.
+From d_i=2−c_i and nonfiring h_i=1_{d_i>0}, the exact recurrence d_i(t+1)=d_i(t)−2h_i+h_{i−1}+h_{i−2} yields B0={0}, moving pairs Bt={2t−1,2t}, and the final odd/even-q-specific wrap block. The explicitly calculated repeated state establishes that these supports exhaust all future firings. The complements are simplex generators. A good-cover nerve is the boundary of a k-simplex for odd n or even q=1, and the even q=0 final simplex is redundant leaving a common-vertex cone. Every t<k prefix is a cone. The integral homotopy and all field-persistence barcodes therefore follow from a nerve argument, not finite mod-two samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact parity-sensitive homotopy and persistence classification for a two-jump circulant and two near-threshold initial configurations, using a complete orbit-to-nerve reduction.
+
+## value
+
+PASS
+
+For a canonical two-jump directed circulant, changing exactly one grain produces an unbounded-dimensional sphere rather than a contractible complex on even sizes, while odd sizes are insensitive; the exact persistence birth is a sharp structural phase transition for a natural dynamical-topological invariant. This substantially refines the new avalanche-complex program beyond examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
