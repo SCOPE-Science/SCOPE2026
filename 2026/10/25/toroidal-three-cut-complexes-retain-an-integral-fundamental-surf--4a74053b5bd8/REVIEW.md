@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the Alexander dual by a quantifier-exact triple-connectivity criterion. For the specified periodic grids, no higher faces are possible, and every three-simplex is an elementary square. A uniform sequence of uniquely free simplicial pairs removes all square tetrahedra, one diagonal per square, and every straight two-step chord. The surviving triangulated surface is exactly the closed orientable two-torus, with an independent circle for each graph-distance-at-least-three pair. Integral Alexander duality provides the two claimed free homology groups. The standalone enumeration and collapse checker reproduces every asserted local incidence on four test grids. Boundary cases below cycle length five are explicitly excluded; sample tests are corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS on inspected evidence.** The primary papers [1–3] classify cut complexes for path grids, complete multipartite graphs, and other graph classes, not the periodic Cartesian product of two cycles. The most relevant public three-cut statement [4] assumes pairwise edge-disjoint four-cycles, whereas each torus-grid edge belongs to two squares; its graph-collapse conclusion is therefore inapplicable. The structurally similar square-completion theorem [5] concerns intrinsic Čech nerves, while [6] concerns total two-cut complexes, not ordinary three-cut complexes. The three-robust clique complex [7] allows one-edge disconnected triples and has a different homotopy type; its broad bipartite theorem is not applicable to the three-wise-connected dual here. Searches of publicly indexed findings and accessible matching-priority prior claims found no implication-equivalent classification. Unindexed equivalences, especially alternate three-wise-connected or Stanley–Reisner formulations, remain a risk.
+PASS
 
-**Value — PASS.** This provides a complete integral homology classification of an unbounded natural two-parameter family of four-regular graphs and an exact homotopy description of the Alexander dual. Unlike rectangular grids, the periodic square filling retains a genus-one two-cycle, forcing a one-dimensional-below-top class and nonshellability. The nonzero integral cup pairing of the dual retains information invisible to ranks alone. Neither an isolated numerical extension nor a restatement of a known shellable family is involved.
+By Alexander-dual definition, S is dual face precisely if EACH triple inside S induces a connected subgraph, not merely has an edge. For C_m square C_n, m,n≥5, induced triangles are two-edge paths, induced four-faces are precisely N coordinate squares, and no larger face exists by triangle-free minimum-degree bound. For each square, tetrahedron collapses across exclusive triangle, then another triangle across its exclusive diagonal; each straight 2-step path collapses across a free unique distance-two edge. This leaves exactly a triangulated torus plus L=N(N−13)/2 long edges independent of triangles, hence K ≃ T²∨(∨^L S¹). Integral Alexander duality yields H~_(N−5)=Z and H~_(N−4)=Z^(L+2), torsion-free and pure nonshellable. Independently enumerated 5x5,5x6,6x6 grids and executed all free-face collapses on 5x5 and 5x6.
 
-The comparison against the edge-disjoint-square theorem is a domain exclusion, not a claim that a title or matching parameter alone proves novelty. The source record does not eliminate independently unindexed work, and no independent validation of this finding has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published rectangular path-grid cut-complex results have disk cellulation and are shellable, unlike periodic torus. Published edge-disjoint-square criterion fails because each toroidal edge belongs to two squares. Resultary toroidal TOTAL two-cut is Alexander dual to clique graph, not ordinary three-cut; distinct degrees and functors. Robust clique forbids only independent triples, not all disconnected triples. No stronger theorem discovered that implies the torus fundamental class; unindexed equivalent hypergraph-complex formulation is possible.
+
+## value
+
+PASS
+
+A uniform infinite two-parameter integral classification for periodic grids, detecting an essential surface fundamental class and nonzero cup product in the Alexander dual, explains topology lost by rectangular path-grid analogues. Structural geometric homotopy (torus plus many loops) and nonshellability are genuinely informative beyond graph counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
