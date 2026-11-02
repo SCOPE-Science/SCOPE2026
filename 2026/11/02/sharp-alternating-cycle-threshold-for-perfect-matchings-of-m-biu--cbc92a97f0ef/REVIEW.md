@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof explicitly classifies every perfect matching of the twisted two-row ladder into cyclic disjoint-column dimers and, only for odd width, two all-rim exceptions. Each four-cycle flip toggles one dimer, proving the Lucas-cube component and its exact Hamming metric. The critical obstruction uses row parity across the twisted seam: an odd-rung alternating cycle must wind around all \(n\) columns and hence has at least \(n\) rail edges; adding the obligatory rung yields \(n+1\). The one-rung matching obtained from two even-order rim paths supplies an actual alternating cycle of exactly \(n+1\) from each exception. The exceptional-to-exceptional symmetric difference is the full \(2n\)-cycle. The argument covers every integer \(n\ge4\), including the smallest even and odd instances. Two distinct implementations exhaustively corroborate the finite cases \(4\le n\le11\) and \(4\le n\le12\), and their certificates must not be mistaken for infinite proofs.
+
+## Originality — PASS with residual risk
+The claimed new conclusion is the sharp connectivity threshold for *single alternating-cycle* moves in the Möbius-ladder family, not the classical counts of perfect matchings or Lucas cubes. Ben-Ari/Jennings (arXiv:1306.3611v1) studies exchanges in the complete-graph setting; Codara–D'Antona (arXiv:1410.4080v1) covers Lucas-cube enumeration, whose implications are credited. Bonamy et al. (arXiv:1904.06184) study complexity and standard four-cycle reconfiguration more broadly; no Möbius-ladder sharp length threshold was found in inspected text. Lekshmi–West (arXiv:2003.09602) is an especially plausible object-specific source, but its accessible abstract reports matching enumeration, not a flip-length threshold; its full text could not be checked and remains a named risk. Related mathematical research-record hits concern topology or symmetry actions on matching complexes, not the move-connectivity threshold. No covering result was located by searching exact phrases, Lucas-cube equivalences, perfect-matching switches and Möbius-strip winding; negative searches are not proof of novelty.
+
+## Value — PASS
+For a familiar infinite family of cubic graphs, the smallest allowed elementary alternating-cycle move changes from four in even width to an unbounded linear value in odd width. The explicit dichotomy isolates a structural topological winding obstruction to local perfect-matching mobility, and shows precisely how a single longer cycle removes it. This is a nontrivial exact reconfiguration invariant, not a tiny numerical refinement or substitution into a known counting formula.
+
+## Scope and risks
+The proof does not classify all distances in the connected graph after long moves are admitted, nor other ladders or arbitrary perfect-matching switch rules. Possible equivalence with older unindexed work and the uninspected full text of the Lekshmi–West paper remain originality risks. No independent scholarly validation has been done.
+
+Self-review: passed. Independent audit: not yet performed.
