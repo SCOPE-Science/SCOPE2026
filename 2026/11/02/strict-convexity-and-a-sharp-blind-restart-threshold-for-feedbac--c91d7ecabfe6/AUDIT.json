@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Two independent derivations give the exact dimensionless mean: a backward Feynman–Kac transform followed by a renewal reset reduction, and direct two-region mean backward equations. For all s>=0 and w>0 the entire-series part has positive second derivative; the sine-hyperbolic product yields Q2/Q1^2<=2/5 and G_prime^2/(G G_doubleprime)<=5/3, so the remaining term has strictly positive second derivative by completing the square. Coercivity gives existence and strict convexity gives uniqueness. The cubic slope and analytic implicit-function theorem give the threshold and expansion. All boundaries, rates, and zero-reset continuity are covered. A standalone checker passed 5,325 finite diagnostics, not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pal and Reuveni, arXiv:1607.06048: general renewal restart framework; the mean formula from a Laplace transform and local restart criterion are pre-existing.",
+        "Tal-Friedman et al., arXiv:2409.10108v1, supplementary S14-S17: base process has an explicit transform and known mean."
+      ],
+      "reasoning": "Combining the published transform with generic renewal theory implies the displayed two-clock mean formula, which is credited. It does not by itself settle global convexity or rule out nonlocal minima; the canonical-product curvature inequality supplies that missing global implication. Generic restart criteria concern local behavior and permit multiple optima in other completion-time laws.",
+      "searches": [
+        "\"First Passage under Restart\" Pal Reuveni arxiv 2017 coefficient variation",
+        "\"smart resetting\" \"coefficient of variation\" diffusion search",
+        "\"smart resetting\" \"two resetting rates\" Brownian",
+        "https://arxiv.org/abs/1607.06048"
+      ]
+    },
+    "checked_sources": [
+      "Tal-Friedman et al., arxiv:2409.10108v1, first public 2024-09-16, inspected HTML sections 2-4 and SI-SII",
+      "Plata, Gupta, Azaele, arxiv:2007.12417, inspected abstract and publication record",
+      "Pal, Reuveni, arxiv:1607.06048, inspected abstract and publication record",
+      "Linn and Lawley, First-passage times under frequent stochastic resetting, Phys. Rev. E 108 024114 (2023), inspected abstract; high-rate limit not two-clock global classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source one-clock Laplace denominator is cosh(L sqrt(lambda/D)) + sqrt(lambda/(lambda+r)) sinh(L sqrt(lambda/D)); simple renewal manipulation gives the two-clock mean.",
+        "The new proof uses the Weierstrass product of sinh(sqrt(s))/sqrt(s), the sum-ratio bound Q2/Q1^2 <= 2/5 and a completed square to prove strict positivity of the second derivative on the whole half-line.",
+        "The initial derivative is a cubic, but without global curvature the sign alone does not establish a unique global optimum."
+      ],
+      "reasoning": "The algebraic mean identity is logically implied by known sources and is not assigned novelty. The exact global convexity and resulting no-reentrance classification and critical optimizer scaling require a new substantive inequality; no inspected source supplied that inequality or an equivalent stronger global optimum theorem. Full-text access limits make the priority assessment qualified.",
+      "searches": [
+        "\"smart resetting\" \"unconditional\" resetting Brownian first passage",
+        "\"smart resetting\" \"additional\" \"resetting\" restart",
+        "\"Asymmetric stochastic resetting: Modeling catastrophic events\" arxiv Plata Gupta Azaele",
+        "https://arxiv.org/html/2409.10108v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tal-Friedman et al. arXiv:2409.10108v1, section 2 and supplementary SII: one-sided feedback reset, its first-passage transform and mean; no separately optimized uniform clock in the inspected text.",
+        "Plata et al. arXiv:2007.12417 abstract: threshold-conditional resetting of a diffusion to a preferred position, related by spatial reflection; a separate independent uniform clock is not described in the accessible abstract."
+      ],
+      "reasoning": "Reflection about the target maps the earlier one-sided threshold geometry to the feedback-only base case, so it is relevant despite different coordinates. The new object adds an independent blind clock to both spatial regions and optimizes its rate globally at fixed feedback strength; the searched equivalent descriptions did not provide the claimed two-rate strict-convexity theorem.",
+      "searches": [
+        "state-dependent Poisson resetting Brownian x<0 rate r plus global reset rate rho target L exact convex mean first passage phase transition",
+        "Brownian diffusion \"negative half-line\" resetting rate \"positive half-line\" resetting independent rates",
+        "\"mixed resetting\" conditional unconditional stochastic search",
+        "https://arxiv.org/html/2409.10108v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches produced no matching numeric threshold, full strict-convexity statement, or two-clock optimization table; closest retrieved records concerned different restart models.",
+        "arXiv:2409.10108v1, supplementary S15 and S17: the tabulated or explicit prior expressions concern the feedback-only first-passage mean and comparison with ordinary resetting."
+      ],
+      "reasoning": "The numerical root is not regarded as a novelty certificate. Actual searches failed to find a known table or database covering the entire parameter-wide theorem; a not-indexed result remains possible.",
+      "searches": [
+        "Tal-Friedman Keidar Reuveni Roichman 2409.10108 smart resetting second moment restart over restart w cube 4 w squared minus 12",
+        "Stochastic search with feedback resetting only at x negative and independent uniform resetting at rate rho; strict convexity of mean first passage time vs rho and phase boundary cubic w^3+4w^2=12",
+        "Smart Resetting: An Energy-Efficient Strategy for Stochastic Search Processes Tal-Friedman Keidar Reuveni Roichman",
+        "\"smart resetting\" \"variance\" \"first passage\""
+      ]
+    },
+    "rationale": "The one-clock transform and generic restart identity are prior work, not newly claimed. The additional two-clock strict-convexity theorem, its complete global optimum classification, and sharp continuous transition scaling are not found in the inspected primary article or accessible records. The nontrivial product inequality ruling out further minima is an additional mathematical argument. Priority is qualified by full-text access gaps.",
+    "residual_risks": [
+      "The full text of arxiv:2007.12417 could not be inspected; an unobserved two-rate specialization or theorem may alter priority.",
+      "The general restart article arxiv:1607.06048 was available only at abstract/record level; generic renewal facts are already credited, but a hidden stronger convexity theorem was not excluded by full-text comparison.",
+      "A broader unpublished or unindexed analytic theorem about completely monotone first-passage Laplace transforms may imply the special strict-convexity argument; database nonmatches do not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the base one-sided feedback process, its transform, mean, and energy costs. No second independent unconditional clock or global convexity in its rate found in inspected material.",
+        "evidence": [
+          "Main Eqs. (1)-(4), section 2, and Supplementary Eqs. (S13)-(S17) give propagator, survival transform and mean.",
+          "Main section 3 and section 4 focus on energetic and temporal costs of one-clock feedback resetting and drift."
+        ],
+        "identifier_or_url": "arxiv:2409.10108v1; https://arxiv.org/html/2409.10108v1",
+        "material_read": "HTML abstract; main sections 2-4 and conclusion; supplementary SI-SII and selected supplementary cost passages",
+        "method": "Direct full-text HTML reading with equation and section inspection",
+        "title": "Smart Resetting: An Energy-Efficient Strategy for Stochastic Search Processes",
+        "trigger": "Exact motivating feedback model, same diffusion and resetting geometry, first-passage transform likely to imply part of the claim"
+      },
+      {
+        "assessment": "Clearly related background; no negative full-text coverage claim is made. Plausible but not decisive unresolved priority risk.",
+        "evidence": [
+          "Abstract describes one spatially selective resetting condition and a first-passage framework; does not describe two independently controlled rates."
+        ],
+        "identifier_or_url": "arxiv:2007.12417; https://arxiv.org/abs/2007.12417",
+        "material_read": "arXiv abstract and published journal abstract only; full article text not accessible in this review",
+        "method": "Abstract/metadata comparison; arXiv full-text attempt and lawful institutional request unsuccessful",
+        "title": "Asymmetric Stochastic Resetting: Modeling Catastrophic Events",
+        "trigger": "Related one-sided threshold-reset model, possibly equivalent by reflection"
+      },
+      {
+        "assessment": "General renewal mean and local criteria are prior. Such facts do not alone imply global positive curvature for this specific two-clock transform.",
+        "evidence": [
+          "Abstract announces generic first-passage under restart framework, rather than a two-rate feedback/unconditional Brownian parameter classification."
+        ],
+        "identifier_or_url": "arxiv:1607.06048; https://arxiv.org/abs/1607.06048",
+        "material_read": "arXiv abstract and Physical Review Letters abstract; complete preprint text unavailable in this review",
+        "method": "Abstract/record and logical implication comparison to the exact new proof",
+        "title": "First Passage Under Restart",
+        "trigger": "General renewal identity and local restart improvement criterion might dominate the mean-rate theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c91d7eca-bfe6-46e1-92e1-0f3c75c5fa41",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For feedback-reset search, whether an extra uninformed clock is helpful at fixed feedback strength is a natural protocol-design question. The work supplies an exact, dimensionless, and genuinely global phase boundary, excludes disconnected optima rather than reporting a local criterion, and quantifies critical rate and performance-gain scaling. The product-based curvature certificate is structural, not a textbook substitution or arbitrary slice.",
+    "status": "PASS"
+  }
+}
