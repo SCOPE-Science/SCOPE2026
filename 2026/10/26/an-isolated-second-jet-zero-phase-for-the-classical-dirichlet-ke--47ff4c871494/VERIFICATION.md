@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and boundaries
 
-The mathematical verification uses direct diagonal expansion of the Dirichlet coefficient norm; inequalities on the harmonic real part for \(m=1\), \(m=3\), and all \(m\ge4\); and the sign of the imaginary part for \(m=2\). The Jensen bound is strict because \(|t|<1\) and \(x(4/3-x)\le4/9\). On the negative real axis, the strictly negative derivative of \(1-\log(1+r)-qr^2\) and its explicit boundary value certify the unique-zero transition, with equality excluded from the interior. These arguments prove the infinite-dimensional classification without numerical assumptions.
+# Independent mathematical audit
 
-Run `python3 checker.py` to reproduce the numeric critical parameters, the rational inequality check, sample extremal boundary real parts, and one representative root. Only standard-library Python is required. These are diagnostic examples, not an exhaustive check of the complex unit disk and not a substitute for the proof.
+## correctness
 
-The comparison of scientific literature is bounded, and priority is not independently established. The normalization at coefficient order zero and the strict finite-penalty range are necessary to state the theorem precisely.
+PASS
+
+Monomial norms yield q=1/m-1/(m+tau(m!)^2) in [0,1/m). For m>=4 the real part has lower bound 1-log 2-1/m>0; for m=3 boundary cos(3theta) split and harmonic minimum principle imply strict positivity; for m=1 convexity in q between extremal boundary-positive kernels does likewise. For m=2 the imaginary sign formula Im F/y=integral_0^1|1-ut|^{-2}du-2qx>0 (Jensen and |t|<1) excludes nonreal zeros; positive t is nonzero; G_q(r)=1-log(1+r)-q r^2 strictly decreases and crosses zero in (0,1) iff q>1-log2. The boundary case tau=tau_* does not give an interior zero. Checks: 18 boundary samples, 3 negative roots and independent analytic comparisons, not inference from samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Both studies involve Dirichlet-type spaces but concern different kernels or associated polynomials. A denominator normalization or rank-one Gram update does not make the optimal approximant zero theorem equivalent to this single-jet full-kernel classification. Neither prior statement entails the m=2-only zero phase. Conversely, the jet-kernel result does not resolve broader cyclicity, so overlap is methodological and vocabulary-related. Priority and access limits explicitly preserved.
+
+## value
+
+PASS
+
+A natural finite-rank RKHS norm perturbation has a surprisingly isolated zero-producing jet order and an exact sharp Lu Qi-Keng transition. The zero-freeness boundary of this explicit Dirichlet family is reusable in analytic kernel and interpolation questions, not merely a renamed textbook bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

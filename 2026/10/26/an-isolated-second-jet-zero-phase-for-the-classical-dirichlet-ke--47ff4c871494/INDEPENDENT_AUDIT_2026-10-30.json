@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:51:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Monomial norms yield q=1/m-1/(m+tau(m!)^2) in [0,1/m). For m>=4 the real part has lower bound 1-log 2-1/m>0; for m=3 boundary cos(3theta) split and harmonic minimum principle imply strict positivity; for m=1 convexity in q between extremal boundary-positive kernels does likewise. For m=2 the imaginary sign formula Im F/y=integral_0^1|1-ut|^{-2}du-2qx>0 (Jensen and |t|<1) excludes nonreal zeros; positive t is nonzero; G_q(r)=1-log(1+r)-q r^2 strictly decreases and crosses zero in (0,1) iff q>1-log2. The boundary case tau=tau_* does not give an interior zero. Checks: 18 boundary samples, 3 negative roots and independent analytic comparisons, not inference from samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Dirichlet cyclicity/nonvanishing theorems do not insert q t^m into the full scalar reproducing kernel or classify its m-dependent zero locus."
+        ],
+        "reasoning": "The standard zero-freeness and cyclicity results do not imply the isolated m=2 threshold as an immediate corollary because they quantify over different objects.",
+        "searches": [
+          "arXiv:1509.04807",
+          "arXiv:1312.7739",
+          "Dirichlet space reproducing kernel rank-one derivative jet penalty zero-free second derivative threshold 1-log2"
+        ]
+      },
+      "checked_sources": [
+        "Orthogonal polynomials, reproducing kernels, and zeros of optimal approximants — https://arxiv.org/pdf/1509.04807",
+        "Cyclicity in reproducing kernel Hilbert spaces of analytic functions — https://arxiv.org/pdf/1312.7739",
+        "On zero sets in the Dirichlet space — https://arxiv.org/abs/1102.5596",
+        "Resultary semantic search: Dirichlet space reproducing kernel rank-one derivative jet penalty zero-free second derivative threshold 1-log2",
+        "Actual frozen Git package 2026/10/26/an-isolated-second-jet-zero-phase-for-the-classical-dirichlet-ke--47ff4c871494/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem A states zero-freeness of p_n for alpha>=0, not perturbed K_{m,tau}.",
+          "Direct kernel is 1-log(1-t)-q t^m, with threshold fixed by its negative boundary value."
+        ],
+        "reasoning": "Neither prior statement entails the m=2-only zero phase. Conversely, the jet-kernel result does not resolve broader cyclicity, so overlap is methodological and vocabulary-related.",
+        "searches": [
+          "arXiv:1509.04807 Theorem A",
+          "arXiv:1312.7739",
+          "Dirichlet space reproducing kernel rank-one derivative jet penalty zero-free second derivative threshold 1-log2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bénéteau et al Theorem A treats zero locations of polynomial optimal approximants p_n, not zeros of the full coefficient-penalized reproducing kernel.",
+          "Fricain–Mashreghi–Seco treats cyclicity and optimal norms of analytic functions under forward shifts."
+        ],
+        "reasoning": "Both studies involve Dirichlet-type spaces but concern different kernels or associated polynomials. A denominator normalization or rank-one Gram update does not make the optimal approximant zero theorem equivalent to this single-jet full-kernel classification.",
+        "searches": [
+          "Dirichlet space reproducing kernel rank-one derivative jet penalty zero-free second derivative threshold 1-log2",
+          "arXiv:1509.04807",
+          "arXiv:1312.7739"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related hit is a Bergman first-order jet kernel, with different weights and operation; no numerical table of the exact Dirichlet q* threshold identified."
+        ],
+        "reasoning": "The target is an analytic all-m threshold rather than a stored finite table. No indexed directly covering theorem appeared in the Resultary or literature checks; search failure is not proof of novelty.",
+        "searches": [
+          "Dirichlet space reproducing kernel rank-one derivative jet penalty zero-free second derivative threshold 1-log2",
+          "Resultary:2026/10/11/SCOPE-first-order-bergman-jet-kernels-on-the-disk-have-a-sharp-zero-fr--6c2c52725478"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Both studies involve Dirichlet-type spaces but concern different kernels or associated polynomials. A denominator normalization or rank-one Gram update does not make the optimal approximant zero theorem equivalent to this single-jet full-kernel classification. Neither prior statement entails the m=2-only zero phase. Conversely, the jet-kernel result does not resolve broader cyclicity, so overlap is methodological and vocabulary-related. Priority and access limits explicitly preserved.",
+      "residual_risks": [
+        "An unindexed rank-one Dirichlet kernel or Lu Qi-Keng literature result may express the same threshold in another normalization.",
+        "Not every historical Dirichlet zero-set paper was inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OBJECT: no implication identified in the inspected material",
+          "evidence": "Theorem A controls zeros of optimal approximant polynomials p_n; Proposition 2.1 gives p_n for f=1-z, not a rank-one norm-penalized full kernel.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.04807",
+          "material_read": "PDF introduction pp.1–4, Theorem A and Proposition 2.1 and equations for optimal approximants, with visual inspection of page 1",
+          "method": "public arXiv PDF text and page screenshot",
+          "title": "Orthogonal polynomials, reproducing kernels, and zeros of optimal approximants",
+          "trigger": "Closest kernel/zero title and Dirichlet setting"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT in inspected sections",
+          "evidence": "The paper estimates norm error of polynomial approximation to 1/(1-z), not the zero set of 1-log(1-t)-q t^m.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.7739",
+          "material_read": "PDF introduction, statements on Riesz-basis cyclicity/optimal norms and proof around equations (3.4)-(3.5); page 1 visually inspected",
+          "method": "public arXiv PDF text and page screenshot",
+          "title": "Cyclicity in reproducing kernel Hilbert spaces of analytic functions",
+          "trigger": "Relevant Dirichlet-type RKHS and polynomial approximation"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY; whole-document coverage not excluded",
+          "evidence": "It addresses zero sets of functions of the Dirichlet space, not visibly this one-jet reproducing-kernel spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.5596",
+          "material_read": "Public abstract and indexed metadata; full text was not inspected",
+          "method": "arXiv abstract search",
+          "title": "On zero sets in the Dirichlet space",
+          "trigger": "General Dirichlet zero-set background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite-rank RKHS norm perturbation has a surprisingly isolated zero-producing jet order and an exact sharp Lu Qi-Keng transition. The zero-freeness boundary of this explicit Dirichlet family is reusable in analytic kernel and interpolation questions, not merely a renamed textbook bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the coefficient-normalized analytic Dirichlet space, adding one central m-jet penalty gives scalar kernel 1-log(1-t)-q t^m. Exactly m=2 admits interior zeros; its threshold is tau_*=(1-log 2)/(2 log 2-1). Above the threshold there is one simple negative-real scalar zero; at equality the root is only on excluded boundary t=-1.",
+  "limitations": [
+    "An unindexed rank-one Dirichlet kernel or Lu Qi-Keng literature result may express the same threshold in another normalization.",
+    "Not every historical Dirichlet zero-set paper was inspected in full.",
+    "No published scientific files were edited; no publication performed.",
+    "Numerical finite examples are not substitutes for the unrestricted mathematical argument."
+  ],
+  "schema_version": 1
+}

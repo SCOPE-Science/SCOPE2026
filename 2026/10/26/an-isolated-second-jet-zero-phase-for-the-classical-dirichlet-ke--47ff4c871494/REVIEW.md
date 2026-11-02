@@ -1,11 +1,21 @@
-# Scientific review: An isolated second-jet zero phase for the classical Dirichlet kernel
+# Independent mathematical audit
 
-**Correctness — PASS.** The independent coefficient-weight reconstruction gives the claimed logarithmic rank-one kernel, including the normalization at the penalized monomial. The proof then exhausts every jet order: positive-real-part controls for orders one, three and four or higher, and a strict imaginary-part sign argument for the only exceptional order two. A decreasing real function yields the exact number and simplicity of zeros, and the parameter threshold conversion agrees with the monomial norm formula. No finite sample is mistaken for infinite verification.
+## correctness
 
-**Originality — PASS, bounded-search assessment.** Searches for logarithmic Dirichlet kernels, monomial coefficient suppression, derivative-penalty norms and Lu Qi-Keng transitions were compared with primary full texts on classical Dirichlet zero sets and optimal approximants. The nearest records concern Bergman derivative Gram kernels or rank-one perturbations of different ambient norms. None of these examined claims implies the exact all-order dichotomy. Literature not indexed or accessible remains a priority risk.
+PASS
 
-**Value — PASS.** The exact isolated order-two transition classifies a motivated family of derivative-regularized reproducing kernels and gives an explicit finite sharp threshold, not merely a numerical example. The all-order stability for high jets and the uniqueness of the emerging negative real zero distinguish this conclusion from routine kernel coefficient formulas.
+Monomial norms yield q=1/m-1/(m+tau(m!)^2) in [0,1/m). For m>=4 the real part has lower bound 1-log 2-1/m>0; for m=3 boundary cos(3theta) split and harmonic minimum principle imply strict positivity; for m=1 convexity in q between extremal boundary-positive kernels does likewise. For m=2 the imaginary sign formula Im F/y=integral_0^1|1-ut|^{-2}du-2qx>0 (Jensen and |t|<1) excludes nonreal zeros; positive t is nonzero; G_q(r)=1-log(1+r)-q r^2 strictly decreases and crosses zero in (0,1) iff q>1-log2. The boundary case tau=tau_* does not give an interior zero. Checks: 18 boundary samples, 3 negative roots and independent analytic comparisons, not inference from samples.
 
-The outcome is for center-jet penalties in the Dirichlet norm stated in the result, not for general Sobolev modifications or arbitrary weighted analytic spaces. Relevant primary literature: Kellay–Mashreghi (2011), Fricain–Mashreghi–Seco (2013), and Bénéteau et al. (2015). An independently executed expert mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: Both studies involve Dirichlet-type spaces but concern different kernels or associated polynomials. A denominator normalization or rank-one Gram update does not make the optimal approximant zero theorem equivalent to this single-jet full-kernel classification. Neither prior statement entails the m=2-only zero phase. Conversely, the jet-kernel result does not resolve broader cyclicity, so overlap is methodological and vocabulary-related. Priority and access limits explicitly preserved.
+
+## value
+
+PASS
+
+A natural finite-rank RKHS norm perturbation has a surprisingly isolated zero-producing jet order and an exact sharp Lu Qi-Keng transition. The zero-freeness boundary of this explicit Dirichlet family is reusable in analytic kernel and interpolation questions, not merely a renamed textbook bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
