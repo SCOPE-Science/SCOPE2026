@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model fixes a finite simple graph, two uniformly random distinct seeds, and irreversible activation upon at least two active neighbors. The hub is active by the first update; only peripheral connected components touched by seeds can subsequently activate. Categorizing unordered seed pairs derives the full probability-generating function without independence approximations. Hit-indicator expectation gives the stated mean; feasible two-block Robin Hood transfers yield the strict size-partition extremum. The explicitly constructed degree-matched family has the stated extra triangle and closed-form strict adoption deficit. An exhaustive finite calculation covers all labeled graphs through five vertices (connected counts \(1,4,38,728\)) and establishes the minimum. The stand-alone verifier compares exact histograms on 33,866 cones with direct simulations of 704,182 seed pairs and checks the small-graph cutoff and sampled family cases. Finite experiments are not substituted for the analytic infinite-family proof.
+PASS
 
-## Originality — PASS with stated risk
+The universal hub is active at time zero if seeded or after the first synchronous round otherwise. Then a peripheral component activates completely iff it contains a seed: hub + active periphery propagate along internal edges, untouched components cannot start with only their hub neighbor. Classifying unordered seed pairs gives exact PGF: within component or hub+component contributes C(s_i+1,2) z^(s_i+1), seeds in two components contribute s_i s_j z^(s_i+s_j+1), all divided C(n,2). Summing hit indicators yields mean 1+Σ s_i²(2n−1−s_i)/[n(n−1)]. The feasible two-block transfer derivative (a−b+2t)[4n−2−3(a+b)]/[n(n−1)]>0 proves strict concentration. Degree and triangle counts for fan vs disconnected triangle-plus-path periphery match as stated for all n≥6. Independently enumerated ALL connected labelled simple graphs for n=2..5 (1,4,38,728) with exact rational two-seed cascades, ruling out smaller reversal; independently checked n=6 has means 6 and 23/5, with triangle counts 4 and 5. Finite enumeration is exhaustive ONLY for n≤5; infinite family is proved symbolically.
 
-The inspected Watts (2002) paper is a fractional-threshold random-network cascade theory, Centola and Macy (2007) analyze differently seeded complex contagion on clustered/re-wired large networks, and Amini–Fountoulakis (2011) treat random power-law bootstrap percolation. Their stated results do not imply an exact component-size probability generating function for arbitrary cones with exactly two uniform seeds or the first degree-preserving triangle/adoption reversal at order six. Related published graph-diffusion results concern strategically minimized contagious seed sets rather than the random-pair distribution. Targeted mathematical-record and scholarly searches found no statement covering the combined theorem. Residual risk: the elementary cone-conditioning identity, or a stronger graph class result, might be published under different nomenclature; search nonappearance is not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full distribution gives all moments and tail risks for an interpretable hub-and-communities network, independent of internal peripheral edge arrangement. The sharp concentration law characterizes how community fragmentation changes diffusion at fixed size and community count. The degree-matched infinite counterfamily and *smallest* six-vertex obstruction demonstrate concretely that the triangle statistic cannot predict spreading potential even after controlling for the entire degree sequence. The finite threshold is a natural minimal boundary, not an arbitrary tabulation. Applications are restricted to irreversible deterministic absolute-threshold-two dynamics and two uniformly seeded adopters.
+Best-of-knowledge analysis compares the exact final theorem and logical implications with relevant primary full texts and published research records; known methods and special cases explicitly credited. No decisive coverage found in inspected theorem statements. Unindexed literature can still dominate; negative search is not proof of priority. See four structured comparisons and source-inspection details. A natural cone hitting-set identity could have appeared previously as an elementary lemma or small-graph table under another label; literature search nonappearance is not proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Natural exact cascade-size PGF for arbitrary hub-and-community graphs gives all moments and explicit fragmentation dependence. The degree-controlled six-vertex minimal reversal demonstrates that triangle count/transitivity can anticorrelate with random-seed contagion even when full degree multiset is fixed. The optimal component-concentration result and sharp minimal obstruction make this more than arbitrary graph enumeration or trivial known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

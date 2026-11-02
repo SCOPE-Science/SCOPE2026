@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:07:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The universal hub is active at time zero if seeded or after the first synchronous round otherwise. Then a peripheral component activates completely iff it contains a seed: hub + active periphery propagate along internal edges, untouched components cannot start with only their hub neighbor. Classifying unordered seed pairs gives exact PGF: within component or hub+component contributes C(s_i+1,2) z^(s_i+1), seeds in two components contribute s_i s_j z^(s_i+s_j+1), all divided C(n,2). Summing hit indicators yields mean 1+Σ s_i²(2n−1−s_i)/[n(n−1)]. The feasible two-block transfer derivative (a−b+2t)[4n−2−3(a+b)]/[n(n−1)]>0 proves strict concentration. Degree and triangle counts for fan vs disconnected triangle-plus-path periphery match as stated for all n≥6. Independently enumerated ALL connected labelled simple graphs for n=2..5 (1,4,38,728) with exact rational two-seed cascades, ruling out smaller reversal; independently checked n=6 has means 6 and 23/5, with triangle counts 4 and 5. Finite enumeration is exhaustive ONLY for n≤5; infinite family is proved symbolically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amini–Fountoulakis (2011) studies threshold percolation on random power-law graph ensembles, not deterministic all-cone distribution.",
+          "Centola–Macy (2007) compares propagation on clustered and rewired networks under complex contagion, but not the exact degree-sequence-matched pair law."
+        ],
+        "reasoning": "Broad random-network and preferential seeding results do not imply the exact distribution for all deterministic cones with uniform two-seed sampling. Centola–Macy source is available only as abstract in this run, so no whole-document exclusion is claimed.",
+        "searches": [
+          "complex contagion bootstrap percolation two seed universally connected hub cone graph component size triangle count clustering degree sequence reversal minimal six",
+          "arxiv:1111.1339",
+          "doi:10.1086/521848"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1073/pnas.082090499 (Watts full PMC HTML)",
+        "doi:10.1086/521848 (Centola–Macy publisher abstract only; NOT whole paper read)",
+        "arxiv:1111.1339 (Amini–Fountoulakis bootstrap random power laws referenced and abstract-level comparison)",
+        "Resultary complex contagion bootstrap percolation two seed universally connected hub cone graph component size triangle count clustering degree sequence reversal minimal six",
+        "Resultary exact two-seed bootstrap percolation cascade size distribution cone universal hub component sizes identical degree triangle reversal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Watts (2002) defines a neighbor-fraction threshold and sparse random-graph cascade regime, and treats different seed fractions.",
+          "The exact cone PGF follows from a new simple conditioning observation, but neither same-degree reversal nor its sharp minimum follows from general qualitative clustering theory without calculation."
+        ],
+        "reasoning": "Previously known bootstrap dynamics and reinforcement significance are acknowledged; they do not logically force the distribution under a universal hub plus independent community partition or the degree-matched six-vertex obstruction.",
+        "searches": [
+          "doi:10.1073/pnas.082090499",
+          "arxiv:1111.1339",
+          "complex contagion bootstrap percolation two seed universally connected hub cone graph component size triangle count clustering degree sequence reversal minimal six"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Threshold-two synchronous bootstrap percolation with persistent activations is equivalent to the stated two-neighbor contagion dynamics.",
+          "Watts (2002) studies random network fractional-neighbor thresholds; its own model specification expressly distinguishes that from absolute bootstrap thresholds."
+        ],
+        "reasoning": "The equivalent bootstrap-percolation language was searched; closest inspected random-network cascade result does not state the exact two-uniform-seed cone-component distribution or n=6 degree-matched sharp reversal.",
+        "searches": [
+          "complex contagion bootstrap percolation two seed universally connected hub cone graph component size triangle count clustering degree sequence reversal minimal six",
+          "exact two-seed bootstrap percolation cascade size distribution cone universal hub component sizes identical degree triangle reversal",
+          "doi:10.1073/pnas.082090499"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fully enumerated n=2..5 labelled connected graphs with exact cascade means, counts 1,4,38,728, independently here; this is a finite computation supplying sharp minimum, not prior-table reliance.",
+          "Resultary returns related minimum k-conversion sets of multipartite graphs, whose output is MINIMUM targeted seed set, not probability distribution for random two seeds."
+        ],
+        "reasoning": "Relevant exact database/table check concerns the smallest n=6 degree-matched anti-correlation, with a reproducible exhaustive n<6 computation. No identified table gives this criterion; risk of obscure known table persists.",
+        "searches": [
+          "complex contagion bootstrap percolation two seed universally connected hub cone graph component size triangle count clustering degree sequence reversal minimal six",
+          "exact two-seed bootstrap percolation cascade size distribution cone universal hub component sizes identical degree triangle reversal"
+        ]
+      },
+      "rationale": "Best-of-knowledge analysis compares the exact final theorem and logical implications with relevant primary full texts and published research records; known methods and special cases explicitly credited. No decisive coverage found in inspected theorem statements. Unindexed literature can still dominate; negative search is not proof of priority. See four structured comparisons and source-inspection details. A natural cone hitting-set identity could have appeared previously as an elementary lemma or small-graph table under another label; literature search nonappearance is not proof.",
+      "residual_risks": [
+        "A natural cone hitting-set identity could have appeared previously as an elementary lemma or small-graph table under another label; literature search nonappearance is not proof.",
+        "Centola–Macy full paper not read in this run; source metadata indicates the correct DOI 10.1086/521848, whereas assigned RESULT.md bibliography prints 10.1086/521935. This is a bibliographic defect, not a counterexample to the mathematics.",
+        "Assumes absolute threshold two and exactly two uniformly distinct seeds; no broader stochastic contagion statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses fraction-based thresholds and random graph ensemble; no exact absolute-two threshold cone PGF or sharp six-vertex degree-controlled counterexample stated.",
+          "evidence": [
+            "Watts 2002 PNAS model specification explicitly contrasts absolute bootstrap thresholds with his fractional thresholds."
+          ],
+          "identifier_or_url": "doi:10.1073/pnas.082090499",
+          "material_read": "Full PMC open-access article: model specification (fractional local threshold, random sparse graphs), results, mean/giant-cascade discussion and conclusions.",
+          "method": "Full PMC HTML primary article.",
+          "title": "A simple model of global cascades on random networks",
+          "trigger": "Foundational threshold cascade paper potentially covering the relation between clustering and total spread."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural exact cascade-size PGF for arbitrary hub-and-community graphs gives all moments and explicit fragmentation dependence. The degree-controlled six-vertex minimal reversal demonstrates that triangle count/transitivity can anticorrelate with random-seed contagion even when full degree multiset is fixed. The optimal component-concentration result and sharp minimal obstruction make this more than arbitrary graph enumeration or trivial known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual Git tree b5abe3dd555b88757cb2a936d31476868a24ba93 at commit 4a3a3b26f6b337c3dc5991377e63d191d9dbe285; full scientific files RESULT.md, SLOGAN.txt, REVIEW.md, VERIFICATION.md, AUDIT.json, METADATA.json, artifacts/verify_cone.py, artifacts/verification_certificate.json (tree listed, content not independently read); RESULT.md blob 5c7c41567c7eb3914e054190eb6f532e10966816",
+    "doi:10.1073/pnas.082090499 (Watts full PMC HTML)",
+    "doi:10.1086/521848 (Centola–Macy publisher abstract only; NOT whole paper read)",
+    "arxiv:1111.1339 (Amini–Fountoulakis bootstrap random power laws referenced and abstract-level comparison)",
+    "Resultary complex contagion bootstrap percolation two seed universally connected hub cone graph component size triangle count clustering degree sequence reversal minimal six",
+    "Resultary exact two-seed bootstrap percolation cascade size distribution cone universal hub component sizes identical degree triangle reversal",
+    "Independent exhaustive n=2..5 connected graph classification 1,4,38,728 with exact rational mean for every seed pair; n=6 exact witness has triangle counts 4,5 and mean 6 vs 23/5. Original artifacts/verify_cone.py and certificate source inspected; original log alone is not proof."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite simple unweighted graphs, exactly two uniformly random distinct seeds, synchronous irreversible absolute two-neighbor activation; exact PGF requires one universal hub; n=6 is minimal only for specified degree-controlled strict reversal."
+  ],
+  "residual_risks": [
+    "A natural cone hitting-set identity could have appeared previously as an elementary lemma or small-graph table under another label; literature search nonappearance is not proof.",
+    "Centola–Macy full paper not read in this run; source metadata indicates the correct DOI 10.1086/521848, whereas assigned RESULT.md bibliography prints 10.1086/521935. This is a bibliographic defect, not a counterexample to the mathematics.",
+    "Assumes absolute threshold two and exactly two uniformly distinct seeds; no broader stochastic contagion statement."
+  ],
+  "schema_version": 1
+}
