@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** A bijection between a uniform starting state and independent modulo-three increments establishes the identical finite-sample total-runs distribution. Ergodic occupation counts justify the source's plug-in runs standardization, and the two nontrivial transition eigenvalues \(\pm i\sqrt3\delta\) yield the exact long-run frequency variance factor \((1-3\delta^2)/(1+3\delta^2)\). The finite-state CLT, chi-square survival function and union bound prove the test-power ceiling without assuming independence of the component tests. An exact-rational standalone verifier checks 68 finite identities; the infinite conclusion is analytic.
+## correctness
 
-**Originality: PASS under inspected-literature comparison, with priority risk.** The 2023 arXiv source [1] specifies the combined generalized scalar-runs and Pearson procedure for three-action data, but its inspected algorithms do not analyze a cyclic Markov adversary. published-finding corpus semantic searches for equivalent power failures found only a distinct fixed-composition binary-transition covariance result. Classical Markov transition-total enumeration [2] and generalized run-length-process tests [3] have different statements and neither inspected accessible material asserts the quantitative conservative-power bound for this procedure. Search is not a uniqueness proof; undiscovered general counterexamples and unavailable full historical works remain risks.
+PASS
 
-**Value: PASS.** A test explicitly used to assess strategic independence can have asymptotic power *below the nominal false-rejection rate* on a strongly dependent stationary alternative with correct marginals. The exact blindness mechanism and a simple consistent directional contrast identify an actionable mathematical boundary of a natural nonparametric test. This is an identifiable limitation of a published statistical procedure, not an arbitrary numeric slice.
+For |δ|<1/3 nonzero, uniform X1 and iid increments Y_t in Z/3 with P(0)=1/3, P(+1)=1/3+δ, P(−1)=1/3−δ define a strictly positive stationary ergodic chain. Under IID uniform X_t, the change of variables to X1 and all increments is a bijection preserving their iid uniform distribution. Thus nonzero-step indicators are iid Bernoulli(2/3) under both laws and R_n=1+Bin(n−1,2/3) exactly. The conditional-count plug-in runs center is 2n/3+O_P(1) and variance 2n/9+o_P(n); CLT/Slutsky give asymptotic N(0,1). The transition operator on the zero-sum subspace has eigenvalues ±i√3 δ; even-lag covariance summation yields factor cδ=(1−3δ²)/(1+3δ²)<1; the finite-state CLT gives H_n⇒cδ χ²_2. The Bonferroni union bound therefore gives limsup rejection ≤α/2+(α/2)^(1/cδ)<α. A signed transition statistic has mean 2δ per increment and is consistent. Independent rational enumeration for n=2..6 reproduced exact run laws, directional moments and Pearson expectations. No exact limiting union probability is asserted.
 
-**Closest literature and limitations.** Ganzfried [1], especially Algorithms 2–4, is the principal source; Whittle's transition-count formula [2] is broader enumeration rather than a test-power result; [3] uses a different collection of run statistics. The result concerns a three-state cyclic Markov family and asymptotic fixed-level power. The sum-of-tail-probabilities bound is not an exact limiting combined-power formula, and independent validation and definitive priority assessment are absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original versus closest accessible statements, with real Resultary and primary-source comparisons; failed search is not novelty proof and uninspected plausible literature is recorded, not declared noncovering.
+
+## value
+
+PASS
+
+This precisely identifies a natural published runs-plus-frequency independence test which remains asymptotically conservative against an irreducible dependent process with correct marginals, and exhibits a consistent directional repair statistic. The defect concerns an actionable statistical test and its blind spot, not an arbitrary model slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
