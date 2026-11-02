@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the original defining inequalities of the homogeneous cyclic chainlink polytope and a weighted inclusion--exclusion identity. A direct triangular integral supplies the previously uncomputed nonzero-tilt pair weight; the cycle matching characteristic equation gives an exact two-root transform. Taylor coefficients at zero imply the exact finite variance. Analytic dominance of the principal root proves the Gaussian limit, and the differentiable log-mgf proves the stated large-deviation law. The permissible real parameter boundary \(2\ell=a\) is included.
+# Independent mathematical audit
 
-The standalone exact-arithmetic and numerical checker is `check_chainlink.py`, executed using Python 3 and NumPy. Successful output: `CHECK_OK matching_counts=32 exact_rational_moments=32 tilted_quadrature=3 monte_carlo=750000`. Its rational moment computation enumerates forbidden-edge matchings and integrates the second moment of each removed triangle independently of the eigenroot differentiation. The quadrature and Monte Carlo are numerical diagnostics, not mathematical certificates for arbitrary dimension.
+## correctness
 
-Only the stated homogeneous-coordinate result has been reviewed. The prior zero-tilt volume identity and rank symmetry are credited. Equivalent results under different statistical-mechanical language have not been excluded exhaustively. Independent mathematical validation has not been performed.
+PASS
+
+Adjacent forbidden inequalities cannot co-occur when 2ell<=a; weighted inclusion-exclusion is indexed by matchings of cyclic C_s. The isolated-variable exponential integral b(t)=(e^{at}-1)/t and forbidden-edge integral d(t)=e^{at}(cosh(ell*t)-1)/t^2 give Z_s(t)=lambda_+(t)^s+lambda_-(t)^s, where lambda± are roots of lambda²-b lambda+d. The discriminant is strictly positive because d/b²<=ell²/(2a²)<=1/8. Centering by e^{-ast/2} makes the roots even, proving mean sa/2. Second derivatives yield Var(S_s)=s[a²/12+epsilon*(1-rho^{s-1})/(1+rho^s)]; rho in (0,1) makes inflation and dimension monotonicity strict. Analytic dominant eigenvalue gives CLT and differentiable scaled log MGF gives the stated full compact-support LDP. Independent exact-rational matching and centered-moment enumeration for a=1,ell=1/2, s=3..12 matched the formula. The infinite claims rest on the transfer identity, not those finite checks.
+
+## originality
+
+PASS
+
+The original 2022 full primary article by Kantarcı Oğuz, Özel, Ravichandran defines the same chainlink polytope and in Proposition 6.8 gives its unweighted volume as a cycle-matching trace; it also proves complementary fixed-sum section-volume and Ehrhart symmetry. Its sections 1, 6 and 7, reviewed in full accessible HTML, do not present the nonzero exponential tilt, exact finite coordinate-sum variance, strict variance inflation/monotonicity, Gaussian limit, or Legendre rate function.
+
+## value
+
+PASS
+
+The coordinate sum is the canonical linear functional defining complementary chainlink sections. Determining its full finite-volume distribution transform, strict variance amplification relative to the cube, concentration scale, Gaussian fluctuations and LDP provides substantive continuous geometric invariants of a natural enumerative-combinatorial polytope family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
