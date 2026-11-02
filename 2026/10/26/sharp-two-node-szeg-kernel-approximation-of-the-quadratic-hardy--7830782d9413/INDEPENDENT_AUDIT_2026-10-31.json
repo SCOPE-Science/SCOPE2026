@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:58:52.520229Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "No assertion for other target monomials, higher pole counts, or unrestricted all-degree rational approximations."
+      ],
+      "rationale": "For the confluent or distinct two-node Szegő span, the finite Blaschke product B(z)=(z²-sz+p)/(1-conj(s)z+conj(p)z²) has model space V=H²⊖B H², so the orthogonal error of z² equals the sum of the squared moduli of its first three Taylor coefficients. Those are c0=p, c1=t=-s+p conj(s), c2=1-|p|²+conj(s)t. Setting x=|p|, y=|t| and A=1-x², Schwarz–Pick supplies 0<=y<=A. Inverting t to solve s=-(t+p conj(t))/A and bounding c2 gives error² >= x²+(1-x)u+(A-u)² with u=y²/(1-x). Completing squares gives 9/16+((2x-1)²(4x+3))/16+[u-(1-x)(x+1/2)]², valid for every pair including repeated nodes. Equality forces x=1/2,u=1/2, |t|=1/2 and phase alignment; after a common rotation the zeros are exactly (1±i)/2. That pair has c0=1/2,c1=-1/2,c2=1/4 and error²=9/16, giving captured energy 7/16. Independently verified the polynomial sum-of-squares identity exactly in SymPy and the 2×2 complex kernel Gram projection numerically to high precision. These finite calculations are checks, not the global proof.",
+      "scope": [
+        "Classical H²(D), f(z)=z², two arbitrary complex Szegő kernel nodes (or confluent node derivative); probability-normalized Hardy coefficient inner product."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mashreghi–Verreault 2023 develops model-space nonlinear expansions, not an explicit two-node quadratic optimum in its stated main results.",
+          "Qian 2022 proves best-kernel existence for broad H²/RKHS classes.",
+          "Baratchart et al 2026 discuss lower bounds for R_(n,n) rational approximations of z^N in the range n<N; here type (1,2) and N=2 are outside that direct parameter regime."
+        ],
+        "reasoning": "General existence cannot determine a sharp numerical constant or uniqueness. The 2026 theorem uses a different numerator/denominator constraint and n<N; no direct domination of the exact two-kernel model-space optimization was identified in accessible statements.",
+        "searches": [
+          "Mashreghi Verreault arXiv:2310.01269 model spaces",
+          "Qian arXiv:2201.07228 n-best existence",
+          "Baratchart et al arXiv:2603.16295 monomial rational lower bounds"
+        ]
+      },
+      "checked_sources": [
+        "Qian arXiv:2201.07228 abstract and RKHS framework material",
+        "Qian–Wang arXiv:2012.06184 / full preprint intro and abstract",
+        "Mashreghi–Verreault arXiv:2310.01269 abstract",
+        "Baratchart–Chevillard–Qian arXiv:1501.01161 abstract",
+        "Baratchart et al arXiv:2603.16295 abstract and stated parameter regime",
+        "Resultary semantic exact-case search",
+        "Frozen RESULT.md and independent SymPy/Gram check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence theorems guarantee some optimizer but do not calculate 9/16 or show all optimizers have two distinct nodes at right angle.",
+          "The 2026 generic degree-(n,n) lower bound does not specialize to this exact type-(1,2), n=2,N=2 global equality theorem."
+        ],
+        "reasoning": "The novel exact optimization requires nontrivial coefficient constraints, a sharp two-variable completed-square lower bound, and full equality classification. Known model-space identities are core background and openly credited.",
+        "searches": [
+          "arXiv:2201.07228 best kernel existence",
+          "arXiv:2012.06184 pseudo hyperbolic existence",
+          "arXiv:2603.16295 Section5 Theorem2 n<N monomial bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-kernel/derivative span is exactly the finite Blaschke model space H²⊖BH²; it is equivalent to best H² rational approximation in the type-(1,2) family.",
+          "Qian and Wang show existence for n-best rational approximation using pseudo-hyperbolic distance, not this monomial constant in their stated theorems."
+        ],
+        "reasoning": "Compared Szegő kernels, Takenaka–Malmquist spans, finite Blaschke model spaces and type-(1,2) rational approximants as the same optimization. An earlier named coefficient extremal inequality might imply it without using the word kernel.",
+        "searches": [
+          "n-best kernel Hardy H2 two node approximation z^2",
+          "two-pole Takenaka Malmquist Blaschke degree two first three coefficients 9/16",
+          "Qian Wang arXiv:2012.06184"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-result semantic search returned bidisk degree approximation and distinct two-generator Banach/Blaschke problems, not an exact H² two-node z² table.",
+          "The exact 9/16 value and optimum nodes have been independently reproduced from the explicit finite Blaschke proof."
+        ],
+        "reasoning": "No exact table match found; this is a bounded bibliographic observation, not a proof that the constant was absent throughout classical literature.",
+        "searches": [
+          "Resultary two kernel Szego Hardy H2 z² 9/16 7/16",
+          "two node Szego kernel best z squared captured 7/16",
+          "finite Blaschke first 3 Taylor coefficients lower bound 9/16"
+        ]
+      },
+      "rationale": "PASS, qualified: existing Hardy n-best rational/kernel approximation sources establish model-space decompositions, existence, and lower bounds for different rational classes, but the inspected main statements do not fix the exact 9/16 optimum and all node configurations for z² in the type-(1,2) two-kernel class. A classical finite-Blaschke coefficient inequality could conceal the same special case.",
+      "residual_risks": [
+        "The exact three-initial-coefficient inequality for degree-two Blaschke products might already be a textbook corollary under another formulation.",
+        "Some relevant full older Hardy rational-approximation works were not exhaustively read, so the novelty judgment remains qualified.",
+        "The result has deliberately narrow n=2,f=z² scope; no general best-rational error theorem is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes existence; exact z² two-node optimum not asserted in examined theorem material",
+          "evidence": [
+            "Abstract: existence of n-best kernel approximation for large class including Hardy H²."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.07228",
+          "material_read": "Accessible abstract and substantial full-text explanation of n-best framework and Hardy-space specialization from scholarly full-text mirror; Section 4.1 scope assessed",
+          "method": "open scholarly full-text material and arXiv abstract",
+          "title": "n-Best Kernel Approximation in Reproducing Kernel Hilbert Spaces, Tao Qian (2022)",
+          "trigger": "natural broader n-best kernel existence theorem"
+        },
+        {
+          "assessment": "Provides existence using pseudo-hyperbolic distance, not visibly the exact quadratic two-node numerical optimum",
+          "evidence": [
+            "Full-text preprint introduction states its aim is existence of n-best rational approximation."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/346973933_Pseudo-hyperbolic_distance_and_n-best_rational_approximation_in_H2_space",
+          "material_read": "Open preprint full-text introduction and theorem summary, plus publisher abstract; complete detailed proof not re-read",
+          "method": "public preprint full-text text and publisher abstract",
+          "title": "Pseudo-hyperbolic distance and n-best rational approximation in H², Qian–Wang (2020/2021)",
+          "trigger": "same Hardy approximation and TM system"
+        },
+        {
+          "assessment": "Different type-(n,n) n<N lower-bound regime, not a whole-document noncoverage claim",
+          "evidence": [
+            "Abstract: lower bounds for rational approximation of z^N then general Blaschke products."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.16295",
+          "material_read": "Abstract and section/theorem descriptions available in published result and archived metadata, full manuscript body not newly obtained",
+          "method": "arXiv abstract and bibliographic description",
+          "title": "Lower bounds in H²-rational approximation to Blaschke products, Baratchart et al. (2026)",
+          "trigger": "plausible stronger monomial bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-point nonlinear Hardy kernel approximation is the first nontrivial free-node benchmark beyond one kernel. Exact optimal error and the unique right-angle equal-radius node geometry are natural, reproducible invariants needed for concrete adaptive rational approximation benchmarks. This is a self-contained exact extremal result with meaningful geometry; its value does not depend on generalizing to every degree.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Qian arXiv:2201.07228 abstract and RKHS framework material",
+    "Qian–Wang arXiv:2012.06184 / full preprint intro and abstract",
+    "Mashreghi–Verreault arXiv:2310.01269 abstract",
+    "Baratchart–Chevillard–Qian arXiv:1501.01161 abstract",
+    "Baratchart et al arXiv:2603.16295 abstract and stated parameter regime",
+    "Resultary semantic exact-case search",
+    "Frozen RESULT.md and independent SymPy/Gram check"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No assertion for other target monomials, higher pole counts, or unrestricted all-degree rational approximations.",
+    "The exact three-initial-coefficient inequality for degree-two Blaschke products might already be a textbook corollary under another formulation.",
+    "Some relevant full older Hardy rational-approximation works were not exhaustively read, so the novelty judgment remains qualified.",
+    "The result has deliberately narrow n=2,f=z² scope; no general best-rational error theorem is implied."
+  ],
+  "schema_version": 1
+}
