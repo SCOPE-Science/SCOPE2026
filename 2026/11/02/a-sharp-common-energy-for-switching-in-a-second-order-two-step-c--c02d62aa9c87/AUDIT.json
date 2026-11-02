@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The explicit stages have a verified O(h^3) smooth local error. Their frozen-scalar companion is an exact affine function of the Chebyshev parameter. The positive-definite P has determinant 4/45. Exact endpoint identities, matrix convexity, and the substitution 1-t=x(4-x)/2 give the claimed all-sequence product bound. At x=2 the squared eigenvalue modulus is 1/5, proving coefficient optimality; equality and the unit boundary eigenvector force Q proportional to P. The D(t) determinant and lower-right principal minor give full Schur-window contractivity. The exact standard-library verifier passed 2932 checks; infinite assertions follow from analytic identities, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2201.00527v1, Introduction and Sections 2-3: stability on variable step grids for BDF formulas",
+        "DOI:10.1137/0720076: unconditional stable implicit one-leg methods under dissipative variable coefficients",
+        "DOI:10.1137/18M122892X: strong stability for explicit one-step RK applied to seminegative systems",
+        "Ketcheson–Gottlieb–Macdonald, Strong Stability Preserving Two-Step Runge–Kutta Methods (2011), DOI 10.1137/10080960X, abstract: SSP order and monotonicity theory, not the same sharp switched scalar quadratic certificate."
+      ],
+      "reasoning": "These broader frameworks cover different implicit formulas, changing step ratios, or one-step methods. They do not state a common metric for the specific two-stage two-step affine companion curve nor the unique extremal coefficient. General LMIs can in principle verify a supplied certificate but do not make its optimal exact structure automatic.",
+      "searches": [
+        "variable coefficient second order explicit two-step Runge Kutta uniformly stable on full scalar stability interval",
+        "joint spectral radius two step Runge Kutta Chebyshev scalar all individually stable switched matrices exact common quadratic contractivity",
+        "two step Chebyshev Runge Kutta variable lambda common G-stability energy switching",
+        "Moisa Faleichik second order two step stabilized Runge Kutta common quadratic Lyapunov arbitrary switching"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.16267v1 (Moisa–Faleichik, 2023-03-28; full HTML Sections 1-5)",
+      "arXiv:2201.00527v1 (Li–Liao, 2022-01-03; full HTML Introduction and BDF2 stability statements)",
+      "DOI:10.1137/0720076 (Dahlquist–Liniger–Nevanlinna, 1983; publisher abstract)",
+      "DOI:10.1137/18M122892X (Sun–Shu explicit RK strong stability; publisher abstract)",
+      "DOI:10.1137/10080960X (Ketcheson–Gottlieb–Macdonald, 2011; Oxford Research Archive abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2303.16267v1, Sections 2,4: root conditions for one fixed scalar test parameter",
+        "The exact matrix identity A(-1)^T P A(-1)=P/5 and A(1)^T P A(1) <= P is additional to root inequalities",
+        "arXiv:2201.00527v1, Section 2: BDF2 DOC convolution approach rather than fixed two-stage sample update",
+        "A retrieved published result treats separate stagewise Euler nonexpansion constraints for SPD Richardson, with neither a two-step RK companion nor arbitrary switching in the stated rational method."
+      ],
+      "reasoning": "Individual Schur stability of a set of matrices does not generally imply stability of arbitrary products. The proved simultaneous metric is thus not a corollary of the published frozen-mode stability statement. The optimality and uniqueness require boundary eigenvector and determinant-equality arguments absent from the checked primary work.",
+      "searches": [
+        "joint spectral radius two step Runge Kutta Chebyshev scalar all individually stable switched matrices exact common quadratic contractivity",
+        "Moisa Faleichik 2023 second order two-step stabilized Runge Kutta arbitrary switching common quadratic Lyapunov variable scalar dissipation",
+        "two step Chebyshev Runge Kutta variable lambda common G-stability energy switching",
+        "Quadratic switched RK Chebyshev stability bound 1-x(4-x)/5 and full companion Schur interval (-2,1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2303.16267v1, Sections 2, 3, 5: affine Chebyshev stability-polynomial family and stage realization",
+        "arXiv:2201.00527v1, Sections 1-2: distinct variable-step BDF formulas and DOC-kernel stability notion",
+        "A retrieved result about an invertible whole-line bilateral two-periodic recurrence residual constant, not the arbitrary products of the specified two-step RK companion matrix."
+      ],
+      "reasoning": "The relevant primary paper provides modewise scalar root conditions, not products of different companion matrices. Exact equality of characteristic polynomials does not imply the existence or uniqueness of a simultaneous energy. The BDF operators are algebraically different and do not reduce to the displayed explicit two-stage recurrence.",
+      "searches": [
+        "Moisa Faleichik 2023 second order two-step stabilized Runge Kutta arbitrary switching common quadratic Lyapunov variable scalar dissipation",
+        "explicit two-stage two-step Runge Kutta recurrence R1=3/5(1+T2) R0=-T2/5 P=[[1,-1/3],[-1/3,1/5]] Lyapunov",
+        "Moisa Faleichik second order two step stabilized Runge Kutta common quadratic Lyapunov arbitrary switching",
+        "two step Chebyshev Runge Kutta 3/5 1/5 scalar companion common quadratic stability",
+        "A common quadratic Lyapunov energy P=[[1,-1/3],[-1/3,1/5]] proves switched contraction for explicit two-step Runge Kutta Chebyshev A(t)=[[3(1+t)/5,-t/5],[1,0]] t in [-1,1], sharp coefficient 1/5 and unique optimizer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2303.16267v1, Table 1: damped stability interval and error constants for epsilon=0.05; not the rational parameters used here",
+        "The inspected source provides numerical coefficients for a separate s=5, eta=0.95 example; no tabulated sharp common switching energy for the s=2 rational member"
+      ],
+      "reasoning": "The exact rational certificate and its 1/5 optimal coefficient are not read from an existing table. They follow from new endpoint matrix identities and the determinant-uniqueness argument. Search results may miss unindexed numerical-analysis notes.",
+      "searches": [
+        "explicit two-stage two-step Runge Kutta recurrence R1=3/5(1+T2) R0=-T2/5 P=[[1,-1/3],[-1/3,1/5]] Lyapunov",
+        "second order two step Runge Kutta Chebyshev polynomials damped method stationary variance roundoff stochastic forcing exact resonance",
+        "two step Chebyshev Runge Kutta 3/5 1/5 scalar companion common quadratic stability",
+        "Second-order two-stage Chebyshev two-step integrator damping alpha 3/5 eta squared 1/5 arbitrary switched scalar decay rates common sharp energy"
+      ]
+    },
+    "rationale": "Actual published-method full text supplies frozen-mode characteristic polynomials but no arbitrary-switching common quadratic inequality. The present exact rational metric, its largest universal loss coefficient, uniqueness, and full affine Schur-window contractivity are stronger than scalar root stability and are not obtained by the inspected BDF2 variable-step theorems. Named searches for equivalent formulations and stronger coverage did not identify a dominating exact statement. Specialized older general-linear or common-Lyapunov classifications remain a residual publication-priority risk.",
+    "residual_risks": [
+      "Older unindexed G-stability, common-quadratic, or explicit general-linear-method literature could contain an equivalent specialized rational coefficient result.",
+      "The 1983 one-leg-method source was not inspected beyond its abstract; its different formula limits direct applicability but full technical details were not verified.",
+      "Novelty is a best-knowledge scientific comparison and not an independent publication-priority certification.",
+      "2011 strong-stability-preserving two-step RK full paper was not read; its abstract addresses a distinct monotonicity framework and does not decide the present LMI optimality question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source supplies algorithmic template, stage formula and scalar frozen-coefficient root stability, not arbitrary switching certificate or the unique sharp rational energy",
+        "evidence": [
+          "Section 2 characteristic polynomials and order conditions",
+          "Section 3 Chebyshev damping construction",
+          "Section 5 two-stage realization coefficients"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.16267v1",
+        "material_read": "Full accessible HTML Sections 1-5, especially equations (4)-(10), (21)-(24), and stability/error discussion; Table 1",
+        "method": "Read actual primary full-text formulas and compared their hypotheses and outputs to a sharp common quadratic inequality",
+        "title": "Second order stabilized two-step Runge-Kutta methods",
+        "trigger": "Same scheme family, exact order conditions and damped Chebyshev polynomials"
+      },
+      {
+        "assessment": "Different implicit BDF family and variable-step grids, no exact explicit two-stage companion certificate for the method considered",
+        "evidence": [
+          "Definition 1 stability in terms of perturbations",
+          "BDF2 equation (1.4)",
+          "Theorem 2.1 claimed arbitrary-step BDF2 stability"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.00527v1",
+        "material_read": "Full accessible HTML Introduction, Sections 1-2 mathematical statements, and BDF2 coefficient definitions and stability criteria",
+        "method": "Compared operator formulas, switching dimension, proof machinery and scope",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Closest variable-coefficient multistep stability formulation"
+      },
+      {
+        "assessment": "Abstract explicitly concerns one-leg dissipative schemes and arbitrary step sizes, a different discretization; unable to rule out a hidden analogous proof technique in full text",
+        "evidence": [
+          "1983 abstract describes one-parameter family of two-step second-order one-leg methods"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0720076",
+        "material_read": "Publisher abstract and bibliographic metadata only, not a full-paper inspection",
+        "method": "Statement comparison with distinct one-leg formulas",
+        "title": "Stability of Two-Step Methods for Variable Integration Steps",
+        "trigger": "Older broad variable-step two-step unconditional stability result"
+      },
+      {
+        "assessment": "Abstract is about SSP TSRK stage restrictions and order conditions, not a quantitative simultaneous quadratic certificate; body is a residual overlap risk",
+        "evidence": [
+          "2011 SIAM J Numer Anal 49(6), 2618–2639, DOI:10.1137/10080960X; repository abstract describes order up to eight and SSP coefficients"
+        ],
+        "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid%3A2782d268-4bbe-44bc-b2a3-735501234a85",
+        "material_read": "Open Oxford Research Archive bibliographic record and abstract; paper body not inspected",
+        "method": "Compared subject of SSP positivity/monotonicity and method design against the exact switched scalar quadratic energy claim",
+        "title": "Strong Stability Preserving Two-Step Runge-Kutta Methods",
+        "trigger": "Potential earlier broad two-step Runge-Kutta stability coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c02d62aa-9c87-44be-b8ca-f935fb421b2e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Time-varying scalar dissipation and switched modes are natural stress tests for stabilized multistep integrators. Frozen-mode Schur stability is not generally sufficient for arbitrary matrix products; the rational scheme admits an exact common energy over every frozen-stable parameter. A sharp optimal coefficient and unique metric offer a usable quantitative stability budget rather than a small numerical improvement, arbitrary slice, or rebranded known order condition.",
+    "status": "PASS"
+  }
+}
