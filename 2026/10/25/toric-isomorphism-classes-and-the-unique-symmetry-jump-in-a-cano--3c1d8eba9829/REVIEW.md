@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The canonical toric fan is specified by eight primitive integral rays and twelve cones. Every possible toric isomorphism permutes those rays and cones; exhaustive enumeration gives eight permutations. Mapping the lattice basis on rays 1, 2 and 4 fixes its candidate matrix, and exact symbolic elimination of all ray constraints leaves exactly identity and the reflection \(b=-a-4\). The explicit determinant-one reflection proves sufficiency. The standalone program reproduces the complete symbolic check, not just bounded tests.
+## correctness
 
-**Originality — PASS (qualified).** Ito–Zeng–Zeng establish nonprojective tensor-generation for all parameters, not the quotient of their parameter set under isomorphism. Fujino–Sato describe the same four-parameter fan and its birational behavior, not the pairwise classification. A symbolic-condition comparison to those results and targeted mathematical-index and earlier-claim searches yielded no equivalent classification. Residual risk remains for an implicit older change-of-coordinates equivalence or unindexed parameter isomorphism statement.
+PASS
 
-**Mathematical value — PASS.** The exact toric-isomorphism classification resolves a natural ambiguity in the infinite family used to exhibit tensor-generating canonical bundles: it identifies the moduli redundancy, gives canonical representatives, and detects the unique symmetry jump. The information is not inferred merely from the fact that every member shares the same tensor-generation property.
+For every integer a,b, the source fan has eight primitive rays and twelve listed maximal cones. Every toric isomorphism gives a ray permutation preserving these twelve triples; full enumeration of all 8! permutations yields exactly eight candidates. Rays 1,2,4 form an integral unimodular basis, so the unique forced lattice matrix for each candidate is obtained from their images. Independent symbolic Gröbner elimination of all 24 ray-coordinate constraints gives the unit ideal for six candidates and only a−b=0 (identity) or a+b+4=0 (nonidentity). The explicit matrix U_a=[[-1,0,0],[-a−2,0,−1],[-a−2,−1,0]] has determinant +1, sends the rays as required and obeys U_{−a−4}U_a=I. Hence toric isomorphism iff b=a or -a-4, with unique parameter representative a≥−2, and exactly at a=−2 a second fan automorphism. This classifies only toric isomorphisms and fan-preserving lattice maps, not abstract automorphisms.
 
-**Limits.** Only toric isomorphisms and fan automorphisms are classified, not full abstract automorphism groups; all tensor-generation properties are attributed to existing literature. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact classification of lattice-fan equivalences among the Z''13(a,2,a+2,a+1) specialization is a more refined question than the prior discovery of its nonprojective tensor-generating property. The highly relevant four-parameter fan description in Fujino–Sato supplies the data but not the two-way parameter equivalence or unique special fan symmetry. Ito–Zeng–Zeng's October 2026 primary full PDF could not be retrieved through OA/arXiv; the authorized institutional downloader returned vpn_disconnected, so no paper-wide exclusion can be claimed for it. Accessible statements indicate a family construction, not a pairwise equivalence theorem. The numerical/parameter alias is matched to fan isomorphism up to GL3(Z), not to title wording; residual risk explicitly retained.
+
+## value
+
+PASS
+
+A one-parameter family used to exhibit a geometric property does not establish an infinite collection of distinct toric classes. Classifying exactly its parameter redundancies and unique lattice symmetry jump is a natural structural question; this supplies canonical a≥−2 representatives and a genuine exceptional automorphism at a=−2. No claim about full abstract automorphism groups or tensor-generation novelty is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
