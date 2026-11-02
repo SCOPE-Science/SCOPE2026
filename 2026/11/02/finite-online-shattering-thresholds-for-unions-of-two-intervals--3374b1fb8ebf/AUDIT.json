@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact induction for the shattering predicate P(S,d), complete two-run mask enumeration, 14 matching true-depth and false-next-depth tests, two explicit complete adaptive trees with 31/32 and 511/512 node/witness counts, exhaustive witness replay, and an alternate tuple-of-strings implementation agreeing through eight points. Finite exact code outputs were reproduced and not extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alon et al., arXiv:2003.04509, Theorem 3: general aggregation upper bound in terms of component Littlestone dimension.",
+        "Ghazi et al., arXiv:2007.03668, Proposition 3: O(kd log k) broad composition upper bound."
+      ],
+      "reasoning": "Neither general composition bound fixes the exact rank of this specific finite ordered class or the first n=7 failure of the counting bound. Their conclusions are compatible with, but do not imply, the reported exact values.",
+      "searches": [
+        "Near-tight closure bounds for Littlestone and threshold dimensions 2007.03668",
+        "Closure Properties for Private Classification and Online Prediction 2003.04509",
+        "\"2-interval\" \"mistake bound\" online learning",
+        "\"unions of intervals\" \"thicket\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2003.04509",
+      "https://arxiv.org/abs/2007.03668",
+      "https://arxiv.org/html/2310.04812v1",
+      "https://proceedings.mlr.press/v125/alon20a/alon20a.pdf",
+      "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alon et al. give generic closure bounds and no interval-specific values in the searched PDF text.",
+        "Ghazi et al. give general closure bounds and no interval-specific values in the searched PDF text.",
+        "Chase et al. construct a pairwise disjoint interval family with Littlestone dimension one; a two-interval union class has many overlapping concepts and can shatter depths above one."
+      ],
+      "reasoning": "Generic upper estimates do not imply the reported exact finite values; the disjoint-interval example is a different class. The related prior record on single intervals cannot imply the two-interval exact table without an additional theorem, and none was located.",
+      "searches": [
+        "arXiv:2003.04509 full text \"interval\"",
+        "arXiv:2007.03668 full text \"interval\"",
+        "arXiv:2310.04812v1 section 3 intervals",
+        "finite chain interval membership Littlestone thresholds",
+        "online shattering union of two intervals n=7 entropy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.04812v1 section 3 presents disjoint single intervals with dimension one, not overlapping arbitrary two-run membership masks.",
+        "arXiv:2003.04509v1 introduction studies Boolean aggregation, not exact two-run finite-chain values."
+      ],
+      "reasoning": "The class is equivalently binary length-n words with at most two maximal one-runs, or a two-fold OR closure of single-interval concepts. The searched papers do not give its specific finite Littlestone sequence. Alternative bounded-alternation terminology could nonetheless conceal a prior equivalent classification.",
+      "searches": [
+        "\"unions of two intervals\" \"Littlestone\" dimension",
+        "\"finite\" \"two intervals\" \"thicket dimension\"",
+        "Littlestone dimension VC dimension exact union of two intervals on ordered set finite chain membership adaptive shattering",
+        "binary string classes with at most two one-runs VC dimension four and online Littlestone dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching finite table was found in searched accessible mathematics indexes or research-record titles and summaries; this is limited negative evidence, not a uniqueness proof.",
+        "The relevant claims recovered from accessible earlier records concern single intervals and unrelated two-block families, not this two-run union class."
+      ],
+      "reasoning": "The enumerated dimension profile 1,2,3,4,4,5,5,6,6,7,7,8,8,9 and initial n=7 entropy shortfall were compared as numbers and implications, not merely as titles. No identified exact earlier table reproduces or dominates those claims.",
+      "searches": [
+        "\"unions of two intervals\" \"Littlestone\" exact finite",
+        "\"2-intervals\" \"Littlestone\" exact",
+        "\"piecewise constant\" \"Littlestone dimension\" finite",
+        "exact Littlestone dimension of unions of at most two intervals on finite line, binary strings with at most two runs of ones, first cardinality bound gap seven points"
+      ]
+    },
+    "rationale": "Closest inspected primary closure papers provide only bounds and do not imply this finite exact sequence; a related interval example is a disjoint family rather than two-run unions. Searches of mathematical literature and accessible published research records did not identify the seven-point entropy-bound obstruction or entire finite table. Different terminology remains a residual risk.",
+    "residual_risks": [
+      "Bounded-alternation and finite online change-point models may contain equivalent priority results under different keywords.",
+      "No exhaustive historical coverage is claimed for unpublished notes or all private prior records.",
+      "The table n<=14 is a finite benchmark, not a closed-form classification for all sizes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General closure theorem with no exact finite two-interval sequence; no occurrence of interval in indexed PDF text.",
+        "evidence": [
+          "Theorem 3 states asymptotic aggregation bound rather than an exact finite-chain formula.",
+          "Original preprint date 2020-03-10 from arXiv:2003.04509v1."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v125/alon20a/alon20a.pdf",
+        "material_read": "Abstract and Introduction, Section 1.1 Theorem 3 and the listed specialized OR bound; text-search of complete 34-page PDF for interval.",
+        "method": "Accessible publisher OA PDF opened, relevant pages visually inspected and full-text interval query used.",
+        "title": "Closure Properties for Private Classification and Online Prediction",
+        "trigger": "Original broad Littlestone-dimension closure theorem directly relevant to OR of interval classes."
+      },
+      {
+        "assessment": "Gives general O(kd log k) closure bound and tightness examples, not the explicit finite two-run dimensions.",
+        "evidence": [
+          "Proposition 3 is generic for all Boolean aggregation rules.",
+          "Initial preprint date 2020-07-07 from arXiv:2007.03668v1."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "Abstract, Introduction, related-work discussion, Section 2.1 and Proposition 3, plus full-text search for interval.",
+        "method": "Accessible OA PDF opened; pages 2-3 visually inspected; terms checked across indexed 11 pages.",
+        "title": "Near-tight closure bounds for the Littlestone and threshold dimensions",
+        "trigger": "Sharper closure bounds that might subsume a specific two-interval result."
+      },
+      {
+        "assessment": "Its separated disjoint-interval class has dimension one, unlike unions of up to two intervals on one finite chain.",
+        "evidence": [
+          "Section 3 example uses pairwise disjoint intervals indexed by n.",
+          "arXiv version first appeared October 2023."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.04812v1",
+        "material_read": "Abstract and introduction, Section 3 interval example, and relevant context around Definition 2.1 and Theorem 2.10.",
+        "method": "Read accessible arXiv HTML article and searched interval occurrence.",
+        "title": "Applications of Littlestone dimension to query learning and to compression",
+        "trigger": "Recent paper contains an explicit interval example under a thicket-dimension viewpoint."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3374b1fb-8ebf-43e4-8278-be9454c80be8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The n=7 case is the first natural nontrivial failure of the raw information-counting upper bound for a canonical two-union interval class after exactness through n=6; n=6 is the first separation from fixed-query VC dimension four. The full n<=14 table, explicit trees and independent upper-bound recurrence supply a useful reproducible test set for adaptive two-piece concept learning. The value is the sharp threshold and structure, not solely code correctness.",
+    "status": "PASS"
+  }
+}
