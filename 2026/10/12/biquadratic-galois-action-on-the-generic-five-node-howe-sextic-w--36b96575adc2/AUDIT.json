@@ -1,124 +1,158 @@
 {
   "correctness": {
-    "rationale": "Exact SymPy resultant of the specified five branch parameters equals the displayed cubic G. Exact Gröbner ideal (G,G_u,G_v) has unique point (11/560,1/56); its Hessian determinant -253584 is nonzero. The origin has tangent cone -12(Y²-Z²), so there are five ordinary nodes and source bound excludes others. Coordinates square to (11/560,1/56) and square classes 385=5·7·11 and 14=2·7 are independent. Uniqueness of squared-node pair over the function field plus nondegenerate rational specialization in a normal local ring proves generic independence. Good-reduction spreads finite étale five-node scheme away from finitely many primes; Frobenius in the biquadratic extension gives densities 1/4,3/4 via Chebotarev. Extracted standalone verifier checks all critical exact identities and 18 finite-field examples. Limits: finite examples do not establish infinite density; neither geometric monodromy nor all bad primes asserted.",
+    "rationale": "Let K=Q(a,b,c,d,e) with algebraically independent distinct branch parameters outside {0,1}. The source family f(Y,Z)=G(Y²,Z²) is invariant under independent sign changes. Moriya–Kudo Prop. 4.2.6(I) shows one origin node and four nonzero sign nodes generically. The unique nonzero squared pair (u*,v*) is fixed by absolute Galois and hence lies in K×; its field of definition is K(sqrt(u*),sqrt(v*)). For the claimed rational tuple (2,3,4,5,6), an INDEPENDENT exact resultant calculation gives G=-12(600u³−520u²v−50u²+142uv²+33uv+u−12v³+13v²−v). The exact ideal (G,G_u,G_v) has reduced Groebner basis {560u−11,56v−1}; G(u0,v0)=0 at u0=11/560,v0=1/56 and det Hess(G)=-253584. The origin affine Hessian is diag(-24,24); at all four points (±sqrt385/140,±sqrt14/28), det Hess f=-348678/245. The leading infinity sextic has squarefree univariate polynomial and both coordinate-axis potential noncentral singular loci have constant gcd, ruling out other projective singularities independently of the source bound. Thus exactly five ordinary nodes. The square classes [385] and [14] and their product are nontrivial over Q, hence the specified node field has Galois group V4. The nonzero Jacobian/Hessian at the rational parameter tuple makes the unique squared node pair regular on a local normal open of the parameter space. If any of u*,v*,u*v* were a square in K, its integral square root would be regular there and would specialize to a rational square, contrary to the exact rational witness. Therefore the generic classes are independent and the four-node action is regular V4. Outside finitely many primes the projective reduced singular scheme extends as a finite etale five-point scheme; the central point stays rational and the other four are simultaneously rational iff (385/p)=(14/p)=+1. Since those quadratic characters are independent, Chebotarev gives densities 1/4 for five and 3/4 for one, without counting smooth Fp curve points. A separate modular program exhaustively enumerated all projective singular points for 18 odd representative primes 13..83, matching predictions; finite samples are not an infinite density proof. ",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Moriya–Kudo, arXiv:2310.15993v1: general five-node classification, weaker arithmetic conclusion.",
-        "Moriya–Kudo, arXiv:2401.00760v1 §2.2 repeats the first paper and examines the distinct (1,1,0) case.",
-        "General Severi monodromy sources study unrestricted plane nodal curves, whereas this family has sign involutions and a special restricted monodromy group."
+        "Moriya–Kudo I Theorem 2 and Proposition 4.2.6 bound geometry to five or three double points and identify the generic sign quartet.",
+        "Moriya–Kudo II Theorem 2.2.1 restates that geometric classification but its own new model has the separate (1,1,0) parameters.",
+        "Ohashi (2026) Theorem 1.2 and Proposition 4.1 concern superspeciality and completely decomposable Jacobians in positive characteristic."
       ],
-      "reasoning": "The broad geometric upper bound and sign orbit do not calculate the generic arithmetic specialization of square roots. Unrestricted Severi geometric S_5 permutation statements cannot imply this rational arithmetic V4 action; geometric and arithmetic bases differ.",
+      "reasoning": "No inspected stronger primary theorem forces the two generic squared-coordinate classes to be independent or determines fixed-Q Chebotarev densities. Unrestricted Severi monodromy, even if available, concerns a different family and geometric monodromy and cannot be substituted for this arithmetic descent computation.",
       "searches": [
-        "monodromy of nodes Severi variety plane sextic genus 5 5 nodes symmetric group",
-        "Howe curve (2,2,4) sextic normalization generic 5 nodes four sign orbit V4 Galois over function field"
+        "https://arxiv.org/pdf/2310.15993",
+        "https://arxiv.org/html/2401.00760v1",
+        "https://arxiv.org/pdf/2604.18074",
+        "Howe monodromy singularity fields generic V4 arithmetic Galois",
+        "Moriya Kudo Ohashi explicit plane sextic superspecial poster",
+        "Howe genus 5 sextic five singular nodes biquadratic Galois splitting reduction finite field Chebotarev density rational nodes"
       ]
     },
     "checked_sources": [
-      "arXiv:2310.15993v1 §§3.1-3.3 and 4.2",
-      "arXiv:2401.00760v1 §2.2",
-      "arXiv:2102.07270v1, general genus-five sextic method",
-      "MSC2020 14H50 Plane and space curves",
-      "six focused mathematical-record search queries concerning Howe nodes and their fields",
-      "Full claim-to-literature comparisons of relevant geometric and arithmetic objects"
+      "https://arxiv.org/pdf/2310.15993",
+      "https://arxiv.org/html/2401.00760v1",
+      "https://arxiv.org/pdf/2604.18074"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "arXiv:2310.15993v1 Proposition 4.2.6 is essential: uniqueness of a squared coordinate pair gives u,v in the parameter field; its proof never establishes their independent square classes.",
-        "arXiv:2401.00760v1 Theorem 2.2.1 restates the first paper’s geometric counts and moves to a different parameter case.",
-        "The symbolic witness has squared node coordinates (11/560,1/56), whose square classes are independently nontrivial; no inspected primary theorem supplies this."
+        "Prior geometric theorem supplies f in K[Y²,Z²] and nodes (0,0),(±y,±z), giving only Gal(node field/K)≤V4.",
+        "One may have a sign quartet geometrically with square classes trivial or dependent over the ground field; geometric orbit size 4 does not imply arithmetic transitivity.",
+        "The independently computed specialization has three nontrivial square classes [385],[14],[5390], and nondegenerate local specialization rules out generic dependence.",
+        "The finite-characteristic superspeciality theorem of Ohashi does not imply characteristic-zero generic arithmetic residue fields."
       ],
-      "reasoning": "Source theorem implies at most a 2-elementary node splitting field; its possible orders are 1,2,4, so it does not force 4. The new exact witness and normal-local specialization yield generic order 4 and, with Chebotarev, exact density. Published three-singularity cases are logically disjoint from the generic five-node arithmetic setting.",
+      "reasoning": "The candidate genuinely strengthens the geometric theorem by proving the largest allowable arithmetic Kummer extension and derives a corresponding Chebotarev density for a fixed rational model. No inspected prior theorem or mechanical direct consequence yields the independent-square-class witness; the result is not a special case of the different superspeciality assertion.",
       "searches": [
-        "Genus five Howe curves Moriya Kudo plane sextic five nodes arithmetic Galois biquadratic field monodromy V4 square classes normalized branch parameters singular point fields",
-        "Howe sextic resultant polynomial Res_x(phi(x)Y^2-Q1(x),phi(x)Z^2-Q2(x)) four nodes sign conjugation generic node splitting field Galois",
-        "Howe genus five curve Moriya Kudo 2310.15993 five singular nodes biquadratic fields of definition four sign nodes discriminant 385 14",
-        "\"Howe\" \"sextic\" \"monodromy\" \"singular points\""
+        "https://arxiv.org/pdf/2310.15993",
+        "https://arxiv.org/html/2401.00760v1",
+        "https://arxiv.org/pdf/2604.18074",
+        "Arithmetic fields of definition and Galois action of four singular points (±y,±z) on genus five Howe curve plane sextic Moriya Kudo, biquadratic node splitting field",
+        "Genus five Howe plane sextic node coordinates field of definition biquadratic C2 x C2 singular points",
+        "Howe genus five node splitting"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arXiv:2310.15993v1 §3.2 resultant and Proposition 4.2.6 give the sign quartet over an algebraically closed field, but not the node residue fields or quadratic character distribution.",
-        "A retrieved genus-three nodal-monodromy study concerns a different genus and invariant, not a genus-five Howe node field."
+        "Equivalent forms: independence of [u*],[v*] in K×/K×²; degree-four Kummer extension K(sqrt(u*),sqrt(v*)); regular four-node arithmetic Galois orbit; two independent Legendre characters at the exact rational tuple.",
+        "Moriya–Kudo I Proposition 4.2.6(I) establishes only geometric (±y,±z) and gives no independence of Kummer classes.",
+        "The exact tuple specializes to the independent rational square classes [385],[14]."
       ],
-      "reasoning": "The equivalent field-theoretic forms are independence of squared-node classes, V4 regular Galois action, and two independent quadratic characters controlling F_p-node counts. Geometric sign-invariance bounds the Galois group but cannot force it to be full V4. The specialized independent classes 385 and 14 and local specialization argument establish the missing nonimplication.",
+      "reasoning": "The geometric sign group acts as an automorphism group, but that does not force all sign automorphisms to occur as arithmetic Galois elements. The local square-class specialization argument supplies the nontrivial degree comparison. Searches did not identify an equivalent published arithmetic treatment.",
       "searches": [
-        "Genus five Howe curves Moriya Kudo plane sextic five nodes arithmetic Galois biquadratic field monodromy V4 square classes normalized branch parameters singular point fields",
-        "Howe sextic resultant polynomial Res_x(phi(x)Y^2-Q1(x),phi(x)Z^2-Q2(x)) four nodes sign conjugation generic node splitting field Galois",
-        "Arithmetic descent of singular point nodes genus five Howe sextic Chebotarev rational nodes finite fields",
-        "\"Howe\" \"genus five\" \"sextic\" \"Galois\" \"nodes\"",
-        "\"Howe\" \"sextic\" \"monodromy\" \"singular points\""
+        "Arithmetic fields of definition and Galois action of four singular points (±y,±z) on genus five Howe curve plane sextic Moriya Kudo, biquadratic node splitting field",
+        "Genus five Howe plane sextic node coordinates field of definition biquadratic C2 x C2 singular points",
+        "Moriya Kudo explicit construction plane sextic genus-five Howe curves five nodes Galois field square root nodes 2310.15993",
+        "\"Howe curves\" \"field of definition\" \"singularities\" plane sextic",
+        "Howe sextic nodes Galois biquadratic",
+        "https://arxiv.org/pdf/2310.15993"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "arXiv:2310.15993v1 Table 1 counts geometric five-node versus three-node Howe sextics over small finite fields; Example 4.2.7 explicitly lists geometrically split F_31 nodes, but neither gives the Q-specialized biquadratic field nor prime-density distribution.",
-        "Nearby records on quadratic-field conic-line arrangements and on the root-configuration unexpected sextic concern different objects, with no implication for genus-five Howe node fields."
+        "Moriya–Kudo I Table 1 counts type (5,0), (1,2), (3,0) geometric singular configurations as the Howe parameters vary over each small finite field.",
+        "Moriya–Kudo I Example 4.2.7 gives specific parameter tuples in F31; these are not rational parameters (2,3,4,5,6) with primes varying.",
+        "No retrieved database gives the explicit Q(sqrt385,sqrt14) node splitting field or the 1/4 vs 3/4 fixed-curve prime distribution."
       ],
-      "reasoning": "An enumerated finite-field table for varying parameters and primes is not the exact Chebotarev density for fixed parameters (2,3,4,5,6). The table and found records neither list the node fields nor cover the implication.",
+      "reasoning": "The closest published table varies branch parameters at fixed finite fields; the claim fixes a characteristic-zero arithmetic curve and varies prime reductions. The two enumerations are logically different. Missing exact-table hits alone are not used to certify novelty.",
       "searches": [
-        "Howe genus five curve Moriya Kudo 2310.15993 five singular nodes biquadratic fields of definition four sign nodes discriminant 385 14",
-        "Moriya Kudo plane sextic (alpha1 alpha2 alpha3 beta2 beta3) singularities 5 arithmetic square classes 2023",
-        "\"Howe\" \"genus five\" \"sextic\" \"Galois\" \"nodes\"",
-        "\"Moriya\" \"Kudo\" \"Galois\" \"nodes\""
+        "https://arxiv.org/pdf/2310.15993",
+        "Moriya–Kudo I Table 1 and Example 4.2.7",
+        "\"385\" \"14\" \"Howe\" sextic",
+        "Howe genus 5 sextic five singular nodes biquadratic Galois splitting reduction finite field Chebotarev density rational nodes",
+        "Moriya Kudo singular field"
       ]
     },
-    "rationale": "The full relevant construction and singularity classification in arXiv:2310.15993v1 (§3.2, §4.2, Proposition 4.2.6) establish the geometric sign quartet, not its rational-function-field splitting field, independence of its two node square classes, or the explicit rational specialization and Frobenius distribution. Follow-up arXiv:2401.00760v1 treats another genus-five Howe model; arXiv:2102.07270v1 treats general sextic construction. Comparison is by implication: sign symmetry by itself gives at most a subgroup of V4 and does not imply full independence or density 1/4. Focused published mathematical-record searches returned unrelated records. Historical unindexed arithmetic computations remain a residual risk.",
+    "rationale": "The natural geometric theorem in Moriya–Kudo arXiv:2310.15993v1 explicitly provides the five nodes and four independent geometric sign choices; it does not establish that the two *arithmetic* square classes are independent over the rational function field. Its theorem permits Galois subgroup orders 1, 2, or 4; the exact specialization and local argument supply the missing order-4 proof. Moriya–Kudo II arXiv:2401.00760v1 repeats the earlier geometry and studies a distinct genus-five Howe construction. Ohashi arXiv:2604.18074v3 handles superspeciality over finite characteristics, not this fixed characteristic-zero singular-node field. The earlier table counts geometric node types over varying parameters mod p, not the Frobenius distribution of a single Q-curve over varying primes. Three Resultary semantic searches and three repository searches returned no demonstrably covering published statement. That negative evidence is not a proof of novelty; the inspected primary comparisons by exact mathematical implication support PASS at best of knowledge, subject to the uninspected MEGA poster/unindexed computations.",
     "residual_risks": [
-      "No literature search can exclude all unindexed or unpublished computations of these node fields.",
-      "The full range of bad characteristic primes is not enumerated and is not claimed.",
-      "The special model is a restricted family; no assertion about absolute geometric monodromy is made."
+      "The strongest originating paper classifies geometric sign-related nodes, not their arithmetic square classes; a possibly unindexed author computation or MEGA 2024 poster could contain those classes and has not been excluded by full-text examination."
     ],
     "source_inspections": [
       {
-        "assessment": "Covers precise resultant and geometric sign-node classification, but not arithmetic square-class independence, generic V4 residue field, or fixed-Q example prime density.",
+        "assessment": "Theorem 2 and Proposition 4.2.6 prove the geometric configurations (one origin and four sign-related nodes in the generic five-node case), and Table 1 counts geometric types over varying finite fields. The inspected statements do not give their generic K-rational square classes, degree-four Galois orbit, the specified Q-point node field, or the fixed-Q prime-density distribution.",
         "evidence": [
-          "§3.2: f=Res_x(phi Y²-Q1,phi Z²-Q2)",
-          "Proposition 4.2.6 case I: origin and (±y,±z), generic five nodes",
-          "Table 1: finite-field geometric configuration statistics across parameters"
+          "§3.2 f(Y,Z)=Res_x(phi Y²-Q1,phi Z²-Q2).",
+          "Proposition 4.2.6(I): precisely five geometric double points (0:0:1),(±y:±z:1), generic case I.",
+          "Table 1: geometric node-type counts over F_p for varying branch parameters; Example 4.2.7 computes an unrelated finite-field example."
         ],
-        "identifier_or_url": "arXiv:2310.15993v1; https://arxiv.org/html/2310.15993v1",
-        "material_read": "Introduction, §3.1-§3.3 (resultant), §4.1-§4.2 including Proposition 4.2.6, Table 1, Example 4.2.7, and conclusions",
-        "method": "Read original open-access full HTML with formula and theorem comparisons",
+        "identifier_or_url": "Moriya and Kudo, arXiv:2310.15993v1; https://arxiv.org/pdf/2310.15993",
+        "material_read": "Primary PDF: pp. 1–2 introduction/theorem; p. 8 §3.2 construction; pp. 16–19 §4.2 Lemmas 4.2.1–4.2.5 and Proposition 4.2.6, its proof and table; pp. 19–20 Example 4.2.7 excerpts.",
+        "method": "Opened full 24-page arXiv PDF, searched sections and relevant equations, and examined rendered page images 8 and 19.",
         "title": "Explicit construction of a plane sextic model for genus-five Howe curves, I",
-        "trigger": "Exact originating Howe-sextic construction, singularities and potential arithmetic-node coverage"
+        "trigger": "The exact originating resultant, five-node bound, node orbit, and most plausible direct prior coverage."
       },
       {
-        "assessment": "Recapitulates type (2,2,4) geometry, chiefly constructs type (1,1,0); no identified Galois splitting/density implication.",
+        "assessment": "Theorem 2.2.1 reprises geometric node counts for the earlier (2,2,4) family; the new paper studies the distinct (1,1,0) construction. No implication to the specific rational squared coordinates or generic biquadratic node field was identified in the material read.",
         "evidence": [
-          "§2.2 Theorem 2.2.1 reprises the prior five/three-double-point result",
-          "Distinct (1,1,0) construction is not the specified (2,2,4) specialization"
+          "§2.2 Theorem 2.2.1: type (2,2,4) quintuple and 3/5 double-point configurations from previous Moriya–Kudo work.",
+          "Theorem 1 and discussion: distinct (1,1,0) Howe presentation with generic four double points."
         ],
-        "identifier_or_url": "arXiv:2401.00760v1; https://arxiv.org/html/2401.00760v1",
-        "material_read": "Introduction, §2.2 and Theorem 2.2.1, associated model descriptions",
-        "method": "Read open-access full HTML relevant portions",
+        "identifier_or_url": "Kudo, arXiv:2401.00760v1; https://arxiv.org/html/2401.00760v1",
+        "material_read": "Open-access HTML: introduction, §2.2 Theorem 2.2.1, and the statements of the alternative model and singularity classification.",
+        "method": "Read original arXiv full-text HTML and compared parameter cases and exact assertions.",
         "title": "Explicit construction of a plane sextic model for genus-five Howe curves, II",
-        "trigger": "Direct sequel and possible broader coverage of arithmetic nodes"
+        "trigger": "Direct sequel potentially strengthening or reinterpreting the prior Howe-sextic theorem."
       },
       {
-        "assessment": "General model construction, no same biquadratic Galois orbit or fixed rational branch specialization prime density identified.",
+        "assessment": "Studies superspeciality and completely decomposable Jacobians for a restricted symmetric genus-five Howe subfamily over finite characteristic; no statement about Galois action on five planar nodes of the rational function field or prime densities for the fixed Q-tuple.",
         "evidence": [
-          "Plane sextic framework from canonical genus-five models, not computation of the specific sign quartet fields"
+          "§4: genus-five curves from y²=x(x²−1)(x²−s²) and y²=x(x²−1)(x²−t²).",
+          "Proposition 4.1 and Theorem 1.2: superspeciality via elliptic factors and existence for many finite characteristics, not singular-node residue fields."
         ],
-        "identifier_or_url": "arXiv:2102.07270v1; https://arxiv.org/abs/2102.07270",
-        "material_read": "Abstract and relevant framework for plane sextic models and singularities",
-        "method": "Inspected legitimate open-access preprint PDF and source information",
-        "title": "Superspecial curves of genus 5: a possible approach by plane sextics",
-        "trigger": "Original broader genus-five plane-sextic method that might subsume construction"
+        "identifier_or_url": "Ryo Ohashi, arXiv:2604.18074v3; https://arxiv.org/pdf/2604.18074",
+        "material_read": "Primary PDF introduction, Theorems 1.2 and 6.3, §4 genus-five construction/Proposition 4.1, Algorithm 4.3, and appendix introduction.",
+        "method": "Opened 16-page arXiv PDF, inspected relevant pages and original theorem statements, and viewed rendered page 2.",
+        "title": "Generalized Howe curves of genus 4, 5, and 6 with completely decomposable Jacobians",
+        "trigger": "Recent same-genus Howe-curve construction, possible stronger coverage in computations and appendices."
+      },
+      {
+        "assessment": "A plausible uninspected priority risk, but a poster title and bibliographic entry do not establish either coverage or non-coverage of the node-field theorem.",
+        "evidence": [
+          "MEGA 2024 program lists an explicit plane-sextic and superspecial-enumeration poster; no inspected full statement or exact arithmetic-node table."
+        ],
+        "identifier_or_url": "Kudo, Moriya and Ohashi, MEGA 2024 poster (listed in Ohashi arXiv:2604.18074 bibliography); https://files-www.mis.mpg.de/mpi-typo3/Events/document-mega24-posters.pdf",
+        "material_read": "Bibliographic and poster-program title plus 2026 paper reference only; full mathematical poster contents not inspected.",
+        "method": "Crosschecked bibliographic listing and cited reference; did not assume unavailable contents.",
+        "title": "Explicit plane sextic models for genus-five Howe curves and enumeration of superspecial ones",
+        "trigger": "Same-origin authors and exact Howe curve family; possibly unpublished additional computations."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "self_review",
+  "previously_published_pending_reaudit": false,
+  "references": [
+    {
+      "identifier_or_url": "Moriya and Kudo, arXiv:2310.15993v1; https://arxiv.org/pdf/2310.15993",
+      "title": "Explicit construction of a plane sextic model for genus-five Howe curves, I"
+    },
+    {
+      "identifier_or_url": "Kudo, arXiv:2401.00760v1; https://arxiv.org/html/2401.00760v1",
+      "title": "Explicit construction of a plane sextic model for genus-five Howe curves, II"
+    },
+    {
+      "identifier_or_url": "Ryo Ohashi, arXiv:2604.18074v3; https://arxiv.org/pdf/2604.18074",
+      "title": "Generalized Howe curves of genus 4, 5, and 6 with completely decomposable Jacobians"
+    }
+  ],
   "schema_version": 1,
-  "scope_run_id": "36b96575-adc2-4f74-afa6-f36a503835f4",
-  "self_review_status": "passed",
+  "scientific_limits": [
+    "Bad-reduction primes are only known to form a finite set here and were not explicitly determined. The 18 modular checks do not prove the prime density or any uniform reduction statement.",
+    "The generic claim is about Gal(Kbar/K) for K=Q(a,b,c,d,e), not about geometric monodromy after adjoining constants; no claim is made for every exceptional specialized tuple."
+  ],
   "value": {
-    "rationale": "The source establishes a natural five-node family but only geometric singularities. An exact arithmetic description of the four-node configuration gives the finite field of definition of every node, the generic arithmetic Galois permutation representation, and the complete Frobenius-dependent rational singular-point frequency for a concrete rational curve. The group is not a formality of the published sign symmetry: its maximality requires two nontrivial independent square classes and an exact special fiber. This information is pertinent to arithmetic descent and reduction of singular plane curve models, and is neither a routine restatement nor an arbitrary finite slice.",
+    "rationale": "A genus-five Howe plane sextic has a natural complete singularity scheme, and arithmetic descent asks over which fields its four noncentral geometric nodes exist. The paper’s mere geometric V4 sign symmetry does not force arithmetic transitivity or full biquadratic degree. Showing full generic degree four requires an exact independent-square-class witness and a specialization theorem; this answers a motivated structural question about the whole generic five-node locus. The explicit rational model then gives a complete Chebotarev splitting-type frequency for rational singularities upon reduction, distinct from earlier varying-parameter node tables. This is an exact and potentially useful arithmetic invariant of a natural family rather than a rewording of the geometric count. It does not classify nongeneric members, the full bad-prime set, or all finite-field point counts.",
     "status": "PASS"
   }
 }
