@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `check.py` uses only the Python standard library. It checks the closed-form exact zero-dose threshold and derivative for the witness \(T=3\), \(x_0=0\), \(y_0=2\), then independently integrates the differential equation over the observation interval at small and large finite doses. `check_output.txt` is its recorded output. Reproduce with `python check.py` in the directory containing these two files.
+## correctness
 
-The global existence of a positive minimizer and the universal \(C(u,T)/\log u	o1/2\) result are supplied by the analytical proof in RESULT.md. Neither is a finite-checker conclusion. No independent audit was performed. No finite-dose error bound on the asymptotic is established.
+PASS
+
+For xdot=-x+u, ydot=u-xy with u≥0, x0,y0≥0 fixed and finite T, variation-of-constants gives x(t)=x0e^-t+u(1-e^-t) and exact y integral. Differentiate at u=0 to obtain C_u(0+,T)=P(T,x0)-y0Q(T,x0), with P,Q strictly positive, and verify x0=0,T=3,y0=2 gives -1/2+2e^-3<0. Near t=0, 1-e^-t is squeezed between c_delta t and t; Gaussian model u∫0^t exp[-a u(t²-s²)/2]ds has integrated asymptotic (log u)/(2a) from zH(z)→1. Bounds and O(1) contribution away from zero imply C(u,T)/log u→1/2, independently of initial loads. Negative onset and divergence imply at least one interior positive-input global minimum. Claims neither uniqueness nor a finite-dose expansion.
+
+## originality
+
+PASS
+
+Same scalar IFFM1/IFFL1 ODE is studied by Wafi–de Oliveira–Sontag 2026 and Gupta–Sontag 2025, but their monotone cumulative-dose results impose an adapted initial output y0=1. Candidate allows arbitrary independent output preload; large preloads violate onset monotonicity, and boundary-layer coefficient 1/2 is not stated by inspected antecedents. No exact equivalent indexed Resultary claim, though singular perturbation folklore is an explicit risk.
+
+## value
+
+PASS
+
+Identifies mathematically sharp initial-slope threshold for the same experimentally motivated adaptation motif and proves a robust open family of nonmonotone dose responses without contradicting the original preadapted monotonicity theorem; high-dose 1/2 log law supplies rebound mechanism. A meaningful boundary of a published qualitative guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
