@@ -1,11 +1,21 @@
-# Scientific review: total perfect Roman domination on crown graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The actual graph-neighborhood condition becomes an exact local constraint on the two label-\(2\) index sets. Counting four disjoint index classes gives the perfect Roman polynomial; a proven two-positive-per-side criterion and inclusion–exclusion remove all non-total labelings. A separate weight argument classifies and counts every minimum function. The included independent adjacency-based verifier checks all labelings through six matching pairs, with no reliance on its proof equivalences.
+## correctness
 
-**Originality — PASS under the recorded source coverage.** Almulhim (2023), DOI 10.3390/sym15091676, establishes the total-perfect definition and the complete-multipartite minimum, including complete bipartite graphs, but crowns fail multipartiteness. Its six-cycle special case implies only the minimum value at three pairs. The published research record *Perfect Roman domination of crown graphs* establishes an ordinary perfect Roman invariant, whose weaker requirement does not imply this full total-perfect enumerator, or the value six. Published-source and semantic-record searches were compared by mathematical implication, not merely terminology. An equivalent unindexed treatment remains possible.
+PASS
 
-**Value — PASS.** The result supplies the complete weight distribution on the canonical matching-deletion perturbation of complete bipartite graphs, not just a scalar minimum. It exhibits a stable two-unit jump in a newly studied invariant under deletion of a perfect matching while providing explicit optimizer classifications and multiplicities.
+For Cr_n (n≥3), exact zero constraints for A_i and B_i are q−1_{i∈Y}=1 and p−1_{i∈X}=1 when zero, respectively. For valid perfect-Roman assignments, totality iff at least 2 positive vertices on each bipartition side; then all positive vertices have positive cross-neighbors. Partition indices into X∩Y, X\Y, Y\X, remaining, giving multinomial signed-zero independent factors F_n. Enumerate all one-positive-side exceptions E_n, correct by inclusion-exclusion intersection n z^4; this gives boxed full polynomial. Classify weight 6: n≥4 has p=q=1 and count n(n−1)+n(n−1)^2=n²(n−1); n=3 additionally 13 giving 31. Independently enumerated every literal adjacency labeling for n=3..5, obtaining min6 counts31,48,100, and compared to exact polynomial.
 
-Limits: the claim is for labeled crown graphs with at least three pairs. Prior full-text accessibility was good for the introducing 2023 paper, but the related public perfect-Roman result could only be compared at the summary level; this is a residual bibliographic priority risk. Computational checks are finite, and independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Almulhim (2023) introduced TPR, gives complete multipartite special cases (including K_n,n) but crowns K_n,n minus a matching are NOT complete multipartite for n≥3. Published Resultary crown perfect Roman minimum4 uses no positive-neighbor condition and does not imply total perfect full polynomial. Special n=3 is C6 and its minimum6 is already known; the full n-family and all coefficients are the new statement. Unindexed equivalent count remains bibliographic risk.
+
+## value
+
+PASS
+
+Complete weight enumerator of a natural canonical dense bipartite family after deleting one perfect matching, including sharp minimum and all optimizer multiplicities, is an exact non-implied graph invariant. Shows total-perfect domination jumps from complete-bipartite min4 to crown min6. More useful than only a tiny test or renaming ordinary Roman domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
