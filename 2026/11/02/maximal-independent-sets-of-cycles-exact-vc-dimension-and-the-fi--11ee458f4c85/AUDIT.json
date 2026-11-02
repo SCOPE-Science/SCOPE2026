@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The VC upper bound uses a two-short-gap propagation obstruction, proving n >= 3k-1 for every shattered k-query support. Each residue class n=3k-1,3k,3k+1 has an explicit realizable k-query support; the directed gap filling follows because all integers at least two are sums of twos and threes. For the first adaptive threshold, two differently implemented exhaustive checkers agree for each n=3..13. A complete depth-five C13 tree has 32 distinct leaf witnesses; 39 concepts exclude depth six. The five-query trace census covers all 1287 supports. The product lemma is proved for both dimensions, yielding exact gaps on all m-fold disjoint copies of C13.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Drmota et al. 2019 Theorems 1-3 and Sections 3, 5.2 cover asymptotic enumeration and size distributions, including cycle/cactus composition, not membership-query VC or Littlestone dimensions.",
+        "Mofidi 2022 discusses independent sets and neighborhood systems in well-gradedness/maximum/extremal classes; no maximal-independent-set cycle learning formula was located in the inspected text.",
+        "An earlier P10 maximal-independent-set result proves a degree-two gap in disjoint unions of paths, but those components are nonregular and not vertex-transitive."
+      ],
+      "reasoning": "Neither graph enumeration (which gives |I(Cn)|) nor general VC/Littlestone bounds imply a sharp trace rank or a depth-five decision tree. The path claim cannot be used to infer the cycle C13 threshold, because closing endpoints removes hypotheses and changes query behavior. The regular vertex-transitive product construction is a genuine additional structural constraint.",
+      "searches": [
+        "vertex-transitive 2-regular graphs with arbitrarily large gap between Littlestone and VC dimensions for maximal independent sets",
+        "online shattering maximal independent sets on regular graphs cycles adaptive trees",
+        "arxiv:1904.10244",
+        "arxiv:2212.08373"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1702.03956 (intro and thicket definitions)",
+      "arxiv:1904.10244 (intro, enumerative theorems, graph-cycle applications)",
+      "arxiv:2203.12211 (definitions and general tree-shattering bound)",
+      "arxiv:2212.08373 (graph independent-set and well-gradedness comparison)",
+      "Published published-finding corpus search hits for cycle maximal independent sets, graph shattering, vertex transitivity",
+      "Existing path-based maximal-independent-set classification of the ten-vertex path"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bhaskar 2017 defines thicket dimension and proves general shatter-function results, with no cycle maximal-independent-set exact theorem in the inspected sections.",
+        "Walker 2022 Theorem 1.3 is a general tree Sauer–Shelah estimate, not the finite graph-specific equality and strict-gap threshold.",
+        "Drmota et al. 2019 enumerate maximal independent sets but do not give all membership traces or online decision trees.",
+        "Mofidi 2022 studies extremal/well-graded systems of independent sets, but maximal independent set is a different restriction from all independent sets."
+      ],
+      "reasoning": "The new claim requires a new exact support obstruction and explicit C13 adaptive decision-tree witness. General thicket theory supplies definitions and bounds, not these specific values; generating-function counts cannot establish all traces or balanced trees. The all-cycle VC classification and vertex-transitive regular gap are not special cases of the inspected prior theorems.",
+      "searches": [
+        "arxiv:1702.03956",
+        "arxiv:1904.10244",
+        "arxiv:2203.12211",
+        "arxiv:2212.08373",
+        "Exact VC and Littlestone dimensions of maximal independent sets of cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Maximal independent sets are independent dominating vertex sets; for a cycle they correspond to cyclic binary strings with gaps two or three.",
+        "An ordinary maximal matching of a cycle is exactly a maximal independent set in its line graph, which is again the cycle.",
+        "Neither the retrieved independent-domination literature nor the displayed published-finding corpus matches states the C13 learning dimensions."
+      ],
+      "reasoning": "The aliases independent dominating sets, minimum- vs inclusion-maximality, line-graph maximal matchings, thicket rank, and binary online mistake dimension were compared by definition. Retrieved graph domination numbers concern cardinality of one set, not shattering across the full family.",
+      "searches": [
+        "VC dimension of maximal independent sets graphs cycles Littlestone dimension",
+        "VC-dimension independent dominating sets cycles set system maximal independent sets",
+        "Littlestone dimension maximal independent sets paths cycles",
+        "Exact Littlestone and VC dimensions of maximal independent sets of cycle graphs, maximal matchings of cycles under edge membership queries"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top near-match: 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2; it studies graph cover-free-family numbers, not maximal-independent-set membership traces.",
+        "published-finding corpus near-match: 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc; it studies matching/induced-matching sizes, not online dimensions.",
+        "The Perrin sequence for |I(Cn)| and standard cycle enumeration provide hypothesis counts but not complete VC support spectra or adaptive trees."
+      ],
+      "reasoning": "Queries searched direct parameter n=13, C13, maximal independent sets, cycles, 2-regular graphs, and both dimension names. No exact duplicate was returned; published counts alone are insufficient to determine VC and Littlestone ranks. This limited database check cannot establish uniqueness.",
+      "searches": [
+        "VC and Littlestone dimensions maximal independent sets cycles C13 13 vertex cycle has VC 4 and Littlestone 5, first gap in cycles",
+        "Quantitative teaching and online learning of maximal independent sets on cycle graphs",
+        "Exact online shattering and VC dimension of independent dominating sets on cycles"
+      ]
+    },
+    "rationale": "Primary sources provide general shattering theory, enumerative maximal-independent-set methods on cycles/cacti, and well-graded graph families; the inspected material does not supply this exact VC formula, first C13 online gap, or regular vertex-transitive amplification. The earlier path-based maximum-degree-two gap is not equivalent: it does not address connected cycles and does not furnish vertex-transitive examples. Search failure is not a proof of absolute novelty; equivalent-language priority is a residual risk.",
+    "residual_risks": [
+      "The searchable record may omit older literature using equivalent independent-dominating or maximal-matching terminology.",
+      "No comprehensive historical-priority certification is claimed; some relevant graph papers were inspected only in specific sections.",
+      "The online formula for cycles of arbitrary length greater than thirteen remains undetermined here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General binary decision-tree framework; no graph-specific maximal independent cycle theorem in inspected material",
+        "evidence": [
+          "Initial arXiv date 2017-02-13",
+          "Section 2 defines thicket trees and rank"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.03956",
+        "material_read": "ArXiv full-text rendering, introduction and Section 2 definitions, setup and the shatter-function framing",
+        "method": "Direct rendered full-text section inspection",
+        "title": "Thicket Density",
+        "trigger": "General thicket/Littlestone rank and potential domination by a general theorem"
+      },
+      {
+        "assessment": "Enumerative and size-distribution results; no fixed-query or adaptive-query shattering rank in inspected sections",
+        "evidence": [
+          "Initial arXiv date 2019-04-23",
+          "Theorem 1 enumerates graph-labelled independent-set families asymptotically; Section 5.2.1 constructs cycle block generating functions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.10244",
+        "material_read": "Full-text introduction, Theorems 1-3, Section 3 and cycle/cactus application in Section 5.2 including unrooted-cycle decomposition",
+        "method": "Direct rendered arXiv full-text section inspection",
+        "title": "Maximal independent sets and maximal matchings in series-parallel and related graph classes",
+        "trigger": "Same maximal-independent-set objects on cycles and cacti"
+      },
+      {
+        "assessment": "General tree-dimension and Sauer–Shelah results, not numerical maximal-independent-cycle ranks",
+        "evidence": [
+          "Initial arXiv date 2022-03-23",
+          "Theorem 1.3 concerns arbitrary leaf subsets and a binomial bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+        "material_read": "Full-text rendering, Section 1 definitions and Theorem 1.3, and general set-system context",
+        "method": "Direct rendered full-text section inspection",
+        "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+        "trigger": "Potential general reduction from adaptive shattering to ordinary VC bounds"
+      },
+      {
+        "assessment": "Independent-set systems, one-inclusion graphs and extremal/well-gradedness, but no matching exact maximal-independent cycle theorem found in inspected material",
+        "evidence": [
+          "Initial arXiv date 2022-12-16",
+          "Keywords include VC-dimension and MSC 03C45",
+          "No maximal-independent-set-specific theorem located in targeted sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.08373",
+        "material_read": "Full-text introduction, definition/overview and targeted checks for maximal independence, cycles, and Littlestone rank",
+        "method": "Direct rendered arXiv full-text section inspection and targeted term comparisons",
+        "title": "On partial cubes, well-graded families and their duals with some applications in graphs",
+        "trigger": "Graph independent-set families and VC extremality may subsume the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11ee458f-4c85-468f-9372-0eea0275d0e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full exact VC formula across every finite cycle and hence every finite 2-regular graph is a natural classification of a learning-theoretic invariant. The first adaptive deficit at the thirteen-cycle is a sharp threshold in connected vertex-transitive degree-two graphs, supported by a complete decision-tree certificate and 1287-support trace census. Identical cycles amplify the gap linearly while preserving both regularity and vertex transitivity, a structural property not supplied by earlier disjoint path examples. The result is mathematically motivated without requiring a general Ldim formula for longer cycles.",
+    "status": "PASS"
+  }
+}
