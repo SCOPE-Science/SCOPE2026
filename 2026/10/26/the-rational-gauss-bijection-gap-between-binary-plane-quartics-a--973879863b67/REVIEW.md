@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Binary 21-jet matrix ranks are exactly computed; the degree-five injectivity has an additional restriction-to-Fano-lines proof. Every one of the 24 admissible tangent bijections is tested in degrees four and five. The 128 degree-six lifts of a fixed bijection are exhaustively checked for geometric smoothness using exact Jacobian Gröbner bases on all three affine charts. The three elementary projective generators produce 3048 distinct smooth sextics in 19 orbits, confirming the transitively propagated total. The packaged verifier and output match; a finite computation is used only for a rigorously finite parameter domain.
+## correctness
 
-**Originality (O): PASS, qualified.** Asgarli–Ghioca (2023) provide the natural tangent-filling and prescribed tangent-interpolation framework, not the exact rational Gauss-bijection census. Their plane-filling paper concerns low-degree existence. The genus-six census of Huang–Kedlaya–Lau is relevant to quintics but does not cover degree-six genus-ten sextic orbits. The novel claim is the combined smoothness gap and complete 3048-sextic, 19-orbit classification, not the general definitions or isolated classical quartic example. Relevant database and literature searches did not identify an equivalent theorem; a preexisting unindexed census remains a publication-priority risk.
+PASS
 
-**Value (V): PASS.** The rational Gauss restriction is an intrinsic projective dual-incidence invariant for an embedded curve, and tangent interpolation is explicitly motivated in the primary literature. Degrees four, five and six form the first three possible smooth plane-filling degrees over the binary field; a nonmonotonic gap at five alongside an exact sextic symmetry classification is not an arbitrary parameter slice. The 19-orbit classification distinguishes objects beyond the bare existence of tangent-filling curves and provides a small-field benchmark for Gauss incidence constraints.
+At each of the seven rational points the tangent must be one of three incident F2 lines. All 3^7 assignments produce 24 bijections. Independent bit-matrix first-jet evaluation confirms ranks 10,15,21,21 in degrees 3,4,5,6, respectively; the key quintic injectivity is also proved geometrically by intersection multiplicities on the seven Fano lines, and the sextic kernel has dimension 7. The independent checker solved every tangent linear system and used exact algebraic-closure Jacobian Gröbner unit-ideal tests on all three affine charts for all 24 quartic, 24 quintic and 128 sextic lifts of one matching. Results: all 24 quartics smooth, no quintics smooth, 127 smooth sextic lifts. Independently generated GL3(F2) substitutions show all 24 matchings in one orbit, with smooth sextic forms splitting into 1 orbit of length24 and 18 of length168. Finite enumeration is exhaustive because the matching action and the complete 2^7 coset were proved; chart Gröbner unit ideals test *geometric* smoothness, not only rational points.
 
-**Limitations:** These are counts of defining equations and ambient projective orbits, not abstract moduli or a general theorem for all degrees. No independent external mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary tangent-filling literature studies covering of rational points by tangent lines and jet interpolation, and an existing genus-six census considers quintics over F2. Neither directly supplies the simultaneous smooth rational-Gauss bijection classification across degrees four through six or the sextic orbit census. Qualified originality applies to the combined assertion; the finite incidence and jet methods are established.
+
+## value
+
+PASS
+
+The full rational projective plane over F2 is a natural finite-geometry configuration. Asking when a smooth plane curve can make its seven rational point tangents a permutation of the seven lines is a genuine arithmetic-incidence constraint. The exact three-degree census, nonmonotone existence gap at degree five, and precise PGL3 orbit structure give a naturally motivated finite classification rather than isolated example hunting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
