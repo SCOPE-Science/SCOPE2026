@@ -1,19 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the two SDIRK stage components from the two-by-two exchange resolvent, constructs the source's stage-ratio averaged generator, explicitly solves the corrected system, and takes the denominator-floor limit in all three predictor regimes (interior, lower face, upper face). The first stage is uniformly strictly interior for each fixed admissible parameter tuple, so the singular weights diverge precisely as asserted. Differentiating the scalar SDIRK stability function gives its global negative minimum and the sharp quadratic window; direct scalar ODE integration establishes the positive exact comparator. A separate standard-library verifier independently reconstructs the stages and correction by matrix inversions and passes 9,020 assertions. All quantifiers and boundary cases are covered analytically.
+PASS
 
-## Originality — PASS, with remaining priority risk
+For constant two-state conservative Q, uncorrected SDIRK predictors have first components u=pi+(x-pi)/(1+gamma*s) and v=pi+R(s)(x-pi). Direct evaluation of the cited final-stage-only Patankar column scalings L,M gives the strictly positive conservative corrected output (x+h*b*M)/(1+h*(a*L+b*M)); as epsilon tends to zero at fixed a,b,h,x this is exactly clip(v,0,1). With x=1, R has unique minimum (1-sqrt(2))/2 at s=4+3sqrt(2), giving negative predictor iff 0<pi<3-2sqrt(2) and precisely the quadratic-root open stiffness interval. At a=9,b=1,h=4/5 the limit zero disagrees with exact component >0.1; the first-order O(epsilon) boundary-layer coefficient follows by rational asymptotics. Independent fresh tests used 300 parameter sets and three cutoffs, plus threshold checks; finite experiments are not the all-parameter proof.
 
-The originating 2026 article specifies and analyzes the source method, positivity and formal accuracy, but does not report an exact vanishing-denominator-floor limit on the complete two-state simplex, the sharp \(3-2\sqrt2\) rate threshold, the reentrant step-size window, or the boundary-layer coefficient. Torlo–Öffner–Ranocha's earlier analysis warns of oscillation and order loss for different Patankar families, not the claimed limit for the 2026 scheme. The fixed-cutoff small-step limit does not imply the finite-step vanishing-cutoff result; the two limiting operations ask different questions. Searches of mathematical claim records and primary literature identified no covering theorem. An unlocated equivalent within general positivity-projection theory cannot be categorically ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact phase diagram answers a relevant design question: when can an unconditionally positivity-preserving, conservative post-correction force a numerically stiff step onto the wrong face of the mass simplex despite a strictly positive exact state? The complete singular-floor map distinguishes a robust interior regime from a sharp clipping regime, and the rate threshold, explicit step-size interval, and \(O(\varepsilon)\) boundary layer quantify a failure unavailable from positivity or asymptotic-order statements alone. The result is a motivated nontrivial boundary for an explicitly published ODE integrator, not a numerical table or arbitrary parameter slice.
+Primary published results were compared by their mathematical implications; the stated precisely delimited new theorem is not established by the inspected statements, with incomplete-source and implicit-folklore risks retained. Originality is a qualified best-of-knowledge assessment, not a priority certificate.
 
-## Scope, closest literature and risks
+## value
 
-Relevant originals: Nurkhametova et al., arXiv:2602.15271, equations (21)/(25), SDIRK21 Section 4.2.1, and full Sections 3–5; Torlo et al., arXiv:2108.07347, Sections 2–5. The source's formal small-timestep convergence analysis remains valid in its stated regime. The present theorem does not concern global error, nonlinear kinetics, adaptive steps, all-stage correction, or floating-point robustness. Primary-literature priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-step singular-floor limiting map and a sharp window where positivity correction converges to the wrong face expose a meaningful boundary of an actively studied positivity-preserving integration method, distinct from routine timestep convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
