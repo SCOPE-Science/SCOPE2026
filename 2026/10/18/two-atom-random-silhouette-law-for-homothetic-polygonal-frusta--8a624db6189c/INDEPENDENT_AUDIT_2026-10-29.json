@@ -1,0 +1,236 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T18:48:57.215508Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Original RESULT.md sections 1–5, including affine projection, two tangent rays, Cauchy ratio and regular n-gon triangulation.",
+        "A new exact rational monotone-chain hull enumeration checked 7,569 nonboundary homothetic-pair configurations for nonregular 4/5/6-gons, three t values and an exterior/interior split.",
+        "Independent orthogonal 3D projections for 2,250 random directions agreed with the planar shear count; 24 independent quadratures of regular n-gon radial integrals matched the arctangent formula within 2.3e-16.",
+        "Large-lambda ratios in separate n=3,6,9 cases decreased at the predicted order as lambda grew."
+      ],
+      "limitations": [
+        "The broad proof assumes genuine polygon vertices, 0 in int K, t in (0,1), h>0 and uniform unoriented orthogonal projections.",
+        "Finite and floating point computations corroborate but cannot prove all polygons, all directions or novelty.",
+        "Directions with u_z=0 and tangent degeneracies are excluded as spherical measure-zero sets; no claims at t=0 or t=1."
+      ],
+      "rationale": "For u_z != 0, projection along the normal onto the horizontal plane induces an invertible affine map from the orthogonal shadow plane, preserving the face lattice. The two base images are K and tK+s, with c=s/(1-t)=-h(u_x,u_y)/((1-t)u_z). By convexity and support functions, c inside K iff tK+(1-t)c is contained in K. For a generic exterior c, the two support rays from c to K touch two vertices; the homothetic hull has exactly two cross-bridges, two copies of tangent endpoints, and one of each other n-2 labels, yielding n+2. Generic interior c gives n. Exceptional horizontal rays, boundary centers and edge-line tangent alignments form null sets. Gaussian ratios give bivariate Cauchy center density lambda/[2pi(lambda²+|c|²)^(3/2)], integrating over K is its normalized solid angle and yields the radial formula. Its derivative is -1/(2pi)*integral rho²/(lambda²+rho²)^(3/2)<0, with endpoint limits 1 and 0 and analyticity on positive lambda. As lambda tends to infinity the leading density is 1/(2pi lambda²), giving area(K)/(2pi lambda²)+O(lambda^-4). A regular polygon decomposes into n center-to-edge triangles and the classical triangle solid-angle formula reduces to the displayed arctangent. No step is inferred from finite trials.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Black–Criado bounds the expected number of silhouette vertices for general fixed polytopes but does not provide exact type probabilities.",
+          "Feldman–Klain's full expected face-vector angle-sum theorem is general but requires frustum-specific combinatorial analysis to determine the precise distribution.",
+          "The published homothetic-frustum volume product is a different invariant; the exact right rectangular pyramid has t=0 with 4/5 shadow vertices, outside 0<t<1."
+        ],
+        "reasoning": "General inequalities and angle-sum expectation formulas do not cover the asserted exact full law by themselves, even though a general formalism could provide an alternative derivation after additional geometric work. The strongest close same-geometry result covers containment and convex-hull volume, not silhouette type. No implication from prior statements to the complete theorem was established.",
+        "searches": [
+          "Black–Criado, Random Shadows of Fixed Polytopes, arXiv:2406.06936, Theorems 1.1 and 1.5",
+          "Feldman–Klain, Angles as probabilities, arXiv:0809.3459, equation (5)",
+          "Finch, Planar Projections and Second Intrinsic Volume, arXiv:1203.2464, Sections 1–5",
+          "Resultary published homothetic frusta 3dbfdaf0b359 and pyramid shadow 2273575e8a0a",
+          "web query: random orthographic projection regular truncated pyramid number vertices probability frustum silhouette"
+        ]
+      },
+      "checked_sources": [
+        "Original assigned Git tree RESULT.md, SLOGAN.txt, REVIEW.md, AUDIT.json, METADATA.json, VERIFICATION.md, check_shadow.py at commit 359233893f22559a64d1a2a83158566d85606adf",
+        "GitHub current main directory SHA matches assigned 7 blobs as of audit",
+        "Exact rational hull case checker: 7,569 cases; independent 3D orthogonal projections: 2,250; regular-polygon integral comparisons: 24",
+        "Horváth–Lángi 2022 Geom. Dedicata DOI 10.1007/s10711-022-00673-y full HTML",
+        "Feldman–Klain 2008 arXiv:0809.3459 full PDF",
+        "Finch 2012 arXiv:1203.2464 full PDF",
+        "Black–Criado 2024 arXiv:2406.06936 principal theorems",
+        "Glisse–Lazard–Michel–Pouget 2016 JoCG article first two PDF pages",
+        "Published RESULT.md files 3dbfdaf0b359, 2273575e8a0a, ddfd7f3eeb66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior containment equivalence proves the inner-center condition only; it does not identify exterior hull face count or integrate a random-direction law.",
+          "A general expected projected vertex count does not determine a two-point distribution without knowing its possible support. The present proof identifies that support and computes an exact event probability.",
+          "The prior rectangular-pyramid formula has N in {4,5} at t=0, where the upper polygon has collapsed; this is not the positive-ratio homothetic-frustum event."
+        ],
+        "reasoning": "The final claim is not a mere restatement of the earlier containment or solid-angle formulas. Applying the general angle framework to this family would still require the planar homothetic hull boundary chain and event decomposition. Conversely, the new theorem is restricted to 0<t<1 and does not extend to arbitrary skew/pyramidal frusta. An older unindexed equivalent formula remains a genuine priority risk.",
+        "searches": [
+          "Horváth–Lángi 2022 Theorem 6, proof of containment equivalence",
+          "Feldman–Klain 2008 Theorem 1 and equations (1),(5)",
+          "Black–Criado 2024 Theorems 1.1–1.5",
+          "Resultary published frustum volume product 3dbfdaf0b359 and right rectangular pyramid 2273575e8a0a",
+          "web query: homothetic convex polygon hull one polygon contains other else exactly n plus two vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frustum's orthogonal shadow is affinely equivalent to conv(K, tK+s). Horváth–Lángi's containment criterion is equivalent to c=s/(1-t) in K, an established premise.",
+          "Feldman–Klain's general angle identity gives projected vertex expectations but not the exact homothetic hull n/n+2 dichotomy without the new classification.",
+          "The orientation ratio u_xy/u_z has an isotropic 2D Cauchy density; integrating over K yields normalized solid angle, another equivalent parametrization."
+        ],
+        "reasoning": "Compared under homothetic planar hull, tangent-ray silhouette, normal-cone angle probability and Cauchy-ratio formulations. The basic containment and angle ingredients are known, but the inspected stronger formal statements do not directly entail the full two-atom law and exact p_K for every nonsymmetric polygon without deriving its geometric dichotomy; no independent novelty is assigned to the elementary ingredients.",
+        "searches": [
+          "Resultary semantic query: random projection silhouette convex hull two homothetic polygons frustum number of projected vertices solid angle probability",
+          "Resultary semantic query: convex hull of a polygon and its translated scaled copy has n+2 vertices when homothety center outside; random silhouettes",
+          "web query: convex hull of two positively homothetic polygons number of vertices n+2 exterior homothety center",
+          "Horváth–Lángi 2022 DOI:10.1007/s10711-022-00673-y Theorem 6",
+          "Feldman–Klain arXiv:0809.3459 equations (1) and (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned relevant but noncovering identifiers 3dbfdaf0b359 (frustum volume product), 2273575e8a0a (rectangular pyramid), ddfd7f3eeb66 (tetrahedral weighted silhouettes) and 5fbcddcea5e5 (octahedron inradius).",
+          "Finch 2012 gives a cube with six shadow vertices, tetrahedron 3/4, octahedron 4/6; none is a general homothetic-frustum table."
+        ],
+        "reasoning": "No exact table or named result for all nonsymmetric n-gonal frusta and arbitrary effective aspect appeared in these bounded searches. This negative retrieval is not itself evidence of global novelty; the positive mathematical comparisons with original statements provide the basis of the qualified finding.",
+        "searches": [
+          "Resultary query for random projection silhouette, homothetic polygon frustum, number projected vertices and solid-angle probability",
+          "Resultary query for planar convex hull of translated scaled polygon n+2 vertices",
+          "Resultary query for solid-angle law for isotropic random polygonal frustum projections",
+          "web query: frustum silhouette solid angle probability vertices",
+          "web query: 'two homothetic polygons' 'vertices' 'convex hull' n+2"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the full all-convex-polygon two-atom law and its exact Cauchy/solid-angle distribution, not for homothetic containment, the angular Jacobian, classical cone-angle formulas, or regular-polygon triangulation alone. In particular, known general mean projection bounds and known homothetic hull volumes do not themselves state the n versus n+2 exhaustive complement; once that geometric event is established, the distribution integrates to the precise formula. No exact stronger published theorem was found among inspected statements; historical priority remains qualified.",
+      "residual_risks": [
+        "Older computational geometry or geometric-probability work may encode the n+2 exterior-homothety hull fact or the full law without using the phrase 'homothetic frustum'.",
+        "Feldman–Klain's general angle-sum machinery could yield another derivation after additional frustum-specific calculation; the boundary between a new classification and a routine corollary depends on unindexed earlier work.",
+        "Glisse et al. later pages were not read; the stated stochastic model and principal theorem differ. Other literature coverage is not exhaustive.",
+        "No priority certification or independent external attestation is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 6 proof establishes tK+s contained in K iff s belongs to (1-t)K; the main results concern homothetic hull volume, shape determination and illumination, not two-atom random silhouette vertex counts or probability.",
+          "evidence": [
+            "Theorem 6 proof uses the set of minimizers of G_{K,lambda}; the exact equivalence is in the paragraph following Theorem 6.",
+            "Theorem 7 rules out homothetic illumination bodies for three-dimensional convex polyhedra; Theorem 8 classifies selected polygonal illumination extensions, not random orthogonal frustum shadows."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10711-022-00673-y",
+          "material_read": "Open access full article in HTML, definitions and Sections 2–3, Theorems 6–8 with statements and proofs (not just abstract)",
+          "method": "Read primary HTML and compare Theorem 6(ii) proof with the polygonal vertex-number event",
+          "title": "On the convex hull and homothetic convex hull functions of a convex body",
+          "trigger": "Exactly the same planar homothety containment problem and potentially stronger hull classification"
+        },
+        {
+          "assessment": "The general projected-vertex disappearance and expected face-count angle identities are prior art, but they do not directly give the deterministic n/n+2 support or compute the frustum-specific solid-angle event without an additional geometric classification.",
+          "evidence": [
+            "Theorem 1 gives the probability of a simplex projection with one vertex lost as sum of its vertex cone angles.",
+            "Equation (5) supplies E[f_k(P_u)] by angle sums for any polytope; it is an expectation rather than the exact two-atom law for the specified frusta."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0809.3459",
+          "material_read": "Full four-page paper, particularly Theorem 1, equations (1) and (5), the discussion extending to arbitrary polytopes, and references",
+          "method": "Inspected PDF text and second-page screenshot; compared normalized solid-angle events and general expected face-number relation",
+          "title": "Angles as probabilities",
+          "trigger": "General random projected face-count formulas can potentially dominate special silhouette probabilities"
+        },
+        {
+          "assessment": "Provides shadow probabilities for specific regular polyhedra and area/perimeter moments, but does not state arbitrary homothetic polygonal frusta or the Cauchy solid-angle distribution for them.",
+          "evidence": [
+            "Section 1 lists tetrahedron 3/4, cube 6, octahedron 4/6 projected vertex support.",
+            "Section 3.3 includes exact octahedron 4/6 silhouette probabilities; frusta not part of its treated polytope families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.2464",
+          "material_read": "Thirteen-page PDF, introduction and methods; 3D shadows of tetrahedron/cube/octahedron, results through Sections 1–5, including probability displays",
+          "method": "Inspected PDF text with first-page screenshot; compared objects and exact distribution claims",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "Uniform random orthogonal planar silhouettes and exact polygon vertex-count probabilities"
+        },
+        {
+          "assessment": "Its main results bound mean shadow size in terms of geometric diameter, edge lengths and normal-cone parameters; those bounds do not derive the exact type distribution or solid-angle formula.",
+          "evidence": [
+            "Theorem 1.1 gives lower and upper bounds on E[number of vertices] using gdiam(P), minimum and maximum edge length.",
+            "Theorem 1.5 gives an upper bound involving normal-cone separation for simple polytopes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.06936",
+          "material_read": "Primary fourteen-page PDF: introduction and principal Theorems 1.1–1.5 and their parameters, plus description of proof objectives",
+          "method": "Compared principal quantitative upper/lower bounds on expected shadow complexity to the exact law; inspected PDF screenshot of theorem page",
+          "title": "Random Shadows of Fixed Polytopes",
+          "trigger": "A general result for uniformly random shadows of fixed polytopes might subsume the frustum law"
+        },
+        {
+          "assessment": "Theorem 1 treats the maximum silhouette size of Poisson random polytopes, averaged over bodies, with Theta(sqrt n) behavior; not the fixed-frustum distribution. Later pages not certified noncovering.",
+          "evidence": [
+            "Theorem 1 states expected-over-polytopes maximum silhouette size is Theta(sqrt n).",
+            "The randomness is in a Poisson point process on the sphere, not only the orientation of a fixed homothetic frustum."
+          ],
+          "identifier_or_url": "https://jocg.org/index.php/jocg/article/download/3009/2717/7784",
+          "material_read": "PDF title, abstract, introduction and Theorem 1 on first two pages; later pages not read",
+          "method": "Inspected text and a second-page screenshot, comparing model and quantifiers",
+          "title": "Silhouette of a Random Polytope",
+          "trigger": "Possible silhouette-vertex-count theorem with random directions"
+        },
+        {
+          "assessment": "Calculates Santaló location and Mahler/volume product for any convex base; no silhouette vertex counting or orientation probability.",
+          "evidence": [
+            "Its formulas (3)–(7) concern polar sections, Santaló height, centroid and volume-product monotonicity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359",
+          "material_read": "Complete published RESULT.md, including its theorem, proof, limitations and references",
+          "method": "Read published finding and compared exact functionals and hypotheses",
+          "title": "Universal Santaló and volume-product laws for homothetic frusta",
+          "trigger": "Published result for identical homothetic-frustum family could imply a stronger geometric classification"
+        },
+        {
+          "assessment": "Treats right rectangular pyramids t=0, four/five projected vertices and a height optimum. Its apex collapses the upper base, while the audited claim assumes t>0 and yields n/n+2, so the distribution does not imply the new theorem.",
+          "evidence": [
+            "Its Theorem (1) gives P(N=5) for a right rectangular pyramid and explicitly restricts to an apex, not a finite polygon top base."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a",
+          "material_read": "Complete published RESULT.md with formulas, proof, limitations and references",
+          "method": "Compared geometry of an apex pyramid and finite positive top polygon homothety",
+          "title": "Exact five-vertex shadow law and unique height optimum for right rectangular pyramids",
+          "trigger": "A published exact random-shadow probability for the t=0 endpoint of a related frustum"
+        },
+        {
+          "assessment": "Covers all tetrahedra and their 3/4 shadow types, including conditional area moments, but not the homothetic n-gonal frusta or their n/n+2 solid-angle distribution.",
+          "evidence": [
+            "Its displayed formula (3) expresses P(N=3) and weighted area moments by tetrahedral vertex cones."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+          "material_read": "Complete published RESULT.md, formula (3), its proof and limitations",
+          "method": "Compared tetrahedral vertex-cone and conditional area-moment laws with homothetic frustum model",
+          "title": "Area-weighted silhouette probabilities of arbitrary tetrahedra",
+          "trigger": "Published general random-shadow type and solid-angle work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "The event complexity n versus n+2 is a complete classification over all n>=3 and convex polygon shapes.",
+        "The inverse aspect parameter lambda is uniquely recoverable from one exact probability but individual h,t are not; this is a meaningful information bound.",
+        "The formula is scale-consistent: replacing K by aK changes lambda to lambda/a and preserves dimensionlessness."
+      ],
+      "limitations": [
+        "Requires known base shape for aspect identification; no inference precision/finite-sample error theorem.",
+        "The ordinary containment lemma and elementary solid-angle machinery are prior tools, not claimed as individually valuable new results."
+      ],
+      "rationale": "The number of visible shadow vertices of a fixed frustum is a natural stochastic-geometric invariant with a direct geometric shape-observation interpretation. For every convex n-gon including asymmetric bases, the theorem gives the full discrete distribution, excludes all intermediate complexity and reduces its sole parameter to a normalized solid angle. Strict monotonicity identifies the effective aspect h/(1-t) for known base geometry while proving the natural nonidentifiability of h and t separately; the regular polygon closed form and large-aspect decay provide useful benchmarks. This goes beyond renaming a standard calculation, yet is expressly limited to directly homothetic frusta, not arbitrary polyhedra.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Original assigned Git tree RESULT.md, SLOGAN.txt, REVIEW.md, AUDIT.json, METADATA.json, VERIFICATION.md, check_shadow.py at commit 359233893f22559a64d1a2a83158566d85606adf",
+    "GitHub current main directory SHA matches assigned 7 blobs as of audit",
+    "Exact rational hull case checker: 7,569 cases; independent 3D orthogonal projections: 2,250; regular-polygon integral comparisons: 24",
+    "Horváth–Lángi 2022 Geom. Dedicata DOI 10.1007/s10711-022-00673-y full HTML",
+    "Feldman–Klain 2008 arXiv:0809.3459 full PDF",
+    "Finch 2012 arXiv:1203.2464 full PDF",
+    "Black–Criado 2024 arXiv:2406.06936 principal theorems",
+    "Glisse–Lazard–Michel–Pouget 2016 JoCG article first two PDF pages",
+    "Published RESULT.md files 3dbfdaf0b359, 2273575e8a0a, ddfd7f3eeb66"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every genuine convex n-gon K with 0 in its interior, t in (0,1), h>0, the orthogonal random silhouette vertex number of conv((K,0),(tK,h)) is almost surely n or n+2. The n-event has p_K(lambda)=Omega(K,lambda)/(2pi)=1-(1/(2pi))int lambda/sqrt(lambda²+rho_K(phi)²)dphi where lambda=h/(1-t); p is analytic strictly decreasing (0,infinity)->(0,1), with leading area(K)/(2pi lambda²), and regular n-gons admit the displayed arctangent closed form.",
+  "limitations": [
+    "The broad proof assumes genuine polygon vertices, 0 in int K, t in (0,1), h>0 and uniform unoriented orthogonal projections.",
+    "Finite and floating point computations corroborate but cannot prove all polygons, all directions or novelty.",
+    "Directions with u_z=0 and tangent degeneracies are excluded as spherical measure-zero sets; no claims at t=0 or t=1.",
+    "Requires known base shape for aspect identification; no inference precision/finite-sample error theorem.",
+    "The ordinary containment lemma and elementary solid-angle machinery are prior tools, not claimed as individually valuable new results."
+  ],
+  "residual_risks": [
+    "Older computational geometry or geometric-probability work may encode the n+2 exterior-homothety hull fact or the full law without using the phrase 'homothetic frustum'.",
+    "Feldman–Klain's general angle-sum machinery could yield another derivation after additional frustum-specific calculation; the boundary between a new classification and a routine corollary depends on unindexed earlier work.",
+    "Glisse et al. later pages were not read; the stated stochastic model and principal theorem differ. Other literature coverage is not exhaustive.",
+    "No priority certification or independent external attestation is claimed."
+  ],
+  "schema_version": 1
+}
