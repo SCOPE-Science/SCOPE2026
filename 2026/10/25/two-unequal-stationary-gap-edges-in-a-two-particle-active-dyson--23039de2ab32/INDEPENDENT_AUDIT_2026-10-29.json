@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T07:55:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ordered two-particle equations give Gdot=-lambda G+2g/G+2vS with S=(sigma2-sigma1)/2 in {-1,0,+1}, switching -1,+1 to zero at rate 2gamma and zero to each outer at gamma. The negative drift derivative -lambda-2g/G^2<-lambda gives pathwise exponential contraction; extreme drift roots a=(sqrt(v^2+2lambda g)-v)/lambda and b=(sqrt(v^2+2lambda g)+v)/lambda bound the exact invariant gap support. Integrated stationary conservation equations have zero endpoint currents. At a+epsilon the attracting mode -1 has field -h_a epsilon+O(epsilon^2), h_a=lambda(a+b)/a, while the other two fields point strictly right; integrated mode masses satisfy H0=O(epsilon H-), H+=O(epsilon^2 H-). Positivity of H- and the flux identity give d(log H-)/d epsilon=2gamma/(h_a epsilon)+O(1), hence a finite strictly positive C_a and exponent alpha_a=2gamma/h_a; differentiating through flux gives p_G~C_a alpha_a epsilon^(alpha_a-1). At b the symmetric calculation gives h_b=lambda(a+b)/b and alpha_b=2gamma/h_b. The exact thresholds h_b/2=lambda K/(K+v)<h_a/2=lambda K/(K-v), K=sqrt(v^2+2lambda g), give the stated three divergence/vanishing regions, finite positive critical limits, and alpha_a+alpha_b=2gamma/lambda, alpha_b-alpha_a=2gamma v/(lambda K). Fresh symbolic SymPy identities establish the algebra independently; the finite-volume code in the package was inspected as a bounded corroboration only, not used to prove asymptotic power laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 work explicitly discusses reciprocal repulsion with linear confinement and general two-particle stationarity; 2023 active-Dyson work derives model and single-particle edge properties; 2019 linear trap has symmetric linear restoring law."
+        ],
+        "reasoning": "The general 2021 framework is the strongest potential prior implication. Its inspected results do not state the nonlinear gap marginal double edge exponents and two different gamma thresholds as theorem; generic PDMP boundary theorems may imply leading exponents and remain a material limitation.",
+        "searches": [
+          "arXiv:2105.11838 Sections IV stationary transport and support",
+          "arXiv:2302.02937 active Dyson model and edge descriptions",
+          "arXiv:1910.10083 three-state harmonic telegraph trap"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2105.11838",
+        "https://arxiv.org/abs/2302.02937",
+        "https://arxiv.org/abs/1910.10083",
+        "Resultary active-Dyson search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An existing general system of transport ODEs is not an evaluated asymptotic theorem for this gap; the two edge restoring slopes are unequal."
+        ],
+        "reasoning": "A reader can derive the new exponents from older equations, but the prior statement/implication identified does not immediately provide the complete exponent-plus-amplitude and three-phase diagram. No claim of novelty for the equations or support itself.",
+        "searches": [
+          "Le Doussal Majumdar Schehr 2021 primary ODEs",
+          "Touzo Le Doussal Schehr 2023 model II",
+          "Basu et al. arXiv:1910.10083"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent system is a 3-mode piecewise-deterministic Markov process with a reciprocal-plus-linear force; the left/right restoring slopes differ because of the 1/G term."
+        ],
+        "reasoning": "Generic stationary 3-state RTP equations are equivalent to the framework, but do not alone supply explicit finite positive endpoint amplitudes and threshold inequalities without local flux asymptotics.",
+        "searches": [
+          "Resultary two-particle active Dyson gap stationary density edge exponents flip rate unequal inner outer",
+          "Le Doussal Majumdar Schehr arXiv:2105.11838",
+          "Touzo Le Doussal Schehr arXiv:2302.02937"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact two-boundary gap exponent table for this specific finite two-particle nonlinear dynamics was found. The source review openly attributes earlier support and equations."
+        ],
+        "reasoning": "This is not a known-tabular recomputation on inspected evidence. Search absence cannot rule out an earlier specialization or generic formula.",
+        "searches": [
+          "Resultary active Dyson gap edge exponent asymptotic search",
+          "2021 and 2023 sources edge tables",
+          "arXiv:1910.10083 linear trap"
+        ]
+      },
+      "rationale": "The published active-Dyson model and its support bounds, generic two-particle RTP transport ODEs, and linear-force telegraph edge exponents are all prior art. The assessed conclusion specializes the nonlinear reciprocal-force gap and extracts *both* explicit unequal edge powers, positive amplitudes, thresholds and full sign-regime ordering; its priority must be qualified given the general ODE literature.",
+      "residual_risks": [
+        "The 2021 reciprocal-force stationary equations or a more general PDMP regular-singular-boundary theorem might already imply the leading powers as a corollary; 2023 complete model-II text was not fully read. This is a qualified scientific-priority decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General equations and support framework are prior; no exact unequal nonlinear gap-edge phase diagram found in materially read passages",
+          "evidence": "Stationary transport equations and force examples in middle sections",
+          "identifier_or_url": "https://arxiv.org/abs/2105.11838",
+          "material_read": "Complete relevant stationary forward-equation and potential-force sections including reciprocal-plus-linear discussion and support boundaries, particularly section IV",
+          "method": "Primary PDF text and visual page checks",
+          "title": "Stationary nonequilibrium bound state of a pair of run and tumble particles",
+          "trigger": "Closest same two-particle stationary PDE/ODE; possible reciprocal force"
+        },
+        {
+          "assessment": "Provides original system, no whole-document noncoverage assertion possible",
+          "evidence": "Finite-support single-particle stationary phenomena noted",
+          "identifier_or_url": "https://arxiv.org/abs/2302.02937",
+          "material_read": "Accessible arXiv bibliographic abstract and model description only; complete manuscript not confirmed read in this run",
+          "method": "Abstract and anchored model comparison",
+          "title": "Interacting, running and tumbling: the active Dyson Brownian motion",
+          "trigger": "Exactly same originating two-particle model II"
+        },
+        {
+          "assessment": "Linear-force trap unlike reciprocal nonlinear gap; implicit general methods remain risk",
+          "evidence": "Different deterministic drift derivative at opposing edges",
+          "identifier_or_url": "https://arxiv.org/abs/1910.10083",
+          "material_read": "Accessible source summary and model-definition comparison; not a full-paper reading",
+          "method": "Bibliographic/model comparison",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Potential generic three-mode edge theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gap marginal is an intrinsic two-particle observable whose near-contact and maximal-separation event rates quantify physical stationary structure. Two distinct thresholds and the impossible reverse mixed regime are motivated, parameter-uniform consequences absent from single-particle data. Exact positive-power laws for both ends are independently useful even without a closed-form interior density or amplitudes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md integrated mode currents and boundary inequalities",
+    "verify_gap_edges.py inspected finite-volume Markov discretization, not a proof",
+    "independent_checks.py dyson() exact symbolic K,a,b,h and threshold algebra"
+  ],
+  "disposition": "passed",
+  "limitations": "Exactly two ordered particles, positive lambda,g,v,gamma, independent Poisson orientation flips, no diffusion or correlated noise. C_a,C_b positive finite but not explicitly evaluated; no uniform parameters or many-particle statement.",
+  "residual_risks": [
+    "Full-text comparison with 2023 originating active-Dyson paper incomplete; generic boundary-scaling principles may already cover exponents; positivity of amplitudes relies on accessible unique invariant measure and local flux regularity."
+  ],
+  "schema_version": 1
+}

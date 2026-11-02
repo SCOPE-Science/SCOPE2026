@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of stationary gap edge laws
+# Independent mathematical audit
 
-## Analytic checks
-The proof derives the switch rates of the lumped three-state orientation process: both outer modes leave at \(2\gamma\); the zero mode transitions to either outer mode at \(\gamma\). The stationary angular-mode weights are \((1/4,1/2,1/4)\). The endpoint factorizations of the three deterministic gap fields, their simple restoring slopes, and the current-balance identities can be checked directly by differentiation and expansion.
+## correctness
 
-For every fixed positive parameter tuple, the nonattracting mode integrated masses are suppressed by at least one additional power of endpoint distance. The attracting mode's integrated stationary mass therefore satisfies a first-order logarithmic differential asymptotic with bounded remainder. This controls the **positive, finite** leading constants and the density, not merely the formal exponents. The algebraic identities for the two critical rates follow from the explicit positive roots.
+PASS
 
-## Numerical procedure and observations
-Run `python verify_gap_edges.py` with NumPy and SciPy. The program constructs the full stationary generator on a cosine-clustered grid with 5000 finite-volume cells and solves the normalized sparse stationary system. It checks mode probabilities and uses probabilities inside two small endpoint strips to estimate the power-law CDF slopes. With unit harmonic rate, repulsion, and propulsion, and with flip rates \(0.35, 0.8, 1, 2.8\), the predicted lower/upper slopes are approximately \((0.1479,0.5521)\), \((0.3381,1.2619)\), \((0.4226,1.5774)\), and \((1.1834,4.4166)\). Finite-volume slopes approximately \((0.1521,0.5543)\), \((0.3462,1.2605)\), \((0.4320,1.5724)\), and \((1.1965,4.3326)\) agree within the fixed stated tolerance. The four tests sample the two divergent-edge regime, the mixed regime, and the two vanishing-edge regime.
+The ordered two-particle equations give Gdot=-lambda G+2g/G+2vS with S=(sigma2-sigma1)/2 in {-1,0,+1}, switching -1,+1 to zero at rate 2gamma and zero to each outer at gamma. The negative drift derivative -lambda-2g/G^2<-lambda gives pathwise exponential contraction; extreme drift roots a=(sqrt(v^2+2lambda g)-v)/lambda and b=(sqrt(v^2+2lambda g)+v)/lambda bound the exact invariant gap support. Integrated stationary conservation equations have zero endpoint currents. At a+epsilon the attracting mode -1 has field -h_a epsilon+O(epsilon^2), h_a=lambda(a+b)/a, while the other two fields point strictly right; integrated mode masses satisfy H0=O(epsilon H-), H+=O(epsilon^2 H-). Positivity of H- and the flux identity give d(log H-)/d epsilon=2gamma/(h_a epsilon)+O(1), hence a finite strictly positive C_a and exponent alpha_a=2gamma/h_a; differentiating through flux gives p_G~C_a alpha_a epsilon^(alpha_a-1). At b the symmetric calculation gives h_b=lambda(a+b)/b and alpha_b=2gamma/h_b. The exact thresholds h_b/2=lambda K/(K+v)<h_a/2=lambda K/(K-v), K=sqrt(v^2+2lambda g), give the stated three divergence/vanishing regions, finite positive critical limits, and alpha_a+alpha_b=2gamma/lambda, alpha_b-alpha_a=2gamma v/(lambda K). Fresh symbolic SymPy identities establish the algebra independently; the finite-volume code in the package was inspected as a bounded corroboration only, not used to prove asymptotic power laws.
 
-## Scope of verification
-The proof, not the numerical computation, supports the asymptotic statements for infinitely small strips and all positive parameter tuples. Finite-volume upwinding has a first-order discretization bias, particularly for the exponent above four where boundary probabilities are extremely small. No numerical test can establish original publication priority. No external independent audit has been performed.
+## originality
+
+PASS
+
+The published active-Dyson model and its support bounds, generic two-particle RTP transport ODEs, and linear-force telegraph edge exponents are all prior art. The assessed conclusion specializes the nonlinear reciprocal-force gap and extracts *both* explicit unequal edge powers, positive amplitudes, thresholds and full sign-regime ordering; its priority must be qualified given the general ODE literature.
+
+## value
+
+PASS
+
+The gap marginal is an intrinsic two-particle observable whose near-contact and maximal-separation event rates quantify physical stationary structure. Two distinct thresholds and the impossible reverse mixed regime are motivated, parameter-uniform consequences absent from single-particle data. Exact positive-power laws for both ends are independently useful even without a closed-form interior density or amplitudes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

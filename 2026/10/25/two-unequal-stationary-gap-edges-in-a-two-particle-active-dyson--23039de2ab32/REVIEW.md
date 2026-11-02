@@ -1,15 +1,21 @@
-# Review: Two unequal stationary gap edges in a two-particle active Dyson gas
+# Independent mathematical audit
 
-## Correctness — PASS
-The gap process is a contraction-driven, three-state piecewise-deterministic Markov process on a nonzero compact interval. The precise mode transition generator is derived from two independent orientation flips, avoiding a factor-of-two ambiguity. Its three stationary conservation equations are integrated from each endpoint under the zero boundary-current condition. Near the small-gap edge, the nonattracting mode masses are of relative orders \(O(\varepsilon)\) and \(O(\varepsilon^2)\) compared with the attracting mode; the same orders hold with the orientations interchanged near the large-gap edge. The resulting logarithmic derivatives have residues \(2\gamma/h_a\) and \(2\gamma/h_b\) with bounded remainders, giving strictly positive finite edge amplitudes. Exact factorization of the drift fields and algebraic comparison of the slopes establish the two distinct critical flip rates and all boundary-density cases. A separate finite-volume Markov-generator calculation at four flip rates supports the edge-slope predictions but is not used as proof.
+## correctness
 
-## Originality — PASS, with priority risk
-Touzo–Le Doussal–Schehr (arXiv:2302.02937) introduced the two active Dyson models and derived finite-support *single-particle* stationary-density facts; the finite two-particle support bounds are not new. Le Doussal–Majumdar–Schehr (arXiv:2105.11838) established generic two-particle stationary equations, including discussions of reciprocal repulsion. That earlier general framework could be specialized, but the explicit unequal gap-edge exponents, their finite positive amplitudes, and the two separate rate thresholds were not located in the inspected material. The exactly solvable *linear* three-state harmonic trap (arXiv:1910.10083) has different edge dynamics; the ring hard-core model of Das–Dhar–Kundu (arXiv:1912.13269) has a different force, noise, and domain. A generic published piecewise-deterministic boundary theorem might nevertheless imply the leading powers, and the general 2021 differential equations are a material nontrivial priority risk. Neither a mathematical-record search nor a literature search can certify uniqueness or publication priority.
+PASS
 
-## Mathematical value — PASS
-The inter-particle separation is a physically basic statistic of active repulsive gases. The two boundary exponents quantify rare near-contact and maximally stretched configurations and show that their density singularities change at different switching rates. The intermediate parameter window—divergence at one edge and suppression at the other—does not follow from the known single-particle edge singularities. The result gives an exact, parameter-uniform phase classification for a naturally distinguished finite-particle member of the active Dyson family, without adding artificial boundary conditions or discretizing the force law.
+The ordered two-particle equations give Gdot=-lambda G+2g/G+2vS with S=(sigma2-sigma1)/2 in {-1,0,+1}, switching -1,+1 to zero at rate 2gamma and zero to each outer at gamma. The negative drift derivative -lambda-2g/G^2<-lambda gives pathwise exponential contraction; extreme drift roots a=(sqrt(v^2+2lambda g)-v)/lambda and b=(sqrt(v^2+2lambda g)+v)/lambda bound the exact invariant gap support. Integrated stationary conservation equations have zero endpoint currents. At a+epsilon the attracting mode -1 has field -h_a epsilon+O(epsilon^2), h_a=lambda(a+b)/a, while the other two fields point strictly right; integrated mode masses satisfy H0=O(epsilon H-), H+=O(epsilon^2 H-). Positivity of H- and the flux identity give d(log H-)/d epsilon=2gamma/(h_a epsilon)+O(1), hence a finite strictly positive C_a and exponent alpha_a=2gamma/h_a; differentiating through flux gives p_G~C_a alpha_a epsilon^(alpha_a-1). At b the symmetric calculation gives h_b=lambda(a+b)/b and alpha_b=2gamma/h_b. The exact thresholds h_b/2=lambda K/(K+v)<h_a/2=lambda K/(K-v), K=sqrt(v^2+2lambda g), give the stated three divergence/vanishing regions, finite positive critical limits, and alpha_a+alpha_b=2gamma/lambda, alpha_b-alpha_a=2gamma v/(lambda K). Fresh symbolic SymPy identities establish the algebra independently; the finite-volume code in the package was inspected as a bounded corroboration only, not used to prove asymptotic power laws.
 
-## Closest literature and limits
-The source model and its stationary support, the general finite-state two-particle transport method, and the linear-force three-state trap are established. The claim is restricted to two strictly ordered particles with positive harmonic, Coulomb, propulsion, and independent Poisson-switching parameters, without thermal noise. Complete interior density and closed-form endpoint amplitudes remain unknown here. The originality assessment is limited by potential implicit consequences of broader PDMP boundary-asymptotic results and earlier general ODEs. Same-author, same-family follow-up work on small-noise active Dyson fluctuations emphasizes another asymptotic regime. The numerical tests do not establish infinite-resolution asymptotics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published active-Dyson model and its support bounds, generic two-particle RTP transport ODEs, and linear-force telegraph edge exponents are all prior art. The assessed conclusion specializes the nonlinear reciprocal-force gap and extracts *both* explicit unequal edge powers, positive amplitudes, thresholds and full sign-regime ordering; its priority must be qualified given the general ODE literature.
+
+## value
+
+PASS
+
+The gap marginal is an intrinsic two-particle observable whose near-contact and maximal-separation event rates quantify physical stationary structure. Two distinct thresholds and the impossible reverse mixed regime are motivated, parameter-uniform consequences absent from single-particle data. Exact positive-power laws for both ends are independently useful even without a closed-form interior density or amplitudes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
