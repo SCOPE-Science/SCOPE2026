@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Conditional on reset event times, the increment is a sum of an independent stationary Laplace initial-velocity term and an explicitly normalized Gaussian Brownian-area term. The proof controls all reset partitions uniformly, derives the exact positive-tail constant and its conditional no-reset event, and proves the exact exponential-moment finiteness interval. Independently integrating the velocity autocovariance confirms the diffusive variance formula. The attached standalone checker passes 158 deterministic assertions; none is used as a proof of an asymptotic limit.
+## correctness
 
-**Originality: PASS, subject to disclosed priority limits.** Singh's accessible 2020 full text concerns joint resetting or position-only resetting, so its results do not cover the velocity-only protocol. Olsen and Löwen 2024 addresses the correct model with transform and transport results but full text was unavailable in this review; a matching result cannot be excluded by an abstract search. Smith and Majumdar 2022 treats reset-Gaussian area large deviations in a different initialization and limit regime. The assessed mathematical addition is the fixed-positive-time stationary-velocity exponential-tail constant, exact mgf boundary, and limiting no-future-reset posterior, not the already-known renewal law or diffusion coefficient.
+PASS
 
-**Scientific value: PASS.** The result identifies a precise physical mechanism for very rare transport excursions, which is invisible in ordinary mean-squared displacement. It provides an exact test for extreme-event history selection and distinguishes equilibrium-initialized from newly-reset velocity statistics; no broad downstream theorem or inference guarantee is required for this exact structural characterization.
+The Poisson exponential backward age A at stationarity and V0|A∼N(0,2DA) give Laplace density κ exp(-κ|v|)/2 with κ=√(r/D). Conditional on future reset interval lengths ℓ_j summing to T, the increment X_T=L V0+G, L=ℓ_1 and G independent centered normal with variance (2D/3)∑ℓ_j³. For c=κ/T all partitions satisfy e^{cx}P(X_T>x|partition)≤exp(Dc²∑ℓ³/3)≤exp(rT/3); if any future reset L<T, the c-weighted tail tends to zero, while on no reset L=T its limit is exp(rT/3)/2. Dominated convergence and P(no reset)=exp(-rT) give constant exp(-2rT/3)/2 and conditional no-reset posterior→1. The MGF denominator κ²-θ²L² and positive-probability L=T event prove its exact finite domain |θ|<κ/T and boundary coefficient exp(-2rT/3). Stationary covariance (2D/r)exp(-r|t|) yields Var X_T=(4D/r³)(rT-1+exp(-rT)). Independent convolution numerics matched the tail constant for three parameter sets; universal asymptotic follows analytically.
 
-**Limits.** The asymptotic is not uniform in observation time and does not apply to velocity drag, non-Poisson resetting, non-Gaussian driving or nonstationary initial velocity. A direct full-text scholarly priority comparison to Olsen and Löwen 2024 remains unresolved and should be independently assessed before any publication claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Olsen–Löwen 2024 analyze the same velocity-only resetting model and derive Fourier–Laplace transforms, moment recursions, and long-time effective diffusion, all explicitly credited. The assessed fixed-T stationary-initial-state tail residue and conditional no-future-reset law are not stated in accessible abstract. The full primary text could not be materially inspected; Oxford access reported vpn_disconnected, so this is a significant residual risk. Singh 2020 resets different coordinates; Smith–Majumdar 2022 concern large-time/other initialized ensembles. No located Resultary equivalent.
+
+## value
+
+PASS
+
+The fixed-horizon extremes provide a sharp, physically interpretable diagnostic: sufficiently far spatial excursions from stationary velocity were overwhelmingly free of velocity resets during the observation window. The exact exponential moment threshold and its residue distinguish fixed-time rare displacement from large-T diffusive variance; this is meaningful boundary behavior of a precisely specified stochastic model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
