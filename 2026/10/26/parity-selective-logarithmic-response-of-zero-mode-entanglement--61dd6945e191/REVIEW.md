@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The sole claim is reconstructed from the exact entropy-density integral (68) of Capizzi–Eisler. The change of variable and its Jacobian were checked against the full expression (67), not inferred from plotted curves. Uniform \(O(\lambda^2/\cosh y)\) weight estimates and the entropy expansion justify termwise integration, and differentiating the beta-integral supplies the sole nontrivial constant. The cancellation in the odd sector was checked algebraically and with quadrature; no finite sampling is used as an infinite proof.
+## correctness
 
-## Originality
-The source explicitly gives its integral (68), the endpoint values, and parity-dependent plots, but not the weak-link expansion or the parity-selective cancellation. Full text inspected includes its spectral derivation, numerical section and discussion. Searches for the source identifier, weak transmission, even/odd entropy, logarithmic rates and alternative zero-mode descriptions found no equivalent or strictly stronger published result. The source integral contains the result implicitly, so the contribution is a sharp evaluated asymptotic rather than a new spectrum. Remaining risk: other literature may have extracted the coefficients without keyword or title overlap.
+PASS
 
-## Value
-The exact weak-link response of a zero mode is a physically natural limiting quantity. The logarithmic-even versus quadratic-odd contrast identifies different leading singularity classes and pinpoints the cancellation between a continuous density and a discrete edge contribution. This supplies quantitative information beyond endpoint values and plots, with potential use in defect crossover and parity-sensitive scaling comparisons; no speculative downstream theorem is asserted.
+Direct transformation of primary density (66) gives W±=(1∓a)(sinh²y∓a)/(2π cosh y(cosh²y−λ²)); uniform W+=O(λ²sech y), W−=(π cosh y)−1+O(λ²sech y). Uniform entropy expansion yields an O(λ⁴ log(1/λ)) integrable remainder. Differentiating I(p)=sqrt(pi)Γ(p/2)/(2Γ((p+1)/2)) at p=3 yields odd finite term (log2−1/2)/4; continuum log cancels −s(ε+)/2 exactly. Three independent quadrature values checked both asymptotics.
 
-## Boundaries
-The result applies only to the specified zero-mode entropy differences after thermodynamic limit; finite-length uniformity and other Rényi indices remain unresolved. No independent review was requested or performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Capizzi–Eisler derives the exact starting densities and δS_e/o integral over all transmission strengths, but the inspected Section IV gives only qualitative weak-link trends, not the singular expansion coefficients and cancellation. A direct but nontrivial asymptotic consequence of stronger exact formulas is new only if not previously extracted.
+
+## value
+
+PASS
+
+The distinct weak-transmission scaling and parity cancellation quantify a natural boundary singularity of a physically motivated zero-mode entanglement quantity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

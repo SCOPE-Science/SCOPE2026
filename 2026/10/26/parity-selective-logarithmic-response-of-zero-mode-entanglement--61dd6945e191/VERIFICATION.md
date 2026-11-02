@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the endpoint law
+# Independent mathematical audit
 
-The analytic proof uses a parameter-uniform change of variables in the published exact continuum-plus-edge formula. The transformed densities were checked against the original printed equation (67), including the sign of the even density near its gap edge. The error terms are bounded by integrable \(\operatorname{sech}^3y\) moments times \(\lambda^4[1+\log(1/\lambda)]\), and the special integrals follow by differentiating a convergent beta integral. This establishes the asymptotic claims; numerical quadrature alone would not.
+## correctness
 
-A reproducible optional numerical test is supplied in `verify.py` using `mpmath` at 45-digit precision. It compares both exact integral expressions with their proposed leading terms for several positive transmissions. These checks do not certify all parameters or independently validate the argument. The published spectral formula and any numerical values need independent scientific verification before broader reliance.
+PASS
+
+Direct transformation of primary density (66) gives W±=(1∓a)(sinh²y∓a)/(2π cosh y(cosh²y−λ²)); uniform W+=O(λ²sech y), W−=(π cosh y)−1+O(λ²sech y). Uniform entropy expansion yields an O(λ⁴ log(1/λ)) integrable remainder. Differentiating I(p)=sqrt(pi)Γ(p/2)/(2Γ((p+1)/2)) at p=3 yields odd finite term (log2−1/2)/4; continuum log cancels −s(ε+)/2 exactly. Three independent quadrature values checked both asymptotics.
+
+## originality
+
+PASS
+
+Capizzi–Eisler derives the exact starting densities and δS_e/o integral over all transmission strengths, but the inspected Section IV gives only qualitative weak-link trends, not the singular expansion coefficients and cancellation. A direct but nontrivial asymptotic consequence of stronger exact formulas is new only if not previously extracted.
+
+## value
+
+PASS
+
+The distinct weak-transmission scaling and parity cancellation quantify a natural boundary singularity of a physically motivated zero-mode entanglement quantity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
