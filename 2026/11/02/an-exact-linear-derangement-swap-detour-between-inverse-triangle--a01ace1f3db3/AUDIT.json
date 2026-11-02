@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For R=pi^{-1}tau, the initial relative permutation has k cycles and the terminal has 3k. A transposition splits or merges one cycle; any path has length 2k+2m where m is the merger count. Each of k disjoint untouched 3-cycle blocks must first be accessed from another block, necessarily by a merging swap, so m>=ceil(k/2). The displayed 6-move and 10-move templates are valid for respectively 2 and 3 blocks; decomposing k as sums of 2 and optionally 3 achieves the lower bound. Both finite scripts were executed, including exhaustive BFS for n=6,9, but only the constructive proof establishes all k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf pp. 2-3 (permutation/matching model) and p. 17 (derangement-transposition connectivity for n>=4 and isolated n=3).",
+        "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements full accessible paper, especially abstract, main theorems on connectivity, degrees and shortest spanning walks, not a shortest path for inverse disjoint 3-cycles.",
+        "https://arxiv.org/abs/1501.07725 full arXiv preprint, results on hereditary bipartite graph classes and switch-chain connectivity/diameters; chordal-bipartite result does not apply to crowns containing induced six-cycles."
+      ],
+      "reasoning": "Unrestricted transposition sorting has a different feasible set; general connectivity provides existence rather than exact distance. The cited chordal-bipartite switch-chain diameter result cannot dominate this claim because K_(n,n) minus a perfect matching for n>=4 has induced 6-cycles and is not chordal bipartite. No inspected broader exact distance theorem covers these endpoints.",
+      "searches": [
+        "derangements transposition graph diameter path length distance transposition graph Jain",
+        "\"crown graph\" \"switch\" \"distance\" perfect matchings",
+        "Full arXiv primary paper: https://arxiv.org/abs/1501.07725",
+        "Primary paper: https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf",
+        "Primary paper: https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements"
+      ]
+    },
+    "checked_sources": [
+      "https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf",
+      "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+      "https://arxiv.org/abs/1501.07725",
+      "https://doi.org/10.37236/3723"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf pp. 2-3 (permutation/matching model) and p. 17 (derangement-transposition connectivity for n>=4 and isolated n=3).",
+        "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements full accessible paper, especially abstract, main theorems on connectivity, degrees and shortest spanning walks, not a shortest path for inverse disjoint 3-cycles.",
+        "https://arxiv.org/abs/1501.07725 full arXiv preprint, results on hereditary bipartite graph classes and switch-chain connectivity/diameters; chordal-bipartite result does not apply to crowns containing induced six-cycles.",
+        "https://doi.org/10.37236/3723 complete 5-page paper (2014-03-24), group actions and excedance polynomial expansions on derangements rather than swap graph metrics."
+      ],
+      "reasoning": "The specific new assertion is d=2k+2ceil(k/2). Prior graph connectivity only gives a finite path; general unrestricted transposition distance is 2k, a strict lower bound; degree and vertex-connectivity formulas do not imply any designated-pair metric; shortest spanning-walk length is not the same invariant. The new proof isolates an unavoidable first-touch merger for each 3-block.",
+      "searches": [
+        "derangements transposition graph diameter path length distance transposition graph Jain",
+        "Full text: https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf p. 17",
+        "Full text: https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "Full text: https://arxiv.org/abs/1501.07725"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf pp. 2-3 (permutation/matching model) and p. 17 (derangement-transposition connectivity for n>=4 and isolated n=3).",
+        "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements full accessible paper, especially abstract, main theorems on connectivity, degrees and shortest spanning walks, not a shortest path for inverse disjoint 3-cycles.",
+        "The same graph is the switch graph of perfect matchings of the crown graph, and the transposition graph on derangements; the equivalence was taken into account."
+      ],
+      "reasoning": "The earlier same-object terminology was recognized and compared. Known connectivity, degree formulas and shortest spanning-walk statements do not determine d(sigma_k,sigma_k^{-1}) for the displayed k-three-cycle family. The unrestricted transposition distance equals 2k but does not imply the forbidden-point distance.",
+      "searches": [
+        "derangement transposition graph shortest path fixed point free permutations distance inverse three cycles",
+        "derangement graph swap graph distance between permutations fixed-point-free 3-cycles inverse",
+        "Derangement transposition swap graph of permutations with no fixed points; shortest-path distance from product of disjoint 3-cycles to its inverse; crown graph four-cycle perfect-matching switches",
+        "Primary paper: https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "Primary paper: https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements main results describe degrees/connectivity and shortest spanning walks rather than an exact infinite endpoint-distance table.",
+        "https://doi.org/10.37236/3723 records derangement-polynomial combinatorics, not pairwise switch distances."
+      ],
+      "reasoning": "No consulted published numeric table or online record gave the sequence 6,10,12,16,... with the stated endpoint definition. The proof supplies all sizes, not a recomputation of an existing finite table. Absence of matches is not itself evidence of uniqueness.",
+      "searches": [
+        "derangement transposition graph shortest path fixed point free permutations distance inverse three cycles",
+        "derangement graph swap graph distance between permutations fixed-point-free 3-cycles inverse",
+        "Derangement transposition swap graph of permutations with no fixed points; shortest-path distance from product of disjoint 3-cycles to its inverse; crown graph four-cycle perfect-matching switches",
+        "exact distance inverse 3-cycle derangements transposition graph n=6 n=9"
+      ]
+    },
+    "rationale": "The same derangement-transposition graph, its connectivity and certain local or spanning-walk features were studied previously and are not claimed as new. Full-text and scholarly-record comparisons identified no theorem yielding this exact pairwise inverse-three-cycle flip distance for every k>=2 or its unbounded additive gap. Distinctive new implication is a tight first-touch merging bound matched by bounded-size switch templates across an infinite family. Unindexed equivalent results remain a risk.",
+    "residual_risks": [
+      "A historically equivalent derivation might be indexed under forbidden-position permutation sorting, derangement swap routing, or crown-graph reconfiguration rather than the searched terminology.",
+      "No claim of exhaustive search of all inaccessible historical literature is made.",
+      "The result shares its state graph with prior research; only the precise selected-pair all-k formula and linear detour are claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIOR_GRAPH_CONNECTIVITY_NOT_PAIR_METRIC",
+        "evidence": "p. 17 explicitly states connected derangements for n>=4 and two isolated n=3; no inverse disjoint-three-cycle geodesic formula is reported in inspected full text.",
+        "identifier_or_url": "https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf",
+        "material_read": "Relevant sections of accessible 25-page primary PDF inspected, especially pp. 2-3 and 15-17 for the matching model, switch rules and derangement connectivity.",
+        "method": "Full-text reading, terms related to derangements, transpositions, switching and distances, plus visual inspection of p. 17.",
+        "title": "Statistical Problems Involving Permutations with Restricted Positions",
+        "trigger": "Original restricted-permutation switch-chain paper and derangement graph connectivity."
+      },
+      {
+        "assessment": "SAME_GRAPH_NO_EXACT_ENDPOINT_METRIC_FOUND",
+        "evidence": "Abstract describes shortest spanning walk and min/max degrees and connectivity; the examined claims do not give shortest distance between inverse products of 3-cycles.",
+        "identifier_or_url": "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "material_read": "Full publicly accessible paper text, including abstract, definitions, principal theorems and degree/connectivity/spanning-walk sections.",
+        "method": "Full-text reading, searching for distance, diameter, minimal paths, three-cycle inverse and shortest spanning walks.",
+        "title": "Transpositions in Derangements",
+        "trigger": "Exact graph on all derangements with one-entry transposition adjacency."
+      },
+      {
+        "assessment": "CHORDAL_BIPARTITE_HYPOTHESES_NOT_MET",
+        "evidence": "Paper analyzes switch chains in restricted graph classes; crown graphs are not chordal bipartite for n>=4, and no claim on specified inverse derangements appears.",
+        "identifier_or_url": "https://arxiv.org/abs/1501.07725",
+        "material_read": "Relevant sections of publicly accessible arXiv PDF, particularly the switch definition and the hypotheses/proof of Lemma 2 on chordal bipartite diameter.",
+        "method": "Full-text reading and checking source graph hypotheses against crown induced-six-cycle structure; visual inspection of first page.",
+        "title": "On the Switch Markov Chain for Perfect Matchings",
+        "trigger": "General four-cycle matching switches and possible dominating diameter results."
+      },
+      {
+        "assessment": "DERANGEMENT_STATISTIC_ACTION_NOT_SWAP_METRIC",
+        "evidence": "Published 2014-03-24 with classifications 05A15,05A05,05E18,26C99. Main theorem concerns cyclic MFS-action and polynomial expansion.",
+        "identifier_or_url": "https://doi.org/10.37236/3723",
+        "material_read": "Complete 5-page public article including the main theorem, examples and references.",
+        "method": "Full-text inspection and first-page visual verification of publication date and MSC.",
+        "title": "A Group Action on Derangements",
+        "trigger": "Archive-period original derangement combinatorics with verified publication date and primary MSC 05A15."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a01ace1f-3db3-49cb-87c3-0c1743a926ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The forbidden diagonal in a crown graph makes four-cycle matching-switch routing genuinely different from ordinary transposition sorting. This theorem quantifies a sharp unbounded additive distance penalty for a canonical infinite family of inverse cycle-products, with an explanatory first-touch merging invariant and matching constructive routes. It is relevant to shortest paths and local mixing geometry, not a routine state-count calculation.",
+    "status": "PASS"
+  }
+}
