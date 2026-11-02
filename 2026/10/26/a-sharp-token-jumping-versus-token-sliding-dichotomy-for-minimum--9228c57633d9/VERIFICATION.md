@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduce the finite proof
+# Independent mathematical audit
 
-Run `python3 check_gp.py > gp_replayed.json` and `python3 check_lcf.py > lcf_replayed.json` from the directory containing the programs. Compare each resulting JSON object against `gp_output.json` and `lcf_output.json`. Only Python 3 standard-library modules are needed.
+## correctness
 
-`check_gp.py` constructs \(GP(8,3)\), checks all \(\binom{16}{k}\) seeds for \(0\le k\le6\) by deterministic synchronous mask closure, generates all legal six-set exchanges, and computes BFS from each of the 1704 minimum states. `check_lcf.py` independently builds the graph via the LCF notation `[5,-5]^8`, verifies an explicit graph isomorphism, applies sequential forces, constructs exchanges by shared five-subsets, and performs independent all-origin BFS. The programs assert the exact census, 16560 jump edges, zero slide edges, and radius and diameter equal to six. The first checks a concrete sharp witness route.
+PASS
 
-Because the vertex universe consists of sixteen vertices and the programs traverse all candidate subsets through cardinality six, all minimum sets are considered. The reconfiguration graph construction is complete because every one-vertex replacement is tested; a breadth-first search computes exact shortest-path distances in the resulting unweighted graph. No timeout or sampled partial search substitutes for exhaustive enumeration.
+Built GP(8,3) directly from outer 8-cycle, spokes and 3-step inner edges, then independently enumerated every C(16,k) subset for 0<=k<=6 and applied legal blue-to-unique-white-neighbor closure; counts [0,0,0,0,0,0,1704]. Constructed all jump-neighbor six-subsets differing by one element and checked original edge adjacency for slides: exactly 16560 undirected jumps and zero legal slides. Breadth-first search from each of all 1704 configurations reaches the full graph with eccentricity exactly 6. In the frozen package, a second separate LCF [5,-5]^8 encoding, explicit isomorphism and sequential force implementation agree. BFS and bounded brute force are complete finite proofs for this one 16-vertex graph, not asymptotic evidence.
 
-This is computational verification for one finite graph, not a proof for all generalized Petersen graphs. No independent external audit is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the exact final statement, rather than its standard background ingredients: The full geometry of optimum-solution reconfiguration is a motivated invariant: jump connectivity with uniformly small diameter contrasts sharply with complete slide immobility. The specific graph is a classical symmetric cubic test case; the result is more informative than recomputing the previously known scalar zero-forcing number. The searched and materially inspected primary results do not directly cover the full exact statement; plausible uninspected generalizations remain residual risks.
+
+## value
+
+PASS
+
+The full geometry of optimum-solution reconfiguration is a motivated invariant: jump connectivity with uniformly small diameter contrasts sharply with complete slide immobility. The specific graph is a classical symmetric cubic test case; the result is more informative than recomputing the previously known scalar zero-forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

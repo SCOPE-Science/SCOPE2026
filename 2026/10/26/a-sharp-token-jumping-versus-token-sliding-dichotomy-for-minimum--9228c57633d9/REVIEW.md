@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Two independently structured and executed Python-standard-library programs reconstruct the base graph through provably isomorphic representations, exhaustively enumerate every zero forcing seed of size at most six, and construct both allowed reconfiguration relations. The first applies simultaneous mask forcing, the second sequential forcing. Both obtain 1704 minimum sets, 16560 jumping edges, zero sliding edges, connected jumping geometry, and all eccentricities equal six. All 1704 BFS origins are tested without symmetry reduction; the explicit distance-six witness and valid six-step route are checked. The two exact forcing procedures agree because the standard forcing closure is independent of scheduling. The proof makes no claims beyond this graph.
+PASS
 
-## Originality — PASS, residual risk
+Built GP(8,3) directly from outer 8-cycle, spokes and 3-step inner edges, then independently enumerated every C(16,k) subset for 0<=k<=6 and applied legal blue-to-unique-white-neighbor closure; counts [0,0,0,0,0,0,1704]. Constructed all jump-neighbor six-subsets differing by one element and checked original edge adjacency for slides: exactly 16560 undirected jumps and zero legal slides. Breadth-first search from each of all 1704 configurations reaches the full graph with eccentricity exactly 6. In the frozen package, a second separate LCF [5,-5]^8 encoding, explicit isomorphism and sequential force implementation agree. BFS and bounded brute force are complete finite proofs for this one 16-vertex graph, not asymptotic evidence.
 
-The 2007/2008 foundational zero forcing paper specifies the forcing model but does not provide this Möbius–Kantor classification. Geneson–Haas–Hogben (arXiv:2009.00220), inspected in full, introduces the exact jump reconfiguration model and studies general examples and families, without the claimed 1704-state graph. Rashidi–Poursalavati–Tavakkoli (DOI 10.13069/jacodesmath.729465), inspected across its eleven pages, gives exact \(GP(n,3)\) results only for \(n\ge12\), inapplicable to \(n=8\). Targeted mathematical-record searches for the named graph, exact count, exchange diameters, and aliases found no covering result; different published Möbius–Kantor homotopy computations and Möbius ladder forcing results do not imply this result. Unindexed identical enumerations remain possible, and non-coverage was not inferred from inaccessible titles alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural complete optimal-configuration classification on a named cubic symmetric girth-six graph, with an unusually sharp distinction between two canonical reconfiguration moves. Complete rigidity for all token slides coexists with sharp diameter-six connectivity under unrestricted single-token jumps. The contrast addresses the practical and structural gap between enumerating optimal zero-forcing seeds and being able to reposition a minimal seed set without increasing its cardinality. It is not merely a calculation of a familiar lower bound.
+Best-of-knowledge originality of the exact final statement, rather than its standard background ingredients: The full geometry of optimum-solution reconfiguration is a motivated invariant: jump connectivity with uniformly small diameter contrasts sharply with complete slide immobility. The specific graph is a classical symmetric cubic test case; the result is more informative than recomputing the previously known scalar zero-forcing number. The searched and materially inspected primary results do not directly cover the full exact statement; plausible uninspected generalizations remain residual risks.
 
-## Limits
+## value
 
-The result is finite and graph-specific. Novelty has the residual risk of unindexed equivalent computations. The verification is self-review, not independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full geometry of optimum-solution reconfiguration is a motivated invariant: jump connectivity with uniformly small diameter contrasts sharply with complete slide immobility. The specific graph is a classical symmetric cubic test case; the result is more informative than recomputing the previously known scalar zero-forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

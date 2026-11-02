@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:46:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md",
+        "2026/10/26/a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/VERIFICATION.md",
+        "2026/10/26/a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/check_gp.py and check_lcf.py",
+        "independently constructed bounded calculations in independent_checks_1234.py"
+      ],
+      "rationale": "Built GP(8,3) directly from outer 8-cycle, spokes and 3-step inner edges, then independently enumerated every C(16,k) subset for 0<=k<=6 and applied legal blue-to-unique-white-neighbor closure; counts [0,0,0,0,0,0,1704]. Constructed all jump-neighbor six-subsets differing by one element and checked original edge adjacency for slides: exactly 16560 undirected jumps and zero legal slides. Breadth-first search from each of all 1704 configurations reaches the full graph with eccentricity exactly 6. In the frozen package, a second separate LCF [5,-5]^8 encoding, explicit isomorphism and sequential force implementation agree. BFS and bounded brute force are complete finite proofs for this one 16-vertex graph, not asymptotic evidence.",
+      "residual_risks": [
+        "Earlier work has the basic definitions and independently may determine Z(GP(8,3))=6; novelty is strictly the 1704-state exchange graph classification, not Z=6."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general reconfiguration paper introduces the graph framework, and the newer Petersen paper gives scalar zero-forcing numbers, including known small GP(8,3) Z=6."
+        ],
+        "reasoning": "Knowing Z(G)=6 or defining general token-jump graphs does not imply the complete labeled 1704-vertex reconfiguration adjacency, all eccentricities six and absence of slides.",
+        "searches": [
+          "Geneson Haas Hogben 2020 reconfiguration graphs zero forcing",
+          "Krishnan Ma Zhang 2026 sharp zero forcing generalized Petersen P(n,3)"
+        ]
+      },
+      "checked_sources": [
+        "Geneson–Haas–Hogben arXiv:2009.00220, Reconfiguration graphs of zero forcing sets",
+        "Rashidi–Poursalavati–Tavakkoli DOI:10.13069/jacodesmath.729465",
+        "Krishnan–Ma–Zhang arXiv:2610.24059: sharp ordinary zero forcing numbers for generalized Petersen graphs, including known small graph Z=6",
+        "Frozen RESULT.md, check_gp.py, check_lcf.py, exact gP/lcf output files",
+        "Resultary other Möbius–Kantor complex results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rashidi bounds exclude n=8; later small-case Z=6 is covered but is only one premise. Geneson results for other graph families do not identify the present incidence geometry."
+        ],
+        "reasoning": "The distinct new theorem is the combined jump-connected diameter-six and slide-edgeless classification; the known Z number is explicitly credited and not used alone to claim originality.",
+        "searches": [
+          "Rashidi Poursalavati Tavakkoli 2020 GP(n,3) n>=12",
+          "Geneson Haas Hogben 2009.00220",
+          "Krishnan Ma Zhang 2610.24059"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two explicitly isomorphic presentations of the Möbius–Kantor graph and the exact difference between token jump and token slide were checked; equivalent terminology can call jump an optimal configuration exchange graph."
+        ],
+        "reasoning": "Do not confuse Möbius ladder with Möbius–Kantor or ordinary zero forcing with PSD/skew force rules.",
+        "searches": [
+          "minimum zero forcing reconfiguration graph jump and slide Möbius Kantor GP(8,3)",
+          "LCF [5,-5]^8 zero forcing set exchange"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Other published matching and cut complex computations concern topological graph invariants, not forced-set reconfigurations. Independent complete enumeration recovered exact labeled 1704 and jump degree histogram."
+        ],
+        "reasoning": "No inspected exact-table entry supplies the full exchange graph; the independent enumeration is exhaustive in its finite universe.",
+        "searches": [
+          "GP(8,3) zero forcing sets 1704 16560 slides diameter 6",
+          "Resultary Mobius Kantor matching complex and 3-cut complex"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the exact final statement, rather than its standard background ingredients: The full geometry of optimum-solution reconfiguration is a motivated invariant: jump connectivity with uniformly small diameter contrasts sharply with complete slide immobility. The specific graph is a classical symmetric cubic test case; the result is more informative than recomputing the previously known scalar zero-forcing number. The searched and materially inspected primary results do not directly cover the full exact statement; plausible uninspected generalizations remain residual risks.",
+      "residual_risks": [
+        "Earlier work has the basic definitions and independently may determine Z(GP(8,3))=6; novelty is strictly the 1704-state exchange graph classification, not Z=6.",
+        "A previously unindexed reconfiguration enumeration of this famous 16-vertex graph could duplicate the stated 16560-edge/diameter/slide phenomenon."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NO_MATCH_IDENTIFIED",
+          "evidence": "Defines the jumping reconfiguration model and studies several general/family cases; inspected material does not give these Möbius–Kantor complete figures.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "Primary 21-page arXiv PDF opened and inspected introduction, graph construction and related theorems, with full-text search for Petersen and sliding; not a formal sentence-by-sentence review",
+          "method": "arXiv PDF and visual first-page check",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "same optimal-set token-jumping definition"
+        },
+        {
+          "assessment": "SCALAR_Z_KNOWN_NOT_EXCHANGE_GRAPH",
+          "evidence": "The scalar Z(GP(8,3))=6 may be known; a number alone does not determine jump/slide geometry.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.24059",
+          "material_read": "Public abstract and indexed exact numeric small-case claims read; full primary text not retrieved",
+          "method": "public arXiv abstract/search",
+          "title": "Sharp zero forcing numbers for generalized Petersen graphs P(n,3) and P(n,4)",
+          "trigger": "same graph and precise Z invariant"
+        },
+        {
+          "assessment": "OLDER_N_BOUND_EXCLUDES_N8",
+          "evidence": "Quoted theorem for GP(n,3) requires n>=12, not n=8.",
+          "identifier_or_url": "https://doi.org/10.13069/jacodesmath.729465",
+          "material_read": "Accessible theorem hypothesis cited in original package and public abstract context, not whole source proof",
+          "method": "public article abstract and quoted condition",
+          "title": "Computing the zero forcing number for generalized Petersen graphs",
+          "trigger": "prior theorem potentially covering GP(8,3)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md",
+        "Geneson–Haas–Hogben arXiv:2009.00220, Reconfiguration graphs of zero forcing sets",
+        "Rashidi–Poursalavati–Tavakkoli DOI:10.13069/jacodesmath.729465"
+      ],
+      "rationale": "The full geometry of optimum-solution reconfiguration is a motivated invariant: jump connectivity with uniformly small diameter contrasts sharply with complete slide immobility. The specific graph is a classical symmetric cubic test case; the result is more informative than recomputing the previously known scalar zero-forcing number.",
+      "residual_risks": [
+        "A previously unindexed reconfiguration enumeration of this famous 16-vertex graph could duplicate the stated 16560-edge/diameter/slide phenomenon."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the sixteen-vertex Möbius–Kantor graph GP(8,3) under ordinary zero forcing, Z=6 and there are exactly 1704 labeled minimum forcing sets. Their token-jump reconfiguration graph is connected with 16560 edges and all eccentricities 6, whereas the token-slide reconfiguration graph is edgeless.",
+  "limitations": [
+    "Earlier work has the basic definitions and independently may determine Z(GP(8,3))=6; novelty is strictly the 1704-state exchange graph classification, not Z=6.",
+    "A previously unindexed reconfiguration enumeration of this famous 16-vertex graph could duplicate the stated 16560-edge/diameter/slide phenomenon."
+  ],
+  "schema_version": 1
+}
