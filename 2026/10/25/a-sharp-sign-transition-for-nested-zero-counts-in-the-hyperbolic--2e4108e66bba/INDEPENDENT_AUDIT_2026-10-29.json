@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:09:34.283110Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized covariance of Gaussian logarithms is 1/4 Li2 of squared correlation; Jensen circular averages express the nested zero-count covariance as rs mixed radial derivatives of an angle integral. For distinct boundary gaps r=1-alpha*epsilon, s=1-beta*epsilon, scaling theta=epsilon*(alpha+beta)*t gives Q->(1-v²)/(1+t²), with a uniform integrable bound for differentiated Li2(Q^L) away from alpha=beta; the equal-radius case is provided by Buckley's independently known variance asymptotics. Expanding Li2 and using the beta integral yields the absolutely convergent gamma series for L>1. Every term is negative when v²>=1/(2L-1) except possibly k=1 zero; v=0 all terms positive. For L=2 an algebraic binomial summation gives the closed form, whose sign is that of 1-2v-v^4 by exact factorization -(1-v)^2(v^4+2v-1). Independent six gamma-series numerical checks matched the closed form, and verified unique positive quartic root. The sign transfer is for fixed noncritical boundary-gap pairs and sufficiently small epsilon, not all finite radii.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buckley's one-radius exact variance is used to cover alpha=beta, rather than claimed new.",
+          "Buckley–Nishry treat fluctuations for a single disk; Peres–Virág's L=1 determinantal correlations do not imply the non-determinantal L>1 sign reversal."
+        ],
+        "reasoning": "General covariance kernel methods are ingredients, but published statements inspected do not force the explicit quartic L=2 crossing or all-L negative far-gap region without a new asymptotic evaluation.",
+        "searches": [
+          "Buckley 2013 arXiv:1307.6674 Theorems on single disk variance",
+          "Buckley Nishry 2021 arXiv:2104.12598",
+          "Peres Virag 2005 hyperbolic determinantal case L=1"
+        ]
+      },
+      "checked_sources": [
+        "Buckley 2013 arXiv:1307.6674, full relevant sections",
+        "Buckley and Nishry 2021 arXiv:2104.12598, statements/abstract",
+        "Peres and Virág 2005 Acta Mathematica 194, determinantal statement",
+        "Resultary semantic search: nested hyperbolic Gaussian zero-count covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian-log covariance identity supplies a starting integral but a mixed derivative under a singular boundary limit, its gamma series, and the explicit L=2 summation are additional necessary mathematical work.",
+          "The L=1 determinantal case has positive nested count covariance, and does not imply negative L>1 behavior."
+        ],
+        "reasoning": "Compared actual hypotheses and outputs; all inspected explicit prior limit laws concern single-radius counts, not the fixed two-gap boundary-scale cross covariance sign.",
+        "searches": [
+          "Buckley 2013 single disk variance asymptotic",
+          "Buckley Nishry 2021 one-disk limit laws",
+          "L=1 Peres Virag determinantal process"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A two-disk covariance can be rewritten through circle-logarithm dilogarithm kernels and their mixed derivatives; that representation itself is classical Gaussian analysis.",
+          "Buckley derives exact one-disk variance at L=2; knowing the diagonal covariance does not determine off-diagonal signs as two different radii approach 1."
+        ],
+        "reasoning": "Compared nested-disk cross covariance, disk variance, zeros' two-point correlation and determinantal intensity L=1. Only the claimed boundary-scale off-diagonal sign transition is asserted as original.",
+        "searches": [
+          "hyperbolic GAF zeros nested disks covariance two circle cross covariance L=2",
+          "Buckley hyperbolic GAF disk variance arXiv:1307.6674",
+          "Gaussian analytic zeros two-disk variance covariance dilogarithm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A one-disk variance table or the L=1 determinantal correlation has insufficient two-radius information to determine the claimed critical v.",
+          "No exact listed v^4+2v-1 crossing emerged from connected published scientific records."
+        ],
+        "reasoning": "The exact number arises as a unique polynomial threshold in the two-boundary-parameter continuum, not a recomputation of a tabulated one-disk number.",
+        "searches": [
+          "Resultary hyperbolic Gaussian analytic function nested zero count sign change",
+          "hyperbolic GAF zeros covariance v^4+2v-1",
+          "Buckley 2013 exact L=2 variance formulas"
+        ]
+      },
+      "rationale": "Comparison by actual mathematical hypotheses, conclusions and implications, including the closest primary works and structured equivalent/general/table checks; best-of-knowledge acceptance with explicit historical-priority risks.",
+      "residual_risks": [
+        "An older two-disk covariance evaluation hidden in Gaussian-zero pair-correlation literature could imply the same quartic threshold.",
+        "The equal-radii point uses Buckley's established variance normalization rather than the distinct-gap dominated derivative argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Necessary source for equal-radius boundary and baseline covariance, not a stated two-radius quartic phase diagram",
+          "evidence": [
+            "The L=2 diagonal variance coefficient (1-1/sqrt2)/alpha agrees with H_2(alpha,alpha) as normalization check."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.6674",
+          "material_read": "Primary accessible full-text analysis of Gaussian log covariance and single-disk variance theorem and the L=2 special variance formula; other sections surveyed",
+          "method": "Primary open-access article (arXiv / accessible full-text rendering)",
+          "title": "Fluctuations in the zero set of the hyperbolic Gaussian analytic function",
+          "trigger": "Same random analytic function, one-disk variance and needed Gaussian log identity"
+        },
+        {
+          "assessment": "Does not from material inspected give two-radius negative covariance quartic",
+          "evidence": [
+            "Concern is one-disk fluctuation regimes and Gaussian/non-Gaussian limit law dependence on L."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.12598",
+          "material_read": "Primary abstract/intro and statements of one-radius limit laws; full document not independently reread in this execution",
+          "method": "Primary arXiv accessible summary",
+          "title": "Gaussian complex zeroes are not always normal: limit theorems on the disc",
+          "trigger": "Same hyperbolic GAF L>1 and boundary zero counts"
+        },
+        {
+          "assessment": "L=1 special determinantal positive covariance not the L>1 result",
+          "evidence": [
+            "At intensity one the zeros form a determinantal process, preventing assuming extension of that sign to L>1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02392802",
+          "material_read": "Abstract and determinantal zero-process theorem statement, not full paper",
+          "method": "Primary bibliographic/theorem summary",
+          "title": "Zeros of the i.i.d. Gaussian power series: a conformally invariant determinantal process",
+          "trigger": "Same disk GAF at L=1 boundary and potential stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives a nontrivial negative covariance between *nested* zero counts of a canonical hyperbolic GAF and a complete sharp sign diagram at intensity 2; the exact quartic boundary-gap ratio and general-intensity negative region are structural stochastic-geometry facts not determined by single-disk variance. It clarifies a genuinely natural contrast with the determinantal intensity-one process.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Buckley 2013 arXiv:1307.6674, full relevant sections",
+    "Buckley and Nishry 2021 arXiv:2104.12598, statements/abstract",
+    "Peres and Virág 2005 Acta Mathematica 194, determinantal statement",
+    "Resultary semantic search: nested hyperbolic Gaussian zero-count covariance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older two-disk covariance evaluation hidden in Gaussian-zero pair-correlation literature could imply the same quartic threshold.",
+    "The equal-radii point uses Buckley's established variance normalization rather than the distinct-gap dominated derivative argument.",
+    "Finite verification supports but does not replace the unrestricted proof.",
+    "Original source review remains distinct from any independent external expert or formal Lean attestation."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: nested hyperbolic zero-count covariance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact logarithmic covariance identity, Jensen differentiation and the normalized hyperbolic kernel give a finite-radius covariance integral. At distinct boundary gaps, the normalized kernel stays uniformly below one, permitting dominated mixed differentiation after angular rescaling. A positive dilogarithm series and the beta integral give the explicit absolutely convergent all-intensity series; Buckley's single-radius variance establishes the coincident-radius endpoint. An exact binomial generating function sums the intensity-two series. The polynomial identity \((1+v^2-v)^2(2-v^2)-1=-(1-v)^2(v^4+2v-1)\), monotonicity of the quartic, and strict asymptotic convergence establish the exact sign crossing. The extracted checker passes 43 numerical/symbolic tests including the finite-radius integral, known intensity-one formula and known intensity-two variance. Risks: termwise limiting formulas require fixed positive boundary-gap parameters; near the transition, finite-radius signs are not asserted.
+PASS
 
-## Originality — PASS, qualified
+The normalized covariance of Gaussian logarithms is 1/4 Li2 of squared correlation; Jensen circular averages express the nested zero-count covariance as rs mixed radial derivatives of an angle integral. For distinct boundary gaps r=1-alpha*epsilon, s=1-beta*epsilon, scaling theta=epsilon*(alpha+beta)*t gives Q->(1-v²)/(1+t²), with a uniform integrable bound for differentiated Li2(Q^L) away from alpha=beta; the equal-radius case is provided by Buckley's independently known variance asymptotics. Expanding Li2 and using the beta integral yields the absolutely convergent gamma series for L>1. Every term is negative when v²>=1/(2L-1) except possibly k=1 zero; v=0 all terms positive. For L=2 an algebraic binomial summation gives the closed form, whose sign is that of 1-2v-v^4 by exact factorization -(1-v)^2(v^4+2v-1). Independent six gamma-series numerical checks matched the closed form, and verified unique positive quartic root. The sign transfer is for fixed noncritical boundary-gap pairs and sufficiently small epsilon, not all finite radii.
 
-Buckley (2013; arXiv:1307.6674) gives the one-radius hyperbolic zero-count variance and a general log-covariance representation, but does not identify the two-radius boundary-layer kernel, its sharp intensity-two algebraic threshold or its sign reversal. Buckley–Nishry (2021; arXiv:2104.12598) concerns single-disk asymptotic limit laws; the same Gaussian analytic object does not make its one-parameter theorem imply the two-parameter sign diagram. The determinantal Peres–Virág intensity-one process has a positive nested-disk covariance, so is a genuine contrast, not direct coverage. Mor Waknin (2022; arXiv:2209.05854) concerns single-disk overcrowding. Actual semantic research-record searches for the exact quartic, aliases, boundary-gap ratios, and negative nested zero-count covariance returned no dominating matching statement; closest hits concerned different objects. An accessible earlier planar two-circle covariance claim treats a Gaussian entire function rather than this hyperbolic GAF and does not imply the result. Residual risk: a calculation of the same quantity may be implicit in more general Gaussian pair-correlation literature; the absence of a retrieved title is not a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The zero count in a disk is a natural linear statistic of a conformally invariant zero process. The question whether increasing nested counts can be negatively correlated is structural, particularly because the intensity-one case is determinantal and positively correlated. The theorem supplies an exact sign boundary for the first non-determinantal integer intensity, an algebraic transition in the ratio of boundary gaps, and a general-intensity negative-covariance regime. It resolves a genuinely geometric covariance question, not a relabeling or routine tabulation.
+Comparison by actual mathematical hypotheses, conclusions and implications, including the closest primary works and structured equivalent/general/table checks; best-of-knowledge acceptance with explicit historical-priority risks.
 
-## Closest literature and limitations
+## value
 
-Primary sources are Buckley 2013 (one-radius variance), Buckley–Nishry 2021 (one-radius limit laws, same model) and Peres–Virág 2005 (intensity-one determinantal case). The proof is complete for fixed positive boundary gaps and intensity above one, with unique threshold only at intensity two. At the precise zero of the leading term, subleading finite-radius signs are unknown. Remaining historical priority risk is an unstated equivalent deduction from broader formulas; independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem gives a nontrivial negative covariance between *nested* zero counts of a canonical hyperbolic GAF and a complete sharp sign diagram at intensity 2; the exact quartic boundary-gap ratio and general-intensity negative region are structural stochastic-geometry facts not determined by single-disk variance. It clarifies a genuinely natural contrast with the determinantal intensity-one process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
