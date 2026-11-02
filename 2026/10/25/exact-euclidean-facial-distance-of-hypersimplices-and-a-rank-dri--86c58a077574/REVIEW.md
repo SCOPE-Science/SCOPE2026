@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-All proper faces of the hypersimplex are classified by coordinate fixings. For each positive-dimensional face, symmetry averaging and a sharp two-variable quadratic yield a lower bound; an explicit convex mixture of one-violation vertices attains it. Vertex faces are analyzed separately and are strictly nonoptimal in the stated non-simplex range. The remaining integer quadratic optimization is solved exactly, including parity and transition boundaries. Rational computations and independent small-dimensional convex optimization are supplementary evidence, not a substitute for the general proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-The closest papers are Deza et al. (arXiv:2609.32440), Peña and Wirth (arXiv:2608.28971), and Ferroni and Schröter (arXiv:2310.05487). They establish general sharp bounds, calculus/lower bounds, or hypersimplex face enumeration, rather than the exact intermediate-rank face-separation metric and its minimizing-face transition. Known simplex cases are expressly excluded. Targeted searches under both “facial distance” and “pyramidal width” found no identical evaluation. Absence of a retrieved identical result is not a proof of historical priority; possible differently indexed optimization literature and incompletely accessible appendices remain residual risks.
+PASS
 
-## Mathematical value — PASS
-Facial distance governs linear convergence constants for Frank–Wolfe variants. Hypersimplices are the canonical uniform-matroid base polytopes and a standard non-product \(0/1\)-polytope family. Computing their exact global invariant and identifying all minimizing face types, including a sharp transition from edges to higher-dimensional faces, supplies structural information not obtainable from general upper/lower estimates. The result is a natural infinite-family classification, rather than an arbitrary isolated computation.
+PASS: Facial distance is the minimum Euclidean separation from every nonempty proper face F to the convex hull of complementary vertices. The coordinates fixed to 0/1 give face parameters (a,b,r,j), and averaging closest pairs by within-block permutations is valid for convex sets under a common compact symmetry group. Every outside vertex incurs at least one unit of violation mass, u+v>=1; the block norm bound is u²/a+v²/b+(u-v)²/r. The equality witness is an actual convex combination of outside vertices whose one wrong fixed coordinate is uniformly distributed. This gives squared distance n/[n(a+b)-(a-b)²] for every positive-dimensional face; vertex distance n/[k(n-k)] is strictly larger for k,n-k>=2. Strict improvement as b increases and strict concavity in a imply H and exactly the claimed minimizing orbit pairs; explicit integer maximization independently checked all n=4..30 and 2<=k<=n-2 (378 rank cases). Source verify.py exact rational orbit witnesses and numerical QP are supporting finite checks, not proof for arbitrary n. All boundary n=4,k=2 and transition n=4t and 4t+1 agree.
 
-## Limitations
-The theorem does not cover other matroids or affine images; priority review is non-exhaustive, and independent audit is not performed. The proof and numerical checks have distinct roles: exact symbolic arguments establish generality, while finite programs supply cross-checks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the inspected primary sources and independent comparison, the specified new exact evaluation/classification is not supplied by a stronger known theorem; scope and residual priority limitations are stated explicitly. Pyramidal width, facial distance and uniform-matroid terminology were compared at the level of definitions. The inspected results and abstracts do not supply this exact two-parameter metric evaluation; comparable face combinatorics alone does not determine a Euclidean distance. Neither known simplex endpoints nor the universal bound entails the phase transition in the proved domain. The separate convex-symmetry attainment and integer optimization are necessary additional facts, subject to inaccessible full-source caution.
+
+## value
+
+PASS
+
+PASS: Facial distance/pyramidal width controls quantitative polytope-optimization geometry; computing its exact dependence on both rank and corank for all genuine hypersimplices and the complete minimizing-face transition is a natural structural classification. It is not a reformulation of a facet-only inradius calculation or a small finite-table gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
