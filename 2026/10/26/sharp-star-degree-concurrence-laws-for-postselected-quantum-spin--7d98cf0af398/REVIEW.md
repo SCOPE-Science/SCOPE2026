@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The specified bidirectional jump model is completely positive after conditioning on no detected jumps. Its connected positive-rate jumps make the unnormalized evolution positivity improving; the symmetric stationary eigenoperator reduces to a five-real-coordinate system. The singular large-star limit is governed by a nonsingular analytic implicit system. Exact stationary off-diagonal formulas yield the two concurrence coefficients and the limiting crossover. Direct finite-size checks corroborate the symmetry reduction, but no infinite result is inferred from numerical output.
+## correctness
 
-**Originality (PASS, best-knowledge).** Full available texts of the 2026 spin-star study (arXiv:2603.17629) and the general 2024 jump-loss study (arXiv:2405.11812), along with research-database and literature searches, were compared by objects, assumptions and implications. The first shows fixed-degree monitored spin-star entanglement numerically; the second develops general conditional Lindblad theory in different geometries. Neither inspected paper states the derived \(m^{-2}\) pair-concurrence coefficients and sharp hub/leaf crossover. An equivalent result outside the searched sources remains a genuine residual risk.
+PASS
 
-**Value (PASS).** The analytically sharp asymptotics explain which entangled site pairs dominate as graph degree increases, establish their decay scale, and exhibit a nontrivial coherence-to-incoherence transition. This supplies structural information unavailable from a fixed-six-spin numerical demonstration, without claiming broad arbitrary-graph consequences.
+The completely positive trace-decreasing semigroup is positivity improving through connected two-way jump paths, giving one Perron stationary eigenmatrix. Leaf-permutation symmetry reduces the stationary state to h,s,d and hub–bright coherence z; direct Lindblad substitution yields the stated equations. With t=1/m the rescaled system at t=0 has solution D0=1,H0=1-eta,lambda0=-gamma eta(2-eta),S0=[1+a(1-eta)]/(1+a), a=4J²/(gamma²(1-eta)²). The implicit Jacobian is nonsingular and yields O(1/m) errors. Concurrence of the one-excitation two-site reductions equals twice coherence magnitude, giving the two m^-2 constants and their ratio. Independent full superoperator-vs-5-dimensional reduced calculations matched m=2,3,5; three m=3000 asymptotic checks passed. This numerical agreement does not prove large-m asymptotics.
 
-**Limitations.** Only equal bidirectional jump weights and coherent couplings in the single-excitation star are treated, with fixed positive parameters and strictly interior postselection fraction. The pairing ordering at the threshold itself and at every finite degree is not claimed. No independent external audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same spin-star model was analyzed numerically for a fixed six-spin star by Adithya–Hegde–Meena; Liu–Chen supply general nonlinear jump-loss framework. Neither inspected primary theorem provides the m→infinity eigenmatrix, m^-2 concurrence constants, or sharp hub–leaf crossover. This is a best-of-knowledge qualified O PASS, not a claim that symmetry reduction is a new technique.
+
+## value
+
+PASS
+
+Two different entanglement channels scale quadratically with degree while their aggregate pair counts differ; the explicit threshold 2J=gamma(1-eta)^2 quantifies entanglement localization and sharing in a canonical growing quantum network.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

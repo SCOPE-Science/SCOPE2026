@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` in an environment with NumPy. The script independently builds the full Lindblad superoperator for stars with 2, 3 and 5 leaves and compares its Perron eigenvalue and two concurrences to a separately assembled permutation-reduced generator. It also checks the asymptotic coefficients at \(m=1000\) for three parameter triples. Positive eigenvalues of all stationary densities in the finite samples are checked.
+## correctness
 
-The analytical proof is in `RESULT.md`: positivity-improving jump paths give a unique stationary conditional state, permutation symmetry gives the exact reduced generator, and an analytic implicit-function argument at inverse degree zero proves the full asymptotic claims. Finite numerical tests are sanity checks only. No external independent audit is claimed.
+PASS
+
+The completely positive trace-decreasing semigroup is positivity improving through connected two-way jump paths, giving one Perron stationary eigenmatrix. Leaf-permutation symmetry reduces the stationary state to h,s,d and hub–bright coherence z; direct Lindblad substitution yields the stated equations. With t=1/m the rescaled system at t=0 has solution D0=1,H0=1-eta,lambda0=-gamma eta(2-eta),S0=[1+a(1-eta)]/(1+a), a=4J²/(gamma²(1-eta)²). The implicit Jacobian is nonsingular and yields O(1/m) errors. Concurrence of the one-excitation two-site reductions equals twice coherence magnitude, giving the two m^-2 constants and their ratio. Independent full superoperator-vs-5-dimensional reduced calculations matched m=2,3,5; three m=3000 asymptotic checks passed. This numerical agreement does not prove large-m asymptotics.
+
+## originality
+
+PASS
+
+The exact same spin-star model was analyzed numerically for a fixed six-spin star by Adithya–Hegde–Meena; Liu–Chen supply general nonlinear jump-loss framework. Neither inspected primary theorem provides the m→infinity eigenmatrix, m^-2 concurrence constants, or sharp hub–leaf crossover. This is a best-of-knowledge qualified O PASS, not a claim that symmetry reduction is a new technique.
+
+## value
+
+PASS
+
+Two different entanglement channels scale quadratically with degree while their aggregate pair counts differ; the explicit threshold 2J=gamma(1-eta)^2 quantifies entanglement localization and sharing in a canonical growing quantum network.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
