@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The completed stability function follows from the classical two-stage Radau IIA tableau. A distance-five pair has no off-diagonal matrix-power contribution before order five, and the stability function has fifth Taylor coefficient \(-1/108\); the resulting leading entry is negative. The large-timestep limit is the strictly positive stationary projector of the connected Laplacian. For unweighted paths up to six vertices, exhaustive exact polynomial coefficient certificates verify the safety boundary and identify the unique exceptional endpoint-entry type. The six-path quintic has exactly one positive root by Descartes' rule, with exact rational root isolation. All formulae are replayed using the enclosed program. The finite identities and the arbitrary-graph proof are distinct components.
+PASS
 
-## Originality — PASS, with limits
+The exact Runge–Kutta stability rational R(z)=(1+z/3)/(1−2z/3+z²/6) has fifth Taylor coefficient −1/108. At graph distance exactly five all generator matrix-power entries below degree five vanish, while the fifth is positive sum of positive weighted geodesic walks, proving a strict negative leading term. At large h, finite connected symmetric spectral calculus gives projection to the uniform constant vector, strictly positive. For n=2..6, the supplied exact certificate lists every one of 55 upper-triangular common-denominator polynomial numerators; independent SymPy reconstruction from L_n established nonnegative coefficients except one negative h^5 term in P_6 (0,5). Its exact factored rational numerator is h^5 q(h)/D(h), D positive on h≥0; Descartes and q(0)<0 isolate a unique positive root. Thus the all-step path boundary and exact P_6 recovery follow without extrapolating finite computations to unrestricted graphs.
 
-The primary archival positivity paper of Zappavigna, Colaneri, Kirkland and Shorten treats diagonal Padé approximation, counterexamples, and general sufficient positivity conditions, not the subdiagonal Radau stability function on paths. Available general method specifications determine the stability function but not the complete path-boundary and recovery theorem. Searches for the path-specific quintic, diameter-five obstruction, and equivalent distance-five transition kernels identified no stronger covering result. Other numerical-integrator and graph-geometry positivity findings do not imply this exact classification. This does not exclude unknown equivalent literature; priority has not been independently audited.
+## originality
 
-## Value — PASS
+PASS
 
-Entrywise nonnegativity is necessary to interpret numerical diffusion steps as stochastic transition matrices. The result exposes a structural obstruction that no smaller timestep can resolve on any positive-weight connected graph of diameter at least five, despite eventual recovery at large timesteps. The first minimal path witness is resolved exactly rather than numerically: one quintic completely determines its admissible timestep set. The finite threshold and all-graph extension together give a reusable benchmark for positivity-preserving numerical integration, rather than only a cheap sign check.
+The same Runge–Kutta stability function is classical, and positivity failure for various diagonal Padé methods was known. Zappavigna–Colaneri–Kirkland–Shorten’s accessible primary work studies diagonal Padé discretizations, unlike this subdiagonal [1/2] Radau completed step. Resultary published 8-state [2/2] Gauss–Legendre positivity barrier is another method and graph setting; it does not imply the exact five-distance sign or six-path recovery quintic. The quantitative sharp path threshold is the assessed addition, with historical equivalent numerical-analysis analyses as a residual risk.
 
-## Sources and limitations
+## value
 
-The primary comparison is the openly accessible 2012 working paper *Essentially Negative News About Positive Systems* (Maynooth repository entry 3761), including its Padé definitions and the positivity analysis. The method definition was checked against Ketcheson's Radau IIA2 tableau and stability function. General arbitrary-graph positivity windows are not classified; the method's internal stages are not studied. Unrecognized equivalent prior publications remain a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Positivity is essential for graph heat/Markov simulation. The theorem identifies a counterintuitive graph-distance obstruction even at arbitrarily small positive timesteps, the first failing unit path and its exact quantitative recovery time. It is a motivated sharp boundary, not a routine instance of an arbitrary matrix calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

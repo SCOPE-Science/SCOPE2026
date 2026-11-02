@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:46:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact Runge–Kutta stability rational R(z)=(1+z/3)/(1−2z/3+z²/6) has fifth Taylor coefficient −1/108. At graph distance exactly five all generator matrix-power entries below degree five vanish, while the fifth is positive sum of positive weighted geodesic walks, proving a strict negative leading term. At large h, finite connected symmetric spectral calculus gives projection to the uniform constant vector, strictly positive. For n=2..6, the supplied exact certificate lists every one of 55 upper-triangular common-denominator polynomial numerators; independent SymPy reconstruction from L_n established nonnegative coefficients except one negative h^5 term in P_6 (0,5). Its exact factored rational numerator is h^5 q(h)/D(h), D positive on h≥0; Descartes and q(0)<0 isolate a unique positive root. Thus the all-step path boundary and exact P_6 recovery follow without extrapolating finite computations to unrestricted graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zero absolute-monotonicity radius does not by itself give the exact minimal path order and positivity recovery polynomial.",
+          "Prior diagonal Padé positivity counterexamples do not cover the subdiagonal Radau path classification."
+        ],
+        "reasoning": "The general negative SSP result is weaker with respect to these particular graph Laplacians and complete timestep windows; the new result is not a renamed corollary.",
+        "searches": [
+          "Zappavigna–Colaneri–Kirkland–Shorten 2012 full paper",
+          "Absolute monotonicity/SSP theory for Runge–Kutta methods",
+          "Resultary 2026 [2/2] Padé barrier"
+        ]
+      },
+      "checked_sources": [
+        "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf, full primary paper",
+        "https://ketch.github.io/numipedia/methods/RadauIIA2.html, full short method page",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior diagonal Padé analyses have a different numerator/denominator rational function and cannot simply be inserted into [1/2] Radau.",
+          "The Taylor fifth coefficient −1/108 and weighted distance-five walk sum are independent analytic deductions for this method."
+        ],
+        "reasoning": "Identified precise method mismatch and nonimplication; only the known tableau/stability rational is admitted as prior.",
+        "searches": [
+          "Zappavigna et al full text statements of diagonal Padé positivity theorems",
+          "Numipedia Radau IIA2",
+          "Resultary [2/2] Padé 8-state paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claimed matrix equals R(−hL), the subdiagonal [1/2] Padé Radau IIA step, not diagonal [2/2] Crank–Nicolson/Gauss–Legendre.",
+          "Generator −L has nonnegative off-diagonal entries; distance-five means first nonzero off-diagonal Taylor coefficient is negative."
+        ],
+        "reasoning": "All operator and stability-function aliases compared; equivalent representation does not make the path threshold a known theorem.",
+        "searches": [
+          "Numipedia Radau IIA2 stability function R(z)",
+          "Zappavigna et al Essentially Negative News About Positive Systems",
+          "Resultary eight-state [2/2] Padé Markov positivity barrier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classical tableau gives R(z) and its order, not all P_n rational entries.",
+          "Direct reconstruction of n=2..6 gives the exact unique exceptional entry and q(h) root; no checked prior table contains this P_6 quintic."
+        ],
+        "reasoning": "Numerical stability tables and general counterexamples do not imply the exact six-path entry classification.",
+        "searches": [
+          "Numipedia Radau IIA2 method table",
+          "Zappavigna numerical positivity examples",
+          "Supplied 55-entry exact path coefficient certificate"
+        ]
+      },
+      "rationale": "The same Runge–Kutta stability function is classical, and positivity failure for various diagonal Padé methods was known. Zappavigna–Colaneri–Kirkland–Shorten’s accessible primary work studies diagonal Padé discretizations, unlike this subdiagonal [1/2] Radau completed step. Resultary published 8-state [2/2] Gauss–Legendre positivity barrier is another method and graph setting; it does not imply the exact five-distance sign or six-path recovery quintic. The quantitative sharp path threshold is the assessed addition, with historical equivalent numerical-analysis analyses as a residual risk.",
+      "residual_risks": [
+        "Unindexed historical Runge–Kutta positivity theorem could contain the exact P_6 threshold; bounded literature search cannot eliminate it.",
+        "The all-graph theorem proves small-step failure for diameter≥5 and eventual positivity, not a unique recovery threshold for every graph.",
+        "Finite 55-entry certificate does not prove an unrestricted graph enumeration; unrestricted distance-five result relies on Taylor/geodesic argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant background for diagonal Padé positivity loss; no inspected third-order two-stage Radau P_6 threshold",
+          "evidence": "Authors analyze diagonal Padé maps and supply sufficient conditions/counterexamples; current [1/2] subdiagonal scheme differs.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Full accessible primary PDF; introduction, diagonal Padé formula, positivity theorem, examples and conclusion materially read",
+          "method": "Primary full-text PDF read; mathematical statements and proof sections inspected",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Same positivity problem for rational discretization of positive systems"
+        },
+        {
+          "assessment": "Classical numerical method data pre-known, but no graph positivity classification",
+          "evidence": "R(z)=(1+z/3)/(1−2z/3+z²/6), order three.",
+          "identifier_or_url": "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+          "material_read": "Full short method/tableau and stability-function webpage inspected",
+          "method": "Primary method documentation webpage",
+          "title": "Numipedia: Radau IIA2",
+          "trigger": "Verification of classical integrator coefficients"
+        },
+        {
+          "assessment": "Different diagonal Padé [2/2] method and eight-state pure-birth graph rather than symmetric Laplacian P_6",
+          "evidence": "Covers fourth-order [2/2], not third-order Radau [1/2].",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Published statement and method distinction checked; full proof not reexamined",
+          "method": "Published record abstract and formula",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Potential direct stronger or prior graph positivity threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positivity is essential for graph heat/Markov simulation. The theorem identifies a counterintuitive graph-distance obstruction even at arbitrarily small positive timesteps, the first failing unit path and its exact quantitative recovery time. It is a motivated sharp boundary, not a routine instance of an arbitrary matrix calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For third-order two-stage Radau IIA completed graph heat steps, distance-five entries are negative for sufficiently small h on all positive weighted connected graphs, while all entries become positive for large h. Unit-edge path P_n preserves positivity for every step size iff n≤5. On P_6 only opposite endpoints fail for 0<h<τ, with τ=0.131359689579… unique positive root of h^5+35h^4+168h^3+216h²+60h−12.",
+  "limitations": [
+    "Unweighted paths only for sharp n-boundary and τ; general weighted graphs only small/large time claims."
+  ],
+  "schema_version": 1
+}
