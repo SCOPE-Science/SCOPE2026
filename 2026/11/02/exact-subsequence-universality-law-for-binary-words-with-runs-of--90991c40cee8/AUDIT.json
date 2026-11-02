@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "The greedy-arch lemma is proved with an explicit absent target; the finite-state transitions exhaust all words avoiding 000 and 111, including the empty word and run-two boundary. Algebra yields the rational generating function and all k coefficients exactly. The analytic simple dominant positive root, its root derivatives and the local quasi-power expansion rigorously imply mean, variance and CLT. The accompanying checker independently computes brute histograms, formal coefficient distribution, automaton recurrence and direct subsequence universality for all admissible words up to the stated finite cutoffs; replay returned VERIFY_OK. No finite data are presented as a proof of the asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "D. Adamson et al., k-Universality of Regular Languages, https://arxiv.org/abs/2311.10658, Sections 1 and 4, specifically Lemma 4.1 and Theorem 4.8: count k-universal paths in any NFA, including the forbidden-run language."
+      ],
+      "reasoning": "The regular-language theorem covers the ability to enumerate each fixed (n,k) instance using dynamic programming; no novelty is claimed for decidability or finite computability. The searched full text does not give the specific bivariate closed form or a distributional Gaussian limit with the explicit constants for the run-two language. Those are stronger analytic conclusions for this distinguished source, not a duplicate of the generic algorithm.",
+      "searches": [
+        "Run length limited binary word subsequence universality 000 111 forbidden exact k-universal counts",
+        "k-Universality of Regular Languages Adamson Fleischmann Huch Koß Manea Nowotka 2023 counting and ranking regular languages",
+        "For uniformly sampled run length two constrained binary strings, subsequence universality index central limit theorem mean n over sqrt 5, variance (1-11 sqrt 5/25)n, golden ratio"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1310.1278",
+      "arxiv:1511.01807",
+      "arxiv:2007.09192",
+      "arxiv:2304.04583",
+      "arxiv:2311.10658",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "P. Karandikar et al. (2013), https://arxiv.org/abs/1310.1278: Simon equivalence class growth.",
+        "P. Karandikar and P. Schnoebelen (2015), https://arxiv.org/abs/1511.01807, Section 3: defines richness and greedy rich factorization, not its run-two source count.",
+        "P. Fleischmann et al. (2020), https://arxiv.org/abs/2007.09192: editing to subsequence universality and arch methods.",
+        "D. Adamson (2023), https://arxiv.org/abs/2304.04583: exact unrestricted universal-word algorithm.",
+        "D. Adamson et al. (2023), https://arxiv.org/abs/2311.10658, Sec. 4: regular-language counting algorithm."
+      ],
+      "reasoning": "Foundational arch characterization supplies the definition and a general computation scheme; the new exact restriction requires combining arch and run states. None of the compared published theorems directly implies the explicit denominator and the first/second logarithmic root derivatives without a fresh calculation. The central-limit conclusion uses the aperiodic length-2 and length-3 pole structure peculiar to this source.",
+      "searches": [
+        "For uniformly sampled run length two constrained binary strings, subsequence universality index central limit theorem mean n over sqrt 5, variance (1-11 sqrt 5/25)n, golden ratio",
+        "general arch factorization regular languages constrained forbidden factors transfer matrix analytic combinatorics",
+        "binary run-length-limited Fibonacci language k-subsequence universality profile rational generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "D. Adamson, Ranking and Unranking k-subsequence Universal Words (2023), https://arxiv.org/abs/2304.04583, treats unrestricted alphabet words.",
+        "Published closed-form binary index law, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37, gives (1+z)/(1-z-2u z^2) for unrestricted binary words."
+      ],
+      "reasoning": "The forbidden-run source changes every length n>=3 count and the relative arch-contribution statistics. In particular at n=3 it has only six words, whereas the unrestricted binary source has eight, and its bivariate denominator has both 2-step and 3-step blocks. The unrestricted formula is therefore neither equivalent nor a notational variant.",
+      "searches": [
+        "Subsequence universality index arch factorization of binary strings avoiding 000 and 111, exact bivariate generating function distribution",
+        "Run length limited binary word subsequence universality 000 111 forbidden exact k-universal counts",
+        "Exact bivariate generating function (1+2z+2z^2+u z^3)/(1-u(2z^2+z^3)) for subsequence universality index of binary words avoiding 000 and 111",
+        "For binary words avoiding the contiguous factors 000 and 111, exact distribution of subsequence universality arch count and bivariate rational series (1+2z+2z^2+u z^3)/(1-u(2z^2+z^3))"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published unrestricted binary-word distribution in published-finding corpus, identifier 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37, inspected in full (RESULT.md).",
+        "Published shortest-absent-subsequence extremals, identifier 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28, concern unrestricted extrema, not a run-two index distribution."
+      ],
+      "reasoning": "Exact published analogues found involve either unrestricted source words or a different minimal-absence extremal statistic. The current n,k table and golden-ratio variance are not contained in these inspected statements. Search-index coverage is not exhaustive.",
+      "searches": [
+        "Subsequence universality index arch factorization of binary strings avoiding 000 and 111, exact bivariate generating function distribution",
+        "Exact bivariate generating function (1+2z+2z^2+u z^3)/(1-u(2z^2+z^3)) for subsequence universality index of binary words avoiding 000 and 111",
+        "For binary words avoiding the contiguous factors 000 and 111, exact distribution of subsequence universality arch count and bivariate rational series (1+2z+2z^2+u z^3)/(1-u(2z^2+z^3))",
+        "binary run-length-limited Fibonacci language k-subsequence universality profile rational generating function",
+        "number of shortest absent subsequences among binary run-length-limited strings with no run of length three"
+      ]
+    },
+    "rationale": "Exact equality was checked against the three-state formal-language derivation and full primary statements. The 2023 regular-language counting theorem can calculate individual restricted counts from a DFA, but neither states the three-state rational law nor the explicit golden-ratio mean/variance and Gaussian limit for the homogeneous-run-two source. The full published unrestricted binary formula counts a different sample space and cannot be specialized by mere parameter relabeling. A full-text comparison found no result directly covering this concrete all-length theorem; unindexed special cases remain a residual priority risk.",
+    "residual_risks": [
+      "Unindexed or differently phrased specialized forbidden-run subsequence-universality formulas could antedate this calculation.",
+      "General regular-language counting is already known and may yield the finite counts when instantiated; novelty asserted only for the concrete explicit closed form and statistical asymptotic law.",
+      "No independent full-literature priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: estimates Simon-congruence class index, not the run-two word distribution or Gaussian index law",
+        "evidence": [
+          "First public submission 2013-10-03",
+          "Focus on number of equivalence classes of words sharing subsequence sets"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.1278",
+        "material_read": "Public HTML abstract, introduction, definitions, and discussion of equivalence classes",
+        "method": "Read accessible arXiv HTML",
+        "title": "On the index of Simon's congruence for piecewise testability",
+        "trigger": "Earliest related primary subsequence framework; archive date ownership"
+      },
+      {
+        "assessment": "COVERS_GREEDY_ARCH_CONCEPT, NOT_RESTRICTED_DISTRIBUTION: supplies richness statistic and greedy factorization, not its run-two bivariate GF or limit law",
+        "evidence": [
+          "First public submission 2015-11-05",
+          "Section 3 defines m-rich words and the greedy rich factorization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.01807",
+        "material_read": "Public HTML introduction, Section 3 rich words and rich factorizations, definitions and Lemmas 3.3–3.4",
+        "method": "Read accessible arXiv HTML sections and cited definitions",
+        "title": "The height of piecewise-testable languages and the complexity of the logic of subwords",
+        "trigger": "Earliest directly relevant richness/greedy-arch characterization"
+      },
+      {
+        "assessment": "NOT_COVERING: edit-distance algorithms, not source-run constraints or finite bivariate index distribution",
+        "evidence": [
+          "First submission 2020-07-17",
+          "Emphasizes edit operations to reach k-universality"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.09192",
+        "material_read": "Public HTML abstract, introduction and greedy-factorization discussion",
+        "method": "Read accessible arXiv HTML",
+        "title": "The Edit Distance to k-Subsequence Universality",
+        "trigger": "Arch-factorization and universality reference"
+      },
+      {
+        "assessment": "NOT_COVERING: unrestricted alphabets only; fixed no-triple source omitted",
+        "evidence": [
+          "First submission 2023-04-10",
+          "Algorithm for size of unrestricted U(n,k,sigma)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "Public HTML abstract, introduction and counting results",
+        "method": "Read accessible arXiv HTML",
+        "title": "Ranking and Unranking k-Subsequence Universal Words",
+        "trigger": "Closest exact enumeration of universal words without source restriction"
+      },
+      {
+        "assessment": "COVERS_GENERIC_COUNTING, NOT_SPECIFIC_FORMULA: generic algorithms provide numerical counts; no explicit run-two bivariate law or Gaussian asymptotics",
+        "evidence": [
+          "First submission 2023-11-17",
+          "Theorem 4.8 counts finite k-universal accepted paths",
+          "No specialized run-two formula in counting section"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "Public arXiv full HTML, sections 1 and 4 including Theorem 4.8, Lemma 4.1 and counting recurrences",
+        "method": "Read accessible arXiv HTML entire relevant counting section",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Plausible broader theorem for constraints specified by a finite automaton"
+      },
+      {
+        "assessment": "NOT_COVERING: unrestricted two-letter language; its denominator 1-z-2u z^2 and moments n/3, 2n/27 are distinct",
+        "evidence": [
+          "Published formula (1+z)/(1-z-2u z^2) and exact unrestricted moments",
+          "No 000/111-avoiding word analysis in that theorem"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "material_read": "Entire public RESULT.md including generating function, all-length proof, moment identities and limitations",
+        "method": "Read publicly accessible repository document",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "High-ranking published formula for exactly the same universality statistic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90991c40-cee8-46d8-99f6-b1df20aecd90",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The language forbidding 000 and 111 is the canonical run-length-two binary constrained source. Unlike generic counting decidability, the precise distribution and the mean-rate shift from n/3 to n/sqrt(5), paired with the sharply reduced nonzero variance and central-limit theorem, quantify the universality information carried by this natural source at all lengths. These are motivated structural probabilistic invariants, not arbitrary small finite slice values.",
+    "status": "PASS"
+  }
+}
