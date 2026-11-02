@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:08:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md and verify.py",
+        "Independent cycle spectral derivative n=3..29, resolvent regret on n=3,5,7",
+        "Michelitsch et al. arXiv:2409.08394 equations (43)-(52) background"
+      ],
+      "rationale": "Reconstructed strong-Markov first-hit resolvent Q_ij=E_i[z^T_j]Q_jj, with target detection at time zero, and geometric-reset renewal including a unit-duration relocation step. This yields H_j=(c/R_j-1)/gamma with R=rho Q, c=Q_jj and sum_j R_j=1/gamma. Strict harmonic-mean inequality, invertibility of Q and min_j R_j<=1/(n gamma) establish unique uniform law for both objectives; expansion gives exact regret c gamma n sum_j (R_j-mu)^2/R_j. Vertex transitivity ensures constant diagonal, symmetry real eigenvalues, so optimal uniform mean is sum_{k>=2}(1-z lambda_k)^-1 and F is strictly convex since sum lambda_k^2>0. Loopless trace implies Fprime(0)=-1. For cycles direct csc²/csc⁴ identities give Fprime(1)=(n²-1)(n²-19)/180; its sign yields n>=5, C5 radical follows two doubled eigenvalues, and uniform Taylor remainder for z=O(1/n) yields gamma*=1-1/n+O(n^-2) and min mean n-1-1/(2n)+O(n^-2). Independently checked cycle derivative n=3..29 and exact resolvent penalty at n=3,5,7 (not a substitute for proof).",
+      "residual_risks": [
+        "Uniform target is fixed once; initial and reset laws identical; reset step consumes time; initial hit counts.",
+        "Distribution uniqueness fails at gamma=0; at gamma=1 some rho omit targets causing infinite hitting times.",
+        "The spectral rate-criterion and convexity are explicit in cited prior art; not claimed as new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Michelitsch Eq.(45) Kemeny independent reset law, Eq.(50) strict convexity and derivative rate criterion",
+          "González Eq.(73) spectral Google-reset mean on circulant networks",
+          "Evans–Majumdar Eq.(49) continuous target-prior mean functional; §5 variational optimization"
+        ],
+        "reasoning": "Earlier general first-passage formulas cover substantial mechanics and the rate criterion. They do not contain the vertex-transitive uniform hidden-target all-distribution strict inequality plus minimax statement and exact entire cycle threshold; no direct implication across a changed target measure or model domain has been established.",
+        "searches": [
+          "Michelitsch DOnofrio Polito Riascos 2409.08394 equations 45 49 52",
+          "Gonzalez Riascos Boyer 2104.00727 Google strategy spectral formula",
+          "Evans Majumdar 1107.4225 distributed target resetting optimization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.08394 Eqs.(43)-(52)",
+        "arXiv:2104.00727 §IV.D Eqs.(72)-(73)",
+        "arXiv:1107.4225 §§4-5",
+        "arXiv:2110.15437 abstract",
+        "Resultary network resetting semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evans–Majumdar Eq.(49) is a continuous-space analogous convex reciprocal integral, which suggests Jensen uniform-optimality under homogeneity but on the unbounded line no uniform target prior exists",
+          "Michelitsch rate condition and strict convexity are direct prior coverage and deliberately excluded from novel contribution",
+          "González spectral series for Google strategy applies to uniform rho; it does not optimize over all rho"
+        ],
+        "reasoning": "The combination of old resolvent and Jensen inequalities makes the result accessible, but statements of exact all-rho regret and minimax on vertex-transitive graphs plus the sharp all-cycle threshold are not already stated, and transfer of continuous target-prior variational results to a finite graph is not a literal within-hypotheses corollary.",
+        "searches": [
+          "Evans Majumdar 2011 equation 49 optimal resetting distribution target prior",
+          "Michelitsch 2024 equation 52 reset-rate criterion",
+          "Gonzalez 2021 equation 73 Google reset mean cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "González–Riascos–Boyer arXiv:2104.00727 §IV.D studies uniform Google strategy",
+          "Michelitsch et al. arXiv:2409.08394 §3 computes stationary-target Kemeny mean",
+          "Evans–Majumdar arXiv:1107.4225 §5 minimizes continuous diffusion target-prior average over reset distributions"
+        ],
+        "reasoning": "Continuous reset-density target-prior optimization is a close analogue; finite graph kernel, exact uniform-prior equality penalty and worst-target minimax are not provided by the continuous-line example. In prior network work the stationary-weighted target law is different from exogenous uniform targets for nonuniform rho.",
+        "searches": [
+          "Resultary: network resetting uniformly distributed unknown target vertex transitive graphs minimax average hitting times relocation law",
+          "random walk resetting optimal relocation distribution uniform target random graph mean first passage",
+          "arXiv 1107.4225 optimizing resetting distribution target distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic search returned related target dominance and network walk records but no exact formula c gamma n sum(R-mu)^2/R",
+          "González Eq.(73) gives the underlying uniform-strategy spectral series, but not the C5 optimal radical"
+        ],
+        "reasoning": "No exact uniform-prior regret or n=5 cycle cutoff table found; inability to locate a table is not evidence of novelty.",
+        "searches": [
+          "Resultary: network resetting uniformly distributed unknown target vertex transitive graphs minimax average hitting times relocation law",
+          "\"resetting distribution\" \"uniform\" \"vertex-transitive\" \"hitting\"",
+          "\"C_5\" \"5-2sqrt5\" reset mean first passage"
+        ]
+      },
+      "rationale": "The spectral Kemeny formula, strict convexity and optimal-rate derivative test are already in Michelitsch et al. 2024 and González et al. 2021; they are credited as premises. Evans–Majumdar 2011 even optimized reset distributions for *distributed targets* in continuous one-dimensional diffusion; this is a very relevant general analogy, but not a theorem for finite vertex-transitive graphs with the current uniform-prior minimax statement. The asserted additional mathematical claim is the exact all-rho strict heterogeneity penalty and simultaneous mean/worst-target optimality at uniform target weighting, plus cycle n=5 cutoff, C5 radical and large-cycle optimal-rate expansion. Strong analogy leaves notable originality risk; inspected sources do not mathematically imply all those propositions in their stated domains.",
+      "residual_risks": [
+        "The all-rho uniform-optimality part could follow rapidly from published continuous target-prior variational theory after discrete transitive specialization; historical significance is qualified.",
+        "A prior discrete network hidden-target optimization table may be absent from indexed searches but exist in older search-strategy literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers prior spectral Kemeny and rate criterion exactly; its target weights depend on reset stationarity, so it does not establish current uniform-prior strict penalty",
+          "evidence": [
+            "arXiv:2409.08394, equations (43)–(52) and §3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.08394",
+          "material_read": "42-page PDF sections 3-4, equations 43-52 on MFPT/Kemeny and convex rate criterion, relevant examples, full-text search",
+          "method": "Opened primary PDF, rendered first page, inspected mathematical formula blocks and neighboring discussion",
+          "title": "Random walks with stochastic resetting in complex networks: a discrete time approach",
+          "trigger": "Closest general discrete network first-passage, reset-law and rate results"
+        },
+        {
+          "assessment": "Derives uniform strategy spectral formula; does not compare all relocation laws at exogenous uniform-target weighting",
+          "evidence": [
+            "arXiv:2104.00727, §IV.D, Eqs.(72)–(73)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.00727",
+          "material_read": "Full PDF searchable text, introduction, general multi-site formulas, §IV.D Google strategy Eq.(73) and cycle examples",
+          "method": "Opened primary PDF, rendered first page, read sections IV and relevant equations",
+          "title": "Diffusive transport on networks with stochastic resetting to multiple nodes",
+          "trigger": "Network resetting to arbitrary/multiple nodes, uniform Google strategy"
+        },
+        {
+          "assessment": "Highly relevant continuous analogue, optimizes reciprocal stationary density against target prior; not literal finite vertex-transitive hidden-target minimax/cycle theorem",
+          "evidence": [
+            "arXiv:1107.4225, Eqs.(47)–(53), §§4–5"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.4225",
+          "material_read": "17-page PDF §§4–5 including target prior, Eqs.(47)–(53) and variational Euler condition",
+          "method": "Opened primary PDF, rendered first page, inspected sections on reset-position and target distributions",
+          "title": "Diffusion with Optimal Resetting",
+          "trigger": "Earlier reset-distribution optimization for randomized target"
+        },
+        {
+          "assessment": "Target-specific fixed-reset optimum differs from present unknown-target all-rho optimization; completeness cannot be asserted from abstract",
+          "evidence": [
+            "arXiv:2110.15437, abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.15437",
+          "material_read": "Abstract and model description of fixed starting/reset node, target-specific MFPT",
+          "method": "Preprint abstract reading; not full PDF",
+          "title": "Discrete-time random walks and Lévy flights on arbitrary networks: when resetting becomes advantageous?",
+          "trigger": "Fixed-reset-node rate optimization on rings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact reciprocal resolvent penalty identity and strict equality conditions",
+        "Correct distinction between uniform-prior target and stationary-Kemeny target",
+        "Independent cycles n3..29 and C5 symbolic derivation"
+      ],
+      "rationale": "A hidden target with an explicitly uniform prior models an information-limited search, distinct from choosing targets by the unknown reset chain stationary law. The strict exact heterogeneity penalty quantifies the full cost of nonuniform relocation; the simultaneous worst-case fairness result and integer cycle phase boundary with exact C5 optimum give actionable natural classifications, not merely a reproduced spectral formula.",
+      "residual_risks": [
+        "Symmetry is necessary for universal uniform optimum; no claim for arbitrary directed or irregular graphs, nonuniform targets or nongeometric reset clocks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform target is fixed once; initial and reset laws identical; reset step consumes time; initial hit counts.",
+    "Distribution uniqueness fails at gamma=0; at gamma=1 some rho omit targets causing infinite hitting times.",
+    "The spectral rate-criterion and convexity are explicit in cited prior art; not claimed as new.",
+    "The all-rho uniform-optimality part could follow rapidly from published continuous target-prior variational theory after discrete transitive specialization; historical significance is qualified.",
+    "A prior discrete network hidden-target optimization table may be absent from indexed searches but exist in older search-strategy literature.",
+    "Symmetry is necessary for universal uniform optimum; no claim for arbitrary directed or irregular graphs, nonuniform targets or nongeometric reset clocks."
+  ],
+  "schema_version": 1
+}
