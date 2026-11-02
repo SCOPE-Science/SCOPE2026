@@ -1,11 +1,21 @@
-# Review of the free diagonal subgroup classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is smooth generalized Fermat complete intersections of degree \(k\), codimension \(t\), and dimension \((k-1)t-1\ge2\), with distinguished diagonal group \(H\). The fixed-point threshold \(t+1\) follows from the published generalized Fermat fixed-locus proposition; for a free element all \(k\) exponent residues occur exactly \(t\) times. Composite \(k\) is excluded by a nonidentity proper power. For prime \(p\), lifting a vector-space subgroup and inverting its full finite Fourier character transform forces all \(p^r\) characters to occur equally often; the converse follows from uniform fibers of nonzero evaluations. Every identification in the factorial count is explicitly accounted for by affine character relabelling. A reproducible exact finite checker confirms \(840\), \(30\), the two cyclic examples and the fivefold Euler value. The proof, not enumeration, handles unbounded parameters.
+## correctness
 
-**Originality — PASS with residual risk.** Billi–Palomino–Sarti (arXiv:2610.21752, Section 4) determine free *individual elements* and cyclic quotients. Hidalgo–Hughes–Leyton-Álvarez (arXiv:2010.04628, Proposition 3 and Remark 5) establish the more general elementwise fixed-locus criterion and partial subgroup restrictions, but not the all-rank character classification or factorial subgroup counts. Hidalgo (arXiv:2202.12663, Proposition 4) treats free subgroups of generalized Fermat curves, a different dimension with a different fixed-locus criterion. Hua (arXiv:0707.4339, Section 5 and Table 1) encompasses free \((\mathbb Z/2)^3\) actions for four quadrics in \(\mathbb P^7\), one special group type already covered by broader work; it does not give the universal labelled census or the degree-nine character array and \(840\) subgroups of a fivefold three-cubic complete intersection. Published record searches and the accessible research literature yielded no implication of the full theorem. Implicit equivalent coding-theoretic treatment remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The central object is the complete natural hierarchy of freely acting finite subgroups inside the canonical diagonal symmetry group of Calabi–Yau generalized Fermat manifolds. The classification distinguishes prime from composite exponents, finds the sharp maximum fundamental-group rank, and evaluates every labelled subgroup count. The explicit \(840\)-subgroup fivefold case yields quotients with \(\pi_1=(\mathbb Z/3)^2\), Picard rank one and Euler characteristic \(-1080\). These are structural geometric invariants, rather than an arbitrary numerical slice.
+The published fixed-locus criterion gives a fixed point precisely when one exponent multiplicity reaches t+1. Since N=kt, a nonidentity free element must have all k residues t times, hence order k; for composite k its proper nontrivial power cannot be free. At k=p, a group rank r lifts along a splitting of vector spaces, and the vanishing of each nontrivial character Fourier coefficient forces all p^r coordinate character multiplicities to be equal. Conversely balanced arrays are free, with m=t/p^(r−1). The affine label group of translations (splitting changes) and GL_r(F_p) (basis changes) acts freely and exhausts repeated arrays, yielding the factorial count. Independent arithmetic verified counts 840,30,1,280,10 and uniform nonzero evaluation histograms. The cited Chern coefficient [z^5](1+z)^9/(1+3z)^3=−360 and complete-intersection degree 27 yield Euler −1080/9 after étale quotient. Simply connected covering, trivial K by holomorphic Lefschetz and h11=1 justify the fivefold invariants. Geometric criterion is used as a cited theorem, not independently reproved.
 
-**Limitations.** Isomorphism classes of quotient varieties and free subgroups outside the distinguished diagonal group are not classified. Special lower-dimensional families have substantial existing coverage, acknowledged above. No independently checked proof or exhaustive global priority determination is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hidalgo–Hughes–Leyton–Álvarez establish the fixed-point criterion, and Billi–Palomino–Sarti describe fixed-point-free individual automorphisms and cyclic quotients. Hua covers a special four-quadric family including an elementary-abelian group type, not an all-rank labelled count. The uniform Fourier-array classification and exact subgroup embedding census go beyond the inspected prior statements. The closest Billi–Palomino–Sarti 2026 full text could not be accessed through lawful channels; only its abstract is read, so undisclosed subgroup statements remain a substantial priority risk. Qualified PASS on currently inspected material, not a declaration of whole-paper noncoverage.
+
+## value
+
+PASS
+
+Classifying all simultaneously free subgroups is stronger than checking single generators and is needed to construct smooth finite étale Calabi–Yau quotients with controlled fundamental group. The sharp p-primary rank bound and exact embedded-subgroup census provide a natural, reusable arithmetic-geometric invariant of the distinguished symmetry group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
