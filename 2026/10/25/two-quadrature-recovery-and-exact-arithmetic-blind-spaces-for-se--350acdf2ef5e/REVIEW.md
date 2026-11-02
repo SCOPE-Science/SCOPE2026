@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact Hermite-product linearization reduces product independence at a fixed maximal index sum to a Vandermonde matrix in \(i(s-i)\), with the strict gap inequality preventing lower sums from contributing to the selected high degrees. Two phases then determine independent real/imaginary parts of each off-diagonal entry except precisely at sine resonances. The rational denominator formula follows by counting multiples. The finite exact-rank checker independently reproduces seven polynomial ranks and fourteen resonant two-angle ranks and one nonresonant rank. The proof is infinite in \(d\); finite checks are corroborating, not a replacement.
+## correctness
 
-**Originality — PASS, qualified.** The fully inspected 2012 Sych et al. manuscript (arXiv:1211.4967v1, equations 4–8) treats consecutive Fock bands and a fixed four-step restriction, not the present all-dimension gap-dependent Vandermonde mechanism and pairwise arithmetic kernel formula. The fully inspected Banaszek 1999 manuscript gives a prior-constrained reconstruction algorithm, not the theorem. Leonhardt–Munroe 1996 and Leonhardt 1997 were available in bibliographic/abstract form only and retain an equivalent-result risk. Published mathematical-record searches for photon-gap tomography, Hermite-product rank, phase aliases and two-view informational completeness found finite-field Gabor analogues but no covering continuous-Hermite result. Negative search alone does not establish novelty.
+PASS
 
-**Mathematical value — PASS.** The paper-derived gap is the number of quadrature settings needed to identify a sparse oscillator state, including exact losses at phase-alias resonances. The result gives a sharp universal **two-phase** count for infinitely many dimensions and a full phase-dependent nullity law, rather than a single sample computation. It also gives positive-definite indistinguishable witnesses at exceptional phases. The required high photon occupation can compromise robustness; the theorem makes no stability assertion.
+Hermite product linearization H_m H_n=sum 2^k k! binom(m,k)binom(n,k)H_(m+n-2k) yields high-degree coefficients c_k(i) polynomial of degree k in u_i=i(s-i). For maximal nonzero index sum s, distinct u_i and r>2(t_s-1) give a Vandermonde block isolated from lower sums; all d(d+1)/2 Hermite products are independent for every admitted d,r. One phase therefore fixes all diagonal and one real component per off-diagonal. The two-phase coefficient determinant is sin(r(j-i)Delta), yielding independent one-real-dimensional nullities at each resonant pair; each invisible Hermitian matrix is traceless and perturbs I/d to indistinguishable legitimate states. b|r k iff B=b/gcd(b,r) divides k, giving m d-Bm(m+1)/2. Independently computed exact sympy product rank 3,6,10,15,21 for d2..6 at sufficient boundary and two-angle ranks for d4r4 at pi/r and pi/(2r), obtaining ranks 10 and 14. Generic pi/16 has sin(k pi/4) nonzero for k1,2,3, hence full rank16 by independently confirmed rank10 product basis.
 
-**Closest literature and limitations.** Sych et al. (2012) is the closest full-text source; prior work covers general homodyne modeling and some restricted-support phase counts, but not the combined claim. The 1997 Leonhardt full text could not be obtained after ordinary open-access search and a permitted institutional check. Independent priority review and experimental conditioning remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sych et al. 2012, explicitly read manuscript Eq.(4)-(8) and pp.3–4, gives conventional consecutive-band m-quadrature rank m(2d-m) and mentions a *fixed four-step* support model. It suggests m*=[d/2]+1 for fixed-four-step families, which for d=4 suggests three phases, whereas the directly reconstructed exact polynomial product rank for r=4,d=4 proves two nonresonant phases suffice; this apparent conflict is openly recorded and demands comparison of experimental assumptions/possible heuristic extrapolation, not brushed away. More broadly Sych does not provide general all-dimension r>gap threshold and arithmetic phase-resonance nullity; in principle prior general operator-span theorems might imply it, residual risk. Leonhardt 1997 equal-angle paper abstract only.
+
+## value
+
+PASS
+
+For sparse Fock occupancy, exact minimal number of continuously resolved homodyne phases and the full arithmetic blind-space dimension are directly useful identifiability facts, motivated before computation. This is an all-dimension structural theorem, not an arbitrary single-rank calculation. Noise sensitivity and large photon-number requirement explicitly excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
