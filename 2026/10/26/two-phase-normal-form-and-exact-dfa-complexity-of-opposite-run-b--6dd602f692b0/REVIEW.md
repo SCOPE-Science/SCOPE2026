@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument forces exactly \(a\) zeros and \(c\) ones in the first \(a+c\) positions by excluding both smaller and larger zero counts using the two source-word transition constraints. Conversely an explicit assignment of each phase's symbols to their source runs proves the entire fixed-composition concatenation identity. Distinct Myhill–Nerode quotients are separated by the number of zeros required in the remainder of a particular fixed-length phase; distinct prefix lengths have distinct accepted residual lengths. This yields the exact two-rectangle quotient count, with one shared boundary and one dead state. Every positive-parameter boundary, including unit run lengths, is covered. Independent finite checks of 256 language-and-quotient instances and 4096 grid-NFA DFA minimizations agree with the theorem. They support but do not replace the all-parameter proof.
+PASS
 
-## Originality — PASS, with residual risk
+Any shuffle of u=0^a1^b and v=1^c0^d (a,b,c,d≥1) must have exactly a zeros in its first a+c positions: fewer prevents u entering its one-run, more requires v to have exhausted its c one-run. Every x∈B(a,c), y∈B(d,b) has an explicit valid source assignment, hence L=B(a,c)B(d,b), fixed boundary, |L|=binom(a+c,a)binom(b+d,d). Prefix left quotients within each phase depend only on the remaining zero/one counts and are distinguished by required zero counts in the remaining phase; different total prefix lengths have different residual accepted lengths. The two count rectangles share one boundary quotient; adding a single dead quotient yields minimal complete DFA state complexity (a+1)(c+1)+(b+1)(d+1), all parameters positive. An independently implemented exhaustive shuffle and quotient-set enumeration verified both normal form and minimal states for all 81 parameter quadruples 1≤a,b,c,d≤3. Analytic Myhill–Nerode proof covers all positive integers.
 
-The closest full-length primary treatment is Biegler–Daley–McQuillan (2009), which treats general two-word shuffles and bounds for shared-periodic operands. Its assumptions and conclusions do not entail this arbitrary four-parameter, opposite-run, exact-quotient theorem. Brzozowski–Davies–Madan (2018) concerns pattern-matching ideals rather than the shuffle of two fixed words. Eremondi–Ibarra–McQuillan studies decision problems, not the precise quotient count. The withdrawn 2022 self-shuffle preprint concerns identical, rather than complementary-ordered, operands; only its abstract was available. Semantic records and targeted web searches did not reveal an equivalent statement, but this is not a proof of absolute novelty. Unindexed or inaccessible special cases remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-State complexity of finite-word shuffle can be exponentially large, even though its naive nondeterministic grid is quadratic. The theorem identifies an exact nontrivial structural regime in which all interleavings collapse into two independent composition phases and gives a sharp count for every four-tuple, plus the entire depth profile and language cardinality. This complete natural family is informative for deterministic recognition and interleaving models, not a finite list or a generic state-count bound.
+Best-of-knowledge PASS: Biegler–Daley–McQuillan (2009) full text gives periodic common-pattern shuffle constructions and quadratic bounds, but its conditions do not cover two opposite monotone binary runs and its results do not imply the exact two-phase normal form and quotient profile. Other language/shuffle papers inspect distinct operations, e.g. self-shuffle or regular-language pattern matching. Equivalents in unindexed automata literature remain possible.
 
-## Scientific limits
+## value
 
-The claim is restricted to opposite-order two-run binary operands with all run lengths positive; different run orders and larger alphabets are not classified. Interleaving multiplicities are deliberately ignored. Global priority remains unverified, and the withdrawn self-shuffle manuscript was not fully inspectable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural canonical four-parameter finite-word family receives an exact factorization, cardinality, minimal DFA complexity and every depth-specific quotient multiplicity. Distinct-word counting and state complexity are genuine invariants, not a mere renaming of a standard bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

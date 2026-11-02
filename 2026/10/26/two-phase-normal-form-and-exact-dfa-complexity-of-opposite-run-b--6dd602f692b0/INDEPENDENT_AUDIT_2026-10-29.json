@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:58:32.591267Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any shuffle of u=0^a1^b and v=1^c0^d (a,b,c,d≥1) must have exactly a zeros in its first a+c positions: fewer prevents u entering its one-run, more requires v to have exhausted its c one-run. Every x∈B(a,c), y∈B(d,b) has an explicit valid source assignment, hence L=B(a,c)B(d,b), fixed boundary, |L|=binom(a+c,a)binom(b+d,d). Prefix left quotients within each phase depend only on the remaining zero/one counts and are distinguished by required zero counts in the remaining phase; different total prefix lengths have different residual accepted lengths. The two count rectangles share one boundary quotient; adding a single dead quotient yields minimal complete DFA state complexity (a+1)(c+1)+(b+1)(d+1), all parameters positive. An independently implemented exhaustive shuffle and quotient-set enumeration verified both normal form and minimal states for all 81 parameter quadruples 1≤a,b,c,d≤3. Analytic Myhill–Nerode proof covers all positive integers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biegler–Daley–McQuillan Theorems5–8 address operands w1 w^k and w2 w^l sharing a periodic word or common-pattern skeleton."
+        ],
+        "reasoning": "Opposite two-run u=0^a1^b, v=1^c0^d generally cannot satisfy a shared periodic source skeleton; a quadratic bound for a different family does not yield this exact state count.",
+        "searches": [
+          "https://arxiv.org/abs/0907.5111",
+          "https://www.cs.usask.ca/faculty/mcquillan/pubs/shuffle_automaton_size.pdf",
+          "Brzozowski Davies Madan 2018 state complexity shuffle pattern matching"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob ca364c7a1f6401ccc3308448175bcce5f4b7e46e, verify script blob a960436db9274cebbb0637fbd58ca7ca22cc1694, source tree a6e2a3544a640d6ae052ff79c7358967235b40a6.",
+        "Independently enumerated 81 shuffle languages and all nonempty Myhill–Nerode quotients for a,b,c,d=1,2,3 in /mnt/data/verify_misc_4489.py.",
+        "Resultary semantic search; Biegler et al. full primary PDF 2009 Theorems5–8."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem5 assumes both inputs are powers/prefix-suffix variants of the same repetition pattern, while the target runs have opposite orders. Other paper concerns Σ* shuffle w operation, not shuffle of two fixed words."
+        ],
+        "reasoning": "Existing general subset construction would allow computing individual instances, but does not directly imply the claimed exact minimal DFA closed formula without the novel phase/quota quotient argument.",
+        "searches": [
+          "Biegler Daley McQuillan Theorem 5 2009 shuffle automaton",
+          "Brzozowski Davies Madan 2018 shuffle ideal state complexity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biegler et al. use shuffle-automaton state complexity and quotient signatures for periodic common-pattern words; no identified equal two-block composition language."
+        ],
+        "reasoning": "Equivalent terms include nondeterministic interleaving, shuffle automaton determinization and quotient/state complexity. The direct two-phase block-split is a concrete new reduction rather than merely a name change.",
+        "searches": [
+          "Resultary: shuffle binary two opposite monotone runs 0^a1^b and 1^c0^d exact minimal DFA states",
+          "https://www.cs.usask.ca/faculty/mcquillan/pubs/shuffle_automaton_size.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior finite shuffle examples and periodic state bounds are not a complete four-parameter (a,b,c,d) table/closed form."
+        ],
+        "reasoning": "The asserted formula is symbolic and includes an all-depth quotient profile, not just small finite NFA counts. No complete existing exact table identified, but negative search does not prove novelty.",
+        "searches": [
+          "Resultary: finite shuffle languages exact quotient counts opposite binary runs",
+          "https://arxiv.org/abs/0907.5111"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Biegler–Daley–McQuillan (2009) full text gives periodic common-pattern shuffle constructions and quadratic bounds, but its conditions do not cover two opposite monotone binary runs and its results do not imply the exact two-phase normal form and quotient profile. Other language/shuffle papers inspect distinct operations, e.g. self-shuffle or regular-language pattern matching. Equivalents in unindexed automata literature remain possible.",
+      "residual_risks": [
+        "An equivalent quotient decomposition for binary monotone-run shuffles may exist in less-indexed automata literature.",
+        "Fixed two nonempty runs per operand, opposite order, binary alphabet and complete DFA including dead state; no arbitrary-word bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact theorem is for opposite-run words with independent run lengths, outside prior periodic common-pattern formulas; no demonstrated stronger implication.",
+          "evidence": "Biegler, Daley, McQuillan (2009) arXiv:0907.5111, Theorems 5–8 pp.8–14.",
+          "identifier_or_url": "https://www.cs.usask.ca/faculty/mcquillan/pubs/shuffle_automaton_size.pdf",
+          "material_read": "Accessible 18-page primary PDF, statement and proof context for Theorems5–8, periodic common-pattern assumptions, and rendered relevant pages.",
+          "method": "PDF full-text comparison and rendered-page inspection",
+          "title": "On the Shuffle Automaton Size for Words",
+          "trigger": "Most relevant existing finite-word shuffle state-complexity theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural canonical four-parameter finite-word family receives an exact factorization, cardinality, minimal DFA complexity and every depth-specific quotient multiplicity. Distinct-word counting and state complexity are genuine invariants, not a mere renaming of a standard bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob ca364c7a1f6401ccc3308448175bcce5f4b7e46e, verify script blob a960436db9274cebbb0637fbd58ca7ca22cc1694, source tree a6e2a3544a640d6ae052ff79c7358967235b40a6.",
+    "Independently enumerated 81 shuffle languages and all nonempty Myhill–Nerode quotients for a,b,c,d=1,2,3 in /mnt/data/verify_misc_4489.py.",
+    "Resultary semantic search; Biegler et al. full primary PDF 2009 Theorems5–8."
+  ],
+  "disposition": "passed",
+  "limitations": "Positive integers a,b,c,d, binary opposite-run operands, distinct shuffle outputs, all quotients finite and complete DFA counted with dead state.",
+  "residual_risks": [
+    "An equivalent quotient decomposition for binary monotone-run shuffles may exist in less-indexed automata literature.",
+    "Fixed two nonempty runs per operand, opposite order, binary alphabet and complete DFA including dead state; no arbitrary-word bound."
+  ],
+  "schema_version": 1
+}
