@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:48:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/sharp-magic-and-ehrhart-positivity-thresholds-for-twisted-cayley--f0fdeb11f462/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/sharp-magic-and-ehrhart-positivity-thresholds-for-twisted-cayley--f0fdeb11f462/check_twisted.py",
+        "Independent arithmetic script /mnt/data/scope_worker-06_20261028T123636Z/audit_checks.py"
+      ],
+      "rationale": "At integer dilation m and height k the exact lattice slice is (1+a(m-k)+bk)(1+b(m-k)+ak); summing k=0,...,m recovers the displayed cubic Ehrhart coefficients and checks constant L(0)=1. Transforming the polynomial to basis m^i(m+1)^(3-i) yields magic (1,a+b-2-(a-b)²/6,((a-1)²+(a-1)(b-1)+(b-1)²)/3,0); all but the linear term are nonnegative. Ordinary Ehrhart coefficient linear is a+b+1-(a-b)²/6. Boundary congruence requires delta=6k and a+b same parity; magic equality gives (3k²+3k+1,3k²-3k+1), while ordinary equality has parity contradiction. With a=b+t,b>=1, normalized volume t²+6bt+6b²; sign failure forces t>=7 (magic) or t>=9 (Ehrhart), uniquely minimized at (b,t)=(1,7),(1,9), volumes 97,141. Independently recomputed exact fractions and height sums for six distinct parameter pairs; checker also covers 3600 bounded pairs, not used for universal claim.",
+      "residual_risks": [
+        "All thresholds require positive integral a,b; for arbitrary reals the parity boundary conclusions change. Smoothness, triangulation are partly taken from Ferroni with an independent primitive-ray argument for smoothness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferroni general Cayley boxes include T_{a,b}; Castillo–Liu–Nill–Paffenholz exhibits smooth negative-coefficient 3-polytopes outside this exact family."
+        ],
+        "reasoning": "Generality of the counting formula does not automatically spell out the specific magic-basis sign regimes or extremal volumes; it supplies an essential input, openly credited. General smooth negativity does not determine first failure volumes within this family.",
+        "searches": [
+          "https://arxiv.org/abs/2609.10513",
+          "https://arxiv.org/abs/2610.06338",
+          "https://arxiv.org/abs/1704.05532"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.10513",
+        "https://arxiv.org/abs/2610.06338",
+        "https://arxiv.org/abs/1704.05532",
+        "Resultary semantic search for twisted rectangular Cayley positivity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing Ferroni and doing quadratic summation does give L(n); additional parity gives magic-boundary families and no ordinary equality; minimizing t²+6bt+6b² subject to sign inequalities gives 97,141."
+        ],
+        "reasoning": "The prior formula makes derivation straightforward but does not logically assert all sharp threshold and extremizer claims without further arithmetic. Novelty is limited to these phase consequences, not the Cayley formula, unimodular triangulation or existence of negative coefficients.",
+        "searches": [
+          "https://arxiv.org/abs/2609.10513",
+          "https://arxiv.org/abs/2610.06338",
+          "https://arxiv.org/abs/1704.05532"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferroni §2–3 Cayley-box sum and Liu §7.3 equivalent operation formula yield the same starting Ehrhart polynomial after inserting exchanged dimensions; neither inspected text states the two arithmetic threshold sets or first failure volumes."
+        ],
+        "reasoning": "Equivalent geometry may be called toric scroll, Nakajima polygon lift, or Cayley box. The exact counting formula is covered, but the integer-phase classification and minima are additional; possible older specializations remain a risk.",
+        "searches": [
+          "Resultary: twisted Cayley rectangles Ehrhart magic positivity threshold negative coefficients Ferroni Liu",
+          "https://arxiv.org/abs/2609.10513",
+          "https://arxiv.org/abs/2610.06338"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved Resultary magic-positivity example concerns generalized parking-function polytopes. The checked Cayley formulas contain parameters but no identical threshold table or minimum normalized volumes."
+        ],
+        "reasoning": "No same-family tabulation was located, but no-search-result is not a novelty proof; numerical small-a,b tables are subordinate to the exact global integer classification.",
+        "searches": [
+          "Resultary magic positivity Cayley boxes semantic query",
+          "https://arxiv.org/abs/2610.06338"
+        ]
+      },
+      "rationale": "Ferroni explicitly gives the GENERAL lattice-point formula for Cayley sums of boxes, and the broad smooth-negative-Ehrhart phenomenon predates this record. After reconstructing the exact exchanged-rectangle specialization, the current claim goes further by giving two distinct sharp positivity thresholds, classifying every integral magic equality, excluding integral ordinary boundary equality, and determining two smallest normalized failure volumes within this defined family. Those precise 2-parameter classification statements were not found in the inspected primary sections; acknowledge their elementary deduction from established counting formulas. Best-of-knowledge PASS, modest and qualified.",
+      "residual_risks": [
+        "The exact low-complexity thresholds could have been independently tabulated under toric-scroll or Nakajima-polytope nomenclature.",
+        "This is a narrow arithmetic phase classification; the counting formula and smooth flag triangulation are prior results, and the minimal-volume conclusion is only within the explicitly defined family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_GENERAL_INPUT_NOT_EXACT_CLASSIFICATION",
+          "evidence": "General product-sum formula specializes to the audited L(n), but no presented condition delta²<=6(s-2) or minima 97/141.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10513",
+          "material_read": "Accessible primary full text §2–3: Cayley-box construction, regular unimodular flag triangulation and counting formula",
+          "method": "Read complete relevant HTML primary sections",
+          "title": "Unimodality shenanigans in Ehrhart theory",
+          "trigger": "Same Cayley sums of boxes, smoothness and integer-count formula"
+        },
+        {
+          "assessment": "RESTATES_GENERAL_OPERATION_NOT_SAME_SHARP_PHASE",
+          "evidence": "Its broader operation formulas do not explicitly determine the integer magic and Ehrhart failure thresholds for swapped rectangles.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06338",
+          "material_read": "Accessible primary HTML revision v2, particularly §7.3 on Cayley operations and Ehrhart consequences",
+          "method": "Read relevant full-text section",
+          "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+          "trigger": "Same Cayley box formula in later operations treatment"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_SAME_EXTREMIZER_FAMILY",
+          "evidence": "Existence of smooth negative examples does not imply the minimum normalized volumes in T_{a,b}.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.05532",
+          "material_read": "Public abstract and accessible introduction/background; full proof not relied on",
+          "method": "ArXiv public abstract/introduction and mathematical comparison",
+          "title": "Smooth polytopes with negative Ehrhart coefficients",
+          "trigger": "Prior smooth negative-Ehrhart phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/sharp-magic-and-ehrhart-positivity-thresholds-for-twisted-cayley--f0fdeb11f462/RESULT.md",
+        "https://arxiv.org/abs/2609.10513",
+        "https://arxiv.org/abs/1704.05532"
+      ],
+      "rationale": "The two different positivity thresholds in a natural smooth eight-vertex three-dimensional lattice-polytope family locate a sharp arithmetic separation between magic and ordinary Ehrhart positivity. Exact equality families and first counterexample volumes are useful benchmarks for positivity conjectures in smooth IDP polytopes, beyond simply recomputing an isolated h*-vector.",
+      "residual_risks": [
+        "The general polynomial itself is a direct specialization of established Cayley-box enumeration; value resides narrowly in the complete integer classification and sharp failure minima."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For positive integer a,b the smooth three-dimensional swapped-rectangle Cayley polytope has Ehrhart L(m)=[(a²+4ab+b²)/6]m³+(ab+a+b)m²+[a+b+1-(a-b)²/6]m+1; magic iff (a-b)²<=6(a+b-2), ordinary Ehrhart iff (a-b)²<6(a+b+1), magic equality explicit, ordinary equality impossible, and first failure normalized volumes 97 and 141.",
+  "limitations": [
+    "Family is only positive integer swapped rectangular layers of unit separation, no global smooth polytope extremal claim.",
+    "Cayley-box general formula and unimodular triangulation are prior work; priority of elementary specialization remains qualified."
+  ],
+  "schema_version": 1
+}
