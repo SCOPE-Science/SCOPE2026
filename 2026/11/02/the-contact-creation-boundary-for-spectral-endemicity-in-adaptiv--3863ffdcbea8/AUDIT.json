@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact matrix spectral calculation, exhaustive two-case nonnegative stationary analysis, uniform Perron expansion plus perturbed Brouwer compactness, strong-connectivity support propagation, invertible IFT Jacobian and exact first derivatives. Verified checker executes exact arithmetic and numerical illustration; proof does not use finite trials as infinite certification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al. arXiv:2106.00122 Sections 2-3: instantaneous prevalence-dependent attenuation in discrete time, not dynamically evolving directed links.",
+        "Achterberg--Sensi arXiv:2209.01224: one isolated adaptive SIS population; no possibility of directed partial endemicity.",
+        "Original [1] Theorem 5: stronger minimum-row/column-sum sufficient hypothesis; Conjecture 6 is left open."
+      ],
+      "reasoning": "Standard irreducible SIS positivity results require an effective infection graph that remains connected at equilibrium. That condition fails in the counterexample when z21=0, even though the baseline transmission matrix is fully positive. The all-network positive-creation theorem restores that missing condition. Neither studied neighboring model has a result implying both claims.",
+      "searches": [
+        "heterogeneous coupled SIS adaptive link breaking creation mutual awareness existence endemic equilibrium when reproduction number exceeds one Perron fixed point",
+        "cooperative epidemic system nonlinear incidence responsive contacts positive endemic equilibrium R0>1 topological degree fixed point Brouwer positive creation",
+        "arxiv:2106.00122 (Theorems 1-3)",
+        "arxiv:2209.01224 (single-population model)"
+      ]
+    },
+    "checked_sources": [
+      "Achterberg, Sensi, Sottile, arXiv:2407.17639 and final Chaos 35, 033127 (2025), full mathematical sections",
+      "Achterberg and Sensi, arXiv:2209.01224, single-community aNIMFA full paper",
+      "Wang, Gracy, Ishii, Johansson, arXiv:2106.00122, full model/results",
+      "Public mathematical finding index searched by the listed semantic queries; comparisons of nearest scientific claims are included."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Achterberg--Sensi--Sottile [1] Conjecture 6 claims spectral supercriticality always produces all-positive equilibrium.",
+        "[1] Sec. II expressly allows zero contact fractions, asymmetry, nonnegative rather than strictly positive response laws, and time-varying contact closure.",
+        "The proposed K has dominant eigenvalue \\((17+\\sqrt{241})/8>1\\), but any nonzero equilibrium has \\( (y_1,y_2)=(3/4,0)\\).",
+        "The original stronger minimum-row/column-sum sufficient hypothesis fails here: the smaller row and column sum of K is exactly 3/4, while its Perron root exceeds one."
+      ],
+      "reasoning": "The new two-group result gives a counterexample to the precise claim, not its converse or a corollary. The positive-creation sufficient condition repairs it by excluding edge deletion at equilibrium; source Theorem 5 has a different spectral-row restriction that neither implies nor is equivalent to this repair. The exact restoration derivative is not contained in the existence statements.",
+      "searches": [
+        "arxiv:2407.17639 Achterberg Sensi Sottile Conjecture 6 counterexample strong connectivity link creation vanishes mixed endemic equilibrium",
+        "two-group adaptive SIS model linearly decreasing link creation to zero no fully positive endemic equilibrium R0>1, population 1 self-sustains and population 2 is isolated",
+        "Published source [1] equations (2),(3),(4), Theorem 5 and Conjecture 6",
+        "arxiv:2106.00122 Sec. 2.3 modified SIS"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published source [1], Sec. III.E: explicit Conjecture 6, existence of fully endemic equilibrium when DFE spectral threshold exceeds one.",
+        "The constructed counterexample uses the identical dynamical equations (2), orientation of z21, and nonnegative monotone responses."
+      ],
+      "reasoning": "Replacing \\(\\rho(K)\\) by the source next-generation \\(\\rho(MV^{-1})\\) changes no eigenvalues; in the example all recoveries are one. Fully endemic means every group infected; the example has only partial endemicity. This is the exact asserted implication, not a different prevalence criterion.",
+      "searches": [
+        "multigroup adaptive SIS aNIMFA endemic equilibrium R0 greater than one conjecture Perron eigenvector Brouwer positive equilibrium Achterberg Sensi Sottile 2407.17639",
+        "arxiv:2407.17639 Achterberg Sensi Sottile Conjecture 6 counterexample strong connectivity link creation vanishes mixed endemic equilibrium",
+        "arxiv:2407.17639 / Chaos 35 033127, Section III.E, Conjecture 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No same mathematical model statement found among retrieved ranked public mathematical result records for those queries.",
+        "A previously published two-patch SEIR reproduction-number bracketing counterexample concerns cross-compartment movement, not endogenous stationary contact densities.",
+        "A previously published multi-group SAIRS theorem addresses extinction exactly at threshold, rather than SIS supercritical endemic existence."
+      ],
+      "reasoning": "This is an exact rational two-community dynamical counterexample, not a finite graph census. An indexed hit on spectral thresholds without the same adaptive contact equations is not coverage. A negative ranked search does not prove uniqueness or novelty.",
+      "searches": [
+        "multigroup adaptive SIS aNIMFA endemic equilibrium R0 greater than one conjecture Perron eigenvector Brouwer positive equilibrium Achterberg Sensi Sottile 2407.17639",
+        "two-group adaptive SIS model linearly decreasing link creation to zero no fully positive endemic equilibrium R0>1, population 1 self-sustains and population 2 is isolated",
+        "positive link creation Perron eigenvector Brouwer existence multigroup aNIMFA epidemiology nonmonotone feedback",
+        "Search of public mathematics finding records for adaptive multigroup SIS and permanent zero contact creation"
+      ]
+    },
+    "rationale": "Direct counterexample to the explicit still-printed Conjecture 6 of the generating source; no prior inspected result has the same equations with permanently vanishing adaptive contacts and the complementary positive-creation all-network existence criterion. True comparisons check implications and method distinctions; absence in literature search is not itself novelty proof.",
+    "residual_risks": [
+      "Unindexed papers or semantically dissimilar equivalence may exist.",
+      "A modified conjecture with strictly positive stationary links is true; the counterexample does not refute that strengthened version.",
+      "Indexed literature searches have finite retrieval coverage, not a uniqueness certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Conjecture 6 directly covered by new counterexample only negatively; source retains the stronger row-sum theorem, not an all-supercritical proof.",
+        "evidence": [
+          "Sec. II positive B irreducible, asymmetric zero-capable z; Sec. III.C R0 and III.E Eq. 10, Theorem 5 and Conjecture 6.",
+          "First public arXiv v1 timestamp 2024-07-24T21:07:02Z."
+        ],
+        "identifier_or_url": "arxiv:2407.17639; https://pure.tudelft.nl/ws/portalfiles/portal/241262677/033127_1_5.0246228.pdf",
+        "material_read": "Author manuscript abstract and full publisher-version equations (2)--(4), monotonicity and nonnegativity, disease-free equilibrium, Theorem 5, proof and Conjecture 6 in Sec. III.E, numerical on/off contact scenario.",
+        "method": "Read complete mathematical portions of accessible full text including page 5 PDF visual inspection and comparison of source stationary-link formulas.",
+        "title": "A minimal model for multigroup adaptive SIS epidemics",
+        "trigger": "Original mathematical model and exact Conjecture 6"
+      },
+      {
+        "assessment": "Single population scalar SIS and link-density feedback; cannot establish directed multigroup contact-loss phenomenon.",
+        "evidence": [
+          "One-community system has no asymmetric intercommunity link whose disappearance leaves a partially endemic graph."
+        ],
+        "identifier_or_url": "arxiv:2209.01224",
+        "material_read": "Full PDF model specification and equilibrium assumptions, alongside key threshold discussion.",
+        "method": "Open-access original PDF text and relevant model figure/read comparisons.",
+        "title": "A simple model for adaptive SIS epidemics",
+        "trigger": "The immediate single-community predecessor of the proposed generalization"
+      },
+      {
+        "assessment": "Instantaneous attenuation differs from autonomous evolving directed z_ij and cannot imply existence for the more general zero-creation multigroup aNIMFA.",
+        "evidence": [
+          "Sec. 2.3 uses b_i(k)=1-2x_i(k), not independent link densities with their own differential equations."
+        ],
+        "identifier_or_url": "arxiv:2106.00122",
+        "material_read": "Full PDF introduction, discrete-time model equations (1)--(4), policy-dependent attenuating contact parameter, and Theorems 1--3 statements.",
+        "method": "Open-access PDF full text, equations and visual inspection of model page.",
+        "title": "Suppressing the endemic equilibrium in SIS epidemics: A state dependent approach",
+        "trigger": "Plausibly stronger state-dependent multiclass SIS spectral criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3863ffdc-bea8-44ba-9311-0514fbfc1838",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies spectral sufficiency as an unresolved question. A two-node analytic counterexample distinguishes baseline graph irreducibility from actual equilibrium connectivity; an unrestricted-size repair removes row-sum constraints and exactly identifies a meaningful response-law boundary. The asymptotic restored branch has a quantitative epidemiological interpretation.",
+    "status": "PASS"
+  }
+}
