@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Let \\(B=I-R^{\\mathsf T}R\\). Exact multiplication gives \\(B_{11}=vz^3[4-(v+1)z]/4\\) and \\(\\det B=vz^4(vz-2)[z((vz-1)^2+3)-8]/16\\). The cubic is strictly increasing. Its roots and the first-minor sign cover all \\(v,z>0\\), including the nonstrict endpoint. A one-to-one root parametrization yields the unique global maximum \\(H(3/8)=8/3\\). Exact eigenvalues and singular values at that point confirm spectral radius \\(1/3\\) and operator norm \\(1\\). The packaged checker passes symbolic identities and two-sided numerical boundary samples; the proof is algebraic, not experimental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1811.10680, §3.1 Table 1: order-two RK is not strongly stable uniformly over the full seminegative class.",
+        "arXiv:2308.05689, Theorem 0.2.2: global class results and an order-versus-hypocoercivity-index sufficient condition concern sufficiently small steps.",
+        "arXiv:2310.19758, §§1–2: the HC index quantifies short-time dissipation and the paper gives general sufficient/necessary order conditions."
+      ],
+      "reasoning": "A negative all-matrix result cannot imply failure for every fixed semidissipative matrix. Conversely, general local sufficiency does not give a finite CFL boundary or its global optimum. No covering general theorem with explicit sharp radius in this family was found in the inspected results.",
+      "searches": [
+        "explicit midpoint Runge Kutta order two Euclidean contractivity sharp timestep damped oscillator matrix [[0,-a],[a,-gamma]] nonnormal semidissipative hypocoercive",
+        "second order Taylor polynomial of dissipative 2x2 matrices norm contractivity damped oscillator exact step threshold",
+        "arXiv:2308.05689; arXiv:2310.19758; arXiv:1811.10680"
+      ]
+    },
+    "checked_sources": [
+      "Sun and Shu, arXiv:1811.10680 (2018-11-26), mathematical introduction, §§2–3.",
+      "Achleitner, Arnold and Jüngel, arXiv:2308.05689 (2023-08-10), §§0.1–0.4.",
+      "Achleitner, Arnold and Jüngel, arXiv:2310.19758 (2023-10-30), §§1–2."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The claim is the exact necessary-and-sufficient condition \\(\\|I+hL+(hL)^2/2\\|_2\\le1\\) on one specified \\(2\\times2\\) generator family, plus optimization over coupling-to-damping ratio.",
+        "The 2018 method-level negative classification and 2023 index-level local implications do not evaluate the two principal minors for this family or optimize the resulting threshold.",
+        "At the optimum the propagator has spectral radius \\(1/3\\) but operator norm \\(1\\), a sharp numerical separation absent from the cited general theorems."
+      ],
+      "reasoning": "Matching the general criterion requires separate nonstandard exact factorization and a global parametric extremum. None of the inspected published statements is stronger in the direction that would immediately subsume all the quantitative claims. Specialized prior work remains a real risk.",
+      "searches": [
+        "arXiv:1811.10680 §§2–3 energy identity and method classification",
+        "arXiv:2308.05689 §§0.2–0.4 main theorems and proofs",
+        "arXiv:2310.19758 §§1–2 hypocoercive ODEs and strong RK stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1811.10680, §§1–3: same polynomial is called two-stage order-two RK and strong stability uses a weighted Euclidean energy norm.",
+        "arXiv:2308.05689, §0.2: any explicit two-stage order-two scheme has the stability polynomial 1+z+z²/2.",
+        "Neither inspected source develops the rank-one-damped 2×2 exact spectral-norm boundary."
+      ],
+      "reasoning": "Aliases explicit midpoint, improved Euler/Heun, RK2, second-degree truncated exponential, strong/energy stability, damped oscillator and hypocoercive generator were compared as the same object or property. A general strong-stability definition is not a theorem giving the exact present radius.",
+      "searches": [
+        "second-order Runge Kutta explicit midpoint strong stability 2x2 semidissipative damped oscillator exact Courant CFL contractivity threshold 8/3",
+        "two-stage explicit Runge-Kutta damped oscillator 2-norm sharp step 3/8 coupling ratio",
+        "explicit midpoint Runge Kutta damped oscillator sharp timestep Euclidean contractivity 8/3 3/8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sun–Shu arXiv:1811.10680 §3.1 contains an order-by-order method-classification table, not a frequency-dependent contractivity-radius table.",
+        "Published search results did not provide a matching exact special-case table with both branches H(v), unique maximizer v=3/8, and norm/spectral boundary distinction."
+      ],
+      "reasoning": "An order-two negative entry in a global method table is not the frequency-by-frequency norm-stability boundary for the fixed damped oscillator. Search absence is residual uncertainty, not a proof of global uniqueness.",
+      "searches": [
+        "explicit RK2 two-by-two semi-dissipative matrix sharp stability region cubic q a^4 x^3 -2 a^2 x^2 +4 x -8",
+        "energy stability explicit RK2 damped harmonic oscillator matrix nonnormal spectral radius versus norm",
+        "explicit midpoint Runge Kutta damped oscillator sharp timestep Euclidean contractivity 8/3 3/8"
+      ]
+    },
+    "rationale": "The inspected primary mathematical papers establish general Runge–Kutta strong-stability and hypocoercivity criteria, but no theorem there states or directly implies the finite-step, two-dimensional operator-norm frontier \\(H(v)\\), the branch change at \\(v=1\\), or the unique global maximum \\(8/3\\) at \\(v=3/8\\). Their method-level or local classifications do not subsume the separate sharp calculation. An unlocated specialized derivation remains a priority risk.",
+    "residual_risks": [
+      "An unindexed specialized study of the damped oscillator, Euclidean contractivity or absolute stability of RK2 might predate the searched sources.",
+      "The matrix factorization is elementary once the family is fixed; the priority of the combined sharp phase diagram and global extremum awaits an independent literature audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides framework and a global negative result for the entire class, not the claimed family-specific finite-step stability phase diagram.",
+        "evidence": [
+          "§1 states operator norm is stronger than the eigenvalue criterion for nonnormal systems; §3.1 Table 1 marks order-two RK not globally strongly stable."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.10680",
+        "material_read": "Full-text HTML: introduction, mathematical energy identities in Section 2, Table 1 and RK method analyses in Section 3, searched for damped oscillator/2x2 cases.",
+        "method": "Read arXiv full-text HTML and inspected the order-two energy-stability table and adjacent proof passages.",
+        "title": "Strong stability of explicit Runge-Kutta time discretizations",
+        "trigger": "Shares the exact two-stage order-two RK polynomial, energy notion and method-level strong-stability question."
+      },
+      {
+        "assessment": "Order/index criteria are local and class-level; the searched text does not give the exact H(v), v=3/8 optimum or boundary matrix.",
+        "evidence": [
+          "§0.2 Theorem 0.2.2 gives sufficient order-versus-HC-index condition and global instability criteria, not finite-step formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.05689",
+        "material_read": "Full-text HTML: introduction, §0.2 main theorems, §0.3 reduction, relevant §0.4 proof text and examples; keyword searches for RK2 and specific 2×2 oscillator forms.",
+        "method": "Read primary HTML theorem statements and proofs, compare quantified all-matrix local conditions against exact norm boundary for one matrix family.",
+        "title": "Necessary and sufficient conditions for strong stability of explicit Runge-Kutta methods",
+        "trigger": "Highly relevant later theorem on strongly stable explicit RK and hypocoercivity, with potential broader coverage."
+      },
+      {
+        "assessment": "Explains structural index and small-step conditions; no exact frequency-resolved finite-time radius or optimized energy bound was located.",
+        "evidence": [
+          "§1 defines semidissipative hypocoercivity index; §2 records index/order sufficient conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.19758",
+        "material_read": "Full-text HTML: Sections 1–2 including hypocoercivity definitions, stability notions, Proposition 3 and proof comparison.",
+        "method": "Read primary HTML mathematics and inspect stated quantifiers and examples.",
+        "title": "Hypocoercivity for Linear ODEs and Strong Stability for Runge-Kutta Methods",
+        "trigger": "Canonical semidissipative oscillator and norm questions are directly related to hypocoercivity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c4ff16d3-9c20-4462-828f-afb6d701cd83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical minimal hypocoercive system dissipates energy in only one coordinate. Its exact all-vector timestep criterion, nonmonotone dependence on coupling, and unique optimal normalized step \\(8/3\\) provide an actionable sharp stability map. At that optimum the spectral radius is \\(1/3\\) while the operator norm is \\(1\\), a precise energy-versus-eigenvalue mismatch. This motivates the exact invariant rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
