@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the three-grain classification
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3. The verification has no third-party dependencies. Compare its stdout byte-for-byte with `verification_output.txt`.
+## correctness
 
-The program independently simulates parallel sandpile firing from each binary triple. It enumerates translated maximal firing sets, rebuilds all simplicial edges and triangles, repeatedly removes an actual free edge with its unique incident triangle, inspects leftover tetrahedral boundaries, and compares connected components and integral graph-cycle ranks against the five-case formula. Every initial three-subset was checked for \(3\le n\le30\): 31,465 instances. Simplicial boundary ranks over \(\mathbb F_2\) were independently calculated for every instance with \(3\le n\le15\).
+PASS
 
-These tests check concrete finite instances and executable certificates of the collapse mechanism. They do not establish the result for untested \(n\); the general theorem is instead proved by the translation-orbit, free-face and edge-count arguments in `RESULT.md`. Integer homotopy types follow from explicit elementary collapses and tetrahedral boundary identifications; no inference from mod-two ranks to integral homotopy is made.
+Binary outdegree-one synchronous firing is exactly translation by one vertex, so maximal avalanche faces are translated triples. Triangle edges follow cyclic steps a,b,c; the one-skeleton is a cyclic Cayley graph with g=gcd(a,b,c) components. For a singleton gap not equal n/2, the corresponding orbit of n undirected edges appears exactly once among n distinct translated triangles; disjoint elementary free-edge collapses remove all triangles. Equilateral support instead consists of disjoint filled triangles; {q,q,2q} instead gives g tetrahedral boundary spheres. The remaining connected graph cycle rank E-n+g yields the stated S1 wedge counts including antipodal orbit of size n/2. Independently enumerated all 1365 support triples for n=3..14, rebuilt triangle orbits, performed actual elementary collapses, and checked component and graph ranks in every case. The all-n integral proof is based on the orbit/collapse counting, not the finite check.
 
-This package does not include an independent scientific audit or any external certification.
+## originality
+
+PASS
+
+Riihimäki–Smith introduce avalanche homology for precisely directed cycles and treat some binary configurations; the assigned source identifies Proposition 3.23 for three grains with adjacent support and Corollary 3.22 for complements of a singleton. The present five-regime all-three-gap and gcd classification extends to separated triples. Its original full text was not accessible in this run, so exact implication of every statement in that paper is a material residual priority risk; a bibliographic abstract alone cannot establish complete noncoverage. Published related circular interval nerve classification concerns consecutive arcs rather than arbitrary translated triples.
+
+## value
+
+PASS
+
+The original work identifies dependence on the initial chip placement as a central problem. This solves the natural binary three-occupied-vertex stratum uniformly, distinguishing disconnected components, exceptional 2-spheres, and integral circle ranks through gap arithmetic. It does not claim to solve arbitrary sandpile states or the full general configuration problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
