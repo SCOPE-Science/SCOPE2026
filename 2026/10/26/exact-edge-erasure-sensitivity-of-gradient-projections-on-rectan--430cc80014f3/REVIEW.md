@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two-way additive centering gives the complete transfer matrix; the rank-one deletion formula is a direct finite-dimensional orthogonal-projection identity. Three explicit signed-row formulas, their factorized differences, and the special cases \(a=2\) or \(b=2\) prove the sharp operator norm for all required integer pairs. Independently constructed grounded incidence projectors passed 1,176 exact rational row comparisons. These finite checks corroborate, but do not replace, the algebraic proof.
+## correctness
 
-**Originality — PASS, with limits.** Full-text material from the graph Hodge and transfer-current papers supplies the underlying projector framework but not the exact rectangular one-edge-erasure sensitivity. A balanced deleted-matching calculation covers the equal-class-size specialization, but does not imply off-diagonal parameter values. Searches for transfer-current norm, edge-deletion norm and equivalent least-squares stability statements did not identify a dominating formula. Residual risk remains for unindexed network-literature equivalents.
+PASS
 
-**Value — PASS.** The result completely quantifies one-link failure sensitivity for a natural two-parameter family of edge-potential least-squares projections. It gives a strict exact decrement, precise anisotropic asymptotic scales, and a full classification of rows determining worst-case amplification, including bridge-induced exceptions. The fact is directly about robustness of a defined approximation operation rather than an arbitrary numerical slice.
+Read RESULT.md and exact edge_erasure_checker.py from source blobs. The complete-biclique gradient subspace is the two-way additive arrays, with projector P_{(i,j),(k,l)}=δ_{ik}/b+δ_{jl}/a−1/(ab). Its negative entries are exactly disjoint-edge columns, yielding full norm. Because K_ab minus one edge remains connected even at a=b=2, restriction to retained edges is injective on gradients. Sherman–Morrison on the restricted Gram matrix proves P_minus=RPRᵀ+(RPe)(RPe)ᵀ/(1−P_ee). The three retained-edge row orbits have explicit negative masses and row sums L_A,L_B,L_C; differences L_C−L_A=2(a−2)/[b(a−1)(b−1)] and L_C−L_B=2(b−2)/[a(a−1)(b−1)] are nonnegative, yielding precise max and boundary ties. Every row norm attained with sign input; holds over real/complex arrays. Independently inverted grounded rational incidence matrices for five (a,b) test graphs, all orbit row norms checked. All integers follow from algebraic sign formulas, not finite tests.
 
-No analogous statement is proved for arbitrary deleted subgraphs or weighted graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant published research-index and primary literature comparisons found no directly covering exact claim, subject to the explicit priority limitations. The novel result is the exact claim stated, not its previously known foundational object or general theory.
+
+## value
+
+PASS
+
+Gradient projection is the least-squares potential recovery operator in network Hodge theory. Single-link erasure on a complete rectangular bipartite measurement design is a natural robustness operation; the exact two-parameter decrement, row maximizers and boundary exceptional ties quantify worst-coordinate amplification rather than an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
