@@ -1,19 +1,21 @@
-# Review: damped oscillatory tree covariances
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The adjacency resolvent and its spectral interval give a necessary-and-sufficient Fourier sign test for every finite vertex configuration. The real numerator is minimized at a spectral endpoint, yielding the quadratic \(P_q(r,c)\) and its factored discriminant. An edge-cut product proof and Schur contraction cover the square-summability boundary and all larger damping radii; the right-angle phase is singular exactly at the boundary. Strictness follows from absence of point spectrum and the finite edge-product features. The executable checker verifies algebraic relations and an exact negative finite obstruction; these checks supplement the proof and do not certify all infinite trees.
+PASS
 
-## Originality (PASS under bounded comparison)
+PASS. Reconstructed the normalizations q=degree minus one, 0<=r<=1, c=abs(cos theta), the adjacency spectrum [-2 sqrt(q),2 sqrt(q)], and the operator identity R(u)=(1-u^2)(I-uA+qu^2 I)^{-1} for |u|<q^-1/2. The spectral real-part multiplier reduces at the extremal spectral endpoint to P_q(r,c)=2(q-1)r^2 c^2-2 sqrt(q)r(1-r^2)c+(1+r^2)(1-qr^2). Independently proved its exact discriminant factorization (qr^2+q-2)((2q-1)r^2-1), P(c=1)=(1-r^2)(1-sqrt(q)r)^2 and P(r=q^-1/2)=-2(q-1)c(1-c)/q. Sign analysis yields all stated two-band, universal-angle and singular boundary cases; the Schur edge-product argument supplies positivity beyond the summable-resolvent regime, and the neighbor-star matrix detects the boundary's singularity. Independently built a 22-vertex q=2 tree ball and evaluated the exact negative quadratic form -49/243 at r=2/3, theta=pi/3. Strict positive definiteness in the interior follows from positivity of the spectral form off a finite spectral-zero set and absence of tree-adjacency point eigenvalues, not finite tests. Scope: homogeneous infinite regular trees, not arbitrary trees or other radial classes.
 
-The materially inspected 1982 free-group spherical-function work and Vergara's 2019 radial-positive-kernel characterization are genuinely broader methods, but do not state the explicit sharp damped-cosine resonance diagram. Elon's 2009 Gaussian-wave tree covariances are eigenfunction-normalized rather than geometrically damped cosines. Published mathematical record searches and accessible previous claims did not identify an equivalent classification. An earlier 1980 source, identified bibliographically but not inspected in full, and possible unindexed equivalent calculations leave residual originality risk. The comparison is by mathematical implication; absence from a search is not novelty proof.
+## originality
 
-## Value (PASS)
+PASS
 
-The theorem exactly determines whether a two-parameter stationary radial covariance is admissible on an infinite homogeneous tree of arbitrary branching, detects a sharp universal-all-angle regime, and proves the split resonant phase bands and the isolated non-strict boundary. The distinction from the path and the exact root formulas supply motivated structural information relevant to covariance design and harmonic analysis.
+PASS, qualified best-of-knowledge. Vergara 2019 gives a necessary-and-sufficient moment/operator characterization for every positive radial kernel on a homogeneous tree, and Figa-Talamanca–Picardello 1982 develops free-group spherical functions and their positive-definiteness. They supply much broader harmonic-analysis machinery; their inspected statements do not directly provide the two-resonance-band threshold formula for r^distance cos(theta distance). Elon's 2009 Gaussian waves use adjacency eigenfunction covariances, not this pure damped cosine. The explicit parameter diagram is not asserted to be independent of those general frameworks. De Michele–Figà-Talamanca 1980 is relevant and could not be materially inspected. Absence of a matching search result is not taken as proof of novelty.
 
-## Limits
+## value
 
-Only homogeneous trees with finite degree at least three and geometric damping are classified. The 1980 paper was not substantively read, and independent external audit or validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The family is a natural two-parameter candidate for a radial stationary Gaussian covariance on any fixed-degree homogeneous tree. Its exact sharp universal-angle threshold, split admissible angular intervals, spectral-edge limiting phase and strict-vs-semidefinite boundary distinguish genuinely different admissibility regimes. The calculation supplies a usable closed parameter classification rather than merely restating the known general moment criterion or an arbitrary numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
