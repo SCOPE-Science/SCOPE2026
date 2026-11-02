@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The underlying Gaussian covariance and antipodal endpoint identity follow directly from standard Brownian covariance. Conditioning on W(1)=z and integrating the correctly normalized killed transition density over z yields the exact spectral CDF, with eigenvalues k^2*pi^2/(8h^2) and integrated factor 2*(-1)^(k+1). Poisson theta transformation gives the positive image tail; Tonelli justifies every positive real moment. Unique Brownian extrema plus the absolutely continuous joint min/max/endpoint density exclude an absolute tie; signed circular translations preserve the exact covariance, yielding independent Haar maximizing time. The archived standalone checker was executed from its actual final path and passed 61,766 exact-arithmetic and numerical assertions, including covariance, signed rotations, theta duality, eigenmode integrals, moments and tails. Finite checks support constants but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Perman–Wellner Theorem 6 gives joint (M+,M-) of a pinned Brownian bridge.",
+        "Biane–Pitman–Yor treat bridge, excursion, meander and Bessel extrema."
+      ],
+      "reasoning": "Their Gaussian paths have pinned or differently constrained endpoints. A generic theta-function identity or heat-kernel recipe does not by itself state the anti-periodic tail and argmax factorization. No inspected stronger theorem directly implies the entire joint claim without an additional object-specific calculation.",
+      "searches": [
+        "Raket 2610.33747 anti-periodic Brownian process supremum maximum heat kernel",
+        "absolute supremum antiperiodic stationary Brownian Gaussian process uniform maximizing time independent height",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4847753/ Theorem 6",
+        "arxiv:math/9912170 §4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.33747v1",
+      "https://arxiv.org/pdf/math/9912170",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4847753/",
+      "Published mathematics and semantic claim searches for equivalent extrema, theta and zeta laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Raket Eq. (19) gives covariance and the path representation Eq. (20), not a sup distribution.",
+        "Earlier bridge-mixture result is a sharp small-h asymptotic uniform in endpoint covariance and does not fix the CDF at finite h.",
+        "The closest published comparison on Brownian extrema addresses maximum-endpoint covariance, not law/argmax."
+      ],
+      "reasoning": "Correct covariance alone cannot algebraically specify the proposed explicit theta-series expression without the killed heat-kernel integration; prior small-ball leading terms cannot imply the full distribution or moments; generic circular stationarity alone gives uniform argmax only after a separate almost-sure-uniqueness proof. The combined exact claim is not a restatement of the inspected ones.",
+      "searches": [
+        "Brownian anti-periodic Gaussian process W(t)-W(1)/2 exact absolute supremum distribution theta series all moments zeta and maximizing time uniform",
+        "Raket 2610.33747 anti-periodic Brownian process supremum maximum heat kernel",
+        "prior research records claim 9b13fc73-59e5-4511-b218-e0f7a7888004",
+        "https://arxiv.org/html/2610.33747v1 Eq. (19)–(21)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Raket (2026) Example 4.2 identifies antipodal endpoint law; no process-maximum distribution stated.",
+        "Biane–Pitman–Yor §4.3 distributional table concerns bridge/excursion/Bessel, not this process."
+      ],
+      "reasoning": "Aliases include anti-periodic process, W(t)-W(1)/2, conditioned Slepian, signed circular Brownian process and Jacobi-theta confinement. None of the inspected primary assertions identifies the full same random variable and its maximizer.",
+      "searches": [
+        "Brownian anti-periodic Gaussian process W(t)-W(1)/2 exact absolute supremum distribution theta series all moments zeta and maximizing time uniform",
+        "anti-periodic Brownian motion excursion confinement sup norm theta4 zeta moment expected maximum",
+        "Jacobi theta fourth function Brownian motion stationary process maximum absolute value bridge endpoint opposite",
+        "https://arxiv.org/html/2610.33747v1 §4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Biane–Pitman–Yor Table 2 and §4.6 collect exact max and Mellin/transform identities for other Brownian functionals.",
+        "The two analytic representations were numerically cross-checked, but numerical matching is not a novelty check."
+      ],
+      "reasoning": "No exact table entry for W(t)-W(1)/2 absolute supremum, its zeta moments, or uniform independent argmax was identified in the inspected sources and prior-record searches. Indirect equivalences in other catalogs are a stated residual risk.",
+      "searches": [
+        "exact moment E max_{0<=t<=1}|B(t)-B(1)/2| = pi^(3/2)/(4 sqrt 2), E max squared=7 zeta(3)/8",
+        "anti-periodic Brownian motion excursion confinement sup norm theta4 zeta moment expected maximum",
+        "arxiv:math/9912170 §4.3 Table 2"
+      ]
+    },
+    "rationale": "Best-knowledge claim-to-prior comparison: the source specifies this exact process but not its extrema; prior classical sources prove special extrema laws for different (pinned bridge/excursion/Bessel) objects and furnish the classical theta transformation. Earlier Gaussian bridge-mixture work yields only h-downarrow-zero confinement asymptotics. This claim supplies full h>0 CDF, all positive real moments and independent uniform peak location; these are not implied as stated by the inspected theorems. Targeted prior-record searches matched neither the precise normalization nor an equivalent stronger joint statement. Remaining historical coverage risk is recorded, not excluded by absence of search hits.",
+    "residual_risks": [
+      "Classical literature on anti-periodic heat kernels or conditioned Slepian excursion maxima might contain an equivalent exact CDF under another name despite the searches.",
+      "Known general Gaussian-process circular-stationarity lemmas may imply the conditional Haar argument; that method is credited rather than claimed to be new.",
+      "Independent priority and correctness review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Specifies the anti-periodic covariance K(s,t)=(1-2|s-t|)/4 and W(t)-W(1)/2 construction, but no absolute-supremum CDF, moment family, or argmax law.",
+        "evidence": [
+          "§4.2 Example 4.2, Eq. (19) and sentence on stationarity and opposite endpoints",
+          "§4.3 Proposition 4.3 Eq. (20), a=alpha/(alpha-1) with alpha=-1",
+          "§8.3 states anti-periodic law as a conditioned Slepian process; no absolute excursion theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.33747v1",
+        "material_read": "HTML §4.2–4.3, including Example 4.2 and Proposition 4.3 equations (19)–(21); relevant §8.3 conditioning and catalog entries; full-text searches for supremum, extreme, maximum and small-ball",
+        "method": "Source HTML text inspected at relevant formulas and complete-text section/find checks",
+        "title": "A Bestiary of Brownian Processes: A Field Guide to Boundary Conditions and Conditioning",
+        "trigger": "Exact identity of the Gaussian process and primary source with 2026-10-24 public date and 60G15 classification"
+      },
+      {
+        "assessment": "Provides classical Poisson summation, bridge-range, meander, excursion and Bessel maxima laws; neither the antipodal-endpoint process W(t)-W(1)/2 nor its joint absolute peak-height/time law is identified in those material sections. Theta identities themselves are prior art.",
+        "evidence": [
+          "§2.1 Jacobi functional equation and zeta transform",
+          "§4.1 Brownian bridge range and Brownian excursion maximum",
+          "§4.3 Table 2 of known distributional identities",
+          "§4.6 bridge/Bessel maxima and agreement formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/9912170",
+        "material_read": "ArXiv PDF title page; extracted text in introduction and theta identities (§2), selected passages in Brownian interpretation §§4.1–4.6 (printed pages approximately 16–25) and Table 2, with page images inspected for printed pages 1, 17 and 19",
+        "method": "Authoritative arXiv full-text PDF inspected via section text and relevant page images",
+        "title": "Probability laws related to the Jacobi theta and Riemann zeta functions, and Brownian excursions",
+        "trigger": "Classical theta-function extrema distribution literature with potentially dominating equivalences"
+      },
+      {
+        "assessment": "Two-sided suprema of Brownian bridge pinned at both ends, not the stationary anti-periodic process with opposite random endpoints. Its joint extrema laws cannot be used without additional integration and do not directly assert the claimed exact anti-periodic law.",
+        "evidence": [
+          "Theorem 6(i) Eq. (3.7): two-sided pinned-bridge maxima",
+          "Theorem 6(ii) Eq. (3.8): Kuiper/range statistic",
+          "§1 Eq. (1.1): standard Brownian bridge definition"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4847753/",
+        "material_read": "Open-access HTML introduction, selected §2 and §3.1–3.2, especially Theorem 6 equations (3.7)–(3.10) and selected proof paragraphs",
+        "method": "Lawful open-access full-text HTML, mathematical equations and theorem statements inspected",
+        "title": "An excursion approach to maxima of the Brownian bridge",
+        "trigger": "Relevant strongest Brownian bridge two-sided maxima and Kuiper distributions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8ca694c-2e56-4177-8ce9-07a63b787614",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The newly catalogued nonlocal anti-periodic Brownian boundary process has a canonical full-path confinement event and peak location. Its all-threshold exact CDF, positive-real moment family with zeta values and independent uniform maximizing point provide a complete, explicitly usable excursion height/location law, beyond covariance, small-ball asymptotics or an arbitrary parameter slice. Such constants calibrate supremum events for this process and clarify the effect of opposite tied endpoints. Heat-kernel and Haar tools are classical; the mathematically motivated combined identification in this exact process is the claimed contribution.",
+    "status": "PASS"
+  }
+}
