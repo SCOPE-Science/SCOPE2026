@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:44:24.952280Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 394ad4c8a01c9a373520efdc0bc1f77c3c233146",
+        "Frozen verify_cycle_transfer.py blob efcffd271e7ecda10de5d826aa4b3a0c6093ec6f and verify_resilience_exact.py blob 1437598177557ae6444dd555240a1c05bc9b950b, both read in full",
+        "Independent independent_checks.py RESILIENT_CYCLE_GAPS_CHECKS_OK and DISCOUNTED_HITTING_DIRECT_RATIONAL_CHECKS_OK",
+        "Allagan–Pereyra–Massey (2026) arxiv:2609.31535, original §5 Lemmas 5.1,5.3,5.5"
+      ],
+      "rationale": "For fixed pinned vertices S, solving h_i=lambda(h_{i-1}+h_{i+1})/2 on each source-to-source gap with endpoint values one gives the symmetric hyperbolic cosine profile, with strict decrease of its minimum psi_lambda(g) in gap length. Deleting a source in a cycle merges exactly its two neighbouring positive cyclic gaps; therefore all one-source failures preserve the floor tau iff g_(i-1)+g_i<=B for all i. Summing k inequalities gives 2n<=kB, hence k>=ceil(2n/B); explicit balanced integer gap allocations of k positive parts meet all inequalities, including B=2 and k=2, while B=1 is impossible because each adjacent sum is at least 2. A closed-walk transfer on states g in {1,..,B-1} counts rooted length-k gap sequences, with n/k adjustment from rooted starting vertices. At B=3 and B=4 elementary integer-gap case classification gives the stated residue formulas. Independent subset/composition enumeration checked all n=3..12/B and both special residue phases; separately 2,746 exact rational Gaussian-elimination assertions compared the direct discounted Dirichlet solution after each source loss to the gap criterion for n=3..7 and lambda in {2/5,3/5}. These are bounded corroborations, not universal proofs.",
+      "residual_risks": [
+        "A source failure removes only its pinned status; the vertex and incident edges remain in the random walk.",
+        "Requires n>=3, 0<lambda<1, 0<tau<=1, homogeneous unweighted undirected simple cycles; not multiple simultaneous source failures."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spiders have endpoints and a center transfer coupling, whereas a cycle has a cyclic adjacent-merged-gap system.",
+          "Classical double domination for local neighborhoods does not imply arbitrary discounted support thresholds including even B=4."
+        ],
+        "reasoning": "General published exact algorithms for fixed discounted parameters can in principle optimize each instance, but do not give this all-n sharp closed census or fault model as an immediate stated implication.",
+        "searches": [
+          "arxiv:2609.31535 §6 spiders",
+          "Resultary query fault tolerant discounted hitting domination cycle resilient single source failure adjacent gap sum transfer matrix",
+          "cycle fault tolerant double domination adjacency sums"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2609.31535 original full text §§2,5,6",
+        "Resultary semantic query: fault tolerant discounted hitting domination cycle resilient single source failure adjacent gap sum transfer matrix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From published psi_lambda(g), ordinary feasible S requires each g_i<=B; a deleted pin merges neighboring gaps.",
+          "Summing all merged-gap inequalities creates 2n<=kB, a stronger robust lower bound."
+        ],
+        "reasoning": "The cited lemma does not by itself assert the new iff failure characterization, sharp optimal construction or labelled count; extra cycle-specific arguments establish them.",
+        "searches": [
+          "arxiv:2609.31535 Lemmas 5.3 and 5.5",
+          "Resultary query fault tolerant discounted hitting domination cycle resilient single source failure adjacent gap sum transfer matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published support h_i^S=E_i[lambda^{T_S}] and psi_lambda(g) coincide with the source model.",
+          "No single-source-failure cycle placement classification occurs in inspected §§5–6; they optimize different graph families."
+        ],
+        "reasoning": "The same basic support invariant is not itself new; the operation of unpinning each source changes gap constraints from g_i<=B to g_i+g_{i+1}<=B and creates a different combinatorial optimization.",
+        "searches": [
+          "fault tolerant discounted hitting domination cycle resilient single source failure adjacent gap sum transfer matrix",
+          "fault tolerant discounted hitting domination cycle resilient single source failure adjacent gap sum transfer matrix",
+          "arxiv:2609.31535 Lemma 5.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search found a complete-bipartite discounted-hitting theorem, not an exact resilient cycle table.",
+          "The 2026 published source has a gap-length admissibility table for basic source coverage, but not adjacent-gap failure enumerators."
+        ],
+        "reasoning": "Matching individual numeric parameter values or a known local domination threshold would not cover the all-parameter transfer enumerator; absence of a database entry alone cannot certify priority.",
+        "searches": [
+          "Resultary query fault tolerant discounted hitting domination cycle resilient single source failure adjacent gap sum transfer matrix",
+          "discounted hitting domination on cycles fault tolerant source failure 2026",
+          "cycle double domination formulas"
+        ]
+      },
+      "rationale": "Allagan–Pereyra–Massey 2026 define the same discounted support and publish the hyperbolic gap profile in Lemmas 5.3–5.5. Those premises are attributed. Their exact optimization section treats spiders rather than robustness to deleting pinned-source status on cycles; it does not state the adjacent-gap condition, complete minimum-placement census, or B=4 arithmetic transition. Earlier cycle double domination supplies the limiting local B=3-style discrete case but does not immediately imply the fidelity-parametrized full one-failure result. Resultary related complete-bipartite discounted hitting domination is not a cycle source-failure theorem.",
+      "residual_risks": [
+        "Possible source-erasure covering or fault-tolerant random-walk placement under different terminology may overlap.",
+        "For threshold regimes reducing to classical distance domination, some small B residue counts may be familiar; novelty is not claimed independently for each ingredient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BASELINE_NOT_FAILURE_THEOREM",
+          "evidence": "Baseline two-boundary gap support and strict monotonicity are prior; inspected main optimization is on spiders, not cycles with one lost pin.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.31535",
+          "material_read": "Complete accessible preprint text, with focus on §2 definitions, §5 Lemmas 5.1–5.5 and §6 spiders/exact method.",
+          "method": "Read original full arxiv text and identify exact formula provenance and graph families.",
+          "title": "Discounted Hitting Domination on Graphs with Submodularity, Complexity and Exact Algorithms",
+          "trigger": "Same discounted random-walk equilibrium and gap profile"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY_AND_FAILURE_MODEL",
+          "evidence": "Complete bipartite graph and no single-source-failure census.",
+          "identifier_or_url": "Resultary research-record identifier: 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d",
+          "material_read": "Resultary title/summary only; no complete source inspection.",
+          "method": "Read original research-index result summary.",
+          "title": "Exact discounted hitting domination of complete bipartite graphs",
+          "trigger": "Same invariant in published research record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Allagan et al 2026 original definition and gap profile",
+        "Frozen RESULT.md cycle robust theorem plus constructive proof"
+      ],
+      "rationale": "Robust source placement after any single pin loss is a natural reliability version of a recently defined discounted-hitting domination parameter. Exact feasibility, all optimal sets and a labelled transfer census hold across an infinite family for every allowable fidelity. The B=4 even-gap phase produces a concrete phenomenon not equivalent to the ordinary distance-one domination result. This is a motivated full family classification, not an arbitrary computation.",
+      "residual_risks": [
+        "Only one lost pin at a time, and no classification of arbitrary graphs is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For discounted hitting support on an unweighted simple cycle C_n after arbitrary loss of the pinned status of one chosen source, let B be the largest allowed gap length determined by the strictly decreasing two-boundary support profile at (lambda,tau). If B=1, no one-failure-resilient set exists. If B>=2, the exact minimum number of sources is ceil(2n/B); its optimal labelled subsets correspond exactly to positive cyclic gaps summing to n with adjacent gap sums <=B. The exact count is (n/k)[z^n]tr(M_B(z)^k), with explicit B=3 and B=4 phase formulas.",
+  "limitations": [
+    "Unpinning is not vertex deletion or edge failure.",
+    "B is a parameter-dependent admissible gap cutoff capped at n; at B=1 the feasible family is empty."
+  ],
+  "schema_version": 1
+}

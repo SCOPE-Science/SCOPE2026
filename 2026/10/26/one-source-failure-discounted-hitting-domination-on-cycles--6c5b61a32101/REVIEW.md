@@ -1,15 +1,21 @@
-# Scientific review: one-source-failure discounted hitting coverage on cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source paper's exact two-endpoint random-walk recurrence is independently reconstructed in the proof. For a cycle, arbitrary loss of one pin merges precisely two consecutive positive source gaps; their sums bounded by the published admissible-gap cutoff give a necessary-and-sufficient resilient feasibility condition, including the two-source and all-source cases. Summing these constraints yields the lower bound; constructive even- and odd-cutoff gap allocations attain it. The trace formula counts precisely rooted cyclic gap lists and corrects by the exact labelled-starting-source multiplicity, rather than dividing by automorphism orbits. The exceptional phase counts follow from cyclic forbidden-adjacency and parity-slack enumerations. Exact rational exhaustive tests covered 6,688 direct deletion comparisons and 77 independent transfer counts. Risks: mathematical proof not independently audited; finite checks do not establish untested orders.
+PASS
 
-## Originality — PASS, qualified
+For fixed pinned vertices S, solving h_i=lambda(h_{i-1}+h_{i+1})/2 on each source-to-source gap with endpoint values one gives the symmetric hyperbolic cosine profile, with strict decrease of its minimum psi_lambda(g) in gap length. Deleting a source in a cycle merges exactly its two neighbouring positive cyclic gaps; therefore all one-source failures preserve the floor tau iff g_(i-1)+g_i<=B for all i. Summing k inequalities gives 2n<=kB, hence k>=ceil(2n/B); explicit balanced integer gap allocations of k positive parts meet all inequalities, including B=2 and k=2, while B=1 is impossible because each adjacent sum is at least 2. A closed-walk transfer on states g in {1,..,B-1} counts rooted length-k gap sequences, with n/k adjustment from rooted starting vertices. At B=3 and B=4 elementary integer-gap case classification gives the stated residue formulas. Independent subset/composition enumeration checked all n=3..12/B and both special residue phases; separately 2,746 exact rational Gaussian-elimination assertions compared the direct discounted Dirichlet solution after each source loss to the gap criterion for n=3..7 and lambda in {2/5,3/5}. These are bounded corroborations, not universal proofs.
 
-Allagan–Pereyra–Massey (arXiv:2609.31535v1, 2026-09-25), inspected at the original full-text Sections 2, 5, 6, 7 and 8, explicitly provides the random-walk model and the source-to-source gap profile. No novelty is asserted for those ingredients or for the routine ordinary cycle gap bound. Its stated results on spiders, complete graphs and generic optimization do not give one-source-failure cycle optimal-set classification, the exact uniform minimum, or the complete transfer count. The closest research-record search concerned discounted hitting domination of complete bipartite graphs, a different graph family without source failures. Classical double domination covers the radius-one/odd-gap specializations; it does not directly imply the even-gap phases under discounted support. Searches for fault-tolerant first-hitting cycle placement, source erasure, adjacent-gap census and double-domination equivalences revealed no decisive broader coverage. Residual risk: an equivalent formula might occur under different random-walk or fault-tolerant distance-domination terminology; the research-record excerpts and indexed search are not an exhaustive mathematical bibliography.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating discounted-hitting invariant is designed for pinned-source coverage of networks, where single-pin failure is a natural robustness question. The new theorem gives a complete sharp feasibility threshold (including a parameter regime in which no resilient set exists), exact all-parameter minimum costs, all optimal configurations, and labelled optimum counts. The even cutoff \(B=4\) produces a genuinely intermediate phase not represented by substituting an integer domination radius, while the transfer formula gives a reproducible complete census at every fidelity/threshold and cycle order. The result is a natural exact reliability classification, not an arbitrary finite parameter slice or a rebranding of the existing gap-transfer lemma. Risk: no broader graph family or multiple-failure theorem is proved.
+Allagan–Pereyra–Massey 2026 define the same discounted support and publish the hyperbolic gap profile in Lemmas 5.3–5.5. Those premises are attributed. Their exact optimization section treats spiders rather than robustness to deleting pinned-source status on cycles; it does not state the adjacent-gap condition, complete minimum-placement census, or B=4 arithmetic transition. Earlier cycle double domination supplies the limiting local B=3-style discrete case but does not immediately imply the fidelity-parametrized full one-failure result. Resultary related complete-bipartite discounted hitting domination is not a cycle source-failure theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Robust source placement after any single pin loss is a natural reliability version of a recently defined discounted-hitting domination parameter. Exact feasibility, all optimal sets and a labelled transfer census hold across an infinite family for every allowable fidelity. The B=4 even-gap phase produces a concrete phenomenon not equivalent to the ordinary distance-one domination result. This is a motivated full family classification, not an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

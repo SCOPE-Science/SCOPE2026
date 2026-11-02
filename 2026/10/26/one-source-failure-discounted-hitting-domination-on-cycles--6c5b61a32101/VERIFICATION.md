@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof uses the exact recurrence for random-walk hitting support on source-to-source paths, a deletion-to-adjacent-gap equivalence, a sharp cyclic gap construction, and a rooted cyclic transfer count. The source's original two-boundary recurrence is acknowledged; no independence is claimed.
+## correctness
 
-Run `python verify_resilience_exact.py` to reconstruct support after removal of each pin from rational linear systems. The test examines cycles with 3 through 8 vertices, fidelities 2/5 and 3/5, and every rational critical gap cutoff B from 1 through n. The completed output was `VERIFY_OK exact rational direct deletion checks: 6688`.
+PASS
 
-Run `python verify_cycle_transfer.py` to enumerate the claimed optimum configurations independently by vertex subsets and by closed transfer walks. It checks all 77 instances with 3 through 13 vertices and B from 2 through n, including B=3 explicit counts. The completed output was `VERIFY_OK independent trace and subset census: 77`.
+For fixed pinned vertices S, solving h_i=lambda(h_{i-1}+h_{i+1})/2 on each source-to-source gap with endpoint values one gives the symmetric hyperbolic cosine profile, with strict decrease of its minimum psi_lambda(g) in gap length. Deleting a source in a cycle merges exactly its two neighbouring positive cyclic gaps; therefore all one-source failures preserve the floor tau iff g_(i-1)+g_i<=B for all i. Summing k inequalities gives 2n<=kB, hence k>=ceil(2n/B); explicit balanced integer gap allocations of k positive parts meet all inequalities, including B=2 and k=2, while B=1 is impossible because each adjacent sum is at least 2. A closed-walk transfer on states g in {1,..,B-1} counts rooted length-k gap sequences, with n/k adjustment from rooted starting vertices. At B=3 and B=4 elementary integer-gap case classification gives the stated residue formulas. Independent subset/composition enumeration checked all n=3..12/B and both special residue phases; separately 2,746 exact rational Gaussian-elimination assertions compared the direct discounted Dirichlet solution after each source loss to the gap criterion for n=3..7 and lambda in {2/5,3/5}. These are bounded corroborations, not universal proofs.
 
-Both programs use only the Python standard library. Finite exact checks substantiate implementation and small parameter boundaries but cannot substitute for the all-integer proof. Cases with more than one simultaneous pin failure, graph-vertex deletion, other graph families, and external mathematical validation remain unexamined.
+## originality
+
+PASS
+
+Allagan–Pereyra–Massey 2026 define the same discounted support and publish the hyperbolic gap profile in Lemmas 5.3–5.5. Those premises are attributed. Their exact optimization section treats spiders rather than robustness to deleting pinned-source status on cycles; it does not state the adjacent-gap condition, complete minimum-placement census, or B=4 arithmetic transition. Earlier cycle double domination supplies the limiting local B=3-style discrete case but does not immediately imply the fidelity-parametrized full one-failure result. Resultary related complete-bipartite discounted hitting domination is not a cycle source-failure theorem.
+
+## value
+
+PASS
+
+Robust source placement after any single pin loss is a natural reliability version of a recently defined discounted-hitting domination parameter. Exact feasibility, all optimal sets and a labelled transfer census hold across an infinite family for every allowable fidelity. The B=4 even-gap phase produces a concrete phenomenon not equivalent to the ordinary distance-one domination result. This is a motivated full family classification, not an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
