@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later, no external packages. The program exhausts all edge-retention states for the host graphs \(K_3\), \(C_4\), \(C_5\), \(K_4\), \(K_5\), \(Q_3\), \(K_{3,3}\), and the triangular prism. At each of \(p=1/4,1/2,3/4\), it uses exact rational weights to compute \(\mathbb{E}X_1\), \(\mathbb{E}X_2\), and \(\mathbb{E}(X_1X_2)\); all 24 resulting rational covariances agree exactly with the formula. A failing comparison raises an exception.
+## correctness
 
-The proof in RESULT.md uses an exhaustive *symbolic* event-overlap classification for an arbitrary finite regular host: the number of shared closed-edge constraints is 0, 1, or 2, or there is an endpoint incompatibility. Triangle incidence counts exactly the 2-shared-edge cases. The sign root is checked by elementary quadratic algebra. The standard exponential limit gives the hypercube scaling.
+PASS
 
-Neither finite enumeration nor numerical floating-point diagnostics prove the unrestricted theorem. There has been no independent audit or external formal verification. Historical novelty remains limited to the inspected accessible literature described in RESULT.md and AUDIT.json.
+Recomputed indicator overlaps: for edge e=xy, two endpoint vertices contribute −2pq^(3d−2); 2(d−1−c_e) adjacent non-endpoint vertices contribute p²q^(3d−3) each; c_e common neighbors contribute pq^(3d−4)(1−q²), and all remaining vertices contribute zero. Summing c_e=3t yields the exact identity. After dividing by nd p q^(3d−4) for 0<p<1, F(p)=−1+(d+1)p−(d−τ)p² with 0<=τ=3t/(nd)<d. Smaller root is 2/(d+1+sqrt((d−1)^2+4τ)), and F(1)=τ gives sign; endpoints p=0,1 vanish directly. d-cases d>=2 handled, Q_d triangle-free n=2^d; λ/d limit follows standard exponential limit. Independent rational enumeration on C4,K4,triangular-prism across p=1/5,1/3,4/5 matched all 9 exact strata. Finite test is not proof of universal statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for complete regular-host covariance identity with explicit triangle correction and exact crossover; only host triangles enter the second moment. Component means and joint small-component asymptotics are prior, as are percolation scaling context. No inspected primary theorem implies the exact finite all-regular-host identity, but an older isolated-component generating-function formula might.
+
+## value
+
+PASS
+
+A compact all-p mixed component covariance formula for any regular host, with exact triangle dependence and a sharp host-sensitive sign threshold, is a natural nontrivial finite percolation invariant; the hypercube crossover at p=1/d is a meaningful exact statistic distinct from the phase transition. It is more than separately multiplying known means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
