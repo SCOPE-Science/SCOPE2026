@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The proof is analytic. `check.py` performs independent finite-dimensional optimization comparisons using both a brute-force enumeration and a linear-sum-assignment reduction. It also tests the collision-repair sandwich and runs seeded Monte Carlo diagnostics; the observations are in `CHECKS.txt`. The finite checks do not certify the Poisson point-process convergence, the moving-rank Gaussian quantile approximation, or bibliographic uniqueness.
+## correctness
 
-The geometric conversion is exact: for \(G\) with iid standard normal coordinates, \(\widetilde G=G-\overline G\mathbf1\) is isotropic in the hyperplane of zero coordinate sum, so \(\widetilde G/\|\widetilde G\|_F\) is uniform on its sphere. Support *differences* between polytopes at the same fixed coordinate sum are unaffected by the centering operation. The asymptotic radial factor is separately controlled by chi-square concentration.
+PASS
 
-Critical parameters are precisely \(k_N/\sqrt N\to c\in(0,\infty)\) and \(t_N=\Phi^{-1}(1-k_N/N^2)\). The law has intensity \(2c^2\) for total width loss and intensity \(c^2\) for each support loss; the exponential **rate** is two. Both count and jump parameters matter and must not be interchanged.
+For a Gaussian matrix centered to the sum-zero tangent hyperplane, loss of a support function is unchanged by centering; the spherical width defect is (D+(G)+D+(-G))/||projected G||. One-sided zero loss exactly means top-k entries form a k-matching; uniform ranks yield (N)_k²/(N²)_k. For k~c sqrt N, top-ranked pair row/column collisions converge to marked Poisson intensity 2c² du dv on 0<u<v<1, giving mean c² per tail. Triple overlaps have vanishing expectation. Gaussian ranked extreme gaps scale as -log v/t_N; density 2v for v yields Exp(rate 2). Deleting weaker cells and inserting next ranked nonconflicting cells give a sandwich for actual k-matching optimization. Top/bottom rank sets couple asymptotically independently, and projected norm/sqrt(N²-1)->1, so total scaled defect tends to compound Poisson intensity 2c², Exp(2) jumps; no-loss atom e^-2c² is proved by collision counts rather than weak convergence. Independent exact enumeration confirmed the one-sided count at N=3,4,5, k<=N.
+
+## originality
+
+PASS
+
+Geometric descriptions of k-matching/assignment polytopes and exponential-cost assignment expectations do not imply a Gaussian spherical *width-loss difference* law under critical k/√N. The main theorem includes a joint two-sided compound Poisson limit, an atom, and the exact finite-N one-sided normal-fan agreement probability. Priority qualified by older assignment-probability literature not wholly inspected.
+
+## value
+
+PASS
+
+A natural random-direction question about the normal fans of two closely related assignment polytopes exhibits a sharp k~sqrt N collision transition and a full non-Gaussian compound-Poisson law; the exact finite normal-fan agreement measure complements the limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

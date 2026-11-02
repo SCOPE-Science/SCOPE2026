@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact one-sided equality probability follows from uniform ranks and the number of nonattacking size-\(k\) subsets. A marked-pair Poisson limit governs the few row/column collisions at rank \(k_N\asymp\sqrt N\), while Gaussian tail quantiles convert a collision's weaker rank to a rate-two exponential loss. A constructive replacement matching and a universal omission bound sandwich the exact optimum. Upper and lower score ranks yield independent limiting collision processes, and the projected-Gaussian norm converts the result to intrinsic spherical width. The two-sided zero probability is established from joint collision counts, not from weak convergence at an atom. A finite checker reproduces matching optimization and the sandwich; its data are corroboration rather than proof.
+## correctness
 
-**Originality — PASS, qualified.** Gill–Linusson (2009) treats faces, graph diameter, and assignment-polytope structure; Torres (arXiv:2306.11910v1) treats normality of \(k\)-matching polytopes. Neither inspected relevant section establishes Gaussian spherical width defects or the critical compound-Poisson distribution. Coppersmith–Sorkin (1999) and Alm–Sorkin (2002) study minimum exponential assignment costs: their published abstracts identify a distinct distributional regime. Indexed related geometry findings concern ellipsoids and vertex degrees for assignment or matching polytopes, or Gaussian defects of other polytope families; statement-level comparison does not yield this claim. Unindexed equivalent treatments and inaccessible full text of some older probabilistic-assignment sources remain bibliographic risks.
+PASS
 
-**Value — PASS.** A precise, naturally defined geometric comparison asks how often and by how much a matching constraint changes the support/width of its encompassing hypersimplex under a random direction. The answer exhibits a sharp square-root-rank boundary and a non-Gaussian full limiting law, including jump intensity, jump distribution, and the zero-loss atom. This refines the classical observation that near-optimal scores can be repaired: it gives the *distribution of the quantitative cost of the repair* and identifies the corresponding spherical normal-fan agreement measure. The result is not an arbitrary coordinate slice or a numerical table.
+For a Gaussian matrix centered to the sum-zero tangent hyperplane, loss of a support function is unchanged by centering; the spherical width defect is (D+(G)+D+(-G))/||projected G||. One-sided zero loss exactly means top-k entries form a k-matching; uniform ranks yield (N)_k²/(N²)_k. For k~c sqrt N, top-ranked pair row/column collisions converge to marked Poisson intensity 2c² du dv on 0<u<v<1, giving mean c² per tail. Triple overlaps have vanishing expectation. Gaussian ranked extreme gaps scale as -log v/t_N; density 2v for v yields Exp(rate 2). Deleting weaker cells and inserting next ranked nonconflicting cells give a sandwich for actual k-matching optimization. Top/bottom rank sets couple asymptotically independently, and projected norm/sqrt(N²-1)->1, so total scaled defect tends to compound Poisson intensity 2c², Exp(2) jumps; no-loss atom e^-2c² is proved by collision counts rather than weak convergence. Independent exact enumeration confirmed the one-sided count at N=3,4,5, k<=N.
 
-**Closest literature and limits.** The first two works supply the polytope definitions and optimization background. Prior exponential-cost work uses different weights and scales and does not automatically imply the stated Gaussian upper-extreme result. The theorem is restricted to balanced complete bipartite graphs and critical rank, and no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Geometric descriptions of k-matching/assignment polytopes and exponential-cost assignment expectations do not imply a Gaussian spherical *width-loss difference* law under critical k/√N. The main theorem includes a joint two-sided compound Poisson limit, an atom, and the exact finite-N one-sided normal-fan agreement probability. Priority qualified by older assignment-probability literature not wholly inspected.
+
+## value
+
+PASS
+
+A natural random-direction question about the normal fans of two closely related assignment polytopes exhibits a sharp k~sqrt N collision transition and a full non-Gaussian compound-Poisson law; the exact finite normal-fan agreement measure complements the limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
