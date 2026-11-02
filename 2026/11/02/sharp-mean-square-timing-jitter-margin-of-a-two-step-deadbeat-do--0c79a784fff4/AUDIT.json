@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact integration gives A(h) and A(1)^2=0. A direct polynomial covariance lift gives K(delta^2), det(I-K)=-F(delta^2)/2 and a nonsingular branch commutator for every 0<delta<1. A Brouwer positive eigenmatrix of the adjoint map must be definite; positive-order domination makes its eigenvalue the second-moment spectral radius and produces an exact identity for every deterministic initial state. Continuity, r(0)=0, r(1)=5 and the single root of F on (0,1) prove the exhaustive threshold. An exact rational positive definite P proves the mixed unstable-branch witness. The independent standard-library replay passes 106 exact assertions/finite path checks; the finite tests are not mistaken for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2021) publicly accessible introduction claims a general necessary-and-sufficient second-moment criterion for stochastic networked sampling, with a 4-state batch-reactor example.",
+        "Vallarella and Haimovich, arXiv:2202.10549, full HTML introduction, main results and example: aperiodic sampling quantified uniformly for sufficiently small intervals."
+      ],
+      "reasoning": "The first source covers the general spectral-vectorization framework, so that framework is prior art; it does not supply the specific sharp polynomial margin in accessible text, although inaccessible contents pose a material priority risk. The second source quantifies deterministic allowable sampling sequences and is not a stochastic, finite-interval all-jitter boundary.",
+      "searches": [
+        "random sampling intervals networked control mean-square stability sampled-data double integrator stability jitter 2021 2022",
+        "Analysis and synthesis of networked control systems with random network-induced delays and sampling intervals pdf Sun",
+        "doi:10.1016/j.automatica.2020.109385",
+        "arxiv:2202.10549"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.12795",
+      "arxiv:2202.10549",
+      "doi:10.1016/j.automatica.2020.109385"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A general \\(\\rho(\\mathbb E[A\\otimes A])<1\\) test is explicitly part of prior moment-stability theory; it applies in principle to this example.",
+        "This claim additionally evaluates that test exactly for a two-step deadbeat controller, proves a unique polynomial crossing for all real jitter parameters, derives a positive-definite eigen-energy for every nonzero state, and produces a strict mixed-stable/branch-unstable interval."
+      ],
+      "reasoning": "The accepted statement is not a rediscovery of the generic moment criterion. Its nontrivial exact algebraic specialization and rigidity at the boundary are not written as results in the accessible materials; they are logically obtainable by specializing known theory plus substantive exact computation. No independent publication-priority certification is inferred.",
+      "searches": [
+        "stochastic sampled-data systems random sampling intervals double integrator 2020 2022",
+        "deadbeat control double integrator sampled time jitter robustness exact mean-square random",
+        "arxiv:2108.12795",
+        "arxiv:2202.10549",
+        "doi:10.1016/j.automatica.2020.109385"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Su, Li and Lu, arXiv:2108.12795, sections 1 and 2: their channel-induced delay model fixes the sampling clock.",
+        "Sun, Sun and Chen, Automatica 125 (2021), DOI 10.1016/j.automatica.2020.109385, publicly available introduction: sample-period randomness is handled by vectorization."
+      ],
+      "reasoning": "Equivalent covariance and Kronecker descriptions were considered. The paper with fixed sampling clock and random channel delays is not this interval-jitter problem. A generic vectorized criterion would provide a computational test, but does not itself state the exact cubic transition and unstable-branch witness for this specified deadbeat controller.",
+      "searches": [
+        "double integrator state feedback zero order hold sampling jitter mean-square stability arxiv",
+        "stochastic sampled-data systems random sampling intervals double integrator 2020 2022",
+        "arxiv:2108.12795"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identical algebraic threshold or two-step deadbeat timing-jitter table was identified in those actual literature and search-index queries.",
+        "The exact characteristic polynomial and rational witness are derived independently in RESULT.md and replayed in verify.py."
+      ],
+      "reasoning": "No established database value or table was found. This absence is weak evidence and is not itself a novelty proof; the scientific comparison rests on claim scope and inspected literature.",
+      "searches": [
+        "\"0.449460497\" \"jitter\" controller",
+        "sampled double integrator deadbeat LQR stochastic time jitter mean square stability polynomial cubic",
+        "deadbeat control double integrator sampled time jitter robustness exact mean-square random"
+      ]
+    },
+    "rationale": "The exact all-jitter closed-form cubic margin for fixed two-step deadbeat double-integrator gains and the precise stable-mixture/unstable-individual-branch interval are not present in the accessible sources or the searched claim summaries. The general second-moment vectorization/spectral method is known and explicitly NOT claimed as novel. This is a concrete natural exact classification, not a new abstract second-moment criterion. Inaccessible specialized complete literature remains a publication-priority risk, not evidence of uniqueness.",
+    "residual_risks": [
+      "The complete 2021 Sun–Sun–Chen text was inaccessible; a hidden worked two-point or deadbeat specialization may exist.",
+      "Broader random switched-system stability theory may contain the same threshold in different normalization or a stronger classification.",
+      "Search and available literature do not establish exhaustive global publication priority; independent scientific validation has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General vectorization and second-moment conditions are known; visible numerical example is an unstable batch reactor rather than the deadbeat double-integrator. Full contents unavailable for decisive exact-specialization exclusion.",
+        "evidence": [
+          "Automatica 125 (2021), article 109385, DOI landing-page preview and its described numerical example."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.automatica.2020.109385",
+        "material_read": "Publisher HTML abstract, detailed introduction, stability-analysis section synopsis, and numerical-example excerpt; NOT the complete technical text.",
+        "method": "Publicly accessible article preview and bibliographic metadata.",
+        "title": "Analysis and synthesis of networked control systems with random network-induced delays and sampling intervals",
+        "trigger": "Closest general random sampling and moment stability work; could dominate specialization."
+      },
+      {
+        "assessment": "Uses uniform-over-aperiodic-sequences, sufficiently small periods and continuous-time limits; not the precise mean-square stability frontier under iid 1±delta timing.",
+        "evidence": [
+          "arXiv:2202.10549v3, sections 1–4 and theorem statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.10549v3",
+        "material_read": "Public full HTML, introduction and problem statement, main theorem statements and example, with proof structure reviewed.",
+        "method": "Original arXiv open-access HTML.",
+        "title": "On the stability of nonlinear sampled-data systems and their continuous-time limits",
+        "trigger": "Full-text nonuniform sampled-data stability results might already imply the proposed jitter threshold."
+      },
+      {
+        "assessment": "Sampling instants are on a fixed clock; randomness is in channel-delivery delays and packet loss. It does not directly cover jitter in physical plant sample intervals.",
+        "evidence": [
+          "arXiv:2108.12795v1, 29 Aug 2021, introduction and page 3 fixed sampling-period specification."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.12795",
+        "material_read": "Original accessible PDF, first three pages including introduction and fixed-clock channel-delay model.",
+        "method": "Original open-access PDF text and first-page visual inspection.",
+        "title": "Mean-Square Input-Output Stability and Stabilizability of a Networked Control System with Random Channel Induced Delays",
+        "trigger": "Source of mean-square random network-control stability; potential equivalence to timing jitter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c79a784-fff4-44f1-82ea-36dfdbaa5182",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unit-period two-step deadbeat double-integrator feedback is a natural aggressive sampled-data design. The theorem gives its exact stochastic clock-jitter robustness margin, behavior at the exact boundary, and a strict interval in which one unstable deterministic sampling branch is nevertheless mean-square stabilizable by independent mixing. The rational Lyapunov example makes the consequence practical and independently checkable; no broad optimal design claim is made.",
+    "status": "PASS"
+  }
+}
