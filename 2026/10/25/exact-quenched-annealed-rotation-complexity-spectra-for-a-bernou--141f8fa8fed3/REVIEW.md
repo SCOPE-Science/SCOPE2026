@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The finite-level integer displacement is an additive branch observable up to a uniformly bounded endpoint term. The explicit branch polynomials factor in every environment, and after averaging the signs the coefficients form a genuine ternary distribution. A finite-product exponential tilt with bounded variance supplies matching lower and upper word-count rates for every interior mean; extremal words and Legendre limits settle endpoints. Strict Jensen inequality and convex duality establish the quenched–annealed separation. Exact-rational cylinder checks and independent finite coefficient enumeration supplement, but do not replace, these steps.
+PASS
 
-## Originality
+Each branch is onto the circle and gives a nonempty inverse cylinder, with lift displacement equal to the sum of integer branch increments plus a uniformly bounded endpoint difference. The exact finite generating polynomial factors as (1+2z)^Nplus(1+2/z)^Nminus. Averaging independent environmental signs gives (1+2pz+2(1-p)/z)^n. By the strong law and bounded tilted-product concentration/Chernoff bounds, both microcanonical rates are the respective pressure Legendre infima, including accessible interval endpoints. Strict Jensen separation of pressures for t≠0 implies strict annealed > quenched spectrum outside common r*=(4p-2)/3. Differentiating at t=0 gives q curvature -9/2, a curvature -9/[6-(4p-2)^2]. Direct expansion of large-|t| pressures yields the stated δlog(1/δ) edge layers. Independent enumeration verified all 3^5 branch increments over all sign strings length five and symbolically checked pressure derivatives/curvatures. Infinite-limit statements rely on the analytical large-deviation proof.
 
-The motivating paper computes only the global rotation interval and unrestricted random entropy for this example; it does not compute microcanonical rate functions or contrast environment-averaged and typical-fiber counts. The closest indexed result establishes ordered measurable realizing graphs of zero entropy, which is a distinct object and does not dominate the full-cylinder classification. Known random thermodynamic and multifractal frameworks provide broader abstract tools and are not claimed to be new. The priority risk is that an uninspected general conditional thermodynamic theorem, specialized to this locally constant model, could recover the spectra; this review is not an exhaustive priority certificate.
+## originality
 
-## Mathematical value
+PASS
 
-The random-rotation interval and unrestricted entropy alone conceal that the two extreme typical rotation rates retain exponentially many histories, whereas environment averaging includes exponentially rare histories outside the typical rotation interval. The sharp everywhere-except-one-point strict gap, explicit boundary asymptotics, and bias-independent quenched curvature supply a complete parameterized quantitative picture of this distinction, a natural invariant motivated by the motivating paper's rotation-versus-entropy question.
+Best-of-knowledge PASS for the complete two-spectrum specialization and quantitative gap. Li–Lloyd–Romaña studies this exact random degree-one map and computes the rotation interval and overall entropy, while the materially read publication record on ordered invariant graphs produces zero-entropy singleton realizations of individual rotations, not constrained exponentially many branch histories. General multifractal/thermodynamic formalism can imply the Legendre method, which is prior and not claimed new; the explicit quenched vs annealed finite-stage products and their parameter-dependent contrasts are the contribution. The 2026 motivating article full text was not obtained, and an authorized institutional attempt was blocked by disconnected VPN: this remains a clearly named priority risk, not a false NOT_COVERING full-document assessment.
 
-## Limitations and closest literature
+## value
 
-The quantity studied is finite-horizon microcanonical branch complexity and logarithmic expected counts, not an unconditional assertion about an infinite-time level-set topological entropy. Closest primary source: Li–Lloyd–Romaña, arXiv:2606.16498v1. Relevant general methods: Feng–Shu (2009), Denker–Kifer–Stadlbauer (2008). Independent examination of every possible specialization in the wider thermodynamic literature has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The specific published random circle-map model has a rotation interval and unconstrained entropy that conceal an order-one distinction between typical and environment-averaged rare rotation histories. Its full microcanonical spectra, positive quenched entropy at extreme rotations, strict Jensen gap, universal typical curvature, and boundary laws quantify a natural dynamical invariant useful for further comparisons; the underlying Legendre method is acknowledged as standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
