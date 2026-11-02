@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives every necessary condition from exact four-configuration cycle products and proves sufficiency by constructing a positive stationary weight satisfying every single-site detailed-balance equation. Positive immigration and recovery ensure irreducibility. The three-site obstruction is an exact unequal cycle product for every positive transmission rate. The attached exact rational checker separately corroborates 1,099 graphs and 192 directed state-edge equations. No large-graph claim is inferred from enumeration.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** The nearest exact-model source (Van Mieghem–Cator 2012) analyzes the full contact process and the complete-graph stationary case. Foxall 2014 examines the general directed-rate process, but the inspected full paper concentrates on stochastic monotonicity, ergodicity and approximation. Zhang–Moura's full public preprint (2015) treats the same additive contact law and a *different exponential-rate* process with reversible stationary law on any undirected graph. That latter general-graph statement does not imply reversibility for the additive law. Published research-record queries did not identify an exact weighted-clique iff classification. The Van Mieghem–Cator full paper was inaccessible, and equivalent work under different stochastic-process terminology may exist. Search failure alone is not a novelty proof.
+PASS
 
-**Mathematical value — PASS.** The exact structural boundary separates networks admitting time-reversible analysis from those necessarily exhibiting stationary circulation, regardless of how small transmission is. It also yields explicit heterogeneous stationary probabilities and a quadratic-time normalization scheme across arbitrary unions of cliques. The three-site path is a minimal motivated obstruction: deleting a single edge of a complete connected graph destroys reversibility for positive linear transmission. The result is not a claim that nonreversible models lack a stationary distribution.
+For alpha_i,delta_i>0 and beta_{j->i}>=0, all single-spin flips are possible and the finite CTMC is irreducible. The 4-configuration Kolmogorov products cancel constant recovery. At A=empty, alpha_i beta_{i->j}=alpha_j beta_{j->i}, forcing paired directed edges; setting t_ij=beta_{i->j}/alpha_j makes t symmetric. For t_ij>0, the same square with A={k} forces t_ki=t_kj for all distinct k. Therefore positive components are complete and by triangle propagation have one t-value kappa_C, with 2-site case immediate. Conversely the proposed w(A) gives w(A+i)/w(A)=alpha_i(1+kappa_C |A∩C|)/delta_i on every birth, hence detailed balance and normalized unique stationary law. Summing over infected count yields elementary-symmetric normalizer; uniform components correspond bijectively to set partitions. A 3-path four-state square has product difference beta^2>0. Independent exact checker verified canonical assigned Git tree, all 1099 labeled graphs n<=5 with expected Bell counts 1,2,5,15,52 and 18,801 squares, and an independent 7-site heterogeneous directed example with 448 detailed-balance equations and exact normalizer 233218301/404250. This finite evidence corroborates, not replaces, the unrestricted proof.
 
-**Limitations.** Strict positivity of all external-infection and recovery rates, pairwise additive infection, and exponential clocks are essential. Independent literature verification remains outstanding; published source inspection limitations are described in the accompanying scientific record.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge result. The precise additive external-infection/constant-recovery generator has earlier stationary analyses (including exact complete graph), but the full iff for all finite heterogeneous directed rates, weighted-clique topology, factorized stationary weight and local obstruction was not found in primary statements materially read. The 2015 general-graph reversible scaled SIS model has a multiplicative/exponential, not linear-additive infection hazard. This assessment does not prove historical priority; exact-model 2012 technical source remains unread because authorized access was unavailable.
+
+## value
+
+PASS
+
+A complete structural classification of the exact stationary reversibility boundary for the natural positive-immigration additive SIS process, including heterogeneous directed rates, is a worthwhile and motivated mathematical question. It identifies exactly which contact topologies and rate ratios permit a potential/detailed-balance description, constructs explicit stationary weights and quadratic-time component normalization, and supplies the sharp positive-rate minimal graph obstruction. It differs substantively from approximate mean-field steady states and known complete-graph special cases; its importance does not depend on a paper-sized general theorem. The small-path example itself is elementary, but anchors the all-n classification rather than claiming a cheap isolated negative result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
