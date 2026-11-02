@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T13:14:03.762954Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the stationary normalized Gaussian covariance rho_n(theta)=sin(n theta/2)/(n sin(theta/2)) times an irrelevant unit phase. Independent Laguerre chaos expansion gives Cov(log|Z|,log|W|)=Li_2(|rho|^2)/4; integrating yields the exact finite-n variance. The first Li_2 term integrates to 1/(4n) by Parseval. With H(u)=Li_2(u)-u, the x=n theta scaling has H(sinc^2(x/2)) as integrable leading integrand. Taylor expansion sin(x/(2n))^{-2} gives the n^-3 correction; the integrable dominating majorant is O(x^2(1+|log|x||)) at x=0 and O(x^-2) at infinity. The tail outside |x|<n*pi contributes o(n^-3), and the positive correction comes from H'(s)=-log(1-s)/s-1>0. Independently numerically evaluated C=0.331198585557 and truncated A=0.03929564677 through x=2000 (tail nonzero), agreeing with the asserted limits. Independently inspected exact numerical and B-spline verification code, but did not execute the packaged script. No central limit statement is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klurman–Lamzouri–Munsch treat deterministic character-coefficient Fekete polynomials with a non-Gaussian random-process limit; Kiro–Nishry treat variance of zero counts for Gaussian Taylor series."
+        ],
+        "reasoning": "Both are mathematically adjacent but neither covers the independent circular Gaussian coefficient logarithmic boundary integral or its 1/n^3 correction.",
+        "searches": [
+          "Klurman–Lamzouri–Munsch arxiv:2306.07156 Theorem 1.1",
+          "Kiro–Nishry doi:10.1112/jlms.12457 Gaussian Taylor zeros"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2306.07156v1",
+        "doi:10.1112/jlms.12457 [partial bibliographic access]",
+        "Choi–Erdelyi average Mahler [abstract]",
+        "doi:10.2140/pjm.2011.252.31 [citation]",
+        "Resultary semantic query Gaussian log-Mahler variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Gaussian covariance identity yields the exact n-dependent integral after stationarity; the new second-order scaled-kernel expansion is needed to determine C and A."
+        ],
+        "reasoning": "The predecessor identities do not entail a stated sharp n^-3 correction without the newly checked uniform second-order argument.",
+        "searches": [
+          "Klurman–Lamzouri–Munsch 2023 arxiv:2306.07156 sections 1, 1.1",
+          "Kiro–Nishry Gaussian logarithmic covariance paper",
+          "Resultary matched formula search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian logarithm covariance equals one-quarter dilogarithm of squared correlation; its integration over the stationary Dirichlet kernel is the proposed object, not the zero-count variance."
+        ],
+        "reasoning": "The equivalent Gaussian log-correlator is a known premise; it does not itself provide the stated two-term integrated Dirichlet-window asymptotic. No identical full-circle n^-3 formula appeared in the actual searched records.",
+        "searches": [
+          "Resultary semantic: variance asymptotics logarithmic Mahler measure Gaussian random polynomial unit circle dilogarithm second term n^-3",
+          "web: variance of logarithmic Mahler measure Gaussian Kac random polynomials asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The searched existing polynomial models have unimodular/±1 or Fekete coefficients; no checked exact Gaussian variance table contains these C,A constants."
+        ],
+        "reasoning": "A missing table is not a novelty proof; the two terms were deduced from the actual covariance series and asymptotic expansion.",
+        "searches": [
+          "Resultary Gaussian Mahler measure and dilogarithm variance query",
+          "Choi–Mossinghoff doi:10.2140/pjm.2011.252.31; Choi–Erdelyi Littlewood average Mahler"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison against actual primary mathematical results and indexed records. Prior premises/special cases credited; no decisive prior coverage found, with non-zero priority risks.",
+      "residual_risks": [
+        "An equivalent formula under stationary Gaussian spectral logarithm terminology might exist outside searched literature.",
+        "Full text of the Gaussian zero-count covariance predecessor was not independently read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING Gaussian finite variance expansion",
+          "evidence": "Theorem 1.1 concerns deterministic Legendre-symbol Fekete coefficients and a non-Gaussian process, not independent standard complex Gaussians.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07156",
+          "material_read": "Full available PDF, Introduction and Theorem 1.1, p.1–3, first-order Fekete Mahler limiting process",
+          "method": "Inspected parsed full-paper text and PDF page screenshot",
+          "title": "Lq norms and Mahler measure of Fekete polynomials",
+          "trigger": "Same Mahler observable, potential dominant fluctuation theorem"
+        },
+        {
+          "assessment": "INSUFFICIENT_FULL_TEXT, no decisive coverage seen",
+          "evidence": "Provides known dilogarithmic logarithm covariance and zero-count variance rather than explicitly the submitted boundary-Mahler correction.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12457",
+          "material_read": "Bibliographic content and mathematical summary from scientific source citations; full text not independently obtained",
+          "method": "Compared identified theorem subject, not asserted whole-document inspection",
+          "title": "Gaussian logarithmic covariance and Taylor zero fluctuations (Kiro–Nishry)",
+          "trigger": "Potential stronger Gaussian covariance source"
+        },
+        {
+          "assessment": "NOT_DECISIVE, different coefficient model",
+          "evidence": "±1 Littlewood coefficients do not specialize to independent complex Gaussian coefficients.",
+          "identifier_or_url": "https://www.sfu.ca/~schoia/paper/meanmeasurelittlewood.pdf",
+          "material_read": "Abstract plus study scope of Littlewood coefficients",
+          "method": "Read accessible publication summary, not full theorem collection",
+          "title": "Average Mahler measure and Lp norms of Littlewood polynomials",
+          "trigger": "Possible exact random-coefficient average or variance comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The log Mahler measure is a canonical boundary geometric-mean observable for random polynomials. Its finite-length variance has a nontrivial sharp first and next correction, including structurally exact absence of a 1/n^2 term; the positive sinc-dilogarithm integrals quantify fluctuations not implied by Gaussian log-covariance alone. This is not simply a known mean or normalization identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only independent equal-variance circular complex Gaussian coefficients and full-circle logarithmic measure are treated.",
+    "No distributional central limit theorem or error bound stronger than little-o(n^-3).",
+    "Numerical values of improper integrals are approximations, not interval-certified constants."
+  ],
+  "schema_version": 1
+}
