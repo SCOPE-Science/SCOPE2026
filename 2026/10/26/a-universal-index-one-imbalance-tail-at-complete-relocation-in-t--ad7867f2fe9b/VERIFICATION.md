@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and analytical limits
+# Independent mathematical audit
 
-Run `python3 verification.py` with a standard Python 3 interpreter. Its output is recorded in `verification_output.txt`. The script checks the ancestor-family smoothing identity against direct numerical integration, the analytic joint-transform factorization, and exact finite-step probability conservation and reflection symmetry for the original walk. It additionally tests the low-order characteristic-function moment coefficients. Those checks are **not** an infinite-time proof; the proof depends on the martingale convergence theorem, the exponential-Yule branching decomposition, uniqueness of the smoothing-transform solution, Laplace inversion, and the tail sandwich, as written in `RESULT.md`.
+## correctness
 
-For the actual walk, before the first relocation the random initial urn state is one origin ball and an independent optional fair-signed side ball with Bernoulli parameter \(a\). This boundary condition is essential: omitting it changes the exact transform and removes the leading index-one heavy tail. The side-seed correction is verified independently in the finite-state original-walk recursion. No external certification or independent audit is asserted.
+PASS
+
+The exact pre-relocation three-colour urn includes one zero and an independent Bernoulli(a) fair signed side seed. Yule zero births give W>0, E[W]=1; square-integrable signed and total martingales yield e^{-t}Y(t)->D and e^{-t}S(t)/t->aW a.s. Since each physical relocation block adds at most two visits, log(n) occupation normalizations transfer to original discrete time. The zero-only branching equation F(s,t)=int_0^1 F(us,ut)^2(1-a+a/(1+u^2t^2))du solves uniquely to F=(1+s+a t arctan t)^(-1); multiplying the independent initial side factor produces (1-a+a/(1+t^2))/(1+s+a t arctan t). Conditional variance of D0|W=w is 2aw; conditional Chebyshev yields P(|D0/(aW)|>x)=O_a(log(x)/x^2). Initial side term has exact tail a/(1+ax), forcing lim x P(|Q_a|>x)=1 and infinite E|Q_a|. Independent high-precision quadrature checked nine transform identities and nine tail samples. Strict 0<a<1, symmetric nearest-neighbor steps and complete relocation outside 0 are essential; no uniform a endpoint or higher-dimensional extension.
+
+## originality
+
+PASS
+
+The nearest published walk has a different away-from-origin resetting probability; the general equal-diagonal triangular urn theorem captures log occupation orders, not the exact joint signed fluctuation transform or universal index-one tail. The first-order ±1 half masses and general Yule/urn methods are credited. No direct dominating result was identified in the inspected sources; historic specialized urn distribution formulas remain an explicit risk.
+
+## value
+
+PASS
+
+The parameter-independent coefficient in the nonintegrable 1/x tail is a natural, nontrivial refinement of first-order monkey-walk localization. It exactly characterizes the second-order signed occupation imbalance and distinguishes finite bounded empirical imbalance from a heavy-tailed limiting observable. A researcher studying critical complete relocation can use the explicit joint transform and tail constant without resolving the full general impurity model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

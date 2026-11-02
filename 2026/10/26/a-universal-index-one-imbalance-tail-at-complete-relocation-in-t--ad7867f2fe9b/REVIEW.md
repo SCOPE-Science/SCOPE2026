@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact stopping-before-relocation urn representation includes the Bernoulli-distributed side ball created before the first relocation; omitting it would give an incorrect transform and tail. The Yule and signed martingale limits use finite predictable quadratic variation, the smoothing equation is solved with its initial derivative, and exponential Laplace uniqueness establishes the conditional second moment used in the tail argument. The almost-sure interpolation uses uniformly bounded excursion lengths. The self-contained verifier passes the finite Markov checks and independent numerical integral checks. The result is not based on a finite extrapolation.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The 2026 primary source's Theorem 1.1 treats relocation strictly below one, and its general urn construction does not give this endpoint's explicit signed martingale limit. The 2019 predecessor predicts a symmetric two-neighbour limiting stationary profile under self-consistency assumptions, so the leading equality of neighbour masses is not asserted as original. Janson's 2024 triangular-urn theorem already implies broad logarithmic rates; these alone are not asserted as novel. The specific joint transform, conditional dependence and universal index-one imbalance tail were not identified in the inspected primary texts or searched research records. Further independent historical-literature review remains advisable.
+PASS
 
-**Mathematical value — PASS.** The signed second-order limit is a meaningful, previously unresolved observable for a natural singular boundary of a current reinforced-walk model. Its explicit transform gives the full limiting law and the unexpected \(1/x\) tail coefficient independent of the local escape parameter, despite bounded finite-time normalized imbalances. The result sharply distinguishes leading deterministic occupation from persistent asymmetric fluctuations.
+The exact pre-relocation three-colour urn includes one zero and an independent Bernoulli(a) fair signed side seed. Yule zero births give W>0, E[W]=1; square-integrable signed and total martingales yield e^{-t}Y(t)->D and e^{-t}S(t)/t->aW a.s. Since each physical relocation block adds at most two visits, log(n) occupation normalizations transfer to original discrete time. The zero-only branching equation F(s,t)=int_0^1 F(us,ut)^2(1-a+a/(1+u^2t^2))du solves uniquely to F=(1+s+a t arctan t)^(-1); multiplying the independent initial side factor produces (1-a+a/(1+t^2))/(1+s+a t arctan t). Conditional variance of D0|W=w is 2aw; conditional Chebyshev yields P(|D0/(aW)|>x)=O_a(log(x)/x^2). Initial side term has exact tail a/(1+ax), forcing lim x P(|Q_a|>x)=1 and infinite E|Q_a|. Independent high-precision quadrature checked nine transform identities and nine tail samples. Strict 0<a<1, symmetric nearest-neighbor steps and complete relocation outside 0 are essential; no uniform a endpoint or higher-dimensional extension.
 
-**Limits.** Strict complete-relocation endpoint; one dimension; symmetric origin steps; fixed \(a\in(0,1)\). The proof does not cover approach to the boundary from below. Historical-priority risk is not equivalent to a known covering theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest published walk has a different away-from-origin resetting probability; the general equal-diagonal triangular urn theorem captures log occupation orders, not the exact joint signed fluctuation transform or universal index-one tail. The first-order ±1 half masses and general Yule/urn methods are credited. No direct dominating result was identified in the inspected sources; historic specialized urn distribution formulas remain an explicit risk.
+
+## value
+
+PASS
+
+The parameter-independent coefficient in the nonintegrable 1/x tail is a natural, nontrivial refinement of first-order monkey-walk localization. It exactly characterizes the second-order signed occupation imbalance and distinguishes finite bounded empirical imbalance from a heavy-tailed limiting observable. A researcher studying critical complete relocation can use the explicit joint transform and tail constant without resolving the full general impurity model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
