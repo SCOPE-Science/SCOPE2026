@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:46:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In k[a,b,c] characteristic 3 the standard cubic discriminant reduces to Δ=a²b²−b³−a³c, irreducible by primitiveness and linearity in c with relatively prime coefficients; substituting b=−aλ, c=λ³+aλ² gives zero, and a≠0 recovers λ=−b/a. λ satisfies monic λ³+aλ²−c=0, so B=k[a,λ] is finite birational and normal, hence normalization. With R=k[a,c], B is free basis 1,λ,λ², and A=R⊕aRλ⊕a²Rλ²: b=−aλ and b²=a²λ², while reduction λ³=c−aλ² makes multiplication by b stable. Thus B/A≅R/(a)⊕R/(a²). The conditions hλ,hλ²∈A for h=h0+ah1λ+a²h2λ² give a²|h0 and a|h1, so conductor=a²B=(a²,ab,b²)A=(a,b)². Partial derivatives are Δ_a=−ab², Δ_b=−a²b, Δ_c=−a³; using Δ=0 also b³ is in the Jacobian ideal, so exactly J=(a,b)³, with radical (a,b). On reduced singular/conductor line a=b=0 the normalized map c=λ³ is purely inseparable degree3. Independent SymPy computations mod3 checked substitution, derivatives, cubic relation/module multiplication; the universal conductor result follows from the displayed free-module reasoning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "FNR computes complex equivariant classes and degrees of coincident-root loci, not characteristic-three conductor thickness.",
+          "Shimada proves inseparability of degree3 in more general critical loci, but no exact identification of this monic cubic normalization module and (a,b)^2/(a,b)^3 comparison was found in the material read."
+        ],
+        "reasoning": "Generic normalization of arbitrary binary-form discriminants might subsume these computations after careful specialization, but characteristic 3 is singular and formulas from characteristic 0 do not automatically specialize.",
+        "searches": [
+          "Fehér–Némethi–Rimányi full 2003 primary arXiv PDF",
+          "Shimada 2006 author-preprint full PDF",
+          "Resultary cubic discriminant char3 conductor search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py (963158b47cd7082973f5adb57c0d428b58d6d7e2); independent_checks.py mod3 symbolic substitution and derivatives",
+        "Fehér–Némethi–Rimányi 2003 full PDF, Shimada 2006 full author PDF, screenshots",
+        "Resultary cubic discriminant/normalization/conductor search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Characteristic-zero cohomology/equivariant geometry does not directly entail char3 purely inseparable conductor map or Jacobian thickness.",
+          "Shimada’s degree-three inseparability mechanism alone does not fix the orders of the conductor and intrinsic Jacobian ideal in the affine monic chart."
+        ],
+        "reasoning": "The explicit R-basis submodule A⊂B and conductor membership calculation provide content beyond standard parametrization, with all claimed identities verified separately.",
+        "searches": [
+          "arXiv:math/0311312 primary PDF",
+          "Shimada 2006 author preprint char3shimada.pdf",
+          "Classical monic cubic discriminant formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The monic cubic discriminant is the repeated-root/coincident-root hypersurface; normalization is parameterized by the repeated root.",
+          "The Frobenius degree-three behavior may be described via inseparable Gauss maps or characteristic-3 dual varieties."
+        ],
+        "reasoning": "The compared object is the intrinsic affine k[a,b,c]/(Δ) with exact normalization/conductor/Jacobian ideals; generic coincident-root classes and ambient dual-map degrees are not automatically those local ideal computations.",
+        "searches": [
+          "Resultary: characteristic three cubic discriminant normalization conductor square Jacobian cube Frobenius degree three",
+          "Shimada DOI:10.1007/s10711-006-9074-z",
+          "Fehér–Némethi–Rimányi arXiv:math/0311312"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ordinary discriminant expression is known; its char3 derivative ideals and normalization quotient were rederived from the actual defining equation.",
+          "No published exact table for the pair of powers (a,b)^2 conductor and (a,b)^3 Jacobian was retrieved."
+        ],
+        "reasoning": "This is not an arbitrary table lookup: the equality of two ideals and finite normalization module are structural local-algebra claims. A potential classical conductor example is a stated priority risk.",
+        "searches": [
+          "Resultary semantic search: cubic discriminant characteristic-three conductor Jacobian",
+          "Classical cubic discriminant formula",
+          "Independent ring computations mod3"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the simultaneous explicit affine monic cubic conductor square, Jacobian cubic thickening and normalization module in characteristic three. The parametrization of the cubic discriminant and its repeated-root locus are classical; Fehér–Némethi–Rimányi treat coincident-root equivariant classes over C rather than these char3 local ideals. Shimada proves a general inseparable degree-three phenomenon in characteristic three for dual-variety singularities, so degree-three Frobenius itself is prior background, not claimed novel. The new assessed content is the precise ring/module ideal and conductor comparison for this canonical universal cubic. An earlier modular discriminant/conductor formula could imply it; this remains a genuine residual priority risk.",
+      "residual_risks": [
+        "A classical characteristic-three conductor theorem for generic binary-form discriminants may imply these explicit calculations even without identical notation.",
+        "Scope is monic affine chart over algebraically closed char3 only; no assertion about full projective discriminant or resultant-defined pre-reduction scheme.",
+        "Computational checks confirm polynomial equalities, but the normality/conductor necessity depend on the displayed ring/module proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL_BACKGROUND: characteristic-zero enumerative classes; no char3 explicit conductor/Jacobian comparison in inspected results",
+          "evidence": [
+            "Methods and statements are over C and focus equivariant classes of coincidences, not a monic char3 affine ring conductor."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0311312",
+          "material_read": "Complete original primary PDF, main definitions, coincident root loci, equivariant classes and discussion of discriminants",
+          "method": "Full PDF text extraction, theorem reading and visual screenshot",
+          "title": "Coincident root loci of binary forms",
+          "trigger": "Closest general treatment of binary cubic discriminant and repeated-root locus"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR: general degree-three inseparable phenomenon known, not the precise monic cubic conductor and Jacobian ideals",
+          "evidence": [
+            "Original author theorem establishes characteristic-3 singularities linked to inseparable degree-three behavior, but not the presented R-submodule B/A and (a,b)^2 vs (a,b)^3 identities."
+          ],
+          "identifier_or_url": "https://home.hiroshima-u.ac.jp/ichiro-shimada/preprints/char3/char3shimada.pdf",
+          "material_read": "Complete authorized author preprint PDF, introduction and primary inseparability theorem, examples and conclusions; relevant pages visually inspected",
+          "method": "Full primary PDF text read and screenshot",
+          "title": "Singularities of dual varieties in characteristic 3",
+          "trigger": "Potential stronger characteristic-three inseparable discriminant theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The universal cubic discriminant in characteristic three is a natural test case where inseparable geometry makes intrinsic singular-scheme thickness differ from the normalization conductor. Giving exact ideals (a,b)^3 vs (a,b)^2 and B/A torsion exponents supplies a concrete structural invariant measuring that difference. This is meaningful modular algebraic geometry even without a projective compactification or general theorem for all discriminants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact char-3 universal monic cubic discriminant normalization, Frobenius degree-three conductor cover, conductor square and Jacobian cube including the R-module normalization quotient.",
+  "limitations": [
+    "A classical characteristic-three conductor theorem for generic binary-form discriminants may imply these explicit calculations even without identical notation.",
+    "Scope is monic affine chart over algebraically closed char3 only; no assertion about full projective discriminant or resultant-defined pre-reduction scheme.",
+    "Computational checks confirm polynomial equalities, but the normality/conductor necessity depend on the displayed ring/module proof."
+  ],
+  "schema_version": 1
+}

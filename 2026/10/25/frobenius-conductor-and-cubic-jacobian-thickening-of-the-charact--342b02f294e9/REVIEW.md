@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The reduced discriminant is an irreducible primitive polynomial linear in \(c\), and the repeated-root parameter gives a finite birational map from the normal polynomial ring \(k[a,\lambda]\). A free \(k[a,c]\)-module calculation identifies the original ring exactly. Coefficient-divisibility then proves that the conductor is \((a,b)^2\), while exact derivatives and the hypersurface relation give the Jacobian ideal \((a,b)^3\). The conductor map restricts to \(c=\lambda^3\) and so has inseparable degree three. Symbolic checks agree. The only unproved scope is any claim outside the affine monic chart; none is asserted.
+## correctness
 
-## Originality — PASS, with risk
-The repeated-root parameterization and characteristic-three cubic derivative are acknowledged background. Fehér--Némethi--Rimányi (arXiv:math/0311312, 2003) concern coincident-root loci over \(\mathbb C\), with no modular conductor. Shimada's 2006 study of dual varieties in characteristic three describes a general degree-three inseparability and \(E_6\) phenomena; that qualitative phenomenon is not claimed as new. Searches of mathematical records, source-equation aliases and accessible related literature yielded no same or stronger *explicit simultaneous* normalization-quotient/conductor/Jacobian computation for this universal cubic discriminant. The possibility of equivalent classical computations in other language remains.
+PASS
 
-## Mathematical value — PASS
-The discriminant is a canonical singular algebraic variety, not an arbitrary example. The different powers \((a,b)^2\) and \((a,b)^3\) measure distinct normalization and infinitesimal singularity invariants, while the quotient-module torsion orders and inseparable conductor cover determine the specific modular degeneration. This is a complete natural local/affine classification useful when studying modular discriminants, rather than a parameter change or a numerical curiosity. It does not require an unproved downstream theorem.
+In k[a,b,c] characteristic 3 the standard cubic discriminant reduces to Δ=a²b²−b³−a³c, irreducible by primitiveness and linearity in c with relatively prime coefficients; substituting b=−aλ, c=λ³+aλ² gives zero, and a≠0 recovers λ=−b/a. λ satisfies monic λ³+aλ²−c=0, so B=k[a,λ] is finite birational and normal, hence normalization. With R=k[a,c], B is free basis 1,λ,λ², and A=R⊕aRλ⊕a²Rλ²: b=−aλ and b²=a²λ², while reduction λ³=c−aλ² makes multiplication by b stable. Thus B/A≅R/(a)⊕R/(a²). The conditions hλ,hλ²∈A for h=h0+ah1λ+a²h2λ² give a²|h0 and a|h1, so conductor=a²B=(a²,ab,b²)A=(a,b)². Partial derivatives are Δ_a=−ab², Δ_b=−a²b, Δ_c=−a³; using Δ=0 also b³ is in the Jacobian ideal, so exactly J=(a,b)³, with radical (a,b). On reduced singular/conductor line a=b=0 the normalized map c=λ³ is purely inseparable degree3. Independent SymPy computations mod3 checked substitution, derivatives, cubic relation/module multiplication; the universal conductor result follows from the displayed free-module reasoning.
 
-## Scientific limits and closest antecedents
-The monic chart excludes the boundary of binary cubics with vanishing leading coefficient. Shimada has related inseparability results, and unlocated modular treatments may imply the explicit conductor. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the simultaneous explicit affine monic cubic conductor square, Jacobian cubic thickening and normalization module in characteristic three. The parametrization of the cubic discriminant and its repeated-root locus are classical; Fehér–Némethi–Rimányi treat coincident-root equivariant classes over C rather than these char3 local ideals. Shimada proves a general inseparable degree-three phenomenon in characteristic three for dual-variety singularities, so degree-three Frobenius itself is prior background, not claimed novel. The new assessed content is the precise ring/module ideal and conductor comparison for this canonical universal cubic. An earlier modular discriminant/conductor formula could imply it; this remains a genuine residual priority risk.
+
+## value
+
+PASS
+
+The universal cubic discriminant in characteristic three is a natural test case where inseparable geometry makes intrinsic singular-scheme thickness differ from the normalization conductor. Giving exact ideals (a,b)^3 vs (a,b)^2 and B/A torsion exponents supplies a concrete structural invariant measuring that difference. This is meaningful modular algebraic geometry even without a projective compactification or general theorem for all discriminants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
