@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For all nonempty finite posets with all lower ideals and individual membership queries: comparabilities exclude fixed-query shattering, and downclosures of a maximum antichain prove VC=width. An explicit induction proves exact additivity of Littlestone dimension over disjoint-domain products. Dilworth chain decomposition injects ideals into a product of prefix-threshold classes, yielding the sharp width times floor-log height bound; disjoint chains attain it. At dyadic height, a maximal-depth tree requires exactly the maximal number of ideals, forcing full-length chains and no cross-chain comparabilities; this proves the if-and-only-if. Height-one, height-two and height-three boundaries follow. The independent standard-library program checked 5,231 finite posets and selected chain unions. Finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dilworth’s chain decomposition theorem establishes a structural upper embedding but contains no adaptive learning dimension.",
+        "Ghazi et al. 2021 establish general aggregation bounds, not the sharp poset-specific equality condition."
+      ],
+      "reasoning": "A general closure estimate need not give exact equality or characterize all maximizers. This work independently proves the required disjoint-domain equality and uses a tight counting step to rule out cross-chain comparabilities at dyadic heights. No inspected broader theorem implies that package.",
+      "searches": [
+        "\"Littlestone dimension\" \"Dilworth\" \"chains\" \"order ideals\"",
+        "sharp width-height upper bound on Littlestone dimension for order ideals of finite posets: width times floor log2(height+1), equality only for disjoint chains when height+1 power of two",
+        "poset order-ideal membership classes, exact maximum online shattering dimension at height three and width w; only disjoint unions of three-element chains attain 2w",
+        "Littlestone dimension poset ideals Dilworth decomposition chain length prefix thresholds and binary power extremal equality"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2009.07348",
+      "https://proceedings.mlr.press/v132/ghazi21a.html",
+      "https://arxiv.org/abs/2108.12443",
+      "Dilworth, Annals of Mathematics 51 (1950), 161–166"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Iams–Johnston–Muth 2020: a constrained ideal-identification objective (total query count with positive-answer budgets).",
+        "Ghazi–Golowich–Kumar–Manurangsi 2021: Boolean aggregation closure of Littlestone/threshold dimension.",
+        "Elizalde–Plante–Roby–Sagan 2021: fence ideal lattice and rowmotion; Dilworth 1950: chain partition."
+      ],
+      "reasoning": "The first source optimizes an adversarial search length, not the maximum achievable complete adaptive response-tree depth; the second provides general closure estimates but no exact sharp height/width extremal equality; the third has no online-learning dimension. The classical chain partition is an ingredient, not the full claim. None of these inspected statements entails the final theorem without the additional product argument and dyadic equality analysis.",
+      "searches": [
+        "arXiv 2009.07348 Iams Johnston Muth Searching for quicksand ideals in partially ordered sets",
+        "arXiv 2108.12443 Elizalde Plante Roby Sagan Rowmotion on fences poset ideals",
+        "PMLR 132 Ghazi Golowich Kumar Manurangsi near-tight closure Littlestone threshold 2021",
+        "\"Littlestone dimension\" \"poset\" \"height\" \"width\" \"ideals\"",
+        "sharp width-height upper bound on Littlestone dimension for order ideals of finite posets: width times floor log2(height+1), equality only for disjoint chains when height+1 power of two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full-text comparisons: arxiv:2009.07348 and PMLR 132 (2021), which discuss ideal membership search and online dimension under distinct objectives.",
+        "The theorem can equivalently be framed as thicket dimension of monotone lower-set membership on a poset or as online rank of distributive-lattice elements, so those aliases were included in searches."
+      ],
+      "reasoning": "The query domain is the poset and concepts are the entire ideal lattice; unlike bounded-positive-answer identification, the tested property demands a complete binary response tree. Searches for online monotone classification, thicket rank and chain-cover learning revealed no equivalence that would supply the exact dyadic characterization.",
+      "searches": [
+        "\"Littlestone dimension\" \"poset\" \"height\" \"width\" \"ideals\"",
+        "\"Littlestone\" \"order ideals\" \"chain decomposition\"",
+        "Every finite poset of height at most two has the VC dimension and Littlestone dimension of its order-ideal membership class both equal the poset width maximum antichain size",
+        "Littlestone dimension poset ideals Dilworth decomposition chain length prefix thresholds and binary power extremal equality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical research comparisons concerned widths and enumeration of posets, Euclidean invariants of poset polytopes, interval-endomorphism dimensions and dynamic ideal lattices, not this shattering invariant.",
+        "Finite program checks all naturally labeled posets with up to six elements but claims a universal theorem rather than treating the finite table as novelty."
+      ],
+      "reasoning": "No exact prior table of poset-ideal Littlestone dimension or height–width extremal values was identified. Finite exhaustive checks corroborate but do not supply historical novelty and cannot prove absence in unindexed sources.",
+      "searches": [
+        "\"Littlestone dimension\" \"height two\" \"poset\" ideals",
+        "\"Littlestone dimension\" \"width\" \"order ideals\" bipartite",
+        "\"online\" \"shattering\" \"order ideals\" poset height 2",
+        "sharp width-height upper bound on Littlestone dimension for order ideals of finite posets: width times floor log2(height+1), equality only for disjoint chains when height+1 power of two",
+        "poset order-ideal membership classes, exact maximum online shattering dimension at height three and width w; only disjoint unions of three-element chains attain 2w"
+      ]
+    },
+    "rationale": "Accessible primary full texts and indexed-claim comparisons did not identify a theorem determining the exact height–width extremal online rank together with rigidity at dyadic heights. The closest 2020 ideal-query paper optimizes a different identification cost; general Littlestone aggregation and fence-ideal dynamics do not imply the stated rigidity. This is a best-knowledge comparison, not a claim of absolute priority.",
+    "residual_risks": [
+      "Equivalent classical claims may be stated under thicket rank, mistake-tree dimension, monotone online classification, or distributive-lattice membership rather than Littlestone dimension.",
+      "The upper bound is a short combination of standard chain decomposition and product additivity; historical priority for the combined all-size extremal bound is not conclusively settled.",
+      "The source comparison covered accessible texts and selected indexed records rather than the complete historical mathematical literature. Independent expert validation remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: the search-cost objective bounds queries required to identify an unknown ideal subject to a response budget; it does not assert the maximum all-branch shattering depth as a function of poset height and width, or the dyadic equality rigidity.",
+        "evidence": [
+          "arxiv:2009.07348, arXiv v1 2020-09-15, abstract and Theorem 4.2",
+          "arxiv:2009.07348, section 6 and Corollary 6.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.07348",
+        "material_read": "Full open-access manuscript, including abstract, the main search theorem, Section 6 conclusions and references; full-text searches for shattering terminology.",
+        "method": "Read the authors’ formal search objective, its positive-answer budget, total-query minimax guarantee, and compare quantifiers to complete binary adaptive tree shattering.",
+        "title": "Searching for quicksand ideals in partially ordered sets",
+        "trigger": "Contains the closest matching ideal-membership query object and asks for adaptive query strategies."
+      },
+      {
+        "assessment": "Not covering: general closure estimates do not state the exact extremal bound or classify dyadic extremizers for lower-ideal membership.",
+        "evidence": [
+          "Ghazi et al., Algorithmic Learning Theory 2021, PMLR volume 132, introductory statements and Proposition 3"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+        "material_read": "Accessible full-text article, abstract, introduction, central closure bound and definition sections; searches for posets/ideals.",
+        "method": "Compared Boolean-aggregation closure on a shared query domain with the poset-ideal class embedded into a product on disjoint chain domains; checked whether a height/width equality statement was given.",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "General theorem on how adaptive shattering behaves under closure and aggregation, potentially a stronger implication."
+      },
+      {
+        "assessment": "Not covering: its results concern rowmotion dynamics, orbit enumeration and homomesy of ideal lattices, not online shattering depth or height–width extremizers.",
+        "evidence": [
+          "arxiv:2108.12443, arXiv v1 2021-08-27, introduction and rowmotion theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.12443",
+        "material_read": "Accessible full-text manuscript, abstract, definitions of ideals and fences, central rowmotion statements, and searches for Littlestone/online terminology.",
+        "method": "Checked the object and whether the results imply membership-query learning dimensions.",
+        "title": "Rowmotion on fences",
+        "trigger": "Natural lattice of order ideals for posets of small width; plausible source for exact finite computations under an alternative formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "735eed3f-93db-4d16-90ab-a3b481bf09a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The statement determines the exact largest adaptive shattering dimension at every prescribed poset height and width, and classifies all maximizers at every height one below a power of two. It exposes the first structural transition: no adaptive advantage is possible for any height-at-most-two poset, whereas width-many extra adaptive levels occur at height three only for disjoint triples. Such a full sharp extremal classification with an equality mechanism is mathematically motivated and not merely a routine finite tabulation.",
+    "status": "PASS"
+  }
+}
