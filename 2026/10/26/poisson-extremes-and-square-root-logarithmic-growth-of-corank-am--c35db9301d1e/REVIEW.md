@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness: PASS.** Independent row/column elimination yields the exact nearest-neighbor kernel. Rank-counting and detailed balance identify the stationary zero mass \(P_\infty(q)\); the exact gambler's-ruin scale gives \(h_k\sim q^{1-k^2}/P_\infty(q)^2\). A finite-mean regeneration cycle has mean \(q/P_\infty(q)\), producing the displayed sharp Poisson exponent by renewal sampling. Borel--Cantelli gives the almost-sure maximum law. Exact-rational finite checks support the algebra and are not substituted for the infinite proof.
+## correctness
 
-**Originality: PASS (qualified).** Lvov, arXiv:2610.00134v1, explicitly establishes the Markov/stationary process that motivates the question, not the maximum-over-time Poisson law. The earlier arXiv:2408.06492v1 treats related cokernel operator and spectral properties; the finite-field rank/countdown papers address marginal ranks or different exposure dynamics. Closest currently identified statements do not imply the sharp excursion asymptotic without additional analysis. Remaining risk: broader historical rare-excursion/extreme-value results might imply this as an unstated specialization.
+PASS
 
-**Value: PASS.** This identifies the natural almost-sure scale for the worst rank deficiency among a growing nested family, and the exact rare-event clock and intensity. Unlike single-block rank probabilities, it accounts for strong temporal clustering induced by nesting. The quantitative Poisson window is of direct relevance to extreme singularity excursions of streaming principal matrices.
+Derived the transition law by bordering the old rank-normal form: down d_j=(1−q^{−j})², up u_j=q^{−(2j+1)}, hold otherwise. The finite-field rank distribution gives π_0=P∞, with finite expected returns from negative drift. Birth–death harmonic increments give h_k=[∑_{j=0}^{k−1}q^{j(j+2)}P_j²]^{-1}~q^{1−k²}/P∞². Regeneration at zero has mean cycle q/P∞ (including geometric zero waiting); an IID cycle-mark plus renewal-count sandwich gives the Poisson intensity 1/P∞. A summable dyadic upper/lower bound and Borel–Cantelli give almost-sure maximum ∼√(log_q N). Independently verified 21 gambler-ruin formula cases and residual-block rank enumerations; finite results do not imply asymptotics.
 
-The result assumes fixed \(q\) and exactly uniform independent entries, does not assert universality, and does not characterize finer lattice-edge corrections. No independent validation is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lvov 2026 explicitly identifies the same nested Haar finite-field corank process as a reversible recurrent birth–death chain, so transitions and the stationary law are credited. The new contribution is the exact rare-excursion high-level asymptotic, resulting Poisson window/intensity, and a.s. extreme growth under one nested exposure, not a one-time rank law. The highly relevant Lvov primary full HTML contains Markov/stationary statements but no maximum or Poisson extreme theorem; general regenerative extreme-value theory could imply the case after additional exact hitting calculations.
+
+## value
+
+PASS
+
+Streaming nested rank deficiencies are strongly dependent; the natural worst-case corank scale and exact excursion intensity cannot be read directly from single-block marginals. Solving the sharp level-hitting problem yields a meaningful Poisson cutoff and almost-sure growth for every fixed field, with a real regeneration mechanism and no universality overclaim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

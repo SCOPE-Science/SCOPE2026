@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Execute `python verify.py` with Python 3 and NumPy. The program evaluates exact transition and rank-distribution identities with `fractions.Fraction`, checks exact harmonic boundary equations for \(q\in\{2,3,4,5\}\), and enumerates small-field residual-border ranks. It computes killed-chain finite-horizon survival probabilities for selected thresholds and compares them against the predicted asymptotic. The output is stored in `verification_output.txt`.
+# Independent mathematical audit
 
-Critical infinite steps were checked analytically: (i) elimination of the appended residual block is valid under invertible changes of basis, preserving conditional uniformity; (ii) the chain has negative drift outside zero and hence a finite mean return; (iii) the scale function gives the precise hitting probability; (iv) Kac's renewal-reward identity gives the cycle mean; (v) deterministic cycle-count sandwich and Bernoulli rare-event asymptotics yield the Poisson probability, including the incomplete-cycle boundary; (vi) dyadic Borel--Cantelli proves the almost-sure maximum asymptotic.
+## correctness
 
-Numeric convergence at moderate thresholds can be slow, since the ratio between the two largest scale-function terms has only exponential—not superexponential—decay. Finite experiments do not certify the asymptotic laws and cannot prove literature novelty. The independent-audit channel is not performed.
+PASS
+
+Derived the transition law by bordering the old rank-normal form: down d_j=(1−q^{−j})², up u_j=q^{−(2j+1)}, hold otherwise. The finite-field rank distribution gives π_0=P∞, with finite expected returns from negative drift. Birth–death harmonic increments give h_k=[∑_{j=0}^{k−1}q^{j(j+2)}P_j²]^{-1}~q^{1−k²}/P∞². Regeneration at zero has mean cycle q/P∞ (including geometric zero waiting); an IID cycle-mark plus renewal-count sandwich gives the Poisson intensity 1/P∞. A summable dyadic upper/lower bound and Borel–Cantelli give almost-sure maximum ∼√(log_q N). Independently verified 21 gambler-ruin formula cases and residual-block rank enumerations; finite results do not imply asymptotics.
+
+## originality
+
+PASS
+
+Lvov 2026 explicitly identifies the same nested Haar finite-field corank process as a reversible recurrent birth–death chain, so transitions and the stationary law are credited. The new contribution is the exact rare-excursion high-level asymptotic, resulting Poisson window/intensity, and a.s. extreme growth under one nested exposure, not a one-time rank law. The highly relevant Lvov primary full HTML contains Markov/stationary statements but no maximum or Poisson extreme theorem; general regenerative extreme-value theory could imply the case after additional exact hitting calculations.
+
+## value
+
+PASS
+
+Streaming nested rank deficiencies are strongly dependent; the natural worst-case corank scale and exact excursion intensity cannot be read directly from single-block marginals. Solving the sharp level-hitting problem yields a meaningful Poisson cutoff and almost-sure growth for every fixed field, with a real regeneration mechanism and no universality overclaim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
