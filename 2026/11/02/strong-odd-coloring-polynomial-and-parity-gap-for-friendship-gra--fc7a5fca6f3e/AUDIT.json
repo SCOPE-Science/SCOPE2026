@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The local reduction is exact: every peripheral open neighborhood contains the central and paired vertex with distinct colors; only the central parity condition remains. Orthogonality of finite sign characters counts assignments with every active color having odd occurrence count, and the pair sum equals (sum of signs)^2-k. The k=2 and k=4 evaluations and exclusion of smaller palettes prove the chromatic and optimal formulas for every m>=1. Direct graph enumeration in 18 (m,q) pairs, and an independently implemented parity-state dynamic program on 56 pairs, agree with the character formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kwon–Park arXiv:2401.11653 proves bounds in sparse graphs; it does not enumerate named-palette assignments on the friendship family.",
+        "Caro et al. arXiv:2410.02336 prove tree/unicyclic/product results; friendship graphs with at least two triangles are neither a tree nor unicyclic.",
+        "Manattu et al. arXiv:2602.03259 Theorem 3 concerns unions of C_n joined to two isolated vertices, not arbitrary bouquets of triangles."
+      ],
+      "reasoning": "The broader sources constrain or bound strong odd chromatic numbers but do not supply a general enumeration formula covering arbitrary m friendship graphs. Standard character orthogonality is a method, not itself an identified source that states the graph-specific counting theorem.",
+      "searches": [
+        "\"strong odd colorings\" generating function",
+        "\"number of strong odd colorings\" friendship graph",
+        "\"strong odd chromatic polynomial\" graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.03259",
+      "arxiv:2410.02336",
+      "arxiv:2401.11653",
+      "Mathematical findings on odd crown strong odd coloring and generalized windmill general-position polynomial (different invariants or graph families)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.03259 Theorem 3 gives a chromatic number for unions of two graphs C_n∨overline(K_2), not for F_m, and has no all-q count.",
+        "arXiv:2410.02336 includes universal existence/bounds and specialized unicyclic/product results, but does not state a universal strong odd-coloring polynomial.",
+        "The exact counting proof here uses parity-character sums on arbitrary m repeated triangles."
+      ],
+      "reasoning": "Neither a numerical chromatic upper bound nor a result for a different one-point union implies the full polynomial or exact minima multiplicities. Generic inclusion-exclusion could derive the result but was not identified as an already-applied equivalent theorem.",
+      "searches": [
+        "arxiv:2602.03259 one point union of graphs strong odd",
+        "arxiv:2410.02336 chromatic polynomial enumeration",
+        "arxiv:2401.11653 friendship windmill"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Manattu–Vinay–Lakshmanan, arXiv:2602.03259, §§2–3: strong odd wheel and a specific cycle-join one-point union, no triangle-bouquet polynomial.",
+        "Caro–Petruševski–Škrekovski–Tuza, arXiv:2410.02336, §§1–4: general strong odd framework and graph-class bounds; no friendship specialization."
+      ],
+      "reasoning": "The equivalent constraint is an ordered sequence of m edges of a complete palette graph with each used vertex of odd degree. This reduction gives the polynomial but is not one of the enumerated statements in the inspected primary sources. A general parity-incidence theorem could still subsume the calculation.",
+      "searches": [
+        "\"strong odd chromatic number\" \"friendship\"",
+        "\"strong odd coloring\" \"windmill graph\"",
+        "\"friendship graph\" \"neighborhood parity\" \"coloring\" exact count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact friendship-family formula surfaced in the checked mathematical web searches.",
+        "Comparable published mathematical finding summaries include strong odd coloring of odd crown graphs and a general-position polynomial for windmills, neither the same coloring problem on friendship graphs."
+      ],
+      "reasoning": "The all-palette sequence and its m-parity optimal counts were not found as database or literature tables. Negative retrieval is not proof of novelty; historical-priority risk is explicitly retained.",
+      "searches": [
+        "\"strong odd chromatic number\" \"friendship\"",
+        "\"strong odd coloring\" \"windmill\"",
+        "\"strong odd coloring\" \"friendship graph\" all optimal colorings"
+      ]
+    },
+    "rationale": "Full available text of three primary references was examined to the extent described below, along with focused web and mathematical-record searches; none was found to state or imply the complete all-q strong odd-coloring polynomial for the friendship family. The closest 2026 one-point-union result treats cycle-based joins and only chromatic numbers. Standard character projection as a technique is not claimed original. Residual risk of broader parity-sequence enumeration or unlocated specialized literature remains.",
+    "residual_risks": [
+      "An unlocated general odd-incidence/character-enumeration result might imply the polynomial after a graph-to-edge-sequence reduction.",
+      "Full bibliographic coverage of non-arXiv theses and prior enumerative specializations is not guaranteed.",
+      "Self-review only; no independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant definition and neighboring graph-operation scope; Theorem 3 concerns two cycle-join components rather than triangle bouquets and no all-palette count was found.",
+        "evidence": [
+          "arXiv:2602.03259 §§2–4, particularly definition of one-point union and Theorem 3; first posted 2026-02-03."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.03259",
+        "material_read": "Accessible arXiv full-text rendering, introduction, sections 2–4, theorem 3 and references context.",
+        "method": "Primary HTML-like arXiv full-text inspection and targeted text searches for friendship, windmill and triangle.",
+        "title": "On a conjecture about the strong odd chromatic number of planar graphs",
+        "trigger": "2026 work on strong odd coloring of one-point unions"
+      },
+      {
+        "assessment": "General graph-class bounds, tree/unicyclic and product results; no friendship all-palette enumeration identified.",
+        "evidence": [
+          "arXiv:2410.02336, §§1–4; v1 2024-10-03."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.02336",
+        "material_read": "Accessible arXiv full-text rendering with targeted introduction, tree/unicyclic and product sections, plus in-document searches for windmill, friendship, one point, and enumeration.",
+        "method": "Primary arXiv rendered-text section inspection and text search.",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "Broad source potentially dominating narrow friendship-graph coloring problem"
+      },
+      {
+        "assessment": "Introduces invariant and treats sparse degree bounds; no explicit friendship polynomial found.",
+        "evidence": [
+          "arXiv:2401.11653 §§1–2 and Theorems 1.2–1.3, v1 2024-01-22."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.11653",
+        "material_read": "Accessible arXiv full-text introduction, preliminaries and theorem statement; targeted friendship/windmill searches.",
+        "method": "Primary arXiv rendered text and in-document targeted searching.",
+        "title": "Strong odd coloring of sparse graphs",
+        "trigger": "Definition and potential stronger known exact theorem for this invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fc7a5fca-6f3e-413c-904d-6f14e53e687e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete all-palette polynomial on the natural infinite planar friendship family determines solution-space sizes far beyond the minimum-color threshold. The sharp 3/5 parity split and exact exponentially growing optimal multiplicities arise from a nontrivial neighborhood-parity incidence condition and can guide exact enumerations on one-point-union and block-graph families. It is a motivated natural complete invariant, not a finite arbitrary slice.",
+    "status": "PASS"
+  }
+}
