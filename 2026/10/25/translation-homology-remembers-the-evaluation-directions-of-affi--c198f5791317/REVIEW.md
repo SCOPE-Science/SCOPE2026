@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Any two nonproportional forms give a bijective pair coordinate map. This proves that distinct row facets intersect in at most one vertex and validates each root-star free-face cancellation. Translation preserves each cancellation orbit. The surviving graph has \((n-1)q^2\) edges and \(nq\) vertices; its exact equivariant chain modules give the stated multiplicity and trace formulas. The verifier checks every cancellation, each translation's fixed-face Lefschetz trace, and every Fourier multiplicity in five examples. The infinite theorem follows from the proof, not the tests.
+## correctness
 
-**Originality — PASS, with bibliographic uncertainty.** The principal generalized-inflation theorem assumes flabbiness, absent here. The earlier Latin-array inflation computation assumes strength \(n-1\) and addresses nonequivariant topology. The earlier Steiner-incidence neighborhood-complex theorem gives a relative simplex-collapse technique that covers the graph-collapse idea in broader form but does not supply the affine translation module or projective-direction recovery. Direct searches for translation characters, orthogonal-array design complexes, Reed–Solomon codeword complexes, and equivalent statements found no stronger coverage. A potentially unindexed treatment of design-automorphism homology remains possible.
+PASS
 
-**Value — PASS.** The exact complex representation recovers the arrangement of projective evaluation directions from homology, an invariant strictly richer than the sphere-wedge multiplicity. It distinguishes symmetry-enriched structures that are invisible to the common nonequivariant homotopy type. The result also gives a precise nonflabby example tied to a new generalized-inflation framework, without requiring a general downstream theorem.
+For each prime-power q>=3 and 4<=n<=q+1, pairwise nonproportional forms L_i:F_q²→F_q give bijective pair maps and hence q² distinct facets sharing pairwise at most one vertex. Every nonroot subset B of size >=2 is contained in a unique row facet, so descending-size elementary free-face pair removals B⊂B∪{(0,L_0(z))} are valid, orbitwise T-equivariant and leave exactly K_{q,(n-1)q}. The terminal connected graph has nq vertices and (n-1)q² edges, so H_1 rank (n-1)q²-nq+1. Its chain modules are C_1=(n-1)C[T], C_0=⊕_i C[T/ker L_i], H_0=1; taking characters yields m(1)=0, m(χ)=n-2 on selected nontrivial character lines and n-1 outside. For t≠0, at most one L_i vanishes, giving traces 1-q or 1 as stated. All claims follow from finite-field linear algebra for every prime power, with independent finite prime-field q=3,5 n=4 collapse/trace checks showing rank 16 and 56; no finite-to-infinite inference.
 
-**Scope and limitations.** Direction recovery is relative to the specified translation action; no classification up to arbitrary simplicial isomorphism is claimed. The standalone numerical checks are prime-field instances, while the proof covers prime powers. Independent bibliographic priority and scientific validation have not been certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ayzenberg–Khoroshavkina 2026 Theorem 5.1 concerns globally flabby sheaves and top-degree wedge results; these orthogonal-array diagrams fail flabbiness because a full-face compatible section set has q² members but the one-skeleton has q^n compatible value choices. Published Latin-array inflations concern orthogonal arrays of strength n-1 and produce degree n-2 homotopy, not these strength-2 arrays or translation modules. Steiner-design neighborhood-complex elementary-collapse methods yield nonequivariant graph reductions but do not calculate T-characters or recover projective evaluation directions. The character formula is a genuinely new representation-theoretic invariant beyond a graph wedge count; best-of-knowledge PASS, with unindexed design homology priority risk.
+
+## value
+
+PASS
+
+A canonical family of strength-two affine orthogonal arrays of equal size can have identical ordinary wedge-of-circles homotopy while different chosen projective directions. Recovering the precise directions from the identified group action gives a natural equivariant rigidity invariant, rather than an arbitrary small numeric example; the explicit collapse exposes the mechanism and delineates a meaningful limitation of a recent global-flabby inflation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

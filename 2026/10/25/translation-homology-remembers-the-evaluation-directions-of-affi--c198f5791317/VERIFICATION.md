@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and standard library only. Success terminates with `VERIFY_OK`.
+## correctness
 
-The script tests prime-field arrays at \((q,n)=(3,4),(5,4),(5,5),(5,6),(7,8)\). Across those examples it enumerates the actual row facets and subfaces, proves all pair projections are bijective by exhaustive enumeration, verifies every complete simplex-collapse pair against the then-active complex, and checks the terminal graph independently. Translation trace checks enumerate all fixed simplices at every group element, rather than assuming the graph trace formula, and a complex discrete Fourier transform checks all irreducible multiplicities. The first four cases also compare against an independent exhaustive partial-assignment enumerator.
+PASS
 
-Acyclicity follows from explicit elementary free-face removals; no discrete-Morse matching or infinite computational certification is assumed. Fourier computations are numerical with a tolerance of \(10^{-7}\), while the theorem's algebraic character proof is exact. Prime-power fields of nonprime order are covered by the general linear-algebra proof, not the finite checker. This review is not an independent audit.
+For each prime-power q>=3 and 4<=n<=q+1, pairwise nonproportional forms L_i:F_q²→F_q give bijective pair maps and hence q² distinct facets sharing pairwise at most one vertex. Every nonroot subset B of size >=2 is contained in a unique row facet, so descending-size elementary free-face pair removals B⊂B∪{(0,L_0(z))} are valid, orbitwise T-equivariant and leave exactly K_{q,(n-1)q}. The terminal connected graph has nq vertices and (n-1)q² edges, so H_1 rank (n-1)q²-nq+1. Its chain modules are C_1=(n-1)C[T], C_0=⊕_i C[T/ker L_i], H_0=1; taking characters yields m(1)=0, m(χ)=n-2 on selected nontrivial character lines and n-1 outside. For t≠0, at most one L_i vanishes, giving traces 1-q or 1 as stated. All claims follow from finite-field linear algebra for every prime power, with independent finite prime-field q=3,5 n=4 collapse/trace checks showing rank 16 and 56; no finite-to-infinite inference.
+
+## originality
+
+PASS
+
+Ayzenberg–Khoroshavkina 2026 Theorem 5.1 concerns globally flabby sheaves and top-degree wedge results; these orthogonal-array diagrams fail flabbiness because a full-face compatible section set has q² members but the one-skeleton has q^n compatible value choices. Published Latin-array inflations concern orthogonal arrays of strength n-1 and produce degree n-2 homotopy, not these strength-2 arrays or translation modules. Steiner-design neighborhood-complex elementary-collapse methods yield nonequivariant graph reductions but do not calculate T-characters or recover projective evaluation directions. The character formula is a genuinely new representation-theoretic invariant beyond a graph wedge count; best-of-knowledge PASS, with unindexed design homology priority risk.
+
+## value
+
+PASS
+
+A canonical family of strength-two affine orthogonal arrays of equal size can have identical ordinary wedge-of-circles homotopy while different chosen projective directions. Recovering the precise directions from the identified group action gives a natural equivariant rigidity invariant, rather than an arbitrary small numeric example; the explicit collapse exposes the mechanism and delineates a meaningful limitation of a recent global-flabby inflation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
