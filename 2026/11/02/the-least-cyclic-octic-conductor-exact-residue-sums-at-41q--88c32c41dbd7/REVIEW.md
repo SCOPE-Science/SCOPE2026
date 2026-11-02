@@ -1,0 +1,15 @@
+# Assessment of the conductor-41 index-eight residue-sum theorem
+
+## Correctness
+**PASS.** The subgroup, cyclicity condition, and all coset representatives are defined explicitly for each odd prime \(q\ne41\). The critical identity is the integer sum of an entire residue class modulo \(41\) with its unique multiple of \(q\) removed; equation (1) follows without an unproved cancellation or numerical approximation. The eight exact local sums are exhaustive because \(6\) has order \(40\). The proof derives the sign, size and exact residue classes of the defect, shows uniform coset centering is equivalent to a period of an eight-entry word, and obtains natural densities from the \(160\) coprime progressions modulo \(205\). The first-conductor claim is only for full-second-factor imprimitive index-eight groups. The provided program independently enumerates many integer cases but is not a substitute for proof.
+
+## Originality
+**PASS (qualified).** Ma–Merca–Zhang, arXiv:2610.29608v1, establish the least-residue-sum setting, an odd-character expansion, index-four imprimitive classifications and index-six constructions; the inspected main statements do not give the exact conductor-\(41\) index-eight dichotomy or its complete prime-density and coset-centering split. The general character expansion provides a conceptual route but does not by itself state the evaluated eight-coset table. Pomerance–Ulmer, arXiv:1204.6705, address half-interval counts, a different statistic. Searches for octic residue sums, conductor \(41\), equivalent subgroup formulations and published records found no decisive stronger coverage. Residual priority risk: the special coset calculation could be implicit in an unindexed table or in an uninspected appendix; specialist verification is not performed.
+
+## Mathematical value
+**PASS.** The first cyclic imprimitive index-eight conductor is forced arithmetically, not chosen as an arbitrary modulus. The result completely resolves its infinite prime-varying family, distinguishes single-subgroup centering from simultaneous centering of all multiplicative cosets, and gives positive exact densities \(3/8\), \(9/32\) and \(3/32\). The nontrivial witness at the smallest second prime illustrates the gap between the two sum conditions. These are natural quantities in the recent index-four/index-six residue-sum program, not a routine numerical update or a general theorem asserted without support.
+
+## Closest literature and scope
+Ma–Merca–Zhang, *Residue Sums Modulo Products of Two Distinct Odd Primes* (2026), is the initiating full-length work. Pomerance–Ulmer, *On balanced subgroups of the multiplicative group* (2012), is relevant to a nearby but distinct definition. Full originality is conditional on the literature accessible for comparison; no universal priority or independent audit is claimed. The theorem is confined to index-eight kernels of full-second-factor type and a fixed least conductor.
+
+Self-review: passed. Independent audit: not yet performed.
