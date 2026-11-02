@@ -1,0 +1,11 @@
+# Scientific review: sharp binary temporal JR price
+
+**Correctness: PASS.** The nonempty two-alternative ballots imply both per-round maximum support at least half the electorate and satisfaction of all previously unserved voters by flipping any noncritical round. The crucial bound counts critical rounds associated with single-satisfaction voters, bounds their number by the number of such voters, and obtains the sharp fraction through a monotonic rational function and a nonnegative cross-product expression. The equality argument forces exactly one previously unsatisfied voter and exclusively polarized round ballots. Exact-rational exhaustive verification covered 551,124 profiles in the first two nontrivial three-voter horizons, plus 1,000 deterministic four-voter profiles; the general result depends on the proof rather than these finite tests.
+
+**Originality: PASS under self-review.** The closest primary results are Teh (2026), Theorem 3.3 and Proposition 3.4, giving a general multi-alternative upper bound and constructions using many different candidates; and Elkind–Neoh–Teh (2024), Theorem 5.6, giving the global price of individual PROP without binary-candidate restriction. These results do not imply the exact two-alternative price or rigid equality family, even though for complete elections with \(\ell=n\) PROP and JR coincide. Existing static two-party FJR+ calculations concern a stronger condition. Targeted searches found no equivalent statement. Residual risks: papers not indexed by the searched databases or an unremarked special case in prior full texts.
+
+**Value: PASS.** An exact worst-case cost, a one-round repair theorem and a full characterization of equality address a natural binary decision agenda. The result gives a qualitatively stronger guarantee than the general many-candidate price, for every electorate size and time horizon, while allowing preferences to change arbitrarily between rounds.
+
+**Scope and limits.** Complete ballots, exactly two alternatives, offline planning, and \(\ell\ge n\). The result does not extend by this proof to more alternatives or stronger JR-family axioms. No independent validation is represented.
+
+Self-review: passed. Independent audit: not yet performed.
