@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact endpoint values give the optimal upper bound. For each prime dividing the two consecutive integers k+1 and k+2, elementary binomial coefficient identities give the lower bound; the four-consecutive-integers residue analysis proves there is no deficiency for primes at least five, at most one two-adic factor already removed from B, and precisely the possible one three-adic factor. The zero-boundary conventions are included, and an independent program checks 100 finite prefixes and 20 complete Newton-coefficient gcds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhi-Wei Sun, Products and sums divisible by central binomial coefficients, arXiv:1004.4623; inspected PDF abstract, theorems and relevant introductory material",
+        "Journal of Algebra 2014, doi:10.1016/j.jalgebra.2013.09.016 (abstract/bibliography only)",
+        "Sage integer-valued polynomial reference, binomial-basis general product formula"
+      ],
+      "reasoning": "A general theorem explicitly evaluating fixed divisors for two equal-order binomial polynomials with arbitrary upper-index shifts would dominate the gap-two case, regardless of terminology. The sources found either study different central-binomial normalizations or offer methods rather than this explicit parameterization. The general fixed-divisor article was not available for full inspection and remains a residual risk.",
+      "searches": [
+        "\"fixed divisor of product of binomial coefficients with shifted arguments\" (web fast)",
+        "\"fixed divisor product of binomial polynomials\" (web slow)",
+        "\"gcd of shifted binomial coefficient products sparse gap arithmetic progression\" (published-finding corpus semantic)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1004.4623",
+      "arxiv:1510.06696",
+      "Sage integer-valued polynomial manual",
+      "doi:10.1016/j.jalgebra.2013.09.016 (abstract only)",
+      "S. Chiu 2023 journal abstract",
+      "published-finding corpus closest 2026/10/4/SCOPE-exact-small-prime-valuations-in-the-proposed-deficiency-one-cons--b1c9c7629241"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun, arXiv:1004.4623: stated results involve central-binomial divisors of products with upper indices linear in n,k, not the fixed divisor across all n of the two factors here",
+        "McTague, arXiv:1510.06696: gcd for fixed upper n of lower indices q,2q,..., not varying-upper two-factor product",
+        "S. Chiu, On the greatest common divisor of binomial coefficients (2023), abstract concerns a fixed upper index and interior lower indices, rather than product fixed divisors"
+      ],
+      "reasoning": "Neither the Sun nor the McTague/Chiu statements imply the claimed two-parameter sharp content without new arguments: their gcds and quantifier directions are different. The classical binomial-basis content theorem does imply finite computability but no immediate explicit formula. Because complete relevant specialist literature was not exhausted, claim-level novelty remains provisional.",
+      "searches": [
+        "\"Products and sums divisible by central binomial coefficients Sun 2010\" (primary arXiv:1004.4623)",
+        "\"On the Greatest Common Divisor of Binomial Coefficients McTague arXiv 1510.06696\"",
+        "\"On the greatest common divisor of binomial coefficients\" (web slow)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sage integer-valued polynomial manual, content() method and binomial basis; https://doc.sagemath.org/html/en/reference/polynomial_rings/sage/rings/polynomial/integer_valued_polynomials.html",
+        "published-finding corpus query of shifted binomial product fixed divisors returned no matching same-invariant statement; closest ID 2026/10/4/SCOPE-exact-small-prime-valuations-in-the-proposed-deficiency-one-cons--b1c9c7629241"
+      ],
+      "reasoning": "The equivalent Newton-content/gcd-of-values formulation was checked, including the possibility of a stronger general finite-difference theorem. That general theorem is an algorithm for any polynomial and does not state the closed formula, exact factor-three branch, or first-two-values certificate for this parameterized family. The closest indexed result has fixed binomial valuation in a separate deficiency-one construction, not the claimed upper-index-variable gcd.",
+      "searches": [
+        "\"gcd over n binomial(n,k) binomial(n+2,k) fixed divisor\" (web slow)",
+        "\"integer divisibility binomial(n,k) binomial(n+2,k) by binomial(k+2,2)\" (published-finding corpus semantic)",
+        "\"fixed divisor product of binomial polynomials 2 shifted n k 3\" (web slow)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Web exact-expression searches showed unrelated binomial gcd studies but no table of the claimed infinite fixed-divisor sequence",
+        "published-finding corpus searches returned no exact fixed-divisor database record"
+      ],
+      "reasoning": "An exact table of the values as k varies, or a computational integer-valued polynomial content database, could contain the formula implicitly. No such exact entry was identified; this absence is weak negative evidence, not certification of uniqueness.",
+      "searches": [
+        "\"greatest common divisor of products binomial(n,k) binomial(n+2,k) over n\" (web fast)",
+        "\"gcd over n binomial(n,k) binomial(n+2,k)\" (web slow)",
+        "\"integer divisibility binomial(n,k) binomial(n+2,k) by binomial(k+2,2) except one factor of three\" (published-finding corpus semantic)"
+      ]
+    },
+    "rationale": "No same claim or dominating theorem was identified in three actual published-finding corpus semantic queries, several direct-expression web searches, an inspected part of an archival divisibility paper, the arXiv abstract of a related binomial-gcd theorem, and general integer-valued polynomial documentation. The methods and exact parameter directions were compared; general content algorithms do not state this closed form. Material-access and unlocated-specialization risk remains.",
+    "residual_risks": [
+      "Unlocated exact gcd formula for shifted products may already exist in specialist arithmetic/combinatorics literature.",
+      "The relevant general fixed-divisor journal paper was not accessible in full.",
+      "The full text of McTague 2015 and the later pages of Sun 2010 were not inspected; a stronger appendix result remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected main theorem has different factors and central-binomial divisors; it does not imply the varying-upper fixed divisor; deeper later-page overlap not excluded",
+        "evidence": [
+          "Theorem 1.1, formulas (1.1)–(1.3), arXiv:1004.4623, pages 1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1004.4623",
+        "material_read": "15-page PDF cover/abstract, introduction, theorem 1.1 and introductory conjecture on pages 1–3; not the full 15 pages",
+        "method": "Opened text-extracted PDF and viewed rendered page 1",
+        "title": "Products and sums divisible by central binomial coefficients",
+        "trigger": "Archived primary MSC 11B65 work on divisibility of products of binomial coefficients"
+      },
+      {
+        "assessment": "A fixed-upper-index gcd over varying lower indices, not an all-upper-index product fixed divisor; residual risk of uninspected stronger remarks",
+        "evidence": [
+          "arXiv:1510.06696 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.06696",
+        "material_read": "Title, dated abstract, accessible statement; the complete proof was not inspected",
+        "method": "Read arXiv abstract and HTML result",
+        "title": "On the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Potentially covering gcd theorem involving binomial coefficients"
+      },
+      {
+        "assessment": "General method determines fixed divisor from integer-valued polynomial coefficients; no explicit formula for gap-two product, and no first-two-value theorem",
+        "evidence": [
+          "Sage reference, content() method; Binomial class product_on_basis"
+        ],
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/polynomial_rings/sage/rings/polynomial/integer_valued_polynomials.html",
+        "material_read": "Detailed documentation for binomial basis, product rule, and content() with examples",
+        "method": "Read documentation sections describing content, binomial basis and product coefficients",
+        "title": "Integer-valued polynomial rings",
+        "trigger": "Potential general Newton basis or coefficient-content dominance"
+      },
+      {
+        "assessment": "Cannot rule out an implication from a general structural theorem; precise gap-two classification not identified",
+        "evidence": [
+          "Journal of Algebra 2014, DOI 10.1016/j.jalgebra.2013.09.016"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2013.09.016",
+        "material_read": "Only search-index bibliographic and abstract-level text; full article inaccessible",
+        "method": "Bibliographic search and source lookup",
+        "title": "Primary decomposition of the ideal of polynomials whose fixed divisor is divisible by a prime power",
+        "trigger": "General fixed-divisor theory could dominate explicit family"
+      },
+      {
+        "assessment": "The abstract treats the gcd of entries in a fixed row, not a product of terms from shifted rows",
+        "evidence": [
+          "S. Chiu (2023), journal abstract"
+        ],
+        "identifier_or_url": "https://bkms.kms.or.kr/journal/view.html?uid=3443",
+        "material_read": "Available indexed abstract only; full text not inspected",
+        "method": "Search and publisher abstract comparison",
+        "title": "On the greatest common divisor of binomial coefficients",
+        "trigger": "More recent potentially exact gcd theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e3f6f495-a2da-4b71-80cc-386a44c412cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed divisor is the sharp integer-valued normalization of a natural product of binomial-basis elements. Shifting by two is the first nonadjacent equal-lower-index product and has a nontrivial mod-three classification with a sharp denominator, not implied merely by the content of each factor. The theorem settles the full natural infinite family for this object and supplies the unexpected two-value certificate. No claim about all shifts or general polynomials is made.",
+    "status": "PASS"
+  }
+}
