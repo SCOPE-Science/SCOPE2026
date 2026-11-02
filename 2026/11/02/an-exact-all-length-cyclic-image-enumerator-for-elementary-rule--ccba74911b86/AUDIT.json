@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The overlap graph has four pair states; a closed labelled walk is equivalent to a periodic predecessor, including ring lengths one and two. Full 16-bit Boolean-relation closure yields 735 states. The supplied independently executable Python code checks, in exact integer arithmetic, the 735-component identity \\(\\sum_{j=0}^{34}q_jT^{40-j}h=0\\), where Q is the product of six explicit polynomials. Applying T repeatedly gives the recurrence for every length \\(n\\ge40\\), not just the tested range. Both the proposed log-derivative expression and the derived image series have common denominator Q and numerator degree <=39; all 40 initial coefficients agree exactly. Independent forward image enumeration at every ring length 1..14 crosschecks the boundary convention. The proof does not rely on empirical interpolation or floating point.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jen (1989), §§1-3, derives general finite-window predecessor recurrences on an infinite lattice, classifies Rule 73 as a telescoping case, and discusses de Bruijn path counts; it does not display an exact all-length indexed cyclic image count.",
+        "Wolfram (2002), page 699, discusses walls and complex dynamics of Rule 73 but contains no exact periodic image counting law."
+      ],
+      "reasoning": "A general method for counting preimages of a fixed finite word is not a formula for the count of distinct periodic outputs. It would require finding which fixed-period words have a closed predecessor walk, resolving duplicate labels and summing over every period. The 735-relation recurrence and factorized expression carry out this extra calculation. Neither general symbolic dynamics nor a change of rule aliases removes that specific result.",
+      "searches": [
+        "Elementary cellular automaton Rule 73 exact cyclic one-step image size all lengths 2,2,5,12,17,34,79 rational generating function entropy 1.886499639",
+        "rule 73 image shift Garden of Eden periodic cyclic preimages",
+        "rule 73 cellular automaton paper preprint posted 2007",
+        "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Jen (1989), Complex Systems 3, 421-456: https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+      "Wolfram (2002), A New Kind of Science, page 699: https://wolframscience.com/nks/p699--the-threshold-of-universality-in-cellular-automata/",
+      "Wolfram Media publisher first-publication date: https://www.wolfram-media.com/products/nks/",
+      "Kang (2013), arXiv:1310.3311, abstract only: https://arxiv.org/abs/1310.3311",
+      "Elementary CA Zoo, finite-image census: https://cellular.solves.ca/gardens-of-eden",
+      "Relevant public research-record semantic searches for Rule 73, Rule 109, cyclic images, and generating functions; no corresponding exact theorem returned in the inspected ranked hits.",
+      "Chua (2009), A Nonlinear Dynamics Perspective..., Volume III: bibliographic metadata and finite Rule-73 excerpt only; full text not available at https://www.perlego.com/book/849123/nonlinear-dynamics-perspective-of-wolframs-new-kind-of-science-a-volume-iii-volume-iii-pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The abstract of Kang (2013) explicitly focuses on a long-distance cellular automaton (LDCA-1-2), not the ordinary nearest-neighbor ring image enumerator.",
+        "The 1989 Jen paper and the 2002 book supply distinct precursor results but not the stated exact expression.",
+        "Relevant research-record search hits concern other rules, temporal trace complexity or cyclic automata of different types, not a theorem dominating the present Rule-73 expression.",
+        "Three final research-record searches for the specific early counts, numerical growth indicator and complementary Rule 109 produced unrelated different-model results, not an equivalent Rule-73 theorem."
+      ],
+      "reasoning": "No inspected claim includes the precise same-period output-image statistic for Rule 73 for every length. Jen’s fixed-window N(S) counts are a much more general computational tool, but they do not logically state the specific rational function; using that method alone without the new integer identities would not establish the formula. The present result is therefore not presented as a novel generic algorithm, nor as a first finite census.",
+      "searches": [
+        "\"rule 73\" \"generating function\" image preimage reachable cyclic",
+        "\"rule 73\" \"Garden of Eden\" \"generating function\"",
+        "Rule 73 cyclic rings Garden of Eden count recurrence rational generating function log derivative 735 Boolean relations",
+        "https://arxiv.org/abs/1310.3311",
+        "Exact one-step image counts of Wolfram elementary cellular automaton Rule 73 on finite periodic binary rings 2 2 5 12 17 34 79 140 and rational generating function",
+        "Image entropy 1.8864996390854938 Wolfram rule 73 Garden of Eden ring closed walks 735 Boolean relation semigroup",
+        "Rule 109 elementary cellular automaton complementary equivalent of rule 73 exact number of Garden of Eden configurations all ring lengths",
+        "Leon Chua A Nonlinear Dynamics Perspective of Wolfram's New Kind of Science volume III Rule 73 basins 2009 pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The elementary-automaton symmetry table identifies Rule 109 as the bit-complement conjugate of Rule 73; direct substitution in the eight local rule entries gives this conjugacy.",
+        "No inspected result provided an all-length Rule-109/Rule-73 cyclic image generating function."
+      ],
+      "reasoning": "Complement conjugacy preserves finite-ring image sizes, so any exact Rule-109 all-length result would cover Rule 73 as well. Searched the alias explicitly; the located symmetry description provides the equivalence itself, but no dominating enumerator. Reflection does not change Rule 73.",
+      "searches": [
+        "Rule 109 (complement conjugate Rule 73) image count periodic configurations",
+        "Rule 73 cyclic rings Garden of Eden count recurrence rational generating function log derivative 735 Boolean relations",
+        "rule 73 cellular automata preimages reachable configurations Garden of Eden forbidden patterns regular language",
+        "https://en.wikipedia.org/wiki/Elementary_cellular_automaton"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Elementary CA Zoo describes a finite-ring forward-enumeration census for 88 inequivalent rules and explains that the table is based on specific tape lengths; it provides no displayed all-length rational generating function.",
+        "Exact-prefix web searches did not locate a directly matching known integer-sequence entry or closed formula; this negative search is only bounded evidence."
+      ],
+      "reasoning": "Known finite table values, even at the same statistic and for a larger bounded sample, are not equivalent to a proof covering arbitrarily long periodic rings. Conversely, the finite census means the first short terms and the underlying observable are not themselves novel.",
+      "searches": [
+        "\"1, 2, 2, 5, 12, 17, 34, 79, 140\" automaton",
+        "\"2, 2, 5, 12, 17, 34, 79\" Rule 73",
+        "site:oeis.org \"rule 73\" \"image\" \"preimages\" ring",
+        "https://cellular.solves.ca/gardens-of-eden"
+      ]
+    },
+    "rationale": "The checked accessible earlier work includes Jen (1989) on linear/infinite-lattice finite-window preimage recurrences (Rule 73 listed in its telescoping class), Wolfram (2002) on Rule-73 dynamics, Kang (2013) on long-distance Rule-73-like automata, and a recent finite cyclic Garden-of-Eden census. None of the material actually inspected states or implies without new nontrivial calculation the exact factorized degree-34 denominator, all-length periodic image counts, and 735-state integer relation certificate. The finite census covers the same output statistic at specific lengths but not the asserted infinite formula. Search failures are not proofs of novelty; unindexed older work remains a residual risk.",
+    "residual_risks": [
+      "Negative index and literature search does not establish global historical uniqueness. Other unindexed earlier works may contain the same exact rational function.",
+      "Wuensche and Lesser (1992) and later finite-basin monographs were not inspected in full; known finite basin tables would not by themselves imply an all-length rational identity, but an explicit analytic formula there would require recomparison.",
+      "The 2026 CA Zoo dynamic table was not extracted as a full table; no absence claim is made about any external unpublished underlying data.",
+      "The Kang manuscript was read only at abstract level, because its explicitly stated long-distance dynamics is not the same primary model.",
+      "Chua (2009) Volume III contains Rule-73 finite basin diagrams but its full contents were not accessible for exclusion of a coincident all-length formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published source treats linear/infinite-lattice finite-window predecessor counts and Garden-of-Eden blocks. Its classification includes Rule 73, but the checked portions do not state the current same-period cyclic image generating function.",
+        "evidence": "The abstract explicitly says infinite-lattice arbitrary spatial sequences; printed page 427 lists Rule 73 in class D; section 3 describes predecessor-path counts on the four-state de Bruijn graph.",
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "Abstract; sections 1-3 on pages 421-434, especially the rule classification on printed pages 425-428 and graph discussion on pages 429-432; concluding summary on pages 451-452. Full-text phrase checks for cyclic, periodic and distinct images.",
+        "method": "PDF text and first-page visual inspection, with targeted in-document searches.",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "A direct foundational primary source classifying Rule 73 and containing general preimage formulas."
+      },
+      {
+        "assessment": "Discusses walls, random and constrained initial conditions, and localized structures, not exact all-length ring image counts.",
+        "evidence": "The page describes rule 73 behavior under random inputs and odd-length-run inputs; the publisher specifies May 14, 2002 as the first edition publication date.",
+        "identifier_or_url": "https://wolframscience.com/nks/p699--the-threshold-of-universality-in-cellular-automata/",
+        "material_read": "Entire accessible main text of the online page 699 and the publisher publication record.",
+        "method": "Direct HTML text inspection.",
+        "title": "A New Kind of Science, page 699",
+        "trigger": "Verified dated primary public presentation of Rule-73 wall dynamics and complex behaviors."
+      },
+      {
+        "assessment": "The site reports a finite cyclic-ring forward census but does not present a proved all-length Rule-73 rational enumeration. The table is not treated as independent verification of the complete formula.",
+        "evidence": "Section 3 says the census is computed by forward enumeration, and discussion shows examples at specific lengths such as 8, 12 and 16.",
+        "identifier_or_url": "https://cellular.solves.ca/gardens-of-eden",
+        "material_read": "Entire publicly readable main HTML explanatory text, including census description and methodological notes; client-side numerical table not accessible in extracted text.",
+        "method": "Direct HTML inspection.",
+        "title": "Gardens of Eden — Elementary CA Zoo",
+        "trigger": "The same finite-period one-step image observable for all elementary rules."
+      },
+      {
+        "assessment": "Not direct coverage of the exact nearest-neighbor Rule-73 same-period image counts.",
+        "evidence": "The abstract specifies spaced sampling and LDCA-1-2 rather than the ordinary three-adjacent-site rule.",
+        "identifier_or_url": "https://arxiv.org/abs/1310.3311",
+        "material_read": "Abstract and source description only; full manuscript not inspected, because the abstract identifies a distinct LDCA-1-2 model.",
+        "method": "arXiv bibliographic and abstract inspection.",
+        "title": "Investigation of Rule 73 as Case Study of Class 4 Long-Distance Cellular Automata",
+        "trigger": "Same rule number but a different non-nearest-neighbor cellular-automaton model."
+      },
+      {
+        "assessment": "The book description highlights exact global formulas for other explicitly named rules and finite basin trees for many rules; there is no verified all-length Rule-73 image enumerator in the accessible material. Full text remains a priority risk, not a basis for claiming absence.",
+        "evidence": "Publisher description mentions global state-transition formulas specifically for Rules 60, 90, 105 and 150; indexed Rule-73 excerpt is a finite length-eight basin gallery.",
+        "identifier_or_url": "https://www.perlego.com/book/849123/nonlinear-dynamics-perspective-of-wolframs-new-kind-of-science-a-volume-iii-volume-iii-pdf",
+        "material_read": "Publisher/book-description metadata and separately surfaced Rule-73 finite-length-eight gallery excerpt; full book not accessed.",
+        "method": "Legally accessible bibliographic metadata and public excerpt inspection, with free-preprint search.",
+        "title": "A Nonlinear Dynamics Perspective of Wolfram's New Kind of Science, Volume III",
+        "trigger": "A mathematical finite-basin study of elementary cellular automata, with accessible Rule-73 length-eight examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ccba7491-1b86-4995-895a-f71a032861ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-length cyclic image size is a canonical inverse-reachability invariant for the much-studied elementary Rule 73, whose domain-wall and complex special-input behavior make finite-period image compression a meaningful structural question. The theorem gives a nontrivial explicit rational series (degree-34 denominator) and rigorous exact counts at arbitrary length, beyond a finite census and beyond a generic automaton construction. The specific integer vector identity and factored log-derivative reduction supply mathematical structure suitable for further finite-ring information-loss analysis. It does not claim a general classifier for all elementary rules, nor treat a short-table extension as the contribution.",
+    "status": "PASS"
+  }
+}
