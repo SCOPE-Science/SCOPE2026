@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:57:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive-definite body mobility M gives positive Schur complement S=A-cc^T/m. Itô applied to F(theta)=-R(theta)Jc/m cancels the correlated W0 noise and yields each independent reset-cycle displacement Y=F(theta_tau)-F(0)+M_tau, with M conditionally centered. Angular first and second harmonics produce the exact centered covariance, its traceless part 2 beta h(u)(S0-gamma(u) H) and trace 2 beta tr(S)+||c||^2(1-e^-2u)/(m^2 tau). For c!=0, gamma=2m/(1+e^{2u}) bijectively decreases from m to 0, giving isotropy iff S0=alpha H with 0<alpha<m, unique tau* and perpendicular-to-parallel principal-axis swap. c=0 is correctly separated, near/far limits and positive definiteness hold. Independent numerical covariance, reset threshold and axis tests passed; the infinite-horizon assertion follows from independent cycles, not samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original model source proposes diffusion-based sorting as future study; 2024 resetting model assumes a diagonal body mobility."
+        ],
+        "reasoning": "General diffusion/renewal methods give a toolkit, but their cited statements do not imply the particular iff alignment and principal axis inversion in the correlated model.",
+        "searches": [
+          "Cleuren Eichhorn Sorting by Resetting 2026 paper conclusion effective diffusion",
+          "Chaki Olsen Löwen anisotropic Brownian particles under resetting rotational translational coupling"
+        ]
+      },
+      "checked_sources": [
+        "https://pdfs.assets.alphaxiv.org/2603.19430v1.pdf",
+        "https://arxiv.org/abs/2406.17550",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/08b5385690dc524c8369c4c5b989c7d15f8d9afa/2026/10/26/a-unique-isotropic-reset-period-and-diffusion-axis-reversal-for--5e7e897c019d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean-drift formula is a special part of the new cycle calculation, but knowledge of mean alone cannot determine its centered covariance; Poisson versus deterministic reset, correlated versus independent noises differ."
+        ],
+        "reasoning": "The new iff threshold is not a formal corollary of a scalar drift nor the uncoupled Poisson-diffusion tensor; standard Itô calculus is supporting technique.",
+        "searches": [
+          "arXiv:2603.19430v1 Eq 8 diffusion future work",
+          "arXiv:2406.17550 Section V Poisson reset effective diffusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cleuren–Eichhorn (2026) Eq. (8) recovers mean drift, not full centered tensor; Chaki–Olsen–Löwen (2024) uses decoupled translation and angular noise."
+        ],
+        "reasoning": "Equivalent renewal-cycle covariance formulas could be algebraically rewritten into this threshold only if they include correlated angular noise and the traceless factorization; no inspected one did.",
+        "searches": [
+          "Resultary: periodic orientation resetting anisotropic Brownian colloid translation rotation coupling diffusion tensor isotropic reset period eigenvalue axis",
+          "arXiv:2603.19430v1",
+          "arXiv:2406.17550"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact database/table of finite isotropization thresholds among inspected sources; Resultary hits were other diffusion anisotropy problems."
+        ],
+        "reasoning": "This is a continuous covariance matrix theorem, not a finite table entry; a hidden tabulation of equivalent tensors remains possible.",
+        "searches": [
+          "Resultary: isotropic diffusion resetting period translation rotation coupling matrix",
+          "Google/web: hydrodynamic colloid orientation reset exact covariance tensor"
+        ]
+      },
+      "rationale": "Full original Cleuren–Eichhorn source states the body-mobility model and drift but expressly leaves diffusion-enabled sorting to future work; the derived full tensor, iff alignment condition, unique threshold and axis swap were not found in inspected related resetting material. The iid-cycle CLT and angular harmonics are classical ingredients, not claimed novel.",
+      "residual_risks": [
+        "A different convention for hydrodynamic coupling or a later published periodic reset covariance might conceal an algebraically equivalent tensor.",
+        "Independent Monte Carlo checks support only bounded numerical regimes; infinite-time proof uses iid renewal and exact harmonics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers physical setup and drift, leaves diffusion-sorting direction open.",
+          "evidence": [
+            "Body-frame coupled translation/rotation stochastic model and drift in Eq (8); final diffusion discussion describes possibility rather than computed covariance."
+          ],
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2603.19430v1.pdf",
+          "material_read": "Full 7-page original PDF, especially Section (ii), Eqs. (4)–(8), and final discussion",
+          "method": "Read web-extracted text and screenshot of physical model pages",
+          "title": "Sorting by Resetting",
+          "trigger": "Identical mobility model and deterministic orientation reset"
+        },
+        {
+          "assessment": "Explicit distinction between independent rotational/translational noises and nonzero c; fulltext comparison incomplete.",
+          "evidence": [
+            "Chaki–Olsen–Löwen analyze orientation resetting with no translation-rotation noise cross-covariance in their stated setup."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.17550",
+          "material_read": "Abstract and source-described Section V passages; full original could not be independently read",
+          "method": "Web abstract; prior package citation inspected",
+          "title": "Anisotropic Brownian particles under resetting",
+          "trigger": "Orientation-reset diffusion may dominate original result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact necessary-and-sufficient design condition and unique reset period for isotropic long-time diffusion, with a sharp 90-degree axis reversal and drift-versus-dispersion trace law. This addresses physically motivated correlated translation/rotation noise absent from the uncoupled resetting model; generic tensors correctly have no exact isotropization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://pdfs.assets.alphaxiv.org/2603.19430v1.pdf",
+    "https://arxiv.org/abs/2406.17550",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/08b5385690dc524c8369c4c5b989c7d15f8d9afa/2026/10/26/a-unique-isotropic-reset-period-and-diffusion-axis-reversal-for--5e7e897c019d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic instantaneous orientation reset preserving position; passive unconfined constant body mobility; no Poisson clocks or force.",
+    "Exact isotropization requires special alignment; generic mobility matrices do not pass."
+  ],
+  "residual_risks": [
+    "A different convention for hydrodynamic coupling or a later published periodic reset covariance might conceal an algebraically equivalent tensor.",
+    "Independent Monte Carlo checks support only bounded numerical regimes; infinite-time proof uses iid renewal and exact harmonics."
+  ],
+  "schema_version": 1
+}
