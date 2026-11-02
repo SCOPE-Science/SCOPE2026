@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is a formal-generating-function identity for all positive lengths and is proved structurally in `RESULT.md`; finite checks are only supplementary.
+## correctness
 
-Run `python3 checker.py` in this directory. The standard-library checker performs independently coded exact cyclic-word enumeration for every binary word of lengths \(1\) through \(15\), balanced integer flow enumeration with a separate positive-support connectivity predicate for lengths \(1\) through \(19\), and five-family coefficient expansion for the same range. Both exhaustive enumerations match the generating-function coefficients. A direct word enumeration for one fixed \(n\) covers all \(2^n\) binary words and hence all cyclic multispectra at that length, but does not prove the infinite identity. The Eulerian-circuit and connected-support proof addresses all positive lengths.
+PASS
 
-Known external result: the leading coefficient \(1/288\) appears in Kiah–Puleo–Milenkovic (2015) Table I; its agreement with the derived pole coefficient is a cross-check, not evidence of priority for a new constant.
+The order-two de Bruijn graph identifies cyclic three-gram profiles with balanced connected directed Eulerian edge multisets. Balance gives a=x000, h=x111, p=x001=x100, q=x011=x110, r=x010, s=x101=r+q-p >=0 and length n=a+h+p+3q+2r. Five disjoint connectivity cases (p,q positive; p positive q zero; q positive p zero; p=q zero r positive; only one constant loop) produce respectively z⁴(1+z³)/[(1-z⁴)(1-z³)(1-z²)(1-z)²], 2z³/[(1-z³)(1-z²)(1-z)], z²/(1-z²), 2z/(1-z). Their sum is exact for every n, has period dividing 12 and n⁴/288 leading term. Independently enumerated cyclic-word profiles through n=13 and compared coefficients; unrestricted proof is flow/Eulerian connectedness.
 
-No independent audit, experimental external certification, or review by another mathematician is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge originality: the exact stated constrained theorem is not mathematically implied by the inspected antecedents, with identified stronger-framework and inaccessible-source risks; negative searches alone are not novelty proof.
+
+## value
+
+PASS
+
+Full rational all-n enumeration of cyclic 3-gram multispectra includes isolated-loop and disconnected-support corrections absent from leading asymptotic estimates, yielding an exact zero-error profile-code capacity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
