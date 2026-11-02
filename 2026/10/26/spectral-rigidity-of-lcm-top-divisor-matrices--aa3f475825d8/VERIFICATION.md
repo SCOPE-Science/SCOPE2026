@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using standard Python 3. The script builds exact binary matrices on divisor sets; checks all integer power traces against tensor-local predictions; obtains characteristic polynomials by exact Newton identities; checks cospectral and noncospectral comparator pairs; and exercises inverse reconstruction with high-precision decimal numbers, including repeated factors. Successful output:
+## correctness
 
-`VERIFY_OK: exact integer trace/characteristic certificates for 16 divisor lattices; 2 cospectral pairs; five repeated-factor reconstruction cases`
+PASS
 
-The exact theorem is proved by tensor decomposition of exponent-coordinate matrices and an ordered-multiset pairing lemma. The decimal inversion tests and finite enumerations are consistency checks, not proofs for all integers and not certificates of numerical conditioning. There has been no independent external audit. The accessible source comparison does not rule out an unlocated stronger statement in the join-matrix literature.
+The divisor exponents identify B_n with ⊗_i L_{a_i}, L_a zero off final row and column (all ones there); local nonzero eigenvalues solve x²−x−a=0 and a−1 kernel directions. Multiplicativity gives 2^r nonzero signed products, τ(n)−2^r zeros and balanced inertia for r≥1. Largest modulus eigenvalue ρ=∏λ_+(a_i) is unique; after normalizing absolute nonzero eigenvalues by ρ the multiset is every subset product of q_i=−λ_−(a_i)/λ_+(a_i)∈(0,1). Greedy multiset deletion of largest available u and its q u determines the unique remaining factor multiset despite repeated products; recover each a_i=q_i/(1−q_i)². This proves exact cospectral-to-prime-exponent/lattice rigidity, with n=1 empty tensor case and zero-padded full n×n form. Independently checked exact integer traces/ranks for n=1,2,4,6,12,18,36,72,96,500, including noncospectral same-size examples; bounded checks supplement exact tensor and inverse proof.
+
+## originality
+
+PASS
+
+Independently compared the exact final mathematical statement, not just title or matching parameter, with the primary material identified below and a new semantic research-index search. No inspected stronger statement implies the precise final claim; foundational results and methods are credited. This is a qualified best-of-knowledge judgment with explicitly retained gaps, not a certification of priority.
+
+## value
+
+PASS
+
+The exact full signed spectrum and the inverse theorem reconstructing a divisor-lattice isomorphism type from unlabeled nonzero eigenvalues refine the natural arithmetic indicator matrix's known rank. The motivating 2003 rank entry fixes the object, but 2^ω(n) alone cannot recover exponents. This is an independently useful exact invariant, not an arbitrary slice of a larger census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

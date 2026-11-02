@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:01:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The divisor exponents identify B_n with ⊗_i L_{a_i}, L_a zero off final row and column (all ones there); local nonzero eigenvalues solve x²−x−a=0 and a−1 kernel directions. Multiplicativity gives 2^r nonzero signed products, τ(n)−2^r zeros and balanced inertia for r≥1. Largest modulus eigenvalue ρ=∏λ_+(a_i) is unique; after normalizing absolute nonzero eigenvalues by ρ the multiset is every subset product of q_i=−λ_−(a_i)/λ_+(a_i)∈(0,1). Greedy multiset deletion of largest available u and its q u determines the unique remaining factor multiset despite repeated products; recover each a_i=q_i/(1−q_i)². This proves exact cospectral-to-prime-exponent/lattice rigidity, with n=1 empty tensor case and zero-padded full n×n form. Independently checked exact integer traces/ranks for n=1,2,4,6,12,18,36,72,96,500, including noncospectral same-size examples; bounded checks supplement exact tensor and inverse proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mattila–Haukkanen studies positive definiteness of meet/join matrices and eigenvalue bounds under monotonicity assumptions, not this signed binary top-indicator's inverse spectral class; OEIS supplies rank only."
+        ],
+        "reasoning": "A general spectral join-matrix framework is relevant, but no inspected result directly specializes to unique recovery of every prime exponent by the nonzero eigenvalues. Existing tensor multiplication is credited.",
+        "searches": [
+          "Mattila–Haukkanen 2014 §§3–5",
+          "OEIS A034444",
+          "Resultary: lcm equals n divisor indicator matrix spectrum cospectral prime exponent multiset tensor product eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A034444, Yuval Dekel comment 2003-08-11, identical n×n matrix rank",
+        "Mattila–Haukkanen, Discrete Mathematics 326 (2014), §§2–5 on monotone join/meet spectral bounds",
+        "Ovall, Electronic Journal of Linear Algebra 2004 (weighted gcd/lcm background)",
+        "Resultary: lcm equals n divisor indicator matrix spectrum cospectral prime exponent multiset tensor product eigenvalues",
+        "Resultary: lcm equals n divisor indicator matrix spectrum cospectral prime exponent multiset tensor product eigenvalues"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior rank gives number of nonzero eigenvalues but does not give their values; 2014 paper gives inequalities under properties of f, not exact inverse extraction of the exponent multiset."
+        ],
+        "reasoning": "Neither rank nor generic eigenvalue bounds implies the exact characteristic factors or multiplicity-respecting subset-product decomposition. That extra implication is supplied by a complete proof.",
+        "searches": [
+          "OEIS A034444 2003 matrix rank",
+          "Mattila–Haukkanen 2014 Section 5",
+          "Resultary: lcm equals n divisor indicator matrix spectrum cospectral prime exponent multiset tensor product eigenvalues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The n×n matrix A_n of the OEIS entry is the same B_n with zero rows/columns outside divisors; general join matrices f(lcm(d,e)) include the top-indicator as f=1_{n}."
+        ],
+        "reasoning": "The exact matrix is old as a rank object, and tensor factorization uses standard chain lattices. However the source tabulates rank, while the claimed spectral inversion requires recovering q_i from the complete nonzero spectrum.",
+        "searches": [
+          "OEIS A034444 2003 comment",
+          "Mattila–Haukkanen DOI:10.1016/j.disc.2014.02.018",
+          "Resultary: lcm equals n divisor indicator matrix spectrum cospectral prime exponent multiset tensor product eigenvalues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS comment by Yuval Dekel dated August 11, 2003 records exactly rank(A_n)=number unitary divisors=2^ω(n), not eigenvalues or isomorphism types."
+        ],
+        "reasoning": "The OEIS sequence depends only on ω(n), whereas exponent recovery can distinguish (2,3) from (2,4) at identical ω; no exact signed eigenvalue table recovered.",
+        "searches": [
+          "OEIS A034444",
+          "Resultary: lcm equals n divisor indicator matrix spectrum cospectral prime exponent multiset tensor product eigenvalues"
+        ]
+      },
+      "rationale": "Independently compared the exact final mathematical statement, not just title or matching parameter, with the primary material identified below and a new semantic research-index search. No inspected stronger statement implies the precise final claim; foundational results and methods are credited. This is a qualified best-of-knowledge judgment with explicitly retained gaps, not a certification of priority.",
+      "residual_risks": [
+        "Specialized top-element join matrix spectral or tensor inverse literature could already deduce the whole result; discovery not exhaustive.",
+        "Spectrum cannot recover prime bases, only the exponent multiset; numerical inversion may be unstable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical A_n and rank 2^ω(n) are definitely old; full spectrum and prime-exponent recovery not listed",
+          "evidence": [
+            "OEIS A034444 comment by Yuval Dekel 2003-08-11, A[i,j]=1_{lcm(i,j)=n}, rank 2^ω(n)"
+          ],
+          "identifier_or_url": "https://oeis.org/A034444",
+          "material_read": "Entire public OEIS entry, comments, sequences and cited matrix rank line",
+          "method": "Read primary living database entry and inspected dated statement",
+          "title": "OEIS A034444: Number of unitary divisors of n",
+          "trigger": "Exact same n×n LCM-top indicator matrix has a 2003 priority comment"
+        },
+        {
+          "assessment": "General meet/join positivity and eigenvalue bounds, not exact full top-indicator spectrum or inverse rigidity",
+          "evidence": [
+            "Discrete Mathematics 326 (2014) pp.9–19, §5 described as eigenvalue estimations for order-monotone f"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2014.02.018",
+          "material_read": "Publisher-indexed long full-text excerpt containing introduction, §2 definitions, §3 Theorems 3.1/3.2 and §5 eigenvalue-estimation assumptions; unreturned portions not claimed inspected",
+          "method": "Read available primary publisher-indexed text and compared indicator f with exact theorem assumptions",
+          "title": "On the positive definiteness and eigenvalues of meet and join matrices",
+          "trigger": "Potentially broader full join-matrix spectral result for same divisor lattice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact full signed spectrum and the inverse theorem reconstructing a divisor-lattice isomorphism type from unlabeled nonzero eigenvalues refine the natural arithmetic indicator matrix's known rank. The motivating 2003 rank entry fixes the object, but 2^ω(n) alone cannot recover exponents. This is an independently useful exact invariant, not an arbitrary slice of a larger census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "OEIS A034444, Yuval Dekel comment 2003-08-11, identical n×n matrix rank",
+    "Mattila–Haukkanen, Discrete Mathematics 326 (2014), §§2–5 on monotone join/meet spectral bounds",
+    "Ovall, Electronic Journal of Linear Algebra 2004 (weighted gcd/lcm background)",
+    "Resultary: lcm equals n divisor indicator matrix spectrum cospectral prime exponent multiset tensor product eigenvalues"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Recovery from exact eigenvalue multisets, not finite-precision spectral perturbations.",
+    "The pair of distinct n may be cospectral; integer n itself is not uniquely determined."
+  ],
+  "residual_risks": [
+    "Specialized top-element join matrix spectral or tensor inverse literature could already deduce the whole result; discovery not exhaustive.",
+    "Spectrum cannot recover prime bases, only the exponent multiset; numerical inversion may be unstable."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each prime-power exponent \(a\), the exact local matrix is the zero upper-left block with an all-ones final row and column. Its nonzero polynomial is \(t^2-t-a\). Divisor exponent coordinates give a literal tensor product. For inverse recovery, the largest absolute eigenvalue is unique; normalized nonzero absolute eigenvalues are all subset products of \(q\in(0,1)\). Removing the largest pair \(u,qu\) repeatedly proves unique recovery even with collisions and multiplicities, followed by the algebraic formula \(a=q/(1-q)^2\). The boundary \(n=1\), rank, inertia, and zero multiplicity are accounted for. The standalone verifier is supplemental, not a substitute for induction.
+## correctness
 
-**Originality — PASS under inspected evidence, with priority limitations.** Dekel's 2003 OEIS A034444 remark provides the rank of the same full indicator matrix but not exact nonzero eigenvalues or inverse cospectral rigidity. The fully examined relevant portions of Ovall (2004), Mattila–Haukkanen (2013), and Hilberdink–Pushnitski (2021) concern weighted meet/join or LCM matrices and general product methods, not the claimed reconstruction of the exponent multiset from this binary top-indicator spectrum. Searches using exact indicator, join-matrix, tensor-spectrum, and inverse-rigidity formulations did not identify equivalent or stronger covering results. The unresolved full text of a relevant 2014 meet/join paper, and unlocated earlier specializations, remain scientific priority risks; lack of a search hit is not proof of novelty.
+PASS
 
-**Value — PASS.** The 2003 rank observation distinguishes only the number of distinct primes; it cannot determine any prime exponents. In contrast, this theorem reconstructs all prime-power exponent sizes from unlabeled eigenvalues, classifies every cospectral pair in an infinite natural arithmetic family, and pinpoints the precise information lost (prime bases). For example, \(72\) and \(96\) have the same \(12\) divisors and rank \(4\), but different spectra. This is a structural inverse-arithmetic result rather than a finite-table recomputation or a routine restatement of rank.
+The divisor exponents identify B_n with ⊗_i L_{a_i}, L_a zero off final row and column (all ones there); local nonzero eigenvalues solve x²−x−a=0 and a−1 kernel directions. Multiplicativity gives 2^r nonzero signed products, τ(n)−2^r zeros and balanced inertia for r≥1. Largest modulus eigenvalue ρ=∏λ_+(a_i) is unique; after normalizing absolute nonzero eigenvalues by ρ the multiset is every subset product of q_i=−λ_−(a_i)/λ_+(a_i)∈(0,1). Greedy multiset deletion of largest available u and its q u determines the unique remaining factor multiset despite repeated products; recover each a_i=q_i/(1−q_i)². This proves exact cospectral-to-prime-exponent/lattice rigidity, with n=1 empty tensor case and zero-padded full n×n form. Independently checked exact integer traces/ranks for n=1,2,4,6,12,18,36,72,96,500, including noncospectral same-size examples; bounded checks supplement exact tensor and inverse proof.
 
-**Limits.** The theorem reconstructs exponents rather than prime bases. Numerical verification is finite, while proof is exact; no numerical stability bound is claimed. Possible unlocated stronger prior results remain a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independently compared the exact final mathematical statement, not just title or matching parameter, with the primary material identified below and a new semantic research-index search. No inspected stronger statement implies the precise final claim; foundational results and methods are credited. This is a qualified best-of-knowledge judgment with explicitly retained gaps, not a certification of priority.
+
+## value
+
+PASS
+
+The exact full signed spectrum and the inverse theorem reconstructing a divisor-lattice isomorphism type from unlabeled nonzero eigenvalues refine the natural arithmetic indicator matrix's known rank. The motivating 2003 rank entry fixes the object, but 2^ω(n) alone cannot recover exponents. This is an independently useful exact invariant, not an arbitrary slice of a larger census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
