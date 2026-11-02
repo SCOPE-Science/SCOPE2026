@@ -1,15 +1,21 @@
-# Review of the sharp four-car reverse-TP2 obstruction
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The joint random variables and conditional success event are explicit. The complete support argument proves reverse-TP2 at all sizes through three for arbitrary positive preference distributions, without numerical sampling. The four specified weighted cells are determined by complete independent preference-word enumeration and the displayed histogram multipliers. Their determinant is exactly \(1024>0\). All \(4^4\) words and small-size supports are checked by `verify.py`; the analytical scope does not exceed those finite cases.
+## correctness
 
-## Originality
-**PASS, with historical risk.** The relevant first-public 2005 Gessel–Seo paper enumerates lucky count alone. Stanley–Yin (2023) gives the joint luck/displacement enumerator for equally weighted parking functions, but not the nonuniform preference-label weight refinement needed for this counterexample. Kenyon–Yin's bivariate statistic is *critical left-to-right maxima* rather than lucky arrivals. Colmenarejo et al. (2024) analyze a restricted Stirling-permutation class with constant displacement. No directly covering result arose from semantic database searches for weighted parking, luck/displacement, reverse-TP2, or nonuniform preference laws. That is evidence against known coverage, not proof of global novelty; an unlocated general multivariate parking enumerator may exist.
+PASS
 
-## Mathematical value
-**PASS.** Likelihood-ratio ordering is a strong and standard form of stochastic association. Since an extra unlucky car entails positive displacement, a general reverse-likelihood-ratio principle is a motivated candidate for biased linear probing. The example shows the exact first car count at which that universal principle fails, with only a factor-two difference in site preference weights, thus sharply limiting strong monotonicity theorems. It does not assert failure of weaker covariance or stochastic ordering.
+Exactly enumerate all successful n<=3 preference words: reverse-TP2 holds for ALL strictly positive preference laws because lucky-count rows have decreasing nonoverlapping displacement supports. At n=4, directly count weighted joint cells W(2,2)=128, W(2,3)=80, W(3,2)=64, W(3,3)=48 from 256 words; the minor 128*48-80*64=1024>0. Success total weight 776 and conditional normalization preserve sign. Independently reimplemented enumeration in independent_checks.py and verified exact cells. Quantifiers and conditioning explicit; no inference on uniform n=4 or weaker covariance.
 
-## Limits
-Independent historical-priority verification and external mathematical audit are not performed. No statement is made for all four-car probability profiles, or for uniform preferences beyond size three.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after independent statement/implication comparisons with primary literature and published semantic records. Known starting theorems explicitly credited; absence of matching search results not treated as proof of priority.
+
+## value
+
+PASS
+
+A minimal counterexample to reverse likelihood-ratio stochastic ordering of luck and displacement is a substantive natural boundary: first failure at four cars, despite strictly positive iid weights with only factor-two bias. This prevents an otherwise plausible strong association theorem while leaving weaker notions open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
