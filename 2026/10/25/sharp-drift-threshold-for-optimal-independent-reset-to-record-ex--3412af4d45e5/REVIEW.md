@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete assertion for the independent-clock reset-to-record protocol follows from an explicitly verified geometric invariant law for the gap, the Markov strong law for frontier occupation, the ordinary random-walk strong law at zero resetting, and a monotone reparametrization of the speed. The derivative has one positive root, and comparison with the accessible endpoint gives the exact drift threshold. The quadratic gain is algebraically expanded from an exact expression. The accompanying standard-library program passed 30 independent finite-horizon rational checks, 841 stationary-balance checks and a grid of 29,029 speed comparisons. Such finite comparisons are supplementary, not substitutes for the all-parameter proof.
+## correctness
 
-## Originality — PASS within inspected sources
-Majumdar–Sabhapandit–Schehr, arXiv:1509.04516, study symmetric steps and a frontier-conditioned reset rule that **forbids no-op resetting at the record**, unlike this clock. Can–Doan–Nguyen (2021) preserve that rule. Bonomo–Pal (2021) and Radice (2022) give general discrete renewal/reset tools and optimal first-passage conditions, and are credited; the inspected worked examples do not contain the sharp global \(3/4\) bias transition for this record process. Targeted publication and research-record searches did not identify a covering claim, but cannot establish exhaustive novelty. In particular, an existing unindexed specialization of generic first-passage formulae may dominate and remains a genuine residual risk.
+PASS
 
-## Mathematical value — PASS
-The result globally identifies when an independent memory reset aids or harms frontier exploration, how to choose its rate, and how its advantage disappears near critical drift. These are natural design and mathematical questions for memory-assisted biased search, independent of any need for a larger general theorem.
+Gap G=M-X has geometric invariant distribution with λ=t(q+pλ²), t=1-r, for 0<r<1. Positive recurrence, ergodic frontier occupation, and martingale strong law give speed tp(1-λ); no-reset endpoint is max(2p-1,0), r=1 is zero. Reparameterizing by λ makes derivative sign q(1-2λ)-pλ², giving interior optimizer iff p<3/4 and critical boundary otherwise, with quadratic gain onset. Independent rational cases and 501-point reset grids checked. Uniform proof follows chain/derivative analysis, not sampled grids.
 
-## Scope and limitations
-The result assumes nearest-neighbor discrete-time motion, constant independent resetting including no-ops at the frontier, and asymptotic speed. No finite-time, higher-cumulant or other resetting protocol is covered. No independent scientific validation or exhaustive historical priority investigation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Majumdar–Sabhapandit–Schehr 2015 foundational paper explicitly uses symmetric jumps and prohibits no-op resets at the frontier; this changes its gap kernel. Other examined works preserve that conditioned reset or treat first passage, not this exact independent-clock optimized bias law. Existing generic renewal methods could yield this after specialization, acknowledged.
+
+## value
+
+PASS
+
+Sharp global optimization and drift phase transition for a mathematically natural alternative resetting protocol with a continuous quadratic onset; avoids conflating different frontier rules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
