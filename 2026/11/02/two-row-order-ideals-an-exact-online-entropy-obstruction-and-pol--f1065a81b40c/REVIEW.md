@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every ideal corresponds to a unique ordered integer pair. Antichain characterization proves the VC assertion for all sizes. The four-bound recursion follows from exact version-space closure and the first-query characterization of Littlestone dimension; its polynomial state bound is explicit. Independent integer-bitset and normalized-interval implementations reproduce the finite jump locations. A direct 36-concept branch-count argument independently establishes the seven-column upper bound, while the 4-by-4 product supplies its lower bound. The uniform two-bit bound is an inequality proved by an explicit product subfamily.
+
+**Originality — PASS, qualified.** Full-text material from Ghazi et al. (2020/2021) covers arbitrary Boolean closures and their global complexity bounds, not exact online dimensions of two nested thresholds. Hanneke (2024) concerns general disagreement and version-space dimension relationships, not this order-ideal formula. Searches for equivalent Ferrers/staircase/order-ideal and pair-of-threshold encodings did not identify a statement implying the displayed first obstruction, polynomial four-bound formula, or exact jump list. Absence from searched sources is not a uniqueness proof. The independent record comparison remains incomplete beyond accessible material.
+
+**Value — PASS.** The width-two product of chains is the first genuinely two-dimensional distributive-lattice test family. It makes the VC dimension stay at two while the online dimension grows logarithmically, and its first entropy obstruction occurs at an exact, natural minimal column count. A polynomial exact algorithm and finite jump classification make the benchmark reusable without a generic exponential concept-subset search. The near-entropy bound explains the quantitative scaling rather than merely listing small values.
+
+**Closest literature and limits.** B. Ghazi et al., *Near-tight closure bounds for Littlestone and threshold dimensions*, arXiv:2007.03668v1 (2020), PMLR 132 (2021); S. Hanneke, *The Star Number and Eluder Dimension* (PMLR 247, 2024). The latter provides broader conceptual background only. Later jump positions are not classified, and literature-priority risk remains.
+
+Self-review: passed. Independent audit: not yet performed.
