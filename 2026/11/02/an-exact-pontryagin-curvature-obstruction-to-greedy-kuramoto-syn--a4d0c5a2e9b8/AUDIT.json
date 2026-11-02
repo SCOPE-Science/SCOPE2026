@@ -1,0 +1,88 @@
+{
+  "correctness": {
+    "rationale": "For f=r² the Kuramoto drift is exactly (3K/2)grad f. On greedy arcs, PMP costate p=λgrad f and adjoint p_dot=-(3K/2)H p force (3K+sqrt(P)/||grad f||)Hgrad f collinear with grad f. The explicit exact witness has nonzero cross product. Standard control compactness gives existence of a minimizer, so greedy is strictly nonoptimal. The real-analytic identity theorem proves open density; exact algebra verified with packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "O’Keeffe §III HJB numerics for K=P=1, target 0.95, and §VII qualitative generic claim.",
+        "A published analysis of SCOPE-exact-reversal-of-a-braess-locking-penalty-on-a-four-oscillator--fbd39164c275 has no admissible control ball or HJB."
+      ],
+      "reasoning": "Prior paper claims general qualitative nonoptimality and numerical time gains, but does not give the all-K all-P rigorously local open-dense PMP test; its statements are overlapping context, not a proof implying this certificate. Any later analytic control-theory coverage would override this assessment.",
+      "searches": [
+        "arXiv 2608.10354 Learning to Synchronize in Minimum Time proof greedy nonoptimal N=3 every K P curvature",
+        "time-optimal Kuramoto synchronization greedy gradient control Hessian gradient Pontryagin open dense suboptimal"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.10354v1, HTML sections II, III, VII",
+      "MSC2020 official 34H05 classification https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=34H05",
+      "Semantic literature searches for PMP and minimum-time Kuramoto",
+      "Accessible own current-week ledger claims for minimum-time, greedy Kuramoto, and Pontryagin"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source §II states model and greedy law; §III computes numerical HJB controls; §VII reports qualitative generic suboptimality and exact drift-gradient identity.",
+        "Standard Pontryagin theorem implies costate dynamics, but new model-specific collinearity calculation and witness are required."
+      ],
+      "reasoning": "We do not present greedy suboptimality in itself as new; the exact curvature necessary condition and all-parameter open-dense theorem are the new claim. The source gradient-flow identity plus generic qualitative statement do not independently constitute a mathematical proof of this curvature theorem.",
+      "searches": [
+        "arXiv 2608.10354 Learning to Synchronize in Minimum Time proof greedy nonoptimal N=3 every K P curvature",
+        "time-optimal Kuramoto synchronization greedy gradient control Hessian gradient Pontryagin open dense suboptimal",
+        "Learning to Synchronize in Minimum Time arxiv 2608.10354 greedy not optimal variational curvature necessary condition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.10354v1 §VII identifies reparameterized gradient flow but does not use PMP to require Hessian alignment.",
+        "Related phase-stability article Stability-targeted nonpairwise coupling collapses the synchrony–splay overlap."
+      ],
+      "reasoning": "The condition is equivalently that gradient trajectories be unparameterized extremals for the minimum-time control Hamiltonian; the primary source establishes gradient path invariance, which does not by itself imply extremality or the exact obstruction.",
+      "searches": [
+        "Pontryagin maximum principle shows greedy Kuramoto oscillator synchronization nonoptimal three oscillators Hessian gradient noncollinear analytic criterion",
+        "time-optimal Kuramoto synchronization greedy gradient control Hessian gradient Pontryagin open dense suboptimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results are optimization algorithms and oscillator phase-stability records rather than parameter-uniform control obstructions.",
+        "No matching exact radical cross-product certificate among accessible ledger claim strings."
+      ],
+      "reasoning": "No table or numerical HJB data implies the analytic symbolic witness and real-analytic density argument.",
+      "searches": [
+        "Pontryagin maximum principle shows greedy Kuramoto oscillator synchronization nonoptimal three oscillators Hessian gradient noncollinear analytic criterion",
+        "Learning to Synchronize in Minimum Time arxiv 2608.10354 greedy not optimal variational curvature necessary condition"
+      ]
+    },
+    "rationale": "Primary arXiv:2608.10354v1 already presents numerical greedy suboptimality and informal generic expectations, but not a proved PMP Hessian collinearity obstruction with exact radical witness and all-parameter open-dense local-target theorem. Specific semantic literature searches returned no implication-covering mathematical finding; generic optimal-control priority remains a residual risk.",
+    "residual_risks": [
+      "Existing general geometrical-optimal-control literature may contain an equivalent Hessian-gradient necessary condition; conventional PMP calculus itself is standard.",
+      "The source already states generic greedy failure qualitatively; originality is restricted to this explicit exact proof and its quantified universal parameter scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model, exact gradient drift, generic qualitative suboptimality already covered; no explicit Pontryagin Hessian test, cross-product witness or analytically quantified open-dense statement in reviewed sections",
+        "evidence": [
+          "Eq.(1) dynamical system and control ball; Eq.(2) HJB; Eq.(6) greedy reparameterized gradient flow; §III numerical N=3 HJB comparison; §VII discussion of generic failure."
+        ],
+        "identifier_or_url": "arxiv:2608.10354v1; https://arxiv.org/html/2608.10354v1",
+        "material_read": "Full HTML sections II, III, VII, equations (1), (2), (6), (7), conclusions and appendices overview; PDF pages 0, 1, 4",
+        "method": "Direct textual and selected page inspection",
+        "title": "Learning to Synchronize in Minimum Time",
+        "trigger": "Identical Kuramoto minimum-time model and prior numerical suboptimality results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4d0c5a2-e9b8-4e19-9a1b-49720b8bb970",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact, generic, power-and-coupling-uniform obstruction explains the numerical gap between greedy ascent and genuinely time-optimal three-oscillator steering. It creates a computable local geometric diagnostic that precedes numerical HJB and is not a mere parameter substitution; target-locality is explicit.",
+    "status": "PASS"
+  }
+}
