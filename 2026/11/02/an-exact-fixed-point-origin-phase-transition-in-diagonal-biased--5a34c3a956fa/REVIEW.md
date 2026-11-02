@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The event that a chosen set of off-loop vertices all have indegree zero decomposes into independent choices from the chosen set and its complement. The resulting falling-factorial identity determines the complete joint law, and a two-vertex conditioning identity determines covariance, including endpoints. The ratio of consecutive conditional expectations establishes the stated finite regression plateau. The included exact verifier passed 742 assertions; infinity is handled by algebra, not exhaustive experiments.
+
+**Originality (PASS, best-knowledge).** The 2006 preprint by Hansen–Jaworski explicitly defines the same independent-choice diagonal-biased model, but its inspected theory concerns cyclic points/components rather than this full fixed-point/origin joint law or its sign and regression phase diagram. Arney–Bender (1982) develops origin-marked cycle generating functions for other constraints, not a directly stated self-loop-bias covariance theorem. Hansen–Jaworski (2008) uses an exchangeable-in-degree construction and studies local predecessor statistics, not the same two-statistic law. Jaworski–Mutafchiev (1994) shares the diagonal-bias model but its accessible abstract describes the largest component. Priority remains provisional; earlier local-statistics references may contain an equivalent bivariate generating function.
+
+**Value (PASS).** Fixed points describe stationary one-cycles, while origins measure source/transient support in a functional graph, both directly motivated by random-mapping dynamics and sampling models. The complete finite joint polynomial separates covariance from dependence and identifies the parameter boundary at which the two natural statistics change their association sign. The two-point plateau in conditional expected origins shows why a simple monotone regression interpretation fails. It is not merely a numeric count or arbitrary parameter slice.
+
+**Restrictions.** No extension to arbitrary independent target matrices or dependent mapping choices is claimed. No historical-priority or external mathematical certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
