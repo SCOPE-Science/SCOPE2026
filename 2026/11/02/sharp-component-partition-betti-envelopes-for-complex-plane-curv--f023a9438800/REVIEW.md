@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The normalization-Euler computation gives \(b_*(C)=2+2\sum g_i+\sum_{p\in\operatorname{Sing}(C)}(b_p-1)\), using connectedness from Bézout. Substituting genus-degree and Milnor–delta formulas yields the stated *exact* defect identity; the combinatorial inequalities at each point prove positivity, the normal-crossings equality condition, and existence by generic choices. The fixed-component-count maximum is the unique maximizer of the sum of degree squares, while strict convexity in component count and strict monotonicity of the full envelope give all exceptional small-degree cases. The embedded finite partition program returned `VERIFY_OK`; it is not used as an infinite proof.
+
+**Originality — PASS (best knowledge, qualified).** The published motivating work studies the limsup of the total-Betti supremum rather than its exact value for every plane degree, all irreducible-degree partitions, and all equality types. The published general Betti-bounds work likewise proves asymptotic estimates, not this finite partition envelope. Separate concept/alias searches of mathematical records and accessible research history did not return an equivalent exact statement. Classical arithmetic-genus, Milnor and intersection formulas are acknowledged as prior; deriving a previously unstated classical corollary is the chief residual priority risk. Definitive historical priority has not been certified.
+
+**Value — PASS.** The new invariant in the motivating work is defined using a supremum over every divisor. Exact evaluation at finite levels is a natural problem not resolved by equality of asymptotic leading coefficients. The complete partition/equality classification shows specifically which singular divisors can beat or match smooth divisors in small degree, identifies a distinguished degree-five tie among *reducible* curves, and gives a sharp topological irreducibility certificate from degree six onward. These are natural structural cutoffs and a complete classification, not a randomly selected numerical slice.
+
+The result concerns ordinary rational Betti numbers of complex plane curves; no claim is made about numerical specializations on other surfaces or priority against inaccessible historical texts.
+
+Self-review: passed. Independent audit: not yet performed.
