@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Every vertex of a part sees identical external neighbors. From any microstate a monochromatic-by-part corner has positive one-step probability. Direct examination of all 8 corners by the three order types of the part sizes leads, with positive probability, to exactly the displayed closed classes; direct updates prove closure and communication. The tied-largest class swaps its two large parts and redraws each small vertex independently, proving period 2, the uniform stationary law, and \\(a(a+c)\\) discordant edges. A finite chain in which every state can reach the listed closed classes has no further recurrent components. Standard-library verifier independently checked 216 macro and 27 full-micro parameter triples plus 104 exact small-part redraw/cut examples. This finite support verification corroborates rather than substitutes for the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2302.06760v1, Theorem in Section 2.3 and Appendix A.4: existence of exponentially many recurrent states on some constructed graphs; it does not state their exact form for complete tripartite graphs.",
+        "arXiv:1901.10756v1 abstract: stochastic/deterministic consensus dynamics but a different stochastic averaging/copying model."
+      ],
+      "reasoning": "A general possibility of exponential recurrent components does not logically give their exact cardinality or the sharp largest-part size trichotomy on this fixed graph family. Bipartite results do not cover the new third community. The 2019 model uses different transitions; its abstract alone is not grounds for a claim about all its text.",
+      "searches": [
+        "published-finding corpus: random tie break synchronous two-color neighbor-majority Markov chain K_{a,b,c} absorbing SCC consensus equal large community sizes",
+        "published-finding corpus: Zehmakan random majority opinion diffusion absorbing states tripartite network largest weights",
+        "Web: \"random majority\" \"complete multipartite\" limit cycles stochastic",
+        "Web: \"complete tripartite\" \"majority dynamics\" two cycle random"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2302.06760 (full rendered source, particularly Sections 1, 2.3, A.4)",
+      "https://arxiv.org/abs/1901.10756 (abstract-level comparison)",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=91D30 (classification)",
+      "Published records *Majority C-colorings of complete multipartite graphs* and *Sharp period-four census for complete multipartite parity automata* (different models)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zehmakan 2023: general constructions establish possible exponential closed components but not a classification for all complete tripartite part sizes.",
+        "The complete-bipartite counterpart has an opposing-part two-cycle; with three parts and two equally largest communities the third part remains independently random at every time, yielding \\(2^{c+1}\\) recurrent microstates.",
+        "Direct proof in RESULT.md constructs and excludes all additional recurrent classes for every a,b,c."
+      ],
+      "reasoning": "The new statement is a necessary-and-sufficient classification of every recurrent class for all positive integer part-size triples, including stationary distribution and exact disagreement. Neither an existence theorem nor a two-part special case implies the third-community noise component, and the all-equal boundary needs separate reasoning.",
+      "searches": [
+        "published-finding corpus: Random Majority Model RMM synchronous on complete tripartite graph K_{a,b,c} largest two parts tied period two stochastic recurrent closed communicating class 2^{c+1} colorings",
+        "Web: \"random majority model\" \"tripartite graph\" \"periodic\"",
+        "Web: \"complete multipartite\" \"random majority\" dynamics consensus"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zehmakan, arXiv:2302.06760v1, Sections 1.1 and 2.3: same update rule, general and cycle analysis, an example of an exponentially large closed component on a non-tripartite graph.",
+        "Indexed nearest hits concerned majority C-colorings of complete multipartite graphs and parity automata, different objects and local rules."
+      ],
+      "reasoning": "The exact same update with independent fair ties is used, not a reparameterized DeGroot, voter, or deterministic majority model. No searched record identified this three-part closed-class trichotomy or its uniform stationary distribution. Lack of a hit is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Random Majority Model RMM synchronous on complete tripartite graph K_{a,b,c} largest two parts tied period two stochastic recurrent closed communicating class 2^{c+1} colorings",
+        "published-finding corpus: tripartite synchronous majority opinion diffusion random tie breaking two largest parts equal absorbing classes consensus polarization blinking",
+        "Web: \"random majority\" \"complete tripartite\" absorbing classes",
+        "Web: \"stochastic majority dynamics\" \"complete tripartite\" absorbing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record *Majority C-colorings of complete multipartite graphs* concerns a graph coloring invariant, not stochastic neighbor-majority transitions.",
+        "Published record *Sharp period-four census for complete multipartite parity automata* concerns a parity Boolean automaton, not random-majority tie breaking.",
+        "No exact tripartite transition-class table was found in accessible search results."
+      ],
+      "reasoning": "The similarly worded indexed entries have different dynamics, state spaces, and claims. No identified table gives the three specific cases. Absence in this searchable sample does not exclude unindexed or unpublished tabulations.",
+      "searches": [
+        "published-finding corpus: Random Majority Opinion Diffusion Stabilization Time Absorbing States Influential Nodes Zehmakan 2023 arxiv 2302.06760",
+        "published-finding corpus: random majority opinion diffusion complete multipartite graphs tripartite tie breaking absorbing communicating classes transition exact"
+      ]
+    },
+    "rationale": "The directly inspected Zehmakan 2023 source states broad periodicity and special-graph exponential examples, not this exact all-size tripartite classification. The closest searchable records concern different color-invariant or parity models. The bipolar two-part special case lacks the third independent noise population. Search and full primary text comparison support provisional originality, without certification against all literature.",
+    "residual_risks": [
+      "Unindexed specialist papers on synchronous randomized majority on complete multipartite graphs could establish an equivalent classification.",
+      "The less closely related 2019 stochastic consensus paper was not read in full, so no whole-document absence is asserted.",
+      "Results for graph families with four or more parts and biased/correlated tie resolution are outside the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same process and constructs exponentially large recurrent sets on general graphs but not the complete tripartite size-trichotomy, stationary law or invariant cut of this theorem.",
+        "evidence": [
+          "Section 1.1 states independent unbiased tie flips; Section 2.3 and Appendix A.4 construct a path joined to two resilient cliques; their graph is not complete tripartite."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.06760",
+        "material_read": "HTML full-text transcription, especially Sections 1.1, 2.1, 2.3, the related-work passages and Appendix A.4; submitted 2023-02-14.",
+        "method": "Read rendered primary full text and compared update rule, theorem quantifiers, graph constructions and recurrence claims.",
+        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+        "trigger": "Originating source defines independent random tie-breaking and investigates absorbing classes and exponential periodicity."
+      },
+      {
+        "assessment": "Different stochastic consensus/copying model described, not a decisive duplicate; full text was not inspected.",
+        "evidence": [
+          "Abstract emphasizes stochastic vs deterministic consensus on general graph connectivity, rather than synchronous independent tie randomization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.10756",
+        "material_read": "Primary arXiv abstract, bibliographic description and accessible overview; not full text.",
+        "method": "Abstract-level model comparison and bibliographic check.",
+        "title": "Stochastic versus deterministic consensus dynamics on graphs",
+        "trigger": "Potential earlier broad stochastic-consensus result on graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "716355e3-79ca-47c2-a78c-b248cd1b7632",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It is a complete structural classification for every finite complete tripartite graph under the source stochastic majority rule. It distinguishes unique-largest deterministic polarization, two-largest phase-locked exponential random recurrence with exact uniform stationary distribution and invariant edge disagreement, and all-equal almost-sure consensus. The dependence on equality of population sizes is a natural sharp phase boundary, not an arbitrary parameter slice or a computation-only census.",
+    "status": "PASS"
+  }
+}
