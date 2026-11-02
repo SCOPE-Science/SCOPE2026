@@ -1,17 +1,21 @@
-# Review of Corrected first Turing threshold for the Liu–Zhang forest-disease-fire model
+# Independent mathematical audit
 
-## Correctness
-PASS. The equilibrium reduction is exact: the positive equilibrium condition produces a rational cubic with strictly negative discriminant, so there is a unique real root, bracketed in \((17,18)\). Substitution gives the corrected equilibrium and the four Jacobian entries. The modal determinant is affine in \(\varepsilon\), and its critical-value function is strictly decreasing over every allowed spatial mode at \(d=0.12\), so \(k=1\) is rigorously the first crossing. The included checker reproduces the reported digits and separately verifies the source-rounded formula.
+## correctness
 
-## Originality
-PASS. The primary full text was read through the complete Turing analysis and explicitly states the contrary numerical threshold. Searches using the DOI, exact reported threshold, exact equilibrium pair, correction/erratum terminology, and equivalent Turing-boundary language did not locate the corrected values. The closest cited full-text Turing paper treats a different Leslie–Gower predator–prey model and does not cover the forest-model calculation.
+PASS
 
-## Value
-PASS. The first Turing crossing is the organizing numerical boundary for the source's Section 4.3. The corrected value \(0.00852879885272517\ldots\) differs by a factor of about \(7.51\) from the reported \(0.0011360854\), and the source's own rounded formula independently yields \(0.00959299911177703\ldots\). Correcting this threshold and the homogeneous equilibrium is therefore mathematically substantive rather than a cosmetic rounding change.
+Reconstructed exactly from the original p.3181 printed reaction equations and p.3182 2x2 modal matrix. Positive equilibrium requires I=(beta/mu)S-alpha; clearing denominators gives the claimed rational cubic. Exact discriminant is negative, and a sign change between 17 and 18 gives its sole real, physically positive root. Differentiating original f,g yields p1=0.01072598427642497, q1=-0.002735311206719895, p2=0.2745085518131537, q2=-0.01726468879328010; Delta=0.0005656855375808754, trace at k=0 is negative. With x=0.12*k^2*pi^2, det_k(eps)=eps*x*(x-q2)-p1*x+Delta and tr_k=-(1+eps)x+p1+q2<0 for eps>=0. Epsilon threshold phi(x)=(p1*x-Delta)/(x*(x-q2)) has derivative numerator -p1*x^2+2Delta*x-Delta*q2, with sole positive zero x=0.11350168081233263 < x1=1.184352528130723. Hence phi strictly decreases for all k>=1, proving k=1 is the first crossing as eps is reduced. At eps_c=0.00852879885272517358 trace is -1.20099233713 and determinant zero; at paper eps=0.0011360854, det=-0.0105208543113 and positive eigenvalue=0.008760101432708765. Source rounded formula separately evaluates to 0.009592999111777033. The reported equilibrium residuals are nonzero. Finite computations corroborate and are not used as the infinite modal proof.
 
-## Closest literature and limitations
-The closest methodological source inspected is Chen and Zhang (2022), DOI 10.15388/namc.2022.27.27932, which develops Turing and Turing–Hopf thresholds for a different predator–prey system. The ecological disease–fire source DOI 10.1111/ele.13719 does not address this modal calculation. Publisher metrics report two citations to the 2024 article; exact DOI and exact-number searches found no published correction, but exhaustive full-text inspection of every downstream citation was unavailable.
+## originality
 
-The result is limited to the source's printed equations, modal convention, and explicit \(d=0.12\) calculation. It does not determine which diffusion coefficients generated Figures 5–6 and does not establish nonlinear patterned-branch existence or stability.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Qualified best-of-knowledge PASS specifically for the correction/diagnosis of the published false numerical specialization, not for the general dispersion determinant or the elementary method. The original 2024 paper prints the reaction system, general determinant and rounded threshold formula, but declares the incompatible numerical crossing 0.0011360854 and incorrect positive equilibrium (17.252,236.374). Correctly enforcing the same equations gives distinct equilibrium and crossing; the original symbolic formula by itself is prior and is not claimed as new. Exact-value, DOI/erratum and alternative-terminology searches and relevant published-record comparisons did not identify an independent earlier correction. Lack of matches is not proof of absolute priority.
+
+## value
+
+PASS
+
+The first spectral Turing crossing and positive equilibrium are the explicit reference values organizing a published disease–fire reaction–diffusion numerical example. The true threshold differs by factor about 7.51 from the reported value and the printed equilibrium has nonzero reaction residuals; the independent rounded-formula inconsistency further demonstrates a substantive scientific correction. This is a motivated source-specific boundary diagnosis, not simply another arbitrary sample of a known formula. Future readers reproducing or comparing its stability diagram need the corrected location and cannot rely on the published values. No claim is made of a general theorem, model validation, or patterned-branch dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T23:43:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Original Git RESULT.md and verify.py at assignment commit 6c379935c2e469fc18959fc6c387e31328c64bcf, source-tree SHA ef0d64015b0cdfa9b4193fc6ccf35798a14c87fe, and other five pinned package files.",
+        "Liu–Zhang publisher primary PDF pp.3181–3185, equations (4.1)–(4.3) and source numerical formula.",
+        "Independent exact-rational and high-precision script/results delivered privately."
+      ],
+      "rationale": "Reconstructed exactly from the original p.3181 printed reaction equations and p.3182 2x2 modal matrix. Positive equilibrium requires I=(beta/mu)S-alpha; clearing denominators gives the claimed rational cubic. Exact discriminant is negative, and a sign change between 17 and 18 gives its sole real, physically positive root. Differentiating original f,g yields p1=0.01072598427642497, q1=-0.002735311206719895, p2=0.2745085518131537, q2=-0.01726468879328010; Delta=0.0005656855375808754, trace at k=0 is negative. With x=0.12*k^2*pi^2, det_k(eps)=eps*x*(x-q2)-p1*x+Delta and tr_k=-(1+eps)x+p1+q2<0 for eps>=0. Epsilon threshold phi(x)=(p1*x-Delta)/(x*(x-q2)) has derivative numerator -p1*x^2+2Delta*x-Delta*q2, with sole positive zero x=0.11350168081233263 < x1=1.184352528130723. Hence phi strictly decreases for all k>=1, proving k=1 is the first crossing as eps is reduced. At eps_c=0.00852879885272517358 trace is -1.20099233713 and determinant zero; at paper eps=0.0011360854, det=-0.0105208543113 and positive eigenvalue=0.008760101432708765. Source rounded formula separately evaluates to 0.009592999111777033. The reported equilibrium residuals are nonzero. Finite computations corroborate and are not used as the infinite modal proof.",
+      "residual_risks": [
+        "The original PDF has an inconsistent differential term in the second line of its re-expressed Eq.(4.3); the claim and proof explicitly use the unambiguous original Eq.(4.1) and printed modal matrix, not that apparent typo.",
+        "The source does not specify sufficient domain and boundary details to infer a universal PDE bifurcation theorem; this is the printed k^2*pi^2 modal convention only.",
+        "Figures 5–6 use diffusion coefficients D_S=0.03, D_I=0.41 alongside a separate d=0.12 statement; no inference about figure implementation or nonlinear branch stability."
+      ],
+      "status": "PASS",
+      "verification": {
+        "exact_discriminant_negative": true,
+        "first_mode_monotonicity_proved_by_derivative": true,
+        "independently_replayed_numerical_values": true,
+        "method": "Independently derived reaction vector field and Jacobian with SymPy rational arithmetic; evaluated 70-digit mpmath root and modal spectrum without executing repository verify.py. Reconstructed tree hash directly from seven pinned Git blob SHAs.",
+        "result_file": "independent_forest_results.json",
+        "script": "independent_forest_check.py"
+      }
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Zhang DOI 10.3934/math.2024154, Sec.4.2 gives the general determinant-zero curve, but Sec.4.3 asserts the incompatible number and incorrect equilibrium.",
+          "Chen–Zhang 2022 DOI 10.15388/namc.2022.27.27932 pp.904–907 uses a Leslie–Gower predator–prey system with fear effect and rational Holling III interaction, not the forest fire term or Liu–Zhang Section 4.3 constants.",
+          "Resultary published record 2026/10/11/SCOPE-prescribed-triple-coexistence-and-robust-endemic-bistability-in--6c395e546a8c concerns multistability of a different forest disease–fire model, not the linear Turing value."
+        ],
+        "reasoning": "The broader analytic methodology was previously known and is not novel. No inspected prior broader theorem supplies or validates the corrected exact numeric specialization against the article’s contrary calculation; Chen–Zhang has different equations and no parameter implication.",
+        "searches": [
+          "Resultary query \"Liu Zhang forest disease model first Turing threshold corrected Turing instability diffusion Hopf bifurcation first threshold\"",
+          "Web query 10.15388/namc.2022.27.27932 PDF Turing–Hopf",
+          "Web query \"Dynamic analysis of a Leslie-Gower-type predator-prey system with the fear effect\" full text"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Zhang, AIMS Mathematics 9(2) (2024) 3174–3194, DOI 10.3934/math.2024154, relevant primary PDF Sections 4.1–4.3 and figures.",
+        "Chen–Zhang, Nonlinear Anal. Model. Control 27(5) (2022) 904–926, DOI 10.15388/namc.2022.27.27932, relevant open PDF mathematical model.",
+        "Resultary semantic queries including exact matching record 2026/10/11/SCOPE-corrected-first-turing-threshold-for-the-liu-zhang-forest-diseas--2c5023d1e3b9, identified as the assessed record itself.",
+        "Resultary neighboring 2026/10/11/SCOPE-prescribed-triple-coexistence-and-robust-endemic-bistability-in--6c395e546a8c, distinct multistability claim.",
+        "Searches on published threshold 0.0011360854, revised values 0.00852879885272517, article DOI and erratum terminology."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2024 source equations and Jacobian algebra imply the corrected value upon independently solving the equilibrium and inserting its actual derivatives, but the same source states the false number and false equilibrium.",
+          "The independent arithmetic shows the displayed source-rounded formula implies a *third* value 0.00959299911177703, so the published numeric conclusion does not follow from either exact or rounded parameterization.",
+          "The 2022 Chen–Zhang predator–prey system gives no logical deduction of the Liu–Zhang forest-specific values."
+        ],
+        "reasoning": "Mathematical dependence on a published general formula is openly acknowledged; the new claim is a falsifiable correction of that paper’s explicit contradictory specialization, not independent derivation of a general Turing theorem. There is no prior verified statement already making the corrected diagnosis, subject to residual access/indexing risk.",
+        "searches": [
+          "Liu–Zhang 2024 DOI 10.3934/math.2024154 original PDF Sections 4.1–4.3",
+          "Chen–Zhang 2022 DOI 10.15388/namc.2022.27.27932 PDF opening model and bifurcation description",
+          "Resultary targeted matching-source and neighboring reaction–diffusion records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary Liu–Zhang 2024 paper, DOI 10.3934/math.2024154, Secs. 4.1–4.3, prints the contrary equilibrium, 0.0011360854, and mode determinant (pp.3182–3185).",
+          "Alternative names for the same quantity are modal determinant zero, first stationary spatial-mode crossing, critical diffusion ratio and Turing onset for d=0.12.",
+          "Resultary exact-value hit 2026/10/11/SCOPE-corrected-first-turing-threshold-for-the-liu-zhang-forest-diseas--2c5023d1e3b9 is this same assessed record, not independent priority evidence."
+        ],
+        "reasoning": "The numerical diagnosis concerns an explicitly mistaken specialization in the 2024 article; synonyms all reduce to det J_k=0 for the same matrix. The general formula was already published and is explicitly credited. No separate corrected specialization was found; inability to find one is a remaining bibliographic risk.",
+        "searches": [
+          "Resultary query \"reaction diffusion forest-disease fire Liu Zhang 2024 positive equilibrium critical Turing dispersion determinant stationary diffusion first threshold corrected\"",
+          "Web query \"0.00852879885272517\" Liu Zhang forest",
+          "Web query \"0.0011360854\" erratum forest disease",
+          "Web query \"10.3934/math.2024154\" correction Turing equilibrium"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Liu–Zhang Sec. 4.3 p.3185 gives an exact printed rounded-coefficient formula whose evaluation at k=1,d=0.12 is 0.00959299911177703 rather than 0.0011360854.",
+          "Fig. 3 caption, Fig. 5–6 discussion and source rounded equilibrium reproduce the uncorrected values; no separate corrected publisher table or erratum was located.",
+          "The matching Resultary entry is not counted as an independent source."
+        ],
+        "reasoning": "The relevant numerical table is the original published Section 4.3 and figures. That source demonstrably mis-evaluates its own displayed curve and differs from the separately recomputed exact-equilibrium curve. Negative search results cannot eliminate unindexed errata.",
+        "searches": [
+          "Search \"0.0011360854\" forest Turing",
+          "Search \"0.00852879885272517\" forest",
+          "Search \"10.3934/math.2024154\" correction OR erratum OR comment",
+          "Publisher primary DOI 10.3934/math.2024154 figure captions and Section 4.3"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS specifically for the correction/diagnosis of the published false numerical specialization, not for the general dispersion determinant or the elementary method. The original 2024 paper prints the reaction system, general determinant and rounded threshold formula, but declares the incompatible numerical crossing 0.0011360854 and incorrect positive equilibrium (17.252,236.374). Correctly enforcing the same equations gives distinct equilibrium and crossing; the original symbolic formula by itself is prior and is not claimed as new. Exact-value, DOI/erratum and alternative-terminology searches and relevant published-record comparisons did not identify an independent earlier correction. Lack of matches is not proof of absolute priority.",
+      "residual_risks": [
+        "The source already prints the general determinant-zero formula and numerical parameters; the result is a new documented correction of their stated numerical contradiction, not a claim of independent theory or a new symbolic formula. An unindexed earlier note could have identified the error.",
+        "The primary publisher reports citations, not all potential downstream corrections could be checked statement-by-statement.",
+        "The later 2022 methodological PDF was partially text-read only; distinct reaction system makes this sufficient for exclusion, but not a claim of exhaustive whole-PDF absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original source states the incorrect equilibrium and 0.0011360854 at d=0.12; its symbolic determinant and formula agree with the correction when mathematically evaluated. Original general formula is prior.",
+          "evidence": [
+            "Sec.4.1 p.3181 printed reaction–diffusion system",
+            "p.3182 displayed J, TR_k and DET_k",
+            "p.3185 exact rounded formula and explicit 0.0011360854 claim; Fig.3 parameter caption p.3184"
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2024/2/PDF/math-09-02-154.pdf",
+          "material_read": "Open-access publisher full-text pages 3181–3186 (PDF pages 7–12), including (4.1)–(4.3), modal J/TR/DET, B0–B2, Lemmas 2–3, numerical parameters and Figures 3–6 captions; directly inspected page renders 3181, 3182 and 3185.",
+          "method": "Read equation text and inspect PDF page screenshots; compare named determinant, parameters and displayed numerical specialization with fresh exact derivation.",
+          "title": "Forest model dynamics analysis and optimal control based on disease and fire interactions",
+          "trigger": "Exact primary source giving reported threshold and printed Section 4.1–4.3 modal equations."
+        },
+        {
+          "assessment": "Distinct Leslie–Gower fear-effect predator–prey model; cannot imply the Liu–Zhang numerical forest-threshold correction.",
+          "evidence": [
+            "Equation (3) has u/(1+Kv)-u^2-beta*u^2*v/(u^2+m*v^2) and rv(1-v/u), unlike the forest model; publication DOI 10.15388/namc.2022.27.27932."
+          ],
+          "identifier_or_url": "https://www.journals.vu.lt/nonlinear-analysis/article/download/27932/27216/62900",
+          "material_read": "Lawful OA PDF pp.904–907, including reaction–diffusion systems (2) and (3), boundary conditions, equilibrium equations and discussion of Turing and Turing–Hopf parameters; PDF screenshot retrieval was attempted but timed out.",
+          "method": "Textual full-paper access for opening model and comparison of equations and parameters, without claiming all pages were checked.",
+          "title": "Dynamic analysis of a Leslie–Gower-type predator–prey system with the fear effect and ratio-dependent Holling III functional response",
+          "trigger": "Prior methodological paper cited in Liu–Zhang 2024 for Turing criteria, involving same coauthor."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary Liu–Zhang (2024) Sec.4.3 declares the erroneous threshold as Turing bifurcation and uses it to interpret figures.",
+        "Independent exact equilibrium and spectrum show that the source point is not stationary and published epsilon lies strictly on the unstable side."
+      ],
+      "rationale": "The first spectral Turing crossing and positive equilibrium are the explicit reference values organizing a published disease–fire reaction–diffusion numerical example. The true threshold differs by factor about 7.51 from the reported value and the printed equilibrium has nonzero reaction residuals; the independent rounded-formula inconsistency further demonstrates a substantive scientific correction. This is a motivated source-specific boundary diagnosis, not simply another arbitrary sample of a known formula. Future readers reproducing or comparing its stability diagram need the corrected location and cannot rely on the published values. No claim is made of a general theorem, model validation, or patterned-branch dynamics.",
+      "residual_risks": [
+        "The correction is restricted to one explicitly selected d and printed modal convention; it is not a new general technique or full corrected bifurcation diagram.",
+        "The separate d=0.12 choice does not establish which diffusion coefficients were actually used in original spatial plots."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Original Git RESULT.md and verify.py at assignment commit 6c379935c2e469fc18959fc6c387e31328c64bcf, source-tree SHA ef0d64015b0cdfa9b4193fc6ccf35798a14c87fe, and other five pinned package files.",
+    "Liu–Zhang publisher primary PDF pp.3181–3185, equations (4.1)–(4.3) and source numerical formula.",
+    "Independent exact-rational and high-precision script/results delivered privately.",
+    "Liu–Zhang, AIMS Mathematics 9(2) (2024) 3174–3194, DOI 10.3934/math.2024154, relevant primary PDF Sections 4.1–4.3 and figures.",
+    "Chen–Zhang, Nonlinear Anal. Model. Control 27(5) (2022) 904–926, DOI 10.15388/namc.2022.27.27932, relevant open PDF mathematical model.",
+    "Resultary semantic queries including exact matching record 2026/10/11/SCOPE-corrected-first-turing-threshold-for-the-liu-zhang-forest-diseas--2c5023d1e3b9, identified as the assessed record itself.",
+    "Resultary neighboring 2026/10/11/SCOPE-prescribed-triple-coexistence-and-robust-endemic-bistability-in--6c395e546a8c, distinct multistability claim.",
+    "Searches on published threshold 0.0011360854, revised values 0.00852879885272517, article DOI and erratum terminology."
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The original PDF has an inconsistent differential term in the second line of its re-expressed Eq.(4.3); the claim and proof explicitly use the unambiguous original Eq.(4.1) and printed modal matrix, not that apparent typo.",
+    "The source does not specify sufficient domain and boundary details to infer a universal PDE bifurcation theorem; this is the printed k^2*pi^2 modal convention only.",
+    "Figures 5–6 use diffusion coefficients D_S=0.03, D_I=0.41 alongside a separate d=0.12 statement; no inference about figure implementation or nonlinear branch stability.",
+    "The source already prints the general determinant-zero formula and numerical parameters; the result is a new documented correction of their stated numerical contradiction, not a claim of independent theory or a new symbolic formula. An unindexed earlier note could have identified the error.",
+    "The primary publisher reports citations, not all potential downstream corrections could be checked statement-by-statement.",
+    "The later 2022 methodological PDF was partially text-read only; distinct reaction system makes this sufficient for exclusion, but not a claim of exhaustive whole-PDF absence.",
+    "The correction is restricted to one explicitly selected d and printed modal convention; it is not a new general technique or full corrected bifurcation diagram.",
+    "The separate d=0.12 choice does not establish which diffusion coefficients were actually used in original spatial plots."
+  ],
+  "schema_version": 1
+}
