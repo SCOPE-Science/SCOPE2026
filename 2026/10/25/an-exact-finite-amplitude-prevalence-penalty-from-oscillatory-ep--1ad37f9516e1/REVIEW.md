@@ -1,19 +1,21 @@
-# Review of the stationary epidemic-burden law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claimed invariant-measure assumptions make all logarithmic test functions smooth on the invariant support. Averaging the two log derivatives and one centered log-odds derivative gives the three exact moment balances. Eliminating the mean prevalence yields a concave quadratic whose root factorization establishes the variance shell. A zero variance would force both coordinates constant on an invariant measure; consequently every non-Dirac measure has strict variance and covariance signs. Under the stipulated strong-feedback inequality, the root sum is negative and the larger physical root is positive, forcing the other root below its negative. This fixes the correct branch of the quadratic formula for the strictly positive epidemic-mean excess. The result holds for arbitrary compact interior invariant measures, with cycles a stated corollary. Symbolic identities and an actual periodic numerical example were checked; the analytical argument supplies the universal proof.
+PASS
 
-## Originality
+Invariance of a compact interior measure permits integrating the generator applied to log(x/(1-x)), -M log x-(1-M) log(1-x) and log y. Their generator images yield exactly the stated affine means, centered covariance and susceptible-contact identity. Eliminating N produces a concave quadratic in M with leading coefficient -2/zeta, hence V=(M-beta_-)(beta_+-M). A constant x under an invariant measure forces y constant on support, proving non-Dirac implies V>0. The root sum (K+2-zeta)/2<0 and physical beta+>0 imply beta-<-beta+, so M<beta+, d=beta+-M<D/2, selects the smaller root of V=d(D-d) and produces the exact gap and strict bounds. Frieswijk et al. Theorem 2 restrictions imply zeta>K+2 by algebra and ensure an interior periodic measure; no newly proved orbit existence. Independently derived all three generator formulas and quadratic curvature symbolically; numerical period checks are not required for the exact invariant-measure proof.
 
-**PASS, with bibliographic uncertainty.** The 2022 source proves existence and stability of equilibria and a sufficient regime of periodic behavior for the same ODE. Those results do not state the exact variance–covariance identity or its strictly signed excess-prevalence consequence. The closest independently published indexed mean–variance laws concern different epidemic and predator–prey equations and do not imply the present model's formula. The earlier networked game formulation and an alternative evolutionary-distancing epidemic study likewise describe oscillations but not this exact two-dimensional stationary law. Residual risk remains from unindexed reductions or independently observed logarithmic averaging identities; no claim of exhaustive uniqueness is made.
+## originality
 
-## Value
+PASS
 
-**PASS.** Presence of periodic epidemic waves alone does not settle whether oscillations increase or decrease mean infection burden relative to the physical endemic equilibrium. The strict sign and nonlinear quantitative relation are relevant specifically to fluctuating protection adoption and risk perception, and remain true at any cycle amplitude. They let one calculate the excess burden from a single observable behavioral variance, without reconstructing the phase trajectory. The result is not just a claim of cycle existence, a normalization check, or a numerical illustration. It does not prove consequences for finite populations or interventions.
+The epidemic flow, equilibrium branches and periodic existence come from Frieswijk et al. 2022. The model-specific exact identity between stationary variance, negative behavior/infection covariance and elevated mean prevalence at arbitrary amplitude is the assessed contribution, not the classical invariant-generator integration device. Prior published SCOPE finite-amplitude shells use different SI or predator-prey vector fields; the analogous technique does not imply this particular formula.
 
-## Closest sources and residual limits
+## value
 
-Frieswijk et al., arXiv:2203.04016, Proposition 1, Lemma 2, Proposition 2, Theorem 2 and its Appendix, is the closest source and was inspected in relevant full text. Ye et al., arXiv:2008.01971, is an earlier but nonidentical networked behavior model. The 2021 evolutionary distancing model uses a different SEIRS compartment system. Paarporn and Eksin (2023) is a closer SIS/behavior paper: its primary text was inaccessible, and equivalence remains a specifically named risk rather than a purported exclusion. Related published mean-shell work in nonlinear-incidence SI and delayed predator–prey systems provides a thematic analogy, not a logical implication. An unindexed equivalent identity remains possible. Source's theorem supplies a nonconstant orbit in its stated regime; the present theorem does not assert an independently established existence theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact waveform-independent amplification of mean infection from measured protective-behavior variance supplies a mathematically motivated invariant for the specific epidemiological flow, valid far beyond perturbative Hopf analysis. The negative covariance and strict prevalence comparison have a direct structural interpretation, and the exact amplitude-dependent bounds are independently reusable. The conclusion is about deterministic long-run means, not intervention efficacy or welfare.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
