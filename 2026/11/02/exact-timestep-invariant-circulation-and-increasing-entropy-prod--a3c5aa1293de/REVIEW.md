@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The finite-step transition kernel is derived from unbiased coordinatewise rounding. Its double stochasticity, common oriented cycle rates, invariant probability, entropy production, strict monotonicity and exact mean contraction follow by explicit algebra for the entire declared parameter domain. The independent rational finite-state verifier tested 532 parameter pairs but does not substitute for the general proof.
+
+**Originality — PASS, qualified.** The primary stochastic-rounding source (El Arar et al., arXiv:2207.03837v1, sections 2–3), shaken dynamics (Apollonio et al., arXiv:1904.06257, sections 2–4), and Han et al. (Phys. Rev. Research 6, 023162, two-spin switching rates/current) were compared at the level of actual transition processes. Han's known continuous-time asymmetric two-spin law **does cover the limiting spin current**, so that limit is not an originality claim. The assessed finite-step all-\(h\) preservation of current per physical time and strictly increasing entropy production involve simultaneous-flip transitions not specified by Han's rate model, and no covering result was identified in the available sources or targeted mathematical research records. Residual risk: prior finite-step probabilistic cellular automaton and lattice-rounding papers may already derive the same specialized identity; no independent priority certification.
+
+**Value — PASS.** The exact timestep-invariant current and contrasting strict entropy dissipation change at an unchanged stationary law expose a substantive long-time numerical effect not visible in unbiased error or mean-stability checks. This benchmark helps separate deterministic contraction, stochastic stationary error, probability circulation, and thermodynamic dissipation under discretization. It is deliberately narrow: a complete natural finite-state classification, not a general performance guarantee for arbitrary floating-point solvers.
+
+**Scientific limits.** Integer lattice, four corner states, independent end-of-step rounding, \(0<c<1\), \(0<h<1/(1+c)\). No claims of experimental or independent verification.
+
+Self-review: passed. Independent audit: not yet performed.
