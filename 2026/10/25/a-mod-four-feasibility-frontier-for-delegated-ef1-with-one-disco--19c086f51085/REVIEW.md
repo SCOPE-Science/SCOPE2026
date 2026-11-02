@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Strictly positive, constant per-good agent valuations force agent inter-EF1 to coincide with item-count balance. Item-based realized center comparisons then reduce to two exact integer-linear inequalities; the four residue classes exhaust the count possibilities, and every feasible row gives a matching construction. Every boundary is inclusive. The standalone rational verifier checked 1,122 inventory/parameter combinations and separate small-inventory boundaries. Finite checks are supplementary to the all-inventory proof.
+## correctness
 
-**Originality — PASS, subject to residual publication-priority risk.** The closest direct primary source, Deligkas et al. (2026), Theorem 11, presents a 12-good nonexistence example in exactly this valuation pattern but does not state the necessary-and-sufficient threshold for each inventory or the 8–9–10 feasibility reversal. Broader balanced EF1 existence results of Kawase–Mahara and Cookson–Shah–Verma do not include delegated centers with realized self-value and optimized counterfactual other-value. Targeted published mathematical-result and literature comparisons found no exact equivalent in the inspected records; absence from an index is not proof of uniqueness.
+PASS
 
-**Value — PASS.** The classification is motivated by the direct counterexample in the primary two-level fair-division model, rather than an arbitrary item slice. It resolves all integer inventory sizes and all continuous discount values in the smallest two-center, two-member one-discounted-agent template, produces a smaller sharp witness within that template, and exhibits an inventory-monotonicity failure that matters for augmenting donation pools. This does not claim a global minimum for unrestricted valuations, or a general impossibility theorem beyond the specified family.
+For positive and constant per-good value, agent inter-EF1 for every ordered pair is equivalent to maximum minus minimum assigned count at most 1. Hence counts consist of q and q+1 with exactly r larger counts, m=4q+r. Item-based realized center EF1, under exact published definitions, gives a+b>=c+d-1 and c+epsilon*d>=a+b-1. Exhausting each residue r=0,1,2,3 forces canonical count patterns (q,q|q,q), (q,q|q+1,q), (q,q+1|q+1,q), (q,q+1|q+1,q+1). The remaining center inequality gives inclusive thresholds (q-1)/q, max(0,(q-2)/q), (q-1)/q, (q-1)/(q+1). Every allowed epsilon supplies an explicit allocation, and excluded patterns require epsilon>=1 or violate center-1 fairness. Independent exact enumeration verified 1,748 parameter/inventory pairs for 4<=m<=200 and m=8,9,10 reversal; infinite range is covered by four-case proof.
 
-Scientific scope and risk: identical goods, fixed group structure and four agents are essential; publication priority against unindexed equivalent work is unresolved. The independent scientific evaluation channel remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The direct source Deligkas et al. (2026) gives an explicit twelve-good nonexistence witness using the same special agent but does not state or imply exact inventory thresholds, an eight-good first obstruction, or nine-good restoration. Broader balanced EF1 existence guarantees omit the independent delegated-center constraints. The classification and nonmonotonicity are new in inspected statements, with residual unindexed-priority risk.
+
+## value
+
+PASS
+
+The classification directly refines a concrete published impossibility example, resolves the entire discount and inventory frontier for its smallest natural two-center pattern, and exhibits the surprising loss and recovery of feasibility as indivisible items are added. This is a complete exact mathematical fact with allocation-theoretic motivation, not an arbitrary finite census or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

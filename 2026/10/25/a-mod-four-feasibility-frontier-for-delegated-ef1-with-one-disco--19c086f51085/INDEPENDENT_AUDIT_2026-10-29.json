@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:52:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive and constant per-good value, agent inter-EF1 for every ordered pair is equivalent to maximum minus minimum assigned count at most 1. Hence counts consist of q and q+1 with exactly r larger counts, m=4q+r. Item-based realized center EF1, under exact published definitions, gives a+b>=c+d-1 and c+epsilon*d>=a+b-1. Exhausting each residue r=0,1,2,3 forces canonical count patterns (q,q|q,q), (q,q|q+1,q), (q,q+1|q+1,q), (q,q+1|q+1,q+1). The remaining center inequality gives inclusive thresholds (q-1)/q, max(0,(q-2)/q), (q-1)/q, (q-1)/(q+1). Every allowed epsilon supplies an explicit allocation, and excluded patterns require epsilon>=1 or violate center-1 fairness. Independent exact enumeration verified 1,748 parameter/inventory pairs for 4<=m<=200 and m=8,9,10 reversal; infinite range is covered by four-case proof.",
+      "residual_risks": [
+        "Only identical positive goods and item-based realized center semantics; not general delegated fair division."
+      ],
+      "sources": [
+        "RESULT.md @ blob a9a8cbe17651f5602e7b358805192a565a26f3b2",
+        "arxiv:2607.27743 Sections 2 and 4.2 Definitions 4–5 Theorem 11",
+        "independent_checks.py exact count-pattern enumeration"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kawase–Mahara and Cookson–Shah–Verma give ordinary balanced allocation existence under agent constraints, not center-level realized EF1.",
+          "The exact source has different results for item-based potential and bundle-based center assessments."
+        ],
+        "reasoning": "The stronger agent-level existence theorems cannot imply simultaneous center EF1; indeed the current eight-good example violates center EF1 while balanced agent EF1 exists.",
+        "searches": [
+          "Resultary semantic query: delegated fair division two centers item-based realized EF1 one discounted agent identical goods exact feasibility threshold m mod 4",
+          "arxiv:2603.05956",
+          "arxiv:2608.06325"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2607.27743 full HTML definitions/Section 4.2/Theorem 11",
+        "arxiv:2603.05956 abstract/metadata",
+        "arxiv:2608.06325 abstract",
+        "Resultary search for m mod4 delegated EF1 discounted agent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 11 proves that some twelve-good two-center bivalued instance has no simultaneous center EF1 and inter-EF1.",
+          "The current theorem proves the exact epsilon threshold for every m>=4, with first impossibility at m=8 and feasibility returning at m=9 for small positive epsilon."
+        ],
+        "reasoning": "The known twelve-good obstruction does not imply minimality at eight or inventory nonmonotonicity. The two statements share the model and source witness, but the exact classification substantially strengthens rather than duplicates the prior result.",
+        "searches": [
+          "arxiv:2607.27743 Theorem 11 complete proof",
+          "Resultary semantic query: delegated fair division two centers item-based realized EF1 one discounted agent identical goods exact feasibility threshold m mod 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identical per-good but agent-specific cardinal utilities make all inter-EF1 constraints a balance condition on counts.",
+          "The center realized-vs-hypothetical rival utility gives two additional inequalities; item-based potential valuation would use different own-center utility."
+        ],
+        "reasoning": "The exact feasibility condition is equivalent to an integer four-part balancing problem with two center inequalities, rather than to ordinary balanced EF1. The distinction in valuation semantics is essential.",
+        "searches": [
+          "Resultary semantic query: delegated fair division two centers item-based realized EF1 one discounted agent identical goods exact feasibility threshold m mod 4",
+          "arxiv:2607.27743 Definitions 4–5, Section 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published numeric witness is twelve goods with three per agent, center two utility 3+3epsilon vs five after removal.",
+          "The classification supplies four complete modular formulas over all inventory sizes and all epsilon in (0,1); published example is only one parameter point."
+        ],
+        "reasoning": "An isolated database/example value does not determine a necessary-and-sufficient all-m frontier; prior m=12 is recovered as a special case without claiming that example original.",
+        "searches": [
+          "Resultary semantic query: delegated fair division two centers item-based realized EF1 one discounted agent identical goods exact feasibility threshold m mod 4",
+          "arxiv:2607.27743 Theorem 11 twelve-good construction"
+        ]
+      },
+      "rationale": "The direct source Deligkas et al. (2026) gives an explicit twelve-good nonexistence witness using the same special agent but does not state or imply exact inventory thresholds, an eight-good first obstruction, or nine-good restoration. Broader balanced EF1 existence guarantees omit the independent delegated-center constraints. The classification and nonmonotonicity are new in inspected statements, with residual unindexed-priority risk.",
+      "residual_risks": [
+        "Unindexed all-inventory analyses of exactly this four-agent discount pattern may exist; no database absence is treated as novelty proof.",
+        "No claim of minimal impossibility among unrestricted delegated fair division instances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_AND_SPECIAL_CASE_COVERED_NOT_CLASSIFICATION",
+          "evidence": "Theorem 11 gives m=12 nonexistence for small discount but no all-inventory modular threshold or 8–9–10 reversal.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.27743",
+          "material_read": "Full arXiv-rendered 923-line paper HTML, including Section 2 valuation definitions and Section 4.2 Theorem 11 proof.",
+          "method": "Reconstructed center own-realized/rival-potential inequality and compared the known 12-good witness with all-m threshold.",
+          "title": "Delegated Fair Division",
+          "trigger": "Self-review, valuation semantics and twelve-good witness"
+        },
+        {
+          "assessment": "RELATED_AGENT_LEVEL_ONLY_IN_ACCESSIBLE_MATERIAL",
+          "evidence": "Applies to balancing individual bundles, which is necessary but insufficient for center-level EF1.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.05956",
+          "material_read": "Public bibliographic/abstract-level scope and cited claim; full paper not read this run.",
+          "method": "Compared absence of delegated center fairness.",
+          "title": "Fair and Efficient Balanced Allocation for Indivisible Goods",
+          "trigger": "Possible broader balanced EF1 existence"
+        },
+        {
+          "assessment": "RELATED_AGENT_LEVEL_ONLY_IN_ACCESSIBLE_MATERIAL",
+          "evidence": "The stated theorem does not include delegated-center utility and thus does not entail the infeasibility thresholds.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.06325",
+          "material_read": "Public arXiv abstract and high-level theorem summary; full manuscript not read this run.",
+          "method": "Compared fPO/EF1 balances with additional center utility inequalities.",
+          "title": "Fair and Efficient Balanced Allocations for Additive Valuations",
+          "trigger": "2026 general additive EF1 existence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classification directly refines a concrete published impossibility example, resolves the entire discount and inventory frontier for its smallest natural two-center pattern, and exhibits the surprising loss and recovery of feasibility as indivisible items are added. This is a complete exact mathematical fact with allocation-theoretic motivation, not an arbitrary finite census or known-table recomputation.",
+      "residual_risks": [
+        "Interpretation restricted to item-based realized center utility and positive discount epsilon<1."
+      ],
+      "sources": [
+        "arxiv:2607.27743 Theorem 11 directly motivating 12-good example",
+        "RESULT.md exhaustive four-case threshold and 8–9–10 reversal"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2607.27743 full HTML definitions/Section 4.2/Theorem 11",
+    "arxiv:2603.05956 abstract/metadata",
+    "arxiv:2608.06325 abstract",
+    "Resultary search for m mod4 delegated EF1 discounted agent"
+  ],
+  "disposition": "passed",
+  "limitations": "Publication withheld: PUBLIC AUDIT.json and METADATA.json both contain the operational scope_run_id field. Complete guarded, confidentiality-neutral file replacements were not prepared; no public source package should be delivered or imported from this plan.",
+  "residual_risks": [
+    "Only identical positive goods and item-based realized center semantics; not general delegated fair division.",
+    "Unindexed all-inventory analyses of exactly this four-agent discount pattern may exist; no database absence is treated as novelty proof.",
+    "No claim of minimal impossibility among unrestricted delegated fair division instances.",
+    "Interpretation restricted to item-based realized center utility and positive discount epsilon<1."
+  ],
+  "schema_version": 1
+}
