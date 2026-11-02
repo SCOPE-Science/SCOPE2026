@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For x=a*u0+b*u1+w+z, im ad_x=(a+bT)R+span(w,Tw). A zero pencil has exact ranks 0,1,2 from cyclic eigenlines; a nonzero pencil is a unit or a single linear factor of T^n-1, yielding ranks n and n-1. Central factors and all ranges were independently checked, and full brute-force matrix ranks match in 8 fields and sizes. The nonpolynomiality follows rigorously by alternating fixed-prime extension degrees.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rossmann, doi:10.1112/blms.12665, §1.1–1.4 and Theorem A, independent edge-label basis.",
+        "Payne–Schroeder, arXiv:1603.00803, Definitions 2.1 and regularity requirement."
+      ],
+      "reasoning": "Rossmann covers the uncolored graph with independent central directions on each edge; quotienting central labels changes the rank matrix, and the resulting gcd dependence prevents importing his single polynomial. Payne–Schroeder requires uniform vertex degree, whereas K_{2,n} has degrees n and 2 for n>2. Neither is stronger coverage.",
+      "searches": [
+        "Finite field polynomiality obstruction to class sizes of 2-step nilpotent Lie algebras repeated edge labels cyclotomic roots",
+        "Uniform Lie algebras and uniformly colored graphs Payne Schroeder Lie(G) Lie bracket adjoint rank strata conjugacy counts",
+        "Rossmann graphical groups polynomial class size edge basis distinct labels",
+        "Payne Schroeder uniformly colored graphs proper equal colors regular graph"
+      ]
+    },
+    "checked_sources": [
+      "Godoy Molina and Lagos, arXiv:2308.00272, Section 5, derivations of complete bipartite Lie algebras for one label or mn independent labels",
+      "Rossmann, doi:10.1112/blms.12665, distinct-edge graphical group class-size polynomial, Theorem A",
+      "Chakrabarti, Mainkar and Swiatlowski, arXiv:1812.09439, symmetry/automorphism groups of cyclic coloring of complete graphs",
+      "Payne and Schroeder, arXiv:1603.00803, uniform Lie algebras requiring vertex-regular coloring"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Godoy Molina and Lagos, arXiv:2308.00272, Section 5, derivations of complete bipartite Lie algebras for one label or mn independent labels",
+        "Rossmann, doi:10.1112/blms.12665, distinct-edge graphical group class-size polynomial, Theorem A",
+        "Chakrabarti, Mainkar and Swiatlowski, arXiv:1812.09439, symmetry/automorphism groups of cyclic coloring of complete graphs",
+        "Payne and Schroeder, arXiv:1603.00803, uniform Lie algebras requiring vertex-regular coloring"
+      ],
+      "reasoning": "The theorem follows from the new case split for the pair of cyclic-shift columns and pencil a+bT: at least two central directions share each label, unlike Rossmann. Godoy Molina–Lagos compute graded derivation dimensions, which do not imply numbers of elements in adjoint-rank strata. Earlier coloring papers supply constructions/symmetries, not these finite-field counts. Standard rank-one cyclic pencil theory supplies a lemma but no inspected prior source explicitly couples it to this complete Lie enumeration and field-size nonpolynomiality.",
+      "searches": [
+        "Rank generating polynomial adjoint Lie algebra cyclic matching edge coloring complete bipartite K_{2,n} brackets [u0,vj]=zj [u1,vj]=z(j+1), gcd(n,q-1) finite field non polynomial",
+        "Cyclic regular matrix pencil xI+yP Lie two-step nilpotent complete bipartite edge-colored graph centralizer rank distribution q prime powers",
+        "Uniform Lie algebras and uniformly colored graphs Payne Schroeder Lie(G) Lie bracket adjoint rank strata conjugacy counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rank spectrum is equivalently a cyclic matrix-pencil rank/centralizer distribution for the Lie bracket [u_i,v_j].",
+        "Godoy Molina–Lagos, arXiv:2308.00272, Sections 2 and 5."
+      ],
+      "reasoning": "Searched cyclic pencils, colored graph Lie algebras, centralizer distributions and root-of-unity aliases; located constructions and different invariants, no statement giving the same cyclic matching-color rank counts. The elementary pencil-rank computation is standard linear algebra, but the complete Lie invariant is not stated in these materials.",
+      "searches": [
+        "Rank generating polynomial adjoint Lie algebra cyclic matching edge coloring complete bipartite K_{2,n} brackets [u0,vj]=zj [u1,vj]=z(j+1), gcd(n,q-1) finite field non polynomial",
+        "Cyclic regular matrix pencil xI+yP Lie two-step nilpotent complete bipartite edge-colored graph centralizer rank distribution q prime powers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Godoy Molina–Lagos, arXiv:2308.00272, Section 4 small Lie graphs and Section 5 bipartite derivations.",
+        "Chakrabarti–Mainkar–Swiatlowski, arXiv:1812.09439, Section 3 labeled complete graphs."
+      ],
+      "reasoning": "Their small-dimensional graph tables and cyclic-color complete-graph examples have distinct domains; no exact rank-strata table or general formula for the present nonregular bipartite coloring was found. A search miss does not prove absence in all databases.",
+      "searches": [
+        "Rank generating polynomial adjoint Lie algebra cyclic matching edge coloring complete bipartite K_{2,n} brackets [u0,vj]=zj [u1,vj]=z(j+1), gcd(n,q-1) finite field non polynomial",
+        "Finite field polynomiality obstruction to class sizes of 2-step nilpotent Lie algebras repeated edge labels cyclotomic roots",
+        "finite field two step nilpotent colored graph K2 n adjoint rank table gcd roots unity"
+      ]
+    },
+    "rationale": "Full-text comparisons identify no stronger theorem yielding the rank distribution for the intermediate n-label K_{2,n} cyclic matching coloring. The exact distinct-edge graphical class-size theorem assumes a central generator for each edge and does not survive identifications. The new arithmetic nonpolynomiality is incompatible with a naive extension. Published-priority risk from general matrix pencils remains explicit.",
+    "residual_risks": [
+      "A general older classification of cyclic matrix-pencil ranks could imply the coefficient formula after translating to these Lie algebras; a citation with that implication was not found in inspected sources.",
+      "Full global publication priority cannot be certified from literature and database searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: one-label and all-distinct-label bipartite graded derivations; no intermediate cyclic color and no adjoint rank count",
+        "evidence": [
+          "Definition 2.1 identifies central labels; Section 5.1 labels all edges once, Section 5.2 uses mn distinct labels, Propositions 5.1–5.2 concern Der_0 dimensions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.00272",
+        "material_read": "Full 11-page PDF text searched for rank/centralizer; Definitions 2.1, Section 3 and all of Section 5 read closely",
+        "method": "full public PDF text and page-image inspection",
+        "title": "Lie algebras associated with labeled directed graphs",
+        "trigger": "exact graph-Lie construction and complete bipartite examples"
+      },
+      {
+        "assessment": "NOT_COVERING for repeated labels: independent central generator per edge; covers the distinct-edge case only",
+        "evidence": [
+          "Theorem A uses class-size polynomial F_Gamma; each edge has its own basis direction (graphical group), unlike identification of pairs of edges here."
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/blms.12665",
+        "material_read": "Open-access HTML, Sections 1.1–1.4, main theorem statements and graph-polynomial formula",
+        "method": "full-text open-access HTML reading and formula comparison",
+        "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+        "trigger": "possible stronger rank and polynomiality theorem"
+      },
+      {
+        "assessment": "No covering statement in inspected material: odd complete graph colorings and symmetry/automorphism results, not the present bipartite adjoint-rank counts",
+        "evidence": [
+          "Introduction Theorems 1.1–1.2 compute graph and Lie automorphism subgroups of odd-order complete graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1812.09439",
+        "material_read": "Introduction, cyclic coloring construction in Sections 2–3 and main theorem statements; entire parsed PDF text searched for rank and centralizer",
+        "method": "public PDF text and page-image inspection",
+        "title": "Automorphism groups of nilpotent Lie algebras associated to certain graphs",
+        "trigger": "cyclic colored graph and repeated-label Lie construction"
+      },
+      {
+        "assessment": "No covering statement in inspected material: regular-degree colored graphs; the basis-vector adjoint-rank theorem is not a count of all linear combinations in this nonregular bipartite algebra",
+        "evidence": [
+          "Definition 2.1 requires common degree s at every generator; K_{2,n} has degrees n and 2 for n>2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1603.00803",
+        "material_read": "Introduction, Definition 2.1, Theorem 3.2 (including its basis-vector adjoint-rank assertion), and whole-text searches for adjoint/centralizer",
+        "method": "public PDF text and page-image inspection",
+        "title": "Uniform Lie algebras and uniformly colored graphs",
+        "trigger": "color-balanced matching graphs and possible general structure result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dfe71512-dc62-44e7-916f-81dc861f952a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact full adjoint-rank/centralizer strata for a natural intermediate cyclic matching coloring of K_{2,n} resolve an intrinsically motivated structural invariant. The nonpolynomial fixed-dimension coefficient gives a concrete arithmetic boundary to polynomial graphical-group counting under label identifications, not merely a routine field-specialized numerical count.",
+    "status": "PASS"
+  }
+}
