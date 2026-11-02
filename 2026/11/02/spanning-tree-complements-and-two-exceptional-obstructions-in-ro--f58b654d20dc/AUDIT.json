@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The exact decomposition of the rook Laplacian gives four eigenspaces, with the m and n eigenspaces merging at equal dimensions. At q=(m-1)(n-1) independent coordinate inputs, PBH on the highest space is equivalent to the complement being a spanning tree by the bipartite cycle-space theorem. For unequal dimensions, a nonzero row or column mode supported on a tree would require a four-cycle. At equal dimensions, the additional eigenspace is characterized by the two component-count sums; an exhaustive extremal edge-count argument leaves precisely two and only two obstruction families. The exact tree counts and zero-forcing comparison follow by constructive arguments. The standard-library checker passed 18,925 exact modular modal cases, a full 3-by-3 Kalman enumeration, 48 larger direct Kalman cases, and small exact zero-forcing checks. Finite tests are not used to infer infinite validity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yuan et al. (2013), general PBH maximum multiplicity, https://doi.org/10.1038/ncomms3447",
+        "Rahmani et al. (2009), symmetry/equitable partitions, https://doi.org/10.1137/060674909",
+        "Chapman et al. (2012), simple-spectrum condition fails because both factors have repeated eigenvalues."
+      ],
+      "reasoning": "These theories apply to the network class and imply useful bounds or tests, but their inspected statements do not logically determine which labeled maximum-eigenspace coordinate minors are invertible or which balanced products have extra middle-eigenspace cancellation. Broad applicability is not the same as coverage of the explicit enumeration.",
+      "searches": [
+        "controllability Cartesian product of complete graphs dedicated leaders rook graph",
+        "Cartesian product complete graph controllability minimum leader set product control Laplacian graph"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1137/060674909",
+      "https://depts.washington.edu/uwrainlab/wordpress/wp-content/uploads/2019/02/On_the_controllability_and_observability_of_cartesian_product_networks.pdf",
+      "https://doi.org/10.1038/ncomms3447",
+      "https://arxiv.org/abs/1403.4868",
+      "https://doi.org/10.1049/cth2.12385",
+      "https://arxiv.org/abs/1507.06583"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Monshizadeh-Zhang-Camlibel (2014), Theorem IV.4, https://arxiv.org/abs/1403.4868: zero forcing guarantees control of entire matrix pattern, stronger than a fixed Laplacian in a different sense.",
+        "Yuan et al. (2013), https://doi.org/10.1038/ncomms3447: maximum multiplicity controls the minimum input-channel count.",
+        "Earlier self-contained triangular-graph classification concerns L(K_n), not L(K_{m,n}); its incidence and eigenvalue decomposition do not imply the balanced rook-graph component-count obstruction."
+      ],
+      "reasoning": "The new count is not the simple multiplicity corollary: even at minimum size many square spanning-tree complements are uncontrollable, and only two explicit families fail. A zero-forcing sufficient condition cannot produce an if-and-only-if list of fixed-weight controllable sets; indeed this result gives strict separation q versus Z=q+1. The prior L(K_n) result uses a different ambient graph and is neither a special case nor a stronger classification of L(K_{m,n}).",
+      "searches": [
+        "zero forcing number Cartesian product complete graphs K_m square K_n",
+        "rook graph minimum leader set complement spanning tree exact count controllable placements",
+        "Unit-weight Laplacian rook graph K_m Cartesian K_n all minimum independent coordinate leader placements counted by m^(n-1)n^(m-1), with balanced square exception n^(2n-2)-n^2((n-1)^2+1) and spanning-tree complement criterion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chapman et al. (2012), Sections III-V: product/layered actuation, simple-eigenvalue hypothesis for minimality; https://depts.washington.edu/uwrainlab/wordpress/wp-content/uploads/2019/02/On_the_controllability_and_observability_of_cartesian_product_networks.pdf",
+        "Dai (2022), Section 2 and conclusion: minimal perfect critical sets for other graph families; https://doi.org/10.1049/cth2.12385"
+      ],
+      "reasoning": "The equivalent rook-graph formulations as a Cartesian product of complete graphs and as the line graph of a complete bipartite graph were searched. The 2012 sufficient product/layered controls do not distinguish two balanced exceptional tree complements or enumerate all minimum placements. The 2022 general critical-set framework does not contain this concrete classification.",
+      "searches": [
+        "controllability Cartesian product complete graphs rook graph minimum leader selection controllability 2014",
+        "Laplacian controllability rook graphs minimum leader sets spanning tree graph complement",
+        "minimum controllability rook graphs exact leader placements line graph complete bipartite graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant rook-graph Smith/critical group paper (Ducey-Gerhard-Watson, 2015), arXiv:1507.06583, studies invariant factors and tree critical groups rather than actuator-placement tables.",
+        "Semantic match: published rook-graph three-cut-complex homology result, homology rather than controllability.",
+        "Semantic match: published rook-graph neighborhood homology result, higher neighborhood homology rather than control."
+      ],
+      "reasoning": "No inspected published exact table or returned semantic record listed the all-size count or the balanced forbidden families. The homology and invariant-factor works on the same rook objects are about different invariants and do not yield the asserted control placements by their stated results. Incomplete indexing and unpublished tables remain risks.",
+      "searches": [
+        "rook graph minimum leader set complement spanning tree exact count controllable placements",
+        "K_m square K_n controllability all minimum leaders spanning trees square exception",
+        "rook graph Laplacian Kalman controllability square complete bipartite line graph enumeration",
+        "Unit-weight Laplacian rook graph K_m Cartesian K_n all minimum independent coordinate leader placements counted by m^(n-1)n^(m-1), with balanced square exception n^(2n-2)-n^2((n-1)^2+1) and spanning-tree complement criterion"
+      ]
+    },
+    "rationale": "The evaluated novelty is the full if-and-only-if enumeration of minimum dedicated coordinate actuator placements on rook graphs, especially the two disjoint balanced exceptions. General PBH, product eigenvalues, maximum multiplicity, complete-bipartite tree counts, and zero forcing are known and expressly not treated as original. The inspected Cartesian-product paper relies on simple product spectra for its minimum product control theorem and gives layered constructions, not the stated classification when the product spectrum has forced degeneracies. The multiplicity paper gives the number of abstract independent inputs but not all dedicated vertex locations. Published graph-controllability searches and semantic overlap searches produced no scientifically equivalent statement. Historical unindexed coverage remains a risk.",
+    "residual_risks": [
+      "A specialized historical article on grid, line-graph, or Cartesian-product controllability may contain an equivalent result under different language.",
+      "Only the abstract and bibliographic evidence for the 2009 symmetry paper were read; no whole-text noncoverage claim is made for it.",
+      "A short search of indexed and semantic source records does not establish historical priority or uniqueness.",
+      "All-size proof is evaluated during self-review, not independently refereed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_SYMMETRY_RESULT_NOT_EXACT_PLACEMENT_ENUMERATION_IN_INSPECTED_MATERIAL",
+        "evidence": [
+          "2009 online-publication date and symmetry/equitable-partition topic evidenced by SIAM page; no assertion about unchecked full text"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060674909",
+        "material_read": "Abstract, published abstract/metadata and author-supplied contribution description; full article not accessible in this check",
+        "method": "Read SIAM abstract and bibliographic page",
+        "title": "Controllability of Multi-Agent Systems from a Graph-Theoretic Perspective",
+        "trigger": "Foundational symmetry-and-leader controllability paper, primary MSC 93B05"
+      },
+      {
+        "assessment": "NOT_DIRECT_COVERAGE: minimum product-set statement assumes simple product eigenvalues, while K_m square K_n has repeated spectrum; layered control does not enumerate all minimum sets",
+        "evidence": [
+          "Theorem IV.1 assumes simple product eigenvalues; Theorem IV.9 minimality again uses that assumption; Theorem V.1 is a layered construction."
+        ],
+        "identifier_or_url": "https://depts.washington.edu/uwrainlab/wordpress/wp-content/uploads/2019/02/On_the_controllability_and_observability_of_cartesian_product_networks.pdf",
+        "material_read": "Full six-page parsed paper with inspected page images 0,2,3,4; Sections III-V and theorem hypotheses",
+        "method": "Read full paper text and page images, especially Theorem IV.1, Theorem IV.9, Theorem V.1",
+        "title": "On the Controllability and Observability of Cartesian Product Networks",
+        "trigger": "Directly addresses product-network controllability and minimum control arrangements"
+      },
+      {
+        "assessment": "GENERAL_LOWER_BOUND_COVERAGE_ONLY: no explicit all-placement rook-graph family classification in examined article",
+        "evidence": [
+          "Equation for driver input count as maximum geometric multiplicity and driver identification through column canonical form."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/ncomms3447",
+        "material_read": "Open-access full text: introduction, exact controllability theory, rank/driver construction, discussion",
+        "method": "Read Nature full HTML including derivation and discussion of maximum multiplicity and row operations",
+        "title": "Exact Controllability of Complex Networks",
+        "trigger": "Potential stronger general maximum-multiplicity or driver placement theorem"
+      },
+      {
+        "assessment": "NOT_DIRECT_COVERAGE: zero forcing is a stronger all-realizations criterion, and fixed-Laplacian control can occur without zero forcing",
+        "evidence": [
+          "Theorem IV.4 characterizes all-matrix-pattern control via zero forcing, while text separately notes a fixed Laplacian may be controlled by a non-zero-forcing leader set."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+        "material_read": "ArXiv HTML including sections II-IV, Theorem IV.4 and qualitative subclass limitation",
+        "method": "Read HTML full-content representation and theorem IV.4 with discussion of fixed Laplacian vs structural classes",
+        "title": "Zero Forcing Sets and Controllability of Dynamical Systems Defined on Graphs",
+        "trigger": "Strongest graph-theoretic criterion that might subsume actuator placements"
+      },
+      {
+        "assessment": "NOT_DIRECT_COVERAGE: general critical-set framework and tree/scale-free examples, no rook-graph exact count",
+        "evidence": [
+          "Introduction highlights MPCS approach, and conclusions specialize to tree graphs and selected network families; rook and Cartesian graph name searches absent."
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/cth2.12385",
+        "material_read": "Full open-access HTML, introduction, Sections 2-4 and conclusion; rook and Cartesian terms checked",
+        "method": "Read Wiley full HTML and search for the rook/product graph family",
+        "title": "Minimum Leader Selection for Controllability of Undirected Graphs with Leader-Follower Framework",
+        "trigger": "Recent possible generalized classification of all minimum leader sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f58b654d-20dc-4140-873e-ee683745d843",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete classification and exact labeled enumeration of all minimum coordinate-actuator placements on an infinite family of dense Cartesian-product networks, with a sharp balanced/unbalanced spectral collision and two explicit bad tree types; a one-edge exchange gives a constructive square-case optimal design. The exact selection test is combinatorial rather than repeated full Kalman matrix computations. The strict gap between fixed-Laplacian actuation and strong zero forcing makes the distinction consequential.",
+    "status": "PASS"
+  }
+}
