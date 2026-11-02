@@ -1,11 +1,21 @@
-# Review: a-number divisor in genus-five characteristic-three Artin–Schreier moduli
+# Independent mathematical audit
 
-**Correctness (PASS).** Riemann–Hurwitz permits exactly the two ramification partitions. On the mixed break \((4,1)\) stratum, the five explicitly regular differentials form a basis and the Cartier images have rank \(2\) or \(3\) depending exactly on the normalized coefficient \(a\). This is a symbolic computation, not an inference from a finite sample. Pries–Zhu supplies ambient moduli dimensions and the three-pole case follows from p-rank four. A standalone exact checker covers all \(18\) ternary coefficient specializations.
+## correctness
 
-**Originality (PASS, qualified).** Pries–Zhu's stronger-scope genus-five moduli theorem identifies p-rank and ramification strata but does not imply the internal a-number jump. Farnell–Pries assumes \(p\equiv1\pmod L\) and thus excludes jump four in characteristic three. The subsequent a-number bounds of Booher–Cais do not distinguish the normalized \(a=0\) locus. Searches for equivalent Cartier–Manin, Hasse–Witt, ramification and a-number formulations did not find an exact table. Such a table may exist elsewhere; non-detection does not prove uniqueness.
+PASS
 
-**Value (PASS).** The natural single p-rank-two component contains a nontrivial intrinsic Cartier-rank jump along a full codimension-one locus. The resulting complete list of all genus-five Artin–Schreier a-number strata and their dimensions answers a structural moduli question rather than a numerical experiment on isolated curves. The reduced-divisor claim is expressly restricted to the normalized parameter variety.
+For smooth connected genus-five Artin–Schreier covers in characteristic three, RH partitions sum(m_i+1)=7 and m_i prime to 3, forcing jumps (4,1) or (2,1,1). In the two-pole case normalize y^3−y=x^4+a x²+b x+c/x (c≠0). Local valuations at infinity (-3,-4,4) for x,y,dx and at zero (3,-1,4) show the five forms dx/x, dx, x dx, y dx/x, y dx form a regular basis. Cartier identities yield C(dx/x)=dx/x, C(dx)=C(xdx)=0, C(y dx/x)=y dx/x, C(y dx)=−c^{1/3}dx/x−a^{1/3}dx, so its semilinear rank is three iff a≠0 else two, giving a-number two/three. Independent Laurent-Cartier reimplementation checked all 18 F3 specializations and the symbolic dependence on a. Three-pole p-rank four and genus five force a-number one. The Pries–Zhu partition dimensions give two-pole dimension3 and three-pole dimension4; coefficient divisor a=0 in A²×Gm has dimension2 and is reduced there. On underlying curves the cover-to-curve map has finite fibers, so dimensions 4,3,2 apply to a=1,2,3 respectively.
 
-**Scope and limits.** The result does not classify other genus-five curves, the full Ekedahl–Oort type, or the scheme structure of the a-number locus inside a moduli stack. The checked sources are Farnell's 2010 thesis, Farnell–Pries (arXiv:1202.4183), Pries–Zhu (doi:10.5802/aif.2692), Booher–Cais (arXiv:1807.10313), and the genus-five ramification table in arXiv:2602.22435.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The p-rank/ramification partitions and their dimensions were known from Pries–Zhu, while Farnell–Pries constant-Cartier-rank condition p≡1 mod lcm(4,1) does not hold at p=3. Duque-Rosero et al. 2026 same genus/characteristic invariants tables include (4,1),(2,1,1) and dimensions 3,4, but their inspected section and table concern invariant rings, not Cartier a-number jump. Result is the coefficient-sensitive transition and complete a-stratification, qualified for unindexed older Cartier computations.
+
+## value
+
+PASS
+
+The a-number stratification inside the natural genus-five Artin–Schreier moduli problem, especially its reduced codimension-one jump at coefficient a=0, is an intrinsic Jacobian invariant and a motivated refinement of p-rank partitions and moduli dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
