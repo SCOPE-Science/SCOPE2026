@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact base set is the rank-two Schubert matroid with a forbidden pair within one initial parallel class. Maximization decomposes rigorously into the top two complementary scores or the top complementary and top class scores; the upper and lower normal-score point processes converge jointly to independent Poisson extremes. The positive extreme process has the explicit exponential-order-statistic representation, and conditioning gives the displayed CDF. Gaussian radial normalization has an error negligible at the width fluctuation scale. Mills-tail domination controls expectations; an exponential/Gamma mixture computes the mean and strict asymptotic hypersimplex gap. The class-exposure probability follows from uniformly random coordinate rankings. The embedded checker independently enumerates exact finite vertex support scores and evaluates the CDF numerically, but those tests alone do not prove asymptotics.
+PASS
 
-## Originality — PASS, qualified
+For any scores g, max pair among allowed AB and BB is B_(1)+max(B_(2),A_(1)); minimum follows applying to -g. iid continuous rank argument gives exact exposed-class mass 1-q(q-1)/(n(n-1)); Gaussian tails yield independent B upper PPP and A upper PPP with intensities e^-x and c e^-x, giving H_c. Lower and upper tails jointly independent by multinomial rare-event convergence. To transfer to the intrinsic sphere, project Gaussian scores to zero-sum subspace and divide by independent chi_(n-1) radius; directional width is invariant under common translation; radial error o_P(a_q). Extreme order-statistic integrability from Mills bounds gives stated mean and second-order deficit 2(log(1+c)-c/(1+c)), positive for c>0. Independent direct support min/max checks for 300 deterministic Gaussian score instances and numerical integration of nine limiting CDF values; finite diagnostics not proof of weak convergence.
 
-The 2017 original lattice-path matroid polytope papers and 2023 triangulation/snake-decomposition work address faces, lattice points, Ehrhart data, and rank-two h-star enumeration, not random Euclidean width laws. Existing rank-two matroid metric results concern inradius or Minkowski asymmetry; the known width fluctuation law for complete-bipartite *symmetric edge* polytopes concerns a different centrally symmetric body. A semantic mathematical-record search for parallel classes, clipped hypersimplices, Gumbel point processes, and mean width identified no theorem covering the Poisson competition between the top two complementary Gaussian scores and one parallel-class extreme. A general order-statistics formulation may exist; this is an explicit residual bibliographic risk, not a claim of proven uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question arises naturally by removing precisely the forbidden bases of a rank-two lattice-path matroid from a hypersimplex. The result simultaneously identifies its angular normal-cone class probability, a nontrivial one-parameter fluctuation crossover, and the first asymptotic mean-width loss invisible at leading order. Its positive sharp deficit quantifies an intrinsic Euclidean effect of parallel classes, distinct from known face counts and Ehrhart invariants.
+Qualified best-of-knowledge PASS on complete stated final result; exact same-object full primary theorems and Resultary published findings compared by mathematical implication, not titles. Older tools or special cases acknowledged as prior. Standard PPP theorem gives convergence of top Gaussian order stats and is explicitly acknowledged; combining it with this matroid exact support identity yields the stated H_c law and expected deficit. This is a nontrivial evaluated geometric specialization, not a corollary of the surveyed LPM face/volume/inradius statements. Important historical risk that older Gaussian order-statistic treatments contain exactly this mixed top-two crossover and constant.
 
-## Scope and outstanding limitations
+## value
 
-The theorem requires \(q\to\infty\) with finite \(p/q\to c\), and says nothing about unbounded ratios or several competing parallel classes. Relevant primary papers were checked by their substantive geometric and combinatorial results. No independent mathematical audit has been performed; the general Gaussian order-statistics literature remains a residual novelty risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rank-two Schubert/lattice-path matroid polytope obtained by excluding one parallel-class pair family is a natural clipped hypersimplex. Its Gaussian directional-width law, exact finite normal-cone class probability, and sharp positive second-order mean-width loss quantify a geometric distinction invisible in leading width; this is a motivated specific invariant rather than arbitrary size computation. General Gaussian EVT and matroid geometry are acknowledged inputs; regime c=infinite and arbitrary parallel-class profiles excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
