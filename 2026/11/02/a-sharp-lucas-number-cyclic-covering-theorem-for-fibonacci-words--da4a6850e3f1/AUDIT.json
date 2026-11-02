@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "All n>=2 are covered by a self-contained proof. On the unrestricted de Bruijn graph, mandatory 00-free n-windows create unit deficit at each boundary 1...0 vertex and unit surplus at each boundary 0...1 vertex. In any completion, one flow path leaves each source, and cannot reach any positive sink before shifting away the source’s complete initial 1-run; total extra cost is at least E_{n-1}. Explicit append-one paths biject sources to sinks in exactly those lengths without forbidden edges; the resulting strongly connected balanced multigraph admits an Euler tour. A Fibonacci recurrence proves E_{n-1}=F_n-1 and hence length L_{n+1}-1. The verified standard-library generator checks construction, windows, and n=2..12, plus exhaustive absence of shorter cycles at n<=5; an independently implemented min-cost flow solver agrees for n<=12. The finite computations are supplementary and do not replace the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moreno–Matamala arXiv:0711.1695 Definition WF(n) requires the periodic repetition of each word to lie in the forbidden-factor shift.",
+        "Chee–Etzion–Ta–Vu arXiv:2404.13674 introduction defines a de Bruijn covering sequence via Hamming-radius covering of the full ambient alphabet product, not exact selective Fibonacci coverage.",
+        "Chee et al. arXiv:2005.03102 abstract describes constrained read codes, not an exact minimum-length cyclic superstring for all 00-avoiding linear words; full text not inspected."
+      ],
+      "reasoning": "The closest broader frameworks provide general graph methods, restrictions on cyclically valid windows, or different covering objectives. The inspected statements do not imply the exact Lucas optimum, but inaccessible full results and older sequence-cover literature remain a material priority caveat.",
+      "searches": [
+        "shortest circular string contains every length n binary word with no adjacent zeros Lucas Fibonacci",
+        "Fibonacci language shortest universal word cyclic superstring Lucas numbers",
+        "\"Minimum de Bruijn Sequence in a Language with Forbidden Substrings\"",
+        "\"Constrained de Bruijn Codes: Properties, Enumeration, Constructions, and Applications\"",
+        "\"Maximal Length Constrained de Bruijn Sequences\""
+      ]
+    },
+    "checked_sources": [
+      "Moreno–Matamala, arXiv:0711.1695v1 (12 Nov 2007), PDF sections 2 and 3",
+      "Sawada–Gabrić, arXiv:2510.16545, PDF Sections 1 and 4.5",
+      "Chee–Etzion–Ta–Vu, arXiv:2404.13674, PDF Section I",
+      "Chen–Kitaev–Sun, arXiv:1908.01116, abstract",
+      "Chee et al., arXiv:2005.03102, abstract",
+      "Chee–Nguyen–Tran–Vu, ISIT 2023 bibliographic record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first two sources require the forbidden 00 condition cyclically on each represented n-word, whereas the theorem requires all linear 00-avoiders including those beginning and ending with zero.",
+        "Hamming covering radius zero for the entire binary alphabet product would require all 2^n windows, not the selected Fibonacci family.",
+        "Exact universal-cycle existence tests only whether the mandatory graph is balanced; it cannot determine the additional length of an optimal cyclic superstring when the graph is unbalanced."
+      ],
+      "reasoning": "None of the materially inspected statements has premises and conclusion that directly deliver the sharp positive augmentation length. A generic minimum-cost circulation reduction alone does not evaluate this instance; the new lower-bound rigidity, explicit matching paths, and Fibonacci cost are the added mathematical content.",
+      "searches": [
+        "https://arxiv.org/pdf/2510.16545 Section 4.5 de Bruijn sequences with forbidden 0^z",
+        "https://arxiv.org/pdf/0711.1695 Section 2.1 definitions and Theorems 3,10",
+        "https://arxiv.org/pdf/2404.13674 Section I covering radius",
+        "On the probability of existence of a universal cycle or a universal word for a set of words arxiv 1908.01116"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno–Matamala arXiv:0711.1695 pp. 1–2 explicitly uses periodic admissibility and a once-per-word Eulerian circuit; not the full set of linearly admissible words.",
+        "Sawada–Gabrić arXiv:2510.16545 Section 4.5 builds forbidden-run necklace classes in which the avoidance condition also holds across the wraparound.",
+        "The word 010 is linearly 00-free but cyclically contains 00, so the two word universes differ already at n=3."
+      ],
+      "reasoning": "A circular covering with repeated windows is a directed postman-type augmentation of a nonbalanced mandatory de Bruijn subgraph. Eulerian universal cycles for only cyclically legal windows omit a nonempty set of mandatory linear Fibonacci words. No inspected equivalent formulation asserts the exact optimal extra cost F_n-1.",
+      "searches": [
+        "minimum cyclic binary superstring covering every length n Fibonacci word avoiding adjacent zeros; exact Lucas L(n+1)-1",
+        "circular shortest common superstring of all binary strings with no two consecutive zeros length n",
+        "\"Lucas\" \"de Bruijn\" \"Fibonacci\" \"shortest\" universal",
+        "\"Fibonacci words\" \"universal cycle\" \"repeats\"",
+        "https://arxiv.org/pdf/0711.1695 ; https://arxiv.org/pdf/2510.16545"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted research results included a record titled \"Fibonacci extremals for shortest absent subsequences of binary words\", which concerns scattered absent subsequences, not contiguous cyclic covering.",
+        "A record titled \"Exact binary two-multispectrum code size and singleton classification\" concerns unordered adjacent-pair spectra, not universal substring coverage.",
+        "The inspected constrained de Bruijn references count cyclically allowed words rather than the mandatory linear Fibonacci family."
+      ],
+      "reasoning": "No matching exact-value table or all-n Lucas formula was identified among the actual search returns. This nonmatch is not a guarantee of uniqueness or novelty and is assessed together with full-text comparisons.",
+      "searches": [
+        "\"avoid 00\" \"de Bruijn\" \"Lucas\"",
+        "\"Fibonacci words\" \"universal cycle\" \"shortest\" \"Lucas\"",
+        "constrained universal cycle for all linearly 00-avoiding binary n-tuples",
+        "Eulerian augmentation of golden mean shift de Bruijn graph imbalance Fibonacci additive redundancy"
+      ]
+    },
+    "rationale": "A new exact all-length minimum-overlap covering formula for the full linear Fibonacci language is established, with positive augmentation cost. Closest materially read sources generate Eulerian universal cycles over cyclically forbidden substrings, or full-alphabet Hamming-covering sequences, not this unbalanced mandatory-edge problem. Actual research-record and literature searches found no equality formula. Residual risk of inaccessible or unindexed equivalent results is explicitly retained.",
+    "residual_risks": [
+      "Historical equivalent formulas could appear under shortest common circular superstring, graph postman augmentation or Fibonacci language terminology, beyond indexed results.",
+      "A plausible 2023 constrained de Bruijn paper could not be inspected in full; it was not classified as not covering.",
+      "The 2020 constrained de Bruijn codes source was read at abstract level only; no whole-document noncoverage claim is made.",
+      "The 2019 universal-cycle paper was available at abstract level only; its more general statements were not inspected in full.",
+      "Same mathematical model literature comparisons have not received independent priority validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the compared definitions and theorems: periodic admissibility excludes linearly valid boundary-zero words and focuses on lexicographically minimal Eulerian circuits",
+        "evidence": "Section 2.1 defines WF(n) by periodic repetition in the subshift; Theorems 3 and 10 characterize a lexicographic walk being Eulerian.",
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+        "material_read": "PDF pages 1–2 for definitions, pages 5–8 for the tree/Eulerian existence characterizations; page 2 visually inspected",
+        "method": "Full-text PDF lines and rendered page inspection",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Closest restricted forbidden-factor de Bruijn construction; possible equivalent language"
+      },
+      {
+        "assessment": "NOT_COVERING: Section 4.5 covers necklace classes with cyclic avoidance and randomized Eulerian traversal, not minimal repeated covering for all linearly admissible windows",
+        "evidence": "Section 4.5 defines Z_k(n,z) using necklace classes and wraparound avoidance, and calls the construction a maximal-length forbidden-substring universal cycle.",
+        "identifier_or_url": "https://arxiv.org/pdf/2510.16545",
+        "material_read": "PDF introduction, definitions and Section 4.5 (pages 1–2, 13); rendered page 3 visually inspected",
+        "method": "Full-text PDF extraction and rendered-page inspection",
+        "title": "Las Vegas Algorithms to Generate Universal Cycles and de Bruijn Sequences Uniformly at Random",
+        "trigger": "Explicit universal cycles with forbidden 0^z substring"
+      },
+      {
+        "assessment": "NOT_COVERING: Hamming covering radius of the full ambient word space is different from exact coverage of a fixed constrained subset",
+        "evidence": "Section I defines an (n,R) de Bruijn covering sequence using a Hamming radius R code of all n-tuples.",
+        "identifier_or_url": "https://arxiv.org/pdf/2404.13674",
+        "material_read": "PDF abstract and full introduction (page 1), scope of Section I; rendered page 1 visually inspected",
+        "method": "Full-text PDF and rendered-page inspection",
+        "title": "On de Bruijn Covering Sequences and Arrays",
+        "trigger": "Shortest covering sequences might dominate the selective Fibonacci-language objective"
+      },
+      {
+        "assessment": "Only the abstract scope is established: exact universal cycles under deletions and small cases; full-document noncoverage not claimed",
+        "evidence": "Abstract describes deleting up to two words and the binary n<=4 case.",
+        "identifier_or_url": "https://arxiv.org/abs/1908.01116",
+        "material_read": "Public arXiv abstract and journal abstract, not full paper",
+        "method": "Metadata and abstract; full PDF request unavailable",
+        "title": "On the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+        "trigger": "Exact universal-cycle existence results for missing/deleted words"
+      },
+      {
+        "assessment": "UNRESOLVED historical-priority possibility; abstract emphasizes sequence/code enumeration and read channels, but complete implications not inspected",
+        "evidence": "The public abstract describes constrained sequence codes, enumeration, and synchronization applications.",
+        "identifier_or_url": "https://arxiv.org/abs/2005.03102",
+        "material_read": "Public abstract and bibliographic metadata only; PDF fetch unavailable",
+        "method": "Abstract inspection with attempted direct, export, and HTML preprint access",
+        "title": "Constrained de Bruijn Codes: Properties, Enumeration, Constructions, and Applications",
+        "trigger": "Potentially broader constrained de Bruijn framework"
+      },
+      {
+        "assessment": "UNRESOLVED as an inaccessible plausible related source, not used as evidence of noncoverage",
+        "evidence": "The paper is listed in IEEE ISIT 2023; publicly retrieved result does not supply theorem text.",
+        "identifier_or_url": "https://dblp.org/rec/conf/isit/CheeNTV23",
+        "material_read": "Bibliographic title and venue only; no full-text interpretation",
+        "method": "Bibliographic search and accessible metadata",
+        "title": "Maximal Length Constrained de Bruijn Sequences",
+        "trigger": "Potential competing maximal-length constrained sequence result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da4a6850-e3f1-4548-9ca6-4eca3874243d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Fibonacci language is the canonical binary finite-type constraint. Its shortest cyclic universal covering sequence, including boundary-incompatible yet linearly admissible windows, is a natural exact design invariant. The nonbalanced graph forces a strictly positive and exponentially increasing number of repeats for n>=3; the theorem evaluates it sharply for every n and gives a constructive Eulerian repair. The result distinguishes cyclically forbidden de Bruijn cycles from all-linear-window coverage and can support constrained indexing/test-sequence constructions. No unsupported application performance gain is claimed.",
+    "status": "PASS"
+  }
+}
