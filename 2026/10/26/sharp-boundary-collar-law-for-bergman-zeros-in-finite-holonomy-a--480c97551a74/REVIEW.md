@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier decomposition gives exactly the invariant Laurent degrees. The rational kernel is a nonzero scalar multiple of the canonical annular Bergman kernel on an annulus of outer radius \(2^q\); Jacobson's complete two-negative-root theorem applies to exactly that object. The local uniformly convergent expansion at \(S=-2q\log2\) yields an isolated simple root and the additive constant \(2\); inversion and logarithms give the boundary scale. The provided diagnostic program also checked representative roots and convergence. The annular theorem is a cited proven premise, not a numerical inference.
+## correctness
 
-**Originality — PASS with residual risk.** The already-known canonical-degree and diagonal formula for finite holonomy, as well as the classical two-negative-root count for ordinary annuli, together imply the qualitative zero-fibre count. This component is explicitly treated as background. The separately derived two-term asymptotic \(S_{q,-}=-2q\log2+2+O(q^{-1})\) and the sharp logarithmic-collar location were not found in the inspected motivating paper, the relevant Chapter 2 of Jacobson's thesis, or targeted searches for annulus zero asymptotics. Since an implicit zero equation is available classically, priority for an unindexed asymptotic formula is the main residual risk.
+PASS
 
-**Value — PASS.** The logarithmic-over-linear scale is motivated by a real analytic question: where can off-diagonal zeros persist when the diagonal kernels converge rapidly to those of a rank-one space as the holonomy order grows? The result gives the sharp evacuation scale at *both* boundary components, and an explicit first finite-order correction. This is a geometric boundary-layer phenomenon, not an arbitrary parameter slice or merely a restatement of the classical annulus count.
+Under unitary monodromy, L² holomorphic Laurent coefficients extend across lattice punctures and are bounded entire functions, so only indices k with ak integer survive. Irrational a leaves the constant nonvanishing canonical form; rational p/q leaves k multiples of q, giving annulus Laurent series F_q(S) with I_0=log 2 and I_k=(2^{2k}-1)/(2k). Classical annulus scalar-kernel zero theorem provides exactly two simple negative-real zeros. Inversion F_q(S)=F_q(4^q/S) and the nonzero derivative of eta↦eta^q produce 2q simple scalar fibres (not fixed-basepoint zero counts). Set S=qy: the negative Laurent tail is 2/y+4/(q y²)+O(q^-2) and positive tail O(q²4^-q), uniformly near y=-2log2, yielding the simple zero y=-2log2+2/q+O(q^-2). Numerical 69-term series roots at q=6,10,20,40,80 corroborate exact expansion; these truncated roots are not an infinite-series certificate.
 
-The theorem does not determine zeros for a fixed second point, nor any higher-dimensional zero-divisor classification. Its originality depends on the precise asymptotic statement, not on the established annulus theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the sharp collar expansion only: the number and signs of annular product zeros are specifically recognized as prior. The 2012 source only gives weaker intervals, not the constant-accurate first terms.
+
+## value
+
+PASS
+
+A sharp boundary-collar location and explicit second-order product-root asymptotic for finite-holonomy Bergman zero fibres extends a qualitative two-zero theorem into a quantitative degeneration law on a natural pseudoconvex bundle family. The claimed statistic is a motivated geometric locus, not an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
