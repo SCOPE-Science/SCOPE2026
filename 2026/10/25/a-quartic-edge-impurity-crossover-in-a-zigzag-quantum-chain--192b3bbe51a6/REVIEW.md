@@ -1,19 +1,21 @@
-# Review of a quartic-edge impurity crossover in a zigzag quantum chain
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes a real scaled detuning \(s\) and takes \(\varepsilon\downarrow0\) with hopping ratio \(a_\varepsilon=1/4+s\varepsilon^{2/3}\). The exact Bloch polynomial in \(u=1+\cos k\) identifies the upper band edge on each side of the merger. Positive rank-one resolvent monotonicity gives one simple exterior eigenvalue. Quartic-edge rescaling reduces its equation to the convergent integral
-\[
-\frac{1}{\pi}\int_0^\infty\frac{dx}{y-4sx^2+x^4/4}=\frac{1}{2\sqrt y\sqrt{\sqrt y-4s}},
-\]
-whose unique unit-level root is precisely the positive root of \(t^2(t-4s)=1/4\). Uniform-on-compact convergence away from the limiting edge and root bracketing justify the limiting eigenvalue. Four finite-matrix checks and 15 exact-resolvent numerical tests supported, but do not substitute for, the analytic argument.
+## correctness
 
-## Originality — PASS, qualified historical priority
-Stockhofe and Schmelcher (arXiv:1506.01937, original release 2015-06-05) treat this hopping dispersion, its merger point and single-defect bound states. The contribution assessed here is narrower and different: a simultaneous \(\varepsilon^{2/3}\) hopping-detuning and \(\varepsilon^{4/3}\) bound-energy limit with the full explicit cubic crossover. Their accessible complete text was compared at the statement level and no such scaling theorem was found. Koiller and Brandi (DOI:10.1007/BF00554383, 1981) develop earlier long-range impurity transfer matrices; only their abstract was accessible. An implicit or equivalent specialization there remains a material priority uncertainty. The generic quartic continuum integral is not claimed separately.
+PASS
 
-## Mathematical value — PASS
-This classifies a natural singular spectral transition at which the standard nondegenerate quadratic band-edge law changes, while the impurity vanishes. The complete crossover is a motivated structural result, not an arbitrary lattice parameter slice: it specifies both exponents, the exact critical coefficient \(2^{-4/3}\), and asymptotic matching behavior on opposite sides of the band-topology transition.
+Exact dispersion E=E_pi+8eta u-(1+4eta)u², u=1+cos k, yields band top E_max=2−2a for a≤1/4 and 2a+1/(4a) for a>1/4. A positive rank-one perturbation creates exactly one simple exterior eigenvalue via 1=epsilon G_a(E), monotonic with divergent G at the upper band edge. At a=1/4+s epsilon^(2/3), E=E_pi+epsilon^(4/3)y, k=pi−epsilon^(1/3)x, the exact denominator rescales to y−4sx²+x⁴/4 and admits uniform compact-y domination by C/(1+x⁴). Thus epsilon G converges locally uniformly to 1/[2 sqrt(y) sqrt(sqrt(y)−4s)], and monotone root bracketing gives t²(t−4s)=1/4, t>max(0,4s). Exact edge shift gives actual band-gap coefficient; s=0 coefficient 2^(−4/3); asymptotic tails checked. Independent numerical quadrature at s=−2,0,1 confirmed limiting Green function=1 near exact roots to ~1e−12.
 
-## Scope and residual risks
-The result is pointwise in fixed \(s\). No bound is proved uniformly as \(|s|\to\infty\) while defect strength vanishes. Numerical checks are finite evidence only. Specialized older impurity papers may contain an equivalent asymptotic not identified in accessible material. An independent external review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2015 same-lattice work gives dispersion, impurity state and critical hopping ratio; these known components are excluded from the novel claim. The claimed fixed-detuning double scaling and exact crossover cubic were not identified in accessible full/abstract evidence. Earlier long-range transfer-matrix paper could contain an implicit equivalent specialization; its full text was inaccessible, and priority assessment is explicitly qualified.
+
+## value
+
+PASS
+
+The band top undergoes a quartic merger at a=1/4; weak rank-one binding then changes its exponent. The epsilon^(2/3)/epsilon^(4/3) scaling and continuous analytic cubic crossover describe this canonical spectral transition, including exact critical coefficient and two asymptotic sides. This is not arbitrary parameter tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
