@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:58:52.520129Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "The theorem does not claim minimal collision length among all code dimensions, nor a new universal MacWilliams transform."
+      ],
+      "rationale": "The Lee weight on F5 respects column sign reversal. Each generator column of F5^2 therefore has exactly 13 sign-orbit types including zero, so the exact number of spanning rank-two normalized multisets at length n is binomial(n+12,12)-6*binomial(n+2,2)+5. Its n=2..6 values are 60,400,1735,6067,18401. An independently written full C++17 census enumerated every such multiset, evaluated each of 25 primal combinations and the full dual Lee enumerator using the exact character factors F0=1+2z+2z², F1=1+αz+(-1-α)z², F2=1+(-1-α)z+αz², α²=1-α. Each primal spectrum uniquely determined its dual for n<=6, across 1,5,18,49,129 primal spectrum signatures respectively, with all irrational components canceled and integer divisibility checked. A separate direct 5^7-vector dual enumeration (not using Fourier) confirmed equal primal Lee spectra for the two 7-column generators and distinct dual Lee-weight-4 counts 56 and 60. This is an exact finite exhaustive proof within fixed dimension two; it does not extrapolate to other dimensions.",
+      "scope": [
+        "Linear [n,2] codes over F5, labeled coordinates, zero and repeated generator columns allowed, Euclidean dual, Lee weight only (not symmetrized Lee composition).",
+        "n ranges from 2 to 6 for exclusion and equals 7 for the explicit collision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wood (2026) full text introduction, Theorem 2.8 and Example 9.1: general weight nonduality and Euclidean F5 examples at lengths 18 and 30; Example 9.4 cites Lee nonduality known since 2020.",
+          "Abdelghany–Wood (2020) abstract proves nonexistence of Lee MacWilliams identities over Z_m,m>=5, not a visible sharp rank-two threshold."
+        ],
+        "reasoning": "The general nonduality theorem already covers existential failure, and must be credited. It does not imply the universal exclusion for every shorter n without a finer length argument. The 2020 text is uninspected, so one cannot rule out implicit exact coverage.",
+        "searches": [
+          "Wood 2026 Theorem 2.8 and Example 9.1",
+          "Abdelghany Wood 2020 Lee-weight MacWilliams nonexistence DOI:10.1016/j.disc.2020.112036",
+          "Bariffi Cavicchioni Weger 2024 Lee symmetrized"
+        ]
+      },
+      "checked_sources": [
+        "Wood arXiv:2601.02608 full article (relevant introduction, §§2,4,6,9)",
+        "Abdelghany–Wood DOI:10.1016/j.disc.2020.112036 abstract only",
+        "Bariffi–Cavicchioni–Weger arXiv:2409.11926 abstract",
+        "Resultary semantic published-finding search",
+        "The exact assigned C++ source and independent alternative C++ census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wood constructs nonduality with dimension-two codes for some weight class, but examples are not a sharp Lee length classification.",
+          "Symmetrized enumerator transforms retain more information than single-variable Lee and do not restore the claimed coarse dual determinacy."
+        ],
+        "reasoning": "A theorem that some primal Lee collision exists does not identify the earliest two-dimensional length. The new exact n<=6 exhaustive proof and explicit n=7 witness go beyond general failures, absent stronger covered examples in inaccessible full text.",
+        "searches": [
+          "Wood 2026 Sections 6 and 9 weights finite fields",
+          "Abdelghany Wood 2020 DOI",
+          "Bariffi Cavicchioni Weger arXiv:2409.11926"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The collision property is failure of the Lee-weight partition to determine dual weight distributions. Wood explicitly formulates this general property as a weight not respecting duality and uses the same generator-column multiplicity viewpoint."
+        ],
+        "reasoning": "Distinguish the broad existence of some rank-two collision from the exact smallest n over all [n,2]_5 codes. The proposed 7-column collision is not the same quantitative claim as Wood’s 18- and 30-column Euclidean-weight constructions.",
+        "searches": [
+          "Lee F5 rank-two codes same primal enumerator different dual minimal length",
+          "Wood arXiv:2601.02608 §§2,4,6,9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published finding search returned Hamming-isospectral LCP and unrelated quinary spectra rather than a rank-two Lee minimal-failure table.",
+          "Independent exact full census of 26,663 normalized spanning multisets for n=2..6, grouped by primal enumerator, found no mismatching dual."
+        ],
+        "reasoning": "No matching accessible exact minimum-length table was located; only the full finite multiset classification, not negative bibliographic searches, establishes the mathematical cutoff.",
+        "searches": [
+          "Resultary semantic quinary [n,2] linear Lee enumerator equal dual different minimum length seven",
+          "Lee weight duality collision shortest length F5 dimension 2 normalized column types census"
+        ]
+      },
+      "rationale": "PASS, qualified: broad Lee-weight MacWilliams nonduality and rank-two constructions are old, but the first exact two-dimensional quinary failure length 7 requires complete shorter-length exclusion not supplied by Wood (2026) in the inspected full text. Abdelghany–Wood (2020), a particularly plausible older source, was available only at abstract level; institutional full-text access was blocked, and this is a real residual historical-priority risk.",
+      "residual_risks": [
+        "The 2020 Abdelghany–Wood article, whose complete text could not be accessed through arXiv/OA or currently unavailable institutional VPN, may give a seven-column example or sharper theorem.",
+        "Other generator-column classification references might have a disguised minimal length result.",
+        "The 2026 Wood paper comparison is based on materially inspected main statements and examples, not a certification of all possible external follow-up work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general failure and constructions; no exact minimal length of Lee failure for [n,2]_5 in examined sections",
+          "evidence": [
+            "§9.1 lists Euclidean F5 examples of lengths 18 and 30; §9.4 explicitly credits Lee duality failure for m>=5 to Abdelghany–Wood 2020."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.02608",
+          "material_read": "Accessible full-text rendering: introduction, §2 Lee definition, §§4/6 structural/column mechanism, §9 Examples 9.1 and 9.4",
+          "method": "arXiv abstract page with extracted full article text",
+          "title": "Weights on finite fields and failures of the MacWilliams identities, Jay A. Wood (2026)",
+          "trigger": "most relevant general rank-two construction and weight-duality theorem"
+        },
+        {
+          "assessment": "Uninspected full text could contain a concrete seven-coordinate pair or whole cutoff",
+          "evidence": [
+            "Abstract states nonexistence of MacWilliams identities for Lee weights over all m>=5; no length or dimension stated in accessible abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2020.112036",
+          "material_read": "Publisher/ResearchGate abstract and bibliographic information only; paper full text unavailable, authorized institutional access reported VPN disconnected",
+          "method": "open bibliographic abstracts; separately authorized institutional request did not yield paper",
+          "title": "Failure of the MacWilliams identities for the Lee weight enumerator over Z_m, m>=5, Abdelghany–Wood (2020)",
+          "trigger": "closest older Lee exact property"
+        },
+        {
+          "assessment": "Finer enumerator transforms not the same single-variable determination invariant",
+          "evidence": [
+            "Study distinguishes Lee from symmetrized/composition enumerators."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.11926",
+          "material_read": "Abstract and statement of symmetrized/composition-preserving identity; full text not obtained this run",
+          "method": "arXiv abstract",
+          "title": "The Existence of MacWilliams-Type Identities for the Lee, Homogeneous and Subfield Metric, Bariffi et al. (2024)",
+          "trigger": "possible positive transform dominating the counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first block length at which Lee weight fails to determine its dual for fixed information dimension is a natural sharp invariant of weight enumerator duality. The complete exact exclusion n<=6 and explicit witness n=7 resolve a genuine finite rigidity boundary beyond general MacWilliams failure existence; it is not a tiny arbitrary slice, because n=7 is the minimum length and two is the first nontrivial linear rank for the studied construction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wood arXiv:2601.02608 full article (relevant introduction, §§2,4,6,9)",
+    "Abdelghany–Wood DOI:10.1016/j.disc.2020.112036 abstract only",
+    "Bariffi–Cavicchioni–Weger arXiv:2409.11926 abstract",
+    "Resultary semantic published-finding search",
+    "The exact assigned C++ source and independent alternative C++ census"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The theorem does not claim minimal collision length among all code dimensions, nor a new universal MacWilliams transform.",
+    "The 2020 Abdelghany–Wood article, whose complete text could not be accessed through arXiv/OA or currently unavailable institutional VPN, may give a seven-column example or sharper theorem.",
+    "Other generator-column classification references might have a disguised minimal length result.",
+    "The 2026 Wood paper comparison is based on materially inspected main statements and examples, not a certification of all possible external follow-up work."
+  ],
+  "schema_version": 1
+}
