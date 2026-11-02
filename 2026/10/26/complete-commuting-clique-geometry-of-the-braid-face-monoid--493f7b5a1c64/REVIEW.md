@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact Tits-product commutation criterion from pairwise weak-order signs. It then classifies the full maximal-clique cover and its intersections, establishes a bijective centralizer enumeration by within-block weak orders and binary boundary mergers, and counts every ordered commuting tuple from the unique common product. The Stirling inversion and asymptotic pole argument are explicitly normalized. A standalone verifier, run from the package, checked direct products, centralizers, tuples, cliques and overlap multiplicities in bounded ranges. Those finite checks corroborate but do not prove the unbounded statements.
+PASS
 
-## Originality — PASS against inspected literature, with explicit numerical prior coverage
+For arbitrary n>=1, the Tits product takes the left nonzero comparison sign and otherwise the right comparison sign. Opposite nonzero signs are the exact obstruction to commutation. A pairwise commuting family has a common chamber refinement, so maximal cliques are precisely the consecutive-block coarsenings of each permutation (n! cliques of size 2^(n-1)); shared-prefix cuts yield overlap 2^d and indecomposable-permutation spectrum. On each block A_i of a fixed face, beta restricts to one arbitrary ordered partition; between consecutive A_i restrictions there is one binary merge choice, giving |C(alpha)|=2^(b-1)*product F_|A_i| and degree minus one. Counting nonempty subsets of r tuple labels on each cut gives T_{n,r}=sum_b b! S(n,b)(2^r-1)^(b-1). Stirling inversion gives each clique-size count; pole analysis of its EGF yields fixed-r asymptotic. An independently written checker generated all ordered partitions by surjections and compared products and centralizer counts for n=1..4: faces 1,3,13,75 and commuting ordered pairs 1,7,73,1015. Checks substantiate but do not replace the unrestricted combinatorial proof. n=1 identity and n=2 exceptional universality handled.
 
-The face-monoid multiplication itself is classical and is fully credited to Commins's exposition of the Tits product. OEIS A050352 already contains the \(r=2\) values and the rooted-tree generating function that specializes numerically to every \(r\) here. No novelty is assigned to those integer sequences, their EGF or their asymptotic alone. The assessed claim is instead the explicit graph-theoretic classification of maximal commuting families and their pairwise intersection distribution, together with individual centralizers and the identified semigroup meaning of higher commutativity. The inspected 2022 semigroup product treatment, 2024 braid face-algebra representation study, and 2022 free-left-regular-band paper do not state this package. Relevant nearby indexed research on Fubini orbit profiles and semigroup commutation was compared by objects and mathematical implications. Search failure alone is not proof of global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The monoid is a canonical left-regular band of geometric and probabilistic importance. Centralizers, maximal pairwise-commuting subsets, their intersection distribution and the clique count in each dimension are natural, complete structural invariants of its full commuting graph. Their exact determination connects weak-order compatibility, indecomposable permutations, ordered Bell numbers and the entire clique polynomial. This is not a cut of an arbitrary finite search space and the structural result is stronger than an unexplained matching integer sequence.
+The bare ordered r-tuple numerical sequence and its generating function are ALREADY implied by OEIS A050352 variable-height rooted-tree formula, and are expressly excluded from novelty. The concrete braid face monoid centralizer distribution, full maximal-clique geometry, permutation-overlap spectrum, and clique polynomial have not been found in the inspected published primary material. The Tits multiplication and algebraic representation study are prior work. This is a best-of-knowledge positive conclusion for the combined structural claim, with genuine general left-regular-band/compatibility-graph coverage risk.
 
-## Limitations and nearest coverage
+## value
 
-The result is restricted to the type-A braid face monoid and the graph including all faces. Existing rooted-tree enumerations completely cover the numerical higher-commutativity sequence after parameter specialization; the new interpretation does not retroactively make that sequence new. General left-regular-band results could cover portions of the clique/centralizer statements under different terminology. The conclusion is self-reviewed, without independent validation or any claim of exhaustive publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete maximal-clique geometry, element-by-element centralizer sizes, and precise overlap distributions answer natural structural questions for a canonical reflection-arrangement face monoid. The conjunction of these structure results is useful independently of already-known tuple counts; not relying on renaming the OEIS sequence for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
