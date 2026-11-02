@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each n>=2, all de Bruijn edges are distinct n-bit windows of weights 1 or 2; degree counting and unique root-edge normalization are exact. Every weight-two state has a forced zero exit until a weight-one state; the reduced one-weight transitions are i->i+1 (top -> root) or i->m-1-i. If an upper index chooses one, its interval [m-1-i,i] is closed, and the root is unreachable. Lower indices allow either edge and strictly increase index; these choices give all in-arborescences, exactly 2^floor(m/2). The balanced graph is therefore Eulerian and BEST has factorial factor one, giving the stated count. Independent exact direct DFS and matrix-tree computations agree for n=2..11; the proof handles arbitrary n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mitchell and Wild (2026) extend Eulerian existence beyond binary Hamming weights.",
+        "Sawada et al. (2013) construct weight-range cycles in all allowable binary intervals."
+      ],
+      "reasoning": "Broader existence/constructibility does not logically imply the exact number of all cycles. Universal general-purpose determinant or BEST formulas are algorithms for the number, not the proved simplified 2-power evaluation or the complete tree-classification.",
+      "searches": [
+        "Exact number of cyclic universal binary words whose n-windows are precisely strings of Hamming weights one and two equals 2^{floor((n-1)/2)}; enumeration of dual-weight de Bruijn cycles",
+        "Binary weight range [1,2] de Bruijn Euler cycles BEST theorem root zero and paired toggle choices",
+        "https://arxiv.org/abs/2607.22350",
+        "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1137/100808782",
+      "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+      "https://arxiv.org/html/2510.16545",
+      "https://arxiv.org/pdf/2607.22350v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.4 (Ruskey–Sawada–Williams) implies at least one Euler circuit, not how many.",
+        "Random arborescence generation (Sawada–Gabrić) samples a nonzero set uniformly, not its cardinality.",
+        "The novel structural step is the forward-closed interval forcing upper indexed choices and independence of lower indexed choices."
+      ],
+      "reasoning": "Under the same directed graph, existence follows from general Eulerian criteria, while cardinality needs a separate spanning-tree count. The inspected stronger setting and implementation results do not supply the all-n equality or imply it numerically without a new derivation.",
+      "searches": [
+        "Complete enumeration of shorthand universal cycles of 2-subsets via cut-down de Bruijn sequence counts",
+        "Binary weight range [1,2] de Bruijn Euler cycles BEST theorem root zero and paired toggle choices",
+        "https://arxiv.org/html/2510.16545",
+        "https://doi.org/10.1137/100808782"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The binary length-n weight-[1,2] model is the shorthand model of fixed-weight 2-subsets on n+1 indices, as explicitly recognized by the 2012 fixed-weight article and the 2025 random-generation article.",
+        "Direct predecessor theorems establish existence, not closed-form total."
+      ],
+      "reasoning": "The theorem is compared after translation to fixed-weight shorthand cycles and Euler tours, not just identical terminology. No checked claim enumerates all root arborescences for every n.",
+      "searches": [
+        "Complete enumeration of shorthand universal cycles of 2-subsets via cut-down de Bruijn sequence counts",
+        "Binary fixed-weight shorthand de Bruijn cycles for 2-element subsets n+1 count 2^floor((n-1)/2) exact enumeration universal cycles de Bruijn graph rooted spanning arborescences",
+        "https://doi.org/10.1137/100808782",
+        "https://arxiv.org/html/2510.16545"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact direct Euler tour totals for n=2..11: 1,2,2,4,4,8,8,16,16,32.",
+        "The accessible manuscript and record searches did not display an equivalent formula or catalogued full sequence."
+      ],
+      "reasoning": "The enumerated data are independently computed, not copied from a known table; failure to find a matching table does not establish priority. Residual prior tables or implicit formulations remain possible.",
+      "searches": [
+        "Exact number of cyclic universal binary words whose n-windows are precisely strings of Hamming weights one and two equals 2^{floor((n-1)/2)}; enumeration of dual-weight de Bruijn cycles",
+        "Count arborescences in two-weight binary de Bruijn graph H^{1,2}_2(n-1) formula powers of two",
+        "Binary fixed-weight shorthand de Bruijn cycles for 2-element subsets n+1 count 2^floor((n-1)/2) exact enumeration universal cycles de Bruijn graph rooted spanning arborescences",
+        "published mathematical research records with searches for de Bruijn weighted window count and arborescence"
+      ]
+    },
+    "rationale": "Same objects compared with the 2012, 2013, 2025, and 2026 primary full texts and with actual semantic research record queries; these sources give existence or generation and do not identify this all-n count. General BEST/matrix-tree formulas do not state the evaluated closed form. Implicit older priority is possible and disclosed.",
+    "residual_risks": [
+      "An older universal-cycle or graph-tree enumeration may contain the 2-power formula under fixed-weight shorthand 2-subsets terminology.",
+      "Not every historical dissertation or unpublished supplement was accessible; complete priority exhaustiveness is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes Eulerian property and a specific constructive sequence, not the number of all cycles",
+        "evidence": "Theorem 2.4 establishes G(B^w_{w-1}) is Eulerian; abstract and Section 6 focus construction rather than arborescence total.",
+        "identifier_or_url": "https://doi.org/10.1137/100808782",
+        "material_read": "Full article text including graph construction Section 2, algorithms and discussion through final section",
+        "method": "Inspected accessible full article for count/all-cycle enumeration and implicit graph restrictions",
+        "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+        "trigger": "Direct source of the 2-adjacent-weights shorthand model"
+      },
+      {
+        "assessment": "Efficient generation/construction, no identified all-cycle enumeration in weights one/two",
+        "evidence": "Algorithm FastIncrement and Theorem 11 address constant amortized time; number references factor/necklace counts, not the count of universal cycles.",
+        "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "material_read": "15-page primary full text, including algorithm and complexity discussion",
+        "method": "Read rendered PDF and searched exact counts, number of cycles, arborescences",
+        "title": "Universal Cycles for Weight-Range Binary Strings",
+        "trigger": "Full weight-range universal cycle setting; potential older exact counts"
+      },
+      {
+        "assessment": "Samples cycles uniformly, computes allowed windows and cover-time measurements, without a closed all-n total for weights 1/2",
+        "evidence": "Section 4.4 defines weight range and tabulates empirical cover-time ratios for weights 5 through 10.",
+        "identifier_or_url": "https://arxiv.org/html/2510.16545",
+        "material_read": "Full arXiv HTML, particularly arborescence construction and Section 4.4",
+        "method": "Read algorithm and binary weight-range example and references",
+        "title": "Las Vegas algorithms to generate universal cycles and de Bruijn sequences uniformly at random",
+        "trigger": "Explicit random in-arborescence sampling, possible implicit weight-range formula"
+      },
+      {
+        "assessment": "Generalizes existence for weighted alphabets, does not identify the specific 2-power count",
+        "evidence": "First version arXiv:2607.22350 from 2026-07-24. Abstract and introduction emphasize existence and constructions.",
+        "identifier_or_url": "https://arxiv.org/pdf/2607.22350v3",
+        "material_read": "22-page PDF, main results, graph lemmas, discussion and references",
+        "method": "Inspected full-text PDF, main theorems, and searched for enumerations",
+        "title": "Weight-constrained cut-down de Bruijn sequences",
+        "trigger": "Recent dated primary source and closest natural problem statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2d581ba-51c3-4376-a5ea-a4675d43936e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Classifies and counts every realization of a natural two-layer binary de Bruijn universal cycle for all lengths; completes a natural enumeration problem downstream of active work on weighted cut-down sequences. The strict trapping-interval classification is structural and proves rigidity, not a mere finite census or restatement of an existence theorem.",
+    "status": "PASS"
+  }
+}
