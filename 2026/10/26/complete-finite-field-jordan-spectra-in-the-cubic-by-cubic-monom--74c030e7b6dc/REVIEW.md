@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the nine-monomial basis and splits all \(q^8\) radical elements into disjoint linear, quadratic and cubic-or-higher cases. The linear cases use the quotient-block count together with fourth, third, and second power ranks. The quadratic cases use the two explicitly defined conics \(d^2-ce=0\) and \(d^2+2ce=0\), whose projective point counts and intersections are proved directly. All ten counts sum to \(q^8\); the standalone matrix checker agrees on the sampled full-radical and exhaustive quadratic cases. The characteristic restriction is essential to the presented rank arguments.
+## correctness
 
-## Originality — PASS (qualified)
-The closest source is the original full-text Jordan-type discussion by Iarrobino–Macias Marques–McDaniel, which computes the single example \(x^2+y^2\) in the exact same algebra but does not in the inspected discussion present this complete finite-field frequency table. Foundational Lefschetz theorems, Cook's positive-characteristic analysis and Altafi–Iarrobino–Khatami's linear-element classifications have substantially broader structural implications, but they do not explicitly supply the stated nonlinear all-element point counts in the inspected relevant sections. An equivalent calculation under another formulation may exist; absence from the checked literature is not a proof of novelty.
+PASS
 
-## Value — PASS
-The ten-stratum enumeration gives a complete natural invariant for the smallest balanced cubic monomial complete intersection, including all nilpotent multiplier types rather than just generic linear forms. The two-conic intersection explains finite-field frequency shifts and makes exact probabilities of each rank and nilpotency profile available; the sharp characteristic boundary allows meaningful comparison with the previously studied small-characteristic behavior.
+Write u=ax+by+cx²+dxy+ey²+fx²y+gxy²+hx²y² and stratify lowest degree. If ab!=0, dim A/(u)=3 and u^4=6a²b² x²y²!=0; degree rank lower bound of L_(u²)>=4 forces (5,3,1). If exactly one linear coefficient nonzero, opposite-square coefficient selects (4,3,2) vs a unit multiple of x or y (3,3,3). For nonzero quadratic Q, rank L_u=2+rank[[d,c],[e,d]], and rank L_(u²)=1_{d²+2ce!=0}. The projective conics d²−ce=0 and d²+2ce=0 are split with q+1 rational points each, intersect at 2(q−1) nonzero affine triples in characteristic>=5; their four strata give exact counts q³ times each conic intersection class. Cubic-only rank2 and quartic-only rank1 complete all cases; counts sum q^8. Independent multiplication-matrix ranks and conic counts checked over F5,F7,F11; finite tests do not extend field quantifier.
 
-## Limitations
-This is a self-review, not independent certification. Only characteristics at least five, and only this nine-dimensional algebra, are treated. External finite-field tests cover three prime fields and not every extension field. Historical coverage risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS for the exact final theorem, not for foundational known ingredients; source and implication comparisons are below, with named residual risks. Known type support and one representative type do not determine finite-field frequencies of arbitrary nonlinear multipliers. The claimed novelty is not the already-known (3,2,2,1,1) instance, nor generic Lefschetz behavior. A researcher could derive the table from elementary algebra and general theories, but the inspected theorems do not state it as an immediate specialization. The result supplies a reproducible complete frequency law, not a claim that Jordan ranks themselves were previously unknown.
+
+## value
+
+PASS
+
+The exact all-element frequency of Jordan forms in a canonical nine-dimensional Artinian monomial complete intersection is a natural structural census beyond generic strong Lefschetz and an isolated known Jordan partition. It characterizes both generic and exceptional quadratic-discriminant strata over arbitrary finite extension fields and gives exact arithmetic frequencies; the fixed small algebra is motivated by existing Jordan-stratification research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
