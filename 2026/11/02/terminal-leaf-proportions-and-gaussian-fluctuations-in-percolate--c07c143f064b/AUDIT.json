@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the exact (C,L) one-step transitions, including the loss of a leaf when its original-tree parent gets any new child. Their centered combination \\(D_n=L_n-pC_n/(1+p)\\) has drift \\(-D_n/n\\) and exact squared-increment formula, yielding \\(\\mathbb E D_n^2=p(2-p)\\mathbb E C_n/((1+p)^2(p+2))\\) for all \\(n\\ge3\\). Yule birth embedding gives an a.s. positive component-size limit, an L² martingale/Kronecker argument gives a.s. leaf proportion, and a predictable quadratic-variation calculation plus bounded-increment martingale CLT yields the mixed Gaussian limit. The standalone package checker has 313 passing exact full-state and tree-enumeration assertions; simulation is explicitly diagnostic, not proof. Residual risk: asymptotic Gaussian argument relies on standard stable martingale CLT hypotheses, which are individually checked in the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Desmarais et al. study arbitrary linear preferential attachment, but their root-cluster theorem records its total size, and their leaf theorem counts global red/blue leaves.",
+        "Gu and Yuan (arXiv:2408.12515v1) study site-percolation cluster-size distribution and largest-cluster scaling, coupled to bond percolation.",
+        "Baur (arXiv:1407.2508) focuses on the regime where retention tends to one and cluster-size statistics."
+      ],
+      "reasoning": "Wider classes of recursive trees or larger families of percolation models do not dominate the new joint terminal-leaf claim merely by model inclusion. Examined results do not bound or identify the centered original-leaf count conditional on root-component size, its exact residual variance, or its self-normalized Gaussian law.",
+      "searches": [
+        "Joint root component size and original-tree leaf count under Bernoulli bond percolation on recursive trees: martingale CLT independent of Mittag-Leffler component size",
+        "https://arxiv.org/html/2110.15050v1",
+        "https://arxiv.org/html/2408.12515v1",
+        "https://arxiv.org/abs/1407.2508"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2110.15050v1",
+      "https://arxiv.org/abs/2110.15050",
+      "https://arxiv.org/abs/1407.2508",
+      "https://arxiv.org/html/2408.12515v1",
+      "2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+      "2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 paper proves size limits for the root cluster but does not mark its vertices by original-tree terminal status in the inspected theorem/proof sections.",
+        "The accessible historical global broadcast-spin residual has fluctuation scale \\(n^{1/2}\\) and weights all vertices, whereas the new root-connected residual has scale \\(n^{p/2}\\), random asymptotic variance proportional to \\(W_p\\), and uses no parity-spin returns."
+      ],
+      "reasoning": "A separately established root-cluster size limit and a global leaf-magnetization theorem do not together imply the component-restricted exact covariance and mixture normal law: they lack cross-classification of original leaf status with all-retained ancestral paths. General probabilistic martingale methods are reusable but are not an already established statement of the new result.",
+      "searches": [
+        "Joint root component size and original-tree leaf count under Bernoulli bond percolation on recursive trees: martingale CLT independent of Mittag-Leffler component size",
+        "Random recursive tree broadcasting color root-connected leaves as opposed to all same-color leaves; leaf fraction p/(p+1) and central limit",
+        "Marked cluster leaf and full broadcast magnetization covariance martingale normal residual in random recursive tree",
+        "https://arxiv.org/html/2110.15050v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Desmarais, Holmgren and Wagner, arXiv:2110.15050v1, §2.1 treats global counts by colour and §2.2 treats root-component size; §4 treats the latter marginal.",
+        "A colour equal to the root colour does not imply all intervening edge-retention marks are positive: an even number of colour flips can restore the colour."
+      ],
+      "reasoning": "The present statistic counts original-tree terminal vertices reachable by a fully retained root-to-vertex path. It differs from global red/blue leaf counts, from the number of monochromatic clusters, and from the leaf count of the induced retained component. These alternate formulations require additional joint/ancestral information absent from the cited results.",
+      "searches": [
+        "Uniform random recursive tree bond percolation fixed retention p; terminal leaves in the root cluster; E[L_n]=p/(1+p)E[C_n], residual variance p(2-p)/((1+p)^2(p+2)) E[C_n], Gaussian root-cluster leaf fluctuations",
+        "Random recursive tree broadcasting color root-connected leaves as opposed to all same-color leaves; leaf fraction p/(p+1) and central limit",
+        "https://arxiv.org/html/2110.15050v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record searches returned related root-degree/whole-tree leaf covariance observables, not an original-terminal-leaf root-component profile.",
+        "Earlier identified claims 39923349-79d1-448e-9ff0-6054dedfec64 and 686bfbe0-329e-40e9-8dfb-699435f41fe2 concern respectively root-degree/root-cluster dependence and a global broadcast-spin leaf residual, not root-connected original terminal leaves."
+      ],
+      "reasoning": "Neither a tabulated marginal root-cluster size nor an exact formula for all-tree leaves fixes their intersection. The new quantity requires the joint parent-attachment/retention transitions. Index-search failure is not a uniqueness or priority proof.",
+      "searches": [
+        "Uniform random recursive tree bond percolation fixed retention p; terminal leaves in the root cluster; E[L_n]=p/(1+p)E[C_n], residual variance p(2-p)/((1+p)^2(p+2)) E[C_n], Gaussian root-cluster leaf fluctuations",
+        "Marked cluster leaf and full broadcast magnetization covariance martingale normal residual in random recursive tree",
+        "2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+      ]
+    },
+    "rationale": "Inspected the directly matching 2021 primary paper in relevant full-text sections (global leaf-colour statistics, root-component size and proofs), plus 2014 bond- and 2024 site-percolation literature. Claim-level public research record and primary-literature comparisons found neither an implication-equivalent original-tree terminal-leaf statistic nor an encompassing exact residual variance and mixed-normal law. The known root component size asymptotics and global broadcast leaf-spin residual are credited/excluded; possibility of unindexed or indirect derivations is a live historical risk.",
+    "residual_risks": [
+      "Index and targeted literature searches do not prove historical priority; a nonindexed or otherwise inaccessible multivariate marked-root-cluster calculation could exist.",
+      "General multivariate branching-process/fringe-subtree theorems might indirectly imply some limits; no directly covering consequence was located in the inspected primary texts.",
+      "The 2021 global leaf-spin residual uses related martingale techniques but not the all-retained-path terminal-leaf observable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit coverage of separate global leaf-color counts and root-cluster size; no identified theorem for original-tree terminal leaves inside the retained root component or the exact residual variance and Gaussian mixture.",
+        "evidence": [
+          "arXiv:2110.15050v1, §2.1 global properties, §2.2 root cluster, §4 root cluster, Appendix A.2, first public 2021-10-28."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2110.15050v1",
+        "material_read": "Introduction; main results §§2.1 and 2.2, proof of root-cluster results §4, Appendix A.2 leaf covariance discussions, and the arXiv v1 date/metadata.",
+        "method": "Full-text arXiv HTML: theorem statements, definitions, related work, and the relevant proofs/appendix examined.",
+        "title": "Broadcasting induced colourings of random recursive trees and preferential attachment trees",
+        "trigger": "The same broadcast/bond-percolation model and both global leaf and root-cluster size observables."
+      },
+      {
+        "assessment": "Studies percolation cluster sizes principally when the retention parameter tends to one; its inspected results do not classify original-tree leaves within the fixed-p root cluster.",
+        "evidence": [
+          "arXiv:1407.2508; first publicly posted 2014-07-09."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.2508",
+        "material_read": "Abstract, introduction, statements of cluster size scaling and proof setup.",
+        "method": "Lawful arXiv full-text material and accessible detailed paper sections.",
+        "title": "Percolation on random recursive trees",
+        "trigger": "Potential dominating percolation results for uniform recursive trees."
+      },
+      {
+        "assessment": "Cluster-size and largest-cluster distribution results, with coupling to bond percolation, but no original-tree terminal-leaf count or fluctuation theorem found.",
+        "evidence": [
+          "arXiv:2408.12515v1, posted 2024-08-22, §§1–4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2408.12515v1",
+        "material_read": "Introduction, main results, and sections describing Yule embedding and bond/site percolation coupling, plus searching the HTML for leaf/terminal observables.",
+        "method": "ArXiv version-1 full-text HTML and direct inspection of relevant theorem sections.",
+        "title": "Size distribution of clusters in site-percolation on random recursive tree",
+        "trigger": "A closely related site-percolation process with a coupling to bond percolation, potentially stronger cluster results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c07c143f-064b-4a3d-81b1-8f760c8c515f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source separately treats the root cluster size and global leaf-colour observables, but whether a vertex is an original-tree terminal vertex is a natural structural characteristic of the root-connected cluster. The result supplies a complete a.s. composition law and a surprisingly exact finite residual variance, plus a self-normalized CLT despite random sublinear cluster size. This cannot be inferred from either marginal statistic; it distinguishes original terminality from new leaves created by edge deletion and provides a sharp second-order description of the retained root population. The case \\(p=1\\) correctly specializes to the classical recursive-tree leaf variance, while \\(p<1\\) has a nondegenerate random Gaussian scale.",
+    "status": "PASS"
+  }
+}
