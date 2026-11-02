@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem fixes the Euclidean radius-based scale hull of an ellipsoid *surface* and handles the round and nonround cases separately. A supporting-cap proof establishes the exact spherical upper bound. Inverting the ellipsoid map produces an affine upper bound; an explicitly feasible two-point chord matches it exactly until the algebraic transition. Nearest-point minimization on a major-axis ray verifies the threshold, and compactness plus operator-norm equality cases prove strictness afterward. The center/minor-axis argument proves the large-scale plateau. The fourth-order term follows directly from the exact expression. Finite independent arithmetic checks are supportive only.
+## correctness
 
-**Originality — PASS under accessible-evidence comparison.** Attali--Lieutier--Salinas define the same scale hull and establish generic bounds; Berenfeld--Harvey--Hoffmann--Shankar establish curvature-related bounds and a leading expansion. Neither inspected primary text states the dimension-independent ellipsoid exact regime, its maximal validity scale, or the plateau as a profile theorem. The latter paper's circular bound from the focal radius has a strictly different fourth-order term on nonround ellipsoids, hence is not an identical formula or a stronger statement implying the present exact sharpness. Semantic searches of published mathematics and accessible primary literature found no equivalent statement. Residual risk: unpublished or differently worded computations of ellipsoidal scale defects could exist; the priority search is not a proof of uniqueness.
+PASS
 
-**Value — PASS.** The radius-based convexity defect is an intrinsic component of geometric inference and reconstruction conditions. Euclidean ellipsoids are canonical positive-reach anisotropic test models. The exact scale at which the natural affine spherical majorant first ceases to be attainable is a meaningful geometric transition, not an arbitrary parameter choice. Its location is strictly beyond the focal radius for every nonround ellipsoid; the exact fourth-order correction and large-scale plateau expose behavior invisible to universal small-scale curvature bounds. The result does not assert a reconstruction-rate theorem, and the intermediate profile remains open.
+For E=A S^{d-1}, A positive diagonal with smallest axis b and largest a, use Rad(A^{-1}S)<=t/b. A sphere subset enclosed by radius r<1 lies in a spherical cap, so any hull point has norm>=sqrt(1-r^2). This gives h_E(t)<=a(1-sqrt(1-t^2/b^2)) on [0,b]. The two boundary points a sqrt(1-t^2/b^2)e +- t f have Rad=t and midpoint on major axis. Direct constrained minimization of |xe-Av| over sphere, using b in the orthogonal part, shows nearest boundary distance a-x for x>=a-b^2/a, otherwise b sqrt(1-x^2/(a^2-b^2)). Equality thus persists exactly to t_star=(b^2/a)sqrt(2-b^2/a^2); compactness and equality rigidity give strict inequality to affine bound for nonround t>t_star. An antipodal minor-axis pair attains defect b at t=b, and the distance throughout the filled ellipsoid is <=b. Sphere a=b correctly joins regimes at t=b. Independent axis-witness tests on 20 cases corroborate threshold and strictness; proof controls all d and all (possibly infinite) subsets via compact Caratheodory.
 
-Closest literature: Attali, Lieutier, Salinas, *Vietoris--Rips Complexes also Provide Topologically Correct Reconstructions of Sampled Shapes* (2011/2013); Berenfeld, Harvey, Hoffmann, Shankar, *Estimating the Reach of a Manifold via its Convexity Defect Function* (first arXiv 2020-01-22, journal 2022). See `RESULT.md` for exact statements, scope, and references.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+QUALIFIED PASS: The Attali-Lieutier-Salinas convexity defect and Berenfeld-Harvey-Hoffmann-Shankar reach expansion are prior results. The full accessible Berenfeld source proves general h(t)=t^2/(2R_l)+O(t^4) and local reach circle bounds, but not the ellipsoid-specific exact initial interval t<=t_star, its maximal endpoint, the actual fourth-order coefficient a/(8b^4), or the t>=b plateau. A general circular reach bound is different in coefficient and scale. No closer prior exact ellipsoid profile was located.
+
+## value
+
+PASS
+
+The ellipsoid boundary is the canonical anisotropic test manifold for scale-dependent convexity defect; an exact initial profile and sharp transition quantify the difference between local focal curvature and global scale-hull geometry. Intermediate axes cancel, giving dimension-free sharp data needed when calibrating reach/defect estimators. The unknown intermediate interval (t_star,b) is acknowledged rather than falsely claimed complete.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
