@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The full first-block count follows from exact odd-prime-power root formula with Hensel lifting, exact two-to-one triangular map modulo 2^a on 2^(a+1) inputs, CRT, and a fixed-point-free reflection pairing the halves of the 2m-cycle. Boundary m=1 and even/odd moduli are explicit. Replayed exhaustive checks m<=750 and independent prime-power tests are supporting only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ulness (2022) Section 6: prime and prime-square cases proved; higher odd prime powers and 2-power invariance explicitly conjectural.",
+        "Standard Hensel/CRT classifications yield local root counts, but do not themselves specify the first-half sampling distribution for even moduli.",
+        "Gross, Harrington, Minott (2017) addresses sums of distinct polynomial residues rather than first-block fiber counts."
+      ],
+      "reasoning": "The general local square-root classification is an acknowledged ingredient. Combining it with the 2m reflection and the two-adic root count yields a stronger first-block formula; no inspected source states that full combination. The result does not claim the quadratic root count as novel.",
+      "searches": [
+        "\"Structure of Triangular Numbers Modulo m\" \"Conjecture 1\"",
+        "\"Structure of Triangular Numbers Modulo m\" \"Conjecture 2\"",
+        "quadratic residues modulo prime powers count square roots formula",
+        "Sums of Polynomial Residues Gross Harrington Minott 2017"
+      ]
+    },
+    "checked_sources": [
+      "Ulness 2022, DOI 10.3390/appliedmath2030020, especially Sections 2–6.",
+      "OEIS A279085 internal record.",
+      "Gross–Harrington–Minott 2017, accessible abstract only.",
+      "Targeted web searches on theorem, equivalences, prime-power and first-block counts; no direct covering theorem found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ulness 2022, Theorems 1,5,8,17–18 give symmetry, support characterization, 2-power bijection and squarefree saturation, while Conjectures 1–3 request unresolved extensions.",
+        "At m=6 the first-block multiplicities are 2,1,2,1 across its four occupied residues; the unconditional squarefree prediction {1,2,4} would include an unattained size 4."
+      ],
+      "reasoning": "The prior claims imply some components but not the exact all-modulus multiplicity product as stated. The proof shows how the known quadratic-square facts and reflection yield the result. The even-squarefree boundary is not implied by the stated multiplicity conjecture (which is false without an oddness restriction).",
+      "searches": [
+        "Ulness 2022 triangle residues multiplicity set prime powers conjecture",
+        "\"triangular numbers modulo m\" first-block fiber distribution",
+        "\"Structure of Triangular Numbers Modulo m\" Theorem 5 Conjecture 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ulness (2022), Theorem 5: discriminant square criterion; Theorem 1: reflection of a 2m period.",
+        "For odd moduli, the claim is equivalent to explicit square-root counts; for even moduli the first m rather than full 2m fiber counts require a halving argument."
+      ],
+      "reasoning": "An equivalent presentation is a product formula for square roots of 1+8t modulo the odd part, with exactly equal fiber sizes on every 2-power lift; this equivalence is proved. The source states support and reflection separately, not the complete first-block multiplicity identity.",
+      "searches": [
+        "triangular number residues modulo arbitrary m occupancy saturation cardinality quadratic residues prime powers Ulness conjectures",
+        "Ulness 2022 Conjecture 1 saturation triangular residues modulo odd prime powers Conjecture 2 powers of two",
+        "triangular numbers modulo m first m multiplicity spectrum squarefree product primes powers of 2",
+        "quadratic congruence fibers (2n+1)^2 = 1+8t modulo odd prime powers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A279085 records 1,6,44,424,... and an explicitly labelled empirical closed form for 10^n.",
+        "The new formula specializes to those values but covers individual first-block fiber multiplicities at every modulus."
+      ],
+      "reasoning": "The OEIS entries cover a numerical special case, not the all-modulus fiber theorem; the powers-of-ten values and their empirical expression are credited, not presented as newly observed.",
+      "searches": [
+        "OEIS A279085 number of distinct residues triangular numbers mod 10^n",
+        "\"A279085\" formula proof",
+        "OEIS triangular mod residues powers of ten"
+      ]
+    },
+    "rationale": "Ulness (2022) leaves higher-power saturation and 2-power invariance conjectural and does not state the all-modulus first-block fiber law. Source Theorem 5 characterizes support but not individual frequencies. Standard quadratic root counts are attributed, and the uniform even-lifting plus complete first-block multiplicity formula is compared with closest source and OEIS.",
+    "residual_risks": [
+      "An unindexed theorem may already give the first-block lifting and fiber product.",
+      "The local quadratic-root classification is classical; priority is claimed only for the explicit combined first-block statement, not its ingredients.",
+      "Full Gross–Harrington–Minott article was not inspected; indexed abstract indicates a distinct question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONJECTURAL_COVERAGE_ONLY for complete fiber theorem; prime and prime-square/squarefree subcases already covered.",
+        "evidence": "Conjectures 1–3 state higher prime powers, invariance under 2-power factors and squarefree multiplicity hypothesis; Theorem 5 supplies discriminant-square support; Theorem 1 supplies reflection.",
+        "identifier_or_url": "https://doi.org/10.3390/appliedmath2030020",
+        "material_read": "Primary article HTML indexed full-text material for Sections 2,3,4,6, including the exact conjecture statements, definitions, Theorems 1,5,8,17,18 and Proposition 5.",
+        "method": "Read indexed primary HTML sections and cross-compared explicit formulas and implications.",
+        "title": "Structure of Triangular Numbers Modulo m",
+        "trigger": "Same object, defined saturation and multiplicity; conjectures about prime powers and powers of two."
+      },
+      {
+        "assessment": "SPECIAL_CASE_TABLE with empirical expression; no all-modulus multiplicity result.",
+        "evidence": "The record explicitly describes the power-of-ten formula as empirical and lists 1,6,44,424,4176,...",
+        "identifier_or_url": "https://oeis.org/A279085/internal",
+        "material_read": "Full record summary and sequence formula, specifically empirical status.",
+        "method": "Read OEIS record; compared formula to product at base ten.",
+        "title": "A279085: Number of distinct residues of triangular numbers mod 10^n",
+        "trigger": "Potential exact preexisting table for a special modulus family."
+      },
+      {
+        "assessment": "Related theme but concerned with sums of distinct polygonal residues; residual source-access risk acknowledged.",
+        "evidence": "Gross, Harrington, Minott (2017), title and abstract: sums of distinct residues of polygonal numbers modulo primes.",
+        "identifier_or_url": "https://www.maths.tcd.ie/pub/ims/bull79/bull79.pdf",
+        "material_read": "Published abstract and introductory summary only; PDF not materially reviewed in full.",
+        "method": "Indexed abstract and scope comparison.",
+        "title": "Sums of Polynomial Residues",
+        "trigger": "Potential broader coverage of polynomial residue sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f67e0e0d-3da4-4058-a121-57891d506854",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem completely determines all first-block triangular residue frequencies for every modulus, resolving the explicit 2022 prime-power and even-factor saturation conjectures, and establishes a sharp parity correction to the stated squarefree multiplicity spectrum. The quantity is a natural studied invariant, the even-lifting identity is structural rather than arbitrary numerical checking, and the result covers unbounded families rather than isolated examples.",
+    "status": "PASS"
+  }
+}

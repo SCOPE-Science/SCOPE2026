@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The identity \(8T(n)+1=(2n+1)^2\) reduces odd-primary fibers to local square-root counts. The proof treats zero, odd valuations, and nonzero even valuations separately, with explicit Hensel lifting and CRT. For the first \(m\) rather than \(2m\) indices, the fixed-point-free reflection \(n\mapsto2m-1-n\) halves the complete-period count. The prime-two part has exactly two roots per value modulo \(2^{a+1}\), which cancels the reflection factor. All quantifiers include \(m=1\), pure powers of two, arbitrary odd prime powers, and unrepresented residues. A separate exact enumerator checks every fiber for \(m\le750\), plus independent targeted cases; finite tests do not prove the theorem.
+
+## Originality — PASS within inspected evidence
+The closest full primary text is Ulness (2022), DOI 10.3390/appliedmath2030020. Its Section 6 records prime-power saturation and two-power invariance as Conjectures 1–2, and a squarefree multiplicity conjecture without an oddness qualifier as Conjecture 3. The complete first-block fiber formula is stronger: it counts each residue, not merely the number of occupied classes, and resolves these predictions with the sharp even-modulus boundary. The source's Theorem 5 characterizes occupied values using quadratic discriminants, and its reflection is known; neither states the complete local-to-global first-block fiber product. Standard root-count theorems are explicitly acknowledged as ingredients rather than claimed novel. OEIS A279085 contains a narrower empirical powers-of-ten formula. Targeted public searches, a published-record search, and accessible earlier-claim comparison found no explicit complete first-block theorem; an unindexed equivalent synthesis remains possible.
+
+## Mathematical value — PASS
+The fiber multiplicities, their support and saturation, and the squarefree multiplicity spectrum are natural invariants explicitly defined and investigated in the motivating paper. The theorem resolves two named saturation conjectures simultaneously, supplies the complete previously unspecified fiber distribution for every modulus, and exposes a genuine parity boundary in the third conjecture for infinitely many even squarefree moduli. The even-modulus first-block lifting law is a structural, all-parameter statement not just a finite example or unrelated formula. No stronger downstream theorem is claimed.
+
+## Closest literature and limitations
+Ulness (2022) proves preliminary periodicity, symmetry, prime and prime-square saturation and squarefree support products, but poses the odd-prime-power and even-factor generalizations as conjectures. Standard square-root results provide the local arithmetic; the distinct first-block uniformity and the explicit complete formula are the added synthesis. OEIS A279085 is a documented powers-of-ten data series and empirical expression, not an all-modulus proof. The analysis does not assert absolute publication priority or treat a failed search as a uniqueness proof. Full independent external audit has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
