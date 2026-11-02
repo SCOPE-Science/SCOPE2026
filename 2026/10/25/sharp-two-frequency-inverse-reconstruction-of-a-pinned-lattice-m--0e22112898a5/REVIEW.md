@@ -1,11 +1,21 @@
-# Scientific review: exact two-frequency inverse impurity recovery
+# Independent mathematical audit
 
-**Correctness — PASS.** The host band follows the homogeneous Jacobi symbol; the positive stiffness form excludes nonpositive modes. Both exterior tails must be geometric and symmetric. Strict monotonicity of the defect matching equation proves the exact mode count. Eliminating the two defect equations recovers mass and pinning uniquely, and positivity gives precisely the sharp inequality. Substitution proves sufficiency. A standalone checker executed 1,600 forward examples, 337 two-mode inverse reconstructions, eight independent finite-matrix comparisons and 98 additional feasibility sign probes. Infinite claims are proved analytically, not inferred from those samples.
+## correctness
 
-**Originality — PASS, with important residual coverage risk.** The general forward existence of sub- and super-band defect modes is prior art (Manzhelii–Feodosyev 2025), and finite grounded-chain mode identification appears in Ramakrishnan–Matlack 2024. Tian–Li 2013 treats reconstruction from two *eigenpairs* plus supplied physical data in finite grounded chains. The reviewed claim is narrower and converse: an exact physical image test and unique two-**frequency** recovery for one bi-infinite pinned host with unchanged connecting springs. Available full-text comparisons and bounded database searches did not show this precise inverse theorem. The 2025 general forward formulas may implicitly cover it after algebraic elimination; full text of some older relevant articles remains inaccessible, and independent priority remains uncertain.
+PASS
 
-**Mathematical value — PASS.** The exact feasible observation region distinguishes physically realizable pairs of isolated spectral measurements from impossible ones. Two frequencies alone determine the defect mass and substrate spring uniquely, resolving an actual parameter-identification ambiguity in a natural model. This is a complete inverse classification, not a recomputation of known forward frequencies. No robustness to noise or finite-chain approximation is established.
+The infinite nearest-neighbor host recurrence has essential squared-frequency band [kappa,kappa+4]. Strictly positive quadratic form for kappa,kappa0,mu>0 removes nonpositive eigenvalues; unit-modulus recurrence excludes embedded and band-edge square-summable modes. Outside the band the only allowed symmetric tails are p^|n| and (-q)^|n|, with 0<p,q<1. Defect matching yields two linear equations in (mu,kappa0); subtraction gives mu=2pq/(1+pq), and kappa0=2[kappa pq-(1-p)(1+q)]/(1+pq). Hence physical positivity iff kappa pq>(1-p)(1+q). F(r) is strictly decreasing on (-1,0),(0,1); its end signs show one simple localized eigenvalue on each side and none else. Equality gives excluded kappa0=0, not a physical impurity. The actual checker and an independent high precision four-pair reconstruction independently verify matching equations and feasible/infeasible boundaries; finite spectra do not prove the all-chain claims.
 
-**Closest literature and limits.** Boechler et al. (2011) treat unpinned granular defect modes. Tian–Li (2013) treats finite grounded inverse reconstruction from richer spectral data. Lecomte (2014) studies finite disturbed spring-mass systems. Ramakrishnan–Matlack (2024) covers grounded-chain defect resonance geometry, and Manzhelii–Feodosyev (2025) establishes stronger forward three-parameter phonon-localization physics. The full 1962 Takeno et al. paper and final pages of Tian–Li were not available, leaving historical risk. Strictly positive onsite pinning, infinite geometry and exact band-straddling data are essential assumptions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+QUALIFIED PASS: Full primary Manzhelii-Feodosyev (2025) contains a three-parameter forward localized-mode analysis and approximate quadratic formulas; it is close antecedent for two-sided existence, not a proof written as two-eigenvalue-only exact inverse image/uniqueness theorem with an iff positive-pinning inequality at fixed host bonds. Finite spring-mass inverse results typically use eigenpairs or extra physical data. The algebraic derivation is short and source forward data may imply an equivalent specialization; residual priority risk is explicit.
+
+## value
+
+PASS
+
+Exact spectral identifiability is a naturally motivated inverse problem. Two measured localization frequencies suffice for unique recovery only on a sharply identified physically realizable region; the boundary distinguishes a vanishing substrate spring from admissible positive pinning and excludes spurious band modes. The classification supports precise inverse benchmarks even though it does not establish noise robustness or laboratory recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
