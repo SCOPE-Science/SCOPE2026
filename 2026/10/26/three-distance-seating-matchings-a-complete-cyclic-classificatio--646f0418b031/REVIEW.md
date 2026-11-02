@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The parity necessity follows from equal parity-class sizes, with a precise count of even-even and odd-odd distance-two edges. The exception when the order parameter is divisible by three follows from even-sized residue classes and a unique cross-class edge. Sufficiency is constructive: six endpoint-disjoint tiles realize explicit length triples; their nonnegative combinations cover every profile except those separately handled by the step-three Hamiltonian cycle or ruled out. The argument treats every \(n\ge3\), including the diameter-three boundary at \(n=3\). The embedded `verify.py` checks all 20,309 constructively feasible triples through order parameter 60 and compares the predicted feasible set with independent complete small-order searches through 10. These finite checks corroborate, but do not replace, the proof.
+## correctness
 
-## Originality
-**PASS, subject to indexing limitations.** The closest primary source, Meszka–Pasotti–Pellegrini, arXiv:2308.16553v1, handles two lengths, equal multiplicities, and certain nonincreasing profiles and proposes a prime-order parity conjecture. It does not state the all-multiplicity three-length classification. Kohen–Sadofschi Costa, arXiv:1603.06625v1, covers exclusively invertible distances, whereas genuinely three-length instances necessarily contain distance two. The principal genuine new region has all three of the first three distances present, and even positive distance-two multiplicity. The all-length-three and many two-distinct-distance consequences have known coverage and are not individually claimed as discoveries. Comparisons with the older odd-seat theorem and binary-vector-space difference matchings show distinct underlying groups. Unindexed prior solutions and implicit consequences of other unpublished work remain originality risks.
+PASS
 
-## Value
-**PASS.** This completely resolves the first nontrivial three-distinct-distance case of a concrete published prescribed-length matching question and verifies the three-distance restriction of a published odd-prime conjecture. The stronger composite-order classification isolates a sharp residue-three obstruction. The finite set of templates gives a linear-size constructive algorithm independent of guessing or searching, making the answer usable for all multiplicity profiles in a natural infinite problem family.
+Parity-class conservation gives an equal number of even-even and odd-odd length-two edges, forcing b even. When 3|n the n−1 length-three edges remain within even-sized mod-three classes, while the unique length-one edge leaves two odd residual classes, excluding the stated profile. For b=2t>0, the six explicit disjoint-endpoint tiles A=(1,0,0), B=(1,0,1), C=(0,2,0), D=(0,0,3), E=(0,2,1), F=(0,2,2) concatenate to give all residue classes of c modulo 3 with t≥1. For b=0, r copies of B and q of D plus a−r of A handle a≥r where c=3q+r; remaining a=0 and 3∤n cases admit the step-three Hamiltonian matching because gcd(3,2n)=1. The sole a=1,r=2 remainder is exactly the excluded 3|n case. The n=3 diameter-three boundary is covered. An independent exhaustive matching-mask recurrence checked n=3,...,8 and produced [5,9,12,15,20,25] admissible histograms, not the proof of all n.
 
-## Scientific limitations
-No full arbitrary-distance conjecture, counting formula, or statement about odd-seat analogues is asserted. The exception and the small-order validation concern precise labeled circular distances. Independent expert audit of correctness and priority has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier even seating-couple work proves two-length and some special multiplicity cases and conjectures parity sufficiency in odd prime orders; the new exact three-shortest-length all-multiplicity theorem covers genuine positive a,b,c cases with b even and finds the exceptional 3-divisible composite profile. Some two-length special cases are prior and acknowledged, but do not imply the general constructive decomposition.
+
+## value
+
+PASS
+
+Solves the first nontrivial full three-distance region of a concrete published seating-couples question, including the odd-prime three-length conjectural case and the sharp new composite-order obstruction. Explicit six-tile concatenations yield an algorithm for every allowable multiplicity triple, not a small isolated numeric instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

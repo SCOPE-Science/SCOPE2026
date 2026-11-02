@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-The executable `verify.py` uses only Python 3 standard-library facilities. Run `python3 verify.py` in the directory containing the program. It first checks that six templates partition their own consecutive blocks and have the stated ordinary-length vectors. It then builds and validates every constructively feasible length multiset for \(3\le n\le60\) (20,309 cases). An independent bitmask dynamic program enumerates all possible count triples for perfect matchings having only lengths \(1,2,3\) for \(3\le n\le10\), checking equality with the predicted classification.
+## correctness
 
-The observed output was:
+PASS
 
-```
-n 3 admissible_multisets 5 exhaustive_ok
-n 4 admissible_multisets 9 exhaustive_ok
-n 5 admissible_multisets 12 exhaustive_ok
-n 6 admissible_multisets 15 exhaustive_ok
-n 7 admissible_multisets 20 exhaustive_ok
-n 8 admissible_multisets 25 exhaustive_ok
-n 9 admissible_multisets 29 exhaustive_ok
-n 10 admissible_multisets 36 exhaustive_ok
-CONSTRUCT_OK 20309 instances checked for 3<=n<=60
-VERIFICATION_OK
-```
+Parity-class conservation gives an equal number of even-even and odd-odd length-two edges, forcing b even. When 3|n the n−1 length-three edges remain within even-sized mod-three classes, while the unique length-one edge leaves two odd residual classes, excluding the stated profile. For b=2t>0, the six explicit disjoint-endpoint tiles A=(1,0,0), B=(1,0,1), C=(0,2,0), D=(0,0,3), E=(0,2,1), F=(0,2,2) concatenate to give all residue classes of c modulo 3 with t≥1. For b=0, r copies of B and q of D plus a−r of A handle a≥r where c=3q+r; remaining a=0 and 3∤n cases admit the step-three Hamiltonian matching because gcd(3,2n)=1. The sole a=1,r=2 remainder is exactly the excluded 3|n case. The n=3 diameter-three boundary is covered. An independent exhaustive matching-mask recurrence checked n=3,...,8 and produced [5,9,12,15,20,25] admissible histograms, not the proof of all n.
 
-The output is a finite regression check rather than an exhaustive proof over all orders. The all-order result uses an explicit six-tile construction, the modular residue obstruction, and an elementary Hamiltonian-cycle argument, all given in RESULT.md. No randomized search, external package, or unexplained numerical certificate is needed. The bitmask recurrence independently explores perfect matchings at the stated small orders but does not cover larger orders.
+## originality
+
+PASS
+
+Earlier even seating-couple work proves two-length and some special multiplicity cases and conjectures parity sufficiency in odd prime orders; the new exact three-shortest-length all-multiplicity theorem covers genuine positive a,b,c cases with b even and finds the exceptional 3-divisible composite profile. Some two-length special cases are prior and acknowledged, but do not imply the general constructive decomposition.
+
+## value
+
+PASS
+
+Solves the first nontrivial full three-distance region of a concrete published seating-couples question, including the odd-prime three-length conjectural case and the sharp new composite-order obstruction. Explicit six-tile concatenations yield an algorithm for every allowable multiplicity triple, not a small isolated numeric instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
