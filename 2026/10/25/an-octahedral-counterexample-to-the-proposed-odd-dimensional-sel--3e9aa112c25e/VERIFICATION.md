@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-For the coordinate octahedron, the six vertices of each relevant central section are \((e_i-e_j)/2\) for distinct \(i,j\). Their cyclic edge differences are vertices of the same section; this proves a self-perimeter of six without a floating-point calculation. Cross-product and polygon-area identities give squared facet area \(3/4\) and squared section area \(27/16\). The recursive facet sum therefore equals \(16/3\). The product identity is proved by the boundary decomposition in RESULT.md.
+## correctness
 
-The supplied `CHECK.py` was executed from its actual package directory using Python 3; its exact-rational assertions passed. It also checks the resulting ratio in 25 odd dimensions. Those finite checks are supplemental, not an exhaustive proof of the all-dimensional claim.
+PASS
 
-The conjecture being contradicted appears in Wolansky's arXiv:2604.01950 (2026), Section 4.4. A residual originality risk is the possible existence of previously unindexed calculations of the same regular-octahedral self-volume. Independent review has not been performed.
+The octahedron facet area is √3/2; its normal central section is the six vertices (e_i−e_j)/2, a regular hexagon of area 3√3/4 and self-area 3 (six unit-gauge sides divided by two). Eight facets in the recursive boundary integral give Ω3(O)=(8/3)(√3/2)(3/(3√3/4))=16/3. The product induction splits boundary of A×B into ∂A×B and A×∂B; the normal-section Euclidean volumes cancel, yielding Ω_{a+b}(A×B)=Ω_a(A)Ω_b(B). With Ω2(H)=3, Ω_{2k+1}(O×H^{k−1})=(16/9)3^k=(8/9)2·3^k. Independent rational check of facet/section area ratio and the product identity for k up to 34, not used as infinite proof.
+
+## originality
+
+PASS
+
+Wolansky defines recursive self-volume and proves product multiplicativity and the conjectured 2·3^k odd-dimensional minimum; his examined text does not compute Ω3(octahedron) or disprove the conjecture. Existing planar hexagon self-perimeter is credited. The three-dimensional obstruction 16/3 and all-odd products require the new octahedral facet/section calculation, not merely applying the conjectured value. No precise matching Resultary record surfaced.
+
+## value
+
+PASS
+
+A concrete exact counterexample to an explicitly published all-odd-dimensional convex-geometric minimum is inherently consequential. The octahedral section geometry gives a robust factor 8/9 witness at every odd dimension; it does not need to identify the true minimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
