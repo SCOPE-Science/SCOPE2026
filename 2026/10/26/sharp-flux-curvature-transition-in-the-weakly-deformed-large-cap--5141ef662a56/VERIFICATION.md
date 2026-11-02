@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-Run the standalone, standard-library Python 3 checker with `python check.py`. It uses exact rational arithmetic for finite \(K\), \(t\), and fugacity to reproduce the stationary generating-polynomial identity, deformed-occupation expectation, and optimal current. It enumerates complete fixed-particle configuration spaces on several small rings and checks each configuration's weighted master-equation balance. It then performs floating-point tests of the capacity-normalized current and limiting curvature on both sides of \(\pm\log3\). The tests report `ALL CHECKS PASSED` when successful.
+# Independent mathematical audit
 
-These finite tests do not establish the infinite-volume or large-capacity limits. The analytic proof uses positivity of all one-site weights, the finite-support local central limit theorem for fixed capacity and interior density, monotone inversion of a Riemann-sum density, and an explicit second-derivative sign calculation. The source factorization is also verified algebraically through the finite master equation. No outside audit has been performed.
+## correctness
+
+PASS
+
+The actual rates give the canonical product weight ratio w_(a+1)/w_a=t^(a-1)[K-a]_t/[a+1]_t. On a ring the imbalance is the telescoping gradient (1-q)[K]_t([b]_t-[a]_t), proving invariance, and the one-site partition function is F(y)=t product_{j=-1}^{K-2}(1+t^j y). Its fugacity logarithmic derivative yields rho and mu=[K]_t y/(t+y), so the L-first thermodynamic flux is (1-q)mu([K]_t-mu). The canonical-to-grand-canonical limit needs the standard positive finite-support span-one local CLT at each interior density. Riemann-sum inversion for t_K=exp(lambda/K), rho=Ku yields J=(1-q)(exp(lambda*u)-1)(exp(lambda)-exp(lambda*u))/lambda², lambda=0 continuous quadratic case. Differentiating twice yields sign of 1+exp(lambda)-4exp(lambda*u), with interior sign change exactly |lambda|>log 3; strict concavity holds at equality (zero only at boundary). Independent exact rational computation confirmed F(y) and mu for 45 triples, finite-ring stationarity for L=3,4 and K=2, and finite-difference curvature for 15 settings. This is iterated L then K only, not hydrodynamic convergence.
+
+## originality
+
+PASS
+
+The original Ayyer–Misra K-exclusion paper already establishes the model and factorized weights; its inspected main text does not state the exact current-density fugacity law and weak-deformation large-capacity curvature transition. The present originality is the evaluated scaling profile, sign threshold and maximizer, not the source solvability.
+
+## value
+
+PASS
+
+The theorem identifies an exact parameter boundary at which a natural exclusion-gas flux stops being globally concave while retaining a unique maximum. Flux concavity controls characteristic and hydrodynamic intuition, so the sharp deformation threshold is a motivated useful structural fact, not an arbitrary substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

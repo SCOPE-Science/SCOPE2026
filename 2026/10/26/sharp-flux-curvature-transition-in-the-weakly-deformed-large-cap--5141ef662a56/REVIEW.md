@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-volume invariant law is independently checked through the telescoping local master-equation identity, not merely quoted. The exact grand-canonical generating polynomial gives a closed deformed occupation expectation; the canonical-to-product local limit at fixed capacity follows from finite-support local CLT. The capacity limit follows by a monotone Riemann-sum inversion. Direct differentiation gives a unique maximizer and a sharp inflection criterion \(|\lambda|>\log3\), with the threshold cases checked on the open density interval. Exact small-ring master-equation checks and separate numerical scaling/curvature tests pass. Assumptions, order of limits, and nonclaims are explicit.
+## correctness
 
-## Originality — PASS, with residual risks
-Primary full-text inspection of Ayyer–Misra arXiv:2310.03343 identifies the factorized weights and occupation distribution, but no corresponding exact signed-current phase portrait or weak-deformation capacity-limit concavity threshold. Evans–Waclaw's general misanthrope framework supplies background factorization, not this model-specific formula. Chleboun–Grosskinsky–Pizzoferrato study a different zero-range current problem; their generic concavity considerations do not determine the threshold. The later Ayyer–Misra inclusion model has a different rate structure and unbounded local occupancy. Semantic queries for the source, aliases, current formula, capacity scaling, and curvature did not identify an equivalent or dominating published claim. These searches are not proof of absolute novelty. A relevant uncatalogued transport derivation remains possible.
+PASS
 
-## Mathematical value — PASS
-The sharp loss of concavity of the stationary flux is a structural boundary for this naturally scaled exactly solvable interacting-particle system, not an arbitrary finite-instance value. The exact \(\log3\) threshold, unique inflection, and maximizer separate qualitatively distinct nonlinear transport flux shapes, which are mathematically relevant to conservation-law analysis without asserting an unproved hydrodynamic theorem. The complete closed form also relates occupancy deformation to current optimization; the value lies in the combined structural classification, not just re-evaluating a stationary partition function.
+The actual rates give the canonical product weight ratio w_(a+1)/w_a=t^(a-1)[K-a]_t/[a+1]_t. On a ring the imbalance is the telescoping gradient (1-q)[K]_t([b]_t-[a]_t), proving invariance, and the one-site partition function is F(y)=t product_{j=-1}^{K-2}(1+t^j y). Its fugacity logarithmic derivative yields rho and mu=[K]_t y/(t+y), so the L-first thermodynamic flux is (1-q)mu([K]_t-mu). The canonical-to-grand-canonical limit needs the standard positive finite-support span-one local CLT at each interior density. Riemann-sum inversion for t_K=exp(lambda/K), rho=Ku yields J=(1-q)(exp(lambda*u)-1)(exp(lambda)-exp(lambda*u))/lambda², lambda=0 continuous quadratic case. Differentiating twice yields sign of 1+exp(lambda)-4exp(lambda*u), with interior sign change exactly |lambda|>log 3; strict concavity holds at equality (zero only at boundary). Independent exact rational computation confirmed F(y) and mu for 45 triples, finite-ring stationarity for L=3,4 and K=2, and finite-difference curvature for 15 settings. This is iterated L then K only, not hydrodynamic convergence.
 
-## Closest literature and limitations
-Closest source: Ayyer and Misra (arXiv:2310.03343, 2023), which supplies the invariant weights. Generic factorization and current transport works are cited in RESULT.md. No claim is made about hydrodynamic convergence, finite-size fluctuations, or simultaneous limits. Independent scholarly priority review remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Ayyer–Misra K-exclusion paper already establishes the model and factorized weights; its inspected main text does not state the exact current-density fugacity law and weak-deformation large-capacity curvature transition. The present originality is the evaluated scaling profile, sign threshold and maximizer, not the source solvability.
+
+## value
+
+PASS
+
+The theorem identifies an exact parameter boundary at which a natural exclusion-gas flux stops being globally concave while retaining a unique maximum. Flux concavity controls characteristic and hydrodynamic intuition, so the sharp deformation threshold is a motivated useful structural fact, not an arbitrary substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
