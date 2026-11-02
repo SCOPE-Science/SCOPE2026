@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For any rank-q error, direct thin-SVD algebra yields active signed coefficients s_i-t*sum(s). The exact quadratic line search has t=1/q. This produces equality of the two absolute residual singular values after one step for all rank-two errors, and a second zero step. At every rank >=3, the positive spectrum proportional to (1,...,1,r-1) reproduces itself with nonzero factor (r-2)/r indefinitely. Equal starting singular values force t=1/r for any fixed step claimed to terminate universally; the higher-rank ray obstructs it. The exact-line-search first-step rank discontinuity squared norm is 8/3. Standalone rational/matrix checker verify.py passed 7401 finite checks, corroborating but not replacing the proof in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.27747v1 Theorem 3 establishes geometric convergence under a trace-based step bound; Appendix C Proposition 8 covers only special equal-active-singular-value invariant directions.",
+        "arxiv:2505.21799v4 Theorem 3.2 bounds one-step objective contraction for the rank-scaled method without exact finite termination.",
+        "arxiv:2602.11948v1 §§3–4 treats unscaled polar steps, whose length does not decrease with the error; this is a different recurrence."
+      ],
+      "reasoning": "Geometric error bounds with positive contraction factors do not imply finite termination. The available stronger-dimensional bounds do not contain the needed universal rank-two quantifier or the exact negative result for ranks three and higher. Proposition 8 is consistent with, but covers only a proper subset of, the rank-two initials; the counterexample ray has unequal singular values and is not one of those equal-spectrum invariant directions.",
+      "searches": [
+        "Primary theorem and Appendix C: arxiv:2610.27747v1",
+        "Original PolarGrad convergence theorem: arxiv:2505.21799v4",
+        "Unscaled Muon dynamical paper: arxiv:2602.11948v1",
+        "published-finding corpus semantic query: nuclear norm polar gradient update singular-value map absolute deviation from mean finite termination rank two",
+        "published-finding corpus semantic query: theorem complete rank classification universal finite termination for spectral polar descent rank 1 2 higher"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.27747v1: Theorem 3, Appendix C Proposition 8, Remark 2",
+      "arxiv:2505.21799v4: formula (4), Theorem 3.2",
+      "arxiv:2602.11948v1: unscaled polar quadratics",
+      "published-finding corpus public mathematical-record semantic searches: nine actual queries, close records including 2026/10/4/SCOPE-exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f and 2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+      "Search-engine queries for nuclear polar finite termination, sign descent and spectral-norm two-step behavior"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 8 in arxiv:2610.27747v1: if all active singular values correspond to equal error amplitude then a fixed invariant ray contracts by a scalar; one-step exactness can occur when normalized step is 1/r. It does not give arbitrary initial-rank-two two-step exactness or a higher-rank obstruction.",
+        "The new proof uses the independent identity |a-(a+b)/2|=|b-(a+b)/2| and a stable (1,...,1,r-1) spectral ray for each r>=3 to establish the exact dichotomy.",
+        "The displayed rank-raising perturbation changes the active rank and line-search parameter, yielding an explicit nonzero discontinuity rather than a general convergence-rate implication."
+      ],
+      "reasoning": "The two-step statement is not the equal-spectrum one-step corollary of prior invariant-direction results: it applies to *unequal* rank-two singular values and uses their forced equalization. The higher-rank nontermination is a sharp counterpoint, not contained in a mere rate bound; neither the prior theorem nor the related different-algorithm records dominate both directions. A general SVD update formula is prerequisite evidence, not a published complete classification of its dynamics.",
+      "searches": [
+        "Primary: arxiv:2610.27747v1, Appendix C Proposition 8 and Remark 2",
+        "PolarGrad: arxiv:2505.21799v4, Theorem 3.2",
+        "Unscaled Muon: arxiv:2602.11948v1, §§3–4",
+        "published-finding corpus semantic query: PolarGrad nuclear-norm scaled polar gradient isotropic quadratic rank two exact two-step finite termination singular values equalize",
+        "published-finding corpus semantic query: nuclear norm polar gradient update singular-value map absolute deviation from mean finite termination rank two",
+        "published-finding corpus closest related record: 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nuclear-scaled polar update is identical to steepest descent in the spectral-norm geometry, with exact line search at normalized step 1/r on isotropic quadratics. Theorem 3 and Appendix C of arxiv:2610.27747 give the exact objective descent identity and invariant equal-spectrum rays.",
+        "arxiv:2505.21799v4, §3.3, formula (4), defines the same nuclear-norm-scaled polar direction, and Theorem 3.2 gives rank-dependent descent bounds.",
+        "No equivalent two-step arbitrary-rank-two theorem was identified in the recorded published-finding corpus hits or the searched terms."
+      ],
+      "reasoning": "The steepest-descent and nuclear-polar descriptions are exactly the same algorithm, not different novelty claims. Prior formulas identify the direction and selected invariant rays but do not assert that every rank-two initial matrix is mapped to equal singular values after one step and vanishes on the next. The new classification requires comparing full nonlinear iterates, including a nonterminating rank-three ray.",
+      "searches": [
+        "published-finding corpus semantic query: PolarGrad nuclear-norm scaled polar gradient isotropic quadratic rank two exact two-step finite termination singular values equalize",
+        "published-finding corpus semantic query: two dimensional l1 normalized sign gradient exact two iterations isotropic quadratic stepsize 1/2",
+        "published-finding corpus semantic query: PolarGrad rank-two exact termination in two steps spectral norm steepest descent isotropic quadratic nuclear scaling",
+        "Web search: \"steepest descent\" \"infinity norm\" \"finite termination\" dimension two",
+        "Primary full text: arxiv:2610.27747v1, Appendix C, Proposition 8 and Remark 2",
+        "Original method full text: arxiv:2505.21799v4, §§3.3 and 3.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The surfaced finite-termination SVT record concerns soft-thresholded matrix completion, not a nuclear-scaled polar update on quadratic losses.",
+        "The polar-Express scalar record analyzes a fixed polynomial approximation to the polar factor, not the exact nuclear-scaled direction.",
+        "The SOAP record concerns singular-value imbalance caused by a stale preconditioning basis, not the centered singular-value map.",
+        "No matching table of rank-wise universal finite termination was found among these actually returned records."
+      ],
+      "reasoning": "Matching words (rank, polar, termination, singular values) are insufficient. These records use different recurrence maps or optimization objectives and do not imply the stated mean-centering rank dichotomy; no exact covering database/table entry was identified.",
+      "searches": [
+        "published-finding corpus semantic query: nuclear-scaled polar update sum singular values special rank two finite termination 2 steps",
+        "published-finding corpus semantic query: polar descent finite termination rank dimension two one half stepsize simultaneous singular values",
+        "published-finding corpus semantic query: steepest descent spectral norm squared frobenius norm rank r singular value two step extinction",
+        "published-finding corpus semantic query: matrix steepest descent with spectral norm singular-value equalization one step isotropic full-rank 2x2",
+        "published-finding corpus closest record: 2026/10/4/SCOPE-exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f",
+        "published-finding corpus closest record: 2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+        "published-finding corpus closest record: 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c",
+        "Web: \"nuclear norm\" \"polar\" \"finite termination\" quadratic optimizer"
+      ]
+    },
+    "rationale": "The 2026 source has a general nuclear-scaling contraction bound and special invariant rays, while the 2025 method source has rank-dependent rate guarantees; neither inspected source includes arbitrary rank-two two-step termination, the complete sharp rank obstruction, or the rank-raising line-search discontinuity. Relevant semantic public-record and web searches located related but mathematically nonequivalent recurrence results. This is a supported best-knowledge judgment, not an assertion of exhaustive historical priority.",
+    "residual_risks": [
+      "Specialized earlier literature on two-dimensional sign descent or spectral-norm steepest descent may contain an equivalent theorem; neither exhaustive coverage nor expert priority certification is claimed.",
+      "The companion technical-report paper.pdf was not independently read; the separately inspected ArXiv full text has Appendix C and the full stated dynamical theorem.",
+      "Different finite-precision rank thresholds or anisotropic Hessians can destroy the exact rank-two behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General contraction and selected equal-spectrum invariant rays, but no complete rankwise finite-termination statement or rank-jump discontinuity",
+        "evidence": [
+          "Theorem 3 and Appendix C (8) give objective decay, Proposition 8 gives equal-amplitude invariant directions, and Remark 2 identifies the line-search scale 1/tr(U^T H U)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.27747v1",
+        "material_read": "Full article main §§1–7; model equations (1)–(3), Theorem 3, Appendix A prior work, Appendix C proof, Proposition 8, Remark 2; inspected exact directional behavior around lines 264–290",
+        "method": "ArXiv lawful open-access complete HTML, not abstract snippets",
+        "title": "Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics",
+        "trigger": "Exact 2026 motivating source: same optimizer and isotropic strongly convex quadratics"
+      },
+      {
+        "assessment": "Defines the exact update and rank-dependent convergence guarantee but does not give rank-two two-step extinction or ranks >=3 counterexample",
+        "evidence": [
+          "Formula (4) is nuclear norm times polar factor; Theorem 3.2 uses step 1/(L r_k) and supplies linear loss bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.21799v4",
+        "material_read": "Full-text sections 3.3–3.5, formula (4), Theorem 3.2 and proof region plus contents/relevant appendices and find checks for finite termination",
+        "method": "ArXiv lawful open-access complete HTML; relevant full-text portions read, not only abstract",
+        "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+        "trigger": "Original 2025 nuclear-scaled polar method and possibly covering rank-adaptive step"
+      },
+      {
+        "assessment": "Unscaled polar-direction grid confinement is a different dynamical map from the nuclear-scaled scheme",
+        "evidence": [
+          "The paper studies fixed-length exact polar steps and their approximation effects, unlike length-vanishing nuclear scaling."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.11948v1",
+        "material_read": "Abstract, introduction, §§3–4 and related-work roadmap; inspected which update is modeled",
+        "method": "ArXiv lawful open-access HTML; specific model and main conclusions read",
+        "title": "Insights on Muon from Simple Quadratics",
+        "trigger": "Closest quadratic polar-gradient dynamics paper cited by 2026 source"
+      },
+      {
+        "assessment": "README advertises numerical experiments and manuscript; no additional theorem claim in the inspected material. The full ArXiv paper, including Appendix C, was separately inspected.",
+        "evidence": [
+          "README enumerates P1–P4 reproducibility scripts and paper.pdf; no rank-two exact-termination claim in the README."
+        ],
+        "identifier_or_url": "https://github.com/Bhabatoshgarai243/spectral-optimizers-quadratics",
+        "material_read": "Repository README and file inventory; experiments list P1–P4",
+        "method": "Public repository descriptive text; separate paper.pdf not read",
+        "title": "spectral-optimizers-quadratics accompanying technical report repository",
+        "trigger": "Technical-report link attached to the motivating primary paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "748c30f8-6df2-4589-81d9-abc27dcdb719",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The step is exactly the optimal line search for a natural spectral-norm steepest-descent method, rather than a tuned artificial recurrence. The classification exhausts which matrix ranks admit uniform finite termination on an isotropic strongly convex quadratic. The sharp rank-two versus rank-three dichotomy, explicit nonterminating geometric ray, and quantified rank-raising discontinuity distinguish finite-step reliability from known linear-rate estimates and expose a practically relevant fragility of exact polar algorithms.",
+    "status": "PASS"
+  }
+}
