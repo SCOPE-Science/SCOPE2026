@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The reverse balanced-deck count process is an exact simple random-walk bridge. Conditional Bernoulli variance yields the exact finite-m martingale variance. Hypergeometric sub-Gaussian bounds give uniform fourth moments and negligible endpoint truncation, upgrading bridge weak convergence to first/second moment convergence. A Gaussian two-time absolute-moment formula and two explicit positive-integrand evaluations give E A²=2log2-1/2. Previously established two-color score moment limits then yield the covariance. Exact rational enumeration through m=8 checks all finite identities; quadrature separately checks the two integrals. Source arxiv:2610.17479v1 Proposition 1.4 and arxiv:2303.04609v1 Theorem 9; verify_moments.py is standalone.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dey–Manthripragada arXiv:2610.17479v1 Theorem 1.2 and Proposition 1.4: general CLT and fixed-n weak compensator bridge limit; no joint S/M covariance stated in inspected introduction.",
+        "Kuba–Panholzer arXiv:2303.04609v1 Theorem 9: all asymptotic raw moments of centered total score for two colors, but not S or M."
+      ],
+      "reasoning": "The general score CLT concerns n→infinity rather than n=2 fixed; the fixed-type source gives only weak functional convergence. The older exact two-color generating functions concern certified/more-likely/luck score categories, whose joint moments do not directly give predictable compensator covariance.",
+      "searches": [
+        "Optimal greedy card guessing with complete feedback fixed number of types limit compensator Brownian bridge variance exact constant",
+        "card guessing greedy optimal two balanced colors predictable compensator martingale anticorrelation limiting -0.85993568",
+        "On Card guessing with two types of cards Kuba Panholzer arxiv 2023",
+        "Partha Dey Jaya Manthripragada two type compensator variance Brownian bridge 2 log 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.17479v1 (intro and main results)",
+      "arxiv:2303.04609v1 (Sections 1, 2, 3.4)",
+      "doi:10.1214/EJP.v20-3744 (abstract)",
+      "published-finding corpus actual query strings recorded above",
+      "web search strings recorded above",
+      "published-finding corpus final dedicated search, 97 ranked records inspected by title and synopsis"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 2026 Proposition 1.4 identifies the distributional limit, and prior 2023 Theorem 9 supplies the Rayleigh score moments.",
+        "Current proof independently supplies uniform fourth-moment control, the exact second moment integral evaluation, and the closed cross-covariance and negative correlation."
+      ],
+      "reasoning": "The weak limit alone cannot justify variance convergence without uniform integrability and does not evaluate the weighted bridge second moment. The total-score moments alone have no predictable-part covariance. The combined prior theorems suggest the problem and provide input but require new exact evaluation and proof to yield the stated two-part fluctuation decomposition.",
+      "searches": [
+        "site:arxiv.org/abs/2610 probability stochastic processes 2026 October first submitted random walks percolation critical",
+        "complete feedback guessing two types compensator martingale covariance log2",
+        "Two color complete feedback card guessing exact asymptotic predictable compensator variance 2log2 - 1/2 - pi/4; score martingale covariance 1/2-log2; Brownian bridge weighted absolute area"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dey–Manthripragada 2026 Proposition 1.4 gives A=(1/sqrt2) integral |B(u)|/u du but does not evaluate its second moment in the inspected main-results section.",
+        "published-finding corpus searches returned nearby general martingale/variance records but no two-color card-game covariance; the record titled Square-root bounded-stopping bias concerns a different Rademacher stopping problem.",
+        "A broad published-finding corpus search returned a nearest indexed record titled Spectral calibration frontier for bagged martingale posterior ellipsoids; it concerns Gaussian coverage calibration rather than the balanced-deck score or Brownian-bridge moments."
+      ],
+      "reasoning": "Equivalent forms include a weighted bridge L1 functional second moment, a two-type guessing compensator variance, and score–martingale covariance. A representation of the limiting random variable does not itself state the exact evaluated variance or joint covariance; the latter requires the additional finite-m and score moment identities.",
+      "searches": [
+        "Complete feedback card guessing game two types predictable compensator Brownian bridge functional exact variance second moment weighted absolute Brownian bridge integral n=2",
+        "Two color complete feedback card guessing exact asymptotic predictable compensator variance 2log2 - 1/2 - pi/4; score martingale covariance 1/2-log2; Brownian bridge weighted absolute area",
+        "integral from zero to one absolute Brownian bridge divided by time exact second moment 4 log 2 minus 1; covariance with score guessing",
+        "exact second moment integral absolute Brownian bridge divided by time log2",
+        "balanced two color complete feedback optimal greedy card guessing predictable compensator Brownian bridge weighted modulus integral exact asymptotic covariance score martingale"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus exact-constant query returned no matching complete finding among displayed ranked hits.",
+        "Literature searches for the inverse-time weighted absolute Brownian-bridge moment returned general bridge-functional works, not this numerical coefficient."
+      ],
+      "reasoning": "The coefficient is not a finite tabulated occupancy statistic or precomputed threshold. It is a continuum stochastic integral evaluated by a two-dimensional Gaussian calculation and a finite-deck covariance decomposition. Search absence alone does not establish priority.",
+      "searches": [
+        "Two color complete feedback card guessing exact asymptotic predictable compensator variance 2log2 - 1/2 - pi/4; score martingale covariance 1/2-log2; Brownian bridge weighted absolute area",
+        "integral from zero to one absolute Brownian bridge divided by time exact second moment 4 log 2 minus 1; covariance with score guessing",
+        "variance integrated absolute Brownian bridge inverse time logarithm 2",
+        "complete feedback guessing two types compensator martingale covariance log2"
+      ]
+    },
+    "rationale": "The 2026 motivating paper states the fixed-type compensator limit only as a Brownian-bridge functional, without giving this elementary second moment or score/residual covariance. The 2023 card-guessing paper gives score moments and its own three-way score-type decomposition, not the predictable-compensator residual decomposition. The new result combines an evaluated weighted bridge functional with an exact martingale variance and explicit limiting anticorrelation. Indexed-record and web searches found no exact overlap, subject to stated residual priority risks.",
+    "residual_risks": [
+      "Older or unindexed Gaussian weighted-area moment formulas may already yield the exact 2log2 coefficient.",
+      "The complete remaining methods/appendices of the motivating 2026 preprint could not be re-fetched for exhaustive priority comparison, although the main result and relevant fixed-type material were read.",
+      "No independent mathematician has checked either the new asymptotic calculation or historical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the weak functional input but does not present the closed variance/cross-covariance in material read; remainder retrieval unavailable",
+        "evidence": [
+          "arXiv:2610.17479v1 dated 2026-10-12",
+          "Proposition 1.4 gives n-fixed Brownian bridge functional and first moment; paragraph preceding labels fixed n≥3 score limit open",
+          "discussion points to Kuba–Panholzer for n=2 score moments"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.17479",
+        "material_read": "Abstract, introduction, main Theorems 1.1–1.3, Proposition 1.4, fixed-type remark, reverse-path identity and related-work discussion, visible source lines 50–273",
+        "method": "arXiv HTML full-text section inspection",
+        "title": "Limit Theorems for the Complete Feedback Card Guessing Game",
+        "trigger": "same game, same compensator, fixed-two-type weak functional limit"
+      },
+      {
+        "assessment": "COVERS total-score raw moments used in theorem; DOES NOT STATE the predictable-compensator cross-covariance in inspected sections",
+        "evidence": [
+          "Theorem 9 gives E(T_m-m)^s ~ Gamma(s/2+1)m^(s/2), for integers s",
+          "Section 2 equation C=m+P has a different decomposition of score"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.04609v1",
+        "material_read": "Introduction, decomposition into certified/more-likely/pure-luck score counts, Section 3.4 Theorem 9 and proof, references",
+        "method": "arXiv HTML full-text section inspection",
+        "title": "On Card Guessing with Two Types of Cards",
+        "trigger": "earlier exact two-color score distributions and moment asymptotics"
+      },
+      {
+        "assessment": "Different path transform, no identified inverse-time absolute bridge integral; uninspected full text leaves residual risk",
+        "evidence": [
+          "Abstract concerns Vervaat transform distribution and variance of its transformed process"
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/EJP.v20-3744",
+        "material_read": "Bibliographic abstract and mathematical description of Vervaat path transform",
+        "method": "open abstract / metadata, not entire article",
+        "title": "The Vervaat transform of Brownian bridges and Brownian motion",
+        "trigger": "plausible older Brownian functional variance study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a2cea197-0119-4bc1-a295-5c87fc362c36",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The limiting compensator/residual covariance is as large as the component variances (all order m) and changes the interpretation of total-score fluctuations. Its explicit negative coefficient and correlation, not merely a new decimal moment, quantify a genuinely non-negligible cancellation in a canonical two-color complete-feedback game. The exact elementary second moment of the limiting weighted Brownian bridge provides a reproducible analytic benchmark.",
+    "status": "PASS"
+  }
+}
