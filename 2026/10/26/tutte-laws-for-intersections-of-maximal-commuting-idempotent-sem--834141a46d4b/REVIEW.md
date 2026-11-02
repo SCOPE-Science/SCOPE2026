@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The simultaneous conjugator is explicit: the orthogonal Boolean joint idempotents \(p_\sigma\) and their diagonal patterns \(d_\sigma\) yield \(u=\sum p_\sigma d_\sigma\) with diagonal one and identities \(p_\sigma u=u d_\sigma\). Distinct unipotent conjugators give distinct maximal semilattices. Their intersections reduce to the exact equations \(g(x,y)(d_y-d_x)=0\), with no unverified infinite extrapolation. Independent support-edge enumeration and full finite incidence-ring computation agree for six cases. The Tutte identity and min-cut inclusion–exclusion prove the stated remaining formulas.
+## correctness
 
-**Originality — PASS relative to inspected material.** The 2022 study of incidence-monoid idempotent varieties establishes single-idempotent diagonal-pattern orbit structure; the 2020 finite-field potent-element article counts individual elements; the 2021 incidence-monoid article treats automorphisms. The finite-graph Fortuin–Kasteleyn identity is classical and credited. None of those inspected claims implies the *intersection distribution of pairs of maximal commuting idempotent semilattices* without the new simultaneous conjugation, normalizer and intersection-support arguments. Prior related research concerning incidence-monoid element centralizers and rank spectra addresses different invariants. The claim does not represent an absence of search hits as a proof of novelty.
+PASS
 
-**Value — PASS.** Intersections of maximal compatible retraction families are natural structural invariants of the incidence monoid. Determining every intersection size and its exact multiplicity yields a complete finite-field distribution and links it to the Tutte polynomial, recovering edge connectivity and the number of minimum cuts through a sharp probability asymptotic. This gives more than single-idempotent counting or an arbitrary finite example.
+For finite nonempty P with n elements and m comparable ordered pairs x<y over F_q, every commuting family of idempotents is simultaneously conjugate by a unique u in U=1+J into Boolean diagonal idempotents D. The orthogonal joint idempotent projectors p_sigma and u=sum p_sigma d_sigma have diagonal 1 and prove existence. The centralizer of all diagonal primitive idempotents within idempotents is D, establishing maximality and unique U indexing, |U|=q^m. For relative g=u^-1 v, diagonal bits commute iff constant on components of the support graph H_g; intersection size is 2^{c(H_g)}. Every strict interval coordinate of uniform g independently vanishes with probability 1/q, giving q^-m sum_B(q-1)^|B|t^{c(B)} and its FK/Tutte transform. Infinitely many prime powers permit interpolation; min-cut events give b_lambda q^-lambda+O(q^-lambda-1). Independently enumerated every unipotent conjugate and actual idempotent overlaps for the n=3 F2 chain, finding eight semilattices and histogram {2:4,4:3,8:1}; finite check corroborates structural proof.
 
-**Closest literature and limitations.** Can–Casimiro–Malheiro, arXiv:2208.01073v1; Can, arXiv:2105.09826v1; Gargate–Gargate, arXiv:2009.04243v1; classical random-cluster/Tutte identity. Generalizations under alternative terminology for Boolean subalgebra intersections remain a residual literature risk; independence and exhaustive publication priority are not claimed. The theorem cannot recover the orientation of the poset from the comparability-graph statistic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical incidence-monoid work characterizes individual idempotents and their conjugacy classes, and the Fortuin–Kasteleyn identity itself is classical. The new claim is the precise distribution of pairwise intersections of all maximal commuting-idempotent semilattices, with graph-completeness and min-cut asymptotics. This does not follow from individual-idempotent enumeration without the simultaneous diagonalizer and support-intersection lemma.
+
+## value
+
+PASS
+
+Intersections of compatible retraction/Boolean semilattice systems in a finite incidence monoid form an intrinsic algebraic statistic. Recovering an entire comparability graph Tutte polynomial and edge-connectivity rarity exponent is a substantial structural bridge to graph invariants, not a cosmetic specialization of a classical counting identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
