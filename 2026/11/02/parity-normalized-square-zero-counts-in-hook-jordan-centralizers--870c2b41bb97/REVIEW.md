@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The hook centralizer is represented as \(\operatorname{End}_{\mathbb F_q[t]}(\mathbb F_q[t]/(t^n)\oplus\mathbb F_q^r)\). Its square equation is derived explicitly; the lower-right block is partitioned by rank using square-zero image/kernel flags, and the residual bilinear pairing is counted with its lift multiplicity. The even/odd valuation arguments and finite-field scalar-square equation determine every term without characteristic restrictions. The independent multiplication verifier exhaustively reproduces 13 full counts and 9 block-rank distributions. The excluded case \(n=1\) is necessary.
+
+**Originality — PASS, provisional.** Searches of the available prior-claim database, accessible previous local research claims, and relevant full primary texts did not exhibit the exact labelled cardinality or the parity normalization. Britnell–Wildon (2010) address commuting similarity *types* for hooks; Ngo–Levy–Šivic (2021) and Boij–Iarrobino–Khatami (2024) study geometric commuting varieties; Bogdanić et al. (2022) treat two equal blocks. The particularly close later Khatami–Košir hook paper (2026) classifies *admissible Jordan types*, not finite-field point counts. These existence and geometry results do not imply the precise count without additional enumeration. Hall-polynomial generalizations remain a material priority risk.
+
+**Mathematical value — PASS.** This is a complete natural enumeration of the index-two nilpotent locus in a fixed centralizer family, valid over all finite fields and arbitrarily long hook blocks. The explicit strict parity discrepancy survives normalization and is not explained by the usual dimension of the centralizer. It provides a concrete benchmark for broader finite-field nilpotent commuting-variety and representation-counting questions; the result is substantially beyond a rephrasing of the centralizer parametrization.
+
+The counts are for labelled matrices, not centralizer-group conjugacy orbits; the result is restricted to one nonsingleton Jordan block. Finite checks support but do not replace proof. Priority has not been independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
