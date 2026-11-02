@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct binomial expansion of the nilpotent loss-state shift yields the exact all-stage survival probability, and the Kalman one-step update gives uniform upper and lower multiplicative bounds on peak covariance. These imply the tail law, exact positive-moment criterion including critical divergence, and quantile order. Exact rational recurrence checks are corroborative, not substituted for proof.
+## correctness
 
-**Originality — PASS (subject to explicit risks).** Huang–Dey (2006, 2007) concerns a binary loss model, Mo–Sinopoli (2012) establishes logarithmic tail decay rates for a binary Gilbert–Elliott model and notes broader methodological applicability, and Wu et al. (2015) assumes a finite bound on loss-run lengths. None of these stated findings supplies the staged, unbounded-burst two-sided logarithmic factor. The familiar phase-type Jordan-block mechanism makes this a sharply delimited mathematical application rather than a claim to invent phase-type tails. A stronger specialized theorem could still imply it and is a residual literature risk.
+PASS
 
-**Value — PASS.** The logarithmic multiplier and quantile inflation detect substantial rare-error risk differences between loss channels that share the same spectral tail exponent and moment threshold. The family covers every number of progressive failure stages rather than an unmotivated single parameter value.
+For scalar |a|>1, Q>0, R>0, h!=0, each received update g(P)=Q+(a^2 R P)/(h^2 P+R) lies in [Q,Q+a^2 R/h^2], independent of previous P. After N>=1 losses, f^N(g(P))=B^N g(P)+Q(B^N-1)/(B-1) with B=a^2, giving deterministic Q B^N<=M<=C_+ B^N. For the staged transient kernel T=pI+cJ, the exact binomial expansion e1^T T^(n-1)1=Σ_{j=0}^{min(m-1,n-1)}C(n-1,j) p^(n-1-j)c^j follows for all m>=2, n>=1; its dominant j=m-1 term has survival asymptotic [c^(m-1)/((m-1)!p^m)]n^(m-1)p^n. Integer logarithmic thresholds then give Pr(M>x)=Theta(x^-alpha (log x)^(m-1)), alpha=-log p/log B, no unjustified sharp constant because lattice oscillations. Comparing B^(rN) moments yields finiteness iff p B^r<1, including boundary divergence, and monotone inversion gives claimed extreme quantile order. Independently computed exact rational powers of T vs finite binomial sum through n=30 for m=3,p=1/2,c=1/4, checking sample survival 9/32,39/512,81/8192 at n=5,8,12. Formula is proved algebraically; finite checks only diagnostics. Inspected RESULT.md blob c81e34ed..., metadata and audit status files.
 
-**Limitations.** The theorem applies only to scalar systems, specified positive transition parameters, and prediction covariance at the first recovered measurement following a nonempty burst. It does not produce an asymptotic constant or an independent external check.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Gilbert–Elliott channel results give power-tail bounds or logarithmic exponent for a two-state channel, whereas this precise m-stage upper-triangular transient kernel has a nontrivial Jordan block producing an n^(m-1) survival factor and hence (log x)^(m-1) peak covariance envelope. Standard phase-type and scalar Kalman ingredients may individually be classical; searched material did not establish the combined staged model classification. Qualified priority, not a claim to originate Jordan phase-type asymptotics.
+
+## value
+
+PASS
+
+A motivated family of packet-loss models with identical persistence eigenvalue but varying numbers of progressive stages has exactly distinguished risk tails, moment thresholds and extreme quantiles. This demonstrates concrete limitations of characterizing networked estimator reliability by the power exponent alone and covers every stage count, not an arbitrary numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
