@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\ge4\\) the all-positive pattern forces a linear forest. Given a prescribed positive subset T, contraction yields a quotient linear forest Q of negative edges. For \\(k\\ge4\\) components, a complement spanning path exists by even-then-odd ordering of blocks along a path completing Q. At \\(k=2\\) or \\(k=3\\), an available nontrivial T-component can be reversed to avoid the sole unavoidable forbidden block adjacency; for \\(k=1\\) no connector is needed. This constructs every trace for all n and every T. VCdim=\\(n-1\\) follows from size bound and support witnessing; the online upper bound is \\(n-1\\) mistakes via remembering queried labels and predicting negative on new edges. Counts and exceptional \\(n\\le3\\) cases are checked by explicit enumeration. The verifier exhaustively checks all supports for \\(n\\le6\\) and all linear-forest supports for \\(n\\le7\\), without substituting finite observation for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mofidi, Transactions on Combinatorics 11 (2022), Theorem 3.3(1): graph spanning-tree incidence; Theorem 3.3(2): all-cycle incidence and a complete-graph lower bound.",
+        "Yang--Li--Wang, Theoretical Computer Science 767 (2019), abstract: ternary n-cube Hamiltonian paths with prescribed edges and bounded faulty-edge sets, with specified endpoints."
+      ],
+      "reasoning": "Spanning trees contain all Hamiltonian paths, and unrestricted cycle/path families also permit witnesses that are not spanning paths; shattering by these larger classes does not imply the universal path-completion condition. The hypercube embedding theorem uses an entirely different host and parameter restrictions. No inspected stronger theorem implies the stated property.",
+      "searches": [
+        "\"ON THE VC-DIMENSION, COVERING AND SEPARATING PROPERTIES\" \"CYCLE\" \"SPANNING TREE\"",
+        "\"The VC-dimension of set systems defined by graphs\" filetype:pdf",
+        "\"Embedding fault-free hamiltonian paths\" \"prescribed\" ternary n-cubes"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.22108/TOC.2021.127880.1832 (full relevant Section 3 inspected)",
+      "doi:10.22190/FUMI210301011M (abstract and publication metadata inspected)",
+      "doi:10.1016/S0166-218X(96)00137-0 (abstract and metadata inspected, not full text)",
+      "doi:10.1016/j.tcs.2018.09.020 (abstract and metadata inspected, not full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mofidi 2022 Theorem 3.3(2) proves VC dimension n-1 for the all-cycle hypergraph of K_n with all cycles allowed, not the spanning-path class.",
+        "Mofidi 2022 Theorem 3.3(1) characterizes spanning-tree shattering, but a spanning-tree witness may branch and need not be Hamiltonian.",
+        "Accessible Kranakis et al. 1997 metadata alone does not specify whether the exact Hamiltonian-path edge-trace statement appears in the uninspected full text."
+      ],
+      "reasoning": "The current result supplies a constructive witness in a strict hypothesis subclass for every positive/negative edge labeling on each linear forest. Neither the all-cycle nor all-spanning-tree statement provides those restricted witnesses. Potential direct coverage by older path-family work remains a residual risk, and no priority guarantee is asserted.",
+      "searches": [
+        "On the VC-dimension covering and separating properties cycle spanning tree Theorem 3.3 Mofidi",
+        "\"path VC-dimension\" \"Hamiltonian\" complete graph edge query",
+        "Hamiltonian path extension containing prescribed forest edges avoiding disjoint forbidden edges in complete graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kranakis--Krizanc--Ruf--Urrutia--Woeginger 1997 abstract describes set systems induced by paths and several other graph objects; full text not obtained.",
+        "Mofidi 2022, Theorem 3.3 explicitly defines cycles and spanning-tree edge incidence, whereas the present definition restricts hypotheses to undirected spanning paths."
+      ],
+      "reasoning": "Alternate phrasings such as edge-incidence ranges of Hamiltonian paths, prescribed-and-forbidden path completion, and path-hypergraph shattering were searched. The accessible 1997 abstract does not establish the same restricted definition; this leaves a named unresolved priority risk rather than a claim of comprehensive absence.",
+      "searches": [
+        "\"VC dimension\" \"Hamiltonian paths\" \"edge\"",
+        "\"VC-dimension of set systems defined by graphs\" paths 1997 Hamiltonian paths",
+        "Vapnik Chervonenkis dimension of Hamiltonian path hypergraph of complete graph, shattered supports linear forest"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published table of edge-incidence shattered supports for the restricted Hamiltonian-path family was located in accessible results.",
+        "An independent standard-library enumeration of all candidate supports through seven vertices gives 34, 206, 1486, and 12412 supports on four through seven vertices, respectively."
+      ],
+      "reasoning": "The finite counts are checks of the structural theorem, not evidence of exhaustive worldwide novelty. Their exponential generating function is the standard labeled-linear-forest enumerator and is not independently novel. The specific all-order shattering interpretation and forced/forbidden realization property were not covered by inspected records.",
+      "searches": [
+        "VC-dimension spanning paths K_n edge subsets linear forests exact table",
+        "Hamiltonian path class all linear forests shattered by arbitrary inclusion/exclusion labels",
+        "VC dimension Hamiltonian paths edge incidence all linear forests shattered"
+      ]
+    },
+    "rationale": "Direct searches of equivalent terms, literature, mathematical implication, and accessible previously developed claims found no covering result for the edge-incidence concept of spanning Hamiltonian paths on K_n. The closest fully inspected publication treats cycles or spanning trees; neither implies realizations within the stricter Hamiltonian-path class. The 1997 path-VC paper was not fully accessible, so historical priority is uncertain and not certified.",
+    "residual_risks": [
+      "The full 1997 Kranakis et al. study may contain a stronger fixed-spanning-path edge-result despite the abstract not identifying one.",
+      "The full 2022 cycle-counting and 2018 ternary-cube sources were not obtained; conclusions regarding those are limited to accessible material.",
+      "Unindexed and earlier equivalent formulations could exist; search absence is not uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the Hamiltonian-path support characterization; studies all cycles or spanning trees",
+        "evidence": "Definition 3.1; Theorem 3.3(1),(2) and corresponding proofs, pp.34–36.",
+        "identifier_or_url": "doi:10.22108/TOC.2021.127880.1832",
+        "material_read": "Definitions and Section 3 including Theorem 3.3 and proof (pages 34–37); table of contents and references",
+        "method": "Read openly available PDF text and page images",
+        "title": "On the VC-Dimension, Covering and Separating Properties of the Cycle and Spanning Tree Hypergraphs of Graphs",
+        "trigger": "Theorem on VC-dimension and shattering for graph edge-incidence structures"
+      },
+      {
+        "assessment": "Abstract concerns all-cycle hypergraph bounds, but complete-text coverage unresolved",
+        "evidence": "The article abstract specifies the set system of edge sets of cycles and studies cycle-counting bounds, not explicitly Hamiltonian paths.",
+        "identifier_or_url": "doi:10.22190/FUMI210301011M",
+        "material_read": "Public abstract, journal and index metadata; full PDF was inaccessible",
+        "method": "Public publication record and abstract; attempted publisher PDF",
+        "title": "On the Number of Cycles of Graphs and VC-Dimension",
+        "trigger": "Middle-period source applying VC theory to graph cycle incidence"
+      },
+      {
+        "assessment": "PRIORITY_RISK: abstract does not determine coverage of restricted spanning-path edge-incidence shattering",
+        "evidence": "Abstract describes paths, trees, and cycles and VC problems over vertex or edge set systems without spelling out a Hamiltonian spanning-path trace classification.",
+        "identifier_or_url": "doi:10.1016/S0166-218X(96)00137-0",
+        "material_read": "Public abstract and bibliographic metadata only; complete paper not available",
+        "method": "Publisher, author-version, and open-access searches; the full text could not be obtained.",
+        "title": "The VC-Dimension of Set Systems Defined by Graphs",
+        "trigger": "Strongly plausible older path-family VC result"
+      },
+      {
+        "assessment": "DIFFERENT_HOST: ternary cube, specified endpoints, fault budget; does not imply complete-graph result by stated abstract",
+        "evidence": "Abstract states fault-tolerant endpoint-constrained completion of small prescribed linear forests in ternary n-cubes.",
+        "identifier_or_url": "doi:10.1016/j.tcs.2018.09.020",
+        "material_read": "Public abstract and journal citation only; full article not obtained",
+        "method": "Publisher metadata and publicly indexed abstract",
+        "title": "Embedding Fault-Free Hamiltonian Paths with Prescribed Linear Forests into Faulty Ternary n-Cubes",
+        "trigger": "Prescribed/forbidden Hamiltonian path completions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95f32c02-3fdb-4d19-a476-35c12ba6fa73",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result solves every edge-query support of the natural Hamiltonian-path incidence class and supplies an all-parameter positive/negative completion property, exact static and adaptive shattering dimensions, and rigid maximum support count. These are not a parameter substitution from all-tree or all-cycle bounds: those larger classes may use non-spanning or branching witnesses. The known linear-forest generating function is explicitly separated from the central new completion theorem.",
+    "status": "PASS"
+  }
+}
