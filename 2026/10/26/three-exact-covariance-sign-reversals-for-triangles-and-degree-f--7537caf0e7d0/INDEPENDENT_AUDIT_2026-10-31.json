@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:14:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The identity Cov(T,D_r)=n*q_n(r)*(f_n(r)-mu_n) follows by conditioning on the degree of a labelled vertex. Conditional on r neighbours, the remaining n-1-r edges are uniform among the B=binom(n-1,2) nonincident pairs; triangles through the vertex contribute binom(r,2)*(n-1-r)/B and triangles avoiding it contribute binom(n-1,3)*(n-1-r)_3/(B)_3. Subtracting classical mu=binom(n,3)*(n-1)_3/(binom(n,2))_3 gives a cubic g_n(r), with q_n(r)>0 for every allowed degree. I independently recomputed the exact six pivot rational expressions at 0,1,3,4,n-3,n-2 and the coefficient certificates under n=t+14: pivots alternate +,-,-,+,+,- and each shifted positivity numerator has positive coefficients. Three disjoint real intervals each contain a root, exhausting a nonzero cubic; the signs at all integer degrees follow. At n=13 the n-2 numerator is negative, causing positive covariance. A fresh independent exact symbolic/rational checker corroborated identities and complete profiles through n=150. The arbitrary-n theorem is the polynomial root/positivity proof, not the finite loop.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broad deviation theory concerns asymptotic scales rather than all exact r signs.",
+          "The 2023 sparse-triangle deviation density conditions exclude the m=n-1 asymptotic boundary according to its abstract."
+        ],
+        "reasoning": "A broader G(n,m) statement could dominate this specialization only if it controls triangle/degree-bin covariance including m=n-1 and its strict sign boundaries; no such theorem was established in the material read. Mere coverage of the ensemble is not coverage of the invariant.",
+        "searches": [
+          "Goldschmidt Griffiths Scott Moderate deviations of subgraph counts G(n,m) 2019 2020",
+          "McKay Wormald degree sequence of random graph I models 1997",
+          "arXiv:2305.04326 sparse triangle moderate deviations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py at source tree ec0e638e3b5be3faa326836928553ce86698d92a",
+        "Independent exact symbolic and rational checks independent_checks.py",
+        "arXiv:1902.06830",
+        "McKay–Wormald 1997 institutional abstract",
+        "Resultary component–triangle f947a72b3174"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical E[T]=binom(n,3)*(m)_3/(N)_3 is explicitly used as prior.",
+          "The new result additionally needs cubic root locations proved uniformly for n>=14 and a sharp n=13 exception."
+        ],
+        "reasoning": "The prior first moments or asymptotic counts do not, without nontrivial exact conditional computations and positivity proofs, imply the complete triple-switch statement. A full-text priority caveat remains for broader joint-moment publications.",
+        "searches": [
+          "arXiv:1902.06830 abstract and bibliographic metadata",
+          "McKay–Wormald 1997 degree sequence model",
+          "Resultary component-triangle covariance f947a72b3174"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1902.06830 abstract concerns moderate deviations of subgraph counts in G(n,m) and G(n,p).",
+          "McKay–Wormald 1997 institutional abstract concerns the degree sequence, not triangle count covariance."
+        ],
+        "reasoning": "The equivalent problem is whether E[T|deg(v)=r]-E[T] has three integer-domain sign reversals when m=n-1. The accessible prior statements do not state this finite exact cubic root pattern; a generic joint-moment method does not automatically provide its sharp positivity argument.",
+        "searches": [
+          "Resultary: fixed edge random graph G(n,n-1) covariance triangle counts vertex degree frequency sign reversals",
+          "G(n,m) conditional expected triangles given degree of a distinguished vertex cubic regression hypergeometric",
+          "Goldschmidt–Griffiths–Scott arXiv:1902.06830"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved published finding measures component count versus triangle count in bond percolation, not degree-r frequencies.",
+          "Exact n>=14 integer-degree sign pattern is not present in checked indexed hits."
+        ],
+        "reasoning": "A component/triangle covariance and an arbitrary degree-frequency/triangle covariance are different joint observables. Absence of a matching indexed table is only a limited search result, not novelty proof.",
+        "searches": [
+          "Resultary: fixed edge random graph G(n,n-1) covariance triangle counts vertex degree frequency sign reversals",
+          "Resultary ID 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact triple-switch sign classification, not the underlying hypergeometric conditioning or triangle expectation. The existing G(n,m) deviation and degree-sequence papers concern different observables/invariants in material actually inspected. Full potentially relevant Goldschmidt–Griffiths–Scott text was not accessible and could theoretically contain an equivalent exact covariance; risk explicitly retained.",
+      "residual_risks": [
+        "Goldschmidt–Griffiths–Scott full manuscript unavailable; an embedded exact covariance calculation could dominate.",
+        "A preexisting general exact subgraph-degree joint-moment theorem may imply the three sign switches after further analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ABSTRACT_ONLY_POSSIBLE_PRIOR_COVERAGE",
+          "evidence": "The abstract concerns moderate deviation regimes; it cannot establish whole-document noncoverage of exact covariances.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.06830",
+          "material_read": "Publisher/arXiv abstract and bibliographic metadata only; not full manuscript",
+          "method": "Open bibliographic search and arXiv/other open-text attempts; authorized institutional request blocked by disconnected VPN",
+          "title": "Moderate deviations of subgraph counts in the Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "Same ensemble and triangle statistic"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_NOT_DECISIVE",
+          "evidence": "Degree sequences are treated but no direct exact triangle-degree covariance statement is visible in inspected abstract.",
+          "identifier_or_url": "https://research.monash.edu/en/publications/the-degree-sequence-of-a-random-graph-i-the-models/",
+          "material_read": "Institutional publication abstract and bibliographic description",
+          "method": "Institutional bibliographic page",
+          "title": "The degree sequence of a random graph. I. The models",
+          "trigger": "Exact degree-frequency probabilities in G(n,m)"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE_IN_INSPECTED_SUMMARY",
+          "evidence": "Component count under percolation is not the exact degree-frequency vector in G(n,n-1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+          "material_read": "Published research title and semantic summary only",
+          "method": "Resultary semantic search",
+          "title": "Three-point connectivity exactly controls component–triangle covariance",
+          "trigger": "Possible same covariance subject"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp full degree-frequency covariance phase diagram for sparse fixed-edge random graphs has mathematical content beyond the routine first-moment calculation: fixing the total edge count introduces competing edge depletion and yields three rigorously located, nonobvious sign reversals. The n=14 onset and n=13 obstruction give a natural finite threshold, potentially useful in joint subgraph-degree fluctuation analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The model is G(n,n-1), not G(n,p) or every G(n,m).",
+    "Numerical checks through n=150 corroborate but do not prove arbitrary n; cubic root proof is essential."
+  ],
+  "schema_version": 1
+}
