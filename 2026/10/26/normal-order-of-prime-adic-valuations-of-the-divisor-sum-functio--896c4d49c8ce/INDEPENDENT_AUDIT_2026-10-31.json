@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:51:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any FIXED prime p, multiplicativity of sigma gives f_p(n)=sum_{q^a||n}g_p(q,a), g_p=v_p(1+q+...+q^a). Let F_p(n)=sum_{q|n}v_p(q+1), a strongly additive proxy. For a>=2, g_p(q,a)+v_p(q+1) <= a log_p q+log_p(a+1)+log_p(q+1); weighted by q^-a, these terms are summable, giving mean absolute error O_p(1) and hence o(loglog x) outside density o(1). For q!=p, v_p(q+1)=sum_{j>=1}1_(q=-1 mod p^j); for q=p the term vanishes. Fixed-progression Mertens estimates, with the high-modulus tail controlled by Brun–Titchmarsh and direct sparse counting, give mean A_p(x)=sum_{q<=x}v_p(q+1)/q=(sum_{j>=1}1/phi(p^j)+o(1))loglog x = (p/(p-1)^2+o(1))loglog x. The second-moment proxy sum_{q<=x}v_p(q+1)^2/q=O_p(loglog x), since a_q²=sum_{j<=a_q}(2j-1) and sum j/phi(p^j) converges. Turán–Kubilius then yields mean square deviation O_p(x loglog x); Chebyshev and the bounded error transfer give f_p(n)~[p/(p-1)^2]loglog n in natural density. No finite experiment is treated as the proof. Independently checked finite n comparisons of the additive proxy and valuation (not an asymptotic certification).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luca–Pomerance give density-one divisibility by small prime powers; this is a qualitative precursor.",
+          "General Turán–Kubilius applies to the constructed strongly additive function once its moments are calculated."
+        ],
+        "reasoning": "Standard probabilistic number theory provides the mechanism but does not state the prime-specific evaluated coefficient without a sum over v_p(q+1). If a general additive-function normal-order theorem with explicit local mean were previously specialized, priority could be reduced; preserve that risk.",
+        "searches": [
+          "Turan Kubilius sigma(n) valuation Erdos Kac normal order",
+          "Luca Pomerance The range of the sum of proper divisors function 2015"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2007.03088",
+        "https://math.dartmouth.edu/~carlp/LucaPomeranceAA.pdf",
+        "https://doi.org/10.1007/s11464-023-0154-2",
+        "Resultary semantic query: normal order p-adic valuation divisor sum sigma(n) p/(p-1)^2 log log n"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior formulas determine valuation of sigma(q^a) for local prime powers and hence provide the input to the additive proxy.",
+          "A density-one assertion about divisibility by slowly growing prime powers is strictly weaker than a sharp first-order coefficient times loglog n."
+        ],
+        "reasoning": "The present theorem follows after independent mean and variance estimates on classes modulo all p^j. Neither inspected published assertion was found to give this precise first-order constant; unindexed general applications remain a risk.",
+        "searches": [
+          "arxiv:2007.03088 local valuation formulas",
+          "doi:10.4064/aa168-2-6 Luca Pomerance density-one lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Amdeberhan et al. prove local valuation formulas and upper estimates for v_p(sigma(n)); Zhao–Chen analyze p-adic upper bounds and equality.",
+          "The present assertion is a natural-density normal order with explicit constant p/(p-1)^2."
+        ],
+        "reasoning": "Local identities/pointwise ceilings do not themselves imply typical concentration or the constant. The latter follows from additional prime progression averages and additive-function variance.",
+        "searches": [
+          "normal order p-adic valuation divisor sum sigma(n) p/(p-1)^2 log log n",
+          "arxiv:2007.03088",
+          "doi:10.1007/s11464-023-0154-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A numeric sequence of v_p(sigma(n)) values or a fixed-n table does not establish the density-one normal order.",
+          "Resultary hits concerned divisor subset sums, maximal/divisor-power differences, not the same valuation distribution."
+        ],
+        "reasoning": "No directly applicable exact table identified; this comparison does not count a failed search as novelty evidence.",
+        "searches": [
+          "sigma(n) p-adic valuation normal order constants table",
+          "Resultary divisor sum p valuation normal order semantic query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after comparison of theorem statements, hypotheses, reductions and implications. The inspected sources do not establish the complete final claim for this record; known components are acknowledged. Normal order of prime-adic valuations of the divisor-sum function retains explicit residual priority risks. An inaccessible plausible source alone is not treated as failure or as a whole-document NOT_COVERING finding.",
+      "residual_risks": [
+        "No second-order term, error power saving or central limit theorem.",
+        "Possible earlier generic Turán–Kubilius application with this evaluated prime-specific constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Local and upper-bound results do not give the fixed-p normal-order asymptotic with p/(p-1)^2 in inspected text",
+          "evidence": "Prime-power sigma identities and valuations; no density-one first-order mean coefficient identified.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.03088",
+          "material_read": "Accessible full primary preprint with local prime-power valuation formulas and pointwise bounds",
+          "method": "Read relevant sections and statements",
+          "title": "Arithmetic properties of the sum of divisors",
+          "trigger": "Direct same arithmetic function and p-adic valuations"
+        },
+        {
+          "assessment": "Qualitative small prime power divisibility is a plausible precursor, not independently verified to contain this normal order",
+          "evidence": "The source references a density-one divisibility lemma; its full text coverage remains a residual risk.",
+          "identifier_or_url": "https://math.dartmouth.edu/~carlp/LucaPomeranceAA.pdf",
+          "material_read": "Bibliographic record and cited lemma description only; full article not read in this run",
+          "method": "Compared cited density-one implication, no whole-document noncoverage assertion",
+          "title": "The range of the sum-of-proper-divisors function",
+          "trigger": "Density-one divisibility of sigma(n) in classic number theory"
+        },
+        {
+          "assessment": "Pointwise ceiling and equality characterization are not the same statement as typical size; complete text coverage not asserted",
+          "evidence": "Abstract describes upper bounds; full article not inspected.",
+          "identifier_or_url": "https://doi.org/10.1007/s11464-023-0154-2",
+          "material_read": "Publisher abstract and accessible upper-bound theorem statement only",
+          "method": "Compared pointwise versus normal-order quantifiers",
+          "title": "p-adic Valuation of the Sum of Divisors",
+          "trigger": "Same function and likely broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result computes the exact leading typical-order constant for a classical multiplicative arithmetic function. It complements published local and extremal valuations with a distributional statement governed by the complete tower of classes q=-1 mod p^j; despite standard analytic tools, extracting the full p-dependent normal-order constant and its valid uniform-modulus tail is meaningful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2007.03088",
+    "https://math.dartmouth.edu/~carlp/LucaPomeranceAA.pdf",
+    "https://doi.org/10.1007/s11464-023-0154-2",
+    "Resultary semantic query: normal order p-adic valuation divisor sum sigma(n) p/(p-1)^2 log log n"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed p as x->infinity; no p=p(x) uniformity.",
+    "No second-order term, error power saving or central limit theorem.",
+    "Possible earlier generic Turán–Kubilius application with this evaluated prime-specific constant."
+  ],
+  "residual_risks": [
+    "No second-order term, error power saving or central limit theorem.",
+    "Possible earlier generic Turán–Kubilius application with this evaluated prime-specific constant."
+  ],
+  "schema_version": 1
+}
