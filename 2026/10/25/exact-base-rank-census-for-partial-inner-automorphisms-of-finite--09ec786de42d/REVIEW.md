@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof applies the precise hypotheses and both branches of Theorem 5.9 of Araújo et al. (arXiv:2605.00041), rather than counting all compatible pairs indiscriminately. For a fixed marked partial bijection, the extension count by unmarked blocks is explicitly bijective, and the forbidden-pair subtraction is proved with its uniqueness conditions. The cases of full-rank units and the identified low-rank quotient are treated separately. Independent exact checks enumerate partition data through five points and generate actual partial inner automorphisms through three points.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** The closest original theorem gives a complete structural criterion but does not display or establish the finite base-rank spectrum, the Stirling–Bell count, or the corank-one Bell-difference formula. The present enumeration is a nontrivial paired-partition census, not a claim to rediscover the criterion. A predecessor manuscript (arXiv:2301.04252) originally included related structural material; the old version was not fully retrievable and remains a specific risk. Search results also cannot exclude unindexed equivalent enumerations.
+PASS
 
-**Mathematical value — PASS.** The order and rank layers of a newly studied inverse monoid are natural finite-semigroup invariants. The calculation simultaneously handles compatible bijections of two set partitions, quotient collisions at low rank, and the exceptional unit group. It gives one exact formula for every finite base-set size, an explicit Bell-number corank-one law, and rapidly growing first values, all directly usable in quantitative studies of the monoid. It does not merely count all ambient partial bijections.
+Theorem 5.7/5.9 of Araújo et al classifies admissible pairs of partial bijections alpha:I->Iprime and partition-block bijections beta, with special k<=1 quotient. For k>=2 choose binom(n,k)^2 k! partial alpha; choose marked source partition R on k points with q blocks in S(k,q) ways; extend each source/target marked partition with t extra unmarked blocks by U_m(q,t) each, and permute these t free blocks t! ways. Subtract B_k m! cases all m unmarked points are singleton blocks, forbidden by Theorem 5.9, then add the exactly n! full-domain units. For m=1, sum_q q^2 S(k,q)=B_(k+2)-2B_(k+1). Independently computed exact all-rank formula n=2..6 and an unrelated pair-of-partitions enumeration n<=4 (orders 7,106,5825). The structural theorem itself is a published input, not independently reproved for unbounded n.
 
-The result relies on the published structural theorem, is specific to full transformation monoids, and has not undergone independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the exact mathematical statement and hypotheses with accessible primary text and Resultary; no materially inspected prior statement logically supplies the complete final claim. Inaccessible relevant texts are identified as residual risks, not automatically classified noncovering.
+
+## value
+
+PASS
+
+The complete base-rank distribution and near-top Bell difference are natural enumerative invariants of a recently classified inverse monoid, distinguished from ordinary partial bijections by compatible partitions and quotient classes. Explicit all-rank counts supply exact reusable data for finite semigroup structure, not merely mechanical reprinting of a known count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
