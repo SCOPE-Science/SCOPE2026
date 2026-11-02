@@ -1,19 +1,21 @@
-# Review of the first-base spectrum for propagating digit-square cycles
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every propagating cycle lies in the eligible two-digit graph. Exhaustive graph traversal by two independently implemented methods and direct witnesses prove the nineteen minimal first bases. The C++17 verifier was compiled and run successfully with exact arithmetic and no extrapolation.
+PASS
 
-## Originality
+For each base b, every eligible two-digit state 1<=n<b² with r=n mod b!=0 is a vertex of the exact successor functional graph; its cycles are precisely primitive propagating cycles, without missing any eligible states. For each integer b=2..1230, complete traversal of all states proves existence at the stated first bases and nonexistence at every smaller base. Original C++ includes two different exhaustive methods (three-color path tracing and indegree peeling) and explicit witness rows. An independently written optimized C++ DFS fully traversed 620,288,590 eligible states over all 1229 bases and reproduced every one of the 19 values, not just preselected seeds. The maximum is 1230 at length20. It is a bounded finite assertion; no infinite-length conjecture is being inferred.
 
-PASS relative to inspected primary literature, relevant records and accessible preceding claims. Lorenzini et al., *Integer Dynamics*, Remark 2.13, asserts a nonsharp-in-form existence bound through length twenty, without giving this minimal-base spectrum or proving the common cutoff sharp. Their length-seven first-base example is already known and is not claimed as an independent discovery. Other data and unindexed tables remain an originality risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The full first-occurrence invariant over the source-motivated range \(2\le\ell\le20\) and the exact sharp uniform cutoff of \(1230\) address a specific computational gap in the source and show a strongly nonmonotone dependence on cycle length. The claim is finite and does not infer general growth laws.
+Novelty is a qualified best-of-knowledge mathematical comparison, not a guarantee of priority; exact original claim was searched against equivalent formulations, general theorems and data tables.
 
-## Limitations
+## value
 
-Cycles with more than two digits, with a zero trailing digit, or lengths beyond twenty are not covered. Any unpublished source computation may contain the same table. No independent external verification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest-base spectrum for a canonical, explicitly posed digit-dynamics problem is a meaningful finite complete classification: the 19 exact minima reveal sharp nonmonotonicity (beta(17)=1120, beta(18)=96) and prove the original uniform existence cutoff 1230 is optimal. Finite exhaustive mathematics is intrinsically valuable here because the invariant concerns a fixed natural cutoff and was explicitly posed in prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

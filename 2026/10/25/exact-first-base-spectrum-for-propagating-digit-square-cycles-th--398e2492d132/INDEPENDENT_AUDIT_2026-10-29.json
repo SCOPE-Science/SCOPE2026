@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:06:02.710695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each base b, every eligible two-digit state 1<=n<b² with r=n mod b!=0 is a vertex of the exact successor functional graph; its cycles are precisely primitive propagating cycles, without missing any eligible states. For each integer b=2..1230, complete traversal of all states proves existence at the stated first bases and nonexistence at every smaller base. Original C++ includes two different exhaustive methods (three-color path tracing and indegree peeling) and explicit witness rows. An independently written optimized C++ DFS fully traversed 620,288,590 eligible states over all 1229 bases and reproduced every one of the 19 values, not just preselected seeds. The maximum is 1230 at length20. It is a bounded finite assertion; no infinite-length conjecture is being inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary Theorem 2.7 propagates an existing cycle along arithmetic progressions of larger bases; Remark 2.13 merely says for all l<=20 some b<=1230 supports a propagating l-cycle."
+        ],
+        "reasoning": "Existence/positive-density theorems for all l do not establish least base beta(l). Propagation beyond a seed is inapplicable for ruling out all smaller bases; full exhaustion is necessary.",
+        "searches": [
+          "arXiv:2105.14361 theorem 2.7 corollary 2.8 proposition 2.12 remark 2.13",
+          "smallest base propagating cycles sum of squared digits exact spectrum cycle lengths integer dynamics"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, C++17 verifier and witness TSV listed in exact source tree",
+        "Lorenzini et al., arXiv:2105.14361, PDF pp.1-7",
+        "Resultary search smallest base propagating cycles sum of squared digits exact spectrum cycle lengths integer dynamics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 2.13 explicitly states existence for each length up to20 by base<=1230 and asks about growth of the first base; it does NOT state all least bases.",
+          "The new equality max beta=1230 uses absence of l=20 cycles in 2<=b<=1229; this negative certificate is not supplied by the existence remark."
+        ],
+        "reasoning": "The cited prior work provides an upper bound only, not the claimed exact 19-way minimization. All-positive witness lengths plus complete lower-base exhaustion is a genuinely stronger classification.",
+        "searches": [
+          "arXiv:2105.14361 Remark 2.13",
+          "smallest base propagating cycles sum of squared digits exact spectrum cycle lengths integer dynamics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lorenzini et al. arXiv:2105.14361, Definition of propagating cycle: two-digit and nonzero units digit, exactly matches graph condition.",
+          "Their Remark 2.13 discusses first base by length, so the same invariant is genuinely compared."
+        ],
+        "reasoning": "The result is not about arbitrary digit-square cycles: the two-digit and nonzero-units constraints are essential to comparing first bases. Existing first-base discussion is only a nonsharp bound, except isolated known examples.",
+        "searches": [
+          "smallest base propagating cycles sum of squared digits exact spectrum cycle lengths integer dynamics",
+          "first appearance cycle length squared digit map variable radix base"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original Remark 2.13 includes the global 1230 existence threshold, but no 19-term beta list; some individual entries (e.g. 7->15) are already known.",
+          "Independent scan enumerated ALL bases b=2,...,1230 and each eligible state; exact spectrum equals the table."
+        ],
+        "reasoning": "A previously published exact 19-length table would cover this claim even without wording match; none was observed in the inspected original PDF or Resultary hits. Lack of indexing does not exclude one.",
+        "searches": [
+          "smallest base propagating cycles sum of squared digits exact spectrum cycle lengths integer dynamics",
+          "least base propagating cycles length 20 1230 table of first occurrences"
+        ]
+      },
+      "rationale": "Novelty is a qualified best-of-knowledge mathematical comparison, not a guarantee of priority; exact original claim was searched against equivalent formulations, general theorems and data tables.",
+      "residual_risks": [
+        "An unindexed computer census may contain identical values, especially given the original authors computed many bases.",
+        "The exact result only covers primitive propagating cycles through length20; longer/nonpropagating cycles not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR, existence bound and density, not least-base census.",
+          "evidence": "Remark 2.13: for every ell<=20 there exists some base<=1230 with an ell-cycle; poses first-base question and omits 19 exact minima.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.14361",
+          "material_read": "Full 15-page preprint: Introduction and definition pp.1-3, Theorem 2.7 and Proposition 2.12 context, Remark 2.13 and neighbouring table p.7.",
+          "method": "ArXiv lawful OA PDF; parsed original text and inspected p.7 screenshot.",
+          "title": "Integer Dynamics",
+          "trigger": "Introduces propagating cycles and gives the exact 1230 bound."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest-base spectrum for a canonical, explicitly posed digit-dynamics problem is a meaningful finite complete classification: the 19 exact minima reveal sharp nonmonotonicity (beta(17)=1120, beta(18)=96) and prove the original uniform existence cutoff 1230 is optimal. Finite exhaustive mathematics is intrinsically valuable here because the invariant concerns a fixed natural cutoff and was explicitly posed in prior work.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All b up to 1230 were exhausted; this proves only least bases for cycle lengths 2..20 because positive witnesses occur within that range.",
+    "No claim about higher length, polynomial growth of beta(l), or cycles outside the propagating restriction."
+  ],
+  "schema_version": 1
+}
