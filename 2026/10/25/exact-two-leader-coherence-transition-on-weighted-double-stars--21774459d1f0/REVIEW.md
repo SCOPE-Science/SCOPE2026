@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** On a resistive tree, the inverse grounded Laplacian diagonal is a terminal-to-ground resistance. Series--parallel reduction for a pair of grounded leaders gives \(h+z(\ell-z)/\ell\). Exhausting eight leader-pair symmetry types and comparing their exact costs proves the global threshold \(t_c=1/(\min\{p,q\}-1)\) and every tie without assuming convex relaxation, finite enumeration of parameters or numerical extrapolation. A separate exact-rational replay of \(4{,}700\) grounded inverses checks the stated formulas; it is supporting evidence only.
+## correctness
 
-**Originality — PASS, subject to recorded literature risk.** Patterson and Bamieh (CDC 2010) established the grounded-Laplacian coherence optimization and greedy baselines. Fitch and Leonard (arXiv:1407.1569) derived joint centrality and exact path/cycle cases. Patterson, Yi and Zhang (arXiv:1708.06873) derived the grounding-resistance identity and solved perfect rooted-tree cases under unit special-case edge weights. The new assertion is not those tools: it is the complete weighted-double-star minimizing-pair and equality classification, with a sharp threshold and minority-side dependence. Published-record and source searches for bistar/double-star/grounded-coherence aliases found no verified stronger or equivalent classification. An uncatalogued equivalent result remains possible; complete PDF examination of the 2010 conference paper was not performed.
+PASS
 
-**Value — PASS.** Tuning one physical bridge between two star-like groups causes a genuine switch from leader placement at the two hubs to a hub-plus-peripheral-leaf arrangement. The reciprocal smaller-side-degree threshold is exact, the asymmetry rule is explicit, and ties are fully classified. This is a motivated infinite-family structural answer rather than an arbitrary finite graph table or a generic inversion algorithm.
+PASS: Resistance to two pinned vertices in a tree is h+z(ell-z)/ell, where h is pendant resistance and z is distance on the grounded path of total ell. Directly recomputed the eight symmetry-type grounded trace formulas from original RESULT.md (blob 20519d3fbfd07a0550ad1d942d0b8739904df3af): hubs 0 excess, own-hub+leaf t(q+1)-1 or t(p+1)-1, cross-hub+leaf [t(q-1)-1]/(t+1) or [t(p-1)-1]/(t+1), two leaves same side [N-4+2t(other side+1)]/2, opposite leaves [N-4+t(N-2)]/(t+2). Leaf-pair excesses strictly positive; own-hub options are worse than cross-hub options by t[1+(q+1)t]/(t+1) or its twin; compare remaining cross terms and zero to get stated threshold and tie/equal-side cases. Independently inverted rational grounded Laplacians and tested 690 pair/parameter combinations spanning 25 positive rational (p,q,t) instances (independent_extra.py: DOUBLE_STAR_OK), not extrapolated from finite checks.
 
-**Limitations.** Exactly two noise-free leaders, at least two leaves on each hub, identical leaf-edge conductances, and one positive bridge-resistance parameter. There is no claim for arbitrary weighted trees, noise-corrupted leaders or other objectives. Independent mathematical review is still required before treating priority and proof as externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge: Grounded Laplacian resistance method and leader centrality are established; Patterson–Yi–Zhang 2017 studies resistance and perfect rooted trees with unit weights, Fitch–Leonard 2014 paths/cycles, Patterson–Bamieh 2010 leader selection. No inspected primary theorem supplies all p,q>=2 and continuous bridge t with the exact minority-side phase transition, though specialized weighted-bistar literature could.
+
+## value
+
+PASS
+
+PASS: With a natural two-leader pinned-consensus variance objective, an exact change in optimal leader geometry occurs as an intercommunity resistance changes, with a surprising threshold set solely by the smaller leaf multiplicity. The full minimizer set and equality cases are useful structural design information, not a generic matrix inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

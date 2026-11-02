@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The exact theorem is proved in `RESULT.md` by the two-ground resistance reduction and strict comparison of all eight types of leader pair. The finite checker is only a reproduction aid: install `requirements.txt` and run `python verify.py`.
+# Independent mathematical audit
 
-The executed checker returned:
+## correctness
 
-`VERIFY_OK exact_grounded_inverses=4700 parameter_instances=100 boundary_instances=15`
+PASS
 
-For each \(p,q\in\{2,3,4,5,6\}\) and \(t\in\{1/5,2/3,1,3\}\), it constructs the full Laplacian from conductances, deletes each unordered pair's rows/columns, takes the exact symbolic inverse and checks the trace against the claimed corresponding orbit cost. It also compares the complete set of minimizers with the theorem and checks \(15\) exact rational values below, at and above the transition for additional parameter choices. All computations use rational arithmetic. There are no stochastic approximations or numerical optimization tolerances.
+PASS: Resistance to two pinned vertices in a tree is h+z(ell-z)/ell, where h is pendant resistance and z is distance on the grounded path of total ell. Directly recomputed the eight symmetry-type grounded trace formulas from original RESULT.md (blob 20519d3fbfd07a0550ad1d942d0b8739904df3af): hubs 0 excess, own-hub+leaf t(q+1)-1 or t(p+1)-1, cross-hub+leaf [t(q-1)-1]/(t+1) or [t(p-1)-1]/(t+1), two leaves same side [N-4+2t(other side+1)]/2, opposite leaves [N-4+t(N-2)]/(t+2). Leaf-pair excesses strictly positive; own-hub options are worse than cross-hub options by t[1+(q+1)t]/(t+1) or its twin; compare remaining cross terms and zero to get stated threshold and tie/equal-side cases. Independently inverted rational grounded Laplacians and tested 690 pair/parameter combinations spanning 25 positive rational (p,q,t) instances (independent_extra.py: DOUBLE_STAR_OK), not extrapolated from finite checks.
 
-**Limits:** These sampled matrix identities do not establish universal quantification. They do not prove novelty or independence. The general result requires the analytic exhaustive-orbit proof, and independent review has not occurred.
+## originality
+
+PASS
+
+PASS best knowledge: Grounded Laplacian resistance method and leader centrality are established; Patterson–Yi–Zhang 2017 studies resistance and perfect rooted trees with unit weights, Fitch–Leonard 2014 paths/cycles, Patterson–Bamieh 2010 leader selection. No inspected primary theorem supplies all p,q>=2 and continuous bridge t with the exact minority-side phase transition, though specialized weighted-bistar literature could.
+
+## value
+
+PASS
+
+PASS: With a natural two-leader pinned-consensus variance objective, an exact change in optimal leader geometry occurs as an intercommunity resistance changes, with a surprising threshold set solely by the smaller leaf multiplicity. The full minimizer set and equality cases are useful structural design information, not a generic matrix inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
