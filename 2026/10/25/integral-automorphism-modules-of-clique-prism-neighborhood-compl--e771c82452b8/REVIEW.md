@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The full proof reconstructs the invariant neighborhood cover, its connected crown-graph intersection, and the integral Mayer–Vietoris connecting isomorphism. It explicitly accounts for the minus sign when a symmetry exchanges the two cover pieces and the opposite sign from reversing the oriented crown edges, proving a *positive* transpose action. The top degree is an independent pair of sign-oriented sphere classes, and all other homology vanishes. Rational irreducible decomposition and complete trace formulas follow from the exact lattice. The standalone signed-chain verifier corroborates the proof for 1690 automorphisms; finite checks are not the infinite proof.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The closest published *clique-prism* and *two-row rook graph* results establish only the ordinary homotopy type. Their full result texts were compared against the claimed integral representation and do not cover it. The equivalence to closed-neighborhood complexes of crown complements, the closed-neighborhood prism literature, and cut-complex variants were separately compared. Searches cannot exclude a separately published equivariant formula not present in inspected sources.
+PASS
 
-**Value — PASS.** The theorem identifies the full integral symmetry module across an infinite family, not just ranks, and exposes the subtle transposition sign and two inequivalent rational Specht constituents. This is directly relevant to equivariant topology of graph complexes and representation-sensitive invariants.
+Open neighborhood cover X=union Delta((A-a_i)+b_i), Y similarly, has each side collapsed onto boundary of an (n-1)-simplex, giving H_{n-2}(X)=H_{n-2}(Y)=Z with permutation orientation sign. X intersect Y is connected crown graph with 2n vertices and n(n-1) oriented edges a_i->b_j i!=j, H1 rank n^2-3n+1 and integral matrix cycles exactly zero row/column sums and zero diagonal. For n>=5 no degree collision; MV gives H2 ≅ H1(crown) and two top classes. Ordered MV boundary δ[x+y]=[∂x] changes sign when layers exchange, while graph layer swap of oriented crown edges induces -M^T; the two signs cancel yielding +M^T integrally. Rational transpose symmetric and skew parts identify Specht S^{(n-2,2)} and S^{(n-2,1,1)}, but this splitting is not asserted integrally. Cellular Lefschetz yields f²-3f+1 and 2t-1, with high-degree trace 2sgn and 0. Independently built the neighborhood complex and checked signed Lefschetz action for 12 automorphisms across n=5,6; all matched. For n=4 degrees collide and theorem explicitly excludes it.
 
-The assertion starts at parameter \(n=5\); no global equivariant wedge equivalence is claimed. An integral direct sum of the symmetric and skew lattices is not asserted. Independent scientific assessment has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The already published ordinary sphere-wedge type and ranks for this precise graph are prior and not new. The complete integral automorphism representation and layer-interchange sign are finer data not forced by homotopy type. The closed-neighborhood prism and open-neighborhood complementary crown alias was considered explicitly.
+
+## value
+
+PASS
+
+Determining the intrinsic integer lattice and subtle sign under swapping two layers is mathematically meaningful because rational or nonequivariant wedge ranks do not determine full group action; gives a canonical natural S_n x C2 representation for every n>=5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

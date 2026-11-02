@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-From the folder containing the included standalone `verify.py`, run `python3 verify.py` with Python 3 and its standard library. It enumerates all simplices of the Lovász open-neighborhood complex of the clique prism for sizes \(n=5,6,7\), checks the two-part cover and the crown-graph intersection, and independently computes mod-two homology at sizes five and six. For each automorphism of the five- and six-index prisms, and ten automorphisms of the seven-index prism, it computes the reduced Lefschetz number by signed fixed simplices and compares to the separately derived character formula. The output ends in `VERIFY_OK` after 1690 signed character comparisons.
+## correctness
 
-The infinite-family integral theorem is proved by the chain-level connecting morphism of integral Mayer–Vietoris and graph cycle-lattice identification; finite mod-two computations and Lefschetz tests cannot establish it. No external audit, formal verification, or full survey of all mathematical literature has been performed.
+PASS
+
+Open neighborhood cover X=union Delta((A-a_i)+b_i), Y similarly, has each side collapsed onto boundary of an (n-1)-simplex, giving H_{n-2}(X)=H_{n-2}(Y)=Z with permutation orientation sign. X intersect Y is connected crown graph with 2n vertices and n(n-1) oriented edges a_i->b_j i!=j, H1 rank n^2-3n+1 and integral matrix cycles exactly zero row/column sums and zero diagonal. For n>=5 no degree collision; MV gives H2 ≅ H1(crown) and two top classes. Ordered MV boundary δ[x+y]=[∂x] changes sign when layers exchange, while graph layer swap of oriented crown edges induces -M^T; the two signs cancel yielding +M^T integrally. Rational transpose symmetric and skew parts identify Specht S^{(n-2,2)} and S^{(n-2,1,1)}, but this splitting is not asserted integrally. Cellular Lefschetz yields f²-3f+1 and 2t-1, with high-degree trace 2sgn and 0. Independently built the neighborhood complex and checked signed Lefschetz action for 12 automorphisms across n=5,6; all matched. For n=4 degrees collide and theorem explicitly excludes it.
+
+## originality
+
+PASS
+
+The already published ordinary sphere-wedge type and ranks for this precise graph are prior and not new. The complete integral automorphism representation and layer-interchange sign are finer data not forced by homotopy type. The closed-neighborhood prism and open-neighborhood complementary crown alias was considered explicitly.
+
+## value
+
+PASS
+
+Determining the intrinsic integer lattice and subtle sign under swapping two layers is mathematically meaningful because rational or nonequivariant wedge ranks do not determine full group action; gives a canonical natural S_n x C2 representation for every n>=5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
