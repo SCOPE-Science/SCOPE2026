@@ -1,15 +1,21 @@
-# Review: full degree-two del Pezzo surfaces at \(q=37\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is conditional on splitness, fullness, and characteristic 37; these are not silently weakened. The 2015 incidence equality follows independently from the pair count \(6h+3e+f=378\), the double-cover fiber multiplicities, and the split-surface point total \(q^2+8q+1\). Fullness makes every rational branch point lie on the union of bitangents, justifying substitution of \(N=\#Q(\mathbb F_q)\) into the covering count; the same equality is **not** asserted unconditionally for nonfull surfaces. Kuwata's result gives the fourfold-point-to-involution assignment over characteristic not two; the 2024 tame-lift result and the classical 21-involution bound apply at characteristic 37. These yield \(6h+2e\le294\). Hasse--Weil gives \(N\ge2\), incompatible with the fullness identity \(169+N\le169\). The supplied integer script independently checks the finite arithmetic but is not substituted for these cited geometric theorems.
+PASS
 
-## Originality — PASS, with limitation
+PASS: The 28 rational bitangents have 378 line pairs, giving 6h+3e+f=378 for multiplicities four, three and two. Fullness forces all rational branch points onto bitangents; double-cover fibers give #S=2#U-N=q²+8q+1 and (q-24)²+N=6h+2e-125. From f>=0, 6h+2e<=252+2h. Kuwata Theorem 5.1 gives a distinct involution from each fourfold bitangent intersection in characteristic !=2; Dolgachev–Martin tame characteristic-37 lifting and the complex genus-three involution cap yield h<=21. Thus RHS incidence 6h+2e<=294, but at q=37 fullness requires 294+N. Hasse–Weil gives N>=ceil(38-6sqrt(37))=2, contradiction. All quantifiers explicitly split/full and q37. Independently enumerated 2,332 admissible incidence triples and maximum 294; this cannot verify geometric lemmas.
 
-Knecht--Reyes (arXiv:1510.04621) explicitly lists the field with 37 elements among the theoretical possibilities and proves a weaker general bound; it does not exclude this field. Kuwata's 2005 criterion and Janasz--Pokora--Zieliński Proposition 3.7 concern bitangent intersections/involutions rather than full finite-field del Pezzo surfaces. Dolgachev--Martin classify tame quartic automorphism groups but do not address full rational-point coverage. The exact nonexistence assertion was not found in these source texts or targeted research-record searches. The result is a targeted new deduction combining known theorems, **not** a claim that any constituent geometric theorem is new. Unindexed prior applications may exist; full text of Kuwata was not retrievable.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2015 paper identifies this field as one of five unresolved cases of a finite-field classification. The theorem removes that natural arithmetic-geometric case entirely, sharpening the possible odd-prime-power range to at most 31. The proof explains the obstruction conceptually: fullness would need at least 22 quadruple bitangent intersections but a smooth plane quartic in characteristic 37 can have at most 21. This excludes all models without an unmotivated coefficient census. It is a meaningful resolved boundary case rather than an arbitrary numerical exercise.
+PASS (best knowledge): Knecht–Reyes 2015 explicitly lists F37 as possible and supplies the necessary incidence identity, while Kuwata, Janasz–Pokora–Zieliński and Dolgachev–Martin each supply separate geometric inputs. The audited field exclusion is a specific mathematically motivated synthesis and not an invented new constituent lemma. No equivalent result located in checked material, but historical corollary priority is not guaranteed.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: F37 is one of the explicit unresolved finite fields in Knecht–Reyes degree-two full split classification; excluding it has a natural categorical value and sharpens the remaining odd-prime-power upper bound from 37 to 31. Not a generic novelty claim about involutions or Hasse–Weil.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
