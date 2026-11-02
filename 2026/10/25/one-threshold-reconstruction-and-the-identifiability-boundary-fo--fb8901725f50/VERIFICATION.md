@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 check_triaxial.py` with Python 3.10 or later; only the standard library is needed. The independently implemented function `direct_ellipsoid_radius` computes the minimum eigenvalue of the quadratic form on an explicit orthonormal basis of each randomly oriented two-plane; it does not call the closed CDF or the cone test to obtain the radius.
+## correctness
 
-The checker uses 90,000 seeded normalized three-dimensional Gaussian vectors to provide uniformly distributed unoriented planes. For each of five thresholds, it cross-checks the exact Boolean sublevel-cone criterion against the direct compression eigenvalue; it also checks empirical CDF against independent Simpson integration, ordering in the smallest semiaxis, attainment and approach to the two sharp envelopes, and the square-root upper-tail coefficient computed independently from the complete elliptic integral.
+PASS
 
-Observed output:
+For a,b,c>0 with a>b>=c, the min eigenvalue of Q restricted to n-perp lies in [a^-2,b^-2]; endpoint normals e1/e3 make essential R support [b,a]. With t=r^-2 and alpha=t-a^-2,beta=b^-2-t,gamma=c^-2-t>0, weighted Cauchy-Schwarz derives R<=r iff n1^2>=alpha(n2^2/beta+n3^2/gamma). Haar |n1| is uniform and transverse azimuth independent, yielding the displayed exact 2/pi integral, with strict CDF decrease in c and sharp c=b and c->0 envelopes. Dominated endpoint expansion gives elliptic E(k) coefficient L, strictly increasing in c. When a=b every plane intersects the top eigenspace, so R=a a.s. Independent direct 2x2 quadratic-form diagonalizations matched 80,000 cone event comparisons for 16,000 Haar normals, CDF quadrature and 400 a=b normals; these are finite corroborations, not the proof.
 
-`TRIAXIAL_SECTION_CHECK_OK orientations=90000 thresholds=5 upper_coefficient=0.306288274762`
+## originality
 
-These are not exhaustive computations, an independent proof certification, or an independent scientific audit. Universal validity is supplied by the analytic proof in RESULT.md, including interlacing, weighted Cauchy--Schwarz, strict integral monotonicity, exact endpoint limits, and the repeated-top-axis linear-algebra obstruction. Absolute historical novelty is not certified.
+PASS
+
+Best-of-knowledge comparison of the mathematically precise additional claim, not of a matching title, with the inspected primary papers and published research. The submitted weighted-cone comparison and envelope proof supply a nontrivial implication from classical forward material; priority risk remains that inverse implications were previously derived elsewhere.
+
+## value
+
+PASS
+
+Determines the exact identifiability boundary of an intrinsically natural inverse stereology measurement: random unoriented central-plane largest section radius. Support gives a,b and any one interior CDF value fixes c, with sharp range and a precise multiplicity obstruction; a separate endpoint statistic provides redundancy. This is not merely restating the classical forward eigencompression density, and gives an exact benchmark for shape inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
