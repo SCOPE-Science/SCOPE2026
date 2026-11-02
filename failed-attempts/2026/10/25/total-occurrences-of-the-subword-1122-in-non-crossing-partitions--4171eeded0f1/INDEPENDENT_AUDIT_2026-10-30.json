@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:50:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source Catalan-gap decomposition gives T(x)=x^4 C(x)^4/(1-x C(x)^2) and coefficient binom(2n-5,n-4) for n>=4, with zero below 4 and mean n(n+1)(n-3)/(8(2n-1)(2n-3)). Independent direct enumeration of noncrossing restricted-growth words through n=9 verified the exact totals 1,5,21,84,330,1287 for n=4..9. Moreover a direct bijection independently confirms the all-n identity by reducing each marked 1122 to a marked 12 ascent via deleting one copy of each consecutive equal pair; the inverse duplicates each element of a marked adjacent ascent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shattuck gives totals for the repeated-letter family 1^m2; the m=1 ascent case is binom(2r-1,r+1)."
+        ],
+        "reasoning": "That broader published subword theorem, combined with canonical doubling, dominates the claimed 1122 total and its Catalan-normalized mean.",
+        "searches": [
+          "Shattuck arXiv:2303.06300 Corollary 3",
+          "DOI:10.2298/AADM211221017S"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob c13cc0bfd60a79f21e5ce883e7b5e49abfb4e242; verify.py blob 335e1f2cbdcb562ac6868c6701c9d55e6317d6d9",
+        "M. Shattuck, Enumeration of non-crossing partitions according to subwords with repeated letters, arXiv:2303.06300, Applicable Analysis and Discrete Mathematics 19 (2025), 1–20, DOI:10.2298/AADM211221017S, Corollary 3 (full PDF inspected through page 6)",
+        "Mansour and Shattuck, Counting occurrences of subword patterns in non-crossing partitions, Art of Discrete and Applied Mathematics 6(3) (2023), DOI:10.26493/2590-9770.1552.b43",
+        "Resultary search: noncrossing partition contiguous 1122 pattern occurrence counting Shattuck"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r=n-2, Shattuck gives binom(2(n-2)-1,(n-2)+1)=binom(2n-5,n-1)=binom(2n-5,n-4)."
+        ],
+        "reasoning": "The original theorem is an immediate corollary of an existing theorem by a two-letter duplication transformation; no new value-bearing remainder is included in the final claim.",
+        "searches": [
+          "Shattuck arXiv:2303.06300, Corollary 3 and pattern conventions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A marked occurrence a,a,b,b (a<b) maps bijectively to a marked occurrence a,b after deleting one adjacent copy of a and one of b; duplication reverses the map and preserves noncrossing restricted-growth words."
+        ],
+        "reasoning": "This is a genuine equivalence of occurrence sets for NC_n and NC_{n-2}, not just numerical coincidence.",
+        "searches": [
+          "Shattuck arXiv:2303.06300 Corollary 3",
+          "Resultary query: noncrossing partition contiguous 1122 pattern occurrence counting Shattuck"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both the numeric binomial sequence and, crucially, the combinatorial ascent count corresponding by bijection are prior."
+        ],
+        "reasoning": "The known sequence alone would not establish coverage, but the identical marked statistic after reversible reduction does; this is mathematically stronger than table overlap.",
+        "searches": [
+          "Shattuck Corollary 3",
+          "OEIS A002054 as noted in assigned RESULT.md"
+        ]
+      },
+      "rationale": "The exact claimed total is ALREADY IMPLIED by Shattuck, Enumeration of non-crossing partitions according to subwords with repeated letters (2025), Corollary 3: for pattern 12 (the m=1 case of 1^m2), the total number of marked adjacent ascending pairs among NC_r equals binom(2r-1,r+1). There is a canonical reversible marked-occurrence bijection from 1122 in NC_n to 12 in NC_{n-2}, duplicating/deleting one adjacent copy of each of the two block labels. Taking r=n-2 gives binom(2n-5,n-1)=binom(2n-5,n-4), exactly the audited formula. Thus prior literature covers the target as an immediate corollary despite not listing the word 1122. This is decisive logical coverage, not merely a search match or shared numbers.",
+      "residual_risks": [
+        "No scientific originality remains after the explicit marked duplication bijection and Shattuck Corollary 3; this is decisive prior implication, not an access limitation.",
+        "The full pattern distribution, variance, and nontrivial refinements are outside the original claim; they are not silently added as repairs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_BIJECTION_AND_COROLLARY",
+          "evidence": [
+            "Corollary 3 total for 12 occurrences in NC_r gives binom(2r-1,r+1); marked duplication identifies these exactly with 1122 occurrences in NC_{r+2}"
+          ],
+          "identifier_or_url": "arXiv:2303.06300; DOI:10.2298/AADM211221017S",
+          "material_read": "Public PDF pages 1–6, including precise definitions, Corollary 3, and its general pattern count",
+          "method": "Direct PDF reading and visual page inspection",
+          "title": "Enumeration of non-crossing partitions according to subwords with repeated letters",
+          "trigger": "Direct primary study of repeated-letter subwords on the same noncrossing objects"
+        },
+        {
+          "assessment": "Not necessary for verdict because Shattuck Corollary 3 is decisive",
+          "evidence": [
+            "The primary covering antecedent is the separately inspected Shattuck repeated-letter paper"
+          ],
+          "identifier_or_url": "DOI:10.26493/2590-9770.1552.b43",
+          "material_read": "Bibliographic metadata/family descriptions in assigned source; full text not relied on",
+          "method": "Background source comparison",
+          "title": "Counting occurrences of subword patterns in non-crossing partitions",
+          "trigger": "Other original 2023 pattern-enumeration work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the count is correct and the statistic natural, the only asserted contribution (a first moment and mean) is obtained by a two-letter duplication bijection followed by the published adjacent-ascent count. No additional theorem, unexpected boundary, classification, or motivated new invariant beyond this immediate known special case survives. The correct but already implied binomial identity fails the required independent mathematical-value bar; neither a disclaimer nor an additional finite check makes it a new valuable claim.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob c13cc0bfd60a79f21e5ce883e7b5e49abfb4e242; verify.py blob 335e1f2cbdcb562ac6868c6701c9d55e6317d6d9",
+    "M. Shattuck, Enumeration of non-crossing partitions according to subwords with repeated letters, arXiv:2303.06300, Applicable Analysis and Discrete Mathematics 19 (2025), 1–20, DOI:10.2298/AADM211221017S, Corollary 3 (full PDF inspected through page 6)",
+    "Mansour and Shattuck, Counting occurrences of subword patterns in non-crossing partitions, Art of Discrete and Applied Mathematics 6(3) (2023), DOI:10.26493/2590-9770.1552.b43",
+    "Resultary search: noncrossing partition contiguous 1122 pattern occurrence counting Shattuck"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "This assessment uses a frozen Git tree; it does not authorize a repository write or certify global publication priority.",
+    "The confidentiality-sensitive source administrative files were inspected and no sanitized publishable replacement operations were staged.",
+    "Bounded independent arithmetic checks do not replace the infinite-parameter proof where applicable."
+  ],
+  "residual_risks": [
+    "No scientific originality remains after the explicit marked duplication bijection and Shattuck Corollary 3; this is decisive prior implication, not an access limitation.",
+    "The full pattern distribution, variance, and nontrivial refinements are outside the original claim; they are not silently added as repairs."
+  ],
+  "schema_version": 1
+}
