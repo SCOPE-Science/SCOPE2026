@@ -1,0 +1,15 @@
+# Scientific review: radical-multiplication blindness
+
+## Correctness — PASS
+The proof supplies a simultaneous Boolean decomposition of arbitrary commuting idempotents; an explicit unit \(u=\sum p_aE_a\in1+J\) conjugates each tuple to its residue-class coloring. Orbit-stabilizer under \(1+J\) then gives the exact Peirce-dimension formula without assuming radical-square-zero. Stirling inversion gives clique counts. The maximal-family classification uses local primitive corners; the nilpotence-class witness is independently distinguished by its radical square. The attached direct enumerator checked ordered tuple counts through arity three and *all* maximal cliques for both example algebras over \(\mathbb F_2\) and \(\mathbb F_3\). These computations corroborate but do not replace the universal proof.
+
+## Originality — PASS relative to inspected material
+André–Dias (arXiv:1910.14639v1) discusses the algebra/radical-unit setting in a different representation-theoretic problem. Dolžan (DOI 10.1080/00927872.2021.1929277) treats idempotent cardinality bounds for finite rings and matrix rings. Wright (DOI 10.1080/03081087.2020.1773377) treats individual triangular idempotents; only its abstract was accessible and this unresolved comparison is a stated risk. Previously recorded results include specialized finite upper-triangular tuple formulas and incidence-algebra maximal families, which do not themselves give the arbitrary split-basic relation-insensitivity theorem or these radical-nilpotence-separated quiver witnesses. The searched indexed mathematical findings did not yield an equivalent all-arity theorem, but that absence is not uniqueness evidence. The standard radical conjugation facts themselves are not claimed as new. Potential equivalent statements in the literature of semiperfect ring decompositions or conjugacy of idempotent systems remain a publication-priority risk.
+
+## Mathematical value — PASS
+This is a complete all-arity invariant for a natural general class, not an arbitrary isolated count. The theorem proves a precise blindness property: the full clique polynomial forgets all radical products and, individually, the arrow orientations and diagonal radical dimensions. Two explicitly nonisomorphic algebras of the same vector-space dimension and different radical nilpotence class demonstrate that the information loss is mathematically substantive. The result can inform attempts to reconstruct finite basic algebras from commuting-idempotent structures and separates what data these invariants can and cannot detect.
+
+## Limitations
+Split basic finite-dimensional algebras only; clique counts, not the whole commuting graph, are determined. The two witnesses establish equal polynomials, not graph isomorphism. The finite checker is not an exhaustive proof over all fields. Wright's closely related article was available at abstract level but its complete text could not be reviewed. Independent evaluation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
