@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The operator-norm inequality makes the degree-\(p\) homogeneous form \(Q\) nonnegative. If it vanished identically, the operator would be a scalar multiple of an isometry, contrary to the hypothesis. Every norm-attaining direction is a projective zero; nonnegativity forces each real zero to have even multiplicity. The degree bound therefore gives at most \(p/2\) directions and at most \(p\) unit vectors. The \(p=4\) example has fourth-power norm expression \(2(x^4+y^4)+12x^2y^2\), whose equality cases are exactly the four stated points.
+PASS
 
-## Originality
+For real T:ℓ_p²→ℓ_p² and even integer p≥2, Q=∥T∥^p(x^p+y^p)−(ax+by)^p−(cx+dy)^p is a nonzero globally nonnegative homogeneous binary form of degree p unless T is a scalar multiple of an isometry. Every real projective zero has even multiplicity, including infinity in the reciprocal chart. Hence at most p/2 projective directions and at most p antipodal norm-attaining unit vectors. Independently expanded the p=4 example T(x,y)=(x+y,x−y): ∥T∥₄⁴=8 and Q=6(x²−y²)², so exactly four norming vectors (±2^(−1/4),±2^(−1/4)). All p-even bound is proved, but p≥6 sharpness is not asserted. The p=2 Hilbert subcase is classical.
 
-**PASS, on the available literature.** The 2016 source gives the much larger upper bound \(2(8p-5)\) and explicitly asks for an optimal bound. The present result improves it to \(p\) for even exponents and solves the optimal-count question at \(p=4\). The later Hilbert-space characterization and the general semi-inner-product characterization do not state a cardinality bound for real \(\ell_4^2\). Searches for the exact count, the even-exponent formulation, and the four-point example did not locate an equivalent statement. A nonindexed independent treatment remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The claim answers a specific open question from the primary source in the first non-Hilbert even exponent and supplies an explicit extremizer. The nonnegative-form argument also yields a uniform bound for every even exponent in the two-dimensional real setting. The result does not claim a sharp count for all even exponents or resolve the odd-exponent cases.
+The closest primary Sain article was read directly and asserts only 2(8p−5) for integer p, explicitly raising optimization of the bound. The stronger even-p bound and exact quartic extremizer are not among the inspected original statements; standard nonnegative-polynomial multiplicity lemma is a classical ingredient, not itself new. Existing later Sain Hilbert/extreme-contraction and semi-inner-product treatments may not cover p4, but undiscovered better bounds remain possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Directly improves a published coarse bound 2(8p−5) to p for the real even-exponent Banach plane and settles the sharp non-Hilbert p=4 cardinality. The even-multiplicity/projective-zero obstruction exposes natural algebraic geometry underlying norm-attainment finiteness; sharpness for p≥6 stays open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
