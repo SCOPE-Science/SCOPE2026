@@ -1,0 +1,15 @@
+# Review of the retraction classification
+
+## Correctness
+**PASS.** Every algebra endomorphism is a substitution on the generators, and it is invertible exactly when its induced map on the degree-one quotient is invertible. The commuting idempotent linear parts split into simultaneous \(0/1\) eigenspaces over every field. At each higher tensor degree, idempotence annihilates equal-weight corrections and pairwise commutativity forces every unequal-weight correction to have the same scalar-gradient form; a single generator shear simultaneously kills these terms. The stabilizer calculation counts exactly the compatible nonlinear coefficients. The resulting orbit and joint-rank formula follows by orbit–stabilizer. The proof does not rely on finite enumeration, and no assumption on the characteristic is hidden.
+
+## Originality
+**PASS, provisionally.** Berzins (arXiv:math/0504015) and Lipyanski (arXiv:math/0511654) investigate automorphisms **of** endomorphism semigroups, which are not the algebra-automorphism orbits **of commuting idempotent elements** enumerated here. Fountain and Gould (2007) investigate idempotent-generated subsemigroups in stable basis algebras. A 1998 paper of Mikhalev and Yu discusses retracts of several free algebra types, but its full text could not be inspected, and its available abstract does not state an arbitrary-length finite-field enumeration for nonunital nilpotent free associative algebras. Prior published mathematical records and other already-recorded scientific claims were compared by objects, aliases and all-arity formulas, with no corresponding result identified. This does not establish publication priority; a more general semilattice-action linearization theorem could subsume the abstract normal form.
+
+## Value
+**PASS.** The classification determines every automorphism orbit of compatible algebra retractions for all generator counts, nilpotence lengths and tuple arities. The explicit formula counts *actual operators* with their full-algebra joint ranks, a natural invariant that is not supplied by the usual simultaneous diagonalization of linear maps. Nonlinear coefficients are controlled by tensor-word Boolean AND weights; already in the two-generator cube-zero case, incomparable supports give \(q^2\) more points than comparable supports. This nontrivial stratification is relevant when enumerating split subalgebras and finite semilattice actions on free nilpotent associative algebras.
+
+## Limitations and closest work
+The theorem does not address more general quotients, noncommuting projections, or scheme-theoretic reducedness. The nearest published results are the 2005 automorphism-of-endomorphism-semigroup papers and the 2007 product-of-idempotents study; none of their inspected main statements is a finite-field all-tuple classification. The 1998 retracts paper remains an incomplete full-text comparison. Independent historical publication checking remains open.
+
+Self-review: passed. Independent audit: not yet performed.

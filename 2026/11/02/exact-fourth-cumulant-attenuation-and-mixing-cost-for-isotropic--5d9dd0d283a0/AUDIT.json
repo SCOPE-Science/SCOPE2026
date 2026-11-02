@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly establishes spherical second and fourth identities, applies W4 contraction factor ((d^2-1)/(d(d+2)))^(1/4), proves uniqueness among finite-fourth-moment stationary laws and rotational invariance, and solves exact second- and fourth-moment fixed points. The covariance r^k and integrated factor 2d-1 follow from conditional mean. No finite numerical test is used as an infinite proof. A fresh extraction of packaged verifier passed 1,068 check groups.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bergou et al., arXiv:2308.16904v1, equation (3), Theorem 3.1: an iteration against one fixed noisy matrix with upper bounds on expected squared error.",
+        "Agaskar, Wang and Lu (GlobalSIP 2014) publicly accessible abstract explicitly states exact MSE and annealed/quenched convergence analysis; full OA PDF returned HTTP 429 and was not inspected."
+      ],
+      "reasoning": "The fixed-data theorems and an MSE formula are not stronger versions of the claim about the invariant fourth cumulant for independent non-Gaussian replacement at each step. The inaccessible detailed older paper remains a stated risk, not asserted to be noncovering based on its abstract.",
+      "searches": [
+        "randomized Kaczmarz with noisy right hand side random directions Gaussian Gibbs sampler stationary law non Gaussian",
+        "stationary distribution of fresh Gaussian row randomized Kaczmarz with noise in right hand side higher moment fourth moment",
+        "arxiv:2308.16904, Theorem 3.1 and Section 4",
+        "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities Agaskar Wang Lu 2014"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.16904v1 (eligible 2023 motivating source; inspected full rendered article)",
+      "arxiv:1506.03296v5 (inspected full rendered article, especially Gaussian Kaczmarz and convergence)",
+      "GlobalSIP 2014 Agaskar-Wang-Lu (abstract only, full-text HTTP 429)",
+      "Needell (2010) noisy Kaczmarz (repository abstract only)",
+      "Scientific semantic search of published numerical-method findings using actual recorded query texts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known isotropic second-moment rate 1-1/d determines the new result's lag covariance after a separate stationary noisy model is defined, but cannot fix the fourth cumulant without the distribution of Y and a fourth-order spherical calculation.",
+        "The new proof computes E||P_U X||^4=(d^2-1)/(d(d+2)) E||X||^4 and solves a fourth-order stationarity equation; these are absent from the inspected first/second-moment statements."
+      ],
+      "reasoning": "Known second-moment contraction and fixed-system convergence are acknowledged antecedents. The surviving contribution is the full non-Gaussian fourth-cumulant transfer, its exact dimension dependence, and the contrast with correlation cost in the fresh-response stationary chain.",
+      "searches": [
+        "arxiv:1506.03296 Section 6 expected Gaussian projection matrix",
+        "arxiv:2308.16904 Theorem 3.1 noisy Kaczmarz convergence horizon",
+        "randomized Kaczmarz Gaussian noise stationary exactly Gaussian invariant distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gower and Richtarik, arXiv:1506.03296v5, Section 6: homogeneous Gaussian Kaczmarz uses a normalized Gaussian sketch, equivalent to Haar random directions in the zero-target case.",
+        "A spherical Haar direction is a normalized iid centered Gaussian vector; the new chain adds an independent freshly drawn non-Gaussian target scalar at every iteration."
+      ],
+      "reasoning": "This reduction correctly identifies the known sketch-and-project skeleton and its 1-1/d contraction; it does not turn the fixed-system deterministic target of the earlier algorithm into the independently refreshed Y. Fourth stationary cumulants are not implied by a second-moment convergence result alone.",
+      "searches": [
+        "randomized Kaczmarz Gaussian noise stationary exactly Gaussian invariant distribution",
+        "random orthogonal direction replace one component fourth moment stationary kurtosis",
+        "Kac thermostat stationary fourth cumulant random rotation reservoir marginal moment formula",
+        "arxiv:1506.03296, Section 6 Gaussian Kaczmarz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A semantic mathematical-record search surfaced exact Haar second-moment analyses and two-row Kaczmarz stability work, but no returned record supplied the fourth-cumulant factor 3/(2d+1) or its pairing with 2d-1 autocorrelation cost.",
+        "The closely related Gaussian-row moment-integrability claim concerns independently redrawn *un-normalized* coefficients with deterministic row RHS, including a finite-moment cutoff, not an independent normalized response law or its fourth-moment value."
+      ],
+      "reasoning": "No relevant table or finite database of this stationary fourth-moment invariant was retrieved. An absence in a finite semantic index cannot certify global novelty; the comparison is by mathematical implication, not by matching titles or numerical constants.",
+      "searches": [
+        "random-direction Kaczmarz orthogonal projection with non-Gaussian refreshed right hand side stationary fourth cumulant kurtosis 3/(2d+1)",
+        "stationary distribution of fresh Gaussian row randomized Kaczmarz with noise in right hand side higher moment fourth moment",
+        "orthogonal projection randomized Kaczmarz iid rows Gaussian data noisy stationary moments"
+      ]
+    },
+    "rationale": "The inspected Bergou et al. 2023 theorem gives convergence-horizon bounds for fixed doubly perturbed systems, not the invariant fourth moment of a refreshed isotropic random hyperplane. The inspected Gower-Richtarik 2015 Gaussian Kaczmarz section contains the known expected squared-error rate but not independent response noise or stationary cumulant attenuation. The independent-response factor 3/(2d+1) paired with time-average correlation factor 2d-1 was not found in inspected primary text, relevant indexed records or close scientific variants; unpublished thermostat moment closures and one inaccessible 2014 full paper remain material publication-priority risks.",
+    "residual_risks": [
+      "The Agaskar-Wang-Lu 2014 full text was not retrievable (HTTP 429), so its appendices cannot be ruled out by direct inspection.",
+      "Other indexed or unindexed Kac-type thermostatted random-coordinate renewal models might contain an equivalent fourth-order equilibrium closure; searches did not locate a decisive comparison.",
+      "The formulas are exact only under uniform spherical directions and fresh independent responses; no generalization to frozen/anisotropic data is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its matrix and noisy response are fixed in the iteration; it bounds squared error but has no invariant fourth-cumulant formula for independent refreshed target rows.",
+        "evidence": "arXiv:2308.16904, equation (3), Theorem 3.1, equations (8) and (11), Section 4",
+        "identifier_or_url": "https://arxiv.org/abs/2308.16904",
+        "material_read": "Accessible long-form arXiv rendered text: introduction, equation (3), contributions, Theorem 3.1, perturbation setting, Gaussian numerical experiment descriptions, Section 3.1",
+        "method": "web-accessible primary arXiv full-text rendering",
+        "title": "A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+        "trigger": "Primary motivating doubly noisy Kaczmarz algorithm from the eligible 2023 source window"
+      },
+      {
+        "assessment": "Defines the normalized-Gaussian projector and its known expected second-moment decay, but analyzes fixed consistent systems rather than an invariant law for independent non-Gaussian response noise.",
+        "evidence": "arXiv:1506.03296v5, equations (53)-(56), Section 6.1, convergence Table 1",
+        "identifier_or_url": "https://arxiv.org/html/1506.03296v5",
+        "material_read": "Full-text accessible HTML: introduction and six equivalent formulations overview, convergence table, Sections 3-4 descriptions, Section 6 Gaussian sampling and Gaussian Kaczmarz equations, conclusion",
+        "method": "web-accessible primary arXiv HTML",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "A general sketch-and-project/Gaussian Kaczmarz result potentially dominating the candidate"
+      },
+      {
+        "assessment": "Abstract covers exact mean squared error, annealed/quenched rates and probability optimization. No whole-document noncoverage conclusion is claimed; the unread full text is a residual risk.",
+        "evidence": "Harvard DASH repository description, original GlobalSIP 2014 publication",
+        "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+        "material_read": "Open-access repository bibliographic page and abstract; linked full PDF returned 429 Too Many Requests, so no full text was read",
+        "method": "repository landing page plus attempted OA PDF",
+        "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+        "trigger": "Highly relevant exact MSE analysis; might in principle contain further higher-moment material"
+      },
+      {
+        "assessment": "Studies a fixed corrupted right-hand side and expected error horizon, not sufficient to establish or rule out the new stationary higher-moment identity.",
+        "evidence": "Needell (2010), BIT Numer. Math. 50, 395-403, repository abstract",
+        "identifier_or_url": "https://scholarship.claremont.edu/cmc_fac_pub/335/",
+        "material_read": "Repository bibliographic page and abstract only",
+        "method": "public institutional repository description",
+        "title": "Randomized Kaczmarz Solver for Noisy Linear Systems",
+        "trigger": "Classic right-hand-side-noise convergence benchmark"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d9dd0d2-83a0-46e2-b604-7e97a070bd3e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fresh non-Gaussian equation measurements naturally arise in noisy row-action solvers, while fixed-system squared-error guarantees cannot diagnose invariant shape. The exact dimension factor 3/(2d+1) measures loss of excess kurtosis despite unchanged coordinate variance, and the exact factor 2d-1 quantifies concomitant autocorrelation cost. Together they provide a meaningful exact benchmark for interpreting Gaussian-looking numerical iterates and effective sample size, not a mere numerical lookup or arbitrary slice.",
+    "status": "PASS"
+  }
+}

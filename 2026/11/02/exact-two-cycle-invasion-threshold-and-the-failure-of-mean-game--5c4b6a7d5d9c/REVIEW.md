@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The calculation starts from the resource and payoff equations in the cited source, with normalized growth \(\mu=r-e_H\), effort difference \(d=e_H-e_L\), and the exact all-defector edge \(x=0\). The resident logistic two-cycle is explicit and stable for \(3<\mu<1+\sqrt6\). Both strategy updates yield the same cooperator derivative \(S(n)\) on that edge. The triangular two-step Jacobian has independently derived eigenvalues \(\Lambda_n=4+2\mu-\mu^2\) and the closed quadratic \(\Lambda_C\). Strict monotonicity yields a unique positive invasion threshold, and the variance identity proves the strict mean-game gap. All inequalities in the rational example have been checked symbolically and numerically in the included code. At transverse equality no nonlinear stability conclusion is drawn. Risks: none found in the stated strict, local claim; it does not concern global basins or chaotic dynamics.
+
+## Originality
+PASS to the extent established by a focused literature and research-record comparison. Mondal--Ray--Chakraborty (arXiv:2401.12245v1), the exact originating model, explicitly proposes a mean-environment ansatz for fluctuating-resource invasion and studies fixed-point stability/numerical oscillations; the complete model-specific two-cycle product formula, payoff threshold, and strict difference from mean prediction are not established in the inspected manuscript. Mukhopadhyay--Chakraborty (arXiv:2102.11034) treats periodic orbits of a different autonomous replicator map, not invasion of a harvested logistic resident cycle. The general Floquet and arithmetic-versus-geometric growth ideas are prior mathematical knowledge and are not claimed new. Targeted semantic searches of published research records found a period-two replicator-map result for an unrelated coupling/asymmetry model, not a statement implying the harvested-resource formula. Risk: unindexed or later literature may contain an equivalent derivation; no exhaustive literature uniqueness certification is possible.
+
+## Value
+PASS. The origin paper explicitly uses a mean-game approximation to reason about defectors' stability under resource oscillations. The exact criterion replaces that ansatz by a necessary-and-sufficient local stability test and shows a nonempty, entirely physical parameter regime of qualitatively opposite prediction. The result applies to both type-I and type-II replicator conventions, isolates the resource-variance correction, and provides exact rational evidence. It does not pretend to resolve global or chaotic dynamics, and the period-two threshold is a motivated bifurcation-scale ecological question rather than an arbitrary finite calculation.
+
+## Residual limitations
+The proof is for a hyperbolic resident resource two-cycle and its local cooperator invasion in a precise positive-payoff parameter class. The equality threshold and subsequent nonlinear bifurcations are not classified. An independent review of both the mathematics and literature comparisons has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.

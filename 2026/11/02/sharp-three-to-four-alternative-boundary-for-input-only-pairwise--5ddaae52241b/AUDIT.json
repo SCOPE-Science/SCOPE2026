@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The four-row, six-column incidence matrix for three strict alternatives is totally unimodular by a full 15-row-subset Ghouila-Houri signing certificate, also checked via all 209 possible nonempty square minors in ranking_quota_verifier.py. A nonempty bounded integer-RHS system with source-multiplicity upper bounds has an integral point, proving every floor/ceiling pairwise quota simultaneously for any n and 1<=k<=n without repetition. For m=4,n=4,k=2 the explicit four-ballot witness violates exactly one balanced pairwise quota for each of the six voter pairs. Exhaustive finite computations enumerate all 17550 anonymous ranking multisets directly and independently test the tied-comparison characterization on all 10626 distinct-rank sets; both return 690 obstructions, with 30 alternative-relabeling orbits. The included verifier actually executed successfully. The arbitrary-n assertion rests on the proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Halpern et al. Theorem 3 uses unrestricted output rankings and a 24-alternative base-case construction; the text explicitly notes computational unrestricted feasibility through seven alternatives for (n,k)=(4,2).",
+        "Halpern et al. Proposition 1 uses four voters and six alternatives for a stronger simultaneous failure of three distinct axioms, but its listed four-ballot instance has pairwise-feasible subsamples after restriction to each of the 15 four-alternative subsets (rechecked in ranking_quota_verifier.py).",
+        "Theorems 4 and 5 rely on single-peaked and single-crossing preferences, respectively; not every profile with three alternatives lies in those structured domains.",
+        "Procaccia et al., NeurIPS 2025, Metritocracy, studies positional representation and positional proportionality with error, not exact pairwise quotas."
+      ],
+      "reasoning": "General impossibility on a larger set of alternatives does not establish the sharp three-versus-four boundary, and restricted-domain existence does not imply existence for all three-alternative profiles. The exact four-alternative obstruction is compatible with unrestricted small-instance feasibility, because an admissible synthetic pair of rankings exists for the witness. The title and problem family are related but the quantified output restrictions and implications differ.",
+      "searches": [
+        "Proportionality in Ranking Compression three candidates pairwise",
+        "ranking compression pairwise proportionality three alternatives subsampling 4 alternatives 4 voters",
+        "Proportionality in Ranking Compression four candidates pairwise",
+        "Metritocracy Representative Metrics for Lite Benchmarks Procaccia Schiffer Wang Zhang 2025 proportionality rankings subset selection",
+        "arxiv:2610.23193 Section 5 Theorems 3-5 Proposition 1 Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "Halpern et al. (2026), arXiv:2610.23193v1, first public date 2026-10-16; public HTML primary text.",
+      "Procaccia et al. (2025), Metritocracy, official NeurIPS abstract and 2026 related-work description.",
+      "Halpern et al. (2025), Pairwise Calibrated Rewards for Pluralistic Alignment, official NeurIPS abstract.",
+      "Tamir (1976), bibliographic record for the Ghouila-Houri (1962) criterion.",
+      "Accessible prior same-area research claims, screened for ranking compression and pairwise subsampling; no overlapping claim found.",
+      "Published mathematical-record semantic searches on ranking subsampling, controlled rounding, minimum alternatives, and exact first-failure counts."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper does not assert a floor/ceiling guarantee for selecting k of n actual ballots on arbitrary three-alternative elections.",
+        "The source paper explicitly separates output-from-input from general output; its Theorem 3 and their small-instance search concern unrestricted output, so neither implies input-only four-alternative feasibility or the obstruction count.",
+        "The classical 1962 criterion proves an implication once the special comparison matrix has been shown totally unimodular, but this application, sharp boundary and exhaustive obstruction census are not claims of the classical criterion itself."
+      ],
+      "reasoning": "The new theorem contains a universal positive guarantee under stronger output constraints than prior work and a sharp minimal candidate-domain negative witness, with an exact first-layer census. The source six-candidate witness does not yield a four-alternative witness by direct candidate restriction. Adjacent calibration and positional-quota methods do not logically entail the simultaneous exact pairwise sampling theorem.",
+      "searches": [
+        "Halpern Liu Micha Ng Suksompong proportionality ranking compression 2026 input-output ranks pairwise quota three candidates four candidates distinct smallest counterexample",
+        "Proportionality in Ranking Compression totally unimodular three candidates",
+        "Pairwise Calibrated Rewards for Pluralistic Alignment 2025 Halpern Micha Procaccia Shapira theorems",
+        "Ghouila Houri criterion totally unimodular matrix integrality 1962"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Halpern et al., arXiv:2610.23193v1, Section 2 defines pairwise proportionality by thresholds N_ab >= t*n/k, equivalent to the simultaneous lower quotas; applying reverse orientations provides the upper quotas.",
+        "The same work gives no statement on quota-preserving subsampling for arbitrary three-alternative profiles in its Sections 2, 5, or cited appendix counterexample.",
+        "Ghouila-Houri total-unimodularity criterion is an established matrix characterization; the four-row comparison matrix and its application to ranking samples are independently established here."
+      ],
+      "reasoning": "The new condition is equivalent to pairwise proportionality together with requiring the k outputs to be a submultiset of the actual n individuals, and additionally the exact floors/ceilings hold simultaneously. Unlike constructing synthetic outputs, selection forbids invented rankings and repeated use of a given ballot. Other marginal-calibration statements about probability distributions do not imply an integral exact-size subset preserving all pairwise quotas.",
+      "searches": [
+        "three alternatives subsampling rankings pairwise comparisons rounded to floor ceiling simultaneously total unimodular",
+        "three candidates pairwise proportionate random sample of rankings lower quota upper quota pairwise majority sample committee",
+        "Three candidate preference profile select k of n ballots without replacement preserving floor ceiling of every pairwise preference count exact rounding totally unimodular",
+        "pairwise order counts rounding three alternatives total unimodularity 4 candidates"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest inspected paper reports a 24-alternative unrestricted obstruction and a six-alternative input-only example, not a 690/17550 census or 30 relabeling classes.",
+        "The independently implemented finite-domain enumerations find 690 of 17550 anonymous four-voter, four-alternative multisets; each candidate relabeling orbit is explicitly computed from permutations."
+      ],
+      "reasoning": "A table with the same natural parameter values would dominate the exact count even with different wording; none was identified in the inspected primary text or targeted searches. Search absence is not proof of uniqueness, and the finite enumeration is a fresh calculation with complete domain coverage rather than a known-table recomputation.",
+      "searches": [
+        "Four candidates four rankings two representatives pairwise quota impossible input-only profile census 690",
+        "ranking compression minimal number of alternatives obstruction pairwise proportionality exact quota floor arrangement 3 candidates",
+        "four alternatives four rankings two representative rankings pairwise proportionality no subset",
+        "site:arxiv.org ranking compression 690 pairwise four candidate four voter"
+      ]
+    },
+    "rationale": "The directly relevant October 16, 2026 paper supplies the exact proportionality axiom and an unrestricted 24-alternative impossibility, plus a six-alternative input-only example, but no universal three-alternative input-subsampling theorem, sharp four-alternative witness or 690-case census. Its restricted-domain results do not subsume arbitrary three-alternative profiles. The 2025 metrics-subset paper treats positional quotas, and a separate 2025 pairwise-calibration study allows distributions and does not impose subsampling. Classical total-unimodularity integrality is not claimed as novel. Search and primary-text comparison support originality relative to inspected work, while unindexed results and uninspected appendices of less-direct sources remain possible.",
+    "residual_risks": [
+      "An unindexed theorem in balanced sampling or permutation discrepancy theory may imply the three-alternative positive statement without using ranking-compression terminology.",
+      "Older benchmark-subset and pairwise-calibration manuscripts were compared using available abstracts and definitions; hidden exact results in their uninspected portions remain a weaker priority risk.",
+      "No independent expert audit or exhaustive survey of every unpublished manuscript has been conducted.",
+      "The four-alternative obstruction is only input-only; the source paper reports unrestricted small-instance success, and the witness here has a synthetic-output solution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closely relevant; not covering the new positive universal three-alternative input-only result or exact four-alternative first-failure census; unrestricted Theorem 3 and structured Theorems 4-5 differ in hypotheses, while Proposition 1 has six alternatives",
+        "evidence": [
+          "Source posted 2026-10-16; Section 2 defines exact pairwise quotas.",
+          "Section 5 describes a 24-alternative unrestricted construction and notes unrestricted success through m=7 for n=4,k=2.",
+          "Proposition 1 and Appendix A provide an input-only six-alternative example, without the stated four-candidate calculation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.23193",
+        "material_read": "arXiv HTML: abstract, introduction, formal definitions and related work, Section 5 theorem and proof passages, Theorems 4 and 5, Appendix A counterexample excerpts; relevant passages independently cross-checked against the complete HTML text exposed at https://www.paperpeel.com/paper/2610.23193",
+        "method": "Material reading of original public full-text HTML and corresponding independently indexed full-text rendering, including mathematical assumptions and consequences; not only an abstract",
+        "title": "Proportionality in Ranking Compression",
+        "trigger": "Direct definition of the pairwise axiom, its impossibility boundary and input-only counterexample"
+      },
+      {
+        "assessment": "Addresses approximate positional representation and positional proportionality; no covering pairwise floor/ceiling selection theorem identified from the inspected material",
+        "evidence": [
+          "The abstract specifies ranks at each cutoff and approximate positional fairness, in contrast to exact simultaneous pairwise margins."
+        ],
+        "identifier_or_url": "https://papers.nips.cc/paper_files/paper/2025/hash/01d64478381c33e29ed611f1719f5a37-Abstract-Conference.html",
+        "material_read": "Official 2025 NeurIPS abstract, source-paper related-work discussion and available research overview, not the full original manuscript",
+        "method": "Direct official abstract and comparison of stated definitions",
+        "title": "Metritocracy: Representative Metrics for Lite Benchmarks",
+        "trigger": "A previous input-ranking subset selection model named in the main source paper"
+      },
+      {
+        "assessment": "A distribution of learned reward functions with pairwise calibration differs from selecting k distinct existing voter rankings with exact integer floors and ceilings; cannot establish a direct implication from the inspected abstract",
+        "evidence": [
+          "The abstract describes distributional calibration, not all-k input-ballot selection or the first four-alternative obstruction."
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/2025/hash/53dbd7e34fab703a639964e2d3ee9e84-Abstract-Conference.html",
+        "material_read": "Official 2025 NeurIPS abstract only",
+        "method": "Direct source abstract and model comparison",
+        "title": "Pairwise Calibrated Rewards for Pluralistic Alignment",
+        "trigger": "Potentially related exact pairwise calibration of ensemble distributions"
+      },
+      {
+        "assessment": "Established lemma properly credited; no domain-specific ranking-compression result is claimed from this source",
+        "evidence": [
+          "Tamir (1976) references Ghouila-Houri, Caractérisation des matrices totalement unimodulaires, 1962."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/net.3230060406",
+        "material_read": "Bibliographic record, abstract and references identifying Ghouila-Houri (1962), rather than the complete historical paper",
+        "method": "Published reference and independently checked finite signing certificate",
+        "title": "On totally unimodular matrices",
+        "trigger": "Verification of attribution of the Ghouila-Houri row-signing criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ddaae52-241b-4d9f-b55a-2c5981d739cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An actual-voter subset preserving all pairwise preference shares is a natural and stronger representation demand than generated rankings, with applications to deliberative sampling and representative benchmark metrics. Exact balanced subsampling is possible for every sample size and arbitrary input for three alternatives because of a special total-unimodular rank-incidence structure, but fails already at the next candidate count. The first n=4,k=2 obstruction layer has a fully reproducible exact census (690/17550, 30 symmetry classes), quantifying the frequency and diversity of failure. This is a motivated sharp structural boundary and complete first-layer invariant, not a routine numeric gain or restatement of a prior theorem.",
+    "status": "PASS"
+  }
+}

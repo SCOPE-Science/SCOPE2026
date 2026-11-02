@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The only structural input is the degree-one-endpoint characterization of minimal edge covers, checked directly. Every maximal-size support is a two-star forest: if both sides have at least three, removing a chosen leaf edge forces a redundant retained edge; with a side of size two, a trace omitting an entire center star forces redundant overlap. For the lower bound explicit a=2 assignments and an a,b≥3 three-star support realize every trace; all case-specific added edges have a degree-one endpoint. The construction and independent exhaustive small-case enumerations replayed successfully, but universal validity is established by the written proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kunjwal, arXiv:1805.02083, Theorem 7 and proof, lines 10711–10905 of openly readable complete article: a minimal cover forms stars and has at most a+b−2 edges.",
+        "Khoshkhah et al. arXiv:1811.02599, Sections 1–3: optimization/approximation of weighted upper edge covers."
+      ],
+      "reasoning": "A maximum hypothesis size does not imply the exact VC dimension. Neither paper contains a universal theorem implying the inability to shatter a maximum two-star support or realizing all traces on a three-star support. General Sauer–Shelah theory likewise does not compute this family-specific value.",
+      "searches": [
+        "exact VC dimension shattered edge supports inclusion-minimal edge covers of complete bipartite graph K_{a,b}",
+        "minimal edge cover star forest complete bipartite graph shattering VC Littlestone dimension",
+        "\"VC dimension\" \"spanning star forest\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1805.02083 (relevant original full text and theorem/proof inspected)",
+      "arxiv:1811.02599 (original full HTML text relevant parts inspected)",
+      "doi:10.1137/070682150 (abstract/metadata only)",
+      "published-finding corpus records 2026/10/4/SCOPE-feasible-polytope-and-all-optimizers-for-fractional-edge-dimensi--7877372a9b3d, 2026/10/4/SCOPE-minimal-forts-and-fractional-zero-forcing-of-complete-multiparti--6afb52747484, 2026/10/4/SCOPE-exact-graph-cover-free-family-number-for-k-3-4--db55ae7b2f05, 2026/10/4/SCOPE-edge-geodesic-cover-and-partition-numbers-of-complete-multiparti--ed7c74654578, 2026/10/4/SCOPE-minimum-sum-vertex-cover-on-complete-multipartite-graphs--0406c3406a18"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kunjwal Theorem 7 establishes star-forest decomposition and N=a+b−c; this supplies Lemma 1 but not Lemmas 2–4.",
+        "published-finding corpus closest: fractional edge resolution optimization, minimal forts/fractional zero forcing, cover-free families, edge-geodesic covering; their objects or hypotheses differ from the binary class of all inclusion-minimal edge covers."
+      ],
+      "reasoning": "The precise final claim is a VC-dimension equality, not an extremal edge count. A family could have maximal hypothesis size a+b−2 yet shatter any smaller number of edges. The proof uses a separate non-shattering obstruction at size a+b−2 and explicit realization of every pattern at size a+b−3; none is implied by the inspected literature or closest research records.",
+      "searches": [
+        "exact VC dimension shattered edge supports inclusion-minimal edge covers of complete bipartite graph K_{a,b}",
+        "minimal edge cover star forest complete bipartite graph shattering VC Littlestone dimension",
+        "minimal edge covers K_3,3 K_4,4 VC dimension a+b-3",
+        "complete bipartite minimal edge cover critical 3-component star forest shattered",
+        "published-finding corpus nearest IDs: 2026/10/4/SCOPE-feasible-polytope-and-all-optimizers-for-fractional-edge-dimensi--7877372a9b3d",
+        "published-finding corpus nearest IDs: 2026/10/4/SCOPE-minimal-forts-and-fractional-zero-forcing-of-complete-multiparti--6afb52747484"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Khoshkhah et al. arXiv:1811.02599, Introduction, lines 14–35 and 59–70: minimal edge covers = spanning star forests, equivalently upper edge covers; optimization objectives are the largest size and weighted variants.",
+        "The 2018 source explicitly notes alternative terms enclaveless set and nonblocker."
+      ],
+      "reasoning": "We searched minimal edge covers, spanning star forests, maximal/minimal edge coverings and their shattering interpretations. The equivalence of OBJECTS is known, but it does not provide any shattering formula; no equivalent theorem was found.",
+      "searches": [
+        "minimal edge cover star forest complete bipartite graph shattering VC Littlestone dimension",
+        "\"VC dimension\" \"spanning star forest\"",
+        "\"VC dimension\" \"minimal edge cover\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kunjwal, arXiv:1805.02083, Theorem 7, Figure 14 and Section before Theorem 9: numbers of edge covers for K_{3,3} and other small graphs, not traces or VC values.",
+        "The 2018 weighted upper edge cover paper presents approximation and complexity results, not a VC table."
+      ],
+      "reasoning": "Small graph counts for minimal edge covers are distinct from and insufficient to determine shattering traces. Exact 3x3 VC and 4x4 VC finite checks were compared only as new diagnostics, not alleged unknown table values.",
+      "searches": [
+        "minimal edge covers K_3,3 K_4,4 VC dimension a+b-3",
+        "complete bipartite minimal edge cover critical 3-component star forest shattered",
+        "\"shattered\" \"edge cover\" \"complete bipartite\""
+      ]
+    },
+    "rationale": "The primary structural Kunjwal Theorem 7, and the general maximal minimal-cover/star-forest equivalence in Khoshkhah et al., are acknowledged. Neither source derives edge-query shattering; the all-pattern lower witness and exclusion of maximum-size shattered supports are additional theorems. Focused primary literature and semantic record comparisons found no stronger implication; global priority under synonyms remains an acknowledged uncertainty.",
+    "residual_risks": [
+      "Historical priority could be covered by other literature using aliases nonblocker, upper edge cover, spanning star forest or hypergraph transversal.",
+      "The 2008 star-forest approximation primary article was accessible as an abstract rather than verified full text, so whole-document noncoverage is not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known star-forest structural lemma and extremal size; does not supply an edge-incidence VC shattering theorem.",
+        "evidence": [
+          "Theorem 7 states N=m+n−κ and maximum N=m+n−2 for m,n≥2.",
+          "Figure 14 and Theorem 9 classify minimal edge-cover counts and quantum contextuality use, not VC dimension.",
+          "arXiv first posted 2018-05-05."
+        ],
+        "identifier_or_url": "arxiv:1805.02083 | https://fermatslibrary.com/s/q-2020-01-10-219",
+        "material_read": "Full paper HTML, especially Theorem 7, its proof and surrounding count/case discussions, and Theorem 9; relevant text around lines 10668–11016 and 11254–11415.",
+        "method": "Openly readable full article HTML; read all relevant theorem/proof/appendix-area sections, and searched document for VC terminology.",
+        "title": "Hypergraph framework for irreducible noncontextuality inequalities from logical proofs of the Kochen-Specker theorem",
+        "trigger": "Same graph K_{a,b}, minimal edge-cover structure and exact maximum size"
+      },
+      {
+        "assessment": "Uses the minimal-cover/star-forest equivalence in optimizing weighted maximum minimal edge covers; no edge-incidence VC dimension formula identified.",
+        "evidence": [
+          "Lines 14–35 explicitly give edge-cover definitions and equivalent spanning star forest terminology.",
+          "Sections 2–3 concern complexity and approximation, with bipartite hardness; find of VC returned no occurrence.",
+          "First posted 2018-11-06."
+        ],
+        "identifier_or_url": "arxiv:1811.02599 | https://arxiv.org/abs/1811.02599",
+        "material_read": "Full open arXiv HTML article (Introduction, related work, Sections 2–3, and theorem/section headings and concluding parts), lines 0–385; searched VC, star and complete bipartite terminology.",
+        "method": "Original openly accessible arXiv HTML manuscript",
+        "title": "Weighted Upper Edge Cover: Complexity and Approximability",
+        "trigger": "Minimal edge covers synonym spanning star forests; stronger possible general theorem for bipartite graphs"
+      },
+      {
+        "assessment": "Abstract addresses approximation of maximum-size star forests; inaccessible text limits historical novelty comparison.",
+        "evidence": [
+          "2008 article abstract states approximation algorithms and genomic sequence alignment application; no VC statement in abstract."
+        ],
+        "identifier_or_url": "doi:10.1137/070682150 | https://epubs.siam.org/doi/10.1137/070682150",
+        "material_read": "Abstract and publisher metadata only; full paper not accessible through this source during this comparison.",
+        "method": "Publisher abstract/context only, no full-text claim of noncoverage",
+        "title": "Approximating the Spanning Star Forest Problem and Its Application to Genomic Sequence Alignment",
+        "trigger": "Found cited among spanning-star-forest antecedents of upper edge covering"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d7e3d71-13d3-416a-8ed8-781e77c6fe64",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp exact two-parameter VC-dimension classification for a standard inclusion-minimal graph covering class, with a structural loss of one against the largest concept size. It constructs all Boolean traces on an explicit canonical three-star support, useful to learning-theoretic and combinatorial study of inclusion-minimal solutions. This is not merely the known maximum-edge-cover bound or a small-instance table.",
+    "status": "PASS"
+  }
+}

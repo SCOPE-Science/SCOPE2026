@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every c, an approving voter is unrepresented iff its interval is entirely inside the consecutive selected-candidate gap containing c; elected candidates have zero uncovered support. Therefore all quota-JR committees correspond bijectively to gap-admissible increasing paths, and the suffix recurrence counts exactly. Precomputation complexity and O(m)-bit count bound hold. Tested 320,546 exhaustive DR cases, 12,000 general random cases versus an independently written direct predicate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.29332v2, Appendix C: gap DP maximizes distinct semi-strong JR coverage, not quota-JR enumeration",
+        "arXiv:2510.19620v1, CI Algorithm 2 for quota-JR optimum"
+      ],
+      "reasoning": "A generic interval segmentation DP is known; however, the predecessors optimize a single solution or a different SSJR score. Neither implies all exact counts without replacing the optimization objective with the uncovered-support gap predicate and proving the one-to-one path correspondence.",
+      "searches": [
+        "\"justified representation\" \"candidate interval\" \"counting\" committees",
+        "Chingoma Grossi Lindeboom Maly 2026 Distinctive Representation candidate interval voter interval NP complete"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.29332v2 PDF",
+      "arXiv:2510.19620 HTML full text",
+      "IJCAI-2019-0016 PDF",
+      "arXiv:2108.12949v2 PDF",
+      "AAAI-2015-9324 original JR abstract and publication metadata"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "IJCAI-2019-0016 Theorem 1: #P-hard general case",
+        "arXiv:2609.29332v2 Definition 25 (DR) and Appendix C (SSJR DP)",
+        "arXiv:2510.19620 Theorem 6.8: existential/optimization",
+        "arXiv:2108.12949v2 Theorem 6: minimization of a justifying group"
+      ],
+      "reasoning": "The proof establishes exact numerical counts and an exact sampler; neither a general hardness theorem nor a single-witness optimizer logically implies these outputs. The latest DR article gives the domain and an analogous dynamic-programming technique but does not establish the distinct quota-JR count.",
+      "searches": [
+        "Counting exact number of justified representation JR committees under candidate interval approvals with selected winners from a restricted eligible subset uniform random exact sampling",
+        "polynomial time dynamic program counts size k committees satisfying justified representation under candidate interval preferences",
+        "distinctive representation approval voting exact count on candidate interval domain support exactly ceil n/k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "IJCAI-2019-0016, Section 3: general #JR counting #P-hard",
+        "arXiv:2108.12949v2, Section 4.3: optimal smallest justifying group, not census"
+      ],
+      "reasoning": "Equivalently this is counting fixed-size hitting sets for all quota-cohesive voter unions under CI; the earlier general #JR statement and minimal hitting-set computation do not supply this counting law. No equivalence establishing prior coverage located.",
+      "searches": [
+        "\"counting\" \"justified representation\" \"candidate interval\"",
+        "Counting justified representation JR committees over candidate-interval approval ballots exact dynamic programming",
+        "JR committee counting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search top results concern different apportionment, power indices and other voting rules, e.g. 2026/10/4/SCOPE-sharp-first-upper-quota-failures-of-jefferson-apportionment--44112778ba23",
+        "Accessible own-claim IDs 0315b605-f1f2-4ec1-809f-9fb640ddb9e1 and 72ab8933-f8ac-465e-97b8-0a1f5ef55264 concern a two-seat DR local-optimality implication and a JR-welfare existence claim, respectively."
+      ],
+      "reasoning": "Targeted semantic mathematical-record searches returned no matching exact CI #JR/DR table or recurrence; local earlier claims overlap subject matter but not a counting theorem. Database incompleteness is not treated as a proof of uniqueness.",
+      "searches": [
+        "Distinctive Representation",
+        "JR committee counting",
+        "Count Distinctive Representation DR committees number of ways interval approval elections uniform sampling"
+      ]
+    },
+    "rationale": "The new claim is exact counting of all eligible quota-JR committees and exact uniform sampling on CI; prior work includes general-domain #JR hardness, tree-representable existence optimization, CI quota-JR existence optimization, and a separate CI gap DP optimizing semi-strong JR, but no directly dominating exact enumeration or sampler was found. Priority uncertainty remains for unindexed literature.",
+    "residual_risks": [
+      "Interval hitting-set counting is an established general technique; an unindexed explicit CI-JR specialization may exist.",
+      "The 2026 DR paper contains a structurally similar gap-DP for a different fairness criterion; novelty here is the exact quota-JR counting and sampling specialization, not invention of gap DP.",
+      "No independent literature-priority certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines DR and uses a gap DP for a distinct semi-strong JR candidate-coverage optimization; no exact enumeration of all quota-JR or DR committees, nor uniform sampling result located. The gap-DP method is explicitly credited.",
+        "evidence": [
+          "arXiv:2609.29332, Definition 25, page 5",
+          "arXiv:2609.29332v2 Appendix C, gap score recurrence, PDF pages 18–19",
+          "arXiv record first submitted 2026-09-24"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.29332",
+        "material_read": "Abstract, Sections 3–6, Definition 25, Theorem 28, Appendix C Candidate Interval and semi-strong JR gap DP, Appendix D DR complexity proof",
+        "method": "Inspected the arXiv v2 primary PDF full text and relevant appendix formulas; consulted arXiv record for v1 public date",
+        "title": "Diverse Representation in Approval-Based Committee Voting",
+        "trigger": "DR definition and interval-domain algorithms"
+      },
+      {
+        "assessment": "Finds a minimal feasible quota-JR committee on CI; no counting of all size-k committees or exact uniform sampling. A decision algorithm does not directly supply counts.",
+        "evidence": [
+          "arXiv:2510.19620, Section 6.3, Theorem 6.8 and Algorithm 2",
+          "arXiv:2510.19620 Appendix B.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.19620",
+        "material_read": "Full-text online source, Section 6.3 and Appendix B.3 proof of Theorem 6.8, Algorithm 2",
+        "method": "Inspected mathematical algorithm and proof rather than relying on abstract",
+        "title": "On Minimal Achievable Quotas in Multiwinner Voting",
+        "trigger": "Possible dominating polynomial-time CI quota-JR algorithm"
+      },
+      {
+        "assessment": "Shows #P-hardness in general via reductions from perfect matching; the constructed general ballots are not claimed to satisfy CI. No positive CI census or uniform sampler.",
+        "evidence": [
+          "IJCAI 2019, Section 3, Theorem 1, PDF pages 3–4"
+        ],
+        "identifier_or_url": "https://www.ijcai.org/proceedings/2019/0016.pdf",
+        "material_read": "PDF text, Section 3, Definition 2 and Theorem 1 full counting reduction; introduction and empirical rationale",
+        "method": "Read primary full-text section with constructive reduction",
+        "title": "An Experimental View on Committees Providing Justified Representation",
+        "trigger": "Direct #JR counting problem and hardness comparison"
+      },
+      {
+        "assessment": "Computes a single smallest justifying group, not a count of all fixed-size JR committees; structural-domain extension is not an enumerative result.",
+        "evidence": [
+          "arXiv:2108.12949v2, Theorem 6, pages 12–14",
+          "arXiv:2108.12949v2, Section 4.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.12949",
+        "material_read": "Full-text abstract, Sections 2–4, Theorem 6 and proof in Section 4.3, concluding remarks",
+        "method": "Reviewed the primary full PDF, theorem quantifiers and constructive algorithm",
+        "title": "Justifying Groups in Multiwinner Approval Voting",
+        "trigger": "Closest tree-representation existence algorithm encompasses CI"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c8aaca8-ea0c-4a1e-875d-62e9c62f5cef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact number of JR committees was formulated as a natural #P-hard counting problem in Bredereck et al. (2019); computing it allows quantitative comparison of fairness restrictions. Here a structurally meaningful candidate-interval restriction yields polynomial exact counts, exact uniform sampling, and a DR corollary with candidate eligibility fixed by the new DR axiom. This is not merely existence or a known-table recomputation.",
+    "status": "PASS"
+  }
+}

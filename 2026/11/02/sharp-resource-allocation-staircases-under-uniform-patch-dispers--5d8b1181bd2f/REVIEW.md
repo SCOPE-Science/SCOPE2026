@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The characteristic-polynomial identity for \(PD\) and \(D^{1/2}PD^{1/2}\) is valid even for zero-investment coordinates. The nonnegative-matrix Perron root equals the top eigenvalue of the symmetric similarity. At or below the mixing threshold, the positive semidefinite trace inequality is sharp exactly for the claimed support patterns. Above it, the positive spectral root obeys a rank-one secular equation; for any target positive root, the corresponding budget-constrained secular sum is strictly concave, and its KKT conditions identify a unique square-root profile. Substitution in the secular equation yields the unique cutoff; monotonicity proves global strict optimality including zero-root competitors at maximal dispersal. Ordered entry thresholds and the exact four-patch example have been algebraically checked. Executed `verify.py` passed rational checks and 18,375 numerical competitor comparisons. The infinite parameter statement relies on the given proof, never on finite trials.
+
+## Originality — PASS, provisional historical priority
+
+Direct full-text comparisons: Kirkland–Li–Schreiber (2006), pages covering the introduction/model and dispersal-reduction theorem; Haight–Travis (2007 online) complete reserve design paper with numerical optimization method; Delmas–Dronnier–Zitt (2023), introductory model and full Section 4, especially Theorem 4.2 and its proof. The Delmas spectral optimization is a close mathematical analogue, but its *unweighted capped effective-population mass* constraint is not the current *heterogeneously weighted uncapped investment* constraint; its horizontal profile does not imply this square-root phase diagram. The 2006 paper changes dispersal with fixed patch fecundities; the 2007 reserve paper maximizes simulation-based persistence rather than a linear Perron root. published-finding corpus searches include explicit aliases and weighted-constraint formulas and show no directly dominating entry. Generic eigenvalue secular equations, concavity and KKT conditions are established background and not claimed new. Residual risk: a less conspicuous general matrix-allocation result might subsume this exact family.
+
+## Value — PASS
+
+Fixed-budget reserve enhancement and heterogeneous patch efficacy provide a natural reason to ask which sites receive habitat. The strict threshold \(\theta_c=(n-1)/n\) and ordered activation thresholds yield a complete practical classification for all patch counts, including tied qualities and zero self-recruitment. In the four-patch instance, no amount of uniform movement makes the weakest patch worth funding. This exact structural phase diagram is more than a routine numerical optimizer: it explains when concentrating versus diversifying habitat investments is spectral-growth optimal. Significance is confined to the described linear resource/dispersal model; no ecological survival probability, empirical recommendation or arbitrary-dispersal extension is inferred.
+
+## Closest prior literature and limitations
+
+Kirkland, Li and Schreiber (2006), DOI 10.1137/050628933: full-text read, fixed patch reproduction and variable dispersal. Haight and Travis (2007 online), DOI 10.1007/s10666-007-9088-4: full-text read, stochastic persistence simulation and habitat budgeting. Delmas, Dronnier and Zitt (2023), DOI 10.1007/s00285-022-01858-5: full Section 4 read; same type of rank-one mixing matrix but different feasible constraint, with coordinate caps and unweighted total. Traditional rank-one secular equations are older matrix theory. The theorem does not model nonlinear density dependence, habitat size caps, spatially structured dispersal, or extinction probabilities. Historical priority remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.

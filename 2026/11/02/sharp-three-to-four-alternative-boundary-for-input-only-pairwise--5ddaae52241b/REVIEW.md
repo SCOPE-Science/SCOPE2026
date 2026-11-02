@@ -1,0 +1,19 @@
+# Scientific review: sharp input-only pairwise-ranking quota boundary
+
+## Correctness — PASS
+
+For three alternatives, the six preference-order incidence columns form a total-unimodular four-row matrix: the exhibited signs cover all 15 nonempty row subsets under the Ghouila-Houri criterion. The integer polyhedron with exact sample size, pairwise floor/ceiling counts, and availability upper bounds is nonempty at the scaled original histogram. Its integral point is a genuine voter subset, not a multiset of synthesized rankings. All hypotheses and directions of the comparison quotas have been checked. The four-alternative witness fails on all six two-voter pairs. The finite census visits every one of 17,550 preference multisets, and an independent tie-only enumeration of all 10,626 distinct-rank sets agrees at 690 failures. The candidate-relabeling classification and the probability use complete finite operations. The included verifier checked all 209 minors, all 15 row-sign conditions, 38,610 small three-alternative instances, the direct and independent censuses, 30 orbits, the witness, and all 15 four-alternative projections of the earlier six-alternative example. Infinite-scope conclusions rely on the integrality proof, not finite enumeration.
+
+## Originality — PASS, with priority risk
+
+The closest primary source, Halpern et al., *Proportionality in Ranking Compression* (arXiv:2610.23193v1, 2026), defines the exact pairwise axiom. Its Theorem 3 establishes *unrestricted*, not input-only, impossibility with a 24-alternative construction for the base case. Its Proposition 1 demonstrates a six-alternative failure when selecting from input rankings, without the universal three-alternative guarantee, four-alternative witness, or first-layer exact census. Each of the 15 four-alternative restrictions of that proposition's listed ballots is input-only feasible for the pairwise axiom. Theorems 4–5 require single-peaked or single-crossing structure, whereas the positive result covers arbitrary three-alternative profiles. Procaccia et al. (2025) work with positional, not these pairwise quotas; the preexisting Ghouila-Houri and integral-polyhedron tools are explicitly attributed. Searches of relevant published mathematical records and accessible own claims revealed no statement implying the combined theorem. An equivalent old balanced-sampling lemma or unindexed finite table remains a residual priority risk; absence from searches is not claimed as proof of absolute novelty.
+
+## Mathematical value — PASS
+
+Choosing actual participants instead of generating artificial rankings is a natural representation constraint in deliberative sampling and benchmark selection. The result gives exact simultaneous representation of *every* pairwise majority fraction for every sample size under arbitrary three-alternative preferences, then identifies four alternatives and four source voters as the first possible input-only obstruction. The exact 690/17,550 first-layer census and 30 symmetry classes quantify how widespread the obstruction is. The positive algorithm and minimal boundary are not an arbitrary small parameter substitution or a renamed general theorem; they expose a structural integrality property that fails at the first higher alternative count.
+
+## Scope and remaining uncertainty
+
+The four-alternative impossibility is **not** a claim about unrestricted synthesis of output rankings; the exhibited witness allows such output. The census concerns exactly four input voters and two selected voters. The independent finite checker does not certify the infinite positive statement without the displayed total-unimodularity proof. A separately conducted independent scientific audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

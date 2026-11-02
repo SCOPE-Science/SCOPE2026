@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Exact one-step Markov conditional regression and one-/two-label absence identities reconstruct the mean, covariance and finite q=2 variance. The martingale decomposition is an exact telescoping identity. Bounded differences give the concentration bound; L2 unseen-fraction convergence and explicit conditional variance expansions establish the normalized bracket, while q/sqrt(n) bounds the scaled increments and verifies Lindeberg. The martingale CLT then rigorously proves the Gaussian limit, and all 961 exact rational checker assertions passed. Finite checks are not treated as proof of asymptotic claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kijima--Shimizu--Shiraga, arXiv:2008.10837, Theorem 1.1/Proposition 2, treats expectation regimes for complete growing graphs; Section 5 identifies concentration as future work.",
+        "Mahmoud--Smythe (2012) studies coupon types in a fixed-type generalized collector model rather than one new available type at each stage."
+      ],
+      "reasoning": "Published expectation bounds do not logically entail fluctuation constants or a central limit theorem. The static-type coupon-collector CLT has no directly matching growing support or time-regression law. Broader martingale CLT theory is used as a standard proof tool, not credited as already supplying the specialized coefficient.",
+      "searches": [
+        "growing complete graph random walk missing vertices variance CLT fixed duration",
+        "Kijima Shimizu Shiraga random walk growing complete graph number unvisited vertices central limit variance fluctuations",
+        "https://arxiv.org/pdf/2008.10837",
+        "https://pubsonline.informs.org/doi/10.1287/moor.2023.0060",
+        "https://doi.org/10.1239/aap/1339878719"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2008.10837",
+      "https://pubsonline.informs.org/doi/10.1287/moor.2023.0060",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Beyene/beyene13.pdf",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i1p52/pdf/",
+      "https://doi.org/10.1239/aap/1339878719",
+      "https://vmsta.org/journal/VMSTA/article/358/text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original model computes E[U] but does not calculate Var(U) or a Gaussian limit; it names concentration as future work.",
+        "A single subexcedant-function image is equivalent to a permutation weak-excedance-position set, whereas q>=2 counts the intersection of independent complements.",
+        "Fixed-type generalized coupon results have a different sampling domain across stages."
+      ],
+      "reasoning": "Neither q=1 Eulerian enumeration nor the first-moment estimate establishes the stated q-dependent central-limit theorem, finite q=2 variance or exact cross-time covariance. A general normal-approximation theorem, if found, may cover the Gaussian existence but would still require checking whether it supplies or implies the stated sharp constants; no such decisive implication was located.",
+      "searches": [
+        "https://arxiv.org/pdf/2008.10837",
+        "https://pubsonline.informs.org/doi/10.1287/moor.2023.0060",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Beyene/beyene13.pdf",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i1p52/pdf/",
+        "random permutations common deficiency positions intersection central limit distribution",
+        "https://doi.org/10.1239/aap/1339878719"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Beyene et al. (2023), Section 3, identifies images of one subexcedant function with weak-excedance positions of one permutation.",
+        "Visontai (2013), Proposition 19, identifies the one-copy distinct-image count as Eulerian."
+      ],
+      "reasoning": "At duration one, the missed-set law is an existing permutation deficiency-set law, so it is explicitly not claimed as new. Duration q>=2 has q independent subexcedant functions; their common missing-set count is not the one-permutation statistic, and the cited results do not determine its q-dependent asymptotic variance or Gaussian law.",
+      "searches": [
+        "intersection of several independent random permutation deficiency sets Eulerian multivariate central limit",
+        "subexcedant functions intersection weak excedance sets central limit theorem random permutations",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Beyene/beyene13.pdf",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i1p52/pdf/"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The separately located uniform occupancy distinct-count convex-hull theorem concerns fixed-size equal-probability boxes, not a growing-support q-round process.",
+        "The full Beyene and Visontai texts demonstrate prior coverage of q=1; no matched finite q=2 rational variance table or q>=2 normal variance constant was identified."
+      ],
+      "reasoning": "No directly covering exact table for the finite two-round variance factor or the q>=2 sharp variance constant was found in the queried material. Lack of a match is only provisional evidence, not a uniqueness or exhaustive-priority certificate.",
+      "searches": [
+        "growing complete graph random walk constant duration c unseen vertices count asymptotic normal central limit variance c^2 divided by (c+1)^2(2c+1)",
+        "independent coupon observations at stage i of i coupon types count uncollected central limit normal asymptotic variance",
+        "number of distinct sampled vertices in growing complete graph is Eulerian distributed"
+      ]
+    },
+    "rationale": "The exact Gaussian limit, sharp nonzero variance coefficient and temporal covariance for constant stage duration q>=2 are not asserted in the motivating full preprint or full journal article. The primary source treats expected unseen counts and specifically states concentration as future work. The classical q=1 Eulerian law and permutation deficiency-set identification are fully credited and excluded from originality. Public research-record and scholarly searches for equivalent stage-varying occupancy and common permutation deficiency CLTs did not uncover a dominating prior theorem. Remaining broad general occupancy literature warrants independent historical review.",
+    "residual_risks": [
+      "A general triangular-array occupancy or martingale normal-limit result may subsume the Gaussian statement; the literature search cannot certify historical uniqueness.",
+      "The static-type generalized coupon paper was assessed through an accessible abstract, not a verified complete PDF; no claim of whole-document noncoverage is made.",
+      "Independently checking the algebra and all proof steps and broader literature priority remains desirable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the model and mean estimates but not the specific q>=2 central limit law or variance constant",
+        "evidence": [
+          "arXiv v1 posted 2020-08-25",
+          "Section 5 expressly says concentration is further work"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.10837",
+        "material_read": "Abstract, model, Theorem 1.1 and complete-graph analysis, end-of-paper remarks including concentration question",
+        "method": "full-text PDF rendered and relevant page visually inspected",
+        "title": "How Many Vertices Does a Random Walk Miss in a Network with Moderately Increasing the Number of Vertices? (preprint)",
+        "trigger": "Identical growing complete-graph model with constant duration; first-public source"
+      },
+      {
+        "assessment": "The article quantifies expected missed counts; the asserted sharp fixed-duration variance and Gaussian result were not found",
+        "evidence": [
+          "Theorem 1(4) provides expectation asymptotics for constant duration",
+          "Conclusion identifies concentration as future work"
+        ],
+        "identifier_or_url": "https://pubsonline.informs.org/doi/10.1287/moor.2023.0060",
+        "material_read": "HTML full text, the first main theorem, complete-graph discussion, and concluding section; searches for variance and central limit",
+        "method": "read accessible complete HTML scientific text and theorem statements",
+        "title": "How Many Vertices Does a Random Walk Miss in a Network with a Moderately Increasing Number of Vertices? (full journal article)",
+        "trigger": "Later full version of the same primary source"
+      },
+      {
+        "assessment": "Strong prior coverage of one-round missing-set representation, not q>=2 fluctuations",
+        "evidence": [
+          "Im(f)=Wex(sigma) in Section 3, with the requisite subexcedant function definition"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Beyene/beyene13.pdf",
+        "material_read": "Definitions and preliminaries, Section 3 transposition-array bijection including the image/weak-excedance identity",
+        "method": "full PDF text examined and theorem page visually inspected",
+        "title": "Set Partitions and Other Bell Number Enumerated Objects",
+        "trigger": "Highly relevant alias: triangular uniform draws are subexcedant functions"
+      },
+      {
+        "assessment": "Classical one-round Eulerian law is prior knowledge; not the q>=2 theorem",
+        "evidence": [
+          "Proposition 19 attributes distinct-image Eulerian enumerator to Dumont, with earlier proofs"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i1p52/pdf/",
+        "material_read": "Permutation statistics section and section on inversion sequences, including Proposition 19",
+        "method": "PDF full-text passages and page images inspected",
+        "title": "Some Remarks on the Joint Distribution of Descents and Inverse Descents",
+        "trigger": "Known Eulerian statistic on triangular (inversion-sequence) codes"
+      },
+      {
+        "assessment": "The description concerns static type populations, not the increasing type support; priority uncertainty retained",
+        "evidence": [
+          "Generalized coupon collection at fixed type set and multivariate normal fluctuation questions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1339878719",
+        "material_read": "Accessible published abstract, keyword and bibliographic details; not complete PDF",
+        "method": "publisher abstract inspection",
+        "title": "On the Joint Behavior of Types of Coupons in Generalized Coupon Collection",
+        "trigger": "Potentially broader occupancy central-limit law"
+      },
+      {
+        "assessment": "Fixed set of types allocated among infinite collections, so not the growing-type model",
+        "evidence": [
+          "Published 2026-08-11; types do not arrive sequentially as fresh vertices"
+        ],
+        "identifier_or_url": "https://vmsta.org/journal/VMSTA/article/358/text",
+        "material_read": "Full accessible introduction and model description",
+        "method": "read online article text",
+        "title": "Limit theorems in the extended coupon collector’s problem",
+        "trigger": "Recent general coupon-collector limit theorem potentially covering sampled objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ad6628f-3b8c-49f0-9511-06249d19fbbb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The known growing-graph source handles expected unseen counts and explicitly leaves concentration for further work. The exact nonzero q-dependent variance coefficient, Gaussian law for every fixed q>=2, temporal persistence exponent and exact two-round variance answer a mathematically motivated stochastic fluctuation question, beyond renaming a classical Eulerian identity. Both model and precise variance observable have direct motivation.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Every selected set is partitioned into four disjoint cases by presence of the distinguished B vertex and the number (zero/one/at least two) of selected A vertices. Degree computation n-1 versus n-2 makes those cases necessary and sufficient, without omissions. Contributions add to the stated polynomial. Lowest exponents give the exact minimum and multiplicities, including \\(n=3\\) and \\(n=4\\) boundary cases. A standalone graph-based test enumerated all 174752 vertex subsets for \\(3\\le n\\le9\\) with coefficient-by-coefficient agreement; the finite test corroborates rather than proves the general formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alikhani–Ghanbari, arXiv:2212.01860, Theorem 2.1, provides universal bounds after one vertex deletion",
+        "Alikhani–Mehraban–Shojaaldini Ardakani, arXiv:2601.03891, Proposition 2.8 gives strong-domination stability for complete bipartite graphs"
+      ],
+      "reasoning": "Universal scalar bounds and formulas for K_(n,n) do not imply set counts on K_(n,n)-M-v, since a removed matching changes adjacency and the degree-based admissibility of selected vertices.",
+      "searches": [
+        "strong domination number polynomial crown graphs vertex removed",
+        "Strong domination number of a modified graph arXiv:2212.01860",
+        "Stability of the Strong Domination Number of Graphs arXiv:2601.03891"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.03891",
+      "arXiv:2212.01860",
+      "IJMTT 66(2):99–104 (2020)",
+      "J. Algebraic Systems 11(1):65–76 (2023; abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2212.01860 section 2 contains universal inequalities on gamma_st(G-v), not counts of strong dominating sets",
+        "arXiv:2601.03891 section 2 treats related graph families but gives no formula for Cr_n-v",
+        "The 2023 Journal of Algebraic Systems article abstract says it counts strong dominating sets on unspecified graph families; complete text not retrievable through the checked source"
+      ],
+      "reasoning": "None of the material actually inspected contains a stronger statement whose specialization forces the displayed polynomial. Inaccessibility of the plausible 2023 paper is carried as a residual priority risk rather than a negative inspection.",
+      "searches": [
+        "\"Strong domination number of a modified graph\" \"crown\"",
+        "\"On the strong dominating sets of graphs\" Zaherifar Alikhani Ghanbari full pdf",
+        "\"strong domination polynomial\" \"crown graph\" \"matching\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.03891, sections 1–2: definitions, ordinary complete bipartite and complete multipartite/cocktail-party results",
+        "arXiv:2212.01860v1, section 2: vertex deletion and contraction of strong domination number"
+      ],
+      "reasoning": "Crown is bipartite K_(n,n) with one full perfect matching deleted, unlike cocktail-party K_(2n) minus matching. Strong domination depends on residual degrees, not just ordinary domination. The stated polynomial is an all-cardinality enumeration not equivalent to the known scalar stability bound.",
+      "searches": [
+        "strong domination polynomial crown graph K n n minus matching vertex deletion 2026",
+        "strong domination number polynomial bipartite cocktail party graphs crown Cr_n = K_{n,n} - nK_2, residual deleted vertex, enumeration",
+        "strong dominating sets degree condition vertex deleted crown graph K n n minus matching formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Raj–Abirami, Strong Domination Polynomials of Queen Crown Graph, IJMTT 66(2), pp.99–104, defines its queen crown Q_(m,2) as complete bipartite K_(m,2), with m+2 vertices",
+        "arXiv:2601.03891 accessible text contains no crown-graph example or cardinality polynomial"
+      ],
+      "reasoning": "The similarly named queen-crown table has a different vertex count and adjacency and hence is not an exact table for the claimed family. No matching exact cardinality table was identified in the searched sources; this observation is not treated as proof of literature-wide absence.",
+      "searches": [
+        "\"strong domination polynomial\" \"crown\" \"matching\" graph",
+        "\"strong domination\" \"crown graph\" K_n,n matching",
+        "strong domination polynomial K_{n,n} minus perfect matching crown graph after vertex removal, number of size k strong dominating sets"
+      ]
+    },
+    "rationale": "The studied family is matching-deleted complete bipartite crowns after one vertex deletion. Originality is limited to the complete residual strong-domination set classification, its cardinality polynomial and minimizer counts. The motivating stability paper explicitly treats ordinary K_(m,n) and the non-bipartite cocktail-party graph K_(2n)-M, not the crown K_(n,n)-M. The 2022 vertex-modification paper proves bounds on minimum numbers, not this cardinality distribution. The 2020 queen-crown paper studies K_(m,2), a different graph despite a similar term. Accessible indexed mathematical records concerned different domination predicates on crowns or a different graph family. Unavailable pertinent 2023 full text is a genuine unresolved priority risk, not represented as cleared.",
+    "residual_risks": [
+      "An inaccessible 2023 full manuscript may contain an equivalent census on a relevant graph family.",
+      "Unindexed or alternative-name literature on matching-deleted complete bipartite graphs could still subsume the result.",
+      "Published mathematical records searched do not establish definitive novelty or historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different graph families and scalar stability; not covering the new all-set crown polynomial",
+        "evidence": "Section 2, especially Propositions 2.8 and 2.9, treats complete bipartite and cocktail party graphs; no crown or enumerator statement.",
+        "identifier_or_url": "https://arxiv.org/abs/2601.03891",
+        "material_read": "full accessible HTML text, definitions, propositions on complete bipartite and cocktail-party graphs, reference list",
+        "method": "read full arXiv HTML and compared exact graph adjacency, residual-degree definition and claim strength",
+        "title": "Stability of the Strong Domination Number of Graphs",
+        "trigger": "recent primary paper introducing strong-domination vertex-deletion stability"
+      },
+      {
+        "assessment": "Bounds for scalar parameter do not determine all-set coefficients",
+        "evidence": "Theorem 2.1 bounds gamma_st(G-v) by gamma_st(G) and degree; no crown enumeration.",
+        "identifier_or_url": "https://arxiv.org/html/2212.01860v1",
+        "material_read": "entire accessible HTML sections 1–2 and references",
+        "method": "read complete accessible manuscript and compared Theorem 2.1 with claimed polynomial",
+        "title": "Strong domination number of a modified graph",
+        "trigger": "earlier direct work on vertex deletion of this degree-sensitive invariant"
+      },
+      {
+        "assessment": "Different object: Q_(m,2)=K_(m,2) of m+2 vertices; no implication",
+        "evidence": "Page 99 and page 100 explicitly define Q_(m,2) from two independent parts of sizes m and 2 joined completely.",
+        "identifier_or_url": "https://ijmttjournal.org/public/assets/volume-66/issue-2/IJMTT-V66I2P510.pdf",
+        "material_read": "six-page complete PDF, definitions, lemmas, recursion, and table",
+        "method": "inspected PDF page image and complete parsed text; compared vertex counts and edge descriptions",
+        "title": "Strong Domination Polynomials of Queen Crown Graph",
+        "trigger": "closest title: strong-domination polynomial on a graph named crown"
+      },
+      {
+        "assessment": "Cannot determine whether a special case or equivalent count occurs in the full text",
+        "evidence": "Journal of Algebraic Systems 11(1) (2023) 65-76 abstract explicitly says it counts strong dominating sets for some graphs.",
+        "identifier_or_url": "DOI:10.22044/JAS.2022.11646.1595",
+        "material_read": "bibliographic abstract and opening extract only; full paper link redirects to inaccessible Javascript app",
+        "method": "searched for lawful PDF and checked original repository link, but only metadata/abstract available",
+        "title": "On the strong dominating sets of graphs",
+        "trigger": "2023 article promising strong-domination set counting on unspecified graph families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5aeed749-a77d-42e4-92e9-d9a77d4e4d01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural new invariant is the complete degree-sensitive strong-domination distribution after a vertex is removed from a highly symmetric standard matching-deleted bipartite graph, directly motivated by recent vertex-deletion stability research. It determines all set counts and all minimum-set types for every order, not only the stable/unstable scalar property. The result exhibits a nontrivial degree-class obstruction, the small-order \\(n=3\\)/\\(n=4\\) transitions, and a closed general polynomial; it is not a parameter renaming, one numeric table entry, or a trivial corollary of the known stability bounds.",
+    "status": "PASS"
+  }
+}

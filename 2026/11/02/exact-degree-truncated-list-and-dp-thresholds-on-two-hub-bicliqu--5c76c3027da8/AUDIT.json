@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3, k>=2, h=min(k,n), the two independent hub fibers have h^2 choices. A degree-two list neighbor forbids at most one pair and a degree-two partial-matching DP fiber forbids at most two coordinate-disjoint pairs, proving sufficiency for n<h^2 and 2n<h^2 respectively. Disjoint ordinary hub lists realize all h^2 single exclusions; a cyclic one-factorization followed by pairing successive edges realizes all h^2 DP pair exclusions in ceil(h^2/2) degree-two neighbors. The crossing-boundary coordinates are distinct for odd h>=3, while no crossing occurs for even h. Cases k=1 and n=1,2 are separately addressed. Exact local-matching enumeration, direct obstruction replay and independent set-cover DP in verify.py corroborate the finite ingredients; infinite proof is written combinatorially.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2507.10453 Theorems 2-5: planar and proper-minor-closed family bounds under higher connectivity; its introduction contains the n=k^2 ordinary list obstruction.",
+        "arXiv:2312.15962 Theorem 5: 2-connected K_{2,4}-minor-free graphs are degree-truncated DP-5-colorable, excluding K_{2,n} when n>=4.",
+        "arXiv:2610.36586 Theorem 1.1: square-root bounds for the class of graphs excluding K_4 and K_{2,t} as minors; no exact K_{2,n} formula.",
+        "arXiv:2609.33966 Theorems 6-7 concern uniformly k-fold DP covers of K_{l,t} and Cartesian products; a single degree-two leaf does not have a k-fold fiber when both hubs have k>2 choices."
+      ],
+      "reasoning": "None of these broader family results dominates the precise universal equalities, especially the DP upper bound and its sharp factor-two construction on every K_{2,n}.",
+      "searches": [
+        "\"degree-truncated\" \"DP\" \"K_{2,n}\" 2n sqrt",
+        "\"degree-truncated choice number\" \"complete bipartite\" exact 2024 2025",
+        "Degree-truncated choosability of graphs arXiv:2507.10453 complete bipartite K_{2,n} exact threshold list sqrt n DP sqrt 2n",
+        "\"μ(k)\" \"κ(k)\" \"DP-coloring\" \"covering family\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.10453 (first posted 2025-07-14; primary motivating preprint)",
+      "arXiv:2312.15962 (first posted 2023-12-26; earlier related DP-minor theorem)",
+      "arXiv:2610.36586 (first posted 2026-10-27; later related class-level study)",
+      "arXiv:2609.33966 (first posted 2026-09-27; ordinary uniform-fold bipartite DP threshold and covering-family method)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2507.10453, page 2, gives nonchoosability at n=k^2; it does not prove the missing ordinary upper bound n<k^2 or a DP obstruction at roughly half as many leaves.",
+        "arXiv:2312.15962, Section 1 and Theorem 5, supplies no k-dependent exact K_{2,n} threshold.",
+        "arXiv:2610.36586, introduction and Theorem 1.1, gives a class-level order-of-growth statement, not an exact implication for K_{2,n}.",
+        "arXiv:2609.33966 reports mu(2)=2 for ordinary 2-fold DP covers of K_{2,t}; this matches the excluded 4-cycle boundary but does not imply the varying hub-fiber h versus leaf-fiber two threshold for n>=3."
+      ],
+      "reasoning": "Existing nonchoosability at n=k^2 implies only a weaker necessary condition for DP, since DP generalizes lists. Its proof cannot imply the strict n<h^2 list sufficiency or sharp 2n<h^2 DP sufficiency/necessity; these require the explicitly proved local conflict and matching-decomposition lemmas.",
+      "searches": [
+        "\"Degree-truncated choosability of graphs\" \"K_{2\" \"DP\" 2025",
+        "\"degree-truncated\" \"K_{2,n}\" \"sqrt\" DP",
+        "\"K_{2,n}\" \"DP-colouring\" \"square root\" exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact DP threshold is equivalent to covering the h-by-h hub-pair grid by n coordinate-disjoint single-edge/two-edge matching blocks.",
+        "DP covers in arXiv:2507.10453, Definitions 2-4, are precisely matching constraints between disjoint fibers; thus the reduction preserves all quantifiers."
+      ],
+      "reasoning": "Equivalence is proved constructively in the paper, not assumed from terminology. Search results surfaced other bipartite coloring notions but no statement of the exact DP grid-cover number as a degree-truncated invariant.",
+      "searches": [
+        "\"K_{2,n}\" \"degree-truncated\" \"minimum\" \"DP\"",
+        "\"degree-truncated\" \"K_2,n\" \"2n\" correspondence",
+        "correspondence coloring complete bipartite graph K2n with two hubs and degree-two vertices matching constraints; pair covering obstruction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected arXiv source documents no table of the exact paired thresholds; its only explicit K_{2,k^2} data are the known ordinary-list obstruction.",
+        "Closest indexed mathematical records concerned strong-majority edge coloring of bipartite graphs, unrelated to degree-truncated DP choices."
+      ],
+      "reasoning": "The exact integer cutoffs and the asymptotic ratio were compared against actual searches, not inferred to be unique because of a topical partition; no matching precomputed table was identified.",
+      "searches": [
+        "\"K_{2,n}\" \"degree-truncated\" \"choice number\" exact",
+        "DP truncated choice numbers K_{2,n} floor square root n and 2n, sharp separation",
+        "degree-truncated DP-chromatic number of K_{2,n}, exact floor sqrt(2n) + 1; list choice threshold floor sqrt(n) + 1"
+      ]
+    },
+    "rationale": "The 2025 motivating preprint explicitly gives the older n=k^2 ordinary-list counterexample, so that portion is excluded from the novelty claim. Its general planar/minor-class theorems neither calculate the exact truncated list function for every n nor the exact two-choice DP obstruction capacity. A 2023 preprint covers K_{2,4}-minor-free graph classes, not K_{2,n} for n>=4. A 2026 study posted after the October 25 week anchor provides class-wide square-root bounds, not these exact K_{2,n} parameters. The actual semantic and bibliographic search queries returned no theorem implying the simultaneously sharp list/DP thresholds. This supports but does not certify historical priority.",
+    "residual_risks": [
+      "An equivalent K_{2,n} result under a different extremal matching-cover formulation may predate the sources found.",
+      "Semantic indexing and public full-text searches cannot certify absence of unpublished or unindexed work.",
+      "The October 2026 manuscript was compared for novelty but not used to date the motivating source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIOR_LIST_OBSTRUCTION_ONLY_NOT_FULL_COVERAGE",
+        "evidence": [
+          "arXiv:2507.10453 pp. 1-3, Definition 1 and K_{2,k^2} list example",
+          "Theorems 2-5 state planar/minor-closed results rather than both exact K_{2,n} thresholds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.10453",
+        "material_read": "Abstract; Section 1 definitions, prior K_{2,k^2} witness and Theorems 2-5; subsequent proof sections and family-bound statements.",
+        "method": "Lawful arXiv full-text PDF, with rendered inspection of page 2 and text searches.",
+        "title": "Degree-truncated choosability of graphs",
+        "trigger": "The 2025 motivating source singles out K_{2,k^2} in the degree-truncated setting."
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_BICLIQUE_THRESHOLDS",
+        "evidence": [
+          "arXiv:2312.15962 Theorem 5, restriction to K_{2,4}-minor-free graphs.",
+          "K_{2,n} contains a K_{2,4} subgraph for n>=4 and so is outside the theorem hypotheses."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.15962",
+        "material_read": "Abstract; Section 1 definitions, Theorems 2-5 and the K_{2,4}-minor-free hypotheses; relevant scope and boundary arguments.",
+        "method": "Lawful arXiv full-text PDF with rendered page 3 and text inspection.",
+        "title": "Truncated degree DP-colourability of K_{2,4}-minor free graphs",
+        "trigger": "Closest earlier degree-truncated DP theorem for graphs with nearby forbidden bipartite minors."
+      },
+      {
+        "assessment": "RELATED_CLASS_BOUND_NOT_EXACT_K2N_COVERAGE",
+        "evidence": [
+          "First posted 2026-10-27; considered for related literature rather than as the motivating source.",
+          "Theorem 1.1 concerns whole minor-free classes with constants around sqrt(t), not exact truncation numbers of K_{2,n}."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.36586",
+        "material_read": "Full-text introduction, principal theorem and reduction to forbidden color-pair relations; mathematical statement and proof mechanisms examined.",
+        "method": "Open-access arXiv rendered HTML/PDF text and abstracts; compared actual theorem against graph-specific equalities.",
+        "title": "Degree-truncated DP-colouring of {K_4,K_{2,t}}-minor-free graphs",
+        "trigger": "Newly posted paper considers the same two-hub family as an obstruction and could contain a dominating result."
+      },
+      {
+        "assessment": "UNIFORM_FIBER_DP_COVERING_NOT_EQUAL_TO_DEGREE_TRUNCATION",
+        "evidence": [
+          "arXiv:2609.33966 Section 1.1 defines k-fold covers with the same fiber size at all vertices.",
+          "Theorem 7 mu(l)=kappa(l) addresses chi_DP(K_{l,t})=l+1; the l=2 boundary gives mu(2)=2, while no theorem states the asymmetric hub-size h, leaf-size two threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.33966",
+        "material_read": "Full arXiv converted text: Section 1.1 DP-cover definitions, Theorems 1, 6 and 7, the l=2 case in Section 2, and comparison of coverage hypotheses.",
+        "method": "Full-text rendered arXiv article via accessible arxiv.org/abs interface after the PDF endpoint was unavailable.",
+        "title": "Covering Families for DP-Coloring of Cartesian Products with Complete Bipartite Graphs",
+        "trigger": "Related exact covering-family thresholds for ordinary DP coloring of complete bipartite graphs could subsume the two-hub theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c76c302-7da8-45e8-beae-25f555f33f66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The same two-hub planar 2-connected obstruction family is used in recent degree-truncated coloring literature. The theorem resolves the exact truncated ordinary-list and correspondence-coloring thresholds for all n>=3; unlike the older single k^2 witness, it supplies sharp necessity and sufficiency across every n, exhibits a DP obstruction that packs two forbidden hub choices per degree-two neighbor, and proves a concrete unbounded additive gap and limiting ratio sqrt(2). These are natural extremal invariants with structural explanations rather than unmotivated isolated computations.",
+    "status": "PASS"
+  }
+}

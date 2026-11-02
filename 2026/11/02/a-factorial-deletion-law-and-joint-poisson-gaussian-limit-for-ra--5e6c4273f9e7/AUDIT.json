@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Every r-fold selected-simple-chord event has probability given by a double-factorial ratio, with the residual crossing count distributed exactly as the n-r uniform chord diagram. Counting circular r-matchings proves the full mixed-factorial and joint PGF law. Exact marginal moments yield the correlation; mixed factorial moments, bounded ordinary moments, tightness and conditional pgf uniqueness yield a product Poisson-Gaussian joint limit. The embedded finite checker passes 266 exact assertions for all matchings through 12 endpoints.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet and Noy (2000), Sections 1 and 2 treat component counts and crossing counts separately, giving Theorems 1–3.",
+        "Acan (arxiv:1501.01489), Sections 1–3 discuss monolithic structure and isolated chords; its joint extreme-crossing/nesting independence discussion is about different observables.",
+        "Krasko and Omelchenko (arxiv:1601.05073), Sections 1–2 and the stated multivariate generating function track loops and parallel chords, not crossings."
+      ],
+      "reasoning": "Monolithic structure and loop-number enumerations are plausible stronger sources, but their displayed theorems do not imply a Poisson-Gaussian product for the particular local/global statistics without the separate conditional deletion argument. The classical crossing polynomial can be inserted into the new identity but is univariate.",
+      "searches": [
+        "Flajolet Noy Analytic Combinatorics of Chord Diagrams pdf full text",
+        "arxiv:1501.01489v1",
+        "arxiv:1601.05073v1",
+        "chord diagrams crossings components joint independent"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2104.01134v1",
+      "arxiv:1501.01489v1",
+      "arxiv:1601.05073v1",
+      "Flajolet–Noy 2000 DOI:10.1007/978-3-662-04166-6_17",
+      "Targeted published-literature searches for crossings plus cyclic short chords"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Paguyo proves separate marginal quantitative CLT and Poisson approximations.",
+        "Flajolet and Noy provide precise crossing moments and the Gaussian limit; these are used as inputs.",
+        "Acan establishes asymptotically monolithic diagram structure, while Krasko and Omelchenko mark loops."
+      ],
+      "reasoning": "The cited marginal Gaussian and Poisson claims alone cannot imply independence. The proven mixed-factorial conditional deletion identity supplies the necessary joint control, including for diagrams conditioned to have no short chords. Published covariance and marginal moments are not claimed as the original component.",
+      "searches": [
+        "arxiv:2104.01134v1 Theorem 1.1 Theorem 1.2",
+        "Flajolet Noy 2000 Theorem 3 crossings Gaussian",
+        "Acan 2015 monolithic chords",
+        "arxiv:1601.05073v1 loops no crossings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Paguyo (arxiv:2104.01134v1), Theorems 1.1 and 1.2 separately concern crossings and simple chords.",
+        "The matched-chord deletion law holds for any bounded observable of the residual crossing statistic, rather than just its first moment."
+      ],
+      "reasoning": "The new joint law is equivalent to all mixed factorial test-function identities, or to the exact bivariate probability generating function. Neither marginal law determines the other statistic conditioned on a short-chord count. No equivalent simultaneous relation was located in the inspected Paguyo text or the targeted published searches.",
+      "searches": [
+        "random chord diagram crossings short chords jointly asymptotically independent Poisson normal",
+        "random chord diagram covariance crossing number number of simple chords",
+        "short chords crossings joint generating function chord diagrams",
+        "arxiv:2104.01134v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Touchard–Riordan distribution tabulates crossings only.",
+        "Krasko and Omelchenko provide loopless and simple diagram generating functions, not a crossing-refined joint table."
+      ],
+      "reasoning": "Knowing the two marginal tables does not determine the joint distribution. Existing finite crossing-count tables and loopless counts are inputs, not precomputed joint distributions. The short-chord/crossing covariance alone is covered background and excluded from the novelty claim.",
+      "searches": [
+        "short chords crossings joint generating function chord diagrams",
+        "enumeration chord diagrams without loops counting by crossings simultaneous generating",
+        "arxiv:1601.05073v1",
+        "arxiv:2104.01134v1"
+      ]
+    },
+    "rationale": "The exact two-statistic factorial-deletion identity, its bivariate generating polynomial and product Poisson-Gaussian limit are not among the separate published marginal theorems in the inspected primary texts. The already derivable short-chord/crossing covariance is treated as background. Priority remains uncertain with respect to earlier equivalent refinements.",
+    "residual_risks": [
+      "An earlier paper or a broader generating-function method may implicitly yield the same bivariate formula even if its title or abstract does not mention both observables.",
+      "No independent referee-level priority or correctness audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MARGINAL_COVERAGE_NOT_JOINT",
+        "evidence": [
+          "Theorems 1.1 and 1.2 give separate Gaussian and Poisson approximations.",
+          "Sections 2–3 derive size-bias couplings for each marginal; no simultaneous generating polynomial or product limit found."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+        "material_read": "Full accessible article text, introduction, crossing proof, simple-chord proof and concluding remarks (Sections 1–4).",
+        "method": "Read primary arXiv article text and compare Theorems 1.1–1.3 and formulas against the new mixed factorial identity.",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Exact same two marginal observables"
+      },
+      {
+        "assessment": "PRIOR_MARGINAL_THEOREMS",
+        "evidence": [
+          "Theorem 1 treats component count; Theorem 2 largest connected component; Theorem 3 crossing moments and Gaussian limit.",
+          "No joint simple-chord/crossing marked generating transform is stated."
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Primary full PDF Sections 1 and 2, especially Theorems 1–3 and crossing generating function; visually inspected pages 6 and 9 of PDF and textual pages 4–11.",
+        "method": "Read accessible institutional author-hosted PDF, including source text and page image.",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Classical Gaussian crossing limit and possible component refinement"
+      },
+      {
+        "assessment": "PRIOR_STRUCTURE_NOT_JOINT",
+        "evidence": [
+          "The main monolithic theorem identifies the large component and isolated chords.",
+          "The paper discusses asymptotic independence of maximal crossing/nesting sizes, which are different statistics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+        "material_read": "Accessible primary manuscript, abstract, introduction, Sections 2–3, and relevant concluding results.",
+        "method": "Read author arXiv full text and cross-check Section 3 with journal-hosted text.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Monolithic diagrams and possibly stronger joint convergence"
+      },
+      {
+        "assessment": "DIFFERENT_REFINEMENT",
+        "evidence": [
+          "Section 1 states a multivariate refinement by number of loops and pairs of parallel chords.",
+          "Neither crossing count nor a crossing-refined joint Gaussian-Poisson limit is included in the identified generating variables."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1601.05073",
+        "material_read": "Accessible primary manuscript introduction, labelled loopless derivation and generating-function objects.",
+        "method": "Read arXiv full-text sections on loop and parallel-chord marking.",
+        "title": "Enumeration of Chord Diagrams without Loops and Parallel Chords",
+        "trigger": "Potential exact joint diagram counting of short chords with crossings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e6c4273-f9e7-4ba9-b5c1-4644d4b19f6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact bivariate transform reconstructs the entire joint law from classical crossing polynomials and derives a conditional Gaussian limit after excluding simple chords, an event of positive limiting probability. This resolves the local-vs-global dependence question that cannot be answered from separate marginal CLTs; it is an interpretable structural factorization, not an arbitrary numerical increment.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For all u,v,w,z strictly between 0 and 1, the primitive de Bruijn lift has stationary pair masses \\(s(1-v)/u,s,s,sw/(1-z)\\) with \\(s=1/(A+B)\\). Two elementary target-specific first-step equations give explicit 4-by-2 hitting-time tables. Stationary weighting and direct algebra yield \\(\\theta_{00}-\\theta_{01}=\\pi(1)(u-v)^2/u\\) and \\(\\theta_{11}-\\theta_{10}=\\pi(0)(w-z)^2/(1-z)\\). Positivity forces the exact rigidity; in the first-order case direct substitution gives the common value \\(1+1/(u+1-w)\\). The independent exact-rational solver reproduced the formulas for 1,025 rational quadruples. The analytic proof, not finite tests, establishes universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fredes–Marckert arXiv:2510.26207, Introduction and Theorem 1.3, concerns an irreducible finite first-order chain whose random target is drawn from its full-state invariant distribution.",
+        "Wolfer–Watanabe arXiv:2203.04575, §3.4, reviews the Markov-chain lumpability criterion; this is a projection criterion, not a projected-hitting-time characterization.",
+        "Hunter arXiv:1208.4716 summarizes full-state first-order Kemeny constancy."
+      ],
+      "reasoning": "General first-order Kemeny theorems apply to the four-state lifted chain with a four-state target. Collapsing to a two-symbol target changes the object. Lumpability ensures constancy, but a separate argument is needed to infer lumpability from constancy. The exact quadratic defects provide that implication in this natural positive binary second-order family; the inspected broader results do not directly imply it.",
+      "searches": [
+        "Kemeny constant second order Markov property hidden memory expected first passage mixing times",
+        "Kemeny function aggregated states constant lumped Markov",
+        "Kemeny partition random target lumpable",
+        "A combinatorial perspective on the Kemeny constant and more"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2607.12303 (direct primary source, especially §5)",
+      "https://arxiv.org/abs/2510.26207 (primary text, §§1.1–1.3)",
+      "https://arxiv.org/abs/2203.04575 (arXiv abstract; published §3.4 excerpt)",
+      "https://arxiv.org/abs/1208.4716 (abstract-level background)",
+      "Kemeny and Snell, Finite Markov Chains, classic theorem as restated by above sources"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Han arXiv:2607.12303v1, Theorem 5.2 expresses expected marginal mixing times as stationary-weighted target hitting means; Remark 5.1 gives older-lag independence as an example and asks for conditions of constancy.",
+        "Fredes–Marckert arXiv:2510.26207, Proposition 1.1 and Theorem 1.3 provide full-chain weighted hitting identities.",
+        "Wolfer–Watanabe arXiv:2203.04575 / Kemeny–Snell supply the criterion for when a projected transition is Markov."
+      ],
+      "reasoning": "Han gives definitions and the sufficient direction in the same object and parameter setting; the present necessity is not a stated corollary of that example. Fredes–Marckert and Hunter average over full states, which cannot substitute for the visible-state target. The lumpability test states precisely \\(u=v\\) and \\(w=z\\) but has no stationary-target hitting-time premise. The new pair of positive squares bridges that gap without relying on an unproved generalized converse.",
+      "searches": [
+        "Marginal Stationary Distributions and Convergence Rates of Higher Order Markov Chains 2026 expected marginal mixing times constant",
+        "Kemeny lumpability constant hitting times stationary target projected process",
+        "Geometric aspects of data-processing of Markov chains 2024 lumpability theorem 3.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Han arXiv:2607.12303v1, Remark 5.1 poses the constant-history question without a binary if-and-only-if classification.",
+        "The explicit equivalent memoryless formulation for the shift-register chain is \\(u=v\\) and \\(w=z\\); arXiv:2203.04575 describes classical lumpability of projected Markov chains."
+      ],
+      "reasoning": "The claimed property is equality of stationary-random-target first-positive passage expectations from all four ordered two-bit histories. It is not the standard first-order full-state Kemeny property: the target is a visible bit rather than a lifted pair. In the binary shift-register model, strong lumpability is exactly \\(u=v\\) and \\(w=z\\), and the two square defects prove the otherwise missing converse.",
+      "searches": [
+        "binary second-order Markov chain Kemeny expected marginal mixing time constant iff transition probabilities independent of two-step-old state; positive tensor",
+        "higher order Markov chain Lixing Han expected marginal mixing times theta_{i2i3} constant necessary sufficient conditions 2026",
+        "second order Markov chain expected mixing time constant lag independence Kemeny"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved published-record titles concern binary conditional-expectation mixing norms and stationary alternating-renewal pair-law aliasing, neither the binary second-order stationary-target passage functional.",
+        "Han arXiv:2607.12303v1 provides the general finite linear-system definition, not a table of square defects."
+      ],
+      "reasoning": "No exact parameter table or database entry found for these two functional identities. This theorem supplies exact analytic formulas valid over an open four-dimensional parameter domain, not a finite lookup of particular matrices. Search absence alone is not treated as proof of uniqueness.",
+      "searches": [
+        "two-state order-two Markov random target first return passage expected time stationary target exactly invariant initial ordered pair; quadratic differences",
+        "quadratic square defect of Kemeny constant in Markov chains with memory conditional transition parameters q00 q01 q10 q11",
+        "higher order Markov chain Lixing Han expected marginal mixing times theta_{i2i3} constant necessary sufficient conditions 2026"
+      ]
+    },
+    "rationale": "The complete binary two-step necessity and the two signed square-defect formulas address Han 2026 Remark 5.1, which gives only a sufficient memory-independence example. Full-state Kemeny invariance and classical lumpability do not by themselves state this converse for the hidden-history projection. Actual published-record and literature queries found no directly covering statement; priority is qualified by unindexed or differently named projected-passage results.",
+    "residual_risks": [
+      "An unindexed or differently formulated earlier characterization of stationary-weighted coarse hitting times could imply the binary rigidity theorem.",
+      "Full published material for Wolfer–Watanabe and Hunter was not inspected; their cited theorem statements and summaries do not themselves cover the claimed converse.",
+      "The strict-positivity boundary and more general alphabet/memory cases are outside the proved claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the binary necessity and two exact quadratic defects; source poses the characterization question and provides one sufficient case.",
+        "evidence": [
+          "§5, Definition 5.2 defines expected marginal mixing time and Theorem 5.2 gives stationary-weighted first-passage means.",
+          "Remark 5.1 explicitly asks for conditions under which expected marginal mixing times are constant."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.12303",
+        "material_read": "ArXiv rendered original text, §§1–5, including Definitions 2.1 and 5.2, Theorems 2.2, 3.1, 4.1 and 5.2, and Remark 5.1.",
+        "method": "Inspected accessible preprint HTML and its theorem and remark text; checked formulas for the first-positive-hitting convention.",
+        "title": "Marginal Stationary Distributions and Convergence Rates of Higher Order Markov Chains",
+        "trigger": "Direct motivating 2026 problem about expected marginal mixing times in higher-order Markov chains"
+      },
+      {
+        "assessment": "NOT_COVERING the projected-target necessity: the treated stationary target is a state of the whole Markov chain.",
+        "evidence": [
+          "Proposition 1.1 averages hitting time over full-state invariant distribution.",
+          "Theorem 1.3 is a full-state generating-function identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.26207",
+        "material_read": "ArXiv rendered preprint sections 1.1–1.3, including Proposition 1.1, Theorem 1.3 and resolvent identity, with text searches for lumping and partition language.",
+        "method": "Read primary rendered source and searched for aggregation/partition and hidden-history forms.",
+        "title": "A combinatorial perspective on the Kemeny constant and more",
+        "trigger": "Potential broader theorem dominating the proposed stationary-random-target hitting-time constancy claim"
+      },
+      {
+        "assessment": "The theorem characterizes the Markov property of a projection, not projected stationary-target hitting-time constancy. No decisive broader coverage identified; incomplete full-text access is a residual risk.",
+        "evidence": [
+          "Theorem 3.4 is the Kemeny–Snell transition-probability equality test for strong lumpability."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.04575",
+        "material_read": "Preprint abstract and indexed publisher §3.4 theorem/exposition; full publisher page not accessible in this session.",
+        "method": "Compared accessible arXiv description and original published theorem excerpt; did not claim a complete full-paper inspection.",
+        "title": "Geometric Aspects of Data-Processing of Markov Chains",
+        "trigger": "Classical lumpability criterion might imply or subsume a characterization of when visible-state Kemeny times are constant"
+      },
+      {
+        "assessment": "Background on full-state Kemeny invariance, not an identified direct implication of the novel binary memory criterion.",
+        "evidence": [
+          "Abstract states the target weights are the stationary probabilities of the finite first-order chain itself."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.4716",
+        "material_read": "ArXiv abstract and description; full article not inspected.",
+        "method": "Compared precise domain of the stated classical theorem with the visible-state target and hidden-history initialization in the new claim.",
+        "title": "The Role of Kemenys Constant in Properties of Markov Chains",
+        "trigger": "Historical first-order Kemeny theorem could be confused with a proof of the projected-target claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b2855be-75d8-4d68-8b4e-e7dfce23e500",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Han 2026 explicitly asks when the expected marginal mixing time is history-independent. The theorem gives a complete classification for the smallest strictly positive binary two-step family, with two exact nonnegative quadratic defects and a corresponding quantitative spread bound. This detects hidden temporal dependence through a natural stationary-random-target passage functional and is not an arbitrary finite parameter substitution or a mere restatement of classical first-order Kemeny constancy.",
+    "status": "PASS"
+  }
+}

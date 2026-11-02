@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, K>1 and alpha in [0,1], the proof explicitly establishes all directed EF1 comparisons, online information restrictions, upper bounds on short/long successes, an attaining deterministic response for each prior, and the exact equality conditions for the unique least-favourable distribution. Independent exact-rational brute-force enumeration of 90 small weighted policy games and 280 equalizer cases matched the analytic predictions. Finite tests do not replace the unbounded proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.23577 Theorem 4.3 bounds the unrestricted online EF1 success factor from above; it has no corresponding global attainment.",
+        "arXiv:2609.05310 treats impossibility under more general online sequences, but does not imply sharp response values for this chosen finite family."
+      ],
+      "reasoning": "A global upper bound does not imply equality on the hard instance family, and global deterministic inapproximability does not characterize the optimal strategy for arbitrary distributions over a finite test suite.",
+      "searches": [
+        "EF1 randomized horizon uncertainty n+1 over 2n tightness family phase transition 1/K probability short long sequences",
+        "online randomized EF1 fairness nonadaptive adversary best success probability all inputs",
+        "https://arxiv.org/abs/2609.05310"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.23577",
+      "https://arxiv.org/abs/2609.05310",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=91-10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section 4.2, Theorem 4.3, arXiv:2609.23577: at most n+1 of 2n family inputs can exceed the target EF1 factor under any deterministic online policy, giving an upper bound.",
+        "The explicit best-response identity and equalizing randomized strategy supply a lower bound that is not stated in Theorem 4.3; minimizing F(q) gives the unique least-favourable distribution."
+      ],
+      "reasoning": "The new theorem strictly adds an attainable exact finite minimax, optimal responses for arbitrary priors, uniqueness and a sharp score threshold. It does not strengthen the source paper’s unrestricted upper bound; no special case or corollary of a stronger inspected theorem covers its exact positive statement.",
+      "searches": [
+        "https://arxiv.org/abs/2609.23577",
+        "https://arxiv.org/abs/2609.05310",
+        "Randomized Online Fair Division High Probability and Expected Realized Fairness Theorem 4.3 hard distribution tight matching strategy Yao target agent equalizing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Section 4.2 construction in arXiv:2609.23577 is identical, but states an upper bound on success rather than an equality or a minimax-prior classification.",
+        "Relevant searches returned mainly different assignment-lottery and fair-division questions; none described the same two-horizon game payoff."
+      ],
+      "reasoning": "The closest mathematically equivalent object is the exact 2n-input adversarial family from the source paper; its known inequality supplies only one side of the claimed identity. Matching policies, the full prior-dependent formula and uniqueness do not follow by renaming its theorem.",
+      "searches": [
+        "EF1 high probability randomized fully online allocation 2n short long hard instance uniform target two horizons exact minimax game value (n+1)/(2n) matching randomized allocation",
+        "Randomized Online Fair Division High Probability and Expected Realized Fairness Theorem 4.3 hard distribution tight matching strategy Yao target agent equalizing",
+        "\"Randomized Online Fair Division\" \"least-favorable distribution\" \"EF1\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected finite-decision table or published game matrix provides F(q), the unique uniform minimizer, or the alpha=1/K step.",
+        "The source paper gives an explicit counting upper bound but not a complete optimal-response table."
+      ],
+      "reasoning": "The claimed exact object is a symbolic n-parameter finite game, not the enumeration of a previously published table. Searches did not locate a covering exact-game record; this is not proof of absence.",
+      "searches": [
+        "EF1 high probability randomized fully online allocation 2n short long hard instance uniform target two horizons exact minimax game value (n+1)/(2n) matching randomized allocation",
+        "EF1 randomized horizon uncertainty n+1 over 2n tightness family phase transition 1/K probability short long sequences",
+        "\"EF1\" \"short\" \"long\" \"uniform\" \"n+1\" online"
+      ]
+    },
+    "rationale": "Theorem 4.3 of arXiv:2609.23577 introduces the input family and the uniform-prior upper bound. The contribution is the reverse attainable lower bound on that family, exact arbitrary-prior policy optimization, unique dual distribution and threshold; none follows from the earlier upper bound alone, and no covering statement was found among inspected published sources and relevant search records.",
+    "residual_risks": [
+      "An unindexed or differently phrased exact solution to the same finite adversarial game could exist.",
+      "Only the cited preprint version and inspected accessible related material were compared; no unpublished or inaccessible versions are certified.",
+      "The conclusion is restricted to this explicit finite family and does not solve the unrestricted online randomized EF1 guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The family and prior upper bound are present; attainment, arbitrary prior F(q), uniqueness and low-threshold guarantee are not established in inspected relevant sections.",
+        "evidence": [
+          "Section 4.2, Theorem 4.3, proof of n+1 successes among 2n inputs",
+          "Section 5 explicitly leaves unrestricted optimal randomized guarantees unknown"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.23577",
+        "material_read": "Full accessible HTML document was opened; the model and scoring definitions, introduction, Section 4.2 proof of Theorem 4.3, conclusion and references were read and compared; notably the proof from the common prefix through the n+1 counting bound.",
+        "method": "Direct theorem, proof and quantifier comparison against each component of the new claim",
+        "title": "Randomized Online Fair Division: High-Probability and Expected Realized Fairness",
+        "trigger": "Exact same n-agent, n+1-good short/long adversarial family underlying the EF1 upper bound"
+      },
+      {
+        "assessment": "Its global guarantees have distinct quantifiers; the examined material does not settle the exact finite game.",
+        "evidence": [
+          "Abstract and Introduction of arXiv:2609.05310"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.05310",
+        "material_read": "Accessible abstract and introductory discussion of models, global impossibilities and objective definitions",
+        "method": "Comparison of scope, objects and conclusions against an exact finite-horizon prior game",
+        "title": "Closing Gaps in Online Fair Division",
+        "trigger": "Highly related online fairness impossibility and prediction models"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d0e6794-9726-4fe9-b9a5-5bde0c21aa46",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It resolves the natural diagnostic of whether the EF1 upper-bound certificate is itself optimally weighted and exactly tight as a game: a complete formula for every adversarial prior, uniqueness of the hard distribution, equalization over each input, and a sharp alpha threshold. Hence no reweighting of the existing 2n witnesses can improve the published probabilistic obstruction; a stronger global lower bound needs structurally new input families. This is a motivated complete exact invariant, not merely a restated upper bound or arbitrary finite census.",
+    "status": "PASS"
+  }
+}

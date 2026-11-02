@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Definitions and edge cases fully fixed: 256 four-nucleotide words, three overlap lengths, self-overlap and all pairs, reverse complementation. Exhaustive orbit graph reduces all admissible closed codes bijectively to weighted cliques; 180 unbordered words -> 56 internally feasible RC orbits (12 singleton,44 pairs), with 540 edges. Inductively valid include/exclude recurrence exhausts all cliques, evaluating 398 subset states and returning optimum 17 with 32 maximal cliques. Explicit 17-word witness is directly checked. Independent weighted coloring branch-and-bound returns the same (17,32) in 293 calls. All 32 codebooks verified for overlap and complement closure; four size-eight symmetry classes verified. Standalone verify.py is replayable; finite exhaustive proof, no extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1007/s10623-023-01344-z: Theorem 19 proves unrestricted S(4,4)=27; Theorem 20 counts unrestricted size-27 optima",
+        "https://arxiv.org/html/1209.0236v2: general constructions/size analysis without strand closure",
+        "https://arxiv.org/abs/1303.1026: general upper bounds without Watson–Crick closure",
+        "https://doczz.net/doc/7869278/dna-codes-and-their-properties: algebra of reverse-complement involution codes without this exact maximum"
+      ],
+      "reasoning": "An unrestricted upper bound 27 is too weak to imply the sharp constrained upper bound 17. The published classification of size-27 unrestricted codes does not classify the size-17 reverse-complement-closed optimizers. A complete enumeration of maximal unrestricted codes may facilitate a new computation, but no stated theorem or table supplies these 32 or the symmetry orbits.",
+      "searches": [
+        "Stanovnik Moškon Mraz exact maximum non-overlapping codes length four alphabet four 27 2024",
+        "reverse-complement closed cross-bifix-free code four-letter words length four 17 optimum double-stranded DNA",
+        "maximal cardinality reverse-complement-closed non-overlapping DNA tetranucleotide 4-base length four 17 32 codes four symmetry orbits",
+        "https://doi.org/10.1007/s10623-023-01344-z",
+        "https://arxiv.org/html/1209.0236v2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1209.0236v2",
+      "https://arxiv.org/abs/1303.1026",
+      "https://doi.org/10.1007/s10623-023-01344-z",
+      "https://doczz.net/doc/7869278/dna-codes-and-their-properties",
+      "https://arxiv.org/abs/1209.0236",
+      "published-finding corpus:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "published-finding corpus:2026/10/4/SCOPE-exact-length-six-non-overlapping-codes-at-alphabet-sizes-seven-t--a4c76833d8cb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://doi.org/10.1007/s10623-023-01344-z: sharp unrestricted 27-word optimum and all unrestricted optimum count",
+        "https://arxiv.org/abs/1303.1026: unrestricted exact length <=3 and general bounds",
+        "https://arxiv.org/html/1209.0236v2: near-optimal construction and code definition"
+      ],
+      "reasoning": "The present assertion adds an independent involution-closure quantifier, a 17 upper bound, and all 32 equality cases. General maximum 27 yields only <=27. Earlier cross-bifix constructions give admissible subfamilies, not an all-code tight upper bound under closure. None of these inspected published statements logically entails the numerical 17/32/four-class result without an additional new finite computation.",
+      "searches": [
+        "maximal cardinality reverse-complement-closed non-overlapping DNA tetranucleotide 4-base length four 17 32 codes four symmetry orbits",
+        "strand-symmetric cross-bifix-free sets Watson-Crick complement length 4 max size 17",
+        "https://doi.org/10.1007/s10623-023-01344-z",
+        "https://arxiv.org/abs/1303.1026",
+        "https://arxiv.org/html/1209.0236v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/1209.0236v2: definition and construction of cross-bifix-free/nonoverlapping sequences",
+        "https://arxiv.org/abs/1303.1026: equivalent prefix-suffix definition in §§1-2",
+        "published-finding corpus semantic matches were on different code metrics or alphabet/length profiles"
+      ],
+      "reasoning": "Aliases checked: non-overlapping, cross-bifix-free, mutually uncorrelated, strong comma-free, strand-symmetric, self-complementary and reverse-complement-closed. Same-object comparisons revealed no earlier exact 4-base/length-4 Watson–Crick-closed optimum 17 or multiplicities.",
+      "searches": [
+        "constant composition balanced binary cross-bifix-free nonoverlapping synchronization codes exact optimum",
+        "reverse complement invariant self-complementary cross-bifix-free DNA non-overlapping codes optimum",
+        "reverse-complement closed cross-bifix-free code four-letter words length four 17 optimum double-stranded DNA",
+        "self-complementary nonoverlapping 4-ary 4-letter codes cyclic synchronization 17",
+        "reverse complement invariant mutually uncorrelated quaternary code length four",
+        "non-overlapping cross bifix free codes closed under reverse complement DNA codes exact size length 4 q 4",
+        "reverse complement closed non overlapping code 4 4 length 4 DNA 17",
+        "self-complementary cross-bifix-free codes reverse complement DNA code construction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://doi.org/10.1007/s10623-023-01344-z: tables/formulas for unrestricted size and maxima, not the restricted parameter pair",
+        "published-finding corpus:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a: length-five nonoverlap maxima, distinct length and no reverse-complement restriction",
+        "published-finding corpus:2026/10/4/SCOPE-exact-length-six-non-overlapping-codes-at-alphabet-sizes-seven-t--a4c76833d8cb: length-six alphabet threshold, distinct length and no involution",
+        "Published binary constant-composition, necklace and reverse-complement covering studies use different channels, lengths and alphabets"
+      ],
+      "reasoning": "The located tables concern unconstrained non-overlap or distinct metrics. No matching database entry or complete exact reverse-complement-closed quaternary length-four classification was recovered. Failure to locate one is not proof of historical uniqueness.",
+      "searches": [
+        "maximal cardinality reverse-complement-closed non-overlapping DNA tetranucleotide 4-base length four 17 32 codes four symmetry orbits",
+        "strand-symmetric cross-bifix-free sets Watson-Crick complement length 4 max size 17",
+        "reverse complement closed self-complementary frame synchronization code 56 orbits compatibility graph",
+        "reverse-complement closed cross-bifix-free code four-letter words length four 17 optimum double-stranded DNA",
+        "published-finding corpus:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "published-finding corpus:2026/10/4/SCOPE-exact-length-six-non-overlapping-codes-at-alphabet-sizes-seven-t--a4c76833d8cb"
+      ]
+    },
+    "rationale": "Full-text comparisons separate general cross-bifix-free bounds (Chee 2012, Blackburn 2013) and the exact unrestricted quaternary length-four optimum 27 (Stanovnik et al. 2024, Theorem 19) from the new reverse-complement-closed optimum 17, the exact count 32 and the four orbit classes. Published research-record searches for exact parameters and synonyms returned nearby but non-covering problems. The 2024 theorem does not impose the involution, and its unrestricted optimizers have size 27, whereas our constrained optima have size 17, so the new statement is not a direct special case of its extremal classification. An unindexed priority collision remains a specific risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible historical publications may already have classified reverse-complement-closed tetranucleotide cross-bifix-free codes.",
+      "General classification of unrestricted maximal short codes may permit deriving the constrained result through further analysis; it does not directly state the 17/32 classification.",
+      "Not independently audited or biologically validated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the RC-closed four-letter numerical classification",
+        "evidence": "Focuses on cross-bifix-free code constructions and size comparisons for general alphabets; no Watson–Crick-closure hypotheses.",
+        "identifier_or_url": "https://arxiv.org/html/1209.0236v2",
+        "material_read": "Full HTML paper: abstract, definitions in §2, construction and small-size discussion in §3, near-optimality and comparison in §4, appendix/reference context",
+        "method": "Full-text section inspection and targeted find of complement/strand/overlap terminology",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Foundational source defining non-overlap and supplying general constructions"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Exact lengths two and three and general unrestricted results; no reverse-complement constraint.",
+        "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+        "material_read": "Accessible full arXiv HTML text including introduction, bounds, constructions, short-length section and conclusions",
+        "method": "Read theorem premises/conclusions and compare with fixed length-four constrained optimization",
+        "title": "Non-overlapping codes",
+        "trigger": "Classical general upper bounds might dominate a constrained subproblem"
+      },
+      {
+        "assessment": "RELATED_NON_COVERING; no four-letter constrained maximum",
+        "evidence": "The paper studies involution-code structural relations, not exact maximum size and count of RC-closed tetranucleotide cross-bifix-free codes.",
+        "identifier_or_url": "https://doczz.net/doc/7869278/dna-codes-and-their-properties",
+        "material_read": "Full accessible transcription of paper, §2 definition of antimorphic involution and theta-comma-free; §3 closure, §§4–5 intercodes",
+        "method": "Compare theta-comma-free and theta-strict hypotheses with ordinary non-overlap and reverse-complement closure; targeted search for optimum/enumeration",
+        "title": "DNA Codes and their Properties",
+        "trigger": "Related Watson–Crick involution code and theta-comma-free framework might dominate new claim"
+      },
+      {
+        "assessment": "CLOSEST_NON_COVERING; unrestricted 27 is prior, constrained 17/32 not tabulated or proved",
+        "evidence": "Theorem 19 yields S(4,4)=27 and Theorem 20 counts unrestricted optima, neither imposing RC(C)=C.",
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Full open-access journal HTML, mathematical definitions and constraints, §5 Theorems 16–20 with detailed proof and context",
+        "method": "Reviewed exact unrestricted n=4 theorem and enumeration of maximum unrestricted codes, searched for complement/reverse involution",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Potentially dominating full classification of length-four non-overlap codes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b35601c-030a-490e-b324-03087f73f86b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact natural finite constraint interaction for strand-independent frame markers: no prefix/suffix overlap and closure under Watson–Crick reverse complements are separately motivated. The 17 versus established 27 optimum measures a sharp 10-word capacity loss, while 32 full optimizers and four symmetry orbits give structural choice criteria. Four-letter four-base codes are the smallest natural DNA tetranucleotide setting; this is not a parameter renamed from an unrestricted theorem or an arbitrary subcollection. Claim is a finite coding invariant, not a promise of performance, coding capacity at other lengths, or application efficacy.",
+    "status": "PASS"
+  }
+}

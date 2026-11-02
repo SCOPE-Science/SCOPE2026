@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The strictly increasing radial value function satisfies the full optimal Bellman equations; a bounded-stopping comparison covers arbitrary policies. The backward difference recursion gives the exact mean. At inward drift, independent downward passage increments, exponentially small reflection corrections and Lyapunov imply the stated Gaussian law. At outward drift, exact rare excursion success probability and uniform second moments give the renewal Laplace limit. The complete finite-tree rational checker passed 3,481 assertions; finite tests are not used in place of infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.1 of arxiv:1911.05170 bounds maximum hitting time on arbitrary finite graphs and Theorem 1.2 concerns linear-in-vertices cover time on bounded-degree trees.",
+        "Theorem 1.1 is an upper bound depending on edge count, not the exact depth-asymptotic law for the root target."
+      ],
+      "reasoning": "The prior general-graph estimate is compatible with both phases and does not fix the leading constants, finite-height formula, or normalized law. The stronger-looking universal domain therefore does not dominate this different precision and distributional conclusion.",
+      "searches": [
+        "power of two choices biased random walk on regular tree drift toward root phase transition expected root hitting time",
+        "controlled random walks choice branching threshold gambler ruin hitting distribution regular tree",
+        "The Power of Two Choices for Random Walks arxiv:1911.05170, Section 4 tree strategies and Section 5 infinite 4-regular tree"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1911.05170",
+      "doi:10.1017/S0963548321000183",
+      "doi:10.4230/LIPIcs.ITCS.2020.76",
+      "public indexed tree mixing and graph-range records 2026/9/7/SCOPE002 and 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63",
+      "related choice-walk theorems on bipartite graphs and cycles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published article already notes any two-choice strategy tends away from the target on infinite 4-regular trees; the present example \\(b=3,k=2\\) is consistent with and credits this.",
+        "The source upper hitting-time bound is not a sharp asymptotic distribution statement as height increases."
+      ],
+      "reasoning": "The prior qualitative sign of drift and standard gambler ruin individually suggest the transition, but do not explicitly present or imply via a directly stated dominating theorem the complete finite and limiting classification. The scientific scope of potential originality is restricted to this exact combined law; the drift direction and standard methods are not claimed as new.",
+      "searches": [
+        "arxiv:1911.05170, Theorem 1.1; Section 4 root-directed tree strategies; Section 5 remark on 4-regular trees",
+        "power of two choices biased random walk on regular tree drift toward root phase transition expected root hitting time",
+        "random walk with choice k candidate neighbours regular tree root hitting time fluctuations gaussian exponential"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source uses independent neighbor offers with replacement, so the corresponding one-dimensional chain has parent probability \\(1-(b/(b+1))^k\\); the source remark for the infinite 4-regular tree covers a qualitative outward bias for two offers.",
+        "The tree-coupling record 2026/9/7/SCOPE002 concerns lazy simple random walks on balanced spiders, not chosen-offer leaf-to-root passage."
+      ],
+      "reasoning": "Checked aliases include choice random walk, power-of-two-choices walk, biased nearest-neighbor chain, optimal root hitting, birth-death hitting, and Gaussian/exponential first passage. The infinite-tree drift remark does not imply the displayed finite-tree mean and its two precise weak limits without the additional derivation.",
+      "searches": [
+        "rooted b-ary tree choice random walk parent offered k choices expected hitting time root threshold central limit exponential limit",
+        "power of two choices biased random walk on regular tree drift toward root phase transition expected root hitting time",
+        "random walk with choice k candidate neighbours regular tree root hitting time fluctuations gaussian exponential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Top semantically related published records include 2026/9/7/SCOPE002 and 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63.",
+        "Related results concern two-choice walks on complete bipartite graphs and cycles, not rooted regular tree leaf-to-root first passage."
+      ],
+      "reasoning": "No exact lookup table or previously published indexed result located for the claimed fixed-height expectation or paired limit laws. Search incompleteness is a residual risk, not affirmative uniqueness proof.",
+      "searches": [
+        "rooted b-ary tree choice random walk parent offered k choices expected hitting time root threshold central limit exponential limit",
+        "random walk with choice k candidate neighbours regular tree root hitting time fluctuations gaussian exponential",
+        "controlled random walks choice branching threshold gambler ruin hitting distribution regular tree"
+      ]
+    },
+    "rationale": "Full-text comparison with the 2019 public arXiv / 2022 open-access power-of-two-choices paper recognizes its model and infinite-4-regular-tree drift as prior art, but found no statement implying the exact finite leaf-to-root optimum plus both Gaussian and exponential large-height laws for every integer branching and offer count. Published scientific-record searches found nearest results about spider-tree mixing, other graph-indexed range problems, and choice walks on complete bipartite/cycle graphs, not this exact target. Standard birth-death asymptotics are acknowledged; external priority remains unverified.",
+    "residual_risks": [
+      "This is a natural exactly soluble birth-death reduction, so an older probability source may already state the two limiting laws in a form directly applicable to this model.",
+      "The earlier conference version was not fully re-read separately from the open-access expanded paper.",
+      "A semantic database search cannot establish exhaustiveness or historical priority; no independent review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The qualitative outward drift for two offers on a 4-regular infinite tree and the general hitting/cover bounds are prior art. The source does not state the all-integer exact optimal finite-height mean or both explicit height-asymptotic distribution laws on complete regular trees.",
+        "evidence": [
+          "arxiv:1911.05170, manuscript first publicly posted 2019-11-12",
+          "doi:10.1017/S0963548321000183, pp. 73–100, especially Theorem 1.1, tree-strategy discussion Section 4 and regular-tree remark Section 5"
+        ],
+        "identifier_or_url": "https://wrap.warwick.ac.uk/152060/7/WRAP-Power-two-choices-random-walks-2021.pdf",
+        "material_read": "Open-access 28-page published version, including introduction/main theorems, definitions, tree strategies in Section 4, and recurrence/transience discussion in Section 5; relevant full-text sections checked beyond abstract and snippet.",
+        "method": "Read and compare the definitions, qualitative tree remark, theorem hypotheses, and conclusions, including pages 1–3, 8–11; compare their implication to exact finite-height and weak-limit statements.",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Same independent with-replacement neighbor-offer model; discusses regular trees, root-oriented policies and the 4-regular outward-drift obstruction."
+      },
+      {
+        "assessment": "No exact all-offer depth asymptotic statement identified; separate conference full-text absence is retained as a residual comparison risk.",
+        "evidence": [
+          "ITCS 2020 publication record, DOI:10.4230/LIPIcs.ITCS.2020.76",
+          "2022 follow-up footnote noting prior version"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+        "material_read": "Abstract, publication record and overlap identified via the full published follow-up which explicitly states its earlier conference results; conference full text not separately inspected in this comparison.",
+        "method": "Compare published abstract/claims and the full 2022 follow-up explanation of its previous ITCS version.",
+        "title": "Choice and Bias in Random Walks",
+        "trigger": "Earlier conference treatment of the same two-choice process and biased walks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d9f1265-df29-4da7-ae87-d92b103c408e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This natural root-targeting benchmark quantifies how many independent local offers change optimal search from exponential to linear in tree height, with exact leading constants and different Gaussian versus exponential first-passage uncertainty. It is a meaningful asymptotic boundary for a standard choice-controlled walk on a parameterized graph class, not a one-off numerical constant. The published source notes only a qualitative 4-regular drift obstruction and general graph bounds.",
+    "status": "PASS"
+  }
+}

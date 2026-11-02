@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Analytic incidence-count bound sum_a(rank_a−1)≤n(n−1). For n≤4 all stable matchings have minimum rank≤2; at n=5 the only exception has every agent at rank3 and is jointly optimal. In all remaining instances, a regret-minimizer with worst rank q has gap≤q−1, while every matching with worse worst rank has gap≥q−1, allowing joint optimization. For n=6, two structurally distinct exact enumerators verify all 720 perfect matchings, precisely seven stable outcomes, and disjoint unique minimizers; a separate all-46,656-profile n=3 regression passes. No finite test substitutes for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sheng–Yokoi arXiv:2607.07160 supplies general polynomial-time methods for optimizing utility-gap individually; separate solvability does not imply existence of a joint optimizer.",
+        "Cooper–Manlove arXiv:1905.06626 supplies optimization for rank-maximal/generous profiles and discusses minimum regret; neither is a claim about minimizing maximum-minus-minimum individual rank jointly with worst rank."
+      ],
+      "reasoning": "Comparing implications rather than titles, a general algorithm for minimizing either objective independently does not guarantee intersecting argmin sets; the constructed six-pair market explicitly shows the latter may be disjoint. Profile-based results do not force common argmin sets for these two scalars. The available comparison does not show that a stronger known theorem subsumes the five-pair compatibility.",
+      "searches": [
+        "All stable marriages up to five pairs common optimizer of max rank minimum regret and rank spread minimum utility gap",
+        "stable marriage maximizing minimum rank minimizing maximum rank rank range gap all partners 3 4 exact",
+        "stable matching minimum rank range vs min regret four pairs equality strict containment"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.07160",
+      "https://arxiv.org/html/2001.10875v5",
+      "https://arxiv.org/html/1905.06626v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sheng–Yokoi, arXiv:2607.07160, rank-gap specialization and optimization results, does not state joint optimality with minimum regret.",
+        "Cooper–Manlove, arXiv:2001.10875, side-wise worst-rank difference and side-wise worst-rank sum are different individual-welfare objectives.",
+        "Cooper–Manlove, arXiv:1905.06626, rank-maximal/generous profile optimization and minimum regret, not the rank-range co-optimization claim.",
+        "Relevant searchable earlier mathematical claims concern egalitarian versus regret, sex-equal versus regret, or difference versus ratio fairness; those statements do not entail this G-versus-R sharp threshold."
+      ],
+      "reasoning": "The specific final theorem asserts a universal intersection through five pairs plus an explicit disjoint-optima witness at six, under complete strict marriage. Separately optimizing G or R does not imply common optimum. Other comparisons of rank profile, sex equality, egalitarian sum or ratio fairness use distinct objective functions; their pair-count cutoffs cannot establish this theorem without additional argument, none found in inspected text.",
+      "searches": [
+        "stable matchings utility dispersion ratio difference Sheng Yokoi rank max min 2026",
+        "stable marriage minimum utility gap minimum regret Sheng Yokoi 2026",
+        "Sharp compatibility boundary for minimum regret and minimum individual rank range in classical stable marriage five pairs six pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sheng–Yokoi, arXiv:2607.07160, Introduction/Problem Setting: maximum-minus-minimum partner ranks is precisely a negative-rank utility-gap instance.",
+        "Cooper–Manlove, arXiv:2001.10875, Abstract/Introduction: regret-equality compares only the worst-off man with the worst-off woman, not extremes over every agent."
+      ],
+      "reasoning": "The exact equivalent of G is the difference individual utility gap under negative one-based partner rank; R is minimum regret. Cooper–Manlove regret-equal is not equivalent to G because min-agent rank and the two sex-side maxima differ. The searched record did not give a theorem relating simultaneous G and R minima with the five/six boundary.",
+      "searches": [
+        "Stable matching minimum utility gap Sheng Yokoi 2026 exact 3x3 max min utilities rank objective stable marriage",
+        "minimum utility gap stable matching minimum regret coincidence three pairs four pairs rank spread",
+        "Sharp compatibility boundary for minimum regret and minimum individual rank range in classical stable marriage five pairs six pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 720 perfect matchings in the six-pair witness were directly recomputed by two independent formulations; seven and only seven pass blocking-pair checks.",
+        "The related inspected papers were examined for results, figures, tables and appendices; no seven-match witness or sharp five/six joint-optimizer cutoff was identified."
+      ],
+      "reasoning": "Neither an existing exact table nor a source-supplied database was identified that contains this theorem or the seven stable outcomes with these two objective score columns. This is not a claim that no unpublished table exists.",
+      "searches": [
+        "Stable marriage 6 couples rank gap 2 maximum rank 5 versus rank gap 3 maximum rank 4 disjoint optimizers",
+        "Stable matching difference versus ratio fair rank utility first divergence six couples"
+      ]
+    },
+    "rationale": "Current primary paper defines individual rank-gap and observes minimum regret as another established criterion but does not establish their first joint-optimization incompatibility. Relevant full texts establish other fairness criteria or separate optimization and do not imply the universal-through-five compatibility. Related mathematical record searches and available previously reported claims were compared by their actual statements. Exact originality is not independently guaranteed, and unindexed stronger work remains a residual risk.",
+    "residual_risks": [
+      "An unindexed published or unpublished exact small-market compatibility result could duplicate the first-five-pair theorem or the six-pair example.",
+      "No independent external expert audit of new proof or source priority was conducted.",
+      "Proof relies on complete strict and balanced one-to-one preferences; extensions are unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines gap and separate algorithms but no explicit universal n≤5 joint G/R optimum or sharp six-pair separator in inspected text",
+        "evidence": [
+          "Published 2026-07-08; introduction specifies rank-gap as utility gap with negative ranks and separately defines min-regret.",
+          "Paper optimizes G in general; no claimed optimal-set intersection is implied by that algorithm."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.07160",
+        "material_read": "Full online article text: Introduction, definition of utility difference, structural lemmas, Section 4 algorithms, Section 5 connections, and appendices with examples",
+        "method": "Read primary full-text HTML including theorem and algorithm sections; compared objective and theorems",
+        "title": "Stable Matchings with Minimum Utility Gap",
+        "trigger": "Defines exactly the individual rank-gap objective in the candidate theorem and reviews minimum regret"
+      },
+      {
+        "assessment": "Not equivalent: regret-equal compares two side maxima, not global individual rank range",
+        "evidence": [
+          "Abstract defines difference in ranks of worst-off man and worst-off woman.",
+          "Rank gap G depends on maximum and minimum across all individuals."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2001.10875v5",
+        "material_read": "Full article: abstract, introductory definitions, formal algorithm objectives, results and appendices reviewed",
+        "method": "Read lawful open HTML full text and compared max-min rank over all agents with worst-side gap",
+        "title": "Algorithms for new types of fair stable matchings",
+        "trigger": "Potentially synonymous regret-equal stable matching fairness"
+      },
+      {
+        "assessment": "Does not cover the simultaneous individual rank-gap and worst-rank optimum boundary",
+        "evidence": [
+          "Introduces lexicographic rank-maximal and generous profile criteria, distinct from G.",
+          "Discusses minimum-regret as a classical criterion, without the target joint-optimizer theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1905.06626v3",
+        "material_read": "Full article: abstract, preliminaries, profile criteria, algorithms, experiments and appendices surveyed",
+        "method": "Read lawful open HTML full text and compared the actual optimization criteria",
+        "title": "Two-sided profile-based optimality in the stable marriage problem",
+        "trigger": "Source of profile-based fairness and minimum-regret results possibly dominating the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b7414af-2b41-4275-8788-dd775051c91d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A source-motivated, independently natural pair of stability-constrained welfare objectives—protecting the worst individual versus minimizing interpersonal rank dispersion—has a sharp universal compatibility range. The analytic n≤5 guarantee eliminates a substantive social choice conflict for all markets up to that size, and the verified n=6 witness demonstrates the first genuine policy tradeoff. This is a structural universal theorem, not a routine extrapolation or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
