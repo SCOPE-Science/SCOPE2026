@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:13:49.706604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real finite-dimensional SPD A and B, C=I+hB/2 and T=I-h A C^-1, direct noncommutative expansion gives C(I-T^T T)C=h(2A+hK), K=(A(B-A)+(B-A)A)/2. Thus Euclidean nonexpansivity is equivalent to 2A+hK positive semidefinite; no commutativity is presumed. When B=A+vv^T, S=A^-1/2 K A^-1/2=(ab^T+ba^T)/2 with a=A^1/2 v,b=A^-1/2 v has nonzero eigenvalues (s ± sqrt(alpha beta))/2. Strict Cauchy-Schwarz gives delta=sqrt(alpha beta)-s>0 iff Av is not parallel to v, so h*=4/delta is the inclusive sharp one-step norm boundary. Alignment gives positive definite 2A+hK for all h>0. A second exact congruence C(A^-1-T^T A^-1 T)C=h(2I+h vv^T) is positive definite, and h C^-1/2 A C^-1/2 has eigenvalues in (0,2) because B>=A>0, establishing weighted strict contraction and spectrum in (-1,1) even for h>h*. Exact rational witness A=diag(1,4), v=(1,1) has h*=8 and h=16 ratio 1557/1301; independent exact congruences checked 12 matrix cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Driscoll et al. arXiv:2603.24451 describe perturbed stage/end maps and corrective stability/error methods, not the exact 4/delta one-step Euclidean norm budget in sections examined.",
+          "Driscoll et al. arXiv:2604.14479 address smooth perturbations and high-order accuracy conditions.",
+          "Classical B-stability assumes the same vector field in internal stages and slope; B != A violates that hypothesis."
+        ],
+        "reasoning": "The broader perturbed numerical-method framework contains this update but does not by itself imply the sharp contractivity classification. Spectral radius less than one is strictly weaker than Euclidean operator norm less than one.",
+        "searches": [
+          "perturbed implicit midpoint rank one SPD surrogate overdamping Euclidean contractivity critical timestep transient growth",
+          "arxiv:2603.24451 perturbed diagonally implicit RK stability corrections",
+          "arxiv:2604.14479 smooth perturbations DIRK"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.24451v1 primary section 2.1.1 and section 4",
+        "arXiv:2604.14479 primary abstract/available sections",
+        "arXiv:2012.13055 Grant perturbed Runge-Kutta (abstract context)",
+        "Resultary published three-mode Euclidean steepest-descent threshold (summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior update defines u=(I+hB/2)^-1 x, x+=x-hAu and studies perturbation error.",
+          "Current claim gives h*=4/(sqrt((v^TAv)(v^TA^-1v))-||v||^2), and proves that norm(T)>1 beyond while spectrum remains strictly stable."
+        ],
+        "reasoning": "The exact matrix congruence and rank-one Jordan spectral reduction are needed to pass from a mixed-stage update to a necessary-and-sufficient norm frontier; consistency and error estimates alone do not imply it.",
+        "searches": [
+          "perturbed implicit midpoint rank one SPD surrogate overdamping Euclidean contractivity critical timestep transient growth",
+          "arxiv:2603.24451v1 Equation 10a and 10b",
+          "arxiv:2604.14479 high order DIRK"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mixed-stage formula is Driscoll et al. 2026 eqs. 10a–b.",
+          "General congruence reduces the claim to 2A+hK positive semidefinite; elementary Jordan eigenvalues yield the new explicit rank-one radius."
+        ],
+        "reasoning": "Searched contraction, B-stability, energy stability, and transient norm aliases. Classical SPD Jordan-product indefiniteness alone lacks the exact threshold for this unequal-stage/slope map; mathematical equivalence in older operator analysis remains possible.",
+        "searches": [
+          "perturbed implicit midpoint rank one SPD surrogate overdamping Euclidean contractivity critical timestep transient growth",
+          "implicit Runge-Kutta perturbed stages exact rank-one contraction norm threshold",
+          "Jordan symmetrized rank-one product SPD matrices two eigenvalues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The provided 2x2 rational witness is a new demonstration within an all-d theorem, not an unverified numerical table.",
+          "Published Resultary two-step gradient and weighted Jacobi frontiers concern different update matrices."
+        ],
+        "reasoning": "A finite numerical stability-region table could not settle sharp all-d orientation-dependent if-and-only-if; no exact tabulation for this update found.",
+        "searches": [
+          "perturbed implicit midpoint rank one SPD surrogate overdamping Euclidean contractivity critical timestep transient growth",
+          "rank one SPD overdamping finite matrix stability tables numerical linear systems"
+        ]
+      },
+      "rationale": "Qualified PASS only for the sharp rank-one Loewner-larger stage-generator Euclidean one-step ceiling with simultaneous weighted/spectral stability. Original perturbed midpoint scheme and mixed-precision perturbation bounds, elementary Jordan-product eigenvalues, and ordinary B-stability were already established; their implications do not give this necessary-and-sufficient rank-one threshold. Older matrix norm contractivity results may formulate the same criterion.",
+      "residual_risks": [
+        "Possible equivalent older matrix norm/stability criterion for noncommuting SPD stage and true operators.",
+        "Source arXiv:2604.14479 detailed full-body comparison limited.",
+        "One-step spectral stability does not imply stability under changing h or B; such extension is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework contains method; examined results focus on perturbation-error and corrections rather than the displayed rank-one Euclidean ceiling",
+          "evidence": [
+            "Eqs.10a–b mixed-stage update and section 4 stability treatment"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.24451v1",
+          "material_read": "Section 2.1.1 equations 10a–b and sections treating stability corrections/perturbation propagation",
+          "method": "primary arXiv HTML full-text sections",
+          "title": "Stable corrections for perturbed diagonally implicit Runge–Kutta methods",
+          "trigger": "Same exact stage/slope algorithm and strongest source overlap"
+        },
+        {
+          "assessment": "Does not establish exact one-step rank-one threshold in material inspected; no whole-document negative claim",
+          "evidence": [
+            "Stated scope is smooth perturbations and higher-order DIRK conditions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.14479",
+          "material_read": "Abstract and reported order/consistency scope; detailed all-equation access limited",
+          "method": "primary article abstract/available described sections",
+          "title": "Smooth perturbations of diagonally implicit Runge–Kutta methods",
+          "trigger": "Closely related perturbations/high-order stability"
+        },
+        {
+          "assessment": "Different steepest-descent iteration; no mathematical implication to perturbed midpoint",
+          "evidence": [
+            "Finding relates three spectral modes to two-step gradient descent"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+          "material_read": "Published finding summary only",
+          "method": "Resultary semantic index",
+          "title": "A three-mode perturbation threshold for two-step Euclidean steepest descent",
+          "trigger": "Shared Euclidean stability and perturbation keywords"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact permissible timestep under a common stage-surrogate error model is a concrete numerical design question: a more strongly damped SPD stage can exhibit Euclidean transient amplification. Separating all-step weighted stability from Euclidean norm loss and identifying the eigenvector exception supplies a useful sharp mechanism rather than a routine consistency estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2603.24451v1 primary section 2.1.1 and section 4",
+    "arXiv:2604.14479 primary abstract/available sections",
+    "arXiv:2012.13055 Grant perturbed Runge-Kutta (abstract context)",
+    "Resultary published three-mode Euclidean steepest-descent threshold (summary)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Linear finite-dimensional SPD A and B, h>0; rank-one closed form requires B=A+vv^T and v!=0.",
+    "No claim of second-order accuracy with fixed B!=A, nonlinear convergence, or products of varying-step maps.",
+    "Finite exact tests corroborate only the algebraic proof.",
+    "Possible equivalent older matrix norm/stability criterion for noncommuting SPD stage and true operators.",
+    "Source arXiv:2604.14479 detailed full-body comparison limited.",
+    "One-step spectral stability does not imply stability under changing h or B; such extension is not claimed."
+  ],
+  "schema_version": 1
+}
