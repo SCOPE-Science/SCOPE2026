@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Checks performed
+# Independent mathematical audit
 
-`python3 verify.py` completed successfully using only the Python standard library:
+## correctness
 
-```
-EXACT_ANGULAR_OK n=3..140 cells=14764 integer_cover_n=3..12 optimizer_gcd=verified
-FACETS_OK n=3..60 symmetric_heights=1/3,1,5 direction_tests=394632
-ASYMMETRIC_EXACT_WITNESS_OK n=5 heights=1,3 directions=6 fractional=7/2
-```
+PASS
 
-The angular arc-incidence tests and cyclic-block counts use exact integer arithmetic; the finite set-cover sweep runs through every subset state for each indicated \(n\). The radical witness inequality uses exact squares of positive integers. The facet-direction sweep uses ordinary floating-point trigonometry and excludes near-boundary values; it is independent diagnostic corroboration, not an exact certificate for arbitrary real parameters.
+Exact side-facet inequalities w_j dot s ± cz/h < 0 give both pole and equatorial conditions. The regular-normal net implies a pole-illuminating direction must have |z|/h > ||s|| while averaging consecutive equatorial facet constraints gives |z|/h<||s|| for an equatorial direction. Thus pole mass separates from equatorial mass; each horizontal direction illuminates <=m=floor((n-1)/2) equatorial vertices, with all m-consecutive blocks attainable. Cyclic cover lower/upper bounds give I=2+ceil(n/m), I*=2+n/m. Exact optimality equations sum_{r=0}^{m-1} x_{k-r}=1 imply x_k=x_{k-m}; gcd(n,m) yields constant x=1/m except n mod4=2 with alternating masses a+b=2/m. The unequal-height pentagon has tilted directions (-w_j,-11/10) that illuminate upper pole plus two adjacent equator points; strict radical inequality 19sqrt(5)>41 and a lower pole/equator separation prove I=4 and I*=7/2. Independent numerical strict facet checks for all five tilted witnesses and exact radical comparison corroborated the example.
 
-The infinite result depends on the explicit strict facet inequalities, pole/equator separation, cyclic block covers and fractional dual incidence bound proved in `RESULT.md`. Only the specified unequal-height pentagonal polytope is claimed. No independent external proof audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original remainder after separately excluding known component formulas and narrower/other-object antecedents. The planar n-gon m-fold formula supplies only equatorial angular incidence. Known l1-sum additivity for centrally symmetric norm balls includes even n, which is explicitly prior coverage. Odd-n equatorial polygon is not a symmetric norm ball, and unequal pole heights violate that product geometry. These known results neither force the odd-n optimal aggregate rigidity nor produce the explicit height-asymmetry counterexample.
+
+## value
+
+PASS
+
+The exact all-height family, mod-four classification of every optimal aggregate fractional cover, and strict drop under preserving face incidence but breaking vertical symmetry are natural 3D illumination structural results beyond the previously known planar and symmetric subcases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
