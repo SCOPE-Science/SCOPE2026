@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion about the new Euler characteristic is proved for all positive integers by the height-ordered clique sum and the explicitly counted lower-neighbor line graph. Every genuine lower transfer has a unique block pair, and its adjacency relation is exactly the line-graph adjacency. The Euler identity \(\chi(\operatorname{Cl}(L(B)))=|V_+(B)|-|E(B)|\) is verified by binomial cancellation for bipartite graphs. The special one-block cases are separated before summing; the \(\lambda=(n)\) term supplies the required constant \(1\). The monotonicity proof uses a weight-nondecreasing injection and an explicit strict witness for each \(n\ge7\). The homotopy identification relies on the explicitly cited existing theorem, and is not represented as newly reproved. An exact standalone program independently checks graph cliques and descending links to \(n=15\), the published Euler table to \(n=25\), and a second generating-series expansion to degree 35.
+PASS
 
-## Originality — PASS, with qualified literature risk
+The actual frozen RESULT.md defines unlabeled integer partitions and genuine Ferrers-cell transfers. Height strictly orders the two endpoints of every edge; all cliques have a unique top. For λ with t distinct-size blocks, the descending-neighbor graph is the line graph of a triangular bipartite graph with t(t−1)/2+Σ_j 1_{m_j≥2} edges and 2(t−1)+ρ_1+ρ_t active endpoint vertices. The exact clique-Euler cancellation χ(Cl(L(B)))=|V_+(B)|−|E(B)| yields local weight binom(t−2,2)+Σ_{2≤j≤t−1}1_{m_j≥2}, with the t=1 exception contributing exactly one. Summing proves χ=1+Σw. The published homotopy theorem (arxiv:2603.14370) supplies the independent all-n wedge shape. A monotone injection λ↦λ∪{1} and a strict witness (n−4,2,2) establish b_{n+1}≥b_n+1 for n≥7. Formal marked-part expansion gives the advertised generating identity. Fresh independent direct graph/clique/descending-link enumeration verified each n≤15, separate coefficients b25,b26,b30,b35, and coefficientwise Euler-product equality through n=42. These finite checks corroborate, but do not replace, the all-n proof; no further claim about higher homotopy or equivariant action is made.
 
-The closest prior [1] proves the sphere-wedge shape with multiplicity only \(\chi-1\). The local paper [2] classifies the full neighbor graph but does not state this descending-height Euler identity. The 23-page numerical paper [3] explicitly presents alternating clique counts and nerve counts, *not* a closed partition-multiplicity formula, and asks for the formula and growth behavior in Problems 6.1 and 6.5. The present result gives an all-parameter nonnegative partition statistic and strict growth. Published-record and exact-phrase searches found no stronger statement. The later synthesis [4] could only be checked in abstract and is a named residual overlap risk; unindexed work likewise remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The central numeric invariant left implicit by the motivating topological classification is computed through a direct, positive formula whose summands can be read from individual partitions without constructing graph cliques or a nerve. The formula solves an explicit exact-count question and provides a global strictly increasing law beyond the original finite table, with a formal Euler-product series useful for computing further coefficients. This is not a single additional table entry, a substitution of existing clique counts, or merely a computational checksum.
+The all-parameter positive block-weight formula, formal Euler-product identity and strict-growth inequality are not given by the inspected full texts of Lyudogovskiy arXiv:2603.14370, 2603.18696 or 2603.26656. The numerical paper expressly asks for an exact formula (Problem 6.1) and monotonicity (Problem 6.5). Resultary semantic queries for this object and equivalent wording returned unrelated clique/partition results; this is search evidence, not a proof of primacy. The June 2026 synthesis arXiv:2606.20773 was available only by abstract; lawful full-text attempts failed and Oxford authorization returned vpn_disconnected, retained as material overlap risk.
 
-## Limits
+## value
 
-The verification program is finite corroboration, not an infinite proof. The original sphere-wedge classification remains an external published input. A relevant June 2026 synthesis was not accessible as complete text. No independent scientific audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unknown sphere multiplicity is the natural exact invariant left implicit in the previously published partition-graph wedge theorem. A direct nonnegative block-weight formula determines it for every n without an exponential clique census, answers an explicitly stated exact-formula problem in the numerical primary paper, and proves previously open strict all-parameter growth. Its formal generating series allows exact coefficients far beyond existing tables. The object and invariant are motivated independently of the computation, and this is not merely a single new finite table entry or routine rename of χ−1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
