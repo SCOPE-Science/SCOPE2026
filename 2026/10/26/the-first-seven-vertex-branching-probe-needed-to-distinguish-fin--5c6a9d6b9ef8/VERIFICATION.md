@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and checked limits
+# Independent mathematical audit
 
-The exact primary verifier is `artifacts/verify.py` and its recorded output is `artifacts/verification_output.txt`. Run it with Python 3. It has no third-party dependencies; it generates the complete unlabeled target-tree classes through fourteen vertices and the complete unlabeled source-tree classes through seven vertices. The output checks expected order counts, all path-profile equivalence classes, all source-size minima, the exact fourteen-vertex exceptional graphs, and the two positive witnesses. The generated tree count is \(5447\).
+## correctness
 
-The separate `artifacts/independent_check.py` uses `networkx.nonisomorphic_trees`, does not import the primary verifier, and independently recomputes the thirteen-to-fourteen gap with its own homomorphism recurrence. Run with NetworkX 3 or later; recorded output is `artifacts/independent_output.txt`.
+PASS
 
-The finite path comparison is exact for **all** path lengths because the difference of two size-\(n\) walk-count sequences obeys a recurrence of order at most \(2n\). It is enough to compare the first \(2n\) terms. Unbounded host-order behavior and novelty beyond inspected sources have not been verified. The scientific review is self-review only; no independent audit is asserted.
+Induction by leaf attachment + canonical free-tree code enumerates exactly 5447 nonisomorphic trees through 14 vertices; Cayley–Hamilton gives 2n-term finite criterion for equality of the infinite walk profiles. Rooted tree-DP exactly computes all hom(F,T) and finite source census (11 trees of order 7). An independently written NetworkX free-tree enumeration, independent walk-profile and hom recursion produced nine profile-colliding pairs (1 at n12, 2 at n13, 6 at n14), found both six-vertex resolving probes through n13 and exactly two seven-vertex resolving probes through n14. Exceptional 14-vertex pair indistinguishable by all sources with ≤6 vertices and separable by S(1,1,4), S(1,2,3), proving sharpness within the stated finite universe. No inference beyond n14.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality supported by comparisons of exact statements, same-object sources and published Resultary records; material limitations and possible unindexed equivalences explicitly retained. Total path hom(F,T) equals total walk counts 1^T A^(|F|-1)1; the extra branching source is a nonlinear moment probe. Global tree-count equivalence/fractional-isomorphism theorems are not the same as minimal single bounded source size for target order≤14.
+
+## value
+
+PASS
+
+A sharp, natural bounded-target/source-size obstruction in graph homomorphism distinguishability, with two exact minimal seven-vertex probes and an explicit 14-vertex collision pair; an exhaustive finite classification rather than unmotivated isolated numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
