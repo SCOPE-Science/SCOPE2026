@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of finite checks
+# Independent mathematical audit
 
-Run `python3 verify_affine_double.py` with Python 3. The script uses only the standard library, constructs group products and powers directly, computes ordinary group characters, and evaluates the published finite-group Drinfeld-double indicator sum without relying on the new closed expressions in its sum evaluator.
+## correctness
 
-The scalar-affine checks cover finite fields of orders \(3,4,5,7,8,9\), including nonprime field arithmetic, and every allowed cyclic complement subgroup listed by the script. For each case, the script loops over all relevant identity, nonzero-kernel, and complement-class character labels and indicator indices up to at least \(15\). The separate abelian-kernel checks cover \(C_9\rtimes C_2\), \(C_{25}\rtimes C_4\), and selected labels of \(C_9^2\rtimes C_2\), including torsion structures that are not elementary abelian. Successful execution ends with `VERIFY_OK_AFFINE_DOUBLE_INDICATORS` and `VERIFY_OK_ALL_FINITE_ABELIAN_KERNELS`.
+PASS
 
-The finite computations do not test all finite abelian groups or all positive indices, and they are not an infinite proof. The proof of the theorem is the symbolic endomorphism calculation in `RESULT.md`; the code provides independent arithmetic checks of selected finite instances. No independent scientific audit has been performed.
+Conjugacy/centralizer types follow from fixed-point-free action. The published Drinfeld-double sum is partitioned by u^k=1 and the exceptional u=1,h^{-1}; S_k(u) invertibility and character orthogonality yield four formulas. All A[k] nonzero points have free C_m orbits, ensuring integral output. Prime-to-m kernel order and t_(m l)=t_l recover elementary divisors. Independently checked the complement, nonzero kernel and inflated identity cases via direct S3 character sum, k=1..10; induced identity follows by orbit-character orthogonality. The two F7^2 actions are scalar versus nonscalar and hence distinct.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: Known generic sum plus representation theory does not by mere parameter substitution give four evaluated uniform formulas and action-blind reconstruction; prior special prime-complement calculations overlap and are credited. Prior formulation/implication comparisons are documented; search nonhits are not proof of priority.
+
+## value
+
+PASS
+
+The natural complete family of group-theoretic higher indicators with arbitrary abelian kernel and composite cyclic complement provides explicit uniform torsion-sensitive formulas, reconstructs A and complement size and proves genuinely nonisomorphic actions share every dimension-tagged indicator. This is not merely a routine small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
