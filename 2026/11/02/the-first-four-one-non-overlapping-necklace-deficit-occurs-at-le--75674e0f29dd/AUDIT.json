@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The primitive-rotation-class upper bound follows from self-unborderedness and the unavoidable proper overlap between distinct rotations. An exact 1296-case six-necklace transversal test reduces the 40-class upper bound to 39 at length twelve; every single deletion of one of those six classes admits a compatible five-transversal. Explicit length-4-through-12 codebooks reach 0,1,2,5,8,14,20,30,39 and the standalone standard-library verifier checks each defining prefix-suffix condition and every primitive necklace count. Checker output: VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al. (2012/2013) Theorem 1.1 and Section 3 bound and construct unrestricted-length non-overlapping codes.",
+        "Blackburn (2013/2015), Theorems 1 and 2 and Sections 3–4: unrestricted size bounds and short-length/large-alphabet results.",
+        "Stanovnik et al. (2024) Proposition 10: general integer-optimization representation of maximum unrestricted non-overlapping codes.",
+        "Stanovnik et al. (2025), Section 3 and Table 1: constructions and small computations for polarity-balanced codewords; Section 4 concerns cyclic run lengths."
+      ],
+      "reasoning": "The unrestricted bounds are too weak to imply the fixed-weight-four strict necklace deficit. The general maximization formulations characterize feasible codes but do not solve the exact n=12, weight=4 instance. The 2025 balance table uses half-positive words (six ones at length twelve), whereas the new claim fixes four. Thus a strict size of 39 and a six-class obstruction are not immediate implications of the inspected stronger frameworks.",
+      "searches": [
+        "arxiv:1209.0236",
+        "arxiv:1303.1026",
+        "doi:10.1007/s10623-023-01344-z",
+        "doi:10.1007/s40314-024-03055-0"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1209.0236v2",
+      "https://arxiv.org/html/1303.1026v3",
+      "https://link.springer.com/article/10.1007/s10623-023-01344-z",
+      "https://link.springer.com/article/10.1007/s40314-024-03055-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A primitive-necklace count gives 40 as an upper bound for weight four and length twelve, but the upper bound by itself does not imply 39.",
+        "The six displayed necklaces are individually primitive, yet their admissible rotations admit no jointly compatible representatives.",
+        "The 39-word construction attains the sharper bound."
+      ],
+      "reasoning": "The exact upper bound 39 requires the six-class incompatibility argument, not only the generic necklace enumeration or an unrestricted bound. The exact lower bound requires a 39-word compatible code. Both ingredients are verified directly, neither follows from published general algorithms without the new finite specialization.",
+      "searches": [
+        "binary cross-bifix-free constant weight four length twelve 39 40 primitive necklace",
+        "weight-four binary non-overlapping codes exact size n 12 first deficit",
+        "fixed-weight four primitive-necklace bound cross bifix constructions synchronization length 12",
+        "\"non-overlapping\" \"constant composition\" \"binary\" \"weight\" code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blackburn (2013), introduction: non-overlapping and cross-bifix-free describe the same two-sided proper prefix-suffix exclusion.",
+        "Stanovnik–Moškon–Mraz (2024), Introduction and Definition 1: synonyms also include mutually uncorrelated and strong comma-free."
+      ],
+      "reasoning": "Comparisons used identical exclusion of all proper overlaps, including self-overlap. Ordinary comma-free codes without the stronger exclusion were not treated as equivalent. The investigated synonymous statements do not give an exact weight-four size of 39 at length twelve.",
+      "searches": [
+        "\"cross-bifix-free\" \"constant weight\" exact bounds",
+        "\"non-overlapping codes\" \"constant-weight\"",
+        "arxiv:1303.1026",
+        "doi:10.1007/s10623-023-01344-z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available Chee et al. small-length table concerns unrestricted binary codes, rather than weight-four subcodes.",
+        "Stanovnik et al. (2025) Table 1 concerns polarity balance and does not list the present weight-four length-twelve optimum.",
+        "The six-necklace incompatibility and the size-39 lower code are both supported by new direct certificates; no inspected published table states this pair of facts."
+      ],
+      "reasoning": "The named table parameters were checked against the complete claim, not merely against numeric agreement or titles. No inspected table gives the same weight-four length-twelve domain and tight 39/40 gap. Non-indexed tables remain a residual historical-priority risk.",
+      "searches": [
+        "\"weight 4\" \"cross-bifix-free\" \"39\"",
+        "\"cross-bifix-free\" \"primitive necklaces\" \"12\"",
+        "\"non-overlapping code\" \"fixed weight\" 39",
+        "\"1, 2, 5, 8, 14, 20, 30, 39\" cross bifix"
+      ]
+    },
+    "rationale": "Published unrestricted and balanced/run-constrained frameworks do not directly assert the fixed-weight-four first strict primitive-necklace deficit or its irredundant six-class obstruction; the new statement needs the explicit combinatorial upper and lower certificates. Historical priority remains provisional.",
+    "residual_risks": [
+      "Unindexed historical specialized finite tables or theses may cover the constrained n=12 weight-four maximum.",
+      "The general maximal-code representation in later literature may admit an unreported equivalent computational specialization.",
+      "No independent historical-priority adjudication has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General non-overlapping bounds and mixed-weight constructions do not contain the constrained 39/40 threshold",
+        "evidence": [
+          "First public version 2012-09-03; Section 2 defines self- and cross-bifix exclusion; Section 3 uses leading-zero constructions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1209.0236v2",
+        "material_read": "Full accessible HTML; introduction, definitions, Section 3 construction and small-length discussion, near-optimality sections",
+        "method": "Compared stated constructions and numerical domains to the fixed-weight-four exact-value and six-necklace claims",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Original early source establishing general cross-bifix-free constructions and unrestricted small-length results"
+      },
+      {
+        "assessment": "Unrestricted bounds/constructions and exact n<=3 q-ary cases do not resolve fixed-weight-four n=12",
+        "evidence": [
+          "Theorems 1 and 2 bound total code size over the full alphabet; Section 4 treats small n and large q, not weight-four codes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1303.1026v3",
+        "material_read": "Full accessible HTML; Sections 1–5 including Theorems 1, 2, and short-length classifications",
+        "method": "Compared exact quantifiers in unconditional size bounds and constructions with n=12, weight=4",
+        "title": "Non-overlapping codes",
+        "trigger": "Foundational equivalence and possible stronger upper bounds"
+      },
+      {
+        "assessment": "The source characterizes arbitrary maximal codes but does not give the weight-four length-twelve optimum or six-necklace obstruction",
+        "evidence": [
+          "Proposition 10 describes unrestricted maximum as an integer optimization; Theorems 16–20 concern length-four q-ary codes."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-023-01344-z",
+        "material_read": "Open-access full HTML; Introduction, Definitions, Section 4 integer optimization, Section 5 q-ary length-four classifications",
+        "method": "Checked whether optimizing the exact weight-four slice is explicitly solved or tabulated",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Potential general exact optimization theorem dominating finite constrained problem"
+      },
+      {
+        "assessment": "The evaluated polarity-balanced table fixes half the bits positive; no exact weight-four length-twelve optimum or six-necklace impossibility is stated",
+        "evidence": [
+          "Section 3 Table 1 treats polarity-balanced codes; Section 4 treats run-restricted words; Section 5 combines those constraints."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+        "material_read": "Open-access full HTML; Introduction, Section 3 Proposition 9 and Table 1, Sections 4–5, Conclusions",
+        "method": "Compared its balance interval, table domain and run constraints against exactly four ones at length twelve",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Closest constrained-code paper; could contain exact weight-four table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "75674e0f-29dd-4752-ac60-80f7b129c1a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primitive-necklace packing ceiling is a natural structural bound for fixed-composition synchronization codes. Exhaustively locating its first failure for weight four, after attainment at every shorter length, identifies an exact motivated cutoff and an irredundant six-necklace obstruction. The result supplies a stand-alone optimal codebook and a small verifiable explanation of the deficit, without asserting larger-length extrapolations.",
+    "status": "PASS"
+  }
+}
