@@ -1,19 +1,21 @@
-# Review of the Gaussian time–frequency localization shape theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result makes a single precise statement about the principal Fock concentration eigenvalue for squared-radius, exactly area-preserving perturbations of a disk, together with the Fourier Hessian's Poisson-mode asymptotics. The exact Fock matrix follows from polar coordinates. The diagonal disk eigenvalues have a uniform isolated gap to the vacuum for every fixed positive disk area. Differentiating the coherent-projector integral justifies trace-norm differentiability and the self-adjoint perturbation formula. The resulting coefficients are derived algebraically; the strict ordering follows from a falling-factorial sum, and the asymptotics follow from a dominated geometric limit and Poisson local CLT. The standalone checker passed 249 corroborating assertions. The finite checks are not taken as proofs of infinite statements.
+PASS
 
-## Originality
+The exact matrix element is a polar radial incomplete-gamma integral. At a disk the vacuum e_0 is the simple maximal eigenvector with lambda_0-lambda_n=e^{-s}A_n(s)>=s e^{-s}; the bounded compactly supported coherent-projector integral is twice trace-norm differentiable for each fixed s,h. Standard isolated-eigenvalue second-order perturbation yields vacuum curvature -e^{-s}||h||^2/2 plus the positive resolvent correction e^{-s}a_n/A_n for each Fourier amplitude; Parseval gives the asserted d_n. The falling-factorial reciprocal sum A_n/a_n strictly increases in n, and a Poisson-probability ratio plus ordinary and local CLT give the large-s crossover. Independently constructed truncated Fock concentration matrices from angular quadrature reproduce five even-in-epsilon curvatures and a Poisson-edge ratio. No uniform nonlinear remainder in s or n is asserted.
 
-**PASS, with priority risk.** The 2021 Nicola–Tilli Faber–Krahn theorem gives global disk optimality but no mode-by-mode Hessian of its optimized principal eigenvalue. The relevant Section 5 second variation in Gómez–Guerra–Ramos–Tilli concerns the *opposite partial optimization*: varying the analytic vector while reselecting its best superlevel set. This is a neighboring but differently parameterized Hessian; no statement of the Poisson ratio spectrum or its critical Gaussian edge appears in the inspected relevant results. General symbol-norm envelopes likewise do not provide it. Comparisons with searchable prior mathematical result summaries and recoverable earlier claims showed no equivalent conclusion. An implicit Schur-complement derivation from earlier results, or an unindexed explicit shape calculation, is a residual risk rather than a claim of exhaustive priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** Fixed-area shape stability of the Gaussian time–frequency Faber–Krahn disk is a natural question. The exact all-mode result determines the null directions, the unique least-stable transverse angular frequency, and a sharp coefficient at every area. The area-dependent response has a new explicit crossover at angular index comparable to disk area, including the universal normal-hazard profile in the critical window. These are motivated structural data of the optimized concentration eigenvalue, not a numerical slice or a mere textbook restatement.
+Best-of-knowledge new optimized fixed-shape Fourier Hessian spectrum and Poisson-to-Gaussian coefficient transition. The pre-existing global Faber–Krahn and 2024 stability theorems are acknowledged; their explicitly inspected Section 5 varies the analytic function and its optimally selected superlevel set, not the top eigenvalue of a prescribed deformed region. Possible implicit Schur-complement equivalence remains a real residual risk.
 
-## Closest literature and limits
+## value
 
-Primary comparisons: Nicola–Tilli 2021, arXiv:2106.03423 (global sharp disk); Nicola–Tilli 2022, arXiv:2207.08624 (operator norm under symbol-norm constraints); Gómez–Guerra–Ramos–Tilli 2023, arXiv:2307.09304, especially Section 5 and Lemma 5.6 (second variation after *set* optimization at fixed analytic perturbation). The present theorem is local in each fixed perturbation; it does not assert uniform large-area Taylor remainders or global set stability. Scientific priority remains provisional and independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural sharp stability question for the maximizer of the Gaussian time-frequency Faber–Krahn problem: identifies precisely the translation nullspace, least stable nontrivial angular frequency, sharp area-dependent curvature, and normal-hazard spectral transition. These provide an exact structural Hessian rather than merely a qualitative global inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

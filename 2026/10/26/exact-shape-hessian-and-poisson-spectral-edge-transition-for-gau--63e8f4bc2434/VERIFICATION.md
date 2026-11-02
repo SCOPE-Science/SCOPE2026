@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the Gaussian time–frequency shape theorem
+# Independent mathematical audit
 
-The proof derives the actual infinite-dimensional localization matrix in the orthonormal Fock basis, computes the isolated vacuum eigenvalue's second derivative, and sums the full nonnegative resolvent correction. The exact denominator is \(\lambda_0-\lambda_n=e^{-s}\sum_{j=1}^n s^j/j!\). The first angular mode is a true null direction; the strict inequality for all higher modes follows from an exact finite falling-factorial comparison for each index. The large-area and edge limits follow analytically from a geometrically dominated coefficient ratio and the Poisson central/local limit theorems.
+## correctness
 
-The accompanying standalone `checker.py` constructs finite Fock localization matrices directly from incomplete-gamma integrals and compares quadratic curvature for pure and mixed angular perturbations, including first harmonic. It independently computes exact mode-order checks at arbitrary precision and numerical Poisson asymptotic checks. The actual test command `python checker.py` produced `PASS 249 independent finite and high-precision checks`.
+PASS
 
-The numerical tests do not establish infinite-dimensional spectral convergence, the complete mode ordering, or asymptotic claims. The latter are proved mathematically in `RESULT.md`. The operator-norm expansion is local for fixed positive area and fixed real zero-mean \(C^2\) perturbation; no uniform remainder in area or angular frequency is claimed. Priority with respect to unindexed or implicitly equivalent prior formulations is not independently established.
+The exact matrix element is a polar radial incomplete-gamma integral. At a disk the vacuum e_0 is the simple maximal eigenvector with lambda_0-lambda_n=e^{-s}A_n(s)>=s e^{-s}; the bounded compactly supported coherent-projector integral is twice trace-norm differentiable for each fixed s,h. Standard isolated-eigenvalue second-order perturbation yields vacuum curvature -e^{-s}||h||^2/2 plus the positive resolvent correction e^{-s}a_n/A_n for each Fourier amplitude; Parseval gives the asserted d_n. The falling-factorial reciprocal sum A_n/a_n strictly increases in n, and a Poisson-probability ratio plus ordinary and local CLT give the large-s crossover. Independently constructed truncated Fock concentration matrices from angular quadrature reproduce five even-in-epsilon curvatures and a Poisson-edge ratio. No uniform nonlinear remainder in s or n is asserted.
+
+## originality
+
+PASS
+
+Best-of-knowledge new optimized fixed-shape Fourier Hessian spectrum and Poisson-to-Gaussian coefficient transition. The pre-existing global Faber–Krahn and 2024 stability theorems are acknowledged; their explicitly inspected Section 5 varies the analytic function and its optimally selected superlevel set, not the top eigenvalue of a prescribed deformed region. Possible implicit Schur-complement equivalence remains a real residual risk.
+
+## value
+
+PASS
+
+A natural sharp stability question for the maximizer of the Gaussian time-frequency Faber–Krahn problem: identifies precisely the translation nullspace, least stable nontrivial angular frequency, sharp area-dependent curvature, and normal-hazard spectral transition. These provide an exact structural Hessian rather than merely a qualitative global inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
