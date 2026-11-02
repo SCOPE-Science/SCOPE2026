@@ -1,0 +1,200 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T06:02:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob 53523d269c35618d9857d43abe51aa19293d0790",
+        "assigned verify_friendship.py Git blob e1abbbd7d78437fc9cedcdb8a997518fcb6ee7d4",
+        "independent locally written enumerator, 2026-10-27: 51707 configurations and 14641 pairs",
+        "reconstructed SHA1 Git tree eedb2acc90d54d242f27d9ae1815a1e0bb7dee8e"
+      ],
+      "rationale": "The exact final theorem has fully quantified domain k>=2, graph F_k=K1 vee(kK2), nonnegative integer pebbles and legal two-for-one moves. Reconstructed hub potential E=h+sum f(a_i,b_i), f=floor(a/2)+floor(b/2)-delta where delta=1 precisely for (1,1) or a lone odd pile. For all legal moves the three exact potential changes (outer-to-hub, hub-to-outer, intra-pair) are nonpositive, including parity and zero-pile boundary cases. The constructive one-pair elimination treats both-even, mixed parity, both odd, lone odd of size >=5, lone size 3 and size 1, and (1,1), with hub reserve 0/1/2 as applicable. Eliminate f>0 first, zero next and f=-1 last: if E>=1 then H>=m+1 ensures enough reserve before each negative pair, leaving exactly E pebbles at the hub. Necessity follows monotonicity. For unrestricted stacking, the first single-support time is preceded by two source pebbles; the unique exceptional q=3 outer-terminal state is handled explicitly via immediate predecessors with positive potential. The universal local inequality 2f(a,b)>=a+b-4 has equality only for (1,1), so t>=4k implies E>=1; the explicit size (4k-1) configuration has E=0 and multiple occupied vertices. An independent clean-room dynamic program checked the two reachability criteria on 34+1286+50387=51707 configurations for k=1,2,3, all sizes 1..4k, and independently checked 14641 ordered local count pairs (0..120)^2 with move inequalities and sharp bound. These finite checks corroborate but do not prove the all-k quantifiers; the algebraic and constructive proof covers them.",
+      "residual_risks": [
+        "The independent finite dynamic program covered k<=3, not the original package's k=4 claim of 2,094,681 tested configurations; k>=4 correctness relies on the verified symbolic proof, not the finite data.",
+        "The proof does not address clearing numbers, arbitrary cactus graphs, or one-pebble-at-a-root reachability with other pebbles left behind."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Csernák–Soukup Theorem 5.1 yields stack(F_k)>=3 alpha(F_k)+1=3k+1 for k>=2, strictly below 4k.",
+          "Csernák–Soukup Section 8 determines exact values for complete graphs and complete k-partite graphs. F_k=K1 vee(kK2) is not complete multipartite for k>=2: two nonadjacent vertices from distinct triangles have distinct neighborhoods, impossible in the same part of a complete multipartite graph.",
+          "Their generic connected-graph bound 2|V|2^diam provides existence, not either tight 4k or a configurationwise criterion; their exact path/tree formulas cannot be specialized to graphs with triangles.",
+          "The 2021 same-graph bound gamma(F_k)=5+8(k-1) is an exact result on a different final-support requirement, not a dominating general theorem."
+        ],
+        "reasoning": "Checked corollary/special-case implications of precise known structural theorems rather than requiring the graph name to appear. Neither the general lower/upper inequalities, the exact multipartite family, nor a cover-pebbling theorem logically covers the new exact threshold and iff criterion.",
+        "searches": [
+          "Resultary: Stacking and clearing graph pebbling arbitrary configuration exact criterion friendship windmill graph",
+          "Resultary: graph pebbling stacking number windmill friendship book cactus graph covering pebbling",
+          "Csernák–Soukup Theorem 5.1 and Theorems 8.1–8.3 (arXiv:2604.22341v1)",
+          "2021 friendship-graph cover pebbling DOI doi:10.1088/1742-6596/1770/1/012064"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2604.22341v1",
+        "doi:10.1088/1742-6596/1770/1/012064",
+        "https://www.researchgate.net/publication/350731857_Cover_pebbling_number_of_Comb_Friendship_and_Helm_graphs",
+        "https://faculty.etsu.edu/keatonr/documents/CoverRubbling.pdf",
+        "https://github.com/lajossoukup/pebbling/blob/main/special_graph_pebbling_report.tex",
+        "Resultary published semantic searches: Resultary: Stacking number friendship graph K1 join k K2 pebbling consolidate all pebbles one vertex hub surplus; Resultary: Stacking and clearing graph pebbling arbitrary configuration exact criterion friendship windmill graph; Resultary: graph pebbling stacking number windmill friendship book cactus graph covering pebbling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New claim: for every k>=2 and every nonnegative integer configuration c on F_k, prescribed-hub consolidation iff E(c)>=1, unrestricted consolidation iff E(c)>=1 or already single-supported, and stack(F_k)=4k.",
+          "Published general bound stack(F_k)>=3k+1; 4k-(3k+1)=k-1>0, so the exact number is not a rephrasing of the known numerical inequality.",
+          "Prabha–Sandhiya 2021 friendship graph cover-pebbling number 5+8(k-1) has a different final target (all vertices occupied), and does not imply the local parity-penalty criterion.",
+          "The 2026 paper supplies no theorem about triangle-windmill hub elimination; the proof here introduces and verifies a monotone signed local potential plus exact elimination constructions."
+        ],
+        "reasoning": "Compared necessary/sufficient quantifiers and target support, not matching graph nomenclature. No located prior statement implies the sharp 4k threshold or configurationwise decision rule. Historical priority cannot be certified by search and remains qualified.",
+        "searches": [
+          "Resultary: Stacking number friendship graph K1 join k K2 pebbling consolidate all pebbles one vertex hub surplus",
+          "Resultary: Stacking and clearing graph pebbling arbitrary configuration exact criterion friendship windmill graph",
+          "Resultary: graph pebbling stacking number windmill friendship book cactus graph covering pebbling",
+          "https://arxiv.org/html/2604.22341v1",
+          "https://www.researchgate.net/publication/350731857_Cover_pebbling_number_of_Comb_Friendship_and_Helm_graphs",
+          "https://github.com/lajossoukup/pebbling/blob/main/special_graph_pebbling_report.tex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Csernák–Soukup arXiv:2604.22341v1 Introduction lines 56–106 precisely defines stackable as reaching any single-support configuration; ordinary prescribed-target pebbling need only place one pebble at a root, without emptying other vertices.",
+          "Prabha–Sandhiya 2021 abstract and Theorem 2 compute cover pebbling on friendship graphs, requiring at least one pebble at EACH vertex; covering does not imply any one-vertex consolidation or vice versa.",
+          "Haynes–Keaton Cover Rubbling and Stacking (2020), inspected available preprint opening and theorem statements: the word stacking refers to extreme INITIAL piles for cover-rubbling, not terminal one-support stacking."
+        ],
+        "reasoning": "Aliases friendship/windmill/Dutch windmill/triangle cactus, rooted pebbling, arbitrary-target pebbling, cover pebbling, and cover-rubbling stacking were compared using the actual initial-versus-final support quantifiers. No cited primary theorem gives the two if-and-only-if predicates or their sharp consequence for this graph family; the homonymous use of stacking in cover pebbling is not logically equivalent.",
+        "searches": [
+          "Resultary: Stacking number friendship graph K1 join k K2 pebbling consolidate all pebbles one vertex hub surplus",
+          "Resultary: Stacking and clearing graph pebbling arbitrary configuration exact criterion friendship windmill graph",
+          "web: \"stacking number\" \"friendship graph\" graph pebbling",
+          "web: \"stacking number\" \"windmill\" pebbling",
+          "https://arxiv.org/html/2604.22341v1",
+          "https://faculty.etsu.edu/keatonr/documents/CoverRubbling.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three actual Resultary semantic queries returned top same-graph records for fractional edge dimension, general-position polynomial, and dissociation polynomial. Their enumerated quantities are unrelated to graph pebbling.",
+          "Full author-repository special_graph_pebbling_report.tex blob b8645929e00f2e54882bb8f022ad91ca11ad721a lists P2–P5, K3–K5, K1,3, K1,4, K2,4, K2,3,4 and C3–C8, not F_k for k>=2; K3 represents only elementary k=1.",
+          "Csernák–Soukup Section 11 refers to finite graph atlas and computational reports; finite entries if present do not imply an exact all-k formula or the sharp configuration-level iff criterion."
+        ],
+        "reasoning": "Directly inspected the data-generating LaTeX table and linked Python generator, not merely a title. The actual listed finite graph classes do not contain the target k>=2 friendship graph. Even if a small friendship graph occurs in another finite atlas, it would not mathematically imply the new universal theorem.",
+        "searches": [
+          "Resultary: Stacking number friendship graph K1 join k K2 pebbling consolidate all pebbles one vertex hub surplus",
+          "Resultary: graph pebbling stacking number windmill friendship book cactus graph covering pebbling",
+          "Resultary IDs 2026/10/4/SCOPE-all-minimal-fractional-edge-resolvers-of-friendship-graphs--a2711a0dec94, 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f, 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+          "https://github.com/lajossoukup/pebbling/blob/main/special_graph_pebbling_report.tex",
+          "lajossoukup/pebbling special_graph_pebbling_report.py Git blob 36cc5a55992dd38678482ac47f26e7ebf4144b68"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality after comparing the SAME destination-consolidation invariant at theorem/implication level. Csernák–Soukup 2026 introduce stack(G), compute complete/multipartite/path families and prove stack(G) >= 3 alpha(G)+1, but the k>=2 friendship graph lies outside their exact graph classes. Their bound specializes only to 3k+1, not 4k, and cannot imply the exact necessary-and-sufficient configurationwise hub-surplus criterion. The 2021 friendship-graph paper computes cover pebbling, which has an incompatible target (occupy all vertices), whereas the new claim empties all but one vertex. Checked same-graph Resultary records and the original authors' released finite report: none of the inspected exact reported entries gives this all-k theorem. Absence of a matching indexed source is not proof of priority; risk of unindexed or unpublished equivalent work is retained.",
+      "residual_risks": [
+        "The full 2021 friendship-graph article was not verified as completely accessible, although the relevant published target definition and Theorem 2 were inspected as indexed full-text portions; further unrelated theorems are not ruled out solely by snippet search.",
+        "An unindexed, thesis-only, privately circulated or unpublished equivalent friendship graph terminal-stacking characterization could exist; search failure cannot certify priority.",
+        "Only the author-released selected-graph table was fully read, not any entire atlas of all small graphs, and finite atlas entries cannot establish universal k anyway.",
+        "Published result database outputs were summaries of records, not exhaustive human review of all similarly named graph parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces exact parameter, supplies general lower 3k+1 and exact formulas for other graph classes, but its stated theorems do not imply 4k for F_k (k>=2) or either configurationwise iff.",
+          "evidence": [
+            "arXiv:2604.22341v1 Definition lines 105–106; Theorem 5.1; Theorems 8.1–8.3; Sections 10–11."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.22341v1",
+          "material_read": "Full 1581-line searchable 2026 arXiv HTML inspected by section, with detailed reading of Introduction/definition (lines 30–140), Theorem 5.1 and its proof (around lines 426–470), complete multipartite Section 8 (around 831–1060), and discussion of computational results in Section 11. Full-text searches for friendship and windmill performed; no matching named result. Not every line was individually reread.",
+          "method": "Full-text arXiv HTML and exact indexed theorem-section searches; graph-class inclusion and parameter implication compared explicitly.",
+          "title": "Stacking and Clearing in Graph Pebbling",
+          "trigger": "Defines exact same stacking invariant and gives strongest directly applicable general bound and plausible dominating graph-class formulas."
+        },
+        {
+          "assessment": "The required target is all vertices covered, not a sole occupied vertex; its formula does not imply the new stacking theorem. Inaccessible other portions remain an explicitly documented inspection limit.",
+          "evidence": [
+            "Theorem 2 gamma(F_n)=5+8(n−1); article Abstract defines cover pebbling by final occupancy of every vertex."
+          ],
+          "identifier_or_url": "doi:10.1088/1742-6596/1770/1/012064; https://www.researchgate.net/publication/350731857_Cover_pebbling_number_of_Comb_Friendship_and_Helm_graphs",
+          "material_read": "Publicly indexed CC-BY full-text extract including cover-pebbling definition, introduction/Section 2, and the statement of Theorem 2 gamma(F_n)=5+8(n−1); opening the complete ResearchGate page in the browser returned disabled, so full article was NOT asserted read.",
+          "method": "Primary article full-text indexed excerpts and theorem/target comparison; complete primary source access could not be confirmed.",
+          "title": "Cover pebbling number of Comb, Friendship and Helm graphs",
+          "trigger": "Earlier primary study of precisely friendship graphs and pebbling, therefore priority-relevant despite different invariant."
+        },
+        {
+          "assessment": "Uses a different move/target model and meaning of stacking; gives no configurationwise F_k all-to-one classification.",
+          "evidence": [
+            "Introduction and definitions of cover rubbling/stacking; early theorems on extremal source configurations."
+          ],
+          "identifier_or_url": "https://faculty.etsu.edu/keatonr/documents/CoverRubbling.pdf",
+          "material_read": "Accessible author-posted preprint PDF pages 1–4, introductory definitions and selected theorem statements, including visual PDF-page inspection of page 3; not a claim of complete all-page review.",
+          "method": "Lawful open PDF text and page screenshot, distinguishing initial stacked configurations in cover rubbling from terminal stacking of a pebbling configuration.",
+          "title": "Cover Rubbling and Stacking",
+          "trigger": "Older graph-pebbling paper using term stacking, a potential alias that must be checked."
+        },
+        {
+          "assessment": "Table includes K3 (the k=1 boundary) but not a friendship graph k>=2, and no all-k decision criterion.",
+          "evidence": [
+            "Author table lists paths P2–P5, K3–K5, stars, complete multipartite examples and cycles; does not list F2 or larger friendship graphs."
+          ],
+          "identifier_or_url": "https://github.com/lajossoukup/pebbling/blob/main/special_graph_pebbling_report.tex",
+          "material_read": "Complete raw LaTeX report table, from Git blob b8645929e00f2e54882bb8f022ad91ca11ad721a; linked Python report generator 36cc5a55992dd38678482ac47f26e7ebf4144b68; did not read PDF rendition.",
+          "method": "GitHub Git blob content inspected through read-only connector; exact entries enumerated.",
+          "title": "Pebbling Report for Selected Graphs (author source)",
+          "trigger": "Potential exact finite table directly by the authors of the 2026 stacking introduction."
+        },
+        {
+          "assessment": "Returned same-graph records concern edge resolving, general-position and dissociation, not pebbling reachability; no covering published result identified among inspected hits.",
+          "evidence": [
+            "2026/10/4/SCOPE-all-minimal-fractional-edge-resolvers-of-friendship-graphs--a2711a0dec94",
+            "2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f",
+            "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc"
+          ],
+          "identifier_or_url": "Resultary semantic research corpus; 2026/10/4/SCOPE-all-minimal-fractional-edge-resolvers-of-friendship-graphs--a2711a0dec94, 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f, 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+          "material_read": "Titles and scientific claim summaries of closest actual results from three semantic queries, not full papers or repository packages.",
+          "method": "Read-only Resultary semantic search; comparison of invariant definitions and implication domains.",
+          "title": "Published mathematical finding records on friendship and windmill graphs",
+          "trigger": "Check published SCOPE outputs for an exact matching or dominating result under graph aliases."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Csernák–Soukup arXiv:2604.22341v1 definition and Theorem 5.1 general 3alpha+1 lower bound",
+        "RESULT.md constructive hub criterion and size-(4k-1) nonstackable witness",
+        "2021 same-graph cover-pebbling comparison distinguishing final-support goals"
+      ],
+      "rationale": "A natural infinite graph class (triangle friendship/windmill graphs, k>=2) receives both a sharp exact value for a newly introduced and mathematically motivated consolidation invariant and a stronger complete configurationwise decision rule. The parity-corrected hub potential is a genuine structural obstruction and constructive certificate, not a direct textbook substitution: every viable configuration can be actually consolidated at the prescribed hub by local elimination. The exact threshold 4k exceeds the prior sharpest directly applicable general lower bound 3k+1 by k-1 and supplies a transparent tight witness in every order. The result is not a recomputation of known cover-pebbling tables or an unmotivated finite slice, and a future researcher studying stacking in block graphs or triangle cacti can use the local criterion and extremal family as a benchmark; no new theorem for the entire cactus class is asserted.",
+      "residual_risks": [
+        "Scientific scope is this friendship family only; value does not rest on any unproved extension to generalized windmills or arbitrary cactus graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "All seven assigned Git source blobs at commit cbd61aab71e4f01d305014a9520f769db8108742",
+    "https://arxiv.org/html/2604.22341v1",
+    "doi:10.1088/1742-6596/1770/1/012064",
+    "https://www.researchgate.net/publication/350731857_Cover_pebbling_number_of_Comb_Friendship_and_Helm_graphs",
+    "https://faculty.etsu.edu/keatonr/documents/CoverRubbling.pdf",
+    "https://github.com/lajossoukup/pebbling/blob/main/special_graph_pebbling_report.tex",
+    "Resultary three actual published queries",
+    "Independent 51707-state finite backward reachability and 14641-pair local test"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only ordinary undirected 2-for-1 pebbling on K1 vee(k K2), k>=2, with nonnegative integer configurations is proved; k=1 is elementary K3 boundary.",
+    "Does not determine clearing number, arbitrary cactus/block graphs, one-root pebbling, or number of winning sequences.",
+    "Finite independent verification stops at k=3 and local counts<=120, rather than proving the universal statements.",
+    "Originality remains qualified best-of-knowledge with inaccessible full 2021 primary and broad unindexed graph-pebbling literature risk.",
+    "Existing public-facing AUDIT.json and METADATA.json contain internal provenance identifiers; they cannot be published unchanged."
+  ],
+  "residual_risks": [
+    "The independent finite dynamic program covered k<=3, not the original package's k=4 claim of 2,094,681 tested configurations; k>=4 correctness relies on the verified symbolic proof, not the finite data.",
+    "The proof does not address clearing numbers, arbitrary cactus graphs, or one-pebble-at-a-root reachability with other pebbles left behind.",
+    "The full 2021 friendship-graph article was not verified as completely accessible, although the relevant published target definition and Theorem 2 were inspected as indexed full-text portions; further unrelated theorems are not ruled out solely by snippet search.",
+    "An unindexed, thesis-only, privately circulated or unpublished equivalent friendship graph terminal-stacking characterization could exist; search failure cannot certify priority.",
+    "Only the author-released selected-graph table was fully read, not any entire atlas of all small graphs, and finite atlas entries cannot establish universal k anyway.",
+    "Published result database outputs were summaries of records, not exhaustive human review of all similarly named graph parameters.",
+    "Scientific scope is this friendship family only; value does not rest on any unproved extension to generalized windmills or arbitrary cactus graphs."
+  ],
+  "schema_version": 1
+}
