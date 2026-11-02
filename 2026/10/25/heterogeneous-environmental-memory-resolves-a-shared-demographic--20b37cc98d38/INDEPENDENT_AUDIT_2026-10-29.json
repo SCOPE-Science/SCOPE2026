@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:49:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual frozen RESULT.md and rational verify.py inspected",
+        "independent_checks.py reconstructs all formulas via independent stable causal impulse coefficients and rational inversion"
+      ],
+      "rationale": "Eliminating E_i yields stable AR2 with coefficients s_i=λ+α_i and t_i=λα_i. Yule–Walker gives r_i=γ_i(1)/γ_i(0)=s_i/(1+t_i), q_i=γ_i(2)/γ_i(0)=s_i r_i-t_i. Inverting t_i=(r_i²−q_i)/(1−r_i²), s_i=r_i(1+t_i) recovers unordered poles including double roots. Distinct α1 and α2 make the intersection singleton {λ}. The exact variance γ_i(0)=σ_i²(1+λα_i)/[(1−λ²)(1−α_i²)(1−λα_i)] and cross C=τ(1−λ²α1α2)/[(1−α1α2)(1−λ²)(1−λα1)(1−λα2)] recover all covariance parameters, with denominators positive. With equal α, commuting linear filters make an exact full-law swap, even with cross correlation. For insufficient lag0,1+C data, perturb λ and solve α_i=(r_i−λ)/(1−r_i λ) while continuously resetting variances/τ, retaining Σ positive definite locally. Independent rational inversions and 250-term causal impulse convolution confirmed both cross and autocovariance identities; this finite check is not the proof.",
+      "residual_risks": [
+        "Near α1≈α2 the inverse is ill conditioned, even though structurally injective.",
+        "Measurement error, unknown dispersal, nonstationarity, unequal demographic poles are excluded; no finite-sample estimator guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Massie et al 2015 quantify increased spatial correlation under different environmental memory; their reported target is enhanced Moran effect, not unique inverse pole label.",
+          "Dennis et al 2006 and Knape 2008 address density dependence and measurement-error estimation, a different observation model."
+        ],
+        "reasoning": "General state-space structural identifiability could encompass this as an application, but the cited works do not explicitly state the same full 7-moment theorem in accessible passages.",
+        "searches": [
+          "https://doi.org/10.1038/ncomms6993",
+          "https://doi.org/10.1890/0012-9615(2006)76[323:EDDPNA]2.0.CO;2",
+          "https://doi.org/10.1890/08-0071.1",
+          "identifiability shared AR1 demographic pole two-site heterogeneous colored environmental AR1 forcing Yule-Walker"
+        ]
+      },
+      "checked_sources": [
+        "identifiability shared AR1 demographic pole two-site heterogeneous colored environmental AR1 forcing Yule-Walker",
+        "https://doi.org/10.1038/ncomms6993",
+        "https://doi.org/10.1890/0012-9615(2006)76[323:EDDPNA]2.0.CO;2",
+        "https://doi.org/10.1890/08-0071.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Yule–Walker recovers coefficients s_i,t_i from lags0..2; its application across two sites plus equality-colour obstruction and exact lower-moment family are separate pieces.",
+          "Positive definiteness continuity secures genuine counterexamples with correlated innovations, not only a degenerate independent-site case."
+        ],
+        "reasoning": "The exact shared-pole intersection is a simple but mathematically necessary step not delivered by the single-site AR2 identity alone; a general multivariate transfer identification theorem could imply it and remains priority risk.",
+        "searches": [
+          "https://doi.org/10.1038/ncomms6993",
+          "identifiability shared AR1 demographic pole two-site heterogeneous colored environmental AR1 forcing Yule-Walker",
+          "Yule Walker AR2 two pole identifiability common pole"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each site only identifies unordered roots of z²−s_i z+t_i; two distinct environmental colours intersect in the unique common demographic pole.",
+          "This equivalence is the algebraic simultaneous factorization of two AR2 transfer functions."
+        ],
+        "reasoning": "The nearest alternate formulation is common-factor extraction in multichannel AR2 identification; no direct prior statement with seven named moments was found, but generic spectral-factor theory is a historical risk.",
+        "searches": [
+          "identifiability shared AR1 demographic pole two-site heterogeneous colored environmental AR1 forcing Yule-Walker",
+          "AR2 shared pole two outputs colored noise structural identifiability",
+          "multi-channel common pole intersection inverse filter autocovariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact rational parameter witness λ=1/2, α1=1/4, α2=3/4 reproduces all stated moments.",
+          "Published enhanced-Moran article supplies forward correlation equations rather than an indexed complete inverse moment table in the accessible material."
+        ],
+        "reasoning": "A finite numerical parameter table cannot provide all-parameter identifiability and the equal-colour full-law impossibility; no matching exact table located.",
+        "searches": [
+          "identifiability shared AR1 demographic pole two-site heterogeneous colored environmental AR1 forcing Yule-Walker",
+          "two site AR1 latent forcing autocovariance identification threshold lag2",
+          "Moran environmental autocorrelation two site pole recovery table"
+        ]
+      },
+      "rationale": "AR2 pole recovery and pole-order exchangeability are classical; the 2015 enhanced Moran-effect study covers spatially varying environmental autocorrelation in population synchrony. The submitted theorem instead characterizes full structural parameter identification by intersecting two site-specific pole multisets and determines a lag-minimal moment set and all-lag obstruction. No prior exact theorem for this named combination was identified, but the classical algebra may be repackaged in systems-identification terminology.",
+      "residual_risks": [
+        "This could be an immediate corollary of broader identifiability results for shared-pole transfer-function models; not all such primary sources were inspected.",
+        "Massie 2015 accessible abstract and publisher indexed body snippet were read, but publisher full text redirected to authorization; whole-paper noncoverage is not certified.",
+        "The result addresses exact moments, not noisy observations or finite samples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGHLY RELATED FORWARD SYNCHRONY, FULL DOCUMENT UNCLEARED",
+          "evidence": "Reported main result r_population>r_environment under differing memory, not visibly the seven-moment inverse reconstruction. Because full source was inaccessible, noncoverage is not asserted.",
+          "identifier_or_url": "https://doi.org/10.1038/ncomms6993",
+          "material_read": "Primary indexed introduction/body and author-hosted scientific abstract read; publisher complete text redirected to institutional identity; full methods NOT verified read",
+          "method": "Nature Communications indexed HTML and author webpage; attempted publisher full text",
+          "title": "Enhanced Moran effect by spatial variation in environmental autocorrelation",
+          "trigger": "Exactly the same heterogeneous temporally autocorrelated forcing and unconnected populations"
+        },
+        {
+          "assessment": "DIFFERENT OBSERVATION-NOISE SETTING, HISTORICAL RISK",
+          "evidence": "Model contains process/observation noise and density-dependence estimation; relevant general confounding literature.",
+          "identifier_or_url": "https://doi.org/10.1890/0012-9615(2006)76[323:EDDPNA]2.0.CO;2",
+          "material_read": "Bibliographic title and scientific summary only; complete article NOT inspected",
+          "method": "Publisher bibliographic search / citation comparison",
+          "title": "Estimating Density Dependence, Process Noise, and Observation Error",
+          "trigger": "Potential stronger general identifiability of population state-space models"
+        },
+        {
+          "assessment": "POSSIBLE RELATED ESTIMABILITY RESULT, UNCLEARED",
+          "evidence": "Measurement error and parameter estimability are studied; the complete two-site shared-pole implication cannot be excluded from inaccessible full text.",
+          "identifier_or_url": "https://doi.org/10.1890/08-0071.1",
+          "material_read": "Bibliographic citation and abstract context only; full paper NOT inspected",
+          "method": "Publisher abstract/cited literature",
+          "title": "Estimability of Density Dependence in Models of Time Series Data",
+          "trigger": "Potential hidden pole identifiability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Enhanced Moran-effect primary domain and standard Yule–Walker identification equations",
+        "Exact constructive inverse and local counterfamilies, not merely a numerical fit"
+      ],
+      "rationale": "Disentangling demographic persistence from autocorrelated environmental forcing is a motivated ecological inference problem. The theorem supplies an exact observational sufficiency/impossibility dichotomy, including equal-colour nonidentifiability even with all-time data, and a sharp limited moment measurement protocol. Although the inversion uses classical AR2 algebra, the contrast between two heterogeneous sites and same-colour sites is a concrete useful structural boundary.",
+      "residual_risks": [
+        "Near coincident memory parameters the inverse is numerically unstable; no new statistical estimator is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In a Gaussian stationary two-site model X_i,t=λ X_i,t-1+E_i,t and E_i,t=α_i E_i,t-1+ξ_i,t, with common λ∈(0,1), distinct α1,α2∈(0,1), and strictly positive-definite joint innovation covariance, all parameters are uniquely identified by γ_i(0,1,2) for i=1,2 and cross γ12(0). If the α_i coincide but differ from λ, joint pole swapping preserves the full joint law; omitting lag2 leaves a local one-parameter family even with cross lag0.",
+  "limitations": [
+    "The word seven moments means three autocovariances at each site plus one contemporaneous cross covariance, no cross-lags.",
+    "Cross-site Gaussianity matters for full-law obstruction; second-moment inversion itself need not be Gaussian.",
+    "Source overlap with broader system identification theories requires future full-text historical review.",
+    "No external expert attestation or Lean formal proof; finite experiments support but do not prove unbounded parameters.",
+    "Publication withheld until guarded privacy-safe complete public metadata replacements exist."
+  ],
+  "schema_version": 1
+}

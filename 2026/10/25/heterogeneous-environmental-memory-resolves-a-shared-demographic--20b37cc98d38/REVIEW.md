@@ -1,12 +1,21 @@
-# Review of heterogeneous-memory demographic-filter identifiability
+# Independent mathematical audit
 
-## Correctness — PASS
-The nested autoregressive model reduces exactly to a stable second-order autoregression with real positive poles. The two Yule--Walker equations recover the unordered pole pairs from \(\gamma_i(0),\gamma_i(1),\gamma_i(2)\); unequal environmental poles force their unique intersection to be the common demographic coefficient. Two displayed covariance identities then recover all innovation variances and cross covariance. Exact model swapping proves full-law nonidentifiability for equal environmental poles distinct from the demographic pole. The local lag-one insufficiency construction maintains every stated moment and positive definiteness of the innovation covariance matrix. A standalone rational checker reproduced the reconstruction, repeated-root cases and explicit moment example. This review relies on the proof, not on enumeration alone.
+## correctness
 
-## Originality — PASS (subject to bibliographic uncertainty)
-The nearest model is the colored-environment AR(1) population-synchrony formulation in Massie et al. (2015), especially their methods and equation (7). That source derives a **forward synchrony amplification**, not recovery of an unknown common response coefficient from multiple environmental colors. Dennis et al. (2006) and Knape (2008) study different nuisance structure centered on observation/process errors. The algebraic root recovery itself is a classical Yule--Walker operation, which is not claimed as new. The specific two-site inverse labeling theorem, exact all-lag equal-color obstruction, and sharp listed-moment sufficiency have not been found in the inspected sources or overlap records. Specialized multichannel ARMA identification literature may entail the result after reduction, and not every historical technical article could be examined in full; this remains a genuine risk.
+PASS
 
-## Value — PASS
-Spatially replicated ecological population monitoring frequently seeks to distinguish self-regulation from autocorrelated environmental forcing when the environmental signal is unmeasured. This theorem supplies an exact experimental-design distinction: heterogeneous forcing memory permits parameter separation using low-order population moments, while equal forcing memory creates a global structural ambiguity that arbitrarily long single-site records cannot remove. The boundaries are structural, not an unmotivated numerical slice. Finite-sample precision, non-Gaussian full-law uniqueness, measurement error, dispersal and nonlinear density regulation are not established.
+Eliminating E_i yields stable AR2 with coefficients s_i=λ+α_i and t_i=λα_i. Yule–Walker gives r_i=γ_i(1)/γ_i(0)=s_i/(1+t_i), q_i=γ_i(2)/γ_i(0)=s_i r_i-t_i. Inverting t_i=(r_i²−q_i)/(1−r_i²), s_i=r_i(1+t_i) recovers unordered poles including double roots. Distinct α1 and α2 make the intersection singleton {λ}. The exact variance γ_i(0)=σ_i²(1+λα_i)/[(1−λ²)(1−α_i²)(1−λα_i)] and cross C=τ(1−λ²α1α2)/[(1−α1α2)(1−λ²)(1−λα1)(1−λα2)] recover all covariance parameters, with denominators positive. With equal α, commuting linear filters make an exact full-law swap, even with cross correlation. For insufficient lag0,1+C data, perturb λ and solve α_i=(r_i−λ)/(1−r_i λ) while continuously resetting variances/τ, retaining Σ positive definite locally. Independent rational inversions and 250-term causal impulse convolution confirmed both cross and autocovariance identities; this finite check is not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+AR2 pole recovery and pole-order exchangeability are classical; the 2015 enhanced Moran-effect study covers spatially varying environmental autocorrelation in population synchrony. The submitted theorem instead characterizes full structural parameter identification by intersecting two site-specific pole multisets and determines a lag-minimal moment set and all-lag obstruction. No prior exact theorem for this named combination was identified, but the classical algebra may be repackaged in systems-identification terminology.
+
+## value
+
+PASS
+
+Disentangling demographic persistence from autocorrelated environmental forcing is a motivated ecological inference problem. The theorem supplies an exact observational sufficiency/impossibility dichotomy, including equal-colour nonidentifiability even with all-time data, and a sharp limited moment measurement protocol. Although the inversion uses classical AR2 algebra, the contrast between two heterogeneous sites and same-colour sites is a concrete useful structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
