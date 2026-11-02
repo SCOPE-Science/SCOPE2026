@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify.py` using a standard Python 3 interpreter; the script has no third-party dependencies. Its stdout should reproduce the accompanying `verification_output.txt` verbatim and end in `VERIFY_OK`.
+## correctness
 
-For each integer \(3\le n\le7\), the verifier constructs the adjacency masks of \(L(K_n)\) directly from edge intersections in \(K_n\). It then enumerates all \(2^{\binom n2}\) initial subsets and iterates the original closed-neighborhood domination and unique-neighbor forcing rules until convergence. It independently compares success against the isolated-original-vertex criterion. It tests minimality by deleting each selected graph vertex, compares that to the star-forest/matching condition, counts the exact full polynomial and minimum coefficient, and identifies inclusion-maximal failures by trying each possible single addition. The total number of tested initial subsets is \(2{,}131{,}016\).
+PASS
 
-The numerical polynomial is independently reconstructed by inclusion–exclusion on isolated original vertices. Checks of polynomial coefficients and minimum-set counts continue through \(n=14\) with exact integer arithmetic, without exhaustive enumeration at those larger orders.
+Under ordinary power domination in L(K_n), after the closed-neighborhood step precisely edges of K_U, where U is the isolated-vertex set of the selected K_n edges, remain unobserved. For |U|=2 a single forcing event completes; |U|>=3 leaves every observed edge with 0 or at least 2 unobserved neighbors, so no force. This proves iff |U|<=2. Inclusion-exclusion over exact isolated vertices proves complete polynomial; deleting a selected edge can create at most two new isolates, forcing the minimal sets to be an i=1 matching or i=2 star forest. Standard matching and exponential-formula enumerations give min/max and full minimal enumerators. Independent original graph monitoring closure, polynomial counts, minimal sets, maximal-failure counts verified for n=3..6 including 32768 selections at n=6; proof covers every n>=3.
 
-Recorded values: for \(n=5\), the minimum is \(2\) with \(45\) attaining sets; for \(n=6\), \(45\) minimum sets of size \(2\) and \(60\) other inclusion-minimal sets of size \(3\); for \(n=7\), \(735\) minimum sets of size \(3\) and \(105\) inclusion-minimal sets of size \(4\). These counts agree with the independently checked formulas.
+## originality
 
-**Limits.** Finite exhaustive checks do not establish correctness for all \(n\), nor do they settle literature novelty. The proof in `RESULT.md` supplies the infinite argument. No independent audit has been performed.
+PASS
+
+Brimkov et al introduce general power-domination polynomials, not demonstrably the explicit Johnson J(n,2) family. The four-regular claw-free bound reaches this family only at n=4, and triangular-grid graphs are not Tri(n)=L(K_n). Published SCOPE book/spider power-domination polynomials treat different graphs. Best-of-knowledge new family structural formula and minimality classification, subject to inaccessible foundational full text.
+
+## value
+
+PASS
+
+Complete placement criterion and all-size enumerators, minimal-set star-forest classification, exact extremal sizes, and maximal failures are mathematically natural parameters on the canonical highly symmetric Johnson graph J(n,2). They refine the minimum-size problem substantially.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

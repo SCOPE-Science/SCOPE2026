@@ -1,27 +1,21 @@
-# Scientific review: power domination of triangular graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof defines vertices of \(\operatorname{Tri}(n)=L(K_n)\) as original edges and identifies the exact unobserved set after the domination step with the edges of \(K_U\), where \(U\) is the set of isolated endpoints of the selected edges. At \(|U|\ge3\), an observed edge has either zero or at least two unobserved neighbors and therefore cannot force. At \(|U|=2\), there is exactly one unobserved edge and an observed adjacent edge forces it; at \(|U|\le1\), domination is already complete. The iff criterion is therefore fully proved for every integer \(n\ge3\).
+PASS
 
-Inclusion–exclusion over original isolated vertices proves all coefficients of the power-domination polynomial. The degree-one endpoint test upon deleting a selected edge proves the exhaustive minimal-set classification into matchings and star forests. Labeled matching and two-edge-path enumeration proves both parities of the minimum coefficient, and the exponential formula counts every minimal set. The maximal-obstruction characterization is checked by considering all possible isolated-vertex counts.
+Under ordinary power domination in L(K_n), after the closed-neighborhood step precisely edges of K_U, where U is the isolated-vertex set of the selected K_n edges, remain unobserved. For |U|=2 a single forcing event completes; |U|>=3 leaves every observed edge with 0 or at least 2 unobserved neighbors, so no force. This proves iff |U|<=2. Inclusion-exclusion over exact isolated vertices proves complete polynomial; deleting a selected edge can create at most two new isolates, forcing the minimal sets to be an i=1 matching or i=2 star forest. Standard matching and exponential-formula enumerations give min/max and full minimal enumerators. Independent original graph monitoring closure, polynomial counts, minimal sets, maximal-failure counts verified for n=3..6 including 32768 selections at n=6; proof covers every n>=3.
 
-The standalone direct-definition verifier covered 2,131,016 vertex subsets for \(3\le n\le7\), and separate exact coefficient arithmetic covered \(3\le n\le14\). The infinite-domain proof is not inferred from that enumeration.
+## originality
 
-## Originality — PASS, with residual bibliographic uncertainty
+PASS
 
-The directly relevant foundational paper, Brimkov–Patel–Suriyanarayana–Teich (arXiv:1805.10984v1), defines power-domination polynomials and enumerates several graph families, including numerical data for graphs with fewer than ten vertices. Its relevant full-text sections do not furnish the general polynomial or star-forest characterization for \(L(K_n)\); the small \(n=3,4\) instances are not claimed separately.
+Brimkov et al introduce general power-domination polynomials, not demonstrably the explicit Johnson J(n,2) family. The four-regular claw-free bound reaches this family only at n=4, and triangular-grid graphs are not Tri(n)=L(K_n). Published SCOPE book/spider power-domination polynomials treat different graphs. Best-of-knowledge new family structural formula and minimality classification, subject to inaccessible foundational full text.
 
-Lu–Mao–Wang (arXiv:1808.02613v1) establish a four-regular claw-free power-domination bound. Since \(L(K_n)\) has degree \(2(n-2)\), it covers only the \(n=4\) special case, not the entire family or its minimal-set distribution. Anitha–Rajasingh's 2019 "triangle graph" is instead a hexagon-based planar lattice network, confirmed from the authors' definitions and figure. The more recent power-domination reconfiguration work addresses general minimum-set reconfiguration and does not give these formulas. Targeted searches of the relevant published research collection did not identify a statement dominating the full theorem.
+## value
 
-Not every obscure or unindexed paper can be ruled out, and generic matching or edge-cover formulas do not themselves certify bibliographic priority.
+PASS
 
-## Value — PASS
+Complete placement criterion and all-size enumerators, minimal-set star-forest classification, exact extremal sizes, and maximal failures are mathematically natural parameters on the canonical highly symmetric Johnson graph J(n,2). They refine the minimum-size problem substantially.
 
-This is a complete classification of *all* feasible power-monitoring placements of a natural, highly symmetric infinite graph family—not merely the ordinary minimum number. The one-step-or-stalled dichotomy is a structural boundary; the star-forest decomposition classifies *all* inclusion-minimal sensor placements and provides a full size generating function. The sharp gap \(\overline\gamma_P-\gamma_P\) is unbounded, and maximal failing placements are exactly counted. These give concrete tools for robustness, choice among minimal placements, and finite enumerations that are not implied by knowing the domination number or a generic graph-polynomial definition.
-
-## Limits
-
-The result does not treat arbitrary line graphs or higher Johnson graphs. The \(n=3,4\) polynomial instances may occur in existing small-graph tables, and independent bibliographic and mathematical assessments remain outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
