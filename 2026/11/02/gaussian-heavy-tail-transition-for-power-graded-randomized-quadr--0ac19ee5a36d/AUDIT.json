@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact change of variables gives an iid-uniform independent centered series with exact cell variances. A local Taylor estimate yields c j^(2q-4), with a bounded-innovation estimate O(j^(q-2)). Summability gives almost-sure and L2 heavy-tailed limit; Hoeffding controls all but the first heavy-tailed cell. Lindeberg–Feller handles critical logarithmic and supercritical normalizations and Slutsky handles the first finite-variance cell. One-variable differentiation yields the unique optimum, and exact rational expansion verifies finite-n examples. Independent standard-library rational checker successfully ran. Infinite claims rest on proofs, not numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carpentier–Munos section 3 Lemma 1 requires a continuous gradient with square-integrable gradient; derivative of t^-alpha is not square-integrable on (0,1).",
+        "Chopin–Gerber arxiv:2210.01554v2 section 2 concerns C^r functions on the closed cube."
+      ],
+      "reasoning": "Known differentiability-based oracle stratification yields a formal allocation constant but does not cover the singular non-Gaussian regime or critical logarithmic CLT. The optimum over power meshes is deliberately not claimed over arbitrary grids.",
+      "searches": [
+        "arxiv:1210.5345v1 section 3 Lemma 1 and oracle benchmark",
+        "sharp root mean square rates and optimal power mesh exponent for stratified random integration t^-alpha",
+        "power graded stratification optimal variance p=2/(1-alpha) CLT n^-3/2",
+        "graded stratified Monte Carlo improper integrals endpoint singularity Gaussian phase transition critical logarithm"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2210.01554v1 and v2 (revised accessible full HTML)",
+      "arxiv:1210.5345v1 (accessible full HTML)",
+      "Haber 1966 original estimator as explicitly reproduced in arxiv:2210.01554 section 2.1",
+      "Semantic mathematical record queries listed in the four check objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Smooth C^r hypothesis in Chopin–Gerber fails for power singularity; their control-variate method is different.",
+        "Carpentier–Munos Lemma 1 assumes squared-integrable gradient and formulates a smooth-function asymptotic oracle lower bound; those assumptions are not met here.",
+        "Results list 2026/10/4/SCOPE-five-endpoint-laws-behind-vanishing-standardized-anti-concentrat--b5686a859f59 and 2026/9/19/SCOPE-critical-power-log-dyadic-phase-location-moduli--144dcf8ab051 involve unrelated distributional endpoint laws."
+      ],
+      "reasoning": "Source results do not logically imply the singular first-cell heavy tail, three exact fluctuation scalings, or all-n equal-variance identity under their published assumptions. Classical CLT is a proof tool, not an alleged new standalone theorem. Generic stratification and formal allocation are credited as prior.",
+      "searches": [
+        "https://arxiv.org/html/2210.01554v2 section 2 and introduction",
+        "https://arxiv.org/html/1210.5345v1 sections 2 and 3",
+        "stratified random quadrature graded power-law mesh endpoint singularity x minus alpha critical grading exponent Gaussian logarithmic CLT nonGaussian limit",
+        "randomized Riemann sums power singularities exact variance threshold optimal graded mesh n inverse three halves",
+        "power graded one-point randomized quadrature singular integrand heavy-tailed series limit q=3/2 threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haber stochastic integration uses independent uniform strata in regular smooth setting (Chopin–Gerber, section 2.1); the present power-graded singular extension is a distinct claim.",
+        "Semantic results including 2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648 concern extrapolated deterministic quadrature rather than the present probabilistic limit laws."
+      ],
+      "reasoning": "Rephrasing the algorithm as a stratified Monte Carlo/Haber rule does not itself imply the independent-series asymptotics with a singular endpoint. No claim of algorithmic invention or generic CLT is made.",
+      "searches": [
+        "stratified random quadrature graded power-law mesh endpoint singularity x minus alpha critical grading exponent Gaussian logarithmic CLT nonGaussian limit",
+        "randomized Riemann sums power singularities exact variance threshold optimal graded mesh n inverse three halves",
+        "Haber randomized Riemann sum x^{-alpha} nonuniform power grading law central limit and critical exponent",
+        "exact equal cell variance t^{-1/3} p=3 one random uniform per stratum Gaussian CLT",
+        "arxiv:2210.01554v2 section 2.1 (Haber estimator)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved mathematical record 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8 concerns rounded stratified-gradient allocation; no values, cell variances, or power-graded integrand overlap.",
+        "Retrieved record 2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1 concerns a three-sample Beta sample-variance law, not a quadrature table."
+      ],
+      "reasoning": "Exact cubic equal-variance and quartic finite-n examples were checked by direct symbolic identities. No retrieved table or record contained these numerical-quadrature values. This limited negative search is not proof of uniqueness.",
+      "searches": [
+        "stratified Monte Carlo power singular integrals infinitely divisible limit independent uniform series",
+        "exact equal cell variance t^{-1/3} p=3 one random uniform per stratum Gaussian CLT",
+        "power graded one-point randomized quadrature singular integrand heavy-tailed series limit q=3/2 threshold",
+        "2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8"
+      ]
+    },
+    "rationale": "Source-derived unbiased stratification and smooth oracle allocation are known and explicitly credited. The identified claim is an improper power singularity three-regime distributional transition, exact finite-n variance decomposition, sharp constants, and universal equal-variance cubic example. Full text of two most relevant primary papers was inspected; both smoothness hypotheses exclude t^-alpha at zero, and neither provides the singular limit law or exact cubic identity. Actual semantic record searches produced no covering claim; global novelty and other older quadrature literature remain residual risks.",
+    "residual_risks": [
+      "An unlocated classical 1960s–1990s result on graded stratified integration of algebraic endpoint singularities may already imply the three-regime asymptotics.",
+      "The optimal power-grid variance constant agrees formally with the classical smooth-case oracle benchmark; it is not represented as globally novel optimal allocation.",
+      "Mathematical-record semantic retrieval is incomplete and cannot certify priority; independent expert validation has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING singular power-graded three-regime law; claims cover different smooth functions and estimators",
+        "evidence": [
+          "arxiv:2210.01554 original submission 2022-10-04, MSC 65D32/65C05",
+          "HTML sections 1.1–1.3 and 2.1: smooth C^r and regular cubical strata; Haber rule credited"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.01554v2",
+        "material_read": "Introduction sections 1.1–1.3, section 2.1 Haber estimators and 2.7 CLT framing, abstract, references; compared C^r scope against endpoint-singular t^-alpha",
+        "method": "read public full HTML and locate actual estimator definitions and regularity assumptions",
+        "title": "Higher-order Monte Carlo through cubic stratification (revised title; original preprint title Higher-order stochastic integration through cubic stratification)",
+        "trigger": "Same independently randomized integration concept and first permitted-date source"
+      },
+      {
+        "assessment": "Smooth-case oracle constant is known; singular setting violates squared-gradient integrability and non-Gaussian/critical law is not covered by this lemma",
+        "evidence": [
+          "arxiv:1210.5345 section 3 Lemma 1 assumes gradient continuous with square-integrable gradient",
+          "Section 2/3 supplies oracle variance coefficient 1/12 times fourth power of integral sqrt(|gradient|) in dimension one"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1210.5345v1",
+        "material_read": "Introduction, setting and Lemma 1 in section 3, oracle lower-bound formula, assumptions on gradient integrability and allocation, discussion/conclusion",
+        "method": "read original open full-text HTML and compare Lemma 1 hypotheses and implication to singular integrand",
+        "title": "Adaptive Stratified Sampling for Monte-Carlo integration of Differentiable functions",
+        "trigger": "Nearest broader result giving sharp stratification allocation and asymptotic n^-3 coefficient"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ac19ee5-a36d-45b6-a08a-18b637a5187f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Endpoint singularities break the smooth-case assumptions of common randomized quadrature theory. The exact threshold p(1-alpha)=3/2 differentiates a genuinely heavy-tailed limit from a logarithmic boundary CLT and a Gaussian n^-3/2 region. The unique cost-effective power mesh and all-n equal-variance alpha=1/3 design provide a concrete reproducible integration rule and diagnosis of why insufficient grading causes non-Gaussian residual risk. This is a motivated structural phase classification, not a routine small numerical increment.",
+    "status": "PASS"
+  }
+}
