@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Run `python3 VERIFY_GP2_OCT.py` in the same directory. No external libraries, external papers, or network access are required.
+# Independent mathematical audit
 
-The verifier reconstructs the seven permissible signed-or-zero columns and all 41 permissible ordered pairs, enumerates every arc, verifies the integer reduced-cost inequality, identifies the sole cyclic strongly connected component of equality arcs, verifies its 22 vertices and its modular four-level labelling, and checks cyclic witnesses and their repeated concatenations. It independently constructs graph adjacency and brute-forces all deletion subsets smaller than the bound and all subsets at the bound for each \(5\le n\le12\), testing residual bipartiteness by graph traversal.
+## correctness
 
-Observed output in the scientific review:
+PASS
 
-```
-CERTIFICATE_OK states=41 tight_arcs=58 recurrent_states=22
-INDEPENDENT_BRUTE_OK n=5 minimum=3 attaining_sets=30
-INDEPENDENT_BRUTE_OK n=6 minimum=4 attaining_sets=132
-INDEPENDENT_BRUTE_OK n=7 minimum=4 attaining_sets=196
-INDEPENDENT_BRUTE_OK n=8 minimum=4 attaining_sets=162
-INDEPENDENT_BRUTE_OK n=9 minimum=5 attaining_sets=540
-INDEPENDENT_BRUTE_OK n=10 minimum=6 attaining_sets=3240
-INDEPENDENT_BRUTE_OK n=11 minimum=6 attaining_sets=2783
-INDEPENDENT_BRUTE_OK n=12 minimum=6 attaining_sets=1458
-VERIFY_OK
-```
+An odd-cycle transversal is exactly a vertex set whose residual induced graph is 2-colourable. Each cyclic column (a_i,b_i) with signed ±1 colours or 0 deletion has 7 allowed spoke patterns; consecutive outer and distance-two inner constraints correspond bijectively to closed walks on the exact 41-state pair automaton. An explicit integer 41-state potential satisfies 2w−1+P(s)−P(t)>=0 for EVERY one of 203 allowed arcs, giving universal deletion cost >=ceil(n/2). Equality for even n requires each arc tight; an independent graph-algorithm verification found exactly one cyclic tight SCC of 22 states, and every tight arc in it advances a Z/4 level, so a closed zero-reduced-cost walk can have length only 0 mod4. This excludes deletion count n/2 at n=2 mod4. Five explicit cyclic upper-bound words W4..W8 and their boundary-compatible concatenations W_b W4^t attain the formula for every n>=5. Independently brute-tested all smaller deletion subsets and all optimal-cardinality subsets for every n=5..10: optimal values (3,4,4,4,5,6) and positive attainment counts. Exhaustive finite automaton inequalities plus general pattern concatenation, not brute-force samples, prove all n.
 
-The theorem's infinite scope rests on the finite potential and cyclic witness arguments, not on extrapolating the brute-force checks. Stronger claims concerning all optimal configurations, uniqueness, or other step sizes have not been checked. Scientific originality may be affected by unindexed earlier work; no independent validation has occurred.
+## originality
+
+PASS
+
+Novelty is a qualified best-of-knowledge mathematical comparison, not a guarantee of priority; exact original claim was searched against equivalent formulations, general theorems and data tables.
+
+## value
+
+PASS
+
+A sharp all-order odd-cycle vertex-transversal formula for a classical cubic graph family is a natural structural invariant. The mod4 exceptional family arises from an actual periodic obstruction in a minimal-cost automaton, not generic hardness or a single small instance. It supplies exact maximum induced-bipartite cardinality and reusable finite-state lower-bound certificates, distinct from known decycling and independence invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:06:02.710712Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An odd-cycle transversal is exactly a vertex set whose residual induced graph is 2-colourable. Each cyclic column (a_i,b_i) with signed ±1 colours or 0 deletion has 7 allowed spoke patterns; consecutive outer and distance-two inner constraints correspond bijectively to closed walks on the exact 41-state pair automaton. An explicit integer 41-state potential satisfies 2w−1+P(s)−P(t)>=0 for EVERY one of 203 allowed arcs, giving universal deletion cost >=ceil(n/2). Equality for even n requires each arc tight; an independent graph-algorithm verification found exactly one cyclic tight SCC of 22 states, and every tight arc in it advances a Z/4 level, so a closed zero-reduced-cost walk can have length only 0 mod4. This excludes deletion count n/2 at n=2 mod4. Five explicit cyclic upper-bound words W4..W8 and their boundary-compatible concatenations W_b W4^t attain the formula for every n>=5. Independently brute-tested all smaller deletion subsets and all optimal-cardinality subsets for every n=5..10: optimal values (3,4,4,4,5,6) and positive attainment counts. Exhaustive finite automaton inequalities plus general pattern concatenation, not brute-force samples, prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fox–Gera–Stănică, Theorem2.5, gives alpha(P(n,2))=floor(4n/5), not max two-colourable induced order.",
+          "Zhu 2009 gives a global induced bipartite proportion lower bound in triangle-free subcubic graphs, weaker than the sharp P(n,2) value ~3/4."
+        ],
+        "reasoning": "Global bounds or the one-colour independence number do not imply the precise vertex-deletion equality, particularly its n≡2 mod4 correction. Ewell thesis topic is edge-bipartization, not this vertex parameter, based on available title and abstract only.",
+        "searches": [
+          "odd cycle transversal vertex bipartization generalized Petersen graph G(n,2) induced bipartite maximum",
+          "Zhu 2009 bipartite subgraphs triangle free subcubic sharp bound",
+          "Fox Gera Stanica independent number P(n,2)",
+          "bipartite density generalized Petersen Ewell"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, VERIFY_GP2_OCT.py, 41-state potential and modular levels",
+        "Fox–Gera–Stănică 2012 primary full PDF Section2",
+        "Ewell 2011 thesis catalog/abstract (full text unavailable)",
+        "Wei–Li 2013 decycling scope",
+        "Zhu 2009 general induced-bipartite bound",
+        "Resultary semantic search odd cycle transversal vertex bipartization generalized Petersen graph G(n,2) induced bipartite maximum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Decycling removes every cycle (stronger), so its minimum may exceed the minimum odd-cycle transversal.",
+          "Independence alpha=floor(4n/5) counts one independent set, whereas induced bipartite maximum is a union of two disjoint independent sets; the latter can be much larger.",
+          "Ewell thesis is about EDGE deletion to reach bipartiteness, and is not prima facie a formula for vertex deletion."
+        ],
+        "reasoning": "These distinct prior parameters cannot logically force the claimed integer correction. A specific stronger statement on vertex bipartization of all generalized Petersen graphs would be decisive, but was not found in inspected material.",
+        "searches": [
+          "odd cycle transversal vertex bipartization generalized Petersen graph G(n,2) induced bipartite maximum",
+          "Wei Li decycling generalized Petersen 2013",
+          "Fox Gera Stanica independence generalized Petersen 2012",
+          "Ewell bipartite density thesis 2011"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Odd-cycle vertex transversal equals complement of a maximum induced bipartite vertex set, or equivalently maximum union of two disjoint independent sets.",
+          "Generalized Petersen P(n,2) has both outer rim and inner step-two edges; edge-bipartization/decycling are different invariants."
+        ],
+        "reasoning": "Search included the exact vertex-deletion/maximum-induced-bipartite aliases, not merely odd-cycle transversal wording. Max ordinary independent-set results are not enough to determine union of two independent sets.",
+        "searches": [
+          "odd cycle transversal vertex bipartization generalized Petersen graph G(n,2) induced bipartite maximum",
+          "maximum induced bipartite subgraph generalized Petersen P(n,2) 3n/2",
+          "two-colourable induced subgraph vertex deletion odd-cycle hitting set"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact brute-force values at n5..10: 3,4,4,4,5,6; the finite checker certifies the periodic all-n formula through 41 states.",
+          "No exact tabulation of the full all-n vertex-transversal formula identified in inspected primary graph parameter work."
+        ],
+        "reasoning": "Potential integer-sequence tables or unindexed theses could contain finite values, but a finite table alone would not imply the full n>=5 formula without periodicity proof. Historical-priority risk remains.",
+        "searches": [
+          "odd cycle transversal vertex bipartization generalized Petersen graph G(n,2) induced bipartite maximum",
+          "generalized Petersen graph odd cycle transversal table P(n,2) n mod 4 OEIS",
+          "induced bipartite generalized Petersen vertex deletion sequence"
+        ]
+      },
+      "rationale": "Novelty is a qualified best-of-knowledge mathematical comparison, not a guarantee of priority; exact original claim was searched against equivalent formulations, general theorems and data tables.",
+      "residual_risks": [
+        "Ewell thesis and Wei–Li decycling full text were inaccessible; an unindexed vertex bipartization formula could cover this result.",
+        "Original finite verifier claims direct n<=12 enumeration; independent n<=10 and full 41-state certificate checking are separate evidence.",
+        "No extension to P(n,k) for k!=2 nor classification of all minimizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_INVARIANT: alpha(P(n,2))=floor(4n/5), does not count two colour classes.",
+          "evidence": "Theorem2.5 gives the largest single independent set, not largest bipartite induced subgraph.",
+          "identifier_or_url": "https://faculty.nps.edu/pstanica/research/GenPetersen.pdf",
+          "material_read": "Full 13-page author-hosted PDF, Section 2 and Theorem2.5 p.4, inspected page image.",
+          "method": "Author lawful OA PDF and page screenshot.",
+          "title": "The Independence Number for the Generalized Petersen Graphs",
+          "trigger": "Same family P(n,2), plausible but different independence invariant."
+        },
+        {
+          "assessment": "POTENTIAL_RISK: catalog describes bipartite density through edge-removal, and whole-document NOT_COVERING cannot be claimed.",
+          "evidence": "Known metadata concern edge deletion, whereas the audited theorem minimizes deleted vertices.",
+          "identifier_or_url": "https://egrove.olemiss.edu/etd/1324/",
+          "material_read": "Public thesis catalog/abstract, full dissertation download inaccessible.",
+          "method": "University repository metadata and abstract; no full thesis read.",
+          "title": "Bipartite Density of Generalized Petersen Graphs",
+          "trigger": "Highly plausible title for exact bipartiteness parameter."
+        },
+        {
+          "assessment": "DISTINCT_TARGET: decycling deletes all cycles and is stronger than odd-cycle transversal.",
+          "evidence": "Even cycles may remain after odd-cycle transversal, so decycling numbers do not determine this parameter.",
+          "identifier_or_url": "https://doi.org/10.12386/A2013sxxb0022",
+          "material_read": "Publisher bibliographic title/abstract-level scope (not complete paper).",
+          "method": "Publisher abstract/metadata comparison.",
+          "title": "Decycling Number and Upper-Embeddibility of Generalized Petersen Graphs",
+          "trigger": "Another vertex-deletion parameter on same graph family."
+        },
+        {
+          "assessment": "GENERAL_BOUND: global 5/7 guarantee does not imply sharp n-dependent equality ~3/4.",
+          "evidence": "A universal lower bound cannot establish the exact P(n,2) exceptional residue class.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jctb.2008.04.005",
+          "material_read": "Theorem1.4 as indexed in research; full paper was not read.",
+          "method": "Indexed theorem statement and bibliographic check only.",
+          "title": "Bipartite subgraphs of triangle-free subcubic graphs",
+          "trigger": "General potential dominating induced-bipartite lower bound."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp all-order odd-cycle vertex-transversal formula for a classical cubic graph family is a natural structural invariant. The mod4 exceptional family arises from an actual periodic obstruction in a minimal-cost automaton, not generic hardness or a single small instance. It supplies exact maximum induced-bipartite cardinality and reusable finite-state lower-bound certificates, distinct from known decycling and independence invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n>=5 and inner step2, not other generalized Petersen parameters.",
+    "No characterization of all optimal deletion sets.",
+    "Full thesis and publisher article not read; substantial historical priority risk recorded."
+  ],
+  "schema_version": 1
+}
