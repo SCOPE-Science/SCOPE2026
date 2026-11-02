@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical verification is the dominated-convergence proof in `RESULT.md`. The exact transform formula and phase-orbit distance are reconstructed there from the normalized Gaussian and its translate. The positive coefficient is finite because \(e^{-\pi x^2}\rho_a(x)^2=e^{-\pi(x-1/a)^2}\) and \(\sum_{k\in\mathbb Z}k^2e^{-\pi m^2a^2k^2}\) converges.
+# Independent mathematical audit
 
-The standalone script `verification/verify_near_resonance.py` was executed from the package path. For \(a=1/2\), \(m=1\), it computed \(C(a,m)\approx0.683705172855\) and a phase-invariant signal distance of approximately \(1.99813168462\). For \(\varepsilon=\sqrt2\,10^{-2},\sqrt2\,10^{-3},\sqrt2\,10^{-4}\), the ratios \(\Delta_\varepsilon/|\varepsilon|\) were approximately \(0.669195214555\), \(0.682252995501\), and \(0.683559949982\). The relative errors against the predicted coefficient decreased from \(2.12\times10^{-2}\) to \(2.12\times10^{-4}\). The script asserts convergence of these finite tests; it is supplementary and does not certify the infinite limit.
+## correctness
 
-No independent audit or external validation is represented as performed.
+PASS
+
+On aZ all magnitude discrepancies vanish. On bεZ, the squared-modulus difference is ±2ρ sin(πεk); rationalization yields 2π|k|ρ/sqrt(1+ρ²). Uniform Gaussian envelopes dominate sum/integral for |ε|<1/2, giving Δ²/ε²→4π² I(a) S_m(a). Inner product of translated normalized Gaussians gives distance 2sqrt(1−exp(−π/(2a²))). An independent numerical reconstruction at a=1/2,m=1 confirmed C≈0.683705172855.
+
+## originality
+
+PASS
+
+Alaifari–Wellershoff proves single arithmetic-grid nonuniqueness and Liehr proves the non-arithmetic-grid uniqueness equivalence; neither inspected full source supplies this explicit first-order perturbation coefficient for the fixed pair. General ill-conditioning alone does not determine a leading coefficient.
+
+## value
+
+PASS
+
+Quantifies how a uniqueness set may approach a nonuniqueness set with an exact sensitivity slope; meaningful example for measurement-design stability despite no general uniform condition theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
