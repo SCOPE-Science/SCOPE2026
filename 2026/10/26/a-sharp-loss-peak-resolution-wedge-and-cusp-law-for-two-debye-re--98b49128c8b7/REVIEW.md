@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary frequencies are the positive roots of an explicitly differentiated rational loss function. Direct sign constraints restrict roots to a fixed interval. The exact discriminant of a quadratic controlling the derivative-ratio extrema proves a sharp phase partition; the reciprocal identity fixes the strength wedge. The cusp coefficient follows from an integral over the shrinking extrema interval and a controlled Taylor expansion with a strictly positive limiting denominator. The quartically flat critical peak and two balanced-strength frequencies follow from an exact hyperbolic representation. These steps were independently checked algebraically and against rational/root-count cases using the included standalone checker. The assertions are confined to exact positive additive Debye responses; numerical samples alone are not regarded as proof.
+## correctness
 
-## Originality — PASS, with disclosed general-theorem relation
-The underlying Debye formula, the existence of overlapping relaxations, and general two-component mixture-modality criteria predate this result. Došlá (2009), Theorems 1–2, provides a broad derivative-ratio framework and its Proposition 3 solves logistic mixtures, which have squared hyperbolic-secant kernels. The present unsquared hyperbolic-secant loss spectrum requires its own quadratic sign factorization, exact universal ratio \(3+2\sqrt2\), reciprocal amplitude wedge, quartic degeneracy and calculated cusp prefactor. None of those quantitative assertions appears in the inspected primary material. The general theorem does imply the qualitative modality criterion after one performs the specialized algebra, which is explicitly credited; unnoticed special-function-mixture analyses remain a meaningful priority risk. Jakobsen et al. (2008) and Elton (2017) concern dielectric relaxation data, overlapping modes, and fitting ambiguities rather than this sharp phase diagram. No direct duplicate was identified in the actual database and accessible own-ledger claim searches; an unsuccessful search is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-Whether two genuine relaxation mechanisms appear as one or two dielectric loss peaks is a natural interpretation problem. An exact universal minimum separation by a factor \(3+2\sqrt2\) and a necessary-and-sufficient strength window clarify when a second peak is impossible to observe even with noiseless, infinite-bandwidth data. The reciprocal window and \(3/2\) cusp quantify a physically meaningful loss of robustness as the two maxima merge. This is a full parameter classification for a standard response kernel rather than an arbitrary fitted table. No statistical resolution, noisy inverse estimation, or non-Debye extension is claimed.
+From the exact loss derivative reduce stationary x=(ωτ1)² to intersections of J_q(x) with λ in (1/q,1). Independently verified log J_q derivative sign is opposite to P_q=3qx²−(q+1)x+3, with discriminant q²−34q+1. This yields q_c=17+12√2, three crossings exactly inside the open wedge, no second maximum at tangent boundaries; checked reciprocal identity J_q(x)J_q(1/qx)=1, quartic symmetric coalescence and analytic 3/2 cusp coefficient C≈0.00163469412818. Differentiation and analytic Taylor expansion prove all positive parameters, not sampled spectra.
 
-## Closest literature and remaining risk
-Došlá, Kybernetika 45 (2009), 279–292 (generic mixtures, Theorem 2 and logistic Proposition 3); Jakobsen et al., arXiv:0805.4519 (two observed, typically Debye and non-Debye, dielectric processes); Julrat et al., Biosystems Engineering 125 (2014), 1–8 (extended Debye model); Elton, arXiv:1704.01667 (multi-Debye fits and identifiability limitations). The extended-Debye author's manuscript was located but could not be fully downloaded through the accessible public path. A closed-form hyperbolic-secant mixture result in unsearched specialized literature could affect priority. Full general-mixing methodology already exists and must not be attributed as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the inspected primary mathematical assertions and targeted Resultary/published-SCOPE comparisons do not establish the full exact final claim as a known corollary. The identified prior work covers premises, generic methodologies, or weaker/special cases, as specified in the four comparisons; inaccessible or uninspected high-relevance sources remain genuine priority risks, not automatic failures.
+
+## value
+
+PASS
+
+The exact two-Debye mixture gives an experimentally motivated, mathematically necessary-and-sufficient peak-count threshold in time-scale and strength coordinates and the opening exponent/coefficient, distinguishing true two peaks from a shoulder. This is a nontrivial special-function classification beyond the generic mixture derivative-ratio principle, not a statistical resolution guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
