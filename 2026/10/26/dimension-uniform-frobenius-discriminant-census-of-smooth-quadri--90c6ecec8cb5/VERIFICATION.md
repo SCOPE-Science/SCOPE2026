@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible exact finite checks
+# Independent mathematical audit
 
-Run the two independent programs directly from this package in an environment with Python 3 and a C++17 compiler:
+## correctness
 
-```sh
-python3 check_pencils.py
-g++ -std=c++17 -O2 -o check_quadric4 check_quadric4.cpp
-./check_quadric4
-```
+PASS
 
-The concatenated standard output of these programs appears in `expected_counts.txt`, separated by one blank line. Both were executed directly from the material in the package and matched these outputs.
+For any odd finite field F_q and n>=3, fix an invertible B0 in a pencil; T=B0^{-1}B1 is B0-self-adjoint. No rational singular member iff its monic characteristic polynomial has no F_q root; smooth geometric codimension-2 base iff characteristic polynomial is squarefree, since a repeated eigenvalue yields an isotropic eigenvector and hence a singular common zero, whereas distinct eigenvalues diagonalize both forms with nonzero B0 entries. For squarefree f, F_q[t]/(f) is finite etale L. Exactly GL_n(q)/|L^x| matrices T have char f, and precisely |L^x| invertible symmetric intertwining forms B0 (trace pairing Tr(cxy)), yielding GL_n(q) ordered pairs per f. Every projective pencil has GL_2(q) generator bases; factorization strata count products binom(I_d(q),m_d), d>=2. Euler product yields (1-qz^2)/((1-qz)(1+z)^q); density -> D_n/n!. Independently enumerated all 11,011 ternary quadratic pencils over F_3, exactly 1,872 admissible, agreeing with formula. n4 q3 source symmetric-matrix checker inspected, not treated as proof of general theorem.
 
-The first program enumerates all finite ternary conic pencils over \(\mathbf F_3\) and \(\mathbf F_5\), checking each of the \(q+1\) rational members; it also directly enumerates root-free squarefree degree-four monic polynomials over \(\mathbf F_3,\mathbf F_5,\mathbf F_7\). The independent C++17 program enumerates the full set of four-by-four symmetric ternary matrices for each of the two Witt types of invertible first matrices, without using the first program's polynomial enumeration, and compares with a direct count of nonsingular first matrices. It produces exactly \(509,483,520\) ordered valid pairs and, after dividing by \(|\mathrm{GL}_2(\mathbf F_3)|=48\), the formula's \(10,614,240\) pencils.
+## originality
 
-All computations are finite checks only. In particular, polynomial enumeration for degrees three and four is not evidence for all \(n\). The uniform conclusion is instead proved by the geometric smoothness–discriminant equivalence and the étale trace-form count in `RESULT.md`. No proof assistant or external human validation is claimed. Published-priority reservations appear in `REVIEW.md`.
+PASS
+
+Geometric regular-pencil/Segre theory and n=3 q=3,5 individual counts are established prior work and excluded as separate novelty. The quantified all-odd-field, all-n arithmetic pencil mass stratified by full Frobenius discriminant factorization and derangement limit is not visibly implied by the inspected complex geometric classification or earlier pair-rank count. Leep–Schueller 2000 concerns equivalence classes and hyperelliptic function fields, and Fitzgerald–Yucas 2004 treats common-zero counts; inaccessible full texts retain meaningful implicit priority risk.
+
+## value
+
+PASS
+
+This is a dimension-uniform exact arithmetic classification of naturally defined geometrically smooth complete intersections with all rational quadric members smooth. The uniform mass for each separable root-free discriminant, precise Frobenius partition count and derangement-density asymptotic are useful geometric/arithmetic invariants beyond the known isolated low-dimensional counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
