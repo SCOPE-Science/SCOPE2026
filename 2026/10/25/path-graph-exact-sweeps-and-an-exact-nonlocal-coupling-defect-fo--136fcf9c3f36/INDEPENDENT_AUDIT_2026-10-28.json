@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:42:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/path-graph-exact-sweeps-and-an-exact-nonlocal-coupling-defect-fo--136fcf9c3f36/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/path-graph-exact-sweeps-and-an-exact-nonlocal-coupling-defect-fo--136fcf9c3f36/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/path-graph-exact-sweeps-and-an-exact-nonlocal-coupling-defect-fo--136fcf9c3f36/REVIEW.md",
+        "Independently reconstructed exact rational H_{9/10} witness (stage-two and stage-three errors, R=9/10).",
+        "Separately computed H-conjugacy and termination in a nontrivial tridiagonal 4D SPD example; verified source checker’s projection correspondence by reading code.",
+        "Complete source proof has the needed rank-drop and full tridiagonal equivalence; random checks are not proof."
+      ],
+      "rationale": "Inspected complete RESULT.md and verification_checker.py. On the generic nonzero-sketch branch, w_1=e_1 and w_j=e_j-proj_H(w_{j-1})e_j are triangularly supported and form a basis. Each exact line search is the H-orthogonal projection Q_j off w_j. A product of exactly d codimension-one orthogonal projections on a d-space vanishes iff the removed lines are pairwise orthogonal: if zero, rank must drop at every stage, which forces the kernel line of each step to lie in the preceding image. Induction on w_j shows full H-conjugacy iff all H_ij=0 for |i-j|>=2. Generic nonzero coefficients follow by coordinate-j invariance of Q_1...Q_{j-1} e_j, and nongeneric or early-solved starts are expressly excluded. For d=3, after first two line searches the error is H-orthogonal to e_1 and w_2 and hence proportional to w_3-(c/a)e_1; Pythagoras gives R^2=c^2/(aW), positivity gives 0<=R<1. Independently reran exact rational rho=9/10 example and a separate tridiagonal 4-dimensional Gram calculation. No finite test substitutes for the all-d algebraic argument.",
+      "residual_risks": [
+        "Formula concerns generic nonzero-sketch branches only; exceptional or prematurely terminated iterations need separate handling.",
+        "Exact arithmetic and deterministic prescribed permutation; no implication for IID random-sweep finite termination or floating-point stability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary 2026 RCGLS study provides averaged linear convergence for independent sketches, not a one-permutation exact-completion iff on H sparsity.",
+          "General conjugate-direction theory says complete mutual conjugacy implies termination but does not identify the locally constructed coordinate w_j under a sparse Gram graph."
+        ],
+        "reasoning": "The classical theorem covers the implication full conjugacy => termination; not the nonstandard structural iff or exact offband ratio.",
+        "searches": [
+          "Zeng Cai Han Xie arXiv 2605.25034 full text randomized conjugate gradient least squares",
+          "conjugate directions full finite termination for mutually A conjugate basis"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.25034",
+        "https://ddrusvyat.github.io/DSC-243/week1.html",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 1 permits only one predecessor correction.",
+          "Full-conjugacy standard results require all earlier orthogonality and do not prove this is equivalent to H being tridiagonal.",
+          "An SPD H with a nonzero H_13 yields exact R>0 despite one-step local conjugacy."
+        ],
+        "reasoning": "The new necessary off-band obstruction is not an implication of the source convergence rate, and the sharp equality R has no identified stronger antecedent.",
+        "searches": [
+          "https://arxiv.org/abs/2605.25034",
+          "https://ddrusvyat.github.io/DSC-243/week1.html"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source algorithm agrees with predecessor-only H projection and exact line search; conjugate-direction finite termination is classical.",
+          "The submitted claim adds equivalence of complete one-sweep conjugacy to tridiagonality in the chosen singleton order, including necessity."
+        ],
+        "reasoning": "Different coordinate normalizations and a graph-order permutation are equivalent presentations; they do not by themselves count as novelty. The exact iff criterion and nonlocal ratio survive those reductions.",
+        "searches": [
+          "RCGLS one-step conjugacy coordinate singleton deterministic sweep tridiagonal Gram",
+          "Resultary: Randomized conjugate gradient least squares coordinate sketches one sweep exact termination tridiagonal normal matrix graph paths and three coordinate coupling energy defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary hits address CG positivity, spectral fluctuations and other distinct algorithms, not this recurrence and exact ratio."
+        ],
+        "reasoning": "This is an all-d theorem plus exact analytic d=3 equality, not merely an externally tabulated finite instance; no covering table located.",
+        "searches": [
+          "Resultary keyword/semantic search short recurrence path normal matrix coordinate finite sweep",
+          "coordinate RCGLS three by three exact residual ratio table"
+        ]
+      },
+      "rationale": "Zeng–Cai–Han–Xie define the one-step predecessor-corrected RCGLS direction and study expected convergence under random sketches; classical H-conjugate direction theory already supplies finite termination for any fully conjugate basis. The nontrivial independent assertion is the necessary-and-sufficient *coordinate ordering* structural characterization and exact 3-coordinate off-band energy defect. Full accessible RCGLS primary text, including Algorithm 1 and convergence results, was compared. No identified primary result implies these particular structural and exact-ratio claims, subject to residual risk from sparse short recurrence literature.",
+      "residual_risks": [
+        "An earlier theorem on a coordinate one-step Gram-Schmidt/short-recurrence structure, indexed without RCGLS terminology, may give the same tridiagonal equivalence.",
+        "Source conditional genericity matters; no unconditional IID or numerical stability claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_ALGORITHM_PRIOR; NEW_STRUCTURAL_CRITERION_NOT_IDENTIFIED",
+          "evidence": "Algorithm 1 gives only one predecessor orthogonalization, expected rates; no theorem characterizing all-coordinate exact sweep by normal matrix path sparsity or exact R=|c|/sqrt(aW).",
+          "identifier_or_url": "https://arxiv.org/abs/2605.25034",
+          "material_read": "Full accessible arXiv HTML: Algorithm 1 (sketch gradient, one predecessor projection, exact line search), convergence analysis for IID sampling, sparse updates, conclusion/references",
+          "method": "Read and compare actual primary HTML text",
+          "title": "Zeng, Cai, Han and Xie, Randomized conjugate gradient least squares",
+          "trigger": "Exact same iterative recurrence and normalization"
+        },
+        {
+          "assessment": "BACKGROUND_CONJUGATE_DIRECTIONS",
+          "evidence": "Mutually H-conjugate basis implies exact completion; no same coordinate-sweep iff.",
+          "identifier_or_url": "https://ddrusvyat.github.io/DSC-243/week1.html",
+          "material_read": "Relevant publicly accessible lecture notes section as background, not full archival novelty search",
+          "method": "Read relevant explanatory primary teaching section",
+          "title": "Drusvyatskiy, Convex quadratics and conjugate gradient",
+          "trigger": "Classical conjugate-direction finite-step implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/path-graph-exact-sweeps-and-an-exact-nonlocal-coupling-defect-fo--136fcf9c3f36/RESULT.md",
+        "https://arxiv.org/abs/2605.25034",
+        "https://ddrusvyat.github.io/DSC-243/week1.html",
+        "https://github.com/Resultary/2026"
+      ],
+      "rationale": "The local-only correction of a randomized least-squares algorithm presents a natural finite-termination gap: an exact characterization of when its coordinate sweep becomes a full conjugate basis is directly useful for sparse normal equations. The sharp 3x3 equality quantifies a precise otherwise hidden nonlocal coupling loss and shows drastic order sensitivity. Both results have structural content beyond textbook mutual-conjugacy sufficiency or a routine sample.",
+      "residual_risks": [
+        "Normal-matrix sparsity graph can differ substantially from the sparsity of the original least-squares design.",
+        "The nearly noncontractive example approaches singular conditioning; no uniformly bounded-condition-number stagnation is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exact RCGLS singleton-coordinate sketches in a prescribed order on full-column-rank A (H=A^T A SPD), generic exact single-sweep completion occurs iff H is tridiagonal in that order; an order exists iff the off-diagonal sparsity graph is a disjoint union of paths. In dimension three the last-update energy norm factor equals |H_13|/sqrt(H_11 W), with W=H_33-(H_23-H_12 H_13/H_11)^2/(H_22-H_12^2/H_11).",
+  "limitations": [
+    "Formula concerns generic nonzero-sketch branches only; exceptional or prematurely terminated iterations need separate handling.",
+    "Exact arithmetic and deterministic prescribed permutation; no implication for IID random-sweep finite termination or floating-point stability.",
+    "An earlier theorem on a coordinate one-step Gram-Schmidt/short-recurrence structure, indexed without RCGLS terminology, may give the same tridiagonal equivalence.",
+    "Source conditional genericity matters; no unconditional IID or numerical stability claim is made.",
+    "Normal-matrix sparsity graph can differ substantially from the sparsity of the original least-squares design.",
+    "The nearly noncontractive example approaches singular conditioning; no uniformly bounded-condition-number stagnation is claimed."
+  ],
+  "schema_version": 1
+}
