@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:54:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem counts distinct nonempty cyclic palindromic factors of length at most n in oriented binary necklaces with exactly three 1s, not their occurrences. Classify factors by 0, 1, 2 or 3 included ones. Sorting zero gaps r<=s<=t gives four valid cases: all equal P=3r+floor(r/2)+3; r=s<t P=t+3r+floor(t/2)+4; r<s=t P=r+3t+floor(r/2)+4; strictly increasing P=t+2s+2r+4. Rotational gap triples yield one necklace for repetitions and two for distinct gaps. Gap substitutions into geometric series reproduce exactly the three-term rational F(x,y) in RESULT.md. Repeated-gap classes are O(m) against Theta(m^2) total, and normalised gap triples converge to the uniform 2-simplex; P/m converges to 2−max(V1,V2,V3) with the stated piecewise cdf and mean 25/18. Independent brute-force enumeration constructed all binary necklace rotation classes of length 3..15, enumerated all length<=n circular palindromic strings, and confirmed every gap-case count and the complete finite distribution for those lengths. Finite validation does not prove formal-series or limit statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general known bound P(w)<5n/3 and near-sharp examples apply beyond three-marker circles, but do not by themselves imply a rational two-parameter generating series or limiting distribution."
+        ],
+        "reasoning": "A stronger upper bound in alphabet/composition scope is weaker in information: it does not dominate the exact distribution claim. Distinguish this logic from assuming a paper cannot contain other uninspected results.",
+        "searches": [
+          "Simpson, Palindromes in circular words, TCS 550 (2014)",
+          "OEIS A247000"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 54c31ca4c91c91d1d06d6dbdd3d072b0c641a4a8 and checker.py 0016ca2683804391b4826fe5638cb8b0cb907d1f",
+        "Simpson DOI 10.1016/j.tcs.2014.07.012, abstract and institutional metadata only",
+        "https://oeis.org/A247000",
+        "Resultary semantic search: palindromic factors exactly three ones circular binary necklaces"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source theorem specializes to three-one necklaces and determines P for every gap triple, whereas the earlier sources documented an unrestricted extremal bound and examples."
+        ],
+        "reasoning": "An exact per-word formula can be used to derive three-marker extremal information, but an unrestricted global bound cannot reconstruct its all-length distribution. Higher-fidelity text from Simpson remains a material source-access limitation.",
+        "searches": [
+          "Simpson 2014 public abstract",
+          "OEIS A247000",
+          "doi:10.1016/j.tcs.2014.07.012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three 1s correspond to a cyclic three-gap composition, and distinct factors are distinct strings, not positions or palindromic subsequences. Simpson treats circular-palindrome complexity with unrestricted composition."
+        ],
+        "reasoning": "Checked gap-coordinate and reflection/rotation aliases; no cited general bound directly provides the complete gap-by-gap distribution. Simpson full text not inspected, so an equivalent refined lemma in that source remains a stated risk.",
+        "searches": [
+          "Resultary: palindromic factors exactly three ones circular binary necklaces",
+          "Simpson 2014 DOI:10.1016/j.tcs.2014.07.012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A247000 indexes maximum distinct palindromes among all binary circles by length, not multiplicities by zero-count and palindrome-count for exactly three ones. Resultary hits concern other string invariants and constrained combinatorics."
+        ],
+        "reasoning": "A one-dimensional maxima table is not an exact bivariate distribution or per-necklace inventory; no checked table settles the joint coefficients.",
+        "searches": [
+          "OEIS A247000 maximal palindromes in circular binary word",
+          "Resultary: palindromic factors exactly three ones circular binary necklaces"
+        ]
+      },
+      "rationale": "A full individual three-marker palindrome inventory, composition-refined rational bivariate generating function, and nondegenerate limiting law go beyond the published unrestricted circular-word upper bound and maximum sequence. Simpson (2014) is unusually close and its unavailable full text leaves real priority uncertainty; abstract silence was not treated as conclusive noncoverage.",
+      "residual_risks": [
+        "Full Simpson (2014) primary source was unavailable; its complete proofs, examples or appendices might already contain a three-marker classification.",
+        "Different conventions for circular factors longer than circumference, reflection-identification, or counts of occurrences can yield superficially matching numbers and need comparison before priority certification.",
+        "Institutional full-text access returned vpn_disconnected; no attempt to circumvent authorization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published unrestricted upper bound and near-sharp examples verified at abstract level; exact gap formula and generating-function coverage cannot be excluded without full text.",
+          "evidence": "Article states a general upper bound below five-thirds of circumference, not in accessible abstract an all-three-marker coefficient array.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Full institutional landing-page bibliographic record, accessible abstract and cited upper-bound statement; publisher/author full PDF unavailable.",
+          "method": "Attempted legal open-access copy after arXiv/preprint search; authorized institutional full-text request returned vpn_disconnected, job 6e6b62a1a844ff23a71375056c7bb42a.",
+          "title": "Palindromes in circular words",
+          "trigger": "Primary prior paper, same circular-palindrome object and near extremizers"
+        },
+        {
+          "assessment": "Not an exact fixed-three-one bivariate distribution.",
+          "evidence": "Index is n to maximum palindrome count; A_{m,p} requires n/m and p joint multiplicities.",
+          "identifier_or_url": "https://oeis.org/A247000",
+          "material_read": "Sequence title and description of unrestricted maxima and dated examples.",
+          "method": "Read openly indexed sequence entry and compare invariant and sampling family.",
+          "title": "OEIS A247000: Maximal number of palindromes in a circular binary word of length n",
+          "trigger": "Exact external combinatorial database/table check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-three-marker circular words are a natural constrained family for palindrome complexity. The exact distribution across all compositions, repeated gaps and oriented rotation classes resolves an infinite enumerative problem; the limiting law gives a quantitative typical-case counterpart to the previously known extremal upper bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md 54c31ca4c91c91d1d06d6dbdd3d072b0c641a4a8 and checker.py 0016ca2683804391b4826fe5638cb8b0cb907d1f",
+    "Simpson DOI 10.1016/j.tcs.2014.07.012, abstract and institutional metadata only",
+    "https://oeis.org/A247000",
+    "Resultary semantic search: palindromic factors exactly three ones circular binary necklaces"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three 1s, binary alphabet, rotations identified but reversals distinct, circular factor lengths <= circumference.",
+    "Rational generating function and limiting law are proved symbolically; independent brute checks stop at n=15."
+  ],
+  "residual_risks": [
+    "Full Simpson (2014) primary source was unavailable; its complete proofs, examples or appendices might already contain a three-marker classification.",
+    "Different conventions for circular factors longer than circumference, reflection-identification, or counts of occurrences can yield superficially matching numbers and need comparison before priority certification.",
+    "Institutional full-text access returned vpn_disconnected; no attempt to circumvent authorization."
+  ],
+  "schema_version": 1
+}

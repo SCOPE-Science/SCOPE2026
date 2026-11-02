@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes oriented binary necklaces with exactly three ones, excludes the empty palindrome, and restricts cyclic-factor lengths to the circumference. The proof enumerates every palindrome by its number of ones, handles repeated gaps without double counting, and derives the four disjoint formulas. The rational generating function is obtained by exhaustive cases on the ordering/equalities of three nonnegative gaps, including the correct rotational orbit weights. The distributional limit follows from a uniform-simplex Riemann sum and three-event inclusion-exclusion. Direct palindrome-set checks, bivariate-coefficient checks, and independent rotation-class enumeration from `checker.py` all passed. The all-length proof, rather than finite sampling, supports the theorem.
+PASS
 
-## Originality — PASS, conditional on available-source comparison
+The theorem counts distinct nonempty cyclic palindromic factors of length at most n in oriented binary necklaces with exactly three 1s, not their occurrences. Classify factors by 0, 1, 2 or 3 included ones. Sorting zero gaps r<=s<=t gives four valid cases: all equal P=3r+floor(r/2)+3; r=s<t P=t+3r+floor(t/2)+4; r<s=t P=r+3t+floor(r/2)+4; strictly increasing P=t+2s+2r+4. Rotational gap triples yield one necklace for repetitions and two for distinct gaps. Gap substitutions into geometric series reproduce exactly the three-term rational F(x,y) in RESULT.md. Repeated-gap classes are O(m) against Theta(m^2) total, and normalised gap triples converge to the uniform 2-simplex; P/m converges to 2−max(V1,V2,V3) with the stated piecewise cdf and mean 25/18. Independent brute-force enumeration constructed all binary necklace rotation classes of length 3..15, enumerated all length<=n circular palindromic strings, and confirmed every gap-case count and the complete finite distribution for those lengths. Finite validation does not prove formal-series or limit statements.
 
-The global upper bound and near-sharp examples belong to Simpson (2014); the universal maxima tabulated in OEIS A247000 are known and explicitly credited. Neither the accessible abstract nor the fully inspected OEIS record states the fixed-composition, two-statistic distribution or its rational generating function; those broader global assertions do not imply this distribution. Searches of research records by three-one sparse-circle and palindrome-inventory aliases showed no covering public statement. A relevant 2014 paper remains inaccessible in full, including its near-extremal construction section, so equivalence under another formulation remains a priority risk; originality here is assessed under that explicit limitation.
+## originality
 
-## Value — PASS
+PASS
 
-The three-one family is a natural sparse binary family that already supports near-extremal circular palindrome counts, making the shape of its full palindrome inventory a motivated question. The result determines every individual inventory, every fixed-composition count for all lengths, and a nondegenerate limiting distribution with exact mean. It describes the entire spectrum rather than incrementing a known extremal table; correctness or novelty of isolated coefficients is not the value argument.
+A full individual three-marker palindrome inventory, composition-refined rational bivariate generating function, and nondegenerate limiting law go beyond the published unrestricted circular-word upper bound and maximum sequence. Simpson (2014) is unusually close and its unavailable full text leaves real priority uncertainty; abstract silence was not treated as conclusive noncoverage.
 
-## Closest literature and remaining limitations
+## value
 
-Jamie Simpson, *Palindromes in circular words*, Theoretical Computer Science 550 (2014), 66–78, DOI: 10.1016/j.tcs.2014.07.012. OEIS A247000, initial record September 15, 2014, https://oeis.org/A247000. Both concern the same circular-palindrome statistic; published general maxima and examples must not be presented as discoveries here. The inaccessible primary full text limits historical-priority confidence. The scope is exactly three ones and factors no longer than the circle, and no independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-three-marker circular words are a natural constrained family for palindrome complexity. The exact distribution across all compositions, repeated gaps and oriented rotation classes resolves an infinite enumerative problem; the limiting law gives a quantitative typical-case counterpart to the previously known extremal upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
