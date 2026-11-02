@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "All inputs are units modulo 36 and the target gcd class is exactly {6,30}. The explicit twelve-term witness avoids that class even with unrestricted subsequence lengths, giving both lower bounds. Multiplication by a unit normalizes a term to 1 and preserves the gcd predicate. Every sorted normalized bad multiset appears in the unrestricted-depth recursive exact subset-sum-set enumeration, using each old B_{j-1} and testing all unit successors. A complete search visits precisely 3944 bad-prefix nodes, with counts (1,10,47,141,322,560,638,639,633,566,315,72) at depths 1..12 and no depth-13 node. Both exact-set Python and an independently implemented bitmask DFS reproduced the bound. This establishes eta<=13, while D<=eta and the witness yields both constants equal to 13.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gao--Jiang--Mu, arXiv:2607.11313v1, Def. 1.1, Theorem 1.4, Problem 6.1 and Example 6.2 (full text, pp. 1--3 and 17--18).",
+        "Li--Ling--Sun--Zhu, arXiv:2610.19965v1 (abstract): vector version of divisible n but not n squared; the exact-gcd predicate is absent.",
+        "Gao--Jiang--Mu prove both constants = 2n-1 for prime powers only, and explicitly pose the case with at least two prime factors.",
+        "The general Example 6.2 construction proves a lower bound 13 at n=6, not an upper bound."
+      ],
+      "reasoning": "Checked whether a theorem at a broader class of moduli or a stronger all-subsequence property would imply the exact value. The prime-power theorem does not apply to six, and the weaker divisibility predicates in the other cited work cannot force gcd(sum,36)=6. No examined theorem dominates the claimed upper bound.",
+      "searches": [
+        "Gao Jiang Mu two local zero-sum problems composite n=6 eta_6^times threshold",
+        "Gao Jiang Mu Problem 6.1 exact first composite modulus six thirteen units coprime 6 gcd sum 36",
+        "\"On zero-sum problems of two new types\" prime composite coprime gcd n squared",
+        "\"Proofs and disproofs of some conjectures on zero-sum problems of new types\" arxiv 2026",
+        "arXiv:2610.19965v1 abstract",
+        "arXiv:2607.11313v1 main theorems and concluding remarks"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.11313v1 full text including Problem 6.1 and Example 6.2",
+      "arXiv:2606.18234v1 abstract",
+      "arXiv:2610.19965v1 abstract",
+      "Published record 2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337",
+      "Six published-finding corpus semantic searches matching constants, source name, aliases, 36-residue target and candidate value",
+      "Web queries for constants, modulus 36 and related Sun non-divisibility invariants",
+      "Accessible prior research records claims in generation 000035"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gao--Jiang--Mu, arXiv:2607.11313v1, Def. 1.1, Theorem 1.4, Problem 6.1 and Example 6.2 (full text, pp. 1--3 and 17--18).",
+        "Sun, arXiv:2606.18234v1 (abstract): fixed exactly-n terms and divisible n but not n squared; not exact gcd=n.",
+        "Li--Ling--Sun--Zhu, arXiv:2610.19965v1 (abstract): vector version of divisible n but not n squared; the exact-gcd predicate is absent.",
+        "Our computed upper bound excludes all normalized bad sequences of length 13, a statement absent from Example 6.2, which only constructs one bad sequence of length 12."
+      ],
+      "reasoning": "Neither a lower bound, a distinct fixed-size zero-sum invariant, nor a theorem confined to prime-power n implies the missing upper bound at n=6. Even though the exact-value claim is short, its upper-bound content is not a corollary of the inspected source results.",
+      "searches": [
+        "local zero-sum constants D^times_n eta^times_n coprime terms modulo n squared composite n=6 exact values",
+        "Gao Jiang Mu two local zero-sum problems composite n=6 eta_6^times threshold",
+        "eta_6^times = D_6^times = 13 local zero sum composite modulus 36 6-element subsequence",
+        "Gao Jiang Mu Problem 6.1 exact first composite modulus six thirteen units coprime 6 gcd sum 36",
+        "arXiv:2607.11313v1 Example 6.2 and Problem 6.1",
+        "arXiv:2606.18234v1 abstract",
+        "arXiv:2610.19965v1 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gao--Jiang--Mu, arXiv:2607.11313v1, Def. 1.1, Theorem 1.4, Problem 6.1 and Example 6.2 (full text, pp. 1--3 and 17--18).",
+        "Sun, arXiv:2606.18234v1 (abstract): fixed exactly-n terms and divisible n but not n squared; not exact gcd=n.",
+        "The target property gcd(sum,36)=6 restricts the sum to the two residue classes 6,30; divisibility by 6 without divisibility by 36 allows 12,18,24 as well."
+      ],
+      "reasoning": "The notation can appear as eta^times_6, a local Davenport constant, the unit-restricted exact-gcd subset-sum threshold, or a short local zero-sum constant. These aliases were compared. Fixed-length non-divisibility constants from Sun are not equivalent: their admissible sums include classes forbidden here, and their chosen length is exactly six instead of at most six.",
+      "searches": [
+        "local zero-sum constants D^times_n eta^times_n coprime terms modulo n squared composite n=6 exact values",
+        "Gao Jiang Mu two local zero-sum problems composite n=6 eta_6^times threshold",
+        "eta_6^times = D_6^times = 13 local zero sum composite modulus 36 6-element subsequence",
+        "\"D_6^×\" \"η_6^×\" 13 zero sum",
+        "arXiv:2607.11313v1 Definition 1.1; arXiv:2606.18234v1 abstract"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result 2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337 computes a Sun fixed-length threshold s_1(4) with a different input condition, target predicate and modulus.",
+        "Exhaustive exact residue enumeration identifies twelve unit classes and two target residues; search of relevant mathematical research records did not surface a recorded table of the present local threshold."
+      ],
+      "reasoning": "The closest number-theory computation is an exact determination of a different invariant at modulus four. A numerical 13 without its normalization and predicate would not establish coverage. Search absence is an access-limited comparison, not a uniqueness guarantee.",
+      "searches": [
+        "zero-sum subsequences sum gcd sigma 36 equals six among coprime elements modulo 36",
+        "local zero-sum short subsequences target gcd equal 6 among unit residue multiset modulo 36",
+        "\"two local zero-sum problems\" \"6\" \"13\" Gao Jiang Mu",
+        "\"gcd\" \"36\" \"6\" \"13\" \"zero-sum\" subsequence",
+        "Published mathematics search hit 2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337"
+      ]
+    },
+    "rationale": "The first public source arXiv:2607.11313v1 defines the exact constants and explicitly asks for composite n with at least two prime divisors. It gives a twelve-term counterexample lower bound at n=6, not the matching upper bound. Source full text, adjacent abstracts, six targeted semantic searches and web searches, and accessible prior claims yielded no theorem implying eta_6^times<=13. Nearest related s1(4) computations and non-divisibility-only constants have inequivalent hypotheses and conclusions; residual independent-priority risk remains.",
+    "residual_risks": [
+      "The exact first-case upper bound could exist in an unindexed earlier paper, unpublished note or a source whose full text was inaccessible.",
+      "Related Sun and Li--Ling--Sun--Zhu full papers were not inspected; comparisons for these are limited to their abstracts and formally different target predicates.",
+      "Published mathematical research indexes are incomplete; negative search results do not prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines both exact-gcd constants. Resolves prime powers and lower-bounds n with multiple prime factors; leaves the n=6 upper bound undetermined.",
+        "evidence": [
+          "2020 MSC 11B30, 11B75, 20K01 printed on page one.",
+          "Problem 6.1 asks values when omega(n)>=2; Example 6.2 constructs length 2n+2omega(n)-4 without admissible sum."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2607.11313",
+        "material_read": "Full nineteen-page preprint sections on definitions, main theorems, inverse results and concluding Problem 6.1 / Example 6.2; pp. 1--3, 16--18 scrutinized.",
+        "method": "Full PDF text inspection and visual inspection of printed pp. 17--18.",
+        "title": "Two local zero-sum problems",
+        "trigger": "Same exact local zero-sum invariants, first public source and explicit open problem."
+      },
+      {
+        "assessment": "Different exactly-n, divisible-but-not-n-squared predicate; does not establish exact-gcd target at n=6.",
+        "evidence": [
+          "Defines t_1(n) using exactly n selected terms and non-divisibility by n squared."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.18234",
+        "material_read": "Public abstract and bibliographic metadata; full text not accessible in this inspection.",
+        "method": "Abstract comparison of definitions and claimed scope.",
+        "title": "On zero-sum problems of two new types",
+        "trigger": "Adjacent fixed-length and divisibility-based thresholds."
+      },
+      {
+        "assessment": "Studies divisible-but-not-n-squared predicate and vector groups, not the exact-gcd=6 target. Unread full text is a residual risk, but the abstract does not claim a covering result.",
+        "evidence": [
+          "Abstract defines s_r and w_r by non-divisibility modulo n squared and discusses r-dimensional invariants."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.19965",
+        "material_read": "Public full abstract and bibliographic metadata; full PDF fetch unavailable.",
+        "method": "Compared formal target predicate and quantified length in abstract.",
+        "title": "Proofs and disproofs of some conjectures on zero-sum problems of new types",
+        "trigger": "Newer related zero-sum generalizations could dominate the claim."
+      },
+      {
+        "assessment": "A different exactly-four-term zero-sum problem, with no implication of the exact-gcd six-term upper bound.",
+        "evidence": [
+          "Indexed result s_1(4)=9 and eight-term extremals; no exact-gcd target at modulus 36 stated."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337",
+        "material_read": "Published index title and detailed summary; full text fetch unavailable.",
+        "method": "Compared the precise invariant s_1(4) against eta_6^times.",
+        "title": "Exact evaluation of s_1(4) and the eight-term extremals",
+        "trigger": "Closest published exact small composite-modulus zero-sum entry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa5ce02a-c182-4106-bae8-66cdec3b2a67",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gao--Jiang--Mu explicitly pose the pair of local gcd-exact constants for every n with multiple prime factors. n=6 is the first such modulus, and the natural exact invariant has the sharp 13 answer, matching the only known general composite lower bound. The result uses simultaneous 2- and 3-adic avoidance constraints and closes a genuine finite cutoff with a complete, small, checkable certificate, instead of a routine special case of the source prime-power theorem. No broader general formula is claimed.",
+    "status": "PASS"
+  }
+}
