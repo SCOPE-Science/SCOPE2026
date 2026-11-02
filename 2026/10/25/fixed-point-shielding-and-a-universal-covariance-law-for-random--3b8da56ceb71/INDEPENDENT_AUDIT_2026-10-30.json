@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:08:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/fixed-point-shielding-and-a-universal-covariance-law-for-random--3b8da56ceb71/RESULT.md Git blob 6285429f388ad5faef0e06f5a2478d863ee54fe1",
+        "2026/10/25/fixed-point-shielding-and-a-universal-covariance-law-for-random--3b8da56ceb71/VERIFICATION.md",
+        "Independent bounded verification file included in private delivery"
+      ],
+      "rationale": "With composition eta^{-1}Pi^{-1}eta Pi, A_x=1 iff eta(Pi(x))=Pi(eta(x)). If eta(x)=x, P(A_x)=f/n and fixing Pi(j)=j makes Pi(x) uniform on the remaining n-1 values unless j=x. If eta(x)!=x, the ordered distinct images of x and eta(x) give P(A_x)=g/[n(n-1)]. Conditioning on Pi(j)=j yields probability 1/(n-1) for j=x or eta(x), and (g-2+2*1_{j fixed eta})/[(n-1)(n-2)] otherwise. Bernoulli subtraction gives all six claimed covariance branches. Summing the fixed-x and moved-x row contributions g/[n(n-1)] and 2f/[n(n-1)(n-2)] yields fg/[(n-1)(n-2)]. f=0 gives each cross-pair Bernoulli independence; f=n makes A_x constant; 0<f<n gives positive diagonal covariance. When f=0, Pi=id forces C=n whereas a noncommuting Pi exists (center S_n trivial for n>=3), establishing aggregate dependence. Independent exact enumeration of all eta,Pi for n=3,4,5 checked 3438 pair covariances; finite tests only corroborate the unrestricted conditional-counting argument.",
+      "residual_risks": [
+        "The aggregate non-independence is a statement about two totals, not mutual independence of the indicator families; the six cases include empty index regimes n=3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diaconis–Fulman–Guralnick arXiv:0708.2643 examines fixed-point laws; Diaconis–Evans–Graham arXiv:1308.5459 §6 focuses on marginal commutator C and eta cycle parameters."
+        ],
+        "reasoning": "Marginals or Poisson approximation for C do not determine its covariance with F evaluated on the identical Pi. Representation-theoretic joint-moment reductions could implicitly cover this result but no matching formula was identified.",
+        "searches": [
+          "fixed-point statistics of permutation group actions and general commutator distribution",
+          "Resultary search: fixed-point commutator permutation eta Pi covariance; current record id 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "Diaconis Evans Graham arXiv:1308.5459 Sections 5–6; web search 2026-10-30"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md, REVIEW.md, SLOGAN.txt, AUDIT.json, METADATA.json, VERIFICATION.md and verify_commutator.py, actual Git blobs",
+        "Diaconis–Evans–Graham 2014 open author PDF, Section 6",
+        "Diaconis–Fulman–Guralnick arXiv:0708.2643",
+        "Resultary permutation covariance semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 6 derives marginal commutator moments; the new conditional law uses P(A_x|Pi(j)=j), unavailable from a marginal distribution of C."
+        ],
+        "reasoning": "The prior marginal law logically permits multiple C–F couplings. A distinct joint argument is necessary; the supplied conditional enumeration provides it.",
+        "searches": [
+          "Diaconis Evans Graham Section 6 fixed points commutator Poisson approximation mean cycle count and covariance",
+          "Resultary search: fixed-point commutator permutation eta Pi covariance; current record id 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "Diaconis Evans Graham arXiv:1308.5459 Sections 5–6; web search 2026-10-30"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Diaconis–Evans–Graham 2014, §5–6, identifies circular adjacency as n-cycle commutator and studies the marginal Poisson approximation; it does not calculate Cov(A_x,B_j)."
+        ],
+        "reasoning": "Cyclic successions match A_x only when eta is a cycle. Linear successions omit wrap-around, and an independent conjugate comparison loses the shared-Pi coupling. Neither provides the arbitrary-eta cross-pair matrix.",
+        "searches": [
+          "commutator fixed points and original permutation fixed points same Pi joint mixed moments; cyclic successions wrap around vs fixed points",
+          "Resultary search: fixed-point commutator permutation eta Pi covariance; current record id 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "Diaconis Evans Graham arXiv:1308.5459 Sections 5–6; web search 2026-10-30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related record “Boundary localization of fixed-point–descent dependence in a uniform permutation” studies fixed-point/descent covariance, not pointwise commutation events."
+        ],
+        "reasoning": "No inspected exact entry tabulates this cross-covariance matrix; absence from a semantic index is not a novelty certificate.",
+        "searches": [
+          "Resultary fixed-point commutator permutation eta Pi fixed points covariance number fixed points eta and Pi pairwise independence",
+          "Resultary search: fixed-point commutator permutation eta Pi covariance; current record id 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "Diaconis Evans Graham arXiv:1308.5459 Sections 5–6; web search 2026-10-30"
+        ]
+      },
+      "rationale": "The related marginal commutator fixed-point laws of Diaconis–Evans–Graham and permutation fixed-point action laws of Diaconis–Fulman–Guralnick do not state or imply the joint moments with the same Pi. An n-cycle is a special eta, but known circular-successions distribution cannot determine these mixed covariances. Claim is the fully indexed arbitrary-partner exact matrix and surprising derangement pairwise-vs-aggregate separation; priority remains best of knowledge.",
+      "residual_risks": [
+        "A general mixed-moment representation-theoretic identity in unindexed older literature could recover the special covariance law.",
+        "Negative index/search results do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_ONLY",
+          "evidence": [
+            "Section 6 concerns asymptotic Poisson law for fixed points of [eta,Pi], not the six-case same-Pi joint covariance."
+          ],
+          "identifier_or_url": "https://mathweb.ucsd.edu/~ronspubs/14_05_pairs.pdf",
+          "material_read": "article introduction, n-cycle equivalence and Section 6 commutator marginal theorem and hypothesis/statement",
+          "method": "primary open-access PDF textual sections; theorem implication comparison",
+          "title": "Unseparated pairs and fixed points in random permutations",
+          "trigger": "same n-cycle commutator observable"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_CONTEXT",
+          "evidence": [
+            "General action fixed-point distributions do not directly encode the original permutation fixed-point indicators."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0708.2643",
+          "material_read": "accessible abstract, paper scope and original results identified through the record and source citations; full paper not independently rechecked",
+          "method": "statement and object comparison; partial inspection only",
+          "title": "On fixed points of permutations",
+          "trigger": "general fixed-point statistics potentially dominating"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned frozen RESULT.md, REVIEW.md, SLOGAN.txt, AUDIT.json, METADATA.json, VERIFICATION.md and verify_commutator.py, actual Git blobs",
+        "Diaconis–Evans–Graham 2014 open author PDF, Section 6",
+        "Diaconis–Fulman–Guralnick arXiv:0708.2643",
+        "Resultary permutation covariance semantic search"
+      ],
+      "rationale": "The statistic C is a natural measure of a permutation commutator, and F is the most basic statistic of the same random permutation. A complete local cross-dependence classification for every deterministic eta and the exact positive covariance depending only on f distinguish genuine pairwise independence from dependence of the totals; the n>=3 family and exact boundary cases are mathematically meaningful beyond routine marginal expectations.",
+      "residual_risks": [
+        "A general mixed-moment representation-theoretic identity in unindexed older literature could recover the special covariance law.",
+        "Negative index/search results do not establish priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md, REVIEW.md, SLOGAN.txt, AUDIT.json, METADATA.json, VERIFICATION.md and verify_commutator.py, actual Git blobs",
+    "Diaconis–Evans–Graham 2014 open author PDF, Section 6",
+    "Diaconis–Fulman–Guralnick arXiv:0708.2643",
+    "Resultary permutation covariance semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For arbitrary eta in S_n, n>=3, with f fixed points and g=n-f, the exact six-case covariance matrix of pointwise commutation indicators and Pi-fixed-point indicators has aggregate covariance f*g/((n-1)(n-2)); all individual cross-pairs are independent exactly for f=0 or f=n, but the two total counts remain dependent for a derangement.",
+  "limitations": [
+    "Second moments/cross-pair independence only; no full joint C,F law or convergence rate.",
+    "Originality is best of knowledge, not a proof of historical priority."
+  ],
+  "schema_version": 1
+}
