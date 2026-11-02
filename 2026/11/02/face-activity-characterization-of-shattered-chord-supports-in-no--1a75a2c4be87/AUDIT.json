@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "All-positive extension iff every face has even unused boundary-vertex count; one-negative forcing excludes any chord with zero free vertices on both neighboring faces; local cyclic shifts in convex faces of at least four vertices avoid all forbidden edges; two-vertex faces contain no forbidden edge. The online predictor makes at most n-1 mistakes. Every extremal chord cuts off an empty leaf face, yielding n^2 supports. All finite checks were run from standalone source; they are corroboration, not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A perfect-matching family generally fails single-element basis exchange: fixing n-1 pairs forces the last, while exchanging only one edge never yields a different matching. Hamiltonian paths and chord matchings have different objects and feasibility constraints."
+      ],
+      "reasoning": "The generic mistake-bound upper bound for fixed-cardinality matching concepts does not imply the all-support active-face criterion or the exact n^2 extremal count; matroid-base equality does not cover noncrossing matching classes.",
+      "searches": [
+        "any family of perfect matchings on two n points has Littlestone dimension at most n-1 by positive mistake bound",
+        "noncrossing matching matroid VC dimension online Littlestone dimension rooted trees",
+        "noncrossing perfect matching every edge can avoid via rotation of matching; noncrossing completion with forbidden chords",
+        "arxiv:2002.02290"
+      ]
+    },
+    "checked_sources": [
+      "Mantas–Savić–Schrezenmaier, arXiv:2001.03252",
+      "Milich–Mütze–Pergel, arXiv:2002.02290",
+      "Aichholzer–Asinowski–Miltzow, doi:10.37236/4403",
+      "Prior mathematical result: static and adaptive dimensions of finite matroid basis concepts",
+      "Prior mathematical result: Hamiltonian path edge-support shattering"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Single-chord feasibility does not imply that all labelings of several feasible chords are realizable. Compatibility of two entire matchings and existence of a flip path do not force any specified positive/negative submatching constraints."
+      ],
+      "reasoning": "A concrete counterpoint: on six cyclic points, the compatible chords (0,1) and (2,5) have an all-positive completion but cannot be shattered because forcing (2,5) also forces (0,1). The new local-face obstruction and its sufficiency are not a corollary of matching enumeration or degree results.",
+      "searches": [
+        "arxiv:2001.03252 feasible edge Lemma 1",
+        "arxiv:2002.02290 centered flips and degree theorems",
+        "doi:10.37236/4403 disjoint compatibility connected components",
+        "Complete characterization of VC shattered edge sets for noncrossing perfect matchings as a concept class on chord queries with free faces",
+        "noncrossing matching matroid VC dimension online Littlestone dimension rooted trees"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Milich–Mütze–Pergel 2020 concerns flip graphs of these same geometric objects; Mantas–Savić–Schrezenmaier 2020 concerns length-optimal matchings, not projections of chord indicators."
+      ],
+      "reasoning": "Neither inspected work has a theorem characterizing the complete all-labeling projection for arbitrary chosen chord supports or an equivalent notion of local active-face necessity and sufficiency. The proposed face criterion is stronger than extendibility.",
+      "searches": [
+        "noncrossing perfect matchings on 2n points VC shattering polynomial pair-edge queries, exact shattered families, forcing partial matching",
+        "Complete characterization of VC shattered edge sets for noncrossing perfect matchings as a concept class on chord queries with free faces",
+        "noncrossing perfect matchings shattered subsets shattering coefficients VC dimension plane matchings edge incidence",
+        "arxiv:2001.03252",
+        "arxiv:2002.02290"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing Catalan cardinality, Narayana refinements, and flip-graph tables count matchings or flips rather than support sets admitting all Boolean labelings."
+      ],
+      "reasoning": "The explicitly calculated support coefficients (including 1,36,318,860,567,36,0 at n=6) were compared against the searched descriptions; none of the inspected tables was an exact projection-shattering table.",
+      "searches": [
+        "Exact number n squared of maximum shattered edge supports noncrossing matchings, Catalan concept class VC dimension n-1",
+        "noncrossing chord diagrams forced edges partial noncrossing matchings realizability edge forbidden, Catalan noncrossing matching",
+        "noncrossing perfect matchings shattered subsets shattering coefficients VC dimension plane matchings edge incidence"
+      ]
+    },
+    "rationale": "The precise all-query VC shattering classification, all-parameter equality with adaptive dimension, and n-squared extremal-support count were not established by any inspected primary result or recovered prior claim. Known single-chord parity, flip-graph connectivity, disjoint compatibility, matroid basis dimensions, and Hamiltonian-path support characterizations are distinct by their hypotheses and implications. Residual risks named.",
+    "residual_risks": [
+      "Older reconfiguration literature may contain equivalent local avoidance lemmas under different terminology.",
+      "The 2015 disjoint-compatibility article was reviewed by main results and selected detailed material, not an exhaustive logical audit of all 53 pages.",
+      "Search index coverage is incomplete; no claim of exhaustive literature uniqueness is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "direct single-chord feasibility; no complete multi-chord shattering theorem identified",
+        "evidence": [
+          "Lemma 1 characterizes single-edge feasibility by parity and hull membership; main sections optimize edge lengths and use dynamic programming."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2001.03252v3",
+        "material_read": "full HTML article, introduction, feasibility Lemma 1, optimization variants, convex-position section headings and conclusions",
+        "method": "open access HTML reading and focused text comparison",
+        "title": "New variants of Perfect Non-crossing Matchings",
+        "trigger": "same geometric objects and feasible-edge criterion"
+      },
+      {
+        "assessment": "treats flip graphs and extremal degrees, not fixed support Boolean shattering",
+        "evidence": [
+          "Section 1 describes Catalan matching flip graphs; principal results characterize centered-flip connectivity, degree counts and components."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.02290",
+        "material_read": "full HTML body with introduction, preliminaries, centered/non-centered flip theorems, connectivity and enumerative sections",
+        "method": "open access HTML reading and targeted exact-text comparison",
+        "title": "On flips in planar matchings",
+        "trigger": "same circular Catalan perfect matchings and edge flips"
+      },
+      {
+        "assessment": "main result is classification of disjoint-compatibility graph components, not all-labeling incidence support shattering; residual possibility of an equivalent subsidiary lemma is acknowledged",
+        "evidence": [
+          "Theorems 1–3 classify connected components and sizes of a graph whose edges link two fully edge-disjoint compatible matchings."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/4403",
+        "material_read": "53-page public PDF introductory theorems and structural overview, with searchable body screened for shattering terminology; not every later combinatorial lemma line-by-line",
+        "method": "public PDF textual reading, visual first-page inspection, targeted searches",
+        "title": "Disjoint compatibility graph of non-crossing matchings of points in convex position",
+        "trigger": "exact same circular geometric matching objects; possibility of stronger compatibility statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1a75a2c4-be87-42f7-946e-7e11b97b1903",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete structural criterion for every edge query support of a natural Catalan concept family; proves sharp all-order static and adaptive dimensions and exactly n^2 maximum supports. Local active-face obstruction is genuinely stricter than noncrossing all-positive compatibility; its necessity and sufficiency give a usable polynomial geometric test. Intermediate finite profiles are evidence, not the sole motivation.",
+    "status": "PASS"
+  }
+}
