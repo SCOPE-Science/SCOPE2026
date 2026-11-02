@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof computes the exact uniform finite-element matrices and factors the Crank–Nicolson map through one tridiagonal resolvent. When the off-diagonal resolvent coefficient changes sign, a checkerboard similarity gives the necessary negative distance-two entries. Above the lower boundary an irreducible Stieltjes inverse makes every off-diagonal positive; the hyperbolic Green formula locates the minimum diagonal at endpoints. A sine-basis monotonicity argument proves exactly one upper cutoff, and Schur-complement monotonicity plus the limiting half-line Green function prove its finite-size growth and cubic limit. The polynomial recurrence, special smallest size, and the explicit positive rational witness at \(7/10\) were reconstructed and cross-checked. The exact-rational checker independently assembles and solves 90 parameter cases; it is not used to justify quantifiers over all \(n\).
+PASS
 
-## Originality — PASS (subject to indicated literature risk)
+For every n>=3 and z=tau/h²>=0, assembled consistent P1 finite-element M=h(4I+T)/6, K=(2I-T)/h, so the dimensionless update P=(aI+(1-3z)T)^{-1}((4-6z)I+(1+3z)T), a=4+6z. At 0<z<1/3 alternating similarity of the Stieltjes inverse makes every distance-two entry negative; z=0 gives I, z=1/3 gives (I+T)/3. For z>1/3, b=3z-1, A=aI-bT is Stieltjes and P=(-1-2/b)I+(36z/b)A^{-1}: all offdiagonals positive and the Green formula shows end diagonals are least. Their continuants D_0=1,D_1=a,D_j=aD_{j-1}-b²D_{j-2} yield the unique endpoint root rho_n>1/3: 36zD_{n-1}=(3z+1)D_n. Sine-eigenbasis monotonicity gives uniqueness; Schur complements show rho_n strictly increasing; the half-line Green limit selects rho∞ as root 0.747597827128115 of 27z³−207z²+141z−1. Independent exact-fraction inversion for n=3..8 across the lower/upper boundaries reproduces all signs and P3(7/10) positive; the analytic Green proof, not that sampling, covers all n.
 
-Primary source comparison: Faragó and Horváth, DOI 10.1137/050627241, Sections 4–6 including Theorems 6.4–6.5, give a broader DMP treatment with a familiar \([1/3,2/3]\) bound for uniform-mesh Crank–Nicolson. Their statements neither present nor imply the finite-size cutoff roots or limiting cubic for the fixed zero-boundary interior update. In particular, a strictly positive exact rational update occurs at \(z=7/10\), so positivity here is not determined by the sign of the right-hand-side coefficient matrix alone. Li and Huang, arXiv:1209.5657, Theorem 3.1, prove sufficient mesh/time-step conditions, not the sharp homogeneous finite-size criterion. Related published findings on filtered Crank–Nicolson and finite Markov generators address different maps. Literature searches over direct terminology, determinant/Green aliases, equivalences, and purported sharp bounds yielded no identical or dominating claim. The 2001 proceedings work cited by Faragó–Horváth and the 2005 hybrid-mesh article were not fully accessible; specialized coverage remains possible. This is a best-knowledge self-review originality assessment, not proof of uniqueness in the literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result settles an exact natural positivity threshold for every size of a standard textbook discretization, quantifies the difference between the sharp invariant-cone property and a standard sufficient sign restriction, and gives its surprisingly nearly size-independent algebraic limit. The threshold is needed to distinguish actually positivity-preserving Crank–Nicolson steps from unnecessarily restrictive coefficient-wise criteria. This is a complete structural classification rather than a single finite numerical example.
+Faragó–Horváth 2006 gives general finite-element discrete maximum principle time-step conditions (including 1/3-to-2/3 under broader forcing/boundary quantification), and Li–Huang gives sufficient anisotropic mesh bounds. Neither inspected statement fixes the sharp zero-boundary unforced *interior map* nonnegativity threshold rho_n, as the exact n=3,z=7/10 positive example shows. Separate Resultary CN Markov and filtered results use different operators. Earlier 2001 proceedings and inaccessible complete SIAM paper remain priority risks.
 
-## Scientific limitations
+## value
 
-The claim concerns constant-diffusivity, source-free, uniform-mesh, homogeneous Dirichlet interior updates only. It does not cover arbitrary boundary forcing, nonsymmetric operators, nonuniform meshes, or a full maximum principle for general data. Some older related full text was unavailable. The self-review has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp mesh-dependent positivity window for the standard consistent-mass Crank–Nicolson discretization is directly useful for choosing nonoscillatory timesteps and distinguishing interior positivity from a full discrete maximum principle. The discontinuous failure at small positive z and unexpected positive range past 2/3 are meaningful structural boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

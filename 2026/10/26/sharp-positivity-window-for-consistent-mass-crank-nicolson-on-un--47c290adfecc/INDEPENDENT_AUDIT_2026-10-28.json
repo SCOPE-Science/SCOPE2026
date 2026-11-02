@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T16:58:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=3 and z=tau/h²>=0, assembled consistent P1 finite-element M=h(4I+T)/6, K=(2I-T)/h, so the dimensionless update P=(aI+(1-3z)T)^{-1}((4-6z)I+(1+3z)T), a=4+6z. At 0<z<1/3 alternating similarity of the Stieltjes inverse makes every distance-two entry negative; z=0 gives I, z=1/3 gives (I+T)/3. For z>1/3, b=3z-1, A=aI-bT is Stieltjes and P=(-1-2/b)I+(36z/b)A^{-1}: all offdiagonals positive and the Green formula shows end diagonals are least. Their continuants D_0=1,D_1=a,D_j=aD_{j-1}-b²D_{j-2} yield the unique endpoint root rho_n>1/3: 36zD_{n-1}=(3z+1)D_n. Sine-eigenbasis monotonicity gives uniqueness; Schur complements show rho_n strictly increasing; the half-line Green limit selects rho∞ as root 0.747597827128115 of 27z³−207z²+141z−1. Independent exact-fraction inversion for n=3..8 across the lower/upper boundaries reproduces all signs and P3(7/10) positive; the analytic Green proof, not that sampling, covers all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Huang original Theorem 3.1 gives sufficient conditions on general anisotropic grids; Faragó–Horváth broadly treats full DMP with boundary/source data."
+        ],
+        "reasoning": "General-grid sufficient conditions cannot imply a sharp upper endpoint for this narrower homogeneous interior matrix; inaccessible 2001 necessary/sufficient proceedings create explicit residual risk.",
+        "searches": [
+          "Crank Nicolson consistent mass one dimensional finite element entrywise nonnegative positivity sharp time step upper threshold inverse tridiagonal",
+          "Farago Horvath 2006 discrete maximum principle Crank Nicolson homogeneous Dirichlet",
+          "arxiv:1209.5657"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1209.5657 full original PDF Theorem 3.1",
+        "doi:10.1137/050627241 abstract and metadata",
+        "Resultary prior BE-filtered CN and reversible-Markov CN records",
+        "Frozen Git RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older sufficient upper 2/3 vs exact rational n=3 z=7/10 positive; source matrix and input space are different."
+        ],
+        "reasoning": "A sufficient bound z<=2/3 does not prohibit positivity for z=7/10; an original full-data DMP necessary condition does not assert every zero-boundary homogeneous interior P is nonpositive there.",
+        "searches": [
+          "doi:10.1137/050627241",
+          "arxiv:1209.5657",
+          "Crank Nicolson consistent mass one dimensional finite element entrywise nonnegative positivity sharp time step upper threshold inverse tridiagonal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The update is an unfiltered non-Markov consistent-mass FEM matrix; exact P3(7/10) >0."
+        ],
+        "reasoning": "Full forced-boundary DMP and M-matrix sufficient conditions have different input quantifiers; standard Markov-chain CN resolvent criterion is not equivalent to this matrix.",
+        "searches": [
+          "Crank Nicolson consistent mass one dimensional finite element entrywise nonnegative positivity sharp time step upper threshold inverse tridiagonal",
+          "doi:10.1137/050627241",
+          "arxiv:1209.5657"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published results concern BE-filtered heat lattice and finite Markov generators, respectively; neither lists rho_n or the cubic 27z³−207z²+141z−1."
+        ],
+        "reasoning": "No exact finite-n consistent-mass Dirichlet table identified by actual searches. Nonsearch is not a proof of novelty.",
+        "searches": [
+          "Crank Nicolson consistent mass one dimensional finite element entrywise nonnegative positivity sharp time step upper threshold inverse tridiagonal",
+          "Resultary_Search 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "Resultary_Search 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+        ]
+      },
+      "rationale": "Faragó–Horváth 2006 gives general finite-element discrete maximum principle time-step conditions (including 1/3-to-2/3 under broader forcing/boundary quantification), and Li–Huang gives sufficient anisotropic mesh bounds. Neither inspected statement fixes the sharp zero-boundary unforced *interior map* nonnegativity threshold rho_n, as the exact n=3,z=7/10 positive example shows. Separate Resultary CN Markov and filtered results use different operators. Earlier 2001 proceedings and inaccessible complete SIAM paper remain priority risks.",
+      "residual_risks": [
+        "Faragó–Horváth full 2006 article and original 2001 FEM positivity proceedings were not accessible in full.",
+        "Equivalent exact tridiagonal Chebyshev endpoint criterion might have appeared in older positivity literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General mesh conditions are sufficient; not this exact finite-n threshold",
+          "evidence": "Theorem 3.1 pp.6–8; bounds not necessary for fixed P_n",
+          "identifier_or_url": "arxiv:1209.5657",
+          "material_read": "Original 25-page PDF, introduction and Theorem 3.1 including sufficient theta-step inequalities",
+          "method": "Full-text PDF read at relevant proof/theorem; visually inspected theorem page",
+          "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+          "trigger": "Prior FEM P1 positivity conditions"
+        },
+        {
+          "assessment": "Cannot make whole-document NOT_COVERING claim; exact n=3 counterexample shows narrow interior claim differs from broad DMP quantifiers",
+          "evidence": "2006 SIAM Journal on Scientific Computing, DOI; full text access limitation recorded",
+          "identifier_or_url": "doi:10.1137/050627241",
+          "material_read": "Official abstract and metadata only; full SIAM text and earlier 2001 reference inaccessible",
+          "method": "Lawful web abstract check and authorized Oxford retrieval, vpn_disconnected",
+          "title": "Discrete Maximum Principle and Adequate Discretizations of Linear Parabolic Problems",
+          "trigger": "Closest general DMP study and claimed [1/3,2/3] interval"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp mesh-dependent positivity window for the standard consistent-mass Crank–Nicolson discretization is directly useful for choosing nonoscillatory timesteps and distinguishing interior positivity from a full discrete maximum principle. The discontinuous failure at small positive z and unexpected positive range past 2/3 are meaningful structural boundaries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1209.5657 full original PDF Theorem 3.1",
+    "doi:10.1137/050627241 abstract and metadata",
+    "Resultary prior BE-filtered CN and reversible-Markov CN records",
+    "Frozen Git RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only homogeneous 1D uniform Dirichlet, n>=3, consistent-mass P1 interior coefficient map, zero forcing; not arbitrary boundary data or nonuniform grids.",
+    "Finite rational checks corroborate signs; proof for all n uses resolvent Green matrix and monotone spectral factors."
+  ],
+  "residual_risks": [
+    "Faragó–Horváth full 2006 article and original 2001 FEM positivity proceedings were not accessible in full.",
+    "Equivalent exact tridiagonal Chebyshev endpoint criterion might have appeared in older positivity literature."
+  ],
+  "schema_version": 1
+}
