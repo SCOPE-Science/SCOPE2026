@@ -1,0 +1,244 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T22:53:56.221852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; frozen verify.py read but not executed as proof",
+        "Direct AM-GM/Hessian/envelope/Fourier reconstruction from theorem definitions",
+        "Independent local SciPy finite-difference checks for 15 (n,p) pairs, exact four-cycle rational Green energies, and direct Git tree SHA reconstruction"
+      ],
+      "rationale": "For positive weights the norming-functional formula and triangle inequality give exactly the finite-simplex maximum Phi_epsilon(u)=sum_j(1+epsilon*h_j)u_j^alpha*u_(j+1)^beta, alpha=(p-1)/p, beta=1/p; nonnegative real x realizes equality over both real and complex fields. Weighted Young/AM-GM shows Phi_0<=1 with equality iff all u_j equal, including n=2 with two parallel directed edges. Compactness localizes every perturbed global maximizer in an interior neighborhood. The simplex-tangent Hessian at u*=1/n is -n*alpha*beta*L, negative definite because connected L has kernel constants. Analytic implicit function plus uniqueness of near critical point establishes a unique positive analytic maximizing mass branch for sufficiently small epsilon. Its first displacement solves n*alpha*beta*L xi=b^circ, b_j=alpha*h_j+beta*h_(j-1). Maximizing the second-order Taylor functional gives <b^circ,L+ b^circ>/(2n alpha beta). The exact operator identity (alpha I+beta S)(alpha I+beta S^-1)=I-alpha beta L yields coefficient [p^2/(p-1)*<h^circ,L+ h^circ>-||h^circ||^2]/(2n), with O(|epsilon|^3). Fourier eigenvalues 4sin^2(pi k/n)<=4 and p^2/(p-1)>=4 prove nonnegativity, and equality for nonconstant h precisely p=2, even n, pure alternating mode. Independent Green-object reconstruction from seven observed blobs, 15 independently implemented finite-difference comparisons (n=2,3,4,6,9; p=1.3,2,3.7), and separate four-cycle Green-energy computations (1/2 and 1/4) corroborated the proof. The grouped-minus-alternating coefficient equals p^2/[32(p-1)] as stated. Finite checks do not prove all quantifiers.",
+      "residual_risks": [
+        "O(|epsilon|^3) is pointwise in fixed n,p,h, not uniform near p endpoints or large n.",
+        "Uniqueness concerns the positive coordinate-mass maximizer, not complex phases; positive weights near baseline are essential.",
+        "Pure alternating centered h at Hilbert p=2 has a vanishing second-order coefficient (and in fact the radius is affine for sufficiently small weights); cannot treat strict positivity as universal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40/RESULT.md proves strict global grouped>alternating for four entries of types a,a,b,b and all 1<p<infinity, covering the assigned illustrative ordering only.",
+          "Cheung and Li, Maximizing the numerical radii of matrices by permuting their entries, https://cklixx.people.wm.edu/shift-final.pdf, Theorems 3.5-3.6 provides global Hilbert quadratic-form maximization for permutations of cycle weights; all inner-product p=2.",
+          "Chien, Kirkland, Li and Nakazato (2023), Numerical ranges of cyclic shift matrices, arXiv:2304.06050, Proposition 2.2 and Sections 4-6 studies exact Hilbert-space numerical ranges and reordering, no Banach-p Green Hessian in inspected relevant sections.",
+          "Chang and Wang (2012), Maximizing numerical radii of weighted shifts under weight permutations, JMAA 394:592-602, doi:10.1016/j.jmaa.2012.04.039 explicitly defines Hilbert numerical radius and studies maximizing permutations."
+        ],
+        "reasoning": "The two-weight four-cycle example is already implied by a stronger result and is not a novel separate subclaim. Hilbert global rearrangement theories dominate p=2 ordering, but do not imply exact curvature for arbitrary p and arbitrary h, nor Fourier flat-mode classification. No surveyed broader theorem covers the entire submitted assertion.",
+        "searches": [
+          "Resultary: weighted cyclic shift numerical radius Banach l_p all exponent permutation arrangement grouped alternating small perturbation profile",
+          "Full Resultary RESULT: global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p",
+          "Full Cheung-Li PDF Theorems 3.5-3.6 and Chien et al 2023 arXiv cyclic shift numerical-range theorems",
+          "Web: Maximizing numerical radii of weighted shifts under weight permutations Chang Wang 2012"
+        ]
+      },
+      "checked_sources": [
+        "Chang and Wang (2012), Maximizing numerical radii of weighted shifts under weight permutations, JMAA 394:592-602, doi:10.1016/j.jmaa.2012.04.039",
+        "Cheung and Li, Maximizing the numerical radii of matrices by permuting their entries, https://cklixx.people.wm.edu/shift-final.pdf, Theorems 3.5-3.6",
+        "Chien and Sheu (2013), The numerical radii of weighted shift matrices and operators, doi:10.7153/oam-07-11, https://files.ele-math.com/articles/oam-07-11.pdf",
+        "Chien, Kirkland, Li and Nakazato (2023), Numerical ranges of cyclic shift matrices, arXiv:2304.06050, Proposition 2.2 and Sections 4-6",
+        "Marionnet (2025), Minimizing numerical radius of weighted cyclic matrices under permutation of the weights, arXiv:2512.17399",
+        "Global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40/RESULT.md",
+        "Perron entropy flux and a four-site reversal of numerical-radius sensitivity, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-perron-entropy-flux-and-a-four-site-reversal-of-numerical-radius--f0c0ea797e57/RESULT.md",
+        "Sharp non-Hilbert numerical-radius deficit of finite nilpotent shifts, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-non-hilbert-numerical-radius-deficit-of-finite-nilpotent-s--09de097183cb/RESULT.md",
+        "Mueller and Tomilov (2026), Numerical and essential numerical ranges on ell_p, arXiv:2606.22693; abstract and contents accessible, full text not inspected"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chang and Wang (2012), Maximizing numerical radii of weighted shifts under weight permutations, JMAA 394:592-602, doi:10.1016/j.jmaa.2012.04.039 plus Cheung and Li, Maximizing the numerical radii of matrices by permuting their entries, https://cklixx.people.wm.edu/shift-final.pdf, Theorems 3.5-3.6: strongest Hilbert permutation statements depend on symmetric matrices and eigenvalues at p=2.",
+          "Global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40/RESULT.md: a>b four-cycle strict inequality does not encode arbitrary n, h or exact epsilon^2 coefficient.",
+          "Chien and Sheu (2013), The numerical radii of weighted shift matrices and operators, doi:10.7153/oam-07-11, https://files.ele-math.com/articles/oam-07-11.pdf: Theorem 2.1 expresses Hilbert finite NILPOTENT weighted-shift numerical radii through trigonometric/hyperbolic roots.",
+          "Perron entropy flux and a four-site reversal of numerical-radius sensitivity, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-perron-entropy-flux-and-a-four-site-reversal-of-numerical-radius--f0c0ea797e57/RESULT.md: first derivative with respect to exponent at p=2 on nilpotent shifts is a different perturbation."
+        ],
+        "reasoning": "General logical implication check: a Hilbert-only theorem has no parameter p≠2; a four-cycle all-contrast ordering has no Taylor coefficients for general perturbations and n>4; nilpotent endpoint/large-n or p-sensitivity results are different invariants. Standard implicit function/envelope theorems explain the method but are not an explicit dominating calculation. Cannot exclude an inaccessible general nonlinear-perturbation formula, which is recorded as residual risk.",
+        "searches": [
+          "Inspect primary 2012 Chang-Wang publisher introductory mathematics (Hilbert assumption), open Cheung-Li 2012 full article, Chien-Sheu 2013 full PDF and Chien et al 2023 preprint",
+          "Inspect published Resultary 2026 full RESULT for global four-cycle strict rearrangement and nilpotent ell_p shift asymptotic",
+          "Search published algebraic numerical range ell_p nonlinear Perron perturbation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assigned formula is exact second variation of nonlinear mass-simplex variational maximizer; nearest relevant Global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40/RESULT.md",
+          "Sharp non-Hilbert numerical-radius deficit of finite nilpotent shifts, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-non-hilbert-numerical-radius-deficit-of-finite-nilpotent-s--09de097183cb/RESULT.md uses a Young-defect Dirichlet spectral limit for finite nilpotent shifts, not an all-direction periodic-weight Hessian",
+          "Mueller and Tomilov (2026), Numerical and essential numerical ranges on ell_p, arXiv:2606.22693; abstract and contents accessible, full text not inspected gives Banach numerical-range foundations, but its full text was unavailable in this run"
+        ],
+        "reasoning": "Compared numerical-radius Hessian, nonlinear generalized Rayleigh-quotient sensitivity, cycle-Laplacian Green energy, local Perron response, Fourier zero modes and possible effective-resistance formulations. No inspected different result gives this full coefficient. Some general perturbation theory may provide a route to the method, which is not a direct prior calculation of this natural invariant.",
+        "searches": [
+          "Resultary: exact second derivative Hessian of spatial numerical radius of cyclic weighted shift on ell_p near equal weights; cycle graph Laplacian Moore Penrose inverse Green kernel",
+          "Resultary: nonlinear Perron eigenvalue positive cyclic weighted shift Banach numerical radius perturbation graph effective resistance spectral Hessian",
+          "Web: spatial numerical radius Banach l_p cyclic weighted shift perturbation second derivative local Hessian cycle graph",
+          "Web: weighted cyclic shift numerical radius Banach lp perturbation second order discrete Laplacian weights Hessian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40/RESULT.md yields a fixed four-cycle inequality but not a dimension/exponent/direction table for Hessians.",
+          "Marionnet (2025), Minimizing numerical radius of weighted cyclic matrices under permutation of the weights, arXiv:2512.17399 enumerates Hilbert minimizer permutations with n=6 and examples for larger dimensions rather than Banach all-n derivative tensors.",
+          "No known finite database of the smooth (n,p,h)-dependent coefficient was identified; negative search is not proof of novelty."
+        ],
+        "reasoning": "This is a continuous family of tensors, not a finite catalog value or exhaustive finite census. Existing special-cycle results cover examples, while no exact table or theorem recovered the full Green pseudoinverse formula.",
+        "searches": [
+          "Resultary semantic: universal green kernel hessian cyclic shifts; exclude exact assigned match 2026/10/11/SCOPE-universal-green-kernel-hessian...523521e92cd4",
+          "Resultary semantic: non-Hilbert numerical radius weighted cyclic shift Green pseudoinverse",
+          "Web: weighted cyclic shift numerical radius Green function Hessian p^2/(p-1)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full all-n, all-1<p<infinity local numerical-radius Hessian with cycle Green pseudoinverse and exact null-mode classification. Directly inspected 2012-2025 Hilbert cyclic-shift permutation papers establish global arrangements or Hilbert eigenvalue formulae; those are real prior coverage for the p=2 specialization. The distinct published all-p four-cycle rearrangement theorem strongly covers the displayed local grouped-versus-alternating ordering for that special two-weight family, so that example is not claimed independently new. It does NOT give an arbitrary-dimension, arbitrary-weight-direction coefficient, analytic profile, or complete Fourier Hessian spectrum. Distinct published non-Hilbert nilpotent-shift and exponent-derivative results study different operators/limits. Targeted semantic Resultary searches and public literature searches did not identify the complete assertion outside the assigned finding; absence is not proof of originality. Key priority risk remains a possible older nonlinear-Perron/Banach numerical-range sensitivity theorem and the uninspected portion of Chang-Wang 2012; lawful OA/preprint attempts failed and authorized Oxford retrieval returned vpn_disconnected, so no false whole-paper coverage judgment is made.",
+      "residual_risks": [
+        "Full 2012 Chang-Wang original eleven-page publisher PDF could not be read; lawful open/preprint search did not locate it, and institutional Oxford returned vpn_disconnected. Accessible definitions strongly identify Hilbert scope but complete paper cannot be declared NOT_COVERING.",
+        "General nonlinear Perron/positive homogeneous programming sensitivity literature may contain an equivalent all-direction weighted Hessian in other language, even if targeted searches found none.",
+        "Mueller-Tomilov 2026 full arXiv preprint was inaccessible; only abstract/contents read, so no whole-document exclusion.",
+        "Same-day distinct four-cycle global rearrangement work fully covers the sample strict inequality; only general Hessian, analytic profile and full mode classification survive novelty judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Clear Hilbert premise p=2 in material read; full-text not-covering claim deliberately withheld. Cannot exclude another equivalent calculation from inaccessible pages.",
+          "evidence": [
+            "ScienceDirect DOI page states H is a complex Hilbert space and characterizes weight permutations; journal 394 (2012) 592-602",
+            "Cheung-Li open preprint cites Chang-Wang as solved Hilbert cyclic permutation problem",
+            "Authorized Oxford result: vpn_disconnected (access risk, not scientific failure)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2012.04.039",
+          "material_read": "Publisher-indexed abstract, opening Hilbert numerical-range definition, cyclic weight setup, and accessible cited theorem context in Cheung-Li/Chien et al; original 11-page PDF NOT read",
+          "method": "Lawful OA and arXiv searches, publisher HTML material, cross-reference checks; Oxford institutional retrieval only after both full-text routes failed and returned vpn_disconnected",
+          "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+          "trigger": "Same positive cyclic Hilbert-weight permutation problem, central historical predecessor"
+        },
+        {
+          "assessment": "Gives Hilbert Perron quadratic-form arrangement inequalities, not non-Hilbert spatial numerical-radius Hessian. Covers some Hilbert/global permutation implications, not the all-p formula.",
+          "evidence": [
+            "PDF Theorem 3.5 gives Perron radius r(A)>=r(A_sigma) for cycle arrangement",
+            "Theorem 3.6 compares x^t A x on nonnegative ordered vectors, i.e. Hilbert quadratic form, not nonlinear Banach duality functional"
+          ],
+          "identifier_or_url": "https://cklixx.people.wm.edu/shift-final.pdf",
+          "material_read": "Direct original PDF abstract/introduction, Section 3.2 Theorems 3.5 and 3.6 including proof, final remarks; PDF pages 4 and 9 visually inspected",
+          "method": "Open-access author manuscript read as PDF text with page screenshots, direct exact theorem comparison",
+          "title": "Maximizing the numerical radii of matrices by permuting their entries",
+          "trigger": "Same cyclic weighted matrices and possible dominating global arrangement theorem"
+        },
+        {
+          "assessment": "Studies complex Hilbert spaces and noncyclic finite/infinite weighted shifts; no arbitrary positive cyclic ell_p Green Hessian.",
+          "evidence": [
+            "Page 1 explicit Hilbert-space definition and finite weights (1,...,r,...,1)",
+            "Theorem 2.1 gives Chebyshev/trigonometric characteristic-root formulas for one-exceptional-weight nilpotent matrices"
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/oam-07-11.pdf",
+          "material_read": "Full eight-page PDF returned; inspected intro, Section 2 Theorem 2.1 and proof, comparisons and Section 3 context, screenshots of pages 1 and 4",
+          "method": "Full open PDF text and relevant page image review",
+          "title": "The numerical radii of weighted shift matrices and operators",
+          "trigger": "Original weighted-shift numerical radius mathematical results"
+        },
+        {
+          "assessment": "Hilbert Hermitian-part eigenvalue and numerical range inclusions; not the spatial ell_p numerical radius for p≠2.",
+          "evidence": [
+            "Proposition 2.2 uses Re(e^{i theta}A), Hermitian matrix eigenvalues",
+            "Remark 5.4 reduces permutation comparison to Chang-Wang 2012, Hilbert setting"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.06050",
+          "material_read": "Direct 25-page PDF relevant introduction, Proposition 2.2, permutation comparison Sections 4-6, Remark 5.4 and final remarks; screenshots pages 2 and 11",
+          "method": "Original arXiv PDF text, search of key theorems and visual confirmation of selected pages",
+          "title": "Numerical ranges of cyclic shift matrices",
+          "trigger": "Precisely weighted cyclic matrices; probable stronger permutations or numerical-range inclusion"
+        },
+        {
+          "assessment": "Hilbert numerical radii via real parts, characteristic roots and minimizer permutations; does not determine non-Hilbert Taylor Hessian.",
+          "evidence": [
+            "Introduction explicitly relies on Hilbert weighted cyclic matrices and w(A_sigma)",
+            "Concluding remarks distinguish maximizing and minimizing permutation orderings and n>6 combinatorial limits"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.17399",
+          "material_read": "Abstract, intro setup, polynomial-reduction and n=6 comparisons, final discussion; screenshot of PDF page 1",
+          "method": "ArXiv PDF text and one screenshot; scoped reading to relevant results",
+          "title": "Minimizing numerical radius of weighted cyclic matrices under permutation of the weights",
+          "trigger": "Later same-object global minimization theorem, possible dominating arrangements"
+        },
+        {
+          "assessment": "Strong coverage of the sample n=4 two-level arrangement inequality, but not complete all-n Green-kernel Hessian, arbitrary perturbation direction, or flat mode classification.",
+          "evidence": [
+            "Finding v_p(S_(a,a,b,b)) > v_p(S_(a,b,a,b)) for all a>b>0 and all 1<p<infinity",
+            "Scope explicit n=4, two copies of each weight, no arbitrary n or h"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40/RESULT.md",
+          "material_read": "Complete original RESULT.md theorem, full proof in four steps, strict lower certificates, all conditions and limitations",
+          "method": "Read complete published mathematical statement and proof from Git repository",
+          "title": "Global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p",
+          "trigger": "Same Banach ell_p cycle and exactly the sample grouped-versus-alternating comparison"
+        },
+        {
+          "assessment": "Perturbs exponent p at 2 on a nilpotent shift; not positive cyclic weight Hessian near a common baseline.",
+          "evidence": [
+            "Finding derivative dv_p(T_a)/dp at p=2 = (1/2) sum a_i h_i h_(i+1) log(h_i/h_(i+1))",
+            "Source uses n-1 positive weights with zero final shift coordinate (nilpotent), not n cyclic weights"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-perron-entropy-flux-and-a-four-site-reversal-of-numerical-radius--f0c0ea797e57/RESULT.md",
+          "material_read": "Full published RESULT.md including definition, proof, extremal asymptotics and limitations",
+          "method": "Direct Git source text inspection",
+          "title": "Perron entropy flux and a four-site reversal of numerical-radius sensitivity",
+          "trigger": "Exact spatial numerical radius sensitivity on Banach ell_p weighted shifts"
+        },
+        {
+          "assessment": "Determines large-n nilpotent unweighted radius deficit, not finite cyclic weighted response or full Hessian; distinct invariant.",
+          "evidence": [
+            "Leading limit (n+1)^2(1-v_p(S_n)) = 2(p-1)pi^2/p^2",
+            "Operator lacks periodic closing edge, and n varies to infinity instead of fixed n with arbitrary h"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-non-hilbert-numerical-radius-deficit-of-finite-nilpotent-s--09de097183cb/RESULT.md",
+          "material_read": "Full published RESULT.md proof, all four main functional-analytic steps and limitations",
+          "method": "Direct published Git RESULT mathematical text inspection",
+          "title": "Sharp non-Hilbert numerical-radius deficit of finite nilpotent shifts",
+          "trigger": "Same Banach numerical radius, Green/Poincare local curvature mechanism"
+        },
+        {
+          "assessment": "Insufficient material to claim the paper does not cover an equivalent sensitivity formula; retained as a named residual bibliographic risk.",
+          "evidence": [
+            "Abstract develops general ordinary/essential numerical ranges and sequence-space examples",
+            "Section 4.6 title: Finite-dimensional shift tests and scale n|1/p-1/2|; no complete theorem assessed"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.22693",
+          "material_read": "ArXiv abstract and public PDF table-of-contents excerpts, especially Sections 4.4-4.6 titles; full text not accessible in this run",
+          "method": "Search for lawful arXiv full text and HTML; available metadata/abstract only",
+          "title": "Numerical and essential numerical ranges on ell_p",
+          "trigger": "Modern general Banach ell_p numerical range theory might encompass weighted shifts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full assigned finding and proof of operator invariant",
+        "Chang and Wang (2012), Maximizing numerical radii of weighted shifts under weight permutations, JMAA 394:592-602, doi:10.1016/j.jmaa.2012.04.039",
+        "Cheung and Li, Maximizing the numerical radii of matrices by permuting their entries, https://cklixx.people.wm.edu/shift-final.pdf, Theorems 3.5-3.6",
+        "Global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40/RESULT.md",
+        "Sharp non-Hilbert numerical-radius deficit of finite nilpotent shifts, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-non-hilbert-numerical-radius-deficit-of-finite-nilpotent-s--09de097183cb/RESULT.md",
+        "Independent exact Fourier mode analysis and four-cycle arrangement calculation"
+      ],
+      "rationale": "The spatial numerical radius is a canonical nonlinear Banach operator invariant, and finite positive weighted cyclic shifts are the natural family underlying classical numerical-radius permutation problems. The theorem computes its complete second variation on the n-dimensional positive weight space for every n>=2 and 1<p<infinity, in terms of the meaningful graph Green inverse. The formula resolves mode-by-mode perturbation sensitivity, identifies the unique Hilbert alternating flat direction, and yields an arrangement comparison from the full quadratic law. Although the two-weight four-cycle strict ordering is covered globally by a separate theorem, the arbitrary-n all-direction spectral Hessian and sharp zero-mode characterization are neither a mere table lookup nor an arbitrary unmotivated slice; they are standalone natural exact facts usable for local sensitivity/stability studies. The proof uses standard perturbation methods but the computed Green-energy coefficient and zero-mode classification are structurally informative and not established in the inspected prior Banach weighted-cycle statements.",
+      "residual_risks": [
+        "The result is only local in strictly positive weights and does not yield a global permutation law.",
+        "Hilbert p=2 case and n=4 two-weight ordering are substantially pre-covered; mathematical value rests on the full p-dependent all-direction Hessian and Fourier classification.",
+        "Generic implicit-function perturbation theory underlies the method, so value is a modest but nontrivial exact structural classification rather than a broad new framework."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chang and Wang (2012), Maximizing numerical radii of weighted shifts under weight permutations, JMAA 394:592-602, doi:10.1016/j.jmaa.2012.04.039",
+    "Cheung and Li, Maximizing the numerical radii of matrices by permuting their entries, https://cklixx.people.wm.edu/shift-final.pdf, Theorems 3.5-3.6",
+    "Chien and Sheu (2013), The numerical radii of weighted shift matrices and operators, doi:10.7153/oam-07-11, https://files.ele-math.com/articles/oam-07-11.pdf",
+    "Chien, Kirkland, Li and Nakazato (2023), Numerical ranges of cyclic shift matrices, arXiv:2304.06050, Proposition 2.2 and Sections 4-6",
+    "Marionnet (2025), Minimizing numerical radius of weighted cyclic matrices under permutation of the weights, arXiv:2512.17399",
+    "Global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40/RESULT.md",
+    "Perron entropy flux and a four-site reversal of numerical-radius sensitivity, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-perron-entropy-flux-and-a-four-site-reversal-of-numerical-radius--f0c0ea797e57/RESULT.md",
+    "Sharp non-Hilbert numerical-radius deficit of finite nilpotent shifts, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-non-hilbert-numerical-radius-deficit-of-finite-nilpotent-s--09de097183cb/RESULT.md",
+    "Mueller and Tomilov (2026), Numerical and essential numerical ranges on ell_p, arXiv:2606.22693; abstract and contents accessible, full text not inspected"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Scientific assessment best-of-knowledge on originality, with identified inaccessible original full texts and potential nonlinear-Perron equivalence.",
+    "Finite numerical experiments are checks and not all-parameter proofs.",
+    "No claim of global rearrangement or endpoint p=1/infinity or dimension-uniform remainder.",
+    "No external attestation or formal verification is claimed."
+  ]
+}
