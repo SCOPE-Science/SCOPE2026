@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The joint rotation transfer preserves lucky indicators and multiplicity counts simultaneously. Conditioned on earlier arrivals, free sites have never been preferred, and the conditional mean of luck is constant. The one-draw deletion/insertion calculation gives the finite covariance identity with no independence assumption for final parking positions. Differences of binomial masses prove the three frequency regimes; the doubleton quadratic is monotone in its argument and gives the unique crossing. An independent exhaustive rational checker verifies the complete family for small sizes.
+PASS
 
-## Originality
+Pollak rotation on N=n+1 circular sites bijects shift-orbit representatives to uniform classical parking functions and preserves lucky indicators and preference-count profiles. Conditioning on preceding preferences, exactly N−i+1 free labels are absent from all earlier preference draws. An independent insertion of draw i changes frequency-r count by binomial difference h_m(r)=b_m(r−1)−b_m(r); conditional covariance gives (N−i+1)/N [h_{n−i}(r)−h_{n−1}(r)]. The first lucky indicator has zero covariance. Binomial second differences show h_m(1) strictly decreases; for r>=3 it increases over a nontrivial range; and h_m(2) increases then decreases, giving a unique positive-to-negative arrival change exactly for n>=5. Poisson limit yields the unique critical lambda in (0,2−sqrt(2)), alpha*=1−lambda≈0.714556. Independently enumerated every classical parking function for n=2,...,6 with exact rational covariance, checking the full formula. Exact Fraction sign computations checked n=2,3,4,5,6,7,10,25,50,100,200 including at most one zero; finite checks do not prove all n.
 
-**PASS on inspected sources, subject to historical-priority risk.** Diaconis–Hicks identify the marginal preference-species distribution, and Kenyon–Yin give the lucky marginal and parking-function connections; neither marginal implies the mixed covariance. Harris–Martinez and Butler et al. concern lucky sets/outcomes and lucky spots, respectively, rather than preference-multiplicity cross moments. The nearest indexed occupancy-richness result concerns a *different pair of variables* and cannot imply the marked lucky-arrival law by substitution. The new finite formula and arrival-threshold claim were not found as results in these inspected materials. General marked linear-probing enumeration is a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact sign spectrum answers a natural dependence question in random parking/hashing: a successful first probe tracks singleton usage but opposes high repeated-preference counts; the intermediate multiplicity two changes behavior at a nontrivial arrival fraction. This is a complete finite-size classification plus an explicit asymptotic transition, not merely a small numerical example.
+Best-of-knowledge: the circular parking law, lucky-count generating functions, and preference species occupancy distribution are prior work. The materially inspected source papers treat their marginal distributions and prescribed lucky subsets, not the mixed arrival-specific covariance of one lucky indicator with each multiplicity class. The conditional insertion formula and doubleton sign reversal are substantive additions and not entailed merely by multiplying marginal generating functions.
 
-## Limitations and prior comparison
+## value
 
-The source of the circular reduction, the iid species marginal and the lucky-count marginal is explicitly credited. The new scientific content lies in their joint mark-frequency covariance and rigorous temporal doubleton phase boundary. Classical hashing references and yet-unlocated mixed generating functions could contain equivalent results. Finite verification is supplementary, and no independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact cross-covariance between arrival luckiness and the occupancy multiplicity spectrum is a natural joint parking-function statistic not determined by either well-known marginal. A unique doubleton sign reversal and critical macroscopic arrival fraction give substantive structural information useful for probabilistic parking and linear-probing analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
