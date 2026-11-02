@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:54:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At arbitrary integer m≥3, g=m²−1, k=m²−m−1 and a=m−2, b=m(m−2), c=k−1 satisfy 0<a<b<c<k<g. The carry equations kℓ+L=h+gU and kh+V=ℓ+gR, with digit 0≤h,ℓ<g and carries 0≤R,L,U,V<k, give mℓ≡L−h (mod g), hence unique ℓ=[m(L−h)]_g since m²≡1 mod g. From 0≤V<k one obtains max(0,ceil((gR−k+1)/k))≤h≤min(g−1,floor((gR+g−1)/k)), which at R=0,a,b,c gives candidate high-digit sets {0,1},{a,a+1,a+2},{c,k,k+1},{g−2,g−1}. The extra a+2 candidate at L=a,c has V=1−2m,−m−1 <0; extra c at L=0,b has V=g,g+m−2≥k. All remaining 16 ordered entries in the claimed table satisfy the two equations as polynomial identities and carry bounds for all m≥3. The eight states are closed and all reachable from star via the sole start edge star→B (h,ℓ)=(1,k); even pivots A,C,F,H, odd pivots A,D,E,H; all reach A, so no Young pruning. Thus the same marked 9-vertex graph is isomorphic for all m to m=3, Y(8,5). Independently implemented symbolic SymPy substitution verified 16 algebraic identities; exact BFS from original carry equations independently matched all 8 states, 16 edges and labels for each m=3,…,100. The finite test corroborates; universal proof rests on the symbolic inequalities/identities and induction on reachable states.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kendrick abstract proves 1089-class iff k+1 divides g and complete-class gcd classification, not arbitrary eight-state noncomplete graphs.",
+          "Holt 2016 §7.1 explicitly leaves derived graph-isomorphism questions open.",
+          "Holt 2025 known-base algorithm and general mother-graph descriptions solve parameter-specific construction problems but do not give this family-wide fixed graph shape."
+        ],
+        "reasoning": "The 1089 graph and complete graph do not have the marked eight-state transition structure here. General parameter-specific finite automata do not mechanically imply a uniform symbolic closed-form isomorphism for every m; the candidate/edge inequalities constitute the nontrivial family proof. If a future prior result is shown to cover the exact family through a clear parameter substitution, this PASS must be revisited.",
+        "searches": [
+          "Kendrick Young Graphs 1089 Conjecture 39 Y(m^2-1,m^2-m-1) isomorphic Y(8,5) reverse multiples proof",
+          "Kendrick 2015 theorems 1089 graphs complete graphs Young graph isomorphism",
+          "Holt Finding Permutiples Known Base Multiplier arXiv 2411.10859 Section 5",
+          "Holt Multigraph Characterization Permutiple Strings arXiv 2505.11414",
+          "Holt Utilizing Symmetry Permutiples arXiv 2504.17158"
+        ]
+      },
+      "checked_sources": [
+        "Kendrick, Young Graphs: 1089 et al., J. Integer Sequences 18 (2015), Article 15.9.7, Sections 2 and 6.1, Conjecture 39; https://www.maths.tcd.ie/EMIS/journals/JIS/VOL18/Kendrick/ken1.pdf ; arXiv:1410.0106 (primary PDF text and page images inspected).",
+        "Sloane, 2178 and All That, Fibonacci Quarterly 52 (2014), Sections 2 and 3, Figure 6 showing Y(8,5) and graph conventions; https://arxiv.org/pdf/1307.0453 (primary PDF text/page image inspected).",
+        "Holt, Derived Palintiple Families and Their Palinomials, Integers 16 (2016), introduction and Section 7.1; https://arxiv.org/abs/1412.0231 (full open HTML sections inspected; paper reverses Kendrick parameter order).",
+        "Holt, A Multigraph Characterization of Permutiple Strings, Integers 25 (2025), Article A111; https://arxiv.org/html/2505.11414 (primary HTML intro, graph method and theorem/corollary sections compared).",
+        "Holt, Finding Permutiples of a Known Base and Multiplier, Integers 25 (2025), Article A13; https://arxiv.org/pdf/2411.10859 (PDF introductory scope, Section 5 finite-state machinery, Sec. 5.1 palintiple application inspected).",
+        "Holt, Utilizing Symmetry in Finding New Permutiples from Known Examples, arXiv:2504.17158 (2025), https://arxiv.org/pdf/2504.17158 (primary PDF intro, examples, related graph symmetries, Corollary 29 and bibliographic context inspected).",
+        "Resultary published mathematical findings semantic search, two actual queries: Kendrick Young Graphs 1089 Conjecture 39 Y(m^2-1,m^2-m-1) isomorphic Y(8,5) reverse multiples proof; and reverse multiples Young graph isomorphism quadratic family g=n^2-1 k=n^2-n-1 carry graph eight vertices pivot. Results 19+18 mostly unrelated graph-complex findings; no covering entry surfaced.",
+        "Web literature queries for Kendrick Conjecture 39 solution, quadratic reverse-multiple carry graph and equivalent Y(8,5), including exact formula searches; journal/primary PDF and later Holt works found, but not a demonstrated universal prior proof."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kendrick explicitly conjectures the all-m isomorphism, while proved claims classify only two other graph types.",
+          "Sloane exhibits m=3 and transfer-matrix machinery for known graphs.",
+          "Holt (2016) proposes, rather than resolves, broad Y(5,8)-family statements.",
+          "The inspected 2025 fixed-parameter and symmetry results make no stated assertion yielding all 16 symbolic transitions at all m."
+        ],
+        "reasoning": "Kendrick’s finite evidence and Sloane’s known m=3 instance are special cases of the present theorem, not prior implications of it. The 1089/complete classifications do not subsume this topology. General automaton construction is a method, not the requested universal identity; deducing it requires additional nontrivial symbolic calculation. Priority remains best-of-knowledge with named residual risks.",
+        "searches": [
+          "Kendrick (2015) Conjecture 39 pp.24–25; theorems and definitions",
+          "Sloane (2014) 2178 And All That Figure 6 and graph-class theorems",
+          "Holt (2016) derived Young graph Section 7.1",
+          "Holt (2025) permutiple-string theorems and Hoey–Sloane graph definitions",
+          "Kendrick Young Graphs 1089 Conjecture 39 Y(m^2-1,m^2-m-1) isomorphic Y(8,5) reverse multiples proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kendrick §6.1 Conjecture 39 exactly matches the graph Y(m²−1,m²−m−1) ≅ Y(8,5).",
+          "Holt 2016 introduction explicitly reverses the (multiplier,base) parameter order: Holt Y(5,8) is Kendrick Y(8,5).",
+          "The carry-pair automaton includes a start node and even/odd pivot markings; unequal digit labels are not part of the graph isomorphism claim."
+        ],
+        "reasoning": "The exact conjecture and unlabeled directed carry-graph/pivot automaton statement are the same mathematical assertion in different language. The 2016 derived-family question and other 2025 permutiple symmetry classes use the same graph framework but are not the universal quadratic m-parameter assertion. No equivalent already-proved theorem appeared in the inspected relevant statements.",
+        "searches": [
+          "Kendrick Young Graphs 1089 Conjecture 39 Y(m^2-1,m^2-m-1) isomorphic Y(8,5) reverse multiples proof",
+          "reverse multiples Young graph isomorphism quadratic family g=n^2-1 k=n^2-n-1, carry graph eight vertices pivot",
+          "Holt derived palintiple 2016 Section 7.1 Y(5,8) versus Sloane/Kendrick Y(8,5)",
+          "Kendrick 2015 Section 6.1 Conjecture 39 and carry automaton equivalences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kendrick reports finite enumeration through g≤336, and Section 6.1 promotes the observed pattern to conjecture rather than theorem.",
+          "Sloane Figure 6 gives the single concrete graph Y(8,5), not the general integer parameter classification.",
+          "Actual Resultary two semantic searches returned 19 and 18 items, none a reverse-multiple Young-graph quadratic-family result."
+        ],
+        "reasoning": "An existing finite graph table or sequence of examples cannot certify an infinite family. The present claim proves symbolic closedness and pivot structure for all m≥3; the database searches alone do not establish priority.",
+        "searches": [
+          "Kendrick Young Graphs 1089 Conjecture 39 Y(m^2-1,m^2-m-1) isomorphic Y(8,5) reverse multiples proof",
+          "reverse multiples Young graph isomorphism quadratic family g=n^2-1 k=n^2-n-1, carry graph eight vertices pivot",
+          "Kendrick Young graphs computational g≤336 Y(8,5)",
+          "Sloane Figure 6 graph (8,5), Holt Section 7.1 table of Y(5,8) examples",
+          "published Resultary carry graph reverse multiples quadratic parameter family"
+        ]
+      },
+      "rationale": "Best-of-knowledge original: the exact theorem is Kendrick (2015), Conjecture 39, explicitly posed without proof; a symbolic all-m exhaustive carry table now supplies the missing universal derivation. Sloane gives the m=3 graph and known 1089/complete cases; Holt’s derived-family example uses reversed notation Y(5,8) and still asks related isomorphism questions. Later primary permutiple methods are broader in algorithms but do not state or imply the exact all-parameter graph shape without separately performing this proof. Actual Resultary/literature searches found no covering theorem; this is not a guarantee of priority.",
+      "residual_risks": [
+        "The available index and manually inspected articles do not exhaust post-2015 unindexed journals, theses, mathematical forums, or differently named carry-automaton solutions; prior priority cannot be certified conclusively.",
+        "Recent general permutiple constructions may encode families implicitly; the inspected theorem statements and examples do not explicitly assert the universal quadratic eight-state marked-graph classification. A hidden simple corollary requiring substantial algebra remains a limited risk.",
+        "Only the underlying directed carry graph, distinguished start and pivot markings are isomorphic: labels (h,ell) vary with m. No isomorphism of labeled digit automata or classification of all reverse-multiple Young graphs is proved.",
+        "Finite independent BFS checks m=3..100 are corroborative only. The all-m conclusion depends on the symbolic interval-endpoint inequalities and transition identities; no formal proof assistant or external expert attestation was used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjecture 39 asserts exactly Y(m^2-1,m^2-m-1) ≅ Y(8,5) for m≥3 without a proof. Other proved classes are 1089 and complete graphs, not this eight-state parameter family; published base≤336 computations are finite.",
+          "evidence": [
+            "Kendrick Section 6.1 Conjecture 39 states the all-integer quadratic family as a conjecture.",
+            "The abstract and Theorems on 1089/complete graph classes have other hypotheses/graph forms; the article reports enumeration g≤336."
+          ],
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL18/Kendrick/ken1.pdf ; arXiv:1410.0106",
+          "material_read": "Primary article PDF, Sections 2 (carry graph, start, pivots, Young pruning) and 6.1 pp.24-25 (Conjectures 38–43), introduction and discussion of 1089/complete graph theorems; page images 4 and 24 checked.",
+          "method": "Open primary PDF text, exact theorem/conjecture wording, mathematics and PDF screenshots.",
+          "title": "Young Graphs: 1089 et al.",
+          "trigger": "Exact stated Conjecture 39 and possible stronger 1089/complete-graph classification theorems."
+        },
+        {
+          "assessment": "Defines and draws Y(8,5), explaining the graph-isomorphism language. The exhibited (g,k)=(8,5) case and transfer-matrix machinery do not prove the full all-m quadratic family.",
+          "evidence": [
+            "Figure 6 is Y(8,5), the m=3 base case.",
+            "Transfer-matrix counts require a known graph shape; they do not imply an eight-state isomorphism for every m."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.0453 ; Fibonacci Quarterly 52(2) (2014), 99–120",
+          "material_read": "Primary PDF Section 2 graph/pivot conventions, figure of Y(8,5) on page 6, Sections 2–3 on graph-isomorphism enumerations and known families; original page image inspected.",
+          "method": "PDF text and figure screenshot with statement/assumption comparison.",
+          "title": "2178 and All That",
+          "trigger": "The original Y(8,5) graph and possible general isomorphism method."
+        },
+        {
+          "assessment": "Discusses candidate derived families that seem isomorphic to Y(5,8) based on examples, explicitly leaving the question open; not a theorem proving the Kendrick quadratic parameter family.",
+          "evidence": [
+            "Introduction says Holt reverses the parameter order relative to Sloane/Kendrick.",
+            "Section 7.1 explicitly says no complete answers and asks if Pudwell-derived graphs are always isomorphic to Y(5,8)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.0231 ; Integers 16 (2016), A27",
+          "material_read": "Full-text HTML introduction and Section 7.1 discussing derived Young-graph classes and Pudwell families; relevant theorem statements and parameter convention.",
+          "method": "Open-access primary HTML, checked paragraph-by-paragraph the Y(5,8) examples and stated open questions.",
+          "title": "Derived Palintiple Families and Their Palinomials",
+          "trigger": "Possible later proof, and switched (multiplier,base) notation Y(5,8) corresponding to Kendrick Y(8,5)."
+        },
+        {
+          "assessment": "Characterizes permutiple strings and relates finite-state graphs; the inspected results do not give the explicit marked Young-graph isomorphism for all (m²−1,m²−m−1).",
+          "evidence": [
+            "The source studies mother/Hoey–Sloane graphs and string existence at given base and multiplier; no identified formula states all members of Kendrick Conjecture 39 share the Y(8,5) state graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.11414 ; Integers 25 (2025), A111",
+          "material_read": "Primary open HTML introduction, definitions, multigraph characterization and theorem/corollary material; checked scope of graph and digit-string conclusions.",
+          "method": "Primary open-access full-text HTML statement/implication comparison.",
+          "title": "A Multigraph Characterization of Permutiple Strings",
+          "trigger": "General finite-state/mother-graph characterization potentially dominating a Young-graph theorem."
+        },
+        {
+          "assessment": "Presents general algorithms for finding permutiples at specified parameters, not an explicit symbolic uniform proof of the particular quadratic Young graph family. This is a comparison of read sections, not a claim that the entire paper lacks any related observation.",
+          "evidence": [
+            "Section 5 describes finite-state machine for fixed (n,b), and §5.1 gives palintiple application.",
+            "The abstract states algorithms for a known base and multiplier, not a closed all-m isomorphism theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.10859 ; Integers 25 (2025), A13",
+          "material_read": "Primary PDF abstract, introduction, Section 5 finite-state Hoey–Sloane graph constructions and Section 5.1 palintiple specialization; page image 0 inspected.",
+          "method": "PDF text, specific mathematical sections and PDF screenshot.",
+          "title": "Finding Permutiples of a Known Base and Multiplier",
+          "trigger": "Algorithm for every base/multiplier might conceivably entail universal graph classification."
+        },
+        {
+          "assessment": "Characterizes symmetries and classes of permutiple strings generated from known examples; these results do not visibly assert the all-m quadratic Young graph isomorphism. The rest of the paper was not exhaustively compared line by line.",
+          "evidence": [
+            "Corollary 29 concerns equivalence of symmetries/coarse conjugacy/graph classes of a fixed permutiple, not uniform isomorphism of all quadratic parameter pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.17158 (2025)",
+          "material_read": "Primary PDF abstract/intro, representative mother-graph and state-sequence examples, Corollary 29 on equivalent notions of symmetry, bibliography; page image 0 inspected.",
+          "method": "Primary PDF text, selected theorem/example comparisons and screenshot.",
+          "title": "Utilizing Symmetry in Finding New Permutiples from Known Examples",
+          "trigger": "Recent broad symmetry methods using Hoey–Sloane graphs and young-graph aliases."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mathematically motivated exact theorem: establishes precisely Kendrick’s explicitly numbered open Conjecture 39 (2015) for an infinite quadratic base/multiplier family, with an exhaustive symbolic mechanism rather than more sample bases. A uniform marked eight-state Young automaton determines permissible reverse-multiple carry paths, pivots and reusable transfer-matrix enumeration for each parameter m. This is a nontrivial all-parameter structural classification of a natural family, not a textbook substitution, arbitrary finite slice, or known-table recomputation; it does not claim neighboring graph-isomorphism conjectures or preservation of digit labels.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kendrick, Young Graphs: 1089 et al., J. Integer Sequences 18 (2015), Article 15.9.7, Sections 2 and 6.1, Conjecture 39; https://www.maths.tcd.ie/EMIS/journals/JIS/VOL18/Kendrick/ken1.pdf ; arXiv:1410.0106 (primary PDF text and page images inspected).",
+    "Sloane, 2178 and All That, Fibonacci Quarterly 52 (2014), Sections 2 and 3, Figure 6 showing Y(8,5) and graph conventions; https://arxiv.org/pdf/1307.0453 (primary PDF text/page image inspected).",
+    "Holt, Derived Palintiple Families and Their Palinomials, Integers 16 (2016), introduction and Section 7.1; https://arxiv.org/abs/1412.0231 (full open HTML sections inspected; paper reverses Kendrick parameter order).",
+    "Holt, A Multigraph Characterization of Permutiple Strings, Integers 25 (2025), Article A111; https://arxiv.org/html/2505.11414 (primary HTML intro, graph method and theorem/corollary sections compared).",
+    "Holt, Finding Permutiples of a Known Base and Multiplier, Integers 25 (2025), Article A13; https://arxiv.org/pdf/2411.10859 (PDF introductory scope, Section 5 finite-state machinery, Sec. 5.1 palintiple application inspected).",
+    "Holt, Utilizing Symmetry in Finding New Permutiples from Known Examples, arXiv:2504.17158 (2025), https://arxiv.org/pdf/2504.17158 (primary PDF intro, examples, related graph symmetries, Corollary 29 and bibliographic context inspected).",
+    "Resultary published mathematical findings semantic search, two actual queries: Kendrick Young Graphs 1089 Conjecture 39 Y(m^2-1,m^2-m-1) isomorphic Y(8,5) reverse multiples proof; and reverse multiples Young graph isomorphism quadratic family g=n^2-1 k=n^2-n-1 carry graph eight vertices pivot. Results 19+18 mostly unrelated graph-complex findings; no covering entry surfaced.",
+    "Web literature queries for Kendrick Conjecture 39 solution, quadratic reverse-multiple carry graph and equivalent Y(8,5), including exact formula searches; journal/primary PDF and later Holt works found, but not a demonstrated universal prior proof."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Graph isomorphism preserves directed structure, start and pivot markings, but not numerical digit edge labels.",
+    "Finite exact checks m≤100 cannot establish the theorem by extrapolation; universal proof uses parameter-dependent inequalities and integer equations.",
+    "Best-of-knowledge priority risk persists, as listed under axes.originality.residual_risks.",
+    "Operational public-file confidentiality remediation remains incomplete, so publication_plan.status is not_ready despite scientific acceptance."
+  ],
+  "residual_risks": [
+    "The available index and manually inspected articles do not exhaust post-2015 unindexed journals, theses, mathematical forums, or differently named carry-automaton solutions; prior priority cannot be certified conclusively.",
+    "Recent general permutiple constructions may encode families implicitly; the inspected theorem statements and examples do not explicitly assert the universal quadratic eight-state marked-graph classification. A hidden simple corollary requiring substantial algebra remains a limited risk.",
+    "Only the underlying directed carry graph, distinguished start and pivot markings are isomorphic: labels (h,ell) vary with m. No isomorphism of labeled digit automata or classification of all reverse-multiple Young graphs is proved.",
+    "Finite independent BFS checks m=3..100 are corroborative only. The all-m conclusion depends on the symbolic interval-endpoint inequalities and transition identities; no formal proof assistant or external expert attestation was used."
+  ],
+  "schema_version": 1
+}

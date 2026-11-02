@@ -1,11 +1,21 @@
-# Review of the Young-graph isomorphism theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The integer carry equations give one low digit per proposed high digit, and a rigorous interval bounds all high digits. The four candidate ranges and the two rejected boundary candidates leave a complete, sixteen-edge table, checked by direct substitution. The distinguished start, eight reachable carry vertices, parity pivot markings, and preservation after Young-graph pruning are proved for every integer \(m\ge3\). The attached independent exact-digit enumerator agrees for \(3\le m\le100\); the proof does not use those finite runs as a substitute for symbolic exhaustiveness.
+## correctness
 
-**Originality — PASS with residual risk.** Kendrick (2015), §6.1, Conjecture 39 is precisely the claim addressed and states it as a conjecture. Kendrick proves distinct 1089/complete-graph classification results; neither covers this explicit eight-vertex family. Sloane (2013/2014) introduces the graph formalism and enumerative methods but does not settle this quadratic parameter family. published-finding corpus semantic checks against the exact conjecture, its isomorphic-graph formulation, and algebraic carry-automaton aliases returned unrelated tournament reversals, graph complexes and circular digraphs, not a dominating theorem. A later or unindexed solution under different terminology remains possible.
+PASS
 
-**Value — PASS.** This settles an explicitly numbered infinite-family conjecture in a primary number-theory paper. It gives a uniform finite automaton and pivot classification for all parameter values instead of just extending a computed cutoff, so enumeration of reverse multiples can reuse one graph shape. It does not solve neighboring conjectures.
+At arbitrary integer m≥3, g=m²−1, k=m²−m−1 and a=m−2, b=m(m−2), c=k−1 satisfy 0<a<b<c<k<g. The carry equations kℓ+L=h+gU and kh+V=ℓ+gR, with digit 0≤h,ℓ<g and carries 0≤R,L,U,V<k, give mℓ≡L−h (mod g), hence unique ℓ=[m(L−h)]_g since m²≡1 mod g. From 0≤V<k one obtains max(0,ceil((gR−k+1)/k))≤h≤min(g−1,floor((gR+g−1)/k)), which at R=0,a,b,c gives candidate high-digit sets {0,1},{a,a+1,a+2},{c,k,k+1},{g−2,g−1}. The extra a+2 candidate at L=a,c has V=1−2m,−m−1 <0; extra c at L=0,b has V=g,g+m−2≥k. All remaining 16 ordered entries in the claimed table satisfy the two equations as polynomial identities and carry bounds for all m≥3. The eight states are closed and all reachable from star via the sole start edge star→B (h,ℓ)=(1,k); even pivots A,C,F,H, odd pivots A,D,E,H; all reach A, so no Young pruning. Thus the same marked 9-vertex graph is isomorphic for all m to m=3, Y(8,5). Independently implemented symbolic SymPy substitution verified 16 algebraic identities; exact BFS from original carry equations independently matched all 8 states, 16 edges and labels for each m=3,…,100. The finite test corroborates; universal proof rests on the symbolic inequalities/identities and induction on reachable states.
 
-**Scientific limitations:** Isomorphisms are of the carry-state directed graphs with their distinguished start and pivot markings, not the digit labels. Published antecedent coverage is necessarily nonexhaustive. Independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original: the exact theorem is Kendrick (2015), Conjecture 39, explicitly posed without proof; a symbolic all-m exhaustive carry table now supplies the missing universal derivation. Sloane gives the m=3 graph and known 1089/complete cases; Holt’s derived-family example uses reversed notation Y(5,8) and still asks related isomorphism questions. Later primary permutiple methods are broader in algorithms but do not state or imply the exact all-parameter graph shape without separately performing this proof. Actual Resultary/literature searches found no covering theorem; this is not a guarantee of priority.
+
+## value
+
+PASS
+
+Mathematically motivated exact theorem: establishes precisely Kendrick’s explicitly numbered open Conjecture 39 (2015) for an infinite quadratic base/multiplier family, with an exhaustive symbolic mechanism rather than more sample bases. A uniform marked eight-state Young automaton determines permissible reverse-multiple carry paths, pivots and reusable transfer-matrix enumeration for each parameter m. This is a nontrivial all-parameter structural classification of a natural family, not a textbook substitution, arbitrary finite slice, or known-table recomputation; it does not claim neighboring graph-isomorphism conjectures or preservation of digit labels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
