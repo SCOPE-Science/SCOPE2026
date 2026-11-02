@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Legendre's three-square criterion reduces the obstruction to an even 2-adic valuation and odd unit 7 mod 8. The factor-exponent identity separates odd and even indices, yielding the proven binary formulas. Exact integer matrix checks of a complete 32-state transition table certify row and column sums 2, strong connectivity, a self-loop and the degree-18 annihilator. Its nontrivial roots have modulus sqrt(2), yielding a square-root discrepancy. The all-j exact dyadic formula follows from checking 34 specified output terms and the Cayley-Hamilton theorem for a 34-dimensional block diagonal operator. The supplied verifier runs from the embedded artifact and also independently checks 4097 successive odd-part and valuation cases. No infinite conclusion relies solely on sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burns 2022 Theorem 5.4 proves an O(sqrt(n)) error for the n! obstruction and discusses joint factorial states.",
+        "Burns 2022 Theorem 4.1 supplies exact powers-of-two counts for n!; its object is n!, not S(n)."
+      ],
+      "reasoning": "The joint factorial-state asymptotics cover the density and O(sqrt X) rate after the new reduction, and those consequences are expressly acknowledged as prior-implied. The exact superfactorial oscillation on 2^(8j+5) is not implied by those stated asymptotic bounds or n!-count formula alone.",
+      "searches": [
+        "\"Barnes G\" \"sum of three squares\"",
+        "\"superfactorial\" \"three squares\" Legendre",
+        "arXiv:2203.16469 Theorems 4.1, 5.4 and joint-state extension"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2101.01567",
+      "https://arxiv.org/abs/2203.16469",
+      "https://cms.math.ca/wp-content/uploads/2023/01/Wholeissue_48_10.pdf",
+      "https://oeis.org/A000178",
+      "https://mathworld.wolfram.com/Superfactorial.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 paper gives a digit test for n!, and the 2022 sequel gives factorial density/dispersion estimates.",
+        "Aliyev gives superfactorial 2-adic valuations but not the necessary odd unit for Legendre's theorem."
+      ],
+      "reasoning": "Existing theory yields some components: the valuation formula, the factorial odd-unit automaton, and the resulting density estimate. The final exact identity at the dyadic sequence is not an immediate corollary of any stated result: the 34-term exact transfer-matrix calculation is necessary to deduce its coefficient. This distinguishes the accepted claim from prior-implied pieces.",
+      "searches": [
+        "arXiv:2101.01567 Theorem 2.6 Corollary 2.7 digit criterion n!",
+        "arXiv:2203.16469 Theorems 4.1 5.4 joint factorial states",
+        "Crux Mathematicorum December 2022 Yagub Aliyev superfactorials 2-adic valuation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Burns 2021 Theorem 2.6 and Corollary 2.7 explicitly concern n! rather than products 1! through n!.",
+        "OEIS A000178 defines the product of the first n factorials; the inspected entry does not report three-square exceptions."
+      ],
+      "reasoning": "The even-index unit reduction to oddpart(m!) is an explicit new bridging identity; the full superfactorial digit criterion is not the same statement as the published ordinary-factorial criterion.",
+      "searches": [
+        "\"superfactorial\" \"three squares\" Legendre",
+        "\"product of factorials\" \"three squares\" sum",
+        "OEIS A000178 superfactorial sum three squares",
+        "arXiv:2101.01567 Theorem 2.6 Corollary 2.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000178 is a value sequence rather than an exact exception-index table.",
+        "Aliyev 2022 proves or discusses powers of two in superfactorial factorizations and does not tabulate three-square obstruction indices."
+      ],
+      "reasoning": "Neither the OEIS sequence entry nor the inspected valuation tables record the exact all-index binary predicate or the all-j dyadic obstruction count.",
+      "searches": [
+        "OEIS A000178 three square divisibility superfactorial",
+        "Aliyev superfactorials Vandermonde determinants 2s prime factorization Crux 48(10) 623-627"
+      ]
+    },
+    "rationale": "The exact object is the product of consecutive factorials, not the individual factorials classified in Burns 2021 and 2022. The latter work does imply the density and order of the error upon combination with the proven even-index reduction; the claim of new contribution therefore rests on the specific all-index binary characterization and exact dyadic fluctuation, neither stated by the inspected primary results. Aliyev 2022 determines valuations only. No covering exact theorem was found in the inspected literature or records.",
+    "residual_risks": [
+      "Unindexed or inaccessible research could contain an equivalent exact superfactorial theorem.",
+      "The factorial-state automata of Burns 2022 may encode the exact sharp dyadic formula implicitly although their inspected statements do not state or directly imply it.",
+      "The square-root density estimate alone is a prior-implied component and is not offered as an independent originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_OBJECT; covers n!, not product of factorials.",
+        "evidence": [
+          "Theorem 2.6 explicitly computes oddpart(n!) mod 8.",
+          "Corollary 2.7 imposes 3-square conditions on n!, not S(n)."
+        ],
+        "identifier_or_url": "arXiv:2101.01567",
+        "material_read": "Full accessible manuscript transcription, especially sections 2-3, Theorem 2.6 and Corollary 2.7.",
+        "method": "Full-text page inspection and targeted term searches.",
+        "title": "Factorials and Legendre's three-square theorem",
+        "trigger": "The primary predecessor gives a binary three-square criterion for ordinary factorials."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR_IMPLICATION: density/error for S(n) follows with the new reduction; not exact superfactorial dyadic fluctuation.",
+        "evidence": [
+          "Theorem 4.1 is an exact dyadic count for n! failing three squares.",
+          "Theorem 5.4 proves the O(sqrt(n)) error for n!; section 5 extends estimates to joint factorial states."
+        ],
+        "identifier_or_url": "arXiv:2203.16469",
+        "material_read": "Full accessible manuscript transcription, sections 2, 4, 5 including Theorems 4.1 and 5.4.",
+        "method": "Full-text inspection of formulas and implications.",
+        "title": "Factorials and Legendre's three-square theorem: II",
+        "trigger": "May furnish stronger exact counts and distribution for the factorial odd-part states."
+      },
+      {
+        "assessment": "NOT_COVERING: valuations only; no odd units or three-square theorem.",
+        "evidence": [
+          "The explicit results compute valuations of superfactorials, not the odd part modulo eight."
+        ],
+        "identifier_or_url": "Crux Mathematicorum 48(10), 623-627 (2022); https://cms.math.ca/wp-content/uploads/2023/01/Wholeissue_48_10.pdf",
+        "material_read": "Full five-page article, pp. 623-627, including binary valuation identity and examples.",
+        "method": "Page images and extracted mathematical text.",
+        "title": "The number of 2s in prime factorization of superfactorials and Vandermonde determinants",
+        "trigger": "Exactly same superfactorial object and potential 2-adic obstruction."
+      },
+      {
+        "assessment": "NOT_COVERING: records values, not the exact index criterion or dyadic discrepancy.",
+        "evidence": [
+          "The entry provides the sequence definition and terms without a three-square classification."
+        ],
+        "identifier_or_url": "https://oeis.org/A000178",
+        "material_read": "Full sequence entry including comments, formulas, links and references.",
+        "method": "Web page reading and targeted term searches.",
+        "title": "OEIS A000178: Superfactorials: product of first n factorials",
+        "trigger": "Exact computational database for the same integer sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1ea3d39-09d2-4215-a126-5c6d31d834dd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Superfactorials are naturally defined Barnes-G integer values and consecutive Vandermonde determinants. Legendre three-square representability is a natural invariant motivated by existing factorial work. The theorem gives a complete explicit binary characterization and an exact infinite fluctuation that makes the square-root exponent optimal, an invariant not determined by the previously known density. It is not a finite arbitrary sample or a renaming of ordinary-factorial statements.",
+    "status": "PASS"
+  }
+}
