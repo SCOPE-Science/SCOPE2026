@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or newer; no external packages are needed. The program builds all nonempty factors directly instead of invoking the closed-form reconstruction formulas to produce its Parikh supports. It verifies every binary word with at most five runs at lengths one through sixteen (13,768 words) for full-support uniqueness modulo reversal, and tests the explicit inverse's output against the original word or its reversal. It separately enumerates every positive five-run parameter tuple in the cube of side seven (16,807 tuples), checks the interior and pairing formulas, and validates the six-run collision spectrum for all parameters from two through sixty-nine. Finally it exhaustively checks that no nonreversal collisions occur at lengths one through six, and that at least one occurs at length seven.
+## correctness
 
-Expected output: `VERIFY_OK exhaustive_low_run_words=13768 n=1..16 five_run_parameter_tuples=16807 six_run_collision_t=2..69 first_ambiguous_length=7`.
+PASS
 
-These finite enumerations are reproducibility checks, not an exhaustive computer proof of claims quantified over arbitrary positive integers. The unrestricted statements use the reconstruction and factor-interval reasoning in RESULT.md. Independent human validation has not been performed.
+The unique maximal-length factor yields full zero/one counts Z,O. Single-symbol spectra yield longest runs M_0,M_1. Cases with at most three runs are reconstructed by those totals. For four vs five runs, the existence of factors with all zeros but fewer than all ones and conversely distinguishes the cases and the external color. At four runs the min zero count at O and first j with U(j)=Z give the central zero length and first one length. At five runs L(O) gives the central zero run, U(max(b,d)) gives the larger outer zero run, while U(min(b,d)) resolves the pairing with the shorter one-run unless the pairing is immaterial up to reversal. The six-run collision family has each asserted spectrum row for j=0,1,2,3; the short words below seven cannot admit a nonreversal collision by the five-run proof or alternation at length six. Independently enumerated all <=5-run binary words of lengths 1–11 (2,046 examined) and complete Parikh sets, and directly checked the six-run collision for 2<=t<=19. Finite evidence corroborates, not replaces, the full run reconstruction argument.
+
+## originality
+
+PASS
+
+The closest primary general theorem identifies equality of Parikh spectra with equality of both prefix-normal forms, but does not provide explicit uniqueness by bounded run count or the sharp six-run counterexample family. A 2026 complete jumbled-indexing paper develops algorithms to compute spectra, not inverse low-run rigidity. The exact threshold is separately motivated by reconstruction. Best-of-knowledge priority is qualified.
+
+## value
+
+PASS
+
+Yes/no jumbled indexing loses factor order and multiplicity; identifying exactly how many symbol runs remain invertible is a meaningful sharp reconstruction invariant. The theorem proves full reconstruction up to the inherent reversal symmetry on a maximal low-complexity class and supplies an explicit infinite counterexample family at the first forbidden run count and minimal length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

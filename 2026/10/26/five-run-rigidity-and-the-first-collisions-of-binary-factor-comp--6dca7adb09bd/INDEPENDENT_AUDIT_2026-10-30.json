@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:49:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unique maximal-length factor yields full zero/one counts Z,O. Single-symbol spectra yield longest runs M_0,M_1. Cases with at most three runs are reconstructed by those totals. For four vs five runs, the existence of factors with all zeros but fewer than all ones and conversely distinguishes the cases and the external color. At four runs the min zero count at O and first j with U(j)=Z give the central zero length and first one length. At five runs L(O) gives the central zero run, U(max(b,d)) gives the larger outer zero run, while U(min(b,d)) resolves the pairing with the shorter one-run unless the pairing is immaterial up to reversal. The six-run collision family has each asserted spectrum row for j=0,1,2,3; the short words below seven cannot admit a nonreversal collision by the five-run proof or alternation at length six. Independently enumerated all <=5-run binary words of lengths 1–11 (2,046 examined) and complete Parikh sets, and directly checked the six-run collision for 2<=t<=19. Finite evidence corroborates, not replaces, the full run reconstruction argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1007/s10878-026-01407-6",
+          "https://doi.org/10.4230/LIPIcs.CPM.2017.19"
+        ],
+        "reasoning": "The run-length indexing algorithm handles arbitrary numbers of runs for efficient membership queries and is not an inverse theorem. Computational indexing over all runs does not imply unique preimages for <=5 runs.",
+        "searches": [
+          "binary substring factor Parikh vector sets prefix normal forms same spectrum five runs reconstruction collisions",
+          "Binary jumbled indexing suffix tree histogram 2026 run count"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1611.09017",
+        "https://doi.org/10.1007/s10878-026-01407-6",
+        "https://doi.org/10.4230/LIPIcs.CPM.2017.19",
+        "https://arxiv.org/abs/2007.08787"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1611.09017",
+          "https://doi.org/10.1007/s10878-026-01407-6",
+          "https://arxiv.org/abs/2007.08787"
+        ],
+        "reasoning": "Theorem 4 of Burcsi et al supplies equivalence of representations; deriving the five-run classification needs new explicit extreme-factor formulas. Afshar et al use richer adaptive queries, so not the same observation model.",
+        "searches": [
+          "binary substring factor Parikh vector sets prefix normal forms same spectrum five runs reconstruction collisions",
+          "factor Parikh support equality simultaneous prefix normal forms theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1611.09017",
+          "https://doi.org/10.1007/s10878-026-01407-6"
+        ],
+        "reasoning": "The spectrum equals the paired prefix-normal maxima/minima information; this equivalence is prior work. Rigidity for up to five *runs* is a nontrivial specialization that the general equivalence alone does not calculate.",
+        "searches": [
+          "binary substring factor Parikh vector sets prefix normal forms same spectrum five runs reconstruction collisions",
+          "Burcsi Fici Liptak Ruskey Sawada prefix normal forms Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1611.09017",
+          "https://doi.org/10.1007/s10878-026-01407-6"
+        ],
+        "reasoning": "Neither inspected source includes a complete low-run reconstruction threshold table or the stated infinite six-run collision family. Independent numerical collision experiments are corroboration, not a substitute for historical priority.",
+        "searches": [
+          "binary substring factor Parikh vector sets prefix normal forms same spectrum five runs reconstruction collisions",
+          "prefix normal forms run length collision six runs minimal 7"
+        ]
+      },
+      "rationale": "The closest primary general theorem identifies equality of Parikh spectra with equality of both prefix-normal forms, but does not provide explicit uniqueness by bounded run count or the sharp six-run counterexample family. A 2026 complete jumbled-indexing paper develops algorithms to compute spectra, not inverse low-run rigidity. The exact threshold is separately motivated by reconstruction. Best-of-knowledge priority is qualified.",
+      "residual_risks": [
+        "An earlier string reconstruction result might state the same <=5 run sharp boundary using both prefix-normal forms rather than Parikh sets.",
+        "The theorem compares only binary words individually satisfying the <=5-run bound; it does not classify all unrestricted words with a given spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_EQUIVALENCE_ONLY",
+          "evidence": "Theorem 4 identifies equal factor-Parikh sets with simultaneous equality of 0/1-prefix normal forms; no five-run reconstruction criterion or six-run sharp boundary.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.09017",
+          "material_read": "Full 15-page lawful OA preprint including Theorem 4 and Sections 2–3",
+          "method": "read arXiv preprint PDF text and inspected page image",
+          "title": "On Prefix Normal Words and Prefix Normal Forms",
+          "trigger": "direct general equivalence theorem for same Parikh spectrum"
+        },
+        {
+          "assessment": "ALGORITHM_NOT_INVERSE_CLASSIFICATION",
+          "evidence": "Explains spectrum membership and run-sensitive complexity; no occurrence of five-run reconstruction or the presented sharp collision.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-026-01407-6",
+          "material_read": "Full accessible journal HTML, especially sections 2–4 on Parikh sets, prefix-normal forms and run-compressed indexing",
+          "method": "read full HTML relevant methods and searched for reconstruction and five runs",
+          "title": "Binary jumbled indexing: suffix tree histogram",
+          "trigger": "same Parikh support and run-level indexing object, recent 2026 paper"
+        },
+        {
+          "assessment": "INDEXING_NOT_RIGIDITY_LIMITED_READ",
+          "evidence": "Membership-query algorithm for compressed strings, not classification of inverse fibres.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2017.19",
+          "material_read": "bibliographic abstract and algorithm framing only",
+          "method": "conference record and references",
+          "title": "Fast and Simple Jumbled Indexing for Binary Run-Length Encoded Strings",
+          "trigger": "run-length-compressed predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Yes/no jumbled indexing loses factor order and multiplicity; identifying exactly how many symbol runs remain invertible is a meaningful sharp reconstruction invariant. The theorem proves full reconstruction up to the inherent reversal symmetry on a maximal low-complexity class and supplies an explicit infinite counterexample family at the first forbidden run count and minimal length.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any nonempty binary words u,v each having at most five runs, equality of the sets of contiguous-factor Parikh vectors implies v=u or reversal(u). For t>=2, u_t=0101 0^t 1 and v_t=01 0^t 101 are different nonreversals with six runs, identical Parikh support; seven is the smallest length at which any collision exists.",
+  "limitations": [
+    "No reconstruction beyond five runs.",
+    "Alphabet labels fixed; reversal unavoidable; Parikh vectors are sets without multiplicities."
+  ],
+  "schema_version": 1
+}
