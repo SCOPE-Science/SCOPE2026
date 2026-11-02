@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Exact held-input solution gives X_{j+1}=((k+1)e^{-H_j}-k)X_j. IID moments yield E[X_j^2]=X_0^2 V^j with V a closed quadratic. Deterministic Schur boundary hcrit=log((k+1)/(k-1)), exact boundary identity V-1=2(k-1)(c-1)((k-1)c-1) supplies strict rescue for 1<k<2. For k>=2, V<1 implies u^2+v^2<2 and hence (k+1)^2e^{-2h}=AB>(k-1)^2, contradiction at h>=hcrit. Exact witness has stochastic V=38567/40000 and periodic 1681/1600. Standalone SymPy checks and 42,000 rational samples passed, but quantified validity rests on these fully written analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jin, Wang, Wang (2022), https://doi.org/10.1080/00207179.2022.2069051: accessible publisher abstract claims construction from short stable and long unstable intervals and a sufficient exponential-stability condition to enhance average interval; it does not publicly assert the exact gain-two necessity frontier.",
+        "Mustafa and Chen (2013), https://doi.org/10.1049/iet-cta.2012.0355: full text Theorem 1 and 2 guarantees robust stability for all intervals in specified ranges, a stronger timing-law quantifier than average-case stability, but not a complete characterization of average-case stabilization at a periodically unstable mean.",
+        "Wang and Zhu (2023), https://doi.org/10.1002/rnc.6609: accessible abstract specifies Poisson-counter sampling, an alternative law."
+      ],
+      "reasoning": "Robust LMI criteria and general mixed-period sufficient results are close and may imply some particular sufficiency examples, but none of the materially accessible statements covers the sharp impossibility half for all positive symmetric two-point timing amplitudes at k>=2. Full source access remains a genuine priority risk, explicitly disclosed.",
+      "searches": [
+        "Exponential stability of sampled-data control systems with enhanced average sampling interval filetype pdf",
+        "sampled data random sampling period average interval stability stabilized unstable periodic Jin Wang 2022",
+        "Exponential stability of sampled-data control systems with enhanced average sampling interval Jin Wang 2022 equal mean binary jitter exact gain threshold",
+        "random stabilization of sampled-data control systems with nonuniform sampling Tang Zeng 2012 symmetric jitter gain two"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1080/00207179.2022.2069051",
+      "https://doi.org/10.1002/rnc.6609",
+      "https://doi.org/10.1155/2013/252679",
+      "https://doi.org/10.1049/iet-cta.2012.0355",
+      "https://doi.org/10.1007/s11633-012-0672-y",
+      "https://github.com/Resultary/2026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li et al. Theorem 6 supplies a necessary/sufficient matrix test for a general Markov-jump model; specializing its test to a scalar may recover the moment inequality, but its statement does not compare stability at the same mean period or eliminate timing to a sharp k=2 threshold.",
+        "Jin et al. abstract states enhancing average sampling interval through mixing stable and unstable steps; its sufficient result cannot alone imply the negative universal k>=2 half.",
+        "The exact example k=3/2,q=19/100,c=6/5 has stochastic V=38567/40000 versus periodic factor 1681/1600; the k>=2 impossibility follows by a strict product bound."
+      ],
+      "reasoning": "The positive existence phenomenon broadly overlaps earlier mixed-interval stabilization; the specifically new supported comparison is the exhaustive scalar gain-dependent yes/no classification at fixed equal mean, including the sharp nonexistence side. We make no claim that generic stochastic stability or period mixing was first discovered here.",
+      "searches": [
+        "sample-and-hold control scalar stable plant xdot=-x-k sampled x gain k random time intervals stabilization above fixed-period instability",
+        "random sampling period constant-mean binary jitter gain threshold deterministic stable mean square stability sampled feedback",
+        "Stabilization for Networked Control Systems with Random Sampling Periods Li Zhang Cai 2013",
+        "Stabilisation of non-uniformly sampled systems via dynamic output-feedback control Mustafa Chen 2013",
+        "Exponential stability of sampled-data control systems with enhanced average sampling interval 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact reformulation is E[((k+1)e^{-H}-k)^2]<1 for the equiprobable positive pair H=h±d.",
+        "Li et al. (2013), https://doi.org/10.1155/2013/252679, full HTML sections 2-6: general finite-state Markov jump stabilization through matrix inequalities; no explicit same-mean gain-two criterion."
+      ],
+      "reasoning": "Scalar iid second-moment amplification is a special case of jump-system theory, but its strict recovery-versus-no-recovery classification under the same mean is not equivalent merely to naming a general stability matrix inequality. In particular the impossibility for all d at k>=2 needs the product/disk inequality and an explicit existential comparison against periodic sampling.",
+      "searches": [
+        "symmetric two point random sampling intervals jitter sampled data feedback gain sharp threshold 2 mean square stability equal mean larger than deterministic critical period",
+        "sample-and-hold control scalar stable plant xdot=-x-k sampled x gain k random time intervals stabilization above fixed-period instability",
+        "stochastic sample-hold linear scalar system exact E[(k+1)exp(-H)-k]^2 gain two boundary",
+        "mean-square stability two random sampling intervals fixed mean zero-order hold scalar"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research semantic results: closest hit titles included “Sharp mean-square stability loss for Bernoulli error-feedback sparsification” (unrelated compressor with random *delay*, not sampling intervals) and “Sharp shifted sampling bounds and two tight phases for asymmetric two-sided exponentials” (frequency sampling bounds, not sample-and-hold feedback).",
+        "Accessible published mathematical claims searched for “sampled-data”, “sample-and-hold”, “sampling interval”, “two-point jitter” and the source titles: no exact matching stability-rescue classification."
+      ],
+      "reasoning": "No exact table or database row covering the gain-two frontier was retrieved in actual searches. This negative result is not proof of novelty; the claim-to-prior implications and distinct models were compared individually.",
+      "searches": [
+        "symmetric two point random sampling intervals jitter sampled data feedback gain sharp threshold 2 mean square stability equal mean larger than deterministic critical period",
+        "random sampling period constant-mean binary jitter gain threshold deterministic stable mean square stability sampled feedback",
+        "Exponential stability of sampled-data control systems with enhanced average sampling interval Jin Wang 2022 equal mean binary jitter exact gain threshold",
+        "stochastic sample-hold linear scalar system exact E[(k+1)exp(-H)-k]^2 gain two boundary",
+        "exact scalar sample-and-hold mean-square gain-two jitter table"
+      ]
+    },
+    "rationale": "The precise conjunction is a necessity-and-sufficiency gain-two cutoff for mean-square rescue of periodically unstable scalar zero-order-hold feedback by iid equiprobable symmetric positive intervals of the same mean. Full-text 2013 Markov/LMI and robust sampled-data works do not state this exact quantifier or cutoff; the 2022 mixed-interval enhancement and 2023 stochastic-sampling papers available at abstract level describe related phenomena but not this exact cutoff. Repeated semantic searches of published research records retrieved different sampled/control claims. Priority remains qualified because plausible 2022/2023 complete texts and parts of the older scalar switching literature could not be reviewed.",
+    "residual_risks": [
+      "The complete 2022 Jin–Wang–Wang article is a plausible priority source; full text unavailable after OA/arXiv and institutional access attempts.",
+      "The 2023 Wang–Zhu complete article and 2012 Tang–Zeng–He–Zhang mathematical text were not fully accessible; no unsupported full-document noncoverage claim is made.",
+      "Specialized scalar iid switching and stochastic sampled-data results may contain an equivalent gain-two threshold under different notation; semantic searches and accessible full literature cannot conclusively exclude this."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General finite-state Markov random interval/delay systems; general matrix inequality test but no explicit fixed-equal-mean gain-two frontier or scalar impossibility",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/10.1155/2013/252679",
+          "Theorem 6 and its proof treat existence of positive matrices P(i,r); section 5 analyzes a cart/pendulum with three periods and varying controller."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/252679",
+        "material_read": "Full publicly accessible HTML, problem model and sampling periods (section 2), Theorems 6 and 8, numerical example and conclusions (sections 3–6)",
+        "method": "Direct inspection of publisher full HTML",
+        "title": "Stabilization for Networked Control Systems with Random Sampling Periods",
+        "trigger": "Finite-state stochastic sampling literature could subsume the scalar recursion"
+      },
+      {
+        "assessment": "Uniform robust interval stability and output-feedback synthesis, not iid mean-square stabilization despite unstable periodic mean",
+        "evidence": [
+          "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/iet-cta.2012.0355",
+          "Problem 1 requires stability for all allowable interval realizations, whereas the new theorem permits individual unstable long multipliers."
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/iet-cta.2012.0355",
+        "material_read": "Full publicly accessible HTML sections 1–6, explicit robust-all-interval problem, Theorems 1 and 2, proof/conclusions",
+        "method": "Direct inspection of publisher full HTML",
+        "title": "Stabilisation of non-uniformly sampled systems via dynamic output-feedback control",
+        "trigger": "Potential broader robust sampled-data stabilization covering timing variation"
+      },
+      {
+        "assessment": "Strong conceptual overlap on improvement beyond uniform sampling, but abstract gives only sufficiency, not a sharp scalar gain=2 necessity-and-sufficiency theorem; unresolved full-text risk",
+        "evidence": [
+          "https://www.tandfonline.com/doi/abs/10.1080/00207179.2022.2069051",
+          "Publisher gives Published online May 3, 2022; abstract explicitly mixes stable and unstable intervals to enhance average period."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00207179.2022.2069051",
+        "material_read": "Publisher abstract, online-first publication date, bibliographic metadata; full paper not accessible",
+        "method": "Publisher abstract plus arXiv and open-access search; institutional full-text retrieval unavailable",
+        "title": "Exponential stability of sampled-data control systems with enhanced average sampling interval",
+        "trigger": "Most closely matching earlier claim of average-interval enhancement from a mixture of stable and unstable periods"
+      },
+      {
+        "assessment": "Stochastic model via Poisson Counter and optimized controller differs from fixed-gain equal-probability binary jitter; full-text risk remains",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/abs/10.1002/rnc.6609",
+          "Publisher first published January 20, 2023 and states Poisson Counter sampling."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rnc.6609",
+        "material_read": "Full accessible publisher landing page including abstract and references; article body not accessible",
+        "method": "Publisher abstract and reference bibliography; arXiv/OA and institutional retrieval attempted",
+        "title": "Optimal control of sampled-data systems based on an optimized stochastic sampling",
+        "trigger": "Directly stochastic intervals under controlled continuous-time systems"
+      },
+      {
+        "assessment": "Continuously distributed intervals and sufficient mean-square LMIs; exact binary gain-two frontier not visible; unresolved overlap risk",
+        "evidence": [
+          "https://www.mi-research.net/en/article/doi/10.1007/s11633-012-0672-y"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11633-012-0672-y",
+        "material_read": "Publisher landing-page abstract, citation and description of sufficient LMIs; full HTML label present but article mathematics not exposed",
+        "method": "Publisher abstract and open-access search",
+        "title": "Random Stabilization of Sampled-data Control Systems with Nonuniform Sampling",
+        "trigger": "Early stochastic nonuniform sampling with mean-square stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b42b520c-d910-42e1-ba8e-1c084db436d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating control-design gap is whether randomizing update times without changing mean spacing can recover a periodically unstable fixed-gain loop. The theorem completely answers that natural yes/no question in a canonical scalar zero-order-hold model with a sharp and non-obvious gain=2 boundary and supplies an exact, reproducible strict counterexample to the inference that periodic instability at the mean interval forbids mean-square stabilization. The no-go half gives a meaningful design restriction and rules out all binary symmetric timing amplitudes in the high-gain regime; neither proof nor application requires a more general extension. It does not claim novel general mixed-period stabilization, arbitrary jitter laws or time-normalized performance.",
+    "status": "PASS"
+  }
+}
