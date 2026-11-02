@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The ordered two-point deleted product of \(K_5\) has 20 vertices, 60 edges, and 30 squares, connected one-skeleton, six-cycle vertex links, and exactly two faces meeting each edge. Its signed chain matrices have ranks 19 and 29 and 29 unit Smith factors; an integral fundamental cycle has 30 primitive coefficients \(\pm1\). The known equivariant deleted-product deformation retract and the surface criterion yield genus six. Signed trace calculations establish the first-homology character for all 240 elements of \(S_5\times C_2\), while the primitive fundamental cycle gives the orientation character. The exterior-square character identity and surface pairing prove the representation and Lagrangian splitting. Exact rational arithmetic and an executable certificate support every finite step.
+## correctness
 
-## Originality (PASS with residual risk)
-Barnett and Farber's 2009 full paper states the orientable genus-six result for \(K_5\), and this existing fact is expressly excluded from the claimed novelty. An and Knudsen's 2020 preprint proves planar graph homology-generation results and raises the nonplanar issue but does not calculate the ordered \(K_5\) joint action. The closest published indexed results on two-particle topology or other symmetric graph configurations do not imply the irreducible \(S_5\)-constituents and particle-exchange eigenspaces. Comparison was by mathematical implication, including deleted product, braid space, swap action, and the equivalence between the exterior-square and Specht-module descriptions; an unindexed equivalent paper remains possible.
+PASS
 
-## Value (PASS)
-The Kuratowski graph \(K_5\) is a canonical minimal nonplanar graph whose two-particle configuration is a closed orientable surface. Its full \(S_5\)-by-exchange action is a natural invariant not recoverable from genus or Betti numbers: it shows that the two exchange eigenspaces are individually irreducible \(S_5\)-modules and invariant Lagrangians, while the unordered quotient has a six-dimensional irreducible first homology. This is mathematically motivated, rather than an arbitrary labeled parameter check.
+PASS: Deleted-product cubical Conf2(K5) has exactly 20 zero cells, 60 one cells and 30 squares and satisfies the two-point Abrams deformation-retract criterion. Vertex links are six-cycles, each edge has two incident squares, and its connected closed surface admits an integral signed top cycle with all 30 square coefficients ±1; Euler characteristic −10 gives orientable genus six, homology ranks 1,12,1. Independent exact signed action computation matched the proposed H1 and H2 characters for all 5!*2=240 elements. The H1 S5 character is two copies of wedge² standard character (f−1)(f−2)/2−t with swap trace zero, and H2 orientation character is sgn(sigma)*(-1)^swap. Standard semisimplicity yields two six-dimensional irreducible swap eigenspaces; orientation reversal forces the intersection form to vanish on each, making Lagrangian subspaces. The freely reversing swap quotient is a nonorientable genus-seven surface.
 
-## Literature and boundaries
-Closest full texts: Barnett–Farber arXiv:0903.2180 (known genus-six), An–Knudsen arXiv:2008.10371 (graph braid-group homology; planar/nonplanar distinction). Finite comparison against indexed findings included complete graph *sink* configurations, Petersen and cuboctahedral two-particle configurations, and the compact-surface classification. Inaccessible or unindexed equivalent calculations remain the principal novelty risk. The claim does not extend to integral equivariant lattice classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified: Barnett–Farber already give orientable genus-six topology of Conf2(K5), so this is explicitly prior. The final theorem adds complete commuting S5 vertex-label and C2 particle-exchange rational homology module, including the 6+6 Lagrangian eigenspace decomposition. The full primary Barnett–Farber paper does not directly state the entire H1 character; a representation-theoretic reformulation may be derived indirectly and remains a priority risk.
+
+## value
+
+PASS
+
+PASS: K5 is a minimal nonplanar Kuratowski graph with a classical genus-six two-particle space. The intrinsic vertex-permutation and particle-swap action on its rational cycles is a natural additional topological invariant not recoverable from genus. An explicit pair of irreducible invariant Lagrangians and the unordered quotient give meaningful refinements, limited to this graph/particle count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
