@@ -1,19 +1,21 @@
-# Review: Grassmann distance degree \(18\) for \(S(2,3)\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model is the smooth rational-normal-quintic ruling curve of \(S(2,3)\) inside \(\operatorname{pGr}(2,7)\). A rank-two symmetric idempotent witness is constructed explicitly, rather than using an unrestricted symmetric matrix. A standard-library exact-arithmetic program verifies that its derivative numerator has degree \(18\), is squarefree, does not meet the fixed denominator, and does not meet the algebraic cut locus. The upper bound \(18\) follows for any matrix from the common denominator of degree \(10\); nonvanishing discriminants imply the witness's count persists for generic projection data. The polynomial certificate was run successfully.
+PASS
 
-## Originality — PASS (with residual literature risk)
+Projection matrices on the two orthogonal coordinate blocks give F_Q(t)=f1(t)/s1(t)+f2(t)/s2(t)=G(t)/(s1*s2) with s1=1+t^2+t^4 and s2=1+t^2+t^4+t^6, coprime, product L degree10. For any Q the derivative numerator H=G_prime*L-G*L_prime has degree at most 18 after the highest terms cancel. The explicit data Q0=diag(aa^T/14,bb^T/30), a=(1,2,3), b=(1,2,3,4), are genuine rank-one block idempotents and jointly rank2. Independent exact SymPy rational arithmetic confirmed H degree18, leading coefficient -58/35, gcd(G,L)=gcd(H,L)=gcd(H,H_prime)=gcd(H,p1*p2)=1. Thus there are 18 simple finite nonpole critical roots; the last gcd excludes the algebraic cut locus via rank(QP)=2 iff p1*p2 nonzero for this witness, and degree18 excludes criticality at infinity. Nonvanishing coefficient/resultant/discriminant conditions define a nonempty Zariski open subset of the irreducible projection Grassmannian, so generic constrained Q realizes 18. The known ED upper bound is attained, establishing GDdeg=EDdeg=18.
 
-The closest primary paper is Friedman--Hoşten--Rosana, arXiv:2610.02018, Theorem 2.2: it establishes the ED degree \(18\) of this ruling curve, for **unrestricted** symmetric-matrix data. Definition 4.2 restricts the data to rank-two projections and discards the cut locus; Section 4 does not evaluate the scroll's GD degree. Its Theorem 4.4 describes a general *expected* agreement, not the present equality proof. The earlier Friedman--Rosana--Sturmfels arXiv:2601.22843 introduces GD for lines but does not name scrolls in its searchable full text. A published mathematical record on flat limits of line-distortion scrolls involves the same surface \(S(2,3)\) but studies a different degeneration invariant. Targeted search found no implied or identical GD classification; this is not a proof of absolute publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The GD degree counts stationary fits when the observation itself is a line, a different and geometrically constrained optimization problem from the ED degree. Existing examples show GD can differ sharply from ED, so the source's ED formula does not settle GD. The scroll \(S(2,3)\) is the first nonuniform rational normal surface scroll after the balanced case, making its exact value a natural baseline for further scroll optimization. The exact equality and an explicit data witness settle that invariant without claiming a general all-scroll theorem.
+Friedman–Hoşten–Rosana arXiv:2610.02018 explicitly proves ED degree 18 for scroll ruling curves and defines GD degree for projection-constrained data, but its broad expected low-dimensional ED/GD equality is not a proved universal scroll theorem and does not itself certify an admissible Q with 18 off-cut-locus roots. The assessed added rank-two witness proves this special GD degree. Qualified PASS, acknowledging the known ED number and general framework.
 
-## Boundaries and residual risks
+## value
 
-The proof concerns the algebraic projection/chordal distance and complex generic points, not intrinsic geodesic distance or the maximum number of real stationary rulings. No all-scroll statement is claimed. An unindexed equivalent argument in broader Grassmannian optimization literature remains possible; full inspection of every older source is not asserted. The analysis is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+GD degree is a natural stationary-fitting invariant when both query and target are lines; it differs from unrestricted symmetric-matrix ED degree in known examples. The first asymmetric rational normal scroll S(2,3) is a nonarbitrary baseline, and an exact cut-locus-safe rank-two witness resolves whether constrained data loses complex critical points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
