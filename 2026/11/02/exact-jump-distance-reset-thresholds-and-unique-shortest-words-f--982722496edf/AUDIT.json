@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For a reset word, final trajectory positions are \\(x+B+dK_x\\pmod n\\). Coprimality makes the effective a-jump counts occupy every residue, forcing at least \\(n-1\\) effective jumps on some trajectory and \\(n-d\\) rotations between each consecutive pair. This gives a word-length lower bound. The map \\(ab^{n-d}\\) fixes zero and subtracts \\(d\\) on nonzero states, proving the explicit matching construction. Equality fixes all a and b positions, hence uniqueness. Noncoprime jumps conserve residue differences modulo the greatest common divisor. Subset-BFS checker independently confirms all 55 parameter pairs through n=11 and constructive word through n=100.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rystsov–Szykuła 2023 Theorems 22–23 cover structural synchronizability but not optimal word length",
+        "Rystsov 2022 Theorem 3 covers the SI-automata regular-group bound (n-1)^2, which is not sharp for d>1"
+      ],
+      "reasoning": "A general upper bound and structural criterion do not imply the exact formula or the unique optimal word; all-parameter proof addresses those gaps.",
+      "searches": [
+        "One rank-n-1 idempotent jump d and cyclic permutation automaton synchronizability coprime exact shortest reset sequence and uniqueness",
+        "simple idempotent plus n-cycle variable defect jump distance d sharp synchronizing threshold and unique shortest reset sequence",
+        "https://arxiv.org/html/2307.01302v1",
+        "https://doi.org/10.1007/s10559-022-00428-3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1507.06070 (full text, section 4 Proposition 2 and proofs of sections 3–4)",
+      "https://arxiv.org/html/2307.01302v1 (full text, definitions, section 4.2 Theorems 22–23, references)",
+      "https://www.researchgate.net/publication/358272636_Cerny%27s_Conjecture_for_Automata_with_Simple_Idempotents (author-uploaded public textual material, Theorem 3 and introductory/definitions passages)",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2017.40 (published article abstract and metadata)",
+      "https://portal.mardi4nfdi.de/wiki/Attainable_values_of_reset_thresholds (MSC 68Q45 metadata)",
+      "https://portal.mardi4nfdi.de/wiki/Estimation_of_the_length_of_reset_words_for_automata_with_simple_idempotents (2000 article citation and MSC, no complete text)",
+      "https://www.mathnet.ru/eng/rm10005 (survey and bibliography)",
+      "Semantically ranked public research-record searches listed in the source comparison checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Don Proposition 2: gcd coprime implies reset <=(n-1)^2",
+        "Rystsov–Szykuła Theorem 22: strong connectivity criterion for PU-automata",
+        "Our lower bound uses distinct effective-jump counts of all n initial trajectories and forces exact rotations between jumps"
+      ],
+      "reasoning": "Prior general existence and upper bounds are strictly weaker whenever d>1 and do not prescribe shortest-word multiplicity. The d=1 numerical extreme is classical and explicitly not independently claimed new.",
+      "searches": [
+        "Exact reset threshold (n-2)(n-d+1)+1 cyclic automaton with rotation by one and a single idempotent map 0 to d, gcd(n,d)=1, unique shortest reset word a(b^(n-d)a)^(n-2)",
+        "One rank-n-1 idempotent jump d and cyclic permutation automaton synchronizability coprime exact shortest reset sequence and uniqueness",
+        "https://arxiv.org/abs/1507.06070",
+        "https://arxiv.org/html/2307.01302v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Don 2015 Proposition 2 matches cycle and coprime jump but proves only existence and n^2-scale upper bound",
+        "Search returned only other automata and classical d=1 cases"
+      ],
+      "reasoning": "Relabeling states translates the moved state but preserves the oriented jump d; this is not a disguised classical d=1 problem for coprime d>1 because conjugating the cycle by multiplication changes the rotation generator. No equivalent exact d-parametrized reset formula was identified.",
+      "searches": [
+        "Exact reset threshold (n-2)(n-d+1)+1 cyclic automaton with rotation by one and a single idempotent map 0 to d, gcd(n,d)=1, unique shortest reset word a(b^(n-d)a)^(n-2)",
+        "cyclic unitary automata exact reset length n-1+(n-2)(n-d) unique shortest word idempotent 0 maps to d and rotation x maps to x+1 gcd n d",
+        "https://arxiv.org/abs/1507.06070"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record queries yielded classical Černý compression, separate rank and short-word tables, no matching d-parametrized theorem",
+        "Dzyga et al study attainable reset-threshold intervals rather than the one-map realization profile"
+      ],
+      "reasoning": "Numerical occurrences of the same reset length in another family would not imply our exact automaton-specific formula or shortest-word uniqueness.",
+      "searches": [
+        "Number shortest reset words generalized Černý automata with merge offset distance d",
+        "cyclic unitary automata exact reset length n-1+(n-2)(n-d) unique shortest word idempotent 0 maps to d and rotation x maps to x+1 gcd n d",
+        "https://doi.org/10.4230/LIPIcs.MFCS.2017.40"
+      ]
+    },
+    "rationale": "Genuinely different sharp, all-parameter reset threshold and literal uniqueness claim, beyond known synchronization criteria and uniform quadratic bounds. The two nearest open full texts and previously recorded claims were compared by hypothesis and implication; some early full texts remain uninspected and residual priority risk is acknowledged.",
+    "residual_risks": [
+      "Older sources on cyclic SI-automata may contain an equivalent formula in a different labeling, especially Rystsov (2000), for which only the abstract could be checked.",
+      "The author-uploaded textual extraction of Rystsov (2022) has unreadable mathematical passages; an implicit direct specialization cannot be conclusively ruled out.",
+      "The complete MFCS 2017 paper was not inspected, though its abstract discusses a different global attained-threshold problem.",
+      "Self-review and bounded numerical checks do not substitute for an independent peer assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proposition 2 proves coprime synchronizing and upper bound (n-1)^2; not exact jump-distance threshold or uniqueness of shortest word",
+        "evidence": [
+          "Section 4 Proposition 2: gcd(d,n)=1 yields synchronization and shortest reset <=(n-1)^2",
+          "Our L equals that bound for d=1 but is strictly smaller for coprime d>1 and specifies the sole shortest literal word"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06070",
+        "material_read": "Full paper parsed text, especially Theorems 1–2, Proposition 2 in section 4, and conclusion",
+        "method": "Full-text arXiv reading and exact comparison of hypotheses, conclusion, and length bounds",
+        "title": "The Černý conjecture and 1-contracting automata",
+        "trigger": "Same cyclic excluded-to-contracting jump distance, potential dominating result"
+      },
+      {
+        "assessment": "General graph-theoretic synchronization criterion and primitive sufficiency, not the exact n,d reset length/optimal-word uniqueness",
+        "evidence": [
+          "Definition of unitary map (q→r), section 4.1",
+          "Theorem 22 characterization by strongly connected Rystsov graph and Theorem 23 primitive PU synchronization, section 4.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.01302v1",
+        "material_read": "Full arXiv HTML introduction, section 4.1 definitions, section 4.2 Theorems 22–23, section 4.3, and references",
+        "method": "Primary-source full-text reading, keyword checks for unitary and shortest reset length",
+        "title": "Primitive Automata that are Synchronizing",
+        "trigger": "Same unitary letters and permutation automata; first public date in target cohort"
+      },
+      {
+        "assessment": "Theorem 3 gives universal (n-1)^2 upper bound, and remarks that the Černý series is a one-idempotent regular-cycle example; no parameter-exact formula located in material read",
+        "evidence": [
+          "Theorem 3 upper bound for directional SI-automata with regular group",
+          "Text identifies Černý series as a special case of regular cyclic group with one simple idempotent"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10559-022-00428-3",
+        "material_read": "Publicly surfaced author-uploaded full-text passages including definitions, Theorem 3, and explanatory context; extraction garbled in parts",
+        "method": "Published primary-text comparison of stated theorem and family relationship",
+        "title": "Černý’s Conjecture for Automata with Simple Idempotents",
+        "trigger": "Exact broader automaton class with simple idempotents and regular group"
+      },
+      {
+        "assessment": "Studies intervals of attainable thresholds across general automata; abstract does not provide the exact thresholds or rigidity for this named family",
+        "evidence": [
+          "Abstract gives intervals in RT_n using strongly connected digraph constructions",
+          "The paper might contain a relevant specialization not ruled out by the abstract alone"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2017.40",
+        "material_read": "Article metadata and abstract; complete article was not inspected",
+        "method": "Verified published abstract and statement level comparison",
+        "title": "Attainable Values of Reset Thresholds",
+        "trigger": "Possible broader theorem of attainable reset thresholds that might imply the n,d formula"
+      },
+      {
+        "assessment": "Uniform quadratic upper-bound result as described by abstract, not sufficient to conclude this precise theorem was absent throughout",
+        "evidence": [
+          "2000 abstract says a quadratic upper bound for automata with permutation and unitary letters; no exact d-dependent formula in abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF02732984",
+        "material_read": "Bibliographic entry, title, and abstract only; full paper not available through verified open text",
+        "method": "Abstract-level comparison; unresolved full-text novelty risk recorded",
+        "title": "Estimation of the length of reset words for automata with simple idempotents",
+        "trigger": "Older closest precursor for simple idempotent automata"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98272249-6edf-4306-a789-5bffca6b6689",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cycle plus a single unitary jump is a canonical two-letter synchronization family. The result upgrades the old uniform quadratic bound and coprime synchronizability criterion to an exact two-parameter phase diagram, with a unique optimal literal reset instruction sequence; this is structurally relevant to shortest reset synthesis and the extremal Černý example. For \\(d>1\\) the bound is strictly improved, and at \\(d=n-1\\) is linear. It is neither finite-table extraction nor a parameter substitution into a previously stated exact formula.",
+    "status": "PASS"
+  }
+}
