@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in this directory. The program uses only the Python standard library and exact integers.
+## correctness
 
-It constructs the analytical joint support–proponent histogram by summing circular-run compositions. Separately, it directly evaluates the local majority at every vertex for every bit pattern at cycle sizes 3 through 18, compares every coefficient, and checks the total \(2^n\). It then recomputes the passage threshold and boundary multiplicities for each odd size up to 101 from the exact joint enumerator, comparing the closed forms. Both kinds of finite checks have passed.
+PASS
 
-The infinite correctness claim relies on the run-marking bijection, the singleton-flip rule, and the complete critical-case enumeration in `RESULT.md`. Finite enumeration is neither an infinite proof nor a certificate that no equivalent formula already exists. No independent audit or validation has been performed.
+An isolated run of length one flips; every longer run remains unchanged, so P=h-s+t. Marking any one-run gives the exact n/r normalization and the product of singleton-refined composition counts. The proof upper-bounds P by h+floor(h/2)-1 for h<n/2 and constructs the matching run configurations, then enumerates all critical feasible (r,s,t). Independently rebuilt all labeled binary input histograms for n=3..13; formula, threshold, and multiplicities matched; the universal claim is supplied by the run argument, not the finite experiment.
+
+## originality
+
+PASS
+
+The known local-majority coalition threshold and general regular-graph results are prior; the assessed new part is the full labeled joint H/P distribution and exact critical multiplicities. A relevant 1986 primary local/global-majority paper was not retrieved in full; priority remains qualified. No exact covering SCOPE/Resultary entry emerged from the five topic searches.
+
+## value
+
+PASS
+
+The labeled input/output histogram and the multiplicity of the smallest successful minority are natural exact invariants of a one-step local-majority rule; they answer stronger questions than mere feasibility, and the all-cycle formula can be reused for probabilistic input ensembles. This is a complete, object-motivated enumeration, not a raw small-size census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
