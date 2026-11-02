@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every binary input, the change set is a forest. Strict majority at changed vertices gives 2b_v-deg(v)>=1; decomposition by cut status and changed endpoints yields Delta J<= c-cut_components<=J_initial-cut_components. The integer cut size k and n-1 edge cap optimize to 2-1/floor(n/2). Order-statistic thresholding commutes with median and finite coarea extends to arbitrary reals. Even-order stars and odd-order singly subdivided stars attain equality; n=2,3 checked separately. Actual check.py passed 84,346 finite binary, 4,320 larger-tree integer-real, and 149 sharpness tests, but these finite tests do not establish the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benjamini–Zakharov–Zhukovskii 2026 DOI 10.1002/rsa.70092 Theorems 1.1–1.3 concern worst-case and random stabilization time on trees",
+        "Tamuz–Tessler uses a two-time-state Lyapunov energy rather than a single-step edge cut bound",
+        "published-finding corpus 2026/10/4/SCOPE-monotone-data-attain-the-conjectured-path-graph-variational-cons--2ae83e2401fb controls a centered Hardy–Littlewood maximal operator, not neighbor medians"
+      ],
+      "reasoning": "A stronger graph-universal result with sharp tree finite-order constant would dominate the claim. No such statement was found in the specifically inspected sources. Known temporal-energy descent does not imply time-slice TV nonexpansion; star examples in the present proof show actual growth.",
+      "searches": [
+        "Graph variation norm of median filter on finite trees edge boundary sharp finite size n",
+        "Graph BV total variation stability of nonlinear median filters and order statistics",
+        "Energy increases under synchronous majority dynamics on finite trees, sharp number of disagreeing edges",
+        "Benjamini Zakharov Zhukovskii Majority Dynamics on Finite Trees 2026",
+        "arxiv:1307.4035 §3.1 Lyapunov functional"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1307.4035 (Tamuz–Tessler)",
+      "arxiv:1405.2486 (Benjamini et al.)",
+      "DOI:10.1002/rsa.70092 (Benjamini et al. 2026)",
+      "published-finding corpus: 2026/10/4/SCOPE-monotone-data-attain-the-conjectured-path-graph-variational-cons--2ae83e2401fb",
+      "published-finding corpus: 2026/10/4/SCOPE-three-edge-decomposition-sharpens-the-hilbert-comparison-for-the--87e5aa398e09",
+      "Accessible own records a69cb138-f1ee-4c39-8d5e-f1a12248c9e4 and c6a0693f-e803-4d4d-821e-bef9fc5fee5a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1405.2486 defines synchronous majority with tie resolution and establishes period-two/consensus phenomena",
+        "arxiv:1307.4035 establishes a time-coupled Lyapunov functional and persistence/information results",
+        "2026 finite-tree paper derives stabilization-time formulas for odd-degree trees and does not present an edge-variation amplification result in inspected theorem statements"
+      ],
+      "reasoning": "Period-two stabilization and bounded numbers of flips do not by themselves bound an individual time-slice edge variation by the exact factor, and the historical energy functional explicitly couples times. The new forest inequality uses a cut-edge decomposition unavailable as a quoted corollary of inspected cited statements; the factor is not obtained by parameter substitution into them.",
+      "searches": [
+        "arxiv:1405.2486 sections 1-4",
+        "arxiv:1307.4035 sections 1,3",
+        "DOI 10.1002/rsa.70092 Theorem 1.1",
+        "Exact finite-size maximal one-step increase graph total variation under simultaneous neighbor majority dynamics on trees: 2 - 1/floor(n/2)",
+        "Energy increases under synchronous majority dynamics on finite trees, sharp number of disagreeing edges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1307.4035, §§1.1, 3.1, 3.4: majority update, information/temporal Lyapunov arguments",
+        "arxiv:1405.2486, §1: finite/infinite majority update and period-two results",
+        "published-finding corpus queries for 2-1/floor(n/2) tree majority-median cut-variation returned no directly matching titles or summaries"
+      ],
+      "reasoning": "Equivalent claims would bound the one-step graph edge disagreement count for all binary states and identify the exact n-vertex optimum, or the corresponding real-data median BV operator norm. The inspected primary statements concern temporal stabilization, information or probabilistic consensus, not this quantitative one-step BV invariant.",
+      "searches": [
+        "Exact finite-size maximal one-step increase graph total variation under simultaneous neighbor majority dynamics on trees: 2 - 1/floor(n/2)",
+        "Median of neighbors with inertia tie: synchronous majority update on an unweighted tree cuts edge disagreements expansion",
+        "Exact sharp total variation enlargement by synchronous majority dynamics on trees and median filters",
+        "arxiv:1307.4035",
+        "arxiv:1405.2486",
+        "arxiv full texts: variation; disagreeing edges; cut size"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No queried published-finding corpus title/summary tabulated the exact factor 2-1/floor(n/2) for synchronous tree majority dynamics",
+        "Accessible own record a69cb138-f1ee-4c39-8d5e-f1a12248c9e4 concerns max-neighborhood dilation, not median majority",
+        "Accessible own record c6a0693f-e803-4d4d-821e-bef9fc5fee5a concerns isotonic projections, not median dynamics"
+      ],
+      "reasoning": "Enumeration of trees and Boolean states is only a check: no external exact table or record supplying this full n-parametric classification was located. Similar tree variation studies use different operators and do not imply the result by specialization.",
+      "searches": [
+        "Exact finite-size maximal one-step increase graph total variation under simultaneous neighbor majority dynamics on trees: 2 - 1/floor(n/2)",
+        "Exact sharp total variation enlargement by synchronous majority dynamics on trees and median filters",
+        "Graph variation norm of median filter on finite trees edge boundary sharp finite size n",
+        "published-finding corpus Search 100 hits median filter graph BV tree variation",
+        "own accessible JSONL claims for graph max dilation, isotonic regression, heat semigroups"
+      ]
+    },
+    "rationale": "Claim-level comparison found no directly covering tree edge-variation amplification theorem. Earlier majority-dynamics papers define the same update but study stabilization/information and time-coupled Lyapunov energies; a 2026 finite-tree study investigates stabilization times, not the single-step nonlinear BV gain or coarea transfer. A maximal-function result from mathematical records acts on a different operator and input class. Searches cannot prove absolute novelty, and unindexed historical sources remain a risk.",
+    "residual_risks": [
+      "Unindexed older nonlinear digital-filter or majority dynamics literature could contain an equivalent graph BV inequality.",
+      "The finite-tree stabilization paper was inspected for theorem statements and direct cut/variation terms, not independently certified as wholly devoid of an implicit equivalent lemma.",
+      "Mathematical research semantic searches do not establish uniqueness of a result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest temporal energy framework; no one-step cut-variation sharp tree bound in material inspected",
+        "evidence": [
+          "arXiv:1307.4035 lines 50–98 define majority dynamics, lines 522–561 introduce time-crossing Lyapunov functional, lines 889–981 treat flip time bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1307.4035",
+        "material_read": "Abstract; full introduction and theorem descriptions; §3.1 Lyapunov functional around pp. 7–9; §3.4 combinatorial majority dynamics around pp. 12–13; bibliography; searched extracted text for variation and disagreement",
+        "method": "Public arXiv PDF text reading, screenshots of p. 2, targeted text search",
+        "title": "Majority Dynamics and the Retention of Information",
+        "trigger": "Foundational classical synchronous majority dynamics and temporal energy, most plausible prior implication"
+      },
+      {
+        "assessment": "Defines same update and proves period-two and random-graph outcomes; no directly covering one-step BV ratio in inspected material",
+        "evidence": [
+          "arXiv:1405.2486 p. 2 equation (1.1) and tie-resolution statement; theorem 1.1 period-two"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+        "material_read": "Abstract; §1 pp. 2–6 definitions, theorem statements and overview; contents and targeted searches of the PDF for energy, variation, disagreeing edges",
+        "method": "Public arXiv PDF text reading, screenshot p. 2, targeted whole-text searches",
+        "title": "Convergence, Unanimity and Disagreement in Majority Dynamics on Unimodular Graphs and Random Graphs",
+        "trigger": "Exact neighbor-majority rule with tie handling; possible dominating stability result"
+      },
+      {
+        "assessment": "Covers exact stabilization times and random outcomes on trees, distinct from one-step edge-variation gain; not eligible as historical anchor",
+        "evidence": [
+          "DOI 10.1002/rsa.70092, Theorem 1.1 on worst-case stabilization time and Theorems 1.2–1.3 on random stabilization"
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/245504/",
+        "material_read": "Repository metadata; public full PDF introduction and Theorems 1.1–1.3 at pp. 1–3; searched full parsed text for variation, disagreeing edges and cut size",
+        "method": "OA repository PDF text and screenshot of paper p. 2",
+        "title": "Majority Dynamics on Finite Trees",
+        "trigger": "Strongly similar title and finite-tree objects, despite 2026 public date"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e16ec3a5-1444-4237-bab8-1eaa373152b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated exact nonlinear stability question: synchronous neighbor-median filtering on all finite trees can amplify edge variation, unlike asynchronous majority steps. The theorem solves the natural fixed-order maximum exactly for every n, yields a new component-count deficit for each binary update, and extends to all real signals by coarea. The extremal ratio approaches 2 and has explicit parity-sensitive attaining tree geometries. This is a complete sharp family classification rather than a mere finite enumeration or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
