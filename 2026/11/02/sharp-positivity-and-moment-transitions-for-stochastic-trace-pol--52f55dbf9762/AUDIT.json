@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Diagonal eigenvalues give exact and sampled preconditioner spectra. Spherical Gaussian normalization proves Beta(1/2,(n-1)/2), its strict positivity yields kappa=n frontier and one-probe beta CDF. Near zero the r-fold beta sum has tail exponent r/2 and explicit Dirichlet coefficient; the preconditioned condition number is asymptotic to 1/(n^2 mean U), proving the sharp moment cutoff. Strong law, CLT and chi-square limits prove all limit-order assertions. Independent finite numerical checks passed, but are not treated as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://proceedings.mlr.press/v202/doikov23b/doikov23b.pdf, pp. 6–7 exact symmetric-polynomial positivity and note on a stochastic trace estimate",
+        "https://arxiv.org/pdf/2010.09649, pp. 1–3 relative trace accuracy, Hutch++ method and cost"
+      ],
+      "reasoning": "The exact-trace spectral estimate does not assert positivity when the trace coefficient is replaced by an unbiased random variable. General relative-trace bounds could imply sufficient high-probability safety after selecting tolerance dependent on kappa, but they do not cover the claimed sharp dimension frontier or critical inverse moments.",
+      "searches": [
+        "\"trace estimator\" \"symmetric polynomial preconditioning\" Doikov",
+        "\"Hutchinson\" \"preconditioner\" \"positive definite\" trace error",
+        "arxiv:2301.13194 Sections 4.1–4.2 and arxiv:2010.09649 Sections 1–2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2301.13194 (first posted 2023-01-30)",
+      "https://proceedings.mlr.press/v202/doikov23b/doikov23b.pdf (pp. 4–7)",
+      "https://arxiv.org/abs/2010.09649 (first posted 2020-10-19)",
+      "https://arxiv.org/pdf/2010.09649 (pp. 1–3)",
+      "Related published stochastic-trace and Nyström benchmark results (comparative claims only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source paper provides unbiasedness n E[u^T B u]=tr(B) and proves P1 SPD for exact trace only",
+        "Hutch++ obtains relative trace-estimation guarantees for PSD input with matrix-vector queries; not a theorem for the spectral condition of tr_hat(B)I-B"
+      ],
+      "reasoning": "A positive-definite input and an unbiased scalar coefficient do not imply a positive-definite sampled polynomial. The evaluated new claim uses a sharp beta lower tail and a small-sum convolution to quantify that missing implication. At kappa=n it distinguishes almost-sure definiteness from infinite expected conditioning, which is not a trace MSE claim.",
+      "searches": [
+        "\"polynomial preconditioning\" \"stochastic estimate\" trace positivity",
+        "\"Hutchinson\" \"preconditioner\" \"positive definite\" trace error",
+        "\"sphere\" \"beta\" \"trace estimation\" \"preconditioning\" spectral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Doikov–Rodomanov 2023, Section 4.1 and footnote 5: P1=tr(B)I-B and n u^T B u unbiased",
+        "Related published findings concerning Hutch++/Nyström and Rademacher-trace variance analyze distinct estimators and objective functions, not the positivity of a spherical-trace polynomial preconditioner."
+      ],
+      "reasoning": "The spherical squared-coordinate beta law yields the probability only after combining it with the eigenvalue requirement for the random trace polynomial; source material inspected presents no exact failure probability, heavy-tailed condition-number law, or noncommuting-order classification. Previous probabilistic trace comparisons are not equivalent formulations of SPD failure in this polynomial.",
+      "searches": [
+        "uniform sphere stochastic trace estimator n u^T B u in symmetric polynomial preconditioner P=tr(B)I-B positive definiteness probability rank-one spike",
+        "Beta spherical quadratic form rank-one spike preconditioner loses SPD threshold kappa dimension",
+        "\"polynomial preconditioning\" \"stochastic estimate\" trace positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical research records concerned different Broyden positivity thresholds, random sketches, or stochastic-trace variance; no matching spherical polynomial-preconditioner comparison was found.",
+        "Related published numerical-linear-algebra benchmarks analyze stochastic trace estimation and random Nyström preconditioning, rather than the stated critical moment law."
+      ],
+      "reasoning": "No exact prior table of this random polynomial-preconditioner definiteness probability or r/2 condition-number moment cutoff was located. A negative search is only limited evidence and cannot prove uniqueness.",
+      "searches": [
+        "unbiased trace estimate tr(B)I-B may be indefinite probability high condition number",
+        "Beta spherical quadratic form rank-one spike preconditioner loses SPD threshold kappa dimension",
+        "\"polynomial preconditioning\" \"stochastic estimate\" trace positivity"
+      ]
+    },
+    "rationale": "The source first symmetric-polynomial preconditioner and unbiased spherical trace suggestion are acknowledged as prior. The novel statement assessed is the exact operator-level safe/unsafe frontier on all one-spike dimensions, its critical r/2 conditioning-tail law with leading coefficient, and the noncommuting spike/probe limits. The inspected preconditioning paper provides exact-trace positivity but no random-plug-in safety or moment analysis, and trace-estimation research provides trace-error rates rather than these operator-specific thresholds. Beta distributions are standard and not themselves claimed as new. Equivalence elsewhere remains a priority risk.",
+    "residual_risks": [
+      "A specialized analysis of stochastic coefficients in symmetric-polynomial preconditioners could have appeared outside the inspected corpus.",
+      "The beta distribution and convolution exponent are standard probabilistic ingredients; the mathematical contribution is their motivated operator-level classification, not those classical ingredients alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supplies the algorithm and estimator. Exact-trace positivity does not establish stochastic-substitution positivity, a failure probability, or critical-tail moments.",
+        "evidence": [
+          "Section 4.1 Eq. (12): P1=tr(B)I-B; footnote 5: stochastic sphere trace formula",
+          "Theorem 4.2: exact deterministic eigenvalue bounds for P_tau"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v202/doikov23b/doikov23b.pdf",
+        "material_read": "Full source section 4.1, its footnote 5, Section 4.2, Section 3 algorithm assumptions, and the paper introduction; inspected source page images and parsed full-text portions.",
+        "method": "Lawful open-access publisher PDF full-text and page images",
+        "title": "Polynomial Preconditioning for Gradient Methods",
+        "trigger": "It defines precisely the first symmetric-polynomial preconditioner and suggests the spherical trace estimator."
+      },
+      {
+        "assessment": "General relative trace accuracy and variance reduction do not state sharp definiteness or spectral-condition-number tail behavior for an estimated-trace polynomial.",
+        "evidence": [
+          "Section 1.1: standard unbiased stochastic trace and relative error guarantee",
+          "Theorem 1: high-probability trace relative error for PSD matrices"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.09649",
+        "material_read": "Introduction, Section 1.1 Hutchinson estimator, Section 1.2 main Hutch++ guarantee, Section 1.3 prior work; inspected full PDF page images for those portions.",
+        "method": "Open-access arXiv full-text and page images",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Potential broader probabilistic bounds for trace estimation might dominate the new probability calculations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52f55dbf-9762-41e8-bf19-5c2bf87b2a1c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly suggests replacing a trace coefficient with an unbiased spherical estimator but its preconditioning theory requires SPD. The exact dimension-relative safety frontier and the r/2 moment cutoff show that unbiasedness can coincide with positive probability of indefiniteness or with infinite expected conditioning despite almost-sure SPD. This gives a precise reliability benchmark and a critical minimum three-probe moment budget; it is not a generic trace-variance restatement.",
+    "status": "PASS"
+  }
+}
