@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:46:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact Khovanova–Lewis coefficient f_n(a,b)=[n−1 choose a+b−2]binom(a+b−2,a−1) implies the normalized bivariate PGF ∏_{j=0}^{n−2}(j+z+w)/(j+2). Each factor gives an independent increment in {(0,0),(1,0),(0,1)} with probabilities j/(j+2),1/(j+2),1/(j+2). The means of both record counts are H_n; variances H_n−H_n^(2)~log n, covariance 1−H_n^(2)=O(1). On Fourier scales θ=u/sqrt(log n), φ=v/sqrt(log n), cumulant sums give a standard independent two-coordinate Gaussian limit. Uniform domination is obtained from |j+e^{iθ}+e^{iφ}|²=(j+2)²−2j(2−cosθ−cosφ)−2(1−cos(θ−φ)), so |φ_n|≤exp[−c log n(θ²+φ²)] on [−pi,pi]². Rescaled Fourier kernels converge in L1 by dominated convergence; inversion then gives a uniform absolute error over all integer phases, stronger than weak convergence. The closest-integer point establishes the modal asymptotic and any distant maximizer contradicts the Gaussian bound. An independent count of every permutation through n=8 matches all Stirling-binomial cells. The theorem does not give relative tail errors or exact finite-n modes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The independent-increment PGF meets aperiodicity and Gaussian-integrability conditions demonstrated directly in the submitted proof.",
+          "A generic LCLT could furnish the uniform limit after checking assumptions, but neither inspected named source states this explicit corollary and the maximum sequence asymptotic."
+        ],
+        "reasoning": "General local-limit theorems constitute strong methodological prior art; credit only the explicit application to the recorded natural coefficient sequence. Weak convergence alone does not imply maximal point probability.",
+        "searches": [
+          "Gnedin 2006 joint Gaussian weak convergence",
+          "generic multivariate triangular-array lattice local-limit theory",
+          "Khovanova–Lewis maximal balanced pairs"
+        ]
+      },
+      "checked_sources": [
+        "Khovanova–Lewis arXiv:1304.6445v1 full PDF",
+        "Gnedin arXiv:math/0611538v1 full PDF Section 7",
+        "OEIS A218531",
+        "Resultary search: skyscraper numbers permutations left right records local limit maximum asymptotic n! log n",
+        "SCOPE repository search: skyscraper numbers local limit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Khovanova proves balance of a maximal pair and the coefficient formula.",
+          "Gnedin weak bivariate CLT for same coefficient array lacks local estimates."
+        ],
+        "reasoning": "Neither finite formula nor weak CLT alone supplies a maximum ~n!/(2pi log n), since weak convergence does not control individual lattice masses; the Gaussian Fourier domination bridges this gap. An applicable general published LCLT could yield it as a corollary, a retained priority risk.",
+        "searches": [
+          "Khovanova–Lewis 2013 Sections 3–5",
+          "Gnedin 2006 Section 7",
+          "OEIS A218531"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gnedin studies upper and lower records from one scanning direction and obtains the same bivariate Stirling-binomial count array as left/right maxima of a permutation.",
+          "Gnedin reports weak Gaussian for this array, which is not pointwise lattice local control."
+        ],
+        "reasoning": "The alias must be checked at the array level rather than by visibility wording. Same law and weak CLT are fully prior; new claimed strength is uniform additive local limit plus exact leading modal constant and window.",
+        "searches": [
+          "Khovanova–Lewis arXiv:1304.6445v1",
+          "Gnedin arXiv:math/0611538v1 Section 7",
+          "OEIS A218531",
+          "Resultary: skyscraper numbers permutations left right records local limit maximum asymptotic n! log n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS gives exact finite maxima and known formula, not n!/(2pi log n) leading asymptotic in inspected entry.",
+          "Independent brute count agrees with exact n<=8 array, but finite tables cannot prove global scale."
+        ],
+        "reasoning": "The exact finite sequence was already tabulated and is not claimed new. Asymptotic leading constant and maximizer scale are distinct unbounded invariants.",
+        "searches": [
+          "OEIS A218531",
+          "Khovanova–Lewis Skyscraper Numbers tables",
+          "Resultary: skyscraper numbers permutations left right records local limit maximum asymptotic n! log n"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the explicit skyscraper-uniform local limit and sharp modal asymptotic, not the underlying bivariate Stirling array or weak joint Gaussian. The full Khovanova–Lewis article supplies array and balanced modes; Gnedin 2006 has same array under an equivalent upper/lower record reinterpretation and weak Gaussian, but not lattice point control in inspected passages. A standard general-purpose triangular-array multivariate local limit could imply the result with hypothesis checks; do not claim a fundamentally new local-limit theorem. No explicit prior asymptotic for A218531 was identified.",
+      "residual_risks": [
+        "Standard local-limit theorem applied to the equivalent Gnedin record array could constitute a prior corollary with the same leading constant.",
+        "Indexed/unindexed mode asymptotic might exist outside the cited exact sequence entry.",
+        "The result is additive, not relative, in far tails; exact integer mode remains unknown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Stirling-binomial coefficients and balanced-maximizer statement are prior; no explicit uniform local limit or n!/(2pi log n) asymptotic seen",
+          "evidence": "Skyscraper formula and Theorem 2 on balanced maxima",
+          "identifier_or_url": "https://arxiv.org/abs/1304.6445",
+          "material_read": "Complete seven-page arXiv PDF, sections 3–5 and page2 screenshot",
+          "method": "Open-access PDF full-text and visual pages",
+          "title": "Skyscraper Numbers",
+          "trigger": "Direct exact same array and maximum"
+        },
+        {
+          "assessment": "Same array (upper/lower records) and joint weak Gaussian are prior; no uniform lattice statement identified",
+          "evidence": "Section 7 joint Gaussian for two record counts",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611538",
+          "material_read": "Complete 17-page arXiv PDF, including Section 7 and page2 screenshot",
+          "method": "Open-access PDF full-text and visual pages",
+          "title": "Coherent random permutations with record statistics",
+          "trigger": "Alias with same bivariate coefficients and potentially stronger limit"
+        },
+        {
+          "assessment": "Finite exact values and formula; inspected entry lacks specified leading log-asymptotic",
+          "evidence": "Sequence A218531 maximal value of Khovanova–Lewis bivariate array",
+          "identifier_or_url": "https://oeis.org/A218531",
+          "material_read": "Indexed OEIS sequence, formula and references as available",
+          "method": "OEIS sequence entry",
+          "title": "A218531: maximal number of solutions for a row of a skyscraper puzzle",
+          "trigger": "Exact database/table could already contain asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum coefficient sequence is a natural, published skyscraper-permutation integer invariant (OEIS A218531). An explicit sharp leading constant 1/(2pi), factorial/logarithmic growth and localization of every maximizer answer a meaningful asymptotic enumeration question not determined by a finite table or a weak CLT alone. It does not claim a new generic local-limit method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For left- and right-to-left record maxima X_n,Y_n of a uniformly random permutation, their joint lattice mass admits a uniform additive bivariate Gaussian local limit on scale log n centered at H_n; consequently the largest count of permutations with specified left/right visibility is n!/(2 pi log n)(1+o(1)), and every maximizing pair has both coordinates log n+o(sqrt(log n)).",
+  "limitations": [
+    "Uniform additive normalized bivariate lattice LCLT, not a relative far-tail estimate.",
+    "Does not determine a unique exact maximizing pair for finite n."
+  ],
+  "schema_version": 1
+}

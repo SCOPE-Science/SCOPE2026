@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact bivariate Stirling–binomial coefficient law gives a normalized generating product of independent three-outcome increments. The cumulant computation identifies the diagonal \(\log n\) covariance scale and bounded off-diagonal term. A direct global characteristic-function inequality has Gaussian decay after rescaling, so Fourier inversion and \(L^1\) convergence prove the **uniform** local limit rather than merely a weak central limit. The nearest-integer comparison gives both sharp maximum and every-maximizer localization. The bundled exact checker reproduces finite source values, but is not used to extrapolate the infinite assertion.
+PASS
 
-## Originality — PASS under inspected sources
+The exact Khovanova–Lewis coefficient f_n(a,b)=[n−1 choose a+b−2]binom(a+b−2,a−1) implies the normalized bivariate PGF ∏_{j=0}^{n−2}(j+z+w)/(j+2). Each factor gives an independent increment in {(0,0),(1,0),(0,1)} with probabilities j/(j+2),1/(j+2),1/(j+2). The means of both record counts are H_n; variances H_n−H_n^(2)~log n, covariance 1−H_n^(2)=O(1). On Fourier scales θ=u/sqrt(log n), φ=v/sqrt(log n), cumulant sums give a standard independent two-coordinate Gaussian limit. Uniform domination is obtained from |j+e^{iθ}+e^{iφ}|²=(j+2)²−2j(2−cosθ−cosφ)−2(1−cos(θ−φ)), so |φ_n|≤exp[−c log n(θ²+φ²)] on [−pi,pi]². Rescaled Fourier kernels converge in L1 by dominated convergence; inversion then gives a uniform absolute error over all integer phases, stronger than weak convergence. The closest-integer point establishes the modal asymptotic and any distant maximizer contradicts the Gaussian bound. An independent count of every permutation through n=8 matches all Stirling-binomial cells. The theorem does not give relative tail errors or exact finite-n modes.
 
-Closest source 1: Khovanova–Lewis, arXiv:1304.6445v1, Sections 3–5: exact array, maximal sequence, and balanced maximizing pairs, but no local limit or modal asymptotic. Closest source 2: Gnedin, arXiv:math/0611538v1, Sections 2 and 7: **same array** under a different record-pair interpretation and an independent-Gaussian weak limit. The present local-limit strength is essential to derive the sharp lattice maximum and is not furnished by convergence in distribution alone. OEIS A218531 records exact values and formulas but not the asymptotic. Searches for the statement, aliases, Gnedin's array, and maximum coefficient did not identify explicit prior coverage. General-purpose multivariate local-limit results are a serious methodological prior-art risk and could subsume the local-limit lemma after hypothesis checks; the assessed value is the unlisted explicit skyscraper maximum law, not invention of a new general limit method.
+## originality
 
-## Value — PASS
+PASS
 
-The maximum skyscraper sequence is a natural unbounded integer invariant, defined and tabulated in the 2013 paper and indexed as OEIS A218531. The theorem determines its leading constant and factorial-over-logarithmic scale and localizes every maximizing visibility pair on a sub-square-root-logarithmic window. These solve a specific asymptotic characterization that cannot be read off the existing finite tables or weak Gaussian convergence. They are not a merely bounded enumeration or arbitrary parameter slice.
+Qualified best-of-knowledge PASS for the explicit skyscraper-uniform local limit and sharp modal asymptotic, not the underlying bivariate Stirling array or weak joint Gaussian. The full Khovanova–Lewis article supplies array and balanced modes; Gnedin 2006 has same array under an equivalent upper/lower record reinterpretation and weak Gaussian, but not lattice point control in inspected passages. A standard general-purpose triangular-array multivariate local limit could imply the result with hypothesis checks; do not claim a fundamentally new local-limit theorem. No explicit prior asymptotic for A218531 was identified.
 
-## Scientific limits and priority risks
+## value
 
-The exact mode and sharper correction terms are not determined. Asymptotic uniformity is additive rather than relative in rare-event tails. Unindexed literature or a standard local-limit theorem explicitly applied to the same combinatorial sequence could affect novelty. No independent mathematical validation has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum coefficient sequence is a natural, published skyscraper-permutation integer invariant (OEIS A218531). An explicit sharp leading constant 1/(2pi), factorial/logarithmic growth and localization of every maximizer answer a meaningful asymptotic enumeration question not determined by a finite table or a weak CLT alone. It does not claim a new generic local-limit method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
