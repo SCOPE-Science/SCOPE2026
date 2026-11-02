@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical checks
+# Independent mathematical audit
 
-The companion `verify.py` uses Python's standard library and requires no packages or network access. Run `python verify.py` in the directory containing the file. It enumerates all \(2^{\binom d2}\) edge-sign patterns for every integer \(2\le d\le7\), normalizes them by the vertex gauge on the star at vertex one, and checks \(2^{\binom{d-1}{2}}\) distinct classes. It also checks the product of that component number and \(2^{d-1}\), the independent-variable count, the dimension \(d(3d+1)/2\), and the even-binomial Hilbert numerator evaluation. Lastly it verifies all three principal equations and an explicitly nonzero nonprincipal minor and determinant for the given \(3\times3\) matrix.
+## correctness
 
-Expected output includes:
+PASS
 
-```text
-d=2 components=1 component_degree=2 principal_degree=2 ambient=8 dimension=7 hilbert_numerator=[1, 1]
-d=3 components=2 component_degree=4 principal_degree=8 ambient=18 dimension=15 hilbert_numerator=[1, 3]
-d=4 components=8 component_degree=8 principal_degree=64 ambient=32 dimension=26 hilbert_numerator=[1, 6, 1]
-d=5 components=64 component_degree=16 principal_degree=1024 ambient=50 dimension=40 hilbert_numerator=[1, 10, 5]
-d=6 components=1024 component_degree=32 principal_degree=32768 ambient=72 dimension=57 hilbert_numerator=[1, 15, 15, 1]
-d=7 components=32768 component_degree=64 principal_degree=2097152 ambient=98 dimension=77 hilbert_numerator=[1, 21, 35, 7]
-VERIFY_OK d=3 principal_equations=0 nonprincipal_minor=-2 determinant=-4
-```
+The independent linear forms M_ij can be completed to a linear basis with f=d(3d-1)/2 free coordinates. Under the explicitly stated level-two shuffle identities M_ij=v_i v_j, elimination gives C[v_i v_j,z], the second Veronese invariant algebra. Standard pair-switching straightening proves the prime defining ideal is all symmetric 2x2 minors; its dimension d+f, degree 2^{d-1}, Hilbert numerator Σ_j binom(d,2j)t^j, and singular locus M=0 follow. The principal-only ideal comprises E=binom(d,2) independent quadrics with pairwise coprime off-diagonal leading squares, so is complete intersection and CM; on the dense nonzero-diagonal torus every irreducible signed component is generically smooth, giving reducedness. Vertex-sign gauge has 2^{E-d+1} orbits, each signed rank-one cone degree 2^{d-1}; their degrees sum to 2^E. An explicit 3x3 matrix has every principal minor zero but nonprincipal minor −2 and determinant −4, distinguishing loci for all d≥3, while they coincide d=2. All degree claims restricted to complex homogeneous level two; source-paper shuffle identity itself deserves comparison with the primary original.
 
-**Proof limits.** All statements for unbounded \(d\) are proved algebraically in `RESULT.md` using invariant rings, pair-straightening of matrix monomials, a complete closed-component decomposition, finite sign-group quotient, and a reduced complete-intersection argument. The script is a separate exact finite consistency test, *not* an infinite certificate, irreducibility test, or independent scientific audit. The only external mathematics relied on is standard Veronese/determinantal geometry and the originating definition of the membrane level-two shuffle relations. The result does not imply claims about arbitrary truncation levels or real positivity.
+## originality
+
+PASS
+
+Classical second-Veronese rank-one minors and signed principal-minor loci are precedents, not claimed original. The surviving new statement is their specific identification in the 2026 level-two membrane-signature elimination problem, correction of that source's asserted degree 2^{binom(d,2)}, and exact explanation of the excess components. Primary source arXiv:2610.16724 was identifiable but the full text could not be independently obtained; the disputed theorem wording is represented in the frozen research package and its accuracy is a residual risk. Best-of-knowledge PASS is restricted to the concrete correction, not historical discovery of the constituent classical algebra.
+
+## value
+
+PASS
+
+The correction addresses a natural algebraic-geometric invariant of a newly introduced universal variety, changing its purported degree exponentially (d=3: 8 versus 4; d=4: 64 versus 8). An explicit excluded matrix and a full reduced component explanation clarify why a principal-minor complete intersection cannot equal prime shuffle elimination. The value is specifically repairing a purported published identification, not reproducing the textbook Veronese degree in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
