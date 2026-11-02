@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the marked-cycle descent law
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and its standard library. The program enumerates every one-line permutation through nine symbols, reconstructs the cycle containing symbol \(1\), and checks all conditional sitewise descent probabilities, the uniform law for cycle length, the conditional mean, and the covariance using exact rational arithmetic. The expected terminal output is `VERIFICATION_OK 336`.
+## correctness
 
-The finite checks supplement the analytical proof; they do not establish the statement for unbounded sample size. The involution and complementary-cycle arguments in `RESULT.md` provide the unrestricted proof. The exceptional sample size \(n=2\) is excluded from the theorem. No independent audit has been conducted.
+PASS
+
+Marked-cycle count (n-1)! proves K uniform. Adjacent-label conjugation fixing 1 pairs interior descents and ascents; its only failures have two specified image pairs whose conditional probabilities match on the complementary permutation when both labels avoid the marked cycle and vanish otherwise. The first successor A=Pi(1) is uniform on labels 2..n; split A=2 and A>2 and use marked predecessor and complementary fixed-point events to derive the 4-case formula; sum against uniform K for covariance. Separate exhaustive exact enumeration of every permutation n=3..8 reproduced each k-conditional indicator probability and covariance. Does not claim joint independence of later indicators.
+
+## originality
+
+PASS
+
+Fixed-point/descent localization (K=1 slice) and Elizalde–Troyka single-cycle descent-set law (K=n portion) are known. Gessel–Reutenauer and Fulman treat unmarked cycle structure, which by itself cannot distinguish the unique cycle containing label 1. The intermediate K-conditioned first-site formula and all-position individual independence were not implied by inspected sources; older full text of Diaconis–McGrath–Pitman 1995 remains unread.
+
+## value
+
+PASS
+
+A global orbit statistic displays exact dependence localized at the left boundary of the one-line word, with four distinct conditioning regimes and a nonzero 1/4 limiting covariance. The result gives a sharp full n,k structural dependence classification not obtainable from the unconditional Eulerian marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

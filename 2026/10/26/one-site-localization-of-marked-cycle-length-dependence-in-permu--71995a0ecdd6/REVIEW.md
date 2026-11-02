@@ -1,15 +1,21 @@
-# Review of the marked-cycle-length descent law
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes a uniform permutation, a cycle containing symbol \(1\), and ordinary one-line descents, with all quantifiers \(n\ge3\), \(1\le k\le n\), \(2\le i<n\). Uniform marked-cycle size follows by \( (n-1)!\) completions for each length. Conjugating by the adjacent label swap \( (i\ i+1)\) gives opposite interior comparisons except two exceptional image configurations that have equal conditional probability. For the first position, uniform cycle-complement sampling and symmetry of labels \(3,\ldots,n\) yield the displayed four cases; summing them proves the stated covariance. Exact rational enumeration of all permutations \(3\le n\le9\) confirms 336 assertion groups. The finite replay is corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-Fulman (arxiv:math/9712240, Sections 3–5) and Gessel–Zhuang (arxiv:2001.00654v2, Sections 1 and 7) provide unmarked cycle-type/descent enumeration and probabilistic shuffle refinements; their inspected results do not retain which cycle contains the distinguished symbol \(1\). Elizalde–Troyka (arxiv:1710.05103v3, Corollary 4.2) already establish the full \(K=n\) descent-set law for first \(n-2\) positions, so that slice is covered and excluded from the claimed novel contribution. Reutenauer's scanned 1989 work and Gessel–Reutenauer's 1993 treatment count unmarked cycle structures. Related published local covariance results concern fixed-point indicators (the \(K=1\) slice), while cycle-count/inversion covariance is an aggregate statistic that cannot determine \(K\). Full inspection of Diaconis–McGrath–Pitman (1995) was unavailable, and an equivalent earlier marked-cycle refinement remains a concrete originality risk. No assertion of independent historical priority is made.
+PASS
 
-## Mathematical value — PASS
-Conditioning on a fine global orbit statistic can change the first descent strongly but leaves every other local descent exactly fair and individually independent of the conditioning. The sharp boundary and the entire four-regime law are nontrivial, with a stable positive limiting covariance \(1/4\) despite all remaining sitewise covariances being zero. This isolates information not present in unmarked cycle-type or marginal Eulerian counts.
+Marked-cycle count (n-1)! proves K uniform. Adjacent-label conjugation fixing 1 pairs interior descents and ascents; its only failures have two specified image pairs whose conditional probabilities match on the complementary permutation when both labels avoid the marked cycle and vanish otherwise. The first successor A=Pi(1) is uniform on labels 2..n; split A=2 and A>2 and use marked predecessor and complementary fixed-point events to derive the 4-case formula; sum against uniform K for covariance. Separate exhaustive exact enumeration of every permutation n=3..8 reproduced each k-conditional indicator probability and covariance. Does not claim joint independence of later indicators.
 
-## Boundaries and evidence
-The result does not prove joint independence of all interior indicators, does not concern nonuniform permutation models, and does not transfer to descents in standardized cycle words. The published record searches and full-text inspections delimit originality but cannot logically prove priority. The reproducible exact checker is in `verify.py`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed-point/descent localization (K=1 slice) and Elizalde–Troyka single-cycle descent-set law (K=n portion) are known. Gessel–Reutenauer and Fulman treat unmarked cycle structure, which by itself cannot distinguish the unique cycle containing label 1. The intermediate K-conditioned first-site formula and all-position individual independence were not implied by inspected sources; older full text of Diaconis–McGrath–Pitman 1995 remains unread.
+
+## value
+
+PASS
+
+A global orbit statistic displays exact dependence localized at the left boundary of the one-line word, with four distinct conditioning regimes and a nonzero 1/4 limiting covariance. The result gives a sharp full n,k structural dependence classification not obtainable from the unconditional Eulerian marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

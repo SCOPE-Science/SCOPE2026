@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:44:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Marked-cycle count (n-1)! proves K uniform. Adjacent-label conjugation fixing 1 pairs interior descents and ascents; its only failures have two specified image pairs whose conditional probabilities match on the complementary permutation when both labels avoid the marked cycle and vanish otherwise. The first successor A=Pi(1) is uniform on labels 2..n; split A=2 and A>2 and use marked predecessor and complementary fixed-point events to derive the 4-case formula; sum against uniform K for covariance. Separate exhaustive exact enumeration of every permutation n=3..8 reproduced each k-conditional indicator probability and covariance. Does not claim joint independence of later indicators.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elizalde and Troyka arXiv:1710.05103 Corollary 4.2 gives the complete descent-set law for a single n-cycle on the first n-2 positions.",
+          "Gessel–Zhuang arXiv:2001.00654 provides cycle-type/descent refinements but does not directly condition on marked cycle."
+        ],
+        "reasoning": "The single-cycle K=n case is partially covered, explicitly credited. It cannot imply laws for arbitrary 2<=K<n without additional combinatorial conditioning.",
+        "searches": [
+          "Elizalde Troyka single cycles descent set first n-2 positions corollary 4.2",
+          "marked cycle containing 1 length K individual descent indicators in one line permutation independent conditional distribution"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md; independent exact enumeration for n3..8",
+        "Elizalde–Troyka arXiv:1710.05103 Cor 4.2",
+        "Gessel–Zhuang arXiv:2001.00654",
+        "Fulman arXiv:math/9712240",
+        "Resultary 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier unmarked Gessel–Reutenauer/Fulman descent-cycle enumerators recover distribution sums but not the distinguished label 1 without a separate marking operation.",
+          "The prior fixed-point theorem predicts K=1 first-site behavior only; single-cycle theorem predicts K=n portions."
+        ],
+        "reasoning": "Prior slice results are covered, but they do not jointly imply all intermediate marked-cycle conditional probabilities and the one-site covariance identity. DMP 1995 is a real residual historical risk.",
+        "searches": [
+          "Fulman biased riffle shuffles cycles descents arxiv math 9712240",
+          "marked cycle containing 1 length K individual descent indicators in one line permutation independent conditional distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gessel–Reutenauer 1993 joint cycle type and descent set enumerator is unmarked: it does not identify which cycle contains 1.",
+          "The exact K-conditioned conditional D_1 probabilities have four regimes and all other individual D_i=1/2."
+        ],
+        "reasoning": "Conditioning on the specific cycle containing 1 is not equivalent to conditioning on unmarked cycle type; relabeling positional statistics is not invariant under arbitrary conjugation.",
+        "searches": [
+          "marked cycle containing 1 length K individual descent indicators in one line permutation independent conditional distribution",
+          "distinguished cycle length of symbol one descent indicators conjugation symmetric group covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495 addresses fixed-point D_i covariance (K=1 slice).",
+          "Independent exact tables for n=3..8 agree with submitted formula."
+        ],
+        "reasoning": "The fixed-point binary event is a strict slice of the K-multicategory law. No retrieved exact table with all k was found; no search result is treated as proof of novelty.",
+        "searches": [
+          "sitewise permutation descent probabilities conditional marked cycle length k database",
+          "Resultary marked cycle containing 1 length K individual descent indicators in one line permutation independent conditional distribution"
+        ]
+      },
+      "rationale": "Fixed-point/descent localization (K=1 slice) and Elizalde–Troyka single-cycle descent-set law (K=n portion) are known. Gessel–Reutenauer and Fulman treat unmarked cycle structure, which by itself cannot distinguish the unique cycle containing label 1. The intermediate K-conditioned first-site formula and all-position individual independence were not implied by inspected sources; older full text of Diaconis–McGrath–Pitman 1995 remains unread.",
+      "residual_risks": [
+        "Diaconis–McGrath–Pitman, Riffle shuffles cycles and descents (1995), not inspected in full.",
+        "Broader unmarked cycle-type generating functions might yield this marked law after nontrivial specializations; no independence claim for full later descent vector."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap for K=n slice, not K=2..n-1",
+          "evidence": [
+            "arXiv:1710.05103, Corollary 4.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.05103",
+          "material_read": "Corollary 4.2 statement as identified in the frozen source; other sections not independently read in full this run",
+          "method": "Primary arXiv bibliographic and frozen-source theorem comparison",
+          "title": "Exact and asymptotic enumeration of cyclic permutations according to descent set",
+          "trigger": "Potential stronger full single-cycle descent law"
+        },
+        {
+          "assessment": "Unmarked cycle type does not specify the marked symbol-1 cycle",
+          "evidence": [
+            "arXiv:2001.00654"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.00654",
+          "material_read": "Accessible abstract and frozen-source discussion of Sections 1,7; full text not independently checked this run",
+          "method": "Public metadata and direct theorem-level comparison in assigned proof",
+          "title": "Plethystic formulas for permutation enumeration",
+          "trigger": "Cycle type plus descent statistics potentially dominating"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A global orbit statistic displays exact dependence localized at the left boundary of the one-line word, with four distinct conditioning regimes and a nonzero 1/4 limiting covariance. The result gives a sharp full n,k structural dependence classification not obtainable from the unconditional Eulerian marginals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform Pi in S_n, n>=3, K the length of cycle containing 1, each one-line descent D_i for i>=2 is individually independent of K and fair. The conditional probability of D_1 is 0 for k=1, (n+1)/(2(n-1)) for k=2, n/(2(n-1)) for 3<=k<n, and 1/2 for k=n. Cov(K,D)=Cov(K,D_1)=(n^2-3n+4)/(4n(n-1)).",
+  "limitations": [
+    "Diaconis–McGrath–Pitman, Riffle shuffles cycles and descents (1995), not inspected in full.",
+    "Broader unmarked cycle-type generating functions might yield this marked law after nontrivial specializations; no independence claim for full later descent vector.",
+    "No GitHub write or server-side certification has occurred. Finite checks do not prove unbounded assertions."
+  ],
+  "schema_version": 1
+}
