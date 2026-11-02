@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "A layered permutation has exactly one independent fair cut bit at each of its first n-1 gaps; the value order is definable from cuts. FO translates to an aperiodic DFA over 0/1 words with final 0, and every recurrent class of its rational transition matrix has a 0-fixed state, making the limit rational. For any b, explicit equal-length w_j=0^(t+3)1u_j1 are pairwise cross-bifix-free, so exchanging all occurrences of any two words is a bijection preserving occurrence starts. The finite-size probability of first label in any a-set is exactly a/b times probability of any occurrence, and one fixed word occurs with probability tending to one exponentially. First-occurrence tests are FO-definable in two orders. The checker tests bounded instances only; the infinite statement is proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Falgas-Ravry–Markström–Räty–Skerman Thm 1.4: limit spectrum dense in [0,1] for small exponential-growth classes.",
+        "Braunfeld–Kukla Thm 3.6: all FO sentence probabilities converge for layered permutations.",
+        "Berthé–Goulet-Ouellet–Perrin: strong aperiodic-density existence under mixing invariant measures and rationality for rational Bernoulli probabilities."
+      ],
+      "reasoning": "The general density theorem is weaker than equality with Q∩[0,1]; convergence/rationality alone gives only inclusion. The new uniform code realizes every denominator for the full layered class, so none of these broad statements logically implies the precise equality without an additional attainment lemma.",
+      "searches": [
+        "arxiv:2610.34328 Theorems 1.1 and 1.4",
+        "arxiv:2111.06307 Theorem 3.6",
+        "doi:10.4230/LIPIcs.ICALP.2025.143 Theorems 3.6 and 4.1",
+        "first-order limit set exponentially growing small permutation classes exact rational"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.34328",
+      "arxiv:2111.06307",
+      "doi:10.4230/LIPIcs.ICALP.2025.143",
+      "doi:10.1007/s00224-013-9464-1",
+      "doi:10.46298/dmtcs.11751 (abstract/context)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 convergence plus rational dyadic Markov chain supplies at most the upper inclusion.",
+        "2026 density can hold for sets omitting all but a sparse subset of rationals, so it does not imply universal rational attainment.",
+        "Related Fibonacci subclass Av(231,312,321) has a prior rational-attainment construction; that measure and class differ from Av(231,312), and its inclusion does not imply the current conclusion."
+      ],
+      "reasoning": "The present claim is neither a paraphrase nor a corollary of those cited results: it asserts every exact a/b in the full class and no irrationals, with a finite-size identity. Its construction shares an already explored non-overlap technique; the difference in class and exact-set completion is the specifically claimed mathematical extension.",
+      "searches": [
+        "arxiv:2111.06307 Lemma 3.5 Theorem 3.6",
+        "arxiv:2610.34328 Theorem 1.4",
+        "doi:10.4230/LIPIcs.ICALP.2025.143 §3.2 §5",
+        "first-order rational attainment Fibonacci permutation class cross-bifix-free first occurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Braunfeld–Kukla Lemma 3.5 makes layered permutations uniformly interdefinable with convex linear orders, reducing any exact-spectrum claim to the convex-order case.",
+        "Aperiodic FO[<,C] languages provide another equivalent form under Bernoulli cut encoding.",
+        "The inspected sources only give convergence or density, not the full value set."
+      ],
+      "reasoning": "Uniform interdefinability transfers sentence probabilities; hence aliases in random compositions, convex orders, and star-free word languages were compared. No located source asserted this complete fixed-model equality, but unknown equivalent statements in older work remain possible.",
+      "searches": [
+        "first-order limiting probabilities layered permutations Av(231,312) rational all rational",
+        "convex linear orders limiting probabilities rational full spectrum",
+        "arxiv:2111.06307 §§2–3",
+        "arxiv:2610.34328 Theorem 1.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical enumeration |Av_n(231,312)|=2^(n-1) is already known and is credited, not claimed as new.",
+        "The novel object is an infinite set of first-order limit values, not an OEIS-like finite sequence."
+      ],
+      "reasoning": "A known enumeration of layered permutations does not encode the probabilities of all first-order sentences. No relevant exact-spectrum database/table was located; absence of a tabulation is not itself evidence of originality.",
+      "searches": [
+        "layered permutations first-order rational limit spectrum exact Q",
+        "aperiodic regular language Bernoulli density arbitrary rational realization",
+        "random convex linear order FO limit probabilities table",
+        "arxiv:2610.34328 references and statement of Thm 1.4"
+      ]
+    },
+    "rationale": "The new statement is the *entire* first-order limit probability set Q∩[0,1] for uniform layered permutations Av(231,312), including a uniform exact finite-size a/b symmetry and exponential convergence. Braunfeld–Kukla 2022 establishes convergence and implicitly rationality; Falgas-Ravry et al. 2026 Thm. 1.4 establishes density, not all-rational attainment. Berthé et al. 2025 concerns aperiodic language densities and their formulae, not the specific TOTO-spectrum equivalence. A narrower Fibonacci-class rational-attainment result does not imply this full-class spectrum; shared first-hit coding is acknowledged. Priority uncertainty remains concerning earlier coding/convex-order literature.",
+    "residual_risks": [
+      "Older constructions via fair-coin patterns, self-synchronizing codes, prefix codes or aperiodic-language density may contain the all-rational realization as folklore or a stronger theorem.",
+      "The earlier rational-attainment finding for the Fibonacci subclass uses a related first-occurrence approach; the new result is distinguished by the full layered class and complete rational-only spectrum.",
+      "No independent literature-priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.4 only proves density for exponential-growth small classes; no exact all-rational layered spectrum asserted in inspected passages.",
+        "evidence": [
+          "Theorem 1.4 on printed p.6 explicitly states a dense subset of [0,1].",
+          "The introduction identifies Braunfeld–Kukla as prior layered-convergence work."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.34328",
+        "material_read": "49-page PDF: abstract, introduction, statement of Theorem 1.1, Theorem 1.4, definition of TOTO and relevant reference/context sections; searched text for layered and rational.",
+        "method": "Primary arXiv full-text inspection with page-level comparison, including theorem statement on printed page 6.",
+        "title": "On first-order limiting probabilities for small permutation classes",
+        "trigger": "Same natural probability-spectrum invariant and latest public initiating paper."
+      },
+      {
+        "assessment": "Convergence and uniform interdefinability established; rational upper inclusion follows from finite rational Markov chains, but precise set of values is not given.",
+        "evidence": [
+          "§2.2 constructs a finite Markov chain with transition probabilities 1/2.",
+          "Theorem 3.6 transfers the convergence law to layered permutations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2111.06307",
+        "material_read": "13-page arXiv PDF: §§1–3, especially Lemma 2.4, Markov-chain construction in §2.2, Lemma 3.5 and Theorem 3.6, as well as §5 questions.",
+        "method": "Primary arXiv text, theorem and proof inspection.",
+        "title": "Logical limit laws for layered permutations and related structures",
+        "trigger": "Directly addresses the same layered objects and logic."
+      },
+      {
+        "assessment": "General strong-density/rationality work, not a universal-attainment spectrum theorem for FO two-order layered permutations.",
+        "evidence": [
+          "§3.2 Thm 3.6: aperiodic-language density formula under ergodic measures.",
+          "§5 states the known rationality of Bernoulli densities from prior work."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.143/LIPIcs.ICALP.2025.143.html",
+        "material_read": "Full HTML, abstract, Introduction, Theorem 3.6 on aperiodic languages, §5 on rational-valued Bernoulli measures, and references.",
+        "method": "Official publisher open full-text comparison.",
+        "title": "Density of Rational Languages Under Shift Invariant Measures",
+        "trigger": "Potential stronger alias in star-free word-language densities."
+      },
+      {
+        "assessment": "Classical foundational equivalence, not the layered spectrum or lower-attainment result.",
+        "evidence": [
+          "Introduction states the regular language FO iff aperiodic syntactic-monoid theorem."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00224-013-9464-1",
+        "material_read": "Open-access introductory algebraic characterization and theorem summary.",
+        "method": "Publisher page full HTML overview of the relevant standard theorem.",
+        "title": "Nominal Monoids",
+        "trigger": "Confirm the exact classical first-order/aperiodic-monoid equivalence used as premise."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b335ce20-c572-4519-a137-0d46d52671f7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact complete limit spectrum is a naturally motivated invariant of a well-studied homogeneous permutation class, stronger than convergence and the currently established general dense-spectrum theorem. It identifies the sharp exclusion (all irrational values) and gives explicit first-order realizations with exponentially small error for every rational denominator. The full-class classification is not logically supplied by a prior attainment result for a stricter Fibonacci subclass. Quantifier optimality is not asserted.",
+    "status": "PASS"
+  }
+}
