@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the two-spectral phase law
+# Independent mathematical audit
 
-The normal spectral theorem yields \(\|\operatorname{Re}(e^{-it}T)\|^2=\max\{(\operatorname{Re}(e^{-it}\lambda))^2,(\operatorname{Re}(e^{-it}\mu))^2\}\). The difference of the two scalar terms has average \(-A\) and oscillation amplitude \(B=\sqrt{A^2+U^2}\). Its positive part integrates over the single arc \(|v|<\arctan(U/A)\) to \((U-A\arctan(U/A))/\pi\). The zero and equal-radius boundary cases follow by taking the integrand directly rather than dividing by zero.
+## correctness
 
-The derivative \(U^2/(A^2+U^2)\) of the correction for \(A>0\), and strict pointwise radial growth when \(U>0\), verify the phase and amplitude equality criteria. The series \(\arctan x=x-x^3/3+x^5/5+O(x^7)\) supplies the exact cubic leading coefficient; when \(A=0\), the correction is exactly \(U/\pi\), proving a linear onset.
+PASS
 
-The supplied `verify_two_spectrum.py` was executed successfully on 216 deterministic angular tests, with absolute discrepancies below \(1.7\cdot10^{-7}\). Its quadrature cannot establish a universal identity and does not replace the proof. The classification is restricted to normal operators with at most two spectral points; the same computation is not valid for arbitrary higher-rank or nonnormal operators without spectral reduction. No independent audit has been performed.
+Normal functional calculus makes the squared rotated real-part operator norm equal to max of two squared cosine projections. Their difference is a shifted sinusoid -A+B cos(2t-phi), B^2=A^2+U^2; the positive arc |2t-phi|<atan(U/A) integrates exactly to [U-A atan(U/A)]/pi. Direct limits handle U=0, A=0, zero eigenvalues, and one-point spectra. Derivative f_A'(U)=U^2/(A^2+U^2)>0 and radial monotonicity give equality cases; expansion arctan x=x-x^3/3+O(x^5) gives unequal-radius cubic coefficient 4r^3s^3/[3pi(r^2-s^2)^2], versus equal-radius linear cusp. Independent midpoint quadrature at 4096 nodes for 100 random complex pairs agreed to max absolute error 1.005e-6; this corroborates rather than proves the all-Hilbert-space statement.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality for complete nonunitary two-positive-radius and arbitrary-phase arctangent law with cubic-to-linear phase transition; original functional, unitary equal-modulus special case, rank-one zero eigenvalue endpoint, sharp upper constant, and generic cubic stability are explicitly prior and not independently claimed new. The focal 2026 arXiv full text was inaccessible, an important remaining priority risk.
+
+## value
+
+PASS
+
+The two-point normal spectral family is the minimal nontrivial nonunitary normal test class. The complete r,s,relative-phase arctan law and a singular regularity transition between unequal and equal moduli give an exact, parameter-sensitive functional benchmark that bounds alone do not determine; no false claim of universal general-normal classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

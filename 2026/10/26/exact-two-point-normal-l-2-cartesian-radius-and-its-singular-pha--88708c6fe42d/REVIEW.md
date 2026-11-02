@@ -1,19 +1,21 @@
-# Scientific review: two-point normal Cartesian radius
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For an operator with two-point normal spectrum, the spectral theorem reduces the angular squared norm exactly to the maximum of two squared scalar cosine projections. Their difference is \(-A+B\cos(2t-\phi)\), where \(B^2=A^2+U^2\). Integrating its positive part proves the full formula, including both degeneracies. Monotonicity of \(U-A\arctan(U/A)\), pointwise radial domination, and fixed-parameter Taylor expansions establish all equality and asymptotic assertions. Supplementary deterministic quadrature of 216 pairs agrees with the formula; it is not used to prove it.
+PASS
 
-## Originality
+Normal functional calculus makes the squared rotated real-part operator norm equal to max of two squared cosine projections. Their difference is a shifted sinusoid -A+B cos(2t-phi), B^2=A^2+U^2; the positive arc |2t-phi|<atan(U/A) integrates exactly to [U-A atan(U/A)]/pi. Direct limits handle U=0, A=0, zero eigenvalues, and one-point spectra. Derivative f_A'(U)=U^2/(A^2+U^2)>0 and radial monotonicity give equality cases; expansion arctan x=x-x^3/3+O(x^5) gives unequal-radius cubic coefficient 4r^3s^3/[3pi(r^2-s^2)^2], versus equal-radius linear cusp. Independent midpoint quadrature at 4096 nodes for 100 random complex pairs agreed to max absolute error 1.005e-6; this corroborates rather than proves the all-Hilbert-space statement.
 
-**PASS, with acknowledged historical risk.** The focal article's full normal-operator comparison theorem gives bounds but no exact unequal-radius two-point formula. Three closely related public works were read in full: the unitary projective-gap theorem covers only equal moduli, the rank-one overlap theorem covers the zero-eigenvalue normal endpoint, and the universal cubic stability theorem bounds a different distance rather than computing this exact phase-radial excess. The normalized sharp two-point upper constant already follows from the unitary theorem, so no novelty is attributed to it in isolation. Published-paper and mathematical research searches using nonunitary spectra, mean-square support, arctangent phase laws and other equivalent formulations did not identify the full two-positive-unequal-radii law. Residual risk remains from classical convex-support integrals not indexed under the new radius name.
+## originality
 
-## Value
+PASS
 
-**PASS.** Two-point spectra form the minimal nontrivial spectral family for a numerical-radius functional. Formula (1) solves its entire nonunitary normal case with arbitrary multiplicities, while the exact crossover identifies a discontinuous change in the order of phase sensitivity at equal eigenvalue moduli. This singular radial/phase interaction and the sharp fixed-modulus phase extrema supply a natural benchmark for geometric and perturbative questions about the recently introduced averaged radius; this is more than a re-evaluation of an already known endpoint constant.
+Qualified best-of-knowledge originality for complete nonunitary two-positive-radius and arbitrary-phase arctangent law with cubic-to-linear phase transition; original functional, unitary equal-modulus special case, rank-one zero eigenvalue endpoint, sharp upper constant, and generic cubic stability are explicitly prior and not independently claimed new. The focal 2026 arXiv full text was inaccessible, an important remaining priority risk.
 
-## Scientific limitations
+## value
 
-The claim is restricted to at most two spectral points and an angular second moment. The general normal case with more spectral points is not classified. A classical formula for the corresponding planar support-function integral might precede the nomenclature used here; historical novelty is not independently certified. Numeric quadrature verifies examples only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-point normal spectral family is the minimal nontrivial nonunitary normal test class. The complete r,s,relative-phase arctan law and a singular regularity transition between unequal and equal moduli give an exact, parameter-sensitive functional benchmark that bounds alone do not determine; no false claim of universal general-normal classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
