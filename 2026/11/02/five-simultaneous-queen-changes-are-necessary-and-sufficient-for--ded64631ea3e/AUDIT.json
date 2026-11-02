@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The exact theorem is limited to the classic eight-by-eight board. Every queen solution is uniquely a permutation satisfying both diagonal-distinctness tests. Exhaustive enumeration of all 40320 permutations gives 92 solutions, then evaluation of all 4186 unordered solution pairs gives the only possible exchange edges. Full traversals and all-source BFS certify all component sizes, radii, diameters, distance profiles, and the square-board orbit statement. A separate bitboard state enumerator and symmetric-difference edge construction independently reproduce the critical statistics; actual file paths and certificate data have been replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chaiken–Hanusa–Zaslavsky, arXiv:1402.4880, introduction/section 7: counting formula for the classical n-queens problem, with questions on coefficients and periods; the paper does not supply shortest paths between distinct solutions.",
+        "Zhang–Ma, arXiv:0808.4003, sections detailing Monte Carlo across rook-compatible states; intermediate states may have nonzero conflict energy.",
+        "Bell–Stevens survey abstract and bibliographic record discuss solution constructions, history, alternative topologies and open questions, not an explicit complete batch-reconfiguration metric."
+      ],
+      "reasoning": "A result for all board orders and all feasible-solution exchange thresholds would dominate this finite classification; no such statement was identified. The general Monte Carlo chain irreducibility on all permutations is logically weaker for the induced subgraph of zero-energy states, so cannot imply the claimed sharp threshold. The paper on inside-out polytopes counts states rather than pairs or feasible paths.",
+      "searches": [
+        "n queens reconfiguration all solutions swaps connectivity minimal queens altered simultaneously",
+        "N queens reconfiguration permutation transpositions exchange queens",
+        "8 queens configurations swap 5 queens diameter reconfiguration",
+        "n queens solution transformation graph minimum queens move between solutions 8 queen puzzle graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0808.4003 (original PDF, 2008-08-28)",
+      "arXiv:1303.1879 (arXiv hosted full text, 2013-03-08)",
+      "arXiv:1402.4880 (arXiv hosted full text, 2014-02-20)",
+      "Bell–Stevens 2009 Discrete Mathematics survey: abstract only",
+      "Engelhardt 2010 Spektrum der Wissenschaft: bibliographic title only",
+      "Targeted queries on constrained queen swaps, Hamming distance, solution-space reconfiguration, and published research summaries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang–Ma (2008), PDF p.5: swap columns in two rows so rook conditions remain satisfied; positive diagonal-conflict energy states are permitted while sampling, not forbidden.",
+        "Chaiken–Hanusa–Zaslavsky (2014) classify counts via inside-out polytopes, not accessibility of zero-conflict arrangements under bounded simultaneous changes.",
+        "No identified comparison supplies 84+2+2+2+2 components or radius three/diameter four on the feasible 92-state graph."
+      ],
+      "reasoning": "From universal permutation swap connectivity one cannot conclude induced-subgraph connectivity: the selected feasible subset may be disconnected and in fact is disconnected for thresholds below five. From the established count 92 and 12 symmetry orbits, no adjacency relation or metric is determined. The new theorem is not a corollary of the inspected mathematical assertions. The genealogy article is a material-read gap, not dismissed as ruled out.",
+      "searches": [
+        "arxiv:0808.4003",
+        "arxiv:1402.4880",
+        "doi:10.1016/j.disc.2007.12.043",
+        "Engelhardt Der Stammbaum der Lösungen des Damenproblems 2010"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0808.4003, PDF pp. 4-5: the swap move acts on all rook-compatible permutations, with an energy function permitting diagonal conflicts; no zero-energy-only path analysis.",
+        "arXiv:1303.1879 full text: enumerative inside-out-polytope framework; no graph of feasibility-preserving batch exchanges.",
+        "Related indexed records appeared on permutation exchanges, rook graphs and other configuration spaces, but did not identify this 92-state constrained-distance graph."
+      ],
+      "reasoning": "Descriptions such as simultaneous replacement, local-search neighborhood, restricted permutation Hamming graph, and maximum-independent-set batch exchange were compared. A one-step swap on the larger permutation state space is not an edge between two nonattacking placements unless its endpoint is diagonal-conflict-free. Known 92-state counts and 12 symmetry orbits do not determine connectivity under Hamming thresholds. No exact equivalent was located, with historical-text risk retained.",
+      "searches": [
+        "n queens solution reconfiguration graph move one queen at time maximum 8 queens puzzle solutions connected graph",
+        "n queens solution permutation swap reconfiguration graph, transposition edges, connected components, 8 queens 92 solutions",
+        "queen placements two row swaps, 8 queens solution graph matching, cycle structure",
+        "Eight queens solutions on eight by eight chessboard: minimum five simultaneous queen replacements to connect 92 nonattacking configurations, four isolated pairs for up to four, diameter four for up to five",
+        "eight queens solution Hamming distance graph five threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing 92-solution census and 12 symmetry classes are classical, also stated in 2009 Bell–Stevens survey context and modern puzzle databases.",
+        "The separately calculated histogram of changed squares between solution pairs is 8,32,128,296,824,1272,1626 at distances two to eight.",
+        "No consulted data table supplied the five-component threshold-four graph or the threshold-five shortest-path profile."
+      ],
+      "reasoning": "A complete list of solutions is computational input, not a table of the exchange graph or its diameters. Data availability alone makes the result reproducible, not already mathematically stated. Overlap from unpublished or unindexed tables is an explicit residual risk.",
+      "searches": [
+        "queen solutions transition minimum changes five queens connected 92",
+        "eight queens solution Hamming distance graph five threshold"
+      ]
+    },
+    "rationale": "Full solution counts and board symmetry are known, but no inspected result establishes the specific zero-conflict, at-most-five simultaneous queen-change connectivity threshold, four stranded threshold-four pairs, or exact all-pairs metric. The closest 2008 paper operates in the larger rook-compatible permutation state space allowing diagonal attacks. Exact primary comparisons and material-read gaps are recorded rather than promoted to uniqueness proof.",
+    "residual_risks": [
+      "Equivalent five-change threshold or distance data may appear in unindexed enumerations or chess puzzle literature.",
+      "Bell–Stevens historical survey and the 2010 German genealogy article could not be inspected in full; no covering content is inferred from the lack of online matches.",
+      "Scientific peer audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant but not covering: the Markov chain traverses states satisfying rook constraints, including invalid queen placements; it does not classify the induced all-valid state graph or five-queen exchanges.",
+        "evidence": [
+          "arXiv:0808.4003, text around PDF p.5: each Monte Carlo step swaps row assignments, preserving only horizontal and vertical constraints.",
+          "Nonzero diagonal-conflict energy configurations are explicitly admitted."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0808.4003",
+        "material_read": "Open-access PDF pp.1-5, specifically the generalized rook-state model, diagonal-conflict energy, and pairwise swap operation on pp.4-5.",
+        "method": "Read the original arXiv PDF text and inspected a page-five screenshot of its defining swap move.",
+        "title": "Counting Solutions for the N-queens and Latin Square Problems by Efficient Monte Carlo Simulations",
+        "trigger": "Uses row-swap moves on the same n-queens permutation representation and could potentially imply state-space connectivity."
+      },
+      {
+        "assessment": "Counting and geometry of the placement set, not the constrained adjacency metric.",
+        "evidence": [
+          "arXiv:1303.1879: main object is enumeration of nonattacking placements via inside-out polytopes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.1879",
+        "material_read": "Full-text HTML introduction and statements on configurations, inside-out polytopes, coefficients, and its questions/extensions; targeted searches for reconfiguration, exchange and transpositions.",
+        "method": "Read material from arXiv-hosted full-text HTML and searched relevant terms.",
+        "title": "A q-Queens Problem. I. General Theory",
+        "trigger": "Direct classical enumeration framework for nonattacking chess pieces."
+      },
+      {
+        "assessment": "Not covering: computes an exact counting formula, not edge relations or path distances between configurations.",
+        "evidence": [
+          "arXiv:1402.4880, introduction and section 7 explain the enumerative n-queens formula.",
+          "Section 8 raises period/coefficient questions; no batch-exchange graph is formulated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.4880",
+        "material_read": "Full-text HTML introduction, section 7 formula, section 8 questions, and targeted searches for connectivity, swaps, transpositions, and reconfiguration.",
+        "method": "Read arXiv-hosted HTML text and performed explicit term checks in the whole indexed text.",
+        "title": "A q-Queens Problem. II. The Square Board",
+        "trigger": "Contains exact classical n-queens enumeration formula, a plausible stronger result."
+      },
+      {
+        "assessment": "Undecided full-text coverage; residual risk expressly retained.",
+        "evidence": [
+          "Published 2009 survey describes solution constructions, alternate board topologies, and open research areas."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2007.12.043",
+        "material_read": "Published abstract and bibliographic summary only; full article text not accessible in this session.",
+        "method": "Compared survey scope and dated bibliographic record; no whole-document negative assertion.",
+        "title": "A Survey of Known Results and Research Areas for n-Queens",
+        "trigger": "Broad historical survey could mention an equivalent earlier chess-placement transition graph."
+      },
+      {
+        "assessment": "Unresolved possible related historic representation; no implication claim made.",
+        "evidence": [
+          "Bibliographic appearance in the 2010 article list referenced by public eight-queens documentation."
+        ],
+        "identifier_or_url": "Spektrum der Wissenschaft, August 2010, pp. 68–71",
+        "material_read": "Bibliographic title only, full article unavailable.",
+        "method": "Searched original German title and relevant English equivalent; no inspectable primary article found.",
+        "title": "Der Stammbaum der Lösungen des Damenproblems",
+        "trigger": "Genealogy of the eight-queens solutions might encode a similarity or transformation graph."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ded64631-ea3e-41dc-b7de-caca73bb1f91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural benchmark question is answered: determine the minimum allowed simultaneous feasible replacement size that connects all solutions to the iconic eight-queens constraint problem, with all intermediate full placements valid. The sharp threshold five, four exceptional isolated pairs at threshold four, a symmetry-orbit classification of the exception, and exact graph distance profile quantify a real obstruction to zero-conflict reconfiguration. This is more informative than the classical state count and may benchmark feasibility-preserving local moves; the result does not claim broad generality or performance improvements.",
+    "status": "PASS"
+  }
+}
