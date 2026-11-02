@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For an arbitrary real zero-sum vector the ordered-pair distance-power quadratic form is exactly \((2^p-1)A^2-\sum_i a_i^2-2^p\sum_j b_j^2\). The blockwise Cauchy bound is attained by a unique block-constant line. The orthogonal decomposition into two internal-contrast spaces and that line proves every eigenvalue, the sharp gap, and endpoint nullity, for all integer sizes and real exponents in the stated ranges. Schoenberg's centered-Gram argument then gives the minimal Euclidean embedding dimension. Exact-rational executable checks independently evaluate representative matrices and witnesses.
+
+**Originality — PASS under the documented comparison.** Sanchez's full open preprint arXiv:1108.0451 supplies a general negative-type matrix test and a complete-bipartite evaluation, not an evaluated complete split-graph formula or the exact gap. The complete split-graph object has a clique where the source's complete bipartite example has an independent class. Accessible earlier findings on clique bouquets, multipartite two-heavy-part graph metrics and other graph families do not imply the displayed all-parameter split-graph calculation. Database keyword and parameter searches located no exact split-graph table. A relevant older Deza–Maehara article was bibliographically located, but a material full-text comparison could not be completed, so implicit prior coverage remains possible.
+
+**Value — PASS.** The result gives a complete, dimension-dependent analytic classification for a natural diameter-two graph-metric family, an attained quantitative negative-type margin rather than just its sign, and the exact first obstruction at seven vertices. This distinguishes Hilbert-embeddability loss from the persistence of embeddings after metric snowflaking and determines the endpoint rank drop. The graph family and invariant are standard geometric objects, not an arbitrary numerical slice.
+
+**Residual limits.** No all-graph obstruction classification or weighted-distance theorem is asserted. Finite tests are not universal proofs; the proof is the quadratic-form decomposition. Older two-distance literature remains an originality risk, particularly because its generic spectral framework can be specialized to this family.
+
+Self-review: passed. Independent audit: not yet performed.
