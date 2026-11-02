@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The radial expansion follows from \(\sqrt{\delta/\tan\delta}=1-\delta^2/6-\delta^4/40+O(\delta^6)\) and \(\sec(u/n)=1+u^2/(2n^2)+5u^4/(24n^4)+O(n^{-6})\), uniformly on \(|u|\le\pi/2\). The exact moment coefficients reduce to integrals of the rational polynomials \((3x^2-1)^3/24^3\), \(3(3x^2-1)^2(25x^4-10x^2-3)/(24^2\cdot1920)\), and \((3x^2-1)^4/24^4\) over \([-1,1]\). The included script evaluates these integrals with exact rational arithmetic and asserts the values \(1/15120\), \(13/1209600\), and \(1/120960\).
+## correctness
 
-For \(g(r)=rJ_1(j_{1,1}r)/j_{1,1}\), the derivative identities give \(g'(1)=g''(1)=J_0(j_{1,1})\), \(g'''(1)=-j_{1,1}^2J_0(j_{1,1})\), and \(g''''(1)=-2j_{1,1}^2J_0(j_{1,1})\). The exact area identity cancels \(\int(h_n+h_n^2/2)\), leaving the cubic and quartic moments. The Fourier-harmonic tail is factorially small at bounded frequency. The nearest-zero theorem and derivative estimate from arXiv:2609.10517v1 imply that the root displacement is \(O(n^{-6})\), so replacing the derivative by \(2\pi J_0(j_{1,1})/j_{1,1}\) contributes only \(O(n^{-10})\).
+PASS
 
-The script verifies algebraic integrations, not the full infinite-dimensional Fourier-zero localization. No independent audit or independent validation has been performed.
+For area-pi regular P_(2n) the sector radial perturbation h=R−1 has uniform expansion h=n^-2 G0+n^-4 G1+O(n^-6). Area equality cancels I1+I2/2 exactly. Independent rational polynomial integrations give I3=pi^7/(15120 n^6)+13 pi^9/(1209600 n^8)+O(n^-10) and I4=pi^9/(120960 n^8)+O(n^-10). Bessel expansion r J1(jr)/j has cubic −j²J0(j)/6 and quartic −j²J0(j)/12, giving Fourier offset at j. Fourier angular harmonics are factorially small, while the cited nearest-zero theorem and derivative at j bound the root shift by O(n^-6) with derivative correction O(n^-4). Division yields j+j³pi^6/(181440 n^6)+j³pi^8/(806400 n^8)+O(n^-10). Independent checks: Independently computed exact SymPy rational integrals of G0³, 3G0²G1 and G0^4 on [-1,1], obtaining 1/15120, 13/1209600, 1/120960; read actual standard-library checker verify_asymptotic.py blob a8211b1a4eb531a180a0ae4d76c4acdbee53007c. Cross-checked Bessel coefficient algebra and relevant precursor paper localization and derivative assumptions. Integral certificate alone would not prove nearest-zero direction or uniform remainder; those depend on cited analytical estimates.
+
+## originality
+
+PASS
+
+Gómez-Serrano–Levitin–Platt–Polterovich arXiv:2609.10517v1 (primary full PDF inspected, Theorem 4.6 near p.20) establishes only j+j³pi^6/(181440 n^6)+O(n^-8), expressly noting apparent genuine next term from numerics. It does NOT give the next coefficient. Same-paper closest stronger result was directly inspected rather than assumed novel by title. Residual limits explicitly listed in originality.residual_risks.
+
+## value
+
+PASS
+
+Exact first nontrivial correction beyond the published leading n^-6 asymptotic for a canonical isoperimetric Fourier-zero functional; determines the previously undetermined n^-8 coefficient and improves the quantified error to O(n^-10) using radial moment cancellation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
