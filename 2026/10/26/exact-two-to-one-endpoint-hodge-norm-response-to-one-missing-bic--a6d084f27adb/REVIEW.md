@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof derives the exact rank-one Laplacian update, enumerates all three edge-orbit column types, resolves the signs including the boundary cases \(m=2\) and \(n=2\), and compares every column sum analytically. The separate exact-rational grounded-Laplacian checker passes 693 projector columns over 36 parameter pairs. Computational evidence supports but does not replace the all-parameter proof.
+## correctness
 
-## Originality
-PASS with residual bibliographic uncertainty. The primary 2018 graph-free-space paper develops quotient and general projection machinery for recursive graph families. The 2023 cycle-space paper develops invariant/minimal projection theory for tori and Hamming graphs, not the present deleted-biclique endpoint norm formula. The intact biclique is a baseline rather than the present claim. Other related finite graph studies address distinct graph families, structural invariants, or arbitrary projection minimality, and do not imply the specific rank-one deficit formula. No covering exact statement was identified in the searches described in the structured review. Specialized unindexed calculations remain possible.
+PASS
 
-## Mathematical value
-PASS. Canonical cut/cycle projection norms are natural quantitative stability invariants for electrical-flow decomposition and finite transportation spaces. The theorem establishes an exact perturbation law valid for every rectangular biclique, a fixed two-to-one ratio of norm deficits, and a simultaneous structural localization of all norm-maximizing edge orbits. These are not automatic consequences of rank-one pseudoinverse updates, because the endpoint operator norm requires global absolute-value and maximizer control.
+Reconstructed the rank-one downdate L=L0-b0 b0^T on zero-sum vertices, the Sherman-Morrison denominator 1-R0=(m-1)(n-1)/(mn)>0, and the three edge-column orbits A/B/C for D^T L^+ D. Absolute signs give S_C=3-2/m-2/n+2/(mn)-2/[mn(m-1)(n-1)] and S_C-S_A=2(m-2)/[n(m-1)(n-1)], S_C-S_B=2(n-2)/[m(m-1)(n-1)]. For P=I-Q, column identity T_e=1+S_e-2Q_ee gives double gaps and P maximum T_C; symmetric projectors give l1=linfty. Checked m=2 or n=2 ties and m=n=2 tree Q=I,P=0. Independent exact rational grounded-Laplacian implementation reproduced 16 ordered pairs 2<=m,n<=5, 180 column calculations. This is finite support, while algebra establishes every m,n.
 
-## Scope
-Only real, unweighted, Euclidean-orthogonal projectors and induced edge \(\ell_1\)/\(\ell_\infty\) operator norms are treated. The result is not a minimum-projection-constant assertion and has not undergone independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: graph transportation/cycle-space projection theory and intact-biclique pseudoinverse formulas are established, not new. Full-text Dilworth–Kutzarova–Ostrovskii (2018, 2023) focuses on recursive graphs, tori, Hamming graphs and minimal invariant projections, not an orthogonal K_(m,n)-one-deletion edge norm and its A/B/C absolute maxima. No material inspected establishes the exact joint 1:2 deficit as a corollary; electrical-network literature could contain an equivalent rank-one result.
+
+## value
+
+PASS
+
+Canonical cut/cycle projections quantify edge-flow/gradient decomposition stability in finite graph transportation spaces. Determining both sharp endpoint norms under a single-edge perturbation, the universal 1:2 deletion response and the exact maximizing edge orbit is motivated and not a routine scalar effective-resistance calculation; it requires global sign and column maximization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
