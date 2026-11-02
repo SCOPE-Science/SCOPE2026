@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Reproducible finite checks
-Run `python3 verify.py` with Python 3.9 or later. The checker uses only the standard library. It compares fiber sums and closed counts across 6,897 nonnegative integer instances; independently checks every defining tetrahedral facet at both translated-segment endpoints on a second finite grid; and verifies the polynomial factorization, discriminant formula, nonempty thresholds and first high-residue transition by exact integer arithmetic.
+# Independent mathematical audit
 
-## Scope of verification
-The analytical proof handles every integer \(m\ge2\), \(L\ge1\) and every integer dilation \(t\ge0\); no finite enumeration certifies infinitely many parameters. The checked cubic roots are algebraic properties of the eventual polynomial, not extensions of the lattice-count interpretation to negative or noninteger dilation factors. Historical-priority comparisons are based on the identified primary sources and search results and are not an exhaustive bibliography.
+## correctness
 
-## Actual replay
-`VERIFY_OK fiber_counts=6897 direct_endpoint_counts=553 exact_polynomial_roots_checked=True` was produced by running the embedded `verify.py` after writing the new package file.
+PASS
+
+Containment of a translated fixed vertical segment in tReeve is equivalent to its four endpoint facet inequalities. Decompose the base height w=mj+e and sum quadratic binomial fiber counts in j; ceil((L+e)/m) has two residue classes, yielding exact all-t truncated cubics and first positive dilation 2ceil(L/m). Factored eventual cubics have a simple linear root distinct from quadratic roots; quadratic discriminant m²−36mr+36r² never vanishes for positive integer parameters. Exact rational sign analysis yields two bands and m70 first high residue. Independent endpoint-facet enumeration of 672 cases and symbolic/factored checks agree.
+
+## originality
+
+PASS
+
+Relative Ehrhart eventual polynomiality was known, as were weighted Reeve vertical-segment valuations and the ordinary L=0 cubic. The exact fixed-length containment count for all m,L and its two-band root classification were not in the primary statements inspected.
+
+## value
+
+PASS
+
+A canonical Reeve tetrahedron and its fixed vertical segment core define a natural relative Ehrhart invariant. The exact all-parameter lattice containment formula and genuinely new two-band eventual-root transition go beyond ordinary point-core Ehrhart counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
