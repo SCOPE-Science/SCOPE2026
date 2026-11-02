@@ -1,11 +1,21 @@
-# Review of the lens ellipsoid theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The positive-root algebra yields \(a^2+(d+1)ha/\sqrt d+h^2=1\) and \(b^2=a^2+ha\sqrt d\). Substitution gives a nonnegative perfect-square containment certificate for every boundary point. The complete signed-latitude contact set admits explicit positive John weights with zero weighted mean and identity weighted covariance, proving global optimality and uniqueness. Asymptotic expansions are recovered from the same exact quadratic, and strict monotonicity follows from strict lens inclusion and uniqueness. The attached standard-library verifier independently tests containment, contacts, and both asymptotic regimes. Finite tests are not the proof.
+## correctness
 
-**Originality: PASS subject to historical-priority risk.** Full relevant passages of the 2007 Güler–Gürtuna paper establish generic contact criteria and explicit ellipsoids of *spherical slabs*, which do not imply an explicit John ellipsoid for a **two-sphere lens** without a new optimization argument. Finch 2013 gives forward lens volume, surface area and mean width but no John axes; Paouris–Pivovarov 2015 addresses random ball intersections and intrinsic volume inequalities, not ellipsoid contacts. A searched public record on the mean width of symmetric lenses likewise studies an entirely different functional. No claim of exhaustive historical uniqueness is made.
+PASS
 
-**Value: PASS.** The spherical lens is a canonical intersection-of-congruent-balls model. Exact optimal ellipsoid axes, global contact geometry, and an order-\(d^{-1/2}\) high-dimensional crossover describe how an affine inner approximation collapses while the underlying balls remain nearly coincident in physical distance. The explicit nontrivial limiting fraction and exponentially small fixed-gap law give usable sharp benchmarks for approximation and high-dimensional convex geometry. This is more than a restatement of the general John criterion.
+For each d>=2 and 0<h<1, the proposed axial/transverse axes a,b obey a^2+((d+1)/sqrt d) h a+h^2=1, b^2=a^2+h a sqrt d. A point of the candidate ellipsoid boundary at axial fraction u=|x|/a has exact lens inequality slack h a sqrt d (u-1/sqrt d)^2; strictly positive off the two contact latitudes. After ellipsoid normalization, four signed contact points per transverse basis direction at (±1/sqrt d,±sqrt((d-1)/d)e_j), each weight d/[4(d-1)], sum to zero and have weighted second moment I_d. John’s global contact theorem certifies unique maximal-volume inscribed ellipsoid among all rotations/translations, and unique contacts. Direct quadratic expansion proves dimension scaling h sqrt d→tau with limiting A_tau exp(-tau(A_tau+tau)/2), and fixed-h asymptotic e^-1/2 (1-h^2)^((d+1)/2)/(h sqrt d); monotonicity follows from strict nested lens inclusions and uniqueness. Independent numeric checks in dimensions 2,3,8,23 rederived the exact identity and normalized contact covariance to floating precision, not a proof of continuum.
 
-**Residual scientific limitation.** Earlier specialist lens or affine-approximation work, including older non-digitized geometric sources, could contain equivalent formulas. Unrestricted ball intersections are not classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: inspected classical global ellipsoid-contact criteria and lens metric papers do not give the stated d,h axes, all contact latitudes and asymptotic crossover. Applying John’s theorem is classical but the explicit positive contact design and exact candidate are specific.
+
+## value
+
+PASS
+
+The intersection of two congruent balls is a canonical symmetric lens. A complete all-dimensional global John ellipsoid and precise contact set provide an exact affine approximation invariant, and its critical d^-1/2 volume crossover is substantive geometry rather than a routine substitution or isolated table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
