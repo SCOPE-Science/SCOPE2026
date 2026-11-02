@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-The standalone `fan_majority_verify.py` program constructs the full majority rule from the fan adjacency, enumerates all states for \(3\le n\le12\), and independently computes the polynomial transfer census. It confirms two fixed states and \(\(2+2H_n\)\) periodic states at each tested length, including the absence of two-cycles at \(n=4\). The complete mathematical proof covers every integer \(n\ge3\); finite enumeration is a corroboration only.
 
-To reproduce, run `python3 fan_majority_verify.py` in the directory containing this document and compare stdout to `fan_majority_verify.out`. No nonstandard Python packages are used. This computation does not certify historical uniqueness or independent scientific validation.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+PASS: The symmetric interaction matrix W=adjacency+I/2 makes every local threshold choice strict, and its edge-energy monotonicity forces eventual periods at most two. With a constant hub, endpoint-reflexive AND/OR walks become eventually constant by primitive connected path reachability; recurrent nonmonochromatic cycles require a flipping hub. For hub 0 the path rule is erosion E, for hub 1 dilation D; two strict hub-majority counts and DE x=x are exact necessary and sufficient conditions. The 16-state weighted transfer encodes all interior and endpoint constraints once each; explicit odd/even construction and n=4 obstruction establish the sharp existence claim. Independent full-state enumeration n=3..12 gives H=(3,0,5,3,21,16,66,65,220,243), corroborating but not proving all n.
+
+## originality
+
+PASS
+
+PASS (bounded): Goles–Olivos prove general eventual period one/two, and Kaaser–Mallmann-Trenn–Natale quantify generic voting time. Those statements do not classify fan recurrent states or the open-path morphological preimages. Wheel-graph work has circular rather than endpoint-reflexive boundary conditions. No reviewed source was shown to imply the exact hub-flip transfer census; an unindexed prior fan-specific formula is still possible.
+
+## value
+
+PASS
+
+PASS: Fan graphs K1∨P_n are a natural one-hub family between paths and wheels. The result gives complete recurrent orbit structure, an explicit effective exact count at arbitrary size, and the exceptional disappearance of oscillations at n=4 despite all other n>=3 allowing them. This is a structurally informative classification, not a generic consequence of period<=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

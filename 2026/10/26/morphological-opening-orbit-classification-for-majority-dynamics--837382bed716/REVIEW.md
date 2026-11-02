@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The symmetric weighted-energy argument rules out periods above two; the endpoint-reflexive AND/OR reductions characterize all remaining recurrent states. The 16-state transfer follows directly from the local constraints. The strict hub thresholds and the \(n=4\) obstruction are proved, with independent full-state checks through \(n=12\).
+## correctness
 
-**Originality (PASS, qualified).** The primary majority-process literature supplies general two-periodicity and bounds on voting time, not the boundary-sensitive fan attractor census. A related wheel-graph classification has different circular boundary conditions and permits hub-preserving two-cycles in some sizes, so its statements do not imply the present open-path formulas. Targeted searches found no exact fan recurrence classification; this is not proof of global priority.
+PASS
 
-**Value (PASS).** This is a complete recurrent-configuration classification across the natural fan family, including an explicit morphologic bijection, exact finite counting algorithm, and exceptional disappearance of all nontrivial recurrent cycles at \(n=4\). The endpoint effect is structurally distinct from circular wheel dynamics. No asymptotic claim or basin formula is asserted.
+PASS: The symmetric interaction matrix W=adjacency+I/2 makes every local threshold choice strict, and its edge-energy monotonicity forces eventual periods at most two. With a constant hub, endpoint-reflexive AND/OR walks become eventually constant by primitive connected path reachability; recurrent nonmonochromatic cycles require a flipping hub. For hub 0 the path rule is erosion E, for hub 1 dilation D; two strict hub-majority counts and DE x=x are exact necessary and sufficient conditions. The 16-state weighted transfer encodes all interior and endpoint constraints once each; explicit odd/even construction and n=4 obstruction establish the sharp existence claim. Independent full-state enumeration n=3..12 gives H=(3,0,5,3,21,16,66,65,220,243), corroborating but not proving all n.
 
-Closest literature: Goles--Olivos (1980), Kaaser--Mallmann-Trenn--Natale (2015/2016), Benjamini et al. (2014); a related published wheel-graph orbit census. Risks: a prior unindexed fan formula may exist; the relevant broad voting-time article was inspected for definitions, theorem statements, and family reductions rather than read uniformly page by page.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded): Goles–Olivos prove general eventual period one/two, and Kaaser–Mallmann-Trenn–Natale quantify generic voting time. Those statements do not classify fan recurrent states or the open-path morphological preimages. Wheel-graph work has circular rather than endpoint-reflexive boundary conditions. No reviewed source was shown to imply the exact hub-flip transfer census; an unindexed prior fan-specific formula is still possible.
+
+## value
+
+PASS
+
+PASS: Fan graphs K1∨P_n are a natural one-hub family between paths and wheels. The result gives complete recurrent orbit structure, an explicit effective exact count at arbitrary size, and the exceptional disappearance of oscillations at n=4 despite all other n>=3 allowing them. This is a structurally informative classification, not a generic consequence of period<=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
