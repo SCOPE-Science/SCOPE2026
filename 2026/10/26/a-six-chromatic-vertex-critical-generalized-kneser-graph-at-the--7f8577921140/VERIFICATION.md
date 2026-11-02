@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible exact finite verification
+# Independent mathematical audit
 
-All evidence is embedded in the accompanying files. Run `python3 verify_kneser.py` with `deletion_orbit_witnesses.txt` in the same directory. It uses only Python's standard library. Optionally compile `chromatic_obstruction.cpp` using any C++17 compiler (for example `g++ -std=c++17 -O3 chromatic_obstruction.cpp -o verify_cpp`) and run `./verify_cpp`.
+## correctness
 
-Both programs reconstruct each independent three-subset of a nine-cycle plus an isolated vertex from the defining edge condition, construct every disjointness edge, and confirm that there are exactly 57 vertices and 498 edges. The first program checks the explicit six-color assignment, all 18 dihedral permutations, six orbit representatives of sizes 9,18,9,3,9,9, and all transformed five-color deletion witnesses; every one of the 57 deletion targets is covered.
+PASS
 
-Both programs also use a full canonical-color-name search: select an uncolored vertex maximizing number of used neighbor colors, break ties by remaining uncolored degree then smallest index, try all allowed used colors plus one fresh color. There are exactly 122153 recursion calls and no legal five-coloring. Canonicalizing unused color names preserves completeness because a permutation of color names does not affect properness. No optimization cutoff, timeout, random sampling, or unexplored branch is present.
+Generated all independent triples from the nine-cycle and isolate: 30 cycle-only plus 27 isolate-containing triples, with 138+360=498 disjointness edges. Explicit least-label six-coloring gives chi<=6. Independent DSATUR/backtracking enumerator exhaustively canonicalized five-colorings (not a timeout) in 122153 recursive states and found none, giving chi>=6. Source witness file contains five-colorings of six dihedral vertex-orbit representatives of sizes 9,18,9,3,9,9; independent verification transported them under all 18 graph automorphisms and checked every edge and all 57 vertex deletions. Three explicit disjoint triples give clique >=3, while four would require twelve of ten labels. This is a complete finite proof conditional on transparent deterministic exact code; no extrapolation to larger cycles.
 
-Observed replay:
+## originality
 
-`VERIFY_OK vertices=57 edges=498 canonical_search_nodes=122153`
+PASS
 
-`VERIFY_OK vertices=57 edges=498 χ=6 6-critical orbit_representatives=6 search_nodes=122153`
+Arana–Haxell–Kaiser–Stehlik 2026 define precisely these G-stable Kneser graphs; their Theorem 1.2 excludes short cycles, Theorem 1.4 gives asymptotic C_{n-1} plus isolated vertex tightness without an explicit first k=3 boundary, and Conjecture 1.3 asks for the general statement. Schrijver 1978 vertex-criticality treats a single cycle and cannot be transplanted to the 57-vertex isolate-extended graph (classical SG(10,3) has 50 vertices). The full preprint notes computational support; unpublished prior checking of this specific example remains possible.
 
-This is a finite computer-assisted proof. It does not establish the corresponding statement for larger cycle lengths or set size, and it has not undergone independent audit.
+## value
+
+PASS
+
+This is the first k=3 cycle-plus-isolated-vertex case at the sharp 4k-3 boundary of a published G-stable Kneser chromatic conjecture, beyond the source theorem excluding cycles through 4k-4. Establishing vertex criticality and a strict clique/chromatic gap for the fully specified natural 57-vertex graph is a motivated exact cutoff, not an arbitrary graph invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

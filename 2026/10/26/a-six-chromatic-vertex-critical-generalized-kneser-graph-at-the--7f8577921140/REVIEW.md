@@ -1,19 +1,21 @@
-# Scientific review of the first isolated-cycle Kneser boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is defined by an unambiguous list of independent three-subsets of a nine-cycle plus an isolated vertex. Direct exhaustive enumeration independently regenerates 57 vertices and 498 edges (30 cycle-only triples, 27 triples containing the isolate, and 138 plus 360 disjointness edges). An explicit six-coloring gives the upper bound. Two separately implemented exhaustive five-color searches, in Python and C++, rule out all assignments modulo renaming of unused colors in exactly 122153 recursive states. A six-orbit certificate gives five-colorings after every vertex deletion; all 57 deletions are checked by transporting the six witnesses using explicitly verified dihedral symmetries. No infinite inference is made from these finite checks. The three-clique witness and ten-label size bound establish clique number three. Risks: any software proof depends on the correctness of the transparent enumeration logic and runtime; this is not independent validation.
+PASS
 
-## Originality — PASS (bounded)
+Generated all independent triples from the nine-cycle and isolate: 30 cycle-only plus 27 isolate-containing triples, with 138+360=498 disjointness edges. Explicit least-label six-coloring gives chi<=6. Independent DSATUR/backtracking enumerator exhaustively canonicalized five-colorings (not a timeout) in 122153 recursive states and found none, giving chi>=6. Source witness file contains five-colorings of six dihedral vertex-orbit representatives of sizes 9,18,9,3,9,9; independent verification transported them under all 18 graph automorphisms and checked every edge and all 57 vertex deletions. Three explicit disjoint triples give clique >=3, while four would require twelve of ten labels. This is a complete finite proof conditional on transparent deterministic exact code; no extrapolation to larger cycles.
 
-Arana, Haxell, Kaiser, and Stehlík, arXiv:2610.17884 (2026-10-13), expressly leave cycle plus isolated vertex cases beyond their asymptotic theorem as open. Their Theorem 1.2 settles a shorter-cycle exclusion, Theorem 1.4 proves an asymptotic condition without resolving the first length-nine case at parameter three, and Conjecture 1.3 predicts tightness. The present six-color obstruction closes that exact first boundary, and the additional six-vertex-orbit deletion certificate establishes criticality. Schrijver's 1978 vertex-critical theorem applies to independent triples from a single cycle, a different graph. Broader published searches and published-record comparisons showed no equivalent explicit 57-vertex criticality classification. The 2026 paper mentions unspecified computational checks; prior unpublished enumeration, alternative formulations, and unindexed results remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The result settles the smallest length at the sharp obstruction boundary of an explicitly open 2026 conjecture for the first nonclassical set size. It adds full vertex-criticality, a strict clique-versus-chromatic gap, and a compact six-orbit reproducible certificate. It is a natural extremal cutoff rather than an arbitrary small graph statistic; it does not assert the full conjecture or a downstream theorem.
+Arana–Haxell–Kaiser–Stehlik 2026 define precisely these G-stable Kneser graphs; their Theorem 1.2 excludes short cycles, Theorem 1.4 gives asymptotic C_{n-1} plus isolated vertex tightness without an explicit first k=3 boundary, and Conjecture 1.3 asks for the general statement. Schrijver 1978 vertex-criticality treats a single cycle and cannot be transplanted to the 57-vertex isolate-extended graph (classical SG(10,3) has 50 vertices). The full preprint notes computational support; unpublished prior checking of this specific example remains possible.
 
-## Closest literature and limits
+## value
 
-The closest primary reference is the introduction and Theorems 1.2/1.4 in Arana–Haxell–Kaiser–Stehlík (arXiv:2610.17884). The classical one-cycle criticality result is Schrijver (1978). The result is finite and machine-assisted; no general cycle-length or higher-parameter statement is proved. Independent mathematical assessment and complete historical-priority review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the first k=3 cycle-plus-isolated-vertex case at the sharp 4k-3 boundary of a published G-stable Kneser chromatic conjecture, beyond the source theorem excluding cycles through 4k-4. Establishing vertex criticality and a strict clique/chromatic gap for the fully specified natural 57-vertex graph is a motivated exact cutoff, not an arbitrary graph invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
