@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+The proof reconstructs the operator from the exact source definitions, bounds indicator derivatives using interpolation Lebesgue sums, differentiates normalized inverse-indicator weights, and bounds the resulting covariance. Its integral estimate covers arbitrary finite admissible stencil families and data within the stated uniform ball. The six-node construction directly calculates active supports, equal geometric factors, the two active polynomial values, and all indicator residuals. The exact formula proves the \(\epsilon^{-1}\) lower order and nonvanishing perturbation effect. The packaged standard-library rational verifier confirms geometry and 2,220 finite test cases. Universal claims rely on the proof, not sampling.
+
+## Originality: PASS under documented source-access limits
+The October 2026 original full HTML (arXiv:2610.31026v1, Sections 3--7) was compared at the level of weights, indicator definition, polynomial degree, geometry, and data perturbation, rather than by title. Its results address interpolation accuracy, nonoscillatory behavior, local interpolation stability and sensitivity to the exponent, but not its data-conditioning modulus as regularization vanishes. The prior WENO--Shepard paper (arXiv:2412.02286v1, Sections 2--4) has different degree-zero least-squares indicators and likewise does not present this residual-indicator six-node sensitivity law. Published research-record searches using noise, stability, Shepard, smoothness residual and epsilon aliases returned nearby interpolation and stability results, but no implication covering the complete claim. A generic normalized-weight differentiation identity is not independently novel; the contribution is a quantitative, attained method-specific data sensitivity estimate and finite admissible diagnostic. Historical priority beyond inspected sources remains at risk.
+
+## Mathematical value: PASS
+The method weights actively use smoothness residuals measured from the same data and fixes a very small regularizer in its numerical experiments. The demonstrated amplification requires neither geometric ill-conditioning nor interpolation changes on the two active stencils. It instead comes solely from a single indicator-only observation, and persists over an open interval of evaluation points. The exact perturbation law identifies a meaningful measurement-precision scale for choosing regularization near discontinuous branches, not merely an arbitrary numerical test.
+
+## Closest literature and limitations
+The two referenced arXiv full texts are the closest directly relevant available sources. The results apply at fixed stencil geometry, including a valid but not necessarily automatically selected stencil covering. They do not establish practical failure on the paper's full numerical benchmark data. Broader nonlinear WENO sensitivity principles may offer an alternative proof and prevent any blanket claim of invention of inverse-indicator conditioning.
+
+Self-review: passed. Independent audit: not yet performed.

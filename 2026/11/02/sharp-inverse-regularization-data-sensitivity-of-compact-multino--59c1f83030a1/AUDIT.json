@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary fixed admissible stencils and bounded real data, residual indicators along affine data segments are Lipschitz with constant H_x delta, the logarithmic weight derivatives are bounded by \\(tH_x\\delta/\\epsilon\\), and softmax covariance plus the weighted variance inequality proves the stated \\(L_x(1+tBH_x/\\epsilon)\\) data perturbation bound. The six-node degree-one family respects node covering, strict fill distance, support radii and nonempty near-stencil indicators. Direct interpolation/support calculations yield a clean \\(1/2\\) output, perturbed exact \\((\\epsilon+\\delta)^t/(\\epsilon^t+(\\epsilon+\\delta)^t)\\), derivative \\(t/(4\\epsilon)\\), and nonvanishing \\(\\delta=c\\epsilon\\) gap. The included rational checker reconstructs actual source factors and tests 2,220 cases. Analytic reasoning, not numerical sampling, proves the universally quantified claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.31026v1 Theorem 5.4 and Section 5.4 concern approximation error near jumps under indicator separation; this fixed node-data perturbation remains outside their quantified conclusions.",
+        "arXiv:2412.02286v1 Theorems 3.1--3.3 concern spatial smoothness and interpolation accuracy of a different degree-zero least-squares indicator."
+      ],
+      "reasoning": "Neither local approximation order nor convex-combination/partition-of-unity structure yields a bound uniform in observed data when weights depend on the data. General WENO theory shares the inverse-indicator mechanism but does not directly settle the stated exact admissible six-node residual-indicator example in inspected sources.",
+      "searches": [
+        "Data-dependent Compact Multinode Shepard Method noise data perturbation Lipschitz ε regularization stability WENO residual smoothness weights",
+        "WENO nonlinear weights data sensitivity noise regularization epsilon inverse stability perturbations Shepard scheme",
+        "nonlinear WENO interpolation Lipschitz stability data perturbations epsilon inverse bound"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.31026v1",
+      "https://arxiv.org/html/2412.02286v1",
+      "https://epubs.siam.org/doi/10.1137/050637868 (abstract only)",
+      "published-finding corpus semantic search results for exact and equivalent formulations",
+      "prior research records claims through generation available collection snapshot"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.31026v1 equations (7), (10)--(12) define this method, but its results in Section 5 and experiments in Section 6 bound approximation error with respect to target functions rather than perturbations between two data vectors.",
+        "arXiv:2412.02286v1 equation (3) defines degree-zero least-squares residuals, not interpolation residuals off a degree-one stencil; its smooth-region approximation theorem does not imply the witness exact formula."
+      ],
+      "reasoning": "Neither source implies (1) with the stated quantified observed-data constant or (2) with full admissible geometry, unless one supplies an additional new derivation. The present novelty claim is limited to that derived quantitative statement, not the general principle of nonlinear weights.",
+      "searches": [
+        "Data-dependent Compact Multinode Shepard Method noise data perturbation Lipschitz ε regularization stability WENO residual smoothness weights",
+        "piecewise constant data two polynomial stencil residual indicators zero noise jumps nonlinear weights Lipschitz condition number",
+        "arXiv:2610.31026v1 Sections 3 4 5 6 7",
+        "arXiv:2412.02286v1 Sections 2 3 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The method uses normalized positive weights proportional to an epsilon-regularized negative power of its residual indicator (arXiv:2610.31026v1, eqs. 10--12).",
+        "The new formulation differentiates these weights along an observed-data segment, as distinct from spatial smoothness of the reconstructed function."
+      ],
+      "reasoning": "Data-to-output Lipschitz continuity at fixed geometry is equivalent to an observable-noise perturbation estimate, not to differentiability in evaluation location, spatial stability of polynomial stencils, or interpolation accuracy. The generic softmax covariance lemma is known in principle, but available results do not yield the full explicit witness and method-specific observed-data statement as a quoted theorem.",
+      "searches": [
+        "WENO Shepard nonlinear data dependent weights conditioning epsilon inverse noise amplification at jump",
+        "sharp \\(\\epsilon^{-1}\\) noise conditioning WENO nonlinear weights residual smoothness indicators compact multinode Shepard interpolation",
+        "WENO weight softmax derivative data Lipschitz ε sensitivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned nearby weighted interpolation and smoothness findings, including 2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6 and 2026/10/4/SCOPE-sharp-monotone-range-defect-of-four-point-degree-one-floater-hor--588356639a12; neither treats data-dependent compact multinode Shepard weights.",
+        "Accessible same-topic historical ledger claims were searched for noise, WENO, Shepard, indicator and interpolation; none implied the quantified formula."
+      ],
+      "reasoning": "The examined tables and result records address interpolation ranges, smoothness, or unrelated noise models; they do not give the claimed operator, six-node stencil sets, or \\(\\epsilon^{-1}\\) data-conditioning law. Failure to find an entry is not proof of global priority.",
+      "searches": [
+        "sharp \\(\\epsilon^{-1}\\) noise conditioning WENO nonlinear weights residual smoothness indicators compact multinode Shepard interpolation",
+        "multinode shepard interpolation residual indicator noise asymptotic sensitivity 1 epsilon",
+        "data dependent compact multinode shepard 2610.31026 interpolation 65D05 sensitivity perturbations",
+        "published-finding corpus semantic search: compact multinode Shepard residual indicator perturbation regularization"
+      ]
+    },
+    "rationale": "Complete original source sections 3--7 and directly preceding WENO--Shepard full HTML were compared by their operator/indicator hypotheses and mathematical implications. Neither supplies a data-Lipschitz estimate in epsilon for the residual-indicator construction or its exact six-node attained scale. published-finding corpus semantic queries found only structurally different approximation/positivity results. Normalized inverse-indicator weighting is old; the alleged novelty is the method-specific, quantitatively sharp data sensitivity and exact admissible witness. Priority remains bounded by inspected material, not certified globally.",
+    "residual_risks": [
+      "Generic softmax/WENO data-sensitivity inequalities may be known elsewhere; no globally exhaustive history search or full specialist monograph inspection.",
+      "Earlier degree-zero and general nonlinear schemes embody the weighting mechanism, limiting scope of the originality assertion.",
+      "The explicit valid stencil family need not be selected by the source implementation automatic Leja heuristic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest defining primary paper; no direct fixed-geometry data-Lipschitz epsilon sensitivity or six-node attained noise law located.",
+        "evidence": [
+          "arXiv:2610.31026v1, Sections 3--6",
+          "Equations (7), (10)--(12); Theorems 5.4 and 5.7; Section 6.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31026v1",
+        "material_read": "Full available HTML: Sections 1--7, definitions and equations (7)--(12), Assumption 5.1, indicator separation, numerical sensitivity and conclusions.",
+        "method": "Read full text/sections and compare stated hypotheses and conclusions of each theorem with observed-data perturbation formulation; searched noise, perturb, Lipschitz and sensitivity.",
+        "title": "Data-dependent Compact Multinode Shepard Method",
+        "trigger": "Exact source construction for residual indicators and nonlinear compact multinode interpolation."
+      },
+      {
+        "assessment": "Prior weighting mechanism, not same residual-indicator degree-one setting or exact data sensitivity comparison.",
+        "evidence": [
+          "arXiv:2412.02286v1, Sections 2--3, eqs. (1)--(3), Theorems 3.1--3.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.02286v1",
+        "material_read": "Full HTML sections 1--4 and references; scheme, degree-zero least-squares indicators and regularity/error results.",
+        "method": "Compare indicator construction, polynomial degree, dependence on data and theorems on spatial smoothness/accuracy; searched noise and perturb.",
+        "title": "Weighted Essentially Non-Oscillatory Shepard method",
+        "trigger": "Earlier nonlinear Shepard technique with epsilon-regularized WENO factors."
+      },
+      {
+        "assessment": "Concerns method-of-lines eigenvalue instability, not this finite static reconstruction perturbation claim; full text not checked.",
+        "evidence": [
+          "Wang and Spiteri, SIAM J. Numer. Anal. 45 (2007) 1871--1901, abstract"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/050637868",
+        "material_read": "Accessible article abstract and bibliographic scope only.",
+        "method": "Compared numerical evolution stability scope to static data perturbation theorem; did not access full paper.",
+        "title": "Linear Instability of the Fifth-Order WENO Method",
+        "trigger": "Potentially broader WENO stability results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "59c1f830-30a1-4348-b584-69ad961e010a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source method uses \\(\\epsilon=10^{-14}\\) in numerical illustrations and residual-derived adaptive weights to suppress jumps. A well-separated six-node configuration shows that a single observation which is absent from both active interpolating polynomials, but present in one smoothness indicator, changes an output by a constant for data changes of size epsilon. This isolates a non-geometric input precision sensitivity and proves its exact order with a general matching upper bound, which matters for regularization choice and reliability of near-jump data reconstruction. It is a substantive identified robustness regime rather than a numerical rounding anecdote.",
+    "status": "PASS"
+  }
+}
