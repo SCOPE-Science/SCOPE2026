@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the exact exterior-Koszul hyperplane, proves surjectivity for bivector rank at least four, and derives the possible line restrictions from the rank, degree, and zero-section count of the kernel. The condition \(\omega\in U\wedge V\) gives the rank-four Lagrangian quadric, and the printed fourteen-column matrix has a rank-six annihilator and exhibits the proposed rank-four degeneration. Rational linear algebra and a finite-field isotropic-line census provide separate consistency checks. The computations do not substitute for the universal proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Landsberg--Manivel already treat the nondegenerate symplectic rank-six construction; its uniformity is not claimed as new. Denham--Miró-Roig--Schenck give the fourteen-column presentation, but the inspected manuscript does not give a rank-four Lagrangian jumping-quadric classification or the exceptional line splitting. The new claim identifies the exact rank-four degeneration of that rank-six construction. Manivel--Miró-Roig's earlier classification concerns matrix ranks at most six. Indexed mathematical-record searches produced no matching construction. Older unindexed descriptions, or a standard geometric reinterpretation, remain possible.
+PASS
 
-**Mathematical value — PASS.** The statement gives a complete geometric boundary for a natural, low-rank family introduced in recent uniform-bundle research: a smooth three-dimensional jumping variety and a sharp change of Birkhoff--Grothendieck splitting type. It provides a testable structural distinction that is invisible from the common rank and Chern classes, and clarifies exactly which alternating-form degeneration preserves uniformity.
+The exterior-Koszul evaluation hyperplane fails only at a point where omega is decomposable x wedge v, necessarily rank<=2. On a line L=P(U), constant sections in kernel are W_omega intersect Lambda^2 Ann(U); their dimension is 5 or 6 exactly according to omega in U wedge V. All summands of F=E(-1) have nonpositive degree; rank nine and degree -4 force respectively 0^5(-1)^4 or 0^6(-1)^2(-2). For rank-four omega, exceptional U lie in support S and are Lagrangian for the inverse symplectic form, giving LG(2,4)=Q^3; rank six cannot have omega in U wedge V. The explicit published column sums annihilate a rank-six bivector, not rank four. Independent RREF F_3^4 count found 40 isotropic among 130 two-planes; finite count alone is not proof over C.
 
-The finding is limited to the specified hyperplane syzygy bundles; it does not determine the possibly nonreduced jumping scheme, and it does not classify unrelated vector bundles. Source priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Denham-Miro-Roig-Schenck Theorem 3.3 asserts the rank-nine uniform rank-six example, and Landsberg-Manivel section 6.2 gives a nondegenerate symplectic constant-rank construction. The new claim is a complete rank-four hyperplane-degeneration jumping locus and exceptional splitting; neither inspected theorem asserts that degeneration. Priority only best of knowledge; classical degeneracy loci or an implicit moduli classification could encode it.
+
+## value
+
+PASS
+
+This is a geometrically motivated sharp uniformity boundary for the same fourteen-section family: a smooth three-dimensional Lagrangian jumping quadric, distinguished splitting and explicit degeneration. It is neither a restatement of the rank-six construction nor a numerical tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
