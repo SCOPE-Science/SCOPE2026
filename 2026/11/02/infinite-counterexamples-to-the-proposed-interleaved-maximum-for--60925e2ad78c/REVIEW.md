@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The theorem quantifies over every integer \(m\ge4\), uses the standard *prescribed-occurrence* definition, and gives two explicit length-\(2m\) patterns with increasing overlapping blocks. The two-chain interleaving lemma has a direct bijective proof: common positions partition the union of two total orders into \(m+1\) independent pairs of private chains. The corresponding binomial factors yield \(9\cdot2^{m-4}\) and \(2^{m-1}\). The gap vectors are stated explicitly, so both the boundary case and all higher ranks can be checked symbolically. An independently coded topological-sort dynamic program and a direct reconstruction of every permissible length-\(12\) permutation confirm the base comparison. Finite checks are corroboration, not the proof of the infinite formula.
+
+## Originality — PASS, subject to priority risk
+The closest source is Blitvić–Kammoun–Steingrímsson, arXiv:2610.29846v1 (2026-10-21), whose Section 7, Conjecture 7.1 asserts the maximizer contradicted here, rather than providing a counterexample. The same paper develops general gap/poset counting principles but does not, in the relevant accessible sections, state this \(9/8\) inequality or the counterexample family. The authors' 2023 FPSAC extended abstract concerns counting and moment positivity, not the later extremal conjecture. Dwyer–Elizalde (2018) concerns cluster counts and Wilf equivalences, not this maximization. Targeted bibliographic searches for the exact patterns, maximizing overlap, and equivalent two-chain linear extensions found no published covering result. Some parts of the 2026 manuscript were not consistently accessible during review, and an unindexed short note could anticipate the observation; this is a self-review priority assessment, not a proof of global uniqueness.
+
+## Mathematical value — PASS
+A stated, naturally parameterized extremal conjecture fails already for two prescribed occurrences and fails uniformly for every overlap \(m\ge4\) at pattern length \(2m\). The explicit product decomposition identifies the obstruction: replacing three ordinary two-way shuffles by two three-way shuffles changes a factor \(8\) into \(9\). This provides a structural reason for the failure and a concrete constraint on any corrected maximization conjecture. It is a direct mathematical boundary to a natural research direction, not a small arbitrary numerical table or a routine reformulation of an accepted theorem.
+
+## Closest literature and limitations
+The recent full manuscript's definitions, relevant pattern-poset material, and the extremal-conjecture statement were inspected in the accessible HTML text, and its 2023 conference precursor was separately inspected as a PDF. The earlier counting recurrences imply ways to *compute* the examples, but do not imply the claimed extremality failure without the comparative calculation. The present theorem does not identify global maximizers or settle other numbers of prescribed occurrences. Historical priority is provisional, and independent mathematical validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
