@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-The executable certificate uses only Python 3's standard library. Place `verify_bp4.py` and `matching_certificate.json` in the same directory, then run `python3 verify_bp4.py`. `verification_output.txt` contains the output of the check actually executed on the packaged files.
+## correctness
 
-The two independent full face enumerations agree on all 1,023 nonempty ten-bit subsets. They find 80 nonempty faces with face vector \((10,30,30,10)\) in dimensions zero through three. The explicit certificate contains 38 valid covering pairs and the four critical faces of dimensions \((0,2,3,3)\). The Hasse-directed gradient digraph contains 80 nodes and 190 arrows; exhaustive topological sorting visits all 80, establishing acyclicity. The top-facet partition and the two signed integral top-cycle boundaries are also checked exactly.
+PASS
 
-The topological deduction uses the standard acyclic-matching CW theorem and \(\pi_2(S^2)\cong\mathbb Z\). The computations certify one finite complex, not an infinite result. No formal proof-assistant certification, external expert validation or independent audit is implied.
+Reconstructed the exact 10 directed arcs and independently enumerated all 1023 nonempty masks: 80 faces with f=(10,30,30,10). A separate implementation regenerated all 38 matched cover pairs from the published pivot order, the four critical masks 128/104/30/864, and verified a topological ordering of the full 80-vertex 190-arrow oriented Hasse graph. The only ten top facets support two disjoint nonzero integral signed 3-cycles. Discrete Morse yields 0,2,3,3 cells; H3 rank two forces both attaching degrees into S^2 zero; pi2(S2)=Z hence wedge S2 vee S3 vee S3. No conclusion for other polygon sizes.
+
+## originality
+
+PASS
+
+Published Caputi–Collari–Smith 2026 calculates bidirected polygon homology and poses a wedge-of-spheres homotopy question, not the five-cycle simply-connected matching. A 2024 homology-to-wedge theorem is a strong general antecedent but requires simple connectivity, which published homology does not furnish here; the new exhaustive acyclic matching proves that missing premise. Oriented-polygon wedge theorems exclude bidirectional arcs. Best-of-knowledge PASS, residual hidden treatment possible.
+
+## value
+
+PASS
+
+A specific natural size-five test of an explicitly posed general homotopy question. The exact acyclic matching proves simple connectivity and null attachments, which are not determined by homology alone; a reproducible structural benchmark for a non-shellable complex. Small single instance, no generalization claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
