@@ -1,15 +1,21 @@
-# Scientific review: three-regime one-point extension law for two-cluster ultrametrics
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain and all metric-compatibility conditions are explicit. The universal lower bound uses the canonical isometric image of the source in its real Lipschitz-free Banach space, so it applies to arbitrary target Banach spaces and arbitrary nonlinear extension values. Finite cluster-permutation symmetry reduces the unrestricted affine-value problem to one real parameter. Concrete source Lipschitz potentials rule out coefficients outside the nonnegative interval; positive weights then give matching transport upper bounds and distance-potential lower bounds. The two strictly monotone ratios yield the exact three regimes and the norm-one inequality. The full all-parameter proof does not rely on finite samples. Unrestricted signed-coefficient LP tests matched the formula for 29 admissible metrics, with three rational examples checked exactly.
+## correctness
 
-## Originality — PASS, with bibliographic uncertainty
-The closest examined primary sources are Cúth–Doucha (2021), *Projections in Lipschitz-free spaces induced by group actions* (sections on invariant projections), Basso (2021), *Absolute Lipschitz extendability and linear projection constants* (relative projection formulation and general LP method), and Bruè–Di Marino–Stra (2018), *Linear Lipschitz and C1 extension operators through random projection* (general extension theorem). They do not state or imply the explicit two-cluster one-point radii phase formula without an additional new calculation. The complete published clustered-free-space projection theorem optimizes the projection onto **within-source-cluster fluctuations**, not the projection associated with adding a new point. The published balanced four-point ultrametric Hilbert distortion and shortened-pair facet count determine different invariants. The already-known equilateral-source one-point order-statistic formula is recovered when the source intra-distances equal the cross-distance; the genuinely two-level cases are not implied. Bibliographic completeness, particularly specialized finite-metric transportation LP calculations, remains uncertain.
+PASS
 
-## Mathematical value — PASS
-Two homogeneous clusters are the first non-equilateral hierarchical source family. This calculation completely classifies their all-Banach one-point extension invariant across arbitrary cluster cardinalities, positive intracluster distances and admissible new-point radii. The strict changes in optimal interpolation support at two explicit thresholds, the impossibility of improvement by signed coefficients, and the sharp criterion for nonexpansive universal extension are structural information not conveyed by generic existence bounds or a numerical LP solution. Each of all three support regimes occurs with an extension factor strictly above one; exact rational witnesses are given in the result. This is a natural complete finite-metric classification, not an isolated numerical instance.
+For p,q>=2 with within-cluster distances s,t<=1 and cross distance one, a new point at distances R,U is metric exactly when 2R>=s,2U>=t,|R-U|<=1<=R+U. Write k=s(1-1/p), ell=t(1-1/q), both in (0,1). Positive invariant barycenter coefficients a,1-a have exact scalar Lipschitz extension norm max{1,[1-(1-k)a]/R,[ell+(1-ell)a]/U}, using distance-to-vertex scalar witnesses for equality and triangle inequality for arbitrary Banach upper bound. For the universal lower bound, extend the canonical isometric embedding of source vertices into the real Lipschitz-free space F(X). Any added vector is an affine combination of the source delta vectors; averaging over S_p×S_q in the convex norm envelope restricts without loss to one signed real parameter a. For a<0, concrete scalar 1-Lipschitz potentials force at least max{1,(1-a)/R,(1-a)ell/U}>=norm at a=0; for a>1 analogous potentials give >=max{1,ak/R,a/U}>=norm at a=1. Thus the global minimizer is nonnegative. The decreasing and increasing affine terms intersect at a0=(U-R ell)/(U(1-k)+R(1-ell)); clipping to [0,1] yields thresholds U=R ell and U=R/k, the three regimes and the exact norm-one interval condition. Independently checked all three strict regimes with exact fractions and signed out-of-range lower tests. The proof establishes the universal Banach quantifier, not just scalar extension.
 
-## Limitations
-The source consists of exactly two equilateral clusters whose cross-distance is normalized to one; the extension adds exactly one point, and targets are real Banach spaces. No claim is made for three or more clusters, arbitrary weighted within-cluster metrics, quasi-Banach spaces, or uniqueness outside the invariant class. Bibliographic noncoverage is assessed against inspected sources, not logically proved for all literature. Independent mathematical review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new contribution is an explicitly evaluated family of natural one-point relative projection constants including the sharp positive optimizer regimes; comparison to general abstract theorems and adjacent invariant calculations did not show implication coverage.
+
+## value
+
+PASS
+
+An exact extension factor for every real Banach target is a meaningful intrinsic invariant of the simplest nontrivially hierarchical finite ultrametric sources. The three sharp support transitions and nonexpansive feasibility criterion distinguish cluster geometry that an equilateral-source formula misses, with use as a testbed for extension and free-space projection theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

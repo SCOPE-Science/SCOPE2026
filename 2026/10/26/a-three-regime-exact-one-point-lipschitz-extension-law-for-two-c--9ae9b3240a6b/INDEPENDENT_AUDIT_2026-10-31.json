@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:49:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 8dec050791578af13c95c17073d86a33544544e3",
+        "Frozen check_two_cluster.py Git blob 987d32bb25e6c59250fb04ddbe1566bc36ea9885",
+        "independent_checks.py exact rational regime and signed tests"
+      ],
+      "rationale": "For p,q>=2 with within-cluster distances s,t<=1 and cross distance one, a new point at distances R,U is metric exactly when 2R>=s,2U>=t,|R-U|<=1<=R+U. Write k=s(1-1/p), ell=t(1-1/q), both in (0,1). Positive invariant barycenter coefficients a,1-a have exact scalar Lipschitz extension norm max{1,[1-(1-k)a]/R,[ell+(1-ell)a]/U}, using distance-to-vertex scalar witnesses for equality and triangle inequality for arbitrary Banach upper bound. For the universal lower bound, extend the canonical isometric embedding of source vertices into the real Lipschitz-free space F(X). Any added vector is an affine combination of the source delta vectors; averaging over S_p×S_q in the convex norm envelope restricts without loss to one signed real parameter a. For a<0, concrete scalar 1-Lipschitz potentials force at least max{1,(1-a)/R,(1-a)ell/U}>=norm at a=0; for a>1 analogous potentials give >=max{1,ak/R,a/U}>=norm at a=1. Thus the global minimizer is nonnegative. The decreasing and increasing affine terms intersect at a0=(U-R ell)/(U(1-k)+R(1-ell)); clipping to [0,1] yields thresholds U=R ell and U=R/k, the three regimes and the exact norm-one interval condition. Independently checked all three strict regimes with exact fractions and signed out-of-range lower tests. The proof establishes the universal Banach quantifier, not just scalar extension.",
+      "residual_risks": [
+        "The tested rational configurations do not prove the all-real all-size formula; the free-space convexity argument does. The new point need not make an ultrametric, but source must be two-cluster ultrametric."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cúth–Doucha arXiv:2104.11519 Theorem A concerns invariant complements for orbit spaces under group actions, not the numerical one-point extension factor.",
+          "Basso Theorem 1.4 addresses supremum over all ambient metric extensions of a source; it does not give this specific family with prescribed R,U."
+        ],
+        "reasoning": "The broad method results are stronger in quantifier over spaces but weaker in explicit calculation; they do not imply the displayed interpolation weights and regime boundaries.",
+        "searches": [
+          "one point Lipschitz extension constants Banach targets two cluster ultrametric symmetric free spaces",
+          "Cuth Doucha Projections in Lipschitz-free spaces induced by group actions arxiv:2104.11519",
+          "Bruè Di Marino Stra linear Lipschitz extension random projection 2018"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2104.14238",
+        "arXiv:2104.11519",
+        "Resultary semantic query 3",
+        "arXiv:1801.07533"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Lipschitz-free projection duality reduces nonlinear-to-linear constant to an optimization but leaves that optimization unevaluated.",
+          "Group averaging justifies the invariant ansatz, but sign-elimination test functions and two affine constraint functions are needed for exact optimum."
+        ],
+        "reasoning": "The proposed theorem is not a mere restatement of Basso or Cúth–Doucha: its support transitions at U=R ell and U=R/k require substantive metric calculations beyond those references.",
+        "searches": [
+          "arXiv:2104.14238 Theorems 1.2 and 1.4",
+          "arXiv:2104.11519 Theorem A",
+          "one point Lipschitz extension constants Banach targets two cluster ultrametric symmetric free spaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Basso arXiv:2104.14238 Theorem 1.2 connects nonlinear Banach extensions and relative free-space projection constants; it does not evaluate this two-cluster extension in the reviewed text.",
+          "Resultary clustered free-space result 2026/10/11/...bd13acd51aa3 projects onto within-cluster fluctuations INSIDE the source free space, not the extension from source to a new point."
+        ],
+        "reasoning": "The universal factor is equivalent to a particular free-space projection norm, but this equivalence alone does not supply the exact three-regime value. The within-cluster projection uses a genuinely different subspace inclusion.",
+        "searches": [
+          "one point Lipschitz extension constants Banach targets two cluster ultrametric symmetric free spaces",
+          "one point universal nonlinear Lipschitz extension constant finite ultrametric relative projection Basso 2021",
+          "Resultary published sharp optimal projection constants for clustered finite metric free spaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/...471d4a0126f4 computes Hilbert Banach–Mazur distortion of a four-point ultrametric.",
+          "Resultary 2026/10/11/...b03e5cc2b3f1 gives quasi-Banach p-star extension, a different target class and geometry."
+        ],
+        "reasoning": "The exact two-cluster universal real Banach 1-point parameter surface is not the four-point Hilbert distortion or an equilateral star extension table. Existing equilateral-source subcase s=t=1 is credited rather than claimed as the full novelty.",
+        "searches": [
+          "one point Lipschitz extension constants Banach targets two cluster ultrametric symmetric free spaces",
+          "Resultary exact Hilbert distortion balanced four-point ultrametric",
+          "Resultary one point p Banach star extension constant"
+        ]
+      },
+      "rationale": "The new contribution is an explicitly evaluated family of natural one-point relative projection constants including the sharp positive optimizer regimes; comparison to general abstract theorems and adjacent invariant calculations did not show implication coverage.",
+      "residual_risks": [
+        "A general explicit formula for relative free-space projections in another older source may imply the regime law.",
+        "The general universal-vs-linear equivalence and averaging ideas are prior art, not claimed independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_REDUCTION_NOT_EXACT_VALUE",
+          "evidence": "Identifies universal Banach/nonlinear extension with projection constants in finite metrics, not the explicit two-cluster R/U formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.14238",
+          "material_read": "Full accessible arXiv text; Introduction, Theorems 1.2 and 1.4, free-space and linear programming sections",
+          "method": "Full primary manuscript read through relevant theorem and proof sections",
+          "title": "Absolute Lipschitz extendability and linear projection constants",
+          "trigger": "General theorem could dominate all Banach targets"
+        },
+        {
+          "assessment": "AVERAGING_FRAMEWORK_NOT_EXACT_VALUE",
+          "evidence": "Deals with orbit-space complements; no formula for this one-point two-radius constrained extension.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.11519",
+          "material_read": "Full arXiv rendered text; group-action statements, Theorem A and projection results",
+          "method": "Read primary manuscript main theorem sections",
+          "title": "Projections in Lipschitz-free spaces induced by group actions",
+          "trigger": "Invariant averaging might encode the same optimizer"
+        },
+        {
+          "assessment": "DIFFERENT_SUBSPACE",
+          "evidence": "Projection onto intracluster fluctuation subspace of F(X), rather than F(X) inclusion in F(X plus o); no whole-document noncoverage claimed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-optimal-projection-constants-for-clustered-finite-metric-f--bd13acd51aa3",
+          "material_read": "Resultary published indexed abstract and complete returned synopsis, not full theorem proof",
+          "method": "Indexed scientific synopsis",
+          "title": "Sharp optimal projection constants for clustered finite metric free spaces",
+          "trigger": "Very close wording and clustered metrics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2104.14238 general extension problem",
+        "Git RESULT.md full calculation"
+      ],
+      "rationale": "An exact extension factor for every real Banach target is a meaningful intrinsic invariant of the simplest nontrivially hierarchical finite ultrametric sources. The three sharp support transitions and nonexpansive feasibility criterion distinguish cluster geometry that an equilateral-source formula misses, with use as a testbed for extension and free-space projection theory.",
+      "residual_risks": [
+        "Only two homogeneous clusters and one new point; no claim for more clusters, quasi-Banach targets or multiple additions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The universal real Banach-valued one-point Lipschitz extension constant for a finite two-cluster ultrametric source has an exact three-regime formula with positive cluster barycenter optimizer and a sharp nonexpansivity boundary.",
+  "limitations": [
+    "p,q>=2, 0<s,t<=1, real Banach targets and stated metric compatibility only.",
+    "Only invariant optimizer uniqueness when factor>1, no global uniqueness asserted."
+  ],
+  "schema_version": 1
+}
