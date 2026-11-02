@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:56:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For strict complete n-by-n preferences let E(mu)=sum of all 2n partner ranks, N(mu)=product of n-rank. The primary proof is finite exhaustive for n<=3: enumerate (n!)^{2n} labeled profiles, all n! bijections, reject each blocking pair by independent strict rank tests, and retain all ties in argmin E/argmax N. An independent fresh implementation, distinct in structure from stable_welfare_boundary_check.py, enumerated every 46,656 n=3 profiles and found 34,080 single-stable equal sets; for 2 stables 9,180 equal and 2,304 proper Nash subset; for 3 stables 468 equal and 624 proper subset. It reproduced n<=2 as well. For n=4 the supplied rank vectors define a valid profile with precisely four stable matchings and (E,N): (0,1,2,3)->(11,768), (0,2,1,3)->(11,1536), (0,3,1,2)->(11,1728), (2,0,3,1)->(9,1536). The unique egalitarian and Nash optima are disjoint. Exhaustion gives n<=3 inclusion; the finite witness gives sharp n=4 separation without any unverified claim for larger n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stable marriage existence and algorithmic optimization do not by themselves force an inclusion relation between two optimizers.",
+          "The exhaustive counterexample has E-optimal match differing from N-optimal match by a strictly positive total-rank gap."
+        ],
+        "reasoning": "A general algorithm to maximize NSW over stable matchings is not a theorem that its optimizer minimizes rank sum for n<=3; general lattice theory alone also does not establish the sharp tie-inclusive finite census.",
+        "searches": [
+          "Gale–Shapley 1962 stable marriage",
+          "Irving–Leather–Gusfield 1987 egalitarian algorithm",
+          "arXiv:2609.02354 Nash welfare algorithm",
+          "Resultary: Nash welfare egalitarian stable marriage matching rank utility minimum instance four pairs"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.02354",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+        "https://doi.org/10.1145/322972.322983"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier work supplies both definitions and algorithms, not the quantified all-profile Nash set inclusion through n=3.",
+          "An n=4 counterexample is outside any general guarantee of equivalence; no older searched objective theorem directly implies its sharpness for NSW."
+        ],
+        "reasoning": "The paper compares actual arg-optimum sets under rank-product cardinalization. Related alternative fairness criteria cannot be substituted in its conclusion; no decisive prior implication was established under accessible evidence.",
+        "searches": [
+          "Desai et al arXiv:2609.02354",
+          "Resultary 2026/10/4 egalitarian minimum-regret boundary",
+          "Irving et al 1987 egalitarian optimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim fixes cardinal utilities u=n-r, not arbitrary utilities, minimum-regret, sex-equal or rank-maximal objectives.",
+          "The Desai abstract studies Nash-welfare optimization but does not identify the entire 3-by-3 optimum-set inclusion count."
+        ],
+        "reasoning": "Do not equate a similar minimum-regret threshold at n=4 with Nash welfare; their objective functions differ. Literature search found no proven equivalent Nash-product statement, with full-text Desai overlap unresolved.",
+        "searches": [
+          "Resultary: Nash welfare egalitarian stable marriage matching rank utility minimum instance four pairs",
+          "Desai et al 2026 Fair Stable Matching: A Nash Social Welfare Approach arXiv:2609.02354",
+          "Resultary sharp coincidence boundary egalitarian minimum-regret stable marriage 2026/10/4 ...57631882a89b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh exhaustive count 43,728 equal/2,928 proper subset among 46,656 profiles was checked independently.",
+          "Resultary adjacent exact three-agent proposal-law and minimum-regret records count different statistics."
+        ],
+        "reasoning": "The searched finite database counts are objective-specific and not reproduced by existing stable matching or proposal counts; unindexed exact tables remain a qualified historical risk.",
+        "searches": [
+          "Resultary: Nash welfare egalitarian stable marriage matching rank utility minimum instance four pairs",
+          "Resultary: stable marriage all 46656 rank-product Nash egalitarian profile census 3x3",
+          "arXiv:2609.02354"
+        ]
+      },
+      "rationale": "Best-of-knowledge new tight first-separation threshold plus labeled three-pair full census for this precise rank-induced cardinal utility. Desai et al (2026) introduce stable Nash-welfare optimization and empirical comparisons, but accessible original abstracts do not state this sharp threshold. Earlier Resultary published small-market sharp boundaries compare egalitarian with minimum-regret or rank-maximal/popularity, mathematically different objective functions; they do not imply the Nash-product result. Full Desai text was not available, so direct overlap is a material residual risk, not falsely excluded.",
+      "residual_risks": [
+        "The full 2026 Desai–Rasheed–Ghalme–Gujar preprint could not be inspected: arXiv/OA full text unavailable and authorized institutional service reported disconnected VPN; exact NSW threshold may be an unindexed part.",
+        "Rank-dependent u=n-r cardinalization is essential; claims are not invariant under arbitrary utility rescaling or alternative rank scores."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Nearest prior work, algorithm and comparison; exact first-disjointness threshold not established from accessible content",
+          "evidence": "Abstract introduces NSW optimization among stable matchings; inspection does NOT establish its full text lacks a small-n theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.02354",
+          "material_read": "Primary preprint abstract and publicly indexed theorem summaries; full arXiv/OA PDF unavailable in this execution",
+          "method": "ArXiv primary record and abstract; authorized Oxford attempt after OA failure",
+          "title": "Fair Stable Matching: A Nash Social Welfare Approach",
+          "trigger": "Identical Nash welfare objective in stable marriage, most plausible prior coverage"
+        },
+        {
+          "assessment": "Minimum-regret objective, different from Nash-product utility; no direct claim coverage",
+          "evidence": "Resultary description states nesting at <=3 and n4 disjoint egalitarian/min-regret, not rank-product NSW.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+          "material_read": "Published Resultary record title and substantive mathematical abstract; not full proof",
+          "method": "Resultary semantic retrieval",
+          "title": "Sharp coincidence boundary for egalitarian and minimum-regret stable marriage",
+          "trigger": "Very similar four-pair threshold under a different fairness objective"
+        },
+        {
+          "assessment": "Algorithmic minimization of rank total is prior, sharp NSW-vs-egalitarian threshold not implied",
+          "evidence": "Efficient egalitarian optimization does not constrain the Nash arg-optimum set.",
+          "identifier_or_url": "https://doi.org/10.1145/322972.322983",
+          "material_read": "Established bibliographic statement and objective description, no full primary article inspected",
+          "method": "Scientific comparison of stated optimization problem",
+          "title": "An Efficient Algorithm for the “Optimal” Stable Marriage",
+          "trigger": "Established egalitarian stable matching optimization background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact earliest size at which widely used stable-matching fairness objectives disagree, including unique incompatible optima, is a motivated sharp finite threshold with interpretive significance for algorithm selection. The exhaustive 3-by-3 census identifies how tie-induced inclusion arises and is not a mere unmotivated recomputation of stable matching counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e1496bf04137a49f79c78b177e912de9c06e4138/2026/10/26/four-pairs-are-the-sharp-separation-threshold-for-nash-welfare-a--6a4f1b95ac69/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e1496bf04137a49f79c78b177e912de9c06e4138/2026/10/26/four-pairs-are-the-sharp-separation-threshold-for-nash-welfare-a--6a4f1b95ac69/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e1496bf04137a49f79c78b177e912de9c06e4138/2026/10/26/four-pairs-are-the-sharp-separation-threshold-for-nash-welfare-a--6a4f1b95ac69/VERIFICATION.md",
+    "https://arxiv.org/abs/2609.02354",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+    "https://doi.org/10.1145/322972.322983"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All strict complete labeled balanced markets n<=3, one explicit n4 counterexample; no total n4 census or large-n distribution."
+  ],
+  "residual_risks": [
+    "The full 2026 Desai–Rasheed–Ghalme–Gujar preprint could not be inspected: arXiv/OA full text unavailable and authorized institutional service reported disconnected VPN; exact NSW threshold may be an unindexed part.",
+    "Rank-dependent u=n-r cardinalization is essential; claims are not invariant under arbitrary utility rescaling or alternative rank scores."
+  ],
+  "schema_version": 1
+}
