@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "A rigorous all-order case split uses exact circular triple comparison and an unmatched or dummy-paired witness to prove max blocking degree ≥ floor((n-1)/2) for every partial matching, with explicit matchings attaining equality. Finite enumeration of all matchings at n=2..10 is consistent. Independently, 2634 strict symmetric-acceptability profiles at n=4 and all smaller cases were exactly exhausted for the five-agent threshold; the checker enumerates all edge masks, neighbor permutations and partial matchings.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Glitzner--Manlove arXiv:2601.14195v2, Theorem 3.7, establishes linear growth only for maximum-cardinality matchings in a bipartite incomplete-list instance.",
+        "Glitzner--Manlove arXiv:2601.14195v2, Theorem 3.5, establishes logarithmic worst-case growth for unrestricted stable roommates with complete lists."
+      ],
+      "reasoning": "The maximum-cardinality restriction is essential: an example forcing the maximum-cardinality optimum to be linear need not force this when deficient matchings are permitted. The paper's unrestricted lower bound is weaker and does not subsume the new theorem. An obvious general upper bound n-1 provides Θ(n) once the new exact cyclic construction is proved.",
+      "searches": [
+        "Glitzner Manlove 2026 Theorem 3.5 Ω(log n) stronger linear lower bound complete roommate lists",
+        "minimax almost stable roommates linear worst case asymptotic optimal maximum blocking degree complete lists circular preference construction",
+        "2026 game theory finite improvement property pure Nash equilibrium conformist rebel"
+      ]
+    },
+    "checked_sources": [
+      "Glitzner--Manlove, arXiv:2601.14195v1, earliest public 2026-01-20; v2 full open preprint inspected.",
+      "Glitzner--Manlove, Minimax and Preferential Almost-Stable Matchings, AAMAS 2026 repository abstract.",
+      "Abraham--Biró--Manlove (2006), original almost-stable roommates, university repository abstract.",
+      "Published mathematics-record semantic searches on minimax roommates, cyclic preferences, complete lists, equivalent/stronger assertions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Glitzner--Manlove arXiv:2601.14195v2 Theorem 3.5: worst-case unrestricted OPT is Ω(log n) via 3^k instances.",
+        "Glitzner--Manlove arXiv:2601.14195v2 Theorem 3.7: maximum-cardinality OPT Θ(n) via incomplete bipartite lists.",
+        "Abraham--Biró--Manlove 2006 studies minimum total number of blocking pairs, not minimum maximum individual degree."
+      ],
+      "reasoning": "Neither Ω(log n) nor Θ(n) with a maximum-cardinality restriction implies a Θ(n) lower bound for arbitrary partial matchings; the minimizations differ. Lower bounds on a sum of blocking pairs do not automatically force a linear maximum degree without an additional quantitative argument. The new circular construction proves the stronger statement directly for complete lists.",
+      "searches": [
+        "Glitzner Manlove 2026 worst-case optimal value log n sharpen linear n",
+        "A Minimax Perspective on Almost-Stable Matchings arXiv 2601.14195 Theorem 3.5 Theorem 3.7",
+        "cyclic clockwise complete strict preference stable roommates each unmatched vertex at least half agents blocking pair"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arXiv:2601.14195v2 Section 3.3 unrestricted model has precisely the same per-agent blocking-pair degree objective.",
+        "The full paper's Proposition 3.4 uses nested three-way cycles instead of one round-robin preference circle; Theorem 3.5 derives only a logarithmic construction."
+      ],
+      "reasoning": "A cyclic tournament on preference lists can hide behind 'round-robin' or 'circular roommates', so queries included these aliases. The discovered local rank formula is for every n and is linearly large under arbitrary partial matchings; the inspected original source does not derive it. No retrieved equivalent formulation established coverage.",
+      "searches": [
+        "Stable Roommates unrestricted partial matching complete strict preference lists linear worst-case maximum blocking pair degree cyclic clockwise construction floor (n-1)/2",
+        "Minimax-AlmostStable-SRI Θ(n) optimal value cyclic tournament roommate preferences odd number of agents",
+        "cyclic preferences minimax almost stable roommates Omega n linear blocking pairs every matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant mathematical result records concern four-person roommate stable matching multiplicities and rank-maximal/minimum-regret conflicts, not the minimax blocking-degree extremum.",
+        "The all-profiles five-agent boundary was recomputed by the included exhaustive checker rather than inferred from an existing table."
+      ],
+      "reasoning": "No matching formula or exact n=5 threshold was returned in the queried mathematical records; the records covered other invariants. The absence of a record cannot certify global novelty. There is no cited database value from which the full theorem follows.",
+      "searches": [
+        "stable roommates blocking graph maximum degree linear every matching odd number agents",
+        "smallest six agent instance minimax almost stable roommates maximum two blocking pairs incident agent incomplete preferences",
+        "stable roommates cyclic preference clockwise blocking-degree max linear lower bound"
+      ]
+    },
+    "rationale": "Direct comparison with the motivating full preprint distinguishes an unrestricted complete-list linear lower bound from its Theorem 3.5 logarithmic lower bound and its Theorem 3.7 linear bound only for maximum-cardinality matching. The cyclic family provides an exact unrestricted witness not implied by either. Multiple actual record and literature searches found no equivalent result, with residual priority risk explicitly recorded.",
+    "residual_risks": [
+      "Unindexed literature on cyclic preferences or a different nomenclature for local blocking degrees could have equivalent bounds.",
+      "The AAMAS 2026 proceedings paper and Abraham--Biró--Manlove 2006 were examined through official abstracts/records, not their complete PDFs; neither was used as definitive noncoverage evidence.",
+      "The exact small-instance threshold uses finite programmatic exhaustive enumeration whose implementation remains open to independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary source explicitly proves logarithmic unrestricted complete-list lower bound, and linear bound in the maximum-cardinality incomplete-list variant; it does not state the cyclic linear unrestricted construction.",
+        "evidence": [
+          "arXiv:2601.14195v2, Section 3.3, pp. 8--11, Theorems 3.5 and 3.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.14195",
+        "material_read": "Full 48-page open preprint searched and examined in Sections 2 and 3, especially definitions, Proposition 3.4, Theorems 3.5 and 3.7, plus source references.",
+        "method": "Public PDF full text, page-level reading and visual inspection of proof and construction pages.",
+        "title": "A Minimax Perspective on Almost-Stable Matchings",
+        "trigger": "Primary source defining the exact unrestricted objective and stating closest worst-case bounds."
+      },
+      {
+        "assessment": "Contextual prior conference publication; not relied on as whole-document non-coverage evidence.",
+        "evidence": [
+          "doi:10.65109/pcde6577; online 2026-05-24"
+        ],
+        "identifier_or_url": "https://eprints.gla.ac.uk/375889/",
+        "material_read": "Repository abstract, bibliographic record and note that the full journal-preprint Theorem 3.5 and 3.7 are discussed in its expanded version.",
+        "method": "Official repository record and text metadata; no full-proceedings textual absence claim.",
+        "title": "Minimax and Preferential Almost-Stable Matchings",
+        "trigger": "Earlier conference iteration by authors of closest source."
+      },
+      {
+        "assessment": "Its described optimization minimizes total blocking pairs, whereas the present claim minimizes the maximum per-agent incident count.",
+        "evidence": [
+          "Abraham, Biró and Manlove (2006), doi:10.1007/11671411_1"
+        ],
+        "identifier_or_url": "https://eprints.gla.ac.uk/2816/",
+        "material_read": "Official bibliographic record and abstract establishing aggregate minimum blocking-pair objective.",
+        "method": "Official university repository abstract and source metadata; full original paper not used for document-wide noncoverage.",
+        "title": "Almost stable matchings in the Roommates problem",
+        "trigger": "Established earliest almost-stable roommates theory on blocking pairs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d393307b-b1bc-47ef-a9e5-0a6b15d3b065",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fairness target is the maximum number of individually feasible deviations experienced by one participant. A linear worst-case lower bound under unrestricted partial matchings, with complete preferences, sharpens the currently exhibited logarithmic construction and is not inherited from a maximum-cardinality-only lower bound. The explicit n=5 first obstruction identifies the first nontrivial concentrated instability. The exact construction establishes Θ(n) worst-case growth without relying on heuristic numerics.",
+    "status": "PASS"
+  }
+}
