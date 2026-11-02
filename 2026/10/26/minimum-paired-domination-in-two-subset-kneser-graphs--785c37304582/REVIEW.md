@@ -1,15 +1,21 @@
-# Minimum paired domination in two-subset Kneser graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-vertex-cover reduction plus four-edge component case distinction proves the uniform theorem for every integer \(n\geq6\). The only four-edge families that both have cover number at least three and have a perfect matching in their disjointness graph are \(P_4\sqcup K_2\), \(P_3\sqcup2K_2\), and \(4K_2\). Their automorphism factors give 180, 315 and 105 embeddings per support. The lower bound excludes two-element paired sets. The complete Petersen 210-complement enumeration proves the boundary count and orbit sizes, and the saved standalone verifier reproduces all finite checks.
+## correctness
 
-## Originality
-PASS, with residual risk. Cornet and Torres (arxiv:2308.15603, Section 4, Lemma 18 and Appendix B) characterize ordinary k-tuple domination in the same family, but do not impose a perfect matching or enumerate the present paired minima. The 2014 Henning–McCoy–Southey extremal graph result concerns maximum host-edge count, not minimal selected-set classification. No matching claim was located in published indexed searches or the queried research-record database. Direct-Kneser articles of Ivančo–Zelinka (1993) and Östergård–Shao–Xu (2015) had only abstracts accessible, and unindexed prior calculations remain possible. Search absence was not treated as a novelty proof.
+PASS
 
-## Value
-PASS. The natural backup-compatible domination variant has a complete all-parameter classification, a closed polynomial in binomial coefficients, and explicit threshold/symmetry transitions. For the exceptional Petersen graph the minimum sets further split into three geometrically distinguishable orbits. The structural statement is stronger than knowing only the minimum paired-domination number.
+For a selected 4-edge K_n subgraph H, an undominated outside pair is exactly a two-vertex transversal of H; any selected transversal would be isolated in the Kneser induced subgraph and contradict matching. Therefore paired domination is equivalent to vertex-cover number >=3 plus induced perfect matching. Decomposing all four-edge simple graphs into components leaves four cover-number-3 candidates, of which K3⊔K2 gives K1,3 in the disjointness graph, no perfect matching. Other three types have displayed perfect matchings and automorphism orders 4,16,384. No 2-set can dominate. Explicit exhaustive independent Python construction of KG(n,2), direct domination and recursive matching found optimum counts n4=1,n5=125,n6=180,n7=1575,n8=7665; the all-n classification follows from the structural proof, not this finite test. Complement-type census gives n5 orbit sizes 5,60,60.
 
-## Limitations
-The result applies only to two-subset Kneser graphs and does not give a higher-block analogue. The five-symbol exception is finite, exhaustively checked and accompanied by independent combinatorial type counts. Outside expert/independent validation has not been performed; unindexed or inaccessible coverage remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new classification/count for paired minima; earlier KG(n,2) ordinary and k-tuple domination results do not impose selected perfect matching.
+
+## value
+
+PASS
+
+Classifies all optimum paired-dominating configurations for every KG(n,2), not just the minimum integer, with three symmetry types and explicit polynomial in binomial coefficients. The natural matching constraint models two-at-a-time internal redundancy and the n=5 Petersen boundary is a nontrivial exceptional orbit census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
