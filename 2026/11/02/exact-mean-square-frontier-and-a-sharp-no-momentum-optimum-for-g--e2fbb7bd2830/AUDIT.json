@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Gaussian second and fourth moments give the exact transfer matrix for E||x_k||², E<x_k,x_{k-1}>, and E||x_{k-1}||². The PSD Gram determinant recurrence equals omega² times the old determinant plus (d+1)alpha² times the squared first moment, yielding a primitive positive map for omega>0 and exact Perron growth. The characteristic polynomial satisfies P(1)=alpha[2(1-omega²)-alpha(d(1+omega)+2)] and det(M)=omega³, giving the iff stability frontier. An explicit completed-square identity at r=(d+1)/(d+2) gives P(r)<0 except the stated unique optimizer. Symbolic reproduction and 60 finite rational spectral cases independently passed; they are not a substitute for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2208.05437 Theorem 4.7 and Section 5.6 give general sufficient rates, not the sharp identity Gaussian momentum interval and minimizer.",
+        "arXiv:1803.05591 Proposition 3 gives a lower-rate example on an unequal-coordinate law; it does not supply this universal-in-d exact Gaussian rate.",
+        "arXiv:2206.07553 discusses acceleration with sufficiently large minibatches."
+      ],
+      "reasoning": "Broad theorem coverage was tested by implication: Han–Xie bounds are sufficient, not sharp, and Kidambi et al prove a qualitative obstruction on a different distribution. Neither formally implies the precise Gaussian polynomial, equality cases, or all-parameter optimizer. A stronger unpublished or differently named theorem remains possible.",
+      "searches": [
+        "On pseudoinverse-free randomized methods for linear systems Unified framework and acceleration exact mean square Gaussian momentum",
+        "On the insufficiency of existing momentum schemes for Stochastic Optimization isotropic Gaussian heavy ball",
+        "momentum does not accelerate optimal mean-square convergence of rank-one Gaussian stochastic linear solvers"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.05437 (Han–Xie), introduction, method and Section 5.6",
+      "arXiv:1803.05591 (Kidambi et al.), Section 3 and Appendix A",
+      "arXiv:2206.07553 (Bollapragada–Chen–Ward), abstract and minibatch acceleration scope",
+      "Published mathematical claim descriptions on orthonormal Kaczmarz smoothing, deterministic heavy-ball barriers and Gaussian sparse-subspace descent, compared by mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2208.05437: mBGK algorithm, sufficient mean-square estimates and expected-iterate acceleration established.",
+        "arXiv:1803.05591: failure of acceleration itself is prior knowledge; polynomial transfer matrices appear on a different discrete-direction test law.",
+        "arXiv:2206.07553: minibatch acceleration does not imply the rank-one optimal bound."
+      ],
+      "reasoning": "The submitted claim is the conjunction of an all-d exact Gaussian moment map, a necessary-and-sufficient two-parameter stability frontier, the sharp minimum exponential mean-square factor, and equality uniqueness. Prior qualitative heavy-ball limitations are explicitly excluded from novelty attribution. Originality remains best-knowledge pending independent literature assessment.",
+      "searches": [
+        "pseudoinverse free randomized methods for linear systems Han Xie 2022 Gaussian sampling heavy ball sharp optimal mean square rate",
+        "Gaussian randomized Kaczmarz stochastic heavy ball momentum optimal mean square rate no acceleration chi square",
+        "single sample Gaussian mBGK isotropic identity covariance 3x3 recurrence sharp stability 2(1-beta^2)/(d(1+beta)+2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Han–Xie arXiv:2208.05437 Section 5.6 defines mBGK and Gaussian moments.",
+        "Kidambi–Netrapalli–Jain–Kakade arXiv:1803.05591 Proposition 3 and Appendix A use a different decoupled anisotropic regression law and a nonsharp heavy-ball lower bound."
+      ],
+      "reasoning": "Randomized mBGK is equivalent in this identity specialization to constant-stepsize heavy-ball least-squares SGD with iid isotropic standard-Gaussian covariates. The 2018 covariance-transfer technique is related but its theorem does not state the exact dimension-dependent Gaussian stability and unique optimum.",
+      "searches": [
+        "Gaussian rank one sketch momentum heavy ball random matrix g g transpose A identity exact mean square stability acceleration does not improve contraction dimension d",
+        "Gaussian sketch heavy ball xnext=(1+beta)x-beta xprev-eta gg^T x mean square optimal zero momentum",
+        "stochastic least squares heavy ball isotropic Gaussian covariates exact rate stationary covariance nonaccelerating one-sample heavy ball"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest publicly listed mathematical claims include an orthonormal 2-by-2 Kaczmarz smoother mean-square frontier, a deterministic heavy-ball real-root barrier, and a Haar sparse-subspace-descent fourth-moment estimate; none treats this mBGK map.",
+        "No located exact table or spectral transfer certificate listed the Gaussian rank-one momentum optimum."
+      ],
+      "reasoning": "Actual term, formula, and synonym searches targeted both the exact transfer polynomial and a sharp parameter table. Similar topics differ in random operator distribution, momentum convention, or objective. Absence from search results is not proof of novelty.",
+      "searches": [
+        "sharp Gaussian sketch heavy-ball 3x3 second-moment transfer operator spectral radius momentum identity system exact stability boundary and optimal rate 1-1/(d+2)",
+        "Gaussian Kaczmarz mBGK identity matrix rank-one standard Gaussian momentum parameter mean-square optimality bound Han Xie",
+        "single sample Gaussian mBGK isotropic identity covariance 3x3 recurrence sharp stability 2(1-beta^2)/(d(1+beta)+2)"
+      ]
+    },
+    "rationale": "The original 2022 paper defines mBGK and provides sufficient convergence estimates. Kidambi et al (2018) already establish qualitative heavy-ball failure on a different two-coordinate stochastic problem, using a related moment-transfer technique; this known phenomenon is not claimed as new. The assessed contribution is the dimension-uniform exact Gaussian spectral frontier and unique global mean-square optimizer. Actual semantic searches, synonyms, and implication comparisons against these and published mathematical claims did not reveal a covering theorem. An equivalent treatment in stochastic recurrence literature remains possible; independent priority review has not occurred.",
+    "residual_risks": [
+      "Unfound equivalence to a broader earlier second-moment stochastic-heavy-ball analysis could supersede the originality assessment.",
+      "General convex-cone transfer-matrix and Gaussian least-squares calculations may have appeared with different terminology.",
+      "No independent literature or scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_METHOD_AND_GENERAL_SUFFICIENT_RATE; no exact momentum-dependent necessity or unique mean-square optimum stated in inspected material.",
+        "evidence": "Section 5.6: mBGK update, p=1 Gaussian Kaczmarz, Theorem 4.7 bound.",
+        "identifier_or_url": "https://arxiv.org/pdf/2208.05437",
+        "material_read": "Source PDF pages 1–5 and 21 (Sections 1 and 5.6), including source algorithm, sampling scalings, Gaussian fourth moment, and stated sufficient mBGK rate.",
+        "method": "Full-text PDF text and page-image inspection; mathematical specialization to A=I and p=1.",
+        "title": "On pseudoinverse-free randomized methods for linear systems: Unified framework and acceleration",
+        "trigger": "Identical named Gaussian rank-one method and stepsize normalization."
+      },
+      {
+        "assessment": "RELATED_STRONG_PRIOR; qualitative no-acceleration already known, but exact isotropic Gaussian sharp frontier, best factor, and uniqueness not provided by the cited result.",
+        "evidence": "Proposition 3 and Appendix A use coordinatewise decoupled mixture and a rate lower bound with a nonsharp constant.",
+        "identifier_or_url": "https://arxiv.org/pdf/1803.05591",
+        "material_read": "Full-text PDF abstract and introductory contributions; Section 3 Proposition 3; Appendix A transfer construction, proof outline, and its dimension-two anisotropic sampling law.",
+        "method": "PDF text with page-image inspection and direct comparison of the law of covariates, moment matrix, and theorem quantifiers.",
+        "title": "On the insufficiency of existing momentum schemes for Stochastic Optimization",
+        "trigger": "Strong plausible earlier negative-momentum result and covariance transition machinery."
+      },
+      {
+        "assessment": "DIFFERENT_BATCH_REGIME; no stated exact rank-one Gaussian all-parameter optimum.",
+        "evidence": "Source abstract says acceleration proven when minibatch is sufficiently large.",
+        "identifier_or_url": "https://arxiv.org/abs/2206.07553",
+        "material_read": "Abstract, method description and results on sufficient minibatch sizes in accessible primary text.",
+        "method": "Authorized primary arXiv abstract and accessible full-text discussion.",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Possible broader stochastic heavy-ball acceleration analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2fbb7bd-2830-4009-bf35-607679ccf738",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact region exposes an increasingly restrictive stability penalty from fixed momentum and cleanly separates fast convergence of the mean iterate from the true mean-square error. The sharp optimum and uniqueness answer a meaningful tuning question for the original rank-one Gaussian numerical method and give a reproducible benchmark in every dimension, not an arbitrary finite computation. The theorem does not assert a universal impossibility of stochastic acceleration.",
+    "status": "PASS"
+  }
+}
