@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:06:12.361787Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For V uniform [μ−ε,μ+ε], delays a=(μ+ε)−1,b=(μ−ε)−1, observation [b,T] with T>2/μ, rewrite unhalved cost under t=s−V−1. Each t has eligibility J=[a,b]∩[b−t,T−t], density q(t), and conditional delay mean m(t). Completing the conditional square proves exact H(u)−H(u*)=κ²∫q(t)(proxy(t)−m(t))²dt for affine demand c+κs. Separate left strip t∈[0,b−a], middle, and right strip t∈[T−b,T−a], nonoverlapping for small ε. With normalized strip coordinate y=μ² t/ε (or shifted), q and m biases converge uniformly, giving each raw strip ∫(y/2)(1−y/2)² dy=1/6 and each clipped strip 1/12. Middle delay bias O(ε²) integrated over bounded horizon adds O(ε⁴). Hence raw cost=κ² ε³/(3μ⁶)+O(ε⁴), clipped=κ² ε³/(6μ⁶)+O(ε⁴); variance ε²/3 so order is variance^(3/2). Independently checked strip integrals by rational arithmetic and finite-width direct conditional quadrature for μ=1,2 and ε=.04,.02,.01; normalized ratios tend 1/3 and 1/6. No finite data used in place of the uniform asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier source offers higher-order loss on interior controls, not all times; older papers use uncertain demand and chance constraints, not uncertain speed truncation and whole-window projection."
+        ],
+        "reasoning": "Neither interior-only guarantee nor uncertain-demand control automatically dominates the window-edge ε³ asymptotic.",
+        "searches": [
+          "arXiv:2609.01291 abstract and cited section descriptions",
+          "arXiv:2111.09674 abstract",
+          "DOI:10.1002/oca.2689 open publisher full text sections"
+        ]
+      },
+      "checked_sources": [
+        "Frozen GitHub RESULT.md, SLOGAN.txt, REVIEW.md, VERIFICATION.md and verify_boundary.py",
+        "arXiv:2609.01291 abstract",
+        "Open publisher overview of Göttlich–Schillinger 2022 demand-uncertainty paper",
+        "Wiley publisher summary doi:10.1002/oca.2689",
+        "Resultary semantic search of published mathematical records, 2026-10-29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional square completion itself is known/elementary, but deriving singular O(ε) boundary strips and their leading constants is extra asymptotic information not stated in the inspectable prior theorem."
+        ],
+        "reasoning": "The prior interior error estimate does not imply the positive full-window ε³ coefficient; converse would be mathematically invalid.",
+        "searches": [
+          "Göttlich–Schillinger conditional expectation optimality",
+          "independently checked boundary integral coefficients 1/6 and 1/12",
+          "2019/2022 uncertain-demand control papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source optimizes inflow under random velocities and analyzes a deterministic mean-velocity proxy. The present result is its full-window bias excess under specified uniform velocity, affine demand and two chosen extensions."
+        ],
+        "reasoning": "Same underlying optimization object, but main source abstract does not give full-window boundary-layer coefficients; not a mere reparametrization of the interior bound.",
+        "searches": [
+          "Resultary query: optimal inflow uncertain transport velocity full observation window boundary layer epsilon cubed mean speed clipped delay",
+          "arXiv:2609.01291 abstract and setup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact normalized 1/3 and 1/6 full-window constants found in searched source abstracts/results; the closest author-linked code was not inspected."
+        ],
+        "reasoning": "A hidden numerical table might contain comparable constants; absence from discovery is not proof of novelty.",
+        "searches": [
+          "arXiv:2609.01291 search for mean-velocity proxy and full observation window",
+          "Resultary transport boundary-layer query"
+        ]
+      },
+      "rationale": "Göttlich–Schillinger introduce the uncertain-velocity transport setting, exact conditional-expectation optimizer and a higher-order mean-speed bound over an INTERIOR time window. The present result quantifies both actual boundary strips and two exact asymptotic constants over the entire observation horizon, including an explicitly defined projected-delay proxy not ascribed to the prior authors. Prior work on stochastic demand and chance constraints does not directly cover this velocity-induced boundary. Closest 2026 paper full text unavailable under current access (Oxford VPN disconnected); original abstract and scientific claims were examined, a substantive residual-priority risk. Best-of-knowledge PASS, not certified priority.",
+      "residual_risks": [
+        "Original arXiv:2609.01291 full paper and source-linked implementation were not materially read because full-text access failed and authorized Oxford VPN was disconnected; an equivalent whole-window asymptotic or table may be present.",
+        "The clipped proxy is defined here, not asserted to be the exact algorithm of the source authors.",
+        "Validity is restricted to uniform speeds, affine demand, unit travel distance, no amplitude constraints and T>2/μ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT CLOSEST PAPER, IMPORTANT FULL-TEXT PRIORITY RISK",
+          "evidence": "Abstract does not distinguish interior from whole-window theorem details; comparison to interior assumption relies on inspected frozen package references. No claim that entire paper was read.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.01291",
+          "material_read": "Primary arXiv abstract describing fixed observation window, conditional optimal control, velocity variance, higher-order mean-velocity proxy bound; full PDF/HTML inaccessible.",
+          "method": "Read abstract and matched precise scope to new whole-window definitions; arXiv/OA attempts and authorized Oxford access returned vpn_disconnected.",
+          "title": "Optimal Inflow Control for Transport Equations with Uncertain Velocities and Demand",
+          "trigger": "Exact same author, random velocity inflow setting, and mean-speed proxy"
+        },
+        {
+          "assessment": "NOT SAME RANDOM VELOCITY BOUNDARY MECHANISM",
+          "evidence": "Uncertainty originates in downstream demand, not random travel-time truncation on a full time window.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10444-022-09993-9",
+          "material_read": "Open-access publisher full-text abstract and model description of uncertain DEMAND transport networks.",
+          "method": "Read publisher overview and model setup, not every appendix.",
+          "title": "Control strategies for transport networks under demand uncertainty",
+          "trigger": "Earlier coauthors and PDE-control context"
+        },
+        {
+          "assessment": "DIFFERENT UNCERTAINTY AND OBJECTIVE",
+          "evidence": "Chance-constraint design does not state this exact uniform-speed least-squares ε³ penalty.",
+          "identifier_or_url": "https://doi.org/10.1002/oca.2689",
+          "material_read": "Open publisher summary and introductory/model description of chance constraints and uncertain demand.",
+          "method": "Read available scientific summary; did not claim complete article comparison.",
+          "title": "Chance-constrained optimal inflow control in hyperbolic supply systems with uncertain demand",
+          "trigger": "Broader transport inflow setting, possible dominating result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural boundary of an actually observed transport horizon changes the approximation order from the interior O(Var(V)^2) to sharp Θ(Var(V)^(3/2)); the positive coefficient quantifies a real practical limitation of mean-speed controls, while clipped-delay correction halves but does not remove the loss. Precise assumptions and contrast with interior guarantee are explicit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No guarantee for general stochastic laws/demands, arbitrary control constraints, stability or global transport networks.",
+    "Limited access to closest paper is declared and not inferred to imply originality by itself.",
+    "Original arXiv:2609.01291 full paper and source-linked implementation were not materially read because full-text access failed and authorized Oxford VPN was disconnected; an equivalent whole-window asymptotic or table may be present.",
+    "The clipped proxy is defined here, not asserted to be the exact algorithm of the source authors.",
+    "Validity is restricted to uniform speeds, affine demand, unit travel distance, no amplitude constraints and T>2/μ."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review of the full-window boundary-layer law
+# Independent mathematical audit
 
-## Correctness — PASS
-The cost is a quadratic loss in a single control time after changing observation time to time of injection. Completing the conditional square gives the exact excess functional. The two eligible-time strips have widths \(O(\varepsilon)\), conditional delay deviations \(O(\varepsilon)\), and exact limiting integrals \(1/6\) and \(1/12\) on each side for the ordinary and clipped proxies. The full interior contributes only \(O(\varepsilon^4)\). Exact rational coefficient checks and full finite-width midpoint calculations corroborate, but do not substitute for, the proof. The condition \(T>2/\mu\) ensures the strips do not overlap for sufficiently small uncertainty.
+## correctness
 
-## Originality — PASS with disclosed residual risk
-Göttlich–Schillinger (arXiv:2609.01291) establish the stochastic conditional-expectation optimum and a mean-velocity interior approximation bound; the inspected full text does not supply either new whole-window leading constant. Earlier transport-inflow papers arXiv:2111.09674 and DOI 10.1002/oca.2689 have uncertain demand or chance constraints, not this finite observation window with random speed. Four scientific comparison families and direct record searches did not identify equivalent or stronger coverage. Related classical boundary-layer theory and the inaccessible source-code repository remain originality risks; absence of a search hit alone is not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The finite-horizon boundary creates a quantitatively different approximation regime: the complete-horizon cost is \(\Theta(\operatorname{Var}(V)^{3/2})\) even though the interior cost is \(O(\operatorname{Var}(V)^2)\). The sharp positive constants and exact factor-two improvement under clipping are relevant to deciding whether a mean-speed control can be used over the actual observation window. The statement is a motivated exact boundary classification, not a general guarantee for arbitrary demands or velocity laws.
+For V uniform [μ−ε,μ+ε], delays a=(μ+ε)−1,b=(μ−ε)−1, observation [b,T] with T>2/μ, rewrite unhalved cost under t=s−V−1. Each t has eligibility J=[a,b]∩[b−t,T−t], density q(t), and conditional delay mean m(t). Completing the conditional square proves exact H(u)−H(u*)=κ²∫q(t)(proxy(t)−m(t))²dt for affine demand c+κs. Separate left strip t∈[0,b−a], middle, and right strip t∈[T−b,T−a], nonoverlapping for small ε. With normalized strip coordinate y=μ² t/ε (or shifted), q and m biases converge uniformly, giving each raw strip ∫(y/2)(1−y/2)² dy=1/6 and each clipped strip 1/12. Middle delay bias O(ε²) integrated over bounded horizon adds O(ε⁴). Hence raw cost=κ² ε³/(3μ⁶)+O(ε⁴), clipped=κ² ε³/(6μ⁶)+O(ε⁴); variance ε²/3 so order is variance^(3/2). Independently checked strip integrals by rational arithmetic and finite-width direct conditional quadrature for μ=1,2 and ε=.04,.02,.01; normalized ratios tend 1/3 and 1/6. No finite data used in place of the uniform asymptotic proof.
 
-## Limits
-All assumptions and the precise sense of whole-horizon extension are in RESULT.md. An independent audit has not been performed. The associated source code and potentially unindexed equivalent classical asymptotics were not fully inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Göttlich–Schillinger introduce the uncertain-velocity transport setting, exact conditional-expectation optimizer and a higher-order mean-speed bound over an INTERIOR time window. The present result quantifies both actual boundary strips and two exact asymptotic constants over the entire observation horizon, including an explicitly defined projected-delay proxy not ascribed to the prior authors. Prior work on stochastic demand and chance constraints does not directly cover this velocity-induced boundary. Closest 2026 paper full text unavailable under current access (Oxford VPN disconnected); original abstract and scientific claims were examined, a substantive residual-priority risk. Best-of-knowledge PASS, not certified priority.
+
+## value
+
+PASS
+
+The natural boundary of an actually observed transport horizon changes the approximation order from the interior O(Var(V)^2) to sharp Θ(Var(V)^(3/2)); the positive coefficient quantifies a real practical limitation of mean-speed controls, while clipped-delay correction halves but does not remove the loss. Precise assumptions and contrast with interior guarantee are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
