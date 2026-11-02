@@ -1,0 +1,208 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T21:43:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each i,j, max_{T}X_ij=min(r_i,c_j) by concentrating the smaller margin in that cell and assigning the remaining nonnegative margins by an outer-product fill. Inclusion K−A⊆−s(K−A) is equivalent, since the margin equalities persist, to (s+1)A_ij>=U_ij for all cells. A feasible lower bound exists iff each residual row/column margin is nonnegative, because totals match and a nonnegative rank-one residual fill exists; the minimum b=s+1 is beta. All optimal A are U/beta plus exactly T(R,C). Restricting to positive residual support, the classical rank of transport constraints gives (|I|−1)(|J|−1); S=0 gives a singleton. Monotonicity of sum_j min(1,c_j/x) proves the min-margin reduction. In square case beta<=n and a row or column with smallest global margin attains n. Checked 57 independent exact-rational constructions and LP comparisons (701 individual coordinate maximizations) including zero-residual and nonunique cases. No finite test is presented as a proof over arbitrary real margins.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "den Hertog–Pauphilet–Soali, Minkowski Centers via Robust Optimization: Computation and Applications, 2023/2024, §2.3 Proposition 4 and §2.4 Lemma 1; https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+          "Belloni–Freund, On the Symmetry Function of a Convex Set, Mathematical Programming 111 (2008), 57–93, §5.2 eqs. (39)–(41), Proposition 7; https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+          "De Loera–Kim, Combinatorics and Geometry of Transportation Polytopes: An Update, arXiv:1307.0124v1, §2.1 Lemmas 2.2 and 2.3; https://arxiv.org/html/1307.0124v1"
+        ],
+        "reasoning": "Earlier general formulas cover every convex polytope in its affine hull. With coordinate maxima U_ij=min(r_i,c_j), the induced center lower floor U/b is a full arbitrary-margin classification when paired with the classical existence theorem for residual transportation tables. All minimizing centers form exactly U/beta+T(R,C). This is a simple specialization of the stronger prior theory, not just an abstract generic algorithm with an unsolved hard reduction.",
+        "searches": [
+          "\"symmetry\" \"transportation polytope\" \"margins\" Minkowski",
+          "\"Minkowski center\" \"transportation\" polytopes all centers",
+          "Resultary semantic search: Minkowski center affine dimension uniqueness arbitrary transportation polytope row column margin ratios",
+          "Minkowski Centers via Robust Optimization Proposition 4 general polyhedral symmetry"
+        ]
+      },
+      "checked_sources": [
+        "Belloni–Freund, On the Symmetry Function of a Convex Set, Mathematical Programming 111 (2008), 57–93, §5.2 eqs. (39)–(41), Proposition 7; https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+        "den Hertog–Pauphilet–Soali, Minkowski Centers via Robust Optimization: Computation and Applications, 2023/2024, §2.3 Proposition 4 and §2.4 Lemma 1; https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+        "De Loera–Kim, Combinatorics and Geometry of Transportation Polytopes: An Update, arXiv:1307.0124v1, §2.1 Lemmas 2.2 and 2.3; https://arxiv.org/html/1307.0124v1",
+        "Resultary: 2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834 (intrinsic Euclidean, not Minkowski asymmetry); https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834",
+        "Koehl, Extreme points of general transportation polytopes, arXiv:2404.16791v1; https://arxiv.org/html/2404.16791v1",
+        "Resultary semantic-search self-match 2026/10/11/SCOPE-complete-minkowski-center-loci-of-positive-margin-transportation--97466e887773 (excluded from independent priority evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Belloni–Freund, On the Symmetry Function of a Convex Set, Mathematical Programming 111 (2008), 57–93, §5.2 eqs. (39)–(41), Proposition 7; https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+          "den Hertog–Pauphilet–Soali, Minkowski Centers via Robust Optimization: Computation and Applications, 2023/2024, §2.3 Proposition 4 and §2.4 Lemma 1; https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+          "De Loera–Kim, Combinatorics and Geometry of Transportation Polytopes: An Update, arXiv:1307.0124v1, §2.1 Lemmas 2.2 and 2.3; https://arxiv.org/html/1307.0124v1",
+          "Resultary: 2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834 (intrinsic Euclidean, not Minkowski asymmetry); https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834"
+        ],
+        "reasoning": "Write U_ij=max_{Y∈T}Y_ij=min(r_i,c_j), readily attained by filling the remaining margins. Belloni (40) gives sym(A,T)=min A_ij/(U_ij−A_ij). At inverse symmetry s=b−1 the full center constraint is A>=U/b. By De Loera–Kim Lemma 2.2 this lower bound can be completed iff residual row and column margins are nonnegative, i.e. b>=max_i u_i/r_i, max_j v_j/c_j. Subtracting U/beta yields precisely a residual transportation polytope. Lemma 2.3 gives its dimension on the positive residual support, and the square beta=n follows from any minimum row or minimum column margin and the trivial bound beta<=n. Every asserted item thus follows through a short, explicit corollary chain of prior results; no unproved comparison remains.",
+        "searches": [
+          "Resultary semantic search: Minkowski asymmetry measure of symmetry of positive-margin transportation polytope exact n minus 1 square independent of row column margins full center locus residual table",
+          "Resultary semantic search: polytope of nonnegative matrices fixed row and column sums Minkowski center symmetry coefficient min(r_i,c_j) residual transportation polytope",
+          "Resultary semantic search: Minkowski center affine dimension uniqueness arbitrary transportation polytope row column margin ratios",
+          "\"Minkowski asymmetry\" \"transportation polytopes\" formula",
+          "\"symmetry\" \"transportation polytope\" \"margins\" Minkowski",
+          "\"Minkowski center\" \"transportation\" polytopes all centers",
+          "\"transportation polytope\" \"measure of symmetry\" row column sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Belloni–Freund, On the Symmetry Function of a Convex Set, Mathematical Programming 111 (2008), 57–93, §5.2 eqs. (39)–(41), Proposition 7; https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+          "den Hertog–Pauphilet–Soali, Minkowski Centers via Robust Optimization: Computation and Applications, 2023/2024, §2.3 Proposition 4 and §2.4 Lemma 1; https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf"
+        ],
+        "reasoning": "Belloni defines inverse Minkowski symmetry sym(X,T)=sup{a:X+a(X−Y)∈T for all Y}; the assessed s(T)=1/max sym. Setting the only relative facet inequalities to −X_ij<=0, Belloni eq.(40) gives sym(X,T)=min_ij X_ij/(U_ij−X_ij). Hence sym≥1/(b−1) iff b X_ij>=U_ij, identical to the claimed center criterion. den Hertog Proposition 4 likewise covers equalities separately and yields the same inequality exactly. Different normalization/wording does not produce a new invariant.",
+        "searches": [
+          "Resultary semantic search: Minkowski asymmetry measure of symmetry of positive-margin transportation polytope exact n minus 1 square independent of row column margins full center locus residual table",
+          "Resultary semantic search: polytope of nonnegative matrices fixed row and column sums Minkowski center symmetry coefficient min(r_i,c_j) residual transportation polytope",
+          "\"Minkowski asymmetry\" \"transportation polytopes\" formula",
+          "Belloni Freund symmetry function convex set transportation polytope full pdf",
+          "den Hertog Pauphilet Soali Minkowski centers via robust optimization Proposition 4 pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "De Loera–Kim, Combinatorics and Geometry of Transportation Polytopes: An Update, arXiv:1307.0124v1, §2.1 Lemmas 2.2 and 2.3; https://arxiv.org/html/1307.0124v1",
+          "Resultary: 2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834 (intrinsic Euclidean, not Minkowski asymmetry); https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834",
+          "Resultary returned the assigned record as a self-match; no independent exact transportation-asymmetry table in examined returns."
+        ],
+        "reasoning": "The claimed theorem is for uncountably many real-margin vectors, so a small finite database would not dominate. Nevertheless the exact general formula and transportation rank/feasibility lemmas already imply the family symbolically; absence of a named table does not restore originality.",
+        "searches": [
+          "Resultary semantic search: polytope of nonnegative matrices fixed row and column sums Minkowski center symmetry coefficient min(r_i,c_j) residual transportation polytope",
+          "\"transportation polytope\" \"measure of symmetry\" row column sums",
+          "\"doubly stochastic\" \"coefficient of symmetry\" polytope",
+          "measure of symmetry of Birkhoff polytope transportation matrix exact centers"
+        ]
+      },
+      "rationale": "The complete claimed classification is already an elementary specialization of Belloni–Freund (2008), equation (40), or den Hertog–Pauphilet–Soali (2023), Proposition 4, combined with standard transportation feasibility and dimension theorems in De Loera–Kim (2013), Lemmas 2.2–2.3. These prior statements imply, not merely algorithmically touch, the exact threshold, full center locus, uniqueness/dimension and square case. The short cell-maximum identity U_ij=min(r_i,c_j) and minimum-margin monotonicity are straightforward. This is decisive prior mathematical coverage under the corollary rule, not a negative search shortcut.",
+      "residual_risks": [
+        "No single inspected earlier publication explicitly prints the specialized beta formula; the FAIL conclusion is based on decisive short mathematical implication of published exact general symmetry and classical transportation feasibility, not a claimed verbatim prior identity.",
+        "The general pointwise formulas apply on the transportation polytope affine hull; positive margins ensure relative interior. Boundary zero-residual rows/columns are handled by deleting support, not by assuming strictly positive residuals.",
+        "Search coverage of differently named pre-2008 flow-polytope symmetry work is necessarily finite; additional earlier formulations might exist, but this does not weaken the already established mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader implication: equation (40) gives sym(A,T)=min_ij A_ij/(U_ij-A_ij) for coordinate lower-bound facets in the relative affine hull. Thus all centers at any threshold are exactly matrices A>=U/b. With standard transportation feasibility/dimension, every asserted formula follows by short elementary deductions even absent explicit transportation vocabulary.",
+          "evidence": "§5.2 (39) defines exact constraint range; (40) gives pointwise slack/range symmetry; (41) and Proposition 7 optimize it exactly.",
+          "identifier_or_url": "https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+          "material_read": "Primary author-uploaded manuscript text, definition and §5.2 pp.24–27, equations (35)–(41), especially (40) and Proposition 7; full-text term checks for transportation, Birkhoff and stochastic found no explicit family statement.",
+          "method": "Primary manuscript full-text HTML, equation-level reading and mathematical substitution into the affine-hull nonnegative-coordinate representation.",
+          "title": "On the Symmetry Function of a Convex Set",
+          "trigger": "Exact known pointwise symmetry formula for arbitrary polyhedra is a potential stronger theorem covering the transportation specialization."
+        },
+        {
+          "assessment": "Proposition 4 explicitly handles Ax=b and Cx<=d. With C=-I, d=0, delta_ij=-U_ij, it yields exactly the known threshold inequality and hence includes all optimizing centers. The remaining elimination uses classic transport feasibility.",
+          "evidence": "Proposition 4: maximize λ subject to Aw=(1+λ)b and Cw−λδ<=d; Lemma 1 states pointwise polyhedral symmetry ratio; the paper identifies prior Belloni–Freund method.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+          "material_read": "Open 45-page PDF: introductory framing, §§2.2–2.4, Proposition 4 on displayed PDF page 8 (zero-index page 7), proof page 9 and Lemma 1; visual page screenshots for pp.8–9.",
+          "method": "Lawful open PDF text plus page-image inspection.",
+          "title": "Minkowski Centers via Robust Optimization: Computation and Applications",
+          "trigger": "Independent generic polyhedral center theorem encompassing prescribed marginal equalities and nonnegative entries."
+        },
+        {
+          "assessment": "Supplies exact residual-table feasibility and dimension ingredients. Lemma 2.2 ensures all residual nonnegative margins with equal total admit a table; Lemma 2.3 yields (a−1)(b−1) on positive support. When combined with the earlier generic symmetry formulas, these imply the assessed result.",
+          "evidence": "§2.1 Lemma 2.2 equal row and column total iff transportation nonempty; Lemma 2.3 constraint rank p+q−1 and dimension (p−1)(q−1).",
+          "identifier_or_url": "https://arxiv.org/html/1307.0124v1",
+          "material_read": "Primary 35-page survey in full-text HTML: §2.1 definition, Lemmas 2.2 (nonnegative balanced margins feasible) and 2.3 (rank and dimension), §2 classical structural discussion; full-text search for Minkowski-asymmetry/symmetry-point terms.",
+          "method": "arXiv author primary full-text HTML.",
+          "title": "Combinatorics and Geometry of Transportation Polytopes: An Update",
+          "trigger": "Standard full transportation-polytope feasibility, affine rank, and dimension needed to determine the special minimizing center fiber from the general symmetry criterion."
+        },
+        {
+          "assessment": "Different intrinsic Frobenius inradius metric: center constraint X_ij>=constant t rather than Minkowski threshold X_ij>=U_ij/b. It does not by itself determine Minkowski asymmetry, but supplies analogous elementary residual transport strategy.",
+          "evidence": "Its result is rho= sqrt(mn/((m−1)(n−1))) min(min r_i/n,min c_j/m), complete inball-center locus tJ+T(r−nt,c−mt).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834",
+          "material_read": "Complete published RESULT.md theorem, proof, hypotheses and distinctions of Frobenius inball from enclosing-ball problems.",
+          "method": "GitHub read-only retrieval of primary publication record.",
+          "title": "Exact intrinsic Euclidean inradius and centers of transportation polytopes",
+          "trigger": "Highly similar object and residual-center formulation among published SCOPE findings."
+        },
+        {
+          "assessment": "Vertex characterizations concern a more general bounded-margin transportation class, not symmetry-point functionals. No independently covering result found here.",
+          "evidence": "arXiv:2404.16791v1 abstract and statements; no occurrence of Minkowski in searched text.",
+          "identifier_or_url": "https://arxiv.org/html/2404.16791v1",
+          "material_read": "Primary open arXiv HTML abstract, statement, scope and keyword check for Minkowski.",
+          "method": "arXiv primary HTML overview and term search.",
+          "title": "Extreme points of general transportation polytopes",
+          "trigger": "Potential broader matrix-polytope geometry source for fixed margins."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Minkowski center of a transportation polytope is a natural affine-invariant object in robust optimization/transportation geometry, and a full all-real-margin formula with the geometry, dimension and uniqueness of its complete center locus is independently useful. Unlike a tiny arbitrary numerical slice, this is a coherent infinite natural-class classification; the margin-uniform square coefficient is a useful summary. Although its implication by prior general formulas defeats O, the object and exact invariant are mathematically motivated; do not confuse coveredness with intrinsic utility.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Belloni–Freund, On the Symmetry Function of a Convex Set, Mathematical Programming 111 (2008), 57–93, §5.2 eqs. (39)–(41), Proposition 7; https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+    "den Hertog–Pauphilet–Soali, Minkowski Centers via Robust Optimization: Computation and Applications, 2023/2024, §2.3 Proposition 4 and §2.4 Lemma 1; https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+    "De Loera–Kim, Combinatorics and Geometry of Transportation Polytopes: An Update, arXiv:1307.0124v1, §2.1 Lemmas 2.2 and 2.3; https://arxiv.org/html/1307.0124v1",
+    "Resultary: 2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834 (intrinsic Euclidean, not Minkowski asymmetry); https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834",
+    "Koehl, Extreme points of general transportation polytopes, arXiv:2404.16791v1; https://arxiv.org/html/2404.16791v1",
+    "Resultary semantic-search self-match 2026/10/11/SCOPE-complete-minkowski-center-loci-of-positive-margin-transportation--97466e887773 (excluded from independent priority evidence)"
+  ],
+  "disposition": "failed",
+  "final_claim": "For every m,n>=2 and strictly positive balanced margins, Minkowski asymmetry of T(r,c) is beta−1, beta=max(max_i sum_j min(r_i,c_j)/r_i, max_j sum_i min(r_i,c_j)/c_j); all minimizing centers form U/beta+T(r-u/beta,c-v/beta), with affine dimension (|I|−1)(|J|−1) on positive residual supports (or zero for zero total), and beta=n for each square n×n case.",
+  "limitations": [
+    "The proof requires complete bipartite support, real strictly positive balanced margins, no cell upper bounds or structural zeros.",
+    "This is a complete scientific rejection on O through prior mathematical implication, not an operational access or transport failure.",
+    "Belloni uses symmetry λ, reciprocal to stated asymmetry s; comparisons account for this normalization.",
+    "The classic survey does not print beta itself; composition is explicit and elementary, not a quotation of a matching named theorem.",
+    "Returned original Git blob IDs were compared with the verified seven-entry tree, but not all individual raw original bytes were locally materialized and independently rehashed."
+  ],
+  "residual_risks": [
+    "No single inspected earlier publication explicitly prints the specialized beta formula; the FAIL conclusion is based on decisive short mathematical implication of published exact general symmetry and classical transportation feasibility, not a claimed verbatim prior identity.",
+    "The general pointwise formulas apply on the transportation polytope affine hull; positive margins ensure relative interior. Boundary zero-residual rows/columns are handled by deleting support, not by assuming strictly positive residuals.",
+    "Search coverage of differently named pre-2008 flow-polytope symmetry work is necessarily finite; additional earlier formulations might exist, but this does not weaken the already established mathematical implication."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Decisive broader implication: equation (40) gives sym(A,T)=min_ij A_ij/(U_ij-A_ij) for coordinate lower-bound facets in the relative affine hull. Thus all centers at any threshold are exactly matrices A>=U/b. With standard transportation feasibility/dimension, every asserted formula follows by short elementary deductions even absent explicit transportation vocabulary.",
+      "evidence": "§5.2 (39) defines exact constraint range; (40) gives pointwise slack/range symmetry; (41) and Proposition 7 optimize it exactly.",
+      "identifier_or_url": "https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+      "material_read": "Primary author-uploaded manuscript text, definition and §5.2 pp.24–27, equations (35)–(41), especially (40) and Proposition 7; full-text term checks for transportation, Birkhoff and stochastic found no explicit family statement.",
+      "method": "Primary manuscript full-text HTML, equation-level reading and mathematical substitution into the affine-hull nonnegative-coordinate representation.",
+      "title": "On the Symmetry Function of a Convex Set",
+      "trigger": "Exact known pointwise symmetry formula for arbitrary polyhedra is a potential stronger theorem covering the transportation specialization."
+    },
+    {
+      "assessment": "Proposition 4 explicitly handles Ax=b and Cx<=d. With C=-I, d=0, delta_ij=-U_ij, it yields exactly the known threshold inequality and hence includes all optimizing centers. The remaining elimination uses classic transport feasibility.",
+      "evidence": "Proposition 4: maximize λ subject to Aw=(1+λ)b and Cw−λδ<=d; Lemma 1 states pointwise polyhedral symmetry ratio; the paper identifies prior Belloni–Freund method.",
+      "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+      "material_read": "Open 45-page PDF: introductory framing, §§2.2–2.4, Proposition 4 on displayed PDF page 8 (zero-index page 7), proof page 9 and Lemma 1; visual page screenshots for pp.8–9.",
+      "method": "Lawful open PDF text plus page-image inspection.",
+      "title": "Minkowski Centers via Robust Optimization: Computation and Applications",
+      "trigger": "Independent generic polyhedral center theorem encompassing prescribed marginal equalities and nonnegative entries."
+    },
+    {
+      "assessment": "Supplies exact residual-table feasibility and dimension ingredients. Lemma 2.2 ensures all residual nonnegative margins with equal total admit a table; Lemma 2.3 yields (a−1)(b−1) on positive support. When combined with the earlier generic symmetry formulas, these imply the assessed result.",
+      "evidence": "§2.1 Lemma 2.2 equal row and column total iff transportation nonempty; Lemma 2.3 constraint rank p+q−1 and dimension (p−1)(q−1).",
+      "identifier_or_url": "https://arxiv.org/html/1307.0124v1",
+      "material_read": "Primary 35-page survey in full-text HTML: §2.1 definition, Lemmas 2.2 (nonnegative balanced margins feasible) and 2.3 (rank and dimension), §2 classical structural discussion; full-text search for Minkowski-asymmetry/symmetry-point terms.",
+      "method": "arXiv author primary full-text HTML.",
+      "title": "Combinatorics and Geometry of Transportation Polytopes: An Update",
+      "trigger": "Standard full transportation-polytope feasibility, affine rank, and dimension needed to determine the special minimizing center fiber from the general symmetry criterion."
+    },
+    {
+      "assessment": "Different intrinsic Frobenius inradius metric: center constraint X_ij>=constant t rather than Minkowski threshold X_ij>=U_ij/b. It does not by itself determine Minkowski asymmetry, but supplies analogous elementary residual transport strategy.",
+      "evidence": "Its result is rho= sqrt(mn/((m−1)(n−1))) min(min r_i/n,min c_j/m), complete inball-center locus tJ+T(r−nt,c−mt).",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834",
+      "material_read": "Complete published RESULT.md theorem, proof, hypotheses and distinctions of Frobenius inball from enclosing-ball problems.",
+      "method": "GitHub read-only retrieval of primary publication record.",
+      "title": "Exact intrinsic Euclidean inradius and centers of transportation polytopes",
+      "trigger": "Highly similar object and residual-center formulation among published SCOPE findings."
+    },
+    {
+      "assessment": "Vertex characterizations concern a more general bounded-margin transportation class, not symmetry-point functionals. No independently covering result found here.",
+      "evidence": "arXiv:2404.16791v1 abstract and statements; no occurrence of Minkowski in searched text.",
+      "identifier_or_url": "https://arxiv.org/html/2404.16791v1",
+      "material_read": "Primary open arXiv HTML abstract, statement, scope and keyword check for Minkowski.",
+      "method": "arXiv primary HTML overview and term search.",
+      "title": "Extreme points of general transportation polytopes",
+      "trigger": "Potential broader matrix-polytope geometry source for fixed margins."
+    }
+  ]
+}
