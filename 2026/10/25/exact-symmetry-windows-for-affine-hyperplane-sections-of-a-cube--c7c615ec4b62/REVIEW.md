@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-After normalizing the hyperplane equation, the proof handles the zero-coordinate directions by products. For at least three active coordinates, distinct restricted coordinate normals cannot be parallel. Hence every centrally symmetric section has facets from paired opposite cube faces. Boundedness forces at least one pair for each section dimension, yielding either all pairs (a central section) or all but one (a parallelotope with a sharp coefficient-dominance interval). Both converses are proved. The exceptional one- and two-coordinate cases are products of a point or segment with a cube. The normal-offset boundaries are included and proved using full coordinate projection. Exact rational checks: 17,667 sections in dimensions three, four and five; no discrepancies. Such checks do not replace the proof.
+PASS
 
-## Originality — PASS under available evidence
+Reflect negative normal coefficients so the cut is sum(w_i y_i)=t with w_i>=0 and 0<t<W; coordinates w_i=0 contribute a passive cube factor. r<=2 gives point/segment factors, hence symmetry. For r>=3, restrictions of distinct coordinate normals to L={v:sum w_i v_i=0} are never proportional because a third positive weight prevents e_i-lambda e_j being a multiple of w. In a centrally symmetric section facets necessarily pair by parallel opposite outward normals. Thus every coordinate active as a facet has both y_i=0 and y_i=1 active and symmetry center coordinate 1/2. Since the active normals span L*, at least r-1 distinct coordinates are active. If r all, center y_i=1/2 implies t=W/2; if exactly r-1, the omitted coordinate inequalities are redundant, and solving y_j=(t-sum_{i!=j}w_i y_i)/w_j over the entire (r-1)-cube yields W-w_j<=t<=w_j, so w_j=m. The converse follows by central complement or affine cube parametrization. Classification includes endpoints and full Cartesian passive factors: r<=2 or t=W/2 or W-m<=t<=m. Independent exact rational vertex-and-central-reflection tests of 3330 sections (dimensions 3,4, weights 0..3) all matched. Finite checks corroborate the all-dimensional facet proof.
 
-Brandenburg et al., arXiv:2610.09939 (2026), prove graph-based combinatorial reconstruction of cube slices; that reconstruction theorem does not itself establish whether the realized section is centrally symmetric or the precise allowable affine offsets. De Loera et al., arXiv:2412.12419 (2024), determine slice vertex-count patterns and discuss section enumeration, which similarly does not provide a symmetry-offset criterion. Aichholzer and Aurenhammer (1996) study cube-vertex-spanned hyperplanes and symmetries of avoided vertices, which are not the same invariant; only their abstract was accessible, so priority relative to any detailed results in their paper remains uncertain. Relevant general central-section and zonotope literature was considered, but no dominating theorem was found in the material inspected. This is an evidence-bounded comparison, not a certification of worldwide novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete all-dimensional classification of which affine cube cuts retain central symmetry, including the sharp dominance inequality and exact offset window. It shows that every genuinely off-center symmetric cut is forced into the minimal-facet parallelotope type; a fixed generic normal with no dominant coefficient has exactly one symmetric offset. The boundary is geometrically meaningful for cube slicing and distinguishes combinatorial shape constraints from actual Euclidean or affine symmetry, rather than giving an arbitrary numerical special case.
+Metric central symmetry of every affine hyperplane section is resolved by an exact normal-weight/offset criterion, unlike previously studied graph reconstruction, vertex counts or center-only extremal sections. Relevant 1996 vertex-spanned hyperplane full text was not obtained, so historical priority remains qualified.
 
-## Closest sources and remaining limitations
+## value
 
-- Brandenburg, Curtis, Giardino, Meroni, Padrol, *Reconstruction of slices of cubes*, arXiv:2610.09939 (first posted 2026-10-07).
-- De Loera, Lopez-Campos, Torres, *On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes*, arXiv:2412.12419 (first posted 2024-12-17).
-- Aichholzer, Aurenhammer, *Classifying Hyperplanes in Hypercubes*, SIAM J. Discrete Math. 9 (1996), 225–232; the full text was unavailable and an equivalent special-case classification might be implicit.
+PASS
 
-The proof is for codimension one only. The originality judgment is provisional; no independent scientific audit has been conducted.
+The dichotomy between central slices and genuinely off-center affine parallelotopes gives a complete geometry of symmetry for all cube hyperplane cuts, not merely isolated examples. The exact dominant-normal interval [W-m,m] and vertex/facet classification can be used directly in cube section and zonotope questions. It naturally sharpens the basic fact that through-center cube sections are symmetric.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

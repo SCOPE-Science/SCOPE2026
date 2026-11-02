@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:51:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-symmetry-windows-for-affine-hyperplane-sections-of-a-cube--c7c615ec4b62/RESULT.md Git blob 8cefc84a048e53c2ad237b074dd2308bb3b42592",
+        "2026/10/25/exact-symmetry-windows-for-affine-hyperplane-sections-of-a-cube--c7c615ec4b62/VERIFICATION.md",
+        "/mnt/data/scope_worker03_independent_checks_20261028.json"
+      ],
+      "rationale": "Reflect negative normal coefficients so the cut is sum(w_i y_i)=t with w_i>=0 and 0<t<W; coordinates w_i=0 contribute a passive cube factor. r<=2 gives point/segment factors, hence symmetry. For r>=3, restrictions of distinct coordinate normals to L={v:sum w_i v_i=0} are never proportional because a third positive weight prevents e_i-lambda e_j being a multiple of w. In a centrally symmetric section facets necessarily pair by parallel opposite outward normals. Thus every coordinate active as a facet has both y_i=0 and y_i=1 active and symmetry center coordinate 1/2. Since the active normals span L*, at least r-1 distinct coordinates are active. If r all, center y_i=1/2 implies t=W/2; if exactly r-1, the omitted coordinate inequalities are redundant, and solving y_j=(t-sum_{i!=j}w_i y_i)/w_j over the entire (r-1)-cube yields W-w_j<=t<=w_j, so w_j=m. The converse follows by central complement or affine cube parametrization. Classification includes endpoints and full Cartesian passive factors: r<=2 or t=W/2 or W-m<=t<=m. Independent exact rational vertex-and-central-reflection tests of 3330 sections (dimensions 3,4, weights 0..3) all matched. Finite checks corroborate the all-dimensional facet proof.",
+      "residual_risks": [
+        "Only codimension-one full-dimensional hyperplane sections of unit cubes or affine parallelotopes; not arbitrary centrally symmetric polytopes, higher codimensions or tangential cuts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aichholzer–Aurenhammer 1996 classifies vertex-spanned hyperplanes; cannot be assumed to classify all real offsets.",
+          "Other cube-section literature studies vertex number, graph reconstruction, or maximal volume of central cuts."
+        ],
+        "reasoning": "A general facet-classification result might imply this criterion, but no inspected primary source states or demonstrably entails the quantitative [W-m,m] window.",
+        "searches": [
+          "central symmetry hyperplane section of cube coefficient dominance offsets classification translated zonotope",
+          "Classifying Hyperplanes in Hypercubes Aichholzer Aurenhammer 1996",
+          "cube central section maximizing volume hyperplane"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.09939 (full relevant text)",
+        "https://arxiv.org/abs/2412.12419 (relevant statements)",
+        "https://doi.org/10.1137/S089548019426348X (abstract-only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A graph determining combinatorial type does not decide which translation is centrally symmetric, since metric positions can change.",
+          "The r>=3 proof uses nonparallel coordinate facet restrictions and a redundant-coordinate dichotomy not established by vertex-count existence alone."
+        ],
+        "reasoning": "Even if some cube slices are known parallelotopes, the sharp complete offset interval requires a quantitative normal-weight argument.",
+        "searches": [
+          "arXiv:2610.09939 reconstruction of slices of cubes",
+          "arXiv:2412.12419 hyperplane cross-section vertex count",
+          "doi:10.1137/S089548019426348X"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brandenburg–Curtis–Giardino–Meroni–Padrol treat combinatorial graph reconstruction of cube slices, not the Euclidean/affine symmetry center as offset varies.",
+          "Coordinate reflection reduces signed normals to nonnegative weights, exposing candidate aliases as parallelotope sections."
+        ],
+        "reasoning": "The noncentral symmetric parallelotope criterion is the same statement in affine form, and the comparison tests that equivalent formulation.",
+        "searches": [
+          "central symmetry hyperplane section of cube coefficient dominance offsets classification translated zonotope",
+          "cube hyperplane section central symmetry iff middle slice dominant coefficient interval",
+          "arXiv:2610.09939"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "12 Resultary nearest hits concern cube zonotopes, automorphism modules or incenter loci, not this central symmetry window.",
+          "Independent 3330 exact rational sections test the formula but are not an existing database table."
+        ],
+        "reasoning": "A finite cube-slice catalogue or unindexed classical convex-geometric statement could duplicate the exact condition; searches are not proof of absence.",
+        "searches": [
+          "central symmetry hyperplane section of cube coefficient dominance offsets classification translated zonotope",
+          "Resultary cube section symmetry affine normal offset search"
+        ]
+      },
+      "rationale": "Metric central symmetry of every affine hyperplane section is resolved by an exact normal-weight/offset criterion, unlike previously studied graph reconstruction, vertex counts or center-only extremal sections. Relevant 1996 vertex-spanned hyperplane full text was not obtained, so historical priority remains qualified.",
+      "residual_risks": [
+        "1996 vertex-spanned classification remains incompletely inspected; stronger implicit classical facet theorem might cover some cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Graph-reconstruction theorem not an offset-by-offset central-symmetry locus.",
+          "evidence": "Main theorem reconstructing combinatorial type from graph",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09939",
+          "material_read": "Accessible complete arXiv article, main reconstruction theorem and section context",
+          "method": "arXiv HTML/full text reading",
+          "title": "Reconstruction of slices of cubes",
+          "trigger": "Most recent directly relevant cube-section combinatorial classification"
+        },
+        {
+          "assessment": "Vertex-count focus does not yield the geometric symmetry criterion.",
+          "evidence": "Vertex enumeration and attainable counts",
+          "identifier_or_url": "https://arxiv.org/abs/2412.12419",
+          "material_read": "Accessible statement and key vertex-count results",
+          "method": "arXiv text inspection",
+          "title": "On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes",
+          "trigger": "Potential stronger all-section vertex classification"
+        },
+        {
+          "assessment": "Could contain special vertex-spanned cases; no whole-document noncoverage asserted.",
+          "evidence": "SIAM J. Discrete Math. 9 (1996), 225-232",
+          "identifier_or_url": "https://doi.org/10.1137/S089548019426348X",
+          "material_read": "Bibliographic metadata and abstract; full paper not obtained",
+          "method": "Search and publisher abstract reading",
+          "title": "Classifying Hyperplanes in Hypercubes",
+          "trigger": "Older plausible classification of hyperplanes with cube vertices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/exact-symmetry-windows-for-affine-hyperplane-sections-of-a-cube--c7c615ec4b62/RESULT.md",
+        "https://arxiv.org/abs/2610.09939 (full relevant text)",
+        "https://arxiv.org/abs/2412.12419 (relevant statements)"
+      ],
+      "rationale": "The dichotomy between central slices and genuinely off-center affine parallelotopes gives a complete geometry of symmetry for all cube hyperplane cuts, not merely isolated examples. The exact dominant-normal interval [W-m,m] and vertex/facet classification can be used directly in cube section and zonotope questions. It naturally sharpens the basic fact that through-center cube sections are symmetric.",
+      "residual_risks": [
+        "Scientific value concerns the precise stated invariant and scope, not a generalization beyond its explicit hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-symmetry-windows-for-affine-hyperplane-sections-of-a-cube--c7c615ec4b62",
+    "https://arxiv.org/abs/2610.09939 (full relevant text)",
+    "https://arxiv.org/abs/2412.12419 (relevant statements)",
+    "https://doi.org/10.1137/S089548019426348X (abstract-only)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only codimension-one full-dimensional hyperplane sections of unit cubes or affine parallelotopes; not arbitrary centrally symmetric polytopes, higher codimensions or tangential cuts.",
+    "Preexisting public AUDIT.json and METADATA.json contain scope_run_id operational provenance. Complete confidentiality-neutral replacement scientific/metadata bytes were not supplied and semantically verified in this execution; publication withheld. The minimal server-generated status plan cannot itself certify removal from unchanged source public metadata.",
+    "Independent bounded checks do not imply unbounded mathematical claims or formal certification."
+  ],
+  "residual_risks": [
+    "1996 vertex-spanned classification remains incompletely inspected; stronger implicit classical facet theorem might cover some cases.",
+    "Only codimension-one full-dimensional hyperplane sections of unit cubes or affine parallelotopes; not arbitrary centrally symmetric polytopes, higher codimensions or tangential cuts."
+  ],
+  "schema_version": 1
+}
