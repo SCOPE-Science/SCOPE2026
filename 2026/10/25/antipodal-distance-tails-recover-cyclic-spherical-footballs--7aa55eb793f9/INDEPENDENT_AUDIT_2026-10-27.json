@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:14:41.895349Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob ff8f983dac8f2b2af7c21904960d7a4c7a06c977",
+        "Assigned orbifold_metric_check.py and orbifold_quadrature_check.py actual Git blobs",
+        "Private independent_checks_private.py integral check q=2,3,4,6,10,50",
+        "Classical spherical cosine law"
+      ],
+      "rationale": "Orbifold quotient geodesic distance is the minimum over q round-sphere rotational lifts. In polar coordinates its cosine is cos(theta1)cos(theta2)+sin(theta1)sin(theta2)cos(psi), with independent shortest longitude difference psi uniform [0,pi/q]. For q>=2 cos(psi)>=0, so near-diameter points lie in opposite radius-epsilon polar caps. Summing both orientations and scaling polar radii by epsilon produces the exact factor epsilon^4/(2a) with quadratic domain s^2+t^2+2st cos(psi)<1. The integral I(psi)=(sin(psi)-psi cos(psi))/(8sin^3(psi)) is continuous at zero with I(0)=1/24; exact integration yields the asserted C_q. Monotonicity of the domain proves strict C_q decrease, and q=1 has the familiar spherical cosine-uniform quadratic tail. Independent SciPy quadrature rederived C_q from I for q=2,3,4,6,10,50. The limiting integral, not a finite simulation, proves the asymptotic.",
+      "residual_risks": [
+        "Tail remainder is for each fixed q; no uniform q limit. The q=1 law is separate since all directions have diametral antipodes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bacher--Sturm supply the general spherical cone cosine metric, but not the specialized independent-pair fourth-order distribution.",
+          "Balch et al derive full distances in homogeneous three-dimensional lens spaces, which are not equal to these two-dimensional footballs."
+        ],
+        "reasoning": "More general metric formula is not a more general law for a random distance; physical models and sampling measures differ.",
+        "searches": [
+          "Bacher--Sturm Ricci Bounds for Euclidean and Spherical Cones Section 1.1",
+          "Balch--Peterson--Shonkwiler arXiv:2004.13196 distance laws for homogeneous lens spaces",
+          "Borzellino et al arXiv:math/0602595 geodesics on orbifolds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0602595 orbifold geodesics",
+        "arXiv:2004.13196 lens distances",
+        "Bacher--Sturm cone formula",
+        "Resultary spherical cyclic quotient geometry search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general distance cosine law alone does not evaluate the area-uniform near-diameter probability.",
+          "Known three-dimensional lens-space laws do not imply the fixed-axis two-dimensional cone quotient law without a different measure and polar integral."
+        ],
+        "reasoning": "The evaluated C_q and inverse identifiability are a new conditional consequence of explicit angular integration relative to inspected sources.",
+        "searches": [
+          "Bacher--Sturm spherical cone cosine metric",
+          "Balch--Peterson--Shonkwiler arXiv:2004.13196 distance laws",
+          "Borzellino et al math/0602595 orbifold geodesics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spaces are spherical two-orbifolds with two equal cone points, also called cyclic spherical footballs.",
+          "The intrinsic metric is obtained by minimizing ordinary spherical distances over finite rotations; this is the explicit reduction used."
+        ],
+        "reasoning": "Compared football, spherical cone, orbifold of revolution and lens-space terminologies, distinguishing dimension and fixed-point vs free actions.",
+        "searches": [
+          "Resultary: spherical 2 orbifold football cyclic quotient random distance distribution antipodal tail cone angles",
+          "Borzellino et al arXiv:math/0602595 orbifolds of revolution",
+          "Balch--Peterson--Shonkwiler arXiv:2004.13196 homogeneous lens spaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-q constant table appears in retrieved semantic results; the inspected lens-space distribution applies to dimension three.",
+          "The coefficient is mathematically distinct at q=1 and strictly separated among q>=2."
+        ],
+        "reasoning": "A specialized published spherical-geometry table could still contain this integral; no exhaustive priority inference is made from absence.",
+        "searches": [
+          "Resultary cyclic spherical football antipodal distance tail q order inverse characterization",
+          "Borzellino Jordan-Squire Petrics Sullivan 2006 spherical orbifolds of revolution",
+          "Balch Peterson Shonkwiler 2020 lens space distance distribution"
+        ]
+      },
+      "rationale": "Spherical cone orbifold geometry and cosine laws are classical. Published random-distance distributions on 3D homogeneous lens spaces concern free actions of Z_q on S^3, not the 2D fixed-point axial action here. The specific fourth-order antipodal tail with strictly order-identifying closed coefficient appears not to follow from those inspected results alone. Its priority remains qualified against specialized spherical football statistics.",
+      "residual_risks": [
+        "Specialized spherical orbifold distribution literature under football/spindle/quotient-sphere terminology could contain an equivalent q-tail.",
+        "Sample is normalized 2-dimensional quotient area, not chord distance or random geodesics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes orbifold geodesic context; not an inspected random pair-distance law",
+          "evidence": [
+            "Main focus is existence of closed geodesics on orbifolds of revolution"
+          ],
+          "identifier_or_url": "arXiv:math/0602595",
+          "material_read": "Primary PDF introduction, geodesic/theorem statements and sections treating orbifolds of revolution",
+          "method": "arXiv PDF page/text inspection",
+          "title": "On the Existence of Infinitely Many Closed Geodesics on Orbifolds of Revolution",
+          "trigger": "Same spherical orbifold class and cone points"
+        },
+        {
+          "assessment": "Three-dimensional S^3 lens spaces with free actions differ from two-dimensional axial Z_q quotient with fixed poles",
+          "evidence": [
+            "Dimension 3 and lens-space homogeneity in setup"
+          ],
+          "identifier_or_url": "arXiv:2004.13196",
+          "material_read": "Accessible primary PDF introduction and distance-distribution statements, including dimensional hypotheses",
+          "method": "arXiv PDF inspection",
+          "title": "Distributions of Distances and Volumes of Balls in Homogeneous Lens Spaces",
+          "trigger": "Plausible stronger full distance laws for cyclic spherical quotients"
+        },
+        {
+          "assessment": "Classical formula is reused; no inspected statement gives the q-dependent random tail",
+          "evidence": [
+            "Section 1.1 spherical cosine-cone formula"
+          ],
+          "identifier_or_url": "https://www.iam.uni-bonn.de/fileadmin/WT/Inhalt/people/Karl-Theodor_Sturm/papers/paper59.pdf",
+          "material_read": "Source description/formula in Section 1.1 as cited; no complete article-level noncoverage asserted",
+          "method": "Accessible mathematical formula/reference comparison",
+          "title": "Ricci Bounds for Euclidean and Spherical Cones",
+          "trigger": "General spherical cone distance formula potentially subsuming metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Derived polar-area fourth-order law and monotonicity",
+        "Geometric difference between smooth sphere and conic football"
+      ],
+      "rationale": "A single simple one-dimensional observable, the near-diameter tail of a natural two-point metric-measure statistic, distinguishes all axial cyclic quotient orders while recovering the radius. The strict coefficient law is a nontrivial intrinsic inverse-statistics result for a canonical family of singular spherical metrics.",
+      "residual_risks": [
+        "Does not characterize general footballs with unequal cone angles, general orbifolds, or arbitrary metrics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "q>=1 integer axial rotational spherical quotient only, R>0, area-uniform independent points.",
+    "Fixed q asymptotic epsilon->0, no uniform q remainder."
+  ],
+  "schema_version": 1
+}
