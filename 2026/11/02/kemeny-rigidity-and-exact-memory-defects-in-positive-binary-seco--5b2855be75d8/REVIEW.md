@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness
+**PASS.** The four-state shift-register chain is primitive when all four probabilities lie in \((0,1)\), ensuring a unique stationary pair law and finite first-passage means. Pair stationarity yields the marginal weights \(A/(A+B)\) and \(B/(A+B)\). The two first-step recurrences have the exact tables printed in `RESULT.md`. Substitution yields both nonnegative square-defect identities with no unproved asymptotic or external lemma. The necessity follows from positivity; sufficiency reduces to a first-order two-state chain and is also checked by substitution. A standard-library exact-rational verifier solves the underlying four-state stationary and passage linear systems independently for 1,025 parameter choices. Residual correctness risk is primarily a convention mismatch if one substitutes first-nonnegative passage for the explicitly stated first-positive passage; the statement uses the latter throughout.
+
+## Originality
+**PASS, with historical-priority qualification.** Han (2026, Remark 5.1) expressly asks when expected marginal mixing times are constant and provides a one-directional condition. The four-parameter binary second-order necessity, the two exact nonnegative square-defect formulas, and their sharp rigidity consequence were not found in the inspected source or targeted published-record and literature comparisons. General Kemeny identities for the full lifted chain do not transfer constancy automatically to targets defined only by the observed bit, and the classical lumpability criterion does not assert that one expected hitting-time statistic detects lumpability. The main residual risk is an earlier unindexed or differently named projected-hitting-time theorem that implies this precise binary result; independent historical-priority confirmation has not been performed.
+
+## Mathematical value
+**PASS.** The theorem completely answers an explicit natural question in the smallest memory-bearing, fully positive finite-state model rather than selecting arbitrary numerical parameters. The squared defects offer a quantitative diagnostic for whether an apparently constant expected marginal mixing time really masks second-order dependence. They give the exact zero set, strict signs, and an explicit lower bound for the four-history spread; this is not just a special-case evaluation of the first-order Kemeny constant.
+
+## Closest prior work and limitations
+Han (2026) supplies definitions and asks the characterization question; Fredes–Marckert (2025) and Hunter (2012) treat full-state Kemeny constancy, not this projected-history converse; Wolfer–Watanabe (2022) treat general lumpability. All four transitions are assumed strictly between zero and one, and the conclusion concerns first-positive passage only. Boundary tensors, more than two visible states, and memory depth above two remain unresolved here. Formal independent audit and exhaustive historical-priority verification have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
