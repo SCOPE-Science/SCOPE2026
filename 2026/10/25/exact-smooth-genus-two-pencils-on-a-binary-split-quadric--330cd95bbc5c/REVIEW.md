@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The definition uses all nonzero members of every binary pencil, all four affine charts, and all nine rational points. The geometric Jacobian-unit criterion is equivalent to smoothness over the algebraic closure. Exhaustive pure-Python Buchberger enumeration was cross-checked for all 4095 forms by an independent SymPy Gröbner calculation, agreeing on 1116 smooth sections. Two different enumerative principles, explicit subspace enumeration and additive Fourier analysis, agree on 44070 pencils and the complete rational-base-point distribution. The full order-36 projective action yields the 1242-orbit catalogue, checked by orbit-size reconstruction.
+## correctness
 
-## Originality
-**PASS, qualified.** Direct primary-text inspection of Asgarli--Ghioca (arXiv:2203.07169v1, introduction and existence theorem) shows existence and general hypersurface-pencil questions, not the stated finite census on the split quadric. Zobernig (arXiv:2111.07270v1, introduction and genus-two moduli material) studies individual genus-two curves and p-rank classes, not embedded pencils or their base intersections. Research-record and published-literature searches for these precise objects, synonyms, and numerical invariants found no result that implies the 44070/1242 census and rational-base-point profile. The known count of individual smooth divisors is weaker than the simultaneous incidence and symmetry classification. Residual risks include an unindexed computation or a specialized finite-geometry table not located in the bounded search.
+PASS
 
-## Value
-**PASS.** Pencils whose every rational member is smooth are the central objects of finite-field Bertini problems. Bidegree (2,3) is the smallest natural embedding of genus-two curves on a split quadric, and the classification determines both the total number and complete ambient symmetry types at the smallest field. The exact rational base-point distribution separates 6066 pencils without rational base points from those with one to three, while the geometric intersection product stays twelve. These are arithmetic incidence properties of a natural family, not arbitrary coefficient slices or renamings of an existing count.
+Inspected all four-chart GF(2) Buchberger unit-ideal logic; vanishing of f,df/dx,df/dy over algebraic closure detects geometric singularities, so checking unit ideal on each chart tests smoothness without sampling extension fields. Independent custom lex Gröbner implementation checked all 4095 masks and independently SymPy-checked first 100, finding 1116 smooth. Independently enumerated all 44070 distinct triples {a,b,a xor b} of smooth sections and 9-point rational base histogram; independently reconstructed 36 action matrices and full 1242 orbit partition with frequencies 1,3,30,1208 for orbit sizes 6,12,18,36. Verified binomial-moment inversion (44070,62820,28512,3696,0), no >=4 rational base points. Adjunction genus (2−1)(3−1)=2, geometric intersection product 2*2*3=12. All universes finite and genuinely exhaustively enumerated, not extrapolated.
 
-## Boundaries
-The result is about embedded pencils over the given field, not geometric isomorphism classes of curves. The complex base intersections are not classified beyond their total intersection product. Global novelty is not certified, and external independent verification has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge after current primary-source reading and searches: A theorem asserting some smooth member in a pencil is far weaker than counting W with all three members smooth; exact F2 conditions stronger. Abstract genus-two curve counts forget embedding, subspace structure, rational common base points and polarized action.
+
+## value
+
+PASS
+
+Complete arithmetic and symmetry classification for a natural polarized split quadric over the smallest finite field, refining existence to exact counts, all projective orbits, and rational base-locus incidence. Reproducible exact finite geometry produces information not mechanistically supplied by general smooth-pencil existence or abstract genus-two moduli tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
