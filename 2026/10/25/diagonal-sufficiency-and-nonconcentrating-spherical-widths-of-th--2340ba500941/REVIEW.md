@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Euclidean-width identity is exactly the sum of absolute generator projections; averaging over all Boolean masks rewrites it as a shifted Rademacher sum. Gaussian smoothing and third-order Lindeberg replacement give a deterministic all-dimensional bound depending only on the absolute third powers of the direction coordinates. For a Haar-spherical unit direction, the maximum coordinate tends to zero, while its diagonal projection converges to a standard normal, establishing the law and the stronger \(L^p\) diagonal approximation. Exact spherical-coordinate moments give uniform integrability. A bivariate Gaussian absolute-moment identity gives the positive variance \(1/12+(\sqrt3-2)/(2\pi)\). The binomial square-root expansion and a Gamma ratio give the coefficient \(1/8\) in the mean. The included checker independently enumerates coefficient-cube corners in 42 cases and verifies separate exact finite moment formulas; those finite checks are not the proof.
+## correctness
 
-## Originality — PASS, subject to remaining bibliographic risk
-The closest same-object source is Deza, Hao and Pournin, *Sizing the White Whale*, arXiv:2205.13309v1 (2022), inspected in its accessible 26-page primary preprint. Its actual results concern vertex enumeration, normal chambers, edges and degrees, not Haar-directional widths. Stinson, Gleich and Constantine, arXiv:1602.06620v1, provide general random-direction sampling of zonotope vertices, not the specific full-subset zonotope profile. Published database comparisons yielded no equivalent theorem. A related complete-bipartite graphical zonotope's one-hub law has twice the same scalar Gaussian profile; this coincidence is explicitly acknowledged rather than asserted to be a new distribution. That graphical model has a different set and rank of generators and does not imply the new deterministic diagonal approximation or the specified spherical mean correction. The absence of a search hit is not treated as a uniqueness proof. Overlap with unindexed treatments of Boolean-sum zonotopes remains possible.
+PASS
 
-## Mathematical value — PASS
-The full Boolean generator system has exponentially many segments and a highly complex resonance arrangement, making its asymptotic width geometry a natural gap beyond finite vertex and edge counts. The result establishes that its entire leading directional fluctuation depends only on the diagonal projection despite the huge generator set, exhibits a strictly positive limiting relative variance rather than width concentration, and determines a sharp next-order mean correction. These are Euclidean structural facts for a natural published family, not merely a renamed Gaussian random variable or a finite numerical observation.
+For a unit direction u, Minkowski support additivity gives X_d(u)=0.5 E|T_d(u)+sum_i epsilon_i u_i|, including the zero Boolean vector harmlessly. A shift-uniform Gaussian smoothing/Lindeberg replacement controls the difference from F(T_d(u)) by C(sum_i |u_i|^3)^(1/3); for Haar u the maximum coordinate vanishes in probability and T_d(u) tends to a standard normal. Spherical even-moment bounds and X_d<=0.5(|T_d|+1) yield every fixed positive moment. The correlated bivariate normal absolute-product identity gives EF(Z)=1/sqrt(pi) and Var(F(Z))=1/12+(sqrt(3)-2)/(2*pi)>0. The exact finite mean E sqrt(K)*Gamma(d/2)/(sqrt(pi) Gamma((d+1)/2)) with K~Bin(d,1/2) and asymptotics give (1+1/(8d)+O(d^-2))/sqrt(pi). Independently compared direct generator-sum widths in 38 finite cases and exact binomial/gamma corrections through d=256. These tests are corroboration of the analytic infinite-d result, not a replacement.
 
-## Limits of this assessment
-The deterministic rate need not be optimal; no individual vertex normal-cone law or convergence of bodies is claimed. Source searches cannot rule out unindexed equivalents. The finite checker is not an infinite certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: first-public White Whale combinatorics and general Gaussian zonotope vertex-exposure work do not yield the claimed Haar Euclidean width profile for the Boolean subset generator family. The folded-Gaussian profile itself is not new; the precise geometric realization, shift-uniform deterministic diagonal reduction, nonzero variance and sharp normalized mean correction are the surviving claim. No mathematical implication from the inspected sources gives all these assertions.
+
+## value
+
+PASS
+
+The full Boolean-generator zonotope is a canonical, combinatorially intricate d-dimensional family, and spherical Euclidean width is an intrinsic basic geometric observable. The theorem shows an unanticipated nonconcentrating Gaussian-diagonal limit despite exponentially many generators, and supplies an exact variance and sharp next-order mean. These are natural quantitative invariants rather than arbitrary small-instance calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
