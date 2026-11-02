@@ -1,9 +1,21 @@
-# Mathematical assessment: adaptive-confidence DW graph stabilization
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise result quantifies over finite graphs and the full \(0<\mu\le1/2\), \(0<\gamma\le1\), \(0\le\delta<1\) range. The original article's Theorem 5 establishes the opinion and confidence limits and the implication from confidence one to common endpoint limiting opinions. For any edge, present-time receptiveness is predictable under independent uniform edge selection. Conditional Borel–Cantelli therefore excludes infinitely many receptive but indefinitely unselected episodes. The confidence reset to at least \(\gamma\) makes such episodes incompatible with confidence convergence to zero. Confidence-one edges are eventually persistently receptive. This yields finite-time stabilization almost surely without incorrectly inferring finite time from mere convergence. Executed rational-transition tests and deterministic examples corroborate, but are not infinite-time proofs.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** Li, Luo, and Porter, arXiv:2303.07563v3, Theorem 6 only excludes eventual cross-limit-cluster receptiveness; Section 6.2 and Appendix A.2 explicitly leave eventual constancy of the adaptive DW effective graph without even an almost-sure guarantee. Their Theorem 3 handles synchronous HK, and Theorem 7 handles nonadaptive DW: these do not imply the asserted rule. Thompsky, Wu, Porter, and Luo, arXiv:2605.20418v1, investigate time-varying interaction probabilities under a fixed radius and obtain a conditional result for another model. The distinct predictable-sampling bridge is necessary. Relevant public searches, mathematical record searches, and the prior scientific claim comparisons yielded no matching implication. General stochastic-gossip equivalents remain a bibliographic risk; a related 2015 paper's full text was unavailable for direct comparison.
+PASS
 
-**Mathematical value — PASS.** The original source poses exactly this stabilization question. Its resolution provides a global, almost-sure structural conclusion, a precise identity for the surviving network, and an explanation why intermittent unselected receptiveness cannot persist when confidence decays. This directly affects interpretation of simulated final interaction networks. No deterministic stabilization-time bound, finite expectation, universal consensus result, or assertion for adaptive sampling probabilities is claimed.
+PASS: The source Li–Luo–Porter Theorem 5 really establishes a.s. c_e→0 or 1 and convergence of opinions, with c_e→1 implying equal endpoint limiting opinions by contraposition. At each time pre-draw receptive A_e(t) is measurable with respect to the past and the independent next draw selects e with probability 1/|E|. Conditional Borel–Cantelli ensures infinitely many receptive times imply infinitely many SELECTED receptive times almost surely, even if receptive episodes are short. If c_e→0, each such selected event would reset c_e(t+1)>=γ>0, impossible infinitely often. Hence a confidence-zero edge has finitely many receptive times. If c_e→1, opinion gap→0 and confidence→1, so eventually |gap|<c_e permanently. Taking a maximum across finite E proves exactly constant graph a.s. with surviving edges c∞=1. Independent C2_OK rational reset and decay checks verify update algebra but are not a proof of conditional Borel–Cantelli.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified: Li–Luo–Porter (2303.07563v3) explicitly prove only that eventually receptive adaptive-DW edges belong to common opinion-limit clusters, leaving actual eventual graph constancy unproved; this finding fills that particular gap by predictable-time sampling. The newer Thompsky–Wu–Porter–Luo 2605.20418 model adapts selection weights under a fixed radius, not this uniform-selection adaptive-confidence process. Generic stochastic-gossip stopping-time results remain a possible mathematically equivalent source.
+
+## value
+
+PASS
+
+PASS: Establishes a nearly model-defining a.s. structural limit which the originating primary authors explicitly left open; distinguishes identical limiting opinions with permanently dead edges from live edges. This supports rigorous interpretation of eventual random interaction networks, not merely finite simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

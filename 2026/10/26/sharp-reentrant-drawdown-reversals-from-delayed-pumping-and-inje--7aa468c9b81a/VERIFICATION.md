@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` in an environment with Python 3 and SciPy (`scipy.optimize` and `scipy.special`). The script is standalone; no external data or private logs are required.
+## correctness
 
-The executable checks 4,500 deterministic pseudorandom positive \((a,b,\tau)\) triples for the quadratic-derived kernel-minimum classification, 100 direct finite-difference comparisons against the exponential-integral drawdown derivative, and both strict turning points in each of two reentrant delays. It also brackets the transition delays for a deliberately selected example and uses elementary exact exponential inequalities to prove the \(2,0,2\) comparison without relying on rounded values.
+PASS
 
-Finite random tests cannot prove the universal quantified result. Mathematical verification depends on the exact derivative factorization, the quadratic one-minimum lemma, the envelope derivative, and limiting arguments in `RESULT.md`. Floating-point underflow for extremely small minima is handled by testing their logarithms for finiteness and negativity. The code checks this model only; no independent audit, stochastic observation study, field extrapolation, or certificate of historical uniqueness has been performed.
+Differentiate E1(c/t): exp(-c/t)/t. The drawdown derivative has the sign of Phi_tau(t)-lambda, with Phi=(t-tau)/t exp(-a/t+b/(t-tau)). Its log derivative numerator is Q(t)=(tau+a-b)t²-tau(tau+2a)t+a tau², with Q(tau)=-b tau² and discriminant tau²(tau²+4ab). This proves monotonic or one-minimum regimes and sharp two-strict-extrema threshold. Envelope differentiation at the stationary t_m yields sign determined by b-(t_m-tau); evaluating log Phi derivative at t=tau+b gives the unique delay peak b/a at tau=a-b for a>b. Exact t witnesses establish the 2/0/2 pattern for (a,b,lambda)=(4,1,0.1); independent symbolic discriminant and numerical root checks passed.
+
+## originality
+
+PASS
+
+Theis superposition is classical and derivative zero solutions can be computed routinely. The assessed new claim is the global strict-extrema classification and reentrant delay envelope for a nearer delayed positive injection well with a smaller rate, which are not in the accessible primary materials. Closest full publisher articles inaccessible, so priority is qualified.
+
+## value
+
+PASS
+
+The sharp phase diagram and 2-to-0-to-2 reappearance under a single delay parameter expose a non-monotone identifiable feature of two-well transient interference; this may matter for interpreting pumping/recharge time courses within the idealized model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

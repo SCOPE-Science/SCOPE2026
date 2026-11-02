@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-A standard-library verifier enumerates the complete four-type profile of three binary centers after translating the first to zero. For each type profile, a finite binomial sum counts exact-radius common neighbors without using the extremal inequalities from the proof. It checks all profiles for \(t=2,3,4,5\) and \(4t\le n\le4t+4\); the observed equality profiles are exactly the pairwise-distance patterns \(2,2,2\) and \(2,2,4\), with the predicted counts.
+## correctness
 
-The execution output records 20 complete grids, 23,340 profile evaluations and 15 independent direct binary-word enumerations. For \(n=12\) and \(t=3\), the predicted top two values are 45 and 32. The exact output ends with `TRIPLE_SPHERE_VERIFY_OK`.
+PASS
 
-Reproduce using `python3 verify_triple_spheres.py` (no third-party Python packages). The accompanying `verification_output.txt` contains the observed output. No finite experiment establishes the full infinite theorem; the proof in `RESULT.md` does. Independent review is not represented as performed.
+Pairwise intersection F_d=C(2d,d)C(n-2d,t-d) strictly decreases under n>=4t for 1<=d<=t, so any pair distance >=6 yields <M2. If one pair distance is four, six inside choices Q and outside W determine the third condition. Split by intersection size j of third support with the four coordinates: j=1,3 at most three; j=2 at most four with equality only third support entirely inside; j=0,4 give <3 by hypergeometric bound p_h<=p_1<1/2. For all pair distances two, the representative (empty,{1,2},{1,3}) gives C(n-3,t-1)+C(n-3,t-2)=M1. Parity kills odd distances. Strict separation and list size follow. Independent exact coordinate-profile enumeration checked 5,805 cases over 9 parameter grids; not a substitute for all n,t.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS, with actual primary statement/implication comparison and listed residual priority risks; an unsuccessful search is not historical novelty proof. The same word universe does not equate exact shells and balls. Inclusion-exclusion may compute individual shell intersections from general ball tables but does not directly optimize over all triples and classify rigid equality cases. General up-to-radius results contain useful counting ingredients but no inspected dominating theorem for exact-radius top two intersections on n>=4t and all distinct triples. The analogous asymptotic ball model cannot supply finite exact equality cases.
+
+## value
+
+PASS
+
+Three-center ambiguity is the exact obstacle to list size two in the published fixed-weight substitution model. Optimizing the first and second overlap levels, with equality geometry and a sharp distinct-observation threshold, is a natural substantive extension of the two-source unique reconstruction result, beyond simply plugging parameters into a sphere-count formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

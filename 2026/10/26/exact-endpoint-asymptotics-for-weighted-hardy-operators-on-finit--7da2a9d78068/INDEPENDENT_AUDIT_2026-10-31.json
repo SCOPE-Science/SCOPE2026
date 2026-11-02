@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:09:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Take total q-mass Q=∫Gamma uv>0. Subdivide finitely many edges into N pieces whose q-masses are Q/N+O(N⁻²), with length O(1/N). The map Gf(x)=∫_[o,x]u f has root value zero, hence nodal interpolation on the N-edge subdivision has rank<=N and uniform error <=(max_I sup_I(u) sup_I(v)|I|)/2=(1+o(1))Q/(2N), giving a_(N+1) upper. For each local interval choose f_j=+1 on the first half of its u-mass and −1 on the second, zero elsewhere. Each integrated image has support only on its interval, and has v-weighted peak at least (1−o(1))Q/(2N). On the N-dimensional span of these inputs any rank<N approximation has a normalized nonzero kernel vector, and disjoint tent outputs imply a_N >=(1−o(1))Q/(2N). The shifted upper bound and lower bound prove the exact limit; finite edges and positive uniform-continuity assumptions are used explicitly. I independently checked weighted edge subdivision and disjoint tent peak numerically (N=32 giving scaled minimum 0.499886...), but this is not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "EHL 2001 main theorem exact limit stated for 1<p<∞ and Section 5.2 separately lists endpoint estimates.",
+          "The 1998 paper’s abstract expressly reports analogous endpoint estimates and asymptotic results, so a potentially covering endpoint conclusion is a genuine risk."
+        ],
+        "reasoning": "Interior-exponent theorem does not directly cover p=∞; the 1998 paper is close but studies an interval rather than arbitrary finite branched trees. Cannot claim full-text NOT_COVERING from accessible abstract.",
+        "searches": [
+          "Evans Harris Lang The approximation numbers of Hardy-type operators on trees 2001 arXiv math/0003215 Section 5",
+          "Evans Harris Lang Two-sided estimates approximation numbers Hardy type L∞ L1 1998 DOI 10.4064/sm_1998_130_2_1_171_192",
+          "Web: endpoint p infinity Hardy trees n approximation numbers exact limit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0003215 full web-extracted sections including §5.2",
+        "1998 Evans–Harris–Lang endpoint publisher abstract, full text unavailable (403) and protected retrieval safety block",
+        "Resultary finite-tree Hardy endpoint semantic search",
+        "Independent local interpolant and tent tests"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2001 opening lines 1–24 explicitly exclude p=∞ from the exact 1<p<∞ asymptotic; §5.2 gives endpoint estimates.",
+          "1998 specifically studies p=∞ but its exact implications are unresolved without full text; branchwise decomposition could make finite-tree theorem a corollary in principle."
+        ],
+        "reasoning": "The inspected 2001 main theorem cannot be instantiated at p=∞. Neither an endpoint estimate nor an interval theorem automatically supplies the precise tree coefficient without a branch-uniform comparison; residual overlap explicitly retained.",
+        "searches": [
+          "Evans Harris Lang 2001 arXiv math/0003215 Sections 1,5.2 and main exact theorem",
+          "Evans Harris Lang 1998 publisher abstract DOI 10.4064/sm_1998_130_2_1_171_192"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "EHL 2001 operator is exactly a weighted rooted-tree Hardy path integral, but its main exact limit explicitly assumes 1<p<∞.",
+          "EHL 1998 treats p=∞ on the half-line/interval and is a plausible source of the interval building block, not evidence of this all-finite-trees formula without reading."
+        ],
+        "reasoning": "Weighted Volterra, Hardy-tree, and rooted path-integration are equivalent operator descriptions; matching objects alone does not settle equality of the endpoint conclusion.",
+        "searches": [
+          "Resultary: Hardy type operators on finite metric trees L infinity approximation numbers exact limit integral uv divided two",
+          "arXiv:math/0003215 EHL tree Hardy operator Section 5.2",
+          "DOI 10.4064/sm_1998_130_2_1_171_192"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact finite-tree 1/2 coefficient entry found in the returned indexed findings; matched Hardy–Steklov and Cesàro objects differ.",
+          "This is an infinite asymptotic theorem, not a finite database classification."
+        ],
+        "reasoning": "Search is limited and does not remove the possibility of an earlier endpoint analytic theorem under other terminology.",
+        "searches": [
+          "Resultary Hardy type operators on finite metric trees L infinity approximation numbers exact limit integral uv divided two",
+          "Web endpoint Hardy approximation number 1/2 total weight tree"
+        ]
+      },
+      "rationale": "PASS qualified best-of-knowledge with material access risk. Evans–Harris–Lang 2001 proves the exact limit for 1<p<∞; Section 5.2 provides endpoint estimates but the inspected statements do not explicitly give this finite-tree equality. Their 1998 endpoint interval paper is especially close and may contain the interval base case; full text inaccessible despite publisher licensing, and authorized institutional retrieval was blocked by safety controls. This access limit alone is not a scientific FAIL.",
+      "residual_risks": [
+        "The 1998 endpoint paper full text was not accessible; it might contain the exact interval coefficient and implications for finite trees.",
+        "The 2001 endpoint lemmas include estimates whose displayed equations were partially omitted in text extraction; exact strength could not be compared line by line.",
+        "No assertion for infinite trees, zeros in weights, noncontinuous weights, or exact finite-n numbers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact limit main theorem restricted to 1<p<∞; endpoint §5.2 has estimates, cannot assert missing formulas imply no overlap",
+          "evidence": "arXiv:math/0003215 Sections 1 and 5.2",
+          "identifier_or_url": "https://arxiv.org/abs/math/0003215",
+          "material_read": "Complete accessible arXiv extracted text: introduction 1–24, main theorem region, §5.2 lines 448–497, endpoint Lemmas 5.5–5.9",
+          "method": "Read relevant full-text sections and compared p ranges and endpoint conclusions",
+          "title": "The approximation numbers of Hardy-type operators on trees",
+          "trigger": "Exactly the same weighted rooted tree operator and approximation numbers"
+        },
+        {
+          "assessment": "Unresolved possible covering interval endpoint asymptotic, not classified as no coverage",
+          "evidence": "IMPAN 1998 vol 130 pages 171–192 abstract explicitly claims endpoint estimates and analogous asymptotic results",
+          "identifier_or_url": "https://doi.org/10.4064/sm_1998_130_2_1_171_192",
+          "material_read": "Publisher page, abstract and free-license link; linked paper download returned HTTP 403; complete paper text not read",
+          "method": "OA paper download tried first; authorized institutional source was attempted but safety blocked; no workaround",
+          "title": "Two-sided estimates for the approximation numbers of Hardy-type operators in L∞ and L1",
+          "trigger": "Highly relevant earlier endpoint study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact endpoint approximation-number coefficient of the natural rooted Hardy integration operator on finite branched metric trees is a meaningful canonical asymptotic invariant. The universal one-half coefficient independent of branch topology distinguishes the L∞ endpoint from the previously quantified 1<p<∞ range; a finite tree is natural, not an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 1998 endpoint paper full text was not accessible; it might contain the exact interval coefficient and implications for finite trees.",
+    "The 2001 endpoint lemmas include estimates whose displayed equations were partially omitted in text extraction; exact strength could not be compared line by line.",
+    "No assertion for infinite trees, zeros in weights, noncontinuous weights, or exact finite-n numbers.",
+    "Frozen source-tree Git identity was reconstructed from all immediate entries and checked against current record listings; no claim of broader future branch immutability.",
+    "Scientific PASS is best-of-knowledge and is not independent formal proof or publisher certification."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review — cycle graphical Lie adjoint ranks
+# Independent mathematical audit
 
-**Correctness — PASS.** The edgewise commutator equations give the exact general kernel dimension \(c(G[S])+|V|-|N[S]|\). On a cycle, the induced one-runs and zero-runs imply the exact cyclic \(100\)-pattern correction, including the all-one exceptional rank. The stated four-state transition weights reproduce that statistic coefficientwise, and the central factor is accounted for. At \(t=1/q\), the characteristic polynomial splits into the explicitly stated four eigenvalues, giving the commuting-degree formula without asymptotic approximation. The exact moments follow from independent Bernoulli triple calculations; the bounded two-dependent central limit theorem proves the infinite-dimensional limit. Direct finite matrix-rank enumeration over two prime fields, independent support checks, exact coefficient comparisons, and rational-moment tests corroborate the argument. The proof does not infer infinite claims from finite tests.
+## correctness
 
-**Originality — PASS against inspected sources.** The full text of Godoy Molina–Lagos (arXiv:2308.00272v2, Sections 2–5) supplies the graph Lie construction and studies different invariants. Shamsaki–Erfanian–Parvizi (arXiv:2406.10064v1, Definition 3.1 and Lemma 3.2) supplies the general commutativity-degree framework but no cycle spectrum. The inspected published cycle graphical-group character formula counts antisymmetric adjacency ranks indexed by edge weights, not ranks of edge-by-vertex adjoints indexed by vertex coefficients. The inspected filiform adjoint spectrum concerns nonisomorphic maximal-class families, not these class-two cycle algebras. Actual targeted literature and research-index searches did not yield the same statement or a stronger theorem implying it. Residual risk: unindexed equivalents under breadth, centralizer, or support-word terminology. Neither a search miss nor the algebra-category partition proves uniqueness.
+PASS
 
-**Value — PASS.** The full distribution of ranks of inner derivations and the probability that two Lie-algebra elements commute are intrinsic, interpretable measures of centralizer structure. The cycle family is a canonical infinite family of graphical two-step Lie algebras. The exact Lucas-root formula gives an unexpected closed commutativity rate; the cycle support statistic yields a nontrivial explicit variance and a rigorous Gaussian fluctuation law, rather than a routine isolated count. Together these determine structural and probabilistic invariants in every dimension of this family.
+PASS: For support S of the vertex component, each connected component of G[S] contributes one proportionality coordinate to ker ad_x, every external neighbor is forced zero, and vertices outside N[S] are unconstrained, giving rank |N[S]|-c(G[S]). On the cycle, proper nonempty supports have rank |S|+number of zero-runs of length >=2, recorded by cyclic 100 patterns; all-one support has rank n-1. The four-state transfer trace weights each indexed cyclic binary word, with the displayed all-one correction and q^n central multiplicity. At t=1/q, the transfer characteristic polynomial is λ(λ-p)(λ²-λ-p), yielding the exact commutativity degree. The bounded stationary 2-dependent Bernoulli triple statistic has positive variance pr(5p^4-15p³+21p²-14p+4) and a genuine m-dependent CLT; the cyclic and all-one corrections are bounded. Independent direct bracket-matrix finite-field elimination for q=2,3 and n<=6 exactly reproduced support ranks and moments (C1_OK). The finite tests are not the all-n proof.
 
-**Scientific limits.** All finite fields are covered, but the closed cycle formulas do not extend automatically to repeated-edge-label constructions or all graphs. The Gaussian limit fixes the field size. No claim of unconditional publication priority or independent validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Godoy Molina–Lagos gives the edge-distinct graph Lie construction, Shamsaki–Erfanian–Parvizi the general element commutativity-degree framework. The close published Resultary cycle graphical-group result concerns ranks of an n-by-n edge-WEIGHTED skew-adjacency matrix; here one counts ranks of an edge-by-vertex adjoint map varying VERTEX coordinates. Filiform adjoint ranks concern nonisomorphic nilpotency-class-growing algebras. The verified different matrix maps do not yield this cycle distribution by direct specialization. Generic breadth/centralizer graph-polynomial formulations remain a specific potential equivalent source.
+
+## value
+
+PASS
+
+PASS: Inner-derivation rank spectrum and element commuting probability are intrinsic centralizer measures for a canonical infinite class-two graphical-Lie family. The full exact distribution, finite-n correction, explicit rate, Gaussian fluctuations and support-combinatorial interpretation go beyond a small example or relabeling of the known general adjoint kernel formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

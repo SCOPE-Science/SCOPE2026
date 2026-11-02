@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of exact endpoint norms
+# Independent mathematical audit
 
-Run `python3 check_projection.py` from the package directory using the Python standard library. The source is embedded alongside the result. This script calculates all rows of the degree-zero-plus-one weighted projection kernel by exact fractions and checks that the claimed extremal corner attains the largest absolute row sum. It independently evaluates the closed binomial mean-absolute-deviation formula, the finite binomial-tail identity, the fair-bias parity formula and monotonicity on a rational grid.
+## correctness
 
-The extracted script was executed successfully: **1,866 exact-rational assertions passed** for all vertices in dimensions 2 through 7, each at seven bias values. Strict monotonicity on twenty grid values was also checked in each dimension. Numerical experiments cannot establish the theorem's universal and limiting statements. Those conclusions depend on the convex-order proof, exact binomial identities and asymptotic arguments in RESULT.md.
+PASS
 
-No Lean, formal proof assistant, independent expert examination or historical-priority certification was performed.
+Orthonormal first-biased-Walsh basis gives K(x,y)=1+sum_i (xi-p)(yi-p)/[p(1-p)]. Absolute kernel row averages are exact Linfty norm, and symmetry gives L1. For p<=1/2 the all-one row is maximal by convex order between centered two-point laws with minimum -1; strictness of bias comparison for n>=2 is from conditional Jensen at a suitable binomial success count, handling exceptional (n-1)p integer by continuity. Binomial tails and symmetric random-walk identities yield exact fair formula and p to zero limit. CLT with second-moment UI yields the dense sqrt(n) coefficient, while binomial-to-Poisson with UI yields the n-scale sparse formula and derivative jumps. Independent exact kernel row enumeration for n<=6 and grid bias confirmed formulas and monotonicity.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS for the exact final theorem, not for foundational known ingredients; source and implication comparisons are below, with named residual risks. Low-degree Fourier influence/FKN approximation is not the same functional as the induced L∞ absolute-kernel row norm. The latter must be optimized over output cube vertices, then bias, and its sparse Poisson limit is not a direct FKN statement. The source ingredients establish a natural starting kernel, but sharp induced norm and unique bias minimization demand additional nonroutine optimization; the bias-isotropic restriction n>=2 is materially stated.
+
+## value
+
+PASS
+
+Sharp endpoint norms of low-degree Fourier truncation govern stability of a canonical least-squares approximation in a biased product probability model, not just the standard orthogonal L2 norm one. The unique balancing law and Gaussian-to-Poisson crossover reveal real measure-dependent growth and give a reusable exact operator invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

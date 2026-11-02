@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The explicit restricted core vector is efficient by its definition, and all its coalition inequalities reduce term-by-term to the stated insertion-budget inequality. Necessity is established by an in-star, where a two-player restricted game violates its elementary core feasibility inequality whenever the budget condition fails. Uniqueness uses the exact complement worth identity under singleton normalization; the calculation requires looplessness. For order statistics, zero insertion and coordinate-wise Lipschitz continuity verify the budget condition for every permissible rank schedule. Exact-rational tests cover 6,228 finite graph/operator cases; the proof, rather than the tests, establishes the infinite statement.
+PASS
 
-## Originality
+PASS: The restricted worth v(T)=Σ_{j∈T}[Σ_{i∈T}a_ij+F(B_j(N\T))] is carefully distinguished from recomputation of an induced graph. Assume the insertion-budget inequality F(U⊎{b})≤F(U)+b. For S⊆N define x_j^S=Σ_{i∈S}a_ij+F(B_j(N\S)), giving exact efficiency Σx^S=v(S). For every T⊆S, split external incoming multiset B_j(N\T)=B_j(N\S)⊎B_j(S\T); iterating the budget controls every coalition constraint termwise. Conversely any violating U,b builds an in-star target j with distinguished p and outside sources whose restriction to {p,j} has v({j})>v({p,j})-v({p}) and empty core. Singleton normalization F({b})=b implies v(N\{j})=v(N)-Σ_i a_ij, and every core coordinate ≤ incoming sum, hence uniqueness by efficiency. For min, max, mean and rank statistics the budget follows from order-statistic coordinate Lipschitz bound; the ranks k(m+1)≤k(m)+1 cover medians and quantiles. Independently checked exact rational core inequalities in three-node graphs and four aggregators (C5_OK), not a substitute for universal symbolic proof.
 
-**PASS, with residual literature risk.** Bandhana–Kroupa–García (2024) analyze the minimum-aggregator model and prove an incoming-weight core allocation; Ryzák–Kroupa (2026) establish its singleton core and total balancedness. The latter paper's Section 6 specifically identifies average, median and order-statistic external aggregates as an open direction. The new claim is an exact necessary-and-sufficient *universal operator criterion*, with converse obstruction and multiple nonminimum examples; neither cited paper states it. Searches for equivalent criteria and incoming-aggregation alternative classes found no stronger indexed result; an equivalent generic theorem outside the searched literature remains possible. The specialized minimum result is explicitly prior art.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The source poses the stability of alternative external aggregators as an open structural question; this result classifies all rules for which total balancedness persists, rather than proving a single example. The opposite direction is exact and gives a smallest restricted obstruction from any failed insertion inequality. The result separates stability from the source's minimum-specific power-index tractability, informing the choice of robust network reputation aggregation methods.
+PASS, qualified: Ryzák–Kroupa arXiv:2605.18157v1 proves total balancedness and core uniqueness for minimum aggregation, and explicitly calls alternative external aggregation stability an open research direction in Section 6. Bandhana–Kroupa–García 2024 introduced the minimum model and incoming-weight core. The new universal iff insertion criterion includes necessity via a strict two-player obstruction and nonminimum stable classes; neither inspected primary result states this. A generic cooperative-game marginal-subadditivity theorem could imply the characterization at a higher level, which remains a priority risk.
 
-## Scope and limitations
+## value
 
-Nonnegative arc weights, no loops, additive internal contributions, and restriction retaining outside-world exposure are essential hypotheses. The criterion is universal across graphs, not a full classification of a fixed graph's cores; the unique core statement assumes normalization and applies to the entire network. No Shapley tractability or manipulation resistance is established; generic publication-priority risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Classifies the entire natural operator class permitting stable inherited-worth subgames, rather than a handful of examples. Its exact converse and unique-core refinement provide decision and construction tools for graph games; the prior 2026 authors specifically identify this family as open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-component effective Laplacian is reconstructed from its internal arc counts and weak-edge multiplicities. The zero mode and spectral-measure comparison prove both symmetry necessities, while a fully explicit three-mode diagonalization establishes sufficiency through rational parity and irrational density. Pell norms and trigonometric bounds give the stated strict error bound. The source's weak-edge asymptotic is used only at fixed rescaled times. The actual standalone verification program passed 307 finite checks; finite checks are not an infinite proof.
+## correctness
 
-## Originality — PASS (best knowledge)
-Hosaka and Segawa (arXiv:2610.07768v1) supply the reduced-wave theorem and an equal-mass three-path formula but not the near-unit supremum classification and Pell witness family. Their earlier two-component result (arXiv:2511.12872v2) has only one positive frequency. Vaia (arXiv:2008.01685) already proves the general exact perfect-transfer parity principle for symmetric mass-spring chains; that principle is acknowledged, not presented as new. Chan and Zhan (arXiv:2105.03762) establish generic pretty-good transfer criteria for a different fixed-unitary setting. Targeted mathematical-literature and published-record searches, together with accessible prior claims, revealed no statement covering the full mass/bridge symmetry, rational-irrational trichotomy, and Pell bound for weak-edge quantum communities. An equivalent unlocated specialization remains a genuine priority risk.
+PASS
 
-## Value — PASS
-A natural open transport-design question is answered completely for the three-community weak-cut path, beyond the two-component single-frequency problem. The theorem separates exact transfer, arbitrarily close but unattained transfer, and structurally obstructed transfer, with an explicit readout sequence for balanced graph communities. The conclusion is not an unmotivated parameter substitution: both symmetry of weak-edge connectivity and mode arithmetic are necessary and jointly decisive.
+The source Theorem 3.1 supplies the fixed-tau O(sqrt(epsilon)) weak-edge reduction. Its zero eigenvector has components sqrt(M_i)/sqrt(sum M_i), so a unit supremum forces M1=M3 by zero-mode projection and positivity. Contraction plus diagonal spectral-measure equality then forces L11=L33 and k1=k2. In that symmetric case the 0, k/M, k/M+2k/m eigenspaces yield C31=M/(2M+m)-(1/2)cos(omega_a tau)+m/(2(2M+m))cos(omega_s tau). Equality requires phases (pi,0) only; Kronecker density gives Q=1 nonattained for irrational rho; a closed rational torus orbit reaches phases iff numerator even/denominator odd. Pell x^2-3q^2=1 with x even q odd gives the explicit <pi^2/(72q^2) deficit. Independently diagonalized examples, asymmetric bounds and Pell arithmetic passed; they do not establish uniform-in-time fixed-epsilon statements.
 
-## Limitations
-The finding uses the published perturbative reduction rather than reproving it. It classifies leading-order wave transport and fixed-witness weak-edge limits, not unrestricted finite-weight dynamics. The perfect mass-spring commensurate parity part is pre-existing theory. The numerical implementation corroborates but cannot certify all inputs. Literature-wide priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS for the exact final theorem, not for foundational known ingredients; source and implication comparisons are below, with named residual risks. The rational p-even/q-odd exact-time portion is an instance of a known alternating-parity spectral rule, explicitly credited. Neither covers the weak-epsilon reduced 3-community amplitude supremum with asymmetric obstructions, irrational nonattainment and Pell-rate witnesses under fixed-tau quantifiers. The general cosine formula permits but does not explicitly state this iff classification; asymmetry necessity is a separate spectral argument. The nonattained irrational cases require Kronecker density and are not covered by exact finite-time normal-mode parity theory.
+
+## value
+
+PASS
+
+Determining when a physically defined weak-coupling three-community wave can get arbitrarily close to end-to-end perfect concentration is a natural, nontrivial full parameter classification. The rational parity and incommensurate dichotomy plus explicit Pell-rate witness times answer a question not settled by the source reduced-wave formula. It is not merely renaming a known exact perfect-transfer theorem; the weak Grover path reduction, necessity of bridge symmetry and approximate irrational cases matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

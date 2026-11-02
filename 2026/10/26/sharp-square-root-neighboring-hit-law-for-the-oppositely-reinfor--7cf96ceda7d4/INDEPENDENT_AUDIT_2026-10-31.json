@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:11:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bertoin Theorem 4.1 is correctly specialized with a_j=j-1 and A_j=sum_{r=1}^j(r-1)^2; uniform for k<=bn for any fixed b>0. Eq. (5.6) gives sqrt(k) P_k(R_k>floor(k t)) -> sqrt(6/[pi((1+t)^3-1)]). For n>=k the uniform asymptotic gives O(k n^-3/2) and for n<k a monotone coupling to simple symmetric excursions gives O(n^-1/2), providing integrable tail domination, finite mu(k) and the beta integral constant. Geometric positive excursions before a negative jump and Jensen control of successive epochs preserve the same mean asymptotic. Direct urn transition probabilities give S_s=F_{s-1}-1 and T=H_2-1. Independent exact rational DP verified shift through 42 and beta constant 3.3563383598. The infinite result uses the cited theorem and rigorous summability, not this finite test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bertoin Theorem 4.1 gives a genuinely stronger p-family theorem for zero excursions and is explicitly used as an input.",
+          "The older paper covers recurrence and ordinary first returns, not a sharp late-epoch adjacent-level mean; a putative uniform-in-start upper bound would contradict the cited positive sqrt(k) scaling."
+        ],
+        "reasoning": "Existing broad p results are credited but no checked theorem directly covers all components of the claimed neighbor hitting asymptotic.",
+        "searches": [
+          "elephant random walk opposite memory next neighbor hitting time expected sqrt k Friedman urn finite mean return Bertoin",
+          "Bertoin zero excursion tail uniformly k<=bn",
+          "Coletti Papageorgiou 2020 ERW positive recurrence"
+        ]
+      },
+      "checked_sources": [
+        "Bertoin arXiv:2105.09569v2, Thm4.1 Eq5.6",
+        "Balaji–Mahmoud arXiv:2504.14813v1 §5",
+        "Coletti–Papageorgiou arXiv:1910.03142v4 Thm3.2",
+        "Resultary semantic search: elephant random walk opposite memory next neighbor hitting time expected sqrt k Friedman urn finite mean return Bertoin"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known P_k(R>n) limit has explicit sqrt k scaling, which by itself does not integrate without short/long-tail uniform bounds.",
+          "Friedman recurrence is proved in Balaji–Mahmoud, finite expected return is explicitly posed as a question."
+        ],
+        "reasoning": "The published source implications yield the essential premise but leave the geometric-excursion hitting mean and finite expectation to be established.",
+        "searches": [
+          "elephant random walk opposite memory next neighbor hitting time expected sqrt k Friedman urn finite mean return Bertoin",
+          "arXiv:2105.09569 Theorem4.1 Eq5.6",
+          "arXiv:2504.14813 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bertoin defines first zero excursion R_k under P_k, not first neighbor hit H_k.",
+          "The exact affine time shift maps the Friedman urn F_n to the opposite ERW and maps urn first origin return to H_2."
+        ],
+        "reasoning": "The time shift is an exact alias of one specific problem but the geometric-excursion sum and sharp mean are needed to pass between Bertoin R_k and H_k.",
+        "searches": [
+          "elephant random walk opposite memory next neighbor hitting time expected sqrt k Friedman urn finite mean return Bertoin",
+          "Bertoin 2022 Theorem 4.1 and Eq 5.6",
+          "Balaji Mahmoud 2026 urn-driven random walks §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balaji–Mahmoud Section 5 explicitly lists expected Friedman return finiteness as open.",
+          "Resultary critical elephant cover-time law concerns p=3/4 symmetric exits, not p=0 first neighboring hit."
+        ],
+        "reasoning": "No exact closed table for the beta-valued mean constant or urn first-return expectation appears in checked records. Failed search alone is not novelty proof.",
+        "searches": [
+          "elephant random walk opposite memory next neighbor hitting time expected sqrt k Friedman urn finite mean return Bertoin",
+          "Balaji Mahmoud Friedman urn expected first return conjecture",
+          "Resultary Critical elephant cover times exact rare-path profiles"
+        ]
+      },
+      "rationale": "Bertoin proves the crucial return-to-zero tail, and Balaji–Mahmoud explicitly conjecture finite mean of the Friedman first return. The new claim concerns the adjacent-level hitting time, its geometric-excursion reconstruction, finite mean and sharp beta-valued late-start mean, none supplied verbatim by the inspected primary results. A general theorem may render the neighboring-hit reduction a corollary, but the precise implication was checked.",
+      "residual_risks": [
+        "Strong reliance on Bertoin uniform excursion-tail theorem; source was read and necessary hypothesis p=0, k even>=2 checked.",
+        "Other literature on Friedman urn first-return expected times could contain the same consequence under different names."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 4.1 and Eq(5.6) provide the claimed exact input; they do not state H_k mean constant",
+          "evidence": "Bertoin (2022), Thm4.1, Eq(5.6)",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.09569",
+          "material_read": "Full primary PDF §§2,4–5; page 11 Theorem4.1 and page 20 Eq.(5.6), definitions of a_n and A_n",
+          "method": "arXiv open PDF textual reading and required page screenshots",
+          "title": "Counting the zeros of an elephant random walk",
+          "trigger": "Load-bearing uniform excursion tail and late-start scaling"
+        },
+        {
+          "assessment": "Explicit finite mean question remains stated as an open conjecture in source; exact time shift provides asserted solution",
+          "evidence": "Balaji–Mahmoud (2026), §5",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.14813",
+          "material_read": "Primary 11-page PDF, especially §5 and urn construction/recurrent walk statements",
+          "method": "arXiv open PDF text and relevant-page screenshots",
+          "title": "Urn-driven random walks",
+          "trigger": "Original Friedman finite-mean conjecture"
+        },
+        {
+          "assessment": "Not a checked source of the precise beta constant; uniform start-time caveat remains",
+          "evidence": "Coletti–Papageorgiou (2020), Thm3.2",
+          "identifier_or_url": "https://arxiv.org/html/1910.03142v4",
+          "material_read": "Primary HTML Theorems 3.1–3.2 and hypotheses",
+          "method": "full-text HTML relevant sections",
+          "title": "Asymptotic Analysis of the Elephant Random Walk",
+          "trigger": "Possible stronger recurrence and moment theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The solution answers a published concrete finite-return-mean conjecture and gives a universal sharp asymptotic constant of an important memory process; this is a motivated probabilistic result, not a trivial translation of the original zero-excursion asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strong reliance on Bertoin uniform excursion-tail theorem; source was read and necessary hypothesis p=0, k even>=2 checked.",
+    "Other literature on Friedman urn first-return expected times could contain the same consequence under different names.",
+    "No publication; public metadata has confidentiality issues; no GitHub write, formal proof, external expert review or scientific-priority certificate is claimed."
+  ],
+  "schema_version": 1
+}

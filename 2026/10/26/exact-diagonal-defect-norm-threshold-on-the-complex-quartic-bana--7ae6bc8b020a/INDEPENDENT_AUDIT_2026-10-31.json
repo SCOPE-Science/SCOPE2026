@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:09:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>=b>0, the positive-quadrant section g(t)=sqrt(sqrt(1+t^4)-sqrt(a^4+b^4*t^4)) has g*g'' exactly the stated algebraic combination of S,R. With u=a²,v=b²,q=R/S, convexity reduces to 3(q³−u²v²)(1−q)>=(u²−q²)(q²−v²). The condition b>=a² gives u²<=v<=q<=u<1; lower-bounding the left by 3q²(1−q)(q−v) and upper-bounding the right by 2q²(1−q)(q−v) proves convexity. The perspective of g is convex and the defect is coordinatewise increasing, yielding complex triangle inequality. Conversely, absolute norms have coordinatewise monotonicity; if 0<b<a² then the coefficient of t⁴ near the b-axis in defect(t,1)² is (1−a⁴/b²)/2<0, and if b=0<a the t² term is negative. The a=b and a=b=0 boundary cases work. I independently checked the exact second derivative by SymPy and many rational inequalities and explicit outside-threshold failures; the proof is analytic for all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Hilbert-space characterization says not every contraction works in ell4, but cannot classify which diagonal ones do.",
+          "Published scalar-coordinate ell_p result is the rank-one subcase and does not imply the open positive anisotropic wedge."
+        ],
+        "reasoning": "A general criterion for an arbitrary operator is not a parameter evaluation of the stated diagonal family; the rank-one nonexistence cannot dominate positive two-coordinate cases.",
+        "searches": [
+          "arXiv:2407.15112 full text Section 6, Theorem 6.13",
+          "arXiv:2603.26321 full arXiv text",
+          "Resultary 2026/10/11/SCOPE-sharp-scalar-defect-thresholds-on-ell-p-sums--95939122362e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.15112 full online text",
+        "arXiv:2603.26321 full online text",
+        "Resultary 2026/10/11 scalar-defect finding published summary",
+        "Resultary exact ell4 diagonal semantic query",
+        "SymPy exact derivative check and rational positive/negative examples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A_T defining a norm is a hypothesis in the prior general theorem, not a conclusion for D=diag(a,b).",
+          "The rank-one corner b=0 has no positive norm unless a=0; the admissible b>=a²>0 region is not deduced."
+        ],
+        "reasoning": "The sharp positive and negative diagonal regions need the newly supplied coordinate-axis necessity and the q-substitution sufficiency, beyond existing abstract theory.",
+        "searches": [
+          "Jana Pal Roy 2024 Theorem 6.13 norm defect equivalence",
+          "Jana Pal 2026 pair Ando dilation",
+          "Published scalar-coordinate ell_p result 2026-10-11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jana–Pal–Roy 2024 proves equivalence between norm-valued A_T and existence of its specified isometric dilation, not the shape of diagonal parameter region.",
+          "Jana–Pal 2026 studies a commuting pair with norm-defect assumptions."
+        ],
+        "reasoning": "The Banach 2-sum dilation statement is only a credited reformulation of the same norm inequality; new mathematical content is checking the exact iff condition min(a,b)>=max(a,b)^2.",
+        "searches": [
+          "Resultary: ell4 complex norm defect sqrt norm x squared minus diag ax bx squared triangle inequality sharp b >= a^2",
+          "arXiv:2407.15112 Theorem 6.13",
+          "arXiv:2603.26321 Banach pair dilation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary relevant scalar-coordinate finding addresses a one-nonzero-weight corner and contains no full two-weight table.",
+          "No exact equivalent two-parameter threshold found in inspected papers."
+        ],
+        "reasoning": "Numerically tested threshold is backed by exact convexity proof, not a table; search failure leaves historical-priority uncertainty.",
+        "searches": [
+          "Resultary ell4 diagonal norm defect b squared",
+          "Web diagonal ell4 Banach dilation sharp anisotropic defect",
+          "Resultary scalar-coordinate ell_p threshold published 2026-10-11"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Jana–Pal–Roy’s abstract norm-defect/dilation criterion is credited, but does not compute the two-coordinate ell4 diagonal admissibility region. The closely related published scalar-coordinate ell_p result applies only to b=0, the negative corner. An alternate older diagonal characterization remains a risk.",
+      "residual_risks": [
+        "An equivalent older criterion for diagonal absolute norms could already imply min(a,b)>=max(a,b)^2.",
+        "The cited Banach isometric dilation equivalence uses a specific 2-sum notion; no other dilation definition is asserted.",
+        "The Resultary scalar-coordinate primary file was only compared via published summary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General abstract characterization; no diagonal ell4 threshold in inspected claims",
+          "evidence": "arXiv:2407.15112 Sections 6.1–6.2",
+          "identifier_or_url": "https://arxiv.org/abs/2407.15112",
+          "material_read": "Complete web-extracted arXiv text, introduction and Section 6, especially Theorem 6.13 and Theorem 6.16",
+          "method": "Read actual primary statements and checked quantifiers and operator hypotheses",
+          "title": "A dilation theoretic approach to Banach spaces",
+          "trigger": "Exact definition of norm defect and isometric dilation equivalence"
+        },
+        {
+          "assessment": "Makes norm-valued defect a condition, does not compute this two-parameter classification in the inspected formulation",
+          "evidence": "arXiv:2603.26321 Introduction",
+          "identifier_or_url": "https://arxiv.org/abs/2603.26321",
+          "material_read": "Full web-extracted online text introduction, Banach two-sum definition and norm-defect condition",
+          "method": "Read primary formulation and compared whether exact diagonal parameter condition appears",
+          "title": "On a minimal Andô dilation for a pair of strict contractions",
+          "trigger": "Closely related 2026 Banach dilation work"
+        },
+        {
+          "assessment": "Covers the negative rank-one corner, not the positive unequal two-coordinate family",
+          "evidence": "Resultary published finding 2026-10-11",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-scalar-defect-thresholds-on-ell-p-sums--95939122362e",
+          "material_read": "Published result summary for rank-one scalar-coordinate contraction, not full text",
+          "method": "Compared published finding summary; no whole-document absence claimed",
+          "title": "Sharp scalar-defect thresholds on ell_p-sums",
+          "trigger": "Same defect with scalar coordinate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the sharp two-parameter anisotropy criterion for a natural Banach square-root defect and identifies a nontrivial positive region of admissible unequal contractions beyond both scalar and rank-one cases. The precise threshold determines which strict diagonal operators meet the established Banach dilation criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent older criterion for diagonal absolute norms could already imply min(a,b)>=max(a,b)^2.",
+    "The cited Banach isometric dilation equivalence uses a specific 2-sum notion; no other dilation definition is asserted.",
+    "The Resultary scalar-coordinate primary file was only compared via published summary.",
+    "Frozen source-tree Git identity was reconstructed from all immediate entries and checked against current record listings; no claim of broader future branch immutability.",
+    "Scientific PASS is best-of-knowledge and is not independent formal proof or publisher certification."
+  ],
+  "schema_version": 1
+}

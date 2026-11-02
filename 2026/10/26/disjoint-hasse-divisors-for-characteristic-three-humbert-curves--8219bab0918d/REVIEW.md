@@ -1,15 +1,21 @@
-# Review of the characteristic-three Humbert Hasse classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The curve is a smooth degree-eight complete intersection of three diagonal quadrics for distinct branch points. The order-sixteen sign group gives exactly five elliptic character quotients and a prime-to-three Jacobian isogeny. The Legendre Hasse polynomial is \(-(1+\lambda)\), giving a unique supersingular completion of three branch points. Any two different four-subsets of a five-set share three points, so at most one can be supersingular. This proves the rank, \(a\)-number, Newton, reduced Hasse locus, and all-extension count claims. Exact exhaustive finite-field checks at sizes \(3,9,27\) agree.
+## correctness
 
-## Originality
-PASS, with residual historical risk. The original two-parameter Humbert model is prior art (Hidalgo--Reyes-Carocca, arXiv:1609.04895, Section 2); the five-factor decomposition is prior art (Auffarth--Lucchini Arteche--Rojas, arXiv:1905.12690, Theorems 2.1 and 4.1). Neither inspected statement asserts the characteristic-three no-double-supersingular compatibility, five disjoint Hasse components, or all-extension parameter census. Targeted mathematical finding searches likewise found no equivalent or stronger implication. The full text of Yamauchi (2008) was unavailable; its abstract describes split Jacobians over number fields rather than this characteristic-three stratum, but hidden overlap remains possible.
+PASS
 
-## Value
-PASS. The five potential elliptic supersingularity conditions have no intersections in characteristic three; this yields an unusually rigid complete arithmetic stratification on a natural two-dimensional family. Disjointness is a structural moduli statement, not a single numerical example; the exact marked counts over every finite extension supplement it.
+PASS: The type (2,4) Humbert curve is a smooth genus-five complete intersection with tame (Z/2)^4 action. Each of the five character subsets of weight four gives an elliptic double-cover quotient; weight-two characters give rational curves. Prime-to-3 idempotents/isogeny split the Jacobian 3-divisible group into the five elliptic factors, preserving p-rank, a-number and slopes. In characteristic 3 the Legendre Hasse invariant is -(1+lambda), vanishing only at harmonic lambda=-1 (2=1/2=-1). A fixed triple of branch points has a unique harmonic fourth point, while any two of five four-subsets share three, so at most one supersingular factor: p-rank 4 or 5. The five equations a+1=b+1=a+b=1+a+b=a+b+ab=0 are smooth, disjoint after deleted diagonals, each is P1 minus four branch values; the simple Hasse zero gives reduced components. Counts (q-2)(q-3) total, 5(q-3) nonordinary and (q-3)(q-7) ordinary, with boundary q=3 empty. Independent finite-field arithmetic and projective cross-ratio checking verified q=9 and q=27 plus pairwise exclusion; finite counts corroborate rather than prove all q.
 
-## Limitations
-This is not an independent novelty certification; it does not count unmarked isomorphism classes or describe singular boundary fibres.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Humbert model and five-factor elliptic Jacobian isogeny are explicitly credited; they do not in inspected statements provide the characteristic-three uniqueness of harmonic completion, disjoint global Hasse locus, or exact marked counts. Best-of-knowledge original with older split-Jacobian literature risk.
+
+## value
+
+PASS
+
+PASS: A complete p-rank/Newton-stratum and reduced Hasse-divisor geometry for a natural two-parameter marked genus-five family, with exact all-extension finite-field parameter counts. The compatibility obstruction among five elliptic quotient Hasse conditions is a natural nontrivial moduli invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

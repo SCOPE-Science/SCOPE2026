@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-The universal proof is contained in `RESULT.md`. Running `python3 verify.py` checks the binary characterization against direct defining conditions, the two exact counts against brute enumeration, the orbit-multiplicity rule, and representative asymptotic ratios. Observed output:
+# Independent mathematical audit
 
-```text
-ALL_LENGTHS_THROUGH_15_OK 135
-FIXED_Z 1 R 3000 RATIO 1.000000000
-FIXED_Z 2 R 3000 RATIO 1.998667555
-FIXED_Z 3 R 3000 RATIO 2.996002667
-FIXED_Z 4 R 3000 RATIO 3.988023966
-FIXED_Z 5 R 3000 RATIO 4.973428653
-FIXED_Z 6 R 3000 RATIO 5.950269007
-FIXED_Z 7 R 3000 RATIO 6.916631450
-CYCLIC_ORBIT_COUNTS_OK 2587
-VERIFY_OK
-```
+## correctness
 
-The finite experiment is not an infinite certificate. The asymptotic statement comes from bounded-composition polynomial degrees and Burnside's formula. The runtime-dependent output is reproducible with Python 3 standard library only. Independent audit was not performed.
+PASS
+
+Definition 3 in Gabrić–Sawada reduces over binary symbols to 0^ell 1 followed by r-1 bounded zero-gap blocks 0^ei 1, 0<=ei<=ell, sum ei=z-ell. This bijection yields the coefficient enumerator. Every nonmonochromatic primitive rotation orbit contributes exactly one admissible start per longest zero-run, implying N<=Q<=z N. Burnside formula has leading r^(z-1)/z! and bounded-composition count r^(z-1)/(z-1)!, so Q/N -> z for each fixed z, including z=1 separately. Independent full binary enumeration through length 12, 777 primitive-orbit checks, and fixed z large-r integer checks passed; unrestricted result is analytic.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS, with actual primary statement/implication comparison and listed residual priority risks; an unsuccessful search is not historical novelty proof. Existing exact-density pseudonecklace generation cannot be substituted for a cardinality theorem about the larger Gabrić–Sawada quasinecklace set. The latter definition has an elementary binary specialization but the sharp fixed-content overhead is not asserted in the inspected source. Length-only/bounded-weight cardinality bounds are aggregate and do not imply a uniform fixed-content ratio. The present theorem does not claim algorithmic firstness or exclude alternate exact-density algorithms.
+
+## value
+
+PASS
+
+Exact-content analysis matters because length-only or bounded-total-weight amortized generation guarantees do not imply a fixed-weight guarantee for this PARTICULAR candidate superset. The exact run-multiplicity and all-content enumerator give a natural structural classification with sharp overhead z, explicitly not an impossibility theorem for alternative exact-density CAT generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

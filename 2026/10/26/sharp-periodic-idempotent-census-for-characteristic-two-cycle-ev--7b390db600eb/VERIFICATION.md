@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 check_idempotents.py` using the embedded code and Python 3 standard library. The verified output is:
+## correctness
 
-```
-CYCLE_EVOLUTION_IDEMPOTENTS_OK 480 matrix_pairs 19 direct_enumerations 642 period_tests
-```
+PASS
 
-The executable independently constructs the binary cycle-adjacency matrix and computes \(\dim\ker(A^m-I)\) by Gaussian elimination for 480 pairs \((n,m)\). A separate finite-field arithmetic implementation checks the original coordinate equations \(v_i=v_{i-1}^2+v_{i+1}^2\) for 19 small instances over \(\mathbb F_2,\mathbb F_4,\mathbb F_8\) and \(\mathbb F_{16}\). Further tests check the period and saturation predictions at 642 parameter pairs, and the low-extension explicit expressions for \(3\le n<80\).
+The normal-basis expansion converts B v^[2]=v into B^m u=u over F2 without requiring invertibility. With B=S+S^-1 the relevant cyclic module map is multiplication by X^-m P_m, whose kernel dimension is deg gcd(X^n-1,P_m). Since P_m=P_r^(2^s), P_r(0)=1 and P_r prime-derivative X^(r-1) for odd r, P_r is squarefree and its X-class has finite odd order o_r; multiplicity in X^n-1 yields saturation iff 2^s o_r divides n. Taking large multiples proves least period. Independent GF2 matrix-vs-gcd comparison covered 225 pairs, plus F4 direct enumeration for n=3..6. These finite checks are corroboration, not proof.
 
-The general proof is independent of those enumerations. Its critical ingredients are the normal-basis bijection, the cyclic-polynomial kernel-gcd lemma (valid for repeated factors), the derivative-squarefreeness test for odd extension exponent, and the finite-unit-order divisibility argument for minimal saturation length. The code checks finitely many instances only; it cannot certify an infinite theorem or publication priority.
+## originality
 
-Independent mathematical audit: not performed. No external certification is asserted.
+PASS
+
+The normal-basis fixed-point mechanism and graph evolution-algebra definitions are established background. The specific nonperfect, characteristic-two, undirected two-neighbor cycle distribution, uniform 2^(2m) bound and exact least period are not implied by the checked general idempotent-equation or perfect-algebra results. Best-of-knowledge qualified originality remains subject to algebraic-dynamics equivalences.
+
+## value
+
+PASS
+
+This is a complete two-parameter arithmetic census of a natural graph-defined algebra family and sharp periodic recurrence, not an arbitrary isolated calculation; the five-cycle resonance at extension degree three illustrates real arithmetic structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

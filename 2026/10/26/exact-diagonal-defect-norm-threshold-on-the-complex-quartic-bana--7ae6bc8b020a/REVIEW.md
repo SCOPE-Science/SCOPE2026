@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof handles both zero and nonzero diagonal entries, all complex arguments and all strict-contraction moduli. For sufficiency it rigorously controls the second derivative on the positive quadrant, uses the convex perspective and establishes the necessary monotonicity. For necessity it expands along the weakly contracted coordinate axis, giving an explicit violation outside the exact threshold. The derivative reduction and rational substitution were checked by direct arithmetic tests; the code checks finite examples only.
+## correctness
 
-**Originality (PASS, with residual risk).** The 2024 Jana–Pal–Roy paper provides the abstract equivalence between norm-valued defects and Banach isometric dilation; its consequence is credited. Jana–Pal 2026 exploits the general norm condition for commuting contraction pairs but does not supply an exact \(\ell_4^2\) diagonal coefficient test. The closest identified published scalar-coordinate result gives a negative rank-one case for exponents above two but no nonzero anisotropic positive region. Checked search aliases, implication containment and the accessible focal full text; priority under older descriptions remains an open historical risk.
+PASS
 
-**Value (PASS).** This is a sharp if-and-only-if phase diagram for a natural two-parameter operator class, yielding a nontrivial positive region where two unequal nonzero diagonal entries still have a norm-valued defect. The precise border has operator-dilation significance and is independently proved, not a numerical observation.
+For a>=b>0, the positive-quadrant section g(t)=sqrt(sqrt(1+t^4)-sqrt(a^4+b^4*t^4)) has g*g'' exactly the stated algebraic combination of S,R. With u=a²,v=b²,q=R/S, convexity reduces to 3(q³−u²v²)(1−q)>=(u²−q²)(q²−v²). The condition b>=a² gives u²<=v<=q<=u<1; lower-bounding the left by 3q²(1−q)(q−v) and upper-bounding the right by 2q²(1−q)(q−v) proves convexity. The perspective of g is convex and the defect is coordinatewise increasing, yielding complex triangle inequality. Conversely, absolute norms have coordinatewise monotonicity; if 0<b<a² then the coefficient of t⁴ near the b-axis in defect(t,1)² is (1−a⁴/b²)/2<0, and if b=0<a the t² term is negative. The a=b and a=b=0 boundary cases work. I independently checked the exact second derivative by SymPy and many rational inequalities and explicit outside-threshold failures; the proof is analytic for all parameters.
 
-**Limits.** The classification is confined to diagonal operators on the complex quartic plane. The public scalar-coordinate research record was accessed by its full summary, not the complete file collection. Older equivalent statements might be undiscovered. No independent external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Jana–Pal–Roy’s abstract norm-defect/dilation criterion is credited, but does not compute the two-coordinate ell4 diagonal admissibility region. The closely related published scalar-coordinate ell_p result applies only to b=0, the negative corner. An alternate older diagonal characterization remains a risk.
+
+## value
+
+PASS
+
+This is the sharp two-parameter anisotropy criterion for a natural Banach square-root defect and identifies a nontrivial positive region of admissible unequal contractions beyond both scalar and rank-one cases. The precise threshold determines which strict diagonal operators meet the established Banach dilation criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `CHECK.py` program was executed using Python 3 with no optional packages. Its output checked \(\#S(\mathbb F_3)=19\), \(\#S(\mathbb F_9)=199\), \(\#Y(\mathbb F_3)=28\), \(\#Y(\mathbb F_9)=280\), and eigenvalue multiplicities \(14\) and \(8\), and terminated with `VERIFY_OK`. Two independent finite counting loops, projective-point tests and fourth-root fibers, agree in each field.
+# Independent mathematical audit
 
-The cohomological spanning statement and the \(3A_3\) exceptional configuration are imported from the primary geometric theorem cited in `RESULT.md`; this checker does not derive them. The extension-field point-count formula follows from the proven Frobenius polynomial, not from finite experimentation. Independent external auditing has not been performed.
+## correctness
+
+PASS
+
+The source quartic has 19 F3 and 199 F9 singular-surface rational points by independent exhaustive enumerations of 40 and 820 projective classes. Three non-split A3 chains contribute respectively +3 and +27 points each to the resolution, giving Y(F3)=28 and Y(F9)=280. Published Hoang–Shimada geometry puts all 49 spanning divisor classes over F9, hence geometric Frobenius squared acts as 9 on 22-dimensional H2; eigenvalues therefore ±3. The F3 Lefschetz trace 28=1+9+3(a-b), a+b=22 gives (a,b)=(14,8). K3 Tate/divisor spanning yields rank 14 over F3, 22 over F9. Source CHECK.py inspected; independent_checks.py independently reproduced both point counts and resolution corrections. The published geometric spanning and component descent are inputs, not proved by finite enumeration.
+
+## originality
+
+PASS
+
+Exact F3-form Frobenius polynomial and descent ranks refine Hoang–Shimada geometric model. Their geometry and cohomology spanning are explicitly prior. Schütt treats another arithmetic form of the same supersingular geometric surface and has arithmetic rank 21, hence does not imply this F3 model rank 14. A full search cannot preclude unpublished small-field counts.
+
+## value
+
+PASS
+
+Complete Hasse–Weil zeta and all extension counts are canonical arithmetic invariants of a distinguished supersingular K3 form; the rank jump 14 to 22 concretely detects nontrivial F3 descent. This is not merely a known geometric K3 classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

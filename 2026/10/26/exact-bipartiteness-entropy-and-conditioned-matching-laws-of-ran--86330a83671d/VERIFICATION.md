@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope
 
-Run `python verify.py` with Python 3.10+ and no external libraries. The program exhausts the 24 top matchings of two fixed four-cycles and identifies exactly eight bipartite outputs. It separately exhausts 40,320 permutations for each of two pairs of eight-vertex bipartite child graphs and finds 1,152 accepted matchings in each case. It verifies a nonbipartite-child obstruction, exact rational recurrences/products through dimension six, and finite numerical checks of the logarithmic expansion through dimension fourteen.
+# Independent mathematical audit
 
-The exact theoretical conclusions come from connected regular bipartition balance, the conditional count \(2((m/2)!)^2/m!\), recursion with either independent or copied children, and the central-binomial Stirling asymptotic with summable errors. Finite enumeration alone cannot establish either infinite-dimensional asymptotic statement or literature originality. Numerical testing of large factorial logs uses floating-point approximations and does not supply rigorous asymptotic error certificates; the displayed analytic estimates do.
+## correctness
 
-The code reconstructs its graphs directly from the stated recursive model, without using stored artifacts, remote services, or random seeds. Its examples do not exhaust the randomness of dimensions four and above; instead it exhausts the one-step matching choices conditional on representative child colorings and separately proves that this conditional count is universal.
+PASS
+
+PASS: An n-regular connected bipartite child graph on m=2^{n-1} vertices has two equal color classes and a unique coloring up to reversal. For two bipartite children, a compatible cross matching chooses one of two relative orientations and independently permutes the m/2 vertices in each class, giving 2((m/2)!)^2 of m! matchings and p_n=2/binom(m,m/2). Since each child remains an induced subgraph, a nonbipartite child cannot become bipartite. The independent-child recursion squares B_{n-1}; duplicate-child recursion does not. Conditioning factorizes the child laws according to the relevant sampling model and makes each new orientation seed fair and independent of child content; raw permutations still depend on child bipartitions, as correctly stated. Stirling gives log p_k=-2^{k-1}log2+(k/2)log2+(log pi)/2+O(2^{-k}), producing both precise asymptotics; for finite connected n-regular graphs, -n spectral eigenvalue and period two exactly correspond to bipartiteness. Independent 24-permutation enumeration recovered the dimension-three probability, and exact symbolic products through n=6 match; these finite checks corroborate but do not prove the general recurrence.
+
+## originality
+
+PASS
+
+PASS (qualified): Benjamini–Dikstein–Gross–Zhukovskii 2024/2025 define both exact independence structures and discuss typical chromatic/nonbipartite behavior, spectral properties, and diameter. Their available full primary text notes that bipartiteness fails with high probability but does not state these exact rare-event products, separation of n2^n versus 2^n exponents, or conditional matching kernels. Baran–Šarković 2026 concerns typical random-walk mixing and nonbipartiteness, not full exceptional-event enumeration. General balanced-color matching count is elementary, but its repeated independent/duplicate recursion and quantitative comparison are the assessed theorem.
+
+## value
+
+PASS
+
+PASS: The two models share many typical geometric/spectral behaviors, yet their exceptional period-two probabilities have different exponential scales; the exact conditional sampling law tells how that rare graph event is generated. These are natural precise network invariants rather than arbitrary parameter slices or raw computational counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

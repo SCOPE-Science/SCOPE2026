@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python's standard library. The expected status lines begin `DIRECT_UPDATE_OK cases=2800` and `EXACT_OK exhaust_checks=231388 qualifying_orders=33314 nonqualifying_signings=798 max_exact_updates_after_initial=2 random_checks=7818`.
+## correctness
 
-The script implements the full-reception signed update directly using exact fractions and compares it with the derived score formula, including ties. It exhausts every complete signed graph signing and strict opinion ordering for \(2\le n\le5\), verifies the degree-sum iff boundary and the strict integer potential increase, and checks deterministic sampled cases for \(6\le n\le8\). The maximum of two post-initial-score updates is **only** a finite-enumeration observation and is not claimed universally.
+PASS
 
-The all-size proof is analytical: the denominator becomes \(n\) for fully receptive pairs; the next-step opinion range is bounded by the top two hostile degrees; a fixed hostile-edge extreme-order construction proves the converse; the hostile-edge absolute-distance function gives a genuine convex subgradient and strict Lyapunov inequality; and the finite post-first-update score range proves termination. An unverified general network convergence claim, an optimal termination-time bound, and an independent audit are not supplied.
+PASS: In full-reception regime direct averaging reduces exactly to x_i^+=mu+(c/n)g_i(x) with antisymmetric hostile orientation scores. Distinct output coordinates differ by at most (c/n)(d_i+d_j), so d_(1)+d_(2)<n is sufficient inductively. Putting a maximum-degree node highest and second-highest lowest in an initially sub-c interval makes the gap c(d_(1)+d_(2))/n, proving necessity including equality. The convex hostile-edge potential Q minus n/(2c) squared mean-deviation has strict increment >= n/(2c)||next-current||²; finitely many integer score vectors or oriented edge sets prohibit cycles and force a fixed point within min(2^m,product_i(d_i+1)) steps. Independently compared direct rational update to score map for every signed complete graph and strict initial order through n=5 and verified strict potential in all eligible cases (C2_OK).
+
+## originality
+
+PASS
+
+PASS, qualified: Kann–Feng gives exactly this repulsive update and proves all-hostile complete dynamics, a different parameter regime. Typical attractive Hegselmann–Krause finite termination does not logically imply repulsive signed finite termination. A differently worded degree-max threshold could be implicit in literature on signed HK models; relevant He et al 2021 full text was not accessible.
+
+## value
+
+PASS
+
+PASS: A precise necessary-and-sufficient graph-degree boundary for permanent full receptivity and quantitative finite-time cessation of the signed process is a meaningful structural theorem. The argument reveals quantized fixed configurations, not a routine linear consensus result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

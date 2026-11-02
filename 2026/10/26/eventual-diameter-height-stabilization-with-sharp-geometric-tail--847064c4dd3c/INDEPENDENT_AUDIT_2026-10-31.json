@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:13:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Induction on parent choice proves vertex depth increments in {0,1}, so H_n=depth(v_n)>=ceil(n/2). Infinitely many first-predecessor choices force all late vertices to descend from unbounded ancestor markers, hence a unique infinite spine with finite offspine paths. The length of each tooth at spine position i equals ceil(r_i/2) for the initial zero run of second-predecessor choices, and its label satisfies sigma_i<=2i. With K=sup_i(L_i-i), the event L_i-i>=k requires a specific run of >=2(i+k)-1 zeros, and union bounding <=(2i+1) possible starts yields C(q)q^{2k-1}. The first 2k-1 zeros from the root give lower bound q^{2k-1}. K is a finite attained maximum almost surely and d(u,v)<=H_n+K for all vertices; a far-tip witness and late v_n attain equality. Thus eventual stabilization is proved, not extrapolated. An independent finite tree checker verified 511 eventual-tail tree instances by direct all-pairs BFS and spine decomposition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original paper proves one topological end (Theorem 1.1), branching distributions (equations 3.2-3.3) and infinite collisions (Theorem 1.2).",
+          "Longest-run deviations involve extremal blocks but not directly the discounted-by-spine-location K law."
+        ],
+        "reasoning": "Neither quoted result supplies the exact eventual D_n-H_n stabilization or both tail bounds. The present proof uses rather than reproves the original model motivation.",
+        "searches": [
+          "Resultary query: Bernoulli recursive tree last two ancestors graph diameter minus root height eventual stabilization comb teeth tail",
+          "Tang Wang Wu arXiv:2607.02916v1 sections 1-3",
+          "Mao Wang Wu longest head run Bernoulli 2015"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA dfd80720d0a9655639225a1b36a037682b1d4386 and verify_diameter.py SHA 2f6e7c84e9971d0786eba4eeabbbcd0b443722b3",
+        "Tang–Wang–Wu original 2026 arXiv HTML sections 1–3",
+        "Resultary semantic query 3 with unrelated tree invariants",
+        "Independent C3_OK via 511 direct finite tree graph-distance calculations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior tooth length L_i has marginal geometric tails and adjacent-tooth inequality, but K=sup_i(L_i-i) depends on all spine sites and is not that marginal.",
+          "Infinite-collision property concerns random walks, not finite-tree diameter."
+        ],
+        "reasoning": "K requires a union bound across indexed run starts plus a root-run lower witness; neither is an immediate restatement of a single-tooth distribution or topological one-endedness.",
+        "searches": [
+          "arXiv:2607.02916v1 Theorem 1.1, Lemma 3.1 and formulas (3.2),(3.3)",
+          "same paper Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The limit K=sup_i(L_i-i) is exactly the extremal projected-tooth excess on a one-ended comb.",
+          "A general deterministic comb diameter formula gives eventual metric equality once K is finite and attained."
+        ],
+        "reasoning": "The deterministic part reduces to a comb formula, so novelty is in model-specific almost-sure tail control and the explicit sharp exponent; known branch marginals alone do not give its maximum distribution.",
+        "searches": [
+          "Resultary query: Bernoulli recursive tree last two ancestors graph diameter minus root height eventual stabilization comb teeth tail",
+          "arXiv:2607.02916 §3.1 tooth run Bernoulli tree",
+          "random comb tree diameter vs height tooth excess"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 511 finite independently checked trees cover short binary prefixes only; no exact PMF K or finite-n distribution is claimed."
+        ],
+        "reasoning": "No existing database for this infinite random correction is identified; failure to find a table is not novelty proof and finite cases do not prove the tail.",
+        "searches": [
+          "Resultary query: Bernoulli recursive tree last two ancestors graph diameter minus root height eventual stabilization comb teeth tail",
+          "Bernoulli recursive tree diameter height distribution finite tree numerical tables"
+        ]
+      },
+      "rationale": "PASS (qualified): Tang–Wang–Wu 2026 study exactly this attachment process and in their §3.1 already prove the one-end spine and compute geometric tooth length marginals (including a deterministic run-to-tooth lemma). Those are explicitly credited, not claimed new. The exact finite-tree diameter-minus-height stabilization law with random global supremum K and its sharp two-sided tail rate is not stated in the accessible full paper, whose searchable text has no diameter claim. The geometric distance identity is a standard comb fact; the sharp stochastic tail is model-specific. A prior comb-diameter theorem may imply the deterministic portion but not automatically this tail.",
+      "residual_risks": [
+        "A previously known comb diameter stabilization theorem might subsume the deterministic identity.",
+        "The exact distribution of K and the stabilization time are not determined; only sharp rate and explicit nonsharp coefficient bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural spine and run-to-tooth are old; full diameter correction and geometric tail bounds not stated in inspected text.",
+          "evidence": [
+            "§3.1 formulas (3.2)–(3.3) and Lemma 3.1; no diameter term in full HTML text."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.02916v1",
+          "material_read": "Full original HTML available: inspected Theorems 1.1–1.2, §2 and §3.1 trunk and branch distribution, Lemma 3.1, and later section topics; searched for diameter.",
+          "method": "Read arXiv HTML, inspected relevant line ranges and find results.",
+          "title": "Infinite collisions of simple random walks on random recursive trees generated by Bernoulli sequences",
+          "trigger": "Identical random recursive tree and structural spine/branch theorems"
+        },
+        {
+          "assessment": "May inform run-tail estimates, but a longest-run theorem for unconstrained prefixes would not alone prove discounted spine-tail equality.",
+          "evidence": [
+            "Cited in Tang–Wang–Wu as run background."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10959-013-0510-5",
+          "material_read": "Bibliographic citation only, full original not retrieved.",
+          "method": "Search by cited title.",
+          "title": "Large deviation behavior for the longest head run in an i.i.d. Bernoulli sequence",
+          "trigger": "Potential stronger run-length asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The limit converts a global finite-tree metric observable into an eventual stationary integer correction, and identifies its rare-deviation exponent sharply for every Bernoulli parameter. That is a substantive probabilistic extension of the known one-endedness and marginal tooth calculations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "p=0 and p=1 endpoints not part of theorem; geometric bounds deteriorate as q increases to 1.",
+    "No exact PMF or quantitative stabilization-time tail is claimed."
+  ],
+  "schema_version": 1
+}

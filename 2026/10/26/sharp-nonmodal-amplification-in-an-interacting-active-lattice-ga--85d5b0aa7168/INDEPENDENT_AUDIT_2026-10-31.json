@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:11:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Linearizing the displayed hydrodynamic PDE gives the exact 2x2 Fourier matrix with off-diagonal entries -i Pe k(1-r), -i Pe k(1-2r). Its Hermitian part has maximal eigenvalue -k²-1+sqrt(1+(Pe k r/2)²), so semigroup contractivity in every nonzero Fourier mode is equivalent to Pe²r²<=4(k_1²+2); positive numerical abscissa at k_1 produces strict norm gain for an arbitrarily small real zero-mean perturbation. Direct squared-matrix computation gives spectral eigenvalues and the independent stability condition for r>1/2; difference of two Pe² thresholds is Q(3r-2)²/[r²(1-r)(2r-1)]. At r=2/3 Fourier matrices are Hermitian and the window collapses; for r<=1/2 spectrum remains left-half-plane for all finite Pe. At r=1/2 the triangular semigroup yields Pe C_L<=G_L(Pe)<=Pe C_L+1 with C_L the attained positive maximum of an explicit decaying Fourier-mode envelope. Independent symbolic Hermitian/spectral identities and finite-time singular-value witnesses passed (C5_OK).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spectral spinodal is already in the physical literature; its threshold is a different curve and may hold while the semigroup amplifies.",
+          "General Hilbert semigroup contractivity characterization gives the numerical abscissa principle; calculating the sharp all-mode threshold is specific to this coupled model."
+        ],
+        "reasoning": "Neither already-inspected source states a stronger theorem forcing nonmodal norm contractivity or gives the sharp gain constant as a corollary without evaluating off-diagonal matrix structure.",
+        "searches": [
+          "arXiv:1801.08952 exact finite-volume spinodal",
+          "arXiv:2104.14650 Fourier hydrodynamic propagator",
+          "Resultary: active lattice gas transient amplification nonnormal hydrodynamic density polarization Fourier linearized semigroup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 0e8748ec7bb2653869288231cf78d4592f7adc77 and verify.py 4a8ca4a13aef232b550d423e31830d5456cfcb7e",
+        "Independent C5_OK symbolic Fourier and Hermitian identities and five numerical sample cases.",
+        "Kourbane-Houssene original arXiv:1801.08952; Agranov et al original arXiv:2104.14650; Resultary search #5."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established modal threshold for r>1/2 is Pe²(1-r)(2r-1)=Q, not the strict amplification line Pe²r²=4Q.",
+          "At r=1/2 modal eigenvalues are Pe-independent but the nonnormal gain grows at least Pe C_L."
+        ],
+        "reasoning": "Known spinodal/covariance statements do not entail the norm-growth phase portrait as stated; additional Hermitian and matrix-exponential optimization is necessary. Generic semigroup numerics are a credited ingredient.",
+        "searches": [
+          "Kourbane-Houssene arXiv:1801.08952 spinodal formula",
+          "Agranov arXiv:2104.14650 same Fourier generator",
+          "Resultary: active lattice gas transient amplification nonnormal hydrodynamic density polarization Fourier linearized semigroup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonmodal amplification equals positive numerical abscissa for at least one Fourier block; equivalent language is logarithmic norm of the linear semigroup or initial L² energy growth.",
+          "The source papers evaluate ordinary modal spinodal and forced Gaussian fluctuations, not the unweighted species-norm transient gain criterion in inspected sections."
+        ],
+        "reasoning": "Rewriting in matrix numerical-range language applies a standard general theorem; the novelty asserted is the exact model-specific global phase diagram, spectral-stability separation, and half-filling all-mode asymptotic constant.",
+        "searches": [
+          "Resultary: active lattice gas transient amplification nonnormal hydrodynamic density polarization Fourier linearized semigroup",
+          "web: \"active lattice gas\" \"transient amplification\" non-normal hydrodynamics",
+          "Kourbane-Houssene et al arXiv:1801.08952 hydrodynamic Fourier matrix",
+          "Agranov et al arXiv:2104.14650 fluctuation propagator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source includes Fourier propagators/covariance calculations, from which finite-mode gains can be computed.",
+          "No indexed exact phase table containing Pe²r²=4(2+(2π/L)²) and exceptional density r=2/3 found in current bounded searches."
+        ],
+        "reasoning": "Exact single-mode data differ from the supremum over all modes, and a stored covariance table does not itself state the operator norm. Failure of search is not novelty proof.",
+        "searches": [
+          "Resultary: active lattice gas transient amplification nonnormal hydrodynamic density polarization Fourier linearized semigroup",
+          "web: \"active lattice gas\" \"transient amplification\" non-normal hydrodynamics",
+          "Agranov et al arXiv:2104.14650 linear covariance kernels"
+        ]
+      },
+      "rationale": "PASS, qualified: Kourbane-Houssene et al already derive the exact hydrodynamic PDE and spinodal spectral criterion. Agranov et al use the same linearized Fourier propagator for steady-state fluctuation covariances. General numerical-range and pseudospectral semigroup theorems imply the contractivity test for an arbitrary given matrix, but the explicit density–activity phase diagram, density 2/3 exceptional Hermitian locus and all-Fourier-mode high-activity gain constant were not found in inspected primary materials. Earlier specialized transient-growth analysis remains possible.",
+      "residual_risks": [
+        "An existing specialized active-matter nonnormal-response or pseudospectrum paper may contain an equivalent norm phase portrait.",
+        "The numerical abscissa criterion is generic matrix theory; it alone is not the valuable or original physical finding.",
+        "The norm is unweighted species L² and changing it can move the threshold; finite microscopic and nonlinear systems are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives governing PDE and known modal threshold; does not explicitly state species-norm transient amplification in relevant material.",
+          "evidence": [
+            "Hydrodynamic equations and homogeneous-state stability criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08952",
+          "material_read": "Full short primary PDF; equations for rho,m, homogeneous-state linear stability and finite-wavelength spinodal discussion.",
+          "method": "Read arXiv PDF text and physical Fourier equation page image.",
+          "title": "Exact Hydrodynamic Description of Active Lattice Gases",
+          "trigger": "Original hydrodynamic equations and homogeneous-state spinodal"
+        },
+        {
+          "assessment": "Uses the generator in forced fluctuation calculations; the sharp unforced unweighted semigroup gain window and coefficient were not found in inspected sections.",
+          "evidence": [
+            "Fourier linearization and Gaussian covariance formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.14650",
+          "material_read": "Accessible primary PDF, linearized equations, Fourier fluctuation propagator and steady-state covariance sections; relevant text searches.",
+          "method": "Read primary full PDF relevant material, extracted text and page image of Fourier calculation.",
+          "title": "Exact fluctuating hydrodynamics of active lattice gases: Typical fluctuations",
+          "trigger": "Same process and Fourier generator may already encode a stronger norm result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Nonnormal transient amplification despite spectral stability is physically meaningful for the exact interacting active exclusion hydrodynamics and is measured in an explicitly motivated species norm. Sharp coexistence window, exceptional density and unbounded large-activity gain separate modal from nonmodal mechanisms; not claimed as microscopic or nonlinear amplification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only linearized continuum semigroup with fixed total density; zero polarization mode is decaying.",
+    "Not a theorem on nonlinear, stochastic finite-particle or differently weighted norm growth."
+  ],
+  "schema_version": 1
+}

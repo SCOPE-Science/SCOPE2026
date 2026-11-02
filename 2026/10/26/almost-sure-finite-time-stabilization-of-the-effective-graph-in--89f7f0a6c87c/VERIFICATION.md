@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof uses published opinion convergence and confidence dichotomy from Li, Luo, and Porter (arXiv:2303.07563v3, Theorem 5), then a newly verified predictable-time sampling lemma. Formally, for filtration \(\mathcal F_t\) before draw \(U_t\), \(A_e(t)\in\mathcal F_t\) and \(\mathbb P(U_t=e\mid\mathcal F_t)=1/|E|\). The conditional Borel–Cantelli conclusion links infinitely many receptive time steps to infinitely many selected receptive interactions. A confidence-zero edge admits only finitely many selected receptive events, because each restores confidence to at least \(\gamma>0\). A confidence-one edge has vanishing opinion gap, so it becomes persistently receptive. Both edge classes are exhausted by the source's theorem; finiteness of the edge set supplies a common almost-sure finite stabilization time.
+## correctness
 
-A standalone, standard-library-only `verify.py` was executed from the package's current paths with the result:
+PASS
 
-```
-VERIFY_OK exact_rational_transitions=250 exact_fixed_updates=800 stochastic_steps=12000
-```
+PASS: The source Li–Luo–Porter Theorem 5 really establishes a.s. c_e→0 or 1 and convergence of opinions, with c_e→1 implying equal endpoint limiting opinions by contraposition. At each time pre-draw receptive A_e(t) is measurable with respect to the past and the independent next draw selects e with probability 1/|E|. Conditional Borel–Cantelli ensures infinitely many receptive times imply infinitely many SELECTED receptive times almost surely, even if receptive episodes are short. If c_e→0, each such selected event would reset c_e(t+1)>=γ>0, impossible infinitely often. Hence a confidence-zero edge has finitely many receptive times. If c_e→1, opinion gap→0 and confidence→1, so eventually |gap|<c_e permanently. Taking a maximum across finite E proves exactly constant graph a.s. with surviving edges c∞=1. Independent C2_OK rational reset and decay checks verify update algebra but are not a proof of conditional Borel–Cantelli.
 
-It verifies exact rational state-transition identities, opinion-sum conservation, quadratic-energy decrements, confidence reset inequalities, an exact permanently receptive/blocked path example, and randomized boundedness/conservation checks. These finite calculations verify local formulas and example behavior only. They do not certify the infinite-time almost-sure theorem, which is established analytically. General bibliographic independence and expert audit have not been performed.
+## originality
+
+PASS
+
+PASS, qualified: Li–Luo–Porter (2303.07563v3) explicitly prove only that eventually receptive adaptive-DW edges belong to common opinion-limit clusters, leaving actual eventual graph constancy unproved; this finding fills that particular gap by predictable-time sampling. The newer Thompsky–Wu–Porter–Luo 2605.20418 model adapts selection weights under a fixed radius, not this uniform-selection adaptive-confidence process. Generic stochastic-gossip stopping-time results remain a possible mathematically equivalent source.
+
+## value
+
+PASS
+
+PASS: Establishes a nearly model-defining a.s. structural limit which the originating primary authors explicitly left open; distinguishes identical limiting opinions with permanently dead edges from live edges. This supports rigorous interpretation of eventual random interaction networks, not merely finite simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

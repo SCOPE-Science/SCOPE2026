@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and logical boundaries
+# Independent mathematical audit
 
-Run `python checks/verify.py` using Python 3.10+ with the standard library. The checker produced `PASS 6228 exact finite graph/aggregator cases and sharpness witness`.
+## correctness
 
-For two and three vertices the graph-weight sweep covers all arc statuses absent or integer weight one or two, with all possible directed edges allowed except loops; for four and five vertices it uses 150 pseudorandom instances per size with a fixed seed. Each instance is tested against the six aggregators, every nonempty restricted vertex set, and every coalition of each restriction. The code uses `fractions.Fraction` arithmetic throughout, including arithmetic means and order-statistic tests.
+PASS
 
-The check does not enumerate all real weights, larger networks, or every multiset function. The universal result is derived symbolically from the insertion inequality in the written proof. Its necessity is certified by direct formulas for the two-player in-star restriction; the provided nonlinear operator additionally gives a three-vertex empty full core. An independent audit has not been performed.
+PASS: The restricted worth v(T)=Σ_{j∈T}[Σ_{i∈T}a_ij+F(B_j(N\T))] is carefully distinguished from recomputation of an induced graph. Assume the insertion-budget inequality F(U⊎{b})≤F(U)+b. For S⊆N define x_j^S=Σ_{i∈S}a_ij+F(B_j(N\S)), giving exact efficiency Σx^S=v(S). For every T⊆S, split external incoming multiset B_j(N\T)=B_j(N\S)⊎B_j(S\T); iterating the budget controls every coalition constraint termwise. Conversely any violating U,b builds an in-star target j with distinguished p and outside sources whose restriction to {p,j} has v({j})>v({p,j})-v({p}) and empty core. Singleton normalization F({b})=b implies v(N\{j})=v(N)-Σ_i a_ij, and every core coordinate ≤ incoming sum, hence uniqueness by efficiency. For min, max, mean and rank statistics the budget follows from order-statistic coordinate Lipschitz bound; the ranks k(m+1)≤k(m)+1 cover medians and quantiles. Independently checked exact rational core inequalities in three-node graphs and four aggregators (C5_OK), not a substitute for universal symbolic proof.
+
+## originality
+
+PASS
+
+PASS, qualified: Ryzák–Kroupa arXiv:2605.18157v1 proves total balancedness and core uniqueness for minimum aggregation, and explicitly calls alternative external aggregation stability an open research direction in Section 6. Bandhana–Kroupa–García 2024 introduced the minimum model and incoming-weight core. The new universal iff insertion criterion includes necessity via a strict two-player obstruction and nonminimum stable classes; neither inspected primary result states this. A generic cooperative-game marginal-subadditivity theorem could imply the characterization at a higher level, which remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Classifies the entire natural operator class permitting stable inherited-worth subgames, rather than a handful of examples. Its exact converse and unique-core refinement provide decision and construction tools for graph games; the prior 2026 authors specifically identify this family as open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The independent proof checks the exact nearest-or-penultimate attachment rule and the depth monotonicity needed to identify rooted height with the latest depth. Infinitely many first-predecessor choices imply a unique spine. A deterministic two-chain run analysis gives the tooth-length rule and, with the index bound \(\sigma_i\le2i\), a summable union bound. The diameter comparison uses exact unique paths in a comb tree. The lower tail comes from a prescribed initial block and matches the upper exponential exponent. The standalone breadth-first-search checker passed 4,095 exhaustive finite-prefix cases. Finite tests do not establish the infinite conclusion.
+## correctness
 
-## Originality
-**PASS, qualified.** Tang–Wang–Wu, arXiv:2607.02916v1, prove one-endedness and collisions and analyze branches, not eventual stabilization of the finite diameter excess or the sharp exponent for its tail. Nearby general comb geometry can account for parts of the deterministic argument but no directly covering quantitative law for this Bernoulli model was located. The independent appearance of an equivalent argument in general one-ended comb-tree work remains the main risk; the model-specific probability statement was compared at the implication level, not merely by title.
+PASS
 
-## Value
-**PASS.** Diameter is a natural global metric observable whereas rooted height is far easier to compute online. Exact eventual stabilization and a matching exponential decay rate turn that surrogate into a controlled, pathwise exact quantity after a finite random stage. The root's rare alternating attachment block proves the exponent cannot be strengthened, while distant teeth produce the nontrivial upper-bound mechanism. This is not an arbitrary finite slice, a numerical census, or an isolated reparameterization.
+PASS: Induction on parent choice proves vertex depth increments in {0,1}, so H_n=depth(v_n)>=ceil(n/2). Infinitely many first-predecessor choices force all late vertices to descend from unbounded ancestor markers, hence a unique infinite spine with finite offspine paths. The length of each tooth at spine position i equals ceil(r_i/2) for the initial zero run of second-predecessor choices, and its label satisfies sigma_i<=2i. With K=sup_i(L_i-i), the event L_i-i>=k requires a specific run of >=2(i+k)-1 zeros, and union bounding <=(2i+1) possible starts yields C(q)q^{2k-1}. The first 2k-1 zeros from the root give lower bound q^{2k-1}. K is a finite attained maximum almost surely and d(u,v)<=H_n+K for all vertices; a far-tip witness and late v_n attain equality. Thus eventual stabilization is proved, not extrapolated. An independent finite tree checker verified 511 eventual-tail tree instances by direct all-pairs BFS and spine decomposition.
 
-## Closest literature and limitations
-Tang–Wang–Wu (2026), arXiv:2607.02916v1, is the primary predecessor and supplies the model and a branch description. A published note on weak-topology transitions for CAT(0) comb trees concerns a different geometric invariant and was available here only by synopsis; implicit general-geometry overlap cannot be fully ruled out. An explicit mass function for the limiting correction and a tail-optimal prefactor have not been derived. The argument is valid for fixed \(0<p<1\) and unit edge lengths.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Tang–Wang–Wu 2026 study exactly this attachment process and in their §3.1 already prove the one-end spine and compute geometric tooth length marginals (including a deterministic run-to-tooth lemma). Those are explicitly credited, not claimed new. The exact finite-tree diameter-minus-height stabilization law with random global supremum K and its sharp two-sided tail rate is not stated in the accessible full paper, whose searchable text has no diameter claim. The geometric distance identity is a standard comb fact; the sharp stochastic tail is model-specific. A prior comb-diameter theorem may imply the deterministic portion but not automatically this tail.
+
+## value
+
+PASS
+
+PASS: The limit converts a global finite-tree metric observable into an eventual stationary integer correction, and identifies its rare-deviation exponent sharply for every Bernoulli parameter. That is a substantive probabilistic extension of the known one-endedness and marginal tooth calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

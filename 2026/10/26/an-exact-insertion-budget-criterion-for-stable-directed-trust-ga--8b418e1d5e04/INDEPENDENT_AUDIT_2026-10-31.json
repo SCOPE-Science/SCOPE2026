@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:08:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The restricted worth v(T)=Σ_{j∈T}[Σ_{i∈T}a_ij+F(B_j(N\\T))] is carefully distinguished from recomputation of an induced graph. Assume the insertion-budget inequality F(U⊎{b})≤F(U)+b. For S⊆N define x_j^S=Σ_{i∈S}a_ij+F(B_j(N\\S)), giving exact efficiency Σx^S=v(S). For every T⊆S, split external incoming multiset B_j(N\\T)=B_j(N\\S)⊎B_j(S\\T); iterating the budget controls every coalition constraint termwise. Conversely any violating U,b builds an in-star target j with distinguished p and outside sources whose restriction to {p,j} has v({j})>v({p,j})-v({p}) and empty core. Singleton normalization F({b})=b implies v(N\\{j})=v(N)-Σ_i a_ij, and every core coordinate ≤ incoming sum, hence uniqueness by efficiency. For min, max, mean and rank statistics the budget follows from order-statistic coordinate Lipschitz bound; the ranks k(m+1)≤k(m)+1 cover medians and quantiles. Independently checked exact rational core inequalities in three-node graphs and four aggregators (C5_OK), not a substitute for universal symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both inspected game-theoretic primary results rely on F=min; the latter paper explicitly requests a systematic study of average, median and order statistics.",
+          "General Bondareva–Shapley balancedness equivalence provides a core criterion but no stated necessary and sufficient one-insertion budget for all F."
+        ],
+        "reasoning": "No prior stronger all-aggregator theorem identified. The general core characterization is background, not a proof of the graph-uniform if-and-only-if without its star obstruction.",
+        "searches": [
+          "Resultary search: Directed trust game stable network insertion budget threshold graph network formation",
+          "Ryzák–Kroupa original Theorem 5.1 and Section 6 future research",
+          "Bandhana et al AAMAS 2024 Proposition 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md blob dd2f0f07522b99b8102514d85f638b9df0ed8db6; checks subtree e85acd88e214d33d0d5590404c6da7e54cd03b50.",
+        "C5_OK independent exact core cases for nonnegative finite directed weights and four aggregation functions.",
+        "Ryzák–Kroupa original full HTML arxiv:2605.18157v1 and AAMAS 2024 trust paper; Resultary search."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior min case is a strict special case: mean, max and median can satisfy the budget but are different operators.",
+          "Ryzák–Kroupa future research section leaves stability of alternate aggregates explicitly open."
+        ],
+        "reasoning": "Prior claims do not imply general F iff budget without a new termwise restricted-core argument and the necessary in-star obstruction. An external generic monotone cooperative-game theorem remains an uncertainty.",
+        "searches": [
+          "arXiv:2605.18157v1 Sections 5–6",
+          "AAMAS 2024 p132 Definition 3.1 Proposition 3.4",
+          "Resultary search: Directed trust game stable network insertion budget threshold graph network formation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same model permits a multiset-valued external operator F; the original chooses F=min.",
+          "A possible alias for budget is one-step increase bound (incremental Lipschitz/subadditivity) for external aggregators."
+        ],
+        "reasoning": "Equivalent formulations concern universal core feasibility for every directed graph and every inherited-worth restriction. This is stronger than uniqueness of a particular full-game core and is not a mere reparameterization of the minimum case.",
+        "searches": [
+          "Resultary search: Directed trust game stable network insertion budget threshold graph network formation",
+          "Web search: Ryzak Kroupa trust game alternative aggregates total balancedness median average 2605.18157",
+          "Ryzák–Kroupa arXiv:2605.18157v1 Sections 2,5,6",
+          "Bandhana–Kroupa–García AAMAS 2024 trust network game"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A three-vertex in-star with F(U)=2 sum(U) for |U|>=2 and singleton-normalized F gives explicit empty-core counterexample.",
+          "No prior catalogue for all multiset operators satisfying F(U⊎{b})≤F(U)+b identified."
+        ],
+        "reasoning": "An exact database is inapplicable to the universal abstract operator classification; small directed graph tests corroborate the axioms but are not evidence of coverage by a known table.",
+        "searches": [
+          "Resultary search: Directed trust game stable network insertion budget threshold graph network formation",
+          "Web search: Ryzak Kroupa trust game alternative aggregates total balancedness median average 2605.18157",
+          "Known min-aggregation core allocation and trust game examples"
+        ]
+      },
+      "rationale": "PASS, qualified: Ryzák–Kroupa arXiv:2605.18157v1 proves total balancedness and core uniqueness for minimum aggregation, and explicitly calls alternative external aggregation stability an open research direction in Section 6. Bandhana–Kroupa–García 2024 introduced the minimum model and incoming-weight core. The new universal iff insertion criterion includes necessity via a strict two-player obstruction and nonminimum stable classes; neither inspected primary result states this. A generic cooperative-game marginal-subadditivity theorem could imply the characterization at a higher level, which remains a priority risk.",
+      "residual_risks": [
+        "An earlier generic balanced-game theorem could subsume the multiset insertion criterion without referring to trust.",
+        "Core restriction here retains external exposure to ambient nonmember vertices, not induced-game recomputation.",
+        "No Shapley tractability, superadditivity, strategyproofness or signed-weight extension is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Minimum-only results; authors explicitly identify alternative average, median, order statistics as unsolved directions.",
+          "evidence": [
+            "HTML lines 33–45 describe minimum model; lines 503–508 request alternative aggregation research."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.18157v1",
+          "material_read": "Complete HTML paper inspected with attention to Section 2 definition, Section 5 core, and Section 6 Future Research Directions.",
+          "method": "Original arXiv v1 HTML and theorem-section search.",
+          "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value",
+          "trigger": "Exactly same directed trust game and minimum-aggregator total balancedness"
+        },
+        {
+          "assessment": "Introduces minimum incoming operator and a core candidate, not all operators iff insertion budget.",
+          "evidence": [
+            "Definition 3.1 and Proposition 3.4."
+          ],
+          "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+          "material_read": "Definition 3.1 and Proposition 3.4 and surrounding model setup as identified in primary references.",
+          "method": "Primary proceeding text/targeted model comparison; no assertion every page was inspected.",
+          "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network",
+          "trigger": "Original minimum-based trust score and incoming-weight allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Classifies the entire natural operator class permitting stable inherited-worth subgames, rather than a handful of examples. Its exact converse and unique-core refinement provide decision and construction tools for graph games; the prior 2026 authors specifically identify this family as open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite loopless graph, nonnegative arc weights, absence treated as omitted; universal quantifiers over all F and graphs.",
+    "No claim of uniqueness without singleton normalization or for each restricted core."
+  ],
+  "schema_version": 1
+}

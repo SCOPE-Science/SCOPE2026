@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-**Theorem scope:** all indexed words over the fixed binary alphabet, for every positive length. The proof supplies the infinite-range argument; the checks below test its interpretations and intermediate formulas on finite instances only.
+## correctness
 
-**Actual executable check:** `python verify.py` using Python 3 standard library. The program independently evaluates the greedy two-letter arch count at all cuts for every binary word of each length from \(1\) through \(18\), totaling \(2^1+\cdots+2^{18}=524286\) source words. It independently builds the full scattered-subsequence set for each rotation through length \(9\). It then tests the precise number of harmful cuts, cyclic transition-run characterization, all binomial coefficient counts, the two-state trace recurrence, and the Lucas totals. Observed terminal marker:
+PASS
 
-`VERIFY_OK exhaustive_binary_words= 524286 explicit_subsequences_n=1..9 distribution_n=1..18 weighted_transfer_trace_n=1..18 bad_cut_positions=checked`
+PASS: For a binary linear word, each greedy complete two-letter arch corresponds to one disjoint unequal-adjacency edge and conversely, so universality index equals path matching number. In the cyclic transition subgraph, deleting each cut edge changes matching number by one only at odd-indexed edges of odd-length 1-runs. The fully alternating even case has no loss. Even 1-runs give a unique cyclic monomer/dimer tiling except the all-ones transition string with two tilings; the 2-to-1 lift from even-parity transition strings to indexed words and trace of [[1,1],[u,0]] give R_(n,k)=2n/(n-k)*binom(n-k,k)-2*[n=2k,k>=1], and R_n=2*(L_n-[n even]). n=1 and 2 boundaries were checked. Independently constructed exhaustive subsequence tests over all binary words n<=12 check every cyclic cut, bad-cut positions, and refined counts. These finite checks corroborate, not replace, the unrestricted matching/transfer proof.
 
-**Limits:** finite checks do not establish the result for all lengths, independently certify novelty, or replace the mathematical proof. Integer arithmetic is exact, and the executable uses no external data or modules. Independent scientific validation has not been performed.
+## originality
+
+PASS
+
+A distinct classification of cyclic origin-stability with exact bad-cut counts, not merely the previously known +/-1 bound between conjugates; known Lucas matching numbers are explicitly treated as classical. Best-of-knowledge original conditional on unindexed descriptions.
+
+## value
+
+PASS
+
+PASS: Exact all-cuts invariance criterion, count of origin-dependent deficits, index-refined family enumerator and an exponentially rare asymptotic are natural structural objects in scattered-subsequence universality; classical Lucas numbers alone do not explain which words realize the family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

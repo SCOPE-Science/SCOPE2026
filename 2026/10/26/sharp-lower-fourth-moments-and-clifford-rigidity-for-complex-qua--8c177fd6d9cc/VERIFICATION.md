@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The analytic proof expands the Gaussian quadratic-form generating function through degree four, divides by the eighth radial moment, and applies the exact matrix identity \(\|A^2\|_F^2+\operatorname{tr}[(AA^*)^2]=2\operatorname{tr}(B^2+C^2)^2\). The difference from the claimed sharp squared-moment coefficient is the sum of three Frobenius-square terms given in RESULT.md. Nonzero equality requires \(A^2=0\) and \(B^2+C^2=(t/n)I_n\), which yield two anticommuting real symmetric involutions. An elementary eigenspace argument forces even dimension and an explicit orthogonal canonical form realizes equality.
+## correctness
 
-Run `python3 verify.py` using Python 3 without external dependencies. The standalone implementation expands complex polynomial coefficients as pairs of arbitrary-precision integers, integrates each monomial using exact even spherical moments, and compares with the matrix-trace formula. It also computes both forms of the deficit with rational fractions. A recorded run returned:
+PASS
 
-```
-PASS: 84 complete exact polynomial-moment/deficit comparisons
-PASS: Clifford equality matrices in dimensions 2, 4, 6, 8
-```
+Write Y=w^T(B+iC)w, real symmetric traceless B,C; Gaussian polar decomposition gives second moment 2t/[n(n+2)] and fourth numerator 4|tr A²|²+8t²+32tr(A²(A*)²)+16tr[(AA*)²]. Real-symmetric trace cyclicity proves tr(A²(A*)²)+tr[(AA*)²]=2tr(B²+C²)². Centering X=B²+C² with trace t yields exact deficit [4|tr A²|²+16||A²||F²+32||X-(t/n)I||F²]/D. Equality requires A²=0, X=t I/n and hence B²=C²=t I/(2n), BC+CB=0. Anti-commuting symmetric involutions force even n, and their orthogonal normal form yields canonical sum (x_j+i x_{j+m})²; no odd equality. Independent 40 exact integer matrix-moment-deficit identities plus canonical even witnesses passed; a finite check alone is insufficient.
 
-These finite tests are corroborative and do not certify the quantified theorem. No external independent scientific audit has been performed. The sharp odd-dimensional coefficient, other degrees, and nonuniform measures are not resolved.
+## originality
+
+PASS
+
+Best-of-knowledge PASS, with actual primary statement/implication comparison and listed residual priority risks; an unsuccessful search is not historical novelty proof. Matching n, harmonic degree, and L4 is not enough: maxima of the ratio do not imply minima. The current statement fixes normalized sphere measure and complex harmonics, with even-dimension Clifford equality; an equivalent matrix-invariant identity remains possible. No inspected result dominates the exact SOS lower bound plus equality classification. General Gaussian quadratic-form identities supply computational ingredients but do not by themselves enforce the sharp Clifford optimization.
+
+## value
+
+PASS
+
+The lower endpoint of the degree-two spherical harmonic L4/L2 ratio is a natural question about flatness of Laplace eigenfunctions. The sharp all-even-dimension coefficient and complete Clifford equality orbit, strengthened by an exact sum-of-squares stability defect, are not mere upper-bound restatements or an arbitrary moment table. The sharp odd-dimensional coefficient remains open in this claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

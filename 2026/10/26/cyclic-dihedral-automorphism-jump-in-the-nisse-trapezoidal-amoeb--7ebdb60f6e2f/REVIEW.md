@@ -1,15 +1,21 @@
-# Review of the affine-curve automorphism classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed affine curve is explicitly the projective line punctured at \(3m+2\) points. Automorphisms extend to its smooth completion, and the subgroup fixing the puncture set is finite. For \(m\ge6\), classification of finite projective groups rules out all exceptional cases; the remaining groups normalize the cyclic deck rotations and preserve \(\{0,\infty\}\). The sign pattern of the three puncture parameters rules out extra scalings and proves that inversion exists exactly when \(a^2=bc\). The torus involution is checked by an exact rational identity, not a finite enumeration. Symbolic samples independently corroborate it. Risks: classical finite-group classification is a cited input; outside the stated parameter range no claim is made.
+PASS
 
-## Originality — PASS, qualified
+PASS: The equation expresses w=F(z^m) with F(t)=(t+b)(t+c)/(t-a). Therefore its smooth completion is P1, with punctures {0,infinity} plus m-th roots of a,-b,-c. The full regular automorphism group is the finite PGL2 stabilizer of these 3m+2 punctures. Its element of order m>=6 excludes platonic finite subgroups, so all stabilizers normalize the root pair {0,infinity}; every element scales z or inverts z. Real-sign three-set T={a,-b,-c} rules out nontrivial scalar action u^m T=T, leaving exactly m rotations. An inversion d/t must fix the unique positive a and swap the distinct negatives, hence d=a^2=bc; conversely the explicit (z,w)->(v/z,-a z^(-m)w) with v^m=a^2 is an involutory Laurent-monomial torus automorphism and conjugates rotation to its inverse. Independently factored F(a^2/t)+a F(t)/t=(a+t)(a^2-bc)/(at), checked distinct parameter samples and powers m=6,7,10. Classification of finite PGL2 groups is a standard premise, not independently reproved.
 
-Nisse's 2026 paper introduces the family and proves its amoeba geometry, but its inspected Theorem 3.1 and full sections do not calculate its abstract automorphisms. The related 2026 paper has different defining curves and no equivalence implication. Targeted searches for puncture-root configurations, involution symmetries, and dihedral jumping did not reveal a covering theorem. The closest mathematical records on automorphism groups concern different families such as cuspidal quintics or conic-line arrangements. A prior unindexed computation or older classification of this specially configured puncture set remains possible, so this is not an independent priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The originating paper establishes a common exceptional amoeba-contour phenomenon throughout a multiparameter family. The full intrinsic symmetry group is a natural separate geometric invariant; the theorem completely determines it for all \(m\ge6\) and isolates the exact codimension-one symmetry enhancement. It distinguishes curves within an amoeba-constrained family and shows that the extra symmetry is realized by an explicit ambient monomial involution, rather than an arbitrary projective transformation of a parametrization. The result is a complete infinite-family classification rather than a small numerical increment.
+Best-of-knowledge new parameter-specific stabilizer calculation, not a claim that finite PGL2 classification is new. The exact originating same-object Nisse manuscript was inaccessible in full this run, hence a significant priority qualification but not evidence of mathematical coverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Determines the full intrinsic affine automorphism group, rather than only symmetries inherited from the ambient torus, of a natural published non-Harnack curve family; the exact geometric-mean jump hypersurface and explicit involution are a meaningful symmetry classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

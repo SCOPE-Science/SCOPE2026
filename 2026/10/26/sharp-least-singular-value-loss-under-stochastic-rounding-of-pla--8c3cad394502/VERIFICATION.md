@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The ordinary Python script `verify_rounding.py` enumerates every possible rounded matrix from four independent Bernoulli bits, computes each exact Gram eigenvalue, and sums the corresponding symbolic probabilities. Symbolic checks establish the exact expectation, the rank-loss polynomial, the three-occupied-entry golden-ratio spectrum, the orientation derivative, and its critical value. Additional checks are 121 exact rational parameter comparisons, 1,000 independently evaluated dense-SVD comparisons of all sixteen matrices per parameter sample, and six grid checks of the orientation transition. The script finished without assertion failures.
+## correctness
 
-These checks are **not** a proof of the universal claims; the complete algebraic enumeration and analytic optimization are given in `RESULT.md`. No interval enclosure, hardware rounding validation, high-dimensional experiment, or external independent audit is asserted. The script needs `sympy` and `numpy` in addition to the standard Python library.
+PASS
+
+All 16 Bernoulli outcomes yield smallest squared singular values 0,1,(3-sqrt 5)/2,2, with exact probability polynomials. Summation gives E sigma_min²=s²-(sqrt 5-1)ab(a+b-2ab); determinant zero iff both Bernoulli pair-products vanish, probability (1-a²)(1-b²). Writing k=ab/s²<=1/2 gives loss/s²=ks sqrt(1+2k)-2k²s²=(1+2k)/8-2k²(s-sqrt(1+2k)/(4k))²<=1/4; equality a=b=1/2. For s<=1, u=(a+b)/s in[1,sqrt2], derivative sign governed by strictly decreasing h(u)=(3u²-1)/(4u(u²-1)); threshold h(sqrt2)=5/(4sqrt2). Independent exact 16-state symbolic and derivative checks passed; no inference to high dimension.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS, with actual primary statement/implication comparison and listed residual priority risks; an unsuccessful search is not historical novelty proof. General low-precision matrix results are not equivalent to the exact 16-pattern squared-singular-value law or orientation phase boundary. The cited main improvement theorem has nontrivial rank, variance and dimension assumptions that do not fit this test family. A higher-dimensional theorem with restrictive aspect-ratio/variance parameters does not dominate a two-dimensional exact degradation theorem; no contradiction of any hypothesis is asserted.
+
+## value
+
+PASS
+
+Small singular values motivate recent claims about stochastic-rounding regularization. The smallest perfectly conditioned square family is a natural boundary case with a sharp 30.9% loss in expected squared min-singular energy, 9/16 rank collapse at the worst case, and an exact symmetry-breaking orientation threshold. This is a structural counterbalance, not a false claim that tall-matrix theorems fail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

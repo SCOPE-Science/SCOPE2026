@@ -1,19 +1,21 @@
-# Scientific review: sharp hostile-degree preservation and finite stabilization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fully receptive Kann--Feng update yields the exact rank-score identity \(x_i^+=\mu+(c/n)g_i(x)\). Hostile degrees bound every next-step gap, while choosing the top two hostile-degree vertices as the initial extremes proves the strict boundary is necessary. The convex total hostile-distance subgradient supports an increasing potential with strict gain \(n\|x^+-x\|_2^2/(2c)\); because the post-first-step scores are finite-valued, exact finite termination follows. The integer-score proof handles ties with the source's label-based convention. The standalone standard-library checker passed 2,800 exact direct-update cases, 231,388 finite exhaustive assertions, and 7,818 additional sampled checks. These checks corroborate, not replace, the universal proof.
+PASS
 
-## Originality — PASS (priority risk retained)
+PASS: In full-reception regime direct averaging reduces exactly to x_i^+=mu+(c/n)g_i(x) with antisymmetric hostile orientation scores. Distinct output coordinates differ by at most (c/n)(d_i+d_j), so d_(1)+d_(2)<n is sufficient inductively. Putting a maximum-degree node highest and second-highest lowest in an initially sub-c interval makes the gap c(d_(1)+d_(2))/n, proving necessity including equality. The convex hostile-edge potential Q minus n/(2c) squared mean-deviation has strict increment >= n/(2c)||next-current||²; finitely many integer score vectors or oriented edge sets prohibit cycles and force a fixed point within min(2^m,product_i(d_i+1)) steps. Independently compared direct rational update to score map for every signed complete graph and strict initial order through n=5 and verified strict potential in all eligible cases (C2_OK).
 
-Kann and Feng, arXiv:2301.02210v1, define this model and prove a separate fully hostile clique result (Theorem 4.10), while leaving broader intuition in Theorem 4.11. Their inspected statements do not imply the sharp mixed-sign degree-sum criterion or finite-step termination with quantized states. Conventional HK finite-time convergence (Bernardo et al., DOI:10.1016/j.automatica.2023.111302; Li, arXiv:2112.13348v1) has different positive-only or mixed-averaging dynamics. He et al. (DOI:10.1016/j.neucom.2019.12.061) is a plausible earlier signed model, but the obtainable abstract describes sign-preserving dynamics, unlike the present update; its full paper remained inaccessible. Semantic mathematical-result and published-literature searches identified no directly covering claim, but failed retrieval is not proof of absence.
+## originality
 
-## Value — PASS
+PASS
 
-For any size of fully connected signed social network, the inequality \(d_{(1)}+d_{(2)}<n\) is a sharp topology-only guarantee against all future loss of influence from initially trusted pairs. It simultaneously gives exact finite-time stabilization and discrete possible equilibrium offsets. This addresses a motivated hostility-versus-confidence question and identifies a structural preservation boundary rather than providing a routine special-case computation.
+PASS, qualified: Kann–Feng gives exactly this repulsive update and proves all-hostile complete dynamics, a different parameter regime. Typical attractive Hegselmann–Krause finite termination does not logically imply repulsive signed finite termination. A differently worded degree-max threshold could be implicit in literature on signed HK models; relevant He et al 2021 full text was not accessible.
 
-## Scope and residual uncertainty
+## value
 
-Conclusions do not cover trajectories starting outside full confidence, edge deactivation after the first update, incomplete signed graphs, asynchronous rules, or alternative hostile corrections. The step bound is not claimed sharp. Full-text publication-priority uncertainty persists for the earlier signed-model article.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A precise necessary-and-sufficient graph-degree boundary for permanent full receptivity and quantitative finite-time cessation of the signed process is a meaningful structural theorem. The argument reveals quantized fixed configurations, not a routine linear consensus result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

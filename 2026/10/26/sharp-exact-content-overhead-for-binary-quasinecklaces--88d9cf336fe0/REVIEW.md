@@ -1,11 +1,21 @@
-# Scientific review: exact-content quasinecklaces
+# Independent mathematical audit
 
-**Correctness — PASS.** The reduction of Gabrić--Sawada's three defining conditions to bounded binary zero-runs is an equivalence, not only a sufficient construction. The coefficient enumerator counts each word once. The cyclic-orbit proof gives the sharp finite upper factor; a fixed-content Burnside calculation and polynomial coefficient bounds prove the limiting ratio. Direct enumeration through length \(15\), a separate orbit check, and large exact-integer examples support the proof without replacing it.
+## correctness
 
-**Originality — PASS under the examined evidence.** Gabrić--Sawada, arXiv:2607.05324, establishes the auxiliary quasinecklace class and a length-only constant-factor comparison; the bounded-weight analysis permits a decrease in weight. Neither gives the fixed-content enumerator or the optimal factor \(z\), and a uniform all-contents bound does not imply a uniform per-content bound. Sawada--Williams (2013) already achieves exact-density generation using a distinct pseudonecklace method, so the finding is **not** presented as a new exact-density generation algorithm or an impossibility result. Searches for fixed-content quasinecklace counting and related formulations did not identify an explicit prior statement. A logically equivalent result in unindexed literature is a residual historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** The exact enumerator and cyclic multiplicity formula establish a complete natural fixed-content classification. More importantly, they quantify a sharp boundary between the length/bounded-weight cardinality guarantee and exact-content slices: the best factor is exactly \(z\) and therefore no absolute overhead bound follows for the particular quasinecklace filter. This is an algorithmically motivated infinite-family statement, not a recomputation of a finite table. It does not exclude alternative constant-amortized-time fixed-density constructions, which are already known.
+Definition 3 in Gabrić–Sawada reduces over binary symbols to 0^ell 1 followed by r-1 bounded zero-gap blocks 0^ei 1, 0<=ei<=ell, sum ei=z-ell. This bijection yields the coefficient enumerator. Every nonmonochromatic primitive rotation orbit contributes exactly one admissible start per longest zero-run, implying N<=Q<=z N. Burnside formula has leading r^(z-1)/z! and bounded-composition count r^(z-1)/(z-1)!, so Q/N -> z for each fixed z, including z=1 separately. Independent full binary enumeration through length 12, 777 primitive-orbit checks, and fixed z large-r integer checks passed; unrestricted result is analytic.
 
-Scientific limitations: binary alphabet only; no general lower bound on the running time of all algorithms, no statement that all candidates must be visited by a fixed-content implementation, and no independently performed scientific audit. The numerical checks terminate at finite parameters and the proof supplies the universal quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS, with actual primary statement/implication comparison and listed residual priority risks; an unsuccessful search is not historical novelty proof. Existing exact-density pseudonecklace generation cannot be substituted for a cardinality theorem about the larger Gabrić–Sawada quasinecklace set. The latter definition has an elementary binary specialization but the sharp fixed-content overhead is not asserted in the inspected source. Length-only/bounded-weight cardinality bounds are aggregate and do not imply a uniform fixed-content ratio. The present theorem does not claim algorithmic firstness or exclude alternate exact-density algorithms.
+
+## value
+
+PASS
+
+Exact-content analysis matters because length-only or bounded-total-weight amortized generation guarantees do not imply a fixed-weight guarantee for this PARTICULAR candidate superset. The exact run-multiplicity and all-content enumerator give a natural structural classification with sharp overhead z, explicitly not an impossibility theorem for alternative exact-density CAT generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

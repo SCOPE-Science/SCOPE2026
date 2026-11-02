@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:12:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The logistic derivative h_a' =p+at p(1-p) is strictly positive. Its second derivative is a p(1-p)[2-at tanh(a(t-1)/2)], so the unique t0>1 is the nondegenerate global slope maximum L>1 (and H=-h_a'''(t0)>0). The stationary-input curve S_beta(t)=beta t+(1-beta)h_a(t) is strictly increasing at and below beta_c=L/(L-1), even though its derivative touches zero at beta_c. Above beta_c it has precisely two turning points. The outer global-minimum energy difference differentiates as u_l-u_r<0 and has opposite strict signs at the folds, proving exactly one Maxwell equal-depth datum for every beta>beta_c. A cubic Taylor expansion at the critical point gives the signed |s-sc|^(1/3) modulus; rescaling t-t0=√epsilon x gives the fold-width coefficient (4/3)(L-1)q, the two-minimizer jump 2√3 Lq and Maxwell-location little-o epsilon^(3/2). Independently reimplemented differentiation and numerical Maxwell root checks support the constants, but not the universal assertion. The finite input s=0 is treated by the positive objective and derivative boundary; beta=beta_c is included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu et al. use general monotone scalar prox/spectral singular-value reduction.",
+          "Generic cusp normal forms provide cubic/square-root scaling near degenerate stationarity."
+        ],
+        "reasoning": "Those frameworks include the optimization class but do not entail this logistic family's global energy comparison and explicit coefficients. The weak convexity theorem establishes a sufficient strict regime, not a global iff at equality.",
+        "searches": [
+          "query Resultary: logistic spectral shrinkage inverse-design penalty sharp proximal threshold fold cusp Maxwell bifurcation global minimizers",
+          "arXiv:1412.2231 generalized singular value thresholding",
+          "cusp normal form nonconvex proximal map"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen Git blob 6cb8c27cbdf99d6d381619f1fe2859632c13fd51; prox_bifurcation_check.py inspected and independently reimplemented",
+        "arXiv:2610.21664 (abstract/theorem description; full inaccessible)",
+        "arXiv:1412.2231 (general GSVT)",
+        "Resultary search exact semantic query #1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior beta rho<1 implies strict convexity/uniqueness only on an open region.",
+          "At the equality beta rho=1, S_beta'≥0 with one zero still yields a unique minimizer."
+        ],
+        "reasoning": "The prior sufficient condition does not logically imply either uniqueness at beta_c or existence and uniqueness of equal-depth solutions for every beta>beta_c. A new global energy comparison is decisive.",
+        "searches": [
+          "arXiv:2610.21664 Theorems 4.2 and 5.2",
+          "arXiv:1412.2231 Theorems 1-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang–Wang–Yang Theorem 5.2 gives sufficient uniqueness for beta rho<1 and rho=1-1/L.",
+          "Their statement does not decide the equality endpoint or global two-well coexistence above it."
+        ],
+        "reasoning": "Inverse-designing via h_a turns the prox stationarity into S_beta(t)=s; saddle-node folds alone do not establish global minimum coexistence. No located equivalence supplied the unique Maxwell datum.",
+        "searches": [
+          "query Resultary: logistic spectral shrinkage inverse-design penalty sharp proximal threshold fold cusp Maxwell bifurcation global minimizers",
+          "logistic penalty proximal Maxwell set equal-depth fold cusp roots inverse-shrinkage",
+          "arXiv:2610.21664 Theorem 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numeric table or database was located for the exact continuum of all a,beta and the cusp constants."
+        ],
+        "reasoning": "The claim is a continuous-parameter analytic classification; isolated tabulated critical inputs would not imply the universal theorem.",
+        "searches": [
+          "query Resultary: logistic spectral shrinkage inverse-design penalty sharp proximal threshold fold cusp Maxwell bifurcation global minimizers",
+          "logistic sigmoid shrinkage beta critical proximal bifurcation table"
+        ]
+      },
+      "rationale": "PASS (qualified): Yang–Wang–Yang prove an exact weak-convexity bound and sufficient strict inequality beta(1-1/L)<1. The asserted endpoint, unique supercritical global coexistence and exact cusp/fold coefficients require analysis beyond that sufficient condition. Lu and collaborators provide generic scalar singular-value reduction, and generic cusp theory supplies qualitative exponents, not the family-specific Maxwell location and constants. Resultary semantic search found related proximal works but no statement covering the full theorem. Original primary arXiv full text was unavailable in this execution; priority is best-of-knowledge only.",
+      "residual_risks": [
+        "Original arXiv:2610.21664 full text not read in this execution; its precise global analysis may contain stronger implicit assertions.",
+        "Generic singularity theory could contain a logically equivalent Maxwell coefficient under a change of variables.",
+        "Finite diagnostics corroborate but do not prove continuous-parameter assertions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-document comparison not established, so retain material priority risk.",
+          "evidence": [
+            "Theorem 5.2 cited as sufficient beta rho<1 in audited package; independently obtained full original not available."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21664",
+          "material_read": "Abstract and bibliographic/source theorem descriptions; the complete arXiv HTML/PDF was not obtained.",
+          "method": "arXiv/open-access retrieval attempts; authorized institutional attempt returned Oxford worker unavailable or request invalid.",
+          "title": "Data-Driven Smooth-to-Hard Spectral Regularization for General Linear Inverse Problems",
+          "trigger": "Same exact inverse-designed logistic shrinker and weak-convexity threshold"
+        },
+        {
+          "assessment": "General scalar/singular value proximal framework, no independently verified whole-document noncoverage.",
+          "evidence": [
+            "Published general scalar reduction and monotone proximal statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.2231",
+          "material_read": "Abstract and referenced theorem scope, not full document",
+          "method": "Open abstract and paper descriptions",
+          "title": "Generalized Singular Value Thresholding",
+          "trigger": "Potential general proximal and matrix dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A sharp global uniqueness threshold including its equality endpoint, unique supercritical datum with two global minimizers, and quantitative onset constants are directly relevant to the nonconvex logistic spectral penalty. This is not merely a restated weak-convexity sufficient condition or a stationary-root count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar logistic inverse-designed penalty and associated one-by-one matrix obstruction; not general nonconvex penalties.",
+    "Novelty best-of-knowledge with relevant full original paper inaccessible.",
+    "No public provenance-sanitized publication changes staged."
+  ],
+  "schema_version": 1
+}

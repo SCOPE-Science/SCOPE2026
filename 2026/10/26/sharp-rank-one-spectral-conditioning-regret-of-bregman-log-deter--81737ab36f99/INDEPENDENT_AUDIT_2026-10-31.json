@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:12:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Sherman–Morrison gives D(S,I+wvv*)-D(S,I)= -w/(1+w) v*Sv + log(1+w). At positive w the top eigenvector of S minimizes D, while for -1<w<0 the bottom eigenvector does; minimizing over u=1+w selects u=M or u=epsilon, with reduction phi(mu)=mu-log mu-1. The unique score crossing epsilon*(M) lies in (0,1/M) since M-1/M-2log M>0. For any noncommuting positive update, the Rayleigh quotient at e1 is <=epsilon and a vector in span(e2,e3) perpendicular to v has quotient >=1, so kappa>=1/epsilon. For any negative update, e3 has quotient >=M and some vector in span(e1,e2) perpendicular to v has quotient <=1, hence kappa>=M. The explicit diagonal updates attain both bounds, proving unrestricted rank-one infimum min(M,1/epsilon). Exact tie, mismatch interval (epsilon*,1/M), ratio 1/(M epsilon), supremum 1/(M epsilon*)~e^M/M² follow. Independently verified M=6, epsilon=1/20 and 500 noncommuting random Hermitian rank-one Rayleigh cases; samples are not the optimality proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bock–Andersen 2024 conditioning results impose nonnegative-error structure.",
+          "Bock–Andersen 2025 handles indefinite errors but optimizes Bregman divergence, not spectral regret."
+        ],
+        "reasoning": "Neither cited broader framework supplies the global condition-number infimum min(M,1/epsilon) and parameter-sharp gap on the explicitly indefinite S-I case.",
+        "searches": [
+          "query Resultary: Bregman log determinant rank one preconditioning indefinite matrix error spectral condition number approximation regret",
+          "arXiv:2304.12162 Bregman preconditioner PSD condition number",
+          "SIAM matrix near-ness Bregman divergence preconditioners"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 197529fe3591e7ac6df920a6c821de5e08ace63a and verify.py 811b2c13cb2cd230a69d83fc7caa0d0b9e58ef61",
+        "Bock–Andersen arXiv:2312.06417 full PDF and journal HTML",
+        "arXiv:2304.12162 hypothesis comparison",
+        "Resultary semantic query #2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Bregman theorem determines which extreme spectral score minimizes divergence.",
+          "It does not provide a lower bound against all noncommuting signed rank-one spectral competitors."
+        ],
+        "reasoning": "Additional Rayleigh-quotient witnesses are mathematically needed to establish globally sharp regret; the PSD theorem is not applicable to indefinite S-I.",
+        "searches": [
+          "Bock and Andersen arXiv:2312.06417 Theorem 2 low rank truncation",
+          "Bock and Andersen arXiv:2304.12162 PSD conditioning"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bock–Andersen 2025 divergence-based optimum is a rank-one direction chosen by phi(lambda).",
+          "The spectral minimax comparison here has signed rank-one corrections and global Rayleigh quotient lower bounds."
+        ],
+        "reasoning": "A condition-optimal signed correction is not equivalent to minimizing the directed Bregman discrepancy; the mismatch region is a distinct comparison.",
+        "searches": [
+          "query Resultary: Bregman log determinant rank one preconditioning indefinite matrix error spectral condition number approximation regret",
+          "Bregman log-det divergence rank-one spectral conditioning approximation factor indefinite",
+          "arXiv:2312.06417"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published preconditioning numerical tables compare conditioning/runtime on examples.",
+          "The exact symbolic continuum epsilon*(M) and exponential supremum were not located as a table."
+        ],
+        "reasoning": "A finite table cannot cover an exact all-M bound; the analytic statement is a benchmark instead of recomputed tabulated examples.",
+        "searches": [
+          "query Resultary: Bregman log determinant rank one preconditioning indefinite matrix error spectral condition number approximation regret",
+          "Bregman low rank condition numbers benchmark tables"
+        ]
+      },
+      "rationale": "PASS (qualified): Bock–Andersen (2023 arXiv, 2025 journal) establish directed Bregman log-determinant low-rank eigenvalue selection, which the proof explicitly credits. Their article does not state the signed-indefinite rank-one global spectral-condition regret interval in the read sections; positive-semidefinite-error conditioning results in their 2024 paper cannot directly cover signed S-I. The new comparison is with all noncommuting Hermitian rank-one corrections and has a sharp exponential worst-case gap. General matrix nearness equivalence could still give an implicit corollary.",
+      "residual_risks": [
+        "An unindexed general matrix-nearness theorem could imply the exact signed rank-one regret as an easy specialization.",
+        "The result is about spectral condition number rather than the complexity of finite-precision preconditioned linear solvers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eigenvalue selection is covered prior art; sharp rank-one signed spectral-regret ratio not present in the material read.",
+          "evidence": [
+            "Theorem 2 optimizes directed divergence; Section 6 compares condition number and performance without the stated exponential sharp regret."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.06417",
+          "material_read": "Complete 21-page PDF and corresponding journal HTML, particularly §§2–3, Theorem 2 and numerical discussion in §6.",
+          "method": "Open arXiv PDF, rendered screenshot of page 7, journal HTML text.",
+          "title": "A New Matrix Truncation Method for Improving Approximate Factorisation Preconditioners",
+          "trigger": "Exactly the same Bregman divergence and low-rank signed truncation"
+        },
+        {
+          "assessment": "PSD error hypothesis does not apply to the indefinite rank-two deviation S-I.",
+          "evidence": [
+            "Problem constraints differ in the sign of preconditioning error."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.12162",
+          "material_read": "Abstract and described positive-semidefinite error hypothesis; no complete full text independently read.",
+          "method": "Open publisher/arXiv descriptions",
+          "title": "Preconditioner Design via the Bregman Divergence",
+          "trigger": "Potential stronger conditioning optimality result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A sharp, unbounded approximation ratio for a practical divergence-optimal rank-one preconditioning objective, with precise parameter range and exact global spectral benchmark, is a motivated numerical linear algebra counterexample. It does not conflate condition number with iteration count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the three-eigenvalue rank-one class with Q=I and exact arithmetic, not arbitrary spectra or CG performance.",
+    "Historical priority qualified and public metadata not sanitized."
+  ],
+  "schema_version": 1
+}

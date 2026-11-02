@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit inverse branches yield an exact common weight formula, and the reflection of both preimages about the cusp cancels the odd first-order density term. One-dimensional \(W^{2,1}\) regularity embeds in \(C^1\), sufficient for the \(o(z^3)\) remainder after multiplying by the order-\(z\) inverse weight. Backward-image density and positivity of the unmixed selection weight ensure \(h_p(1/2)>0\). The first three Peano coefficients are exact weighted moments, whose two-point algebra proves a unique selection-probability inverse and a nonnegative strict mixing discriminant. The symbolic checker reproduces the inverse-weight Taylor series, the moment identity and a rational worked example. It cannot establish stationary-density existence, which is explicitly an input from the primary source.
+## correctness
 
-## Originality — PASS under inspected literature, with priority risk
-Oltiboev and Vafoyev, arXiv:2610.23180v1, Section 3 derive the inverse branch, Proposition 5.1 gives a first-order boundary trace, and Section 6 proves a spectral gap and analytic small-Bernoulli response. Their conclusions address *forward* existence/response, not recovery of an unknown Bernoulli probability from the second boundary coefficient or detection of mixing from a shape-independent three-coefficient discriminant. Oltiboev, Rakhimov and Ruziboev, arXiv:2608.26969v1, use strictly subcritical cusp exponents and focus on random linear response, not this endpoint inverse law. Published searchable records for stationary-density identifiability of the Ricker map, subprincipal intermittent densities and random integer beta maps concern different dynamical objects and do not dominate the two-cusp transfer identity. Previously recorded deterministic critical-cusp boundary results do not recover switching probabilities. Residual risk: the two-point weighted-moment inversion could appear in broader inverse random-transfer literature not located by the searches, and general mixture moment theory is of course classical.
+PASS
 
-## Mathematical value — PASS
-The observed one-time stationary density typically depends on the entire random orbit and its unknown cusp value. Yet its first two boundary asymptotic coefficients exactly determine the inaccessible Bernoulli switching probability, while a specific three-coefficient combination distinguishes deterministic dynamics from genuine switching even if the map-shape parameters are unknown. The cancellation makes this a structurally meaningful identifiability boundary for this recently studied critical cusp family, rather than another forward transfer expansion.
+The exact inverse branches c±u(z)^2 have u(z)^2=O(z^2) and transfer weight 2w(z)=z/K^2-3theta z^2/(4K^4)+5theta^2 z^3/(8K^6)+O(z^4). W2,1 embeds in C1; symmetric evaluations h(c±u^2)=2h(c)+o(u^2) justify o(z^3) without C3. The invariant density is positive at cusp: a zero would propagate under both inverse branches of the p<1 theta0 map, dense by uniformly contracting full branches, contradicting normalization. Therefore alpha=(h(c) A,-3h(c)B/4,5h(c)C/8) with two-point mixture A,B,C; weighted mean B/A recovers p and AC−B²=p(1-p)a0a1(r1−r0)² yields the sharp 45/8 discriminator. Primary Theorem 6.1 confirms stationary W2,1 premise. Independent symbolic series/variance and inverse checks passed.
 
-## Scientific scope and limitations
-The two map shapes must be known to reconstruct the numerical probability; the shape-free discriminant only tests switching. Existence of the stationary density is established only in the cited small-mixing regime. All boundary coefficients are theoretical Peano coefficients; classical third derivatives, sampling errors and statistical rates are not asserted. The independent scientific and literature-priority audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS for the exact final theorem, not for foundational known ingredients; source and implication comparisons are below, with named residual risks. Analytic response/spectral gap is about existence and perturbative dependence; it does not by itself identify unknown p exactly via second boundary coefficient or force a third-order variance sign. The result uses prior existence as its premise. One must use even cancellation in W2,1 to obtain an actual o(z³) Peano jet, prove cusp positivity, and compute the nontrivial mixture moment inversion; these are not conclusions of the cited existence theorem alone.
+
+## value
+
+PASS
+
+Identifying an unknown Bernoulli mixing probability from local stationary boundary shape without the unknown cusp-density normalization is a natural inverse problem in a well-defined random dynamical family. The third-jet strict variance witness distinguishes genuine switching from a deterministic map with no arbitrary numerical threshold; regularity is handled precisely.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

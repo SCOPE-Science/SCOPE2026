@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every \(M>1\), \(0<\varepsilon<1\), and every positive-definite Hermitian rank-one correction to the identity. The BLD minimizer is derived independently from the determinant lemma and a one-variable derivative test. The global spectral comparison requires a separate min–max proof over both signs of the rank-one correction; restricting to commuting candidates would be insufficient. Boundary ties and the exponentially sharp fixed-\(M\) ratio follow from monotonicity of \(z-\log z-1\). Exact symbolic identities and finite numerical checks in `verify.py` agree with the proof.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: Sherman–Morrison gives D(S,I+wvv*)-D(S,I)= -w/(1+w) v*Sv + log(1+w). At positive w the top eigenvector of S minimizes D, while for -1<w<0 the bottom eigenvector does; minimizing over u=1+w selects u=M or u=epsilon, with reduction phi(mu)=mu-log mu-1. The unique score crossing epsilon*(M) lies in (0,1/M) since M-1/M-2log M>0. For any noncommuting positive update, the Rayleigh quotient at e1 is <=epsilon and a vector in span(e2,e3) perpendicular to v has quotient >=1, so kappa>=1/epsilon. For any negative update, e3 has quotient >=M and some vector in span(e1,e2) perpendicular to v has quotient <=1, hence kappa>=M. The explicit diagonal updates attain both bounds, proving unrestricted rank-one infimum min(M,1/epsilon). Exact tie, mismatch interval (epsilon*,1/M), ratio 1/(M epsilon), supremum 1/(M epsilon*)~e^M/M² follow. Independently verified M=6, epsilon=1/20 and 500 noncommuting random Hermitian rank-one Rayleigh cases; samples are not the optimality proof.
 
-The closest source, Bock–Andersen arXiv:2312.06417, already proves the low-rank BLD selection principle and compares selected numerical preconditioners. It does not furnish the global spectral-condition optimum over all signed Hermitian rank-one corrections or the exact mismatch wedge. The earlier arXiv:2304.12162 concerns nonnegative correction error and therefore does not cover the signed instance. Foundational Bregman matrix-nearness and low-rank factorization-error works address different aims. Searches by title, exact spectrum, aliases, and implication yielded no decisive equivalent. An unindexed equivalent counterexample or an implicit extension of other general rank-one approximation theory remains possible; originality is not a claim of exhaustive coverage.
+## originality
 
-## Value — PASS
+PASS
 
-Divergence minimization and spectral-conditioning optimization are competing, natural design criteria for the *same* constrained preconditioner family. A complete disagreement region and an exponentially large sharp regret demonstrate that one criterion does not provide any dimension-free or spectrum-independent multiplicative surrogate guarantee for the other. This is a motivated boundary result, not merely a renamed BLD minimizer or an arbitrary finite calculation. It does not prove a CG iteration-count penalty.
+PASS (qualified): Bock–Andersen (2023 arXiv, 2025 journal) establish directed Bregman log-determinant low-rank eigenvalue selection, which the proof explicitly credits. Their article does not state the signed-indefinite rank-one global spectral-condition regret interval in the read sections; positive-semidefinite-error conditioning results in their 2024 paper cannot directly cover signed S-I. The new comparison is with all noncommuting Hermitian rank-one corrections and has a sharp exponential worst-case gap. General matrix nearness equivalence could still give an implicit corollary.
 
-## Scientific limitations and literature
+## value
 
-The domain is a three-eigenvalue SPD system with an indefinite normalized factorization error, fixed baseline identity, exact arithmetic, and rank one. The 2023 Bock–Andersen BLD minimizer is prior art, and the broader arbitrary-rank and real-world solver behaviors are unproved. Later studies of Kaporin conditioning optimize a different functional. Source access was strongest for the full Bock–Andersen matrix-truncation text and the relevant positive-error predecessor; other background papers were compared at abstract/metadata level and do not justify exhaustive negative-coverage claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A sharp, unbounded approximation ratio for a practical divergence-optimal rank-one preconditioning objective, with precise parameter range and exact global spectral benchmark, is a motivated numerical linear algebra counterexample. It does not conflate condition number with iteration count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
