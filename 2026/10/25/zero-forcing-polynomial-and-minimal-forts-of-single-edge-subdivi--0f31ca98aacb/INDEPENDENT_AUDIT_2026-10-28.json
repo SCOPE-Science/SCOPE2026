@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:44:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual snapshot RESULT.md blob f7db85afa4291183346e22a34844d45e8098c1d2 and verify_subdivision.py",
+        "Fresh independent direct white-set forcing and minimal-fort enumeration /mnt/data/scope06_independent_checks_20261028.py",
+        "Boyer et al arXiv:1801.08910 Proposition 4 as base Kpq polynomial comparison"
+      ],
+      "rationale": "Inspected the actual RESULT.md proof and verify_subdivision.py graph construction. The false-twin classes A\\{a0}, B\\{b0} each force at most one initially white vertex in any forcing set, since any twin pair is a fort. With x=a0,y=b0,t=s,u in A\\{a0},v in B\\{b0}, direct neighborhood checks show {x,t,u}, {y,t,v} and {x,y,u,v} are forts. Every four-white choice among representatives contains one of these, so admissible white sets have at most three vertices. Exactly eight types of three whites avoid the obstruction patterns; the explicit force schedules in RESULT.md are valid with p,q≥3 because alternative blue twin-class vertices exist. By monotonicity, all their subsets force, giving a necessary and sufficient avoidance criterion. Any nonforcing white set contains a listed fort, and listed forts are incomparable, so five families exhaust inclusion-minimal forts. Counting admissible whites at sizes 0,1,2,3 gives the displayed complete polynomial. Fresh independent direct zero-forcing simulation enumerated all 2^(p+q+1) white sets and minimal forts for (p,q)=(3,3),(3,4),(4,4), obtaining coefficient vectors [21,19,7,1], [29,24,8,1], [40,30,9,1] at increasing forcing sizes and 10,15,21 minimal forts respectively. Those bounded tests corroborate the symbolic infinite-family proof.",
+      "residual_risks": [
+        "The explicit eight-type forcing schedules require at least one initially blue alternative in each twin class; this is why the p,q≥3 boundary is essential.",
+        "Finite enumeration covers three small pairs only; classification for every p,q uses the fort and forcing-schedule proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer Proposition 4 gives Z(Kpq;z)=pq z^(p+q-2)+(p+q)z^(p+q-1)+z^(p+q), which does not apply after replacing one edge by a path of length two.",
+          "Menon-Singh bounds do not provide exact all-cardinality distribution of this nonbipartite perturbation.",
+          "Complete multipartite fort classification has incompatible hypotheses."
+        ],
+        "reasoning": "A general operation inequality cannot imply the exact 4 coefficients and 5 fort classes without a further sharpness theorem; none inspected covers that statement.",
+        "searches": [
+          "arXiv:1801.08910v1 Proposition 4 complete multipartite zero forcing polynomials",
+          "arXiv:2405.01423v1 Menon Singh operations on zero forcing sets",
+          "Resultary published Minimal forts and fractional zero forcing of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Boyer et al arXiv:1801.08910v1 primary PDF Proposition 4, Section 4 and fort discussion",
+        "Menon and Singh arXiv:2405.01423 primary PDF Sections 1-3",
+        "Resultary 2026-10-28 query returning minimal forts of complete multipartite graphs; skew zero forcing of chain graphs; zero forcing of bridge barbells"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known base Kpq has pq minimum sets, versus 3pq-p-q after subdivision; the full coefficient vectors also differ.",
+          "The subdivided graph is not a complete multipartite target, and the operation bounds do not force equality or a five-family fort classification."
+        ],
+        "reasoning": "The earlier exact polynomial and basic operation bounds do not logically imply the stated full one-edge subdivision theorem; the change in minimum-set multiplicity has a genuine structural explanation via altered fort obstructions.",
+        "searches": [
+          "arXiv:1801.08910 Proposition 4 base biclique",
+          "arXiv:2405.01423 Sections 1-3 graph operations",
+          "Resultary zero forcing polynomial of bridge barbells and minimal forts of complete multipartite graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H_{p,q} has an induced five-cycle through subdivided edge and an alternate length-4 route, so is not a complete multipartite or chain graph.",
+          "The Resultary chain-graph result concerns skew zero forcing and is bipartite; the standard zero-forcing polynomial is a different invariant."
+        ],
+        "reasoning": "No exact alternate-name theorem covering one original edge subdivision and the five minimal-fort classes was found; class and invariant mismatches rule out several plausible false equivalences.",
+        "searches": [
+          "\"zero forcing polynomial single edge subdivision K_{p,q} complete bipartite graph minimal forts all coefficients\" (Resultary, 2026-10-28)",
+          "\"zero forcing polynomial\" \"subdividing\" \"complete bipartite\"",
+          "\"zero forcing polynomial\" \"edge subdivision\" bipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary polynomial paper tabulates familiar graph families, including the unsubdivided complete multipartite case, but the inspected section contains no one-edge-subdivided biclique entry.",
+          "Resultary related bridge-barbell polynomial is a different graph operation/family with superficially similar coefficient structure."
+        ],
+        "reasoning": "No exact matching published table was located. The distinct bridge-barbell and complete multipartite records cannot substantiate a coverage claim by formula resemblance alone.",
+        "searches": [
+          "Resultary semantic search for exact zero-forcing polynomial of one-subdivided biclique, 2026-10-28",
+          "Boyer arXiv:1801.08910 Section 4 and tables for graph classes",
+          "Graph one-edge subdivision zero-forcing polynomial explicit 3pq-p-q"
+        ]
+      },
+      "rationale": "The exact polynomial for the unsubdivided complete bipartite graph is known from Boyer et al, but a one-edge subdivided Kpq is not complete multipartite and even contains an odd five-cycle; the known formula is not a legitimate substitution case. Menon-Singh study graph operations and bounds but do not supply all coefficients or the minimal-fort classification in the sections read. Existing chain-graph and complete-multipartite fort results concern bipartite original families, not the nonbipartite one-edge perturbation. A graph may be indexed under a different name, and this possibility remains an explicit priority risk.",
+      "residual_risks": [
+        "An unindexed graph-operation enumeration or thesis under an alternate graph-family name may contain this same polynomial or fort classification.",
+        "Counting argument assumes p,q>=3; its force schedules would need separate checking for smaller twin classes, which are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASE_GRAPH_ONLY",
+          "evidence": [
+            "Proposition 4 gives the complete multipartite Kpq polynomial but not the nonbipartite one-edge subdivision; Section 5 treats general fort concepts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "ArXiv PDF abstract, Sections 4 and 5, Proposition 4 on complete multipartite polynomials and relevant fort results",
+          "method": "Inspected exact hypotheses and compared original versus one-edge-subdivided biclique",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Foundational exact polynomial theorem for the Kpq parent graph"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_TARGET",
+          "evidence": [
+            "The cited results give operation bounds and other families, not the all-coefficient formula or complete minimal-fort hypergraph at this graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.01423",
+          "material_read": "ArXiv PDF abstract, introductory definitions and graph-operation theorems in Sections 1-3",
+          "method": "Checked whether asserted operation bounds specialize to exact one-edge-subdivided biclique coefficients",
+          "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+          "trigger": "Potentially dominating edge-operation counting results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md fort proof and full polynomial",
+        "Boyer et al original Kpq polynomial establishes nontrivial perturbation contrast"
+      ],
+      "rationale": "Single-edge subdivision is a canonical local graph transformation. Beyond a routine minimum value, this theorem gives the complete all-cardinality zero-forcing distribution and a minimal-fort obstruction hypergraph on an infinite two-parameter family, quantifying a sharp increase from pq to 3pq-p-q optimum sets despite an unchanged minimum size. Exact fort families and the count can be independently used in transversal, forcing and graph-operation comparisons; the all-coefficient and structural classification has substantive natural motivation.",
+      "residual_risks": [
+        "No statement for p<3, q<3, multiple or total-edge subdivisions; those require distinct classifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For p,q>=3, let H_{p,q} replace one edge a_0 b_0 of K_{p,q} by the two edges a_0 s, s b_0. Its ordinary zero-forcing polynomial is Z(H;z)=z^(p+q-2)[(3pq-p-q)+(pq+2p+2q-2)z+(p+q+1)z^2+z^3]. The complete inclusion-minimal fort family consists of twin pairs in A\\{a0}, twin pairs in B\\{b0}, {a0,s,u}, {b0,s,v}, and {a0,b0,u,v} with u in A\\{a0}, v in B\\{b0}; hence Z(H)=p+q-2 and there are 3pq-p-q minimum zero-forcing sets.",
+  "limitations": [
+    "Finite direct enumeration covers p,q in {(3,3),(3,4),(4,4)} only, not the entire infinite family.",
+    "Indexed literature cannot rule out unlocated alternate graph names or old data tables.",
+    "Public source metadata requires coordinated privacy-neutral replacement before publication; no executable operations staged."
+  ],
+  "schema_version": 1
+}
