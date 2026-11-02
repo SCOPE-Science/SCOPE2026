@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For all integers q>=2 the target edge set is exactly the ternary equality pattern with two equal symbols. Direct degree checks and a two-step diagonal communication argument show the q^2-vertex de Bruijn subgraph is balanced and strongly connected. Every cyclic universal word anchors uniquely at the edge 001. BEST counts the rooted circuits as tau*((q-2)!)^q. The off-diagonal Laplacian block has determinant 3^binom(q,2) and inverse (2I+R)/3; its diagonal Schur complement equals (2/3)(qI-J), whose cofactor is (2/3)^(q-1)*q^(q-2). Thus tau=2^(q-1)3^((q-1)(q-2)/2)q^(q-2), proving the stated closed formula without computational dependence. An independent exact Bareiss cofactor implementation verifies q=2..8, explicit constructive windows verify q=2..25, and complete anchored tour enumeration verifies the cycle counts 2,36,55296 for q=2,3,4. Finite checks do not prove the infinite theorem; all critical nonstandard steps are reconstructed in RESULT.md and implemented in verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General BEST/matrix-tree theorems count Euler tours from the graph Laplacian, but leave the q-dependent q^2-by-q^2 cofactor unevaluated.",
+        "The 2017 onto and equitable results concern different exact word sets, while 2019 deletion-family results enumerate probabilities, not cycles in this large constrained set.",
+        "The 2023 cycle-joining results concern efficient construction of various classes, not this sequence enumeration."
+      ],
+      "reasoning": "The new result explicitly specializes general machinery. None of the inspected published statements supplies the determinant product or a stronger all-q enumeration implying it. General algorithms alone do not constitute the evaluated closed formula, though they bound originality scope.",
+      "searches": [
+        "alphabet q cyclic words all length-3 factors have precisely two equal symbols exactly once graph necklace",
+        "arborescence Schur complement overlap graph triples with two equal BEST formula",
+        "Gardner Godbole restricted words universal cycles 1-2 augmented qary length three counts",
+        "arxiv:1908.01116v1",
+        "arxiv:2308.12405v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1711.07029v1",
+      "arxiv:1908.01116v1",
+      "arxiv:2308.12405v1",
+      "arxiv:1303.3323 (abstract + secondary summary only)",
+      "https://mathworld.wolfram.com/BESTTheorem.html",
+      "https://www.mdpi.com/2227-7390/8/5/778",
+      "https://dc.etsu.edu/etsu-works/10236/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gardner–Godbole Theorem 3 (binary equitable k=3) implies existence for q=2 but not the exact all-q count.",
+        "General existence of a u-cycle of non-injective words does not imply exact enumeration for the strict two-equal-only triple set.",
+        "The tested previously reported special palindrome cyclic cover counts cover only palindrome factors, not the complete exactly-two-equal triple language."
+      ],
+      "reasoning": "Statement comparison includes aliases and stronger families, not title matching. The full new q≥2 product and symbol-balance claim are not logical consequences of the relevant published existence statements alone. The general BEST theorem is an explicit acknowledged ingredient; the q-parametric cofactor evaluation is the new step.",
+      "searches": [
+        "universal cycles exactly two equal symbols length 3 factor language count Euler tours q-ary words aab aba baa",
+        "2017 Universal Cycles of Restricted Words exact count qary three-letter two repeated",
+        "arxiv:1711.07029v1",
+        "arxiv:1908.01116v1",
+        "arxiv:2308.12405v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The three-letter allowed set consists of aab,aba,baa for each ordered pair of distinct symbols; it is exactly the length-three equality pattern (2,1).",
+        "Its de Bruijn overlap graph has q^2 vertices, diagonal degree q-1, off-diagonal degree 2; the counted object is its rotation-quotiented edge-labeled Euler tours.",
+        "The 2017 restricted-word theorems include the binary q=2 existence result, but not the general all-q exact enumeration."
+      ],
+      "reasoning": "Equivalent interpretations via restricted de Bruijn cycles, Euler tours, and a directed arborescence cofactor were searched. They yield a method, not an earlier evaluated value. Even matching a single instance q=2 does not imply the all-alphabet product.",
+      "searches": [
+        "universal cycles exactly two equal symbols length 3 factor language count Euler tours q-ary words aab aba baa",
+        "enumeration universal cycles of triples with exactly two equal entries q symbols BEST theorem Laplacian determinant",
+        "universal cycles exactly two equal entries three-letter words count 2 36 55296",
+        "arxiv:1711.07029v1",
+        "arxiv:2308.12405v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent exhaustive counts for q=2,3,4 are 2,36,55296, and q=5 value is 11337408000.",
+        "Targeted sequence/number and restricted-triple searches returned no verified matching published enumeration."
+      ],
+      "reasoning": "An explicit matching table would cover small cases but not automatically the general formula; no such relevant table was established by actual searches. Search absence is not a uniqueness certificate.",
+      "searches": [
+        "universal cycles exactly two equal entries three-letter words count 2 36 55296",
+        "universal cycle repeated-letter triples aab aba abb qary enumeration",
+        "\"2, 36, 55296\" \"universal cycles\"",
+        "OEIS \"2,36,55296\" cycle",
+        "\"11337408000\" universal cycles"
+      ]
+    },
+    "rationale": "The exact evaluated all-q product is the assessed claim, not universal-cycle existence or the established BEST/matrix-tree methods. Relevant inspected primary literature studies existence of restricted-word cycles, deletion families, and concatenation-tree constructions but does not give the present three-letter exactly-two-equal count. Actual semantic-record queries, source aliases, exact numeric searches, and accessible own-claim comparison did not identify an equivalent or dominating statement. The 2013 complementary-class source was not fully available; this is an explicitly retained risk.",
+    "residual_risks": [
+      "Unindexed published all-q evaluation or specialized tables may duplicate the claimed product.",
+      "The 2013 primary full text was inaccessible, so no exhaustive full-document noncoverage assessment is claimed.",
+      "The general BEST/matrix-tree theorem is a strong methodological umbrella; novelty is limited to the explicit evaluated family and does not include those standard principles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its binary equitable three-word case overlaps the q=2 existence statement, and its 1–2 augmented onto theorem concerns a different family. Its cited non-injective theorem does not give the all-q exact count of the k=3 precisely-two-equal set.",
+        "evidence": [
+          "arxiv:1711.07029v1, pp. 1–3, Theorems 3–4 and 10; pp. 11–12, Theorem 21"
+        ],
+        "identifier_or_url": "arxiv:1711.07029v1; https://arxiv.org/pdf/1711.07029",
+        "material_read": "Complete 21-page primary PDF available; read relevant introduction/theorems 1–10 and section 2.6 (Theorem 21), and searched its text for enumeration and exact multiplicity claims.",
+        "method": "Full-PDF text inspection and page-image verification, especially pp. 1–3 and 11–12",
+        "title": "Universal Cycles of Restricted Words",
+        "trigger": "Restricted-word universal-cycle existence and similar equality patterns"
+      },
+      {
+        "assessment": "Counts existence probabilities for deletions from all words, with only small deletion sets and small q,n explicitly solved, not the all-q enumeration of universal cycles for exactly two repeated entries.",
+        "evidence": [
+          "arxiv:1908.01116v1, abstract and small-deletion theorems"
+        ],
+        "identifier_or_url": "arxiv:1908.01116v1; https://arxiv.org/pdf/1908.01116",
+        "material_read": "17-page primary PDF text inspected, including the deletion-model definitions, theorems, and enumeration cases; its first pages visually checked.",
+        "method": "Primary arXiv full-text inspection and PDF screenshots",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "Potential broader theory for exact universal cycles of selected word subsets"
+      },
+      {
+        "assessment": "Gives algorithms for generating selected universal cycles and de Bruijn sequences; does not evaluate the arborescence cofactor or enumerate this restricted length-three language.",
+        "evidence": [
+          "arxiv:2308.12405v1, introduction and section 5"
+        ],
+        "identifier_or_url": "arxiv:2308.12405v1; https://arxiv.org/pdf/2308.12405",
+        "material_read": "24-page OA PDF searchable, inspected abstract, introduction, and cycle-joining/construction applications including sections 5.1–5.2.",
+        "method": "Primary PDF text and first-page visual inspection",
+        "title": "Concatenation trees: A framework for efficient universal cycle and de Bruijn sequence constructions",
+        "trigger": "Potential constructive or stronger universal-cycle enumeration coverage"
+      },
+      {
+        "assessment": "Known non-injective-word existence theory is a broader different word family; cannot claim noncoverage of any uninspected detailed special cases. Residual risk retained.",
+        "evidence": [
+          "arxiv:1303.3323 abstract; arxiv:1711.07029v1 Theorem 10"
+        ],
+        "identifier_or_url": "arxiv:1303.3323; https://arxiv.org/abs/1303.3323",
+        "material_read": "Public abstract and the summary as Theorem 10 in Gardner–Godbole (2017); complete primary PDF could not be retrieved.",
+        "method": "Abstract and secondary theorem inspection, primary PDF access attempted",
+        "title": "Universal Cycles of Complementary Classes",
+        "trigger": "Earlier non-injective-word universal-cycle result potentially covering repetition constraints"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac5120e6-8159-43ee-8371-8d91a8f0ac77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exactly-two-equal triple language is a natural complete nontrivial equality-pattern slice of q-ary length-three words (neither all-distinct nor constant), motivating a shortest exact factor listing for all labeled alphabets. The theorem counts all such universal cycles, not merely existence, for every q>=2, revealing a non-obvious factorial/power product through the spanning-arborescence structure of a q^2-vertex directed overlap graph. The result gives exact design-space size and symbol balance for locally constrained sequence constructions; the nontrivial all-q determinant evaluation and full exact classification exceed a routine numeric or renaming exercise. No claim of improved generic cycle-counting methods is made.",
+    "status": "PASS"
+  }
+}
