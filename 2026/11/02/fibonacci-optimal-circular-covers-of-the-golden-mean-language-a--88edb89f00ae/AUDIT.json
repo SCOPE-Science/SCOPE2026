@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The original constrained factor graph is strongly connected. The explicitly defined augmentation duplicates every allowed nonzero k-factor with zero endpoints, exactly F_k-1 edges, and balances all vertices. The one-based rightmost-one potential h satisfies h(pre)-h(suf)<=1 on every edge, with equality on every duplicated edge; the divergence invariant therefore bounds all other balanced augmentations below by F_k-1 extra edges. Equality is supported on a subgraph with h strictly decreasing and at most one tight outgoing edge per vertex; the homogeneous conservation system has trivial kernel, proving uniqueness of the extra-multiplicity vector. Standard-library verifier rebuilds every graph k=2..14, checks balances, constructs and literally scans Euler cycles, and exhaustively checks short cases. Finite experiments were not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bernardini et al., On Strings Having the Same Length-k Substrings, DOI:10.4230/LIPIcs.CPM.2022.16, Theorems 1-4 and Section 5.1: generic shortest-walk/flow algorithm and quadratic-type bounds; Section 5.1 explicitly separates multiplicity functions but does not classify the optimum for the no-11 family.",
+        "Bernardini et al., Making de Bruijn Graphs Eulerian, DOI:10.4230/LIPIcs.CPM.2022.12, introduction and Problems 1-2: broad Eulerian extension by duplicate or novel edges, with graph-optimization focus."
+      ],
+      "reasoning": "The general directed Chinese-postman optimization provides an algorithm to compute each finite instance, but a claim that all instances admit the stated closed Fibonacci expression with the stated unique optimal multiplicity vector requires an additional special-family argument. The present potential proof supplies that argument. General algorithms are acknowledged as established rather than claimed novel.",
+      "searches": [
+        "directed Chinese postman shortest universal cycle covering all binary n words without consecutive ones multiplicity profile",
+        "golden mean constrained binary de Bruijn graph minimum Eulerian augmentation unique optimal edge duplication using potential rightmost one",
+        "Eulerian directed golden mean Fibonacci de Bruijn graph Chinese postman length minimum"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2005.03102 Section III-A, https://arxiv.org/abs/2005.03102",
+      "doi:10.4230/LIPIcs.CPM.2022.16 Sections 3-5, https://doi.org/10.4230/LIPIcs.CPM.2022.16",
+      "doi:10.4230/LIPIcs.CPM.2022.12 Eulerian-extension formalization, https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+      "Published research record: Fibonacci extremals for shortest absent subsequences of binary words (different subsequence-absence invariant)",
+      "Published research record: Exact binary two-multispectrum code size and singleton classification (different ordered-pair spectrum invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee et al., arXiv:2005.03102, Section III-A: constrained-window inequality; not the same cover objective.",
+        "Bernardini et al., DOI:10.4230/LIPIcs.CPM.2022.16, Section 5.1 and Proposition 21: any Eulerian walk corresponds to a multiplicity function. Generic representation alone does not give the present special-family values or rigidity.",
+        "Bernardini et al., DOI:10.4230/LIPIcs.CPM.2022.12, Problem 1 allows addition of new graph edges; the theorem here duplicates only already-allowed edges and proves a unique optimum."
+      ],
+      "reasoning": "The theorem adds a closed formula and equality-case classification to previously known graph-theoretic generalities. A generic min-cost-flow algorithm would compute each k separately and is logically compatible with multiple optima; it does not directly imply the asserted one-profile-for-all-optima formula without a special calculation.",
+      "searches": [
+        "Fibonacci golden mean directed de Bruijn shortest postman universal cycle factor multiplicity",
+        "constrained de Bruijn codes Chee Etzion Kiah Vardy forbidden patterns repeat k-tuples",
+        "On Strings Having the Same Length-k Substrings shortest Eulerian walk edge multiplicity optimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee et al., arXiv:2005.03102, Definition 2: their constrained words forbid nearby equal k-windows, not require complete coverage of every fixed-11-free k-word.",
+        "Bernardini et al. 2022, DOI:10.4230/LIPIcs.CPM.2022.16, sections 1, 4.3, 5.1: arbitrary prescribed k-factor sets are optimized by generalized Eulerian walks; no present Fibonacci equalities or unique multiplicity specialization located."
+      ],
+      "reasoning": "The cyclic cover is a Chinese-postman tour on the subshift factor graph, not a traditional unique-window de Bruijn cycle, nor a Fibonacci infinite/Sturmian word. Equivalent statements would require the same exact all-k minimum and the same universal optimum edge-traversal histogram; neither was identified in the relevant inspected text.",
+      "searches": [
+        "all Fibonacci strings avoiding 11 cyclic shortest superstring length F(n+2)+F(n)-1 and unique repeated blocks 0u0",
+        "shortest circular superstring all binary strings avoiding 11 Fibonacci recurrence directed chinese postman",
+        "minimum length generalized de Bruijn cycle Fibonacci words 11 forbidden superstring",
+        "universal cycle Fibonacci words ... impossible eulerian shortest common superstring",
+        "cyclic binary de Bruijn universal cycles of length n windows avoiding adjacent ones golden mean shift exact enumeration count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identified indexed table simultaneously gave L_k=F_{k+2}+F_k-1 for the stipulated cyclic universal-cover problem and the complete repeated-edge multiset.",
+        "For k=2..14 the independently produced construction has minimum candidate lengths 3, 6, 10, 17, 28, 46, 75, 122, 198, 321, 520, 842, 1363; these values are proof consequences rather than novelty evidence."
+      ],
+      "reasoning": "A known Fibonacci numeric sequence by itself would not establish an earlier equivalent solution of the precise constrained cyclic-cover optimization. The comparison searches targeted the combinatorial interpretation and repetition profile, not just numerical coincidences. Absence of results is not proof of novelty.",
+      "searches": [
+        "shortest universal cycle language forbidden 11 Fibonacci factors cyclic cover",
+        "optimal shortened constrained universal cycle golden mean shift Fibonacci words repetitions",
+        "Fibonacci de Bruijn cycles for forbidden 11 number of Eulerian tours arborescence formula",
+        "shortest cyclic superstring containing all binary length n strings avoiding consecutive ones Fibonacci universal cycle minimum"
+      ]
+    },
+    "rationale": "Primary sources supply general algorithms for arbitrary k-substring coverage and distinct local no-repetition constraints, but their inspected claims do not entail without new special-family analysis the explicit F_{k+2}+F_k-1 length and unique 0u0-duplication profile. Searches also tested aliases golden-mean shift, forbidden 11, directed postman, cyclic superstring and Fibonacci universal cycles; no equivalent all-parameter statement was identified. Classical hidden specializations remain possible. The generic Eulerian-walk approach is acknowledged as prior.",
+    "residual_risks": [
+      "A closed Fibonacci shortest-postman formula or the equality-case traversal profile may occur under older golden-mean symbolic dynamics or universal-cycle terminology not indexed by the inspected searches.",
+      "The known general directed Chinese-postman framework already solves each finite graph algorithmically; the claimed distinct contribution is the formula and exact rigidity, not decidability or an algorithm for arbitrary factor languages.",
+      "Independent comprehensive bibliography review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different problem: prevents local repeated windows, rather than forcing all no-11 k-words into a shortest cyclic word",
+        "evidence": "Section III-A Definition 2 states that windows at distance at most b-1 must be distinct; target result specifies a forbidden adjacent symbol pair and requires coverage of all allowed k-factors.",
+        "identifier_or_url": "arxiv:2005.03102 / https://arxiv.org/abs/2005.03102",
+        "material_read": "Introduction, Section II foundations and Section III-A Definition 2 and nearby theorems; arXiv full-text HTML and another accessible full-text rendering",
+        "method": "Inspected actual paper text and compared its quantifiers on repeated length-k windows to coverage quantifiers in the claim",
+        "title": "Constrained de Bruijn Codes: Properties, Enumeration, Constructions, and Applications",
+        "trigger": "Uses the closely overlapping terminology constrained de Bruijn and treats forbidden patterns"
+      },
+      {
+        "assessment": "Broader finite-instance algorithm framework and flow representation; no reported exact forbidden-11 Fibonacci law or unique optimum traversal-frequency characterization",
+        "evidence": "Abstract Theorems 1-4 describe algorithms/asymptotic bounds, Section 5.1 partitions walks by multiplicity functions; contains no Fibonacci occurrence in searchable text.",
+        "identifier_or_url": "doi:10.4230/LIPIcs.CPM.2022.16 / https://doi.org/10.4230/LIPIcs.CPM.2022.16",
+        "material_read": "Actual full-text PDF introduction and main theorem statements, Sections 3, 4.3 and 5.1 including Propositions 21-22; checked for Fibonacci-specific statements",
+        "method": "Read open-access primary PDF and compared generic shortest Eulerian walk statements against exact all-k formula and uniqueness vector",
+        "title": "On Strings Having the Same Length-k Substrings",
+        "trigger": "General minimal string with prescribed k-substring set, Eulerian walks and directed Chinese postman"
+      },
+      {
+        "assessment": "General Eulerian completion model, but no explicit exact golden-mean language factor coverage or rigid profile located",
+        "evidence": "Introduction formulates Eulerian extension by edge additions including novel edges, and explicitly contrasts duplicating existing edges; no Fibonacci term found.",
+        "identifier_or_url": "doi:10.4230/LIPIcs.CPM.2022.12 / https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+        "material_read": "Actual primary open-access PDF abstract, first sections through the Eulerian-extension definitions and Problems 1-2; searched text for Fibonacci",
+        "method": "Reviewed formal graph-input/edge-addition scope and contrasted it with this closed-form balanced augmentation",
+        "title": "Making de Bruijn Graphs Eulerian",
+        "trigger": "Potentially dominating graph balancing method for shortest superstrings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "88edb89f-00ae-445e-b82c-3613ec119add",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A circular word that tests every admissible local pattern is a natural constrained universal-cycle / exhaustive word-testing object. The answer is a complete infinite exact length law, constructive shortest tour and uniqueness of all length-k factor multiplicities for a non-Eulerian family. It identifies the unavoidable repeated patterns in every optimum. This is substantially more information than the trivial number F_{k+2} of admissible k-words or an isolated finite enumerative increment.",
+    "status": "PASS"
+  }
+}
