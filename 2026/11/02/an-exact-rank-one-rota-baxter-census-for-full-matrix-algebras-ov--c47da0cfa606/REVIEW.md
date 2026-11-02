@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The rank-one trace-factor reduction is reversible and forces the two-sided eigenmatrix equations. Their scalar eigenvalue constraint gives exactly the square-zero and normalized-idempotent cases. Counting uses distinct image lines, a kernel/image flag and invertible quotient map for square-zero matrices, and complementary subspaces for idempotents. Direct finite-field checks independently evaluate the operator identity in five small configurations. Risks: finite computations by themselves do not establish the arbitrary-field result; that rests on the explicit proof. The asymptotic is a fixed-dimension statement.
+
+**Originality — PASS (best-knowledge, with residual risk).** The 2014 archival polynomial Rota–Baxter paper does not address matrix rank-one operator counts. The later Gubarev source, inspected in its full HTML text at Sections 3.3 and 5.4, gives the associative Yang–Baxter correspondence, general constructions, and a known \(M_2\) equivalence classification, but not the rank-refined finite-field all-size count. The established two-dimensional results are treated as a boundary rather than as novel. Searches for decomposable tensors, equivalent formulations, stronger coverage, and finite-field tables located related but not dominating claims. Residual priority risk: an equivalent counting formula could appear in unindexed Yang–Baxter or operator-classification literature; the search is not exhaustive.
+
+**Value — PASS.** Rank one is the smallest nonzero operator rank. The result gives a complete family-wide classification with two algebraically different image-subalgebra types, exact finite-field distributions, and a sharp generic asymptotic. This addresses a canonical natural operator identity on full simple associative algebras rather than an arbitrary finite slice; it complements known low-dimensional classifications and general construction frameworks.
+
+**Prior-work boundary.** The low-dimensional equivalence classification, general nilpotency/construction statements, and associative Yang–Baxter correspondence are not new contributions. The classification is not of general higher-linear-rank Rota–Baxter operators.
+
+Self-review: passed. Independent audit: not yet performed.
