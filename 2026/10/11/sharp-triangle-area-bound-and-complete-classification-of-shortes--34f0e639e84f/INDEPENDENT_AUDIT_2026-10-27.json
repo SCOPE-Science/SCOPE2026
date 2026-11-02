@@ -1,0 +1,274 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T00:46:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any nondegenerate triangle all sides are strictly shorter than semiperimeter s, hence a perimeter-halving pair cannot be contained in one edge. Choose the one of its two length-s arcs passing through the common vertex V of the endpoint edges (including vertex endpoint boundary cases). With distances u,v≥0 and u+v=s, law of cosines yields |pq|²=s²sin²(θ_V/2)+(u−v)²cos²(θ_V/2). This is ≥s²sin²(α/2). At a minimum-angle vertex the incident sides b,c exceed s/2 by c<a+b and a≤b≤c, so the two half-s arc points are feasible and attain equality. Positivity of cos(θ/2) and strict monotonicity of sin on (0,π/2) classify every minimizer; number is 1/2/3 depending on number of minimum-angle vertices. Heron and sin²(α/2)=yz/((x+y)(x+z)) for ordered tangents x=s−a≥y=s−b≥z=s−c>0 give A/h²=((x+y)(x+z)/s²)*sqrt(sx/(yz)). Here sx/(yz)≥3 and (x+y)(x+z)/s²≥4/9 (the latter from y≤(s−z)/2, z≤s/3), with simultaneous equality only x=y=z. Independent 3654 exact-rational ordered tangent triples and 505 direct piecewise boundary minimizations support but do not replace the continuum proof.",
+      "risks": [
+        "Finite independent tests do not by themselves prove an infinite-domain theorem; analytic derivation supplies the universal bounds.",
+        "Degenerate triangles are outside domain; no limit-case equality with zero area is asserted."
+      ],
+      "sources": [
+        "RESULT.md original fetched tree f9cbea56ccb2f1e628dc49e0bb3c51285a59e7ef",
+        "verify.py source fetched from frozen Git commit; independently written alternative verifier",
+        "independent_checks.json and independent_checks.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dumitrescu et al. give A≥h²/√3 for convex cycles, strictly weaker than 4h²/(3√3), and compute A/h²=4/(3√3) only for equilateral triangles.",
+          "Dumitrescu et al. explicitly leave the all-convex-cycle minimum open; their triangle geometric-dilation lemma δ≥2 is not this A/h² bound.",
+          "Published isosceles-trapezoid dilation classification optimizes a different four-sided family and not all triangles."
+        ],
+        "reasoning": "The prior general area bound, the equilateral witness and the triangle dilation lower bound do not logically entail that every nonequilateral triangle has area-to-halving-distance ratio at least the equilateral value. No stronger inspected theorem covered all triangles. The larger convex-cycle conjecture remains unresolved by this triangle-specific result.",
+        "searches": [
+          "arXiv:math/0407135v2 §7.1 and Fig.12",
+          "WADS 2005 On Geometric Dilation and Halving Chords §4.1, Fig.6",
+          "web query: geometric dilation of closed planar curves new lower bounds triangle area",
+          "Resultary published SCOPE query: Dumitrescu Grune convex cycle halving distance triangle area bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0407135v2 full-text §7.1 and Fig.12, PDF page image",
+        "Dumitrescu et al. WADS 2005 full PDF §§2,4.1,5, PDF page image",
+        "Resultary full RESULT.md 2026/9/18/SCOPE-exact-triangle-roundness-sharp-fatness--f4944b61f2db",
+        "Resultary full RESULT.md 2026/10/11/SCOPE-sharp-geometric-dilation-among-isosceles-trapezoids--7a8e4b9fd72b",
+        "Resultary semantic searches for exact half-angle, triangle area, halving chord, dilation and databases (three queries)",
+        "2006/2008 Grüne dissertation metadata/figure captions only; OA 404/403 and authorized Oxford vpn_disconnected",
+        "2007 Ebbers-Baumann–Grüne–Klein abstract and bibliographic record only",
+        "GitHub SCOPE2026 assigned 7-entry tree and actual 7 fetched blobs (verify.py via frozen commit path)",
+        "independently derived cosine-law, Heron/half-angle and rational-factor inequalities",
+        "independent checks: 3654 exact rational ordered tangent triples + 505 direct piecewise halving minimizations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known universal A/h²≥1/√3 + equilateral value 4/(3√3) leave a strictly positive gap in the constants; the latter is a witness rather than a universal lower bound.",
+          "Known δ(T)≥2 implies h≤s/2 but not h=s sin(α/2), and does not imply A/h²≥4/(3√3).",
+          "Dissertation bibliographic record and figure captions were accessible, but full thesis could not be inspected; institutional authorized attempt reported vpn_disconnected."
+        ],
+        "reasoning": "No theorem or conjunction of inspected prior claims yields the all-triangle sharp area ratio or full minimizing-chord classification. Potential decisive coverage inside the inaccessible original dissertation cannot be ruled out, so the PASS is best-of-knowledge with a specifically documented residual risk.",
+        "searches": [
+          "Dumitrescu et al. On the Geometric Dilation of Closed Curves, Graphs, and Point Sets (2005 arXiv version): §7.1",
+          "Dumitrescu et al. On Geometric Dilation and Halving Chords WADS 2005: §4.1 and §5",
+          "web: triangle dilation semiperimeter smallest angle reciprocal sine; exact area ratio",
+          "Ansgar Grüne Geometric Dilation and Halving Distance thesis 2006/2008, OA and publisher access searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dumitrescu et al. Lemma δ(C)=P/(2h) for convex cycles makes the formula equivalent to δ(T)=csc(α/2); their WADS 2005 Lemma 7 states only δ(T)≥2.",
+          "Published Pach–Tardos triangle-roundness calculation C(T)=tan(α/2) optimizes a perpendicular-bisector/point-pair quotient and is not a perimeter-halving chord formula."
+        ],
+        "reasoning": "The exact triangle dilation formula would imply h=s sin(α/2), but the published δ(T)≥2 only follows from this formula and does not conversely determine h. A monotone half-angle formula for an unrelated roundness invariant does not imply an exact chord length or area comparison. Searches did not establish an equivalent published theorem, which alone is not a proof of novelty.",
+        "searches": [
+          "Resultary query: shortest perimeter-bisecting chords triangle smallest angle semiperimeter sine half angle",
+          "web query: geometric dilation triangle minimum angle exact formula sine half",
+          "arXiv:math/0407135v2 pp.18–20 and WADS 2005 §4.1, §5",
+          "Resultary:2026/9/18/SCOPE-exact-triangle-roundness-sharp-fatness--f4944b61f2db"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published equilateral numerical table/figure records h=3/4 and A/h²=4/(3√3), not the all-triangle inequality or complete minimizer count.",
+          "Resultary exact title match 2026/10/11/SCOPE-sharp-triangle-area-bound-and-complete-classification-of-shortes--34f0e639e84f is the assigned finding itself, excluded from independent prior art.",
+          "Other returned SCOPE geometric records concern different invariants, with no exact all-triangle halving-distance database."
+        ],
+        "reasoning": "The claim concerns a continuous family and a sharp global minimum; a single previously computed equilateral table entry does not establish the global bound or classify all minimizers. Self-match is excluded from originality evidence.",
+        "searches": [
+          "Resultary query: sharp triangle area minimum perimeter halving chord area over squared halving distance equilateral 4/(3sqrt3)",
+          "web query: triangle \"halving distance\" \"area\" \"equilateral\"",
+          "WADS 2005 Fig.6 and arXiv:math/0407135 Fig.12"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the combined all-triangle sharp area/halving-distance ratio, its equality class, and complete shortest-chord geometry. The old source explicitly identifies the ratio and equilateral candidate, and a weak universal convex-cycle bound, but inspected primary full-text results do not prove a sharp inequality for every triangle. The simple triangle dilation lower bound is implied by but does not imply the exact half-angle formula. Returned Resultary self-match is excluded as external priority. Inaccessible plausible thesis and 2007 source are specified as genuine risks rather than automatic failure.",
+      "residual_risks": [
+        "Full text of Grüne dissertation (commonly cited 2006, online/book 2008) inaccessible; expanded prior triangle proof could overlap or dominate this finding.",
+        "Full 2007 Ebbers-Baumann–Grüne–Klein article not read; accessible abstract alone cannot prove absence of overlapping triangle specialization.",
+        "Basic half-angle/chord formula may have older elementary geometric-dilation treatment under another name; unsuccessful search alone cannot establish priority.",
+        "Git blob identities came from live Git tree and individual file fetches; original complete blob byte streams were not independently saved and SHA-1 rehashed locally, although the seven-entry Git tree was recomputed from fetched blob IDs.",
+        "Nondegenerate Euclidean triangles only; no claim for general convex curves, cyclic self-intersecting paths, or area-halving chords."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A≥h²/√3 for all convex cycles; exact equilateral ratio 4/(3√3); does not state/prove the all-triangle sharp bound or list all shortest chords.",
+          "evidence": [
+            "PDF lines around 1199–1265; §7.1 explicitly says unknown whether equilateral triangle minimizes ratio among all convex cycles.",
+            "Figure 12 identifies the equilateral h=3/4, A/h²=4/(3√3)."
+          ],
+          "identifier_or_url": "arXiv:math/0407135v2; https://arxiv.org/pdf/math/0407135",
+          "material_read": "Accessible 31-page PDF including definition/halving transformation, §7.1 pp.19–20, Fig.12; relevant polygon results and context reviewed.",
+          "method": "Full-text PDF search, direct reading of sections and page-image inspection of pp.19–20.",
+          "title": "On the geometric dilation of closed curves, graphs, and point sets",
+          "trigger": "Original primary literature defines minimum perimeter-halving distance and directly evaluates the equilateral triangle."
+        },
+        {
+          "assessment": "Defines h, proves known weaker convex bound, equilateral benchmark, and δ(T)≥2; neither the sharp all-triangle area ratio nor minimizing-chord formula/classification appears in inspected text.",
+          "evidence": [
+            "§4.1 p.7–8 universal A≥h²/√3 and equilateral h=3/4 example; §5 Lemma 7 δ(T)≥2 with proof omitted."
+          ],
+          "identifier_or_url": "DOI:10.1007/11534273_22; https://page.mi.fu-berlin.de/rote/Papers/pdf/On+geometric+dilation+and+halving+chords.pdf",
+          "material_read": "Relevant full-text portions §§2,4.1,5, Fig.6, Lemma 7 and limitations; inspected printed PDF page 8 as image.",
+          "method": "Full-text PDF analysis with source screenshot of printed p.8.",
+          "title": "On Geometric Dilation and Halving Chords",
+          "trigger": "Prior proceedings paper directly examines halving distance, area and triangles."
+        },
+        {
+          "assessment": "C(T)=tan(α/2) with different perpendicular-bisector roundness quotient; gives no perimeter-halving chord or sharp A/h² bound.",
+          "evidence": [
+            "Theorem 1 defines C(T)=inf_{p,q∈T} |T∩ℓ_{p,q}|/|p-q|, distinct normalization and domain."
+          ],
+          "identifier_or_url": "Resultary:2026/9/18/SCOPE-exact-triangle-roundness-sharp-fatness--f4944b61f2db",
+          "material_read": "Complete published RESULT.md theorem, proof and relation-to-prior-work sections.",
+          "method": "Read original public GitHub raw file through GitHub connector.",
+          "title": "Exact triangle formula for Pach--Tardos roundness and sharp fatness calibration",
+          "trigger": "Same triangle minimum-angle half-angle expression; possible equivalent formulation."
+        },
+        {
+          "assessment": "Covers only isosceles trapezoids with three chord branches; does not imply all-triangle area ratio.",
+          "evidence": [
+            "Theorem δ≥1.89615765... over isosceles trapezoids; different extremum and shapes."
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-sharp-geometric-dilation-among-isosceles-trapezoids--7a8e4b9fd72b",
+          "material_read": "Complete published RESULT.md and piecewise-halving chord proof.",
+          "method": "Read GitHub raw full-text source through connector.",
+          "title": "Sharp geometric dilation among isosceles trapezoids",
+          "trigger": "Same halving-chord/geometric-dilation invariant on another natural polygon family."
+        },
+        {
+          "assessment": "Unresolved source-access historical-priority risk; no whole-document NOT_COVERING claim is made.",
+          "evidence": [
+            "ResearchGate author-upload metadata/figures; Bonn repository handle 3563; authorized institutional status vpn_disconnected."
+          ],
+          "identifier_or_url": "Ansgar Grüne Ph.D. thesis 2006/2008; https://bonndoc.ulb.uni-bonn.de/xmlui/handle/20.500.11811/3563",
+          "material_read": "Bibliography, research abstract, publicly indexed figure captions; NO complete thesis text.",
+          "method": "Institutional repository returned error; ResearchGate full-text URL returned 404 and reader 403; authorized institutional Oxford retrieval returned vpn_disconnected.",
+          "title": "Geometric Dilation and Halving Distance",
+          "trigger": "Author of seminal papers; dissertation likely includes expanded proofs and may contain exact triangle calculation."
+        },
+        {
+          "assessment": "Plausible source for overlapping angle/chord analysis; no inference of complete non-coverage is made.",
+          "evidence": [
+            "Abstract states closed-curve dilation bounds and circle uniqueness, not a specific triangle area theorem."
+          ],
+          "identifier_or_url": "Ebbers-Baumann, Grüne, Klein, Comput. Geom. 37 (2007), DOI:10.1016/j.comgeo.2004.12.009",
+          "material_read": "Title, abstract and bibliographic material only; full primary article not obtained.",
+          "method": "OA/search access attempts; abstract/record accessible but publisher text unavailable.",
+          "title": "Geometric dilation of closed planar curves: New lower bounds",
+          "trigger": "Same halving-pair transformation and triangle dilation context."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Area relative to minimum perimeter-halving chord squared is explicitly motivated by the primary convex-geometry question. The known equilateral ratio and weaker general convex-cycle bound leave an exact natural geometric extremal subcase for arbitrary triangles. A sharp triangle-only bound with rigid equilateral equality and a constructive complete classification of every minimizing chord is a meaningful resolved subcase of a broader open extremal topic. Elementary proof length does not negate its value; no general convex-cycle solution is claimed.",
+      "risks": [
+        "The quantitative gain is class-specific and the proof relies on elementary laws; no implication for all convex cycles is established."
+      ],
+      "sources": [
+        "Dumitrescu et al. WADS 2005 §4.1 and Fig.6",
+        "Dumitrescu et al. arXiv:math/0407135v2 §7.1",
+        "RESULT.md analytic sharpness and equality proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0407135v2 full-text §7.1 and Fig.12, PDF page image",
+    "Dumitrescu et al. WADS 2005 full PDF §§2,4.1,5, PDF page image",
+    "Resultary full RESULT.md 2026/9/18/SCOPE-exact-triangle-roundness-sharp-fatness--f4944b61f2db",
+    "Resultary full RESULT.md 2026/10/11/SCOPE-sharp-geometric-dilation-among-isosceles-trapezoids--7a8e4b9fd72b",
+    "Resultary semantic searches for exact half-angle, triangle area, halving chord, dilation and databases (three queries)",
+    "2006/2008 Grüne dissertation metadata/figure captions only; OA 404/403 and authorized Oxford vpn_disconnected",
+    "2007 Ebbers-Baumann–Grüne–Klein abstract and bibliographic record only",
+    "GitHub SCOPE2026 assigned 7-entry tree and actual 7 fetched blobs (verify.py via frozen commit path)",
+    "independently derived cosine-law, Heron/half-angle and rational-factor inequalities",
+    "independent checks: 3654 exact rational ordered tangent triples + 505 direct piecewise halving minimizations"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all nondegenerate Euclidean triangles T of semiperimeter s and minimum angle α, h(T)=s sin(α/2), A(T)/h(T)²≥4/(3√3), equality only for equilateral triangles; shortest halving chords are exactly the symmetric half-s points on incident edges at each minimum-angle vertex.",
+  "limitations": [
+    "No nonconvex curves or degenerate triangles",
+    "Full thesis text unavailable; historical-priority risk not ruled out",
+    "Finite tests not substituted for analytic proof",
+    "Original blob bytes not independently rehashed locally"
+  ],
+  "residual_risks": [
+    "Full text of Grüne dissertation (commonly cited 2006, online/book 2008) inaccessible; expanded prior triangle proof could overlap or dominate this finding.",
+    "Full 2007 Ebbers-Baumann–Grüne–Klein article not read; accessible abstract alone cannot prove absence of overlapping triangle specialization.",
+    "Basic half-angle/chord formula may have older elementary geometric-dilation treatment under another name; unsuccessful search alone cannot establish priority.",
+    "Git blob identities came from live Git tree and individual file fetches; original complete blob byte streams were not independently saved and SHA-1 rehashed locally, although the seven-entry Git tree was recomputed from fetched blob IDs.",
+    "Nondegenerate Euclidean triangles only; no claim for general convex curves, cyclic self-intersecting paths, or area-halving chords."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "A≥h²/√3 for all convex cycles; exact equilateral ratio 4/(3√3); does not state/prove the all-triangle sharp bound or list all shortest chords.",
+      "evidence": [
+        "PDF lines around 1199–1265; §7.1 explicitly says unknown whether equilateral triangle minimizes ratio among all convex cycles.",
+        "Figure 12 identifies the equilateral h=3/4, A/h²=4/(3√3)."
+      ],
+      "identifier_or_url": "arXiv:math/0407135v2; https://arxiv.org/pdf/math/0407135",
+      "material_read": "Accessible 31-page PDF including definition/halving transformation, §7.1 pp.19–20, Fig.12; relevant polygon results and context reviewed.",
+      "method": "Full-text PDF search, direct reading of sections and page-image inspection of pp.19–20.",
+      "title": "On the geometric dilation of closed curves, graphs, and point sets",
+      "trigger": "Original primary literature defines minimum perimeter-halving distance and directly evaluates the equilateral triangle."
+    },
+    {
+      "assessment": "Defines h, proves known weaker convex bound, equilateral benchmark, and δ(T)≥2; neither the sharp all-triangle area ratio nor minimizing-chord formula/classification appears in inspected text.",
+      "evidence": [
+        "§4.1 p.7–8 universal A≥h²/√3 and equilateral h=3/4 example; §5 Lemma 7 δ(T)≥2 with proof omitted."
+      ],
+      "identifier_or_url": "DOI:10.1007/11534273_22; https://page.mi.fu-berlin.de/rote/Papers/pdf/On+geometric+dilation+and+halving+chords.pdf",
+      "material_read": "Relevant full-text portions §§2,4.1,5, Fig.6, Lemma 7 and limitations; inspected printed PDF page 8 as image.",
+      "method": "Full-text PDF analysis with source screenshot of printed p.8.",
+      "title": "On Geometric Dilation and Halving Chords",
+      "trigger": "Prior proceedings paper directly examines halving distance, area and triangles."
+    },
+    {
+      "assessment": "C(T)=tan(α/2) with different perpendicular-bisector roundness quotient; gives no perimeter-halving chord or sharp A/h² bound.",
+      "evidence": [
+        "Theorem 1 defines C(T)=inf_{p,q∈T} |T∩ℓ_{p,q}|/|p-q|, distinct normalization and domain."
+      ],
+      "identifier_or_url": "Resultary:2026/9/18/SCOPE-exact-triangle-roundness-sharp-fatness--f4944b61f2db",
+      "material_read": "Complete published RESULT.md theorem, proof and relation-to-prior-work sections.",
+      "method": "Read original public GitHub raw file through GitHub connector.",
+      "title": "Exact triangle formula for Pach--Tardos roundness and sharp fatness calibration",
+      "trigger": "Same triangle minimum-angle half-angle expression; possible equivalent formulation."
+    },
+    {
+      "assessment": "Covers only isosceles trapezoids with three chord branches; does not imply all-triangle area ratio.",
+      "evidence": [
+        "Theorem δ≥1.89615765... over isosceles trapezoids; different extremum and shapes."
+      ],
+      "identifier_or_url": "Resultary:2026/10/11/SCOPE-sharp-geometric-dilation-among-isosceles-trapezoids--7a8e4b9fd72b",
+      "material_read": "Complete published RESULT.md and piecewise-halving chord proof.",
+      "method": "Read GitHub raw full-text source through connector.",
+      "title": "Sharp geometric dilation among isosceles trapezoids",
+      "trigger": "Same halving-chord/geometric-dilation invariant on another natural polygon family."
+    },
+    {
+      "assessment": "Unresolved source-access historical-priority risk; no whole-document NOT_COVERING claim is made.",
+      "evidence": [
+        "ResearchGate author-upload metadata/figures; Bonn repository handle 3563; authorized institutional status vpn_disconnected."
+      ],
+      "identifier_or_url": "Ansgar Grüne Ph.D. thesis 2006/2008; https://bonndoc.ulb.uni-bonn.de/xmlui/handle/20.500.11811/3563",
+      "material_read": "Bibliography, research abstract, publicly indexed figure captions; NO complete thesis text.",
+      "method": "Institutional repository returned error; ResearchGate full-text URL returned 404 and reader 403; authorized institutional Oxford retrieval returned vpn_disconnected.",
+      "title": "Geometric Dilation and Halving Distance",
+      "trigger": "Author of seminal papers; dissertation likely includes expanded proofs and may contain exact triangle calculation."
+    },
+    {
+      "assessment": "Plausible source for overlapping angle/chord analysis; no inference of complete non-coverage is made.",
+      "evidence": [
+        "Abstract states closed-curve dilation bounds and circle uniqueness, not a specific triangle area theorem."
+      ],
+      "identifier_or_url": "Ebbers-Baumann, Grüne, Klein, Comput. Geom. 37 (2007), DOI:10.1016/j.comgeo.2004.12.009",
+      "material_read": "Title, abstract and bibliographic material only; full primary article not obtained.",
+      "method": "OA/search access attempts; abstract/record accessible but publisher text unavailable.",
+      "title": "Geometric dilation of closed planar curves: New lower bounds",
+      "trigger": "Same halving-pair transformation and triangle dilation context."
+    }
+  ]
+}
