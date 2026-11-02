@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Exactly normalized Cauchy inverse-CDF transform and Gaussian moment; endpoint asymptotic exp(-gamma/(pi^2 u^2))/u^2; complex-disk Cauchy estimates give all-order Gevrey bound; flat Taylor contradiction proves no smaller order; exact random-shift Fourier alias variance; Fourier derivative optimization proves exp(-c n^(2/3)) and converse shows any faster uniform exponent would force forbidden smaller Gevrey order. Finite code checks 218 are supplemental, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2310.00650v1 randomized importance-sampling bound is algebraic n^(-3/2+epsilon) in its stated regularity regime.",
+        "arXiv:2509.07509 uses a boundary-damping mapping distinct from the standard Cauchy inverse CDF."
+      ],
+      "reasoning": "Broadly applicable QMC upper bounds and boundary-damping recipes do not yield the sharp exponent optimality for this fixed Gaussian-Cauchy periodic rule. Generic Gevrey theorems still require exact order for the transformed function.",
+      "searches": [
+        "arXiv:2310.00650v1 sections 3 and 5",
+        "Student t proposal Gaussian importance sampling QMC transformed integrand flat endpoints smooth periodic superalgebraic convergence",
+        "arXiv:2509.07509 sections 1 and 3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2310.00650",
+      "https://arxiv.org/abs/2407.13650",
+      "https://arxiv.org/abs/2509.07509",
+      "https://doi.org/10.1137/130932132"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An O(n^-alpha) theorem for each finite Sobolev order only yields a superalgebraic qualitative family with constants depending on alpha; it does not imply a single uniform exp(-cn^(2/3)) envelope or exclude faster exponents.",
+        "The proof here adds endpoint Laurent asymptotics, exact Gevrey nonmembership, and a Fourier lower obstruction through the alias RMS identity."
+      ],
+      "reasoning": "The new claim is not a special case obtained merely by setting a Sobolev smoothness parameter: sharp stretched-exponential constants and optimal exponent require quantitative factorial derivative growth and a converse statement.",
+      "searches": [
+        "arXiv:2310.00650v1 randomized importance-sampling main theorem",
+        "arXiv:2407.13650v1 Theorem 3.1 and randomized extension",
+        "\"Möbius-Transformed Trapezoidal Rule\" \"Gevrey\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 3.1 in arXiv:2407.13650v1 gives algebraic Sobolev rates; its randomization section uses shift and randomized node count, not this Gaussian exact Gevrey claim.",
+        "The periodized Gaussian exponential moment is a positive flat endpoint function exp(-gamma cot^2(pi u)) csc^2(pi u), whose exact class is 3/2."
+      ],
+      "reasoning": "The standard Fourier-decay/Gevrey dual formulation would subsume sharpness if the exact class for this specific target had already been established. No such statement was found in inspected sources. The different prime-size randomization and Sobolev estimates do not imply a sharp Gevrey exponent.",
+      "searches": [
+        "\"Möbius-Transformed Trapezoidal Rule\" \"Gevrey\"",
+        "Gaussian e^{-a cot squared} Fourier coefficients stretched exponential n 2/3 trapezoidal Möbius quadrature Gevrey",
+        "arXiv:2407.13650v1 sections 3, 4, 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected sources present general method error estimates and experiments, not an exact table of this Gaussian exponential/Cauchy-quantile Gevrey classification."
+      ],
+      "reasoning": "This is an all-positive-integer rate theorem rather than a numerical invariant catalog. Relevant full-text parameter searches did not identify a direct formula; nonidentification is not novelty proof.",
+      "searches": [
+        "Gaussian e^{-a cot squared} Fourier coefficients stretched exponential n 2/3 trapezoidal Möbius quadrature Gevrey",
+        "quasi Monte Carlo Student t importance sampling exponentially decaying periodic C infinity super algebraic trapezoidal rule",
+        "arXiv:2407.13650v1 numerical examples and appendices"
+      ]
+    },
+    "rationale": "The explicit Cauchy periodization has exact Gevrey order 3/2 and a matching sharp all-n randomized Fourier error envelope. The closest fully inspected 2024 Möbius algorithm supplies only periodic Sobolev algebraic rates, while the 2023 importance-sampling source supplies algebraic randomized QMC estimates; neither asserts the exact endpoint class or the necessary n^(2/3) Fourier envelope. Classical Gevrey-Fourier estimates are acknowledged as standard methodology rather than new. Remaining priority risk: equivalent specialized Fourier/saddle-point example not located.",
+    "residual_risks": [
+      "A specialized prior saddle-point asymptotic for Fourier coefficients of exp(-a cot^2) could imply the stated optimal-exponent claim without matching the same title.",
+      "No claim of exhaustive publication novelty or human independent audit.",
+      "Existing general Gevrey-Fourier equivalences are standard tools and not claimed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant motivation and general algebraic rate estimates; no direct sharp Gevrey Gaussian-Cauchy envelope in inspected results",
+        "evidence": [
+          "First public version arXiv:2310.00650v1 dated 2023-10-01",
+          "Its randomized bounds give n^(-3/2+epsilon), without exact fixed-Cauchy Gevrey classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.00650",
+        "material_read": "Abstract, introduction, and Section 5 including randomized importance-sampling estimates",
+        "method": "Open-access arXiv full-text reading, compared transformation assumptions and stated rates",
+        "title": "Quasi-Monte Carlo for unbounded integrands with importance sampling",
+        "trigger": "Motivating earliest eligible source on unbounded Gaussian-related importance-sampled integration"
+      },
+      {
+        "assessment": "Same Möbius/Cauchy algorithmic structure; polynomial Sobolev convergence and randomized constructions do not state this sharp Gaussian flat-endpoint rate",
+        "evidence": [
+          "Theorem 3.1 uses periodic Sobolev smoothness alpha and algebraic n^(-alpha) guarantees",
+          "Randomization discusses random shift and random node count, not exact Gevrey 3/2 for this target"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.13650",
+        "material_read": "Sections 1–7, in particular Theorem 3.1, Lemma 3.2, Section 4 randomization, Section 5 Sobolev estimates, plus appendices and references",
+        "method": "Open-access arXiv HTML full text inspected for algorithms, quantifiers, parameter range and implication",
+        "title": "Möbius-Transformed Trapezoidal Rule",
+        "trigger": "Direct plausible same transformation and fixed lattice method"
+      },
+      {
+        "assessment": "Different boundary-damping construction; no direct implication of sharp exponent for the specified Cauchy quantile rule",
+        "evidence": [
+          "The proposed damping transformation is not x(u)=-cot(pi u) with Gaussian moment weighting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.07509",
+        "material_read": "Introduction and Section 3 on boundary damping and estimates",
+        "method": "Open-access arXiv text compared transformation, integrand assumptions and mathematical conclusion",
+        "title": "Quasi-Monte Carlo integration over R^s with boundary-damping importance sampling",
+        "trigger": "Recent apparently stronger boundary smoothing for unbounded-domain QMC"
+      },
+      {
+        "assessment": "Analytic/exponential settings differ from the smooth nonanalytic endpoint here; generic theory cannot force exp(-cn) for the specific function",
+        "evidence": [
+          "The mapped function is flat and nonzero, hence not analytic at the periodic endpoints"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/130932132",
+        "material_read": "Public abstract and theorem-level overview; no claim of complete article inspection",
+        "method": "Bibliographic and abstract comparison",
+        "title": "The exponentially convergent trapezoidal rule",
+        "trigger": "Potential general stronger exponential trapezoidal theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9bd3a7e-0908-4ebf-a278-bd99d99efc08",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a precise sharp sample-complexity envelope for an important smooth-but-nonanalytic transform of an unbounded Gaussian expectation under a natural heavy-tail proposal. The matching barrier differentiates a genuinely Gevrey convergence regime from ordinary arbitrarily-high Sobolev algebraic bounds and is usable for choosing an integration budget without claiming global optimality.",
+    "status": "PASS"
+  }
+}
