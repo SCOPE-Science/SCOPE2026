@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Two independently encoded, exhaustive state-generation methods cover all 3108 matchings: least-uncovered-vertex edge-mask recursion, and 12-to-12 bipartite assignment with nibble-encoded mates. Both enumerate 24 embedded face swaps from scratch, verify 9048 undirected edges and 15 flux-homogeneous components, and BFS from every state, with all 15 componentwise and all 163 nonzero distance-bin counts matching exactly. The standalone programs reproduce the total within-sector unordered-distance sum 10,795,608. The finite domain and every state/neighbor/distance are checked; no claim for infinitely many torus sizes is made. Retaining the exact scripts and JSON certificate allows reconstruction without external dependencies. Risks: implementation correlation and absence of independent formal audit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1995 full text supplies connectivity criteria and a general method to determine a distance for any two tilings.",
+        "The 2023 full text supplies lower bounds and exact examples for other small tori, not a complete 4-by-6 all-pairs census."
+      ],
+      "reasoning": "General height-function results are stronger regarding pairwise distance evaluation, so the claim is deliberately restricted to an exact all-configurations distribution and class-by-class size, eccentricity, degree, and Wiener data. Those aggregate numerical counts are not explicitly determined by the statements found in either general article; deriving them requires further finite counting.",
+      "searches": [
+        "doi:10.1007/BF02570703",
+        "arxiv:2307.08332",
+        "square toroidal 4x6 domino tiling flux-resolved flip graph 4 isolated 4 cycles 24"
+      ]
+    },
+    "checked_sources": [
+      "Saldanha–Tomei–Casarin–Romualdo (1995), DOI 10.1007/BF02570703, full text",
+      "Kiwi–Loebl (2014), arxiv:1406.3317, full text",
+      "Liu–Zhang–Zhang (2023), arxiv:2307.08332, full text",
+      "Related finite perfect matching table 2026/9/7/SCOPE018, different planar two-monomer region",
+      "Four-cube matching-flip statement 84ee7ca2-c7ef-4a52-8993-3c2ec5b05bb4, different graph with 16 vertices",
+      "Semantic searches for toroidal dimer flip-graph distributions and winding sectors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1995 gives a general pairwise-distance method and component characterization, but does not report the 3,108-state 15-sector counts.",
+        "2014 evaluates mod-two homology type relations for matchings, not complete shortest-path distributions.",
+        "2023 establishes component lower bounds for bipartite tori and the 4-by-4 example; these results do not imply the 4-by-6 exact counts by parameter substitution."
+      ],
+      "reasoning": "The new numerical classification is not merely the previously known general connectivity criterion restated, nor the image of a 4-by-4 table under a symmetry. It requires complete counting of all 3,108 configurations, legal edges, and 2,836,612 reachable ordered pairs; it does not claim new pairwise distance theory.",
+      "searches": [
+        "doi:10.1007/BF02570703",
+        "arxiv:1406.3317",
+        "arxiv:2307.08332"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A domino tiling is a perfect matching of the toroidal graph; an elementary domino flip is a local alternating quadrilateral switch. The 1995 treatment uses quadriculated-surface tilings and distances rather than matching language.",
+        "Kiwi–Loebl arxiv:1406.3317 treats matching homology types but does not enumerate full flip-graph metric spectra."
+      ],
+      "reasoning": "Searched equivalent dimer, perfect-matching, resonance-graph, winding/flux and face-switch formulations. No matching table or formula for the 4-by-6 all-pairs distribution located; the general pairwise distance algorithm is acknowledged, not treated as new.",
+      "searches": [
+        "domino tilings torus flip graph components winding classes 4 by 4 torus complete degree distribution",
+        "toroidal dimer 4 by 6 flip graph shortest path distance distribution 1456 576 152 components"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected the 1995 journal full article, 2014 17-page square-torus matching preprint and 2023 toroidal-flips preprint for 4-by-6 numerical degree/distance tables; none were found.",
+        "The 2023 torus paper contains a 4-by-4 illustrative enumeration; this is different from the 4-by-6 torus and does not imply 15 flux sectors with the exact histograms shown."
+      ],
+      "reasoning": "No exact 4-by-6 metric, flux-sector, or comprehensive flip-degree table was found in the checked source texts or retrieved mathematical results. A search absence is not uniqueness proof; unindexed tables are a residual risk.",
+      "searches": [
+        "domino tilings 4x6 flat square torus resonance graph 3108 matchings 15 components flux diameter Wiener indices and 24 cycles",
+        "toroidal dimer 4 by 6 flip graph shortest path distance distribution 1456 576 152 components"
+      ]
+    },
+    "rationale": "The previously proved general domino-flip component criterion and height-based distance formula are excluded explicitly, while the new claim is a complete exact 15-sector, 3,108-state count of degrees, eccentricities and shortest-path distributions on the anisotropic 4-by-6 torus. Direct comparisons with 1995, 2014 and 2023 full primary documents and five targeted semantic mathematical-record searches found no explicitly covering table. A prior general distance algorithm can yield distances for individual pairs, but does not directly supply the nontrivial full paired-distance enumerators. Distinct from the 16-cell four-cube matching-flip census and the planar two-monomer matching enumeration. Unindexed equivalence remains possible.",
+    "residual_risks": [
+      "Unindexed publications or appendices may contain an equivalent 4-by-6 toroidal flip-graph census.",
+      "The 1995 general height-function formula computes individual distances, and a more developed algorithm may implicitly permit these complete distributions without a new conceptual theorem.",
+      "All exhaustive checks are internally implemented; external independent scholarly review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_STRONGER_PAIRWISE_THEORY_BUT_NO_COMPLETE_4x6_METRIC_TABLE",
+        "evidence": "General criteria for common flip-graph component and constructive formula/method for distance; no 15-sector 4-by-6 degree/distance/eccentricity polynomial in inspected text.",
+        "identifier_or_url": "https://doi.org/10.1007/BF02570703",
+        "material_read": "Journal full PDF, including introductory results, connectivity criteria and Theorem 4.1 distance sections",
+        "method": "Open full-text PDF and inspect the relevant theorem and surrounding discussion",
+        "title": "Spaces of domino tilings",
+        "trigger": "Original general face-flip connectivity and distance theorem on quadriculated surfaces"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT_NO_COVERING_METRIC_CENSUS",
+        "evidence": "Perfect matching types over mod-two homology and their relationship with cycle-rooted spanning forests rather than elementary-face-flip distance census.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.3317",
+        "material_read": "Seventeen-page full primary preprint, introduction and main theorem sections",
+        "method": "Full-text PDF inspection of the definitions and stated homology-type theorems",
+        "title": "Types of perfect matchings in toroidal square grids",
+        "trigger": "Same graph family and matching-homology equivalence"
+      },
+      {
+        "assessment": "COVERS_GENERAL_COMPONENT_BOUNDS_AND_DIFFERENT_EXAMPLES_NOT_THE_NEW_FULL_TABLE",
+        "evidence": "For bipartite tori, component lower bounds; explicit 4-by-4 examples; no reported complete 4-by-6 degree/eccentricity/distance or Wiener profile.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.08332",
+        "material_read": "Twenty-four-page full primary preprint, main component theorems and finite illustrative tables",
+        "method": "Read the full arXiv PDF with targeted searches for 4x6 dimension, 3108 count, diameter and metrics",
+        "title": "Components of domino tilings under flips in quadriculated tori",
+        "trigger": "Strongest apparent direct component coverage for even-by-even quadriculated tori"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65307c7e-e5da-4239-88fa-2c728ad36853",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A 24-cell anisotropic square torus is a minimal, geometrically natural bipartite torus beyond the 4-by-4 illustrative case in the toroidal-domino literature. The complete 15-sector combinatorial metric data quantify freezing (four isolates), minimal mobility (four 24-cycles), flux-dependent traversal radius and 20-step maximum diameter, and all-pair distances for a 1,456-state mobile sector. These aggregate invariants directly distinguish flexibility and reconfiguration bottlenecks invisible in a plain total matching count or component lower bound. The precise sector census is a plausible benchmark for topological/height-function counting methods and local Markov-chain geometry; no unwarranted general theorem or physical mixing result is inferred.",
+    "status": "PASS"
+  }
+}
