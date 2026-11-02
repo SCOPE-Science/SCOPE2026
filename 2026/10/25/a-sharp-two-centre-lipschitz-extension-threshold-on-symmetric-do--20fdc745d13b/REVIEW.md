@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The symmetric two-centre extension problem reduces to a single scalar interpolation coefficient by finite isometric averaging. The exact weighted-tree transportation norm gives the complete scalar operator norm for every signed coefficient; monotonicity and an affine intersection prove the all-parameter piecewise expression. The Banach-target universal lower bound follows from the canonical Lipschitz-free embedding. Exact-rational formula checks and independent unrestricted signed-coefficient linear programs agree on twelve nontrivial configurations. The numerical checks do not replace the analytic proof.
+## correctness
 
-## Originality — PASS, subject to literature risk
-The closest inspected general works are Albiac et al. (2020) on free-space complementation, Basso (2017) on finitely-many-point extension bounds, and Basso (2021) on extension/projection equivalences. The previously known equilateral two-centre calculation has a different original metric; Blatter–Cheney's sharp hyperplane theory concerns one added point rather than the present codimension-two inclusion. No indexed covering formula was identified in the targeted research-record and literature searches. Less-indexed exact projection computations remain a real uncertainty.
+PASS
 
-## Mathematical value — PASS
-The exact two-parameter family and sharp support-loss threshold have structural content: the optimal operator gradually becomes local, then abruptly ceases to use the opposite leaf cluster for every larger hub separation if at least three leaves meet each hub. The two-leaf exceptional case never undergoes finite-parameter support loss.
+Universal Banach extension lower bound follows by extending the canonical map into the finite Lipschitz-free space F(X); images of hubs give affine coefficients and a constant-preserving linear scalar extension of the same norm. Conversely, any scalar extension operator extends every Banach-valued map with the same factor. Averaging over S_m×S_m×C2 reduces all signed-coefficient linear candidates to α. For each leaf-supported zero-total-mass measure, exact tree transportation norm is Σ|mass at leaves|+t|mass of A|; applying it to central edge and each pendant edge yields norm max{1,F(α),((t+2)/t)|2α−1|} with F=|α/m−1|+(m−1)|α|/m+(1+t)|1−α|. Piecewise slopes show no α outside [1/2,1] is better. On this interval F decreases linearly and central term increases linearly; their crossing α*=(t+1)(t+2)/(t²+(2+2/m)t+4) is feasible up to t=2m/(m−2) when m>2; otherwise optimum α=1 and value 2−2/m. At m=2 intersection remains feasible for all t, and its value tends to one as t→∞. Fifteen independent exact-rational parameter checks (not a general proof) reproduced both branches.
 
-## Scope and limitations
-Only balanced weighted double stars with common unit pendant lengths and arbitrary positive central length are covered; general trees and unequal numbers of leaves are not classified. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior linearization, universal finite-point extension bounds and one-point-star projection constants are established. No inspected prior source or Resultary entry states the simultaneous two-hub codimension-two exact optimal constant or m-dependent zero cross-weight threshold. The exact formula is a natural extension-invariant classification derived by nontrivial signed LP/global symmetry reduction; priority remains qualified because specialized codimension-two projection literature was not exhaustively available.
+
+## value
+
+PASS
+
+A universal Banach-target Lipschitz extension factor is a natural quantitatively sharp invariant of a finite metric inclusion. Two hubs create compatibility absent in one-point stars; the exact m,t threshold for optimal interpolation support and flat saturation regime is structurally meaningful for extension theory. The theorem covers an infinite natural symmetric family, not an arbitrary finite small-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
