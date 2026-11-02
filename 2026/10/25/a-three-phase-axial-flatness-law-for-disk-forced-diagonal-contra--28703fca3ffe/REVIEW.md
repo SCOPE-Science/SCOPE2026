@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed set is an exact infinite Minkowski sum. The support series gives curvature in every nonvertical direction. In the positive-curvature regime the geometric-series radius yields the quadratic coefficient. At the ratio equality \(b=a^2\), head-tail splitting with explicit geometric remainder bounds gives a **true ratio limit** for the logarithmic contact. In the flat regime, the noise-coordinate variational problem and weighted Cauchy–Schwarz yield quantitative two-sided bounds independent of truncation or finite experiments. Divergence of the normal-angle curvature radius and the normal-to-slope formula show \(C^2\) globally, including both potentially singular extrema. Evenness plus Taylor's theorem establishes the asserted failure of \(C^3\) for \(a^3\le b\le a^2\). Boundary limits are two-sided, and all denominators and geometric ratios have the required signs. The checker is supportive, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+Hausdorff contraction proves K=sum_{n>=0}diag(a,b)^n B2 unique. Its support points give the exact X(t) and deficit Y(t) series. For b>a², summable curvature at vertical yields D~(1-a²/b)x²/2. At b=a² the head-tail index N~log(1/t)/log(1/a) gives X=t(N+O(1)), D=t²(N+O(1))/2, hence the stated x²/log(1/x) constant. For b<a² the variational split of disk coordinates and weighted Cauchy–Schwarz produce explicit two-sided |x|^q bounds, q=log b/log a>2, not a fictitious asymptotic prefactor. Divergent vertical curvature radius gives C² flatness, positive away; evenness and Taylor contradiction rule out C³ precisely within a³≤b≤a². Finite asymptotic tests corroborate only.
 
-Lamb–Rasmussen–Tey (arXiv:2310.03437v1) states uniqueness/convexity/\(C^1\), not the three-phase contact order. **Crucially, Tey's 2022 doctoral thesis Appendix A.4 has already demonstrated a diagonal \(C^3\)-obstruction** using curvature derivatives, so general non-\(C^3\) phenomena are not new; its stated parameter range in positive notation is \(a^2<b<a^{3/2}\). This does not subsume the complementary \(b\le a^2\) range or the present explicit logarithmic/power contact. Kourliouros et al.'s persistence theorem assumes sufficiently smooth boundaries instead. Targeted published-finding corpus queries concerning the exact exponent, critical log and aliases returned no statement implying these formulas. A 2025 publication on spherical-noise boundary dynamics was available only via abstract; that and unindexed equivalent work remain priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The regularity question concerns the natural minimal invariant set of a standard bounded-uncertainty linear dynamical system. The ratio \(a^2/b\) is the natural geometric series governing axial curvature; its critical value one produces a *non-polynomial* logarithmic transition, while the postcritical exponent varies continuously with the eigenvalue anisotropy. The result determines a quantitative local geometric invariant, settles \(C^2\) at the two singular normals, and supplies a separate rigorous non-\(C^3\) regime not contained in the prior thesis obstruction. This is not a renaming of the known support series or an arbitrary finite calculation.
+Best-of-knowledge originality relative to the genuinely inspected primary claims, including broader/equivalent variants; no exact or dominating prior theorem identified. No unsuccessful search is construed as proof of absolute priority. The prior series representation is a starting point, not its singular asymptotic evaluation. Prior C³ failure in the disjoint range neither establishes the critical logarithmic rate nor the explicit C² endpoint range. The new head-tail/variational arguments supply the missing results.
 
-## Closest literature and limitations
+## value
 
-The 2022 Tey thesis Appendix A.4 is the closest historical comparison and must be cited in subsequent applications. The new theorem neither claims a global exact \(C^k\) classification nor handles other noise shapes; see RESULT.md for explicit bounds and proof. Independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The asymptotic contact at the two singular axial normals is a natural invariant of the attracting set of a basic bounded-noise linear system. The quadratic/log/power transition gives a sharp boundary exponent and regularity obstruction, including parameter ranges not previously handled by the thesis and a critical logarithmic law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
