@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The assertion concerns every integer \(n\ge2\) under uniform-permutation binary-search-tree insertion. The uniform root-split recursion and subtree independence give an exact conditional-mean covariance supported only at the four extreme splits; the harmonic increment identity and telescoping covariance recursion prove the displayed finite-size formula without approximation. The standalone exact checker agrees through size \(100\) on recursions and enumerates all \(46{,}233\) insertion permutations through size \(8\). This computational evidence is corroborative, not an infinite-size proof.
+## correctness
 
-**Originality — PASS (best knowledge, with residual historical risk).** The inspected 1997 fringe-pattern study establishes the leaf marginal and peak correspondence, but it does not report the mixed leaf–path covariance; Bóna–Pittel treats leaf ranks and marginal counts, and Chern–Fuchs–Hwang–Neininger studies distinct search-tree and multivariate quadtree regimes. The closest indexed research result studies squared root imbalance rather than leaves in the same BST model. Exact formulas, alias statements (permutation peaks and quicksort comparisons), related recursively defined parameters, and potentially stronger literature were compared. A 2003 path-length paper remained accessible only at abstract level and may hide an earlier equivalent; novelty cannot be guaranteed by unsuccessful search alone.
+PASS
 
-**Mathematical value — PASS.** Both statistics are canonical measures of BST shape and search cost, but the covariance has a simple, strict all-size sign and an exact linear-scale magnitude. The structural mechanism is not a generic sign guess: the conditional expected number of leaves is independent of the root rank except for two ranks at each edge, yet their boundary contribution drives a linear global covariance via subtree propagation. The formula and its boundary mechanism are suitable for fine-scale analyses of quicksort cost jointly with terminal-subproblem frequency. No broad negative-dependence theorem is asserted.
+Uniform-permutation root split K is uniform on 0..n-1, and conditional subtree independence implies the exact mixed-moment recursion. The leaf mean ℓ_m=(m+1)/3+δ_m with δ0=-1/3,δ1=1/3 concentrates conditional-leaf regression on the four boundary splits. Using t_m=2(m+1)H_m-4m gives B_n=-4(H_{n-1}-1)/(3n); the total covariance recurrence and telescoping (n+1)c_{n+1}=(n+2)c_n-4/(3n) yield c_n=-(n+3)(n-2)/(9n) for all n>=2. Initial c0=c1=c2=0 and n2 boundary are correct. Independent new exact-rational joint-moment recurrences checked every n<=65; repository verify.py source was read (it specifies n<=100 and 46,233 permutation checks, but the source assertion is not reported as an independently rerun program). Exact recurrence, not finite checking, proves the infinite statement.
 
-**Scientific limitations.** The computation covers finite samples only; priority remains vulnerable to historical joint-moment publications and to one source not inspected in full. The theorem does not assert stochastic monotonicity. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact finite-size covariance and boundary-local mechanism. Chern et al. Thm5.4 explicitly covers the same d=1 statistic at leading asymptotic order, so that order alone is prior art. Source-level mathematical comparison did not find the all-n rational covariance or boundary decomposition; distinguish this limited novelty and accept with a serious residual older-literature risk.
+
+## value
+
+PASS
+
+A natural finite-n dependence measure for terminal stored vertices and total search cost, with a sharp negative sign for every n>=3, explicit O(n) anticovariance and exact zero boundary. Boundary-support explanation reveals why conditional leaf count varies only at extreme split sizes. This is more than marginal means, a table recomputation, or a bare sign check, even though the leading asymptotic was known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
