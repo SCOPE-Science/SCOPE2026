@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:15:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md original Git blob",
+        "standalone verification source original Git blob",
+        "fresh independent_check_results.json"
+      ],
+      "rationale": "The projector splitting P0+(E-P0)+sum Q_i has Laplacian eigenvalues 0,N,N-n_i. All cross-part entries equal h phi(Nh)/24; same-part offdiagonal entries have positive h^2q/24 times a quadratic with negative discriminant -16(2p^2+5pq+5q^2). R(-x) has a strictly positive sum-of-squares form. phi is strictly decreasing, and N is attained, so both sign and real symmetric 2-norm contractivity have exactly the same sharp cutoff; h=0 and singleton parts handled. Fresh symbolic identities and 492 exact rational entries checked (six graphs, four scaled h). Finite examples do not prove all partitions; projector/inequality proof does.",
+      "residual_risks": [
+        "Finite calculations are not universal proofs; precise proof lemmas assessed separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth 2005 Theorem 8: sharp scheme-level positivity bounds for broad IVP classes; §4 discusses invariant positive cones and spectral monotonicity; does not exhibit complete multipartite spectral projectors."
+        ],
+        "reasoning": "Broader scheme and general-problem positivity thresholds do not force this graph-specific improved endpoint threshold for every nonnegative input.",
+        "searches": [
+          "Resultary semantic query: complete multipartite graph Laplacian classical fourth-order Runge Kutta RK4 positivity threshold spectral stability equivalence",
+          "Horváth 2005 doi:10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/j.apnum.2004.08.026 full 16 pages",
+        "https://www.numdam.org/articles/10.1051/m2an/2022042/ abstract",
+        "Resultary semantic query as recorded",
+        "RESULT.md and verify.py actual Git blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known RK4 negative-real-axis scalar radius rho is a direct premise; proof adds strict positivity of same-part entries via negative discriminant and cross-part entry h phi(Nh)/24."
+        ],
+        "reasoning": "Neither classical scalar stability nor generic absolute-monotonicity bounds entails the cross-part sign identity; no decisive implication from the inspected stronger numerical-integration sources.",
+        "searches": [
+          "Resultary semantic query: complete multipartite graph Laplacian classical fourth-order Runge Kutta RK4 positivity threshold spectral stability equivalence",
+          "https://www.numdam.org/articles/10.1051/m2an/2022042/",
+          "doi:10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2022 Blanes–Iserles–Macnamara studies generic graph-Laplacian positivity barriers, not equality of complete-multipartite endpoint positivity and 2-norm stability."
+        ],
+        "reasoning": "No equivalent RK4 matrix-positivity classification was established by the inspected sources; the scalar stability radius alone lacks an entrywise conclusion.",
+        "searches": [
+          "Resultary semantic query: complete multipartite graph Laplacian classical fourth-order Runge Kutta RK4 positivity threshold spectral stability equivalence",
+          "\"RK4 positivity complete multipartite\"; \"classical Runge Kutta spectral threshold graph\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest Padé/Gauss example concerns a different rational method and eight-state non-Markov steps; 2026/10/11 multipartite Čech homology concerns another invariant."
+        ],
+        "reasoning": "A graph-indexed exact RK4 threshold table for all positive integer partitions was not identified; database comparison does not certify novelty.",
+        "searches": [
+          "Resultary semantic query: complete multipartite graph Laplacian classical fourth-order Runge Kutta RK4 positivity threshold spectral stability equivalence",
+          "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is the complete-multipartite endpoint positivity/contractivity equivalence with a universal scale, not the classical rho RK4 stability radius; primary full Horváth 2005 paper concerns general scheme positivity classes and invariant cones, not this exact projector computation.",
+      "residual_risks": [
+        "A specialized RK positivity theorem for complete multipartite generators under alternative terminology could imply the entire criterion.",
+        "Broader 2022 paper body was not read in full; inaccessible unrelated Higueras 2005 full text remains an additional priority uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_PRIOR_ART_NOT_EXACT_COVERAGE",
+          "evidence": [
+            "Universal RK positivity radii over classes of IVPs and invariant cones; no K_multipartite projector computation, specific rho/N threshold, or equivalence with Euclidean spectral contraction."
+          ],
+          "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+          "material_read": "Complete 16-page authorized PDF; introduction, Sections 2–4, Theorems 8 and 17, comparison remarks, and references",
+          "method": "Authorized full-text download and page-level textual reading",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Directly titled RK positivity-step threshold, relevant to exact bound"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_NOT_DECISIVE",
+          "evidence": [
+            "2022 article develops alternative positivity-preserving integrators for broad Laplacian-like ODEs; abstract alone cannot justify whole-document NOT_COVERING."
+          ],
+          "identifier_or_url": "https://www.numdam.org/articles/10.1051/m2an/2022042/",
+          "material_read": "Published abstract and metadata, bibliography; full body not inspected",
+          "method": "Public journal abstract page",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Specific graph-Laplacian and order-barrier prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md motivation and main theorem",
+        "primary comparisons in originality assessment"
+      ],
+      "rationale": "A sharp natural all-partition diffusion positivity classification, including unequal community sizes and exact decoupling at the spectral boundary, gives an exact network-integrator benchmark not implied by scalar stability alone.",
+      "residual_risks": [
+        "A theorem being correct and computationally verified does not alone prove mathematical value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every unweighted complete multipartite K_{n1,...,nr}, r>=2, the classical completed RK4 heat-step matrix is entrywise nonnegative exactly when 2-norm contractive, iff 0<=h<=rho/N, where phi(rho)=24-12rho+4rho^2-rho^3=0.",
+  "limitations": [
+    "Only completed classical RK4 endpoint; no internal-stage, arbitrary-graph, heterogeneous-weight or nonlinear positivity claim.",
+    "No guarantee of exhaustive historical priority.",
+    "A specialized RK positivity theorem for complete multipartite generators under alternative terminology could imply the entire criterion.",
+    "Broader 2022 paper body was not read in full; inaccessible unrelated Higueras 2005 full text remains an additional priority uncertainty."
+  ],
+  "schema_version": 1
+}
