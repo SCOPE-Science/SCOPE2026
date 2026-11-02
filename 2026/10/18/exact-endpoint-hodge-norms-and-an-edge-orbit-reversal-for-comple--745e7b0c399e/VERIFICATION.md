@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-From the package directory run `python3 verification/check.py`. The script requires Python 3.9 or newer and no third-party packages. It uses exact `fractions.Fraction` arithmetic and builds every edge and vertex Laplacian without using the proposed potential formula to generate the projection.
+## correctness
 
-On each connected complete multipartite profile it inverts the nonsingular matrix \(L+\mathbf 1\mathbf 1^{\mathsf T}/N\) by rational Gaussian elimination. Each source-edge potential is checked against all Kirchhoff equations, then every edge's absolute cut and cycle projection column sum is compared against the claimed closed formula. Both operator maxima are checked separately. Enumeration covers all unordered multipartitions with at least two parts and \(2\le N\le10\), plus profiles \((1,2,10)\), \((2,3,5)\), and \((3,4,4)\). It also checks the inequalities, formulas and strict cycle-minus-cut difference for \(K_{N-3,2,1}\) for every integer \(6\le N\le100\).
+PASS
 
-Actual output: `VERIFY_OK: 131 multipartitions, 3029 exact edge columns; 95 extremizer-reversal instances`.
+From the actual seven-file Git tree, independently verified the zero-mean five-level potential solves Lu=e_a-e_b for all part sizes, the eight signed edge-current classes and nonnegativity inequalities, S_{s,t}=F_N(s)+F_N(t), effective-resistance diagonal, and C column formula 1+H_N(s)+H_N(t). Verified factorization (N-s)(N-t)-2(N-1)=(s-1)(t-1)+(w-1)(s+t+w-1) for r>=3, the two-part boundary, tree/star C=0, and all K_{N-3,2,1} score orderings and gap formula. Separate SymPy exact Laplacian inversions checked K_{1,1}, K_{1,1,1}, K_{4,1}, K_{3,2,1}, K_{4,2,1}, K_{2,3,4}, K_{1,1,1,4}, including Q^2=Q, C^2=C and every column formula; symbolic eight-orbit summation and difference factorization also verified. Finite tests corroborate rather than prove the infinite statements.
 
-Limitations: the finite checker does not establish any untested larger graph instance; the included paper proof gives all-integer quantifiers. Only the canonical orthogonal projection norms are examined. The verification does not constitute external or independent auditing.
+## originality
+
+PASS
+
+Best-of-knowledge original is the full unequal-part projection norm and extremizing-edge classification including complementary-orbit reversal. Exact resistance formulas and hence potential reconstruction/transfer-current entries were known (Bapat--Karimi--Liu Cor.2.6; Gervacio); generic projection framework known (Dilworth--Kutzarova--Ostrovskii); Das--Yang handles the same vertex-resistance matrix. Those sources were inspected for mathematical implication, not just titles, and do not state global absolute current-sum maximization. Residual risk remains material because an inaccessible original resistance paper or alternative vocabulary may contain an equivalent norm.
+
+## value
+
+PASS
+
+The exact all-profile canonical cut/cycle l1 and l-infinity norms are natural Banach complementability and edge-current amplification invariants. The theorem does more than evaluate a textbook identity: it resolves all distinct edge-part orbits in arbitrary asymmetric complete multipartite graphs and proves an infinite, sharp qualitative divergence of cut versus cycle maximizing orbits. It explicitly excludes minimization among nonorthogonal projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

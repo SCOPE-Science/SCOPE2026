@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each edge joining parts of sizes \(s\) and \(t\), the displayed five-level potential vector is checked directly against the complete multipartite Laplacian. Its differences on the eight possible edge types have nonnegative claimed magnitudes, including the critical inequalities \((N-1)\alpha\ge\beta\) and \((N-1)\beta\ge\alpha\). Exact absolute-column sums yield the two endpoint norms. The comparison of class scores is an explicit difference identity with an independently verified nonnegative factorization. At \(K_{N-3,2,1}\) the scores change order, giving the claimed extremal-edge reversal. A standard-library exact-rational checker reconstructed 131 multipartitions, 3,029 edge columns, and 95 parameter instances independently from their Laplacians; all passed. The infinite quantifiers are proved algebraically, not inferred from the checker.
+PASS
 
-## Originality — PASS, with residual bibliographic uncertainty
+From the actual seven-file Git tree, independently verified the zero-mean five-level potential solves Lu=e_a-e_b for all part sizes, the eight signed edge-current classes and nonnegativity inequalities, S_{s,t}=F_N(s)+F_N(t), effective-resistance diagonal, and C column formula 1+H_N(s)+H_N(t). Verified factorization (N-s)(N-t)-2(N-1)=(s-1)(t-1)+(w-1)(s+t+w-1) for r>=3, the two-part boundary, tree/star C=0, and all K_{N-3,2,1} score orderings and gap formula. Separate SymPy exact Laplacian inversions checked K_{1,1}, K_{1,1,1}, K_{4,1}, K_{3,2,1}, K_{4,2,1}, K_{2,3,4}, K_{1,1,1,4}, including Q^2=Q, C^2=C and every column formula; symbolic eight-orbit summation and difference factorization also verified. Finite tests corroborate rather than prove the infinite statements.
 
-The primary inspected source is Dilworth–Kutzarova–Ostrovskii (2023), arXiv:2305.12582, which develops cycle/cut projection theory for Banach transportation spaces but treats tori and Hamming graphs for explicit family formulas. Bapat–Karimi–Liu (2016), arXiv:1611.09457, and the cited Gervacio work explicitly establish multipartite **resistance distances**; this is acknowledged as strong prior coverage and is not claimed anew. Since all transfer-current entries follow by polarization from resistance data, a novelty claim solely about currents would be untenable. The asserted new component is the exact *operator norm* for arbitrary unequal part sizes together with the extremal-class ordering and its reversal for complementary projections. The accessible previous equal-part and complete-split graph calculations do not imply the two-score family classification or the opposite maximizing orbits. The 2012 Gervacio article's full PDF was not retrievable from its listed link; its abstract and an equivalent resistance formula in an accessible 2016 primary text were inspected. Searches found no explicit covering norm formula, but search non-detection is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural Banach complementability statistic—the endpoint norm of canonical cut/cycle operators—is classified on every finite complete multipartite graph, despite an arbitrary number of asymmetrically sized parts. The computation is not an isolated instance: it compresses a graph-sized matrix norm problem to two class-score rankings and exhibits a qualitative change in the maximizing edge orbit between complementary projections. That reversal makes the formula useful when comparing electrical-flow localization and cut-space amplification for strongly unbalanced graph geometries. No global-minimality claim over nonorthogonal projections is made.
+Best-of-knowledge original is the full unequal-part projection norm and extremizing-edge classification including complementary-orbit reversal. Exact resistance formulas and hence potential reconstruction/transfer-current entries were known (Bapat--Karimi--Liu Cor.2.6; Gervacio); generic projection framework known (Dilworth--Kutzarova--Ostrovskii); Das--Yang handles the same vertex-resistance matrix. Those sources were inspected for mathematical implication, not just titles, and do not state global absolute current-sum maximization. Residual risk remains material because an inaccessible original resistance paper or alternative vocabulary may contain an equivalent norm.
 
-## Closest work and limitations
+## value
 
-The projected operators are Euclidean orthogonal, not necessarily minimum-norm projections. Graph resistance formulas from 2012 and 2016 cover a significant ingredient; the derived class-score maximization is the specific new mathematical assertion. The inaccessible original 2012 PDF and possible equivalent electrical-network norm identities are residual originality risks. Finite computations are corroboration, not exhaustive proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact all-profile canonical cut/cycle l1 and l-infinity norms are natural Banach complementability and edge-current amplification invariants. The theorem does more than evaluate a textbook identity: it resolves all distinct edge-part orbits in arbitrary asymmetric complete multipartite graphs and proves an infinite, sharp qualitative divergence of cut versus cycle maximizing orbits. It explicitly excludes minimization among nonorthogonal projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
