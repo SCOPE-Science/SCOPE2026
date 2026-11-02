@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "The killed cycle Laplacian is strictly positive definite; exact quadratic arc interpolation solves the Poisson lifetime equations and yields a two-by-two trap system with positive determinant. The derivative with respect to the remote rate has exactly one root inside (0,K/4), and the optimized mean is strictly increasing in effective arc conductance C; C is minimized only at antipodal placements. Limits and allocation boundaries follow algebraically. A standalone standard-library checker independently confirmed 270 exact rational generator solves and 6750 seeded alternative allocations. Computations are diagnostics, not a substitute for all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Robledo–Woodhouse (1978), doi:10.1007/BF01012507, abstract: ring solution with one trap or equally spaced traps, for multiple walker lifetimes; does not identify unequal reactive allocation in accessible material.",
+        "Evans–Nord (1985), doi:10.1103/PhysRevA.32.2926, abstract: multiple completely adsorbing sites, hence infinite rather than optimizable finite local killing rates.",
+        "Abad–Kozak (2015), doi:10.1103/PhysRevE.91.022106, abstract: one deep trap and N−1 partial traps with a common partial-absorption probability; a one-dimensional case is mentioned, but full-text comparison was unavailable.",
+        "Indexed result All-coupling equidistant maximizer for repulsive point interactions on a loop concerns ground-state eigenvalue optimization for equal repulsive point interactions."
+      ],
+      "reasoning": "General finite-state inverse-matrix methods and perfect-trap results provide tools or boundary limits but do not automatically imply an optimized lifetime under a fixed budget with both traps finite. The related equidistant-loop Schrödinger result optimizes a different spectral observable, with identical strengths rather than a source-dependent asymmetric allocation. The Abad–Kozak text and older multi-trap work pose residual priority risk; the accessible statements do not provide decisive stronger coverage.",
+      "searches": [
+        "Random walks on finite lattices with multiple traps: Application to particle-cluster aggregation",
+        "Multiple trapping of random walkers on periodic lattices",
+        "Competing reaction processes on a lattice as a paradigm for catalyst deactivation",
+        "partial absorbing traps cycle diffusive search optimum trap spacing reaction rates mean first passage exact"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0107434v1 (2001-07-20; arxiv full HTML and PDF section inspection)",
+      "arxiv:0806.0453v1 (2008-06-03; full arxiv HTML)",
+      "doi:10.1007/BF01012507 (abstract only)",
+      "doi:10.1103/PhysRevA.32.2926 (publisher abstract only)",
+      "doi:10.1103/PhysRevE.91.022106 (abstract and open-access repository description, not full PDF)",
+      "Public mathematical-results index: All-coupling equidistant maximizer for repulsive point interactions on a loop (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new claim contains all n>=3, D,K>0, all d and all finite nonnegative rate splits; its exact optimizing split is strictly asymmetric, with small-K limit 3:1 and large-K lifetime ratio 1/2 relative to a single trap.",
+        "One-trap or perfect-trap theories yield only boundary/eigenvalue/limiting pieces and cannot set the derivative of source-specific mean lifetime over two finite rates.",
+        "The publicly indexed equal-spacing repulsive point-interaction theorem concerns a principal eigenvalue, not the linear Poisson equation Ht=1 evaluated at the starting trap."
+      ],
+      "reasoning": "Neither statements with one active trap nor equal-strength/perfect absorption imply the interior optimal fraction and its square-root dependence. A generic Green-function expression is mathematically broad enough to calculate this example, but obtaining the sharp optimizer still requires the particular two-point reduction, a nontrivial derivative sign, and optimization over integer separations. No examined earlier result states a stronger all-budget theorem whose simple substitution yields these sharp laws. Historical comparisons remain bounded by accessible full texts.",
+      "searches": [
+        "Sharp optimal placement and allocation of two partially absorbing sinks on a periodic one-dimensional diffusion circle for the spatially averaged absorption time",
+        "mean absorption time cycle graph two sinks at 0 and m positive killing rates k1 k2, exact optimize fixed total k sum and source at sink",
+        "graph Laplacian with two diagonal killing perturbations optimal trapping time antipodal ring",
+        "doi:10.1103/PhysRevA.32.2926",
+        "arxiv:cond-mat/0107434v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Condamin–Tejedor–Bénichou, arxiv:0806.0453, full arXiv HTML: exact occupation-time formulas and a competition between imperfect reaction at one center and arrival at a target, not a joint optimization of two independently imperfect rates.",
+        "Aspelmeier–Magnin–Graupner–Täuber, arxiv:cond-mat/0107434, sections 2, 3.1–3.3, and appendix: one-trap ring analysis of asymptotic survival.",
+        "The killed-Laplacian resolvent is the equivalent probabilistic formulation; it computes a mean for given rates but does not state the joint optimized placement and asymmetric allocation."
+      ],
+      "reasoning": "Equivalent representations include a rank-two diagonal perturbation of a cycle Laplacian, a reaction network with two partial absorbers, a Green-function occupation-time calculation, and electrical conductance on two parallel arcs. Compared parameter domains include n>=3, independent finite positive site rates, fixed rate sum and a particle starting exactly on one reactive site. Inspected earlier formulas address a single partial trap or partial-versus-perfect competition; none of their inspected statements includes this global optimization.",
+      "searches": [
+        "Two partially absorbing sites on a finite continuous-time symmetric random walk cycle: fixed sum of killing rates, starting at a trap, optimal antipodal separation and optimal sink strengths",
+        "mean absorption time cycle graph two sinks at 0 and m positive killing rates k1 k2, exact optimize fixed total k sum and source at sink",
+        "graph Laplacian with two diagonal killing perturbations optimal trapping time antipodal ring",
+        "two traps antipodal mean time continuous time random walk optimize",
+        "arxiv:0806.0453v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searches produced general first-passage and trapping results but no retrieved exact table/formula for a two-imperfect-trap ring allocation with remote fraction 1/(2+sqrt(4+K/C)).",
+        "Aspelmeier et al. derive single-ring long-time eigenvalue asymptotics, not an exact fixed-budget lifetime table.",
+        "Publicly indexed cycle two-sensor frame-bound results and sink-configuration homology results concern different observables and do not tabulate killing time."
+      ],
+      "reasoning": "This was checked as an exact numerical/algebraic invariant under alternative phrases, not solely by title matching. Absence of a search hit does not establish novelty, so originality depends additionally on material comparisons and the restricted claims of relevant inspected sources.",
+      "searches": [
+        "Imperfect trap placement optimal weak reaction rate 3:1 allocation, strong reaction remote rate proportional to square root",
+        "trapping ring formula sqrt(4+K/C) optimal rate two sinks",
+        "partially absorbing cycle allocate rates optimal absorption",
+        "two traps antipodal mean time continuous time random walk optimize"
+      ]
+    },
+    "rationale": "Current inspected primary material covers a one-trap imperfect ring, imperfect reaction versus a separate absorbing target, and perfect multiple traps, but no accessible claim determines the complete two-finite-rate fixed-budget source-site lifetime optimizer and 3:1-to-vanishing remote fraction law. General Green-function and repulsive Schrödinger point-interaction results have different observables or leave the nontrivial optimization unperformed. Historical priority is provisional owing to incompletely accessible 1978, 1985, and 2015 sources.",
+    "residual_risks": [
+      "The accessible abstract of Robledo and Woodhouse (1978) does not permit exclusion of an equivalent allocation result hidden in its full text.",
+      "Evans and Nord (1985) and Abad and Kozak (2015) may contain broader resolvent/specialized one-dimensional formulas beyond the accessible abstracts; the present rate-budget global optimum was not found in available text.",
+      "Semantic and textual literature searches are incomplete and cannot prove historical novelty.",
+      "The publicly indexed related loop eigenvalue result was compared from its summary, not its complete proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The ring approximation explicitly closes one-trap segments and seeks survival kinetics, not two independently reactive sites with a fixed strength budget",
+        "evidence": [
+          "Single-ring solution 3.2 uses a single trap at site 1 and an eigenvalue asymptotic; public v1 dated 2001-07-20."
+        ],
+        "identifier_or_url": "arxiv:cond-mat/0107434; https://arxiv.org/abs/cond-mat/0107434",
+        "material_read": "ArXiv HTML sections 2, 3.1–3.3, appendix A; PDF pages including the one-ring master equation and diagram",
+        "method": "Full arXiv HTML and relevant PDF page inspection",
+        "title": "Random walks with imperfect trapping in the decoupled-ring approximation",
+        "trigger": "Single-ring imperfect trapping with correlated trap placement is an exact-object overlap"
+      },
+      {
+        "assessment": "Provides general occupation-time and imperfect reaction calculations, but studied one imperfect reactive site and a target, without optimizing the two-site finite hazard budget",
+        "evidence": [
+          "Equations (1)–(7) and explanation in the public arXiv HTML; first version 2008-06-03."
+        ],
+        "identifier_or_url": "arxiv:0806.0453; https://arxiv.org/abs/0806.0453",
+        "material_read": "ArXiv full HTML, especially the reaction-before-target application and pseudo-Green/splitting-probability formulas",
+        "method": "Full arXiv HTML inspection",
+        "title": "Occupation times of random walks in confined geometries: From random trap model to diffusion limited reactions",
+        "trigger": "Occupation time and imperfect trapping can lead to equivalent finite-state resolvent expressions"
+      },
+      {
+        "assessment": "Reported ring solution is for one trap or equally spaced traps and multiple walker lifetimes; two unequal finite reaction-rate optimization could not be excluded from unread full text",
+        "evidence": [
+          "Journal of Statistical Physics 19, 129–147 (1978), abstract reproduced in author-indexed record."
+        ],
+        "identifier_or_url": "doi:10.1007/BF01012507",
+        "material_read": "Abstract and bibliographic description only",
+        "method": "Publisher/author-page search; accessible abstract examination",
+        "title": "Multiple trapping of random walkers on periodic lattices",
+        "trigger": "Earlier explicit ring and multiple-trap lifetime formulas could dominate a two-trap claim"
+      },
+      {
+        "assessment": "Paper explicitly studies completely adsorbing sites, unlike the two finite-rate sites being optimized; inaccessible full text leaves broader comparison uncertain",
+        "evidence": [
+          "Physical Review A 32, 2926–2943 (1985), abstract specifies completely adsorbing traps."
+        ],
+        "identifier_or_url": "doi:10.1103/PhysRevA.32.2926",
+        "material_read": "APS full abstract and bibliographic information; complete paper not accessible",
+        "method": "Publisher abstract and open-source search",
+        "title": "Random walks on finite lattices with multiple traps: Application to particle-cluster aggregation",
+        "trigger": "General multi-trap mean-walk formulas could imply a stronger result"
+      },
+      {
+        "assessment": "The abstract treats one deep trap plus N−1 sites with a common partial-absorption rate; no fixed-budget two finite-rate optimum in accessible content, but detailed 1D subsection remains a residual priority risk",
+        "evidence": [
+          "Physical Review E 91, 022106 (2015), abstract; Caltech repository has a PDF record."
+        ],
+        "identifier_or_url": "doi:10.1103/PhysRevE.91.022106",
+        "material_read": "Publisher abstract and Caltech repository description; full PDF not readable from available source",
+        "method": "APS abstract and Caltech open-access record inspection",
+        "title": "Competing reaction processes on a lattice as a paradigm for catalyst deactivation",
+        "trigger": "Competing centers and a mentioned one-dimensional special case are plausible stronger coverage"
+      },
+      {
+        "assessment": "Different parameter and observable: optimizing the smallest Schrödinger eigenvalue for identical repulsive interactions does not fix the source-specific inverse-resolvent mean or unequal rates",
+        "evidence": [
+          "Published summary claims equal spacing for identical delta repulsions at all positive couplings."
+        ],
+        "identifier_or_url": "Published mathematical-results record: All-coupling equidistant maximizer for repulsive point interactions on a loop",
+        "material_read": "Indexed title and summary only, not a full scientific proof",
+        "method": "Semantic published-result index inspection",
+        "title": "All-coupling equidistant maximizer for repulsive point interactions on a loop",
+        "trigger": "Equidistant point sinks on a loop can resemble optimized trap separation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1d0b2406-43bd-4828-8bee-47ca776b0172",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact global optimization of finite reactive resources on a periodic transport network is a motivated design invariant. The theorem yields antipodal placement, a unique highly asymmetric allocation for every n>=3 and D,K>0, a strict one-quarter cap on remote reactivity, and a sharp factor-two lifetime reduction in the strong-reactivity limit relative to single-local or symmetric placement. These are substantive closed design laws beyond a generic inverse-generator identity; the scope excludes other initial distributions and geometries.",
+    "status": "PASS"
+  }
+}
