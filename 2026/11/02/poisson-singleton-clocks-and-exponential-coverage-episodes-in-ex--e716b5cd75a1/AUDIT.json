@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact entrance conditioning gives a uniform onto word on n−1 colors. A zero-truncated-Poisson conditional occupancy model plus span-one lattice local CLT bounds conditional one-color counts uniformly. Singleton count concentration and exchangeable positions give unit-rate Poisson local point process. The probability of a multiply occurring color entirely expiring in the first t=O(n^alpha) positions is O(n^(alpha−1)); the chance of rescuing one of O_P(1) expiring colors is O(n^(alpha−1)). Their union-bound sandwich yields the exponential first-exit law. Stationary mass divided by flux gives the exact mean and the singleton exit-hazard supplies its n^alpha asymptotic. The 403 exact checker assertions only validate finite combinatorics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barbour, Braunsteins and Ross (2019), inspected introduction, main local-limit statements and applications, treat occupancy local estimates rather than complete sliding-window episode lengths.",
+        "Barbour and Gnedin (2009) abstract describes small counts in infinite occupancy rather than finite-subcritical sliding surjection Palm laws."
+      ],
+      "reasoning": "A general theory of clump lengths or conditioned random occupancy point processes could imply the theorem, but the inspected published primary results do not supply the Palm-dependent no-rescue approximation. The uninspected body of the infinite-occupancy article is recorded as residual risk.",
+      "searches": [
+        "Poisson clumping surjection runs coverage duration coupon collector",
+        "expiring coupon collector how long success persists after first completion",
+        "https://arxiv.org/abs/1908.00251",
+        "https://doi.org/10.1214/EJP.v14-608"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.26298v1",
+      "https://math.stackexchange.com/questions/188889/expiring-coupon-collectors-problem",
+      "https://arxiv.org/abs/1908.00251",
+      "https://doi.org/10.1214/EJP.v14-608"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Long (2026), Theorem 3.1 and Sections 4–7: entry flux and waiting-time distribution; Lemma 5.1: Palm surjection and last-expiring colors; Appendix A: local sum estimate.",
+        "Joriki (2012): heuristic explanation of timescale.",
+        "Barbour et al. (2019): relevant occupancy local-limit techniques, not the time-to-loss law."
+      ],
+      "reasoning": "The prior entry flux and stationary mass imply only the mean episode duration by an ergodic ratio, not the episode survival distribution or singleton spatial point-process convergence. The new proof adds conditional singleton concentration, a spatial Poisson limit and a quantitative no-rescue transfer. Its scale alone is not novel.",
+      "searches": [
+        "https://arxiv.org/html/2604.26298v1",
+        "https://math.stackexchange.com/questions/188889/expiring-coupon-collectors-problem",
+        "https://arxiv.org/abs/1908.00251",
+        "surjection singleton count spatial Poisson process conditional all boxes occupied"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Long (2026) Sections 3 and 5 explicitly identify the onto middle word and last-occurrence variables but focus on short-return bounds, not the singleton-position PPP or first loss after entrance.",
+        "Joriki (2012) suggests the singleton-expiration mechanism without asserting a weak Poisson or exponential cluster-length theorem."
+      ],
+      "reasoning": "The episode-length result is equivalently the law of the first singleton expiration in the Palm surjection conditional on negligible future rescue. The sources inspected did not state or derive the equivalent point-process limit. A general result with different terminology might cover it.",
+      "searches": [
+        "uniform random surjection singleton positions poisson process conditioned occupancy all nonempty",
+        "random onto word singleton positions Poisson point process exponential first singleton",
+        "https://arxiv.org/html/2604.26298v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finite exact mean uses the existing Stirling-number flux from Long (2026); neither this number nor its quotient is asserted original.",
+        "The 2012 question and answer supply a timescale heuristic, not an exact table of the new point-process distribution."
+      ],
+      "reasoning": "The claimed new result is asymptotic probabilistic structure, not a database value or finite table. Known exact flux and mass are prerequisites; the full weak limiting conditional law is not a mere lookup of either.",
+      "searches": [
+        "expiring coupon collector conditional successful coverage window episode length singleton Poisson exponential duration",
+        "https://arxiv.org/html/2604.26298v1",
+        "https://math.stackexchange.com/questions/188889/expiring-coupon-collectors-problem"
+      ]
+    },
+    "rationale": "Primary Long (2026) handles rare waiting to entrance, while this result supplies the entrance-Palm singleton-position Poisson law and complete-episode duration distribution. Long's finite stationary mass/flux implies the stated exact mean, which is explicitly credited. The 2012 heuristic anticipates the natural scale, not the proven process law. General occupancy LCLTs support an intermediate lemma but inspected applications do not imply the complete-window episode statement. Earlier all-purpose Poisson-clumping theorems remain a priority risk.",
+    "residual_risks": [
+      "A broader classical Poisson-clumping theorem may imply the entrance-Palm exponential episode law, possibly without naming coupon collection.",
+      "Barbour and Gnedin (2009) was only abstract-accessible; its full text was not used for a whole-document exclusion.",
+      "Historical heuristic priority for the n-to-alpha scale belongs to the 2012 discussion; the finite mean follows from prior exact mass/flux."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies exact entrance conditioning, entry flux, rare-wait limit and LCLT, but no distribution of post-entrance complete-window episode duration in inspected material",
+        "evidence": [
+          "Theorem 3.1 stationary mass/flux; Lemma 5.1 exact Palm surjection; Lemma A.1 truncated-Poisson local estimate."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.26298v1",
+        "material_read": "Sections 2–7, Appendix A, introduction and exact formulas",
+        "method": "Read available primary HTML, compare hypotheses and conclusion line by line",
+        "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+        "trigger": "same exact sliding-window process and entrance-Palm law"
+      },
+      {
+        "assessment": "Explicit heuristic anticipation, not a rigorous Poisson process or Palm episode-length distribution",
+        "evidence": [
+          "Answer describes the n-to-alpha clump/time scale and admits nonrigorous approximations."
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/188889/expiring-coupon-collectors-problem",
+        "material_read": "Question and substantive 2012 answer",
+        "method": "Read and compare heuristic mechanisms versus weak-limit theorem",
+        "title": "Expiring coupon collector's problem (Joriki answer)",
+        "trigger": "historical prediction of the same scale"
+      },
+      {
+        "assessment": "Local count approximation apparatus, not the sliding-window entrance/Palm episode theorem",
+        "evidence": [
+          "Fixed occupancy totals and their local distribution approximations; no forward sliding-window lifetime statement identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.00251",
+        "material_read": "Introduction, principal results, proof framework and application statements in primary preprint",
+        "method": "Inspect full-text relevant theorem/application sections",
+        "title": "Local limit theorems for occupancy models",
+        "trigger": "potential stronger general occupancy theorem"
+      },
+      {
+        "assessment": "Related occupancy topic but body not inspected; not designated NOT_COVERING on that basis",
+        "evidence": [
+          "Abstract emphasizes infinite occupancy small-count limit phenomena."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/EJP.v14-608",
+        "material_read": "Abstract and bibliographic metadata only",
+        "method": "Abstract-level search and comparison",
+        "title": "Small counts in the infinite occupancy scheme",
+        "trigger": "singleton count and Poisson asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e716b5cd-75a1-4947-b2ea-59c0b864539a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The probability of currently having all coupons and the probability per step of entering that state differ by a stochastic episode length. In the rare subcritical setting, earlier flux analysis does not specify how long successful coverage persists. The unit-rate spatial singleton clock and exponential Palm lifetime give the natural missing local temporal structure for every fixed alpha in (0,1), not merely a routine expectation identity or unmotivated finite statistic.",
+    "status": "PASS"
+  }
+}
