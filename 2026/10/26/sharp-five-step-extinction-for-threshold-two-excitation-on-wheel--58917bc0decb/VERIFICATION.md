@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The recurrence update is implemented directly in `verify.py` from the neighbour rule, without fitted parameters or external dependencies. The program exhausts all \(3^{n+1}\) labelled states for \(3\le n\le8\), checks full extinction by time five, records exact depth distributions, and constructs witnesses of depth four or five for \(4\le n\le80\). See `verify_output.txt` for actual output.
+# Independent mathematical audit
 
-The universal bound and all-size sharpness require the formal rim-exclusion lemma and explicit witnesses proved in `RESULT.md`; finite checks are independently corroborating and close the bounded exceptional cases only. Published prior-work coverage remains a bounded literature assessment, not external certification.
+## correctness
+
+PASS
+
+For W_n=K1 join C_n, n>=3, synchronous Greenberg–Hastings states 0 resting,1 excited,2 refractory; 1->2->0 unconditionally, 0->1 iff >=2 distinct excited neighbours. Two-step rim-exclusion lemma: if H_{t-1}!=1, every rim excitation at t required both rim neighbors excited at t-1, which then become refractory at t, so no resting rim vertex can be newly excited at t+1. Cases H_0=0,1,2 imply F_n^5=all-rest uniformly. Exhaustive initial-state search for each fixed n=3..8 independently found exact maximal hitting times [3,4,4,4,4,5]. An explicit hub=1 rim pattern marks {0,4} for n=8, {0,4,8} for n>=9, gives a hub excitation at t=3 and refractory t=4, establishing depth5 for every n>=8. Witnesses checked to n=80. Thus all-rest sole recurrent state and no periodic orbit. Fixed small n exceptions legitimately use full finite exhaustive search, not a finite experiment extrapolated to infinite n.
+
+## originality
+
+PASS
+
+Known threshold Greenberg–Hastings lattice behavior and different graph families do not establish the exact wheel cutoff under distinct-neighbour threshold two. Threshold-one wheel and bipartite threshold>=2 behavior do not imply uniform extinction. Novelty bounded by source reading and semantic searches.
+
+## value
+
+PASS
+
+A uniform five-step nilpotence theorem across arbitrarily large wheels is a meaningful and surprisingly strong dynamical classification, including exact short-circumference exceptions and a sharp family of witnesses. The graph geometry and threshold are mathematically motivated, not arbitrary simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

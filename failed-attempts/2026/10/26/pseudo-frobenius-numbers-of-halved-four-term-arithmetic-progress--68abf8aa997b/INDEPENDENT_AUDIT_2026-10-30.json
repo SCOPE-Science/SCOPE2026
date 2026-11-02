@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:56:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quotient reduction T=S/2=<a,x,y>, with x=(a+d)/2 and y=(a+3d)/2=3x-a, follows by parity pairing of the two odd generators. The strictly increasing Apéry minima W(u)=floor(u/3)y+(u mod 3)x for 0<=u<a represent all residues since gcd(a,x)=1. The generator tests W(u)+x, W(u)+y and W(u)+a select the stated one or two maximal residue indices according to a mod 3. The resulting pseudo-Frobenius, Frobenius, and symmetry formulas are mathematically correct for odd coprime a>=5,d>=1. Independently implemented Dijkstra shortest-path Apéry enumeration and generator-based pseudo-Frobenius membership checks verified 817 admissible odd coprime parameter pairs a<82,d<52; finite checks support but do not establish the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 primary article proves PF for an entire three-generator semigroup class with a special 3x−a relation and interval condition.",
+          "2018/2023 quotient arithmetic-progression work defines the family and studies related F/genus, but cannot restore originality of already covered PF values."
+        ],
+        "reasoning": "The stronger explicit pseudo-Frobenius proposition directly dominates two of the three claimed residue branches; the remaining gcd(a,3)=3 branch is standard numerical-semigroup gluing.",
+        "searches": [
+          "Robles-Pérez–Rosales 2015 Theorem 2.8/Proposition 3.5/Remark 3.8",
+          "Adeniran et al arXiv:1809.09360",
+          "Feihu Liu arXiv:2312.06096"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.15672/HJMS.2015449432; https://dergipark.org.tr/en/download/article-file/644796",
+        "arXiv:1809.09360",
+        "arXiv:2312.06096",
+        "DOI:10.1142/S1793042124500891"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published 2015 conditions hold: a>=5, b=x>=ceil(a/3), c=3, gcd(a,c)=1 in R=1,2, e(T)=3.",
+          "Algebraic substitution proves the exact PF set matches in both branches; R=0 follows a standard gluing/symmetry argument."
+        ],
+        "reasoning": "The original R=1,2 PF formulas are logical corollaries of the published theorem without any new certificate or parameter condition; literature searched beyond titles to prove the exact implication.",
+        "searches": [
+          "Robles-Pérez–Rosales 2015 Proposition 3.5 and Remark 3.8",
+          "Feihu Liu arXiv:2312.06096",
+          "Resultary: Pseudo Frobenius numbers numerical semigroup quotient half four-term arithmetic progression odd a d symmetry type"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T=<a,x,3x−a> is exactly <a,b,3b−a> with b=x.",
+          "For a mod 3≠0, set c=3, δ=1 in Proposition 3.5: PF={Qy−x,(a−1)x−Qa−a}, Q=floor((a−1)/3)."
+        ],
+        "reasoning": "For a=3Q+1, this equals {(Q−1)y+2x−a,Qy−a}; for a=3Q+2, it equals {(Q−1)y+2x−a,Qy+x−a}. This is equality of exact PF SETS, not merely matching a title.",
+        "searches": [
+          "Resultary: Pseudo Frobenius numbers numerical semigroup quotient half four-term arithmetic progression odd a d symmetry type",
+          "Robles-Pérez–Rosales (2015), Proposition 3.5, Remark 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2015 paper provides an exact symbolic two-entry PF formula, stronger than any isolated numeric table.",
+          "Its closed formula specializes identically for every odd coprime parameter with a mod 3 in {1,2}."
+        ],
+        "reasoning": "The exact result is published as a theorem, so lack of a separate matching four-term-quotient table is irrelevant to prior coverage.",
+        "searches": [
+          "Resultary: Pseudo Frobenius numbers numerical semigroup quotient half four-term arithmetic progression odd a d symmetry type",
+          "Robles-Pérez–Rosales 2015 Proposition 3.5"
+        ]
+      },
+      "rationale": "FAIL: Robles-Pérez and Rosales (2015), Theorem 2.8, Proposition 3.5 and Remark 3.8, already determine the exact pseudo-Frobenius pairs of <a,b,cb-δa> under the interval condition. For the audited T choose b=x, c=3, δ=1, cb−δa=y, with gcd(a,x)=gcd(x,y)=1, gcd(a,3)=1 when a mod 3 is 1 or 2, and x>=ceil(a/3). The paper explicitly extends its formula beyond ordered generators via Remark 3.8. Its two PF expressions Qy−x and (a−1)x−Qa−a (Q=floor((a−1)/3)) are algebraically identical to both published claimed cases R=1,2. The remaining R=0 branch is a standard symmetric gluing of 3<Q,x−Q> with the coprime generator x (a=3Q), not an independently identified novel exact invariant. Because two complete claimed cases are explicit corollaries of an older published stronger PF theorem and the last is routine standard structure, the final three-way classification fails the originality test as claimed.",
+      "residual_risks": [
+        "Specific 2015 Proposition 3.5 identity conclusively covers two cases.",
+        "Authorized access to Lee–Nam DOI returned vpn_disconnected (job 68876b603c3453b64e1107a4521bdf7b).",
+        "No repaired narrower original/valuable claim or modified scientific files were supplied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT PRIOR COVERAGE of the R=1 and R=2 branches under c=3, δ=1, b=x; equality verified symbolically.",
+          "evidence": "Proposition 3.5 PF={floor((a−1)/c)(cb−δa)+δa−b−a, (a−1)b−floor((a−1)/c)δa−a}; Remark 3.8 extends unordered generating triples.",
+          "identifier_or_url": "DOI:10.15672/HJMS.2015449432; https://dergipark.org.tr/en/download/article-file/644796",
+          "material_read": "Complete accessible primary article text, specifically pp.901–908 Theorem 2.8, Proposition 3.5, Remark 3.8, and visually inspected journal page 906",
+          "method": "full-text PDF and screenshot",
+          "title": "The frobenius problem for some numerical semigroups with embedding dimension equal to three",
+          "trigger": "High-precision direct same-three-generator family and exact PF theorem"
+        },
+        {
+          "assessment": "Foundational quotient/Frobenius background; not needed for decisive PF coverage after 2015 theorem.",
+          "evidence": "Theorem 3.5 addresses shorter progression with denominator dividing a; problem motivates longer progressions.",
+          "identifier_or_url": "arXiv:1809.09360",
+          "material_read": "Accessible full-text PDF Theorem 3.5, adjoining discussion of quotient AP and visual screenshot of page 6",
+          "method": "arXiv PDF text and screenshot",
+          "title": "On the genus of a quotient of a numerical semigroup",
+          "trigger": "Earlier four-term arithmetic-progression quotient problem"
+        },
+        {
+          "assessment": "Assumes quotient divisor p divides initial generator a; audited p=2 and a odd, so this source is inapplicable directly.",
+          "evidence": "Abstract and result conditions explicitly say p|a.",
+          "identifier_or_url": "arXiv:2312.06096",
+          "material_read": "Accessible abstract, stated theorem hypotheses and extracted full-text portions; PDF image timed out",
+          "method": "arXiv PDF extracted text plus abstract",
+          "title": "On quotients of numerical semigroups for almost arithmetic progressions",
+          "trigger": "Potential more general quotient formulas"
+        },
+        {
+          "assessment": "Cannot certify its PF treatment; prior 2015 theorem is independently decisive on two branches.",
+          "evidence": "Oxford authorized request returned vpn_disconnected; no full-text noncoverage claim.",
+          "identifier_or_url": "DOI:10.1142/S1793042124500891",
+          "material_read": "Bibliographic abstract only: genus/Hilbert-series classification; complete 23-page text not obtained",
+          "method": "publisher/repository abstract and authorized institutional attempt",
+          "title": "The genus of a quotient of several types of numerical semigroups",
+          "trigger": "Highly relevant recent same quotient family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as an asserted new mathematical finding: the natural quotient family is well-motivated, but the two non-symmetric PF cases simply specialize an existing complete three-generator PF formula, while the symmetric case is a standard two-generator gluing. Repackaging the covered arithmetic into a four-term quotient parameterization supplies no independently unknown sharp fact beyond the established results; correct calculations and reproducibility cannot alone rescue value.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.15672/HJMS.2015449432; https://dergipark.org.tr/en/download/article-file/644796",
+    "arXiv:1809.09360",
+    "arXiv:2312.06096",
+    "DOI:10.1142/S1793042124500891"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "All formulas seem mathematically valid; failure is scientific historical coverage and lack of incremental value, not a computation error.",
+    "2015 full primary formula covers the two residue branches a mod3=1,2; a divisible3 is distinguished by gcd(a,y)=3 and standard gluing.",
+    "Lee–Nam 2024 full text inaccessible; this is not why originality fails."
+  ],
+  "residual_risks": [
+    "Specific 2015 Proposition 3.5 identity conclusively covers two cases.",
+    "Authorized access to Lee–Nam DOI returned vpn_disconnected (job 68876b603c3453b64e1107a4521bdf7b).",
+    "No repaired narrower original/valuable claim or modified scientific files were supplied."
+  ],
+  "schema_version": 1
+}

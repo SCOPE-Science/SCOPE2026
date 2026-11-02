@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:57:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The p-adic lifting implication A≡B mod p^r ⇒ A^p≡B^p mod p^(r+1) holds coefficientwise, including p=2. Combining j=n−1 and j=n n-good congruences yields P(x^p)≡P(x)^p mod p^(n+1). If m is the largest non-p-divisible exponent with p^n∤b_m, then m<d and S=(p−1)d+m is not divisible by p. Its P(x^p) coefficient vanishes. Among p-tuples with degree sum S, p permutations with indices (m,d,...,d) contribute p b_m; every other tuple necessarily contains a non-p-divisible index >m and has b_i divisible p^n, while its nonconstant multinomial coefficient has p factor since p∤S. Contradiction. Sharpness P=(1+x)^(p^n) follows from freshman-dream plus n lifts, coefficient b_1=p^n. Independent direct integer-binomial coefficient congruences checked p∈{2,3,5,7} at small n (p=2 to n=3, others n≤2) and divisibility/exact sharpness; these finite examples are only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dwork Crystals III studies Laurent expansions of rational functions under geometric assumptions, not monic n-good coefficient rigidity as stated.",
+          "Bu et al. restrict the required sharp lemma to p=2."
+        ],
+        "reasoning": "The broader p-adic framework supplies congruence tools but its inspected hypotheses/conclusions do not directly subsume the integer-polynomial coefficient theorem.",
+        "searches": [
+          "Beukers Vlasenko Dwork Crystals III DOI:10.1093/imrn/rnad101",
+          "arXiv:2409.00580 Lemma 3.7",
+          "Frobenius lifts Cartier polynomial congruences arbitrary p"
+        ]
+      },
+      "checked_sources": [
+        "GitHub source RESULT.md and technical self-review at frozen commit",
+        "arXiv:2409.00580v1 Lemma 3.7 full displayed proof",
+        "DOI:10.1093/imrn/rnad101 contextual source",
+        "Resultary semantic prime-arity Frobenius search",
+        "Independent binomial congruence checks for sample p,n"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 3.7 addresses the ring mod 2 with odd exponent; it cannot assert values for p=3 and degrees multiple 3.",
+          "Generic Frobenius lifts require separate hypotheses and do not provide the chosen leading coefficient extraction."
+        ],
+        "reasoning": "The arbitrary-p conclusion is a genuine extension of the source statement, albeit methodologically close. The claim of new monoid-algebra consequences is deliberately excluded.",
+        "searches": [
+          "Bu Gotti Li Zhao arXiv:2409.00580v1 Lemma 3.7 p2",
+          "Beukers Vlasenko Dwork Crystals III introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original dyadic lemma treats b_i for odd i in monic even degree, exactly p=2.",
+          "The claimed generalization takes p|d and p∤i for arbitrary p."
+        ],
+        "reasoning": "Relabelling p=2 as generic p is not a logical implication; proof requires the p-fold multinomial degree obstruction with S=(p−1)d+m.",
+        "searches": [
+          "arXiv:2409.00580 Bu Gotti Li Zhao Lemma 3.7 n-good polynomial",
+          "Resultary: Frobenius good polynomial prime p coefficients p^n",
+          "prime arity Frobenius congruence coefficientwise monic P(x^p)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct Resultary indexed all-p coefficient statement; p=2 lemma is explicitly available in the primary source.",
+          "The original proof is symbolic and does not rely on finite coefficient databases."
+        ],
+        "reasoning": "A table is not the relevant form of this universal quantified claim; bounded coefficient examples cannot cover an all-prime theorem. The only exact matched statement checked is the dyadic special case.",
+        "searches": [
+          "Resultary: n-good polynomials coefficient divisibility p^n arbitrary prime",
+          "arXiv:2409.00580 Lemma 3.7",
+          "finite coefficient examples polynomial Frobenius congruences"
+        ]
+      },
+      "rationale": "Qualified PASS: Bu–Gotti–Li–Zhao Lemma 3.7 establishes exactly the p=2 case for odd-index coefficients; the frozen result gives arbitrary prime p including odd prime arities with a separate p-multinomial coefficient argument. The established dyadic theorem does not logically imply other p. The techniques are closely analogous and classical Frobenius congruence ingredients are expressly prior.",
+      "residual_risks": [
+        "Prime-arbitrary extension uses classic multinomial divisibility and closely parallels p=2 proof; historical earlier formulations could cover the general p case.",
+        "No new downstream one-dimensional monoid-algebra result; value rests on a sharp structural lemma.",
+        "The full Dwork Crystals III text was not re-read end-to-end in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit p=2 case and matching coefficient isolation are prior; no odd-prime statement in the inspected lemma.",
+          "evidence": [
+            "Lemma 3.7 (p8) requires monic even degree and 2^n dividing the odd coefficient polynomial B; proof extracts coefficient c_{d+m}=2b_m."
+          ],
+          "identifier_or_url": "arXiv:2409.00580v1; https://arxiv.org/pdf/2409.00580",
+          "material_read": "Read source PDF section 3.2 pages 7–8 including Lemmas 3.5, 3.6 and 3.7 and proof of dyadic case; also read abstract and main framing.",
+          "method": "Primary PDF text plus rendered page 8",
+          "title": "One-dimensional monoid algebras and ascending chains of principal ideals",
+          "trigger": "same definition n-good and strongest same lemma"
+        },
+        {
+          "assessment": "No decisive noncoverage conclusion can be drawn from this limited context.",
+          "evidence": [
+            "The source is named for a broader p-adic Frobenius framework; the publisher full-text redirect was inaccessible."
+          ],
+          "identifier_or_url": "DOI:10.1093/imrn/rnad101",
+          "material_read": "Only the contextual source description in the provided research package and publisher redirect were available; full primary paper not read.",
+          "method": "Source-bibliography and access check, not primary full-text inspection",
+          "title": "Dwork Crystals III: From Excellent Frobenius Lifts Towards Supercongruences",
+          "trigger": "possible broader Frobenius-congruence predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp necessary coefficient constraint for a naturally defined p-adic Frobenius-congruence hierarchy, generalizing an obstruction already used in monoid-algebra factorization. The new prime-arity lemma is self-contained and usable for p-adic structural analysis even without a new downstream ACCP theorem. Mathematical contribution is narrowly a lemma, not a general polynomials classification or new monoid-algebra theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub source RESULT.md and technical self-review at frozen commit",
+    "arXiv:2409.00580v1 Lemma 3.7 full displayed proof",
+    "DOI:10.1093/imrn/rnad101 contextual source",
+    "Resultary semantic prime-arity Frobenius search",
+    "Independent binomial congruence checks for sample p,n"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Reviewed frozen assigned tree, source proof, critical verification artifacts and relevant literature; best-of-knowledge originality, not a priority guarantee.",
+    "The finite independent checks corroborate but never replace proofs for infinite parameter ranges.",
+    "Publication is withheld pending complete confidentiality-neutral replacements of public administrative metadata."
+  ],
+  "residual_risks": [
+    "Prime-arbitrary extension uses classic multinomial divisibility and closely parallels p=2 proof; historical earlier formulations could cover the general p case.",
+    "No new downstream one-dimensional monoid-algebra result; value rests on a sharp structural lemma.",
+    "The full Dwork Crystals III text was not re-read end-to-end in this execution."
+  ],
+  "schema_version": 1
+}

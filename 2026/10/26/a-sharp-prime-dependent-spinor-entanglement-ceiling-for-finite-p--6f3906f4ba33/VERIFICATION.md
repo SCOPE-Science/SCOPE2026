@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3's standard library. The script builds the finite hopping matrices, derives numerical momentum spectra using direct finite Fourier transforms, evolves normalized spinor–position states with a convergent matrix-exponential Taylor series, and computes the binary entropy of the reduced spinor. The obtained output was:
+## correctness
 
-```
-VERIFICATION_OK 178 finite checks; arbitrary-depth proof is analytic
-```
+PASS
 
-Checks cover \(p\in\{2,3,5,7\}\) and depths up to four, strictly positive off-diagonal hoppings, Fourier eigenvalue multiplicities, exact saturation for the connected example, the arbitrary-mass ceiling at sampled times, and the massless closed formula on independently chosen radial matrices. The package is standalone; it uses no external downloaded data.
+For the specified one-coordinate 2-spinor block H=m σ_z⊗I+σ_x⊗A on Z/p^ℓZ, radiality forces every Fourier character of conductor p^ℓ (comprising fraction (p−1)/p of the Fourier modes) to share a common eigenvalue and hence identical pure evolved spinor. The reduced qubit density is w|φ〉〈φ|+(1−w)τ, w=1−1/p≥1/2. Rayleigh quotient gives λ_max≥w and the monotonicity of binary entropy on [1/2,1] yields S(t)≤h₂(1/p) for arbitrary mass/time/radial weights. At m=0, direct σ_x diagonalization gives S=h₂((1+|Fℓ(t)|)/2), and triangle equality gives the stated necessary-and-sufficient phase alignment condition. For the explicitly constructed strictly positive hopping kernel, the radial generator has Fourier eigenvalues a_0=0, a_j=−2g for 1≤j<ℓ and a_ℓ=−3g; at t=π/(2g), low phases align opposite high, giving exact saturation at each depth; for fixed mass>0 the same is a supremum as g→∞. Independent matrix Fourier/entropy calculations for primes 2,3,5 at multiple depths matched h₂(1/p). These tests supplement the exact representation proof.
 
-The proof of the full theorem is analytic: radial shell character sums establish high-conductor degeneracy of multiplicity \((p-1)p^{\ell-1}\); the resulting rank-one summand enforces the two-level entropy bound. Equality follows from the exact three-valued symbol for the positive connected kernel. No finite numerical trial is represented as a proof for arbitrary depth or time. The independent audit was not performed.
+## originality
+
+PASS
+
+Targeted source and implication comparisons did not identify prior coverage of the precisely scoped final theorem; best-of-knowledge PASS with named residual risks, not a priority certificate.
+
+## value
+
+PASS
+
+The finite p-adic Dirac walk is a naturally defined quantum-network model and the fraction of highest-conductor Fourier modes creates a non-obvious arithmetic entropy obstruction. A sharp p-dependent ceiling, equality criterion and strictly positive connected hopping realization answer a structural spinor-position entanglement question. Scope is a one-coordinate invariant block and is not presented as a theorem for full three-axis Dirac coupling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

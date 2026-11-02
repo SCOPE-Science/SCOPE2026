@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** In every history state, the current outcome is the maximizer of candidate-separable priorities nondecreasing in each candidate's own supporter set. The winner-comparison proof therefore covers arbitrary unilateral reports, the affordability-to-fallback switch, and all parameter boundaries. Budget nonnegativity, exact minimum-price existence, and finite-time output are checked explicitly. The wEJR claim has a direct earliest-large-payment contradiction argument; the stronger inherited wEJR+ statement uses the explicitly inspected and matching published Theorem 3.14 of Phillips et al. A standalone exact-arithmetic program performed 66,288 fixed-state, 184,734 OIIA, 1,187,136 strategyproofness comparisons and 22,894 trajectory checks. Finite checks corroborate but do not substitute for the analytic arguments.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Borodin–Lueger (arXiv:2603.26504, Section 4.3) expressly leave OSP-preserving MES completion open after proving OSP only without completion. Chandak–Goel–Peters (arXiv:2306.14858) establish MES proportionality without the new completion strategy result. Phillips–Elkind–Teh–Wąs (arXiv:2505.22513, Theorem 3.14) allow arbitrary tail decisions and establish stronger fairness; that is acknowledged as covering only the inherited fairness conclusion, not OSP for a reporting-sensitive tail. Candidate-separable score monotonicity and the implication OIIA-to-OSP are known tools, not asserted to be new. Comparisons with earlier mathematical claims and the published mathematical-results corpus identified no equivalent completion theorem. The possibility of a separately published or differently named completion construction remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** A 2026 paper explicitly poses the existence of an OSP-preserving completion as an open implementation question. The constructive solution eliminates undefined rounds without sacrificing immediate incentive compatibility or established proportional representation, using an approval-responsive and polynomial-time secondary rule rather than an outcome fixed independently of votes. It identifies a structural design criterion—candidate-separable monotone score priorities—which explains why the switch preserves OSP, rather than only supplying a lucky example. A reachable counterexample with an anti-approval fallback shows that arbitrary approval-responsive tails need not be OSP.
+The current-choice priority is lexicographic affordable-first then smaller MES price; within unavailable candidates score by nonnegative supporter budget. Candidate priority depends only on its own approver set and is monotone under adding approvers. Thus from an unsatisfied sincere winner, no unilateral current-round report can improve priority of a genuinely approved alternative or decrease the unapproved incumbent, proving immediate OSP even on the round where affordability disappears. After permanent halt, frozen-weight approval scoring is separable and monotone, and a winner is chosen each round. Standard MES prefix payments and the earliest-over-1/l budget contradiction establish wEJR for fully cohesive groups; appended winners cannot lower satisfaction. Stronger wEJR+ is claimed by inheritance from Phillips et al. Theorem 3.14 arbitrary-completion guarantee, but its exact full text could not independently be retrieved: this is a priority/premise verification risk, not an invented theorem proof. Independent exact fixed-state checks compared 13,344 one-round manipulation cases, with no violation.
 
-**Scientific limitations.** There is no global strategyproofness claim, no guarantee of strong PJR or strong EJR, no welfare-optimality claim, and no proof of historical uniqueness. The algorithm uses a known finite horizon, nonnegative frozen fallback weights, and ballot-independent tie-breaking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full Borodin–Lueger 2026 paper (Section 4.3, page 9) proves OSP of uncompleted MES and explicitly poses preserving OSP after completion as an open question. Phillips et al. arbitrary-completion theorem supplies wEJR+ fairness, not OSP; weighted score monotonicity handles this new joint requirement. Classic weighted approval monotonicity is not itself original.
+
+## value
+
+PASS
+
+An explicit current-approval-responsive completion of a proportional semi-online rule that avoids early output failure while preserving immediate online strategyproofness. The source Borodin–Lueger paper explicitly asks if such completion can exist, making the answer directly motivated. Full-horizon strategyproofness is explicitly not asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

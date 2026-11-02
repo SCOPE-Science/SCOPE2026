@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The included `verify_ageing_rates.py` is a standalone Python-standard-library calculation. Run it as `python verify_ageing_rates.py` from a directory containing the packaged file. It checks five rational-parameter exponent/moment boundary cases and computes four finite-stage survival probabilities by the exact nonnegative spectral integral at initial site one.
+# Independent mathematical audit
 
-Actual output:
+## correctness
 
-```text
-alpha=2/5 beta=0 delta=0 n=200 survival=0.0013658415675 normalization=565685.425 ratio_to_stable_limit=1.00707451
-alpha=2/5 beta=1 delta=0 n=200 survival=0.000146563378025 normalization=49187498.1 ratio_to_stable_limit=1.00768923
-alpha=1/3 beta=1 delta=-3 n=300 survival=0.00028786689189 normalization=17506095.7 ratio_to_stable_limit=1.00636390
-alpha=1/3 beta=1 delta=-2 n=300 survival=0.000120071351244 normalization=100640214 ratio_to_stable_limit=1.00645382
-CHECK_OK exact_parameter_cases=5 spectral_quadratures=4
-```
+PASS
 
-The finite quadratures confirm the normalization trend to within the prescribed tolerance. They are **not** an infinite-time proof. The proof is the Bessel-kernel identity, weighted-alpha stable convergence, uniform negative-moment bound, and deterministic regularly varying clock inversion in the main result. No independent audit or independent validation was performed. Broader literature identity under other terminology is not ruled out categorically.
+Operational-time conditioning gives P(T>t)=E f_x(Lambda_t) for killed unit-rate symmetric walk; reflected Bessel heat kernels yield f_x(u)~x sqrt(2/pi)u^(−1/2) and a global bounded domination. The exact product Laplace transform of independent rates over intervals produces a stable triangular-array limit Lambda_t/B_t^(1/alpha)⇒Z_alpha because the largest normalized interval weight vanishes. A Mellin–beta bound on negative moments proves uniform integrability and the prefactor x sqrt(2) Gamma(1/(2alpha))/(alpha pi). Sum-integral clock inversion gives gamma=(1+alpha beta)/(2alpha(1+beta)), eta=delta(gamma−1/2), the full explicit positive constant and q-moment criterion q<gamma or q=gamma, eta<−1. The mean threshold alpha<1/(beta+2), with alpha=1/(beta+2), delta<−2, follows. Independent finite-stage spectral quadratures checked 3 parameter regimes with normalized survival ratios near 1.01; asymptotic proof rests on triangular arrays and negative moments, not finite simulations.
+
+## originality
+
+PASS
+
+The fixed-refresh first-passage exponent and general Cox operational-time transform are already known. The assessed new result is the nonstationary deterministic polynomial-logarithmic refreshing schedule, exact changed exponent, explicit constant, and marginal mean threshold. Closest recent primary supplement was inaccessible through available authorized route, so best-of-knowledge priority is qualified and not certified.
+
+## value
+
+PASS
+
+A physically natural ageing rate-refresh protocol shifts the finite-mean first-passage phase boundary and creates a second logarithmic endpoint transition, which a fixed-refresh exponent cannot predict. Full asymptotic constant and moment classification provide nontrivial characterization of first passage under long-memory clock changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

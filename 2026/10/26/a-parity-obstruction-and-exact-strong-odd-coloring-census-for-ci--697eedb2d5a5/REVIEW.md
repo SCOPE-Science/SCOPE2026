@@ -1,15 +1,21 @@
-# Scientific review: circular-prism strong odd coloring
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is uniform over all integers \(n\ge3\). Direct neighborhood analysis gives the two-column transition rule. The four-color state space has exactly \(84\) states, partitioned into the four explicitly proved color-permutation orbits; the four representative successor trajectories give a complete even-cycle decomposition. In particular there are no odd-size cyclic four-palette colorings, not merely no small examples. Three explicit five-color closed walks of lengths \(4\), \(5\), and \(7\), sharing the same two-column base state, yield all odd circumferences \(n\ge5\) by concatenation. The triangular prism is handled separately by diameter two and its triangular layers. An exact \(260\)-state transfer adjacency counts optimal five-palette colorings. Standalone computation independently checks each finite local claim and compares exact transfer traces to direct vertex-search counts for specified small cases.
+## correctness
 
-## Originality
-PASS, with stated residual priority risk. Kwon and Park, arXiv:2401.11653 (first publicly available 22 January 2024), introduced this stronger-than-ordinary-odd coloring notion and proved sparse-graph upper bounds, not exact circular-prism classes. Caro et al., arXiv:2410.02336v1 (3 October 2024), established general Cartesian-product inequalities and results for other graph families; their bounds neither imply the odd-prism four-color obstruction nor count cyclic prism colorings. Dujmović, Morin and Odak, arXiv:2202.12882v1, treat the weaker ordinary-odd condition, so do not give lower bounds for the strong-odd invariant here. Available comparable earlier exact enumerations for open two-row ladders and colorings of twisted Möbius ladders have different edge sets or boundary conditions. Search of accessible indexed findings did not identify a direct covering theorem. This establishes a supported best-knowledge originality assessment, not an absolute priority certificate.
+PASS
 
-## Mathematical value
-PASS. The ordinary circular prism is a natural cubic product family and exposes a sharp topology-sensitive effect: proper two-colorability immediately gives a strong odd two-coloring at even circumference, whereas the odd circumference requires five colors despite bounded degree. The fact that **all** four-palette colorings are forced onto periodic trajectories of lengths \(2,4,6\) explains the obstruction, rather than merely exhibiting its numerical value. The complete four-palette count and exact odd optimal-coloring transfer census capture structural and enumerative information beyond the chromatic number.
+On P_n=C_n □ K2 (n>=3), a proper strong-odd coloring requires each cubic open-neighbor triple to have either one or three distinct colors. Two consecutive vertical columns form q-palette transfer states; q=4 yields 84 states. Direct independent enumeration found each state has exactly one successor and obtained six directed 2-cycles, six 4-cycles and eight 6-cycles. Hence A_n(4)=12·1_{2|n}+24·1_{4|n}+48·1_{6|n}; there are no odd four-palette closed walks, including colorings with fewer colors. Even n>=4 have exactly two optimal bipartition colorings; n=3 has graph square K6 and needs six. Explicit legal 5-color closed walks of lengths 4,5,7 share one initial two-column state and concatenate to every odd n>=5, giving χ_so=5 then; the general 5-palette number is exactly tr(T5^n) with 260 states, checked in given proof and source verifier for n=5,7,9,11. Independent 84-state exhaustive cycle classification is complete for its finite transition system; this is a logically valid finite certificate for arbitrary n because n-length colorings are closed walks. The infinite construction follows from explicit common-based loops, not finite n sampling.
 
-## Closest literature and limitations
-The closest primary sources are Kwon--Park's introductory definition and Caro--Petruševski--Škrekovski--Tuza's Cartesian-product bounds. The theorem does not claim any bounds for arbitrary Cartesian products. The odd five-color optimum census remains in finite-matrix form rather than a scalar closed formula; searches can miss differently indexed literature. Verification of a finite transition system is supported by an explicit representative proof and executable exhaustive checker, not by a log alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kwon–Park (arXiv:2401.11653) introduce strong odd coloring and general sparse-graph upper bounds; Caro–Petruševski–Škrekovski–Tuza (arXiv:2410.02336v1) give a Cartesian-product bound χ_so(G□H)≤χ_so(G)χ_so(H) and other structural examples. Their accessible primary HTML was inspected for the ordinary cyclic prism exact classification; the general bound does not imply the odd n lower χ_so>=5 or the four-palette 84-state periodicity/census. Ordinary odd colorings, and strong odd crown graphs in Resultary, concern a different invariant or graph. Searches found no same cyclic-prism named-palette table. A differently indexed old exact prism enumeration remains possible, so originality is best knowledge, not a global priority certificate.
+
+## value
+
+PASS
+
+Prisms C_n□K2 are a canonical cubic graph family. The jump χ_so=2 for even n to 5 for odd n, apart from the 6-color triangular prism, is a topological parity obstruction not predicted by degree or product upper bounds. The exact forced 2/4/6 transition periods and tr(T5^n) enumerator offer motivated structural and counting data beyond the chromatic value; the large finite transfer system is completely specified rather than an unexamined output table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

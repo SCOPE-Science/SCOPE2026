@@ -1,19 +1,21 @@
-# Review of the sharp flux–absorption tradeoff
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(\sin\phi\ne0\), the dissipativity identity forces any non-decaying eigenvector to vanish at the trap, which would require \(e^{i\phi}=\pm1\), a contradiction. Thus the system is exponentially stable. The explicit Hermitian \(Q\) satisfies \(A^\dagger Q+QA=-I\) identically and so equals the convergent survival integral. The resulting scalar function reduces the flux problem to a single sine variable with one strict minimum; the remaining absorber-strength minimization proves the sharp bound and all equality cases. The actual embedded `check.py` passes 11 symbolic checks and 139 independent numerical/optimization tests. Numerical sampling alone does not prove the result.
+PASS
 
-## Originality — PASS on inspected evidence
+For g>0 and H=[[0,1,e^{-i phi}],[1,0,1],[e^{i phi},1,0]], amplitude A=-iH-g|0><0| and initial |1>, A+A†=-2g|0><0| gives strict left-half-plane spectrum for sin(phi)!=0, while sin(phi)=0 gives dark eigenvector with nonzero initial overlap and T=+infinity. The explicitly displayed Hermitian Q satisfies A†Q+QA=-I; stable semigroup identity makes Q11 integral survival T=3/(2g)+g/(2sin²phi)+1/(2sin phi). Optimize negative sine s by derivative -(2g+s)/(2s^3) to get sin(phi*)=-min(2g,1), two flux phases if g<1/2, one if g>=1/2, T*(g)=11/(8g) below threshold and 3/(2g)+g/2-1/2 above; unique joint g=sqrt3, phi=3pi/2 yields T=sqrt3-1/2. Independently verified symbolic Lyapunov residual under c²+s²=1 and 35 positive-g nondegenerate phi numerical scipy solves. No samples used for continuum proof.
 
-Zimborás et al. (arXiv:1208.4049) give the closely related three-vertex chiral switch, sink dynamics and **half-arrival** optimization, while Lu et al. (arXiv:1405.6209) address unitary transfer and time-reversal symmetry. Longhi (arXiv:1312.4693) studies a continuum non-Hermitian ring spectrum. The later Finocchiaro et al. study (arXiv:2507.10669) uses periodic projective measurements and optimizes detection probability, a different dynamics and functional. Their results establish neither the continuous-loss integrated-survival formula nor its sharp joint optimizer under their stated objectives. Relevant published mathematical-index searches did not return an implication-dominating theorem; this is not proof that no equivalent historical formulation exists. Possible uninspected equivalent work remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact minimization answers a natural quantum routing design question: how should a fixed coherent triangle be threaded with flux and how strongly should its only target site absorb to minimize expected capture time? At weak absorption the best flux is not maximally chiral, and a sharp threshold changes the optimizer count from two to one. The separate global optimum captures the competing loss and quantum-Zeno penalties. Neither a generic Lyapunov solution method nor a single fixed-flux example automatically determines these strict thresholds and equality conditions.
+Chirality-controlled quantum transport on a triangle with sinks is already known; the exact full no-jump survival integral optimized jointly over continuous absorber strength and flux, including 1/2 phase transition, is distinct from published state occupation and half-arrival-time objectives in inspected evidence. Best-of-knowledge priority qualified.
 
-## Scope and residual risks
+## value
 
-The physical Hamiltonian and absorption mechanism are idealized, and no result is claimed for longer rings, nonuniform couplings, discrete measurements or finite-time performance. The main historical-priority risk is an equivalent calculation in older quantum-transport literature not identified by the inspected manuscripts and research-index searches. The code is an ordinary algebraic/numerical reproducibility aid; it is not independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mean absorption time is a natural physical performance functional, and the exact critical flux/absorber tradeoff distinguishes weak-sink and maximally chiral regimes. The formula also resolves dark-state divergence and uniqueness of global optimum in the complete nontrivial three-site model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

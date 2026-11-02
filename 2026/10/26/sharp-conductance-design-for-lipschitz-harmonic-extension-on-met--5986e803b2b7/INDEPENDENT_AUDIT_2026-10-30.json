@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:57:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every finite metric star with m>=3 positive lengths ell_i, effective positive conductances produce barycentric weights w_i. Exact full-star Lipschitz norm is max_i sum_{j!=i} w_j(ell_i+ell_j)/ell_i, saturated by one-Lipschitz leaf data f_i=ell_i, f_j=-ell_j. Reparameterize a_i=ell_i w_i/L, sum a_i=1, L=sum ell_i w_i. The excess ratio is max_i(1-2a_i)/ell_i divided by sum a_i/ell_i. Water-fill lower bounds b_i(z)=(1-z ell_i)_+/2, feasible iff z>=z* solving sum(1-z ell_i)_+=2. Remaining mass optimally resides at shortest arm. z/D(z) fractional-affine on each active interval, so finite candidates z*,1/ell_i prove global infimum over positive conductances (possibly boundary-only). For (r,1^k) obtain 1+min{r,2(k-1)r/(k+2r+kr^2)}, transition r=(k-2)/k for k>=3, equilateral 2-2/m. Independently compared the formula to primal exact rational linear-program vertices and scipy direct LP for 30 heterogeneous 3..5 arm samples. Bounds hold for arbitrary m by analytic proof, not finite LP.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sheffield–Smart nonlinear per-datum extension is not the fixed positive linear minimax operator; 3-leaf p-Banach work gives equilateral Banach endpoint 4/3 rather than unequal-length all-m phase law."
+        ],
+        "reasoning": "General existence and equal-arm results do not dominate the unequal-arm positive-conductance claim.",
+        "searches": [
+          "arxiv:1609.01450",
+          "Sheffield–Smart arxiv:1006.1741",
+          "Resultary 2026/10/11 sharp three-leaf star p-Banach extension constants"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md tree 4ae43837ba4fce8bbf8b03e191a05a76caa600b0; checker.py source blob 57e2d6dde985976ca64a252e85c6a9b9c6e3cf77",
+        "arxiv:1609.01450",
+        "arxiv:1006.1741",
+        "Resultary complete star p-Banach RESULT.md blob 5d947b0c68ccc9419247e41168dc7115dc482cd1",
+        "Resultary complete Dudley-star RESULT.md blob a72edf7a6dc49e842e0c4f90c3816be96fede166"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even norm-one arbitrary nonlinear extension of scalar data does not imply norm-one fixed positive linear harmonic extension; the latter has excess strictly positive for m>=3."
+        ],
+        "reasoning": "Prior broad Lipschitz theory and equilateral cases do not logically yield the optimal nonuniform weights/attainment threshold without additional optimization.",
+        "searches": [
+          "arxiv:1609.01450",
+          "arxiv:1006.1741",
+          "Resultary: sharp-three-leaf-star-extension-constants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is positive barycentric one-point linear extension with a fixed weighted harmonic interpolant. General random-projection formulations characterize existence, not the finite unequal-arm optimum."
+        ],
+        "reasoning": "Equivalent Kantorovich–Rubinstein/linear-extension language was compared by quantifiers and positivity restrictions.",
+        "searches": [
+          "Resultary: metric star positive linear Lipschitz extension weighted barycentric harmonic conductance minimax norm",
+          "Ambrosio–Puglisi arxiv:1609.01450"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dudley result is a bounded-Lipschitz dual norm on discrete equal-length stars, unlike the seminorm extension from leaves to continuous-arm geometry."
+        ],
+        "reasoning": "No indexed table of the unequal-arm design law located; exact equilateral factor is explicitly old.",
+        "searches": [
+          "Resultary 2026/10/11 exact Dudley norms and mass-imbalance thresholds on equiradial stars",
+          "Resultary metric-star harmonic conductance search"
+        ]
+      },
+      "rationale": "General Lipschitz linear extension existence and equal-arm factors are known; the unequal-length positive harmonic conductance infimum, finite water-filling algorithm, and nonattainment phase boundary were not stated in inspected literature. This is a specific optimization, not novelty of the general linear-programming method.",
+      "residual_risks": [
+        "A historically equivalent special-case positive linear one-point extension optimization may exist under barycentric/minimax network-design terminology.",
+        "Finite LP stress tests do not prove minimization for arbitrary arm count; analytic water-filling proof is used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS equilateral endpoint; NOT_COVERING unequal-arm positive-conductance optimization",
+          "evidence": [
+            "Their distance is equilateral and target universal p-Banach; m=3 p=1 gives known 4/3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-three-leaf-star-extension-constants-for-real-p-banach-targ--e0e2d2aa7094",
+          "material_read": "Complete primary RESULT.md including free-p-space proof, minimizers, p=1 endpoint and limitations",
+          "method": "GitHub connector fetched RESULT.md at blob 5d947b0c68ccc9419247e41168dc7115dc482cd1",
+          "title": "Sharp three-leaf star extension constants for real p-Banach targets",
+          "trigger": "same three-leaf star Lipschitz-extension constant"
+        },
+        {
+          "assessment": "NOT_COVERING; different dual bounded-Lipschitz norm",
+          "evidence": [
+            "Uses finite/countable equal-arm discrete leaf sets and sum-normalized bounded-Lipschitz measures, not nonuniform continuous-arm harmonic extension."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-dudley-norms-and-mass-imbalance-thresholds-on-equiradial-s--ecc3b6450a54",
+          "material_read": "Complete primary RESULT.md, proof, assumptions, and references",
+          "method": "GitHub connector fetched RESULT.md blob a72edf7a6dc49e842e0c4f90c3816be96fede166",
+          "title": "Exact Dudley norms and mass-imbalance thresholds on equiradial stars",
+          "trigger": "star metric with linear operators and sharp boundaries"
+        },
+        {
+          "assessment": "BROAD_METHOD; coverage not inferred absent whole-text verification",
+          "evidence": [
+            "General random projections offer existence framework but specific finite candidate formula is not demonstrated by inspected scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.01450",
+          "material_read": "Accessible abstract and general theorem scope, full paper not independently inspected",
+          "method": "arXiv scope comparison",
+          "title": "On the linear extension of Lipschitz functions on metric spaces (Ambrosio–Puglisi)",
+          "trigger": "general positive/random linear projection characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimax conductance choice is an intrinsic graph/network design objective: optimize worst-case Lipschitz amplification of harmonic interpolation. It gives an explicit sharp algorithm and an attainability/degeneration transition for nonuniform metric stars, a meaningful structural phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md tree 4ae43837ba4fce8bbf8b03e191a05a76caa600b0; checker.py source blob 57e2d6dde985976ca64a252e85c6a9b9c6e3cf77",
+    "arxiv:1609.01450",
+    "arxiv:1006.1741",
+    "Resultary complete star p-Banach RESULT.md blob 5d947b0c68ccc9419247e41168dc7115dc482cd1",
+    "Resultary complete Dudley-star RESULT.md blob a72edf7a6dc49e842e0c4f90c3816be96fede166"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A historically equivalent special-case positive linear one-point extension optimization may exist under barycentric/minimax network-design terminology.",
+    "Finite LP stress tests do not prove minimization for arbitrary arm count; analytic water-filling proof is used.",
+    "All finite numerical/combination checks were independent supportive computations, not a replacement for all-parameter mathematical arguments.",
+    "The source public administrative confidentiality blocker makes publication not_ready independently of the C/O/V science judgment."
+  ],
+  "residual_risks": [
+    "A historically equivalent special-case positive linear one-point extension optimization may exist under barycentric/minimax network-design terminology.",
+    "Finite LP stress tests do not prove minimization for arbitrary arm count; analytic water-filling proof is used."
+  ],
+  "schema_version": 1
+}

@@ -1,10 +1,21 @@
-## Correctness (PASS)
-The two-step rim-exclusion lemma follows from forced refractory neighbours at the previous time; explicit hub-state cases yield a universal five-step collapse. The only finite cases in the exact cutoff are the circumferences 3 to 7, whose complete labelled state spaces are exhausted by `verify.py` and whose histograms are recorded. The infinite sharpness construction excites two rim sites at time 2 and the hub at time 3 for every circumference at least 8. The theorem does not extrapolate from finite computations.
+# Independent mathematical audit
 
-## Originality (PASS, bounded)
-The compared 1991 deterministic threshold-lattice study and the complete 2007 scale-free stochastic network paper do not establish a bounded wheel transient or a sharp five-step cutoff. The known threshold-one wheel result has primitive three-cycles, and complete-bipartite high-threshold recurrence results address different graphs; neither implies this statement. Closely matched mathematical queries of published records did not expose a covering theorem. Residual risk: an unindexed older specialist treatment of wheels might contain an equivalent result. No claim of absolute uniqueness is made.
+## correctness
 
-## Mathematical value (PASS)
-Exact graph-size-independent extinction in a cyclically interconnected excitable system is a structural attractor theorem. Sharp cutoff transitions at circumferences 3, 4 and 8 distinguish a refractory hub from rim propagation and sharply contrast persistent three-cycles under threshold-one excitation. This is an infinite-family dynamical result, not a computation of an arbitrarily selected instance.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For W_n=K1 join C_n, n>=3, synchronous Greenberg–Hastings states 0 resting,1 excited,2 refractory; 1->2->0 unconditionally, 0->1 iff >=2 distinct excited neighbours. Two-step rim-exclusion lemma: if H_{t-1}!=1, every rim excitation at t required both rim neighbors excited at t-1, which then become refractory at t, so no resting rim vertex can be newly excited at t+1. Cases H_0=0,1,2 imply F_n^5=all-rest uniformly. Exhaustive initial-state search for each fixed n=3..8 independently found exact maximal hitting times [3,4,4,4,4,5]. An explicit hub=1 rim pattern marks {0,4} for n=8, {0,4,8} for n>=9, gives a hub excitation at t=3 and refractory t=4, establishing depth5 for every n>=8. Witnesses checked to n=80. Thus all-rest sole recurrent state and no periodic orbit. Fixed small n exceptions legitimately use full finite exhaustive search, not a finite experiment extrapolated to infinite n.
+
+## originality
+
+PASS
+
+Known threshold Greenberg–Hastings lattice behavior and different graph families do not establish the exact wheel cutoff under distinct-neighbour threshold two. Threshold-one wheel and bipartite threshold>=2 behavior do not imply uniform extinction. Novelty bounded by source reading and semantic searches.
+
+## value
+
+PASS
+
+A uniform five-step nilpotence theorem across arbitrarily large wheels is a meaningful and surprisingly strong dynamical classification, including exact short-circumference exceptions and a sharp family of witnesses. The graph geometry and threshold are mathematically motivated, not arbitrary simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

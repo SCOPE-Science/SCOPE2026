@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The script `check_fourier.py` runs under Python 3 without third-party packages and computes the exact rational coefficients of the normalized invariant-density perturbation after factoring powers of \(\pi\). It checks the Fourier pushforward recurrence through cubic order for degrees \(2,3,4,5,6,8,10,20\), including zero mean, mode symmetry, and all three first-moment cases. The accompanying `checker_output.txt` records actual execution.
+## correctness
 
-The analytic proof extends the cubic cases from finite diagnostics to all integers \(b\ge4\) because no Fourier frequency above three is generated through third order, so \(P_b\) annihilates every nonzero input at those degrees. Analytic dependence and scalar-root exhaustion follow by strip-space implicit-function and strict quadratic curvature. No computer experiment claims to certify an infinite proof.
+PASS
 
-No independent scientific audit has been undertaken. The cited literature and precise limitations appear in `RESULT.md` and `AUDIT.json`.
+For fixed integer b>=2 and sufficiently small real |u|, f_u=g_u circle times E_b is expanding and has a unique nearby analytic invariant density by transfer-operator implicit function (P_b deletes Fourier nonmultiples and improves strip). Self-consistency is scalar u=kappa M_b(u). Expanding normalized invariant density to cubic order and taking cos first Fourier coefficient yields M_2=-pi u+2pi²u²-7pi³u³/2+..., M_3=-pi u-4pi³u³+..., M_b>=4=-pi u+pi³u³/2+.... I independently reconstructed the exact rational Fourier recurrence and checked b=2,3,4,5,8,17, confirming cubic signs; this is a finite symbolic coefficient check, not an infinite analytic existence proof. Dividing by u and using delta=1+pi*kappa gives b=2 a single transcritical root for each nonzero delta, b=3 two nonuniform roots for delta>0, b>=4 two for delta<0, with none on the opposing side. Local convexity/concavity and analytic IFT exhaust nearby analytic-density roots; no global invariant measure claim.
+
+## originality
+
+PASS
+
+Ahmad–Tanzi and Bahsoun–Liverani supply linear or general transfer-operator and bifurcation theory, while a nearby published Resultary finding gives exact linear response resonance, not cubic branch coefficients. Exact b=2, b=3 versus b>=4 nonlinear fixed-density branch classification was not located in those inspected statements. Priority remains conditional on inaccessible original full texts.
+
+## value
+
+PASS
+
+A clear arithmetic distinction among expansion degrees with identical linear instability eigenvalue -pi*kappa but three different nonlinear local bifurcation topologies. The low-Fourier-mode folding mechanism isolates a meaningful parameter-specific resonance instead of an arbitrary special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

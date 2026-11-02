@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:53:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed correspondence between vertices of KG(n,2) and auxiliary K_n edges. A forest is bipartite, hence splits into two intersecting edge families; by the star-or-triangle lemma each part is a star or a triangle. Four-cycle obstructions in the two-star/triangle cases yield |F|<=max(7,n) and equality exactly the K4+pendant C families or full-star+off-edge S families. Explicit induced-disjointness graphs are forests; intersection counts between distinct extremal families yield the claimed disjoint clique exchange components. Independent exact Python subset enumerations for n=5,6,7 found, respectively, 20,120,525 optimum families and clique-component profiles 5 K4,15 K8,35 K12 +7 K15; all best+1 subsets were checked nonforest. Original C++ verifier was inspected, not merely trusted. For n>=8, all-order classification relies on the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Every forest is K_{2,2}-free; 2018 Theorems 1–2 yield star-plus-one-edge equality for sufficiently large n and so really cover the eventual part.",
+          "The 2018 theorem gives a sufficiently-large-n or much larger explicit cutoff, not sharp n=8 or the small exceptional C geometries or exchange graph."
+        ],
+        "reasoning": "Prior stronger forbidden-subgraph theorem has genuine partial dominance. Its parameter threshold is not enough to establish exact n=5..8 structure or exchange cliques; this surviving remainder is the originality claim.",
+        "searches": [
+          "Alishahi Taherkhani Extremal G-free induced subgraphs of Kneser graphs Theorem 1 Theorem 2 K2,2",
+          "Chappell Pelsmajer Maximum Induced Forests in Graphs of Bounded Treewidth 2013"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and verify_kneser_forest.cpp Git blobs at frozen source commit",
+        "Alishahi–Taherkhani arXiv:1801.03972 PDF full main statements",
+        "Chappell–Pelsmajer DOI 10.37236/3826",
+        "Resultary query induced forest threshold optimum exchange graph components"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K_{2,2}-freeness is necessary for a forest and produces an eventual extremal size bound but does not classify every acyclic extremizer at n=5..7.",
+          "The optimum exchange-graph edges require intersections of maximal families of size max(7,n)-1; the cited forbidden-subgraph theorems do not state such intersections."
+        ],
+        "reasoning": "The present threshold and clique connectivity do not follow mechanically from eventual Kneser extremal statements, and the background eventual shape is openly credited.",
+        "searches": [
+          "arXiv:1801.03972 Theorems 1 and 2 K_{s,t}-free families",
+          "Kneser KG(n,2) optimum exchange components one swap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complement of an induced forest is a feedback vertex set, and an independent KG(n,2) family is an intersecting two-subset family.",
+          "Alishahi–Taherkhani arXiv:1801.03972 equates K_{s,t}-free induced Kneser subgraphs with (s,t)-union-intersecting families."
+        ],
+        "reasoning": "The claim was compared under both graph and intersecting-family formulations, with reconfiguration defined by exactly one selected two-subset exchange.",
+        "searches": [
+          "KG(n,2) maximum induced forest decycling feedback vertex set exact",
+          "Kneser K(2) (2,2)-union-intersecting family star plus edge exchange"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent actual enumeration found 20/120/525 optimum families for n5/6/7, with the predicted components.",
+          "Resultary semantic search returned other forest/arboricity and zero-forcing results but no matching labeled optimum-exchange census."
+        ],
+        "reasoning": "No inspected classification table contains the 5K4,15K8,35K12 plus7K15, or nK_{binom(n-1,2)} exchange formula. This is limited absence evidence, not a uniqueness argument.",
+        "searches": [
+          "KG(n,2) maximum induced forest exact n5 n6 n7 n8 counts",
+          "induced forest threshold optimum exchange graph components (Resultary)"
+        ]
+      },
+      "rationale": "Large-n star-plus-one-edge extremality follows from a stronger 2018 K_{2,2}-free Kneser theorem and is explicitly prior. New portion is the sharp first threshold, all low-n equality cases and full one-swap optimum-exchange clique decomposition.",
+      "residual_risks": [
+        "Earlier sharp (2,2)-union-intersecting families might imply an exact KG(n,2) cutoff in other language.",
+        "Unindexed enumerations of finite Kneser feedback-vertex sets may overlap n5..7 exception census.",
+        "Eventual star-plus-edge extremality is previously established; no novelty assigned to it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage: asymptotic full-star plus s-1 exceptions; exact n=8 and exchange components not covered by cited statements",
+          "evidence": "Theorem 2 has sufficiently-large n requirements, whereas current theorem is exact n>=5 and includes one-swap graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.03972",
+          "material_read": "Full accessible 11-page arXiv PDF: main statements Theorems 1–2, their proof/discussion, and page-image screenshot of theorem page",
+          "method": "Primary PDF textual reading and screenshot, implication comparison with forests",
+          "title": "Extremal G-free induced subgraphs of Kneser graphs",
+          "trigger": "Same object KG(n,k), stronger C4-free family theorem"
+        },
+        {
+          "assessment": "Related methodological background not same Kneser parameter theorem",
+          "evidence": "FVS is complement of induced forest; bounded-treewidth bounds do not give the claimed Kneser case.",
+          "identifier_or_url": "https://doi.org/10.37236/3826",
+          "material_read": "Available publisher abstract, introduction and scope descriptions, not a claim of exhaustive body noncoverage",
+          "method": "Compared exact graph family, bounded treewidth hypotheses and result",
+          "title": "Maximum Induced Forests in Graphs of Bounded Treewidth",
+          "trigger": "General extremal induced forest and feedback vertex relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximum induced forest/minimum feedback vertex set of the natural Kneser KG(n,2), including the sharp crossover n=7/8, exceptional geometry and connected components under optimal one-element replacement, is a motivated complete extremal and reconfiguration classification. The eventual large-n star shape alone is prior work, not counted as new value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md and verify_kneser_forest.cpp Git blobs at frozen source commit",
+    "Alishahi–Taherkhani arXiv:1801.03972 PDF full main statements",
+    "Chappell–Pelsmajer DOI 10.37236/3826",
+    "Resultary query induced forest threshold optimum exchange graph components"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only n5..7 independently exhaustively recomputed; n>=8 established by structural proof.",
+    "Exchange applies only to maximum forests under single-selected-vertex swap, not all forests."
+  ],
+  "residual_risks": [
+    "Earlier sharp (2,2)-union-intersecting families might imply an exact KG(n,2) cutoff in other language.",
+    "Unindexed enumerations of finite Kneser feedback-vertex sets may overlap n5..7 exception census.",
+    "Eventual star-plus-edge extremality is previously established; no novelty assigned to it."
+  ],
+  "schema_version": 1
+}

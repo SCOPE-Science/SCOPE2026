@@ -1,15 +1,21 @@
-# Scientific review: sharp conductance design on metric stars
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is internally supported by an exact armwise gradient norm and an explicit boundary extremizer, a bijective positive-conductance to simplex reparameterization, a necessary-and-sufficient feasibility inequality, a pointwise optimal allocation of surplus mass, and monotonicity on the finitely many affine regions of the one-variable ratio. The one-short-arm specialization follows by evaluating both possible endpoints. Forty-two exact independent original-LP vertex comparisons and the additional symbolic/rational family checks passed. The finite checks are not relied upon to prove the general theorem. The distinction between the infimum for positive conductances and attainment only in the nonnegative closure is explicit.
+## correctness
 
-## Originality — PASS, with specified residual risk
-The full published results on equal-arm stars already give the equilateral Banach constant; the present claim excludes that scalar from its novelty argument. Ambrosio–Puglisi's random-projection equivalence gives a general operator framework, not a formula for choosing conductances on arbitrary unequal metric stars. The finite-graph tight-extension results optimize individual data and are not a fixed linear operator norm. The related equal-arm bounded-Lipschitz dual identity concerns a different norm. Relevant result records and historical claims have been compared by implication, and no inspected statement includes the water-filling formula or short-arm conductance bifurcation. Residual uncertainty remains for unindexed classical extension-operator and resistor-network literature and a general linear-programming reduction that might already have been specialized elsewhere.
+PASS
 
-## Value — PASS
-The result solves a natural full-family optimum for positive harmonic extension from terminal boundary data of a branching resistor network. The exact finite water-filling algorithm identifies the best conductance proportions; a sharp geometric threshold distinguishes conductance networks with an actual optimal positive design from those with only a singular limiting design. This provides a structural extension-stability classification, not a routine equal-arm recomputation or arbitrary parameter slice. The lack of a universal norm-one positive linear harmonic interpolant on every fixed branching star separates this class from nonlinear scalar Lipschitz extension.
+For every finite metric star with m>=3 positive lengths ell_i, effective positive conductances produce barycentric weights w_i. Exact full-star Lipschitz norm is max_i sum_{j!=i} w_j(ell_i+ell_j)/ell_i, saturated by one-Lipschitz leaf data f_i=ell_i, f_j=-ell_j. Reparameterize a_i=ell_i w_i/L, sum a_i=1, L=sum ell_i w_i. The excess ratio is max_i(1-2a_i)/ell_i divided by sum a_i/ell_i. Water-fill lower bounds b_i(z)=(1-z ell_i)_+/2, feasible iff z>=z* solving sum(1-z ell_i)_+=2. Remaining mass optimally resides at shortest arm. z/D(z) fractional-affine on each active interval, so finite candidates z*,1/ell_i prove global infimum over positive conductances (possibly boundary-only). For (r,1^k) obtain 1+min{r,2(k-1)r/(k+2r+kr^2)}, transition r=(k-2)/k for k>=3, equilateral 2-2/m. Independently compared the formula to primal exact rational linear-program vertices and scipy direct LP for 30 heterogeneous 3..5 arm samples. Bounds hold for arbitrary m by analytic proof, not finite LP.
 
-## Scope and unresolved risks
-Arms have fixed positive metric lengths, conductances are effective edge conductances, and the extension is continuous and piecewise affine. Infinite trees, signed extension operators and physical conductivities normalized differently are not covered. Independent scientific validation and exhaustive historical uniqueness are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Lipschitz linear extension existence and equal-arm factors are known; the unequal-length positive harmonic conductance infimum, finite water-filling algorithm, and nonattainment phase boundary were not stated in inspected literature. This is a specific optimization, not novelty of the general linear-programming method.
+
+## value
+
+PASS
+
+The minimax conductance choice is an intrinsic graph/network design objective: optimize worst-case Lipschitz amplification of harmonic interpolation. It gives an explicit sharp algorithm and an attainability/degeneration transition for nonuniform metric stars, a meaningful structural phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

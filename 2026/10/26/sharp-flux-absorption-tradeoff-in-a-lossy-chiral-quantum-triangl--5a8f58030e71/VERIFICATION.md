@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-The standalone `check.py` requires Python 3, NumPy, SciPy and SymPy. Run `python check.py` in a directory containing this file. It calculates the \(3\times3\) Lyapunov residual as symbolic polynomials, reduces each by the trigonometric relation \(c^2+s^2=1\), checks Hermiticity and the specified matrix element, then independently solves 81 complex Lyapunov systems and checks optimization formulas and sample inequalities.
+## correctness
 
-Execution of the packaged code yielded `PASS: 11 symbolic matrix/identity checks; 139 independent numerical/optimization checks`. The symbolic calculation verifies the matrix algebra, not the spectral-stability theorem or global extremality; those require the separate analytic arguments in `RESULT.md`. The numerical checks are finite consistency tests, not proof of an infinite statement.
+PASS
 
-## Mathematical limits
+For g>0 and H=[[0,1,e^{-i phi}],[1,0,1],[e^{i phi},1,0]], amplitude A=-iH-g|0><0| and initial |1>, A+A†=-2g|0><0| gives strict left-half-plane spectrum for sin(phi)!=0, while sin(phi)=0 gives dark eigenvector with nonzero initial overlap and T=+infinity. The explicitly displayed Hermitian Q satisfies A†Q+QA=-I; stable semigroup identity makes Q11 integral survival T=3/(2g)+g/(2sin²phi)+1/(2sin phi). Optimize negative sine s by derivative -(2g+s)/(2s^3) to get sin(phi*)=-min(2g,1), two flux phases if g<1/2, one if g>=1/2, T*(g)=11/(8g) below threshold and 3/(2g)+g/2-1/2 above; unique joint g=sqrt3, phi=3pi/2 yields T=sqrt3-1/2. Independently verified symbolic Lyapunov residual under c²+s²=1 and 35 positive-g nondegenerate phi numerical scipy solves. No samples used for continuum proof.
 
-The theorem requires a strictly positive single absorber and an equal-hopping three-site cycle, initialized next to the trap. Vanishing flux sine generates a dark state and infinite mean absorption time. The quoted optimum is the global minimum of the infinite-horizon mean time for this continuous-loss model only. No independent audit has been conducted.
+## originality
+
+PASS
+
+Chirality-controlled quantum transport on a triangle with sinks is already known; the exact full no-jump survival integral optimized jointly over continuous absorber strength and flux, including 1/2 phase transition, is distinct from published state occupation and half-arrival-time objectives in inspected evidence. Best-of-knowledge priority qualified.
+
+## value
+
+PASS
+
+The mean absorption time is a natural physical performance functional, and the exact critical flux/absorber tradeoff distinguishes weak-sink and maximally chiral regimes. The formula also resolves dark-state divergence and uniqueness of global optimum in the complete nontrivial three-site model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

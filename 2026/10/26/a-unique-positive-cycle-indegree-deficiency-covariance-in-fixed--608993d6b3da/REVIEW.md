@@ -1,13 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditional on a prescribed directed \(\ell\)-cycle, its \(\ell\) vertices necessarily have positive indegree while the probability of indegree zero at every outside vertex is multiplied by the exact row-sampling factor \(((n-1)/(n-2))^\ell\). The proof counts all cycles, derives the finite covariance without independence assumptions between cycles, and proves the unique sign change through a strictly decreasing elementary sequence. The deterministic dense endpoint and the directed independent-arc comparator are handled separately. Exact rational enumerations independently check finite cases; the proof, not enumeration, supplies the universal claim.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual priority risk.** The closest same mathematical model literature [1–3] studies undirected connectivity after symmetrization and bounds for separated components, not mixed directed cycle–zero-indegree covariance. The approximate motif-count formulas in [4] concern expectations in a different graph ensemble and cannot imply the present exact second moment. An earlier general joint-moment representation of directed graphs with fixed outgoing row sums might subsume the result; the searches inspected did not locate one. An existing separate result on the covariance of reciprocal pairs with other cycle counts does not determine the cross-covariance with zero-indegree vertices.
+PASS
 
-**Value — PASS.** The cycle-length sign boundary is an all-parameter structural classification for two natural observables of sparse directed networks, not a recomputation of a marginal expectation. The sign for reciprocal pairs actually reverses between two standard null models with identical expected outdegree, while the directed-triangle covariance has a distinct additional cancellation order. These properties distinguish feedback motifs from vertices receiving no arcs; they may inform when treating these motif counts as independent is appropriate.
+For n>=3, 1<=k<=n-2, each loop-free row chooses a uniform k-subset independently. For a specified directed simple l-cycle J, P(J)=p^l and any of its l vertices cannot have indegree zero. For outside v, conditional avoidance probability at a cycle source is (n-k-1)/(n-2)=q(n-1)/(n-2), hence E[Z|J]=(n-l)q^{n-1}A^l. Summation over (n)_l/l rotations yields the stated exact Cov. f_l=(n-l)A^l strictly decreases for l>=2 with f_2-n=1/(n-2)>0 and f_3-n=-(2n-3)/(n-2)^3<0, giving unique positive l=2; k=n-1 Z=0. Independent-arc model and fixed-k asymptotics follow separately. Independent exact rational exhaustive checks passed n,k=(3,1),(4,1),(4,2),(5,1),(5,2), all l. Finite checks support rather than replace all-n proof.
 
-**Limitations.** The model uses no self-loops and no replacement within an outgoing row. Exact covariance does not yield a full joint law. The fixed-degree asymptotic covariances vanish as the graph grows. Historical priority beyond inspected sources and independent validation remain unverified.
+## originality
 
-References: [1] Sood–Yağan, arXiv:2006.10638; [2] Sood–Yağan, arXiv:1911.05147; [3] Eletreby–Yağan, arXiv:1810.09921; [4] Itzkovitz et al., arXiv:cond-mat/0302375.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Previously located k-out graph connectivity, inhomogeneous row-selection and motif expectation sources concern global connectivity, isolated undirected components or expected subgraph counts, not the cross-covariance with zero-indegree vertices and its sign for every cycle length. A stronger joint-moment formula in older random mappings remains possible.
+
+## value
+
+PASS
+
+The sign reversal for reciprocal directed two-cycles relative to equal-mean independent-arc sampling isolates the effect of without-replacement row constraints. Exact all-cycle covariance and triangular cancellation at l=3 are natural finite-sample network-motif statistics, useful in choosing graph null models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

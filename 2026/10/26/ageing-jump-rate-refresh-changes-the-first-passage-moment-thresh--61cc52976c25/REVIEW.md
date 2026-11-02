@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The unit-rate absorbing random walk has an exact reflected-Bessel survival kernel and the stated inverse-square-root asymptotic. Conditioning on the independent rate path reduces survival to the expectation of this kernel at the integrated Cox intensity. The product Laplace transform, a weighted-stable triangular-array limit, uniform negative moments via a Mellin–beta inequality, and inversion of polynomial–logarithmic time scales rigorously determine the constant and exponent. Tail integration yields the complete positive-moment cutoff and its logarithmic equality case. Five rational-parameter phase checks and four independent spectral quadratures passed.
+PASS
 
-## Originality
+Operational-time conditioning gives P(T>t)=E f_x(Lambda_t) for killed unit-rate symmetric walk; reflected Bessel heat kernels yield f_x(u)~x sqrt(2/pi)u^(−1/2) and a global bounded domination. The exact product Laplace transform of independent rates over intervals produces a stable triangular-array limit Lambda_t/B_t^(1/alpha)⇒Z_alpha because the largest normalized interval weight vanishes. A Mellin–beta bound on negative moments proves uniform integrability and the prefactor x sqrt(2) Gamma(1/(2alpha))/(alpha pi). Sum-integral clock inversion gives gamma=(1+alpha beta)/(2alpha(1+beta)), eta=delta(gamma−1/2), the full explicit positive constant and q-moment criterion q<gamma or q=gamma, eta<−1. The mean threshold alpha<1/(beta+2), with alpha=1/(beta+2), delta<−2, follows. Independent finite-stage spectral quadratures checked 3 parameter regimes with normalized survival ratios near 1.01; asymptotic proof rests on triangular arrays and negative moments, not finite simulations.
 
-**PASS, with an identified residual risk.** The closest 2026 half-line first-passage theorem fixes the rate-redraw interval and establishes the exponent \(1/(2\alpha)\). The earlier primary framework provides general Cox-clock transforms and an example with fixed redraw intervals. Neither primary full text states the nonstationary power–log refresh survival asymptotic, the shifted mean threshold, or the logarithmic boundary. An equivalent claim under general regular-variation terminology remains a risk; abstract-only time-change comparisons were not used as decisive noncoverage proof.
+## originality
 
-## Value
+PASS
 
-**PASS.** An ageing refresh process naturally models an environment that changes less or more frequently over time. It produces a sharp structural transition in mean first-passage finiteness at \(\alpha=1/(\beta+2)\), with a logarithmic threshold \(\delta=-2\) on the exact critical line. The full moment phase diagram, positive leading constant and reusable negative-moment argument provide value beyond the fixed-refresh setting.
+The fixed-refresh first-passage exponent and general Cox operational-time transform are already known. The assessed new result is the nonstationary deterministic polynomial-logarithmic refreshing schedule, exact changed exponent, explicit constant, and marginal mean threshold. Closest recent primary supplement was inaccessible through available authorized route, so best-of-knowledge priority is qualified and not certified.
 
-## Closest literature and limitations
+## value
 
-Levit–Reuveni, arXiv:2609.26925, supplies the motivating fixed-relaxation result. Arutkin–Reuveni, arXiv:2302.07041, supplies the general operational-time framework. The theorem assumes iid rates with a specified Mittag–Leffler Laplace transform, fair nearest-neighbour motion, and deterministic polynomial–logarithmic refresh intervals; it does not cover arbitrary correlated media or stochastic refresh times. Literature priority should be interpreted with the residual risks listed in the structured audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A physically natural ageing rate-refresh protocol shifts the finite-mean first-passage phase boundary and creates a second logarithmic endpoint transition, which a fixed-refresh exponent cannot predict. Full asymptotic constant and moment classification provide nontrivial characterization of first passage under long-memory clock changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

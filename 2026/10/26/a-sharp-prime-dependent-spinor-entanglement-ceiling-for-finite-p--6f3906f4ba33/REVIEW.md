@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized finite generator is real symmetric and diagonalized by finite characters; radiality forces a common high-conductor eigenvalue. Since these modes carry exactly \((p-1)/p\) of the point state's Fourier mass and generate one common pure spinor, the reduced qubit has largest eigenvalue at least \((p-1)/p\), implying the sharp entropy ceiling. Direct two-component Fourier evolution gives the massless closed formula. Reverse-triangle equality gives the exact phase criterion. The explicitly specified positive complete-graph kernel has eigenvalues \(0\), \(-2g\), \(-3g\) in the claimed conductor sectors and saturates the bound. Finite matrix tests support but do not replace this arbitrary-depth argument.
+## correctness
 
-**Originality — PASS, best-knowledge.** Zúñiga-Galindo (2026, arXiv:2609.04358v1) sets up the finite \(p\)-adic Dirac system and identifies spinor–position entanglement as a question, without deriving this arithmetic entropy ceiling or its connected realizers in the inspected material. Konno's ultrametric walk deals with scalar time-averaged position distributions; published coin–position entanglement studies primarily concern discrete-time models. Multiple searches for equivalent prime-dependent bounds and conductor-phase characterizations found no direct covering statement. The remaining risk is a more general uninspected theorem that subsumes the qubit-mixture inequality in this setting.
+PASS
 
-**Value — PASS.** The result solves a naturally specified entanglement-capacity question for an open one-coordinate family of the finite \(p\)-adic Dirac model. It gives the exact time law in the massless case, proves the odd-prime one-ebit obstruction at all depths, and constructs strictly positive connected examples attaining the sharp bound. It does not purport to solve the full anisotropic three-coordinate model.
+For the specified one-coordinate 2-spinor block H=m σ_z⊗I+σ_x⊗A on Z/p^ℓZ, radiality forces every Fourier character of conductor p^ℓ (comprising fraction (p−1)/p of the Fourier modes) to share a common eigenvalue and hence identical pure evolved spinor. The reduced qubit density is w|φ〉〈φ|+(1−w)τ, w=1−1/p≥1/2. Rayleigh quotient gives λ_max≥w and the monotonicity of binary entropy on [1/2,1] yields S(t)≤h₂(1/p) for arbitrary mass/time/radial weights. At m=0, direct σ_x diagonalization gives S=h₂((1+|Fℓ(t)|)/2), and triangle equality gives the stated necessary-and-sufficient phase alignment condition. For the explicitly constructed strictly positive hopping kernel, the radial generator has Fourier eigenvalues a_0=0, a_j=−2g for 1≤j<ℓ and a_ℓ=−3g; at t=π/(2g), low phases align opposite high, giving exact saturation at each depth; for fixed mass>0 the same is a supremum as g→∞. Independent matrix Fourier/entropy calculations for primes 2,3,5 at multiple depths matched h₂(1/p). These tests supplement the exact representation proof.
 
-**Closest literature and limitations.** W. A. Zúñiga-Galindo (arXiv:2609.04358v1, 2026) provides the construction; N. Konno (arXiv:quant-ph/0602070, 2006) analyzes different scalar localization statistics. Only the invariant two-spinor/one-coordinate block with a localized initial position is covered. Exact equality with nonzero fixed mass is not asserted. General priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted source and implication comparisons did not identify prior coverage of the precisely scoped final theorem; best-of-knowledge PASS with named residual risks, not a priority certificate.
+
+## value
+
+PASS
+
+The finite p-adic Dirac walk is a naturally defined quantum-network model and the fraction of highest-conductor Fourier modes creates a non-obvious arithmetic entropy obstruction. A sharp p-dependent ceiling, equality criterion and strictly positive connected hopping realization answer a structural spinor-position entanglement question. Scope is a one-coordinate invariant block and is not presented as a theorem for full three-axis Dirac coupling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

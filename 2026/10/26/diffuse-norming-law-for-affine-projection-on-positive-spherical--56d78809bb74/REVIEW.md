@@ -1,9 +1,21 @@
-# Scientific review: diffuse norming on positive spherical orthants
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact folded-Gaussian spherical moments give the two affine-covariance eigenvalues. The mean-direction eigenvalue has sharp scaled limit \(1-3/\pi\); a joint triangular-array central limit theorem, including the Gaussian-radius fluctuation, proves the moving-parameter row-norm law. The reproducing diagonal yields the uniform integrability needed for absolute-kernel expectations. Strict quadratic convexity classifies diffuse extremizers; equal-coordinate mesoscopic supports attain the predicted envelope. The extracted checker passed all stated identities and sample comparisons. Finite numerics do not prove the asymptotic result.
+## correctness
 
-**Originality — PASS with residual uncertainty.** The closest archived primary source (Hangelbroek–Narcowich–Sun–Ward, arXiv:1005.2424) studies localized kernel-basis projections on smooth manifolds; its general Gram formalism is used as background but does not imply the specific orthant covariance spectrum and delocalized sharp law. Savas–Karliga–Yakut (DOI:10.1155/2015/808250) instead study geometric footpoint projection on spherical simplices. The more recent Defant et al full-sphere projection paper was inspected through its open-access full text, including Theorem 4.10 and its proof; that theorem uses full-sphere rotational symmetry, unlike the positive orthant. Relevant ranked database hits on Euclidean simplices and spherical Johnson schemes concern different operators. Unindexed equivalent statements cannot be ruled out,.
+PASS
 
-**Mathematical value — PASS.** Positive-orthant restriction produces an unusually small collective covariance eigenvalue and an explicit enhanced amplification mechanism. Rather than an isolated row computation, the theorem gives the full leading-order profile for every diffuse sequence, a sharp maximum with iff sparsity rigidity, and a concrete global operator-norm lower bound. The full norm over nondiffuse evaluation directions is explicitly not determined.
+For normalized surface measure on S_+^{d-1}, Gaussian absolute-coordinate representation gives exact first moments m_d=Gamma(d/2)/(sqrt(pi)Gamma((d+1)/2)) and covariance eigenvalues lambda_perp=(1-2/pi)/d, lambda_parallel=[1+(d-1)2/pi-d^2m_d^2]/d. The affine L2 reproducing kernel is 1+(a-m_d1)^T Sigma^{-1}(X-m_d1); gamma expansion yields d lambda_parallel->c=1-3/pi>0. For any sequence with max_i a_i->0, a triangular-array joint Lindeberg CLT for the centered perpendicular coordinate combination B_d and normalized radial-fluctuation T_d gives independent Gaussian terms with variances (1-2/pi)(1-theta^2) and c. Delta-method expansion of ||Z|| and uniform L2 bound on K/√d justify taking absolute expectations, proving Λ_d(a)/√d−F(theta_d)->0 with F(theta)=sqrt(2/pi)*sqrt((1-theta²)/(1-2/pi)+(theta-sqrt(2/pi))²/(1-3/pi)). F(theta)^2 is strictly convex on [0,1], endpoint comparison gives unique maximum at 0 and constant C*=3.27783611857179. Sparse but delocalized k_d-supported vectors with k_d->inf, k_d/d->0 realize it, proving only a global liminf norm lower bound, NOT a full operator-norm limit. Independently checked eigenvalue inversion in dimensions 3,6,15,70,128 and numeric constant.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Previous L2 projection-norm work on smooth manifolds treats localized kernel spaces with different geometry and basis assumptions; full-sphere polynomial projections preserve rotational symmetry lost on the positive orthant. Published SCOPE affine projectors for simplex/other convex domains likewise have different moments. The assessed contribution is the exact moving-parameter diffuse profile and rigidity of its norming directions, not a global full-sphere projection theorem.
+
+## value
+
+PASS
+
+Affine L2 projection onto a fundamental positive spherical sector is a natural approximation operator with an unexplained high-dimensional L∞ amplification profile. The formula and rigidity isolate the dependence on delocalized support and provide a sharp, attainable lower bound for the global operator norm. The theorem explicitly refuses to extrapolate to fixed spikes or nondiffuse directions, retaining mathematical relevance as a self-contained limiting law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

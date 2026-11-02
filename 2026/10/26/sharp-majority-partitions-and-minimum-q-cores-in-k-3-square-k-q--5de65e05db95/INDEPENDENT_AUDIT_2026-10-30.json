@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:53:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>=4 every vertex degree is 2q. Reconstructed the root-neighbor incidence count: for S with minimum internal degree q and v in S, coordinate-clique populations a<=2,b,c<=q-1, k=a+b+c>=q, B=S\\({v}U A), and 2|B|>=qk-a^2-b^2-c^2. Convexity maximizes the square sum at (q-1,r,0), r=k-q+1, forcing |S|>=2q and equality only r=1 with full q-coordinate and one cross-direction, hence q-by-2-by-1 rectangles. Their count is 3q(q+1). Pairing the 3-by-q base grid, with an odd-q final three-cell column, yields floor(3q/2) full-coordinate colour classes and matches the size bound. Independent integer exhaustive checks over local (a,b,c) combinations, the complete rectangle census, and explicit majority partitions for q=4..14 passed; the proof supplies all q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu balanced Kq^3 Lemma 4 (as described in original submitted proof and accessible indexed material) yields minimum q-degree subset size 2q after embedding K3 as subset of Kq.",
+          "Balanced Hamming constructions have three q-sized factors; no inspected claim gives a partition with floor(3q/2) classes on the imbalanced (3,q,q) induced product."
+        ],
+        "reasoning": "The sharp 2q lower bound and colour upper bound are not novel. The attaining imbalanced partition and all equality-core rigidity/census are the surviving claims; 2012 alliance-paper full text not inspected.",
+        "searches": [
+          "arxiv:2609.31674 Exact majority C-colourings of balanced Hamming graphs and grids Lemma 4",
+          "arxiv:2608.27669 Majority C-coloring in Cartesian products Proposition 14 and Open problem 2",
+          "Alliance Partition Number in Graphs 2012"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and verify.py frozen Git blobs",
+        "arXiv:2608.27669 metadata/abstract, attempted full primary PDF",
+        "arXiv:2609.31674 metadata/abstract, attempted full primary PDF",
+        "2012 alliance partition journal abstract",
+        "Resultary majority partition minimum q cores K3 square Kq Cartesian graph semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing 2q core lower bound gives only floor(3q/2) as an upper bound for number of colours.",
+          "The new partition for q odd has one K3-by-Kq lift and the rest K2-by-Kq lifts; equality-core enumeration requires a local rigidity argument not implied merely by the bound."
+        ],
+        "reasoning": "Broader prior isoperimetry covers a bound but not a constructive partition for (3,q,q), nor equality characterization. No assertion of novelty for the 2q inequality in isolation.",
+        "searches": [
+          "arxiv:2608.27669 Cartesian products open imbalanced Hamming problems",
+          "arxiv:2609.31674 balanced Hamming Lemma 4 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a regular graph of degree 2q, majority C-colour classes are precisely induced min-degree >=q sets; also expressible as defensive 0-alliance partitions.",
+          "Resultary nearest hits concern complete multipartite graphs and balanced Hamming graphs, not their (3,q,q) Cartesian analogue."
+        ],
+        "reasoning": "The equivalence to defensive alliances was checked; product graphs are not equivalent to complete multipartite joins. The exact class-count and core equality classification must be compared under both names.",
+        "searches": [
+          "majority C colouring K3 Cartesian Kq Cartesian Kq q>=4 exact 3q/2",
+          "defensive alliance partition number imbalanced Hamming product unequal factor",
+          "majority partition minimum q cores K3 square Kq Cartesian graph (Resultary)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby complete multipartite majority-index findings, not the specified unequal Hamming product.",
+          "The q=3 balanced ternary case is previously known; the stated theorem explicitly assumes q>=4."
+        ],
+        "reasoning": "No inspected exact table indexed the unequal-factor partition and 3q(q+1) count. Database absence alone is not novelty proof; exact constructive mathematics is necessary.",
+        "searches": [
+          "K3 Kq Kq majority C colouring exact floor(3q/2) 3q(q+1) minimum cores",
+          "majority partition minimum q cores K3 square Kq Cartesian graph (Resultary)"
+        ]
+      },
+      "rationale": "Lu balanced Hamming lemma implies 2q lower bound and hence upper on colours, so those components are covered. Previously published Cartesian-product work leaves unequal (3,q,q) case open and does not provide the explicit sharp partition or equality census. Actual primary full texts not obtainable in this execution; best-of-knowledge judgment qualified.",
+      "residual_risks": [
+        "Both closest 2026 full primary papers remained inaccessible, including authorized Oxford vpn_disconnected, and a broader theorem could imply more of the result.",
+        "Historical defensive-alliance partition literature has not been reviewed exhaustively.",
+        "The 2q core lower bound is prior and must not be presented alone as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same question area; no inspected accessible statement explicitly covers the (3,q,q) sharp partition",
+          "evidence": "Prior Proposition 14 only gives weak lower bound; paper is reported to ask unequal Hamming problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.27669",
+          "material_read": "ArXiv indexed abstract, cited Proposition 14/Open problem descriptions in the assigned package; full text could not be retrieved in this execution",
+          "method": "Compared parameter and quoted original theorem references; OA/arXiv attempts and authorized institutional source returned vpn_disconnected",
+          "title": "Majority C-coloring in Cartesian products",
+          "trigger": "Same parameter on Cartesian products with imbalanced open problem"
+        },
+        {
+          "assessment": "Genuine partial covering via balanced lower core bound; unequal partition/census not established from inspected material",
+          "evidence": "Balanced Kq^3 result and K3 embedding imply at least 2q, but do not produce required imbalanced colour partition.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.31674",
+          "material_read": "ArXiv indexed abstract, Lemma 4 and Theorem 1 as quoted in the actual assigned mathematical result; full primary PDF could not be obtained this run",
+          "method": "Hypothesis and implication comparison; full-text attempts unsuccessful and authorized institution returned vpn_disconnected",
+          "title": "Exact majority C-colourings of balanced Hamming graphs and grids",
+          "trigger": "Potentially stronger same graph-family Hamming extremal theorem"
+        },
+        {
+          "assessment": "Open priority risk in alternate-language original results",
+          "evidence": "General alliance partitions may include Cartesian families, but abstract alone is not decisive.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-103-ars-articles/alliance-partition-number-in-graphs/",
+          "material_read": "Publisher landing-page abstract only; complete 2012 article not obtained",
+          "method": "Scoped subject comparison, not full-text noncoverage",
+          "title": "Alliance Partition Number in Graphs",
+          "trigger": "Potential historical equivalent terminology in defensive alliance partitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solves a natural imbalanced three-factor Hamming majority-partition extremum and completely classifies minimal dense cores with a nontrivial exact census. Lower core-size inequality is a known consequence of balanced Hamming isoperimetry, but new attaining unequal-factor partitions and equality rigidity are substantive and address a published parameter question.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md and verify.py frozen Git blobs",
+    "arXiv:2608.27669 metadata/abstract, attempted full primary PDF",
+    "arXiv:2609.31674 metadata/abstract, attempted full primary PDF",
+    "2012 alliance partition journal abstract",
+    "Resultary majority partition minimum q cores K3 square Kq Cartesian graph semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The excluded q=3 case is balanced and previously addressed.",
+    "No uniqueness claim for global maximum partitions; minimal core equality only."
+  ],
+  "residual_risks": [
+    "Both closest 2026 full primary papers remained inaccessible, including authorized Oxford vpn_disconnected, and a broader theorem could imply more of the result.",
+    "Historical defensive-alliance partition literature has not been reviewed exhaustively.",
+    "The 2q core lower bound is prior and must not be presented alone as novel."
+  ],
+  "schema_version": 1
+}

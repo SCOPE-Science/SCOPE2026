@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The three-count Markov chain and exact terminal parity are derived from accepted edge rates. The bounded-time density-dependent limit identifies the cross-attempt intensity, and the explicit generator super-solution closes the otherwise uncontrolled late-time tail. The all-size reasoning is separate from `verify.py`, which passed 1923 finite assertions across directly enumerated labeled states and an aggregated chain.
+## correctness
 
-**Originality: PASS against inspected statements, with material historical-priority risk.** Gerin (2015) concerns dimers on paths, and Dhara et al. (2016) concerns greedy vertex occupation of random graphs; the narrow-ladder papers use different geometry. Dyer and Frieze (1991) is a natural broad predecessor, but its full text was not accessible, so the assessment does not assert full-document noncoverage. Searches of prior published records and accessible related claims did not identify this exact bridge-count limit or its parity consequence; this is not an exhaustive novelty certification.
+PASS
 
-**Value: PASS.** An asymptotically vanishing fraction of available bonds creates a nonvanishing terminal defect probability. The finite-rate parameter controls a full Poisson law and the parity oscillation, while the explicit tail potential resolves a genuinely delicate infinite-time limit.
+The three-state vacant-pair Markov process (a,b,c) has internal event rates binom(a,2), binom(b,2) and cross intensity λc; every successful bridge removes one vacancy in each clique. At absorption each complete clique has at most one vacancy, so U=2*1_{M≠n mod 2} exactly. Under time u=nt, scaled drifts converge uniformly on bounded intervals to x=y=(1+u)^(−1), z=(1+u)^(−2) and cross intensity λz. The process time-change gives Poisson(λT/(1+T)) up to u=T. The nonnegative potential Φ=c/a+c/b with Φ=0 when c=0 satisfies L[max(1,λ) Φ]≤−λc, including a=b=1 and λ=0 boundaries. Uniform tail expectation ≤2max(1,λ)/(1+T) closes the full-time limit; taking parity yields P(U=2)=(1−(−1)^n e^(−2λ))/2+o(1). Independently recomputed exactly with rational arithmetic 3,135 potential-generator cases for a,b≤11 and λ∈{0,1/3,1,3,8}, all inequalities held. A bounded check cannot prove the fluid limit or all-state inequality; their algebraic arguments were reconstructed separately.
 
-**Scope and risks.** Two equal complete cliques, paired bridges, all internal attempts at rate one, fixed bridge rate, irreversible dimers. No convergence rate, arbitrary bridge topologies, or growing bridge rates. Independent scientific audit and exhaustive historical-priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the specific fixed-λ rare-bridge Poisson law and order-one alternating defect in edge-priority adsorption on K_n Cartesian K_2. Known random sequential adsorption/matching theory motivates the model but the inspected path-coverage, vertex-greedy, or sparse-graph results do not state or imply this count. Full Dyer–Frieze paper inaccessible remains significant priority uncertainty.
+
+## value
+
+PASS
+
+Exact asymptotic rare-event law plus a finite-n parity identity explain how n paired bridge edges among Θ(n²) edges produce a persistent alternating jamming effect. These are natural random-greedy matching observables, with a substantive late-time tail lemma rather than a cosmetic variant of coverage density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

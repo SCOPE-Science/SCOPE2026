@@ -1,19 +1,21 @@
-# Scientific review: two-edge resistance damage in triangular graphs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The combinatorial incidence matrix has exactly two positive Laplacian eigenvalues, so its spectral projectors give closed formulas for both the dipole Green function and its square. The five unordered-edge-pair signatures are exhaustive for the stated domain. Positivity of the rank-two denominator establishes connectedness after every two-edge failure. The displayed difference factorizations are strictly positive for all permitted integers, and the class enumeration sums to every possible two-edge set. The accompanying exact rational checker independently inverts grounded Laplacians for fifteen class representatives, verifying the formulas on three graph sizes. Finite checks supplement rather than replace the symbolic proof.
+PASS
 
-## Originality
+For every integer n>=5, the graph J(n,2) has N=binom(n,2) vertices and unit edge conductances. Its incidence matrix B yields Laplacian 2(n−1)I−BᵀB and two nonzero spectral values n and 2(n−1). Two incidence dipoles have only the five orbit invariants (k,h)=(1,1),(1,0),(0,2),(0,1),(0,0), which give mixed L+ and (L+)² entries c_{k,h} and t_{k,h}. The diagonal r=(n+1)/(n(n−1)) is <1 and the 2×2 Woodbury denominator (1−r)²−c² is positive for n>=5, so any two-edge deletion remains connected and its Kirchhoff increase is the stated rational F_n(k,h). Orbit counting gives all five nonzero multiplicities, whose total is binom(|E|,2); symbolic positive rational differences establish strictly I_triangle>I_nontriangle>D2>D1>D0 and the displayed global maximum. Fresh independent enumeration exhausted every pair of edges for J(5,2) (435 pairs) and J(6,2) (1770 pairs), confirmed classes/multiplicities, and directly recomputed five representative Kirchhoff differences using grounded-Laplacian matrix inversion. General theorem rests on symbolic spectral proof, not finite cases.
 
-**PASS with residual literature risk.** The comparison covers resistance-based robustness and failure-induced edge-flow theory, including Ellens et al. (2011) and Schaub et al. (2013/2014), and the classical Johnson/triangular-graph spectrum. These works supply the measure, general pseudoinverse methodology and graph eigenvalues, but the inspected portions do not establish the five-way simultaneous two-link failure ranking with exact multiplicities. Published mathematical search results about Johnson-graph topology and two-edge failure behavior of *complete* graphs treat different invariants or graph objects. A prior balanced complete-multipartite two-failure classification covers the exceptional triangular graph \(T(4)\), so that covered case is excluded. At \(n\ge5\), triangular graphs are not complete multipartite. An unindexed stronger classification remains a real possibility.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a complete global vulnerability classification for a canonical infinite family of pairwise-interaction networks, not an arbitrarily chosen small graph. All edges of the original graph are symmetric, making single-link damage identical; the two-link problem distinguishes five geometric pair classes with strict ranking and identifies the complete set of worst simultaneous failures. Exact worst-case counts and magnitudes matter for designing redundant links and fault scenarios, and the mechanism distinguishes triangle wedges from other incident pairs instead of relying only on whether failures share a vertex.
+The five simultaneous two-edge-failure motif values and strict universal ordering for J(n,2), n>=5, are not provided by inspected general pseudoinverse, network robustness, edge-flow-redistribution or graph-spectral references. T(4) is a complete multipartite covered special case and is deliberately excluded. The method is classical but the full orbit-resolved failure classification is assessed as new to best knowledge.
 
-## Scope and limits
+## value
 
-Unit conductances, exactly two distinct links and \(n\ge5\) are essential to the stated result. No general strongly regular graph extension, weighted counterpart or three-failure analogue is asserted. The novelty judgment is based on specific accessible sources and database searches rather than a claim of exhaustive literature coverage. Independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+When a network uses pairwise interactions modeled by the triangular graph, all single failures are symmetric, so the exact double-failure damage classes distinguish its first nontrivial reliability behavior. A sharp maximizer shape, all class multiplicities and exact objective values are natural graph-resistance invariants of an infinite graph family, useful beyond a routine spectral exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

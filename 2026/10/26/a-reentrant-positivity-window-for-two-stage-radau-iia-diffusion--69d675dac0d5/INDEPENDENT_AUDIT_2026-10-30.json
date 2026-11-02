@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T18:59:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For G_q=K_q□K_q with q>=2, L=q(Q⊗I+I⊗Q) and two-stage Radau IIA completed-step multiplier r(z)=(6-2z)/(z²+4z+6). Its tensor spectral decomposition yields exactly three entry types over positive E(x)=(x²+4x+6)(2x²+4x+3), x=qh: diagonal numerator D_q(x), adjacent numerator xF_q(x), and nonadjacent numerator 2x²(x²+9x+9). For q=2,3, D>0; for every q>=4 Descartes sign changes and D(0)>0>D(q), D(∞)>0 imply exactly two distinct positive roots a_q<b_q. The algebraic identity F=2x(x²+9x+9)+q(2x+3)(6-x) proves F>0 when x<=6 or x>=q; when 6<x<q, D(6)<0 and D(q)<0 imply the diagonal is already negative. Thus the full positivity set is [0,a_q/q]∪[b_q/q,∞), not just sampled intervals. Scalar |r|<=1 and the zero mode imply operator norm 1 at all h. Polynomial scaling gives a_q→3/2 and b_q/q²→1. Fresh independent SymPy inverse of the actual q=4 rook Laplacian at h=1 confirmed each diagonal -4/323 and row sums 1, with positive roots approximately 3.3633 and 14.2443 in x; these finite checks corroborate the symbolic proof. Stage positivity or rectangular rooks are not asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General RK method-wide barriers and positivity-preserving alternative schemes do not determine exact entrywise signs for a highly structured family.",
+          "A guarantee valid for all Markov generators would imply graph-specific positivity, but no such guarantee exists for this method; conversely method-wide negative examples do not determine the two reentrant intervals."
+        ],
+        "reasoning": "No broader prior theorem among inspected materials provides the exact q-dependent quartic cutoffs and adjacent-positivity control.",
+        "searches": [
+          "Blanes–Iserles–Macnamara arXiv:2102.08242 / ESAIM M2AN 2022",
+          "Gottlieb–Shu–Tadmor DOI:10.1137/S003614450036757X",
+          "Numipedia Radau IIA2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.08242",
+        "DOI:10.1137/S003614450036757X",
+        "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+        "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "Frozen RESULT.md and verify.py exact rational identities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Method stability r(-hL) spectral radius<=1 need not preserve entrywise nonnegativity.",
+          "General graph-Laplacian schemes can be designed positivity-preserving, but that does not classify where Radau IIA itself is positive."
+        ],
+        "reasoning": "The prior works supply ingredients (method and graph structure), not the nontrivial diagonal quartic two-root sign theorem or its asymptotic reentrance.",
+        "searches": [
+          "Gottlieb–Shu–Tadmor 2001 SSP barriers",
+          "Blanes–Iserles–Macnamara arXiv:2102.08242",
+          "Ketcheson Numipedia Radau IIA2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary SSP-SDIRK2 and [2/2] Padé entries involve different rational functions and matrices; no implied rook Radau endpoint law.",
+          "r(z) from the classical tableau is input to the new tensor sign calculation."
+        ],
+        "reasoning": "An equivalent formula might appear under Markov operator monotonicity or association schemes, but no such original result was established from inspected sources.",
+        "searches": [
+          "Resultary: two stage Radau IIA positivity complete step rook graphs K_q square cartesian phase reentrant nonnegative",
+          "Numipedia RadauIIA2 stability function",
+          "Gottlieb–Shu–Tadmor 2001 SSP RK methods"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SSP-SDIRK2 and two-stage Gauss–Legendre [2/2] Padé use different stability functions.",
+          "The exact q=4 negative entry is computed directly from frozen source algebra; no prior tabulated Radau-rook entries were encountered."
+        ],
+        "reasoning": "Different-method finite state thresholds are not equivalent tables. This is a parametrized all-q theorem, not a known table recomputation.",
+        "searches": [
+          "Resultary SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+          "Resultary SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "Exact rook K4□K4 q=4 witness -4/323"
+        ]
+      },
+      "rationale": "Ketcheson's Numipedia gives the classical Radau IIA tableau and stability rational function, not the rook-graph positivity set. Gottlieb–Shu–Tadmor 2001 studies general strong stability preserving RK barriers, not the completed step on a specific tensor Laplacian. Blanes–Iserles–Macnamara 2021/22 discusses positivity-preserving ODE and graph-Laplacian schemes and general barriers, but not this explicitly parameterized Radau rook graph. Its publicly accessible PDF text was inspected; screenshot retrieval was blocked so no claim of visually checked PDF pages. Resultary query returned different methods (SSP-SDIRK2, Gauss Padé) or unrelated rook homology, not the same method/graph statement. Distinct time-step positivity and spectral stability demand different sign conditions. Provisional PASS with historical-specialization priority risk.",
+      "residual_risks": [
+        "An indexed or unindexed prior graph-specific Radau rook computation might exist.",
+        "PDF visual screenshot unavailable (HTTP 403); only extracted text and accessible sections were examined.",
+        "Independent inverse check at q=4 h=1 is a finite witness, not an all-q/all-h proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material inspected concerns general positivity methods, no exact rook-graph Radau interval theorem found",
+          "evidence": "Graph-Laplacian positivity framework is broad; specialized full historical literature remains possible.",
+          "identifier_or_url": "arXiv:2102.08242; https://www.esaim-m2an.org/articles/m2an/pdf/2022/05/m2an210140.pdf",
+          "material_read": "Public full PDF extracted text on numerical positivity, graph Laplacians and RK alternatives; web screenshot of PDF pages was attempted but returned HTTP 403, preventing visual page inspection",
+          "method": "Accessible paper text and targeted Radau/method comparison; screenshot access failure recorded",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Closest primary positivity and graph-Laplacian theory"
+        },
+        {
+          "assessment": "Inspected implications do not classify matrix entry signs on this q-dependent graph",
+          "evidence": "A general method-wide impossibility allows restricted reentrant positivity.",
+          "identifier_or_url": "DOI:10.1137/S003614450036757X",
+          "material_read": "Accessible abstract, general SSP theorem descriptions and method-wide conditions, not entire source",
+          "method": "Publisher/author-hosted index and literature comparisons",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "Classical implicit RK SSP restrictions"
+        },
+        {
+          "assessment": "Supplies the Radau method, but no square-rook positivity theorem",
+          "evidence": "r(-z)=(6-2z)/(z²+4z+6), used with eigenvalues 0,q,2q.",
+          "identifier_or_url": "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+          "material_read": "Full accessible method page: tableau and rational stability multiplier",
+          "method": "Method documentation page",
+          "title": "Numipedia: Radau IIA2",
+          "trigger": "Identical integrator and scalar rational stability function"
+        },
+        {
+          "assessment": "Different [2/2] Padé/Gauss method and generator class; not the same Radau IIA statement",
+          "evidence": "Shows other rational-step positivity effects but is not an implication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Indexed published finding title and summary only",
+          "method": "Resultary semantic search",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Possible analogous phase transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete infinite-family positivity-domain classification for a standard third-order stiff integrator on a natural highly symmetric graph. The disconnected reentrant positivity set is counterintuitive: tiny and sufficiently large steps are positive, intermediate ones create negative state entries even though the step is spectrally nonexpansive and conservative. The q=4 threshold and scaling 3/(2q) versus q give practically meaningful separation and a nontrivial method/graph phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2102.08242",
+    "DOI:10.1137/S003614450036757X",
+    "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+    "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+    "Frozen RESULT.md and verify.py exact rational identities"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unweighted square rook graphs, completed Radau IIA step only, h>=0; no internal stage or rectangular rook conclusion.",
+    "Explicit formula positive denominators, and infinity means unbounded finite h range."
+  ],
+  "residual_risks": [
+    "An indexed or unindexed prior graph-specific Radau rook computation might exist.",
+    "PDF visual screenshot unavailable (HTTP 403); only extracted text and accessible sections were examined.",
+    "Independent inverse check at q=4 h=1 is a finite witness, not an all-q/all-h proof."
+  ],
+  "schema_version": 1
+}

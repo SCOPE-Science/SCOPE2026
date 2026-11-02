@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For odd primes, reduction of the characteristic roots in the unramified quadratic field yields an exact rank of apparition, and odd-prime lifting of root differences produces exact valuations of both sequences. Möbius inversion gives the full signed spectra. The nonzero supports prove sufficient divisibility and the indices \(rp\) and \(2tp\) force the least repair. Direct congruences close the prime-two case. Full congruence-class conclusions follow from rank parity and quadratic reciprocity. `VERIFY.py` also passes 27-prime, 320-index checks; the proof is independent of the finite cutoff.
+PASS
 
-## Originality
+Independently checked normalized U0=0,U1=1,V0=V1=2 and W_{n+2}=2W_{n+1}+W_n. For odd p the quadratic-unit ratio alpha/beta has order r|p-(2/p); odd-prime lifting in the unramified quadratic extension gives v_p(U_n)=e+v_p(n/r) if r|n and v_p(V_n)=h+v_p(n/t) on odd multiples of t=r/2 for even r. Möbius inversion of these indicator-supported p-powers yields the full positive U and alternating signed V support and sharp K=r/gcd(r,p-1) (or 1 for odd-rank V). Signs give no V realizability after positive scaling when r even. At p=2, v_2(U_n)=v_2(n), v_2(V_n)=1. Frobenius and quadratic-reciprocity parity classify Dold residue classes and Dirichlet supplies stated densities. Independent integer Mobius inversions verified 5,040 direct checks for primes <=43, indices <=180 against closed formulas. Finite checks are not proof of all primes.
 
-PASS, with residual risk. The September 2026 Fibonacci/Lucas paper poses general companion-sequence directions but does not cover the Pell pair's complete signed spectra or minimal repair. The closest published record on *split* companion Lucas sequences assumes positive **square** discriminant, whereas the Pell companion discriminant is \(8\), nonsquare. The published result on even-even period equality for Lucas pairs with parameter \(-1\) establishes equality of periods, not the Dold transform or minimum repairs. Searches of research records, accessible historical claims, and relevant literature did not locate an implication covering these precise statements. Full-text access to every possibly broader Lucas theorem was incomplete; equivalence somewhere else cannot be categorically excluded.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Dold integrality and nonnegative periodic-orbit counts are distinct natural invariants in arithmetic dynamics. The explicit signs show that the Pell prime parts are always almost realizable but the companion's even-rank prime parts are never almost realizable, despite being almost Dold. Sharp correction factors and residue-class densities give a complete arithmetic classification of the pair, motivated by a recent question about general companion Lucas systems rather than an arbitrary numerical cutoff.
+Best-of-knowledge full Pell (discriminant 8) local prime-part classification goes beyond classical Fibonacci/Lucas examples and published split companion systems, but underlying rank/lifting/Dold tools are known. Closest 2026 primary full text inaccessible, so priority qualification is significant.
 
-## Scope and limitations
+## value
 
-The result makes no rank-parity density assertion inside the split class \(p\equiv1\pmod8\). Finite computations serve as checks only. Broader implicit prior coverage and independent mathematical validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines full signed orbit-transform spectra and least exact integer Dold repairs for a concrete natural nonsplit Pell recurrence pair, sharply separating Dold integrality from realizability and giving density laws. Negative trace-orbit coefficients are a structural obstruction, not merely a routine sample congruence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

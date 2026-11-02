@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:52:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For normalized surface measure on S_+^{d-1}, Gaussian absolute-coordinate representation gives exact first moments m_d=Gamma(d/2)/(sqrt(pi)Gamma((d+1)/2)) and covariance eigenvalues lambda_perp=(1-2/pi)/d, lambda_parallel=[1+(d-1)2/pi-d^2m_d^2]/d. The affine L2 reproducing kernel is 1+(a-m_d1)^T Sigma^{-1}(X-m_d1); gamma expansion yields d lambda_parallel->c=1-3/pi>0. For any sequence with max_i a_i->0, a triangular-array joint Lindeberg CLT for the centered perpendicular coordinate combination B_d and normalized radial-fluctuation T_d gives independent Gaussian terms with variances (1-2/pi)(1-theta^2) and c. Delta-method expansion of ||Z|| and uniform L2 bound on K/√d justify taking absolute expectations, proving Λ_d(a)/√d−F(theta_d)->0 with F(theta)=sqrt(2/pi)*sqrt((1-theta²)/(1-2/pi)+(theta-sqrt(2/pi))²/(1-3/pi)). F(theta)^2 is strictly convex on [0,1], endpoint comparison gives unique maximum at 0 and constant C*=3.27783611857179. Sparse but delocalized k_d-supported vectors with k_d->inf, k_d/d->0 realize it, proving only a global liminf norm lower bound, NOT a full operator-norm limit. Independently checked eigenvalue inversion in dimensions 3,6,15,70,128 and numeric constant.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Euclidean sphere polynomial projections use O(d) symmetry and an uncut sphere.",
+          "Hangelbroek et al Theorem 5.1 assumes a quasi-uniform localized kernel basis and controls unrelated projection norm estimates."
+        ],
+        "reasoning": "None of the inspected broad projection theorems yields the orthant covariances, triangular Gaussian CLT, or a sharp moving-parameter profile. The published general Gram identity is a prerequisite and not claimed novel.",
+        "searches": [
+          "Defant Galicer Mansilla Mastyło Muro 2026 minimal projections polynomial spaces real Euclidean sphere",
+          "Hangelbroek Narcowich Sun Ward Theorem 5.1 2010",
+          "Resultary exact positivity defect max norm affine projector simplex"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md tree 753e712184c6b8e40ad05c919a61783117a6d552",
+        "checks/verify.py blob 3a2591eca3e33e30d3e86bed58c05fb3e18f28de, read as code",
+        "Hangelbroek et al https://arxiv.org/abs/1005.2424",
+        "Defant et al DOI:10.1112/jlms.70429",
+        "Savas et al DOI:10.1155/2015/808250",
+        "Resultary semantic search on affine orthant projection and simplex analog"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The assigned proof uses folded-normal/chi-square joint fluctuations, not kernel localization or geometric geodesic orthogonal projection.",
+          "Theorem 5.1 of Hangelbroek et al addresses a different class of approximation spaces."
+        ],
+        "reasoning": "Existing projection-boundedness frameworks do not imply the exact orthant diffuse constant and spatial rigidity without the new covariance and joint asymptotic calculation.",
+        "searches": [
+          "Hangelbroek et al arxiv:1005.2424 §5 Theorem 5.1",
+          "Savas Karliga Yakut 2015 spherical projection geometry",
+          "Defant et al 2026 Euclidean sphere polynomial projection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The affine reproducing kernel is expressed by inverse Gram covariance and its row L1 norm equals evaluation norm.",
+          "The simplex projector record instead uses uniform volume measure and different asymptotic growth."
+        ],
+        "reasoning": "Equivalent descriptions as a Lebesgue function of an affine least-squares projector were searched. No inspected formula gives this positive-spherical-orthant Gaussian delocalization profile.",
+        "searches": [
+          "L2 affine spherical orthant projector Lebesgue constant row norm",
+          "Resultary affine least squares projector simplex positive orthant",
+          "Hangelbroek Narcowich Sun Ward arxiv:1005.2424 L∞ stability projector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Computed C*=3.2778361185717912 by exact Gaussian-moment constant; verified covariance eigenvalues at five dimensions.",
+          "Published SCOPE simplex projector has another norm law/domain."
+        ],
+        "reasoning": "A numerical constant alone would be insufficient; the all-sequence diffuse profile and equivalence of maximality with theta_d->0 are the substantive result. No matching orthant table established.",
+        "searches": [
+          "spherical orthant affine projection Lebesgue constant table",
+          "Resultary positive spherical orthant norm asymptotic",
+          "numeric independent C*=3.27783611857"
+        ]
+      },
+      "rationale": "Previous L2 projection-norm work on smooth manifolds treats localized kernel spaces with different geometry and basis assumptions; full-sphere polynomial projections preserve rotational symmetry lost on the positive orthant. Published SCOPE affine projectors for simplex/other convex domains likewise have different moments. The assessed contribution is the exact moving-parameter diffuse profile and rigidity of its norming directions, not a global full-sphere projection theorem.",
+      "residual_risks": [
+        "Unindexed spherical sector projection literature may contain an equivalent delocalized norm profile.",
+        "The established C* is only maximal over diffuse sequences and a global liminf bound; nondiffuse/global sharp norm remains unknown.",
+        "The Gaussian CLT applies under max_i a_i->0; finite numerical checks do not extend its domain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Their quasiuniform kernel-basis hypotheses and localized manifolds differ from the global affine space on positive spherical orthant.",
+          "evidence": "Hangelbroek, Narcowich, Sun, Ward (2010), Theorem 5.1.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+          "material_read": "Primary arXiv PDF introduction and section 5 including Theorem 5.1, pages about 15–17; did not need claim of full end-to-end reading",
+          "method": "Primary preprint page/text inspection",
+          "title": "Kernel Approximation on Manifolds II: The L_infty-norm of the L_2-projector",
+          "trigger": "Highest relevance projection-norm theorem"
+        },
+        {
+          "assessment": "Operates on whole Euclidean sphere and minimal projections, lacking orthant restriction and the exact affine L2 projection norming sequence.",
+          "evidence": "Defant et al (2026).",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.70429",
+          "material_read": "Accessible publication abstract, statement and discussion, not complete paper",
+          "method": "Published research comparison",
+          "title": "Minimal projections onto spaces of polynomials on real Euclidean spheres",
+          "trigger": "Closest sphere-polynomial projection analogue"
+        },
+        {
+          "assessment": "Orthogonal geometric projection of points, not L2 least-squares projection of functions.",
+          "evidence": "Savas, Karliga, Yakut (2015).",
+          "identifier_or_url": "https://doi.org/10.1155/2015/808250",
+          "material_read": "Title and accessible abstract on geometric target",
+          "method": "Primary paper overview",
+          "title": "Orthogonal Projections Based on Hyperbolic and Spherical n-Simplex",
+          "trigger": "Potential same projection terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Affine L2 projection onto a fundamental positive spherical sector is a natural approximation operator with an unexplained high-dimensional L∞ amplification profile. The formula and rigidity isolate the dependence on delocalized support and provide a sharp, attainable lower bound for the global operator norm. The theorem explicitly refuses to extrapolate to fixed spikes or nondiffuse directions, retaining mathematical relevance as a self-contained limiting law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md tree 753e712184c6b8e40ad05c919a61783117a6d552",
+    "checks/verify.py blob 3a2591eca3e33e30d3e86bed58c05fb3e18f28de, read as code",
+    "Hangelbroek et al https://arxiv.org/abs/1005.2424",
+    "Defant et al DOI:10.1112/jlms.70429",
+    "Savas et al DOI:10.1155/2015/808250",
+    "Resultary semantic search on affine orthant projection and simplex analog"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No assertion of full global L∞ projector asymptotic equality, finite-dimension extremizers, or fixed coordinate spikes.",
+    "Scope limited to real degree-one affine approximation with normalized spherical surface on positive orthant, not higher-degree or solid-orthant volume."
+  ],
+  "residual_risks": [
+    "Unindexed spherical sector projection literature may contain an equivalent delocalized norm profile.",
+    "The established C* is only maximal over diffuse sequences and a global liminf bound; nondiffuse/global sharp norm remains unknown.",
+    "The Gaussian CLT applies under max_i a_i->0; finite numerical checks do not extend its domain."
+  ],
+  "schema_version": 1
+}

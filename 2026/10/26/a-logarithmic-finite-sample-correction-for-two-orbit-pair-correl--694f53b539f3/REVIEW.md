@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The proof reduces the entire covariance matrix to matching time-shift diagonals by two independent Fourier orthogonality conditions; the exact Bernoulli kernel is reconstructed from its absolutely convergent Fourier series. Its uniform geometric bound justifies truncation, and the shift-counting identity yields the sharp leading variance and an explicit negative logarithmic correction. `CHECK.py` reports 358 exact-rational and numerical diagnostics, but the finite checks do not replace the proof.
+## correctness
 
-**Originality — PASS under inspected evidence.** Baker–Todd, arXiv:2606.17880, Theorem A concerns first-order typical-orbit limits, not this two-orbit sharp variance or logarithmic second-order law. The nearest published indexed calculation, *Sharp second-moment inflation for expanding circle-map pair correlations* (2026), is for two points **within one orbit**. Its exact statement and full mathematical proof were inspected; it contains no two-independent-seed cross-variance or its logarithmic correction. Classical lacunary papers provide Poissonian spacing laws or variance bounds rather than this coefficient. The relevant underlying primary paper was readable only in part in this investigation, so uninspected portions remain a priority risk; no absolute novelty certification is asserted.
+PASS
 
-**Value — PASS.** The two-orbit question is explicitly central in the motivating literature. Exact selection of only simultaneous time shifts identifies the dependence mechanism, the variance inflation factor quantifies its strength, and the logarithmic bias gives a useful finite-size calibration absent for independent sampling. This is a structural second-moment refinement rather than an arbitrary parameter-specific calculation.
+For b>=2 integer and two independent Haar circle seeds X,Y, the Fourier expansion of each centered cross-hit H_r(b^i X-b^j Y) imposes two independent frequency cancellation equations. Nonzero covariance requires i'-i=j'-j and equals the Bernoulli kernel C_h(r)=[B2({(b^h-1)r})-B2({(b^h+1)r})]/b^h. Counting signed common shifts gives exact Var(Q_N)=C0(r)+2 sum_{h=1}^{N-1}(1-h/N)^2 C_h(r), r=s/N. For (b^h+1)r<1, C_h=2r b^(-h)-4r²; the global Lipschitz bound |C_h|<=2r b^(-h) controls the remaining shifts. Splitting at H=floor(log_b(N/(2s))) gives N Var(Q_N)=2s(b+1)/(b-1)-8s²(log_b N)/N+O_{b,s}(1/N), with logs and error normalized correctly. Independent exact rational interval-intersection versus Bernoulli tests succeeded in 48 cases. The two-orbit index covariance is structurally different from the previously published one-orbit covariance. No CLT or further periodic O(1/N) constant is claimed.
 
-**Closest work and limitations.** The one-orbit published variance law shares the expansion and a Bernoulli covariance kernel, but different index geometry gives different diagonal selection and the present explicit logarithmic correction. The theorem does not claim a central limit theorem, other metrics, dependent seeds, or a complete literature-priority guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest published Resultary record on the same expanding map was read in full at its mathematical RESULT.md: Sharp second-moment inflation for expanding circle-map pair correlations concerns distinct pairs of times within ONE orbit from a single seed, obtains leading 4s(b+1)/(b-1), and bounds its remainder by O(log N/N). That statement does not imply the present two-INDEPENDENT-seed covariance selection or the explicit negative log coefficient. Baker–Todd 2026 Theorem A describes pair-correlation convergence, not this exact critical variance; available abstract and related summaries were examined, but full primary paper remained inaccessible. Rudnick–Zaharescu, Rudnick–Technau and Chaubey–Yesha address lacunary correlations and convergence/variance bounds, not the inspected fixed-seed cross-variance formula. Originality is a best-of-knowledge determination, qualified by inaccessible primary full text and alternate Fourier-covariance presentations.
+
+## value
+
+PASS
+
+Finite-sample noise and dependence in pair correlations of two orbits are motivated by the dynamical-statistics question; the single-shift selection rule explains correlation inflation, and the nonzero logarithmic correction offers a sharp finite-size calibration not present in independent re-sampling. The result is an exact structural second-moment law for a canonical expanding system, not merely a generic variance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

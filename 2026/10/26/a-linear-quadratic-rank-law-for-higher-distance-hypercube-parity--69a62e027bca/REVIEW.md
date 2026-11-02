@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The group-algebra change \(X_i=1+y_i\) gives the exact binomial coefficient \(\binom{n-j}{d-j}\) for each squarefree monomial of degree \(j\). A nonzero linear term is a filtered algebra coordinate. In the quadratic case, parity forces odd dimension; the polar form of \(e_2\) has rank \(n-1\), filtered substitutions remove every higher term because its degree is at least three and the unique radical variable has square zero. The explicit active-pair rank count is \(4^m-2^m\). The map's square-zero/involution decomposition then gives each stated finite-state count. Direct independent finite-field matrix elimination checks 45 eligible parameter pairs with \(2\le n\le10\), but those checks are not used as an infinite proof.
+## correctness
 
-## Originality — PASS, provisional external priority
-The nearest primary evidence is Seneviratne (2016), whose complete eight-page article, including Sections 3–5, has been inspected; its Lemma 4.1 establishes the scalar-square property of adjacency matrices, but it does not establish exact ranks for individual higher-distance layers. Fish–Key–Mwambene (2009) explicitly address \(d=1,2,3\); their previously established parameters are not included in the claimed new range \(d\ge4\). The 2011 Key–Fish–Mwambene article concerns incidence-matrix and line-graph codes rather than the original adjacency action. Retrieved mathematical finding records for distance-two hypercube parity maps give a covered special case, not the all-higher-distance rank theorem. The principal residual risk is equivalent older coding-theoretic rank results hidden under an alternate algebraic formulation; the full original Fish–Key–Mwambene PDF was inaccessible, so its body cannot be declared fully excluded.
+PASS
 
-## Mathematical value — PASS
-The rank of a \(2^n\)-by-\(2^n\) distance-layer adjacency map is a basic determinant of dynamical information loss and exact cycle multiplicities; a generic square relation supplies no rank. The result classifies infinitely many genuinely different high-distance shells, and the \(n=2^a+1\) family produces a strong, parameter-wide isorank and transient-census identity across exponentially many distinct graphs. It gives a motivated natural invariant with an exact infinite-dimensional family, while stating precisely the unresolved higher-jet region.
+For every 4<=d<=n, the F2-distance-shell adjacency is multiplication by sum_j binom(n-j,d-j)e_j in F2[y1,...,yn]/(yi^2); its nonconstant part U squares to zero. A unit linear jet is a filtered coordinate, so multiplication has rank 2^(n-1). With c1=0,c2=1 Lucas parity forces n=2m+1; the alternating polar form of e2 has rank 2m, and a filtered algebra automorphism eliminates degrees >=3 because each monomial uses an active variable (the only radical variable has square zero). Its active-pair decomposition gives rank 4^m-2^m=2^(n-1)-2^((n-1)/2), including the radical-coordinate factor. The F=U or F=I+U dichotomy gives exactly the stated preperiod and primitive 2-cycle counts with N=2^n. For n=2^a+1 (a>=3), Lucas parity yields the stated high-shell common ranks. Independent finite GF2 elimination on 13 eligible n=4..8 cases reproduced these ranks; finite checks do not prove the universal assertion. We read actual frozen RESULT.md, verify.py, SLOGAN.txt, REVIEW.md, METADATA.json and VERIFICATION.md; the full Git tree matched its recorded SHA and was not truncated. Boundary c1=c2=0 is explicitly outside the theorem.
 
-## Limits and priority
-The high-jet cases are left open; the independent full-paper review of the 2009 closest predecessor was transport-blocked. The result is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The relevant object is the binary F2 adjacency code of each exact Hamming shell, not the real adjacency spectrum. Earlier Seneviratne establishes square relations and generalized graph-product code properties, which do not determine rank; Fish–Key–Mwambene study d=1,2,3, which this claim excludes; Key–Fish–Mwambene 2011 examine incidence/line graphs, not these adjacency ranks. Resultary semantic search returned other Hamming-shell spectra and code invariants but not this two-jet rank/Jordan classification. No covering statement was established from materially read sources. This is provisional best-of-knowledge originality; unavailable full predecessor PDFs and alternate coding-theory rank formulations remain specific risks.
+
+## value
+
+PASS
+
+The rank of the distance-d Boolean hypercube adjacency map on F2 states controls exact loss of information, kernel sizes and all period-1/2 orbit counts; the known square-zero or involution identity does not specify that rank. Infinitely many high-distance layers share a non-obvious common rank, while the last distance layer changes orbit structure. These are natural exact invariants of canonical Hamming distance graphs, not an arbitrary small sample or renamed theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

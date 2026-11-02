@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gödel box and diamond evaluations are reduced exactly to the minimum of the locally oriented minima and the maximum of all local minima. Conditional exchangeability proves each orientation is fair independently across pairs. The unique largest local minimum makes precisely one orientation encode equality, while the all-unreversed orientation encodes strict box dominance. The iid joint law follows from exact unit-square integration; its singular components and wedge density exhaust all mass. A two-threshold expansion proves independent exponential/Rayleigh-type limits. The original modal definitions were checked against the semantic sources, and the provided checker completed all finite orientation and numerical tests. The theorem explicitly excludes ties and frame conditions that would invalidate the sampling model.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest primary mathematical definitions are the 2011 Caicedo–Rodríguez account and the 2026 Ferrari–Fiorentini–Giardini–Rodriguez paper on witnessed Gödel modal models. Their inspected sections address semantics, completeness and proof search, not the random-row joint law. Li–Yu–Liu study random max–min transitive closures rather than the coupled residuated-minimum/possibility-maximum. Kozhemiachenko–Sedlár study probability-labelled fuzzy modal reasoning rather than independently sampled fuzzy modal truth values. Available published records on ordinal regrading and earlier finite Gödel identities were also checked for implication-level overlap; neither supplies this theorem. Historical-priority uncertainty remains for random fuzzy relations and order-statistic terminology.
+PASS
 
-## Value — PASS
-Equality of two derived continuous modal truth degrees can have positive probability even without input atoms; here it has exactly the same probability as the opposite strict ordering, independently of the entire unordered input geometry. The result provides the complete singular/continuous joint law and shows two different asymptotic scales with independent limits. This is a natural quantitative answer about the nondual box and diamond operators and about modal witnesses, not merely a one-off numerical probability.
+For independent exchangeable (r_i,p_i) pairs with no within-pair ties and distinct minima m_i=min(r_i,p_i), conditional on unordered pairs the orientations are independent fair binary coins. Diamond D=max m_i, while Box B is 1 when no r_i>p_i, else the smallest m_i among those orientations. Thus of the 2^n equiprobable orientations exactly one yields B>D, one yields B=D (only maximizing index reversed), and all remaining yield B<D, proving distribution-free (2^-n,2^-n,1-2^(1-n)) and independence of category from unordered pair data including D, also n=1. Under 2n iid atomless common-F inputs, uniform probability-integral transform gives Pr(F(B)>u,F(D)<=v)=[h(v)+max(0,h(v)-h(u))]^n, h(t)=t-t²/2. The two singular cumulative components F(B)=1 and F(B)=F(D) each have mass h(v)^n; differentiating the open-wedge survival-CDF gives density 2n(n-1)(1-u)(1-v)(2h(v)-h(u))^{n-2}. With u=s/n, v=1-t/√n, the joint survival limit is exp(-s-t²), yielding independent exponential and Rayleigh-type extremes. Independent exact orientation enumeration checked all 2^n orientations for 1<=n<=11; finite computations corroborate, not replace, the probability and asymptotic proof.
 
-## Limits
-No extension to constrained frames, dependent rows, tied inputs, deeper formulas or frame-valid equivalences is claimed. The standalone checker corroborates finite cases but does not certify generality. Uninspected older literature may contain an equivalent probability result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical bimodal Gödel semantics supplies the definitions of residuum, Box and Diamond; recent finite-model proofs do not study random sampled rows. Random fuzzy matrix work analyzes max-min closure rather than jointly sampled modal evaluations. The distribution-free symmetry trichotomy, two singular masses, full rank-coordinate joint density and independent extreme scales were not seen in inspected same-semantics and nearby probability papers. Search cannot prove absolute priority; general order-statistics literature may contain a translated equivalent.
+
+## value
+
+PASS
+
+The basic Box/Diamond order comparison under random exchangeable fuzzy evidence is a natural probabilistic semantics invariant. Exact positive-probability equality in atomless inputs, its exponential rarity with n, the two singular components, and distinct independent n versus sqrt(n) fluctuation scales provide substantive information beyond a routine independence check. The restrictions on conditional symmetry/no ties distinguish the theorem from general fuzzy-frame validity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

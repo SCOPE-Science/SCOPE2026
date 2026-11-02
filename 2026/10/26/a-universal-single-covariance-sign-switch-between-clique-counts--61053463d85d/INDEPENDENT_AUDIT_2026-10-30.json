@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:49:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on an induced copy of arbitrary m-vertex H inside a fixed vertex subset of G(n,p) and partition r-clique tests by overlap s. For s<2 edges are unconstrained. Summing for s>=2 gives normalized covariance sum_s binom(n−m,r−s)[c_s(H)p^(−binom(s,2))−binom(m,s)]. For 3<=r<=m and n>=m+r−2, the s=2 coefficient is positive. For nonempty noncomplete H, its derivative wrt p is strictly negative, limits +infinity at p↓0 and negative at p↑1; thus unique sign reversal. Empty/complete patterns have fixed signs. Expand s=2,3 overlap ratios to obtain rho plus O(1/(n−m)) with triangle-excess coefficient, exact r=3 sign. Independent exact graph-state enumeration checked three m<=5 examples on n=5. No finite computation substitutes for arbitrary H proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sah–Sawhney primary published mathematical discussion handles graph-factor expansions/local limit exceptional edge densities and not this all-H clique covariance one-crossing classification.",
+          "Goldschmidt–Griffiths–Scott deal with moderate deviations; Bhattacharya–Das–Mukherjee sample-based motif estimation."
+        ],
+        "reasoning": "Though the overlap formula may be mechanically derivable from known factor expansions, the monotone all-density single-crossing and triangle-excess expansion are specific consequences not stated as such in examined portions.",
+        "searches": [
+          "Sah Sawhney Local limit theorems for subgraph counts arXiv 2006.11369 induced graph factors exceptional density",
+          "Goldschmidt Griffiths Scott Moderate deviations of subgraph counts G(n,m) G(n,p) arXiv 1902.06830",
+          "Bhattacharya Das Mukherjee Motif Estimation via Subgraph Sampling fourth moment arXiv 2011.03026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2006.11369",
+        "https://arxiv.org/abs/1902.06830",
+        "https://arxiv.org/abs/2011.03026",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+        "GitHub RESULT.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Overlaps and graph factors justify how to derive a covariance sum but do not directly establish strict derivative negativity for every nonempty noncomplete H.",
+          "For any noninduced H, F(p) has different sign/normalization; direct implication requires induced conditioning."
+        ],
+        "reasoning": "The prior-method machinery is an input, not decisive coverage of the all-pattern sign theorem; nevertheless a general theorem on monotone covariances might subsume it and remains a residual risk.",
+        "searches": [
+          "Sah Sawhney local limit theorems induced subgraph factor expansion",
+          "induced motif overlap variance covariance Gnp versus clique"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target mixes an induced-motif count N_H with a noninduced clique count K_r; ordinary pairs of noninduced subgraph counts have different covariance signs.",
+          "The exact summands include missing-edge constraints via induced-copy conditioning and p^(-binom(s,2))."
+        ],
+        "reasoning": "An induced H is not equivalent to a noninduced H count; conditioning changes edge absences and allows sign reversals. The result cannot be inferred from positivity of noninduced subgraph correlations.",
+        "searches": [
+          "Erdos Renyi induced motif count clique count covariance single sign change p threshold",
+          "induced pattern clique covariance overlap graph factor Fourier p"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest published entry 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 concerns component count–triangle covariance, not K_r–induced motif covariance."
+        ],
+        "reasoning": "This is a uniform symbolic formula for unbounded n,m,r,H and a real parameter; a finite table cannot cover the theorem. No exact database entry seen.",
+        "searches": [
+          "Resultary search induced motif clique covariance Erdos Renyi sign threshold",
+          "SCOPE published covariance components triangles induced motifs"
+        ]
+      },
+      "rationale": "Classical overlap expansions for subgraph and induced motif counts are prerequisites, but the result uses positivity of the forced s=2 overlap to establish an all-H, all-r single-crossing theorem and critical location, not claimed in inspected source statements. Best-of-knowledge originality qualified by general graph-factor expansions.",
+      "residual_risks": [
+        "A broader induced-subgraph graph-factor covariance theorem may state an equivalent monotonicity as an immediate special case; only inspected portions ruled out direct prior statement.",
+        "Current assertion requires n>=m+r−2; no claim of universality outside that range."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_DIRECT_COVERAGE",
+          "evidence": "Local limit/exceptional-density setting, no direct universal single switch Cov(K_r,N_H) in inspected parts.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.11369",
+          "material_read": "Published Wiley mathematical full-text sections on graph factors and local limits (including early theorems and relevant expansion discussion)",
+          "method": "Read relevant full-text theorem statements and analytical framework",
+          "title": "Local limit theorems for subgraph counts",
+          "trigger": "General induced graph-factor Fourier expansions and exceptional densities"
+        },
+        {
+          "assessment": "POSSIBLE_GENERAL_FRAMEWORK_RISK",
+          "evidence": "Deviation bounds are not the target mixed induced motif covariance sign theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.06830",
+          "material_read": "Abstract, introduction and cited model/method descriptions; not complete primary text",
+          "method": "Bibliographic comparison",
+          "title": "Moderate deviations of subgraph counts in the Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "General overlap graph-count framework"
+        },
+        {
+          "assessment": "DIFFERENT_PROBLEM",
+          "evidence": "Motif estimation under vertex sampling rather than correlation with clique counts under edge density variation.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.03026",
+          "material_read": "Abstract and introduction-level research framing; not full paper",
+          "method": "Bibliographic comparison",
+          "title": "Motif Estimation via Subgraph Sampling: The Fourth Moment Phenomenon",
+          "trigger": "Same motif-count vocabulary and moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The universal single-switch law is a natural correlation invariant for induced motif frequency against clique statistics in G(n,p), distinguishing motifs of equal density by triangle excess. Uniform control of all patterns makes it more than recomputation of isolated small-graph covariance tables.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2006.11369",
+    "https://arxiv.org/abs/1902.06830",
+    "https://arxiv.org/abs/2011.03026",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+    "GitHub RESULT.md and check.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Audit restricted to the stated model and quantifiers in frozen RESULT.md; no generalization beyond source hypotheses.",
+    "Independent finite checks supplement reconstructed analytical arguments; finite numerical data is not proof of an infinite claim.",
+    "Scientific best-of-knowledge verdict distinct from publication readiness and absolute historical priority."
+  ],
+  "residual_risks": [
+    "A broader induced-subgraph graph-factor covariance theorem may state an equivalent monotonicity as an immediate special case; only inspected portions ruled out direct prior statement.",
+    "Current assertion requires n>=m+r−2; no claim of universality outside that range."
+  ],
+  "schema_version": 1
+}

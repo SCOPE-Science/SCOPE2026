@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:49:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1≤k<m, every top-k set of a strict single-peaked ranking is precisely a length-k interval containing its peak, and conversely all such intervals are realizable. If m<2k−1, all length-k intervals share at least two points so a unique approval winner is impossible. For a putative winner w at distance d≥k from median peak h, no voter peaking at or right of h can approve w; two left voters must both approve w, with intervals intersecting only at w, otherwise the winner is tied. The other three length-k intervals must be mutually disjoint and disjoint from the two-winner union, forcing m≥5k−1 and d≤m−3k. For d<k the bound is k−1; explicit five-ballot intervals attain k−1 whenever m≥2k−1 and m−3k for m≥5k−1, including the k=1 boundary. Independent exhaustive enumeration of interval-and-peak multisets for (m,k)=(4,1),(5,2),(6,2),(7,2),(9,2),(7,3),(9,3) yielded maxima 1,1,1,1,3,2,2, matching the piecewise formula. These finite checks only corroborate the infinite parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2010 PDF explicitly proves approval-bribery polynomial-time for single-peaked electorates, a computational result with arbitrary numbers of voters.",
+          "Black 1948 establishes the median peak as Condorcet winner for strict single-peaked rankings; top-k approval is a different winner rule."
+        ],
+        "reasoning": "The earlier results are broader in voter count or computation but not in the maximized displacement functional, and they do not algebraically imply thresholds 2k−1 and 5k−1.",
+        "searches": [
+          "Brandt et al 2010 approval bribery single-peaked full PDF §4",
+          "median voter theorem single-peaked top-k approval extremal winner deviation"
+        ]
+      },
+      "checked_sources": [
+        "Verified assigned RESULT.md",
+        "Brandt et al., AAAI 2010 Theorems 4–5, https://ccc.cs.uni-duesseldorf.de/COMSOC-2010/papers/11-brandt.pdf",
+        "Black 1948, DOI 10.1086/256633",
+        "Weber 1995, DOI 10.1257/jep.9.1.39",
+        "Resultary semantic search: single-peaked five voters top-k approval unique winner median peak maximum displacement threshold 5k-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Black establishes majority order, Brandt et al analyze approval-ballot complexity, and Weber surveys the approval rule.",
+          "A unique approval winner is not necessarily Condorcet winner and may be displaced by m−3k for large m."
+        ],
+        "reasoning": "The exact conclusion is not a corollary of median-peak Condorcet status or of polynomial-time winner/bribery computation; the packing proof supplies new extremal content.",
+        "searches": [
+          "Black 1948 median peak Condorcet winner",
+          "Brandt et al. 2010 §§2,4 approval-bribery",
+          "Weber 1995 approval voting review"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brandt et al. Theorems 4–5 concern P-time approval bribery under single-peaked constraints, not maximal unique-winner displacement from the median peak.",
+          "The proposed invariant fixes exactly five voters and length-k intervals, and demands a unique winner."
+        ],
+        "reasoning": "Existing median-voter winner/Condorcet results do not constrain another rule’s uniquely successful approval candidate to the exact claimed piecewise distance, and bribery complexity does not imply the extremal formula.",
+        "searches": [
+          "single-peaked five voters top-k approval unique winner median peak maximum displacement threshold 5k-1",
+          "Brandt Brill Hemaspaandra Hemaspaandra 2010 approval single peaked",
+          "Weber 1995 Approval Voting median"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top matches are five-voter divergence results for Kemeny, Slater and Banzhaf-type power indices, not this fixed-k approval deviation law.",
+          "Independent small-case enumeration matches the submitted formula but is not a known published table."
+        ],
+        "reasoning": "The claim gives an all-m,k exact law rather than a finite numerical census; no covering exact five-voter approval table identified, with residual risk of unindexed voting-theory work.",
+        "searches": [
+          "top k approval single peaked five voters displacement extremum tables",
+          "SCOPE Resultary: single-peaked five voters top-k approval unique winner median peak maximum displacement threshold 5k-1"
+        ]
+      },
+      "rationale": "Targeted source and implication comparisons did not identify prior coverage of the precisely scoped final theorem; best-of-knowledge PASS with named residual risks, not a priority certificate.",
+      "residual_risks": [
+        "Full Weber (1995) review text was not obtained; a historically described approval displacement inequality cannot be conclusively excluded.",
+        "Finite exhaustive examples are not a proof for all m,k; the interval-packing proof carries that burden."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the fixed-five unique-winner displacement statistic; complexity study.",
+          "evidence": [
+            "Theorem 4: approval-bribery is in P for single-peaked electorates; Theorem 5 treats variants."
+          ],
+          "identifier_or_url": "https://ccc.cs.uni-duesseldorf.de/COMSOC-2010/papers/11-brandt.pdf",
+          "material_read": "Full primary PDF available; read definitions §§1–2 and approval-bribery Theorems 3–5 with arguments in §4, introduction and claimed contributions.",
+          "method": "Public author-hosted PDF text plus rendered first page.",
+          "title": "Bypassing Combinatorial Protections: Polynomial-Time Algorithms for Single-Peaked Electorates",
+          "trigger": "Single-peaked approval-ballot results for an overlapping rule"
+        },
+        {
+          "assessment": "INACCESSIBLE_FOR_FULL_COMPARISON; no whole-paper noncoverage assertion.",
+          "evidence": [
+            "1995 survey of approval voting by R. Weber, DOI 10.1257/jep.9.1.39."
+          ],
+          "identifier_or_url": "https://doi.org/10.1257/jep.9.1.39",
+          "material_read": "Abstract and bibliographic record only; full text not obtained.",
+          "method": "Publisher bibliographic/abstract search.",
+          "title": "Approval Voting",
+          "trigger": "Canonical approval rule and potential median peak relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Top-k approval on an axis is a standard restricted voting rule and the median peak is a natural Condorcet benchmark. The precise feasibility cutoff and second 5k−1 distance transition measure how a uniquely victorious approval candidate may deviate from that benchmark. The result is not merely a parameter substitution: disjoint interval packing produces a new sharp two-regime law and explicit extremizers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Verified assigned RESULT.md",
+    "Brandt et al., AAAI 2010 Theorems 4–5, https://ccc.cs.uni-duesseldorf.de/COMSOC-2010/papers/11-brandt.pdf",
+    "Black 1948, DOI 10.1086/256633",
+    "Weber 1995, DOI 10.1257/jep.9.1.39",
+    "Resultary semantic search: single-peaked five voters top-k approval unique winner median peak maximum displacement threshold 5k-1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly five strict single-peaked voters, each approving exactly k≥1 alternatives; unique approval winner only.",
+    "Does not assert bounds for tied winner sets or a variable electorate size."
+  ],
+  "residual_risks": [
+    "Full Weber (1995) review text was not obtained; a historically described approval displacement inequality cannot be conclusively excluded.",
+    "Finite exhaustive examples are not a proof for all m,k; the interval-packing proof carries that burden."
+  ],
+  "schema_version": 1
+}
