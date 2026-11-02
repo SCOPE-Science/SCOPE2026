@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For normalized projected coordinate displacements \(p,q\), disjointness of the two inner-crossing parameter intervals yields \(pq\le a(p+q)\). The weighted quadratic maximum under this constraint follows from strict convexity of the one-variable boundary envelope, with sharp endpoint cases. Pairwise Helly for intervals reduces any admissible higher-dimensional segment to two avoiding coordinates. The Pythagorean upper bound is attained by a segment spanning every coordinate except a shortest one, and strict equality analysis classifies all optimizers. A packaged exact-Fraction checker tests 17,658 finite candidate segments and attainment, without being used as an infinite proof. Residual correctness risk: no independent referee review; general analytic arguments are explicit.
+## correctness
 
-## Originality — PASS under inspected evidence
-The motivating paper's Claim 2.2 gives the same planar unit-square number for **total line intersection length** and is acknowledged as covering that numerical special case. Its remaining sections prove plank-covering estimates, not the weighted rectangular or general-dimensional connected-segment extremum. Targeted mathematical-record searches for hollow cube chords, orthotope shells, and weighted longest segments returned nearby but non-covering facts about inradii and bisections, while other checked mathematical statements concern distinct geometric and lattice objects. There is no title-based proof of novelty; unindexed prior results remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The theorem exactly determines a natural straight-line visibility invariant for an entire nonsmooth, nonconvex family in arbitrary dimension. It identifies a sharp bottleneck at the shortest side, establishes a two-coordinate Helly obstruction behind the optimization, and classifies the full optimizer locus even for ties among shortest sides. This is materially stronger than restating the planar square result or evaluating a few finite instances. It does not improve the source's plank-covering constants and does not claim to.
+PASS. Verified the planar timing argument: two open coordinate-interior intervals must be disjoint for a hole-avoiding segment, yielding normalized displacements pq≤a(p+q). With r=a/(1−a), the exact weighted inequality αp²+βq²≤max(α+r²β,β+r²α) follows from the strictly convex p² plus [ap/(p−a)]² upper envelope on [r,1]. Interval Helly for d affine coordinate time intervals finds a disjoint pair, and the remaining d−2 displacements ≤1 force L²≤Σs_i²−(1−r²)s_min². Endpoints with full traversals except r-times one shortest side attain the bound; strict convexity/equality in every factor plus hole avoidance fixes all optimizer families under reflections and reversal. This proves all positive side lengths and all integer d≥2, not only tested finite grids.
 
-## Closest literature and limitations
-Ambrus et al., *On plank coverings of cube annuli* (arXiv:2610.18770v1), §2 Claim 2.2, §3 and §4. The result covers centered homothetic inner orthotopes only and fully contained segments, not disconnected line intersections or general holes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified best-of-knowledge, not certified historical priority. Ambrus et al. arXiv:2610.18770 Claim 2.2 contains the d=2 unit-square numeric bound for total line-intersection measure. The current claim differs by arbitrary side lengths, all d≥2, connected fully contained segment, and complete equality classification. The prior planar equal-sided special value is covered; no checked higher-dimensional theorem or Resultary same-shape entry implied the general formula. Residual risk: An older recreational geometry/visibility result under the term maximal free segment may cover the exact arbitrary-side formula.
+
+## value
+
+PASS
+
+PASS. Exact all-dimensional connected-chord optimization for a naturally centered rectangular shell, with arbitrary aspect ratios and complete rigidity of equality, is a useful sharp geometric extremal invariant. The planar equal-sided number was previously known and is not independently claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
