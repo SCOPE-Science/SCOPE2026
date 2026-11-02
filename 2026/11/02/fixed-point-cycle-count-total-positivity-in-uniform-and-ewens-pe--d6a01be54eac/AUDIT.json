@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Uniform exact enumeration; derangement-cycle polynomial has a symmetric-tridiagonal characteristic polynomial guaranteeing real negative zeros; strict Newton log-concavity plus verified A/B determinant identities gives adjacent strict positivity, propagated via contiguous support to all minors. Ewens row tilt preserves signs. The included standalone exact verifier passed 867572 assertions and exhaustive permutations through eight labels; its finite scope is separately stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deb and Sokal 2025 Section 1 defines several different matrices and their total-positivity properties",
+        "Ma 2010 r-associated Stirling polynomial zero-location theorem"
+      ],
+      "reasoning": "Generic row real-rootedness alone does not imply inter-row joint-count minors. Deb–Sokal works with higher-order Stirling triangles and row/Hankel transforms; the fixed-n matrix indexed by (total cycles,fixed points) is neither their index set nor an immediate row/column specialization. A more general unlocated TP theorem remains a risk.",
+      "searches": [
+        "\"associated Stirling\" \"total positive\" \"first kind\"",
+        "Eulerian-Stirling joint distribution cycles and fixed points adjacent minors log supermodular Ewens random permutations"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf",
+        "title": "Unseparated pairs and fixed points in random permutations"
+      },
+      {
+        "identifier": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-23.pdf",
+        "title": "Real zeros and the signless r-associated Stirling numbers of the first kind"
+      },
+      {
+        "identifier": "https://arxiv.org/pdf/1509.04552",
+        "title": "Fixed points and cycle structure of random permutations"
+      },
+      {
+        "identifier": "https://arxiv.org/html/2507.18959v1",
+        "title": "Higher-order Stirling cycle and subset triangles: Total positivity, continued fractions and real-rootedness"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diaconis–Evans–Graham Theorem 1.1 compares fixed-point and succession sets",
+        "Ma 2010 covers real-rooted rows, and the present proof additionally establishes coupled determinant inequalities",
+        "Mukherjee 2015 Theorems 1.3–1.4 concern convergence, not finite likelihood-ratio inequalities",
+        "Deb–Sokal 2025 studies a different higher-order Stirling array"
+      ],
+      "reasoning": "The claimed conditional TP2/MLR order is not a restatement of the identified enumeration, Poisson-limit or row-root results; none entails these particular cross-row comparisons without the additional determinant argument. Search coverage is bounded, so historical priority is qualified.",
+      "searches": [
+        "Random permutation joint cycle count and fixed point count likelihood ratio total positivity conditional on number cycles",
+        "Eulerian-Stirling joint distribution cycles and fixed points adjacent minors log supermodular Ewens random permutations",
+        "Random permutation fixed points and cycle count conditional likelihood ratio Stirling derangements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Joint count equals binomial(n,f) times associated Stirling cycle number d(n-f,k-f)",
+        "Ma 2010 establishes row real-rootedness but not cross-(r,a) determinant recurrences",
+        "Mukherjee 2015 proves asymptotic Poisson limits for individual short-cycle counts"
+      ],
+      "reasoning": "The exact equivalent formulation is TP2 of the joint fixed-point/total-cycle count array, or MLR ordering of fixed points given total cycles. The comparison sources supply marginal or row properties but do not state either equivalent joint order.",
+      "searches": [
+        "Random permutation joint cycle count and fixed point count likelihood ratio total positivity conditional on number cycles",
+        "Uniform permutation n joint matrix number cycles k and fixed points f TP2 all 2x2 minors positive association monotone likelihood ratio of fixed points conditional total cycles, associated Stirling derangements",
+        "Joint singleton cycles and total number of cycles TP2 total positivity probability conditional fixed points"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact integer minor tests to n=27 from current independent recurrence computation",
+        "The count w_n(k,f)=binomial(n,f)d(n-f,k-f) follows from classical derangement-cycle enumeration, not presented as a new table"
+      ],
+      "reasoning": "No identical all-n cross-minor table or theorem was identified. The present statement concerns a universal inequality among known enumeration entries, not the mere computation of those entries.",
+      "searches": [
+        "Uniform permutation n joint matrix number cycles k and fixed points f TP2 all 2x2 minors positive association monotone likelihood ratio of fixed points conditional total cycles, associated Stirling derangements",
+        "Random permutation fixed points and cycle count conditional likelihood ratio Stirling derangements"
+      ]
+    },
+    "rationale": "Claim is the nonasymptotic TP2 order for joint total-cycle and fixed-point counts and Ewens conditional consequences; classical count, derangement-cycle real-rootedness and marginal Poisson laws are not claimed new. Full-text comparisons with multiple plausible primary sources show no dominating implication, though historical priority remains qualified.",
+    "residual_risks": [
+      "An older or not-indexed theorem on total positivity of a more general two-statistic permutation array might already imply this exact TP2 statement.",
+      "The finite checker is supplementary to the analytic proof and does not independently certify all n.",
+      "No independent audit or external validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves fixed-point/succession set distribution and Poisson approximations, not joint total-cycle/fixed-point minor inequalities",
+        "evidence": [
+          "Berkeley technical report 822, dated 2013-08-01",
+          "Section 1 Theorem 1.1 and Sections 2–6 of the manuscript"
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf",
+        "material_read": "Complete 20-page manuscript, main results and proof sections 1–6",
+        "method": "Full PDF text inspection and visual first-page inspection; compared Theorem 1.1, CRP construction, appendices",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Archive-period source with same uniform permutation and fixed-point objects, primary MSC 60C05"
+      },
+      {
+        "assessment": "Proves properties of roots of associated Stirling cycle rows, not positivity of the mixed joint fixed-point/cycle count minors",
+        "evidence": [
+          "Ma 2010, Ars Combinatoria 94, 229–234, theorem on real zeros"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-23.pdf",
+        "material_read": "Six-page article, theorem statements and proof material, visual page images",
+        "method": "Manual examination of PDF page images and theorem comparison",
+        "title": "Real zeros and the signless r-associated Stirling numbers of the first kind",
+        "trigger": "Same derangement-cycle numbers and possible root-based domination"
+      },
+      {
+        "assessment": "Poisson limits for fixed-length cycle-count marginals, including fixed points, not exact total-cycle-conditioned likelihood-ratio order",
+        "evidence": [
+          "Mukherjee Theorem 1.3, Theorem 1.4 and Section 2, arXiv:1509.04552"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.04552",
+        "material_read": "Full 17-page PDF with introduction, theorem statements, proofs and applications",
+        "method": "PDF text and visual first-page review, plus arXiv full HTML theorem comparison",
+        "title": "Fixed points and cycle structure of random permutations",
+        "trigger": "Plausible title naming the same two statistics"
+      },
+      {
+        "assessment": "Studies higher-order Stirling row/reversal, Toeplitz and Hankel positivity, rather than TP2 of the fixed-n joint K/F count matrix; no direct dominating implication identified",
+        "evidence": [
+          "Deb–Sokal 2025, Sections 1.1 and 1.3 and Section 3, arXiv:2507.18959"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.18959v1",
+        "material_read": "Full HTML sections 1–7 and abstract, including conjectures, proof statements and derangement interpretation",
+        "method": "Primary full-text mathematical statement and matrix-index comparison",
+        "title": "Higher-order Stirling cycle and subset triangles: Total positivity, continued fractions and real-rootedness",
+        "trigger": "Recent possible stronger total-positivity theorem for associated Stirling cycle arrays"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6a01be5-4eac-441a-9b55-9d5804ed57a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural whole-distribution stochastic dependence between total cycles and fixed points, stronger than scalar correlation and applicable to all thresholds/strict increasing transforms for every sample size and Ewens parameter; the mixed-minor structural lemma is mathematically motivated and not a table lookup.",
+    "status": "PASS"
+  }
+}
