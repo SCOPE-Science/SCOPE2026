@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The source method is instantiated with exactly matching implicit and delayed sigma. For every complex |z|>=1, Re(rho/sigma)>=0 is established by an exact unit-circle polynomial identity plus exterior harmonic minimum principle; sigma has all roots strictly within unit disk. Characteristic-matrix factorization and Perron–Frobenius domination by D^-1 B yield strict Schur stability whenever its spectral radius is below 1. The boundary has z=1 exactly, and above threshold a continuous family of nonnegative real matrices produces a real multiplier >1. The F_p witness follows from exact weighted-cycle entries, a cubic characteristic polynomial, and a strict all-p global minimum inequality. Standalone verifier passed 3 symbolic certificate families, 54 stable numerical instances, and 24 boundary/unstable cases. Finite tests are not treated as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rodríguez-Gutiérrez–Martín-Vaquero, 2026, equation (29) and Corollary 3.9: coefficient family and a sufficient F_p unit-disk condition, not an iff graph criterion.",
+        "Tercero-Báez–Martín-Vaquero, 2024, equations (6)–(7) and Section 5: IMEX-BDF2/BDF3 with extrapolated delayed coefficients, unlike matched sigma.",
+        "Rosales–Seibold–Shirokoff–Zhou, 2017, abstract: unconditional stability regions for general linear ImEx splittings, no explicit delayed network threshold in accessible abstract."
+      ],
+      "reasoning": "Sufficient numerical-range or generic ImEx stability regions do not dominate the exact iff statement: the three-node witness has spectral radius one-half but fails every original F_p sufficient test. Different delayed coefficient polynomials and commuting-matrix hypotheses also prevent direct implication. Residual full-text risk is disclosed, especially for older broad ImEx theory.",
+      "searches": [
+        "Delay-independent unconditional numerical stability positive linear delay systems nonnegative matrices M-matrix for A-stable two-step methods with equal implicit delayed polynomial, equivalence Perron Frobenius",
+        "positive delay differential equations unconditional stability linear multistep schemes M-matrix spectral radius nonnegative B",
+        "A stable numerical schemes positive linear delay differential systems delay independent stability if M matrix",
+        "https://arxiv.org/html/2610.33780v1",
+        "https://arxiv.org/html/2412.12297v1",
+        "https://arxiv.org/abs/1609.04130"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.33780v1",
+      "arXiv:2412.12297v1",
+      "doi:10.3390/math7111038",
+      "arXiv:1609.04130",
+      "https://www.briat.info/research/positive.html",
+      "doi:10.1137/0722010 (scalar abstract)",
+      "doi:10.1137/S003614290037472X (abstract, possible stepsize restrictions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper Corollary 3.9 states F_p within the open unit disk for some p is sufficient. For D=diag(1,2,4) with cyclic gains (4,1/4,1), spr(D^-1 B)=1/2, but exact minimization of the symmetric numerical-range matrix yields numerical radius >1 for every p.",
+        "The 2024 paper analyzes extrapolated IMEX-BDF delayed polynomials; its matrix fields of values therefore do not directly imply exact Schur stability for the 2026 matched-coefficient family."
+      ],
+      "reasoning": "The original sufficient F_p theorem cannot imply universal stability of the explicit example, since its hypothesis fails for all real exponents. The spectral-radius iff result and the F_p separation are therefore not restatements or special cases of that sufficient theorem. The continuous-time gain equivalence is credited and is not presented as new.",
+      "searches": [
+        "For every diagonal negative A=-D and nonnegative delayed coupling B, sharp exact Schur stability of second-order implicit-explicit IMEX delay multistep with same sigma polynomial iff spectral radius D^-1 B less than one, all step sizes and delays",
+        "2610.33780 Rodríguez-Gutiérrez Martín-Vaquero sharp positive-system stability nonnegative B spectral radius and generalized field of values gap",
+        "https://arxiv.org/html/2610.33780v1",
+        "https://arxiv.org/html/2412.12297v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The positive-delay overview states an iff Hurwitz test for the continuous-time generator A+B; this is equivalent here to spr(D^-1 B)<1 but does not address characteristic multipliers of the 2026 discretization.",
+        "The 2019 Castro–García–Martín–Rodríguez article assumes commuting A and B and develops different exact/nonstandard finite-difference schemes."
+      ],
+      "reasoning": "Classical Metzler/Hurwitz and M-matrix terminology identifies the same static continuous-time gain threshold. Equivalence of the static threshold does not imply that a prescribed two-step numerical scheme retains it for all h, m and beta. In particular, the explicit noncommuting directed cycle is outside the 2019 commuting-matrix setup.",
+      "searches": [
+        "For every diagonal negative A=-D and nonnegative delayed coupling B, sharp exact Schur stability of second-order implicit-explicit IMEX delay multistep with same sigma polynomial iff spectral radius D^-1 B less than one, all step sizes and delays",
+        "Delay-independent unconditional numerical stability positive linear delay systems nonnegative matrices M-matrix for A-stable two-step methods with equal implicit delayed polynomial, equivalence Perron Frobenius",
+        "General positive systems numerical multistep DDE exact threshold rho(D inverse B)=1, all network dimensions, field of values certificate not necessary",
+        "https://www.briat.info/research/positive.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record semantic matches concerned unrelated delay crossings, positivity thresholds, multistep issues and operator numerical radii; no result contained the same universal graph-gain iff theorem and all-real-p witness.",
+        "Existing accessible scientific claims were checked for the article arXiv identifier, directed-cycle, product-gain, weighted numerical-range and equivalent matrix stability terminology; no overlapping claim found."
+      ],
+      "reasoning": "No numerical table or database exact constant is being recomputed. The theorem is a complete analytic classification and an explicit certificate-separation example. Search absence is not itself a uniqueness proof.",
+      "searches": [
+        "For every diagonal negative A=-D and nonnegative delayed coupling B, sharp exact Schur stability of second-order implicit-explicit IMEX delay multistep with same sigma polynomial iff spectral radius D^-1 B less than one, all step sizes and delays",
+        "General positive systems numerical multistep DDE exact threshold rho(D inverse B)=1, all network dimensions, field of values certificate not necessary",
+        "2610.33780 Rodríguez-Gutiérrez Martín-Vaquero sharp positive-system stability nonnegative B spectral radius and generalized field of values gap",
+        "directed cycle delay differential equations numerical methods unconditionally stable product b_j a_j multistep IMEX",
+        "2019 exact and nonstandard finite difference schemes coupled linear delay differential systems simultaneous triangularization matrices"
+      ]
+    },
+    "rationale": "Compared the exact positive-network iff statement and the explicit no-p certificate gap to the motivating 2026 work, its 2024 IMEX-BDF precursor, commuting-coefficient 2019 NSFD research, generalized unconditional ImEx analyses and classical positive delay systems. The continuous M-matrix gain condition is acknowledged as known; its exact preservation for the particular matched second-order delay multistep family and the all-exponent failure witness were not found in the inspected material or accessible published claim searches. This is best-knowledge priority, not exhaustive certification.",
+    "residual_risks": [
+      "The full 2019 publisher HTML was rate-limited, although its explicit commuting-matrix hypothesis and different nonstandard methods were confirmed from public article text.",
+      "Full 2017 generalized ImEx theory and the classical 1985/2002 papers were not inspected in their entirety; older equivalent theorem specialized to this numerical method cannot be categorically excluded.",
+      "All literature searches are bounded; no claim of independent validation or exhaustive mathematical priority proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_METHOD_NOT_COVERING_EXACT_POSITIVE_GRAPH_IFF_OR_ALL_P_WITNESS",
+        "evidence": "Equations (20)–(24), (29); Lemma 3.4; Theorem 3.8; Corollary 3.9; Theorem 4.2.",
+        "identifier_or_url": "https://arxiv.org/html/2610.33780v1",
+        "material_read": "Full-text HTML: introduction, Sections 2.1–2.2, equation (29), Lemma 3.4, Theorem 3.8, Corollary 3.9, Section 4 fixed and variable delay analysis, example structures and source references",
+        "method": "Read relevant full-text sections, compared characteristic equation and exact coefficients",
+        "title": "On the stability of second-order methods for DDEs and PDDEs",
+        "trigger": "Same exact second-order method and matrix condition"
+      },
+      {
+        "assessment": "DIFFERENT_SCHEME_AND_SUFFICIENT_MATRIX_TEST",
+        "evidence": "IMEX-BDF2 delayed-term extrapolation in (6) and weighted numerical-range discussion in Section 5.",
+        "identifier_or_url": "https://arxiv.org/html/2412.12297v1",
+        "material_read": "Full-text HTML sections 2 and 5, methods (6)–(7), generalized field-of-values definitions and source discussion",
+        "method": "Direct full-text comparison of delayed coefficient formulas and matrix assumptions",
+        "title": "On the stability of IMEX BDF methods for DDEs and PDDEs",
+        "trigger": "Prior paper by shared author with generalized field-of-values approach"
+      },
+      {
+        "assessment": "USES_COMMUTING_A_B_AND_DIFFERENT_NONSTANDARD_SCHEMES; FULL_TEXT_ACCESS_LIMIT",
+        "evidence": "2019 abstract expressly assumes commuting real matrices A and B, unlike the explicit noncommuting network witness.",
+        "identifier_or_url": "https://doi.org/10.3390/math7111038",
+        "material_read": "Publisher-indexed abstract and accessible article overview including hypotheses and Theorem 5 excerpt; full publisher HTML returned HTTP 429",
+        "method": "Read indexed scholarly article text and searched for commuting assumption and scheme construction",
+        "title": "Exact and Nonstandard Finite Difference Schemes for Coupled Linear Delay Differential Systems",
+        "trigger": "Closest title suggesting exact preservation of delay stability"
+      },
+      {
+        "assessment": "GENERAL_NONDELAY_IMEX_ANALYSIS; HISTORICAL_FULL_TEXT_RISK",
+        "evidence": "2016 preprint abstract discusses unconditionally stable ImEx matrix splittings and numerical-range criteria; it does not identify fixed-delay second-order matched scheme or positive DDE graphs.",
+        "identifier_or_url": "https://arxiv.org/abs/1609.04130",
+        "material_read": "ArXiv abstract and public metadata; accessible full HTML unavailable",
+        "method": "Compared advertised method scope and source context",
+        "title": "Unconditional Stability for Multistep ImEx Schemes: Theory",
+        "trigger": "Plausibly broader unconditional ImEx numerical-stability theorem"
+      },
+      {
+        "assessment": "KNOWN_CONTINUOUS_TIME_GAIN_THRESHOLD_ACKNOWLEDGED",
+        "evidence": "States stable for any positive delay iff A+A_h is Hurwitz for A Metzler and A_h nonnegative; not a discrete two-step Schur statement.",
+        "identifier_or_url": "https://www.briat.info/research/positive.html",
+        "material_read": "Research overview subsection on linear positive delay systems",
+        "method": "Read stated iff stability property and identify logical relation",
+        "title": "Positive Systems with Delays",
+        "trigger": "Check whether spectral-radius gain threshold is a previously known continuous-time fact"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "319885de-fd2c-4293-811c-253f5c997c49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result classifies numerical stability of every finite positive directed network under all admissible steps, lags and method parameters by one computable Perron-root threshold, rather than a mere sufficient bound. It supplies an exact necessity boundary and real unstable multiplier and exposes concrete noncommuting stable systems missed by every real-exponent version of the existing generalized numerical-range criterion. This is a structural numerical-analysis result with a reproducible stress-test, not a routine restatement of the known continuous-time M-matrix threshold. Scope and limitations are explicit.",
+    "status": "PASS"
+  }
+}
