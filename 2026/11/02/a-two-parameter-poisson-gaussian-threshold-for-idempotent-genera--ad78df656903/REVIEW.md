@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The asserted finite identity and limiting law have separate proofs. On fixed support, the path-value description gives an affine coset of the cycle-gain span at each pair of indices; gauge normalization makes fundamental-cycle labels independent uniform vectors. The finite-field rank enumeration therefore gives the exact conditional size law and the connected-support generation probability. In the balanced Bernoulli model, factorial moments give two independent Poisson isolated-vertex counts, a spanning-tree union bound rules out other disconnected components asymptotically, and a conditional binomial CLT proves independence of their counts from the centered edge-count fluctuation. The rank-product error is uniformly negligible off the Gaussian boundary layer, proving the joint limiting formula. Direct closure computations independently checked all supports and group labels in seven small parameter families (including both odd and even characteristic). The experiments corroborate only the finite formulas.
+
+## Originality — PASS relative to inspected sources
+
+The following are expressly **prior results**, not new claims: Graham's description of idempotent-generated 0-simple semigroups, Howie's path values, Houghton's graph-cohomology representation over elementary abelian groups, standard full-rank probabilities of uniform finite-field matrices, binomial CLT, and the isolated-vertex Poisson law. The assessed new assertion is the simultaneous, jointly tuned random Rees zero-matrix limit with product probability \(e^{-2e^{-c}}[1-\Phi(t)]\), including a demonstration of asymptotic independence of the two different obstructions. The inspected algebraic primary sources are deterministic classification or structural theorems; they do not state or imply an evaluated coupled sparse-support/growing-dimension limit without further random-graph and random-matrix analysis. Search terms also covered random semigroups, random sandwich matrices, random gain graphs, and the joint critical window. The 1977 graph-and-group paper of Houghton was not obtained in full and is a residual priority risk, as is a broader random-gain-graph theorem.
+
+## Mathematical value — PASS
+
+Idempotent generation is a fundamental intrinsic generation property of finite Rees semigroups. In a random model it has two independent obstructions with distinct fluctuation origins: connectivity of the structural support, and surjectivity of its cycle gains onto the maximal subgroup. The theorem locates a nondegenerate two-parameter critical surface where neither obstruction disappears and establishes a sharp limiting probability, independent of the fixed field characteristic. The exact componentwise distribution makes the model accessible at finite size and explains why a graph-only threshold misses the group obstruction. This is not a recomputation of a fixed table or a renamed deterministic theorem, though the finite structural input is classical.
+
+## Closest literature and limitations
+
+J. M. Howie (1978), *Idempotents in completely 0-simple semigroups*, proves the deterministic path-value criterion. C. H. Houghton (1978), *Finite zero-simple semigroups over an elementary abelian group*, establishes the cycle-space/cohomology formulation. T. Quinn-Gregson (first public version 28 August 2019), *Homogeneous completely simple semigroups*, studies normalised Rees matrices and graph-colouring structure. Ballester-Bolinches and Pérez-Calabuig (2020) reprove Graham's deterministic theorem. These works must not be cited as proof of the claimed probabilistic originality. The asymptotic theorem is limited to balanced Bernoulli supports, uniform independent labels, and fixed prime; priority and generalizations remain open to independent review.
+
+Self-review: passed. Independent audit: not yet performed.
