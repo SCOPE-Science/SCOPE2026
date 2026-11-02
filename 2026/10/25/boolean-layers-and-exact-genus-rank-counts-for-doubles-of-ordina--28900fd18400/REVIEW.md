@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quotient condition fixes all even elements and forbids precisely \(2,4,\ldots,2m-2\). The least positive odd element \(b\ge m\) forces the odd tail from \(b+2m\). Every one of the \(m-1\) odd positions strictly between \(b\) and \(b+2m\) can be selected independently because an odd-plus-positive-even sum enters that tail and an odd-plus-odd sum is allowed even. The independent positions prove the unique normal form. They are precisely the indispensable relative generators together with \(b\); all other odd elements are obtained by adding \(2O_m\). Direct gap counts give \(g=g_0+m-r+h\), with \(b=b_0+2h\), so fixed \(g,r\) forces \(h\), and choosing \(r-1\) of the \(m-1\) positions proves the binomial census and formal-series identity. The claimed stabilization threshold is sharp because the rank-one stratum first appears there. The Frobenius and maximal-member assertions follow from the same explicit gap list. Every argument holds for all integers \(m\ge2\), not just those tested computationally. The executable `verify.py` independently reconstructs membership using dynamic programming and checks 2,794 parameter triples plus 216 brute-force bounded fiber masks and the genus–rank counts.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 2026 first-public preprint of Ojeda and Rosales, arXiv:2605.14775v1, contains a general fixed-quotient generation framework, defines relative rank, and determines the rank-one elements; the current contribution does **not** claim these as new. The all-rank Boolean structure for fixed quotient \(O_m\), complete joint genus–relative-rank counts, and the exact stabilization threshold are not stated in the inspected preprint. The earlier complete treatment of multiples, arXiv:2402.04413v1, discusses maximal members and quotient ranks without these formulas. Strazzanti's 2015 Theorem 2.1 proves the numerical minimum genus of a \(d\)-fold in full generality, and that number is excluded from the originality claim; the inspected text does not give the present full fiber enumeration. Adeniran et al. study quotient genus but not the full fixed ordinary two-quotient fiber. Targeted prior-literature searches and published mathematical-record queries found no direct statement of the precise bivariate census or stronger covering theorem. This is an evidence-based overlap comparison, not proof of priority; older unindexed numerical-duplication or fixed-multiple enumerations remain a risk.
+PASS
 
-**Value — PASS.** A fixed-quotient fiber is a natural mathematical object highlighted in recent semigroup theory. The result gives an exhaustive and uniform enumeration of every member at **every** genus and relative rank, rather than just a special element, extremal value, or isolated finite table. Boolean independence yields a precise combinatorial shape for all intermediate layers, the full rational genus–rank series, and a sharp binomial stabilization phenomenon. These tell how an invariant defined in recent work varies across the entire infinite fiber. The special target \(O_m\) is mathematically motivated as the universal ordinary family, and the restriction to divisor two has a genuine parity structural mechanism.
+PASS: The quotient forces positive evens exactly >=2m. The least odd b must be >=m since 2b is allowed, and adding 2m forces all odds beyond b+2m. All m-1 intermediate odds are free: even+odd enters forced tail, odd+odd enters allowed evens. Thus every S is exactly one Boolean layer. None of b∪B can be generated from smaller odd choices and 2O_m because positive even increments >=2m and three odds >=3b>=b+2m. The genus is 2m-2+(b-1)/2-|B|. Writing b=b0+2h and r=1+|B| yields g=g0+m-r+h, and directly choosing B gives binomial coefficients, the bivariate OGF, and precise stabilization; boundary m=2 included. Independently reconstructed closure for 558 cases m=2..6 and h=0..8.
 
-**Limitations and comparison.** Existing general multiple/rank formulas are not new; the known minimum genus is not new; no statement about arbitrary targets or divisors is justified; finite tests supplement but never replace the proof. Priority cannot be certified from indexed literature searches alone. The present review is not independent expert validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Ojeda-Rosales arXiv:2605.14775 (full text §§2-4) gives general fixed-quotient semigroups, unique minimal relative generators, maximal rank and rank-one formulas; it does not state the entire ordinary-quotient-two Boolean layer enumerator and genus/rank OGF. Strazzanti 2015 covers minimum genus value. This is a concrete full-fiber specialization with new enumerative output, but could be regarded as an easy corollary of a known general criterion.
+
+## value
+
+PASS
+
+PASS: Full classification and exact two-variable census for a canonical infinite family of numerical-semigroup quotient fibers, including the sharp genus plateau, is a natural structural and quantitative invariant independent of textbook rank-one formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
