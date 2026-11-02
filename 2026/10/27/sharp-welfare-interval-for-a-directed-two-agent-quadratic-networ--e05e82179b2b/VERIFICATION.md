@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` in the same directory as the six scientific documents and the verifier. The program depends only on standard-library `fractions.Fraction` and has been executed successfully with `VERIFY_OK 945 exact rational parameter configurations`.
+## correctness
 
-The 945 cases range over \(t\in\{1/7,1/3,2/5,3/5,4/5,9/10,99/100\}\), three positive square-root cost scales for each agent, and all nonzero pairs of nonnegative incentives from four rational choices per agent. For every case, the code directly computes unnormalized Nash and planner actions, evaluates both raw payoffs, checks both agents' best-response identities and the planner first-order equations, verifies strict positivity and all interval bounds, and checks the explicit endpoint factorizations as exact fractions. The separate unequal-cost case \((\gamma_1,\gamma_2,g,b_1,b_2)=(4,9,18/5,2,3)\) produces exact price of anarchy \(125/89\). Several additional rational strengths close to the threshold test that lower bounds exceed various prescribed magnitudes while the response matrix remains nilpotent.
+PASS
 
-The general proof uses no numerical estimates. Its essential critical steps are the normalization, the feasible positive-definite planner inverse, the two factored rational differences, and the diagonal-ray proof of unbounded welfare at and beyond the planner boundary. Finite checks provide reproducibility and could detect transcription errors but do not certify untested real parameters or historical originality. An independent audit has not been performed.
+Normalize positive heterogeneous quadratic cost coefficients via v_i=sqrt(gamma_i)x_i, y_i=b_i/sqrt(gamma_i), t=g/sqrt(gamma1 gamma2) in (0,1). Triangular best responses give unique Nash v=(y1+t y2,y2). Planner Hessian H=[[1,-t],[-t,1]] is positive definite and H^-1y nonnegative, giving unique feasible maximizer. Welfare at Nash is D/2 with D=(y1+t y2)^2+y2^2>0; planner welfare is (y1^2+2t y1y2+y2^2)/(2(1-t^2)). Ratio differences factor exactly into t^2*y1*(y1+2t*y2)/((1-t^4)D) and t^2*y2^2/((1-t^2)D); equality iff y1=0 or y2=0 respectively. Connected incentive path attains every value; strictly positive incentives exclude endpoints. For t>=1 welfare diverges along v1=v2; the Nash response matrix is nilpotent M^2=0 at every t. Independent exact rational welfare evaluations passed 192 cases, not used for the universal proof.
+
+## originality
+
+PASS
+
+Compared mathematical objects and implications, not merely similar titles: Iwanaga–Kobayashi 2026 use a symmetric undirected binary adjacency, uniform own-cost 1/2, real unconstrained actions and spectral radius of symmetric adjacency; their assumptions do not admit a one-way nilpotent edge. A symmetric spectral welfare bound cannot specialize by relabeling to strictly upper-triangular directed M because M is not symmetric and rho(M)=0 for all t. The α-potential maximizer need not equal the true Nash equilibrium on a directed graph. Residual priority risks documented, including uninspected plausible original sources; absence of search hits is not assumed to certify novelty.
+
+## value
+
+PASS
+
+A two-agent one-directional productive externality is a minimal natural directed counterexample to bounding welfare inefficiency by strategic-response spectral radius. The full sharp, incentive-dependent best-to-worst interval with heterogeneous costs and divergent lower endpoint is a useful complete quantitative benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
