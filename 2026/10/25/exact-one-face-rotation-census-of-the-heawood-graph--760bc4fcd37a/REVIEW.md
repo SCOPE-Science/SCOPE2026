@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Fano-plane incidence construction gives \(14\) vertices and \(21\) edges. The included program exhausts all \(2^{14}\) rotations, cross-checks face tracing with a second implementation, verifies the \(336\)-element automorphism group, and checks the orbit count by Burnside's lemma. Euler's formula yields genus \(4\) for each one-face embedding. The claim is limited to this finite graph.
+PASS
 
-## Originality
+The Heawood graph has 14 cubic vertices, 21 edges, and is the Fano-plane point-line incidence graph. A rotation system assigns one of two cyclic orders at each cubic vertex (2^14 cases). Facial walks are cycles of sigma composed with dart reversal; counting faces, one face yields genus 4 from V-E+F=-6. I built an independent exhaustive 14-bit rotation tracer, independently enumerated all 336 graph automorphisms by adjacency-preserving graph isomorphisms (rather than the source’s GL(3,2) coordinatization), and enumerated orbits/mirror reversal. My full census yielded face histogram {1:4480,3:10880,5:1008,7:16}; one-face orbits {336:12,112:4}; mirror-pair sizes {672:6,224:2}. Exhaustion genuinely covers the complete finite universe; does not extrapolate to arbitrary graphs or metric cut loci.
 
-PASS on the inspected literature and database evidence. Itoh–Vîlcu give general realization and orientability criteria, but their explicit classification treats four generating cycles and does not enumerate the Heawood graph. Biggs's rotation-system discussion treats other graphs. Brinkmann–Tucker–Van Cleemput treat polyhedral embeddings, which exclude the one-face class counted here. Database searches returned records on Heawood matching- and cut-complexes, not one-face rotation systems. An unindexed specialist enumeration remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. This is a complete exact classification for a classical cubic graph with cycle rank \(8\): \(4{,}480\) labeled one-face systems, \(16\) orientation-preserving classes, and \(8\) mirror-identified types. These are one-boundary orientable strip types relevant to cut-locus realization, not arbitrary samples or a claim about all graphs.
+Generic one-face graph embedding existence and cut-locus realization do not enumerate all Heawood rotations, and the published polyhedral-embedding census imposes simple facial walks incompatible with a single 42-dart face. The exact orbit and mirror census survives the relevant comparison, with an unindexed map table as residual risk.
 
-Closest literature: Itoh–Vîlcu, arXiv:1103.1759 and arXiv:1103.3136; Biggs, DOI 10.4153/CJM-1973-040-1; Brinkmann–Tucker–Van Cleemput, arXiv:2008.09467v3. Limitations: the computation does not classify metrics, curvature, geodesic lengths, or stability; an unindexed specialist map table may exist.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Heawood graph is a canonical 3-regular highly symmetric Fano incidence graph, making maximal-genus one-face rotation systems a natural finite topological object. Its complete labeled counts and symmetry classes classify its orientable one-boundary ribbon neighborhoods and hence the corresponding combinatorial cut-locus strip types. Although finite and computational, this is full exact classification of a natural object, not a random small sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

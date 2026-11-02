@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone program at `verification/heawood_rotation_census.py` was run successfully using only the Python standard library. Its SHA-256 is `b7a1469d218241047dcb1cb270df5ab822fd532fa5a2c98f404f9dc877849b91`.
+# Independent mathematical audit
 
-Actual checks completed:
-- The incidence construction has \(14\) vertices, \(21\) edges, and degree \(3\) at every vertex.
-- The explicit collineations and point-line dualities give \(336\) distinct adjacency-preserving automorphisms.
-- All \(16{,}384\) local cyclic-order assignments were enumerated.
-- Two independent face-tracing implementations agree on the complete distribution: \(4{,}480\) systems have one face, \(10{,}880\) have three, \(1{,}008\) have five, and \(16\) have seven.
-- The \(4{,}480\) one-face systems form \(16\) automorphism orbits: \(12\) of size \(336\) and \(4\) of size \(112\).
-- Burnside's lemma independently returns \(16\) orbits: one automorphism fixes \(4{,}480\) systems, \(56\) fix \(16\) each, and \(279\) fix none.
-- Global mirror reversal pairs the \(16\) orbits into \(8\) classes: six of combined size \(672\) and two of combined size \(224\).
-- Euler's formula gives genus \(4\) for every one-face embedding.
+## correctness
 
-Scope limits: the enumeration is exhaustive only for the Heawood graph's rotation systems. It does not certify any statement for other graphs or any metric/geodesic property beyond the standard strip-to-cut-locus realization implication. The search did not establish global novelty against all possibly unindexed sources.
+PASS
+
+The Heawood graph has 14 cubic vertices, 21 edges, and is the Fano-plane point-line incidence graph. A rotation system assigns one of two cyclic orders at each cubic vertex (2^14 cases). Facial walks are cycles of sigma composed with dart reversal; counting faces, one face yields genus 4 from V-E+F=-6. I built an independent exhaustive 14-bit rotation tracer, independently enumerated all 336 graph automorphisms by adjacency-preserving graph isomorphisms (rather than the source’s GL(3,2) coordinatization), and enumerated orbits/mirror reversal. My full census yielded face histogram {1:4480,3:10880,5:1008,7:16}; one-face orbits {336:12,112:4}; mirror-pair sizes {672:6,224:2}. Exhaustion genuinely covers the complete finite universe; does not extrapolate to arbitrary graphs or metric cut loci.
+
+## originality
+
+PASS
+
+Generic one-face graph embedding existence and cut-locus realization do not enumerate all Heawood rotations, and the published polyhedral-embedding census imposes simple facial walks incompatible with a single 42-dart face. The exact orbit and mirror census survives the relevant comparison, with an unindexed map table as residual risk.
+
+## value
+
+PASS
+
+The Heawood graph is a canonical 3-regular highly symmetric Fano incidence graph, making maximal-genus one-face rotation systems a natural finite topological object. Its complete labeled counts and symmetry classes classify its orientable one-boundary ribbon neighborhoods and hence the corresponding combinatorial cut-locus strip types. Although finite and computational, this is full exact classification of a natural object, not a random small sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
