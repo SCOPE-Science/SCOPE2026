@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-For every \(n\ge4\), \(0<\lambda<1\), and \(0<\tau\le1\), the Dirichlet equations have a unique solution. The gap recurrence has explicitly verified endpoints and a positive denominator. The rim deficit is strictly discretely convex by the exact hyperbolic representation; balancing minimizes total deficit and longest gap simultaneously, so the coupled hub support and the worst rim support are both maximal under balanced placement. Both hub-selected and hub-excluded cases are exhausted, and all threshold boundaries use non-strict comparison. Independent rational Gaussian elimination verifies \(3006\) cases and all \(216\) tested fixed-cardinality optimum floors. The finite checks alone are not a proof of all sizes.
+## correctness
 
-## Originality (PASS, qualified)
-The 2026 defining article proves general properties and a path-gap/spider method, not the exact wheel balance theorem with its hub feedback and all-parameter threshold formula. Its distance-domination regimes can cover special wheel thresholds and are not attributed here as new. The 2013 finite-horizon random-walk domination objectives are mathematically different. Published work on complete-bipartite instances also concerns a different graph class, and does not imply the wheel formula. An equivalent wheel solution in a different facility-location or stubborn-agent terminology is an unresolved bibliographic risk; search absence is not definitive priority.
+PASS
 
-## Value (PASS)
-The global hub-feedback term means uniform worst-vertex coverage is not merely a set of independent path constraints. Strict convexity nevertheless produces a balanced maximin placement simultaneously with and without the hub, giving a complete exact \(O(n)\)-arithmetic-operation calculation for any rational discount/threshold pair on a natural infinite family. The explicit \(W_4\) example demonstrates that the prominent hub can be excluded by every cardinality-optimal solution, a structural warning against hub-first heuristics.
+The recurrence p_{j+1}=3p_j/λ−p_{j−1} solves every pinned rim gap, giving a hub feedback x=λ(n−D)/(n−λ²D/(3−2λ)). The gap deficit D_m is discretely convex, while middle attenuation ψ_m decreases in m; balanced gaps minimize D and largest m, thus jointly maximize both hub and worst-rim potential. The two mutually exclusive hub choices and k=0, n boundary cases give the displayed all-parameter minimum threshold formula. The n=4 λ=3/5 case supplies a hub-free strict optimum.
 
-## Literature and limits
-The closest primary source is Allagan, Pereyra and Massey, arXiv:2609.31535v1 (2026-09-25), especially the definitions, path-gap transfer, spider algorithms, and complete-graph case. Li et al., arXiv:1302.4546v1 (2013), studies different aggregate fixed-cardinality objectives. The conclusion is restricted to simple unweighted wheels with homogeneous discounts; neither unique optimal placements nor arbitrary cones are classified. Alternate terminology and inaccessible literature present residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The recently introduced discounted hitting domination problem has graph-specific formulas for stars, complete graphs and spider trees, but the inspected prior summaries do not solve the hub-coupled cycle with an exact maximin balancing lemma for all real discounts and thresholds. A full close-reading of the closest 2026 paper was unavailable, leaving meaningful priority risk.
+
+## value
+
+PASS
+
+Discounted hitting-source location is a natural random-walk covering invariant; the all-real-parameter wheel formula and proof that balancing is globally optimal despite hub coupling give an exact infinite graph-family classification and a non-hub-first phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
