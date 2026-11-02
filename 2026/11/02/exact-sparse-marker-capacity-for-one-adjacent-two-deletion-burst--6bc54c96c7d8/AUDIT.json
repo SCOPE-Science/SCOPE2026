@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Literal deletion-ball collision characterization was rederived. Any nonadjacent parent consumes one or two distinct weight-one marker outputs; loops separated by two share a weight-two output; this gives the independent-two-path loop cap and exact \\(f(m)\\). Adjacent-ones parents share the all-zero output, so at most one can occur; the boundary case sharpens to \\(1+f(m-1)\\). An explicit four-periodic marker matching attains it, and the necessary-and-sufficient collision criteria establish no hidden weight-two collision. All bounds and the \\(n=2\\) exception were checked. The standalone checker confirms 79,002 pairwise collision decisions and 249 constructions, with exact maximum independent sets through length 10; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al. construct codes for general q-ary bursts of at most t deletions and give redundancy bounds, not an exact capacity formula for weight two.",
+        "Schoeny et al. treat general b-burst constructions and nonasymptotic bounds without this exact sparse subchannel.",
+        "Cullina et al. consider arbitrary s-deletion sets and graph coloring/weight partitions, not adjacent exact-two deletions."
+      ],
+      "reasoning": "A theorem for a larger alphabet or more general error model would cover the new claim only if it also implies the exact maximum for this fixed-weight restricted channel. The inspected bounds and constructions do not provide the matching all-length upper and lower bound.",
+      "searches": [
+        "https://arxiv.org/html/2210.11818v1",
+        "https://arxiv.org/html/1602.06820v2",
+        "https://arxiv.org/abs/1211.4056",
+        "\"constant weight\" \"burst deletion\" 2 binary optimal"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2210.11818",
+      "https://arxiv.org/abs/1602.06820",
+      "https://arxiv.org/abs/1211.4056"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The proposed \\(M(n)\\) and construction use the restriction that the deleted coordinates are consecutive; changing to unrestricted two deletions changes the confusability graph.",
+        "The 2022 and 2016 sources give general-code existence/bounds, not sharp maxima for the weight-two sublayer."
+      ],
+      "reasoning": "Neither the preexisting unrestricted-deletion independent-set formulation nor general non-binary burst-code bounds logically imply an exact maximum \\(\\lfloor3(n-1)/4\rfloor\\) in this subchannel. An earlier hidden special-case theorem is the main residual risk.",
+      "searches": [
+        "https://arxiv.org/html/2210.11818v1",
+        "https://arxiv.org/html/1602.06820v2",
+        "https://arxiv.org/abs/1211.4056",
+        "\"constant-weight\" \"burst deletion\" \"two\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The word-position model is an exact matching-with-loops reduction for the exact-two-adjacent-deletion balls.",
+        "No inspected searched source states the marker matching reduction or the size \\(\\lfloor3(n-1)/4\\rfloor\\)."
+      ],
+      "reasoning": "A general weight-partition deletion code with arbitrary positions is not equivalent to this contiguous-burst input-output relation. All formulas must compare the same exact error balls; searches for synonyms and the sharp coefficient did not locate an identical result. Absence in search results is not a uniqueness proof.",
+      "searches": [
+        "\"two ones\" \"burst deletion\" \"code\"",
+        "\"weight-two\" \"burst\" \"deletion\" code 2 adjacent exact",
+        "\"two one-positions\" burst-2 deletion channel confusability graph maximum independent set",
+        "\"single length two contiguous deletion binary constant Hamming weight 2 zero error codes 3/4 n exact optimum\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The compared published (3,1)-burst finite code table concerns a different burst mechanism; the parity-lifted syndrome-size result concerns ternary covering classes.",
+        "No inspected table gives the proposed full weight-two exact-length-two burst capacity."
+      ],
+      "reasoning": "Finite optimum values in adjacent coding models do not automatically entail the asserted all-length closed formula. The result gives the entire infinite sequence and a direct construction.",
+      "searches": [
+        "\"3(n-1)/4\" burst deletion code",
+        "\"two ones\" \"consecutive deletions\" \"codes\"",
+        "burst-deletion correction in binary weight-two layer exact maximum code cardinality",
+        "exact optimal size binary length n Hamming weight two code correcting a single burst of two adjacent deletions, 2-burst deletion packing capacity floor 2n/3",
+        "constant weight 2 single two-consecutive-symbol deletion correcting code exact bound, matching cliques"
+      ]
+    },
+    "rationale": "Actual research-record queries, existing accessible findings, and primary literature were compared by their error balls and logical implications, not merely titles. The closest 2022/2016 burst-code papers treat general codes/at-most bursts, while 2012 weight-partition methods address arbitrary deletions, none inspected proving this exact all-length fixed-weight result. Some equivalent earlier specialization may be unlocated; source inspection scopes and limitations are recorded.",
+    "residual_risks": [
+      "A classical or differently named treatment of very sparse burst-deletion codes might contain an implicit equivalent.",
+      "Publicly indexed research-record search summaries cannot establish nonexistence of an unindexed, privately held, or inaccessible result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_BOUNDS_NOT_EXACT_SUBLAYER",
+        "evidence": [
+          "First arXiv submission 2022-10-21; construction for general q-ary burst channels, not the all-length weight-two optimum"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.11818v1",
+        "material_read": "Primary full-text introduction and Sections I-IV and major result statements",
+        "method": "Read public arXiv full-text HTML, compared error model and theorems",
+        "title": "Non-binary Codes for Correcting a Burst of at Most t Deletions",
+        "trigger": "Same burst channel (general q-ary sequences, length at most t)"
+      },
+      {
+        "assessment": "GENERAL_CONSTRUCTION_NO_WEIGHT_TWO_MAXIMUM_IDENTIFIED",
+        "evidence": [
+          "First arXiv submission 2016-02-22; studied exact b consecutive deletions among general binary codes"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1602.06820v2",
+        "material_read": "Primary full-text introduction, Sections I, II, V and appendix material",
+        "method": "Read public arXiv full-text HTML, compared exact vs at-most burst definitions",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Original exact consecutive deletion-burst formulation and bounds"
+      },
+      {
+        "assessment": "DIFFERENT_CHANNEL_NO_EXACT_BURST_TWO_WEIGHT_TWO_CAPACITY",
+        "evidence": [
+          "First public date 2012-11-16; full paper defines D_s as all position-subsequence deletions, not exact adjacent bursts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.4056",
+        "material_read": "Primary publicly rendered full text introduction, preliminaries and Section III setup including distinctions between unrestricted and burst deletions",
+        "method": "Read arXiv text representation and result statements",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Constant-Hamming-weight deletion-code induced graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bc54c96-c7d8-41b0-9e01-1b52fc8746a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The capacity is a natural exact zero-error invariant for fixed-composition synchronization coding, has a sharp infinite-family formula, a direct no-search construction and a matching-with-loops reduction exposing the four-periodic structure. This is not a mere restriction of an unrestricted-deletion optimum and gives concrete optimal sparse-marker codebooks for every length.",
+    "status": "PASS"
+  }
+}
