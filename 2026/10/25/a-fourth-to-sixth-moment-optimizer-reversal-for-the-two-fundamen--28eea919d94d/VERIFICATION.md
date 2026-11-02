@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and boundaries
 
-Execute `python3 check_g2.py` using Python 3, SymPy and NumPy. The script constructs the exact seven- and fourteen-dimensional fundamental characters as Laurent polynomials, constructs the Weyl density over the full six positive-root pairs, and calculates all mixed moments of total degree two, four, and six by integer coefficient convolution and division by the Weyl order 12. It also verifies exact symbolic derivatives of both sharp-ratio polynomials, verifies one positive-root sign change per derivative polynomial, and checks exact rational intervals for their unique positive roots.
+# Independent mathematical audit
 
-The additional 48-by-48 torus-grid calculation checks the same moments numerically. For total moment degree at most six, every Laurent exponent coordinate of the weighted integrand has absolute value less than 24; thus discrete averaging over the grid would be exact in infinite precision. Floating-error tolerance is below \(10^{-7}\) in the numerical implementation; this is an auxiliary cross-check, not proof by finite sampling.
+## correctness
 
-The proof of universality is the analytic common-phase reduction and Descartes-based global optimization in `RESULT.md`; the finite checker verifies its explicit coefficient inputs. The six-moment theorem says nothing about higher-weight representations, other complex dimensions, or unclaimed exponents. No external independent scientific audit has been performed.
+PASS
+
+The stated G2 7- and 14-character Laurent restrictions and Weyl-density product have CT W=12. Independently multiplied Laurent polynomials and extracted exactly the complete n=2,4,6 mixed moments [1,0,1], [4,2,3,1,5], [35,30,33,32,45,40,80]. The resulting P4,P6 and derivative numerators -4q4,-30q6 match; each q has a unique positive root by Descartes plus endpoint signs. Roots r4~0.9362819594<1<r6~1.1450747775 and K4~9.7665142177, K6~296.8165835214. Nonnegative invariant tensor multiplicities bound arbitrary complex phases, and strictly positive neighboring terms rigidly force same complex phase. No boundary maximizer.
+
+## originality
+
+PASS
+
+Evans–Pugh published the G2 fundamental-character joint law, so every raw mixed moment is derivable prior knowledge. Their spectral measure does not itself state the globally optimized two-character fourth and sixth inequalities, complete complex equality classification, or reversal; searched Resultary sharp Fourier moments pertain to abelian spectra, different mathematical objects. This is a qualified originality judgment because extracting the optimization from earlier full G2 work may have been done elsewhere.
+
+## value
+
+PASS
+
+The two fundamental exceptional-character packet provides a natural finite-dimensional harmonic-analysis norm problem. Exact sharp inequalities, rigid complex optimizers, and a qualitative change in favored 7- vs 14-dimensional representation between moments 4 and 6 are substantive structural information, not merely a raw table of representation multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: fourth–sixth moment optimizer reversal on \(G_2\)
+# Independent mathematical audit
 
-## Correctness (C): PASS
-For the compact, simply connected \(G_2\) group with probability Haar measure, the two ordinary real fundamental characters are explicitly specified and checked to have orthonormal second moments. The Weyl density uses all six positive-root pairs and has constant term 12. Exact Laurent multiplication yields the mixed fourth- and sixth-order moment tables; the accompanying checker reconstructs every table entry from the root data rather than trusting a pasted log. Positivity of invariant tensor multiplicities bounds the complex-phase problem by positive aligned coefficients, with strict common-phase equality from the positive mixed odd-split terms. Exact derivative identities, a one-sign-change argument for each derivative numerator, and endpoint comparisons certify the unique global maximizing ratios. The strict reversal follows from exact polynomial evaluations at ratio one, not approximate roots.
+## correctness
 
-## Originality (O): PASS on available evidence
-The principal source requiring comparison is Evans–Pugh, *Spectral Measures for G2* (arXiv:1404.1863): its Sections 2 and 4 specify the fundamental characters and the complete joint reduced Haar spectral density. That is broader background for *computing raw moments*, so the moments and density are not claimed as new. It does not state or parameterize the sharp coefficient norm optimizers or the transition between moment orders four and six. Ratcliffe, *Young-diagrammatic Methods for the Representation Theory of G2* (public repository deposit 2024-06-03), studies invariant multiplicities rather than optimized analytic moment norms; Collins, *Moment Methods on Compact Groups* (2022), is a general integration and moment survey. Targeted searches for equivalent moment statements, ratios, joint spectral-optimizer formulations and stronger Lie-group inequalities returned no direct covering theorem. Analogous sharp character-norm problems for other compact groups cannot imply the different \(G_2\) tensor multiplicities. Residual priority risk: an older unindexed direct optimization or a concise corollary in representation-theory literature may exist, notwithstanding these searches.
+PASS
 
-## Mathematical value (V): PASS
-The object is canonical—the entire rank-two fundamental-character packet of the smallest exceptional compact simple Lie group—and the unknown quantities are its optimal complex \(L^2\)-to-\(L^4\) and \(L^2\)-to-\(L^6\) synthesis constants. Unlike restating or tabulating joint moments, the theorem gives two sharp global analytic optimizations and complete complex extremizer classifications. More importantly, the order-four optimizer puts larger coefficient energy in the seven-dimensional character while the order-six optimizer puts larger energy in the fourteen-dimensional adjoint character, proved via exact integer polynomial sign conditions. This moment-dependent reversal is qualitative and would not follow from a separate bound on either individual character. The outcome is restricted to this canonical two-character packet and to these two even moments; no general higher-moment claim is made.
+The stated G2 7- and 14-character Laurent restrictions and Weyl-density product have CT W=12. Independently multiplied Laurent polynomials and extracted exactly the complete n=2,4,6 mixed moments [1,0,1], [4,2,3,1,5], [35,30,33,32,45,40,80]. The resulting P4,P6 and derivative numerators -4q4,-30q6 match; each q has a unique positive root by Descartes plus endpoint signs. Roots r4~0.9362819594<1<r6~1.1450747775 and K4~9.7665142177, K6~296.8165835214. Nonnegative invariant tensor multiplicities bound arbitrary complex phases, and strictly positive neighboring terms rigidly force same complex phase. No boundary maximizer.
 
-## Evidence and limitations
-The actual standalone checker rederived mixed moments for orders two, four and six from torus Laurent polynomials, verified symbolic derivatives and rational positive-root isolations, and cross-checked the Haar averages on a nonaliasing torus grid. Neither the checker nor source-search noncoverage is a substitute for an external independent mathematical audit. The oldest G2 joint-law source already contains enough information to recover all raw moments, so originality is specifically in the coefficient-constrained sharp global optimization and optimizer reversal. Other even moments, non-even exponents, arbitrary matrix coefficients, and all representation packets beyond these two characters remain outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Evans–Pugh published the G2 fundamental-character joint law, so every raw mixed moment is derivable prior knowledge. Their spectral measure does not itself state the globally optimized two-character fourth and sixth inequalities, complete complex equality classification, or reversal; searched Resultary sharp Fourier moments pertain to abelian spectra, different mathematical objects. This is a qualified originality judgment because extracting the optimization from earlier full G2 work may have been done elsewhere.
+
+## value
+
+PASS
+
+The two fundamental exceptional-character packet provides a natural finite-dimensional harmonic-analysis norm problem. Exact sharp inequalities, rigid complex optimizers, and a qualitative change in favored 7- vs 14-dimensional representation between moments 4 and 6 are substantive structural information, not merely a raw table of representation multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
