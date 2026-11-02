@@ -1,12 +1,21 @@
-# Scientific review — Tribonacci three-pseudoperiods through shift 44
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is an exact count and list of 55 positive triples among all 13,244 ordered three-element sets of shifts through the length-44 sixth Tribonacci substitution iterate. The proof is the finite substitution closure of all 91 length-45 factors drawn from the ninth iterate (length 274). The elementary covering lemma promotes the checked factor set to the full infinite language, so the 13,244 direct factor tests establish *all positions*, not only a long prefix. The bundled `verify.py` recreates the certificate and checks the same table by a separate direct-position computation. Risk: independent mathematical replication has not been performed.
+## correctness
 
-## Originality — PASS (provisional)
-The closest source is Meleshko, Ochem, Shallit and Shan, *Pseudoperiodic Words and a Question of Shevelev*, arXiv:2207.10171, §4.5. Their Theorem 29 supplies (4,6,7), and their Open Problem 30 asks for all Tribonacci three-pseudoperiods. Their general decidability framework does not report the present list of 55, its 54 additional triples, or the exact 91-factor closure certificate. The journal version and available published-result searches did not reveal an equivalent table. Limit: an unindexed equivalent finite computation remains possible; the result does not solve the complete infinite open problem.
+PASS
 
-## Mathematical value — PASS
-The cutoff 44 is the sixth substitution-iterate length, not an arbitrary pattern filter. The theorem gives the first substantial complete finite sector of the explicitly published open problem: all 13,244 possible triples within the sector are settled exactly, with 55 positives and a compact finite-language certificate that allows future claims to be tested. It is a finite result, not a general classification; neither standalone correctness nor reproducibility alone is offered as its motivation.
+Let S be the 91 length-45 factors of tau^9(0), itself length 274. The finite certificate directly verifies every length-45 factor of tau(s) for s in S belongs to S. Because the substitution is nonerasing, any length-45 output factor of a sufficiently long input occurs within tau of some length-45 input factor, so closure inductively proves S is the complete length-45 factor language of the infinite fixed point. Each triple condition is a Boolean predicate on one such factor. Exhaustively evaluating all 13244 triples over S is therefore a valid infinite-position proof, not a test of 274 observed positions. Fresh independent reconstruction found 91 factors, closure PASS and exactly 55 valid triples; distinguished lexicographic order from ascending maximal-shift order. Original census.json was checked against generated certificate by source verifier; arbitrary shifts beyond 44 are not tested.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published Theorem 29 supplies only the distinguished (4,6,7) triple and Open Problem 30 asks for the unbounded classification. The qualified addition is a complete bounded all-position initial table of 55 triples, with substitution-closure proof through the sixth length scale, not a solution of the infinite open problem.
+
+## value
+
+PASS
+
+This finite initial classification addresses a published difficult automatic-word open problem at a natural substitution length scale, and unlike raw prefix testing it rigorously certifies every infinite position. The complete 55-table and positive/negative witnesses provide a reusable computational and structural benchmark for a future full algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
