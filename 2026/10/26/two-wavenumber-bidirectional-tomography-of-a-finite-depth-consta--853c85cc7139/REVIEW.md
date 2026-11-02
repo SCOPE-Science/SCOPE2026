@@ -1,17 +1,21 @@
-# Scientific review: bidirectional two-wavenumber gravity–capillary tomography
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The classical dispersion formula [1, Eqs. (33)–(34)] is explicitly assumed, not newly derived. Difference and product separate unknown shear from restoring force. The ratio of directional speed differences maps positive finite depth bijectively to the open interval between the wavenumber ratio and one; its logarithmic derivative is positive because \(k/\sinh(2kh)\) strictly decreases in \(k\). At recovered depth, the two linear restoring-force equations invert uniquely, with exact strict positivity inequalities. Positive product and difference recover each original wave pair, proving necessity and sufficiency rather than mere parameter fitting. The one-frequency family and two sharp depth sensitivities follow by explicit constructions and expansions. A deterministic checker performs 12,028 finite verifications; the proofs of global and limiting statements are analytical, not enumerative.
+PASS
 
-## Originality — PASS; limitations and comparisons
+Under known density, known surface advection reference, two distinct known wavenumbers 0<k1<k2, and strictly positive h,S,g,sigma, the classic constant-vorticity dispersion gives delta_i=u_i-d_i=S tanh(k_i h)/k_i and p_i=u_i*d_i=(g/k_i+sigma*k_i/rho)tanh(k_i h). R=k1delta1/(k2delta2)=tanh(k1h)/tanh(k2h) is strictly increasing from k1/k2 to 1 because k/sinh(2kh) strictly decreases. Hence h and then S are unique. Y_i=k_i p_i/tanh(k_i h)=g+(sigma/rho)k_i² is an invertible 2×2 linear system, and strict positive gravity/surface tension are exactly Y1<Y2<(k2²/k1²)Y1. Conversely positive difference/product uniquely recover each measured speed pair, proving sharp sufficiency. At one k, h and g can vary freely, yielding a two-parameter nonidentifiability family. The derivative of R has a linear shallow-depth zero and exponentially small deep-depth tail, establishing the inverse-condition laws. Independently implemented forward/inverse reconstruction for 12 positive parameter configurations and checked the identities; finite tests corroborate, not prove, global injectivity.
 
-Ellingsen–Brevik (arXiv:1311.1073v1) already derive the **entire forward dispersion law**, including surface tension and uniform shear, in equations (33)–(35); no novelty is claimed for those equations. The present result classifies the complete measured-data feasibility region and four-coefficient inverse, proves a minimal two-wavenumber requirement, and gives exact inverse-depth condition factors. The inspected source sections do not claim these inverse facts. De Boeck (arXiv:1404.5608v1) addresses nonlinear global bifurcation; Barbieri and collaborators (arXiv:2501.14353) analyze Stokes-wave and phase-speed bifurcations. Neither supplies a stronger reciprocal-data inverse theorem in the reviewed relevant material. Published and indexed related two-wavenumber inverse classifications for flexural-layer or two-fluid systems have different governing forward equations. The 2020 experimental uniform-vorticity dispersion paper was checked only via accessible abstract; a possible older equivalent inverse result remains a residual historical-priority risk. Negative literature searches alone are not treated as proof of historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Simultaneously identifying shear, depth, effective gravity in an uncertain-acceleration environment, and capillarity from wave propagation is a natural experimental-design and inverse-observability problem, not an arbitrary slice of parameter space. The result gives globally necessary-and-sufficient observational feasibility rather than only a candidate reconstruction, proves exact one-frequency nonidentifiability, and quantifies the two opposite depth limits where otherwise unique recovery becomes numerically ill-conditioned. No general nonlinear wave result or statistical stability assertion is claimed.
+Ellingsen–Brevik give the *forward* finite-depth constant-vorticity gravity-capillary dispersion, which is openly credited. The four-parameter inverse identifiability classification, minimal two-wavenumber measurement count, exact open feasible-data inequalities, and sharp boundary conditioning were not found as theorems of the inspected full source. Nonlinear gravity-capillary bifurcation papers concern different inverse problems. Residual historical inverse-dispersion literature could contain the same elementary but useful transformation.
 
-The theorem assumes positive coefficients, known density and surface-flow reference, exact counter-propagating speeds at two prescribed distinct wavenumbers, and linear inviscid wave dynamics. Historical priority and independent mathematical validation are not certified.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Depth, shear, restoring acceleration and capillarity are natural physical coefficients, and four directional speeds at two wavelengths are a minimal dimensional measurement set. Proving global uniqueness together with a sharp realizability test and endpoint conditioning is a complete, self-contained inverse problem classification, not just plugging numbers into the dispersion law. Physical measurement accuracy/viscosity are expressly outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

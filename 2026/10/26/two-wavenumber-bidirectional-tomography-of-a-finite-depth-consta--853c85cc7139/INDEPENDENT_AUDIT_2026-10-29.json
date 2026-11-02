@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:51:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under known density, known surface advection reference, two distinct known wavenumbers 0<k1<k2, and strictly positive h,S,g,sigma, the classic constant-vorticity dispersion gives delta_i=u_i-d_i=S tanh(k_i h)/k_i and p_i=u_i*d_i=(g/k_i+sigma*k_i/rho)tanh(k_i h). R=k1delta1/(k2delta2)=tanh(k1h)/tanh(k2h) is strictly increasing from k1/k2 to 1 because k/sinh(2kh) strictly decreases. Hence h and then S are unique. Y_i=k_i p_i/tanh(k_i h)=g+(sigma/rho)k_i² is an invertible 2×2 linear system, and strict positive gravity/surface tension are exactly Y1<Y2<(k2²/k1²)Y1. Conversely positive difference/product uniquely recover each measured speed pair, proving sharp sufficiency. At one k, h and g can vary freely, yielding a two-parameter nonidentifiability family. The derivative of R has a linear shallow-depth zero and exponentially small deep-depth tail, establishing the inverse-condition laws. Independently implemented forward/inverse reconstruction for 12 positive parameter configurations and checked the identities; finite tests corroborate, not prove, global injectivity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Boeck concerns nonlinear bifurcation of steady waves, not four-coefficient reconstruction from linear reciprocal phase speeds.",
+          "Recent constant-vorticity Stokes-wave results analyze nonlinear phase speed geometry, without an inspected theorem of global four-unknown tomography."
+        ],
+        "reasoning": "General nonlinear wave results are broader dynamically but do not imply the exact identifiability theorem as a corollary without reconstructing the inverse map.",
+        "searches": [
+          "Constant vorticity gravity capillary waves inverse dispersion bidirectional phase speeds two wavenumbers depth shear gravity surface tension",
+          "de Boeck global bifurcation arXiv:1404.5608",
+          "Barbieri Berti Maspero Mazzucchelli arXiv:2501.14353"
+        ]
+      },
+      "checked_sources": [
+        "Ellingsen–Brevik arXiv:1311.1073 (primary full text and eqs. 33–35)",
+        "de Boeck arXiv:1404.5608 (public abstract)",
+        "Barbieri et al. arXiv:2501.14353 (abstract)",
+        "Actual source RESULT.md and checker.py, Git tree 19b203f82f65eb94fe5dda6f8837aa926f3c6c13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior forward equations imply the delta/p identities algebraically, but a stated forward law by itself does not explicitly classify data feasibility, minimal measurement design or conditioning.",
+          "The proof of global uniqueness relies on strict monotonicity of tanh(k1h)/tanh(k2h), and the Y_i positive-cone characterization."
+        ],
+        "reasoning": "The result is a mathematically modest but complete natural inverse classification built on a credited forward model; an already known inverse-calibration paper remains possible.",
+        "searches": [
+          "Ellingsen Brevik arXiv:1311.1073 equations 33–35",
+          "de Boeck arXiv:1404.5608"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact bidirectional forward branches are known and used as input.",
+          "The observed directional difference/product conversion separates depth and restoring coefficients and yields inverse feasibility conditions not stated in the inspected wave-propagation source."
+        ],
+        "reasoning": "An inverse-dispersion formulation using phase-speed difference and product would be equivalent if published; relevant alias searches did not find a primary covering theorem, but absence is not novelty proof.",
+        "searches": [
+          "Constant vorticity gravity capillary waves inverse dispersion bidirectional phase speeds two wavenumbers depth shear gravity surface tension",
+          "Ellingsen Brevik arXiv:1311.1073 Eq. (33)–(35)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a continuous open four-dimensional inverse data range, not a table of finite physical samples.",
+          "Synthetic data validate the formulas but do not replace the global monotonicity and exact open inequalities."
+        ],
+        "reasoning": "A fixed experimental lookup table would not establish one-to-one invertibility and sharp boundary feasibility across all positive parameters.",
+        "searches": [
+          "Constant vorticity gravity capillary waves inverse dispersion bidirectional phase speeds two wavenumbers depth shear gravity surface tension",
+          "inverse dispersion finite depth shear capillarity phase velocities"
+        ]
+      },
+      "rationale": "Ellingsen–Brevik give the *forward* finite-depth constant-vorticity gravity-capillary dispersion, which is openly credited. The four-parameter inverse identifiability classification, minimal two-wavenumber measurement count, exact open feasible-data inequalities, and sharp boundary conditioning were not found as theorems of the inspected full source. Nonlinear gravity-capillary bifurcation papers concern different inverse problems. Residual historical inverse-dispersion literature could contain the same elementary but useful transformation.",
+      "residual_risks": [
+        "Classical water-wave parameter inversion/calibration literature could already derive this difference/product inverse.",
+        "Physical design requires known surface advection U0 and exact direction labels; noise can destroy practical identifiability near depth limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the forward dispersion used as input; the exact four-parameter two-frequency inverse feasibility classification was not found in this inspected document",
+          "evidence": "Ellingsen–Brevik (2013), equations (33)–(35)",
+          "identifier_or_url": "https://arxiv.org/abs/1311.1073",
+          "material_read": "Full primary OA PDF (16 pages) inspected, including equations (33)–(35), upstream/downstream wave speeds and limiting-depth discussion; PDF pages visually verified",
+          "method": "primary arXiv PDF reading and page screenshots",
+          "title": "How linear surface waves are affected by a current with constant vorticity",
+          "trigger": "exact same finite-depth capillary gravity shear forward model"
+        },
+        {
+          "assessment": "Studies existence/bifurcation rather than reciprocal-speed coefficient inversion; full-text noncoverage not asserted",
+          "evidence": "de Boeck (2014)",
+          "identifier_or_url": "https://arxiv.org/abs/1404.5608",
+          "material_read": "Abstract/introduction and declared nonlinear bifurcation results as available, not entire proof",
+          "method": "arXiv primary metadata/summary",
+          "title": "Global bifurcation for steady finite-depth capillary-gravity waves with constant vorticity",
+          "trigger": "same physical class but possible stronger inverse theorem"
+        },
+        {
+          "assessment": "Nonlinear Stokes-wave bifurcation context, not established coverage of the exact inverse data feasibility theorem",
+          "evidence": "Barbieri et al. (2025)",
+          "identifier_or_url": "https://arxiv.org/abs/2501.14353",
+          "material_read": "Accessible summary/dispersion context compared; complete work not fully read",
+          "method": "arXiv search and public abstract",
+          "title": "Bifurcation of gravity-capillary Stokes waves with constant vorticity",
+          "trigger": "potential recent stronger treatment of phase-speed geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Depth, shear, restoring acceleration and capillarity are natural physical coefficients, and four directional speeds at two wavelengths are a minimal dimensional measurement set. Proving global uniqueness together with a sharp realizability test and endpoint conditioning is a complete, self-contained inverse problem classification, not just plugging numbers into the dispersion law. Physical measurement accuracy/viscosity are expressly outside scope.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ellingsen–Brevik arXiv:1311.1073 (primary full text and eqs. 33–35)",
+    "de Boeck arXiv:1404.5608 (public abstract)",
+    "Barbieri et al. arXiv:2501.14353 (abstract)",
+    "Actual source RESULT.md and checker.py, Git tree 19b203f82f65eb94fe5dda6f8837aa926f3c6c13"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly the linear inviscid 2D finite-depth constant-vorticity forward model with positive S,g,sigma,h and known rho, U0, k1,k2.",
+    "No estimates for experimental noise, nonlinear waves, viscosity, or unknown surface current."
+  ],
+  "residual_risks": [
+    "Classical water-wave parameter inversion/calibration literature could already derive this difference/product inverse.",
+    "Physical design requires known surface advection U0 and exact direction labels; noise can destroy practical identifiability near depth limits."
+  ],
+  "schema_version": 1
+}
