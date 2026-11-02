@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Positive definite Lyapunov and innovation covariances make the Gaussian KL finite. Exact 4x4 Gaussian KL reduces algebraically to the invariant 2x2 formula; Cayley–Hamilton controls distinct-real, repeated-real and complex-conjugate drifts without a diagonalizability gap. A sampled transition is symmetric in stationary-whitened coordinates exactly at the claimed lags. At each zero the scalar lag transition and Taylor expansion give the stated positive coefficient. The rotational specialization reproduces the stationary-current physical EPR, and the Dey expansion yields the inverse-foresight lag and positive entropy-per-lag limit. A package-local independent Gaussian covariance checker passed 2120 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bauer et al. prove stroboscopic spectral generator ambiguity for finite-state jump chains.",
+        "Cisneros et al. derive coarse-grained irreversibility for jump chains.",
+        "Nagayama et al. derive oscillatory/nonnormal decompositions of stationary OU dissipation.",
+        "Lucente et al. prove projection-induced scalar Gaussian time reversibility, not full-state intermittent time reversibility."
+      ],
+      "reasoning": "General stroboscopic aliasing and continuous-time EPR are established prior art. Their shown theorems do not give the evaluated complete planar diffusion zero set or explicit invariant KL and quadratic recovery constants. This is a narrower but distinct measurable statement, not claimed as a new general aliasing principle.",
+      "searches": [
+        "arxiv:2412.15642",
+        "arxiv:2305.16197",
+        "arxiv:2606.07263",
+        "doi:10.1103/PhysRevResearch.4.043103"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.30189v1",
+      "arxiv:2606.07263",
+      "arxiv:2412.15642",
+      "arxiv:2305.16197",
+      "doi:10.1103/PhysRevResearch.4.043103"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dey provides the Nash drift B and short-foresight coefficients: direct substitution alone does not determine the finite-lag KL or all-zero classification.",
+        "Nagayama et al. decompose entropy production at continuous time; a positive stationary rate can coexist with zero sampled KL.",
+        "Bauer et al. have a finite-state matrix logarithm nonuniqueness construction, not the exact continuous-space OU identity.",
+        "Cisneros et al. address finite jump-process temporal coarse graining."
+      ],
+      "reasoning": "The proof requires an independently established exact Gaussian relative-entropy identity plus a complete Cayley–Hamilton analysis. A stronger general time-sampling nonidentifiability theorem may explain the physical phenomenon, but does not explicitly imply the derived scalar closed form or the quadratic coefficient without additional Gaussian-specific calculations.",
+      "searches": [
+        "arxiv:2610.30189v1",
+        "arxiv:2606.07263",
+        "arxiv:2412.15642",
+        "arxiv:2305.16197"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dey Sections 3 and 5 compute steady-state physical rate, not swapped-two-time KL.",
+        "Bauer et al. Sections 3-4 address finite-state generator inverse-log ambiguity and entropy inference.",
+        "Nagayama et al. focus on continuous-time OU EPR decomposition."
+      ],
+      "reasoning": "The candidate can be rephrased as symmetric whitened lag propagator, stationary Gaussian detailed balance, or vanishing reversed-pair KL. Each equivalent statement was compared with the cited primary sources; none of those inspected statements gives the exact planar all-diffusions characterization.",
+      "searches": [
+        "arxiv:2610.30189v1",
+        "arxiv:2412.15642",
+        "arxiv:2606.07263"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact Gaussian expression is a continuous-parameter analytic formula, not a finite tabulated constant.",
+        "The motivating source has stationary EPR formulas and plotting, but no exact sampled KL table."
+      ],
+      "reasoning": "The work is not an enumeration or repetition of published tabular values; mathematical research record searches also found no claim-wise match for the oscillatory sampled OU two-time law. Absence from a database is not a proof of priority.",
+      "searches": [
+        "arxiv:2610.30189v1",
+        "arxiv:2606.07263",
+        "arxiv:2412.15642"
+      ]
+    },
+    "rationale": "Exact sampled-Gaussian KL identity, global planar spectral zero-set and local quadratic information profile are not supplied by the compared 2026 OU papers, the motivating Nash game, or the 2024 finite-state stroboscopic analysis; the latter establishes the broader idea of sampling aliases. Accessible records did not show a stronger implication. Qualified best-knowledge with explicit residual risks.",
+    "residual_risks": [
+      "Older multidimensional Gaussian entropy-production or AR(1) literature could implicitly contain the exact KL determinant identity and all-zero half-turn classification.",
+      "A general stochastic-semigroup sampling-alias theorem could subsume the spectral zero-set without stating the quadratic information coefficient.",
+      "The 2026 OU decomposition paper was examined in accessible main-text material but not every appendix; no whole-document noncoverage is asserted.",
+      "Independent priority verification has not been performed.",
+      "Lucente et al. (2022) and related incomplete-observation work may contain finite-lag covariance identities beyond the scalar Gaussian statement visible in accessible abstract; full primary text was not inspected here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Nash OU drift and steady entropy but not sampled two-time KL or exact reversibility aliases",
+        "evidence": "Section 3 eqs 24–25, Section 5.1 eq 37 and Section 5.2 eqs 41–46.",
+        "identifier_or_url": "https://arxiv.org/html/2610.30189v1",
+        "material_read": "Full HTML source sections 2, 3, 5, relevant short-foresight equations and appendices described therein",
+        "method": "arXiv lawful public full-text HTML direct reading and section/equation comparison",
+        "title": "Foresight-dependent entropy production in stochastic two-agent dynamics",
+        "trigger": "Source of the target 2026 dynamical system; possible same finite-time result"
+      },
+      {
+        "assessment": "Shows finite-state generator sampling ambiguity, a known general phenomenon; does not establish all planar Gaussian OU zero times, Gaussian KL determinant formula or local quadratic coefficient",
+        "evidence": "Main sections 3.3–4.1; Eq. 36 sampled-state entropy estimator; Appendix A transition-generator alias at equal exponential maps.",
+        "identifier_or_url": "https://arxiv.org/abs/2412.15642",
+        "material_read": "Available complete arXiv HTML main sections 1–4 and Appendix A/C on generator log branches",
+        "method": "Read searchable arXiv full text at abs page including operational estimator and exact finite-state counterexample",
+        "title": "Stroboscopic measurements in Markov networks: Exact generator reconstruction vs. thermodynamic inference",
+        "trigger": "Potential dominating known stroboscopic alias and irreversibility analysis"
+      },
+      {
+        "assessment": "Continuous-time steady EPR decomposition, not a finite-time reversed-pair KL or its zero-lag classification; full appendices not all reread",
+        "evidence": "2026 paper setup and main EPR decomposition, with no finite-lag KL observable in examined material.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.07263",
+        "material_read": "Accessible primary text introduction, setup, steady EPR decomposition and oscillatory/nonnormal trade-off statements",
+        "method": "Lawful available full-text excerpt in primary-paper mirror and arXiv bibliographic/source comparison",
+        "title": "Oscillatory-nonnormal decomposition of dissipation in Ornstein-Uhlenbeck processes",
+        "trigger": "Exact physical model and spectral EPR formulas might dominate claim"
+      },
+      {
+        "assessment": "Generic jump-process sampled irreversibility studied, but a full appendix-level noncoverage determination is not asserted",
+        "evidence": "Abstract and theory in J. Stat. Mech. 073201 (2023), Section 3 scope.",
+        "identifier_or_url": "https://arxiv.org/abs/2305.16197",
+        "material_read": "Abstract, searchable text excerpts identifying discrete-state Markov-jump scope and normalized irreversibility estimator",
+        "method": "Public arXiv abstract and lawful full-text excerpt review",
+        "title": "Dissipative timescales from coarse-graining irreversibility",
+        "trigger": "Nearby temporally coarse-grained entropy inference"
+      },
+      {
+        "assessment": "Establishes full-time indistinguishability of scalar stationary Gaussian observables; does not directly provide the full-state 2D sampling cadence criterion",
+        "evidence": "2022 published institutional abstract expressly specifies scalar projection of a multivariate linear system.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.4.043103",
+        "material_read": "Public institutional abstract and scholarly cross-reference; not full primary text",
+        "method": "Abstract and published metadata comparison",
+        "title": "Inference of time irreversibility from incomplete information: Linear systems and its pitfalls",
+        "trigger": "Nearby Gaussian time-reversal observation no-go theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7565dc5-b61a-4fa3-8a41-65b0c448b024",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full-state stationary time-sampled reversibility can be false evidence for physical equilibrium, so the exact set of observational blind spots, the sharp real-vs-complex drift dichotomy and information recovery quadratically away from aliases are naturally valuable for thermodynamic inference. It includes arbitrary positive-definite anisotropic noise and defective real drifts and a concrete current 2026 stochastic-game instance. Neither correct KL arithmetic nor a known general alias idea alone is claimed valuable; the complete classification and controlled information profile are the substantive advance.",
+    "status": "PASS"
+  }
+}
