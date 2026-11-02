@@ -1,0 +1,11 @@
+# Review of the covariance-fluctuation finding
+
+**Correctness — PASS.** The subset-cardinality Pascal transform is an invertible triangular transformation when the original coefficients are fair, hence the scenery signs are independent fair signs. The geometric holding-time decomposition is exact up to the explicitly bounded initial-step adjustment; the uniform scenery modulus estimate is summable; conditional independent-increment Donsker and the time-change theorem provide the functional quenched limit. A direct conditional-law factorization yields the annealed variance decomposition, while the iid-scenery iterated-logarithm law proves non-tightness without centering. Exact finite identities have been checked using the accompanying program.
+
+**Originality — PASS, qualified.** The closest recent primary result (Hamza--Tournier, arXiv:2610.01658v1, §4.3) establishes a first-order annealed walk limit. The 2022 bootstrap-walk martingale criterion and previous first-order results establish normality conditions, not the second-order bracket process, its quenched random centering, or the annealed variance factor three. Targeted searches found no same-claim prior result; the strongest unresolved priority risk is a general quenched renewal-reward-in-random-scenery theorem potentially yielding an equivalent special case. This is not an independent priority certification.
+
+**Mathematical value — PASS.** The natural cross-bracket of a pair of first-order independent-Brownian limits has a second-order stochastic structure that changes drastically depending on whether the coefficient environment is frozen. The exact split between environment and walk noise, along with failure of uncentered conditional tightness, makes the distinction substantive rather than an arbitrary small-parameter refinement.
+
+**Scope and risk.** The proof uses iid fair coefficient bits and exponential-tail geometric holds; biased environments are not treated. Finite checks are not proofs of infinite limits. The source paper and related bootstrap-walk literature were compared using the actual hypotheses and conclusions, with possible broader random-scenery coverage recorded as residual risk.
+
+Self-review: passed. Independent audit: not yet performed.
