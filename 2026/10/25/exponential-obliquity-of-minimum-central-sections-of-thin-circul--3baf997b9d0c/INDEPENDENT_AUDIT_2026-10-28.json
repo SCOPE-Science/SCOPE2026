@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:49:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Parametrized the central plane with normal coordinate c=|u_z|, tangent parameter xi=kc/sqrt(1-c^2). Direct Cartesian integration yields S=4sqrt(k^2+xi^2) F(xi) with F=int_xi^infty sqrt(t^2-xi^2)/(1+t)^3 dt; endpoints S(0)=2k, S(1)=pi. Differentiation gives F_prime=-xi I, I=int_0^infty(1+xi cosh v)^-3 dv>0, hence stationary equation k^2=F/I-xi^2. The explicit F expansion and I=log(2/xi)-3/2+O(xi^2 log(1/xi)) prove S decreases immediately to the right of xi=0 for every k>0. As k tends to zero, all global minimizers must tend to xi=0 by positivity of xi F; the stationary map Q has Q_prime~1/[2xi log(2/xi)^2]>0 near zero, establishing uniqueness for thin cones. The next constant term in I implies xi_k~2exp(-3/2)exp(-1/(2k^2)) and area benefit~4k exp(-3)exp(-1/k^2). Independently integrated three central sections directly in plane coordinates against F to better than 1e-45, and solved the stationary equation at k=.30,.20; x/asympt ratios 1.00033745 and ~1, deficit/asympt ratios 1.00034791 and ~1. These finite checks do not establish global uniqueness; analytic compactness/monotonicity do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saroglou Theorem 1.4 characterizes double cone as equality body for a projection-body quotient in its axial direction",
+          "Published surface-ratio record optimizes curved surface areas of halves of a one-apex oblique cone, a different solid and functional"
+        ],
+        "reasoning": "Neither theorem dominates minimization over central sections; their optimized functionals and cone geometries differ. Geometric circular-cone section formulas are background, not novelty.",
+        "searches": [
+          "central hyperplane sections of right circular double cone extremal directions",
+          "arXiv:1409.4347 Section 5 and Theorem 1.4 equality body",
+          "Resultary: global surface ratio minima for bisected oblique circular cones"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1409.4347 Theorems 1.4–1.5 and Section 5 (primary PDF)",
+        "Published bisector double-cone result full RESULT.md Git blob d21c6daed27044ad2ccdecb678f3ed480f252cc3",
+        "Published oblique one-apex cone surface-ratio result full RESULT.md Git blob 050b15b37554d72b050597449c8a99233274b3d0",
+        "Resultary focused semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Saroglou states inequality on normalized projection-body and section-root integrals, no min_c S_k(c)",
+          "The published exact bisector section profile is for a fixed direction and an integrated nonlinear functional",
+          "The one-apex study minimizes surface-area ratio and not a 2-dimensional central cross-sectional area"
+        ],
+        "reasoning": "The exponential thin-cone optimum requires a logarithmic singularity of dS/dc and solving a different stationarity equation; none of the compared results supplies this implication.",
+        "searches": [
+          "arXiv:1409.4347 Theorems 1.4–1.5 and Section 5",
+          "Resultary 2026/10/11/SCOPE-bisector-sections-of-affine-double-cones-and-a-strict-section-ro--f83ae948e0d8 RESULT.md",
+          "Resultary 2026/10/4/SCOPE-global-surface-ratio-minima-for-bisected-oblique-circular-cones--7a73be4946e2 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saroglou uses sections to bound projection-body quantities and integrated section-root functionals, not orientation minimization of central sectional area",
+          "Published Resultary bisector paper evaluates a *fixed direction* offset-section profile and beta-function section-root objective"
+        ],
+        "reasoning": "Central plane-sectional area S_k(c) optimized over c differs from projection-body/section-root normalized integrals and from an offset profile in one bisector direction. No inspected equivalent thin-optimality theorem.",
+        "searches": [
+          "circular double cone central section minimum area oblique direction exponential thin cone",
+          "arXiv:1409.4347 Theorems 1.4–1.5",
+          "Resultary: bisector sections of affine double cones strict section-root gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary full primary RESULTS verified the two closest apparent overlaps are beta section-root benchmarks and one-apex curved surface ratios",
+          "Search results for thin central-section minima did not return the x~exp(-1/(2k²)) and area ~exp(-1/k²) laws"
+        ],
+        "reasoning": "No exact minimum-central-section table found; the closest records were read in full rather than excluded using their titles. Search coverage remains bounded.",
+        "searches": [
+          "Resultary: bisector sections of affine double cones strict section-root gap",
+          "Resultary: global surface ratio minima for bisected oblique circular cones",
+          "Resultary: circular double cone central section minimum area oblique direction exponential thin cone"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for this particular global minimum central *area* and its essential-singularity tilt/deficit constants, not the classical section formulas or other cone optimization problems.",
+      "residual_risks": [
+        "An older classical analysis of tilted central sections of bicones under different names might contain the essential-singularity minimizer.",
+        "Uniqueness was established only for sufficiently small aspect ratios; no global uniqueness threshold was computed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Projection-body quotient and integrated section-root bounds; different from minimizing one central section area",
+          "evidence": [
+            "Theorem 1.4 equality for double cone axial direction in another quotient; Theorem 1.5 section-root functional"
+          ],
+          "identifier_or_url": "arXiv:1409.4347",
+          "material_read": "Full arXiv PDF introduction, Theorems 1.4–1.5 pp. 3–4, proof sections and Section 5 pp. 12–14",
+          "method": "ArXiv 18-page PDF text plus page image",
+          "title": "On the shape of a convex body with respect to its second projection body",
+          "trigger": "Same circular double cone geometry and hyperplane sections"
+        },
+        {
+          "assessment": "Computes fixed-bisector offset section beta profile and section-root quotient, does not optimize central section orientation",
+          "evidence": [
+            "Its Finding and Proof evaluate F_d(C_d;u*) with bisector u* fixed"
+          ],
+          "identifier_or_url": "public research record 2026/10/11/SCOPE-bisector-sections-of-affine-double-cones-and-a-strict-section-ro--f83ae948e0d8",
+          "material_read": "Entire published RESULT.md at pinned Git blob d21c6daed27044ad2ccdecb678f3ed480f252cc3 including proof and scope",
+          "method": "GitHub published full scientific file",
+          "title": "Bisector sections of affine double cones and a strict section-root gap",
+          "trigger": "Same symmetric double-cone shape with a tilted bisector"
+        },
+        {
+          "assessment": "One-apex canonical cone split, curved surface-area ratios, global parameter monotonicity; not central bicone section area",
+          "evidence": [
+            "Finding defines L(a,b),T(a,b),O(a,b) as surface area ratios"
+          ],
+          "identifier_or_url": "public research record 2026/10/4/SCOPE-global-surface-ratio-minima-for-bisected-oblique-circular-cones--7a73be4946e2",
+          "material_read": "Entire published RESULT.md at pinned Git blob 050b15b37554d72b050597449c8a99233274b3d0 including proofs",
+          "method": "GitHub published full scientific file",
+          "title": "Global surface-ratio minima for bisected oblique circular cones",
+          "trigger": "Cone surface optimization with possible similar exponential theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimizing an area of a central plane section is a natural convex-geometric extremal problem. The apparently optimal axial-containing plane fails at every positive height; the truly optimal latitude is exponentially close and the gain beyond all algebraic orders, so standard power-series perturbation would miss it. Exact constants quantify geometric sensitivity in a canonical shape.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Area of central 2D plane sections of symmetric Euclidean solid double cones only; uniqueness limited to sufficiently small positive k, whereas the exact profile and strict nonaxial improvement hold for all k>0.",
+  "schema_version": 1
+}

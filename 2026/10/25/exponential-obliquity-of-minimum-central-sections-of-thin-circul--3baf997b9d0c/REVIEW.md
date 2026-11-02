@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The solid bicone and plane normalization are explicit. Direct integration of its sections yields the exact area formula; differentiation under an absolutely convergent integral gives the stationary condition. The elementary closed form has an exact logarithmic expansion. Every minimizing parameter must tend to zero for a thin cone, after which a rigorously increasing stationary map proves uniqueness. The constant \(3/2\) in the exponent and the factor \(4e^{-3}\) in the area deficit follow from the next expansion term. Independent Cartesian integrations, two distinct integral representations, and high-precision root checks corroborate—but do not prove—these universal facts.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Saroglou (arXiv:1409.4347, especially Theorems 1.4–1.5 and Section 5) optimizes projection-body functionals and normalized integrals over parallel sections; those are not minima of the *central section area* over orientations. The full publicly archived bisector-section paper gives fixed-obliquity offset-sectional profiles and a root functional, which neither specifies nor logically implies the exponential thin-cone minimizer. The full publicly archived oblique-cone surface-ratio study addresses cut-surface ratios of one-apex solids, not this objective. No inspected primary source establishes both the nonaxial minimizer and its exponential constants. Equivalent differently worded historical literature remains a risk.
+PASS
 
-**Value — PASS.** The orientation minimizing a central convex-body section is a geometric extremal statistic. Here the intuitive axial plane is *always* slightly suboptimal, yet the winning latitude is exponentially close to it for flat bicones. The exact essential-singularity scales answer a natural optimization and stability question inaccessible to ordinary finite-order aspect-ratio perturbation theory.
+Parametrized the central plane with normal coordinate c=|u_z|, tangent parameter xi=kc/sqrt(1-c^2). Direct Cartesian integration yields S=4sqrt(k^2+xi^2) F(xi) with F=int_xi^infty sqrt(t^2-xi^2)/(1+t)^3 dt; endpoints S(0)=2k, S(1)=pi. Differentiation gives F_prime=-xi I, I=int_0^infty(1+xi cosh v)^-3 dv>0, hence stationary equation k^2=F/I-xi^2. The explicit F expansion and I=log(2/xi)-3/2+O(xi^2 log(1/xi)) prove S decreases immediately to the right of xi=0 for every k>0. As k tends to zero, all global minimizers must tend to xi=0 by positivity of xi F; the stationary map Q has Q_prime~1/[2xi log(2/xi)^2]>0 near zero, establishing uniqueness for thin cones. The next constant term in I implies xi_k~2exp(-3/2)exp(-1/(2k^2)) and area benefit~4k exp(-3)exp(-1/k^2). Independently integrated three central sections directly in plane coordinates against F to better than 1e-45, and solved the stationary equation at k=.30,.20; x/asympt ratios 1.00033745 and ~1, deficit/asympt ratios 1.00034791 and ~1. These finite checks do not establish global uniqueness; analytic compactness/monotonicity do.
 
-A restricted limitation is that uniqueness is only shown for all sufficiently small aspect ratios, rather than at every positive height. These concerns do not affect the precise final theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for this particular global minimum central *area* and its essential-singularity tilt/deficit constants, not the classical section formulas or other cone optimization problems.
+
+## value
+
+PASS
+
+Minimizing an area of a central plane section is a natural convex-geometric extremal problem. The apparently optimal axial-containing plane fails at every positive height; the truly optimal latitude is exponentially close and the gain beyond all algebraic orders, so standard power-series perturbation would miss it. Exact constants quantify geometric sensitivity in a canonical shape.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
