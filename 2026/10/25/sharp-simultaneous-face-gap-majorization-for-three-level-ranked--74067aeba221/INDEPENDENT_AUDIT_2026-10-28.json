@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:13:26.392990Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For P_{a,b}=A_a ⊕ {q} ⊕ A_b, a,b>=1, the order polytope decomposes as a free join of cubes; its nonempty face polynomial is A+B+tAB with A=(2+t)^a,B=(2+t)^b. The chain polytope is a pyramid over the origin-glued subdirect sum of cubes; counting origin-containing and avoiding faces gives F_C=1+(1+t)[A+B-1+(U-1)(V-1)+t(A-U)(B-V)], U=(1+t)^a,V=(1+t)^b. Algebraically D=F_C-F_O=G_aG_b with G_m=1-(1+t)^{m+1}+t(2+t)^m. For m>=2, G_m=t(1+t)h_{m-2}(1,1+t,2+t). Jacobi–Trudi gives D_{a+1,b-1}-D_{a,b}=t^2(1+t)^2 s_{(b-3,a-1)}(1,1+t,2+t) for 2<=a<=b-2; positive tableau terms force every coefficient degrees 2..a+b strictly positive. If a=1 G_1=0, and G_2G_{b-1} is positive in same degrees. Hence for fixed N=a+b>=4 the balanced split uniquely maximizes every intermediate face gap, extreme split minimizes zero; endpoint coefficients computed from first and top G_m terms. Independent integer algebra verified 121 (a,b) factorization identities plus balancing cases; universal claim follows Schur-positive identity, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Freij-Hollanti–Lundström 2024 general f-vector inequality has more general objects but compares C(P) vs O(P) for one P.",
+          "Fourier arXiv:2609.23629 proves universal weak Hibi–Li comparison for the same P; arXiv:2608.19989 relates to a facet-gap endpoint."
+        ],
+        "reasoning": "A result that covers more posets but only a single poset comparison is not logically stronger than balancing two unequal rank vectors simultaneously for every k; the earlier paper may give an implicit derivation but did not expressly formulate this optimization in inspected sections.",
+        "searches": [
+          "three level ranked poset singleton middle level order chain polytope face vector difference balanced rank sizes Schur positivity",
+          "Freij-Hollanti Lundstrom order chain polytope face vector inequalities ordinal sums; Fourier universal Hibi Li"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.13890 (Mathematica Scandinavica 130, 2024) — Covers starting face enumeration and within-poset comparison; fixed-total cross-poset Schur majorization not expressly established",
+        "arXiv:2309.01626 — Partial inspection; no entire-document noncoverage assertion",
+        "arXiv:2609.23629 — Weak fixed-poset result is not quantified over balancing transfers",
+        "arXiv:2608.19989 — Cannot exclude an implied facet endpoint theorem",
+        "Resultary semantic search: three level ranked poset singleton middle level order chain polytope face vector difference balanced rank sizes Schur positivity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known inequality: f_i(C(P))>=f_i(O(P)) for suitable general/ordinal-sum P; factorized gap is accessible from their formulas.",
+          "Claim: for fixed N and a+1<=b-1, every nontrivial coefficient of D_{a+1,b-1}-D_{a,b} is strictly positive, with a precise Schur identity and unique simultaneous optimum."
+        ],
+        "reasoning": "Weak positivity of D_{a,b} at each (a,b) does not alone imply order of two positive gaps; the Schur difference verifies the new cross-parameter implication.",
+        "searches": [
+          "three level ranked poset singleton middle level order chain polytope face vector difference balanced rank sizes Schur positivity",
+          "Ahmad Fourier Joswig 2026 rank elements order chain coordinates move f vector; Schur Jacobi Trudi"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Freij-Hollanti–Lundström arXiv:2312.13890 Sections 3–6 give subdirect-sum f-vector formulas for broad ordinal-sum families; our factorization is a cube specialization.",
+          "Ahmad–Fourier–Joswig arXiv:2309.01626 studies order/chain element redistribution inside a fixed ranked poset."
+        ],
+        "reasoning": "The prior factorization/cube-face counting alone is not claimed novel. The extra strict balancing comparison between distinct posets at fixed N is a mathematical statement requiring a two-row Schur positivity step, not direct restatement of prior fixed-poset nonnegativity.",
+        "searches": [
+          "three level ranked poset singleton middle level order chain polytope face vector difference balanced rank sizes Schur positivity",
+          "poset ordinal sum cube join Schur positive coefficientwise rank redistribution Hibi Li"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits include unrelated order polytope metrics, not a rank-balancing f-vector table.",
+          "Source verify.py checks eight actual small incidence polytopes, and independent checker verified 121 symbolic pairs, both bounded supports."
+        ],
+        "reasoning": "No exact balanced rank-size extremum was found in indexed tables; absence of search hit does not establish novelty.",
+        "searches": [
+          "three level ranked poset singleton middle level order chain polytope face vector difference balanced rank sizes Schur positivity",
+          "three level poset A_a singleton A_b balanced face gap all ranks maximizing table"
+        ]
+      },
+      "rationale": "Qualified PASS for simultaneous strict coefficientwise majorization when varying the two outer rank sizes at a fixed total dimension, and an explicit Schur-positivity certificate. Prior general chain-vs-order f-vector inequalities and subdirect-sum face-count formulas are credited; they establish gaps for a fixed poset and yield the factorization ingredient. They do not in the inspected primary statements assert strict all-face improvement under cross-poset balancing or unique balanced optimizer, although an older formula combined with standard Schur positivity may implicitly imply it.",
+      "residual_risks": [
+        "The cube specialization of known subdirect-sum formulas is not new; the Schur positivity could be an unnoted consequence of earlier enumerative identities.",
+        "Fourier 2026 facet-gap full text not materially inspected; possible overlap on endpoint.",
+        "No inference about arbitrary ranked posets or chain-order interpolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers starting face enumeration and within-poset comparison; fixed-total cross-poset Schur majorization not expressly established",
+          "evidence": [
+            "Face-counting decomposition and nonnegativity results apply to ordinal sums, but neither fixed-N balancing nor simultaneous optimality is claimed in inspected sections."
+          ],
+          "identifier_or_url": "arXiv:2312.13890 (Mathematica Scandinavica 130, 2024)",
+          "material_read": "Full arXiv PDF with proof/formulas in Sections 3–6, particularly cube/subdirect-sum specialization",
+          "method": "Read primary PDF with screenshot inspection of pages 1 and 9 plus text sections",
+          "title": "f-vector inequalities for order and chain polytopes",
+          "trigger": "Broadest original subdirect-sum comparison; directly same f-vector invariant"
+        },
+        {
+          "assessment": "Partial inspection; no entire-document noncoverage assertion",
+          "evidence": [
+            "Studies varying chain/order coordinates for one ranked poset rather than redistributing the sizes of poset ranks."
+          ],
+          "identifier_or_url": "arXiv:2309.01626",
+          "material_read": "Original abstract and accessible Section 3–5 descriptions",
+          "method": "ArXiv textual and bibliographic excerpts",
+          "title": "Order and chain polytopes of maximal ranked posets",
+          "trigger": "Same complete ranked poset family"
+        },
+        {
+          "assessment": "Weak fixed-poset result is not quantified over balancing transfers",
+          "evidence": [
+            "General weak Hibi–Li f-vector inequality, not sharp fixed-N optimizer."
+          ],
+          "identifier_or_url": "arXiv:2609.23629",
+          "material_read": "Primary abstract/theorem-level description",
+          "method": "ArXiv search/abstract",
+          "title": "The Hibi–Li Face-Number Conjecture",
+          "trigger": "Universal inequality for same face gaps"
+        },
+        {
+          "assessment": "Cannot exclude an implied facet endpoint theorem",
+          "evidence": [
+            "Facet-gap formula could imply [t^2] or facet edge case but not obviously all intermediate strict coefficients."
+          ],
+          "identifier_or_url": "arXiv:2608.19989",
+          "material_read": "Primary abstract only; full text inaccessible in available search",
+          "method": "ArXiv abstract search",
+          "title": "On facet gaps of order and chain polytopes",
+          "trigger": "Potential endpoint special case of rank gap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Hibi–Li obstruction starts in this minimal three-level complete ranked poset family. Rather than only showing nonnegativity of chain–order face gaps, the result simultaneously ranks every intermediate face dimension with a common exact optimizer. The Schur-positive all-coefficient certificate explains the order rather than merely listing cases; this is a motivated structural extremal lemma.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2312.13890 (Mathematica Scandinavica 130, 2024) — Covers starting face enumeration and within-poset comparison; fixed-total cross-poset Schur majorization not expressly established",
+    "arXiv:2309.01626 — Partial inspection; no entire-document noncoverage assertion",
+    "arXiv:2609.23629 — Weak fixed-poset result is not quantified over balancing transfers",
+    "arXiv:2608.19989 — Cannot exclude an implied facet endpoint theorem",
+    "Resultary semantic search: three level ranked poset singleton middle level order chain polytope face vector difference balanced rank sizes Schur positivity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The cube specialization of known subdirect-sum formulas is not new; the Schur positivity could be an unnoted consequence of earlier enumerative identities.",
+    "Fourier 2026 facet-gap full text not materially inspected; possible overlap on endpoint.",
+    "No inference about arbitrary ranked posets or chain-order interpolation.",
+    "Complete publication sanitization not staged; not_ready is a publication/transport restriction, not science failure.",
+    "The provided verifier and finite independent checks cannot certify scientific novelty or external attestation."
+  ],
+  "schema_version": 1
+}
