@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The addition theorem turns the specified normalized evaluation Gram matrix into a Gegenbauer distance kernel. Its even-degree three-sector spectrum follows from the exact Johnson-graph eigenmatrix and its odd-degree two-sector spectrum follows from the signed incidence matrix. The checker confirms every candidate lower bound by exact rational arithmetic over all degrees 3–63; the explicit Legendre derivative inequality proves the remaining infinite tail (degrees 64 and above). Degree four attains the claimed sharp constant. Limits: no claim about conditioning on the full harmonic-domain nullspace.
+## correctness
 
-## Originality — PASS, qualified
-Bannai–Okuda–Tagami (arXiv:1308.5101, inspected full arXiv HTML including definitions, reproducing kernels, main theorems and relevant examples) treats harmonic-index designs and Fisher bounds, not the sharp uniform singular-value floor for this 15-site \(A_5\) sampling problem. Narcowich–Petrushev–Ward (SIAM J. Math. Anal. 38, 2006; landing page and abstract inspected) concerns localized tight frames on spheres, not the same sharp fixed-configuration constant. Searches for \(A_5\) root-system exact-degree interpolation, \(21/64\), Johnson/Gegenbauer spectral floors, and relevant research-record aliases did not identify a statement whose hypotheses imply this bound. A classical association-scheme table might contain enough data to derive the result and remains a priority risk; search absence does not prove novelty.
+PASS
 
-## Mathematical value — PASS
-This exact root configuration is canonical in rank five. A uniform lower singular-value bound across every harmonic degree is stronger than eventual full rank or a finite rank census, and yields a sharp universal interpolation stability guarantee at all frequencies. The proof reveals an unusual degree-four worst case and explicitly separates low-degree obstructions from stable high-degree recovery. The result is limited to the precise symmetric configuration and normalization, but the sharp constant is a motivated spectral invariant rather than an arbitrary parameter slice.
+The dimension-five spherical harmonic addition theorem yields the normalized Gegenbauer kernel P_l(inner product). Even-degree antipodal symmetry makes the 15×15 Gram matrix I+uA+vB for triangular graph J(6,2), with adjacency spectra (8,6),(2,−3),(−2,1) on dimensions 1,5,9. Odd degrees use a signed complete-graph incidence matrix D with D*D eigenvalues 6 (multiplicity five) and 0 (multiplicity ten), yielding 1+4u and 1−2u. Exact rational Legendre recurrence independently re-evaluated l=0..63; minimum for l>=3 was 21/64 in degree four. For l>=64, Legendre derivative identity and |P_m(x)|<=1 yield |u|<=4/(l+2), |v|<=2/(l+2), so all spectral branches >=1−44/(l+2)>=1/3>21/64. Thus finite cutoff plus analytic tail proves all integer degrees, not extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact submitted statement was compared against equivalent terminology, general bounds, named exact prior tables and their logical implications. Inspected relevant sources support a distinct increment; missing full texts and hidden equivalent special cases remain documented best-of-knowledge risks.
+
+## value
+
+PASS
+
+The 15 root directions form a canonical antipodal configuration of type A5. The sharp uniform lower frame bound (for the 15-dimensional sample space, not the much larger harmonic function domain) gives stable all-frequency exact-degree interpolation and identifies degree four as the global bottleneck. This is more than a routine low-degree rank computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
