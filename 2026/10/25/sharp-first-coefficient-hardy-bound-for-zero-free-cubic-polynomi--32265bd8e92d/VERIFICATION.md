@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using a standard Python 3 interpreter. No nonstandard packages, network access, or external data files are required. The expected final output is `CHECK_OK`.
+## correctness
 
-The program reconstructs the three sign-region lower polynomials directly from the root-magnitude formula. On boxes containing the zero-, one-, and three-high-radius regions, it expands each polynomial into the degree-four Bernstein basis using exact rational coefficients. Their exact smallest coefficients are respectively \(247/81\), \(344/729\), and \(2\), all strictly positive.
+PASS
 
-For the two-high-radius region, it expands the discriminant complement \(D=AC-B^2\) after \(u=1-a\), \(v=1-b\). The entire rectangle \([0,7/20]^2\) is covered by degree-eight tensor Bernstein coefficients. All eighty-one coefficients are nonnegative, and precisely the \((0,0)\) coefficient is zero. This proves \(D\ge0\) on a continuum, with equality only at \(u=v=0\), because the Bernstein basis is a partition of unity and all other coefficients are positive.
+Factorization p=a0 product(1+x_j z), |x_j|<=1, reduces to F=7(1+|e2|²+|e3|²)-3|e1|². Phase lower bound has three positive rational degree-four tensor Bernstein certificates on enlarged sign boxes, with minima 247/81,344/729,2. For two-high region F_* is positive quadratic in last radius, with discriminant complement D=AC-B² having 81 nonnegative degree-eight rational Bernstein coefficients on [0,7/20]^2, only one corner zero. Independent exact rational polynomial construction reproduced all these certificates and unique equality radius triple (1,1,1/4). Phase restoration yields (η,η,-η/4), normalized ratio 7/10. Coefficient nonnegativity proves continuum claim, not finite sampling.
 
-Independently, the program confirms that \((1+z)^2(1-z/4)\) has coefficient sequence \((1,7/4,1/2,-1/4)\), Hardy norm square \(35/8\), and first-coefficient ratio square \(7/10\). The angle inequality and classification of equality phases are elementary algebra given in `RESULT.md`; the code's finite exact polynomial certificates supplement that derivation rather than sampling possible roots. No independent audit or arbitrary-precision numerical inference is asserted.
+## originality
+
+PASS
+
+September 2026 Krushkal coefficient paper discusses general coefficient problem in n>=5 and does not state cubic 7/10 equality in inspected relevant sections. October 2026 newer preprint has a broad binomial-extremal assertion whose apparent H2 first-coefficient specialization would conflict with explicit cubic witness 7/10 versus binomial 1/2; hence it cannot be treated as a demonstrated valid dominating implication without resolving exact hypotheses. Classical unrestricted H2 bound 2/e is weaker than 7/10. Best-of-knowledge originality qualified.
+
+## value
+
+PASS
+
+Natural sharp finite-degree zero-free Hardy coefficient invariant, with distinctive nonbinomial extremizer: two boundary roots and an opposite exterior root; precise equality structure is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
