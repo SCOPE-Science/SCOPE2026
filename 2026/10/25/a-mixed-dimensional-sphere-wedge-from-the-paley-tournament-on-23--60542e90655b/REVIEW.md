@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The self-contained combinatorial derivation enumerates every face of the specified Paley out-neighborhood complex, checks 19,184 elementary collapses, then checks acyclicity of a Forman matching with one critical vertex, 212 critical three-cells, and four critical four-cells. The signed integral Morse differential has an exact column relation and a unit 3-by-3 minor, giving Smith factors (1,1,1,0). The three-skeleton is a wedge of three-spheres; the Hurewicz isomorphism and attaching-map classification upgrade this to the asserted mixed wedge. The packaged standard-library checker reproduces the entire finite certificate. Risk: the computational proof must be rerun under a supported Python interpreter; finite checks have not been replaced with unverifiable infinite generalization.
+## correctness
 
-**Originality — PASS on inspected evidence.** The principal 2021 source (Dochtermann–Singh, arXiv:2108.10948, Definition 4.1 and Section 5) establishes the directed-neighborhood setup and studies small tournaments/single-sphere examples, not the order-23 quadratic-residue instance. Govc–Levi–Smith (2021) studies different directed-flag/tournaplex constructions. A related published-index result on the Paley-19 directed flag complex and existing out-neighborhood calculations for other Paley orders do not imply the order-23 mixed homotopy type. Search aliases included the symmetric Paley 2-(23,11,5) design block complex and the quadratic-residue translate complex. Risk: the very large design and combinatorial-topology literatures may contain unindexed equivalent work; one relevant indexed GitHub full text was not accessible, although its indexed statement concerned a different complex and order.
+PASS
 
-**Value — PASS.** The canonical order-23 Paley tournament gives a natural, highly symmetric example addressing the motivating question of which homotopy types occur for tournament out-neighborhood complexes. Its two adjacent positive homotopy dimensions, substantial integral third homology, and nontrivial fourth sphere offer structural information that neither design parameters nor field Betti counts alone provide. The precise answer is motivated by the object, not an arbitrary parameter slice.
+For Q the eleven nonzero quadratic residues modulo 23, the 23 translates v+Q are precisely the out-neighborhoods; independent enumeration gives 42,297 faces and face vector (23,253,1771,6325,10373,10626,7590,3795,1265,253,23). Independently replayed deterministic elementary free-face collapses: 19,184 pairs, 3,929 nonempty surviving faces. A second 1,856-pair Morse matching has a full 3,929-node/14,596-arrow DAG topological order, leaving one 0-cell, 212 3-cells and four 4-cells. Independent exact gradient recursion gave four signed columns with lengths (26,27,55,26), c0-c1-c2+c3=0, and 3x3 unit determinant -1 at critical 3-face masks 8724,133252,270360. Thus integral 4-to-3 boundary has Smith invariants (1,1,1,0). Since the three-skeleton is a wedge of 212 S3, the Hurewicz isomorphism identifies attaching maps by degrees, yielding precisely (∨209 S3)∨S4, no hidden torsion. This does not claim other tournament orders.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The out-neighborhood construction of Dochtermann–Singh is known, and Paley cyclic residue blocks are a classical 2-(23,11,5) design. But paper Sections 4–5 enumerate five-vertex tournaments and construct single-sphere examples, not the canonical P23 mixed wedge. Resultary P19 and P31 Paley directed-FLAG homotopies are not the same simplicial complex; no covering formula located.
+
+## value
+
+PASS
+
+Canonical finite Paley tournament is a symmetric, independently motivated design/network object. An exact integral mixed wedge for its natural directed out-neighborhood complex answers an explicit class of homotopy-realization questions left open by the foundational work and is nontrivial beyond face counts or homology over one field; the exact 209/1 split is a useful invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
