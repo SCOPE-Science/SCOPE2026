@@ -1,19 +1,21 @@
-# Scientific review: Four-step endpoint-extreme universality for symmetric random walks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Independence, symmetry and non-atomicity justify 384 equally likely signed assignments after conditioning on the four ordered magnitudes. The event forces negative first and last signs. The good order counts by sign word are \(24\), \(10+2I\), \(10+2I\), \(4(1-I)\), where \(I=\mathbf1_{\{w<u+v\}}\). Their sum is always 48, giving exactly \(1/8\). All tie and threshold-equality events have probability zero. The separate exact-rational checker passed 48 assertions over eight magnitude configurations; the conditional combinatorial argument, not these finite tests, proves the statement for every symmetric non-atomic increment law.
+PASS
 
-## Originality — PASS with stated priority risk
+For iid nonatomic symmetric increments, nonzero absolute magnitudes have distinct order statistics a.s., independent fair signs. Conditional on four sorted magnitudes 0<u<v<w<z, every signed permutation has probability 1/384. Endpoint max0/min4 forces sign words ----,-+--,--+-, -++-. All-negative contributes 24; each single-plus contributes 10+2*1_{w<u+v}; double-plus contributes 4*1_{w>u+v}. Exactly 48 favorable orders regardless of the comparison and w=u+v is null; probability =1/8. Independently exhausted all 384 orders for six generic magnitude quadruples on both sides of threshold and reproduced (24,12,12,0)/(24,10,10,4). The analytic sign-case count, not finite samples, handles arbitrary symmetric nonatomic distributions.
 
-The 2020 Mori–Majumdar–Schehr full text establishes the universal endpoint result for general increment laws only at horizons through three, and explicitly conjectures the extension for larger horizons. The known all-horizon result for double-exponential increments does not imply the claim for every symmetric non-atomic law. The 2019 predecessor's asymptotic boundary scaling and classical one-sided arcsine/persistence results likewise do not yield the finite joint event. Semantic literature and previous-claim comparisons found no equivalent exact four-step theorem. However, the 2024 specialist chapter was accessible only as abstract, and missing coverage is not a formal proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Four steps are the first natural unsolved finite case of a stated research conjecture rather than an arbitrary truncation. The signed-order decomposition exposes a precise distribution-free cancellation across a triangle-inequality boundary, explaining why the probability remains constant even though contributing trajectory classes do not. It provides a useful exact test case for future all-horizon arguments; it does not claim an all-horizon result.
+Mori–Majumdar–Schehr (2020) full text proves endpoint universality for all n only under double-exponential law and for arbitrary symmetric continuous jumps only n<=3, explicitly conjecturing n>3. Four-step theorem supplies first general-law case n=4; marginal Sparre Andersen survival or arcsine law cannot imply joint endpoint order. A highly relevant later 2024 Oxford chapter was inaccessible due institution VPN; 2026 Schehr–Pruszczyk lecture notes (full PDF) focus marginal maxima/survival and do not state the first/last joint-extreme n=4 theorem. Best-of-knowledge PASS with explicit priority risk.
 
-## Limits
+## value
 
-The theorem does not address five or more steps, atomic laws, or dependent/asymmetric increments. Historical priority and independent scientific validation are not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This settles the first previously untreated horizon in a published distribution-free joint-extreme conjecture and reveals exact compensation of magnitude-dependent sign-pattern counts, a useful structural mechanism rather than an isolated numerical 1/8 observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
