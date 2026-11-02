@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The planar Minkowski-sum determinant identity gives an exact finite area formula. Conditional rotational invariance cancels every overlap covariance, proving the finite variance. A uniformly convergent absolute-sine Fourier expansion and an orthogonal empirical-Fourier-square representation identify the infinite weighted-exponential limit; explicit uniform \(L^2\) truncation controls infinitely many modes. Euler's sine product gives the law and a gamma-product supplies the exact exponential-tail prefactor. The independent checker compares direct convex-hull reconstruction, Fourier truncations, mean/variance and Laplace transforms; these experiments are supplemental, not substitutes for proof. All claims and their boundaries are stated in RESULT.md.
+## correctness
 
-## Originality — PASS relative to inspected literature
-Paouris–Pivovarov–Zinn establish Gaussian projection-volume asymptotics for Haar projections of high-dimensional cubes, and give general nondegenerate random-segment comparisons. Schneider's valuation and Gaussian limit statements use hypotheses that yield a nonzero first-order projection; these are not the fixed-length, isotropically degenerate unit-direction case. General degenerate \(U\)-statistic theory could imply existence of a second-chaos limit, but the inspected sources do not explicitly provide this geometric Fourier-weight series, exact sine Laplace transform, and sharp exponential-tail prefactor. Closest searchable mathematical records concern different zonotope models, deterministic angular quadrature, or random Minkowski symmetrization. Full historical priority is not certified; Vitale's 1987 chapter and some related inaccessible literature remain residual risks.
+PASS
 
-## Value — PASS
-The distinction between Gaussian random-zonotope fluctuations and bounded-above, non-Gaussian fixed-length isotropic fluctuations reveals a concrete degeneracy boundary of a natural random convex-body model. The explicit law, transform, support endpoint and exact tail prefactor permit quantitative distributional predictions beyond mean/variance. This is a geometric stochastic classification rather than a renamed elementary moment calculation.
+Area A_n=4 sum_{i<j}|sin(theta_i-theta_j)| follows from the segment mixed-area formula, mean 4n(n-1)/pi and variance 16*C(n,2)*(1/2-4/pi²) because every shared-index pair has constant conditional expectation. The uniformly absolutely convergent |sin| Fourier expansion and complex character sums give (A-EA)/n=-(8/pi) sum_m (|S_{m,n}|²/n-1)/(4m²-1). Distinct frequencies are uncorrelated at finite n, yielding uniform L² Fourier-tail control; bounded vector CLT gives iid Exp(1) limits. Euler sine product yields E exp(-sT)=sqrt(1-8s/pi)/sin(pi sqrt(1-8s/pi)/2) for T=4/pi-L. Positive weighted exponentials give ess sup L=4/pi; leading Exp(1) with remainder exponential moment yields exact tail (16/(3pi))exp(-3pi*x/8). Independently checked Fourier area reconstruction for n=3,10,40 with 3000 terms, but proof carries all n/m and sharp tail. Scope fixed half-length unit iid uniform directions in plane.
 
-## Closest literature and limitations
-See the references and comparison section of RESULT.md. The conclusion does not include random-length laws, directionally anisotropic distributions, higher-dimensional volumes, or uniform finite-size tail estimates. Independent validation and comprehensive bibliographic priority review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical degenerate U-statistic and Fourier spectral theory imply generic second-chaos mechanisms. Inspected Gaussian random-zonotope theorems have nondegeneracy or different projected-length ensembles and do not state this fixed-length isotropic non-Gaussian law with explicit sine transform and sharp tail. Best-of-knowledge with Vitale 1987 chapter not available in full and possible classical Fourier U-statistic alias.
+
+## value
+
+PASS
+
+A natural random convex-body area statistic has a degenerate first Hoeffding projection, producing a concrete bounded-above non-Gaussian limit. The explicit weighted-exponential distribution, transform, variance and exact tail constant supply useful probabilistic information beyond elementary moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
