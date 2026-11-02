@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The regular language \\(1(1\\mid00)^*\\) partitions adjacent accepted words into first-divergence witnesses indexed by a valid prefix and an integer remaining length. The exact extremal completions are \\(p00\\,1^{r-1}\\) and \\(p1\\,0^r\\) (even \\(r\\)) or \\(p1\\,0^{r-1}1\\) (odd \\(r\\)); these prove adjacency and account for every same-length pair. The counts are \\(F_{m-r-1}\\) by a direct terminal-block recurrence, and crossing length classes adds only gaps 1 and 2. Summation proves the stated finite histogram. Limiting laws follow from Binet ratios, and independent brute-force verification passed for all \\(2\\le M\\le16\\). Boundary cases \\(M=2,3\\) and odd/even parity are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Merta 2018 Eq. (2) recursively specifies fixed-bit-length sections of the support, and Theorem 4.6 gives an exact gap spectrum for a different inverse-series position sequence.",
+        "Kimberling 2000 specifies the different generator starting at 1 with 2x and 4x-1; its Wythoff ranks are unrelated to the present exact differences."
+      ],
+      "reasoning": "The recurrence for the support enables arbitrary finite computation but does not state or directly entail without an additional lexicographic-extrema proof the closed all-rank return-gap histogram. Merta’s exact gap theorem for the inverse-associated support has a different domain and distinct spectrum, so neither it nor the Fibonacci parity coding subsumes this result.",
+      "searches": [
+        "Baum Sweet automatic sequence gaps between consecutive ones complete return words binary patterns zero runs",
+        "A060142 first differences Baum Sweet indices ones gap histogram Fibonacci dyadic truncation",
+        "arXiv:1803.00292v1 Theorem 4.6",
+        "Kimberling A Self-Generating Set and the Golden Mean 2000"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A060142 (entire rendered entry)",
+      "arXiv:1803.00292v1 (relevant primary full-text sections)",
+      "Kimberling, Journal of Integer Sequences 3 (2000) (full HTML)",
+      "arXiv:1507.03361v1 (relevant primary material)",
+      "Baum–Sweet 1976 bibliographic metadata only",
+      "published-finding corpus semantic searches on support gaps and Fibonacci multiplicities; closest IDs 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71, 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28, 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS A060142 proves or states the exact underlying set but makes no histogram comparison.",
+        "Merta 2018 parity theorem and inverse-series gap theorem have different conclusions; Merta Eq. (2) only gives a recursive set decomposition.",
+        "Dreyfus et al. 2015 prove differential-algebraic independence of generating functions; no statement about neighboring support gaps."
+      ],
+      "reasoning": "The final claim is an exact probability/statistical refinement of a known automatic-language support. Existing results specify the input support or other invariants and do not show the precise multiplicity F_{M-r+1}-1, the full set of permitted distances, or the limiting tail law. Exhaustive historical priority is not asserted.",
+      "searches": [
+        "OEIS A060142",
+        "arXiv:1803.00292v1 §2 Theorems 2.1–2.6 and §4 Theorem 4.6",
+        "arXiv:1507.03361 §4.2",
+        "Results records search: Baum-Sweet set of accepted binary integers with all zero-runs even length; exact successor gap spectrum 1,2,3,6,9,18,33,66,129 and Fibonacci counts of gap sizes below powers of two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A060142: the listed set is exactly the positions of ones in A086747, plus the generator 0 -> 2x+1 and 4x.",
+        "Merta 2018 §2: (l_n) is the Baum–Sweet 1-support; §2 Theorem 2.5 identifies its parity with a Fibonacci word, not its consecutive differences."
+      ],
+      "reasoning": "The equivalent objects are the Baum–Sweet support, the accepted even-zero-run binary language, and return gaps to its letter 1. This theorem is expressly about the histogram of differences of successive support elements, not the known element sequence itself, its parity, or a simple symbol substitution.",
+      "searches": [
+        "Baum Sweet sequence gaps between consecutive ones Fibonacci distribution gaps spectrum",
+        "A060142 first differences gaps",
+        "OEIS A060142",
+        "arXiv:1803.00292v1 §§2,4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A060142 lists initial support elements, equivalent definitions, links and tables of the support; no explicit exact gap histogram or limiting law is stated on its displayed complete entry.",
+        "The gap values for M=2..16 were independently enumerated from the defining zero-run predicate and matched each claimed frequency."
+      ],
+      "reasoning": "A table of support elements is not a table or closed expression for the count of each gap below every dyadic cutoff. Search limitations remain, but the actual inspected database entry does not cover the claim.",
+      "searches": [
+        "site:oeis.org \"Baum-Sweet\" \"gaps between\"",
+        "\"A060142\" \"first differences\" gaps",
+        "OEIS A060142 complete entry",
+        "OEIS A086747 Baum Sweet sequence"
+      ]
+    },
+    "rationale": "OEIS A060142 enumerates the underlying set and its self-generating recurrences but does not state a complete successive-gap histogram, all-scale Fibonacci multiplicities or limiting heavy-tailed law. Merta 2018 §2 gives the same set, an exact fixed-bit-length set recursion and a parity/Fibonacci-word coding of accepted positions; it does not give the all-gap histogram. Merta Theorem 4.6 treats successive differences of the 1-support of a formal-power-series inverse, not differences of the Baum–Sweet 1-support, and therefore does not dominate this claim. Kimberling 2000 considers a genuinely different generator \\(1,2x,4x-1\\). Dreyfus–Hardouin–Roques 2015 concerns transcendence, not local gaps. No implication covering the claimed histogram was identified in actual direct and semantic searches. Historical priority remains subject to inaccessible original full text and the non-exhaustiveness of literature search.",
+    "residual_risks": [
+      "Original Baum–Sweet 1976 full paper not accessible through authorized routes; no conclusion about its full content.",
+      "The OEIS support recurrences and 2018 fixed-length recursion algorithmically generate gap data, although their inspected statements do not present this theorem.",
+      "Searches cannot exhaust all older variants, titles, unindexed papers, or unpublished material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact support and generating rules known; new closed histogram and tail law not stated.",
+        "evidence": [
+          "A060142 first author date Mar 05 2001; 0 in S; closure x -> 2x+1,4x; identified as indices of ones of A086747."
+        ],
+        "identifier_or_url": "https://oeis.org/A060142",
+        "material_read": "Full rendered database entry (definitions, comments, initial terms, links, references, historical author date, code).",
+        "method": "Direct HTML/text reading and checks of named sequence links.",
+        "title": "OEIS A060142: Ordered set S defined by self-generation",
+        "trigger": "The underlying exact support is already catalogued, so a covering exact differences formula was possible."
+      },
+      {
+        "assessment": "Section 2 treats the same support but analyzes its parity and non-regularity, not the claimed complete gap counts; Theorem 4.6 concerns the distinct inverse-series support u_n.",
+        "evidence": [
+          "Eq. (2): a decomposition of support subsets at powers of two.",
+          "Theorem 2.5: parity of support enumeration from Fibonacci word; Theorem 4.6: consecutive differences u_{n+1}-u_n for inverse-series positions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.00292v1",
+        "material_read": "Introduction and relevant full text of §2 (Theorems 2.1–2.7, Eq. (2)) and §4 (Theorem 4.6), §5 generalizations.",
+        "method": "Open accessible arXiv HTML and inspect theorem/proof statements, object definitions, recurrence and difference results.",
+        "title": "Composition inverses of the variations of the Baum–Sweet sequence",
+        "trigger": "Explicitly studies increasing positions of ones of Baum–Sweet; contains an exact difference theorem for a related sequence."
+      },
+      {
+        "assessment": "Different self-generated set (1; 2x; 4x-1) and invariant; no implication for current Baum–Sweet gap counts.",
+        "evidence": [
+          "Its defining generator differs from A060142: starts at 1 and maps x -> 2x,4x-1."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/goldentext.html",
+        "material_read": "Full accessible HTML, abstract and proof/main result on set generation and Wythoff rank law.",
+        "method": "Direct primary full text.",
+        "title": "A Self-Generating Set and the Golden Mean",
+        "trigger": "Linked directly from OEIS A060142 and discusses Fibonacci set structure."
+      },
+      {
+        "assessment": "Proves generating-function algebraic-independence properties, not neighboring-one gap statistics.",
+        "evidence": [
+          "First public arXiv v1 Jul 13 2015, distinct Mahler/differential-algebraic question."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.03361",
+        "material_read": "ArXiv abstract and accessible primary text §4.2 on Baum–Sweet generating series.",
+        "method": "Direct preprint abstract and related primary text section.",
+        "title": "Hypertranscendence of solutions of Mahler equations",
+        "trigger": "Classical mathematical literature specifically treating Baum–Sweet coefficients."
+      },
+      {
+        "assessment": "No whole-text noncoverage claim made; residual historical-priority risk remains.",
+        "evidence": [
+          "Annals of Mathematics, 103 (1976), 593–610; DOI 10.2307/1970953."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/1970953",
+        "material_read": "Bibliographic metadata and secondary references only; complete text not accessed.",
+        "method": "ArXiv and OA alternatives were sought without obtaining full text; authorized institutional retrieval reported disconnected VPN.",
+        "title": "Continued Fractions of Algebraic Power Series in Characteristic 2",
+        "trigger": "Foundational original source introducing Baum–Sweet sequence; historical-priority check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "138012f2-6e30-4a78-a7a2-e3d0ba2e394e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Consecutive distances between 1-symbols are the return-gap spectrum of a classical automatic word with unbounded zero runs. The theorem classifies every possible gap and its exact multiplicity at every dyadic size, yielding a nondegenerate limiting distribution with a power-law tail and infinite mean. This uniform structural law is stronger than providing the underlying support or numerically listing its first differences; it quantifies a natural recurrence/sparsity statistic and its scale dependence.",
+    "status": "PASS"
+  }
+}
