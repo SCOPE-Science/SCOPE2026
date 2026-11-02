@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "evidence": [
+      "Plaumann--Sturmfels--Vinzant arxiv:1008.4104, bitangent/Steiner structures",
+      "Bergvall Section 3.4, theta-evaluation rule",
+      "verify_smith.py exact integer certificate",
+      "verify_hnf.py independent exact Hermite check"
+    ],
+    "limits": [
+      "Characteristic two and singular or hyperelliptic curves excluded",
+      "Galois module structure of the cokernel not classified"
+    ],
+    "rationale": "For every smooth plane quartic in characteristic !=2, the classical odd-theta interpretation gives the explicitly defined 28-by-63 binary-quadratic incidence matrix. Counting gives \\(MM^{\\mathsf T}=16I+11J\\), so rank 28. The provided pure-Python integer elementary operations construct unimodular U,V and verify \\(UMV=\\operatorname{diag}(1^{\\times7},2^{\\times14},4^{\\times6},12)\\), and independent exact Hermite/Smith routines confirm index \\(805306368\\). Symplectic transitivity and the exponent 12 show each basis bitangent has exact order 12, independently corroborated by rational Hermite inverses. No infinite claim rests on finite sampling; the geometric-to-matrix identification is the uniform proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blokhuis--Calderbank (1992) abstract provides general necessary Smith-form restrictions for quasi-symmetric designs; no explicit computation for this symplectic 28-by-63 incidence was visible in the abstract.",
+        "Crnković--Mikulić Crnković--Švob (2016), page 131, identifies the derived \\(2\\)-\\((28,12,11)\\) symplectic design and then presents finite-field code data; it does not in the inspected passages state the integral invariant factors.",
+        "General SNF theory of quasi-symmetric designs could in principle imply this special numerical list, but an explicit such implication has not been established from the examined material."
+      ],
+      "reasoning": "The potentially dominating sources are general algebraic-combinatorial Smith theorems and symplectic-design code classifications. The former have only partially accessible primary text, and the latter give nonintegral (field-code) information. Neither source was verified to contain a stronger exact theorem implying the integral cokernel. Retain a specific full-text-access priority risk.",
+      "searches": [
+        "symmetric quasi symmetric 2-(28,12,11) Smith normal form 63 blocks",
+        "Smith normal form symplectic SDP design derived 2-(28,12,11)",
+        "2-(28,12,11) elementary divisors design",
+        "https://doi.org/10.1007/BF00124897",
+        "https://combinatorialpress.com/article/jcmcc/Volume%20097/vol-097-paper%209.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1008.4104",
+      "https://link.springer.com/article/10.1007/s40879-023-00711-3",
+      "https://www.researchgate.net/publication/258378473_On_Some_Combinatorial_Structures_Constructed_from_the_Groups_L35_U52_and_S62",
+      "https://combinatorialpress.com/article/jcmcc/Volume%20097/vol-097-paper%209.pdf",
+      "https://doi.org/10.1007/BF00124897",
+      "https://scholars.duke.edu/individual/pub763264",
+      "https://arxiv.org/abs/2106.13072"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously proved: there are 28 odd characteristics, 63 twelve-bitangent Steiner complexes; their incidence is a \\(2\\)-\\((28,12,11)\\) symplectic design.",
+        "Previously investigated: code spaces and symplectic permutation/group actions; these do not themselves determine the 2-adic and 3-adic integral Smith invariants.",
+        "New exact calculation: unimodular diagonalization yields \\(1^{\\times7},2^{\\times14},4^{\\times6},12\\); each basis-bitangent class has exact order 12."
+      ],
+      "reasoning": "The prior structural theorem determines the input matrix up to isomorphism but not its Smith diagonal in the inspected published statements. The new assertion computes the missing integral quotient and proves a uniform, sharp single-bitangent denominator. Unlike earlier Klein/Fermat bitangent Frobenius calculations, this is a universal geometric incidence-lattice invariant.",
+      "searches": [
+        "https://arxiv.org/abs/1008.4104",
+        "https://link.springer.com/article/10.1007/s40879-023-00711-3",
+        "https://www.researchgate.net/publication/258378473_On_Some_Combinatorial_Structures_Constructed_from_the_Groups_L35_U52_and_S62",
+        "https://combinatorialpress.com/article/jcmcc/Volume%20097/vol-097-paper%209.pdf",
+        "https://doi.org/10.1007/BF00124897"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bergvall Section 3.4 identifies a Steiner complex as the twelve odd quadratic refinements vanishing at nonzero two-torsion. This is precisely the column-support rule used for the integral incidence matrix.",
+        "Plaumann--Sturmfels--Vinzant Section 5 studies 63 Steiner complexes via quartic representations; the inspected treatment does not give the integer image lattice or its invariant factors.",
+        "No exact invariant-factor tuple or bitangent-reconstruction exponent was identified in the checked records."
+      ],
+      "reasoning": "The equivalent formulations checked include the odd-theta evaluation incidence, the derived 2-(28,12,11) symplectic design, and 28-by-63 integer Steiner reconstruction. These are the same matrix up to relabeling, but the inspected statements give design/geometric structure rather than its integral Smith cokernel. Absence in searches alone is not treated as proof of global novelty.",
+      "searches": [
+        "Steiner complex of odd theta characteristics plane quartic 28-by-63 incidence matrix Smith normal form elementary divisors torsion cokernel 12 4 2",
+        "theta characteristics 63 Steiner complexes incidence map Smith group",
+        "Steiner complexes bitangents q(v)=0 quadratic forms symplectic F2 6 Smith form",
+        "Steiner complexes 28 bitangents 63 blocks 12 Smith normal form incidence invariant factors",
+        "https://link.springer.com/article/10.1007/s40879-023-00711-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted mathematical-result searches returned other designs, rank/code statements, and unrelated group-incidence results, not a matching 28-by-63 Steiner-Smith invariant-factor table.",
+        "The 2011 and 2016 designs papers tabulate block parameters and finite-field codes rather than the full integer Smith factors."
+      ],
+      "reasoning": "Exact aliases, incidence dimensions, and the candidate invariant factors were searched. Existing related tables do not imply the claimed exact integer structure unless supplemented by further calculations. No exhaustive claim about inaccessible databases or historical print tables is made.",
+      "searches": [
+        "28 Steiner 63 bitangent incidence Smith normal form cokernel 1^7 2^14 4^6 12",
+        "2-(28,12,11) quasi symmetric symplectic design exact Smith normal form",
+        "plane quartic odd theta Steiner 28 by 63 integer incidence reconstruction denominator",
+        "Steiner complexes 28 bitangents 63 blocks 12 Smith normal form incidence invariant factors",
+        "2-(28,12,11) elementary divisors design"
+      ]
+    },
+    "rationale": "The 28-bitangent/63-Steiner design itself and its \\(2\\)-\\((28,12,11)\\) parameters are previously established. Direct inspection of relevant primary papers reveals geometric descriptions and finite-field code data, not an integral 28-by-63 Smith classification or sharp 12-fold reconstruction. The new claim is the precise integer quotient. Older general Smith design theory may cover it, but the accessible abstract gives only general necessary conditions and no decisive positive coverage.",
+    "residual_risks": [
+      "The 1992 general Smith-form study was not available in full text; an equivalent or dominating result may appear in that or in classical quasi-symmetric symplectic design literature.",
+      "The classical incidence design is well known. Priority concerns only the explicit integral invariant factors and sharp reconstruction order; searches do not prove uniqueness.",
+      "The result does not determine the Galois-equivariant isomorphism type of the integral cokernel over a nonclosed field."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_GEOMETRIC_PREMISE_NOT_IDENTIFIED_INTEGRAL_SNF",
+        "evidence": "Describes 28 bitangents and 63 Steiner complexes/Gram matrices over the coefficient field; no exact 28-by-63 Smith calculation was found in inspected text.",
+        "identifier_or_url": "arxiv:1008.4104; https://arxiv.org/abs/1008.4104",
+        "material_read": "Article full text, especially Section 5 on the 63 Steiner complexes and quadratic/sum-of-squares realizations; also abstract and primary MSC.",
+        "method": "Read accessible article text and relevant mathematical statements; inspected Smith/incidence terminology and Section 5.",
+        "title": "Quartic Curves and Their Bitangents",
+        "trigger": "Classical incidence setup and plausible direct calculation of 63 Steiner complexes"
+      },
+      {
+        "assessment": "ESTABLISHES_DEFINITION_AND_EQUIVARIANCE_NOT_THE_INTEGRAL_COKERNEL",
+        "evidence": "States Sigma(v)={theta in Theta^- : theta(v)=0}, 63 indices and twelve odd theta characteristics in each.",
+        "identifier_or_url": "arxiv:2106.13072; https://link.springer.com/article/10.1007/s40879-023-00711-3",
+        "material_read": "Full-text Section 3.4.1--3.4.2, including Definition 3.3, formulas for Sigma(v), 63 complexes of size 12, and stabilizer discussion.",
+        "method": "Read primary HTML section directly and compared the evaluation rule with the constructed incidence matrix.",
+        "title": "Arithmetic and topology of classical structures associated with plane quartics",
+        "trigger": "Exact geometric definition of Steiner complexes as 2-torsion evaluation zeros"
+      },
+      {
+        "assessment": "KNOWN_DESIGN_NOT_IDENTIFIED_FULL_INTEGRAL_SNF",
+        "evidence": "Explicitly identifies a \\(2\\)-\\((28,12,11)\\) design arising from the group S(6,2), known previously; does not state the target invariant factors in examined mathematical exposition.",
+        "identifier_or_url": "doi:10.1155/2011/137356; https://www.researchgate.net/publication/258378473_On_Some_Combinatorial_Structures_Constructed_from_the_Groups_L35_U52_and_S62",
+        "material_read": "Accessible full text, including Section 5 and the explicit design D8 with parameters 2-(28,12,11), and discussion of previously known designs.",
+        "method": "Read article HTML primary text, sought exact Smith factors and integer incidence cokernel.",
+        "title": "On Some Combinatorial Structures Constructed from the Groups L(3,5), U(5,2), and S(6,2)",
+        "trigger": "Direct older classification of the 2-(28,12,11) symplectic design"
+      },
+      {
+        "assessment": "RELEVANT_OLD_DESIGN_AND_CODE_RESULTS_NOT_IDENTIFIED_INTEGRAL_SNF",
+        "evidence": "Page 131 says the same \\(2\\)-\\((28,12,11)\\) derived symplectic SDP design occurs; subsequent tables concern ranks/codes and do not give the asserted Smith diagonal.",
+        "identifier_or_url": "JCMCC volume 97 (2016) pp 119--138; https://combinatorialpress.com/article/jcmcc/Volume%20097/vol-097-paper%209.pdf",
+        "material_read": "Primary PDF pages 1, 8, 13--15, 17--18, including the derived 2-(28,12,11) design and code tables.",
+        "method": "Read multiple original PDF page images including the paper abstract, derived-design discussion and code tables.",
+        "title": "On some transitive combinatorial structures and codes constructed from the symplectic group S(6,2)",
+        "trigger": "Plausible stronger covering symplectic-code description of the same design"
+      },
+      {
+        "assessment": "MATERIAL_INSUFFICIENT_TO_EXCLUDE_EQUIVALENT_CLASSICAL_CALCULATION",
+        "evidence": "Abstract describes general necessary divisibility restrictions, not an explicit calculation of the 28-by-63 symplectic design; full text priority risk remains.",
+        "identifier_or_url": "doi:10.1007/BF00124897; https://doi.org/10.1007/BF00124897",
+        "material_read": "Publisher/institutional abstract only: necessary conditions on Smith forms of quasi-symmetric design incidence matrices; not full paper.",
+        "method": "Read publicly accessible abstract; full authorized text was not available without an interactive access step.",
+        "title": "Quasi-symmetric designs and the Smith Normal Form",
+        "trigger": "Potential general theorem giving a stronger arithmetic Smith-form implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b76c5509-eb43-43e9-a8bb-a10582dadfc8",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "The invariant is canonical up to row/column permutations and Galois-equivariant",
+      "Smith factors distinguish integral torsion invisible over Q",
+      "The exact order 12 of all individual bitangents is a sharp natural reconstruction statement"
+    ],
+    "rationale": "The integral image of all 63 classical Steiner sums among the 28 canonical odd theta characteristics is a natural geometric obstruction lattice. Computing the full abstract cokernel and the smallest universal integer multiplier of an individual bitangent addresses the integrality of reconstruction, not captured by rational Gram spectra, block-design parameters, or field-code ranks. A complete universal computation for every smooth plane quartic has intrinsic value without requiring a downstream theorem.",
+    "status": "PASS"
+  }
+}
