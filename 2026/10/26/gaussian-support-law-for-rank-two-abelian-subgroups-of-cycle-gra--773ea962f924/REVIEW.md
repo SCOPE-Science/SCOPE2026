@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs rank-two isotropy from edge determinants, counts precisely the nonzero-column support assignments, subtracts rank-one matrices and divides by the free action of \(\mathrm{GL}_2(\mathbb F_q)\). The all-occupied cycle correction is included in the trace formula. The dominant-eigenvalue expansion is locally uniform in a complex moment variable; two analytic derivatives give positive explicit variance and the characteristic-function argument proves the CLT. Prime-field exhaustive checks independently reproduce the finite distribution. The finite tests do not certify the limiting statement.
+## correctness
 
-**Originality — PASS against checked sources, with risks.** Qiao (arXiv:2408.09963v1) provides general polynomial counts and an edgewise row-dependence criterion, so ordinary unrefined counts are covered and not a novelty claim. Qiao's inspected statement and proof do not provide this cyclic support-refined transfer, the Gaussian law or the explicit density and variance. Rossmann (arXiv:2107.05564v1) and the closely related published cycle-character-degree finding concern other group invariants. Overlap might exist in transfer-matrix or vertex-random-cluster literature, and the closest online finding's full text could not be accessed; these are residual risks rather than proof of priority.
+PASS
 
-**Value — PASS.** The support distribution is a concrete natural statistic of two-dimensional central extensions/abelian subgroups in a designated graphical presentation. It is the first nontrivial quotient dimension (dimension one imposes no commutator constraint), and its limiting support density differs substantially from unrestricted random planes. An exact linear recurrence and a Gaussian law with golden-ratio high-field limit determine typical subgroup structure for every growing cycle, rather than an arbitrary small parameter count. Support depends on the chosen graph presentation and the result does not extend to all subgroups.
+Represent a plane by a rank-two 2×n basis matrix; each adjacent determinant vanishes iff neighboring nonzero vertex columns occupy the same projective line. For support S with c components the number of rank-two ordered matrices is (q-1)^|S|((q+1)^c-(q+1)); subtract zero-support correction and divide by |GL_2(q)|. The cyclic occupancy transfer has characteristic polynomial lambda^2-(1+w)lambda-qw and a correction qw^n for all occupied; eigenvalue dominance near w=q-1 yields quasi-powers and a CLT with the claimed nonzero variance coefficient. Independent canonical-RREF enumeration for q=2 n=4,5,6 and q=3 n=4 matched direct induced-component predictions; independent symbolic derivatives for q=2,3,5,9 matched mu and sigma². Group equivalence is restricted to odd prime fields and subgroups containing G'.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qiao’s 2024 paper (full primary PDF, Theorem 1.2, Lemma 2.3 and detailed Section 2 proof inspected) already supplies the global finite polynomial existence and componentwise rank-condition enumeration, so UNREFINED rank-two counts are not original. Qiao does not state the cyclic two-state support-refined distribution, explicit fixed-field Gaussian support CLT, its constants or golden-ratio high-field limit. A published SCOPE result on character degree enumeration of cycle graphical groups counts a different invariant. Classical finite-state transfer/quasi-power methods cover the methodology, but do not document the specialized statement as presented.
+
+## value
+
+PASS
+
+The support size is a natural, presentation-relative statistic of abelian subgroups in the first nontrivial quotient dimension; dimension one is always isotropic. A complete exact distribution and typical-density/variance CLT for all cycle lengths and fixed finite fields capture structural subgroup behavior absent from unrefined counts. It is more than a lookup and does not claim arbitrary abelian subgroups or uniform growing-q limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

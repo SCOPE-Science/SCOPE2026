@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:41:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Represent a plane by a rank-two 2×n basis matrix; each adjacent determinant vanishes iff neighboring nonzero vertex columns occupy the same projective line. For support S with c components the number of rank-two ordered matrices is (q-1)^|S|((q+1)^c-(q+1)); subtract zero-support correction and divide by |GL_2(q)|. The cyclic occupancy transfer has characteristic polynomial lambda^2-(1+w)lambda-qw and a correction qw^n for all occupied; eigenvalue dominance near w=q-1 yields quasi-powers and a CLT with the claimed nonzero variance coefficient. Independent canonical-RREF enumeration for q=2 n=4,5,6 and q=3 n=4 matched direct induced-component predictions; independent symbolic derivatives for q=2,3,5,9 matched mu and sigma². Group equivalence is restricted to odd prime fields and subgroups containing G'.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General support-stratified expressions in Qiao Section 2 imply unrefined polynomial counts, potentially also recover a finite H via summation.",
+          "Analytic combinatorics quasi-powers give general Gaussian fluctuations when a dominant transfer eigenvalue exists."
+        ],
+        "reasoning": "Specialization of Qiao plus analytic transfer method provides ingredients, but the explicit cyclic support polynomial/closed eigenvalue, positive variance and exact parameters are not given as an already established corollary with these hypotheses.",
+        "searches": [
+          "arXiv:2408.09963 Theorem 1.2 and Lemma 2.7",
+          "Flajolet Sedgewick Analytic Combinatorics IX"
+        ]
+      },
+      "checked_sources": [
+        "A q-analogue of graph independence polynomials with a group-theoretic interpretation: https://arxiv.org/pdf/2408.09963",
+        "Enumerating conjugacy classes of graphical groups over finite fields: arXiv:2107.05564"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qiao counts |Gr(i,n,q)|, dropping which graph vertices are supported; a sum over S loses distribution of K.",
+          "Rossmann counts conjugacy classes by size, not the isoclinic abelian subgroup support statistic."
+        ],
+        "reasoning": "Neither unrefined polynomial nor character-degree counts alone imply a distribution in t or the cycle-specific n→∞ central limit with constants.",
+        "searches": [
+          "arXiv:2408.09963 proof of Lemma 2.7",
+          "arXiv:2107.05564 graphical group conjugacy class enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qiao Lemma 2.3: edgewise row linear dependence; our support is exactly nonzero row positions.",
+          "Qiao enumerates isotropic dimension i by polynomials in q, while this result tracks the support size t and its n-CLT."
+        ],
+        "reasoning": "This is a support-refined rank-two q-analogue graph-independence enumeration, equivalently an abelian-subgroup support law in an odd-prime class-two graphical group; comparison performed at statement level.",
+        "searches": [
+          "Cycle graph alternating matrix spaces, totally isotropic dimension two subspaces, support-weight distribution, abelian graphical p-groups, central limit theorem.",
+          "Qiao arXiv:2408.09963 Sections 1–2",
+          "Resultary cycle graphical groups character degree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published SCOPE cycle-graphical-groups character-degree result concerns weighted skew-adjacency matrix rank and irreducible representations, not support distributions of abelian quotient-two subgroups."
+        ],
+        "reasoning": "No retrieved exact support table or Gaussian limit covers the family. Searching is not a proof of novelty.",
+        "searches": [
+          "Cycle graph alternating matrix spaces, totally isotropic dimension two subspaces, support-weight distribution, abelian graphical p-groups, central limit theorem.",
+          "Resultary semantic query Cycle graph alternating matrix spaces, totally isotropic dimension two subspaces, support-weight distribution, abelian graphical p-groups, central limit theorem."
+        ]
+      },
+      "rationale": "Qiao’s 2024 paper (full primary PDF, Theorem 1.2, Lemma 2.3 and detailed Section 2 proof inspected) already supplies the global finite polynomial existence and componentwise rank-condition enumeration, so UNREFINED rank-two counts are not original. Qiao does not state the cyclic two-state support-refined distribution, explicit fixed-field Gaussian support CLT, its constants or golden-ratio high-field limit. A published SCOPE result on character degree enumeration of cycle graphical groups counts a different invariant. Classical finite-state transfer/quasi-power methods cover the methodology, but do not document the specialized statement as presented.",
+      "residual_risks": [
+        "A vertex-random-cluster or transfer-matrix central limit theorem may include an explicitly equivalent cycle specialization, not located.",
+        "Unrefined total counts and rank criterion already known; uniqueness claim restricted to support refinement and limit law.",
+        "The group interpretation requires odd prime fields; support is not canonical under arbitrary group automorphisms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong coverage of generic unrefined count and row criterion, no listed cycle-support limit law",
+          "evidence": "Theorem 1.2 promises polynomial total isotropic counts; Lemma 2.3 characterizes edgewise dependent rows and Lemma 2.7 counts canonical cells.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.09963",
+          "material_read": "Theorem 1.2, §§1.2–2 including Lemmas 2.3 and 2.7, page 3 and pages 9–11",
+          "method": "Accessible full primary arXiv PDF, visual PDF page images and extracted text",
+          "title": "A q-analogue of graph independence polynomials with a group-theoretic interpretation",
+          "trigger": "Directly matching isotropic subspaces of graphical alternating matrix spaces"
+        },
+        {
+          "assessment": "Character/conjugacy class enumeration is not the support-size law",
+          "evidence": "Published theorem treats conjugacy classes rather than abelian quotient-two subgroup vertex support.",
+          "identifier_or_url": "arXiv:2107.05564",
+          "material_read": "Abstract, cited theorem description; no complete full-text reread",
+          "method": "arXiv indexed citation and assigned package bibliography",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Graphical-group context and possible stronger invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The support size is a natural, presentation-relative statistic of abelian subgroups in the first nontrivial quotient dimension; dimension one is always isotropic. A complete exact distribution and typical-density/variance CLT for all cycle lengths and fixed finite fields capture structural subgroup behavior absent from unrefined counts. It is more than a lookup and does not claim arbitrary abelian subgroups or uniform growing-q limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact vertex-support polynomial and fixed-q Gaussian CLT for rank-two totally isotropic planes of cycle graphical alternating matrix spaces, with explicit mu_q and sigma_q^2 and odd-prime graphical group interpretation.",
+  "limitations": [
+    "A vertex-random-cluster or transfer-matrix central limit theorem may include an explicitly equivalent cycle specialization, not located.",
+    "Unrefined total counts and rank criterion already known; uniqueness claim restricted to support refinement and limit law.",
+    "The group interpretation requires odd prime fields; support is not canonical under arbitrary group automorphisms."
+  ],
+  "schema_version": 1
+}

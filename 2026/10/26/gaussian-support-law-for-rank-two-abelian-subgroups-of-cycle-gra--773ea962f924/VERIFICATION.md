@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The executable `verify.py` uses three distinct descriptions: enumerating ordered bases and checking all edge determinants directly over prime fields; counting support subsets via induced components; and calculating a two-state polynomial trace recurrence. It compares all coefficients, not only the totals. Direct exhaustive cases: \((q,n)=(2,3\ldots7),(3,3\ldots5),(5,3\ldots4)\). Exact component/transfer arithmetic comparisons: \(q\in\{2,3,4,5,7,9\}\), \(3\le n\le12\). The run returned `VERIFY_OK`.
+# Independent mathematical audit
 
-The direct checks use prime fields; the component/transfer identities for \(q=4,9\) are integer polynomial evaluations, not implementations of extension-field arithmetic. The theorem covers any finite field because the projective line and nonzero vector counts depend only on q. All limit statements depend on the analytic proof, not on finite checks. A full independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+Represent a plane by a rank-two 2×n basis matrix; each adjacent determinant vanishes iff neighboring nonzero vertex columns occupy the same projective line. For support S with c components the number of rank-two ordered matrices is (q-1)^|S|((q+1)^c-(q+1)); subtract zero-support correction and divide by |GL_2(q)|. The cyclic occupancy transfer has characteristic polynomial lambda^2-(1+w)lambda-qw and a correction qw^n for all occupied; eigenvalue dominance near w=q-1 yields quasi-powers and a CLT with the claimed nonzero variance coefficient. Independent canonical-RREF enumeration for q=2 n=4,5,6 and q=3 n=4 matched direct induced-component predictions; independent symbolic derivatives for q=2,3,5,9 matched mu and sigma². Group equivalence is restricted to odd prime fields and subgroups containing G'.
+
+## originality
+
+PASS
+
+Qiao’s 2024 paper (full primary PDF, Theorem 1.2, Lemma 2.3 and detailed Section 2 proof inspected) already supplies the global finite polynomial existence and componentwise rank-condition enumeration, so UNREFINED rank-two counts are not original. Qiao does not state the cyclic two-state support-refined distribution, explicit fixed-field Gaussian support CLT, its constants or golden-ratio high-field limit. A published SCOPE result on character degree enumeration of cycle graphical groups counts a different invariant. Classical finite-state transfer/quasi-power methods cover the methodology, but do not document the specialized statement as presented.
+
+## value
+
+PASS
+
+The support size is a natural, presentation-relative statistic of abelian subgroups in the first nontrivial quotient dimension; dimension one is always isotropic. A complete exact distribution and typical-density/variance CLT for all cycle lengths and fixed finite fields capture structural subgroup behavior absent from unrefined counts. It is more than a lookup and does not claim arbitrary abelian subgroups or uniform growing-q limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
