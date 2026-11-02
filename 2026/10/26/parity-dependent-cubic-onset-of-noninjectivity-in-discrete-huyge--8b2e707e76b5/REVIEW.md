@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact top-eigenspace equality analysis gives a complete singular locus, including the nontrivial odd closure obstruction. At each listed configuration the analytic transverse implicit equation reduces to an odd scalar cubic with strictly positive coefficient. The two nonzero inverse branches follow from an implicit function in the squared amplitude, and the stated constants are computed from exact fourth-power Fourier sums. The accompanying finite numerical checks are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS under examined sources.** The 2026 unweighted-ring primary paper proves the strict invertible interval and even-ring sharpness, not odd-ring exact singular configurations or a supercritical inverse-branch law. Its companion general network paper proves tree sharpness, a different topological situation because independent tree-edge phases have no cycle closure constraint. Generic cubic singularity methods are not claimed as original. A historical one-dimensional circle-map paper was accessible only through bibliographic previews; priority outside the examined full texts remains a substantive risk.
+PASS
 
-**Value — PASS.** The parity of the closed oscillator ring controls both the count of first singularities and the amplitude of the local inverse branch creation. The result settles sharpness of the diffeomorphism threshold for odd rings and provides an explicit onset mechanism relevant to the global invertibility of discrete phase dynamics.
+On the sum-zero torus E, the derivative I+hK diag(cos z) is singular first when Rayleigh equality selects the top cycle eigenspace and the corresponding highest-frequency eigenvector vanishes wherever cos z>-1. For even n the top eigenvector is alternating and nonzero everywhere, giving only all pi; for odd n any top eigenvector has at most one zero, so closure forces exactly one zero phase among pi entries and n cyclic positions. Both have one-dimensional nullity. The analytic odd Lyapunov–Schmidt reduction gives cubic coefficient sum_i w_i^4/6=1/(6n) even or 1/(4n) odd and three near-critical preimages at amplitudes ±sqrt(6n mu), ±sqrt(4n mu) plus O_n(mu^(3/2)). Uniform all n>=3 follows analytically. Independent eigenvector checks n=3..16 had <1e-10 residual, not proof of all n.
 
-The result does not classify all larger coupling strengths or prove exact global preimage counts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Huygens-ring paper provides the map and sufficient diffeomorphism interval and explicitly treats an even-cycle sharpness case. Odd-cycle first singular set and analytic cubic inverse branching appear additional on the available result statements. The highly plausible paper full texts remained unavailable, preventing a categorical exclusion of an implicit/general theorem; accepting O is qualified best-of-knowledge, not certification.
+
+## value
+
+PASS
+
+The parity-sensitive exact first failure of local invertibility and explicit cubic bifurcation branches solve a motivated boundary of an established discrete ring model, including odd-cycle closure constraints absent on trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
