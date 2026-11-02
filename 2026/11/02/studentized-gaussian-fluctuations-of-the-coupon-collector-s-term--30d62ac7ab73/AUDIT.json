@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The physical-time stopped singleton law is exactly 1+Bin(n-1,m/(exp(m)-1)) conditional on the last exponential first-arrival m. The m=log n+O(1) mean and variance are both (log n)exp(-(m-log n))+O(1); a uniform Berry-Esseen bound and tight Gumbel maximal-first-arrival time give the joint independent normal/Gumbel limit. The merged exponential clocks yield E(M_n-T_n/n)^2=H_n/n, making the random centering error o_p(sqrt(log n)). Independent rational calculations for n=2..10 check 90 identities without proving the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ilienko Theorem 1: all fixed sibling residuals have leading scale (log n)^r/r! and one shared Exp(1) amplitude; Theorem 3: completion times have independent Gumbel limits.",
+        "Ilienko Section 5 equations (45) and subsequent proof identify the leading extreme-value amplitude but not a central limit law at sqrt(log n) after random centering.",
+        "Long Theorem 4 gives an exponential-spacing coupling; Theorem 5 gives fixed-index leading exponential and mixed-moment convergence, explicitly describing conditional Bernoulli fluctuations as negligible only on the leading scale."
+      ],
+      "reasoning": "These genuinely stronger multi-sibling and time-vector results cover a different scale. A leading joint Exp/Gumbel law or thinned Poisson-process limit does not imply the independent studentized Gaussian limit without an additional higher-order approximation; their inspected proofs do not supply the claimed finite conditional binomial identity or uniform conditional CLT.",
+      "searches": [
+        "Full text: Ilienko, Limit theorems in the extended coupon collector’s problem, 2026 DOI 10.15559/26-VMSTA306",
+        "Full text: Long, Extremality and Limit Laws for the Siblings of the Coupon Collector, arXiv:2606.29635",
+        "Web: Ilienko 2026 extended coupon collector second order fluctuations Gaussian studentized residual empty spaces",
+        "Web: joint completion time Gumbel and brother empty spaces conditional central limit theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2002.00650 (first posted 2020-02-03); open-access journal full text DOI 10.15559/26-VMSTA306 (2026)",
+      "arxiv:2005.05270 (first posted 2020-05-11)",
+      "arxiv:2606.29635 (full 24-page manuscript)",
+      "arxiv:1412.4346 (available HTML manuscript)",
+      "arxiv:2606.21591 (finite expectation-extremality, abstract)",
+      "arxiv:2606.31391 (finite transform extremality, abstract)",
+      "Holst 1986 DOI 10.2307/1403255 (broad occupancy review, limited access)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original 2020 Papanicolaou-Doumas theorem U_n/log n -> Exp(1); no T_n-random-centering and no Gaussian residual limit.",
+        "Ilienko 2020/2026 Theorem 1 leading first and all sibling deficits plus Theorem 3 completion-time Gumbel limit; proof involves thinning of rare coupon point processes, not a growing-variance conditional binomial CLT.",
+        "Long 2026 Theorem 5 establishes all fixed mixed moments of leading-scale deficits; its variance/correlation asymptotics are order (log n)^2 and do not resolve the conditional order log n variance after removal of the extreme-value factor."
+      ],
+      "reasoning": "The prior results are compatible with many different sqrt(log n)-scale conditional laws. The uniform physical-time conditional binomial law, Kolmogorov normal bound, and de-Poissonized joint independence must be separately established and are supplied. Classical binomial CLT is used transparently rather than marketed as novel.",
+      "searches": [
+        "Web: Papanicolaou Doumas The Coupon Collector’s Brother arxiv 2005.05270 first submitted May 2020",
+        "Web: Ilienko 2020 arxiv:2002.00650, full 2026 open-access journal text, Theorem 1 and Section 5",
+        "Full text: Long arxiv:2606.29635 Theorem 5 and its conditional Bernoulli fluctuation argument",
+        "Web: coupon collector brother central limit theorem number singletons conditional coupon collection completion time 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ilienko arXiv:2002.00650, later 2026 full-article Theorem 1 establishes exponential first-order sibling deficit limits; Theorems 2 and 3 establish delayed geometric and Gumbel completion-time limits.",
+        "Papanicolaou-Doumas arXiv:2005.05270 establishes first-sibling U/log n -> Exp(1), not a centered Gaussian limit.",
+        "Inspected primary texts identify no equivalent observed-completion-time-centered singleton CLT."
+      ],
+      "reasoning": "The stopped occupancy count of exactly-one coupons is the first sibling deficit in both other references. Their uncentered log-scale limits can be true even when the centered sqrt-log fluctuations have different laws. The new joint normal/Gumbel independence and conditional physical-time binomial identity therefore require the separate proof supplied here.",
+      "searches": [
+        "Web: coupon collector at completion singletons second-order Gaussian fluctuations random centering CLT",
+        "Web: coupon collector brother number of unfilled spaces mixed normal fluctuation CLT 2020 2026",
+        "Full text: Papanicolaou-Doumas, The Coupon Collector’s Brother, arXiv:2005.05270",
+        "Full text: Ilienko, Limit theorems in the extended coupon collector’s problem, arXiv:2002.00650"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Papanicolaou-Doumas arXiv:2005.05270 reports a first-order exponential law and finite moments; no conditional Gaussian formula or exact stopped-count table was identified.",
+        "Ilienko arXiv:2002.00650, Theorem 1, describes all fixed sibling residuals on leading logarithmic scales rather than the centered second-order singleton law.",
+        "Long arXiv:2606.29635, Theorem 5, reports leading mixed moments and exponential limits, not a table of conditional sqrt(log n) fluctuations."
+      ],
+      "reasoning": "No published exact record or tabulation identified in the inspected scientific sources determines the stated random-time studentization. A missed source remains possible; absence of a search hit alone is not a novelty proof, and the specific theorem-versus-prior scientific comparisons are the basis for the assessment.",
+      "searches": [
+        "Web: coupon collector brother central limit theorem number singletons conditional coupon collection completion time 2024",
+        "Web: coupon collector at completion singletons second-order Gaussian fluctuations random centering CLT",
+        "Web: singletons at coupon collector completion standard normal after centering using observed coupon collection time",
+        "Source-text search: Ilienko (2020/2026), Papanicolaou--Doumas (2020), Long (2026), Holst (1986)"
+      ]
+    },
+    "rationale": "Inspected preprint and journal literature supplies leading exponential deficits, Gumbel times, and higher-index joint moments, but not the second-order studentized Gaussian residual joint with completion time. Targeted semantic and historical-claim comparisons identified no equivalent result; broad historical priority remains a risk.",
+    "residual_risks": [
+      "Pre-2020 occupancy literature and the 1986 Holst survey may encode the same conditional Gaussian law using alternative stopping-time terminology; no exhaustive historical-priority certification is claimed.",
+      "The proof establishes only uniform independent coupon labels and the first sibling; extensions are not implied.",
+      "No independent mathematical audit or experimental verification of the infinite limit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong first-order multi-sibling coverage and Gumbel time limits; no random-time-centered Gaussian on sqrt(log n) scale identified",
+        "evidence": "Theorem 1 equation (8), Theorems 2-3 equations (12),(16), Section 5 equations (45) and subsequent convergence proof.",
+        "identifier_or_url": "arxiv:2002.00650; https://www.vmsta.org/journal/VMSTA/article/358/text",
+        "material_read": "Introduction, Theorems 1-3, Section 5 proof of Theorem 1, technical point-process formulas and related references in the open-access HTML text",
+        "method": "Open full HTML text; inspect exact displayed theorems, arguments and references",
+        "title": "Limit theorems in the extended coupon collector's problem",
+        "trigger": "Same extended sibling model, earliest verified 2020 source and subsequently expanded 2026 journal text"
+      },
+      {
+        "assessment": "Proves U_n/log n converges to Exp(1), including finite mean and variance information; does not determine observed-time-normalized Gaussian residual",
+        "evidence": "Abstract and main limit theorem, variance/moment calculations in manuscript.",
+        "identifier_or_url": "https://arxiv.org/abs/2005.05270",
+        "material_read": "Full accessible manuscript text including main theorem, proof, moments and reference discussion",
+        "method": "Read author-uploaded full HTML manuscript text and verified original arXiv posting",
+        "title": "The Coupon Collector's Brother",
+        "trigger": "Original direct one-sibling exponential distribution theorem"
+      },
+      {
+        "assessment": "Broad leading-scale joint exponential laws, finite uniform extremality and monotonicity; does not settle conditional sqrt(log n) fluctuations jointly with observed completion extreme",
+        "evidence": "Theorem 4 pages 15-16 and Theorem 5 pages 19-20; Section 7 notes first-order and open extensions.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.29635",
+        "material_read": "All 24 pages of accessible complete extracted manuscript, including Theorems 1-5 and proof of Theorem 5 (pages 19-20), appendix and references",
+        "method": "Read full text of authorized extracted paper page by page",
+        "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+        "trigger": "Strongest current same mathematical model broad fixed-index joint limit and monotone coupling"
+      },
+      {
+        "assessment": "Mean asymptotics under probability families, not the stated studentized Gaussian law",
+        "evidence": "Main asymptotic expectation results and final sections.",
+        "identifier_or_url": "https://arxiv.org/abs/1412.4346",
+        "material_read": "Accessible HTML manuscript introduction, relevant mean-asymptotic theorem statements, examples, ending discussion and targeted text-search for normal/conditional limits",
+        "method": "Read full HTML manuscript and search for conditional/normal/Gaussian limit statements",
+        "title": "The Siblings of the Coupon Collector",
+        "trigger": "Foundational broader sibling-model formulation and earlier asymptotic theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "30d62ac7-ab73-4e4c-9705-20dcd558f809",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem isolates the conditionally Gaussian occupancy fluctuations hidden beneath the first-order exponential completion-time randomness in a central coupon-collector statistic, yielding an observable-time studentization and an exact conditional law with quantitative compact-window Gaussian approximation. The second-order scale is genuinely different from prior first-order bounds and is a natural inferential refinement.",
+    "status": "PASS"
+  }
+}
