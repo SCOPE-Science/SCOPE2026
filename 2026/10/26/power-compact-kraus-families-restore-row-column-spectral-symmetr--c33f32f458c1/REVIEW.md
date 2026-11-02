@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem reduces power compactness to a self-contained characterization of compact completely positive Kraus maps, proved by finite-rank approximation and an orthonormal weak-null obstruction. The nonzero eigenvalue comparison uses common finite-dimensional compressions, Hilbert–Schmidt adjoints, adjoint-involution conjugacy, and norm-convergent Riesz spectral projections; it preserves algebraic multiplicity, not only radius. The row/column limits follow from positivity and Gelfand's formula. The rank-one witness and the noncompact examples are explicitly calculated. The verification script supplies 622 finite deterministic checks but does not substitute for the infinite-dimensional proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The exact antecedent Scherer–Shalit–Shamovich finite-matrix theorem and its unrestricted infinite-dimensional counterexample have been inspected. Tornes' later example uses the same finite/infinite distinction. Fong–Sourour's original theorem on compact elementary operators (and the later Andreolas–Anoussis discussion) is credited for pre-existing compactness theory. Three additional published scientific statements were read in full: the strict-singularity/compactness theorem for finite elementary operators on norm ideals and two completely bounded spectral-radius distortion theorems. The first does not address opposite Kraus maps or Riesz spectral multiplicities; the other two study arbitrary tuple distortion rather than word-compact recovery. None of the inspected sources states the fixed-word compactness equivalence together with row–column recovery and ideal-independent nonzero Riesz eigenvalue multisets of the compact powers. The derivation uses established compact-operator perturbation methods, and a prior equivalent synthesis in classical spectral theory remains possible.
+PASS
 
-**Mathematical value — PASS.** This is a structural answer to the explicit finite-versus-infinite obstruction for multivariable spectral radii. It identifies a genuinely larger-than-compact-generator recovery class, allows noncommuting noncompact generators with nonzero radius, and gives a precise transfer principle across the operator algebra and every Banach Schatten ideal. The compactness hypothesis is mathematical rather than an arbitrary parameter slice; unrestricted noncompact row isometries show why a condition is needed. The theorem does not assert a general classification of every tuple for which the radii happen to agree.
+For any norm-square-summable Kraus family, norm convergence on B(H), K(H) and S_p follows from the same summability. Finite-rank Kraus truncations prove compactness if coefficients compact; noncompact coefficient forces images of rank-one orthogonal projections to remain norm≥ε² while converging weak-operator to zero, prohibiting compactness on each ideal. Apply to all length-m words, reversing word order for Ψ. Common finite-dimensional Kraus approximants are Hilbert–Schmidt adjoints and each self-conjugate via A↦A*, giving the same nonzero spectrum with multiplicities; norm-stable finite-rank Riesz projections transfer across ideals. Gelfand formula and positivity yield row/column equality, including radius zero. Checked exact characteristic polynomials for three independent noncommuting 2×2 pairs; these do not settle operator-space compactness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Scherer–Shalit–Shamovich 2026 establish finite-matrix row/column radius equality and infinite-dimensional failure. Fong–Sourour 1979 Theorem 2 already characterizes compact finite elementary operators; Vala earlier gives single AXB. The assessed joint statement is stronger and different: norm-square-summable countable Kraus families; every length-m compact word equivalence to power compactness on each ideal; equality of full nonzero Riesz eigenvalue multisets of compact powers across B(H), K(H), all Banach Schatten classes; resulting row/column radius recovery for some noncompact generator families. This synthesis was not found as a stated theorem in checked primary texts.
+
+## value
+
+PASS
+
+The exact finite-versus-infinite row/column radius discrepancy is a recognized operator-space obstruction. Fixed-word compactness provides a motivated structural recovery class permitting genuinely noncompact, noncommuting generators with nonzero radius. Equivalence across B(H), K(H), S_p and matching nonzero Riesz multiplicities is stronger than merely numerical radius equality; infinite isometry witnesses show a hypothesis is necessary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

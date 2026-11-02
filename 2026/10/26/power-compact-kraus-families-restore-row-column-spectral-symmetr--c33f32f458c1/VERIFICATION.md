@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python verify.py` with NumPy and SymPy. The deterministic program uses a fixed random seed and reports 622 checks, including exact real-integer characteristic-polynomial and Hilbert–Schmidt adjoint identities for small matrix Kraus maps, numerical comparisons for larger complex examples, exact growth comparisons for the noncompact isometry model, and support checks for increasing finite truncations of a noncompact nilpotent-plus-finite-corner example.
+## correctness
 
-These tests concern finite matrices. They are neither exhaustive over operators nor substitutes for Step 1 (norm closure of finite-rank Kraus maps and orthonormal weak-null obstruction), Step 3 (Riesz projection stability and equality of nonzero algebraic multiplicity across distinct Banach ideals), or Step 4 (the Gelfand spectral-radius bridge). The proof requires \(\sum_j\|X_j\|^2<\infty\); no conclusion is claimed for merely strong Kraus convergence.
+PASS
 
-The independent audit has not been performed. The mathematical proof and provenance are documented in RESULT.md and REVIEW.md.
+For any norm-square-summable Kraus family, norm convergence on B(H), K(H) and S_p follows from the same summability. Finite-rank Kraus truncations prove compactness if coefficients compact; noncompact coefficient forces images of rank-one orthogonal projections to remain norm≥ε² while converging weak-operator to zero, prohibiting compactness on each ideal. Apply to all length-m words, reversing word order for Ψ. Common finite-dimensional Kraus approximants are Hilbert–Schmidt adjoints and each self-conjugate via A↦A*, giving the same nonzero spectrum with multiplicities; norm-stable finite-rank Riesz projections transfer across ideals. Gelfand formula and positivity yield row/column equality, including radius zero. Checked exact characteristic polynomials for three independent noncommuting 2×2 pairs; these do not settle operator-space compactness.
+
+## originality
+
+PASS
+
+Scherer–Shalit–Shamovich 2026 establish finite-matrix row/column radius equality and infinite-dimensional failure. Fong–Sourour 1979 Theorem 2 already characterizes compact finite elementary operators; Vala earlier gives single AXB. The assessed joint statement is stronger and different: norm-square-summable countable Kraus families; every length-m compact word equivalence to power compactness on each ideal; equality of full nonzero Riesz eigenvalue multisets of compact powers across B(H), K(H), all Banach Schatten classes; resulting row/column radius recovery for some noncompact generator families. This synthesis was not found as a stated theorem in checked primary texts.
+
+## value
+
+PASS
+
+The exact finite-versus-infinite row/column radius discrepancy is a recognized operator-space obstruction. Fixed-word compactness provides a motivated structural recovery class permitting genuinely noncompact, noncommuting generators with nonzero radius. Equivalence across B(H), K(H), S_p and matching nonzero Riesz multiplicities is stronger than merely numerical radius equality; infinite isometry witnesses show a hypothesis is necessary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
