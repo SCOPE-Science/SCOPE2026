@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For H as a chosen root edge set, the only undominated root edges are the complete bipartite graph on unused roots and the isolated chosen edges. The potential |U|-i gains 1 or 2 per legal choice and gains 2 at the first nontrivial component, yielding at most m+n-1. An equality sequence can exhaust the final unused root only at that unique gain-2 step, proving |m-n|=1 and forcing an ordered saturated matching plus successive attachments. Explicit sequences prove both lower bounds. Multiplication of labeled matching, spare-vertex and attachment choices gives the stated factorial count. The standalone verifier exhaustively checks all listed boards, including every optimal sequence on 2x3 and 3x4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The graph-product paper states and demonstrates bounds for Cartesian products of paths/cycles, not complete-clique pairs; its complete-clique observations on p.9 refer to the direct product.",
+        "The 2016 foundational paper gives general sequences, extrema and regular-graph bounds rather than a Cartesian clique-pair solution."
+      ],
+      "reasoning": "Neither the exact m+n-2 plus one-step exception nor the extremal ordered-sequence count follows as a stated specialization. General bounds are not dominating parameterwise claims.",
+      "searches": [
+        "\"On Grundy total domination number in product graphs\" arxiv first version 2017",
+        "\"Grundy total domination\" \"Cartesian product\" \"complete graphs\" rook grid",
+        "\"Grundy total domination\" \"K_m\" \"K_n\" \"Cartesian\"",
+        "arXiv:1712.08780v1, Section 5 pages 14–17",
+        "arXiv:1601.07525v1, introduction and Theorem 4.4"
+      ]
+    },
+    "checked_sources": [
+      "Brešar, Henning and Rall, arXiv:1601.07525v1 (2016): definitions, abstract and Theorem 4.4 examined; treats general open-neighborhood sequences and a complete-multipartite γ=2 characterization.",
+      "Brešar et al., arXiv:1712.08780v1 (2017): abstract, introduction, direct-product §2, Cartesian-product §5 and concluding sections examined; Cartesian factor examples are paths/cycles.",
+      "Chang, arXiv:2608.27804 (2026): abstract examined; Cartesian factors are paths/cycles rather than complete graphs.",
+      "Indexed published research record entitled \"Maximum Grundy dominating sequences of complete multipartite graphs\": its summary concerns closed-neighborhood Grundy domination in complete multipartite graphs, not open-neighborhood sequences in rook graphs."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The older general total-Grundy results define the invariant but contain no exact formula for rook graphs.",
+        "The 2017 paper asserts bounds for path/cycle Cartesian factors and general skew-forcing equivalence; the current formula and ordered-optimizer classification require additional structural matching arguments."
+      ],
+      "reasoning": "A formula for direct K_m×K_n or closed-neighborhood sequences does not transfer to the rook graph, whose adjacency is same-row OR same-column. The proof addresses the uncovered-edge dynamics specifically for line graphs of complete bipartite graphs.",
+      "searches": [
+        "arXiv:1601.07525v1, complete multipartite characterization",
+        "arXiv:1712.08780v1, Sections 2 and 5",
+        "Exact Grundy total domination number of Cartesian products of two complete graphs K_m square K_n (rook graphs), equals m+n-2 with |m-n|=1 exception, and enumeration of longest open neighborhood sequences",
+        "Skew zero forcing number of rook graphs and line graphs of complete bipartite graphs equals mn-m-n+2 with adjacent factor orders exception"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2017 product manuscript credits the general relation the general total-Grundy / skew-zero-forcing identity; the equivalent expression here is the corresponding skew-zero-forcing expression for rook graphs.",
+        "Searches on skew zero forcing and rook/line graph terminology did not identify a prior exact formula or exceptional-sequence enumeration."
+      ],
+      "reasoning": "The general equivalence between the invariants is known and not treated as novelty. A prior exact skew forcing value would cover the scalar formula, so this alternative wording was actively searched. No equivalent specific classification was recovered; residual indexing risk remains.",
+      "searches": [
+        "Skew zero forcing number of rook graphs and line graphs of complete bipartite graphs equals mn-m-n+2 with adjacent factor orders exception",
+        "\"skew zero forcing\" \"Cartesian product of complete graphs\"",
+        "\"rook graph\" \"skew zero forcing\" Grundy",
+        "arXiv:1712.08780v1, Introduction, p.3, relation to skew zero forcing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed mathematical record concerns maximum closed-neighborhood Grundy dominating sequences of complete multipartite graphs, a distinct graph class and a distinct neighborhood rule.",
+        "No retrieved exact table or formula for open-neighborhood sequences on L(K_mn) was found."
+      ],
+      "reasoning": "The top summary provides no implication for the claimed complete bipartite line graphs. Negative search results reduce search risk but cannot establish uniqueness or absolute priority.",
+      "searches": [
+        "Exact Grundy total domination number of Cartesian products of two complete graphs K_m square K_n (rook graphs), equals m+n-2 with |m-n|=1 exception, and enumeration of longest open neighborhood sequences",
+        "Complete enumeration and structural characterization of maximum legal total dominating sequences of rook graphs line graph K_mn",
+        "\"line graph of K_{m,n}\" \"Grundy\" \"domination\"",
+        "\"rook graph\" \"skew zero forcing\" Grundy"
+      ]
+    },
+    "rationale": "The exact aspect-ratio exception and the factorial enumeration of maximum legal open-neighborhood sequences for Cartesian products of two complete graphs were not implied by the inspected 2016 foundational paper or the inspected 2017 graph-product paper. The latter explicitly studies Cartesian products with paths and cycles, and its remarks on two complete graphs refer to the direct product. Ordinary/closed Grundy domination and skew forcing of unrelated graph families do not dominate this claim. Dedicated semantic-record searches yielded no exact coverage, while publication-priority uncertainty remains.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier work under line-graph, edge-cover-sequence or skew-zero-forcing terminology might imply the scalar formula.",
+      "The 2026 path/cycle paper was compared at abstract level only; its advertised domain is different, but its complete text was not inspected.",
+      "Indexed semantic record matches are not exhaustive and do not prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces open-neighborhood legal sequences; no specific rook-graph formula or exceptional counting result located in inspected material.",
+        "evidence": "arXiv:1601.07525v1 pp.1–3,7–8; searches for line graph and Cartesian returned no occurrences.",
+        "identifier_or_url": "arxiv:1601.07525v1 / https://arxiv.org/pdf/1601.07525",
+        "material_read": "Full-text abstract and introduction, definitions, Table-of-contents narrative, Theorem 4.4 and surrounding Section 4 statements; text searches for Cartesian and line graph.",
+        "method": "Read primary arXiv PDF text and inspected first-page image.",
+        "title": "Total Dominating Sequences in Graphs",
+        "trigger": "Foundational invariant and possible stronger general theorem"
+      },
+      {
+        "assessment": "Its Cartesian-product theorems concern paths and cycles, and its two-complete-factor comment in Section 2 is for the direct product; not covering the rook-graph claim.",
+        "evidence": "arXiv:1712.08780v1 pp.1–4,9,14–18.",
+        "identifier_or_url": "arxiv:1712.08780v1 / https://arxiv.org/pdf/1712.08780",
+        "material_read": "Primary 20-page full-text abstract, introduction, Section 2 complete-graph/direct-product context, Sections 5 and 6 and section summaries; page images of title and Cartesian-product section.",
+        "method": "Read primary arXiv PDF text and inspected representative page images.",
+        "title": "On Grundy total domination number in product graphs",
+        "trigger": "Directly relevant graph products; potential dominating theorem"
+      },
+      {
+        "assessment": "Results explicitly concern products of paths and cycles; does not supply a statement involving two complete-graph factors.",
+        "evidence": "arXiv abstract for 2608.27804, describing only path/cycle Cartesian products.",
+        "identifier_or_url": "arxiv:2608.27804 / https://arxiv.org/abs/2608.27804",
+        "material_read": "Abstract only; no claim of inspecting complete document",
+        "method": "Read indexed arXiv abstract.",
+        "title": "Grundy Total Domination and Skew Zero Forcing in Cartesian Products of Paths and Cycles",
+        "trigger": "Recent explicit Cartesian-product skew-zero-forcing result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a940a5d5-285f-4f8e-b9c2-75501ddfcf32",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The general graph-product Grundy total-domination literature motivates determining exact worst-case lengths. The rook-graph case has a sharp nonmonotone one-step aspect-ratio anomaly not seen from the elementary star construction, and the exhaustive matching/attachment classification gives a factorial number of ordered optimal greedy histories. The precise factor-difference exception and exact optimizer enumerator are structurally meaningful and may inform skew zero forcing via the known correspondence.",
+    "status": "PASS"
+  }
+}
