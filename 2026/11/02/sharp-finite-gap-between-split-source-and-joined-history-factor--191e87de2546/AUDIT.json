@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The first joined-history phrase is necessarily split-source legal; each later phrase crosses the unique reference/target boundary at most once and decomposes into at most two legal phrases. For reference R=a1...am the recursive target T1=R, Tj=Tj-1 (aj...am) Tj-1 has one explicit joined-history phrase per stage. In the separated-source model an exchange lemma justifies longest-match greedy optimality. The unique newly created bigram a_m a_(j-1) in the old target proves each pair of specified factors is maximal; its successor bigram a_m a_j cannot support crossing copies, giving 2m-1 phrases. The universal bound then forces exactly m joined-history phrases. The length recurrence solves to (m-1)2^m+1. Verified by a separate DP for m<=5, greedy families for m<=7 and independent DP on 1764 binary input pairs. Computations do not substitute for the arbitrary-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The former general factor-two bound admits 2P but does not force either 2P-1 or attainability.",
+        "The latter changes phrase encoding/overlap and does not establish the external-reference separation comparison."
+      ],
+      "reasoning": "Checked direct stronger statements and possible reductions. A general 2P inequality cannot imply the exact finite 2P-1 envelope or the recursive equality constructions.",
+      "searches": [
+        "arxiv:2610.26021 Theorem IV.10 Remark IV.11",
+        "arxiv:1708.03558 Theorem 3",
+        "Marteau On the Adaptive Covering Complexity of Strings 2026 exact best constant gap preset history 2P-1 attain all P",
+        "adaptive covering preset-history LZ77 factor two sandwich tightness 5/3 Marteau 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.26021",
+      "https://arxiv.org/abs/1708.03558",
+      "published-finding corpus mathematical records by targeted semantic queries",
+      "Accessible prior same-slot ledger claims for exact/alias duplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 primary source explicitly notes unknown sharpness of factor 2.",
+        "The 2017 source establishes analogous numbers for a different data-structure/history model."
+      ],
+      "reasoning": "Neither inspected premise forces A<=2P-1 with matching equality for each P. In particular the 2026 source says its own proof is not known sharp; the present family uses suffix-to-prefix crossing of an external reference and parsed target.",
+      "searches": [
+        "arxiv:2610.26021 IV.10-IV.11",
+        "arxiv:1708.03558 Section 3, Theorem 3",
+        "adaptive covering preset-history LZ77 factor two sandwich tightness 5/3 Marteau 2026",
+        "separated static dictionary versus joined preset history LZ77 tight 2m-1 versus m string parsing recursive distinct alphabet suffix doubling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marteau Theorem IV.10 compares joined-reference and source-separated factor models; Remark IV.11 leaves 2 sharpness unsettled.",
+        "Kosolobov-Shur Theorem 3 has a 2k-1 phrase count only after switching between their pair/triple or overlap conventions."
+      ],
+      "reasoning": "Tried aliases such as hybrid/preset-history LZ77, dual dictionary, separated static dictionary and joined history, and the 2m-1 target equation. The 2017 numerical pattern is not an equivalent model; no covering statement was recovered.",
+      "searches": [
+        "Marteau On the Adaptive Covering Complexity of Strings 2026 exact best constant gap preset history 2P-1 attain all P",
+        "adaptive covering preset-history LZ77 factor two sandwich tightness 5/3 Marteau 2026",
+        "separated static dictionary versus joined preset history LZ77 tight 2m-1 versus m string parsing recursive distinct alphabet suffix doubling",
+        "arxiv:2610.26021 Remark IV.11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Marteau reports the numerical ratio 5/3 for its finite search, not the complete parametric 2-1/m law.",
+        "Indexed nearby string-attractor results (e.g. Rudin-Shapiro/paperfolding attractors) concern different optimization quantities."
+      ],
+      "reasoning": "Finite published search tables and nearby indexed words do not imply the all-m exact optimum. No table or indexed equivalent was located; absence of a hit is not uniqueness proof.",
+      "searches": [
+        "published-finding corpus semantic search: Marteau On the Adaptive Covering Complexity of Strings 2026 exact best constant gap preset history 2P-1 attain all P",
+        "published-finding corpus semantic search: separated static dictionary versus joined preset history LZ77 tight 2m-1 versus m string parsing recursive distinct alphabet suffix doubling",
+        "Marteau Remark IV.11 finite search up to reference length five and target length eight"
+      ]
+    },
+    "rationale": "The October 19, 2026 Marteau primary source proves only P<=A<=2P and expressly asks in Remark IV.11 whether its multiplier 2 can be attained, reporting a 5/3 observed maximum in small searches. The new result proves P<=A<=2P-1, sharp at every finite joined-history count by a recursive infinite family; unlike a trivial strictness observation it establishes the full sharp ratio function and resolves nonattainment versus sharp supremum. Kosolobov and Shur 2017 derive numerically similar parsing gaps for distinct phrase encodings, not the same fixed-reference boundary model. Targeted published-finding corpus semantic searches and recoverable own claims did not reveal stronger or equivalent coverage. Unindexed priority risk remains.",
+    "residual_risks": [
+      "An unindexed or differently named equivalent result may exist.",
+      "The abstract algebraic two-to-one gap has analogous forms in other compression comparisons; precise models must be preserved.",
+      "No independently assessed mathematical priority or proof audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT ANTECEDENT, NOT COVERING; paper gives the 2P bound and explicit open sharpness question, but not the 2P-1 bound or all-m sharp family.",
+        "evidence": [
+          "Theorem IV.10: 1<=A/P<=2 for one preset reference.",
+          "Remark IV.11: the authors do not know if factor 2 is attained; small tested maximum 5/3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.26021",
+        "material_read": "Full-text open-access HTML: definitions in Section III, longest-match exchange lemma, Theorem IV.10, Remark IV.11, comparison examples and cited literature.",
+        "method": "Read substantive primary HTML sections, definitions, proof and explicit open sharpness remark; compare exact model and inequalities.",
+        "title": "On the Adaptive Covering Complexity of Strings: Unifying Relative and Self-Referential Compression",
+        "trigger": "Directly defines the same two parsing costs and states their prior comparison."
+      },
+      {
+        "assessment": "RELATED BUT DISTINCT; result concerns other LZ encoding conventions, not the fixed-reference joined-history model.",
+        "evidence": [
+          "Theorem 3 has a numerically similar 2k-1 bound for differing LZ parsing variants.",
+          "Reference/decoded-prefix concatenation is not a tested variation of its theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.03558",
+        "material_read": "Open-access full HTML Sections 1-4 including definitions of pair/triple encodings and the proof surrounding Theorem 3.",
+        "method": "Compare phrase source eligibility, external dictionary boundary, and respective 2k-1 numerical pattern.",
+        "title": "Comparison of LZ77-type Parsings",
+        "trigger": "A superficially matching 2k-1 extremum may imply or subsume the result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "191e87de-2546-47d2-a21a-4ecd132192f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 primary source explicitly asks for sharpness of its hybrid-versus-preset-history factor-two comparison. The new bound resolves both aspects: 2 is the least universal multiplicative factor but cannot occur for any finite nonempty target. A constructive exact per-phrase frontier (2-1/m) supplies infinitely many witnesses and explains why short searches saw only 5/3. This is a motivated all-size structural result rather than a parameter substitution or arbitrary finite table.",
+    "status": "PASS"
+  }
+}
