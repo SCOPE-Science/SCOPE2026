@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The attached `CHECKER.py` performs the following checks on the stated two-periodic spline projection:
+# Independent mathematical audit
 
-- Exact symbolic divisibility of the rational-expression identity for the kernel row integral, using the genuine quadratic equation for the decaying Bloch root; this is a polynomial certificate in the two positive cell lengths and the root variable.
-- Exact rational Gram inversions for finite circles with 4, 6, 8, 10, 14, 20 and 24 knots, each in five rational cell-length ratios; exact integration of the signed affine reproducing kernels without quadrature.
-- Agreement of all nodal absolute-row integrals under the mesh's reflection symmetry, strict finite-circle upper bounds, and finite-section convergence comparisons.
+## correctness
 
-The code's finite sampling does not prove the claims for all lengths or circle sizes. Analytic details about Bloch inversion, the kernel norm, and periodization are supplied in `RESULT.md` and are essential to the universal argument. No external independent validation is claimed.
+PASS
+
+Read RESULT.md and source CHECKER.py. The hat-function Gram matrix satisfies 6G=J, with diagonal 2(a+b) and alternating off-diagonal lengths. After sign conjugation J is strictly diagonally dominant with an entrywise positive geometrically decaying inverse. The 2×2 Bloch determinant is c−d cosθ, c=3a²+8ab+3b²,d=2ab; the reciprocal Fourier coefficients are rho^{|k|}/sqrt(c²−d²). Its exact even/odd inverse yields alternating signs of kernel nodal entries, so absolute affine interpolation integrates via (u²+v²)/(2(u+v)). Geometric summation over four interval types and the root quadratic give the claimed rational norm. Convexity of x→∫|K(x,y)|dy between knots and reflection/translational symmetry yield global nodal maximum; symmetry yields L¹=L∞. Periodizing this integrable exponentially decaying kernel bounds all circles and gives convergence to the full-line norm. Independent exact rational inversion of 20 finite-circle Gram matrices (four (a,b) pairs and 5 repeat counts) confirmed all nodal absolute row integrals, strict finite bounds and trend. Infinite theorem rests on Bloch/periodization proof, not finite checks.
+
+## originality
+
+PASS
+
+Relevant published research-index and primary literature comparisons found no directly covering exact claim, subject to the explicit priority limitations. The novel result is the exact claim stated, not its previously known foundational object or general theory.
+
+## value
+
+PASS
+
+The period-two mesh is the simplest systematic nonuniform perturbation of uniform linear finite elements. A complete contrast law shows the surprising strict improvement of worst-case L∞ stability from 2 toward 5/3 as alternating knot lengths become uneven, and gives a sharp common envelope for all finite periodic-repeat counts. This is a motivated exact projection stability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

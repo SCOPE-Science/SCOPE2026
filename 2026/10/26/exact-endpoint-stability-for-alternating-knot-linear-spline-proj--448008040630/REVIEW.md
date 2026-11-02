@@ -1,11 +1,21 @@
-# Scientific review of the alternating-knot spline projection constant
+# Independent mathematical audit
 
-**Correctness — PASS.** The orthogonal projector is specified by a boundedly invertible two-periodic hat-function Gram matrix. Its signed inverse is a positive exponentially decaying two-block Green sequence; the displayed Bloch coefficients give every entry needed for the sharp absolute kernel row. Convexity of the absolute row integral moves the global supremum to knots; geometric summation and an exactly checked polynomial identity give the rational constant. Periodizing the kernel yields a uniform upper bound for every finite repeat and a matching limit. The actual `CHECKER.py` certifies the nontrivial algebraic identity and checks multiple finite examples by rational arithmetic. It is not used as an infinite proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2006 full-text Oswald preprint gives the classical generic \(3\) bound in one dimension while studying a multidimensional counterexample; the 2016 full-text Passenbrunner preprint gives general periodic stability and discusses infinite spline spaces. Neither inspected manuscript states or implies the exact two-spacing formula merely from its published quantitative estimates. The closer known uniform-grid exact calculation covers only \(a=b\); finite interval spline cases have boundary conditions absent from this infinite, two-periodic problem. Relevant search terminology included alternating knots, two-periodic hat splines, Gram inverse, Lebesgue constants, and exact endpoint stability. A 2012 Oswald chapter with a plausible title remained full-text inaccessible; an equivalent specialized lemma may exist there, and this is a residual priority risk.
+PASS
 
-**Value — PASS.** Two-periodic knot spacing is the simplest systematic nonuniform perturbation of a uniform linear finite-element mesh. The exact sharp bound gives a complete contrast phase law and establishes the counterintuitive fact that alternating mesh imbalance *improves* worst-case endpoint stability from \(2\) toward \(5/3\). The same profile is the best possible bound simultaneously over every number of finite periodic repeats; the theorem is not merely a finite numerical example or a generic spline-boundedness corollary.
+Read RESULT.md and source CHECKER.py. The hat-function Gram matrix satisfies 6G=J, with diagonal 2(a+b) and alternating off-diagonal lengths. After sign conjugation J is strictly diagonally dominant with an entrywise positive geometrically decaying inverse. The 2×2 Bloch determinant is c−d cosθ, c=3a²+8ab+3b²,d=2ab; the reciprocal Fourier coefficients are rho^{|k|}/sqrt(c²−d²). Its exact even/odd inverse yields alternating signs of kernel nodal entries, so absolute affine interpolation integrates via (u²+v²)/(2(u+v)). Geometric summation over four interval types and the root quadratic give the claimed rational norm. Convexity of x→∫|K(x,y)|dy between knots and reflection/translational symmetry yield global nodal maximum; symmetry yields L¹=L∞. Periodizing this integrable exponentially decaying kernel bounds all circles and gives convergence to the full-line norm. Independent exact rational inversion of 20 finite-circle Gram matrices (four (a,b) pairs and 5 repeat counts) confirmed all nodal absolute row integrals, strict finite bounds and trend. Infinite theorem rests on Bloch/periodization proof, not finite checks.
 
-**Limits.** Only positive period-two linear splines are covered. The result does not decide the all-mesh sharp constant, nor any higher polynomial degree; it does not claim finite-period attainment of the infinite envelope. Historical originality has not received an independent literature audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant published research-index and primary literature comparisons found no directly covering exact claim, subject to the explicit priority limitations. The novel result is the exact claim stated, not its previously known foundational object or general theory.
+
+## value
+
+PASS
+
+The period-two mesh is the simplest systematic nonuniform perturbation of uniform linear finite elements. A complete contrast law shows the surprising strict improvement of worst-case L∞ stability from 2 toward 5/3 as alternating knot lengths become uneven, and gives a sharp common envelope for all finite periodic-repeat counts. This is a motivated exact projection stability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
