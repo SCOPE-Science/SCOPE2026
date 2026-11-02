@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The projective intersection is smooth by the two gradient rows; independent Kummer valuations give a connected degree-27 tame Galois cover with genus 10. The 13 character-line quotients have genus distribution \(6\) of genus zero, \(4\) of genus one, \(3\) of genus two. Frobenius-equivariant character decomposition gives the full zeta numerator. The finite-field sums determine each genus-one/genus-two numerator exactly; the attached executable reproduces the seven quotient tables and independently counts projective and covering points. A reciprocal-root argument and quadratic trace-discriminant \(45\) establish irreducibility of the quartic \(D(T)\). No infinite assertion relies on finite extrapolation.
+## correctness
 
-**Originality — PASS (with stated residual risk).** Directly compared statements in Hidalgo (arXiv:1710.01349), Carvacho–Hidalgo–Quispe (arXiv:1507.02903), Hidalgo (arXiv:2202.12663), and Martinez-Nunez (arXiv:2303.18056). General abelian-quotient decomposition and family-wide characteristic-two \(2\)-rank and \(a\)-number are prior work, not new claims. The exact rational F4 model's Frobenius polynomial, its irreducible ordinary surface factor, and all extension-field counts were not found in inspected full-text relevant sections or focused search records. The residual risk is unindexed Jacobi-sum arithmetic of the same twist; negative searches cannot establish absolute uniqueness.
+PASS
 
-**Value — PASS.** The configuration comprises four of the five \(\mathbb F_4\)-rational branch points, an exceptionally symmetric natural type-\((3,3)\) generalized Fermat curve. Its explicit arithmetic exhibits a simple ordinary surface over \(\mathbb F_4\) alongside four supersingular elliptic factors, a meaningful structural distinction not implied by general geometric decomposition. The result provides the exact zeta function and all extension-field counts, not merely an unmotivated isolated numerical invariant.
+Checked gradients of the two cubic equations in characteristic 2 for smoothness, independent Kummer valuations of t,t+1,t+omega for the connected degree-27 (Z/3)^3 cover of P1, and tame Riemann--Hurwitz at four inertia-3 branch points to obtain genus10. The 13 index-three quotient lines split into 6 genus0, 4 genus1 and 3 genus2 curves; H^1 character splitting is equivariant for rational F4-defined deck actions, giving exactly 7 positive-genus L-factors. Independent GF(2^{2m}) arithmetic computed full-cover point counts N_m=9,9,63,225 at m=1..4, independently computed the seven quotient counts over F4 and F16 [3,3,9,9,7,4,4] and [21,21,9,9,31,10,10]. The elliptic/genus2 functional equation makes these data sufficient to prove the infinite zeta polynomial, not just an empirical extrapolation. The quartic characteristic polynomial z^4-z^3-3z²-4z+16 cannot factor into integral quadratics (a+b=1, ab=-11, discriminant45 nonsquare), hence simple ordinary Weil surface. The known characteristic-two Cartier result gives a-number4 and p-rank6; no new claim for those family-wide invariants.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known generalized Fermat structure provides the model, genus, quotient isogeny decomposition and characteristic-two p-rank/a-number. The assessed new contribution is exact F4 point-sum arithmetic for the chosen twist, its full zeta function, and the irreducible simple ordinary genus-two factor twice. These are not determined by the known decomposition without actual Frobenius traces.
+
+## value
+
+PASS
+
+Exact zeta and Newton/Weil factorization for a nontrivial, explicitly marked genus-ten complete intersection is a natural arithmetic invariant; isolating a simple ordinary abelian surface occurring with multiplicity two is a meaningful structural statement, not merely a finite point-count table. It fixes point counts over every extension field of F4, but not all Kummer twists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
