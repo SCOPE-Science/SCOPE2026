@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-## Checks performed
+# Independent mathematical audit
 
-- Reconstructed the right quotient at every rank from the two block sets \(A=\{00,10\}\) and \(B=\{01,10\}\).
-- Distinguished the three quotient types at internal block boundaries using \((00)^r\) and \((01)^r\).
-- Distinguished the five intermediate half-block quotients by their first bit and the strict inequality \(A^r\ne B^r\).
-- Counted the quotient widths symbolically and applied Myhill--Nerode, including the single dead state.
-- Ran `python3 verify.py`; it checks every prefix/suffix quotient for \(2\le d\le8\) and prints `VERIFY_OK`.
-- Confirmed that the two endpoint ranks lose at least three and two states, respectively, relative to the rank-width expression for this operand profile.
+## correctness
 
-## Limits
+PASS
 
-The finite checker is corroborative, not a proof for unbounded \(d\). The theorem is restricted to the stated family and rank-width profile. The literature comparison is bounded and cannot rule out an unindexed equivalent result. No independent audit has been performed.
+For A^d every valid fixed-depth prefix has one right residual; B^d has one at even and two at odd depths. The union has nonempty quotient widths 1,2,3 at internal even depths, 5 at nonterminal middle odd depths, 3 at the final odd depth, 1 at the end. Different depths have disjoint residual word lengths. Sum=8d−6 plus one shared dead state gives 8d−5. At depth 1 at most two prefixes, against product-rank allowance 5, loses 3; penultimate rank has at most three nonempty one-letter residuals, losing 2; all other ranks saturate. Check d=2 endpoint non-overlap and infinite d≥2 with Myhill–Nerode. Independent exact enumerator d2..6 confirms but does not prove all d.
 
-The trusted importer initializes absent external channels as unperformed; research never assesses/authors them or resets old evidence.
+## originality
+
+PASS
+
+The published block-language union bound and a ternary tightness witness are acknowledged. The additional exact binary rank-by-rank quotient profile, family sc=8d−5 and sharp loss of precisely five within this specific width profile are derived directly. This is a modest special-profile result, not a global binary optimum. An encoding of the ternary witness makes indirect prior implication the principal priority risk.
+
+## value
+
+PASS
+
+The exact binary rank-width endpoint obstruction and a sharp unbounded witness family give a meaningful finite-alphabet boundary case for known block-language union complexity bounds. The exact five-state loss for the specified width profile, not merely an encoding of a known witness, is the narrow independently useful invariant and benchmark; this is not a general binary upper-bound classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
