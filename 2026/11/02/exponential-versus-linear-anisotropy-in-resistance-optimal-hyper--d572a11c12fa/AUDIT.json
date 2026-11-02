@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For each dimension \\(d\\ge2\\) and positive prices and budget \\(P,Q,B>0\\), the strict trace-inverse Hessian on connected hypercube Laplacians and injective edge representation give the unique unrestricted global optimum. Price-preserving automorphisms force two positive conductance classes. The weighted Walsh spectrum has eigenvalues \\(2(ky+\\epsilon x)\\) with binomial multiplicities. The exact scalar objective \\(F_N\\) and its derivative are derived. Binomial concentration gives \\(A_N=2^N(2/N+O(N^{-2}))\\) and the second reciprocal sum \\(2^N(4/N^2+O(N^{-3}))\\), with third-moment control. In the premium case \\(P>Q\\), the derivative root satisfies \\(r^2\\sim N^2Q/[4(P-Q)2^N]\\); for a discounted direction \\(P<Q\\), the normalized derivative has the unique positive root \\((\\sqrt{2Q/P-1}-1)/2\\); equal prices force \\(r=1\\). The standalone verify.py passed 13 exact symbolic identities and 556 numerical checks. Limits, boundary cases and normalization were cross-checked in the self-review; no independent audit has occurred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2008 §4 develops the general convex conductance-allocation formulation, while §5 treats specific graphs including the unpriced hypercube.",
+        "Tovar et al. 2026 arXiv:2610.03627 Sections II–IV analyze general power-law and heterogeneous prices and the KKT rule, but neither a hypercube analysis nor an exponential-vs-linear direction asymptotic is stated in the accessible text."
+      ],
+      "reasoning": "General strict convexity and marginal optimality conditions guarantee uniqueness and allow reduction but do not assert the claimed quantitative high-dimensional law; the present constants require dimension-dependent binomial estimates. A broader general theorem could imply it after nontrivial specialization, which remains a literature risk.",
+      "searches": [
+        "Ghosh Boyd Saberi minimizing effective resistance graph optimally weighted hypercube uneven coordinate prices",
+        "anisotropic hypercube Kirchhoff index weighted coordinate conductances first dimension price D-optimal A-optimal",
+        "optimal edge weights hypercube minimize total effective resistance optimal network design",
+        "weighted anisotropic hypercube Kirchhoff index conductance optimization budget one coordinate expensive",
+        "price weighted hypercube effective resistance minimization coordinate links graph optimal allocation",
+        "Cost convexity controls the architecture of resistance-optimal networks arxiv 2610.03627",
+        "Hypercube linear price anisotropy trace pseudoinverse conductance ratio phase transition P=Q exponentially small"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/050645452",
+      "doi:10.1155/2013/543189",
+      "arxiv:2610.03627",
+      "arxiv:1809.07189",
+      "2026/10/11/SCOPE-complete-even-centro-affine-facet-spectrum-of-the-regular-cross--e9e118b429d9",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "2026/10/4/SCOPE-sharp-euclidean-anisotropy-constants-for-the-lattice-agmon-finsl--39c0fe920998",
+      "2026/10/11/SCOPE-sharp-symmetric-gap-for-the-first-open-hypercube-inequality--4f3e013d18c9",
+      "2026/10/11/SCOPE-exponential-snowflake-threshold-for-linear-extension-from-hyperc--2499d477ba35"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2008, p. 59 (Section 5) explicitly states that the edge-transitive hypercube has uniform optimum with uniform price, a special equal-price case.",
+        "Liu et al. 2013 computes the spectrum and Kirchhoff index of a fixed unit-weight cube; the equal-price case \\(P=Q\\) is compatible with this context, but no price perturbation or dimension-dependent optimal weights are studied.",
+        "A previously examined resistance-optimal prism calculation concerns cycle Cartesian ladders, rather than the high-dimensional Boolean hypercube, so neither statement implies the other.",
+        "A final semantic research-record search for Boolean-cube Cartesian powers and the exact exponential-rate structure returned no directly overlapping resistor-network theorem; closest indexed hits concerned unrelated Boolean products and weighted ladder spanning trees."
+      ],
+      "reasoning": "The new theorem contains the known equal-price cube case, which is credited rather than claimed novel. Neither general optimization formalism nor exact unweighted spectrum logically yields the stated asymmetric constants without the new stationary-equation and binomial-asymptotic analysis. A general paper could eventually prove stronger results; none was located in inspected relevant sources.",
+      "searches": [
+        "Hypercube hyperrectangle edge-weight optimization effective resistance Kirchhoff index, optimal anisotropy dimension costs",
+        "Hypercube edge-class cost A-optimal connectivity trace inverse Laplacian weighted directions",
+        "Ghosh Boyd Saberi minimizing effective resistance graph optimally weighted hypercube uneven coordinate prices",
+        "hypercube total resistance anisotropic conductances dimensions electrical network",
+        "published-finding corpus:2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2008 §5.2 discusses an unpriced, edge-transitive hypercube and its uniform optimum; DOI 10.1137/050645452.",
+        "Liu–Cao–Pan–Elaiw 2013 §3.1 concerns the Kirchhoff index of the unweighted hypercube; DOI 10.1155/2013/543189.",
+        "published-finding corpus record 2026/10/11/SCOPE-complete-even-centro-affine-facet-spectrum-of-the-regular-cross--e9e118b429d9 gives a fixed hypercube spectrum for a different generalized facet operator."
+      ],
+      "reasoning": "Using \\(K_f=2^d\\operatorname{tr}(L^+)\\) or Walsh/Fourier spectral descriptions provides an equivalent objective normalization but does not remove price anisotropy. No inspected comparison yielded the two-class resource optimum or the opposed asymptotic rates.",
+      "searches": [
+        "Optimal conductance allocation minimizing total effective resistance on hypercube Q_d with unequal coordinate edge prices, spectral symmetry, asymptotic ratio",
+        "Anisotropic hypercube Q_d coordinate-price ratio P/Q optimizing total effective resistance trace Laplacian pseudoinverse dimension-asymptotic exponential decay conductance in overpriced axis",
+        "Kirchhoff index weighted hypercube optimal conductance allocation one distinguished direction exponentially suppressed, cheap direction linearly enhanced",
+        "effective resistance hypercube anisotropic weighted coordinate direction optimal conductance budget Kirchhoff index",
+        "priced hypercube optimal edge conductance Kirchhoff index anisotropic hypercube allocation",
+        "Exact A-optimal edge weights Cartesian power K2 with two conductance prices Kirchhoff index binomial spectrum optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Liu et al. 2013 Theorem 9 and Remark 10 give unweighted/fixed-weight hypercube Kirchhoff values, not a priced optimum.",
+        "arXiv:1809.07189 Theorem 4.1 gives fixed-weight enhanced-hypercube Kirchhoff indices, with topology modified by additional edges.",
+        "The inspected published-finding corpus hits concern unrelated cube inequalities, Lipschitz extension or spectral invariants, not tables of anisotropic conductance optimizers."
+      ],
+      "reasoning": "A table of unweighted hypercube resistance values, or a formula for fixed anisotropic weights, is not a table of global optimizers over arbitrary conductances; no exact database or numerical table inspected contained the root equation or either asymptotic constant.",
+      "searches": [
+        "resistance-optimal hypercube expensive dimension exponential allocation 2^-d/2",
+        "hypercube effective resistance minimization direction-dependent prices optimal conductances anisotropic dimension asymptotic",
+        "\"hypercube\" \"edge weights\" \"effective resistance\" \"optimization\"",
+        "\"weighted hypercube\" \"Kirchhoff\" \"anisotropic\"",
+        "\"hypercube\" \"resistance\" \"budget\" \"weights\"",
+        "published-finding corpus:2026/10/11/SCOPE-sharp-symmetric-gap-for-the-first-open-hypercube-inequality--4f3e013d18c9",
+        "published-finding corpus:2026/10/11/SCOPE-exponential-snowflake-threshold-for-linear-extension-from-hyperc--2499d477ba35",
+        "Boolean cube product of K2 resistance-minimizing cost allocation one coordinate distinguished price premium exponential suppression 2^(-d/2), discount linear d"
+      ]
+    },
+    "rationale": "Primary full texts and research-record searches expose no statement covering the two-price hypercube allocation with both precise asymptotic constants. Known equal-price hypercube optimality and unweighted Kirchhoff values are explicitly credited; the new content is the entire three-regime price-anisotropy asymptotic and finite optimality equation. The general convexity theory is prior art but does not explicitly imply these quantitative dimension regimes without substantial specialized analysis. Residual nonindexed literature risk remains.",
+    "residual_risks": [
+      "Search engines and research-record indexes can omit specialized older anisotropic electrical-network papers.",
+      "The checked primary sections of general cost-optimization literature may not exhaust every possible implicit consequence.",
+      "No independent mathematical audit or external publication priority verification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general optimization and unpriced uniform hypercube; no theorem for a distinguished edge-price direction or opposing exponential/linear asymptotic scaling in inspected analysis.",
+        "evidence": [
+          "DOI 10.1137/050645452",
+          "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf#page=23",
+          "Section 5: edge-transitive ring, star, hypercube have uniform optimum under equal prices."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Author-hosted 30-page PDF: introduction, Section 2 reciprocal-spectrum/trace formulae, Section 4 convexity and optimum conditions, and Section 5 analytical graph families including hypercube and wagon wheel; text searched for hypercube and examined on PDF page 22.",
+        "method": "Opened searchable primary PDF, inspected page image and relevant original text.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Exact objective, strict convexity, possible coverage of hypercube symmetry and cost variants"
+      },
+      {
+        "assessment": "Unweighted hypercube Kirchhoff-index and related graph-index formulas, not optimal conductance allocation subject to two unequal prices.",
+        "evidence": [
+          "DOI 10.1155/2013/543189",
+          "Section 3.1: fixed hypercube index from eigenvalues 2k and binomial multiplicities",
+          "First published 2013-12-12."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2013/543189",
+        "material_read": "Open full-text HTML introduction, preliminaries, Section 3.1 Theorem 9 and Remark 10, and conclusions.",
+        "method": "Read publisher-hosted open HTML article and public-first date.",
+        "title": "The Kirchhoff Index of Hypercubes and Related Complex Networks",
+        "trigger": "Exact same topology and all-pairs effective-resistance invariant"
+      },
+      {
+        "assessment": "General linear/nonlinear cost phenomena; neither the hypercube family nor a dimension-dependent anisotropic ratio is treated in checked material.",
+        "evidence": [
+          "arXiv:2610.03627",
+          "Sections II.2–III: arbitrary price coefficients and marginal value rule",
+          "No hypercube/anisotrop terms in searchable article."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+        "material_read": "Open full HTML Sections I–IV, including edge-conductance cost law, strict convexity and optimality conditions; searched full HTML for hypercube and anisotropy.",
+        "method": "Read full-text HTML analytical sections and full-text keyword searches.",
+        "title": "Cost convexity controls the architecture of resistance-optimal networks",
+        "trigger": "Recent primary paper with general resistance optimization under heterogeneous edge costs; plausible broader coverage"
+      },
+      {
+        "assessment": "Counts resistance of changed-topology enhanced hypercubes, not optimized weights on the original hypercube.",
+        "evidence": [
+          "arXiv:1809.07189v1",
+          "Section 4 Theorem 4.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1809.07189v1",
+        "material_read": "Open HTML introduction and Section 4 Theorem 4.1 and asymptotic discussion.",
+        "method": "Read original open-access HTML sections.",
+        "title": "The Kirchhoff Index of Enhanced Hypercubes",
+        "trigger": "A hypercube-related resistance theorem with exact asymptotics that could dominate fixed-weight calculations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d572a11c-12fa-4282-a073-81fe87495332",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single-coordinate differential pricing is a natural minimal heterogeneity of hypercube interconnection design, under a standard all-pairs resistance objective. An expensive direction remains necessary for graph connectivity but receives exponentially vanishing relative conductance; a cheap direction instead becomes linearly more heavily weighted. The opposite rates and constants are usable in dimension-dependent budget planning and numerical optimization benchmarks, and are not a relabeling of the equal-price hypercube trace or routine fixed-weight graph-index computation.",
+    "status": "PASS"
+  }
+}
