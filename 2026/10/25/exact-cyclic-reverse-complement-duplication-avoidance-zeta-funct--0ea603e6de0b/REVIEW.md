@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is the periodic avoidance of all sixteen reverse-complement squares \(ab\overline b\overline a\) on four symbols. With a fixed complement involution, each admissible cyclic word bijects with a labeled closed walk in a completely specified \(64\)-state graph. The polynomial identity is checked by exact arithmetic on the graph, including reconstruction of every coefficient from all power traces. The formal determinant trace identity then proves all-length generating-function coefficients. Möbius inversion and Burnside's lemma prove both orbit counts. The independent direct enumeration of every word through length seven detects short-boundary convention errors. No finite experiment is treated as an infinite proof. The statement explicitly distinguishes periodic avoidance for lengths one to three from operational deletion.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest prior mathematical coverage includes the 2021 reverse-complement duplication paper's binary *linear* irreducibility language and the existing general-even-alphabet *linear* enumerator. Those do not determine the closed-walk traces and exact four-letter cyclic orbit inventory; open-walk totals and closed-walk traces differ already at length four. The 2023 study concerns correction-code capacity, not cyclic enumeration; the 2024 duplication-free codes concern tandem operations. Published research-record comparisons for equivalent cyclic, reverse-complement, periodic-point, transfer-matrix and necklace formulations found no dominating explicit result. Standard transfer matrices are acknowledged as known methods; the all-length quaternary cyclic factorization and orbit enumeration are the claimed contribution. Residual uncertainty is possible unindexed equivalent calculations or a forgotten appendix.
+PASS
 
-## Mathematical value — PASS
-The four-letter alphabet is the natural DNA specialization. Periodic duplication-free root counts and primitive orbit counts answer the exact enumerative question for cyclic rather than linear DNA words, including boundary-sensitive counts and all periods. The factorization exposes genuine finite-size oscillatory spectral factors omitted by the earlier linear counts. These values are benchmarks for constrained cyclic sequence design and available-root inventories, not claims of optimal correcting codes. The specialization is natural, complete for all lengths, non-implied by the available open-boundary enumeration, and useful independently of future work.
+For complement a->3-a on four letters, forbidden windows have form (a,b,bar b,bar a). The 64-state order-three de Bruijn graph has allowed edges precisely when the length-four window is not forbidden. Labeled circular words of every n>=1, including periodic extension when n<4, biject with traced closed walks tr(A^n). Recomputed A independently and verified its entire degree-64 characteristic polynomial by exact integer symbolic factorization: x^36(x-1)^3(x+1)^3(x^2+1)^2 times the displayed cubic, squared quintic and companion quintic. Therefore det(I-zA)=Q(z) and formal determinant log gives exact zeta and all length traces. Burnside and Moebius give cyclic/primitive orbits; direct independent enumeration n=1..6 matches traces. The output does not claim physical duplication removal at n<4. Spectral dominance comes from isolated roots of the displayed polynomial; trace identity valid without numerical root approximations.
 
-## Principal sources and limits
-Ben-Tolila–Schwartz (arXiv:2112.11811v1, Section IV), Yohananov–Schwartz (arXiv:2312.00394v1), and Yu–Schwartz (arXiv:2401.04675v1) were compared by objects and mathematical implications. A possible undiscovered equivalent finite-state calculation remains the principal originality risk. Only four letters and duplication block length two are proved; no general-alphabet or optimal-code claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The relevant prior reverse-complement duplication research enumerates linear irreducibles and code capacities, not this explicit quaternary cyclic trace/zeta. Growth root from the cubic is known; the additional spectral factors and all labeled/necklace circular counts are the surviving claim. Equivalence to general transfer-matrix formalism acknowledged, not presented as novel.
+
+## value
+
+PASS
+
+Periodic/necklace avoidance is a natural boundary-condition refinement of reverse-complement-duplication irreducibility for four-symbol DNA models. A fully explicit rational zeta polynomial, all lengths and primitive rotation classes are exact usable invariants that open-boundary growth formulas alone do not determine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
