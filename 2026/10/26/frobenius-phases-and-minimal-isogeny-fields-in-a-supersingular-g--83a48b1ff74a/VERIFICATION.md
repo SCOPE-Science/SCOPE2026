@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification of the genus-six Frobenius classification
+# Independent mathematical audit
 
-Run `python verify.py` in the same directory as this document. The checker uses polynomial-basis arithmetic over \(\mathbb F_2\), with exact irreducible moduli \(u^2+u+1\) and \(v^4+v+1\). Under these identifications, the chosen cube root is \(u\) in \(\mathbb F_4\) and \(v^2+v\) in \(\mathbb F_{16}\). The code enumerates all \(4\) or \(16\) affine abscissae and uses the absolute trace criterion to count points on each genus-two quotient; there is one rational point at infinity. It reconstructs the quartic Weil numerators, their genus-six products and the Jacobian orders. It separately compares the exact eigenvalue-exponent multisets of roots of unity to check extension degrees through \(120\).
+## correctness
 
-Observed output:
+PASS
 
-```
-QUOTIENTS 0 [(5, 33), (5, 33), (5, 33)] JAC 15625
-QUOTIENTS 1 [(5, 33), (5, 9), (5, 9)] JAC 4225
-QUOTIENTS alpha [(5, 33), (7, 21), (7, 21)] JAC 24025
-QUOTIENTS alpha2 [(5, 33), (7, 21), (7, 21)] JAC 24025
-ISOGENY_EXTENSION 0 1 3
-ISOGENY_EXTENSION 0 alpha 20
-ISOGENY_EXTENSION 1 alpha 60
-VERIFY_OK
-```
+For each lambda the three nonzero Artin–Schreier classes have reduced odd pole order 5, hence give independent quadratic characters, connected Klein-four cover, three genus-two quotients, and conductor-different genus g=6. The nontrivial character eigenspaces factor its degree-12 Weil numerator into the three genus-two quartics. Independent exact trace enumeration of all 4 and 16 possible x in F4 and F16 yielded quotient (N1,N2)=(5,33) universally for the first factor, (5,33)/(5,9)/(7,21) for the second and third as lambda varies, recovering E=Phi4(2T)^2, B=Phi12(2T), D=Phi5(2T). Multiplication yields the stated P_lambda and P_lambda(1) rational Jacobian orders. Powered eigenvalue multisets with orders 4,12,5 combined with the Tate finite-field isogeny criterion force and suffice for multiples of 3,20,60, respectively, not just the degrees tested numerically. This argument proves all positive r, whereas the finite enumeration proves only each requisite F4/F16 table entry.
 
-The completed mathematical proof additionally requires the standard connectedness/genus results for the Artin–Schreier cover, the character decomposition of cohomology and the Tate isogeny criterion. The script tests those consequences only through explicit numerical consistency; it does not independently prove these general theorems. The cyclotomic-order argument in `RESULT.md`, rather than the finite search bound, proves the infinite statement about every extension degree. No external or independent audit has been performed.
+## originality
+
+PASS
+
+PASS, qualified. Almeida Filho–Tafazolian–Vieira (2026) Proposition 10.4 defines exactly this genus-six family and proves supersingularity and a-number; Proposition 10.6 classifies Ekedahl–Oort types, but the inspected full source contains no zeta-function computation or minimal isogeny extensions. Maisner–Nart (2004) comprehensively classify supersingular genus-two Weil polynomials, so the quotient ingredient is prior art. The assessed additional fact is the complete coupled four-parameter genus-six Frobenius spectra and sharp pairwise extension degrees, which distinguish rational types within one geometric Ekedahl–Oort stratum. Equivalent unindexed computation remains possible.
+
+## value
+
+PASS
+
+The four natural F4 points of a newly studied genus-six moduli family form a complete rational coefficient classification. Its exact field-of-isogeny threshold 60 distinguishes two rational Jacobian isogeny types within a shared geometric Ekedahl–Oort stratum, making the arithmetic refinement useful beyond the raw genus-two table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

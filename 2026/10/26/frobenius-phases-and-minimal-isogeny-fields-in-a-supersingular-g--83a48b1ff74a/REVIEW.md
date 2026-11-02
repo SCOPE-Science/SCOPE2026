@@ -1,11 +1,21 @@
-# Scientific review: arithmetic Frobenius classification of a genus-six family
+# Independent mathematical audit
 
-**Correctness — PASS.** The independent Artin–Schreier classes define a connected genus-six Klein-four cover. The character decomposition of degree-one \(\ell\)-adic cohomology reduces its zeta numerator to three genus-two factors. Full enumeration of the four and sixteen base-field elements provides exact first and second point counts, sufficient by the genus-two Weil functional equation to determine each factor. The powered cyclotomic eigenvalue multisets, together with Tate's isogeny theorem, prove the exact minimal extension degrees. The attached executable checks the complete finite tables, polynomial products, Jacobian orders and least degrees without floating-point arithmetic.
+## correctness
 
-**Originality — PASS, subject to stated residual risk.** The 2026 source proves genus, supersingularity, the \(a\)-number and Ekedahl–Oort types and recalls the Jacobian decomposition, but does not provide this four-parameter zeta and least-isogeny-field classification. Maisner–Nart (2004) has substantially broader coverage for *individual genus-two quotient zeta functions* and supplies a general method; this inherited component is explicitly excluded from novelty. No previously published coupled genus-six conclusion or exact pairwise minimal-field spectrum was identified in the inspected records and literature. Broad classical results imply that the individual factors can be computed, so equivalent unpublished or unindexed computations remain a material priority risk.
+PASS
 
-**Value — PASS.** A recent geometric study distinguishes the special \(a\)-number stratum from a constant nonzero Ekedahl–Oort stratum. The complete natural coefficient set over \(\mathbb F_4\) displays two arithmetically non-isogenous Jacobian types inside that same nonzero stratum and gives the exact descent degrees needed to erase the distinctions. The sharp value \(60\) is a field-of-isogeny invariant that combines genuinely different cyclotomic phases; it is neither a random table entry nor a conclusion of the Ekedahl–Oort computation alone.
+For each lambda the three nonzero Artin–Schreier classes have reduced odd pole order 5, hence give independent quadratic characters, connected Klein-four cover, three genus-two quotients, and conductor-different genus g=6. The nontrivial character eigenspaces factor its degree-12 Weil numerator into the three genus-two quartics. Independent exact trace enumeration of all 4 and 16 possible x in F4 and F16 yielded quotient (N1,N2)=(5,33) universally for the first factor, (5,33)/(5,9)/(7,21) for the second and third as lambda varies, recovering E=Phi4(2T)^2, B=Phi12(2T), D=Phi5(2T). Multiplication yields the stated P_lambda and P_lambda(1) rational Jacobian orders. Powered eigenvalue multisets with orders 4,12,5 combined with the Tate finite-field isogeny criterion force and suffice for multiples of 3,20,60, respectively, not just the degrees tested numerically. This argument proves all positive r, whereas the finite enumeration proves only each requisite F4/F16 table entry.
 
-The single claim is confined to the four stated coefficient models. Its numerical verification is finite and exhaustive for the indicated fields; the global extension claim is proved via Frobenius eigenvalues. An indexed general classification of supersingular genus-two zeta functions already exists, and no priority assertion is made for those factors in isolation. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Almeida Filho–Tafazolian–Vieira (2026) Proposition 10.4 defines exactly this genus-six family and proves supersingularity and a-number; Proposition 10.6 classifies Ekedahl–Oort types, but the inspected full source contains no zeta-function computation or minimal isogeny extensions. Maisner–Nart (2004) comprehensively classify supersingular genus-two Weil polynomials, so the quotient ingredient is prior art. The assessed additional fact is the complete coupled four-parameter genus-six Frobenius spectra and sharp pairwise extension degrees, which distinguish rational types within one geometric Ekedahl–Oort stratum. Equivalent unindexed computation remains possible.
+
+## value
+
+PASS
+
+The four natural F4 points of a newly studied genus-six moduli family form a complete rational coefficient classification. Its exact field-of-isogeny threshold 60 distinguishes two rational Jacobian isogeny types within a shared geometric Ekedahl–Oort stratum, making the arithmetic refinement useful beyond the raw genus-two table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
