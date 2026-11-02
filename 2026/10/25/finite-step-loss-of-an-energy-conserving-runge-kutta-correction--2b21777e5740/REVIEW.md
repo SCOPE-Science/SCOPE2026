@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact SSPRK(2,2) stage update is \(u_j^+=(1-br_j)u_j+h\omega_jJu_j\). Orthogonality gives the quadratic \(Vb^2-2Ub+U=0\), whose discriminant makes the one-step feasibility criterion necessary and sufficient. The same equation gives the exact modal gain \(1+b^2r_j(r_j-\mu)\). If any active mode has \(r_*>1\), its energy increases by at least a fixed positive factor on every feasible step, contradicting bounded conserved total energy after finitely many steps. All quantifiers and the repeated-root boundary are covered. Exact rational verification of the two-step witness and further independent numerical consistency tests pass.
+PASS
 
-## Originality — PASS (best-knowledge, residual risk remains)
+On each active planar skew oscillator the modified Heun update is ((1-br_j)I+hω_j J)u_j with b=1/2−ε. Orthogonality yields gain (1-br_j)^2+r_j; conservation is V b²−2U b+U=0, real roots iff μ=V/U<=1, both b>=1/2. Substituting 1−2b=−b²μ gives gain 1+b²r_j(r_j−μ). If r*<=1 then μ<=r* at every state so roots always exist. If r*>1 every feasible step multiplies the maximal active frequency group by at least 1+δ, δ=r*(r*−1)/4>0, contradicting finite conserved total energy after more than floor(log(E_total/E*,0)/log(1+δ)) steps; no branch switching avoids this. For two active modes a<1<c the initial μ<=1 inequality is exactly p<=a(1−a)/[a(1−a)+c(c−1)]. Independent exact rational computation checked the example r=(1/4,9/4), initial E=(27,1), b=2/3, next E=(51/2,5/2), U1=12,V1=57/4, next discriminant=-108.
 
-Najafian–Vermeire (arXiv:2401.14508v1) already provide the fixed-step RF-RK method, its scalar quadratic and local solvability, and an empirical warning about missing real roots. The assessed claim instead concerns sharp **all-step solvability versus inevitable finite-step breakdown** at an active spectral threshold, the sharp two-mode initial-energy frontier, and an exact one-successful-step obstruction. Ketcheson's arXiv:1905.09847 rescales the full step and changes effective time, rather than using the same zero-sum stage perturbation. The later arXiv:2409.18328 chooses a quasi-orthogonal projection direction, not the fixed one. Exact all-step loss for the specified method was not identified in the relevant primary literature or searches. A differently phrased prior analysis of stage-weight corrections remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem separates a successful conservative step from the existence of an indefinite conservative numerical trajectory. The sharp condition \(h\omega_{\max}\le1\), its dependence only on the **active** spectrum, and the boundary for a small initially present high-frequency component identify when a method can be forced to stop despite exact conservation at every prior step. The numerical consequence is intrinsic to fixed-step scalar correction, not to roundoff or nonlinear stiffness. The result is not a generic criticism of energy conservation or a claim about unrelated projection methods.
+Best-of-knowledge PASS only for the all-step branch-uniform spectral dichotomy, sharp two-mode frontier and bounded failure horizon; original RF-RK method and one-step discriminant fully credited.
 
-## Scientific limitations
+## value
 
-This exact theorem applies only to the explicitly stated SSPRK(2,2) RF-RK coefficients, finite collections of independent positive-frequency planar rotations, one shared real correction parameter, and constant positive base step. The conserved invariant is total squared Euclidean norm; the exact flow conserves each modal norm. Mode-dependent corrections, other stage weights, and adaptive step changes are excluded. Originality is best-knowledge rather than an independent literature certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The method can conserve a quadratic invariant exactly on a successful step yet be guaranteed to encounter a finite-step impossibility later. The sharp active-frequency threshold and all-branch failure bound expose a practical mathematical distinction between local feasibility and indefinite integrability. The exact two-mode boundary and rational one-successful-step counterexample are motivated by the real correction mechanism, not by an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

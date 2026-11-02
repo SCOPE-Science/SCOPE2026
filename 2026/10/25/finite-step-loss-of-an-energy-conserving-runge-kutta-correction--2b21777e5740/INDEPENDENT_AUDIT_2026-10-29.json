@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T15:06:09.701752Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read complete frozen RESULT.md, REVIEW.md, SLOGAN.txt, verify.py and verification; Git tree SHA confirmed.",
+        "Exact fractions independently recomputed for first correction, conserved energy, second-step negative discriminant, p*=1/16 and finite-mode identity.",
+        "The real-root criterion is one-step; the monotonic maximum-mode argument, not random tests, proves arbitrary-step impossibility."
+      ],
+      "limitations": [
+        "No assertion for variable h, alternate RK weights, different projection methods, coupled/nonlinear modes or a physical-energy weight unequal across modes."
+      ],
+      "rationale": "On each active planar skew oscillator the modified Heun update is ((1-br_j)I+hω_j J)u_j with b=1/2−ε. Orthogonality yields gain (1-br_j)^2+r_j; conservation is V b²−2U b+U=0, real roots iff μ=V/U<=1, both b>=1/2. Substituting 1−2b=−b²μ gives gain 1+b²r_j(r_j−μ). If r*<=1 then μ<=r* at every state so roots always exist. If r*>1 every feasible step multiplies the maximal active frequency group by at least 1+δ, δ=r*(r*−1)/4>0, contradicting finite conserved total energy after more than floor(log(E_total/E*,0)/log(1+δ)) steps; no branch switching avoids this. For two active modes a<1<c the initial μ<=1 inequality is exactly p<=a(1−a)/[a(1−a)+c(c−1)]. Independent exact rational computation checked the example r=(1/4,9/4), initial E=(27,1), b=2/3, next E=(51/2,5/2), U1=12,V1=57/4, next discriminant=-108.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 RF-RK paper gives local solvability for small h and examples of absent real roots, but no sharp all-step spectral iff or branch-uniform failure bound.",
+          "Different quasi-orthogonal projection schemes and relaxation-time methods have different correction directions and thus do not dominate this fixed-coefficient SSPRK22 theorem."
+        ],
+        "reasoning": "Broader invariant-preserving schemes address different numerical maps; no implication from their feasibility results to this specific method is valid without equating step formulas, which they do not.",
+        "searches": [
+          "arxiv:2401.14508 RF RK local existence and non-real corrections for large step",
+          "arxiv:2409.18328 Quasi Orthogonal Runge Kutta Projection Methods",
+          "Runge Kutta invariant quadratic correction nonexistence all steps highest mode"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2401.14508v1 primary HTML §§2.3,3.1,4",
+        "arxiv:1905.09847",
+        "arxiv:2409.18328v1",
+        "Resultary fixed-step correction search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known quadratic implies real roots at a single state iff μ<=1, but not persistence of feasibility under updating.",
+          "The new identity E_j(next)/E_j = 1+b² r_j(r_j-μ) and b>=1/2 make every active r*>1 mode increase geometrically under all feasible root choices until a contradiction with conserved finite total energy."
+        ],
+        "reasoning": "The all-step necessary and sufficient threshold and finite failure bound are dynamical consequences requiring a monotonic modal-energy argument absent from the cited one-step existence statement.",
+        "searches": [
+          "Najafian Vermeire arxiv:2401.14508 §2.3 §4 one step correction",
+          "Ketcheson arxiv:1905.09847 physical time relaxation",
+          "Najafian Vermeire arxiv:2409.18328 projection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Najafian–Vermeire defines precisely the fixed-step zero-sum stage-weight correction and the quadratic one-step real-root test; this mechanism is fully credited.",
+          "Ketcheson 2019 relaxation RK rescales the entire increment and effective time, a non-equivalent update."
+        ],
+        "reasoning": "The claim is not discovery of a one-step discriminant; it characterizes indefinitely repeatable feasibility across every initial active spectrum and every possible root branch.",
+        "searches": [
+          "relaxation free Runge Kutta SSPRK22 energy correction stage weight (1,-1) discriminant",
+          "Najafian Vermeire arxiv:2401.14508v1 §§2.3,3.1,4",
+          "Ketcheson arxiv:1905.09847 relaxation RK"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related spectral-gradient, SSP positivity and numerical stability findings concern different algorithms; no same fixed-step all-branch real-correction table located.",
+          "The exact two-mode p* frontier is not listed in the inspected primary RF-RK sections."
+        ],
+        "reasoning": "There is no established numerical table that dominates the all-step spectral theorem; checked exact and equivalent-formulation searches leave residual priority risk.",
+        "searches": [
+          "Resultary energy conserving Runge Kutta correction oscillator finite step loss",
+          "relaxation free SSPRK22 two-frequency high mode feasibility exact rational witness",
+          "Najafian Vermeire quadratic discriminant r*>1"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS only for the all-step branch-uniform spectral dichotomy, sharp two-mode frontier and bounded failure horizon; original RF-RK method and one-step discriminant fully credited.",
+      "residual_risks": [
+        "A differently worded iteration-feasibility theorem might occur in numerical analysis literature outside checked terms.",
+        "Result assumes exactly fixed h, exact arithmetic and single shared scalar stage-weight modification; adaptation can evade failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Known one-step scalar correction, not all-step criterion for arbitrary active finite oscillator modes.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.14508",
+          "material_read": "Primary accessible HTML material on §§2.3,3.1,4; stage-weight perturbation and discriminant, local existence and large-step possible no-root discussion",
+          "method": "Primary arXiv HTML",
+          "title": "Energy Conservative Relaxation-Free Runge-Kutta Schemes",
+          "trigger": "Exact source method and potential general obstruction"
+        },
+        {
+          "assessment": "DIFFERENT_UPDATE",
+          "evidence": "Whole-increment relaxation and physical-time scaling differ from fixed-step RF-RK coefficient sum zero.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.09847",
+          "material_read": "Bibliographic description and cited relevant §§1.1,2,4.1, complete original text not reread in this execution",
+          "method": "Primary abstract and secondary source comparison",
+          "title": "Relaxation Runge–Kutta Methods: Conservation and Stability for Inner-Product Norms",
+          "trigger": "Related energy-conserving time-scaled RK method"
+        },
+        {
+          "assessment": "DIFFERENT_CORRECTION",
+          "evidence": "Uses a different projection direction; no automatic implication for the studied one-dimensional stage-weight root.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.18328",
+          "material_read": "Primary abstract and source-package discussion; full source not reread",
+          "method": "Primary abstract and citation comparison",
+          "title": "Quasi-Orthogonal Runge–Kutta Projection Methods",
+          "trigger": "Potential broader correction technique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "The obstruction concerns only the specified fixed-step scalar method, not all energy-preserving integration schemes."
+      ],
+      "rationale": "The method can conserve a quadratic invariant exactly on a successful step yet be guaranteed to encounter a finite-step impossibility later. The sharp active-frequency threshold and all-branch failure bound expose a practical mathematical distinction between local feasibility and indefinite integrability. The exact two-mode boundary and rational one-successful-step counterexample are motivated by the real correction mechanism, not by an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2401.14508v1 primary HTML §§2.3,3.1,4",
+    "arxiv:1905.09847",
+    "arxiv:2409.18328v1",
+    "Resultary fixed-step correction search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No assertion for variable h, alternate RK weights, different projection methods, coupled/nonlinear modes or a physical-energy weight unequal across modes.",
+    "The obstruction concerns only the specified fixed-step scalar method, not all energy-preserving integration schemes."
+  ],
+  "residual_risks": [
+    "A differently worded iteration-feasibility theorem might occur in numerical analysis literature outside checked terms.",
+    "Result assumes exactly fixed h, exact arithmetic and single shared scalar stage-weight modification; adaptation can evade failure."
+  ],
+  "schema_version": 1
+}
