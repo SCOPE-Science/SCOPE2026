@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Character orthogonality yields the exact Fourier product (1). Its zero-product Leibniz equations force every off-diagonal derivation coefficient to vanish, without a generic-position assumption. The remaining nonzero-product equations are both necessary and sufficient. Faithful scalar extension establishes abelianity over any coefficient field of characteristic prime to the group order. For prime cyclic quandles, multiplicative Fourier diagonalization proves the stated root-of-unity formula and the order-six cases. The standalone modular tests are corroborative only; the proof covers all finite abelian groups in the stated domain.
+## correctness
 
-**Originality — PASS, with residual risk.** The full text of Elhamdadi–Makhlouf–Silvestrov–Zappala's derivation study (arXiv:2106.08289, Section 3 and Section 5) gives general linear equations and the zero derivation result for odd dihedral quandles, not the Fourier-diagonal theorem for all Latin Alexander quandles or the sixth-root resonance formula. The full text of Zhang (arXiv:2610.08204) gives Fourier algebra operations and idempotents/commutators, rather than the classification of derivations. Previously recorded claims for these algebras include Fourier-supported square-zero subspaces, Boolean two-sided ideal lattices, commuting-pair counts, and a modular-characteristic finite-field idempotent count. None of those claims states or implies the all-derivations diagonalization or complex characteristic-zero prime-order dimension count; in the idempotent case the similar resonance equation belongs to a different modular coefficient problem. The 2026 Fourier-idempotent and automorphism papers were available only in abstract form, so equivalent formulations hidden in their full text remain a bounded risk; no claim of absolute priority is made. The earlier Fourier product and derivation equations are credited explicitly.
+PASS
 
-**Mathematical value — PASS.** Derivation algebras govern infinitesimal symmetries of nonassociative algebras. The result simultaneously reduces the complete Leibniz problem on every finite Latin Alexander quandle to a sparse system of linear equations, proves a structural abelianity theorem over arbitrary nonmodular coefficient fields, and identifies the surprising appearance of positive-dimensional derivations at prime order seven despite the previously studied odd dihedral case being rigid. The exact multiplicative-character formula connects derivations to sixth-root arithmetic and produces infinite families of nonrigid examples.
+The normalized b_chi Fourier basis is legitimate because |A| is a unit after splitting. Direct change of variables gives b_i b_j=b_{tau(i)} exactly when j=sigma(i), otherwise zero, where tau and sigma are bijections by the Latin condition. In each zero-product Leibniz equation, the coefficients of b_{tau(sigma^{-1}(j))} and b_{tau(i)} must vanish separately since their indices differ. Taking j=sigma(k) for k!=i annihilates every off-diagonal D(b_i) coefficient. Nonzero-product equations yield the stated necessary and sufficient character-indexed linear relation. Faithful scalar extension makes the commutator vanish over K. For A=F_p, diagonalization by multiplicative characters reduces to eta(t)+eta(1-t)=1; unit-modulus root geometry forces conjugate primitive sixth roots and 6|(p-1), with (p-1)/3 for t^2-t+1=0. Independently rebuilt all p^2-variable Leibniz constraints for p=3,5,7 and compared their modular ranks with the p-variable diagonal system: all admissible parameters agree. The auxiliary-modulus rank experiment is not the general proof.
 
-The theorem does not treat non-Latin quandles or coefficient characteristics dividing the group order. Some related full-text literature was inaccessible, as detailed in the structured originality audit. Finite modular checks supplement rather than certify the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. The inspected full 2021 quandle-algebra derivation paper has general coefficient conditions and the special odd-dihedral vanishing theorem; Zhang 2026 Proposition 5.1 supplies the general Fourier product, but its Theorems 5.2 and 5.5 concern idempotents/Peirce spectra rather than derivation spaces. The new inference is a simultaneous all-derivations diagonalization with sparse kernel and nontrivial sixth-root dimension count. The source Fourier product and prior dihedral theorem are acknowledged. Search did not expose an exact earlier statement, but unindexed derivation classifications remain a real risk.
+
+## value
+
+PASS
+
+Derivation Lie algebras encode infinitesimal symmetries of nonassociative algebras; this complete finite-Latin classification gives an abelianity theorem and sparse character-kernel reduction for every finite abelian A, and identifies the unexpected first nonrigid seven-point prime-cyclic examples. Those are structurally motivated facts, not an arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
