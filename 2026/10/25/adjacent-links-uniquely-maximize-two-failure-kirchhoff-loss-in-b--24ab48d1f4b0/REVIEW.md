@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof defines the exact unweighted Boolean-cube domain and unordered Kirchhoff-index normalization. It first verifies connectivity after every two-edge deletion, then obtains the rank-two update in terms of two Green-kernel cross terms. The exhaustive pair-orbit classification is complete under cube symmetries. Strict integral monotonicity reduces the infinite comparison to two neighboring orbit representatives; a monotone-likelihood-ratio argument closes all dimensions eight and higher; five exact rational differences close dimensions three through seven. The standalone checker independently reproduces small grounded-matrix inverses and exact table certificates. No experiment is promoted to a universal proof.
+## correctness
 
-**Originality — PASS, subject to identified literature risk.** Searches tested hypercube two-link failures, electrical-resistance vulnerability, extremal Kirchhoff-index edge deletion, equivalent transfer-Green formulations, and the possibility of existing stronger graph-class results. Liu et al. (2013) handle unmodified hypercubes and graph transforms but do not compare two-edge removals; Tamura (2026) treats deletion from complete graphs with a fundamentally different base Green matrix. Hamburger et al. (1992) examine hypercube edge leverage measured by shortest-path distance, not effective resistance; the complete text was unavailable, leaving a named residual risk. Related optimization records on wheels, multipartite graphs and clique bouquets do not imply the hypercube statement.
+PASS
 
-**Value — PASS.** The result solves a natural adversarial two-link robustness design question for an infinite, highly symmetric network family, determining all worst configurations and their exact multiplicity. The discovery that adjacent links uniquely maximize effective-resistance loss, even though many separated link configurations are possible, is a structural statement rather than a single recomputed number; its integral comparison avoids exhaustive growth in cube size.
+For Boolean cube Q_d d>=3 with unit edges, d-edge connectivity ensures every two-link deletion remains connected, and K(G)=N tr(L^+). Walsh diagonalization gives L^+ and (L^+)^2 distance kernels g_{1,d}(k),g_{2,d}(k). The heat-kernel integral proves positive strictly decreasing a_k and b_k; mixed edge incidence x,y are either (2a_k,2b_k) for parallel edges separated by k>=1 or (a_k-a_{k+1},b_k-b_{k+1}) for distinct coordinate directions separated by k>=0. Rank-two Woodbury yields increase 2N(hS+xy)/(h^2-x^2), strictly increasing in x,y. Therefore compare only closest parallel and adjacent perpendicular. Tilting positive measures by 1+q shows a0/a1 and b0/b1 strictly grow in dimension; at d>=8 both exceed 3, and at d3..7 exact rational gaps are strictly positive. Equality iff perpendicular edges share one vertex; optimizer count N*binom(d,2). Independent exact rational spectral enumeration checked all orbit classes d3..9, reproducing d3 172/15,d4 502/51,d5 2696/245 and strict gaps. Finite checks do not substitute for the all-d integral comparison.
 
-No independently validated originality guarantee or mathematical certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Electrical effective-resistance loss differs from shortest-path distance leverage. The complete hypercube Kirchhoff index from Liu et al and general resistance matrices are existing tools; Tamura (2026) applies deleted-edge defect matrices to complete graphs K_n-F, not to cube Q_d with nonconstant Green kernel. The submitted result gives the new strict extremizer geometry for deleting exactly two edges of any-dimensional cube. The 1992 paper “On a leverage problem in the hypercube” shares the graph and edge-failure language, but its accessible abstract concerns shortest-path leverage. Full text could not be accessed even via authorized Oxford, so do not assert exhaustive noncoverage.
+
+## value
+
+PASS
+
+The strict worst-case pair of two failed links in every-dimensional canonical hypercube network is a natural topology-and-resilience extremal question. The answer is counterintuitively local (incident edges) and has an exact rational magnitude and equality orbit, requiring nontrivial Green-kernel and all-d monotonicity work. The classification is meaningful without a general arbitrary-graph theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

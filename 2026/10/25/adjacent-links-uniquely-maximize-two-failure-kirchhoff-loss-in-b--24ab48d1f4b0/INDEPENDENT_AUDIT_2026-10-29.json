@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T04:45:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md at a3e9b483c9650c21e49df368f636e382cae66647",
+        "verify_hypercube.py at de381846dc2ffa0e2bfac15aac1ec0549d972fcf",
+        "independent_checks.py hypercube_checks exact Walsh sums d3..9",
+        "Liu et al 2013 original hypercube Laplacian spectrum"
+      ],
+      "rationale": "For Boolean cube Q_d d>=3 with unit edges, d-edge connectivity ensures every two-link deletion remains connected, and K(G)=N tr(L^+). Walsh diagonalization gives L^+ and (L^+)^2 distance kernels g_{1,d}(k),g_{2,d}(k). The heat-kernel integral proves positive strictly decreasing a_k and b_k; mixed edge incidence x,y are either (2a_k,2b_k) for parallel edges separated by k>=1 or (a_k-a_{k+1},b_k-b_{k+1}) for distinct coordinate directions separated by k>=0. Rank-two Woodbury yields increase 2N(hS+xy)/(h^2-x^2), strictly increasing in x,y. Therefore compare only closest parallel and adjacent perpendicular. Tilting positive measures by 1+q shows a0/a1 and b0/b1 strictly grow in dimension; at d>=8 both exceed 3, and at d3..7 exact rational gaps are strictly positive. Equality iff perpendicular edges share one vertex; optimizer count N*binom(d,2). Independent exact rational spectral enumeration checked all orbit classes d3..9, reproducing d3 172/15,d4 502/51,d5 2696/245 and strict gaps. Finite checks do not substitute for the all-d integral comparison.",
+      "residual_risks": [
+        "Graph is unit-conductance unweighted simple Q_d and exactly two existing edges deleted; no weights, k>2 or d=2 considered",
+        "The dimension-eight threshold uses exact b0-3b1=1007/1204224; independent spectral samples support but do not prove increasing-ratio lemma"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tamura 2026 formulates edge-defect matrices for complete graph K_n-F and optimizes certain defect patterns.",
+          "Liu et al 2013 Section 3.1 derives Kf(Q_d) and Sections 3.2-3.4 study line/subdivision/total graph transforms, not edge removal from original cube."
+        ],
+        "reasoning": "Base complete-graph Green matrix is constant off-diagonal, unlike cube Hamming-sensitive Green function; Tamura conclusions do not directly dominate the cube adjacent-edge optimum. General tools are prior.",
+        "searches": [
+          "https://arxiv.org/abs/2608.05924",
+          "https://doi.org/10.1155/2013/543189"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2013/543189",
+        "https://arxiv.org/abs/2608.05924",
+        "https://doi.org/10.1002/net.3230220502",
+        "Resultary query: hypercube two deleted edges Kirchhoff index effective graph resistance optimal adjacent links"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original-cube Kf and generic Woodbury updates are standard consequences of Laplacian pseudoinverses.",
+          "The source additionally establishes strict all-d comparison via two orbit families and integral monotonicity."
+        ],
+        "reasoning": "Neither baseline index nor complete-graph defect reduction implies that incident links are the unique maximizers in Q_d, except after additional cube-specific strict inequalities.",
+        "searches": [
+          "https://doi.org/10.1155/2013/543189",
+          "https://arxiv.org/abs/2608.05924",
+          "https://doi.org/10.1002/net.3230220502"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hamburger/Pippert/Weakley 1992 is a hypercube edge-removal leverage problem but its publicly accessible description concerns shortest-path distance effects.",
+          "Kirchhoff index sums effective electrical resistances, not shortest-path distances."
+        ],
+        "reasoning": "Changing the metric changes the optimization. Only the older shortest-path description was accessible, so its full document cannot be declared noncovering.",
+        "searches": [
+          "hypercube two deleted edges Kirchhoff index effective graph resistance optimal adjacent links",
+          "https://doi.org/10.1002/net.3230220502",
+          "hypercube electrical centrality two-edge failures Green kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Liu et al provide the original-cube Kirchhoff index via its spectrum, with no two-link failure table in Section 3.",
+          "Source supplies explicit d3,d4,d5 rational maxima, independently recomputed."
+        ],
+        "reasoning": "No exact database/table supplying the two-link deletion maximum was identified in inspected literature; finite computed values are not a novelty proof.",
+        "searches": [
+          "hypercube two edge deletion Kirchhoff index optimization exact rational values",
+          "https://doi.org/10.1155/2013/543189"
+        ]
+      },
+      "rationale": "Electrical effective-resistance loss differs from shortest-path distance leverage. The complete hypercube Kirchhoff index from Liu et al and general resistance matrices are existing tools; Tamura (2026) applies deleted-edge defect matrices to complete graphs K_n-F, not to cube Q_d with nonconstant Green kernel. The submitted result gives the new strict extremizer geometry for deleting exactly two edges of any-dimensional cube. The 1992 paper “On a leverage problem in the hypercube” shares the graph and edge-failure language, but its accessible abstract concerns shortest-path leverage. Full text could not be accessed even via authorized Oxford, so do not assert exhaustive noncoverage.",
+      "residual_risks": [
+        "Hamburger/Pippert/Weakley 1992 original full text unavailable; accessible abstract distinguishes shortest-path leverage, but potential stronger unpublished calculations are not excluded.",
+        "Tamura 2026 defect method may admit extensions to vertex-transitive graphs; only complete-graph statement was accessible, so generic method overlap must be acknowledged.",
+        "General graph edge-failure Kirchhoff optimization literature may have a dominating theorem not indexed by the specific cube name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASELINE Kf(Q_d), NOT TWO-FAILURE EXTREMUM IN READ MAIN RESULTS",
+          "evidence": "Original cube and line/subdivision/total graph Kirchoff index formulas; no two-edge deletion comparison in reviewed Theorems 9-12.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/543189",
+          "material_read": "Full OA HTML original article inspected including Introduction and Section 3.1 Theorem 9 and 3.2-3.4 variants",
+          "method": "Published journal full text",
+          "title": "The Kirchhoff Index of Hypercubes and Related Complex Networks",
+          "trigger": "Direct same graph invariant and possibility of deletion results"
+        },
+        {
+          "assessment": "METHOD-LEVEL PRIOR ART; POSSIBLE EXTENSION, FULL TEXT NOT READ",
+          "evidence": "Statement explicitly restricts to K_n-F, not Q_d; no assertive whole-document exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.05924",
+          "material_read": "Full abstract mathematical theorem statement inspected; arXiv full PDF fetch failed, technical proof not read",
+          "method": "ArXiv original abstract and web PDF attempt",
+          "title": "Edge-defect matrices and stability of the Kirchhoff index for complete graphs with deleted edges",
+          "trigger": "Potential broader Woodbury method and extremal edge pattern"
+        },
+        {
+          "assessment": "MATERIAL PRIORITY RISK; FULL COVERAGE UNDETERMINED",
+          "evidence": "Available description is a shortest-path distance leverage problem rather than electrical Kirchhoff index, but full text not read.",
+          "identifier_or_url": "https://doi.org/10.1002/net.3230220502",
+          "material_read": "Publisher/metadata abstract and topic checked; original full 1992 article not accessible from open route; Oxford request returned vpn_disconnected",
+          "method": "Publisher metadata; lawful OA attempts; authorized Oxford blocked",
+          "title": "On a leverage problem in the hypercube",
+          "trigger": "Exact graph and two-edge failure topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu et al 2013 baseline network Kirchhoff index",
+        "RESULT.md all-d Hamming kernel comparison"
+      ],
+      "rationale": "The strict worst-case pair of two failed links in every-dimensional canonical hypercube network is a natural topology-and-resilience extremal question. The answer is counterintuitively local (incident edges) and has an exact rational magnitude and equality orbit, requiring nontrivial Green-kernel and all-d monotonicity work. The classification is meaningful without a general arbitrary-graph theorem.",
+      "residual_risks": [
+        "Only two edge removals and unit conductances; random/multi-link failures are not covered",
+        "An implicit known edge-centrality theorem might reduce priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every d>=3, deleting two distinct links in Q_d maximizes Kirchhoff index if and only if the links share a vertex; there are exactly 2^d*C(d,2) maximizers and a Walsh-kernel exact rational maximum increment.",
+  "limitations": [
+    "Graph is unit-conductance unweighted simple Q_d and exactly two existing edges deleted; no weights, k>2 or d=2 considered",
+    "The dimension-eight threshold uses exact b0-3b1=1007/1204224; independent spectral samples support but do not prove increasing-ratio lemma",
+    "Hamburger/Pippert/Weakley 1992 original full text unavailable; accessible abstract distinguishes shortest-path leverage, but potential stronger unpublished calculations are not excluded.",
+    "Tamura 2026 defect method may admit extensions to vertex-transitive graphs; only complete-graph statement was accessible, so generic method overlap must be acknowledged.",
+    "General graph edge-failure Kirchhoff optimization literature may have a dominating theorem not indexed by the specific cube name."
+  ],
+  "schema_version": 1
+}
