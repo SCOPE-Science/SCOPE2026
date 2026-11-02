@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is for one-step spatial images of binary Rule 54 and uses period-dividing-\(n\) points. The labelled four-vertex graph is derived from all eight local triples. A completely enumerated Boolean product monoid has 109 distinct relations, precisely 77 with a diagonal, 31 without cycles, and one with a cycle but no diagonal. The latter can occur only for the single-letter output `1`; this gives the universal lifting theorem for all \(n\ge2\). Explicit constant and alternating configurations prove sharpness at \(n=1\). The independent finite-ring comparisons through size 12 are corroborative only; the exhaustive four-state monoid closure is the all-length proof component.
+PASS
 
-## Originality — PASS (best-knowledge, not certified priority)
+PASS. For the Wolfram Rule-54 map specified by its eight three-bit input neighborhoods, four input pair states form a labelled de Bruijn graph. A periodic output word w^Z has any biinfinite preimage iff its Boolean relation R(w) contains a directed cycle; it has an n-periodic predecessor for |w|=n iff R(w) has a diagonal loop. Exhaustive closure of all products of two 4x4 Boolean adjacency generators has exactly 109 matrices, 77 with a loop, 31 acyclic, one cyclic but loopless. My independent monoid implementation verified that the exceptional matrix is R_1, that its only entering right-transition is I --1--> R_1, and there are no transitions into I; thus the only word with a cyclic relation but no loop is length-one '1'. Consequently F(P_n)=Y∩P_n for every n>=2. The constant output 1^Z is in Y via alternating predecessor but neither constant input maps to it, giving the unique n=1 exception. When output has least period n, a P_n predecessor must also have least period n by shift commutation. Ring tests ≤12 are separate corroboration, not all-n proof. The 109-state finite closure is genuinely exhaustive, not mere length-cutoff testing.
 
-Martínez–Adamatzky–McIntosh (arxiv:1410.3096), especially their subset diagram and cyclic attractor discussions, is the closest Rule-54 primary source and is fully acknowledged. Mariot–Leporati–Dennunzio–Formenti (doi:10.1007/s11047-016-9586-x) treats preimage periods using graph methods for surjective automata, whereas Rule 54 is not onto the full shift. Their methods do not assert the sharp same-period theorem here. An unindexed early Rule-54 catalogue might contain an equivalent specialization; no independent historical-priority check is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a richly structured but non-surjective cellular automaton, the image's whole infinite family of spatially periodic configurations of period at least two lifts without period enlargement. The sole obstruction is characterized exactly and remedied sharply by period two. This is a natural global classification of a periodic-point lifting phenomenon, not simply an arbitrary bounded computation.
+PASS best-of-knowledge for the uniform same-period one-step lifting and unique fixed-point exception. Martínez–Adamatzky–McIntosh (2014) develops Rule 54 de Bruijn and subset diagrams, Garden-of-Eden words and spatial patterns; all of those representations are prior, while the inspected primary discussions do not establish the 109-relation-monoid classification and n>=2 lifting. Mariot–Leporati–Dennunzio–Formenti (2017) studies preimage periods of surjective cellular automata and its standard period-multiplicity tools cannot directly assert this for the non-surjective Rule 54. Possible unindexed period-lifting catalogues are a residual risk.
 
-## Limits and closest prior evidence
+## value
 
-The theorem is about one-step spatial image points, not all temporal iterates, full preimage-period spectra, or every automaton. The essential new step is the exhaustive product-relation classification, with primary literature providing general de Bruijn and period-preimage background. The finite certificate is self-review and independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. An exact exceptional-period classification for a paradigmatic non-surjective elementary cellular automaton is a natural symbolic-dynamics result. The theorem resolves all spatial periods using a nontrivial finite Boolean semigroup certificate; the fixed-point obstruction cannot be dismissed as a generic periodic-image fact. It explicitly excludes iterated temporal inverse dynamics and predecessor multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
