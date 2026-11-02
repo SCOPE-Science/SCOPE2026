@@ -1,19 +1,21 @@
-# Review: A sharp distributional boundary for default contagion under log-convex shock survival
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the cap, net worths, liability shares, independence assumption, and event being compared. In the star, a source shock of size \(z\) creates shortfall \((z-x)_+\), split equally across the \(m\) targets; all targets default exactly when \(z>(m+1)x\). The two event probabilities are therefore \(S((m+1)x)\) and \(S(x)^{m+1}\). Convexity of \(\log S\) and \(S(0)=1\) imply the inequality, with strictness under strict convexity. The two-rate witness also has the exact positive difference \(\tfrac14(e^{-1/5}-e^{-2})^2\).
+PASS
 
-## Originality — PASS
+Acyclic clearing makes source shortfall max(0,z−x), with each target losing 1/m thereof, so all targets default exactly when z>(m+1)x; cap not active for (m+1)x<1. Independent direct defaults require each primary loss >x. With S(0)=1 and f=log S convex, Jensen gives f(qx)≥q f(x), q=m+1. Exponential rate mixtures have f second derivative equal tilted rate variance and hence strictly >0 when nondegenerate; constant rate gives equality. Independently checked source/target balance sheets, strict mixture and pure exponential equality on 21 feasible samples. No conclusion for arbitrary network topology, correlated shocks, or aggregate losses.
 
-The closest primary source is Glasserman and Young's *How Likely Is Contagion in Financial Networks?* (OFR Working Paper 13-09, first public version 2013-06-21; DOI 10.1016/j.jbankfin.2014.02.006). Its Theorem 2 and Corollary 3 use IFR shock assumptions for weak contagion with equal outside assets; Section 3.3 notes equality of the compared probability expressions for exponential shocks under equal outside assets and full source connectivity, and discusses Pareto-like tails at large thresholds. It does not state the strict all-feasible-threshold result for log-convex survival, especially non-degenerate exponential-rate mixtures. Visentin, Battiston, and D'Errico (arXiv:1608.07831) compare aggregate loss orderings across contagion models, a different observable. Searches of the mathematical claim and its aliases returned no directly matching published result; the closest surfaced records concern unrelated epidemic, reliability, or financial-flow models.
+## originality
 
-## Value — PASS
+PASS
 
-The result isolates a precise distributional boundary in a canonical clearing model: exponential homogeneity gives equality, whereas latent heterogeneity in exponential loss rates gives strict strong contagion even at small feasible thresholds. This complements the known IFR and Pareto-tail cases and clarifies that equal balance-sheet sizes alone do not determine the direction of the probability comparison. The contribution is an exact analytic statement, not an empirical estimate.
+Qualified best-of-knowledge PASS: prior objects, algorithms and general identities acknowledged; independent exact classification/asymptotic/construction is not established by the material read. Specific implication and inaccessible-source risks explicitly retained.
 
-## Limitations and residual risk
+## value
 
-The result is limited to the stated star topology, equal net worths and outside assets, independent shocks, and the specified event-probability comparison. The underlying convexity inequality is standard; originality is claimed only for its explicit exact consequence in this clearing-network setting. A broader search of reliability-theory literature could reveal equivalent applications not found in the inspected financial-network sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact attainable reverse-probability boundary in an economically standard, fully connected-liability star qualifies the general IFR comparison: even non-heavy-tailed exponential mixtures make contagion strictly more likely than independent joint defaults at every feasible threshold, whereas homogeneous exponential rates sit at equality. Though proof is elementary Jensen, the natural specified event and exact saturating network give a motivated counter-boundary; no broad arbitrary-network significance is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytical proof reconstructs the clearing event and proves the probability comparison for every integer \(m\ge1\) and \(0<x<1/(m+1)\). The cap at one is inactive at the relevant threshold. The star network is acyclic, so no unresolved clearing-vector choice enters the argument.
+# Independent mathematical audit
 
-The standalone standard-library script checks the explicit two-rate witness and several finite parameter instances. Numerical checks are not used as a substitute for the convexity proof. No claim is made about correlated shocks, arbitrary network topology, empirical calibration, or aggregate loss magnitude. Independent audit and external validation have not been performed.
+## correctness
+
+PASS
+
+Acyclic clearing makes source shortfall max(0,z−x), with each target losing 1/m thereof, so all targets default exactly when z>(m+1)x; cap not active for (m+1)x<1. Independent direct defaults require each primary loss >x. With S(0)=1 and f=log S convex, Jensen gives f(qx)≥q f(x), q=m+1. Exponential rate mixtures have f second derivative equal tilted rate variance and hence strictly >0 when nondegenerate; constant rate gives equality. Independently checked source/target balance sheets, strict mixture and pure exponential equality on 21 feasible samples. No conclusion for arbitrary network topology, correlated shocks, or aggregate losses.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS: prior objects, algorithms and general identities acknowledged; independent exact classification/asymptotic/construction is not established by the material read. Specific implication and inaccessible-source risks explicitly retained.
+
+## value
+
+PASS
+
+The exact attainable reverse-probability boundary in an economically standard, fully connected-liability star qualifies the general IFR comparison: even non-heavy-tailed exponential mixtures make contagion strictly more likely than independent joint defaults at every feasible threshold, whereas homogeneous exponential rates sit at equality. Though proof is elementary Jensen, the natural specified event and exact saturating network give a motivated counter-boundary; no broad arbitrary-network significance is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

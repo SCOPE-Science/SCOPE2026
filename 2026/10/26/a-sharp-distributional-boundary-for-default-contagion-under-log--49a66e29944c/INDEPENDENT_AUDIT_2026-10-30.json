@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:49:43.698756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Acyclic clearing makes source shortfall max(0,z−x), with each target losing 1/m thereof, so all targets default exactly when z>(m+1)x; cap not active for (m+1)x<1. Independent direct defaults require each primary loss >x. With S(0)=1 and f=log S convex, Jensen gives f(qx)≥q f(x), q=m+1. Exponential rate mixtures have f second derivative equal tilted rate variance and hence strictly >0 when nondegenerate; constant rate gives equality. Independently checked source/target balance sheets, strict mixture and pure exponential equality on 21 feasible samples. No conclusion for arbitrary network topology, correlated shocks, or aggregate losses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.financialresearch.gov/working-papers/files/OFRwp0009_GlassermanYoung_HowLikelyContagionFinancialNetworks.pdf: Theorem 2 gives IFR weak contagion, (35) compares one tail at sum to product, page 18 says pure exponential equality only for the compared bounds, pages 19–20 treat Pareto-like tails.",
+          "doi:10.1287/mnsc.47.2.236.9835: Network is acyclic, so source shortfall is its equity excess and target shortfalls divide equally."
+        ],
+        "reasoning": "General financial-network topology-free bound is stronger as an upper-bound method but does not guarantee attainable reversed actual contagion; here the acyclic star realizes equality in the bound.",
+        "searches": [
+          "Eisenberg Noe star financial contagion log convex survival probability direct default exponential mixture",
+          "Glasserman–Young (2013), equations 33–40, Theorem 2",
+          "doi:10.1016/j.jbankfin.2014.02.006"
+        ]
+      },
+      "checked_sources": [
+        "How Likely Is Contagion in Financial Networks? (https://www.financialresearch.gov/working-papers/files/OFRwp0009_GlassermanYoung_HowLikelyContagionFinancialNetworks.pdf)",
+        "Systemic Risk in Financial Systems (doi:10.1287/mnsc.47.2.236.9835)",
+        "Resultary query: Eisenberg Noe star financial contagion log convex survival probability direct default exponential mixture"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://www.financialresearch.gov/working-papers/files/OFRwp0009_GlassermanYoung_HowLikelyContagionFinancialNetworks.pdf: Theorem 2 gives IFR weak contagion, (35) compares one tail at sum to product, page 18 says pure exponential equality only for the compared bounds, pages 19–20 treat Pareto-like tails.",
+          "doi:10.1287/mnsc.47.2.236.9835: Network is acyclic, so source shortfall is its equity excess and target shortfalls divide equally."
+        ],
+        "reasoning": "Glasserman–Young eq (35) already compares upper-bound tails and gives exponential equality, so a mere Jensen reversal of its upper bound is covered. The extra exact source/target clearing construction is necessary to turn the reversed bound into actual contagion, and the exponential-mixture strict statement follows for that realized network. O is qualified by routine-corollary risk.",
+        "searches": [
+          "Eisenberg Noe star financial contagion log convex survival probability direct default exponential mixture",
+          "Glasserman–Young (2013), equations 33–40, Theorem 2",
+          "doi:10.1016/j.jbankfin.2014.02.006"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://www.financialresearch.gov/working-papers/files/OFRwp0009_GlassermanYoung_HowLikelyContagionFinancialNetworks.pdf: Theorem 2 gives IFR weak contagion, (35) compares one tail at sum to product, page 18 says pure exponential equality only for the compared bounds, pages 19–20 treat Pareto-like tails.",
+          "doi:10.1287/mnsc.47.2.236.9835: Network is acyclic, so source shortfall is its equity excess and target shortfalls divide equally."
+        ],
+        "reasoning": "The event comparison maps to P(X>sum thresholds) vs product P(X>thresholds), exactly Glasserman–Young eq (35) with equal outside assets/beta=1; not a new general inequality.",
+        "searches": [
+          "Eisenberg Noe star financial contagion log convex survival probability direct default exponential mixture",
+          "Glasserman–Young (2013), equations 33–40, Theorem 2",
+          "doi:10.1016/j.jbankfin.2014.02.006"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://www.financialresearch.gov/working-papers/files/OFRwp0009_GlassermanYoung_HowLikelyContagionFinancialNetworks.pdf: Theorem 2 gives IFR weak contagion, (35) compares one tail at sum to product, page 18 says pure exponential equality only for the compared bounds, pages 19–20 treat Pareto-like tails.",
+          "doi:10.1287/mnsc.47.2.236.9835: Network is acyclic, so source shortfall is its equity excess and target shortfalls divide equally."
+        ],
+        "reasoning": "Log-convex survival/DFR reversal is a standard reliability inequality, not an unknown numeric table. No searched primary result gives the exact equality-attaining star with all-feasible exponential mixture boundary.",
+        "searches": [
+          "Eisenberg Noe star financial contagion log convex survival probability direct default exponential mixture",
+          "Glasserman–Young (2013), equations 33–40, Theorem 2",
+          "doi:10.1016/j.jbankfin.2014.02.006"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS: prior objects, algorithms and general identities acknowledged; independent exact classification/asymptotic/construction is not established by the material read. Specific implication and inaccessible-source risks explicitly retained.",
+      "residual_risks": [
+        "Glasserman–Young already gives the abstract probability comparison and exponential equality; the DFR Jensen reversal is a routine reliability fact. Novelty rests only on the exact realized saturating star and universal strict exponential-mixture application; equivalent prior corollaries may exist.",
+        "The setting excludes many relevant financial network effects, and the probability comparison is not a causal statement about aggregate losses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior paper already derives general upper-bound comparison and equality for exponential shocks, but the comparison is only an upper bound on actual contagion; the exact saturating equal-networth star plus DFR non-degenerate exponential-mixture strict ordering are not stated as an exact network theorem in inspected paper. Substantial overlap and elementary Jensen route must be acknowledged.",
+          "evidence": "Theorem 2 gives IFR weak contagion, (35) compares one tail at sum to product, page 18 says pure exponential equality only for the compared bounds, pages 19–20 treat Pareto-like tails.",
+          "identifier_or_url": "https://www.financialresearch.gov/working-papers/files/OFRwp0009_GlassermanYoung_HowLikelyContagionFinancialNetworks.pdf",
+          "material_read": "Full 39-page accessible working paper, notably pages 16–19 containing Theorem 2, eqs (33)–(40), exponential equality, Pareto tails; original page screenshots inspected",
+          "method": "Read primary PDF full text and original pages 17 and 19",
+          "title": "How Likely Is Contagion in Financial Networks?",
+          "trigger": "Same exact weak-contagion versus direct-default probability observable and exponential equality boundary"
+        },
+        {
+          "assessment": "Clearing mechanism prior, not claimed novel.",
+          "evidence": "Network is acyclic, so source shortfall is its equity excess and target shortfalls divide equally.",
+          "identifier_or_url": "doi:10.1287/mnsc.47.2.236.9835",
+          "material_read": "Original framework acknowledged from primary bibliographic information; full 2001 text not read this run",
+          "method": "Compare standard acyclic clearing identity and original-source citation",
+          "title": "Systemic Risk in Financial Systems",
+          "trigger": "Original clearing-network equations under payment shortfall"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact attainable reverse-probability boundary in an economically standard, fully connected-liability star qualifies the general IFR comparison: even non-heavy-tailed exponential mixtures make contagion strictly more likely than independent joint defaults at every feasible threshold, whereas homogeneous exponential rates sit at equality. Though proof is elementary Jensen, the natural specified event and exact saturating network give a motivated counter-boundary; no broad arbitrary-network significance is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On a fully connected-liability acyclic star with equal equity and outside assets, a log-convex loss survival law yields exact source contagion probability S((m+1)x)≥S(x)^(m+1), strict for non-degenerate exponential mixtures.",
+  "limitations": [
+    "Glasserman–Young already gives the abstract probability comparison and exponential equality; the DFR Jensen reversal is a routine reliability fact. Novelty rests only on the exact realized saturating star and universal strict exponential-mixture application; equivalent prior corollaries may exist.",
+    "The setting excludes many relevant financial network effects, and the probability comparison is not a causal statement about aggregate losses."
+  ],
+  "schema_version": 1
+}
