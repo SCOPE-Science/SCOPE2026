@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The proof separates the target density into a rational-density computable baseline on the complement of \(S\) and a density-coded part on \(S\). The chosen rational \(a\) ensures the residual \(u=(r-a)/d\) lies in \([0,1]\). The cited \(\Delta^0_3\)-density characterization produces a \(\Delta^0_2\) set of density \(u\), and the cited Ershov-hierarchy theorem realizes that density with the restricted bound \(g\). Density scaling and the disjoint union then give exactly \(r\). The reverse inclusion follows because every \(f\)-c.e. set is \(\Delta^0_2\).
+PASS
 
-## Originality
+Read the actual Downey–Jockusch–McNicholl–Schupp primary Theorem 2.1 (Δ²-set densities are exactly Δ³ reals), Lemma 3.4 (density scaling), and Theorem 5.1 (computable nondecreasing unbounded mind-change bound retains the Δ² density spectrum). For r∈[0,1], a rational baseline a can be chosen in [max(0,r−d),min(r,1−d)], giving u=(r−a)/d∈[0,1] still Δ³. Theorem 5.1 constructs a g-c.e. density-u set on S; a periodic computable baseline of density a/(1−d) on its complement uses ≤1 change; disjoint union realizes r and reverse inclusion is immediate. Both endpoints r=0,1 are valid. Fifteen independent rational boundary decompositions checked; logical content is primary-theorem application, not finite testing.
 
-The primary paper treats a globally nondecreasing unbounded bound. The present condition permits a globally nonmonotone bound whose restriction to a computable positive-density reservoir is nondecreasing and unbounded. The explicit alternating example has high-change allowance on exactly half the coordinates at every threshold \(k\ge2\). published-finding corpus searches and the accessible own-ledger search found no same-statement result. The result is an extension by decomposition and density scaling, not a new characterization of all change bounds; an unindexed equivalent observation remains possible.
+## originality
 
-## Value
+PASS
 
-The theorem isolates a concrete resource principle: global monotonicity is stronger than needed for a full density spectrum. A fixed positive-density reservoir can carry all unbounded mind-change complexity, while the complement needs only one permitted change per coordinate. This gives a useful sufficient condition for irregular change bounds and a sharp example against requiring density-one high-change capacity.
+Downey–Jockusch–McNicholl–Schupp (2013) proves full Δ² density spectrum for globally computable nondecreasing unbounded f (Thm 5.1) and an exact density-scaling lemma (3.4). The assessed positive-density computable reservoir criterion is a direct but nontrivial new sufficient composition: high changes only on S, one change off S, a rational baseline to reach arbitrary density. It is not the source theorem in altered notation: the full f may oscillate indefinitely and is nowhere globally eventually nondecreasing (explicit alternating example). The source did not state that criterion; a simple pre-existing corollary in broader literature remains possible.
 
-## Closest literature and limitations
+## value
 
-The closest source is Downey–Jockusch–McNicholl–Schupp, *Asymptotic density and the Ershov hierarchy* (Theorem 2.1, Lemma 3.4, Theorem 5.1). The statement is not a necessary-and-sufficient criterion for arbitrary \(f\). No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Ershov density-spectrum problem motivates how irregular coordinatewise mind-change budgets constrain all attainable densities. This theorem identifies a natural positive-density computable reservoir sufficient for the entire Δ³ real density spectrum, with an explicit alternating allowance contradicting global monotonicity as a necessary hypothesis. Although built from known representation lemmas, the rational mass-splitting construction is a substantive structural extension, not a mere renaming or arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

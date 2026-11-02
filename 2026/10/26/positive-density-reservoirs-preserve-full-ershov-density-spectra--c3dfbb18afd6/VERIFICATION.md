@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-The proof was checked against the stated definitions and the primary full text of *Asymptotic density and the Ershov hierarchy*.
+# Independent mathematical audit
 
-- The target density \(r\) is taken from a \(\Delta^0_2\) set; the source's Theorem 2.1 gives the needed \(\Delta^0_3\) characterization and converse.
-- The rational baseline \(a\) lies in \([\max(0,r-d),\min(r,1-d)]\); the endpoint choices \(a=0\) for \(r=0\) and \(a=1-d\) for \(r=1\) are valid.
-- The density-scaling identity is applied only when both the range and the coded set have densities.
-- The restricted bound \(g(j)=f(s_j)\) meets the source theorem's computable, nondecreasing, unbounded hypotheses.
-- On \(S\), the coded approximation uses at most \(f(s_j)\) changes; on the complement, the computable baseline uses at most one change, allowed by \(f(n)\ge1\).
-- The union is disjoint, so the two densities add exactly to \(r\). Conversely, every \(f\)-c.e. set is \(\Delta^0_2\).
+## correctness
 
-No finite enumeration or experiment is used as a substitute for the proof. The result is sufficient rather than necessary, and the broader literature search cannot rule out an unindexed equivalent observation. Independent audit and independent validation remain unperformed.
+PASS
+
+Read the actual Downey–Jockusch–McNicholl–Schupp primary Theorem 2.1 (Δ²-set densities are exactly Δ³ reals), Lemma 3.4 (density scaling), and Theorem 5.1 (computable nondecreasing unbounded mind-change bound retains the Δ² density spectrum). For r∈[0,1], a rational baseline a can be chosen in [max(0,r−d),min(r,1−d)], giving u=(r−a)/d∈[0,1] still Δ³. Theorem 5.1 constructs a g-c.e. density-u set on S; a periodic computable baseline of density a/(1−d) on its complement uses ≤1 change; disjoint union realizes r and reverse inclusion is immediate. Both endpoints r=0,1 are valid. Fifteen independent rational boundary decompositions checked; logical content is primary-theorem application, not finite testing.
+
+## originality
+
+PASS
+
+Downey–Jockusch–McNicholl–Schupp (2013) proves full Δ² density spectrum for globally computable nondecreasing unbounded f (Thm 5.1) and an exact density-scaling lemma (3.4). The assessed positive-density computable reservoir criterion is a direct but nontrivial new sufficient composition: high changes only on S, one change off S, a rational baseline to reach arbitrary density. It is not the source theorem in altered notation: the full f may oscillate indefinitely and is nowhere globally eventually nondecreasing (explicit alternating example). The source did not state that criterion; a simple pre-existing corollary in broader literature remains possible.
+
+## value
+
+PASS
+
+The Ershov density-spectrum problem motivates how irregular coordinatewise mind-change budgets constrain all attainable densities. This theorem identifies a natural positive-density computable reservoir sufficient for the entire Δ³ real density spectrum, with an explicit alternating allowance contradicting global monotonicity as a necessary hypothesis. Although built from known representation lemmas, the rational mass-splitting construction is a substantive structural extension, not a mere renaming or arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
