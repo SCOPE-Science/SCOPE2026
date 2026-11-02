@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every integer q>=4,r>=2, the single-cycle sharp centered-variance inequality is supplied by the permutation-extreme cycle characterization in Yancey Section 2.3; its extension to any strictly convex permutation-invariant centered quadratic functional is justified by the same decomposition argument. The exact identity J=sum Q_i-(sum S_i)^2/N, strict coordinate convexity on |S_i|<=a_q, and balanced sign construction prove the claimed sharp value. Equality forces each petal to be a signed distance profile. Explicit formulas for a_q,b_q prove a_q^2>=2b_q and the strict even-to-odd decrease; the odd-to-even increase is immediate. Exact-arithmetic finite checker tests independently support but do not replace these steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Addario-Berry, Janson and McDiarmid, arXiv:0902.1156, Introduction and Sections 2-6: random graphs and asymptotic boundedness.",
+        "Yancey, arXiv:1705.09725, Section 2.3 and table of contents: cycle optimizers and concentration, no one-point graph-sum theorem.",
+        "The earlier clique-bouquet spread classification concerns blocks that are cliques; its q=3 triangle specialization is excluded from this claim."
+      ],
+      "reasoning": "Any general 1-sum spread theorem specialized to congruent cycles could dominate this claim. The inspected general spread literature does not provide such a theorem, and the complete clique-bouquet formula cannot apply to induced cycles q>=4. A generic graph-level variational definition is not an explicit sharp formula or optimizer classification.",
+      "searches": [
+        "\"graph spread one point union graphs variance 1 Lipschitz bouquet exact formula\"",
+        "\"sharp graph spread variance Lipschitz bouquet of cycles wedge cactus rooted cycles\"",
+        "\"Lipschitz variance wedge of cycles sharp parity odd number bouquets\"",
+        "\"On the spread of random graphs\" arxiv:0902.1156"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0902.1156 (2009-02-06, relevant full text)",
+      "arxiv:1705.09725 (2017-05-26, Section 2.3 cycle proof)",
+      "doi:10.1007/s000390050062 (bibliographic only)",
+      "Wolfram MathWorld Dutch Windmill Graph (family identification)",
+      "published research on clique-bouquet spread, cycle numerical index, and cactus transportation projections (statement comparisons)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known cycle lemma bounds each local centered variance, but global variance still contains -(sum_i S_i)^2/N, necessitating the new sharp multi-petal optimization.",
+        "The prior clique-bouquet exact formula covers q=3 as triangle-clique petals; q>=4 cycles are not cliques.",
+        "Related accessible published work on cycle numerical indices and cactus transportation basis constants concerns distinct Banach-space invariants."
+      ],
+      "reasoning": "The result does use a known one-cycle inequality. The decisive additional step is the strictly coordinate-convex optimization over petal first moments, which gives full optimizer rigidity and a non-monotonic attachment phenomenon. The cited prior theorems alone state neither the q>=4 formula nor the alternating attachment law.",
+      "searches": [
+        "arxiv:1705.09725 Theorem 2.9 proof Section 2.3",
+        "arxiv:0902.1156 Introduction and Sections 2-6",
+        "\"graph spread clique bouquet cycle bouquet rooted petals parity\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The complete q>=4 graph is the one-point union of simple cycles; the same graph family is also called a Dutch windmill.",
+        "Yancey, arXiv:1705.09725, Section 2.3 treats one cycle and permutation-extreme profiles but not simultaneous cycle sums.",
+        "Web research identified Dutch windmill terminology without a matching variance formula."
+      ],
+      "reasoning": "An equivalent formulation would compute uniform-vertex Lipschitz variance for r congruent one-point-glued cycles or its dual squared-radius sharp inequality, including the odd-r correction. Neither nomenclature nor generic cycle variance supplies the global centering term. The looked-up primary source studies a single cycle only.",
+      "searches": [
+        "\"sharp spread of one-point wedge of r equal cycles C_q variance Lipschitz graph bouquet odd even\"",
+        "\"cycle graph wedge r copies C_n graph spread maximum variance one Lipschitz parity\"",
+        "\"graph spread 1 sum wedge amalgamation vertex exact formula variance Lipschitz\"",
+        "arxiv:1705.09725 Section 2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram MathWorld documents the Dutch-windmill graph family and notes GraphData availability; the inspected article does not report graph-spread values.",
+        "A published mathematical record on the edge-ideal regularity of a triple five-cycle wedge addresses a commutative-algebra invariant rather than uniform Lipschitz variance."
+      ],
+      "reasoning": "Graph-family metadata, homological classifications and small graph tables do not determine the claimed all-integer sharp inequality or equality structure. No exact table with q,r and the corresponding Lipschitz spread invariant was identified.",
+      "searches": [
+        "\"exact spread of identical cycle bouquets cactus rose graph Lipschitz variance odd even number of petals\"",
+        "\"Dutch Windmill Graph\" MathWorld GraphData",
+        "\"cactus graph variance one-Lipschitz cycle bouquet extremizers exact\""
+      ]
+    },
+    "rationale": "The evaluated novelty is the q>=4 congruent-cycle one-point-wedge spread formula, complete sign rigidity, and parity-alternating attachment inequalities. A prior clique-bouquet theorem covers the q=3 specialization and is not claimed. Yancey proves a single-cycle structural lemma, not an r-petal centering optimization; Addario-Berry–Janson–McDiarmid address random-graph spread. No available record or primary source was found to imply the full r>=2 cycle-bouquet theorem. Differently named gluing theorems remain a residual priority risk.",
+    "residual_risks": [
+      "Unindexed general graph 1-sum concentration formula could subsume the exact result under other terminology.",
+      "The original 1998 Alon–Boppana–Spencer paper was not read in full; only bibliographic and later primary discussions were available.",
+      "The claimed novelty excludes the q=3 clique-bouquet case and depends on separating a known local cycle structural theorem from the multi-petal global variance optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_LOCAL_LEMMA_NOT_GLOBAL_BOUQUET",
+        "evidence": "Section 2.3 constructs the permutation-extreme set for C_n and proves the subgaussian cycle optimizer; no wedge-of-cycles global variance formula appears in inspected material.",
+        "identifier_or_url": "https://arxiv.org/html/1705.09725v1",
+        "material_read": "Full HTML table of contents; introduction and Sections 2.3 (including lines 325-363 and Theorem 2.9) and 2.4 preview",
+        "method": "Direct HTML page inspection and comparison of the cycle theorem statement, proof and covered graph families",
+        "title": "Probabilistic and Geometrical Applications to Graph Theory",
+        "trigger": "Closest primary source for exact cycle-spread extremizers"
+      },
+      {
+        "assessment": "NOT_COVERING_CYCLE_BOUQUET",
+        "evidence": "The article studies regular and Erdős–Rényi random graphs, random edge lengths, small-world graphs and probabilistic concentration estimates; no fixed deterministic one-point-glued-cycle spread formula.",
+        "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+        "material_read": "arXiv full HTML transcription, introduction and Sections 2-6 headings/theorem descriptions",
+        "method": "Direct browser full-text inspection of mathematical objects and results",
+        "title": "On the spread of random graphs",
+        "trigger": "Foundational full-text archived source for graph spread and first-public dating"
+      },
+      {
+        "assessment": "FOUNDATIONAL_PRIOR_WORK_ACCESS_LIMIT",
+        "evidence": "Established origin of graph-spread and integer-valued extremizer theory; no claim that the entire work was excluded by full-text reading.",
+        "identifier_or_url": "https://doi.org/10.1007/s000390050062",
+        "material_read": "Bibliographic information and secondary descriptions only; no complete original text was read",
+        "method": "Bibliographic/context comparison, not full-text exclusion",
+        "title": "An asymptotic isoperimetric inequality",
+        "trigger": "Original introduction of the graph-spread functional"
+      },
+      {
+        "assessment": "SUPPORTS_NATURAL_OBJECT_NOT_KNOWN_SPREAD_FORMULA",
+        "evidence": "Defines the r-petal C_q one-vertex wedge as a generalized Dutch windmill; no sharp Lipschitz variance formula given.",
+        "identifier_or_url": "https://mathworld.wolfram.com/DutchWindmillGraph.html",
+        "material_read": "Public encyclopedic article describing the graph family and its GraphData reference",
+        "method": "Read family definition and listed properties",
+        "title": "Dutch Windmill Graph",
+        "trigger": "Check exact graph-family name and existing graph-data records"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "833cd432-ba07-44e8-8137-b4a563906edc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Graph spread is a natural sharp variance/Poincare constant relevant to graph-metric concentration and high Cartesian powers. This is a complete all-q>=4, all-r>=2 classification of a standard two-parameter cactus graph family and all its optimizers. The strict alternating sawtooth under attaching a cycle is counterintuitive and mathematically motivated, not a parameter-relabeling or small numerical improvement.",
+    "status": "PASS"
+  }
+}
