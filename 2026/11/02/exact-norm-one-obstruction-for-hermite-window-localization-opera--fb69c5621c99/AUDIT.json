@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For all integer k>=2 and every nonzero Laguerre-root frequency, reconstruct the Weyl covariance and the exact Gaussian Laguerre generating integral, obtaining T_character=exp(-|xi|^2/2)L_(k-1)(|xi|^2)W_xi=0. The normalized disk-average coefficient extractor has norm at most 1, equals 1 on W_xi, and tends to 0 on every T_f for fixed bounded f by translation of disks and dominated convergence. Thus every distance is at least 1, attained by f=0. The source-proven unitary Hermite STFT/Fock correspondence transfers it to bounded-mask Gabor localization. The exact checker verifies 256 supplementary finite Gaussian identities; this is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fulsche (2019), analytic p-Fock correspondence has positive norm density for the analytic level with no Laguerre roots.",
+        "Keller--Luef (2019), Section 6, provides semiclassical/multilevel approximation, not fixed-level bounded-mask norm density."
+      ],
+      "reasoning": "The closest stronger-looking approximation theorem varies the quantization/semiclassical parameter or the polyanalytic level; it does not give bounded-symbol approximation of Weyl shifts in a fixed higher Hermite level. The analytic-density theorem cannot cover the nonanalytic Laguerre-root obstruction.",
+      "searches": [
+        "arxiv:1911.12668v1 correspondence norm density p-Fock analytic",
+        "arxiv:1905.07741v1 Section 6 asymptotic Weyl operator approximation",
+        "\"polyanalytic\" \"linear norm closure\" \"Toeplitz\" \"Weyl\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1808.02258v1 Sections 2, 6.3",
+      "arxiv:2308.11292v1 Sections 3, 5 and published OA version",
+      "arxiv:1911.12668v1 introduction and main theorem",
+      "arxiv:1905.07741v1 Section 6 and OA paper",
+      "doi:10.1007/s00020-026-02863-9 introduction and main results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fulsche--Hagger (2024), Section 5, explicitly states it is unclear whether the forbidden Weyl shifts belong to the uniform closure, and poses the closure equality as Question 2.",
+        "Abreu--Speckbacher (2018) gives Hermite concentration inequalities and true-polyanalytic Bargmann correspondence, not linear-range norm obstruction.",
+        "McNulty (2026) studies the commutant of a translation subgroup, rather than norm separation from all bounded-symbol Toeplitz operators."
+      ],
+      "reasoning": "The earlier zero-character result implies absence of exact representation but permits distance zero a priori. The proof supplies distance exactly one, strictly stronger and decisive for the linear-closure part of Question 2. It does not address the separately asked C*-generated-algebra equality.",
+      "searches": [
+        "Fulsche Hagger 2024 Question 2 Does closure BUC Toeplitz equal C1",
+        "Abreu Speckbacher 2018 Hermite localization Section 6.3",
+        "McNulty 2026 translation invariant true polyanalytic p-Fock operators"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abreu--Speckbacher (2018), Section 6.3, formula (6.2), identifies each Hermite-window STFT with a true polyanalytic Fock transform.",
+        "Fulsche--Hagger (2024), Corollary 3.10, excludes exact Toeplitz representation of certain Weyl shifts while Section 5 Question 2 explicitly leaves norm closure open."
+      ],
+      "reasoning": "Gabor localization is unitarily equivalent to true-polyanalytic Toeplitz quantization. Exact representability excluded previously does not imply a positive distance from the entire range. The proposed formula gives the exact distance one for all bounded masks and all non-Gaussian Hermite indices.",
+      "searches": [
+        "arxiv:2308.11292v1 Theorem 3.4 Corollary 3.10 Question 2",
+        "arxiv:1808.02258v1 Section 6.3 Hermite STFT Bargmann correspondence",
+        "\"Hermite localization\" \"Weyl\" \"norm closure\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Laguerre zero set and character kernel are explicit in Fulsche--Hagger (2024), Corollary 3.10 and Remark 6; these are not tables of norm distances.",
+        "Targeted searches found no exact numerical operator-norm distance for this localization-range question."
+      ],
+      "reasoning": "Knowledge of forbidden frequency circles does not evaluate the norm distance to the closure. The new norm-one bound is established by a contractive Fourier coefficient extractor that annihilates the entire bounded-symbol range in the limit.",
+      "searches": [
+        "\"Laguerre zeros\" \"Toeplitz\" \"distance\" Weyl",
+        "\"polyanalytic\" \"operator norm distance\" \"Toeplitz\" \"Weyl\"",
+        "\"localization operators\" \"norm-one\" \"Hermite\""
+      ]
+    },
+    "rationale": "Abreu--Speckbacher (2018, primary 42C40) develops Hermite STFT localization but no all-symbol norm separation. Fulsche--Hagger (2024), Section 5 Question 2, explicitly leaves linear norm closure open despite its character-kernel and exact nonrepresentability theorem. The new contractive Fourier-coefficient extractor yields an exact distance-one obstruction, which exact exclusion alone does not imply. Fulsche (2019) covers the analytic level; Keller--Luef (2019) is a semiclassical result; McNulty (2026) concerns translation-invariant commutants. Broader historical priority is provisional.",
+    "residual_risks": [
+      "Some older general anti-Wick approximation result not found in the targeted searches might imply the exact gap indirectly.",
+      "Scientific priority and independent mathematical verification remain unassessed by an external expert.",
+      "The Toeplitz character scalar is independently recomputed to fix phase and Laguerre scaling; the norm extractor is checked with the same convention."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports time-frequency/Fock unitary equivalence and window localization; no norm-distance-to-localization claim",
+        "evidence": "Section 6.3 identifies Hermite STFT and polyanalytic Bargmann transforms; paper proves large-sieve concentration bounds rather than operator-norm closure.",
+        "identifier_or_url": "https://arxiv.org/html/1808.02258v1",
+        "material_read": "Introduction, Section 2.1, Sections 6.1 and 6.3, especially formula (6.2) and surrounding text",
+        "method": "full-text HTML mathematical inspection",
+        "title": "Donoho--Logan large sieve principles for modulation and polyanalytic Fock spaces",
+        "trigger": "Primary 42C40 Hermite STFT and true polyanalytic Bargmann reference"
+      },
+      {
+        "assessment": "Establishes zero-character Toeplitz identity and exclusion of exact Weyl representation; explicitly does not settle norm closure",
+        "evidence": "Section 5 states that membership of forbidden Weyl shifts in uniform closure is unclear; Question 2 asks whether the closure equals C1.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-024-10124-9",
+        "material_read": "Full-text mathematical statements Theorem 3.4, Corollary 3.10, Remark 6 and Section 5 Question 2; PDF pages including relevant sections",
+        "method": "open-access full-text HTML and PDF page inspection",
+        "title": "Quantum harmonic analysis for polyanalytic Fock spaces",
+        "trigger": "Same true-Fock Toeplitz symbols, Laguerre-zero Weyl operators and explicit linear-density question"
+      },
+      {
+        "assessment": "Positive density on analytic p-Fock, not higher true polyanalytic levels",
+        "evidence": "Main theorem identifies the analytic full Toeplitz algebra as norm closure of BUC-symbol Toeplitz operators.",
+        "identifier_or_url": "https://arxiv.org/pdf/1911.12668",
+        "material_read": "Abstract and theorems/introduction on analytic p-Fock norm closure",
+        "method": "full-text PDF extraction and page-1 visual inspection",
+        "title": "Correspondence theory on p-Fock spaces with applications to Toeplitz algebras",
+        "trigger": "Broad norm-density theorem might dominate claimed obstruction"
+      },
+      {
+        "assessment": "Variable semiclassical parameter/multilevel approximation; no fixed-level bounded-symbol linear norm density",
+        "evidence": "Section 6 presents asymptotic Weyl operator expansions, not an exact fixed-level norm-density theorem.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-021-09843-0",
+        "material_read": "Open access Section 6, especially semiclassical approximation statements, definitions",
+        "method": "primary full-text HTML inspection",
+        "title": "Polyanalytic Toeplitz operators: isomorphisms, symbolic calculus and approximation of Weyl operators",
+        "trigger": "Potential broad Weyl approximation from polyanalytic Toeplitz calculus"
+      },
+      {
+        "assessment": "Different translation-commutant family; no norm-one distance for forbidden Weyl shifts",
+        "evidence": "Translation invariance under a subgroup is distinct from Weyl-conjugation continuous operator norm closure.",
+        "identifier_or_url": "https://doi.org/10.1007/s00020-026-02863-9",
+        "material_read": "Open access introduction and main theorem statements about subgroup-translation invariance",
+        "method": "full-text HTML inspection",
+        "title": "Translation invariant operators on true polyanalytic p-Fock spaces",
+        "trigger": "Potential 2026 stronger characterization of bounded operators on the same Fock spaces"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fb69c562-1c99-4546-905f-492020679f02",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact norm-one separation is an invariant norm geometry fact about the complete Hermite-window localization range, not a change of notation. It answers the linear norm-closure part of an explicit outstanding true-polyanalytic Toeplitz question, sharpening previously known nonrepresentability into a quantitative gap. It separates the Gaussian and every higher Hermite window, while leaving the product-generated C*-algebra question open.",
+    "status": "PASS"
+  }
+}
