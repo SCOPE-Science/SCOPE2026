@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The assumptions and edge-label probability are explicitly fixed: p+q iid signed columns with uniform independent hashes into disjoint p- and q-row blocks. The signed-incidence graph proof gives full column rank if and only if each connected component is unicyclic with an inconsistent cycle parity, including parallel-edge cycles and attached trees; on success the normalized determinant magnitude is 2^(C-n/2). The exponential formula for vertex-labeled bipartite rooted trees has T_L=x exp(T_R), T_R=y exp(T_L), and the sign-weighted cycle-core series -u/4 log(1-T_LT_R). The exact logarithmic Jacobian 1-st under x=s exp(-t), y=t exp(-s) gives the displayed all-integer finite sum. The independent covariance determinant-moment identity verifies the normalization for every p,q. The standalone verifier exhaustively checks all hashes in 11 small block allocations, complete signed integer determinants in five allocations, and exact rational moment identities for one hundred allocations. Those finite checks supplement the all-size proof, not replace it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coja-Oghlan et al. prove normalized asymptotic rank for a general sparse random matrix model, not the polynomial distribution of the square signed two-block hash model.",
+        "A previous related limiting statement treats fixed below-critical aspect ratios and above-critical divergence; convergence or divergence in probability is not an exact all-finite-sizes coefficient formula.",
+        "Camaño et al. describe general sparse OSI/OSE implications without implying the displayed exact determinant values for individual full-rank outcomes."
+      ],
+      "reasoning": "A theorem covering a larger collection of sparse matrices does not dominate this finite law unless it supplies the same marginal distribution and its normalizations. The inspected broad results are limiting bounds or sufficient embedding theorems, not an exact combinatorial count.",
+      "searches": [
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21085",
+        "Random sparse two-block sketch critical rank nullity rho correlation c>=1 unicyclic graph exact finite full-rank distribution",
+        "site:arxiv.org/html/2610. \"randomized\" \"spectral\" \"2026\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.20195v1 (first-public record, 2026-06-18)",
+      "arXiv:2606.20195v2 (open HTML, 2026-10-13)",
+      "arXiv:2508.21189v1 (open full text, relevant sections)",
+      "doi:10.1002/rsa.21085 (open full article, main rank theorem)",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5048525/ (graph-incidence context, theorem snippet)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact CountSketch collision probability applies to one hash per column, while two independent hashes yield signed bipartite cycles and hanging trees.",
+        "General OSI guarantees concern lower singular value with positive oversampling; this theorem treats square, zero-oversampling rank and full nonzero determinant distribution.",
+        "Asymptotic nullity divergence does not determine any fixed-size polynomial coefficient and cannot imply the exact distribution of determinant volumes conditional on full rank."
+      ],
+      "reasoning": "Neither the one-block hash occupancy expression nor asymptotic normalized-rank laws imply the finite two-block signed-cycle enumeration. The known graph rank criterion is explicitly reused as a proof ingredient, not passed off as the new result.",
+      "searches": [
+        "https://arxiv.org/html/2606.20195 (definition, CountSketch collision benchmark)",
+        "https://arxiv.org/html/2508.21189 (SparseStack general theory)",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21085 (asymptotic rank theorem)",
+        "Random sparse two-block sketch critical rank nullity rho correlation c>=1 unicyclic graph exact finite full-rank distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.20195v2, Eq. (1), defines independent two-block signed SparseStack and its Eq. (3) is explicitly the one-block CountSketch coordinate collision probability.",
+        "arXiv:2508.21189v1, Sections 1.5.1/3.1/Appendix B, establish general OSI results, not a finite exact square rank/determinant generating function in the material inspected.",
+        "Classical signed-incidence cycle rank parity supports the componentwise criterion but by itself does not evaluate the finite random hash sum."
+      ],
+      "reasoning": "The equivalent object is a random signed bipartite incidence multigraph with one edge per input column. The rank classification is known graph linear algebra, while the full joint generating formula additionally requires labeled unicyclic graph enumeration and multivariate coefficient extraction. No inspected public source or available prior claim supplied that exact formula.",
+      "searches": [
+        "Random square bipartite signed incidence matrix with two independent nonzeros per column exact determinant volume distribution and Lagrange inversion",
+        "\"random\" \"signed\" \"pseudoforest\" \"full rank\" matrix",
+        "\"sparse\" \"two nonzeros per column\" \"unicyclic\" rank",
+        "https://arxiv.org/html/2508.21189 (Sections 1.5.1, 3.1, Appendix B)",
+        "https://arxiv.org/html/2606.20195 (Section II-A)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 source gives one-block CountSketch collision probability and practical two-block performance curves, not a table of exact rank/volume probabilities for arbitrary block sizes.",
+        "The 2025 source tabulates theoretical embedding requirements rather than finite-size square full-rank probabilities.",
+        "No matching exact probability table for the named sketch model was found in the actual bounded searches."
+      ],
+      "reasoning": "The rational values for balanced block sizes and the one-versus-many exact formula arise from the general polynomial rather than lookup of a known numerical table. A negative search is not mathematical proof of absence.",
+      "searches": [
+        "\"matrix\" \"two nonzero entries per column\" nonsingularity exact probability",
+        "\"random\" \"two nonzero entries\" \"rank\" \"cycle\" probability matrix signed",
+        "\"signed incidence\" \"random matrix\" \"full rank probability\" graph",
+        "https://arxiv.org/abs/2606.20195"
+      ]
+    },
+    "rationale": "The 2026 sparse-sketch paper defines and evaluates the two-block model and gives a one-block coordinate collision expression, not the displayed exact two-block square joint rank/determinant polynomial. The 2025 SparseStack study proves general injection and embedding results but does not state the all-size finite polynomial law in the relevant sections and Appendix B read. Coja-Oghlan et al. treat asymptotic normalized rank of a different broad sparse-matrix model. Prior limiting two-block nullity claims, including divergence beyond critical aspect ratio, do not determine square finite-size probabilities or the complete nonzero volume spectrum. Signed-incidence rank and cycle determinants are classical premises and not claimed as novel. Historical equivalence through older graph enumerators remains possible.",
+    "residual_risks": [
+      "A combinatorics source may already contain an equivalent signed unicyclic bipartite enumerator under a different name or generating-function normalization.",
+      "The accessible 2026 revision was inspected in its available mathematical setup and related-work material, not line-by-line throughout every later experiment section due to retriever access limitations.",
+      "Finite scientific search and self-review cannot certify independent historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the algorithm and one-block collision probability, not the proposed all-size two-block full-rank and Gram-volume PGF in the inspected material",
+        "evidence": [
+          "Equation (1) specifies blockwise independent signed CountSketch hashes; Equation (3) gives a one-block rank probability.",
+          "The analysis and stated aims focus on mixed precision, GPU performance, and embedding distortion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.20195",
+        "material_read": "Abstract, introduction, Section II-A and definition/equations (1)–(4), methodological setup and related-work discussion visible in retrieved HTML",
+        "method": "Read primary open-access HTML text; inspected the distribution and rank-related formulas",
+        "title": "On the Robustness of Sparse Randomized Sketching to FP16 Rounding on GPUs",
+        "trigger": "Exact definition of the two-block signed sparse sketch and the coordinate-subspace collision benchmark"
+      },
+      {
+        "assessment": "Provides general OSI guarantees and empirical guidance, not an exact finite square rank/volume generating polynomial",
+        "evidence": [
+          "Section 1.5.1 discusses sparsity and empirically recommended oversampling.",
+          "Section 3.1 and Appendix B derive performance/injectivity guarantees rather than all-size square rank probabilities."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.21189",
+        "material_read": "Full introductory architecture, Sections 1.5.1 and 3.1, Appendix B headings and theorem material, relevant Section 7 guidance",
+        "method": "Read original open-access arXiv HTML with direct section retrieval and exact-term searches",
+        "title": "Faster Linear Algebra Algorithms with Structured Random Matrices",
+        "trigger": "Highly relevant earlier general SparseStack injection and structured sketch theory"
+      },
+      {
+        "assessment": "Asymptotic normalized rank in a broad prescribed-degree random-matrix model, not finite all-size two-block signed determinant PGF",
+        "evidence": [
+          "Theorem 1.1 describes normalized rank as dimension grows.",
+          "The studied matrix model is not the finite independent two-block column-hash construction."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21085",
+        "material_read": "Article abstract, Section 1.2 main theorem, and the rank examples and discussion in Sections 1.4 and 2.3",
+        "method": "Read open-access primary article HTML and compared distributions, parameters and theorem type",
+        "title": "The rank of sparse random matrices",
+        "trigger": "General random sparse matrix rank theorems could subsume special sketch rank results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a01d4420-ec0e-4842-ae8e-31248d258403",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full-column-rank probability and the discrete nonzero Gram determinant distribution are natural, algorithmically diagnostic invariants for square coordinate-subspace sparse sketches. The all-size closed coefficient formula addresses the zero-oversampling reliability boundary and quantifies differences between block allocations, replacing an unquantified rank-risk phenomenon with exact small- and all-size benchmarks. This is not merely a known one-block collision substitution: two-block hashes require a signed unicyclic multigraph and its attached-tree enumeration. No generic singular-value or floating-point claim is made; those scope limits make the result a precise structural benchmark rather than unsupported practical accuracy advocacy.",
+    "status": "PASS"
+  }
+}
