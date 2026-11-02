@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The included `verify.cpp` implements immediate-neighbor three-site OR updates, exhaustive sweep permutations, exact singleton reach times, antipodal-descending witness detection, and the expected binomial schedule counts.
+# Independent mathematical audit
 
-Build with `c++ -std=c++17 -O2 verify.cpp -o verify`, then run `./verify`. The verification performed on the included source returned:
+## correctness
 
-```
-n=3 permutations=6 sharp_bound=1
-n=4 permutations=24 slow=24 multiple_witness=8
-n=5 permutations=120 sharp_bound=2
-n=6 permutations=720 slow=216 multiple_witness=0
-n=7 permutations=5040 sharp_bound=3
-n=8 permutations=40320 slow=1280 multiple_witness=0
-n=9 permutations=362880 sharp_bound=4
-n=10 permutations=3628800 slow=7000 multiple_witness=0
-VERIFY_OK permutations=4037910 singleton_tests=39916794 all_state_tests=695472
-```
+PASS
 
-Every update order was checked for sizes \(3\) to \(10\); all initial binary states were additionally checked for sizes \(3\) to \(7\). Finite tests do not prove the unrestricted formulas. The all-size reasoning is supplied in the path-clock, descent-chain and nonoverlap arguments in `RESULT.md`. Historical priority is not certified, and no independent scientific audit has been performed.
+Monotone OR sweep commutes with unions, reducing worst nonzero binary state to singleton. First-infection along either simple arc costs first sweep plus the number of rank descents after the first edge. Each target is reached by its shorter arc in at most floor(n/2) sweeps. On even n=2m only antipodal target can force m; this requires two length-m descending chains, with n binom(n−2,m−1) orders per source and unique source when m>=3 (opposite rankings contradict overlap). Thus n² binom(n−2,m−1) orders. For n=4 all 24 orders extremal. Independently enumerated 24, 720 and 40,320 permutations at n=4,6,8, confirming 24,216,1280 extremals and universal latency bound. Finite tests only corroborate all-n proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical contribution established by comparison of actual statements, not titles. A prior theorem would need to classify both antipodal descending rank chains and show unique extreme source n≥6, yielding n² C(n−2,m−1). Periodicity/duality results cited do not imply the enumeration without new argument. General ingredients and established results explicitly credited; no priority guarantee.
+
+## value
+
+PASS
+
+Sequential CA consensus latency and exact permutation extremal probabilities are natural dynamics invariants. Sharp all-size time and unique antipodal witness geometry plus infinite even-n labeled schedule count go beyond routine order-independence and can be used to calibrate asynchronous update protocols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
