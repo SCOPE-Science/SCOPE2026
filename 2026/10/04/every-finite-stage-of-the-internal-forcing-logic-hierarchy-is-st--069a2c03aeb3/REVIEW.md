@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A bounded morphism onto a reflexive complete frame is exactly a domatic partition of the source. Complementary pairs give \(2^{n-1}\) dominating blocks in the full compatibility frame. For the upper bound, every domatic partition satisfies Hall's condition against the \(2^{n-1}\) complement-pair tokens: singleton dominating blocks have private tokens, and the remaining blocks contain at least two vertices each, so their union touches at least one additional token per block.
+PASS
 
-This bounds every induced subframe and hence every generated subframe. The source's Jankov--Fine criterion therefore makes the relevant characteristic formula frame-valid at stage \(n\). At stage \(n+1\), a complement-pair domatic partition yields the required complete quotient. The coordinate formulas \(\theta_A\) were checked carefully against the source atomic clause \(B\models q_i\) iff \(B\subseteq v(q_i)\), so they realize exact singleton states and hence the full fiber valuation. This closes the restricted-valuation issue rather than assuming arbitrary atomic valuations.
+For n>=1, G_n is the reflexive undirected graph on all nonempty subsets of [n] with intersection adjacency. A surjective bounded morphism onto K_r^r is equivalent to a partition into r nonempty dominating fibers (forth automatic; back demands every vertex see each fiber). Complementary pairs {A,[n]\A}, with {empty,[n]} replaced by singleton {[n]}, yield 2^(n-1) dominating blocks. For an arbitrary induced subgraph W, Hall matching: a dominating singleton {A} has a private complement pair token because A^c cannot be in W; other blocks, of size at least two, touch >= one extra complement token per block, since tokens hold at most two W vertices. Hall gives r<=2^(n-1) for EVERY subcollection and hence every induced and generated subframe. For r_n=2^(n-1)+1 the K_r^r Jankov--Fine formula is frame-valid on all n-stage subframes. At n+1, complement partition yields 2^n dominating fibers and merging them gives r_n fibers, so bounded morphism onto K_r_n^r. Atomic coordinate truth values v(q_i)=[n+1]\{i} are available by source Lemma 5.2; q_i is true at B exactly when i is absent, so theta_A labels exactly B=A, and finite disjunctions label exactly fibers. Pullback of the standard diagram gives a falsifying translated valuation in stage n+1. Therefore strictness for all n including n=1. Independently reconstructed the assigned seven-file Git tree from authentic GitHub blob identifiers with exact SHA match. A separately coded exact induced-subgraph partition algorithm gave maxima 1,2,4 for n=1,2,3 (all 1,7,127 nonempty W); separately checked complement and fiber back conditions and coordinate coding through m=8. Finite tests are corroboration only, not the universal proof.
 
-## Originality
+## originality
 
-PASS. The primary 2026 paper proves only the non-strict inclusion chain and gives a single \(n=2\) Jankov--Fine example. It does not state adjacent strictness, a uniform complete-quotient threshold, or the domatic invariant \(2^{n-1}\).
+PASS
 
-Candidate-specific indexed and web searches for strictness of the \(\mathcal P(n)\) hierarchy, Boolean compatibility-frame domatic numbers, and complete bounded-morphic quotients did not locate an equivalent theorem. General domatic-number literature provides terminology but not this power-set compatibility calculation.
+Best-of-knowledge novelty lies in the universal adjacent strictness L_{n+1} proper subset L_n and the sharp bound 2^(n-1) for complete p-morphic quotients over ALL induced/generated subframes of the finite nonzero power-set intersection frame. Jockwich--Tarafder--Venturi (2026), Sec. 6.7, proves non-strict inclusions and supplies a single n=2 K_3 obstruction, but not the uniform separation. The standard domatic bound d(G)<=delta(G)+1 does recover 2^(n-1) for the full G_n but does NOT generally bound domatic numbers of arbitrary induced subgraphs, which can have larger minimum degrees; the Hall token injection supplies that stronger claim. Resultary returned this same record and related but mathematically different finite modal/graph records, not an earlier dominating theorem. Priority is best-of-knowledge, not proved by failed searches.
 
-## Value
+## value
 
-PASS. The source identifies a new finite hierarchy approximating \(\mathsf{KTB}\) but leaves open whether successive finite stages genuinely differ. The theorem resolves that structural question completely and supplies an exact invariant governing the separating Jankov--Fine obstructions. The coordinate coding also shows how to transfer ordinary finite-frame characteristic valuations into the source's restricted translation semantics, which is reusable for further finite-stage analysis.
+PASS
 
-## Closest literature and limitations
+The source paper introduces a concrete descending hierarchy approaching KTB without resolving whether finite successive stages differ. Proving all adjacent stages genuinely distinct settles an intrinsically natural structural problem, while the exact 2^(n-1) maximum over every induced/generated compatibility frame is a nontrivial uniform graph invariant. Hall matching supplies a sharp upper bound not immediately given by the full-graph min-degree argument. The propositional coordinate coding repairs an important restricted-atomic-valuation issue and may be reused in subsequent finite-stage calculations. The claim is not a narrow arbitrary parameter slice or known-table recomputation. It remains bounded: no complete axiomatizations, optimal separator complexity, or arbitrary infinite Boolean-algebra generalization.
 
-Jockwich--Tarafder--Venturi (2026) is the direct source. Its Lemma 6.13 gives the descending inclusions, and the discussion immediately after it introduces Jankov--Fine formulas and the reflexive-triangle example for \(n=2\).
-
-Standard domination literature supplies the notion of a domatic partition. Standard modal-logic texts supply the bounded-morphism/Jankov--Fine framework. No checked source combines these ingredients into the exact \(2^{n-1}\) finite-stage obstruction.
-
-The result does not provide complete axiomatizations or optimal-size separating formulas.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
