@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the integer-cycle theorem
+# Independent mathematical audit
 
-Run `python verify_tutte_coxeter.py` in a Python 3 environment with SymPy 1.14.0. All necessary source data are constructed from six symbols; the code imports no graph or research databases. The exact script in this package was executed successfully on the claimed graph.
+## correctness
 
-The script confirms: 30 vertices, 45 edges, girth eight; 90 distinct shortest cycles; 1,125 disjoint shortest-cycle pairs; 435/1,260/900 unoriented quotient cells; vanishing \(\partial_1\partial_2\) and every torus boundary; \(\operatorname{rank}_{\mathbb F_{101}}\partial_2=810\); exactly four \(S_6\) torus-orbits of sizes \(45,360,360,360\); orbit binary ranks \(35,89,89,90\); distinguished 360-pair geometric profile \((3,3)\); signed determinant \(-1\) of its deterministic 90-by-90 coordinate minor. The program prints both zero-based index lists defining that minor.
+PASS
 
-The finite-field rank is used only as a lower bound on characteristic-zero boundary rank. The integral unimodular minor independently proves primitiveness. Combining these with the signed cycle condition and the rank count yields \(H_2\cong\mathbb Z^{90}\) and integral generation. Neither finite-field ranks nor graph searches alone would justify the integral theorem. No independent validation or publication-priority guarantee is implied.
+The Tutte–Coxeter graph was independently reconstructed as the Levi incidence graph on 15 duads and 15 synthemes (30 vertices,45 edges, cubic, girth eight). Enumerated exactly 90 simple 8-cycles and 1125 vertex-disjoint unordered pairs. For the unordered two-particle Abrams deleted-product CW complex, independently enumerated 435 vertices,1260 edges,900 squares; checked integral cellular d1*d2=0 and all signed 64-square torus products are d2-cycles. S6 on six labels divides pairs into orbits (45,360,360,360) with bridge profiles (0,empty),(2,(2,4)),(2,(2,4)),(2,(3,3)), and mod-2 torus ranks (35,89,89,90). The distinguished 360-pair (3,3) orbit contains a deterministically selected 90x90 integer coordinate minor with exact determinant -1 (independent check); hence its 90 cycles span a primitive rank-90 sublattice L in Z^900. The separately recomputed mod-101 boundary rank is 810; 90 independent cycles force characteristic-zero rank <=810, so rank ker(d2)=90. Because ker(d2) is primitive in Z^900 and L primitive rank90, the inclusion L subset ker(d2) is equality, proving integral basis. Other individual orbits fail integral generation by their strict mod-2 rank deficiency. Rank modulo 101 is used only as a rational-rank bound, never as integral saturation proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison on actual final mathematical statement for Integral Tutte–Coxeter two-particle H2 basis from a single octagon-pair orbit. Four distinct implications were checked, including known covering numeric/special-case portions that are explicitly excluded from the originality claim. Sources and access limits are detailed below.
+
+## value
+
+PASS
+
+The exceptional Tutte–Coxeter cubic eight-cage is a canonical nonplanar test for whether geometric cycle-product tori span configuration-space H2 integrally, and the result isolates exactly which natural shortest-cycle orbit works. Integer unit-minor and characteristic-zero rank together answer a genuinely integral generation question that rational or modular Betti counts cannot settle. The other three orbit failures sharpen the geometric characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
