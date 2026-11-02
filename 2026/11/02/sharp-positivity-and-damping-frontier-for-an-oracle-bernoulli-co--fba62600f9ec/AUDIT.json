@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The exact four rank-one products reconstruct a Parseval frame, and covariance formulas give explicit oracle coefficients. The corrected matrix admits a samplewise positive-semidefinite lower-bound decomposition with equality at one positive-probability event, proving the sharp threshold and scalar shift. Unbiasedness and MSE values follow from Bernoulli independence and squared Frobenius norms; exact rational checks independently reconstruct these identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Maurais et al., arXiv:2307.12438 and DOI 10.1137/23M159247X, accessible abstract; SPD-constrained multifidelity regression",
+        "Polydorides et al., arXiv:2606.08817v1, original model and caveat"
+      ],
+      "reasoning": "Broader frameworks for preserving SPD operate by changing the estimator, while generic CV minimum-variance results control scalar variance, not the samplewise spectrum of the particular original estimator. The compared accessible statements do not imply the exact rational boundary and optimal additive shift.",
+      "searches": [
+        "'matrix-valued control variates positive semidefinite unbiased estimator covariance matrix sketching negative eigenvalues'",
+        "'control variates' 'positive definite' 'matrix' 'entrywise' numerical"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.08817v1 (open source manuscript sections)",
+      "arXiv:2307.12438 and DOI:10.1137/23M159247X (accessible abstracts/bibliography)",
+      "Public keyword and implication searches covering Bernoulli, Gram, entrywise control variates, SPD and indefinite correction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Polydorides et al., arXiv:2606.08817v1, original Bernoulli-control-variate construction and warning that the correction may be indefinite",
+        "Maurais et al., SIAM J. Math. Data Sci. 7 (2025), DOI 10.1137/23M159247X, SPD manifold-regression abstract"
+      ],
+      "reasoning": "The source's mere existential indefinite behavior leaves open a sharp deterministic threshold and minimal diagonal stabilization on an isotropic equal-leverage frame. Maurais et al. guarantee SPD for their different manifold estimator rather than characterizing the oracle elementwise estimator. Neither inspected accessible claim dominates the new exact theorem.",
+      "searches": [
+        "'Low-Variance Randomised Numerical Linear Algebra' 'control variates' 'positive' inverse",
+        "'matrix-valued control variates positive semidefinite unbiased estimator covariance matrix sketching negative eigenvalues'"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.08817v1; warning about potential loss of SPD in the correction",
+        "arXiv:2307.12438; manifold regression ensures SPD using another construction"
+      ],
+      "reasoning": "Equivalently the claimed all-outcome result is the smallest-eigenvalue formula for an oracle elementwise-corrected two-by-two Gram estimator; related qualitative loss of SPD neither gives the exact threshold nor this attained configuration.",
+      "searches": [
+        "'control variates' 'positive definite' 'matrix' 'entrywise' numerical",
+        "'leverage score' 'control variates' 'indefinite' SPD sketch"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly corresponding exact all-configuration Bernoulli PSD frontier found in retrieved public numerical-analysis sources"
+      ],
+      "reasoning": "The result concerns a continuous two-parameter positivity classification of a four-row matrix sketch, not a published numerical table or finite census. Absence from searches does not establish exhaustive priority.",
+      "searches": [
+        "'control variates' 'positive semidefinite' 'matrix' Bernoulli sketch correction",
+        "'leverage score' 'control variates' 'indefinite' SPD sketch"
+      ]
+    },
+    "rationale": "The Bernoulli forward sketch and general covariance-optimal control variates, including a qualitative warning about non-SPD corrections, are from arXiv:2606.08817. The assessed new result is a sharp all-outcome two-dimensional equal-leverage PSD frontier, its attained SPD-to-indefinite sample, minimal diagonal shift, and exact MSE tradeoff, not the broad fact of loss of positive definiteness. Inspected source material and searches did not locate a theorem implying these exact identities; historical coverage may remain incomplete.",
+    "residual_risks": [
+      "A stronger unpublished or uninspected theorem may already imply the exact four-row result.",
+      "Only abstract-level material was available for the related multifidelity manifold-regression paper, although it concerns a different estimator.",
+      "The statement is for oracle population coefficients and not a direct characterization of a fitted or fused numerical method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the original technique and qualitative SPD risk; inspected material does not report the exact frame-specific all-outcome threshold, attained event, or least scalar shift",
+        "evidence": [
+          "arXiv:2606.08817v1, sampling construction and forward control-variate discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.08817",
+        "material_read": "Open-access manuscript text, sampling definition and control-variate correction in sections 4–6, including the explicit warning about possible non-SPD corrected matrices; accessible abstract confirms provenance",
+        "method": "Compared estimator formula, independence, parameter assumptions, qualitative caveat and stated variance claims against the exact four-row spectral threshold",
+        "title": "Low-Variance Randomised Numerical Linear Algebra for Finite Element Simulation",
+        "trigger": "The identical Bernoulli projection and entrywise control-variate construction"
+      },
+      {
+        "assessment": "Plausibly adjacent but not a decisive covering source from available text; full-text priority risk remains",
+        "evidence": [
+          "arXiv:2307.12438 abstract; SIAM J. Math. Data Sci. 7 (2025), 189–223"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M159247X",
+        "material_read": "Publisher abstract, bibliographic description and reference listing; publisher full theorem text not accessible in the inspected view",
+        "method": "Compared estimator object (manifold-regression covariance rather than Bernoulli projected Gram) and guarantee type",
+        "title": "Multifidelity Covariance Estimation via Regression on the Manifold of Symmetric Positive Definite Matrices",
+        "trigger": "Prior specialized framework ensuring positive definiteness while using control variates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fba62600-f9ec-49e5-b8b1-122ede88cef9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact all-sample positive-definiteness frontier and least semidefinite repair quantify the design tradeoff between sampling rate, parameter contrast and SPD preservation for a natural balanced equal-leverage projected Gram model. This is relevant whenever reduced numerical systems require SPD, and is not solely a generic counterexample or variance calculation.",
+    "status": "PASS"
+  }
+}
