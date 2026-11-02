@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary finite horizons the symmetric survival Bellman map preserves the cone d_j>=0 and d_{j+1}<=3d_j, including explicit center and endpoint checks. This proves a single stationary nearer-boundary policy is simultaneously tail-optimal for each stage. Stagewise conditional-quantile comparison gives global tail dominance for all history-dependent policies. Exact tridiagonal first/second-moment solutions yield the sharp \\(6n-129/4\\) asymptotic, while a common-excursion coupling to biased walk with exponential moments and Lyapunov yield the CLT. The delivered Python standard-library checker replayed 39,497 exact assertions; finite tests do not substitute for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Georgakopoulos et al., Theorem 1.3 establishes order-\\(\\Theta(n)\\) cover time on tori, while Section 7 develops expectation-based MDP tools: arXiv:1911.05170; full published text https://eprints.gla.ac.uk/250806/1/250806.pdf, Sections 1, 5, 7 (including torus bounds and auxiliary Markov decision process)",
+        "Azar et al. biased-walk methods discussed in the primary source do not provide this cycle-specific all-tail claim in the inspected comparisons."
+      ],
+      "reasoning": "General MDP existence/computation and order bounds do not entail a fixed policy optimal simultaneously for every finite deadline; the cone-invariance property is proved separately.",
+      "searches": [
+        "Research-index query: risk sensitive probability tail minimization two candidate neighbor random walk cycle finite horizon exit",
+        "Web: power of two choices cycle cover time exact constant optimal",
+        "Web: biased random walks stochastic domination cover times 1996 cycle optimal policy"
+      ]
+    },
+    "checked_sources": [
+      "https://eprints.gla.ac.uk/250806/1/250806.pdf",
+      "https://arxiv.org/abs/1911.05170",
+      "https://livrepository.liverpool.ac.uk/3168979/",
+      "https://doi.org/10.1145/1164717.1164757",
+      "Earlier exact expected cycle-cover-time statement (no distributional-order claim)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original source: t_c^{two}(C_n)=\\(\\Theta(n)\\) through torus Theorem 1.3, and general MDP optimal expected cover policies, not cycle tail policy.",
+        "Earlier exact mean law Earlier exact expected cycle-cover-time statement (no distributional-order claim)"
+      ],
+      "reasoning": "The present theorem implies expected optimality and is consistent with the earlier exact mean, but the converse implication is false in general: a mean-optimal policy may fail for some deadlines. Its new finite-horizon cone proof and the independent-stage variance/CLT supply properties not covered by prior results.",
+      "searches": [
+        "Published 2019 arXiv:1911.05170, introduction and Sections 5 and 7 full text",
+        "Earlier exact-mean statement about two-choice cycle coverage",
+        "Research-index query: controlled two-choice random walk cycle covering every vertex exact expected time greedy expansion 2n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The controlled finite-horizon survival Bellman formulation is equivalent to minimization of all cover-time tails; relevant primary source identifies only expected cover and hitting time optimization, see arXiv:1911.05170; full published text https://eprints.gla.ac.uk/250806/1/250806.pdf, Sections 1, 5, 7 (including torus bounds and auxiliary Markov decision process)",
+        "The earlier exact mean result Earlier exact expected cycle-cover-time statement (no distributional-order claim) excludes stochastic-order claims."
+      ],
+      "reasoning": "Tail-optimality is stronger than expected-cost optimality and cannot be inferred from the known exact expectation. No exact survival-control theorem or equivalent interval-exit ordering was located in searched indexed material.",
+      "searches": [
+        "Research-index query: stochastic domination optimal cover time two choice random walk cycle C_n nearest frontier policy all tails",
+        "Web: choice random walk cycle cover time variance central limit optimal policy",
+        "Web: two choice nearest endpoint interval exit stochastic dominance covering cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Earlier exact expected cycle-cover-time statement (no distributional-order claim)",
+        "The 2019/2022 primary source supplies no finite cover-time variance or entire tail table in inspected Sections 1, 5 and 7."
+      ],
+      "reasoning": "The prior exact-mean identity is treated as known and is not resubmitted. No source containing the all-tail domination and asymptotic variance \\(6n-129/4\\) was identified; no database exhaustion or uniqueness is asserted.",
+      "searches": [
+        "Research-index query: exact optimal cover time choice random walk cycle C_n two uniform independently sampled neighbors minimum expected cover time 2n-9/2",
+        "Research-index query: central limit theorem optimal choice walk cycle cover time variance six n",
+        "Exact-mean statement comparison: two-choice cycle cover time"
+      ]
+    },
+    "rationale": "The new statement minimizes every deadline failure probability against arbitrary history-adaptive policies and supplies a sharp independent-stage variance/CLT. The primary source establishes \\(\\Theta(n)\\) bounds for tori and an MDP reduction, not this all-horizon fixed policy. An earlier exact mean law is explicitly excluded from the new contribution, and an expectation minimum does not imply stochastic domination or the fluctuation theorem. A full published text targeted examination, direct earlier-literature comparisons, multiple research-index queries, and a comparison against an earlier exact-mean statement found no implication-equivalent full distributional theorem. Historical-priority risk remains.",
+    "residual_risks": [
+      "Earlier/unindexed risk-sensitive optimal-control analyses could include a logically equivalent cycle exit result without matching terminology.",
+      "Empirical 2006 predecessor only inspected at abstract level; its plausibility for covering a proof of this specific cycle theorem is low but not zero.",
+      "Independent mathematical validation and historical priority assessment have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the all-deadline cycle tail minimum and sharp Gaussian variance; establishes order bounds and expected-time/MDP machinery.",
+        "evidence": [
+          "Theorem 1.3: \\(\\Theta(n)\\) cover time on tori; Section 5 uses positive choice recurrence.",
+          "Section 7: expected-value optimality and general MDP construction.",
+          "No all-horizon survival or cycle variance theorem in examined content."
+        ],
+        "identifier_or_url": "https://eprints.gla.ac.uk/250806/1/250806.pdf",
+        "material_read": "Article front matter, introduction, related literature, Section 5 on infinite graphs/tori, Section 7 on control/MDPs; full-text searches for cycle, stochastic, central limit, distribution, optimal.",
+        "method": "Retrieved lawfully available published full text and examined targeted theorem statements, assumptions and relevant proof sections, including a rendered page.",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Identical model and cycle as a one-dimensional torus"
+      },
+      {
+        "assessment": "Plausibly covered by the later substantially overlapping full text; no exact risk-sensitive cycle statement in inspected abstract.",
+        "evidence": [
+          "Conference statement focuses on general hitting, expander cover bounds and computational complexity."
+        ],
+        "identifier_or_url": "https://livrepository.liverpool.ac.uk/3168979/",
+        "material_read": "Repository abstract and publication record, with relation to later full-text article.",
+        "method": "Web repository abstract and metadata comparison, no claim to have read the conference PDF.",
+        "title": "Choice and Bias in Random Walks",
+        "trigger": "Original 2020 conference version of the same choice-walk research line"
+      },
+      {
+        "assessment": "Main reported experiments concern square grids and visit-load variance, not proved cycle all-horizon policies. Limited-inspection residual risk remains.",
+        "evidence": [
+          "2006 abstract describes empirical square-grid cover times and load balancing."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/1164717.1164757",
+        "material_read": "Publisher abstract, including model and investigated graph families.",
+        "method": "Public abstract only; full text not read.",
+        "title": "The power of choice in random walks: an empirical study",
+        "trigger": "Earlier empirical predecessor mentioned in the primary full text"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f9b753bb-d82b-487e-83fa-d778450d94ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Distributional domination determines every deadline failure probability and every increasing cost with one policy, an important risk-sensitive strengthening of optimal expected coverage. Complete fluctuation statistics (variance constant and Gaussian limit) quantify reliability omitted by the known exact mean. All results concern a canonical graph and natural nonanticipative control model, not an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
