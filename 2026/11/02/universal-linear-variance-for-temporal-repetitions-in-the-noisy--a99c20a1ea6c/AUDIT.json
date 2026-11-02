@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on independent copy/refresh ancestry exposes each lag agreement as a constant plus one degree-two monomial in independent centered Rademacher refresh sources. Distinct unordered source pairs are orthogonal; each both-refreshed observation pair contributes a unique positive-square coefficient, yielding a conditional variance floor and unconditional ε²L/4. The proof handles finite ancestry on infinite locally finite graphs. The published variance dichotomy and conditional CLT have exactly their required hypotheses verified. Reproducible exact finite checker passed 2084 tests; these do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benjamini–Helman Tov–Zhukovskii, Theorem 2.7(1) requires a lower-variance hypothesis for the original lag statistic.",
+        "Pymar–Rivera, arXiv:2112.01478, studies spatial voter-density dynamics and a different update scheme.",
+        "Carro–Toral–San Miguel, DOI:10.1038/srep24775, analyzes noisy-voter network properties and aggregate dynamics."
+      ],
+      "reasoning": "Compared the cited conditional-CLT theorem with the new sufficient lower bound: a conditional CLT cannot itself imply positive variance. Pymar–Rivera studies a spatial density and nonidentical asynchronous updates; Carro et al. study network aggregate properties. Standard finite-chain positivity arguments do not directly cover countable infinite graphs with a uniform explicit constant. Abstract-only comparisons are not treated as complete-text exclusions.",
+      "searches": [
+        "Discrete time noisy voter model on finite graphs, observed vertex lag d repetition counts, asymptotic variance strict positivity, no logarithmic variance regime, CLT",
+        "Finite-state Markov chain additive functional nonzero asymptotic variance criterion periodic orbit cycle coboundary",
+        "noisy voter model stationary variance CLT local temporal repetitions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.01224",
+      "doi:10.1214/23-AOP1637",
+      "arxiv:2112.01478",
+      "doi:10.1038/srep24775"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Benjamini–Helman Tov–Zhukovskii, arXiv:2207.01224v2, Section 2.2, Lemma 2.3 explicitly leaves an O(log L) alternative and asks whether variance can be sublinear.",
+        "Benjamini–Helman Tov–Zhukovskii, Theorem 2.7(1) requires a lower-variance hypothesis for the original lag statistic."
+      ],
+      "reasoning": "Prior Lemma 2.3 permits O(log L), and prior Theorem 2.7 is conditional on variance growth, so neither implies the new lower bound or unconditional nondegenerate CLT. Conversely, the new finite-time bound and the prior lemma together imply variance asymptotic to vL with v≥ε²/4, and the prior theorem then supplies the Gaussian law. The contribution of the new result is this quantitative missing premise.",
+      "searches": [
+        "Noisy voter model of Benjamini Helman Tov Zhukovskii: lagged repetition statistic variance lower bound epsilon squared times sample size",
+        "Global information from local observations noisy voter model graph variance repetitions sublinear or linear open question",
+        "noisy voter model asymptotic variance repetitions CLT"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Benjamini–Helman Tov–Zhukovskii, arXiv:2207.01224v2, Section 2.2, Lemma 2.3 explicitly leaves an O(log L) alternative and asks whether variance can be sublinear.",
+        "The degree-two Walsh expansion conditions on copy/refresh genealogies and gives a universal graph-independent finite-time lower bound."
+      ],
+      "reasoning": "Looked for noise-influence, genealogy, Walsh-orthogonality, temporal agreement, and lagged-repeat formulations. The identified source uses backward coalescing walks for expectations but has no finite-horizon positive variance lower bound, and the retrieved research-record candidates concern unrelated spectral or occupancy observables.",
+      "searches": [
+        "Genealogical random-copy spin process with unbiased refresh: Walsh Fourier square positivity, lagged equality counts linear variance",
+        "Positive variance for local temporal repetitions in discrete synchronous noisy voter models on all finite and infinite graphs",
+        "noisy voter model Fourier repetitions variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The theorem concerns an all-graph and all-finite-length inequality, not a finite tabulated numerical invariant.",
+        "The supplied exact checker independently tests small graph instances but does not certify novelty."
+      ],
+      "reasoning": "Searched for matching noise-parameter, lag, and variance-floor statements; no published exact table or finite database could dominate this general formula. Absence of a database match is not taken as proof of originality.",
+      "searches": [
+        "Noisy voter model of Benjamini Helman Tov Zhukovskii: lagged repetition statistic variance lower bound epsilon squared times sample size",
+        "Positive variance for local temporal repetitions in discrete synchronous noisy voter models on all finite and infinite graphs",
+        "Benjamini Helman Tov Zhukovskii variance repetitions"
+      ]
+    },
+    "rationale": "The full original paper explicitly poses the possibility of sublinear variance as unanswered; the proved ancestry/Walsh lower bound eliminates it for the identical unthinned statistic and verifies the premise of its previously conditional central limit theorem. No equivalent or stronger coverage was identified in the actual research-record queries and pertinent literature inspections. Unseen influence-inequality precedents remain a risk.",
+    "residual_risks": [
+      "General noise-influence, spin-system, or orthogonal chaos bounds might imply the inequality even without explicit noisy-voter terminology.",
+      "Only the main directly relevant paper was inspected in full; two secondary comparison sources were evaluated from abstracts and descriptions.",
+      "The underlying conditional-CLT proof in the cited primary paper is relied upon rather than independently reconstructed as a separate theorem.",
+      "No independent mathematical audit or definitive historical-priority check has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not establish a positive finite-time variance floor for the original consecutive observations; explicitly leaves sublinear option open and makes normality conditional on variance growth",
+        "evidence": [
+          "arXiv:2207.01224v2, Section 2.2, lines near Lemma 2.3 and Eq. (7)",
+          "arXiv:2207.01224v2, Section 2.3, Theorem 2.7(1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.01224v2",
+        "material_read": "Complete accessible arXiv HTML, focusing on Sections 1, 2.1–2.3 (definitions, equations, Lemma 2.3 proof, Theorem 2.7 proof) and remarks",
+        "method": "Read model definitions, derivation of covariance estimate, explicit variance question and conditions of the original CLT; compare hypotheses and implications",
+        "title": "Global information from local observations of the noisy voter model on a graph",
+        "trigger": "Same dynamics and exact local lag-repetition statistic; open linear-versus-sublinear question"
+      },
+      {
+        "assessment": "Different observable, so abstract does not state or directly imply the present result; complete body was not inspected",
+        "evidence": [
+          "arXiv:2112.01478 abstract describes one-vertex-at-a-time updates and spatial density"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.01478",
+        "material_read": "arXiv abstract and described process",
+        "method": "Compare time-updating rule and spatial-density observable with local lag-repetition count",
+        "title": "Asymptotic behaviour of the noisy voter model density process",
+        "trigger": "Potentially broader noisy-voter fluctuation theorem"
+      },
+      {
+        "assessment": "No matching inequality in inspected material; no complete-paper noncoverage claim made",
+        "evidence": [
+          "Scientific Reports 6, 24775 (2016), abstract and overview"
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/srep24775",
+        "material_read": "Journal article page, abstract and model summary",
+        "method": "Compare network-level density and annealed network approximation with finite-time local lag-repetition variance",
+        "title": "The noisy voter model on complex networks",
+        "trigger": "Broad noisy-voter variance and temporal-correlation research"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a99c20a1-ea6c-4d59-a9af-652e2f40e2fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves the primary paper’s explicit question whether the unmodified repetition-count variance may be sublinear, uniformly for every graph and lag. Excludes its logarithmic alternative and supplies a nondegenerate normal limit previously requiring a thinning modification or an unverified lower-variance premise. The finite-time constant is quantitative and geometry-independent, providing a useful structural insight beyond a special graph calculation.",
+    "status": "PASS"
+  }
+}
