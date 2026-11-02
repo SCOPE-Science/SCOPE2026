@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The input matrix has strictly positive integral entries, so Ferroni's published smoothness and unimodular-flag-triangulation propositions apply. The specialized lattice-slice sum gives the Ehrhart numerator by the dimension-six denominator; symbolic integer expansion gives its four coefficients. A positive-coefficient expansion shows the first log-concavity inequality always holds. The second is exactly the quartic \(F(a,b)\), whose root structure follows from Descartes's rule; leading homogeneous terms produce both asymptotic boundaries and an exact ray certificate. A standalone checker independently recomputed 192 parameter pairs at seven dilations and 200 ray values. The finite checks corroborate but do not establish the infinite statements.
+## correctness
 
-## Originality — PASS under inspected evidence
-Ferroni [1] already proves the general Cayley counting and smoothness/triangulation theorems, and reports forty-dimensional nonunimodal numerator examples and a nine-dimensional failure of log-concavity of the *Ehrhart counting sequence*. Those results do not explicitly present this six-dimensional numerator phase diagram or the two-scale window. Hofscheier--Kurylenko--Nill [2] show non-log-concavity of an IDP numerator in dimension seven, not the smooth Cayley family. Existing product-with-segment preservation concerns Cartesian products, not these Cayley sums. Searches of relevant scholarly records and alternate formulations did not identify equivalent coverage. Residual risk: a different indexed expression or unpublished result could coincide with the polynomial characterization.
+PASS
 
-## Mathematical value — PASS
-The log-concavity question for IDP polytopes is a recognized research problem. Beyond an isolated example, the result gives a complete elementary two-parameter criterion, an interval theorem, two distinct sharp asymptotic scales and an exact infinite six-dimensional smooth family with a sharp integer onset. It concretely reduces the dimension relative to the directly inspected seven-dimensional IDP example while adding smoothness and strong triangulation structure. No claim of global dimension minimality or failure of unimodality is made.
+From the actual RESULT.md definition of 3x4 positive integer matrix, each degree-k slice has sum over compositions c0+c1+c2+c3=k of the three box-length factors; binomial extraction from dimension 6 has H1=L1-7, H2=L2-7L1+21, H3=L3-7L2+21L1-35 and no higher terms by Ferroni Theorem 3.1, used as an identified published premise. Independently expanded the sliced counts, the h* coefficients, positive H1²-H2 and exact F=H2²-H1H3 symbolically; checked 480 direct small-parameter slice values. The quartic coefficients have positive b^4,b²,b,const terms and at most one negative b³, hence by Descartes at most two positive real zeros. F(a,0)>0 and leading b^4 positive yield a single negative interval (or none). Rescalings b=r*a and b=c*a³ have leading limits 15+21r+6r²-r³ and c³(69c-1); root bracketing and at-most-two-root rule give both endpoint ratios. The ray polynomial in t has exactly one positive root, with exact signs at t=99,100, proving sharp integer onset and infinite family. Geometric smoothness, regular flag unimodular triangulations, and h* degree<=3 rely explicitly on cited Ferroni prerequisites, not the independent finite experiment.
 
-## Closest literature and limitations
-The primary derivation reuses Ferroni's published structural theorems; originality attaches to the dimension-six parameter specialization, algebraic phase classification and exact witness. An independent audit and broader historical search remain advisable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS, not certified historical priority: Six-dimensional smooth IDP Cayley family with a sharp two-scale h*-log-concavity window. The new claim is logically stronger in a particular family, but Ferroni’s inaccessible complete document prevents excluding a direct unstated same-construction corollary with certainty; retain material priority risk.
+
+## value
+
+PASS
+
+A complete two-parameter log-concavity phase diagram for an explicitly motivated family of smooth six-dimensional IDP polytopes is valuable: it exposes two asymptotically separated failure scales, the exact smallest integer point on a natural linear ray, and infinitely many smooth lower-dimensional examples. This is not just an arbitrary large computational counterexample or a renaming of Ferroni’s Gorenstein/Ehrhart-sequence results. The theorem does not claim minimum possible dimension or nonunimodality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
