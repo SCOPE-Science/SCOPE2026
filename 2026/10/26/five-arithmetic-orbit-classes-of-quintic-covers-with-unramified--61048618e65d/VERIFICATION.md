@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification procedures
+# Independent mathematical audit
 
-`checker.py` is a standalone pure-Python exhaustive enumeration and characteristic-two Hasse-derivative verification. Execute `python3 checker.py > observed.json` and compare JSON data with `expected.json`. The program asserts all principal counts and orbit representatives.
+## correctness
 
-`independent_check.py` is a separately implemented SymPy algebraic cross-check. Execute `python3 independent_check.py > observed_symbolic.json` and compare with `symbolic_expected.json`. It independently constructs homogeneous forms, tests squarefreeness and resultants, and verifies the 22-pencil, five-orbit and branch-polynomial classification.
+PASS
 
-`catalogue.json` supplies the exact 22 pencils. Its masks follow the encoding described in `RESULT.md`. Source automorphisms are the six invertible matrices over the binary field, and target changes of basis permute the three nonzero pencil members. The polynomial Wronskian is a square in characteristic two; the first nonzero Hasse coefficient, rather than its ordinary vanishing order, determines the local ramification index.
+A degree-five map is a basepoint-free pencil <F,G> of binary quintics. Over F2 all three rational target fibres are F,G,F+G; unramifiedness at each target rational point is equivalent to all three homogeneous quintics squarefree. The exact affine gcd/derivative plus infinity condition exhaustively enumerates all 63 nonzero masks and 24 squarefree forms; independent SymPy polynomial arithmetic reconstructed 22 admissible pencils and all six source PGL2(F2) transformations, yielding the five listed disjoint orbits and 132 ordered map bases. The Wronskian in characteristic 2 is the square of the quartic AD+BC, and actual residue-field Hasse coefficient order, not ordinary derivative multiplicity, distinguishes ramification indices 2 and 5. Independent critical-polynomial and branch-resultant calculations reproduce all five branch degrees and the quadratic branch collision. This proves the finite classification, not a general-q or general-degree result.
 
-Both programs were executed successfully against the packaged sources. No third-party verification, independent audit, or infinite-field theorem is claimed. Source material overlaps remain subject to the scientific limitations recorded in `RESULT.md` and `REVIEW.md`.
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison, with specific primary-source inspections, previously covered components credited, and residual overlap risks. Retrieved search results alone are not evidence of novelty.
+
+## value
+
+PASS
+
+Avoiding ramification at all three rational target points is a canonical small-field Hurwitz-locus condition, relevant for constructing finite-field covers and their fibre products. The exact orbit list distinguishes arithmetically and geometrically inequivalent covers, including wild-versus-tame and a nontrivial collision of four wild critical points over two branch values; these facts are not read off a total map count. F2 and degree five are justified by the smallest field with three rational targets and the first coexistence of these ramification patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

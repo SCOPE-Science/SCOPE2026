@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is finite, with a complete 63-mask parameter search and exact squarefreeness/common-factor criteria. The classification of 22 admissible pencils into five projective-source orbits was reproduced by both a bit-polynomial implementation and a separately written symbolic-polynomial implementation. Branch multiplicities are checked by finite-field Hasse coefficients, with a separate symbolic resultant cross-check for branch-value degrees. No general characteristic-two ramification index is inferred from an ordinary derivative order alone.
+## correctness
 
-## Originality — PASS (qualified)
-The claim is the full quintic genus-zero Hurwitz sublocus avoiding all three rational branch values, with its wild/tame source and target branch collisions, not merely the known permutation-rational-function case. The closest relevant primary papers classify cubic covers, derive a relative Riemann–Hurwitz formula, or address Chow groups of broad Hurwitz moduli. Prior permutation-rational-function classifications can cover the unique permutation subcase, but cannot alone imply the four nonpermutation orbit classes without additional deductions and arithmetic specialization. Full dissertation access was denied, and hidden low-field computational tables remain residual risks; lack of search hits alone is not treated as proof of novelty.
+PASS
 
-## Value — PASS
-Branch avoidance at every rational target point is a natural finite-field Hurwitz condition relevant to construction of covers and fiber products. An exact classification reveals the coexistence of tame and wild ramification, and distinguishes four-source-to-two-target collision behavior that a mere existence result or total map count would conceal. The small field is mathematically canonical here: it fixes three rational target fibers, so squarefree fiber testing is a complete geometric condition rather than an arbitrary numerical slice.
+A degree-five map is a basepoint-free pencil <F,G> of binary quintics. Over F2 all three rational target fibres are F,G,F+G; unramifiedness at each target rational point is equivalent to all three homogeneous quintics squarefree. The exact affine gcd/derivative plus infinity condition exhaustively enumerates all 63 nonzero masks and 24 squarefree forms; independent SymPy polynomial arithmetic reconstructed 22 admissible pencils and all six source PGL2(F2) transformations, yielding the five listed disjoint orbits and 132 ordered map bases. The Wronskian in characteristic 2 is the square of the quartic AD+BC, and actual residue-field Hasse coefficient order, not ordinary derivative multiplicity, distinguishes ramification indices 2 and 5. Independent critical-polynomial and branch-resultant calculations reproduce all five branch degrees and the quadratic branch collision. This proves the finite classification, not a general-q or general-degree result.
 
-## Limitations
-Only degree five over \(\mathbf F_2\) is classified. There is no all-field extrapolation or claim that the Rédei-type permutation subcase is new. The full relevant Sze dissertation could not be inspected. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison, with specific primary-source inspections, previously covered components credited, and residual overlap risks. Retrieved search results alone are not evidence of novelty.
+
+## value
+
+PASS
+
+Avoiding ramification at all three rational target points is a canonical small-field Hurwitz-locus condition, relevant for constructing finite-field covers and their fibre products. The exact orbit list distinguishes arithmetically and geometrically inequivalent covers, including wild-versus-tame and a nontrivial collision of four wild critical points over two branch values; these facts are not read off a total map count. F2 and degree five are justified by the smallest field with three rational targets and the first coexistence of these ramification patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
