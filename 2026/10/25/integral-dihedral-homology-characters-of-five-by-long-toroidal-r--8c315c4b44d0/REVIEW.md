@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The all-width proof uses unique distance-two spanning edges and their three-vertex simplex links; the resulting \(20n\) elementary collapses produce a natural dihedrally invariant cyclic union of \(n\) ten-vertex blocks. Exact finite verification of the universal block gives 48 elementary collapses to an octahedral sphere, and all 20 local symmetry actions have verified integer signed-Lefschetz traces. The Mayer–Vietoris decomposition makes the block homology summands natural over \(\mathbb Z\). Independent computations from the complete flag complex confirm 480 product-dihedral character cases in three widths. Quantifiers are \(n\ge7\) and inclusivity is essential. Finite tests alone are not the infinite proof; the uniform link lemma supplies it.
+## correctness
 
-**Originality (PASS with residual risk).** The earlier rectangular grid theorem already classifies \(\operatorname{VR}_{\le2}(C_5\square C_n)\) up to nonequivariant homotopy; those ranks are explicitly not asserted to be new. The current finding instead distinguishes row and column stabilizer orientation signs on each integral sphere generator and hence determines the full product-dihedral module. An older square-grid source (arXiv:2502.07134) and indexed width-four work do not imply those signs. Exact published-index searches using both Rips and graph-power terminology did not disclose an equivalent action; inaccessible detailed texts and unindexed literature remain a risk.
+PASS
 
-**Value (PASS).** The natural signed edge-permutation lattice is stronger than the existing sphere counts: it distinguishes vertex-axis from edge-axis reflection characters for even circumference, determines every product-dihedral trace, and proves vanishing of all full-group positive-degree rational invariants. The two reflection signs have a geometric origin in the orientation of an explicit universal two-column block rather than an arbitrary parameter selection.
+For n>=7, every three-column clique has one spanning edge at a fixed row and its middle-column link is a three-vertex simplex; four free-face pairs per spanning edge give exactly 20n elementary collapses to a cyclic necklace of n two-column blocks. The independent exact replay checked all global free-face conditions for n=7,8,9 (140,160,180 pairs), and a 122-face local two-column complex collapses by 48 pairs onto a six-vertex octahedron. Adjacent block intersections are complete column 4-simplices, so graph-of-spaces Mayer–Vietoris yields integral H2 as the n edge-block summands and H1 as the column-circle generator. Local signed fixed-face Lefschetz gives row/column reflection degree -1, yielding eps5 tensor epsn times integral edge permutation, and trace uv times count of fixed edges 2j=d-1. The uniform link and natural block decomposition, not sampling, establish all n.
 
-**Limitations.** The conclusion is for an inclusive scale-two graph-metric complex and \(n\ge7\), not every scale or width. The finite local orientation and sphere certificates are executable and exact, but there is no independent validation or guarantee of complete indexing of overlapping literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously computed scale-two homotopy S1 vee n S2 and square torus-grid theorems do not determine integral natural dihedral group actions. The vertex-versus-edge permutation module distinction is mathematically substantive, especially even n reflection types.
+
+## value
+
+PASS
+
+Determining the exact integral signed D5 x Dn action distinguishes edge and vertex permutation lattices that have identical ranks and often rational dimensions. The complete character and invariant-vanishing information for an infinite natural grid family are meaningful topology beyond a known nonequivariant census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
