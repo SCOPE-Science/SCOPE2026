@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The finite-type recurrence was checked by induction, and the representative-announcement expansion was checked against the update semantics. The translation is finite for every formula in the stated bounded fragment. The finite-model conclusion uses the standard reduction of public announcement logic to multi-agent S5 epistemic logic.
+# Independent mathematical audit
 
-Limits: the type count is an upper bound, the translation size is not optimized, and no result is claimed for unbounded announcement depth or an unbounded atom vocabulary. No independent audit or external validation is claimed.
+## correctness
+
+PASS
+
+Induction on modal depth over finite atom/agent sets bounds depth-0 types by 2^k and each depth-r+1 type by its valuation and the sets of depth-r successor types per agent, giving N_(r+1)=2^(k+m N_r). Each admissible epistemic announcement of depth<=d is globally determined by one of at most N_d types, yielding at most 2^N_d globally distinct truth sets. Choose representatives only of definable classes and replace each bounded quantifier by a finite conjunction [psi]phi. Global equivalence preserves the full updated model, including when quantifiers nest and updates restrict accessibility. Translate PAL to base S5 epistemic logic, which has FMP; equivalence transfers a finite S5 model to the bounded formula. Boundary d=0, empty agent set and empty atom set are covered by the recurrence.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the explicit fixed-vocabulary AND fixed-depth finite-announcement basis; highly relevant unrestricted negative theorem covers a different quantifier, and inaccessible plausible restricted-language text is acknowledged as residual risk.
+
+## value
+
+PASS
+
+A natural resource-bounded boundary in a logic whose unrestricted quantified-announcement version lacks FMP. The complete finite global basis gives a concrete semantic compilation method and a clear positive finite-model theorem. Although the proof uses standard finite modal types, that structural reduction is meaningful for the precisely stated bounded variant; no stronger novelty or complexity bound is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

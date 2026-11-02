@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The depth-type recurrence follows by induction on modal depth. A depth-\(d\) type determines every allowed announcement's truth set, giving a finite representative basis. Replacing each bounded quantifier by the conjunction over that basis is semantically exact because globally equivalent announcements induce identical updates. The translation to public announcement logic and its finite model property complete the proof.
+PASS
 
-## Originality — PASS
+Induction on modal depth over finite atom/agent sets bounds depth-0 types by 2^k and each depth-r+1 type by its valuation and the sets of depth-r successor types per agent, giving N_(r+1)=2^(k+m N_r). Each admissible epistemic announcement of depth<=d is globally determined by one of at most N_d types, yielding at most 2^N_d globally distinct truth sets. Choose representatives only of definable classes and replace each bounded quantifier by a finite conjunction [psi]phi. Global equivalence preserves the full updated model, including when quantifiers nest and updates restrict accessibility. Translate PAL to base S5 epistemic logic, which has FMP; equivalence transfers a finite S5 model to the bounded formula. Boundary d=0, empty agent set and empty atom set are covered by the recurrence.
 
-The closest checked result proves failure of the finite model property for unrestricted quantified announcements, while another source studies restrictions on the atom sets available to announcements. Neither checked source states the fixed finite-vocabulary, fixed modal-depth theorem proved here. The claim is a bounded-fragment boundary result, not a claim about unrestricted APAL. The literature comparison is not an exhaustive proof that no related result exists.
+## originality
 
-## Value — PASS
+PASS
 
-The result isolates a finite-resource fragment in which quantified announcements admit a finite basis, and gives an explicit recursive upper bound on the number of announcement classes. This supports finite compilation of bounded-depth announcement quantifiers. No optimal complexity or exact type-count claim is made.
+Best-of-knowledge PASS for the explicit fixed-vocabulary AND fixed-depth finite-announcement basis; highly relevant unrestricted negative theorem covers a different quantifier, and inaccessible plausible restricted-language text is acknowledged as residual risk.
 
-## Closest literature and limitations
+## value
 
-The 2021 no-finite-model-property result concerns unrestricted announcement depth. The 2023 “Almost APAL” paper studies restrictions on announcement vocabularies, but not the bounded-depth finite-basis statement established here. The proof applies only to fixed finite vocabularies and S5 models; the bound is not asserted to be sharp.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural resource-bounded boundary in a logic whose unrestricted quantified-announcement version lacks FMP. The complete finite global basis gives a concrete semantic compilation method and a clear positive finite-model theorem. Although the proof uses standard finite modal types, that structural reduction is meaningful for the precisely stated bounded variant; no stronger novelty or complexity bound is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
