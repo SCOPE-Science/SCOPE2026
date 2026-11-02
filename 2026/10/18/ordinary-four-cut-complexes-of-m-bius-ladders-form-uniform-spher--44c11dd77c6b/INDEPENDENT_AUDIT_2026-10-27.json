@@ -1,0 +1,236 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T07:58:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/ordinary-four-cut-complexes-of-m-bius-ladders-form-uniform-spher--44c11dd77c6b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/ordinary-four-cut-complexes-of-m-bius-ladders-form-uniform-spher--44c11dd77c6b/SLOGAN.txt",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/ordinary-four-cut-complexes-of-m-bius-ladders-form-uniform-spher--44c11dd77c6b/verify.py",
+        "independent_check.py at /mnt/data/scope_worker04_audit_20261027T0746Z/independent_checks.py"
+      ],
+      "rationale": "For n≥5, cubic triangle-free M2n has exactly six connected induced 4-vertex set families S,R,E−,E+,M,Q with 2n copies of each of the first five and n distinct squares Q (11n total). A dual face of size 5 would induce a 2-vertex-connected triangle-free 5-vertex graph: absence of 5-cycles by spoke/rim displacement forces a square, and the fifth vertex would need two opposite square neighbors, producing K2,3 and three common neighbors, impossible in M2n. Thus the Alexander dual is a full 2-skeleton plus exactly 11n tetrahedra. The explicit six families of free triangular faces are checked in the order S,R,E−,E+,M,Q, collapsing each tetrahedron without creating an omitted coface. The dual remains simply connected after deleting free tetrahedron/triangle pairs, with reduced H2 free rank binom(2n−1,3)−11n by Euler characteristic; Hurewicz and Whitehead yield a 2-sphere wedge. Integral Alexander duality supplies primal homology only in degree 2n−5; absence of any 5-vertex dual face implies the primal contains a complete (2n−6)-skeleton, and successive connectivity/Hurewicz then yield exactly the asserted wedge of (2n−5)-spheres. Independently reconstructed the frozen Git tree from all seven blob SHAs. A separately written checker exhaustively regenerated every connected four-set and verified all written free triangles for each n=5..14; checked every possible five-set for n=5..10; first ranks 29,99,209. These finite checks corroborate but do not replace the unbounded proof.",
+      "residual_risks": [
+        "The uniform proof depends essentially on n≥5: spoke displacement, the absence of 5-cycles, and uniqueness of listed four-vertex families; it is not asserted for n=4 or smaller.",
+        "Finite stress tests n5..14 are not exhaustive for all n, and no Lean proof or expert attestation is claimed.",
+        "No equivariant homotopy type, shellability result, or total-cut statement follows automatically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer et al., arXiv:2304.13675, general face/Euler framework and clique-prism examples: no Möbius ladder family claimed in reviewed main theorems.",
+          "Bayer et al., arXiv:2407.08158, §5 Proposition 5.13/Theorem 5.14 classify cuts of rectangular P_m × P_n grids with boundary; a Möbius ladder is not in those families, and their 4-connected-set formula differs.",
+          "Published all-width Möbius total-three-cut identity https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95/RESULT.md has rank 1+binom(n+1,2), dimension 2n-6, rather than binom(2n-1,3)-11n and 2n-5."
+        ],
+        "reasoning": "Inspected the substantive hypotheses of stronger-looking results. A general Euler/face-count tool by itself cannot force this all-n homotopy type or furnish the explicit free-triangle collapses. No included family identifies the twisted periodic M_{2n} with rectangular P_m × P_n or K_m × K_2, and the total 3-cut theorem is about a different Alexander dual.",
+        "searches": [
+          "ordinary four-cut complexes grid circular ladder Möbius ladder",
+          "\"Möbius ladder\" \"cut complexes\"",
+          "arXiv:2304.13675 topology of cut complexes general theorems ordinary cuts",
+          "arXiv:2407.08158 cut complexes of rectangular grid graphs dimension four",
+          "arXiv:2408.07646 total cut complexes grid graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.30601",
+        "https://arxiv.org/abs/2304.13675",
+        "https://arxiv.org/abs/2407.08158",
+        "https://arxiv.org/abs/2408.07646",
+        "https://arxiv.org/abs/2512.04486",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sphere-wedge-topology-of-three-cut-complexes-of-circular-ladders--4fc5f7521449/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-seven-certified-circular-ladder-total-three-cut-homotopy-types--ecaf9a3e1cca/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Agarwal–Basak Problem 26 on page 17 expressly asks for homotopy of cut and total-cut complexes; its Main Theorems 1–2 on page 3 classify unrelated independence and perfect-matching complexes.",
+          "Published Möbius-ladder total-three-cut result proves Δ^t_3(M_{2n}) as a wedge of 1+binom(n+1,2) spheres of dimension 2n-6, not the claimed ordinary four-cut.",
+          "Published circular-ladder ordinary-three-cut https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sphere-wedge-topology-of-three-cut-complexes-of-circular-ladders--4fc5f7521449/RESULT.md treats C_n×K_2 and k=3, rather than twisted M_{2n}, k=4."
+        ],
+        "reasoning": "No checked prior theorem has both the same graph/complement predicate and a stronger exact homotopy conclusion. General lower-dimensional duality and Euler statements provide methodology or some invariants, not the claimed all-n homotopy classification. A corollary of a future/unindexed broader theorem remains a residual historical risk.",
+        "searches": [
+          "Möbius ladder ordinary four cut complex homotopy wedge spheres connected four subsets Alexander dual",
+          "cut complexes of Möbius ladders total 3-cut 4-cut sphere wedge homotopy",
+          "ordinary four-cut complexes grid circular ladder Möbius ladder",
+          "arXiv:2608.30601 §6 Problem 26",
+          "arXiv:2304.13675 Theorem 7.18",
+          "arXiv:2407.08158 Theorem 5.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary 4-cut dual is the complete two-skeleton with exactly 11n connected-four-set tetrahedra; this is mathematically different from an independence complex, bounded-independence (total-cut) complex, or a three-cut complex.",
+          "Agarwal–Basak arXiv:2608.30601, pp.3 and 17, prove independence/perfect matching classifications and list cut/total-cut as separate future topics.",
+          "Published Möbius ladder total 3-cut result: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95/RESULT.md"
+        ],
+        "reasoning": "Compared facets/complement conditions: ordinary 4-cut uses disconnected induced four-sets; total 3-cut uses independent triples; matching and independence complexes have different vertex simplices. Alexander duality equivalences were checked against these definitions, with no retrieved equivalent classification for this exact natural graph family.",
+        "searches": [
+          "Möbius ladder ordinary four cut complex homotopy wedge spheres connected four subsets Alexander dual",
+          "cut complexes of Möbius ladders total 3-cut 4-cut sphere wedge homotopy",
+          "\"ordinary four-cut\" \"Möbius\" ladder homotopy sphere wedge 2026",
+          "Resultary mathematical-record semantic search: Möbius ladder ordinary four cut complex homotopy wedge spheres connected four subsets Alexander dual",
+          "arXiv:2608.30601 §6 Problem 26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact computations for n=5,6,7 yield 29,99,209, but these are corroborations rather than novelty proofs.",
+          "Published circular-ladder tables concern total-three-cut homology for a finite range: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-seven-certified-circular-ladder-total-three-cut-homotopy-types--ecaf9a3e1cca/RESULT.md",
+          "Bayer et al. II rectangular grids have separate exact tables and formula; the present ordinary 4-cut Möbius ladder all-width count was not retrieved in indexed records."
+        ],
+        "reasoning": "Checked the exact homotopy ranks, sphere degrees, graph twist and cut convention—not just titles. Known matching, total 3-cut, and rectangular grid tables cannot serve as a ready-made all-n ordinary 4-cut Möbius classification. Absence in databases is treated only as bounded-search evidence.",
+        "searches": [
+          "\"binom{2n-1}{3}\" \"11n\" \"cut\" Möbius ladder",
+          "Möbius ladder graph four cut complexes homotopy published 2026",
+          "Resultary search: cut complexes of Möbius ladders total 3-cut 4-cut sphere wedge homotopy",
+          "arXiv:2512.04486 Table 4 Conjecture 4.5 circular-ladder total three-cut"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified originality: the claim gives an all-n ordinary 4-cut Möbius ladder homotopy wedge with a constructive 11n-tetrahedron dual collapse. Prior cut-complex structural tools and rectangular-grid 4-cut classifications do not prove this periodic twisted-graph theorem; Möbius-ladder total 3-cut and circular-ladder ordinary 3-cut classifications have different disconnection predicates, parameters, or graphs. Agarwal–Basak explicitly propose these ladder cut complexes as a future question. All-N independent historical priority remains subject to unindexed/uninspected work.",
+      "residual_risks": [
+        "Historical novelty is qualified: literature search is bounded and unindexed, unpublished, or newer overlapping results might exist.",
+        "The retrieved cut-complex general results contain useful counting and Alexander-dual methods; these are acknowledged rather than claimed as new.",
+        "The same-graph total-three-cut and ordinary-three-cut circular-ladder theorems are not equivalent without a separate currently unestablished reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No implication of ordinary four-cut Möbius ladder homotopy from the examined independence and perfect matching statements; Problem 26 positively identifies a separate motivation.",
+          "evidence": [
+            "Main Theorems 1–2, p.3; §6 Problem 26, p.17; preprint version dated 2026-09-14."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601",
+          "material_read": "19-page version-2 primary text obtained through authorized PDF access; inspected pp.1–6 definitions and main theorems, pp.10–17 mathematical sections, and p.17 §6 Problem 26, with remainder available. Main Theorems 1–2 at p.3 concern independence and perfect matching; Problem 26 names cut and total-cut as future directions.",
+          "method": "arXiv/open-access full-text attempts, followed by authorized institutional PDF text retrieval and relevant page reading",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same graph family and explicitly proposed cut-complex open direction"
+        },
+        {
+          "assessment": "Foundational and general cut-complex structures, no covering Möbius four-cut statement in the inspected major results.",
+          "evidence": [
+            "General tools/face-count theorems and Theorem 7.18 treat graph families with different hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Accessible primary 37-page PDF introduction, ordinary-cut definition, summary table, general results and Theorem 7.18 for clique prisms, with rendered page examination.",
+          "method": "Public arXiv PDF text and rendered PDF pages",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Original definitions and potentially broader ordinary-cut homotopy theorems"
+        },
+        {
+          "assessment": "Rectangular nonperiodic grid family; the Möbius twisted rim and antipodal spokes violate the grid hypotheses.",
+          "evidence": [
+            "§5 Proposition 5.13/Theorem 5.14 give rectangle counts, not 11n connected induced four-sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "Accessible 29-page primary PDF abstract, introduction, general structural results, and §5 pp.17–20 especially Proposition 5.13 and Theorem 5.14, with rendered page examination.",
+          "method": "Public arXiv PDF text and rendered PDF pages",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Closest prior ordinary four-cut grid-classification theorem"
+        },
+        {
+          "assessment": "Rectangular grids or total-cut regimes, no direct implication to twisted Möbius ordinary four-cuts.",
+          "evidence": [
+            "The defined graph families in inspected introduction are rectangular grid graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.07646",
+          "material_read": "Primary arXiv PDF abstract, introductory theorems and graph-family definitions, rendered first page.",
+          "method": "Open arXiv PDF text and page rendering",
+          "title": "Topology of total cut complexes and cut complexes of grid graphs",
+          "trigger": "Additional graph-grid four-cut and total-cut prior results"
+        },
+        {
+          "assessment": "Total-two-cut and circular-ladder total-three-cut enumeration; not ordinary four-cut of Möbius ladders.",
+          "evidence": [
+            "Circular-ladder Table 4/Conjecture 4.5 address different total-three-cut complexes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.04486",
+          "material_read": "Primary arXiv PDF title/abstract, main-result introduction, and relevant reported circular-ladder table/conjecture as cross-checked against public primary mathematical record.",
+          "method": "Open arXiv PDF text and rendered title page plus source-specific theorem comparison",
+          "title": "Total 2-cut complexes of powers of cycle graphs and Cartesian products of certain graphs",
+          "trigger": "Circular-ladder table and potentially hidden exact Möbius-cut formula"
+        },
+        {
+          "assessment": "Different total-three-cut definition with degree 2n-6, not the ordinary-four degree 2n-5.",
+          "evidence": [
+            "Theorem has rank 1+binom(n+1,2), and uses bounded-independence complex BI_3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95/RESULT.md",
+          "material_read": "Entire accessible primary RESULT.md, including definitions, connectivity lemma, face counts, Alexander duality and limitations.",
+          "method": "Published Resultary record fetched through authorized read-only GitHub access",
+          "title": "Uniform sphere-wedge homotopy for Möbius-ladder total three-cut complexes",
+          "trigger": "Same graph family and all-width wedge theorem with similar appearance"
+        },
+        {
+          "assessment": "Circular ladder C_n×K_2, ordinary k=3, is not Möbius ladder ordinary k=4; no reduction asserted.",
+          "evidence": [
+            "The theorem gives rank 2n²−8n+1, sphere degree 2n−4, explicitly limits its scope to k=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sphere-wedge-topology-of-three-cut-complexes-of-circular-ladders--4fc5f7521449/RESULT.md",
+          "material_read": "Entire primary RESULT.md, especially definitions, exact cut parameters, rank formula, graph geometry and limitations.",
+          "method": "Published Resultary record fetched with read-only GitHub connector",
+          "title": "Sphere-wedge topology of three-cut complexes of circular ladders",
+          "trigger": "Ordinary cut and periodic ladder topology could hide a reduction"
+        },
+        {
+          "assessment": "Different total-3 cut and graph, finite range only; not a covering theorem.",
+          "evidence": [
+            "The family is C_n×K_2, 4≤n≤10, total-cut rather than ordinary 4-cut."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-seven-certified-circular-ladder-total-three-cut-homotopy-types--ecaf9a3e1cca/RESULT.md",
+          "material_read": "Entire primary RESULT.md including seven finite widths, complete Morse certificate and prior tables.",
+          "method": "Published Resultary record fetched through read-only GitHub connector",
+          "title": "Seven certified circular-ladder total three-cut homotopy types",
+          "trigger": "Potential exact table with apparently similar low-degree sphere-wedge data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/ordinary-four-cut-complexes-of-m-bius-ladders-form-uniform-spher--44c11dd77c6b/RESULT.md",
+        "https://arxiv.org/abs/2608.30601",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95/RESULT.md",
+        "https://arxiv.org/abs/2407.08158"
+      ],
+      "rationale": "The ordinary four-cut complex of the natural infinite Möbius ladder graph family is a mathematically motivated exact integral topological invariant, explicitly proposed among interesting cut-complex directions by Agarwal–Basak Problem 26. The theorem identifies every n≥5 homotopy type, its sphere degree 2n−5 and a nontrivial cubic polynomial multiplicity binom(2n−1,3)−11n, not simply an Euler number or sampled finite table. Its constructive uniform six-family free-triangle collapse also supplies an independently usable structural reduction beyond applying a textbook Euler identity. Earlier work treats the same graph under a different total-cut condition or rectangular/circular ladders under other ordinary parameters, so the exact fact would be useful for later graph-cut topology and comparative homotopy work.",
+      "residual_risks": [
+        "No theorem for arbitrary cubic graphs, other cut parameters, or equivariant character is established or necessary for the value of this exact family classification.",
+        "Potential independently published equivalent classification would change the originality assessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/ordinary-four-cut-complexes-of-m-bius-ladders-form-uniform-spher--44c11dd77c6b/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/ordinary-four-cut-complexes-of-m-bius-ladders-form-uniform-spher--44c11dd77c6b/SLOGAN.txt",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/ordinary-four-cut-complexes-of-m-bius-ladders-form-uniform-spher--44c11dd77c6b/verify.py",
+    "independent_check.py at /mnt/data/scope_worker04_audit_20261027T0746Z/independent_checks.py",
+    "https://arxiv.org/abs/2608.30601",
+    "https://arxiv.org/abs/2304.13675",
+    "https://arxiv.org/abs/2407.08158",
+    "https://arxiv.org/abs/2408.07646",
+    "https://arxiv.org/abs/2512.04486",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sphere-wedge-topology-of-three-cut-complexes-of-circular-ladders--4fc5f7521449/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-seven-certified-circular-ladder-total-three-cut-homotopy-types--ecaf9a3e1cca/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only ordinary 4-cut complexes of the 2n-vertex Möbius ladder for n≥5; not total-cut, another k, or smaller n.",
+    "Independent exact finite exhaustion of connected 4-sets and specified collapse formulas n=5..14; absence of dual 5faces tested exhaustively n=5..10; not infinite proofs.",
+    "Best-of-knowledge historical priority qualified; no independent external expert or Lean attestation.",
+    "No public metadata sanitization delivered: source publication plan is not_ready."
+  ],
+  "residual_risks": [
+    "The uniform proof depends essentially on n≥5: spoke displacement, the absence of 5-cycles, and uniqueness of listed four-vertex families; it is not asserted for n=4 or smaller.",
+    "Finite stress tests n5..14 are not exhaustive for all n, and no Lean proof or expert attestation is claimed.",
+    "No equivariant homotopy type, shellability result, or total-cut statement follows automatically.",
+    "Historical novelty is qualified: literature search is bounded and unindexed, unpublished, or newer overlapping results might exist.",
+    "The retrieved cut-complex general results contain useful counting and Alexander-dual methods; these are acknowledged rather than claimed as new.",
+    "The same-graph total-three-cut and ordinary-three-cut circular-ladder theorems are not equivalent without a separate currently unestablished reduction.",
+    "No theorem for arbitrary cubic graphs, other cut parameters, or equivariant character is established or necessary for the value of this exact family classification.",
+    "Potential independently published equivalent classification would change the originality assessment."
+  ],
+  "schema_version": 1
+}

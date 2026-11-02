@@ -1,15 +1,21 @@
-# Scientific review: ordinary four-cut complexes of Möbius ladders
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim fixes the ordinary complement-of-disconnected-four-subset definition and the full range \(n\ge5\). A complete graph-theoretic census gives exactly \(11n\) connected induced four-sets and excludes any five-vertex face in the Alexander dual. Six explicit types of triangles provide free faces for all dual tetrahedra in a prescribed order. The remaining simply connected two-complex has Euler rank \(\binom{2n-1}{3}-11n\), and integral Alexander duality, connectivity of the primal complete skeleton, and Hurewicz–Whitehead yield the asserted wedge homotopy. The standalone script reconstructs the four-set classification and every collapse for \(n=5,\dots,12\), tests five-subset exclusion through \(n=10\), and checks boundary matrices over four fields through \(n=7\). Computation is a stress test; the symbolic graph argument supplies the infinite proof.
+## correctness
 
-## Originality (PASS, subject to normal literature risk)
-The primary cut-complex papers [1,2] define the invariant and establish results for other graph families, including nonperiodic rectangular grids, but their cited theorems do not classify ordinary four-cut Möbius ladders. Agarwal–Basak [3] explicitly motivates the cut-complex question but proves independence/perfect-matching rather than four-cut homotopy. The closest discovered published Möbius-ladder theorem concerns *total three-cut*, whose faces and sphere dimensions differ. Search by graph, ordinary versus total convention, parameter four, explicit wedge multiplicity, Alexander dual description, and free-triangle collapse found no equivalent implication. Results not indexed in accessible sources remain a residual originality risk; search failure alone is not novelty proof.
+PASS
 
-## Mathematical value (PASS)
-The theorem resolves a concrete subfamily and cut parameter in a stated recent open direction. Its exact integral all-size homotopy classification and short uniform collapse mechanism are not numerical table recomputations or a single small graph census. The explicit combinatorial argument also supplies a reusable pathway for other graphs with controlled connected four-subsets.
+For n≥5, cubic triangle-free M2n has exactly six connected induced 4-vertex set families S,R,E−,E+,M,Q with 2n copies of each of the first five and n distinct squares Q (11n total). A dual face of size 5 would induce a 2-vertex-connected triangle-free 5-vertex graph: absence of 5-cycles by spoke/rim displacement forces a square, and the fifth vertex would need two opposite square neighbors, producing K2,3 and three common neighbors, impossible in M2n. Thus the Alexander dual is a full 2-skeleton plus exactly 11n tetrahedra. The explicit six families of free triangular faces are checked in the order S,R,E−,E+,M,Q, collapsing each tetrahedron without creating an omitted coface. The dual remains simply connected after deleting free tetrahedron/triangle pairs, with reduced H2 free rank binom(2n−1,3)−11n by Euler characteristic; Hurewicz and Whitehead yield a 2-sphere wedge. Integral Alexander duality supplies primal homology only in degree 2n−5; absence of any 5-vertex dual face implies the primal contains a complete (2n−6)-skeleton, and successive connectivity/Hurewicz then yield exactly the asserted wedge of (2n−5)-spheres. Independently reconstructed the frozen Git tree from all seven blob SHAs. A separately written checker exhaustively regenerated every connected four-set and verified all written free triangles for each n=5..14; checked every possible five-set for n=5..10; first ranks 29,99,209. These finite checks corroborate but do not replace the unbounded proof.
 
-## Boundaries and literature
-Only integers \(n\ge5\), ordinary parameter four and nonequivariant homotopy are established. Key comparisons are [1] Bayer et al., arXiv:2304.13675; [2] Bayer et al., arXiv:2407.08158; [3] Agarwal and Basak, arXiv:2608.30601; and the published distinct result *Uniform sphere-wedge homotopy for Möbius-ladder total three-cut complexes*. The last result is not a corollary covering ordinary four-cut complexes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified originality: the claim gives an all-n ordinary 4-cut Möbius ladder homotopy wedge with a constructive 11n-tetrahedron dual collapse. Prior cut-complex structural tools and rectangular-grid 4-cut classifications do not prove this periodic twisted-graph theorem; Möbius-ladder total 3-cut and circular-ladder ordinary 3-cut classifications have different disconnection predicates, parameters, or graphs. Agarwal–Basak explicitly propose these ladder cut complexes as a future question. All-N independent historical priority remains subject to unindexed/uninspected work.
+
+## value
+
+PASS
+
+The ordinary four-cut complex of the natural infinite Möbius ladder graph family is a mathematically motivated exact integral topological invariant, explicitly proposed among interesting cut-complex directions by Agarwal–Basak Problem 26. The theorem identifies every n≥5 homotopy type, its sphere degree 2n−5 and a nontrivial cubic polynomial multiplicity binom(2n−1,3)−11n, not simply an Euler number or sampled finite table. Its constructive uniform six-family free-triangle collapse also supplies an independently usable structural reduction beyond applying a textbook Euler identity. Earlier work treats the same graph under a different total-cut condition or rectangular/circular ladders under other ordinary parameters, so the exact fact would be useful for later graph-cut topology and comparative homotopy work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
