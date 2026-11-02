@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact characteristic polynomial z(z-a-kb)^(k-1)[z²-(2c+(k+1)a)z+(k+2)ac]. Unit-gap inequalities and scalar strictly convex cost give sharp regime thresholds and continuity; the quotient eigenvector and peripheral trace/eigenspace argument prove every unrestricted allocation unique. Extracted symbolic and rational verifier passed; finite numerical checks used only as supplementary evidence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs, https://arxiv.org/pdf/2501.02421, Sections 5.5 and 6.4 on lollipop subgraphs/topology.",
+        "Sun et al., https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf, section 5 paths/cycles; section 2 general SDP."
+      ],
+      "reasoning": "Jafarizadeh considers a topologically close special family, but optimizes discrete-time SLEM under fixed stationary distribution, not unnormalized continuous-time λ2 with edge-dependent global rate costs; its results do not provide the claimed specific three price regimes. The Sun SDP is a broad solvable formulation but not a dominating analytical classification.",
+      "searches": [
+        "Exact budget optimal algebraic connectivity of lollipop K_n with one pendant vertex, independent prices for pendant edge, hub-to-clique edges and within-clique edges; threshold entire edge orbit becomes zero",
+        "Clique windmill one singleton blade weighted spectral gap optimized edge prices pendant edge hub spokes internal clique, unique allocation",
+        "Fastest mixing Markov process on graph lollipop one leaf complete graph arbitrary edge prices Laplacian spectral gap second eigenvalue",
+        "web: fastest mixing continuous time lollipop graph complete graph leaf optimize conductance"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://arxiv.org/pdf/2501.02421",
+      "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. 2006, section 5, explicitly solve path and cycle examples and include a six-node mixed example, but not all-positive-price one-pendant clique.",
+        "Ghosh–Boyd 2006, section 3, concerns upper bounds across combinatorial graph families with fixed total edge number, rather than exact continuous weight allocation on one fixed graph.",
+        "Jafarizadeh, section 6.4, reduces lollipop topology discrete-time SLEM to another discrete-time topology."
+      ],
+      "reasoning": "The exact three support phases, their breakpoints in P,Q,R and unrestricted uniqueness require specialized quotient spectral calculations, a strict convex scalar optimization and an equality/rigidity argument; they are not immediate graph-parameter substitutions into the cited more general numerical formulations or discrete-time objectives.",
+      "searches": [
+        "Maximum algebraic connectivity of a complete graph with one pendant leaf, clique edges independently weighted and three edge price classes; exact optimal spectral gap and edge deletion",
+        "Cost optimal spectral gap for kite graph K_m with one leaf hub clique edge spokes triangle internal conductances",
+        "Fastest continuous-time mixing of clique with a pendant node under budget; optimal edge weights symmetry and deletion",
+        "Exact budget optimal algebraic connectivity of lollipop K_n with one pendant vertex, independent prices for pendant edge, hub-to-clique edges and within-clique edges; threshold entire edge orbit becomes zero",
+        "Clique windmill one singleton blade weighted spectral gap optimized edge prices pendant edge hub spokes internal clique, unique allocation",
+        "Fastest mixing Markov process on graph lollipop one leaf complete graph arbitrary edge prices Laplacian spectral gap second eigenvalue",
+        "web: algebraic connectivity maximal weighted lollipop clique pendant price"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. (2006) formulate the continuous-time fastest mixing SDP for arbitrary graphs, https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf, sections 1–2 and 5.",
+        "Ghosh and Boyd (2006), https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf, sections 2–3, exploit symmetry for convex-hull graph-family bounds."
+      ],
+      "reasoning": "Continuous-time fastest mixing is exactly maximization of Laplacian λ2, so both terminologies were queried. The general SDP formulates but does not analytically solve the specific graph and price partition. Normalized, discrete-time, resistance and spectral-width objectives are mathematically different.",
+      "searches": [
+        "Maximum algebraic connectivity of a complete graph with one pendant leaf, clique edges independently weighted and three edge price classes; exact optimal spectral gap and edge deletion",
+        "Cost optimal spectral gap for kite graph K_m with one leaf hub clique edge spokes triangle internal conductances",
+        "Fastest continuous-time mixing of clique with a pendant node under budget; optimal edge weights symmetry and deletion",
+        "web: weighted Laplacian maximal algebraic connectivity lollipop graph pendant clique edge budget rate prices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A retrieved published note on curvature-distortion of pineapple graphs optimizes a different graph invariant, not the weighted Laplacian mixing gap.",
+        "Ghosh and Boyd (2006) list degree, cut and block examples (sections 3.1–3.4), none a priced clique plus a pendant."
+      ],
+      "reasoning": "Available exact references are not tabulations of the present complete closed-form price domain; this is an evidence-limited negative comparison, not an assertion of global uniqueness.",
+      "searches": [
+        "Maximum algebraic connectivity of a complete graph with one pendant leaf, clique edges independently weighted and three edge price classes; exact optimal spectral gap and edge deletion",
+        "Cost optimal spectral gap for kite graph K_m with one leaf hub clique edge spokes triangle internal conductances",
+        "web: algebraic connectivity maximization kite graph weighted optimal weights pendant"
+      ]
+    },
+    "rationale": "The inspected continuous-time fastest-mixing original supplies the general SDP and examples of different graph types but no exact three-class one-pendant-clique phase diagram. The inspected discrete-time lollipop original concerns SLEM subject to stochasticity/stationarity rather than global priced continuous-time rates. Closest earlier network designs use different graph topologies or objectives. Exact unweighted algebraic connectivity or a general optimizer can be consistent with, but does not state or directly imply, the closed-form phases and unrestricted uniqueness. Specialist-priority risk remains.",
+    "residual_risks": [
+      "General spectral-gap SDP techniques make the theorem accessible; further specialist network-optimization literature might already include the same analytical special case.",
+      "Some contemporary work on interconnected networks is relevant at the general formulation level but not comprehensively examined for all special graph subclasses.",
+      "Novelty is not an independent external-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING specific three-price fixed one-pendant-clique rate optimum; applies a convex hull of unweighted graph-family Laplacians rather than this cost allocation.",
+        "evidence": "Section 3 examples: degree distribution, small cuts, sets of nonadjacent vertices, block-ring; section 2 gives general concavity and averaging. 5 May 2006 public date printed.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "material_read": "Full-text PDF, introduction, methods, examples and appendix (pp. 1–13/15, including exact headings of all examples); date on p. 1.",
+        "method": "Read textual PDF sections and inspected page-one PDF rendering.",
+        "title": "Upper bounds on algebraic connectivity via convex optimization",
+        "trigger": "Potential earlier symmetry-based dominating allocation theorem"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXPLICIT_COVERAGE; same objective and arbitrary prices, but no printed three-phase one-leaf-clique closed form or global uniqueness.",
+        "evidence": "p.1 defines symmetric continuous-time rate optimization; sec. 5 examples are a six-node graph, paths, cycles; November 2, 2006 electronic publication date.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full-text PDF, sections 1–2 on rates and SDP, section 5 explicit examples, including path and cycle, and source title/date page.",
+        "method": "Read original PDF text and inspected PDF page-one rendering.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Original general continuous-time priced rate optimization could dominate precise theorem"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE: discrete-time SLEM and fixed stationary distribution, not continuous-time λ2 with independent linear cost constraints. No direct implication.",
+        "evidence": "Sections 5.5 and 6.4 explicitly identify the lollipop graph and optimize transition probabilities/SLEM.",
+        "identifier_or_url": "https://arxiv.org/pdf/2501.02421",
+        "material_read": "Author full-text PDF, definitions and problem formulation, pp. 16–17 lollipop subgraphs and pp. 20–22 lollipop topology and examples.",
+        "method": "Read full-text PDF relevant sections and inspected rendered first page.",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+        "trigger": "Same lollipop topology may directly imply claimed optimality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b4f0d3c6-1452-44e1-b9ed-f232d7b2e77b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete three-phase sharp-support classification solves a natural priced network mixing problem for every core size and all positive cost triples; the second phase deletes internal clique edges, and the costly pendant regime changes even the hub-spoke weight allocation. The unrestricted optimizer uniqueness strengthens merely symmetric-cost design and makes a useful exact benchmark.",
+    "status": "PASS"
+  }
+}
