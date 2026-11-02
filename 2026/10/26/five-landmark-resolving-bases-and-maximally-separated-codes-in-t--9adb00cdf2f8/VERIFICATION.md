@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Run `python3 verify_resolving_petersen.py`. All computations use exact integers and the Python standard library. The script reconstructs the 45-state token graph from the five-label Kneser definition, recomputes all pair distances using breadth-first search, checks every four- and five-landmark set, enumerates the full induced 120-element group action and its orbits, and performs exhaustive clique counts for distance at least three. The verifier additionally checks distance signatures for all 30 extremal separated landmark sets.
+## correctness
 
-Expected terminal line: `VERIFY_OK; 45 states; 120 moves; metric dimension 5; 189540 bases; 1627 S5-orbits; 30 optimal distance-separated bases`.
+PASS
 
-A full enumerative finite certificate is supplied, not merely a precomputed data table. This verification is same-source reproducibility and is not an independent audit. Potential unindexed prior computations remain a scientific originality risk.
+The token adjacency construction has 45 states and 120 edges; BFS computes every one of 45×45 distances. For each landmark, the 990 pair-distinction indicators give an exact resolving criterion. Independently exhausted all C(45,4)=148995 four-subsets (none resolving) and C(45,5)=1221759 five-subsets (exactly 189540 resolving). Full induced 120-element S5 action yielded orbit sizes 1534×120, 90×60, 1×30, 1×24, 1×6. Full distance>=3 clique enumeration yielded 30 five-packings, none larger, and orbits 6+24. This finite universe was truly exhausted, not statistically sampled.
+
+## originality
+
+PASS
+
+Definitions and structural theory of token graphs and metric dimension of the underlying Petersen graph are prior. None of the inspected foundational token-graph source text gives this complete 45-state resolving-set census or distance-three optimal packing orbit decomposition; exact earlier computer enumerations remain possible.
+
+## value
+
+PASS
+
+Metric dimension, resolving bases, and separated packing size are standard natural graph invariants; an exhaustive orbit-refined census on the canonical nontrivial token graph is independently useful as a benchmark. The sharp distinction between 189540 bases and 30 maximally separated bases is structural information not supplied by merely reporting a minimum dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

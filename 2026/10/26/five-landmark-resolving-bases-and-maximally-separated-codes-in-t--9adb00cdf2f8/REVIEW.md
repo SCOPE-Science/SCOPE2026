@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every one of the 45 states, 120 moves, 990 unordered pairs of states, 148995 candidate four-landmark subsets, and 1221759 candidate five-landmark subsets is covered by a complete deterministic enumeration. The bit-mask equivalence to the metric-resolving definition is exact. The certificate additionally verifies every induced symmetry automorphism, all orbit sizes, and the complete three-separated clique census. A replay from the standalone source returned the asserted values. The argument proves only the finite graph stated, without extrapolating to a family.
+## correctness
 
-**Originality — PASS, with residual risk.** Semantic comparison was made against the accessible foundational 2005 symmetric-square paper, the 2009 token-graph paper, Bailey–Cameron's 2011 treatment of underlying Petersen/Johnson/Kneser resolving sets, and the 2025 supertoken paper's general metric statements. These address different invariants, underlying graphs, or a collision-allowing construction; none supplies the specific 45-state metric-basis count, induced-orbit histogram, or maximally separated bases. Searches of published research records for the numerical claim, equivalent two-particle formulation, and resolving-set terminology did not reveal covering statements. Search incompleteness and unindexed earlier computations remain a genuine risk.
+PASS
 
-**Value — PASS.** Resolving sets are the exact minimum number of reference configurations needed to locate two indistinguishable particles by transition-distance readings. The complete count of optimal placements and their symmetry stratification gives a finite benchmark in an established network-identification invariant. The extra separation result is structurally motivated by wanting landmarks far apart: maximal three-separated packings have size five and every such optimal packing resolves the entire configuration space. The rare, distinguished 6- and 24-element symmetry orbits make this more than an unstructured scalar recomputation.
+The token adjacency construction has 45 states and 120 edges; BFS computes every one of 45×45 distances. For each landmark, the 990 pair-distinction indicators give an exact resolving criterion. Independently exhausted all C(45,4)=148995 four-subsets (none resolving) and C(45,5)=1221759 five-subsets (exactly 189540 resolving). Full induced 120-element S5 action yielded orbit sizes 1534×120, 90×60, 1×30, 1×24, 1×6. Full distance>=3 clique enumeration yielded 30 five-packings, none larger, and orbits 6+24. This finite universe was truly exhausted, not statistically sampled.
 
-**Limitations and integrity.** The result depends on a complete reproducible finite enumeration and makes no claim of an infinite theorem, independent priority certificate, or full-automorphism classification. Potential unindexed exact enumeration remains an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Definitions and structural theory of token graphs and metric dimension of the underlying Petersen graph are prior. None of the inspected foundational token-graph source text gives this complete 45-state resolving-set census or distance-three optimal packing orbit decomposition; exact earlier computer enumerations remain possible.
+
+## value
+
+PASS
+
+Metric dimension, resolving bases, and separated packing size are standard natural graph invariants; an exhaustive orbit-refined census on the canonical nontrivial token graph is independently useful as a benchmark. The sharp distinction between 189540 bases and 30 maximally separated bases is structural information not supplied by merely reporting a minimum dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
