@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every integer m≥2 and cycle lengths ℓ_i≥3, the directed-arc transitions and stationary probabilities are explicit. Deterministic tour elimination gives the full non-backtracking characteristic polynomial and yields K_nb from its simple root at 1; the ordinary edge constant follows from the one-separation effective-resistance identity plus edge/vertex nonzero-spectrum preservation. Differentiation proves the edge-minus-NB gap strictly increases in each length on the entire real orthant ≥3. One m≥3 baseline and four m=2 exact base cases finish the infinite sign classification. A standalone checker independently constructs arc transition matrices and verifies 799 exact rational comparisons. Periodicity and finite-check limitations are stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2203.12049 treats regular graphs, bipartite biregular graphs and cycle barbells, with finite numerical scans of other graphs; no all-parameter theorem for arbitrary heterogeneous bouquets is stated.",
+        "arXiv:2510.06650 explicitly distinguishes its vertex-based new definitions from the earlier edge-based constant and analyzes equal-length pinwheels."
+      ],
+      "reasoning": "A general all-connected-graph comparison theorem would imply the present statement, but the original literature explicitly reports exceptions and only family-specific conclusions. A generic Kirchhoff or Ihara formula could be specialized to these objects but does not imply the sharp sign classification without the new reduction/monotonicity analysis.",
+      "searches": [
+        "Kemeny constant nonbacktracking friendship graph pinwheel edge space comparison",
+        "Kemeny constant random walk hitting times nonbacktracking",
+        "arXiv:2203.12049 §§3–5",
+        "arXiv:2510.06650 introduction and §4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2203.12049",
+      "https://arxiv.org/abs/2510.06650",
+      "https://arxiv.org/abs/2007.03103",
+      "https://doi.org/10.1002/rsa.21144"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 cycle-barbell formula uses C_a⊕P_k⊕C_b and does not state the one-hub arbitrary-m cycle reduction.",
+        "The 2025 equal-length pinwheel results compute different vertex-space observables; the ordinary vertex one-sum resistance formula is a previously known component reused here.",
+        "The 2020 flower construction joins base graphs cyclically and does not study this non-backtracking arc-state classification."
+      ],
+      "reasoning": "The new theorem specifies arc-state chains, two explicit rational-symmetric formulas in M,S2,S3, strict monotonicity in every length, and a three-case exact sign classification for all m≥2. None is a stated corollary of the cited graph families or an already tabulated exact result; standard matrix identities are credited rather than claimed original.",
+      "searches": [
+        "arXiv:2203.12049 §5 Theorem 5.5",
+        "arXiv:2510.06650 §4.4 Lemmas 4.12–4.13",
+        "arXiv:2007.03103 resistance flower graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.06650 §4.4 defines uniform-length pinwheels but computes vertex-projected non-backtracking constants, not the arc-state Kemeny eigenvalue sum.",
+        "arXiv:2203.12049 §5 defines two cycles connected by a path and computes arc-space constants for that different construction."
+      ],
+      "reasoning": "The same bouquet graph object appears in the 2025 pinwheel discussion when lengths coincide, but the random target space and Kemeny observable differ. The 2022 arc-space barbell differs in graph structure; the general one-hub, unequal-length formula and its sign theorem are not equivalent to those stated results. The 2022 barbell transition matrix uses one-half probabilities at distinct degree-three hubs; the one-hub two-cycle bouquet uses one-third probabilities at its degree-four hub, ruling out an artificial path-length-one substitution.",
+      "searches": [
+        "nonbacktracking Kemeny bouquet cycles unequal lengths formula",
+        "Kemeny nonbacktracking bowtie Kemeny 49/4 201/14 33/2",
+        "arXiv:2510.06650 §4.4 Pinwheel Graphs",
+        "arXiv:2203.12049 §5 Cycle Barbells"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2203.12049 reports finite enumeration of graphs with minimum degree at least two, including numerical exceptional cases; numerical data at small sizes is not claimed new here.",
+        "The all-size formulas and complete sharp classification apply to arbitrarily large m and lengths and do not follow from any finite table."
+      ],
+      "reasoning": "Finite numerical listings may contain the three exceptional cycle bouquets. The contribution is the exact all-parameter family formulas and proof that no other exceptions can occur, not a novel finite record.",
+      "searches": [
+        "Kemeny nonbacktracking bowtie Kemeny 49/4 201/14 33/2",
+        "arXiv:2203.12049 small-graph numerical enumeration",
+        "nonbacktracking Kemeny bouquet cycles unequal lengths formula"
+      ]
+    },
+    "rationale": "Full pertinent sections of arXiv:2203.12049 (edge-space regular/biregular graphs, cycle barbells and small numerical graphs), arXiv:2510.06650 (vertex-space pinwheel comparison) and arXiv:2007.03103 (ordinary flower resistance) were compared by mathematical implication. Those works supply background and may include particular small examples but do not state or subsume the general heterogeneous one-hub arc-space formula and sharp all-size sign classification. Literature and semantic research searches revealed no equivalent result. Priority remains qualified by incompleteness of search.",
+    "residual_risks": [
+      "Numerical small-graph examples in the 2022 source may already include each small exceptional instance, so these instances are not separately claimed novel.",
+      "A prior equivalent heterogeneous cycle-bouquet identity may exist under another title or in unpublished work; search does not establish absolute priority.",
+      "The source published in 2025 is later than the 2022 source eligibility window but is relevant as supporting literature and a noncovering comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING full heterogeneous one-hub all-size sign theorem; overlaps numerical instances and standard edge/vertex relationship.",
+        "evidence": [
+          "First public preprint date 2022-03-22.",
+          "§5 cycle barbell is C_a⊕P_k⊕C_b; the paper derives NB edge formulas there and numerically examines small graphs.",
+          "Its displayed barbell transition matrix assumes distinct degree-three junctions and 1/2 branching probabilities, unlike the shared degree-four hub (1/3), so a formal k=1 substitution is not a covering theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.12049",
+        "material_read": "Full arXiv manuscript: introduction, spectral preliminaries, regular and biregular results, cycle-barbell construction/formulas, finite numerical discussion and conclusions.",
+        "method": "Compared graph objects, transition state spaces, formulas, listed small exceptions and implications of the proved theorems.",
+        "title": "Kemeny’s constant for non-backtracking random walks",
+        "trigger": "Earliest public source and closest exact arc-space comparison"
+      },
+      {
+        "assessment": "NOT_COVERING: same graph for equal lengths, but different Kemeny random-target state space and no arbitrary unequal-cycle edge-space comparison.",
+        "evidence": [
+          "Introduction explicitly differentiates newer vertex-space constants from the earlier edge-space definition.",
+          "§4.4 studies the 1-sum of k copies of an n-cycle and compares vertex-space quantities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.06650",
+        "material_read": "Full accessible arXiv HTML: definition and motivation of vertex-space constants; §4.4 uniform-length pinwheel Lemmas 4.12–4.13; conclusions and comparison question.",
+        "method": "Separated arc-state Kemeny from the two vertex-projected definitions, compared graph assumptions and quantifiers.",
+        "title": "On defining Kemeny’s constant for non-backtracking random walks",
+        "trigger": "Identical underlying uniform-length pinwheel graph family could dominate in a different formulation"
+      },
+      {
+        "assessment": "NOT_COVERING: its cyclic identification of base graph copies differs from one-hub bouquets, and it studies ordinary rather than non-backtracking edge Kemeny.",
+        "evidence": [
+          "Abstract and construction specify cyclic joining through selected pairs of base vertices.",
+          "Results concern resistance, Kirchhoff index and ordinary Kemeny constants."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.03103",
+        "material_read": "Accessible full arXiv HTML: introduction, generalized flower construction, resistance and ordinary Kemeny results.",
+        "method": "Compared exact graph identification construction and absence/presence of non-backtracking arc-space target.",
+        "title": "Resistance distance, Kirchhoff index, and Kemeny’s constant in flower graphs",
+        "trigger": "Name flower graphs and ordinary resistance/Kemeny formulas could overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54c961ec-b853-4a5a-b9e8-61fafc6efc41",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite family of unweighted one-hub cycle bouquets is a natural test of the 2022 non-backtracking-versus-ordinary edge Kemeny comparison, while its arbitrary cycle lengths can destroy symmetry. The theorem classifies every such graph, explains which two small obstructions reverse the expected order and proves a single tie, using a structural tour polynomial and a strict monotonicity theorem. This provides a motivated boundary on random-target hitting performance, not a numeric or routine substitution observation.",
+    "status": "PASS"
+  }
+}
