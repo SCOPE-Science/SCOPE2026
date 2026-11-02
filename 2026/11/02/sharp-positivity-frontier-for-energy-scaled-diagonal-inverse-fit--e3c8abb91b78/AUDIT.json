@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The weighted Frobenius objective expands to a strictly convex quadratic with Hessian A Hadamard A; SPD of this Hessian follows from the Schur product theorem. Normalizing yields the exact three-dimensional Cramer formulas, all coefficient sign boundaries including equality, a proof that two nonpositive coefficients cannot coexist, and strict positivity in smaller dimensions. A two-mode SPD check and direct inversion give a nonempty exact sign-loss window for the star family. Exact KKT conditions yield the unique nonnegative-cone minimizer and its positive rational gap; the open SPD cone has the same unattained infimum. The rational example has positive leading principal minors and one negative fitted diagonal, and a standalone standard-library exact-rational verifier passed 3614 grouped checks. Finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qu et al. optimize positive diagonal scalings for spectral condition number using quasi-convex/SDP formulations; no free-sign quadratic energy-weighted inverse fit.",
+        "Demmel addresses condition number for SPD block/diagonal Jacobi scaling; publisher abstract and bibliographic data were accessible, not its full text.",
+        "Amsel et al. resolve oracle-query complexity for ordinary Frobenius approximation with fixed sparsity, not positivity of the congruence-weighted optimal diagonal fit."
+      ],
+      "reasoning": "A general result for condition-number-minimizing positive scalings cannot imply a property of the unconstrained weighted-Frobenius minimizer. The Amsel objective has a different target and does not claim a cone KKT price. No stronger matching theorem was located.",
+      "searches": [
+        "arxiv:2209.00809 Theorem 3.1 Sections 1-3",
+        "doi:10.1137/22M1504901 abstract and MSC 65F35",
+        "\"Frobenius\" \"diagonal preconditioner\" \"indefinite\" approximate inverse",
+        "arxiv:2402.09379 fixed sparsity Frobenius"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.31982v1",
+      "https://arxiv.org/abs/2209.00809",
+      "https://doi.org/10.1137/22M1504901",
+      "https://arxiv.org/abs/2402.09379"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves neither a 3D sharp sign equivalence nor a minimal dimension nor an exact cone optimum; it already claims only qualitative possible loss of positive definiteness.",
+        "The closest published record proves an SPD threshold for a factorized additive forward/backward Gauss-Seidel inverse, not for an energy-weighted least-squares diagonal inverse."
+      ],
+      "reasoning": "The displayed threshold is a new statement about solving the Hadamard-square normal equations; those equations are absent from the stronger-looking but method-inapplicable Gauss-Seidel claim. Both conclusions can hold simultaneously without logical implication. A source lacking a full-text inspection is retained as residual priority risk, not declared to be absent of relevant material.",
+      "searches": [
+        "arxiv:2610.31982v1 Section 4.4.2 and Appendix A.3",
+        "arxiv:2209.00809 Section 2 and Theorem 3.1",
+        "arxiv:2402.09379 abstract and numerical approximation setup",
+        "published mathematical record: Additive bidirectional Gauss-Seidel inverse: exact SPD threshold and quadratic weak-coupling clustering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The gradient of the same objective produces (A Hadamard A)x=diag(A); the new sign formulas solve this system after correlation scaling.",
+        "The original matrix-free elemental-inverse source acknowledges a positivity issue without an all-SPD diagonal characterization."
+      ],
+      "reasoning": "The energy-congruence loss, squared-correlation normal equations, and diagonal sign criterion are algebraically equivalent forms compared explicitly. Generic ordinary Frobenius minimization of a diagonal target is not equivalent: it has different Hessian and linear term.",
+      "searches": [
+        "\"A∘A\" \"diag(A)\" diagonal approximate inverse positive",
+        "\"Hadamard square\" \"inverse\" \"ones\" positivity correlation matrix",
+        "\"diagonal\" \"Frobenius\" \"approximate inverse\" negative entries positive definite",
+        "arxiv:2610.31982v1 Section 4.4 equations (28)-(32)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper lists numerical convergence and sparse-pattern benchmarks plus an empirical diagonal shift, but no exhaustive table of three-by-three SPD correlation sign classes.",
+        "No inspected numerical table or database gives the symbolic sharp family penalty formula."
+      ],
+      "reasoning": "Numerical benchmark entries do not cover universal sign conditions in continuous SPD parameter space. An exact general classification is not implied by finitely tabulated numerical examples.",
+      "searches": [
+        "\"diagonal\" \"preconditioner\" \"weighted Frobenius\" \"indefinite\" least squares",
+        "\"optimal diagonal\" \"approximate inverse\" \"negative\" diagonal",
+        "arxiv:2610.31982v1 Tables 5-7 and Appendix A.3"
+      ]
+    },
+    "rationale": "The published construction states the congruence-weighted Frobenius objective and warns that symmetry alone does not ensure positive definiteness, but the relevant inspected sections do not establish the exact universal dimension-three positivity criterion or the quantitative cone correction cost. The condition-number diagonal scaling and ordinary fixed-sparsity Frobenius literatures optimize inequivalent objectives; a distinct published SPD Gauss–Seidel inverse threshold cannot imply the claimed normal-equation formulas. A bounded semantic search found no direct statement. Priority is supported under recorded access limits, not certified exhaustively.",
+    "residual_risks": [
+      "Full publisher text of Demmel (2023) was not accessed, although its objective is different in the abstract.",
+      "Only abstract-level material for the Amsel et al. fixed-sparsity manuscript was accessible in this pass.",
+      "Mathematical search and accessible records do not establish exhaustive historical priority, and no independent expert review was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OBJECTIVE_AND_QUALITATIVE_WARNING_PRIOR; EXACT_FRONTIER_NOT_FOUND_IN_INSPECTED_MATERIAL",
+        "evidence": [
+          "Section 4.4.1 defines the weighted Frobenius residual and sparse normal equations.",
+          "Section 4.4.2 explicitly says symmetry does not ensure SPD.",
+          "Appendix A.3 uses empirically doubled diagonal shifts rather than a sharp correlation criterion or cone-minimum formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31982v1",
+        "material_read": "Introduction, Section 4.4 equations (27)-(35), Appendix A.1-A.3 equations (36)-(41), numerical pattern comparisons around Table 7.",
+        "method": "Accessible arXiv HTML full text; inspected pertinent sections, equations and appendices.",
+        "title": "A Novel Matrix-Free Approximate Elemental Inverse for Efficient Preconditioning of Discontinuous Galerkin Spectral Elements",
+        "trigger": "Direct source defining the exact energy-scaled matrix inverse fitting objective and SPD-correction motivation."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_OBJECTIVE",
+        "evidence": [
+          "Its objective is minimization of spectral condition number over positive one-sided/two-sided scalings.",
+          "Its Frobenius baseline is separately noted as a comparison and enforces a different sparse residual formulation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+        "material_read": "Full-text introduction, problem setup and Sections 2-3 including Theorem 3.1, with attention to the ordinary Frobenius baseline.",
+        "method": "Accessible arXiv full-text parsed display; directly compared objectives and quantifiers.",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Potential coverage by stronger optimized-diagonal-preconditioner theory."
+      },
+      {
+        "assessment": "LIKELY_DIFFERENT_CONDITION_NUMBER_OBJECTIVE; LIMITED_MATERIAL",
+        "evidence": [
+          "Publisher abstract states minimizing the condition number of DAD and bounds for block-Jacobi scaling, not free-sign weighted Frobenius inverse fitting."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1504901",
+        "material_read": "Publisher abstract, bibliographic information and available paper excerpts only.",
+        "method": "Publisher landing page and bibliographic extracts; full text not accessible in this pass.",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "Closest diagonal-preconditioning scope and SPD scaling literature."
+      },
+      {
+        "assessment": "DIFFERENT_FROBENIUS_TARGET; LIMITED_MATERIAL",
+        "evidence": [
+          "The stated theorem concerns query complexity of ordinary fixed-sparsity Frobenius approximation; no SPD-constrained, inverse-congruence loss is specified in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.09379",
+        "material_read": "Available preprint abstract, stated oracle complexity results and publisher abstract; full arXiv HTML request failed.",
+        "method": "arXiv abstract and publisher landing page; full text not accessible in this pass.",
+        "title": "Fixed-Sparsity Matrix Approximation from Matrix-Vector Products",
+        "trigger": "Plausible domination by generic sparse Frobenius approximation theorems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e3c8abb9-1b78-4de4-b4c0-5295dceb4c80",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Diagonal (Band1) support is a naturally motivated sparse approximate inverse pattern. The sharp classification converts an existing qualitative positivity warning into an exact necessary-and-sufficient test for every 3-by-3 SPD input; the minimal dimension and nonempty phase window explain when the simplest case fails. The exact convex-cone objective penalty quantifies the price of repairing the fit in the same metric, a precise datum useful in preconditioner design. No general PDE result or practical iteration guarantee is asserted.",
+    "status": "PASS"
+  }
+}
