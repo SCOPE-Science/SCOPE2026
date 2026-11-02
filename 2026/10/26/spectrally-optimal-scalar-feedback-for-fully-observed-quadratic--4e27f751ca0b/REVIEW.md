@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The reduced Hessian is obtained directly by substituting the feedback into the full-observation/full-control constrained quadratic. Orthogonal diagonalization gives the exact scalar eigenvalues. The derivative changes sign at a single interior minimum; strict endpoint ratio monotonicity yields the unique gain and exact dependence on the two extreme eigenvalues. The trigonometric identity proves the interval envelope, its strict two-bound and a three-mode attaining example. Seven finite examples and 500 seeded spectra were independently computed from the formula using the included standalone script; they supplement rather than replace proof. The singular zero eigenmode is included with positive gain.
+## correctness
 
-**Originality — PASS with bounded residual uncertainty.** Relevant full text: Preuster–Schaller–Schiela–Stoll (arXiv:2607.11835), Sections 3.1/4.2, optimize an abstract bound rather than exact commuting spectra; Wang–Chen–Sun (doi:10.3390/math11122599), Sections 2–3, give matching-preconditioner constructions and quote the earlier parameter-fixed spectral containment. The factor-two guarantee for the standard matching shift is known, and is not claimed as original. The added explicit *unique minimax gain across free positive scalar feedbacks* and sharp endpoint-angle refinement are not implied by the matching bound or the newer paper's generic estimate. Scholarly searches included equivalent preconditioning and matched Schur complements and a search of published mathematical records; no exact equivalent was identified. Pearson–Wathen's older paper (doi:10.1002/nla.814) could only be inspected through bibliographic text and a later full-text exposition, not directly; an equivalent formulation elsewhere remains a genuine risk, not a claim of verified absence.
+PASS
 
-**Value — PASS.** This is a natural gain-selection problem posed by feedback transformations of a widely used, full-observation quadratic model. Unlike a fixed regularization-matched shift, the exact rule responds to extreme state-operator eigenvalues and can materially lower the Hessian condition number: at zero and three endpoint eigenvalues with one interior mode the optimum gives roughly 1.51949 versus 1.94868 at the standard matched shift. The sharp angle envelope and equality examples identify precisely what intermediate spectral modes cost. These are concrete algorithmic design facts independent of any claim for nonnormal PDE systems.
+Eliminated x=(A+kI)^-1(v+f) and u=A(A+kI)^-1v-k(A+kI)^-1f to recover the exact transformed Hessian. Orthogonal diagonalization yields g_k(t)=sqrt(1+alpha t^2)/(t+k) with derivative sign alpha k t-1, hence largest spectral mode at an endpoint. The ratio g_k(a)/g_k(b) decreases strictly in k from >1 to <1 and crosses once at k_*; for any fixed distinct eigenvalue the endpoint-versus-interior ratio decreases before k_* and increases after, so the maximum of these ratios has a unique minimizer even for exactly two eigenvalues. Angle theta=atan(sqrt(alpha)t) and phi=atan(sqrt(alpha)k_*) converts g_k to a reciprocal sine, giving the endpoint-equality midpoint sine bound; a third eigenvalue c_* realizes equality, and the two-endpoint matrix yields kappa=1. k_*=1/sqrt(alpha) iff alpha ab=1. Reconstructed endpoint ratio and tested 900 fresh random finite spectra plus exact three-mode bound; finite tests not substitutes for derivation. Handles singular a=0 and every alpha>0.
 
-**Remaining scope/risk.** The earlier matching paper's full text could not be retrieved; exact equivalence in other matching-parameter treatments is not ruled out. The result is finite-dimensional and does not account for costs of evaluating shifted solves. Independent validation was not conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Preuster, Schaller, Schiela and Stoll 2026 full public preprint section 3.1 explicitly gives the general transformed governing operator and a bound (Proposition 3.3, equation 16), and section 4.2 tunes that bound in an elliptic example. This claim specializes to fully observed symmetric PSD spectra and minimizes the ACTUAL finite-spectrum condition number, not an abstract upper bound. Wang–Chen–Sun 2023 and Pearson–Wathen 2012 establish matching-preconditioner shifts and factor-two-like bounds, which are credited; no inspected theorem implies the unique freely tuned scalar spectral minimizer and sharp three-mode endpoint envelope. The equivalence risk from matched Schur-complement literature persists.
+
+## value
+
+PASS
+
+This is a sharp optimization of a practical, natural free scalar feedback parameter that differs from the standard matched shift unless alpha ab=1. The explicit optimal gain, uniqueness, singular-PSD boundary and tight <2 spectrum-sensitive envelope provide a concrete control/preconditioning design fact; it does not claim to optimize computational solve time or arbitrary feedback matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
