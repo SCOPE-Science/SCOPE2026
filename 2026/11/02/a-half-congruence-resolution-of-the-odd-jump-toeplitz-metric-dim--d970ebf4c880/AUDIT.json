@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The finite-interval distance formula follows from a signed-jump lower bound plus explicit paths for both optimal jump counts, including the small-gap boundary case. The five-row residue difference table is injective for every k>=3 and separates all vertex pairs with landmarks 0,1,2k+1. The only possible resolving pair consists of endpoints; at n=b+2 a specific collision appears, and at n>=b+3 a six-versus-five distance count excludes it. Independently generated BFS tests verified 21,945 ordered source–target distances across 13 graphs, as well as the stable residue expressions for k=3,...,300. Finite checks are not substituted for the full proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu et al., DOI 10.1109/ACCESS.2019.2938579, Section III treats three-generator jumps only 3 through 6.",
+        "Nadeem et al. 2022 Theorem 6 proves the even b case and separately conjectures odd b.",
+        "Luo et al. 2022 and Koam et al. 2024 study resolving partitions, which cannot directly supply the vertex basis."
+      ],
+      "reasoning": "No inspected theorem has matching premises with a stronger assertion implying the present all-length odd-jump result. The 2022 even theorem and 2019 small-jump theorem are disjoint parameter classes; partition dimension is a different invariant.",
+      "searches": [
+        "\"metric dimension\" \"Toeplitz\" \"odd\" \"1,2\" conjecture",
+        "\"Nadeem\" \"Toeplitz\" \"conjecture 2\" resolved",
+        "\"Computing the partition dimension of certain families of Toeplitz graphs\" \"1, 2\"",
+        "\"Metric Dimension of Some Generalized Families of Toeplitz Graphs\" cite \"odd\" 2025"
+      ]
+    },
+    "checked_sources": [
+      "2019 DOI 10.1109/ACCESS.2019.2938579, full author-uploaded text, Sections II–V.",
+      "2022 DOI 10.1155/2022/9155291, openly accessible full HTML, Sections 3.3–4.",
+      "2022 DOI 10.3389/fncom.2022.959105, full Frontiers article, Section 3.",
+      "2024 DOI 10.1155/2024/4721104, full openly available article, Section 2."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6 and Conjecture 2 in the 2022 primary source separate the even and odd cases.",
+        "The 2019 IEEE Access Section V explicitly poses the three-generator t>=7 metric-dimension problem.",
+        "2022 partition-dimension Theorem 3.1 does not produce three actual landmark vertices."
+      ],
+      "reasoning": "Even-jump and small-jump formulas do not imply odd b=4k+1. A partition of the vertices into four distance-resolving classes cannot be converted automatically to the specific three-point landmark basis, so there is no strong prior implication in the inspected primary statements.",
+      "searches": [
+        "\"Computing metric dimension of certain families of Toeplitz graphs\" \"1,2\" \"odd\"",
+        "\"Toeplitz\" \"1,2\" \"4k+1\" metric dimension",
+        "\"Toeplitz\" \"1, 2\" \"odd\" \"resolving\" 2024 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2022 DOI 10.1155/2022/9155291 Section 4 formulates the odd-jump metric-dimension conjecture under its original notation.",
+        "Graph edge definition is absolute index difference in {1,2,b}; translated index labels do not alter the graph.",
+        "Searches of the variants \"Toeplitz graph\", \"distance graph\", and \"resolving set\" yielded no equivalent solved b=4k+1 theorem."
+      ],
+      "reasoning": "The statement is not a distinct renaming of the 2022 even-jump theorem: every b here is odd, outside the proved range. Equality dim=3 follows from and is strengthened by an explicit resolving basis valid for all n.",
+      "searches": [
+        "\"Toeplitz\" \"1,2,β\" odd metric dimension conjecture solution",
+        "\"Toeplitz\" \"1,2,11\" \"metric dimension\"",
+        "\"Toeplitz graph\" \"1,2,13\" \"metric dimension\"",
+        "\"Toeplitz graphs\" \"metric dimension\" \"odd jump\" resolving set"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted graph-parameter and OEIS search returned no exact series/table for the b=4k+1 three-generator family.",
+        "A generic hypercube metric-dimension OEIS entry is about a different graph family, not a comparison."
+      ],
+      "reasoning": "The theorem ranges over two unbounded parameters, rather than a single numerical sequence. No exact database row found with equivalent all-parameter implication; database absence is not proof of novelty.",
+      "searches": [
+        "OEIS metric dimension Toeplitz graphs 1 2 13",
+        "\"Toeplitz graph\" \"1,2,13\" \"metric dimension\""
+      ]
+    },
+    "rationale": "The 2022 primary source explicitly conjectures the odd-parameter case and proves the corresponding even-jump result. Earlier 2019 metric-dimension work establishes only jumps <=6 for three generators; 2022 and 2024 Toeplitz partition-dimension articles do not imply a 3-landmark metric basis for odd b>=13. Targeted semantic mathematical-record and published-literature searches identified no equivalent result. The original lower-bound device and explicit uniform basis are distinguished from the previously conjectured scalar equality. Publication priority remains subject to unindexed literature.",
+    "residual_risks": [
+      "Published or unindexed work under alternate distance-graph nomenclature could contain an equivalent b=4k+1 theorem.",
+      "A 2025 broad metric-dimension review was not accessible in full (publisher access denied); it might cite additional sources.",
+      "The checked record corpus is incomplete, so the absence of a search hit does not establish global publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit odd-jump conjecture, only even-jump theorem established; no proof of b=4k+1 case in these sections.",
+        "evidence": "Theorem 6 Section 3.3 assumes even b>=10; Section 4 Conjecture 2 posits dim=3 for odd b>=11; first published 2022-03-12.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2022/9155291",
+        "material_read": "Full openly available HTML, especially introductory definitions, Section 3.3 Theorem 6 and proof, Section 4 Conjecture 2, references.",
+        "method": "Read the primary full-text HTML and compared jump-parity and quantifiers.",
+        "title": "Metric Dimension of Some Generalized Families of Toeplitz Graphs",
+        "trigger": "Direct motivating conjecture for three-generator Toeplitz graphs."
+      },
+      {
+        "assessment": "Three-generator results restricted to b=3,4,5,6; b>=13 not covered.",
+        "evidence": "Section III says it treats T_n<1,2,t> only t=3,4,5,6; Section V asks whether t>=7 has constant dimension.",
+        "identifier_or_url": "https://doi.org/10.1109/ACCESS.2019.2938579",
+        "material_read": "Full author-uploaded CC BY full text exposed on ResearchGate; Sections II, III, IV and V, including jump parameters of all three-generator theorems.",
+        "method": "Examined original full-text transcription and parameter ranges.",
+        "title": "Computing Metric Dimension of Certain Families of Toeplitz Graphs",
+        "trigger": "Earlier primary Toeplitz metric-dimension source by overlapping authors."
+      },
+      {
+        "assessment": "Results concern partition dimension, not metric dimension; its three-generator proof explicitly handles t=3,4,5 or even t, not t>=13 odd.",
+        "evidence": "Section 3 restricts the parameter to 3,4,5 and even values; the invariant is pd rather than dim.",
+        "identifier_or_url": "https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2022.959105/full",
+        "material_read": "Full freely accessible HTML, especially Introduction and Section 3 Theorem 3.1 and the conclusions.",
+        "method": "Compared partition-distance vectors with landmark-distance metric bases and quantified allowed jumps.",
+        "title": "Computing the partition dimension of certain families of Toeplitz graph",
+        "trigger": "Closest alternative dimension parameter for the same graph notation."
+      },
+      {
+        "assessment": "Different parameter (partition dimension) and different graph-generator scope; not a theorem providing the claimed basis.",
+        "evidence": "Sections 1–2 investigate resolving partitions for T_n<3,t> and related families, not dim T_n<1,2,4k+1>.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1155/2024/4721104",
+        "material_read": "Open full HTML, abstract, graph definitions, theorem topics and Section 2 parameter cases.",
+        "method": "Compared the theorem objects (resolving partitions versus vertex metric bases).",
+        "title": "On the Constant Partition Dimension of Some Generalized Families of Toeplitz Graph",
+        "trigger": "Newer plausibly stronger coverage of Toeplitz dimensions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d970ebf4-c880-4dcb-8aa3-b0d58a54172b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding settles one full parity subfamily of a precisely stated infinite-parameter 2022 conjecture with a basis independent of graph order. Its boundary-independent exact Toeplitz metric and injective residue signature explain the mechanism and give reproducible ways to design metric landmarks. The k>=3 family is not an arbitrary numerical slice: b≡1 mod4 is the congruence class where one fixed three-landmark choice resolves every interval.",
+    "status": "PASS"
+  }
+}
