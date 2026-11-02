@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "A fixed-point-free involution exchanges matching assignments for repeated divisor or target prime-support neighborhoods; when n is squarefree and target supports exhaust all subsets, decreasing-support induction forces exactly one complement matching. An AP can realize half multiples of every prime only with at most two prime factors; two-prime case forces 2 and 3 and exact congruences. Finite exact independent gcd-DP verified 12,320 triples; unrestricted proof does not depend on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McNew–Pomerance, arXiv:2604.05304, Theorem 2 and Section 6 establish squarefree existence and propose strong matchability.",
+        "Alekseyev, arXiv:2610.37512v1, Theorem 1.1 characterizes whether a match exists by counts of progression multiples, without counting matches."
+      ],
+      "reasoning": "A theorem guaranteeing existence even for all arithmetic progressions does not imply that only primes or six can admit a unique matching; additional parity and support-pattern arguments are necessary. The later 2026-10-27 comparison source is not used to set the primary first-public date.",
+      "searches": [
+        "arXiv 2610.37512 unique coprime matching number of bijections",
+        "Unique coprime perfect matching between positive divisors D(n) and arithmetic progression a,a+b,...; prime n or n=6; parity even matchings otherwise",
+        "arxiv:2604.05304",
+        "arxiv:2610.37512v1"
+      ]
+    },
+    "checked_sources": [
+      "N. McNew and C. Pomerance, Matchable numbers, arXiv:2604.05304, sections 1-6 (existence and density).",
+      "M. A. Alekseyev, Coprime matchings of divisor sets, arXiv:2610.37512v1, Theorems 1.1-1.3 (existence criteria, later comparison only).",
+      "OEIS A394994, list of matchable integers (existence only).",
+      "Pomerance and Selfridge (1980), Newman coprime mapping conjecture (interval-to-interval existence)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "McNew–Pomerance 2026 Theorem 2: squarefree n are matchable, without uniqueness conditions.",
+        "Alekseyev 2026 Theorem 1.1: prime-by-prime inequalities equivalent to existence for an arithmetic progression.",
+        "Theorem here: for every target set, odd matching count iff unique, and for all progressions unique iff n=1, n prime with one multiple, or n=6 with explicit congruences."
+      ],
+      "reasoning": "The established necessary/sufficient inequalities classify zero versus positive count; they neither imply the parity of a positive count nor single out n=6. Conversely, our parity/uniqueness classification cannot recover their full existence theorem, so the statements are logically incomparable rather than a renamed special case.",
+      "searches": [
+        "coprime divisor matchings unique pairing prime factors arithmetic progression only n=6 primes odd parity",
+        "Unique coprime perfect matching between positive divisors D(n) and arithmetic progression a,a+b,...; prime n or n=6; parity even matchings otherwise",
+        "McNew Pomerance Matchable numbers arXiv 2604.05304 multiplicity parity count matchings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The matching count is the permanent of the zero-one gcd-incidence matrix.",
+        "The new theorem determines exactly when this permanent is odd, and in that case proves it equals one; Boolean-complement forcing supplies uniqueness.",
+        "arxiv:2604.05304 Section 6 discusses progression existence, not permanent parity."
+      ],
+      "reasoning": "The permanent mod 2 equals determinant mod 2, but identical support profiles force vanishing and all Boolean patterns force a unitriangular complement matrix. This solves an exact multiplicity question distinct from the prior existence predicate.",
+      "searches": [
+        "coprime divisor matchings unique pairing prime factors arithmetic progression only n=6 primes odd parity",
+        "perfect matching parity incidence matrix Boolean lattice divisibility patterns for divisors",
+        "prime divisor set coprime bijections to arithmetic progression uniqueness n=p or n=6",
+        "arxiv:2604.05304",
+        "arxiv:2610.37512v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A394994 tabulates existence of a coprime matching from D(n) to [1,tau(n)]; it does not tabulate multiplicities.",
+        "Finite independent direct matching computations in verify.py check 12,320 progressions, but are not a literature database."
+      ],
+      "reasoning": "A list of numbers with at least one matching does not determine whether the match is forced; the unique initial-interval classification n=1,2 is a sharper invariant than this entry.",
+      "searches": [
+        "squarefree divisor set unique matching perfect matching Boolean subset complement gcd support bijection",
+        "McNew Pomerance Matchable numbers arXiv 2604.05304 multiplicity parity count matchings",
+        "OEIS A394994 Matchable numbers"
+      ]
+    },
+    "rationale": "The complete claim about parity and unique multiplicity is neither stated in the inspected McNew–Pomerance existence/density results nor in the later Alekseyev existence criterion; OEIS supplies an existence table only. Searches of mathematical records under matching/permanent/support-profile aliases returned no covering claims. Residual priority risk remains for older implicit combinatorial formulations.",
+    "residual_risks": [
+      "Boolean-disjointness incidence and unique matching may be folklore under different terminology; earlier unindexed proofs have not been excluded.",
+      "The 1980 classical paper was available only as an extract and was not read in full.",
+      "Semantic index searches are not an exhaustive mathematical priority proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes existence, density and strong-matchability bounds; no exact uniqueness/parity classification of number of assignments.",
+        "evidence": [
+          "arXiv:2604.05304 Sections 1,2,3,4,5,6; Theorem 2 and Propositions 4–6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.05304",
+        "material_read": "Abstract; Introduction; preliminaries; squarefree matching methods and statements; Section 5 M-numbers; Section 6 strongly matchable progressions and references.",
+        "method": "Direct examination of accessible arXiv HTML with sections and theorem statements.",
+        "title": "Matchable numbers",
+        "trigger": "Same divisor-set coprime matching object; earliest relevant primary source."
+      },
+      {
+        "assessment": "Theorems characterize existence; no theorem on parity/uniqueness of the permanent or primes-and-six exceptional family. First public 2026-10-27 is after the 2026-10-25 cohort anchor, so it serves comparison only, not the motivating source.",
+        "evidence": [
+          "arXiv:2610.37512v1 Theorems 1.1–1.3, Lemma 2.1, Sections 5–6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.37512v1",
+        "material_read": "Abstract, Theorems 1.1–1.3, Vandermonde matching lemma, progression and divisor criteria, Section 6 consequences.",
+        "method": "Direct inspection of accessible HTML sections, including the main existence theorem and proof outline.",
+        "title": "Coprime matchings of divisor sets",
+        "trigger": "Later paper with exactly the same divisor-to-progression matching setting; possible dominating coverage."
+      },
+      {
+        "assessment": "Lists the input integers admitting a matching, not the matching multiplicities.",
+        "evidence": [
+          "OEIS A394994 definition and comments"
+        ],
+        "identifier_or_url": "https://oeis.org/A394994",
+        "material_read": "Entry definition, initial values, mathematical comments, linked source information.",
+        "method": "Read accessible OEIS entry text.",
+        "title": "Matchable numbers (OEIS A394994)",
+        "trigger": "Potential exact database/table listing positive matchings."
+      },
+      {
+        "assessment": "Existence for an interval-to-interval coprime bijection. Different left-set object; a possible background priority source but not decisive coverage.",
+        "evidence": [
+          "Pomerance–Selfridge 1980, Theorem 1 as quoted in publisher extract"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/mathematika/article/abs/proof-of-d-j-newmans-coprime-mapping-conjecture/3375EFB93EEAE2F48FD7B602DD52197E",
+        "material_read": "Accessible abstract/extract (Theorem 1), bibliographic record; full paper not obtained.",
+        "method": "Publisher extract, not whole document.",
+        "title": "Proof of D. J. Newman’s coprime mapping conjecture",
+        "trigger": "Classical root for coprime matching between intervals."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "509fcc49-c237-456a-b207-2111c097b733",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural multiplicity refinement of divisor-set matchability has an exact universal parity/rigidity theorem, a complete classification against every arithmetic progression, a sharp exceptional composite n=6, and an exact answer n=1,2 for the original initial interval. These results distinguish forced arithmetic assignments from mere existence and exclude every squarefree n with at least three prime factors. The count for positive even multiplicities is not determined.",
+    "status": "PASS"
+  }
+}

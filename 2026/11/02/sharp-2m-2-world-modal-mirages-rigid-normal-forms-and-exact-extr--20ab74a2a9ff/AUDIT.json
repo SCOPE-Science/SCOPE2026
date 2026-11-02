@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Semantics give N_(j+1)=pre(P_j), P_j={w:R(w) subset N_j}. A minimal-index contradiction proves every N_i disjoint from every P_j; a separator in N_(m+1)\\N_m forces m+1 distinct new N layers and m+1 distinct new P layers. Equality gives unique roles a_i,b_j and the exact necessary-and-sufficient arc constraints; each optional edge can be chosen independently, yielding E_m=(m+1)^2+m^2. A path gives the matching upper bound. The checker exhaustively tests all relations on <=4 worlds, all canonical m<=2 patterns, and additional boundary cases, returning ALL_CHECKS_OK. Infinite quantification is discharged by the written proof, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alpay–Basaran Lemma 2 supplies a path on 2m+2 worlds but says this does not prove minimum; Table 3 checks m=1,2,3 only.",
+        "Comin–Rizzi concerns safe alternating reachability and graph decomposition rather than exact counts of one-relation modal first-separation frames."
+      ],
+      "reasoning": "The strongest directly overlapping paper supplies the known upper bound and three finite minimality verifications, not the present universal lower bound, equality classification, rigidity, or edge enumerator. A general game-theory algorithm computes rank strata but does not dominate the exact structural classification without further counting arguments.",
+      "searches": [
+        "Finite Kripke semantics bounded indistinguishability GPU alpha2 alpha3 box diamond iterations stabilization threshold",
+        "uniform sharp minimum size for modal formula iterates (□◇)^m ⊤ vs (□◇)^(m+1) ⊤",
+        "Faruk Alpay Baris Basaran modal mirages uniform path separation family all m sharp lower bound census minimal K countermodels",
+        "arxiv:2606.15437 Lemma 2, Proposition 5, Table 3",
+        "arxiv:1610.09679 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15437 (full-text manuscript transcription, Section 7 and 11)",
+      "arxiv:1610.09679 (abstract only)",
+      "Published semantic research search results for equivalent modal and graph-game normal forms",
+      "prior finding claims in the previous research collection snapshot"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior all-m statement: existence of a 2m+2-world path; it is an upper bound and does not entail a lower bound for all frames.",
+        "Prior m<=3 SAT checks prove only three parameter instances.",
+        "Present two-disjoint-layer proof proves a 2m+2 lower bound, and equality forces unique singleton layers and independent optional arcs."
+      ],
+      "reasoning": "The prior path construction establishes min_size(m)<=2m+2. It does not entail min_size(m)>=2m+2 for every m; finite SAT proofs for m<=3 cannot imply the uniform statement. Neither statement implies the exact count or rigidity. The newly proved disjoint-layer lemma is the missing implication.",
+      "searches": [
+        "arxiv:2606.15437 §7 Proposition 5, Lemma 2 and Table 3",
+        "Sharp minimum Kripke frame size distinguishing (box diamond)^k top from (box diamond)^(k+1) top; modal mirage alternating path depth",
+        "uniform sharp minimum size for modal formula iterates (□◇)^m ⊤ vs (□◇)^(m+1) ⊤",
+        "Web: modal logic Kripke Box Diamond top iteration exact minimum 2n+2 frame"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finite game retrograde rank is a plausible dual formulation of N/P filtrations; general win/lose propagation is standard (for example, Comin–Rizzi, arXiv:1610.09679, concerns graph games).",
+        "No inspected source states the 2m+2 uniform minimum together with 2^(2m^2+2m+1) rigid-extremizer classes."
+      ],
+      "reasoning": "The alternation of existential predecessors with successor containment is the classical N/P propagation for normal-play game positions. That identification alone does not imply a published all-m modal minimum or classify and count equality frames. Searches for both logical and game interpretations found no covering theorem; priority under alternate terminology remains a risk.",
+      "searches": [
+        "Sharp minimum Kripke frame size distinguishing (box diamond)^k top from (box diamond)^(k+1) top; modal mirage alternating path depth",
+        "Alternating box diamond top fixed point finite frame rank sharp small models",
+        "count extremal normal-play directed graphs with winning/loss layers one vertex each, finite game retrograde ranks",
+        "Web: \"winning positions\" \"losing positions\" \"one vertex per rank\" directed graphs",
+        "Web: \"box diamond\" iteration \"modal\" \"rank\" finite frame"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Alpay–Basaran Table 3 lists first separation sizes 4, 6, 8 for m=1,2,3; no full minimum-frame table appears in the inspected sections.",
+        "Exhaustive four-world checker reproduces 768 labelled minimal frames and 32 canonical isomorphism patterns."
+      ],
+      "reasoning": "A database of minimal sizes is not an exact census of all labelled/unlabelled relations. No consulted exact tables provide the claimed normal-form coefficient polynomial. The small computed counts are supplementary reproducibility, not a novelty proof.",
+      "searches": [
+        "exact number of labelled directed Kripke relations with a distinguished world separating successive iterates of box diamond truth top, 2m+2 worlds, 2^(2m^2+2m+1)",
+        "(□◇)^m top (□◇)^{m+1} top modal logic sharp minimal Kripke size labelled frames",
+        "finite Kripke frame modal alpha_m alpha_(m+1) 2m+2 unlabelled extremal rigidity",
+        "Web: \"box diamond\" \"top\" \"minimal\" \"Kripke\" \"path\" iterations"
+      ]
+    },
+    "rationale": "Primary full text of Alpay–Basaran, Proposition 5/Lemma 2/Table 3, gives all-m upper-path construction and numeric minimum m<=3 but explicitly withholds all-m minimality. No checked published result supplies the uniform two-stratum lower bound or the complete rigid-normal-form labelled/unlabelled census. published-finding corpus semantic searches with modal and equivalent graph-game descriptions returned records on other modal frames and finite paths, not a covering claim. Residual risk: older normal-play remoteness enumeration could be equivalent; the present assessment is not independent priority certification.",
+    "residual_risks": [
+      "Earlier graph-game remoteness or loopy impartial-game literature could contain an equivalent equality-census theorem under different terminology.",
+      "No independent mathematical or exhaustive historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS path upper bound and small-parameter minimum checks; NOT_COVERING uniform lower bound or rigidity/equality census on the inspected full-text material.",
+        "evidence": "Lemma 2 explicitly: path on 2m+2 worlds separates for each m, but does not by itself prove minimality; Table 3 reports SAT minimum m=1,2,3; Proposition 5 identifies six-world instance.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.15437",
+        "material_read": "Full-text publicly visible manuscript transcription, especially Section 7 Proposition 5, Lemma 2, Table 3 and discussion/limitations in Section 11.",
+        "method": "Read author-manuscript full text rendered on the publicly available ResearchGate publication page; compared exact mathematical statements and the stated limitation that the uniform path lemma is not a minimality proof.",
+        "title": "GPU-Accelerated Search and Certification of Bounded Indistinguishability in Finite Kripke Semantics",
+        "trigger": "Same modal alpha_m family and six-world counterexample; decisive possible coverage."
+      },
+      {
+        "assessment": "RELATED BACKGROUND; not enough material to exclude all game-theoretic equivalent results, but its stated target is an alternating SCC decomposition rather than the exact modal-extremizer count.",
+        "evidence": "It introduces safe alternating reachability and linear-time alternating SCC analysis on colored arenas.",
+        "identifier_or_url": "https://arxiv.org/abs/1610.09679",
+        "material_read": "Title, abstract and stated scope of the paper.",
+        "method": "Reviewed original arXiv abstract and search results; no claim of full-text inspection.",
+        "title": "Linear-Time Safe-Alternating DFS and SCCs",
+        "trigger": "Possible duality with win/lose alternating reachability and graph-game rank."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "20ab74a2-a9ff-4bd9-b304-7a47fc2d3146",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly presents the modal mirage family and a missing all-m minimality guarantee. The result supplies that guarantee and an exact structural classification: every minimum frame is forced to contain a spanning path, is rigid, and has an exact binomial edge census, with 2^(2m^2+2m+1) natural isomorphism classes. The count measures all optimal witnesses, rather than a contrived parameter slice or another isolated small example.",
+    "status": "PASS"
+  }
+}

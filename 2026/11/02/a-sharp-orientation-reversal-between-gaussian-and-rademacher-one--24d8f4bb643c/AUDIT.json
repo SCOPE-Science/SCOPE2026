@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For every nonzero \\(\\omega\\), Cayley–Hamilton gives \\(\\mathcal E(\\omega)=\\det(B)\\|\\omega\\|^2/(\\omega^\\top B\\omega)\\). For Gaussian sketches the unit direction is uniform and \\(\\int_0^{2\\pi}d\\theta/(\\lambda\\cos^2\\theta+\\mu\\sin^2\\theta)=2\\pi/\\sqrt{\\lambda\\mu}\\); for sign sketches the only two rays have Rayleigh quotients \\(s\\pm b\\). Exact monotonicity over \\(0\\le|b|\\le(\\lambda-\\mu)/2\\) yields both attainable endpoints and equality classes. Comparison with \\(\\sqrt{\\det B}\\) gives the crossover; a trigonometric measure calculation yields the bad-orientation frequency and asymptotic law. The standalone verifier passed 7,904 exact-rational algebraic checks and 1,123 numerical checks. Finite checks are supplemental, not proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Saibaba–Międlar arxiv:2308.05814, §§2–3, Theorem 5 and Appendix C: large-sample high-probability general sketches, including Rademacher and Gaussian; the listed bound conditions do not give the exact ℓ=1 comparison.",
+        "Diouane et al. arxiv:2206.08793, §4: an oversampled Gaussian Frobenius-error bound, not the exact sign/probe orientation threshold.",
+        "Halko–Martinsson–Tropp arxiv:0909.4061, §§4 and 9–10: randomized range-finding general analysis, not the stated sharp finite-dimensional comparison."
+      ],
+      "reasoning": "Read relevant methodological and guarantee sections of the strongest covering candidates. Their algorithms include the current estimator, but their general guarantees do not imply both exact Rademacher extremizers, equality cases, and the Gaussian/Rademacher crossing: general bounds are not exact fixed-spectrum conditional identities.",
+      "searches": [
+        "arxiv:2308.05814",
+        "arxiv:2206.08793",
+        "arxiv:0909.4061"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.05814 (relevant first-version primary sections)",
+      "arxiv:2206.08793 (relevant primary Gaussian bound sections)",
+      "arxiv:0909.4061 (foundational primary range-finder sections)",
+      "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (title and summary)",
+      "2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae (title and summary)",
+      "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 (title and summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of arxiv:2308.05814 supplies nonasymptotic bounds for sketches with sufficient columns but does not yield an equality for a single sign column conditioned on both singular values and right-singular orientation.",
+        "General Gaussian estimates in arxiv:2206.08793 and arxiv:0909.4061 do not specify sign-probe expected residuals or their orientation supremum.",
+        "The adaptive pivoting published-finding corpus record compares adaptive column selection error, not an independent sign-vector range sketch."
+      ],
+      "reasoning": "Existing method definitions trivially permit calculating the present rank-two case, but a method definition and nonsharp upper bound do not mathematically imply its sharp exact orientation classification without additional calculation. Neither a different projection algorithm nor a random ellipsoid section controls these conditional expected squared residuals.",
+      "searches": [
+        "arxiv:2308.05814",
+        "arxiv:0909.4061",
+        "arxiv:2206.08793",
+        "Rademacher Bernoulli sign probe versus Gaussian single-column randomized range finder exact mean squared Frobenius residual fixed right singular orientation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For any probe ω≠0, the squared Frobenius residual is det(B)||ω||²/(ωᵀBω), B=AᵀA. Equivalently the claim is a comparison of inverse Rayleigh-quotient averages over the circle versus the two diagonal sign rays.",
+        "Halko–Martinsson–Tropp, arxiv:0909.4061, §4 gives the range-projector formulation; it does not present this two-measure equality and orientation extremization."
+      ],
+      "reasoning": "Checked aliases including one-column randomized range finder, one-probe randomized SVD, fixed-spectrum two-by-two Gram matrices, random projection error, inverse Rayleigh-quotient averages, squared Frobenius low-rank residual, and Gaussian versus Bernoulli-sign sampling. None of the located inspected results stated or implied the exact joint classification.",
+      "searches": [
+        "2x2 rank-one randomized range finder exact expected Frobenius residual Gaussian singular-value product Rademacher right singular vector orientation",
+        "Rademacher versus Gaussian sketches matrix low rank projection approximation worst best orientation condition number 2 by 2",
+        "One-probe two-singular-value randomized range finder: Rademacher expected squared Frobenius error sharp between harmonic and arithmetic means of squared singular values; Gaussian error geometric mean",
+        "A sharp orientation reversal between Gaussian and Rademacher one-probe range finders harmonic arithmetic geometric mean Frobenius error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic records for adaptive randomized pivoting (2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee), random ellipsoid sections (2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae), and Haar subspace descent (2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248) concern different random objects and metrics.",
+        "Relevant primary randomized low-rank studies report bounds and experiments rather than a table of exact one-probe Rademacher-vs-Gaussian orientation errors."
+      ],
+      "reasoning": "No exact formula/database/table with the simultaneous geometric/harmonic/arithmetic and threshold statement was identified. The searched records are not taken as an exhaustive priority registry; their summary-level content is compared only as far as supported.",
+      "searches": [
+        "2x2 rank-one randomized range finder exact expected Frobenius residual Gaussian singular-value product Rademacher right singular vector orientation",
+        "Randomized SVD Gaussian one column 2x2 expected residual sigma_1 sigma_2; sign vector can produce arithmetic mean error",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae"
+      ]
+    },
+    "rationale": "Comparative searches of semantic research records and relevant primary full text identify established Gaussian/Rademacher randomized low-rank algorithms and broad probabilistic guarantees, but not the same exact fixed-spectrum two-dimensional single-probe orientation classification. The new result computes the Gaussian geometric mean, sign-probe harmonic-to-arithmetic full sharp interval, the exact crossover and adverse-orientation fraction. The conclusion remains qualified by residual risk of an unlocated earlier specialized derivation; no independent priority finding is asserted.",
+    "residual_risks": [
+      "An unlocated earlier exact two-by-two inverse-Rayleigh comparison or specialized randomized range-finder calculation may state an equivalent formula.",
+      "The present claim was not independently checked for global literature priority; semantic database search cannot certify uniqueness.",
+      "No general multicolumn or higher input dimension claims are made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Methodologically closest; theorems are non-Gaussian high-probability bounds rather than exact rank-one orientation laws",
+        "evidence": [
+          "Theorem 5 requires sample-size conditions and bounds a randomized low-rank approximation; no equality for a single two-dimensional signed vector was found in inspected relevant parts."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.05814v1",
+        "material_read": "First-version HTML abstract/introduction, sections 2–3, Theorem 5, Appendix C, and targeted in-page checks for orientation and exact single-column error",
+        "method": "Read publicly accessible full-text sections and compare theorem conditions and error quantities",
+        "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+        "trigger": "Direct motivating primary article treating Gaussian and Rademacher sketches"
+      },
+      {
+        "assessment": "Oversampled Gaussian inequalities, not the sign-vector two-column-input crossover",
+        "evidence": [
+          "Section 4 derives Gaussian randomized SVD expected error bounds with additional sketch columns, rather than an exact unoversampled comparison of probe distributions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.08793",
+        "material_read": "Accessible arxiv full article text, particularly Section 4 on Frobenius error and the oversampling conditions",
+        "method": "Read relevant primary source and check number-of-columns hypotheses",
+        "title": "A general error analysis for randomized low-rank approximation methods",
+        "trigger": "Potential stronger exact Gaussian Frobenius theorem"
+      },
+      {
+        "assessment": "Defines same range-projection mechanism, but does not supply the present paired exact finite-dimensional orientation frontier",
+        "evidence": [
+          "General oversampled randomized range finder analysis; Gaussian bounds not equivalent to the exact signed one-column conditional formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0909.4061v2",
+        "material_read": "Full HTML sections 4 and 9–10 and targeted text searches for sign probes and fixed orientation",
+        "method": "Read relevant source sections and compare probability measures and Frobenius quantity",
+        "title": "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions",
+        "trigger": "Foundational range-projector algorithm and possible broad covering theorem"
+      },
+      {
+        "assessment": "Adaptive column-subset pivoting is not a one-probe random linear combination range finder",
+        "evidence": [
+          "The published summary concerns the product of adaptive pivoting stages and column-subset projection error."
+        ],
+        "identifier_or_url": "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "material_read": "published-finding corpus title and scientific summary only; primary full text not claimed inspected",
+        "method": "Compare stated object and statistic in record summary against rank-one probe law",
+        "title": "Worst-case sharpness of multistage adaptive randomized pivoting",
+        "trigger": "Closest semantic record concerning random projection errors"
+      },
+      {
+        "assessment": "Different sampling geometry, no implication for sign-sampled range sketches",
+        "evidence": [
+          "The summary gives Haar random section radii and beta laws, not discrete Rademacher single-column sketches."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae",
+        "material_read": "published-finding corpus title and scientific summary only; primary full text not claimed inspected",
+        "method": "Compare random Haar section radii and scalar probability law to present Frobenius projection error",
+        "title": "Exact random-radius law for one-spike ellipsoids in every codimension",
+        "trigger": "Closest semantic record for random singular-value-conditioned geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24d8f4bb-643c-46cb-ae94-c0077e561d0c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A mathematically meaningful randomized low-rank approximation decision—Gaussian versus inexpensive sign probes—can reverse solely under right-singular basis rotation at fixed singular spectrum. The exact sign-probe approximation factor is as low as \\(2\\kappa^2/(\\kappa^2+1)<2\\) and as high as \\((\\kappa^2+1)/2\\), while Gaussian has \\(\\kappa\\); the exact rotation frontier and adverse-orientation measure quantify when each distribution wins. These structural boundaries are not mere renamings of the standard stochastic range-projection bounds and may inform sketch-distribution selection and robustness tests.",
+    "status": "PASS"
+  }
+}

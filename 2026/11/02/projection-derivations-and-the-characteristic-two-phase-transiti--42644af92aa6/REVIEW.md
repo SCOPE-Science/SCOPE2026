@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof derives every linear derivation from preservation of the intrinsic right annihilator and the full Jordan-block centralizer, then solves the projection equation without assuming algebraic closure or characteristic zero. In characteristic two, the even coefficients are polynomial squares of free odd coefficients; both the extra affine components and rank weights follow. The separate exhaustive matrix-space check for the smallest case and eleven complete parameter checks corroborate the all-field proof. Remaining correctness limit: the analysis is of reduced varieties, not their potentially nonreduced scheme structures.
+
+**Originality — PASS, with publication-priority risk.** The 2012 archival antecedent already computes the complex derivation structure of \(NGF_1\), so that part is credited, not new. Its actual theorem does not impose idempotence or address modular fields. A 2017/2021 grading classification assumes the complex field; it cannot account for the additional characteristic-two projection strata. The distinct published characteristic-two Leibniz automorphism-scheme finding concerns another family and another invariant. Source and equivalence comparisons found no published formula with the full characteristic-two reduced decomposition and rank enumeration; this is provisional rather than a proof of historical priority. A relevant 2014 derivations paper was only available at abstract level, and unindexed modular grading literature may be stronger.
+
+**Value — PASS.** Projection derivations are a natural nonlinear locus in the derivation algebra, equivalent in characteristic two to direct \(\mathbb Z/2\mathbb Z\)-graded splittings. The theorem classifies all such maps and their ranks for an infinite, standard filiform family, detects a sharp bad-characteristic change in geometric dimension, and gives exact counts for every finite field. These structural and arithmetic data are not just the dimension of the ambient derivation space.
+
+The results have not been independently audited, and the finite experiments do not independently certify the unlimited-field statement.
+
+Self-review: passed. Independent audit: not yet performed.

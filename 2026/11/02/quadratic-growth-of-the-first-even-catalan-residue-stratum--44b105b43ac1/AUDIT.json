@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Binary digit sum identifies all and only valuation-one Catalans. A factorial factorization proves exact horizontal valuation r+1. The odd-factor doubling product and denominator shift prove exact vertical valuation b+2. Strictly separated valuation scales make a rectangular grid injective modulo 2^k, giving the explicit lower bound; stabilization on both axes gives the upper bound. Integral and modular tests on a standalone package check boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xin–Xu Theorem 9 reduces all Catalan binary runs at any fixed modulus, potentially implying an upper bound.",
+        "Rowland–Yassawi Section 3.1 constructs automata at fixed modulus and lists forbidden residues through 512.",
+        "Liu–Yeh Theorem 5.3 gives a general upper bound on all Catalan residues."
+      ],
+      "reasoning": "The general methods dominate fixed-k computation and some upper estimates. Their inspected statements do not provide the uniform sharp adjacent gap valuation and the two-dimensional injection required for an all-k quadratic lower estimate. The upper bound alone is not treated as original.",
+      "searches": [
+        "Liu Yeh 2010 Theorems 5.2–5.3",
+        "Xin Xu 2011 Theorems 8–9",
+        "Rowland Yassawi arxiv:1310.8635 Section 3.1",
+        "Kauers Krattenthaler Müller arxiv:1107.2015 Catalan mod 2^k"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1012.1756 (Lin 2010)",
+      "doi:10.37236/664 (Xin and Xu 2011)",
+      "Journal of Integer Sequences 13 (2010), Article 10.5.4 (Liu–Yeh)",
+      "arxiv:1310.8635 (Rowland–Yassawi 2013)",
+      "OEIS A178854 (odd Catalan eventually constant values)",
+      "OEIS A289682 (Catalan modulo 16)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior odd layer has exactly k−1 classes (Lin).",
+        "Xin–Xu Theorem 8: fixed odd factor gives eventual constancy and distinct preceding dilates.",
+        "Theorem 9: binary gap lengths can be truncated, but no pairwise separation for varying both gaps is asserted."
+      ],
+      "reasoning": "The new conclusion requires showing Ω(k²) *different* images across varying odd factors and scales. Linear distinctness within each separate fixed odd-factor family cannot be summed without excluding cross-family coincidences. The proved independent adjacent valuations exclude those coincidences on an explicit rectangle, which is the missing implication step.",
+      "searches": [
+        "Lin 2010 Theorem 1.2 and Section 5",
+        "Xin Xu 2011 Theorems 8–9",
+        "Liu Yeh 2010 Theorems 5.2–5.3",
+        "Rowland Yassawi 2013 Section 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin 2010 Theorem 1.2 enumerates odd residues; Section 5 explicitly asks about fixed valuation even residues.",
+        "Xin–Xu 2011 Theorem 8 gives distinctness when a fixed odd factor is doubled, and Theorem 9 truncates long binary runs."
+      ],
+      "reasoning": "The term valuation-one slice is precisely the two-one-bit family, so the paper's gap-and-scale formulation is equivalent to counting that fixed valuation stratum. Xin–Xu's scale theorem captures one coordinate but does not assert joint transversality or quadratic lower bound.",
+      "searches": [
+        "2-adic valuations exact differences Catalan C_(2^a+2^b-1) first even Catalan numbers mod 2^k fixed valuation one and residue classes",
+        "2-adic residue classes of even Catalan numbers with valuation one, s2(n+1)=2, two-bit index",
+        "Lin arxiv:1012.1756 Sections 1,5",
+        "Xin Xu doi:10.37236/664 Theorems 8,9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A178854 tabulates an eventual odd Catalan residue, rather than first-even stratum counts.",
+        "Rowland–Yassawi lists finite fixed-modulus excluded values, not a uniform count for valuation-one values."
+      ],
+      "reasoning": "No inspected numeric table provides the universal quadratic bound or an equivalent arbitrary-k classification of the valuation-one image. The finite test values are disclosed as experimental corroboration only.",
+      "searches": [
+        "OEIS A178854 odd Catalan residues",
+        "OEIS A289682 Catalan numbers read modulo 16",
+        "Rowland–Yassawi Theorem 3.4 forbidden residues mod 32..512"
+      ]
+    },
+    "rationale": "The substantial new implication is a uniform quadratic lower count obtained from exact gap-axis separation; Lin treated only odd values and called for fixed-valution even analysis. Xin–Xu already proves fixed-factor dilation distinctness and truncation, and is explicitly credited for corresponding known aspects. The inspected original theorems do not state a joint quadratic lower bound. Historical priority remains qualified.",
+    "residual_risks": [
+      "A joint separation consequence might be derivable from an uninspected passage of older binary-digit congruence papers, without being stated as an explicit theorem.",
+      "No comprehensive historical uniqueness certification; indexed-source retrieval is not exhaustive.",
+      "Xin–Xu already supplies the scale-direction distinctness and run truncation; these portions alone are not new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes linear odd-residue count and explicitly leaves fixed-valuation even residues as future work.",
+        "evidence": "Theorem 1.2; Section 5, Going further.",
+        "identifier_or_url": "https://arxiv.org/abs/1012.1756",
+        "material_read": "Abstract and Sections 1, 3, 4 and 5, including Theorem 1.2 and open questions",
+        "method": "Accessible full-text HTML rendering of original preprint",
+        "title": "The odd Catalan numbers modulo 2^k",
+        "trigger": "Direct motivating odd-versus-even residue question"
+      },
+      {
+        "assessment": "Theorem 8 gives one-parameter scale distinctness; Theorem 9 gives congruence-preserving binary truncation. These subsume some upper-side arguments but do not state a quadratic first-even lower count.",
+        "evidence": "PDF pages 5–7, Theorems 8–9 and proof.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v18i1p177/pdf/",
+        "material_read": "Full statement and proof vicinity of Section 3, Theorems 8–9, plus abstract/introduction and examples",
+        "method": "Publisher open-access PDF, extracted text and page images inspected",
+        "title": "A short approach to Catalan numbers modulo 2^r",
+        "trigger": "Potentially dominating general even-Catalan congruence theorem"
+      },
+      {
+        "assessment": "General congruence formula and upper bounds for all residues; the stated results do not imply quadratic lower growth for the valuation-one slice.",
+        "evidence": "Theorems 5.2–5.3 and introductory overview.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL13/Liu2/liu6.pdf",
+        "material_read": "Abstract, introduction, Section 5 Theorems 5.2–5.3, and small-modulus classification outline",
+        "method": "Journal open-access PDF extracted text and page image",
+        "title": "Catalan Numbers Modulo 2^k",
+        "trigger": "Earlier general digit-truncation and forbidden residue coverage"
+      },
+      {
+        "assessment": "Finite-precision automata and forbidden residue tables, without a uniform two-parameter first-even growth theorem.",
+        "evidence": "Section 3.1, pages 12–14.",
+        "identifier_or_url": "https://ericrowland.github.io/papers/Automatic_congruences_for_diagonals_of_rational_functions.pdf",
+        "material_read": "Introduction, general automaticity theorem, Section 3.1 full Catalan discussion including Theorems 3.2–3.4 and Open Question 3.5",
+        "method": "Author-hosted lawful open-access PDF extracted text and page 12 image",
+        "title": "Automatic congruences for diagonals of rational functions",
+        "trigger": "Automata could enumerate Catalan residue images and potentially dominate the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "44b105b4-3ac1-4180-985c-252ecca3808a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Lin explicitly raises counting even Catalan values of fixed valuation. The theorem determines the order of growth of the first such layer uniformly for every modulus exponent. Its two independent valuation scales yield an effective quadratic injection, not merely an algorithm for individual moduli or a routine one-dimensional count. A sharp asymptotic constant is left open.",
+    "status": "PASS"
+  }
+}

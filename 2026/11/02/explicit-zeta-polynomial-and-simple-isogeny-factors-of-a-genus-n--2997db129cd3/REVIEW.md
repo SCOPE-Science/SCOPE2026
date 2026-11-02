@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The smooth normalization and genus-\(9\) elliptic-cover presentation agree with the motivating source's Proposition 7.2; the covering equation is additionally checked by an exact elimination identity. All eight simple Artin–Schreier poles are counted separately, including infinity and the exceptional affine fibers. Exhaustive enumeration by two algebraically different counting formulas determines the first nine extension-field point counts. Newton's identities and the genus-nine Weil functional equation uniquely fix the degree-eighteen zeta numerator. A direct integer-polynomial product recovers the displayed factorization; three additional field counts provide redundancy. Rational simple-factor dimensions follow from exact irreducibility tests and the classical finite-field isogeny theorem. The two embedded programs were executed with the outputs `VERIFY_OK` and `SIMPLE_FACTOR_VERIFY_OK`.
+
+## Originality — PASS, qualified
+Proposition 7.2 of Tafazolian's arXiv:2609.14830v1 presents this precise \(\mathbb F_2\) curve but does not compute its Hasse–Weil polynomial or complete simple-factor isogeny decomposition. Inspection of the paper's construction, ramification, and explicit-example sections establishes the distinction between geometric automorphism/ordinarity results and this arithmetic Frobenius determination. The earlier genus-nine examples of Giulietti and Korchmáros (arXiv:1104.5159, Section 6.1) involve different models and do not give this polynomial. Searches for the exact equation, its equivalent elliptic Artin–Schreier model, the eleven tested point counts, Frobenius factors, and genus-nine Jacobian decompositions located no dominating exact computation. A missing earlier alternative model or a less accessible broad covering theorem remains a priority risk; absence from searches is not a proof of novelty.
+
+## Mathematical value — PASS
+This is the exact zeta numerator of the first concrete \(\mathbb F_2\) genus-nine member in a recent geometric automorphism-classification family. It determines rational-point counts over *every* finite extension, the order of the Jacobian over \(\mathbb F_2\), and the complete dimensions and multiplicities of simple rational isogeny components. The mixed \(1,1,1,2,4\) decomposition and the order \(2^{10}\) are natural arithmetic invariants of the author's specified curve, not arbitrary finite search cutoffs. The finite computation is sufficient for the infinite extension-count assertion through the Weil functional equation.
+
+## Sources and limitations
+The motivating full text is Tafazolian, arXiv:2609.14830v1 (Proposition 7.2); the closest older primary full text is Giulietti–Korchmáros, arXiv:1104.5159, Section 6.1. General Weil, ramification and Tate tools predate this computation. The result does not classify the wider two-parameter family, integral endomorphism rings, or principal polarizations; historical priority and all independent validation remain open.
+
+Self-review: passed. Independent audit: not yet performed.

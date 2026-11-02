@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every SPD M-matrix elimination, positive Schur pivots and negative offdiagonals exclude sign cancellation; exact neighbors are completed to a clique. The first monochromatic part-run deterministically controls the number of absent intra-part pairs remaining after a second part is touched. Sampling without replacement gives the falling-factorial joint law, pair timing gives the expectation, monotonic deficits give extrema, and a dominated geometric run law gives convergence of variances. A standalone exact-rational permutation/Schur checker passed 2,231 grouped assertions; the finite checks are auxiliary to the complete proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1711.08446 analyzes approximately minimum-degree orderings, not uniformly random complete multipartite orders",
+        "arXiv:2011.07769 §1.2 and §2.1 discuss approximate randomized clique-edge sampling, not the uniform exact factorization distribution",
+        "Kloks (1993) bibliographic record concerns minimum fill-in for chordal bipartite graphs; full technical content unavailable"
+      ],
+      "reasoning": "The generic sparse-Cholesky rule and minimum-fill/ordering algorithms cover how to compute fill given a graph and permutation, but the inspected published claims do not present the joint distribution over every uniformly random permutation in the graph family. The deterministic minimum is a subsidiary benchmark and not asserted as the new contribution. Approximate random clique sparsification is a different random object from exact clique completion under random order.",
+      "searches": [
+        "symbolic Cholesky sparse matrix fill on trees and complete bipartite graphs",
+        "random order sparse factorization fill bipartite multipartite M matrix",
+        "random elimination ordering complete bipartite graph expected fill in Cholesky factor exact probability distribution",
+        "arxiv:1711.08446 On Computing Min-Degree Elimination Orderings",
+        "arxiv:2011.07769 RCHOL randomized Cholesky"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2011.07769 (full HTML sections relevant to sparse elimination)",
+      "arxiv:1711.08446 (accessible HTML general graph elimination)",
+      "Kloks 1993 bibliographic record only, not full technical text",
+      "Searches for equivalent complete bipartite/multipartite random fill laws and geometric-run descriptions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Liang–Biros (2020), §§1–2: exact clique rule plus randomized approximate sampling, with no uniform-order fill moments",
+        "Fahrbach et al. (2017), §§1–2: fill graphs and minimum-degree ordering algorithms, with no balanced multipartite geometric limit",
+        "Kloks (1993): the title and metadata indicate deterministic minimum fill only; inaccessible full technical source cannot be declared noncovering"
+      ],
+      "reasoning": "The proof derives a first-run statistic from the classical clique rule and then solves an exact without-replacement distribution; it is not the direct restatement of a specific numerical bound in the inspected articles. Any sufficiently broad published theorem explicitly giving all random-elimination fill distributions would dominate this calculation; none was located in the inspected sources. Uninspected material remains a real novelty risk.",
+      "searches": [
+        "arxiv:2011.07769 RCHOL randomized Cholesky clique sampling",
+        "arxiv:1711.08446 On Computing Min-Degree Elimination Orderings",
+        "Minimum fill-in for chordal bipartite graphs Kloks 1993",
+        "complete multipartite graph triangulation elimination order Cholesky fill all permutations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Liang–Biros, arXiv:2011.07769, §2.1, defines exact elimination via clique completion",
+        "Fahrbach et al., arXiv:1711.08446, §2.1, uses graph elimination/fill paths; these supply the general graph mechanics"
+      ],
+      "reasoning": "The theorem is invariant under Cholesky/Schur-complement, neighbor-clique completion, and chordal-completion interpretations. Both inspected sources give general elimination principles; neither states the complete multipartite first-run probability polynomial, equivalent occupancy law, or geometric near-maximum limit. General mechanics permit a new special-family calculation and do not by themselves constitute an already published equivalent quantitative statement.",
+      "searches": [
+        "\"complete bipartite\" \"fill-in\" \"elimination\"",
+        "complete multipartite graph random vertex elimination order exact symbolic Cholesky fill distribution first monochromatic run",
+        "elimination fill complete multipartite graph random permutation first opposite vertex",
+        "graph chordal completion random permutation first run complete multipartite fill"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching full distribution or parameterized table was identified by these searches; closest semantic hits concern different graph invariants or general pivot orderings",
+        "A directly derived probability polynomial (equation (2) in RESULT.md) gives all coefficients and degeneracies, without consulting a pre-existing fill table"
+      ],
+      "reasoning": "An exactly tabulated probability law for all complete multipartite part sizes would cover the claim even without matching titles, so both biclique and multipartite phrasing were searched. No such table was located. This is a documented search outcome, not proof that an unlocated table cannot exist.",
+      "searches": [
+        "complete bipartite K_{m,n} sparse Cholesky elimination random permutation exact fill distribution leading run",
+        "complete multipartite Cholesky fill edge expected random pivot asymptotic geometric",
+        "random ordering Gaussian elimination complete bipartite bipartite fill counts asymptotic geometric distribution",
+        "random vertex elimination complete bipartite fill edges expectation distribution"
+      ]
+    },
+    "rationale": "Qualified best-knowledge assessment: general sparse-Cholesky fill mechanics and minimum-fill ordering are prior. The assessed statement is instead the complete all-part-size random-order distribution and balanced-family geometric near-maximal-fill limit. Inspected primary sources cover clique sampling or minimum-degree orderings, not this exact distribution. Searches across synonymous statements did not surface a directly covering work. Inaccessible earlier minimum-fill literature and unindexed specialized results remain genuine residual risks.",
+    "residual_risks": [
+      "An unindexed or differently titled random elimination result may give the same distribution.",
+      "The full Kloks 1993 technical document was inaccessible; cannot make an all-content noncoverage claim.",
+      "General elimination theory makes the combinatorial identity accessible, so priority of publication rather than correctness is the main unresolved concern."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical clique-completion mechanism is explicitly prior; the inspected results do not state the complete multipartite uniform-order full fill law.",
+        "evidence": [
+          "§2.1 Algorithm 1 and description of full clique completion",
+          "§1.2 describes retaining sparse sampled edges instead of the full clique"
+        ],
+        "identifier_or_url": "arxiv:2011.07769; https://arxiv.org/html/2011.07769v4",
+        "material_read": "Full HTML text; abstract, §§1.1–1.2 and §§2.1–2.2 and relevant algorithm/appendix navigation",
+        "method": "Read technical HTML and compare exact Schur elimination versus randomized clique-edge sparsification and parameterized statements",
+        "title": "RCHOL: Randomized Cholesky Factorization for Solving SDD Linear Systems",
+        "trigger": "Primary numerical-analysis source on randomized Cholesky, sparse ordering and clique completion"
+      },
+      {
+        "assessment": "General symbolic-elimination formalism and minimum-degree optimization are prior but do not report the joint first-run random fill law.",
+        "evidence": [
+          "Introduction discusses fill and min-degree orderings",
+          "§2.1 supplies general fill-path characterization"
+        ],
+        "identifier_or_url": "arxiv:1711.08446; https://arxiv.org/abs/1711.08446",
+        "material_read": "Full accessible HTML technical text, introduction and graph-elimination formalism in §2.1, with searches for complete bipartite/multipartite terms",
+        "method": "Read relevant technical results and check claimed ordering performance versus exact random-permutation fill distributions",
+        "title": "On Computing Min-Degree Elimination Orderings",
+        "trigger": "General elimination/fill principle and potentially broader ordering results"
+      },
+      {
+        "assessment": "Potentially covers deterministic minimum; publication-priority risk for random law remains unverified and is disclosed.",
+        "evidence": [
+          "Bibliographic title and year, 1993",
+          "Full technical content not available for claim-by-claim inspection"
+        ],
+        "identifier_or_url": "https://research.tue.nl/en/publications/minimum-fill-in-for-chordal-bipartite-graphs/",
+        "material_read": "Bibliographic page and abstract-level metadata only; full technical document could not be accessed",
+        "method": "Reviewed bibliographic description and attempted technical access without bypassing access restrictions",
+        "title": "Minimum fill-in for chordal bipartite graphs",
+        "trigger": "Potentially relevant pre-existing optimal-fill results on structured bipartite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24842231-43f3-4376-82db-44164e682ee8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full distribution for a natural structured sparse-direct-solver model quantifies exact fill storage, not merely a few illustrative instances. The probability of maximal fill tends to a positive constant while minimum-fill orders become exponentially rare, with precise geometric fluctuations and sharp expectation-versus-optimum ratio. These are quantitative reference limits for judging the effect of elimination ordering, without claiming broader numerical complexity or superiority over other solvers.",
+    "status": "PASS"
+  }
+}

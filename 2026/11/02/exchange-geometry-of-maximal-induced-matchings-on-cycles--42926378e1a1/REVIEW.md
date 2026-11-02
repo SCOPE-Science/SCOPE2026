@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof characterizes maximal induced matchings by cyclic gaps of lengths three through five, derives a complete local exchange rule, establishes connectivity by bounded unit transports plus an explicit translation ordering, and proves the triangle-count and degree formulas by incidence counting. Direct subset verification through cycle length 18 and a separately implemented cyclic-composition verification through length 27 agree with the all-parameter claims. Finite checks are not presented as infinite proofs.
+
+**Originality — PASS with residual literature risk.** Basavaraju et al. study maximal induced matching counts and enumeration in general triangle-free graphs, not the induced-matching exchange metric; Bonsma et al. allow fixed-cardinality independent sets without preserving maximality at every step. The equivalent independent-set-on-squared-cycle formulation, dominating-induced-matching terminology and relevant prior cycle reconfiguration results were compared. Neither the targeted full texts nor relevant indexed mathematical records supplied a covering degree-spectrum, Eulerian-sector, or sharp triangle theorem. Unindexed and alternative terminology remain genuine residual risks, rather than being treated as disproved possibilities.
+
+**Value — PASS.** The theorem gives an infinite-family classification for a natural locally constrained matching problem. Its exact frozen-versus-mobile sectors, the emergence of triangles, even-degree/Eulerian structure, and full local-mobility polynomial distinguish it from a routine count of maximal matchings. The distinction from maximal independent sets of ordinary cycles is structural: the three-state gap process permits three-way local exchanges absent from the two-state process.
+
+**Scope and limitations.** Only simple cycles with at least seven vertices, inclusion-maximal induced matchings and one-edge exchanges are covered. Diameters of the triangular regimes and reconfiguration on more general graphs remain undetermined. The literature comparison supports a qualified originality judgment, not exhaustive proof of priority.
+
+Self-review: passed. Independent audit: not yet performed.

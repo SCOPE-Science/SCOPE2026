@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (C): PASS
+The theorem covers every feasible finite regular core, all positive pendant counts, and every Bernoulli reset probability below one. The first-step three-class reduction is exact because every core vertex has the same return-to-apex probability; the rational generating function follows by elimination. The independent derivative and positive second derivative prove the sharp integer boundary, uniqueness, and closed interior minimum. The regenerative-trial argument proves the distributional limit and moment convergence without invoking finite tests as an infinite proof. The standalone program separately builds full vertex-state transition matrices and checks exact means, full generating functions, and initial probability masses against the formulas. Scope risk: the homogeneous-degree assumption cannot be dropped without revising the proof.
+
+## Originality (O): PASS, qualified
+The background first-passage theory for network resetting is not novel. Riascos et al. (arXiv:1910.13568, equations for general spectral means) and Riascos, Boyer and Mateos (arXiv:2110.15437, general optimal-reset criterion) directly cover the *framework*, but the inspected passages do not give this family-specific all-time law, critical pendant-count boundary, or universal exponential limit. Zelenkovski et al. (2023) analyze global means and specific lollipop/barbell examples, not this pointed regular-core family and its exact classification. A general method could recover parts after additional calculation; originality here is limited to the combined explicit structural theorem, not the general first-step or restart identities. Existing nearby indexed results and recoverable earlier claims differ in object or observable. Residual risk: unlocated special-case calculations in other works, especially older general restart literature.
+
+## Value (V): PASS
+This is a complete and motivated finite/critical classification of a search problem with two competing wastes: long core excursions versus rapidly returning false-target leaves. It determines precisely when resetting changes from helpful to harmful, with threshold \(L=m[d(d+1)-1]\), and does so uniformly across all regular internal topologies; the large-core theorem shows an otherwise diverging slowdown can be reduced to a universal exponential-time scale. These effects cannot be read from the usual leading-order stationary mixing characteristics of the core. The result does not claim a general graph theorem or optimization of adaptive resetting.
+
+## Closest literature and limits
+The named primary comparisons are arXiv:1910.13568, arXiv:2110.15437, and *Entropy* 25 (2023), 293. They establish broad methods and consider different examples; no independent historical priority assessment is available. The result assumes a finite \(d\)-regular core, a single marked pendant target and source/reset vertex at the apex, with unit-cost resets. The limit requires both \(m,d\to\infty\) and finite \(L/m\) limit.
+
+Self-review: passed. Independent audit: not yet performed.

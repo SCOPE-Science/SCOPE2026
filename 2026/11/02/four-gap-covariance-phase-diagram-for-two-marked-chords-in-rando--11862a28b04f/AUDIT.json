@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The conditioning leaves a uniform residual perfect matching. For N=2n-4>=4, one prescribed residual edge has probability 1/(N-1) and two disjoint residual edges have joint probability 1/[(N-1)(N-3)]. Exact enumeration of pair overlaps gives E[XY]=C/M+(AB-Q+C)/(M(M-2)); direct factorization yields the claimed four-cell covariance. The noncrossing specialization is manifestly nonnegative; the crossing sign criterion is exact. For strictly positive four-gap compositions, n=4 and n=5 have only the enumerated positive-part patterns, all negative; n=6 exhibits both signs. A standard-library checker tests every circular gap arrangement and marked pairing through n=7 (1710 cases and 866880 exact matching comparisons) plus 19149 independent rational algebra comparisons through N=28. The proof, not finite enumeration, establishes the unbounded result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf Section 2 computes global crossing-count moments and an asymptotic normal law.",
+        "https://arxiv.org/pdf/1501.01489 Sections 2 and 4 treat one-chord degree and the k-core, respectively.",
+        "https://arxiv.org/pdf/2104.01134 Theorems 1.1-1.3 address global crossings and simple-chord approximation."
+      ],
+      "reasoning": "The above full-text methods concern aggregate crossing counts, marginal degree, cores, or global limiting distributions; none of their inspected theorems provides the joint covariance conditional on four distinct prescribed endpoints. Their results do not imply a sign phase diagram without a separate two-cut calculation.",
+      "searches": [
+        "random chord diagrams joint degree distribution two chords covariance crossing degrees",
+        "perfect matchings crossing degrees two fixed edges covariance circle graph negative positive",
+        "random chord diagrams crossing degrees joint moments correlation adjacent vertices 2012"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1501.01489",
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "https://arxiv.org/pdf/2104.01134",
+      "https://arxiv.org/abs/1501.01489",
+      "https://arxiv.org/abs/2104.01134"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/pdf/1501.01489 Section 2 proves a one-mark marginal degree limit and related span-conditional moments; it does not condition on a second specified chord.",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf Section 2 treats total number of crossing pairs, not covariance of degrees at two fixed chords.",
+        "https://arxiv.org/pdf/2104.01134 Lemma 2.1 states the classical probability of finitely many specified disjoint chords; it is an ingredient but not the four-arc sign classification."
+      ],
+      "reasoning": "A single-chord distribution does not determine the two-mark covariance, and global crossing moments average over many configurations without resolving all four arc gap counts. Elementary pair-indicator probabilities are prior tools, not asserted as original. Their specialization, after managing overlapping potential pairs, yields the four-cell sign law and the sharp positive-gap boundary not stated in the inspected works.",
+      "searches": [
+        "uniformly random chord diagram and its intersection graph conditional degree covariance two marked chords",
+        "Flajolet Noy analytic combinatorics chord diagrams 2000 pdf",
+        "conditional joint crossing degree two chords uniform random matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/pdf/1501.01489 Section 2 concerns a random single chord and its crossing degree.",
+        "https://arxiv.org/pdf/2104.01134 Section 2 gives crossing-indicator moments for the total crossing count."
+      ],
+      "reasoning": "The same object can be described as crossing degree in the circle graph, as a pair of residual crossing-cut counts in a uniform perfect matching, or as fixed-point-free-involution pair statistics. The inspected sources use these representations but do not state the four-gap joint covariance sign criterion. Such formulations must be considered for priority even without title or parameter matches.",
+      "searches": [
+        "random chord diagram conditional joint distribution degrees of two fixed chords covariance chord intersection graph",
+        "pair of chords chord diagram intersection graph degree degree correlation double chord",
+        "Uniform random perfect matching on a circle: covariance of crossing counts with two fixed cuts; four-colour cell partition identity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/pdf/1501.01489 Section 2 supplies one-chord moments conditional on length rather than a two-chord four-cell table.",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf Section 2 quotes the Touchard-Riordan global crossing enumeration."
+      ],
+      "reasoning": "Focused scholarly and published-record searches did not reveal an exact four-arc covariance table or an equivalent signed formula. The absence of hits is not evidence of uniqueness. A general second-moment identity for random matchings is known in principle and was independently specialized here; the new mathematical content claimed is the invariant four-cell factorization and its geometric consequences.",
+      "searches": [
+        "Two marked chords in uniformly random chord diagram: exact covariance of degree variables for crossing and disjoint chord configurations; sign formula four arc gaps",
+        "Uniform random perfect matching on a circle: covariance of crossing counts with two fixed cuts; four-colour cell partition identity",
+        "joint distribution degrees two chords random chord diagrams local correlation"
+      ]
+    },
+    "rationale": "The exact joint degree-covariance sign phase diagram conditional on two marked chords is not stated in inspected primary sources addressing one-chord degree (Acan 2015), total crossing moments (Flajolet and Noy 2000), or global limit rates (Paguyo 2021/2023). Matching-indicator probabilities are classical; the geometric four-cell sign criterion, two same-size opposite-sign examples, and asymptotic scales constitute the assessed distinction. Literature priority remains bounded rather than absolute.",
+    "residual_risks": [
+      "An older or general multivariate matching-moment identity might implicitly subsume the four-cell factorization.",
+      "A finite list of primary source inspections and semantic searches cannot prove worldwide uniqueness.",
+      "The adjacent one-chord results are close models, but do not establish two-mark conditional covariance without new counting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The text gives one-chord span statistics and its limiting law, rather than a two-marked-chord joint conditional covariance.",
+        "evidence": [
+          "https://arxiv.org/pdf/1501.01489 pp. 1, 3-5; Section 2, equations (2.1)-(2.2) and Theorem 2.1."
+        ],
+        "identifier_or_url": "arxiv:1501.01489v1",
+        "material_read": "Open 27-page original preprint; title, subject classification, Introduction, Section 2 degree definitions and exact moment calculations, section map, and document searches for covariance, correlation and two chords.",
+        "method": "Primary full-text preprint with page inspection and term search",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same probability model and one-chord crossing degree, highest-priority closest source"
+      },
+      {
+        "assessment": "Provides global crossing-count mean, variance and limit, not four-gap conditional joint degrees.",
+        "evidence": [
+          "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf Section 2, Theorem 3 and crossing-indicator decomposition."
+        ],
+        "identifier_or_url": "INRIA RR3914, March 2000",
+        "material_read": "Original author-hosted 14-page report PDF; introduction, Section 2 crossing-count statements and proof setup, and initial pages of the report.",
+        "method": "Primary open-access research-report PDF",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Classical chord-diagram crossing moments could subsume the proposed covariance"
+      },
+      {
+        "assessment": "Classical matching probabilities are provided, but results concern rates of global count approximation rather than marked-pair local covariance sign.",
+        "evidence": [
+          "https://arxiv.org/pdf/2104.01134 pp. 1-5, Theorem 1.1 and Lemma 2.1."
+        ],
+        "identifier_or_url": "arxiv:2104.01134v2",
+        "material_read": "12-page full-text preprint accessible; abstract, introduction, Section 2 crossing-count dependency, Lemma 2.1, Theorem 1.1, and Section 2.2-2.3 method.",
+        "method": "Primary full-text open preprint with page inspection",
+        "title": "Convergence Rates of Limit Theorems in Random Chord Diagrams",
+        "trigger": "Later work on crossing-indicator dependencies might include general joint-degree control"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11862a28-b04f-4789-9e21-2888391879fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crossing degrees of two prescribed vertices are natural local statistics of random circle graphs. A complete geometric covariance sign criterion shows noncrossing chords cannot be negatively correlated under fixed-endpoint conditioning, while crossing chords with nonempty intervening arcs can be both positively and negatively correlated already at n=6. The equality/inequality boundary is an explicit quadratic-imbalance test, and balanced negative dependence tends to -1/8 while an imbalanced family has positive covariance growing as k/4. These distinctions cannot be inferred from marginal degrees or only total crossing moments.",
+    "status": "PASS"
+  }
+}

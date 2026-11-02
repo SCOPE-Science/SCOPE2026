@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Acyclicity of chordal fan orientations and reversibility reduce exactly to triangle obstructions. Signed path runs give the rational transfer identity, recurrence, Fibonacci degree-n coefficient and maximum degree. An explicit signed-run conversion gives a degree-n-only path between every pair of simple orientations; the singleton run sandwiched between positive runs is handled by moving both source marks. Two separately structured programs test direct acyclicity and exact sign-run transfer, including simple connectedness in finite ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Savage–Squire–West 1993, Theorem 2.1: the full acyclic-orientation flip graph is connected; Section 4: chordal graph Hamiltonicity.",
+        "Postnikov 2005 provides general graphical zonotope structure."
+      ],
+      "reasoning": "Connectivity of the full graph does not imply connectivity of its induced degree-n stratum; generic zonotope correspondence does not fix degrees. Neither general result dominates the claimed enumerator or induced-stratum theorem.",
+      "searches": [
+        "graphical zonotope simple vertices induced graph connectivity chordal graph",
+        "fan graph graphical zonotope simple vertices Fibonacci count acyclic orientation",
+        "Savage Squire West 1993 Gray codes for acyclic orientations of graphs original journal"
+      ]
+    },
+    "checked_sources": [
+      "Savage, Squire and West (1993), Gray Code Results for Acyclic Orientations, author-hosted full PDF",
+      "Postnikov (2005), arXiv:math/0507163v1, full-text PDF",
+      "Cardinal et al. (2023), Combinatorial Generation via Permutation Languages V, full manuscript",
+      "Hedra Zoo, Acyclotope (fan graph)",
+      "Actual published mathematical-record searches for fan graphical zonotope valency, flip degree and simple induced connectivity",
+      "Published wheel-orientation and complete-split graph results, compared by their precise implications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible own earlier orientation result on wheels concerns a cycle joined to a hub, rather than the fan with one rim edge removed.",
+        "Accessible own complete-split simple-vertex claim covers fan orders at most three path vertices; novel claim explicitly restricts to \\(n\\ge4\\).",
+        "The published theorem “Universal Euclidean Cone Law and Farthest-Point Rigidity for Graphical Zonotopes” concerns squared Euclidean diameter, not degree distribution or simple-vertex connectivity."
+      ],
+      "reasoning": "The fan is not a subcase of the wheel degree formula: deleting a rim edge changes acyclic orientations and all reversibility relations. General complete-split results cannot imply arbitrary fans of order n≥4. The exact new implications remain unaccounted for in compared earlier assertions.",
+      "searches": [
+        "acyclic orientations of wheel graph single edge flips transitive reduction degree distribution graphical zonotope",
+        "fan graph graphical zonotope simple vertices Fibonacci 2F_{2n} connectivity",
+        "fan graphical zonotope simple acyclic orientation connected induced subgraph",
+        "wheel graph acyclic orientations flippable edges cover graph polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acyclic orientations are vertices of the graphical zonotope; reversible edges are transitive-reduction arcs (Postnikov 2005; Cardinal et al. 2023).",
+        "Savage–Squire–West (1993) describes wheel-minus-edge orientations but not the local-degree enumerator."
+      ],
+      "reasoning": "A complete degree enumerator of the acyclotope would be equivalent, so both acyclotope and flippable-edge terminology were searched. No matching degree polynomial or simple-stratum connectedness found in inspected texts.",
+      "searches": [
+        "fan graph graphical zonotope simple vertices Fibonacci 2F_{2n} connectivity",
+        "acyclotope fan graphs local degree distribution 2 F_{2n} Fibonacci numbers transitive reduction",
+        "fan graph orientation flip graph exact degree polynomial 1-3tz+(1-t)t^2z^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hedra Zoo, 'Acyclotope (fan graph)' lists total vertex and facet numbers but no flip-degree distribution.",
+        "Savage–Squire–West (1993) already gives the total \\(2\\cdot3^{n-1}\\) orientation count, which is excluded from novelty."
+      ],
+      "reasoning": "Known static counts and unlabeled graph identity do not give the t-refined distribution; no exact table of these distributions was identified in sources inspected.",
+      "searches": [
+        "enumeration of vertex degrees of graphical zonotopes wheel fans",
+        "acyclic orientations of fan graphs number of flippable edges rational generating function",
+        "fan graph orientation flip graph exact degree polynomial 1-3tz+(1-t)t^2z^2"
+      ]
+    },
+    "rationale": "The 1993 fan orientation count, general chordal Hamiltonicity, Postnikov's zonotope correspondence and generic transitive-reduction criterion are prior work. The new degree generating function and connectedness of the induced simple stratum are not implied by these earlier results. Existing wheel and complete-split studies are different families or cover only excluded low-order cases. Residual risk of historical equivalent work is acknowledged.",
+    "residual_risks": [
+      "Potential older equivalent enumerators under acyclotope, transitive-reduction or graph associahedron terminology, including unindexed or inaccessible texts.",
+      "Search results and bibliographic indexes cannot establish exhaustive historical coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirms \\(2\\cdot3^{n-1}\\) orientations and full graph reconfiguration but does not state refined flip-degree polynomial or simple induced connectivity.",
+        "evidence": [
+          "C. D. Savage, M. B. Squire, D. B. West, Congressus Numerantium 96 (1993), 185–204, Theorem 3.1 and Sections 2,4"
+        ],
+        "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aograph.pdf",
+        "material_read": "Theorems 2.1 and 3.1, the wheel-minus-rim-edge family, and chordal Hamiltonicity material in Section 4",
+        "method": "Author-hosted full-text PDF examined by section and page",
+        "title": "Gray Code Results for Acyclic Orientations",
+        "trigger": "Original fan count and orientation reversal results potentially stronger than the claim"
+      },
+      {
+        "assessment": "Provides the classical zonotope interpretation, not the claimed fan-degree refinement.",
+        "evidence": [
+          "A. Postnikov, arXiv:math/0507163v1, first posted 2005-07-07"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0507163",
+        "material_read": "Graphical zonotope sections and zonotope vertex identification; public v1 date",
+        "method": "arXiv full-text PDF and page inspection",
+        "title": "Permutohedra, associahedra, and beyond",
+        "trigger": "Graphical zonotope and acyclic-orientation correspondence"
+      },
+      {
+        "assessment": "Generic flip characterization and generation background, but no fan local-degree polynomial or induced-simple connectivity.",
+        "evidence": [
+          "J. Cardinal et al., 2023 manuscript"
+        ],
+        "identifier_or_url": "Author-hosted 2023 full manuscript",
+        "material_read": "Orientation flip adjacency and transitive reduction discussion; major statements on graph classes",
+        "method": "Full-text manuscript sections inspected",
+        "title": "Combinatorial Generation via Permutation Languages V. Acyclic Orientations",
+        "trigger": "Possible complete general formula for individually reversible arcs"
+      },
+      {
+        "assessment": "Static vertex and facet counts, no refined degree distribution.",
+        "evidence": [
+          "Hedra Zoo 'Acyclotope (fan graph)' page"
+        ],
+        "identifier_or_url": "https://sforcey.github.io/sf34/hedra/fanacyc.htm",
+        "material_read": "Displayed fan polytope definition and listed vertex/facet counts",
+        "method": "Web-page text and table inspection",
+        "title": "Acyclotope (fan graph)",
+        "trigger": "Known exact table of fan graphical-zonotope invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "377a24e4-b0ce-4dd9-98fb-6619567436c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines an entire infinite-family distribution of the natural local mobility of acyclic orientations, not just the known total count. The connectedness of the induced simple-vertex stratum, despite its exponentially shrinking fraction, is a nontrivial geometric property and a useful boundary for reconfiguration of simple zonotope vertices.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Cyclic block translation acts freely on (3n-1)-subsets, yielding n|B. Adjacent-binomial ratio translates bn+1 divisibility exactly into 3n|B. Kummer enforces 3^{v3(n)+1}|B whenever 3 does not divide bn+1. If it does, Lucas base-three digit dominance characterizes every failure: b mod 3 gives no failures or an immediate one; if b=1 mod3 the low v3(b+2) digits force the sharp threshold (3^s+1)/2 and the matching witness has nonzero Lucas product. Exact integer tests were replayed; finite tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun 2012 Theorem 1.1 guarantees only a divisor quotient by gcd(a,bn+1).",
+        "Guo–Krattenthaler 2013 Theorem 2.1 proves infinite failures and an Euler-totient-based upper bound."
+      ],
+      "reasoning": "The generic upper bound and infinitude do not identify the least failure, and neither implies the exact exponent of the shift b+2; the proven formula is strictly more specific than those known conclusions.",
+      "searches": [
+        "Binomial coefficients (b+3)n choose 3n modulo bn+1, sharp first exception and p-adic divisibility depth",
+        "Guo Krattenthaler f(3,b) least non-divisibility index and Lucas base-three digit dominance characterization"
+      ]
+    },
+    "checked_sources": [
+      "Zhi-Wei Sun (2012), DOI 10.1017/S1446788712000171, published online 2012-09-19",
+      "Guo and Krattenthaler (2013), arXiv:1301.7651, original submission 2013-01-31",
+      "published-finding corpus semantic search: three exact-parameter formulations compared against closest records",
+      "Accessible same-week prior research records: claim/title/ID deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun 2012 Theorem 1.1: (bn+1)/gcd(a,bn+1) always divides the binomial.",
+        "Guo–Krattenthaler 2013 Theorem 2.1: if a prime p divides a but not b, f(a,b) is finite with f(a,b)<= (p^phi(a+b)-1)/(a+b)."
+      ],
+      "reasoning": "For a=3, these establish the no-failure b-multiple-of-3 case and finite existence elsewhere, but no lower bound plus attaining witness; in particular they do not determine the values growing like 3^nu3(b+2)/2.",
+      "searches": [
+        "Sun's first failure index f(a,b): least n with (bn+1) not dividing binomial((a+b)n,an), exact closed form when a=3 in terms of 3-adic valuation of b+2, and all b",
+        "Guo Krattenthaler f(3,b) least non-divisibility index and Lucas base-three digit dominance characterization",
+        "Binomial coefficients (b+3)n choose 3n modulo bn+1, sharp first exception and p-adic divisibility depth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun 2012, p. 190 defines f(k,l); displayed first-failure examples have other fixed parameters.",
+        "Guo–Krattenthaler arXiv:1301.7651, Section 1 explicitly restates Sun f(a,b), and Section 4 uses Lucas for existence rather than minimum."
+      ],
+      "reasoning": "Same f invariant, identical divisibility condition, and the equivalent Lucas digit nonvanishing formulation were compared; neither inspected result states the exact three-branch first-failure law.",
+      "searches": [
+        "Sun's first failure index f(a,b): least n with (bn+1) not dividing binomial((a+b)n,an), exact closed form when a=3 in terms of 3-adic valuation of b+2, and all b",
+        "Guo Krattenthaler f(3,b) least non-divisibility index and Lucas base-three digit dominance characterization",
+        "\"f(3,b)\" binomial Sun",
+        "\"f(3,l)\" binomial divisibility"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sun 2012 p. 190 table contains f(7,36), f(10,192), f(11,100), etc., not this b-parameter family.",
+        "The current accessible research ledger contained no recoverable finding for the same f(3,b) invariant."
+      ],
+      "reasoning": "No source among the inspected published papers or accessible own finding statements lists the proposed exact family or matching parameter-sharp table. Negative search results alone are not proof of absence.",
+      "searches": [
+        "\"f(3,b)\" \"binomial\" \"Sun\"",
+        "Zhi Wei Sun least nondivisibility f(3,l) binomial exact"
+      ]
+    },
+    "rationale": "Comparison with the original source defining f and its exact successor proves that the cited theorems yield general divisibility and an upper bound/infinitude, not the exact a=3 minimum or its unbounded valuation law. published-finding corpus semantic matching returned related but not implication-dominating results. A historically unlocated equivalent lemma remains possible.",
+    "residual_risks": [
+      "Earlier or later publications may contain an equivalent exact threshold derivable from a stronger general Lucas criterion, which finite searches cannot exclude.",
+      "Previous UTC-week historical ledgers were not available for a full claim-by-claim deduplication; the accessible current-week ledger was searched."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and motivates f, but its stated results and table do not give the a=3 full first-failure formula.",
+        "evidence": [
+          "Theorem 1.1 on p. 190 gives (bn+1)/gcd(a,bn+1) divisibility.",
+          "p. 190 defines f and gives eight explicit examples for other a."
+        ],
+        "identifier_or_url": "doi:10.1017/S1446788712000171",
+        "material_read": "Full 13-page publicly available journal PDF text, including p. 190 statement/definition/table and subsequent numbered theorems; page 190 visually inspected.",
+        "method": "Publisher PDF text and page rendering with source-wide search for the invariant and worked examples.",
+        "title": "On divisibility of binomial coefficients",
+        "trigger": "Original publication defining precisely the same f(a,b) and its divisibility theorem."
+      },
+      {
+        "assessment": "Confirms infinite failure and a general upper bound, not the exact least failure in the complete a=3 slice.",
+        "evidence": [
+          "Theorem 2.1 states f(a,b) <= (p^phi(a+b)-1)/(a+b) when p|a and p does not divide b.",
+          "Theorem 4.1 recalls Lucas theorem; finite first-failure minimization is not stated."
+        ],
+        "identifier_or_url": "arxiv:1301.7651",
+        "material_read": "Open full HTML paper, Introduction, Theorems 2.1–2.4, Lucas theorem and proof in Section 4, with full-text search for f(3.",
+        "method": "arXiv full HTML manuscript read and theorem-by-theorem implication comparison.",
+        "title": "Some divisibility properties of binomial and q-binomial coefficients",
+        "trigger": "Direct successor resolving the source conjecture, employing Lucas theorem and bounding f."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "48d1f8db-bf4c-41ef-ab70-4a5f6a62be52",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The f(a,b) invariant was expressly introduced to measure the first failure of binomial divisibility; this gives its full natural fixed-a=3 classification. The sharp, unbounded family along b=3^s-2 demonstrates meaningful p-adic arithmetic structure not resolved by existing generic bounds. This is a motivated complete classification, not a one-off small numerical check.",
+    "status": "PASS"
+  }
+}

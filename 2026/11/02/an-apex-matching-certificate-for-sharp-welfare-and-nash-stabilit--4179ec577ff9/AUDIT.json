@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For a hub-free coalition R, exact payoff 2e_H(R)/|R| ≤ |R|/2 with equality precisely for an edge, using degree≤2 and exclusion of 3- and 4-cycles. For hub coalition {h}∪S, 2(|S|+e_H(S))/(|S|+1) ≤ 1+|S|/2 with equality only for |S|=2 with one edge or |S|=3 with a P3. Summing gives bound, and equality reduces bijectively to a perfect matching after deleting the motif. Explicit unilateral deviation cases verify every equality partition Nash stable; rational finite programs independently check representative and all nonisomorphic eligible graphs up to seven base vertices. Short-cycle exceptions are explicitly excluded or handled separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanaka–Ikeyama–Ono provide algorithms for tree-like and bounded-treewidth inputs, and thus computational coverage but not the asserted explicit optimizer structure.",
+        "Bilò et al. prove optimal-partition stability on trees, but the present G contains triangles and is not a tree.",
+        "Bazgan et al. treat degree-two whole graphs and high-minimum-degree graphs; arbitrary K_1∨H of this theorem need be neither."
+      ],
+      "reasoning": "Algorithmic solvability is logically weaker than an exact formula, description and count of all equality partitions plus stability. Tree Nash-stability does not apply to graphs containing hub-created triangles. Dense-graph min-degree conditions fail for long fans and wheels.",
+      "searches": [
+        "arxiv:2310.05139 bounded treewidth utilitarian fractional hedonic games full paper",
+        "doi:10.1613/jair.1.11211 Nash stable fractional hedonic games trees full paper",
+        "arxiv:2107.13282 min degree n-3 degree two polynomial time dense graph partitioning"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.05139v1",
+      "doi:10.1613/jair.1.11211",
+      "arxiv:2107.13282v1",
+      "https://ijcai.org/proceedings/2015/71"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 source establishes optimization procedures, not an equivalence between welfare saturation and a perfect matching after deleting an induced edge or P3.",
+        "The 2018 results do imply stability for tree input graphs, which are structurally different from nontrivial apex joins.",
+        "The 2021/2022 work handles degree-2 input graphs, but our graph has an apex of high degree and contains triangles."
+      ],
+      "reasoning": "Compared the quantified statement and objects, including factor-two normalization, rather than titles alone. Earlier results might compute the optimum by a general algorithm but do not logically supply the exact classification and all-optima Nash claim without additional argument.",
+      "searches": [
+        "Hanaka Ikeyama Ono maximization utilitarian fractional hedonic games tree-like graph Theorem bounded treewidth",
+        "Bilò Fanelli Flammini Monaco Moscardelli Nash stable optimal partitions on trees fractional hedonic games",
+        "Bazgan Casel Cazals dense graph partitioning maximum degree two threshold graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The social-welfare partition problem is twice the unweighted dense-graph-partitioning objective of Bazgan–Casel–Cazals (arxiv:2107.13282).",
+        "JAIR 2018 uses the same simple symmetric fractional hedonic payoff normalization 2e(C)/|C|."
+      ],
+      "reasoning": "Checked the welfare-to-density factor-two equivalence and tree-stability terminology. The result concerns the equality structure and individual deviations, not just an alternative name for dense graph partitioning. No inspected theorem states the edge/P3-deletion matching certificate on the apex class.",
+      "searches": [
+        "\"fractional hedonic games\" \"wheel\" \"optimal\" \"Nash\"",
+        "\"dense graph partitioning\" \"wheel\" \"exact\"",
+        "fractional hedonic games unweighted wheel graphs hub cycle exact optimal utilitarian social welfare coalition partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific-record hits such as \"Exact discounted hitting domination of complete bipartite graphs\" concern another invariant.",
+        "Indexed wheel-graph results on symmetric edge polytopes concern convex geometry, not coalition welfare."
+      ],
+      "reasoning": "No matching indexed exact table or formula was returned under wheel, fan, hub and matching-certificate aliases. This is limited negative search evidence, not a proof of uniqueness.",
+      "searches": [
+        "fractional hedonic games utilitarian welfare maximization friendship graphs graph wheels exact formula",
+        "Simple symmetric fractional hedonic games four and five vertex wheels all vertices unique optimal grand coalition",
+        "fractional hedonic games edge-or-P3 complement perfect matching iff maximum social welfare m/2 +1 and Nash stability"
+      ]
+    },
+    "rationale": "Original contribution is the exact hub-motif/matching equivalence, a bijective optimizer count, and Nash stability of every sharp optimum for the apex of any maximum-degree-two graph without 3- or 4-cycles. These are not consequences of the algorithmic bounded-treewidth treatment in Hanaka–Ikeyama–Ono, nor the tree-only stability theorem of Bilò et al.; degree-two or high-minimum-degree input results in Bazgan–Casel–Cazals do not imply this apex-graph structural characterization. Search coverage and residual literature risks are explicit, and database absence is not a priority proof.",
+    "residual_risks": [
+      "An inaccessible complete 2015 IJCAI welfare-maximization text might contain a stronger specialization.",
+      "Unindexed specialized results on wheel/fan coalition games or a stronger general theorem may cover part of the claim.",
+      "No exhaustive classification of all literature is claimed; algorithmic coverage alone was not treated as direct statement coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant algorithms, but did not locate the claimed hub-motif equality classification or Nash-stability proof.",
+        "evidence": "arxiv:2310.05139v1; original publicly posted 2023-10-08.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.05139",
+        "material_read": "PDF abstract, introduction and payoff model, algorithmic results and theorem statements about tree-like graphs; inspected PDF pages and searched for wheel and fan coverage.",
+        "method": "Open-access arXiv PDF text and page inspection.",
+        "title": "Maximizing Utilitarian and Egalitarian Welfare of Fractional Hedonic Games on Tree-like Graphs",
+        "trigger": "Same fractional hedonic optimization problem; dated middle-cohort anchor."
+      },
+      {
+        "assessment": "Tree theorem does not imply stability for the generally cyclic, triangle-containing apex family.",
+        "evidence": "DOI 10.1613/jair.1.11211, JAIR 62 (2018), 315–371.",
+        "identifier_or_url": "https://jair.org/index.php/jair/article/download/11211/26422",
+        "material_read": "Journal PDF introduction, the simple-game model and Section 4, including the theorem that welfare-maximizing partitions on trees are Nash stable.",
+        "method": "Lawful open-access journal PDF text and selected page inspection.",
+        "title": "Nash Stable Outcomes in Fractional Hedonic Games: Existence, Efficiency and Computation",
+        "trigger": "Most directly relevant prior Nash-stability and optimal partition theorem."
+      },
+      {
+        "assessment": "Equivalent optimization objective; polynomial-time classes and structural bounds not covering exact apex matching certification.",
+        "evidence": "arxiv:2107.13282; SWAT 2022.",
+        "identifier_or_url": "https://arxiv.org/pdf/2107.13282",
+        "material_read": "Open-access PDF definitions, reduction from fractional hedonic welfare, sparse and dense graph results, selected page inspection, and searched for wheel/fan coverage.",
+        "method": "arXiv primary full-text and page inspection.",
+        "title": "Dense Graph Partitioning on Sparse and Dense Graphs",
+        "trigger": "Equivalent welfare optimization under different naming and scaling."
+      },
+      {
+        "assessment": "Full-document noncoverage is NOT asserted; this is a specifically recorded priority risk.",
+        "evidence": "IJCAI 2015 conference paper; full text not verified.",
+        "identifier_or_url": "https://ijcai.org/proceedings/2015/71",
+        "material_read": "Accessible conference abstract/page and descriptions in subsequent primary references; full PDF could not be retrieved using the attempted links.",
+        "method": "Primary proceedings landing page and citations, not full-PDF reading.",
+        "title": "Welfare Maximization in Fractional Hedonic Games",
+        "trigger": "Foundational welfare-maximization paper with potentially broad graph-class implications."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4179ec57-7ff9-4f32-9b69-7b4138e1b264",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem explains exactly when a universal-vertex social-network game retains the optimal matching-based welfare threshold, classifies every extremizing coalition structure, counts them by a graph-matching certificate, and proves optimal Nash stability. Sharp wheel and fan counts and failed-certificate boundary are natural interpretable outputs, not arbitrary small-parameter statistics.",
+    "status": "PASS"
+  }
+}

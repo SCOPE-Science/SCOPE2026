@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "Each pair collision has exact one-row probability \\(q_n\\); factorial moments classify finite overlap graphs, with strict \\(\\ell_s<\\ell_2\\) control excluding components of at least three vertices. Vanishing unseen coupons in the logarithmic window yields Type-II equivalence. A precise second-moment formula supplies bounded expectation offsets; the conditional geometric waiting identity gives \\(\\mathbb E(Q_{\\mathrm {II}}-Q_{\\mathrm I})=o(1)\\). Exact Möbius inversion was checked independently against small complete enumerations. The theorem correctly accounts for lattice fluctuations and restricts \\(p\\in(0,1)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2502.02968v1 develops partial-recovery and random-group-size formulations, not a positive-density sharp random full-recovery law in the inspected material",
+        "arxiv:2507.15231v1 gives an exact finite absorbing-Markov description and numerical expectations, not this asymptotic fixed-density Poisson limit",
+        "arxiv:2510.23249v1 treats k=2 expectations on an n log n time scale",
+        "arxiv:2610.32251v1 treats deterministic minimum sample counts and separating-system constructions",
+        "Rényi (1961), pp. 75–79, explicitly samples uniformly from all 2^n subsets, derives an exact independent-column product and a 2 log_2 n collision window; this does not impose k ones per row.",
+        "arxiv:2605.06953v1, Theorem 2.2 computes E[number of draws until every coupon has appeared] for group size c n; it does not require distinct label-incidence signatures or solve unknown matching."
+      ],
+      "reasoning": "A finite exact Markov chain can in principle compute the distribution at each n but does not imply the sharp logarithmic asymptotic and Type-I/Type-II merger without additional analysis. k=2 and fixed-density k/n→p are different scaling regimes; deterministic optimal samples do not give the law for independent random sampling. Rényi already proves the broad birthday-window/factor-two phenomena in the independent-fair-bit-row ensemble. The present fixed-cardinality-row probability measure is a different, dependent-column ensemble, so its full result does not follow by direct substitution into Rényi’s product formula; only its qualitative balanced analogy is inherited. Berend–Sher (2026) considers ordinary coverage and computes a different, generally smaller completion time, not the identification time.",
+      "searches": [
+        "random labeled coupon collector k proportional n stopping time Poisson logarithmic",
+        "random signature identification log n birthday paradox labeled coupon collector dense group size 2026",
+        "arxiv:2502.02968v1, Sections II–IV",
+        "arxiv:2507.15231v1, Section IV",
+        "arxiv:2510.23249v1, Theorems 2.1–2.2",
+        "arxiv:2610.32251v1, conclusions",
+        "A. Rényi, On random generating elements of a finite Boolean algebra (1961), Theorem 1, corollary and Section 2, https://acta.bibl.u-szeged.hu/13920/1/math_022_fasc_001_002_075-081.pdf",
+        "arxiv:2605.06953v1, Theorem 2.2 and definition of Y"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2502.02968",
+      "https://arxiv.org/pdf/2507.15231",
+      "https://arxiv.org/pdf/2510.23249",
+      "https://arxiv.org/pdf/2610.32251",
+      "https://orca.cardiff.ac.uk/id/eprint/148049/ (random group-testing designs; contextual abstract only)",
+      "https://acta.bibl.u-szeged.hu/13920/1/math_022_fasc_001_002_075-081.pdf (full seven-page PDF)",
+      "https://arxiv.org/abs/2605.06953 (abstract and theorem 2.2)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact partition criterion in arxiv:2507.15231v1 yields the event to analyze but no Poisson calculation",
+        "arxiv:2510.23249v1 has an n log n waiting scale, unlike the logarithmic dense-sampling scale",
+        "arxiv:2610.32251v1 yields a deterministic sample-size benchmark; random methods can be substantially slower",
+        "The generic birthday-collision argument for independent binary signatures does not directly establish the fixed-row-cardinality covariance bounds.",
+        "Rényi (1961), pp. 75–79, explicitly samples uniformly from all 2^n subsets, derives an exact independent-column product and a 2 log_2 n collision window; this does not impose k ones per row."
+      ],
+      "reasoning": "The claimed exact finite formula follows by a new-to-this-package Möbius calculation on the already-known partition characterization. The sharp random dense-k collision and stopping laws require proving negligibility of overlapping collision graphs under within-row dependence. A more general published dependent-code Poisson theorem might imply the law, which remains an explicit priority risk. Rényi already proves the broad birthday-window/factor-two phenomena in the independent-fair-bit-row ensemble. The present fixed-cardinality-row probability measure is a different, dependent-column ensemble, so its full result does not follow by direct substitution into Rényi’s product formula; only its qualitative balanced analogy is inherited.",
+      "searches": [
+        "arxiv:2502.02968v1 labeled coupon complete recovery with K draws",
+        "arxiv:2510.23249v1 k=2 asymptotic coupon labels",
+        "probabilistic separating systems random fixed-size subsets number tests threshold collision Poisson 2020",
+        "arxiv:2610.32251v1 full recovery minimum draws",
+        "A. Rényi, On random generating elements of a finite Boolean algebra (1961), Theorem 1, corollary and Section 2, https://acta.bibl.u-szeged.hu/13920/1/math_022_fasc_001_002_075-081.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2507.15231v1, Section II, equates recovery with distinct binary incidence columns and Type-II coverage",
+        "arxiv:2610.32251v1, Theorem 5, same separating/covering criterion",
+        "The asserted Poisson theorem requires all rows to have exactly k_n ones; independent-column birthday estimates cannot be invoked without controlling this dependence.",
+        "Rényi (1961), pp. 75–79, explicitly samples uniformly from all 2^n subsets, derives an exact independent-column product and a 2 log_2 n collision window; this does not impose k ones per row."
+      ],
+      "reasoning": "The model equivalence is prior knowledge and is credited explicitly. The new asserted law is an asymptotic distribution of the collision obstruction for fixed-density random rows, with a stopping-time consequence and quantitative mean comparison; no inspected equivalent statement appears in the primary sections. Rényi already proves the broad birthday-window/factor-two phenomena in the independent-fair-bit-row ensemble. The present fixed-cardinality-row probability measure is a different, dependent-column ensemble, so its full result does not follow by direct substitution into Rényi’s product formula; only its qualitative balanced analogy is inherited.",
+      "searches": [
+        "random separating system random k subsets sharp threshold distinct binary columns Poisson collision",
+        "random binary matrices fixed row sums all columns distinct Poisson threshold",
+        "arxiv:2507.15231v1, Section II (incidence signatures)",
+        "arxiv:2610.32251v1, Theorem 5 and Remark 2",
+        "A. Rényi, On random generating elements of a finite Boolean algebra (1961), Theorem 1, corollary and Section 2, https://acta.bibl.u-szeged.hu/13920/1/math_022_fasc_001_002_075-081.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2507.15231v1, Table II concerns exact small-size expectations for k=2",
+        "arxiv:2610.32251v1 tabulates/minimizes designed sample families, not the random fixed-density stopping law",
+        "The exact partition-lattice CDF identity was independently checked by complete enumeration for n=3–6; no inspected source table contains the critical-window profile."
+      ],
+      "reasoning": "Existing tables and exact finite algorithms cover other quantities. No known table has been identified as explicitly containing the positive-density Poisson asymptotic. This negative search is not itself a proof of absolute novelty.",
+      "searches": [
+        "random binary incidence signatures pair collisions group draws logarithmic sample complexity",
+        "random binary matrices fixed row sums all columns distinct Poisson threshold",
+        "arxiv:2507.15231v1, numerical expectation Table II",
+        "arxiv:2610.32251v1, deterministic sample bounds"
+      ]
+    },
+    "rationale": "Compared the full statement, not just titles, with four directly relevant modern papers and the classical 1961 theorem of Rényi. Rényi already has the fair-bit birthday window and factor-two random overhead, which are credited as prior, but does not impose exact row cardinality. The canonical distinct-signature characterization, \\(k=2\\) mean estimates, and deterministic minimum are already known and credited. The dense fixed-cardinality random-stopping Poisson window, coupled Type-II equality and random-versus-optimal factor two were not found in those inspected passages or targeted searches. Novelty is assessed provisionally, with a clear priority risk from generic dependent-code collision limit theorems.",
+    "residual_risks": [
+      "A general theorem on rare collisions in fixed-row-weight random binary matrices or exchangeable random codes could imply the Poisson window without mentioning labeled coupons.",
+      "Search indices and inspected sections do not exhaust all older separating-system or coding-theory literature.",
+      "No independent priority examination has been performed.",
+      "Rényi (1961) establishes the core independent-column birthday mechanism and factor-of-two benchmark; novelty cannot be attributed to those general ideas. Only exact-cardinality dependent-column specialization and associated new quantitative claims are assessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model and Markov methods are relevant but the inspected results do not supply a positive-density fixed-cardinality Poisson collision window",
+        "evidence": [
+          "arxiv:2502.02968v1, pp. 1–3, definition of k-LCCP and K-LCCP, problem 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2502.02968",
+        "material_read": "Abstract, introduction, model definitions, Sections II–III and the stated coverage of Section IV",
+        "method": "Accessible full PDF text; first two pages inspected visually; searched for Poisson-limit terminology",
+        "title": "The Labeled Coupon Collector Problem with Random Sample Sizes and Partial Recovery",
+        "trigger": "Earliest identifiable formulation and potentially covering random-group-size analysis"
+      },
+      {
+        "assessment": "Separating condition and finite absorbing-chain expectations established; no explicit fixed-density asymptotic Poisson result in inspected sections",
+        "evidence": [
+          "arxiv:2507.15231v1, Theorem 1, Section IV and Table II, Discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.15231",
+        "material_read": "Abstract, Sections I–II, expected number Section IV and discussion Section V, including numerical Table II",
+        "method": "Accessible full PDF text and first page visual inspection; targeted text searches for Poisson and asymptotic collision law",
+        "title": "The Labeled Coupon Collector Problem",
+        "trigger": "Same random fixed-cardinality model and exact finite Markov chain potentially dominating the claim"
+      },
+      {
+        "assessment": "Results specialize to k=2 and expected values on order n log n, not k/n→p>0",
+        "evidence": [
+          "arxiv:2510.23249v1, pp. 1–3, Theorems 2.1 and 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2510.23249",
+        "material_read": "Abstract, introduction, Theorems 2.1–2.2 and proofs framing paired draws",
+        "method": "Accessible full PDF text and page-2 visual inspection",
+        "title": "On Conjectures concerning the Labeled Coupon Collector Problem",
+        "trigger": "Potentially stronger recovery-time results"
+      },
+      {
+        "assessment": "Deterministic minima and constructions; no matching random fixed-density Poisson collision theorem in the inspected material",
+        "evidence": [
+          "arxiv:2610.32251v1, Theorem 5 and Remark 2 (p. 7), conclusion (p. 26)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.32251",
+        "material_read": "Abstract and introduction, Theorem 5 and Remark 2, construction discussion, full conclusion and bibliography",
+        "method": "Accessible full PDF text with page-7 screenshot and targeted terms across PDF",
+        "title": "The Minimum Number of Samples in the Labeled Coupon Collector Problem",
+        "trigger": "Newest explicit deterministic separating-system treatment and direct source for recovery equivalences"
+      },
+      {
+        "assessment": "Already contains exact iid fair-bit collision law and the classical factor-two random-versus-optimal separation. Its uniform-over-all-subsets query law has fluctuating sample sizes and independent column signatures, unlike exactly k_n of n selected every draw; hence a major motivation/analogy but not a direct dominating theorem for fixed cardinality.",
+        "evidence": [
+          "Rényi (1961), pp. 75–78, Definitions 1 and 2, Theorem 1 and limiting corollary; p. 78 explicitly computes product of distinct iid signatures."
+        ],
+        "identifier_or_url": "https://acta.bibl.u-szeged.hu/13920/1/math_022_fasc_001_002_075-081.pdf",
+        "material_read": "Complete seven-page manuscript, particularly Definitions 1–2, Theorem 1 and corollary (pages 75–79), Section 3",
+        "method": "Official open-access PDF full-text inspection and page 78 visual screenshot",
+        "title": "On random generating elements of a finite Boolean algebra",
+        "trigger": "Potentially decisive original random separating-system birthday law"
+      },
+      {
+        "assessment": "Counts only draws to see every coupon, not draws to resolve the hidden label permutation; distinct mathematical stopping event and generally different first-order location.",
+        "evidence": [
+          "arxiv:2605.06953v1, Theorem 2.2 and definition Y_n,s."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.06953",
+        "material_read": "Accessible arXiv HTML: abstract, introduction, definition of Y, regime II and Theorem 2.2",
+        "method": "Full article HTML opened, relevant theorem and model statements examined",
+        "title": "Asymptotic Results for Uniform Group Drawing in the Coupon Collector’s Problem",
+        "trigger": "A new dense-group coupon-collection expectation paper plausibly covering the same sampling fraction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1d715cb5-77ad-477a-8161-f29a192ea2e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The random stopping-time distribution and expected draws for dense uniformly sampled groups are natural quantities explicitly distinguished from deterministic minimum and finite-chain computation in the foundational labeled-coupon literature. The result identifies a sharp bottleneck mechanism and quantifies a factor-of-two penalty of unplanned versus perfectly designed equal-half samples at powers of two; it also proves disappearance of the Type-I/Type-II time gap. The broad birthday and factor-two mechanism is known from Rényi (1961), but proving the fixed-row-cardinality correlated design with a full positive-fraction law and quantifying the unknown-alphabet penalty is a substantive separate probabilistic assertion, not a change of notation.",
+    "status": "PASS"
+  }
+}

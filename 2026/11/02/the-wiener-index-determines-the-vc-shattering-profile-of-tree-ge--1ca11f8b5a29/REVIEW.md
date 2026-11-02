@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. Convex halfspaces in a tree are exactly oriented single-edge cuts plus the two trivial halfspaces, because two nonempty connected complementary vertex sets have exactly one connecting edge. Every pair is shattered. A triple is shattered exactly when the median of its three vertices is outside that triple. Two crossing splits cannot both be induced by tree edges, so no set of four is shattered. The unique interior-point count over unordered endpoint pairs is the Wiener index minus the number of pairs. Together these prove the complete polynomial for all finite nonempty trees, including boundary orders one and two. The extremal cases follow from the edge-component distance sum. The standalone verification program directly reconstructs geodesic convexity and tests all labeled trees through order six, with 120 additional deterministic examples.
+
+## Originality
+PASS within accessible comparisons, with historical-priority risk. The general VC upper bound three for trees follows already from Proposition 14 in Thiessen and Gärtner (2021), and the description of compatible edge splits is classical; neither is presented as new. The target contribution is the exact polynomial, a complete support characterization, and the coefficientwise identity with the Wiener index. The closely related 2021 primary paper was read at its definitions, graph-family discussion, the main VC bound, and remaining results; it does not give the target coefficient identity. Anthony–Ratsaby (2018) define halfspaces through strict distance comparison to prototypes rather than convex complements. Thiessen–Gärtner (2022) concerns mistake bounds; the accessible record does not establish this identity, but full-text verification was unavailable. Published mathematical searches and accessible earlier claims were compared by implication. An equivalent enumeration in phylogenetic split literature remains possible and is a residual risk.
+
+## Mathematical value
+PASS. This is a complete natural invariant of a standard finite graph-convexity concept class, not a finite numerical coincidence. Its triple coefficient recovers a classical graph-metric invariant exactly, giving an interpretable connection between learning-theoretic trace richness and aggregate tree distances. The coefficient also yields sharp path/star bounds and characterizes every shattered support for every tree. These are motivated structural facts, rather than arbitrary parameters or a small numerical improvement. The proof does not presume a new algorithm or a downstream application.
+
+## Sources and limitations
+The main 2021 halfspace paper has a directly relevant published VC upper bound, so priority is claimed only for the coefficientwise result. The 2018 notion of halfspace is different; the 2022 primary full text was not available. No assertion of comprehensive priority or independent formal certification is made. The theorem does not concern all tree-convex subsets or Littlestone dimensions.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Exact one-step probabilities are obtained by applying the four-state Glauber transition kernel with degree two. The difference is H(B)/(2Z) and Eq. (41) has the opposite sign of H. H(A)>0 for every beta1>beta0, H(A+log(2)/beta1)<0, H is strictly decreasing between those points, and H remains strictly negative afterwards. Thus the threshold exists uniquely and the open ferromagnetic violation set survives arbitrarily small cooling. The two-state single-spin kernel instantly reaches Gibbs at beta1 and cannot exhibit this failure. The explicit rational transition yields the certified negative value -293719/163334085. Independent standard-library arithmetic plus 5,000 finite diagnostics passed; the analytic monotonicity proves the infinite parameter claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fukushima-Kimura et al., arXiv:2007.11287, Eq. (1.4) specifies conventional one-spin Glauber dynamics, while its main result concerns SCA mixing and asymptotic annealing.",
+        "Luo et al., arXiv:2311.10424v1, Eq. (40) is a global activity sum; Eq. (41) supplies only a sufficient sign hypothesis."
+      ],
+      "reasoning": "General Gibbs reversibility or attractive coupling does not itself order all nonstationary configuration probabilities by energy. No examined stronger finite-time theorem was found that entails the exact two-spin monotone threshold. General order-inversion theory is a residual risk.",
+      "searches": [
+        "\"Glauber\" \"passivity\" \"annealing\"",
+        "Glauber thermalization passivity spin configuration graph transient violation initially Gibbs cooling",
+        "arXiv:2007.11287 Eq. (1.4) and Theorem 3.2"
+      ]
+    },
+    "checked_sources": [
+      "Luo et al., arXiv:2311.10424v1, Eqs. (30)–(41) and accompanying figures.",
+      "Fukushima-Kimura et al., arXiv:2007.11287, Eq. (1.4) and simulated-annealing results.",
+      "Public mathematical literature indexed under annealing activity, local passivity, Ising Glauber dynamics, and excited-state population inversion."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source: Eqs. (30)-(32) specify the same acceptance rule; Eq. (41) is assumed nonnegative, and Fig. 2 reports only tested seven-spin numerical cases.",
+        "Exact new example: P_(--)= -293719/163334085, whereas its next-step activity is 2139045589/5553358890<1/2."
+      ],
+      "reasoning": "An observation of nonnegative P_i on selected numerical instances cannot imply universal nonnegativity on the smallest interacting ferromagnet. Conversely, the negative local criterion does not imply a violation of the conjectured activity bound, since P_i>=0 is sufficient but not necessary for that bound. The original activity conjecture is expressly not resolved by this theorem.",
+      "searches": [
+        "arXiv:2311.10424v1 Eqs (30)-(41)",
+        "arXiv:2007.11287 Eq. (1.4), Theorem 3.2",
+        "ferromagnetic two-spin Ising Glauber annealing neighborhood passivity local population inversion threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Luo et al., arXiv:2311.10424v1 Section IV.2 Eq. (41): local passivity is introduced as a sufficient hypothesis with seven-spin numerical evidence.",
+        "The candidate is equivalently a strict post-update energy–occupation reversal between the neighboring Ising configurations of energies A and B."
+      ],
+      "reasoning": "The explicit condition H(B)>0 is equivalent to higher population at the higher-energy aligned state and to P_(--)<0 for beta2>0. The source discusses but does not establish universal order preservation, and the searched mathematical records concern different observables and models.",
+      "searches": [
+        "Luo Zhen Liu Ebler Dahlsten 2023 neighborhood-passivity Eq 41 violation two spin Ising Glauber counterexample weak cooling",
+        "ferromagnetic two-spin Ising Glauber annealing neighborhood passivity local population inversion threshold",
+        "\"neighborhood passivity\" simulated annealing counterexample",
+        "arXiv:2311.10424v1 Section IV.2 Eqs (39)-(41)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-record searches surfaced a three-spin XXX thermal-entanglement threshold and a depolarizing–Ising correlation-flow boundary; neither uses the finite-step Glauber annealing neighborhood-passivity functional.",
+        "Luo et al., arXiv:2311.10424v1, Section IV.2 provides seven-spin numerical studies, not an exact tabulation or two-spin sign-classification table."
+      ],
+      "reasoning": "No exact table, claimed two-spin value, or corresponding parameter phase boundary was identified; database absence alone is not evidence that no unpublished or differently named solution exists.",
+      "searches": [
+        "Luo Zhen Liu Ebler Dahlsten 2023 neighborhood-passivity Eq 41 violation two spin Ising Glauber counterexample weak cooling",
+        "ferromagnetic two-spin Ising Glauber annealing neighborhood passivity local population inversion threshold",
+        "simulated annealing heat-bath one step excited-state population inversion neighbor temperatures",
+        "Luo Zhen Liu Ebler Dahlsten simulated annealing Glauber discrete activity bound one half counterexample irregular graph stationary Gibbs"
+      ]
+    },
+    "rationale": "The original 2023 paper proposes preservation of its Eq. (41) neighborhood-passivity functional and verifies this in finite SK experiments, without proving a general preservation theorem or identifying the two-spin threshold. This result explicitly calculates a strictly negative value for Eq. (41), so it does not follow from the paper’s positive numerical cases. The 2020 Glauber/parallel-update paper gives the kernel and a different chain’s convergence results but no exact local passivity boundary. Targeted mathematical searches returned unrelated impurity entanglement, depolarizing Ising, and polytope optimization records. Novelty is a best-evidence assessment, not a uniqueness proof; generic transient order theory remains a publication-priority risk.",
+    "residual_risks": [
+      "Generically named order-preservation or order-inversion theorems for finite inhomogeneous Markov chains might imply the two-spin special case without using passivity terminology.",
+      "Results not indexed by targeted search or behind inaccessible secondary literature could affect publication priority; database partition/search absence is not proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_MODEL_AND_HYPOTHESIS_NOT_COVERING_THRESHOLD",
+        "evidence": "Equation (41) defines local functional and calls its nonnegativity an assumption; Fig. 2 numerically verifies it on tested seven-spin SK cooling schedules; Eq. (39) is distinct activity conjecture.",
+        "identifier_or_url": "https://arxiv.org/html/2311.10424v1",
+        "material_read": "Abstract, introductory discussion, Section IV.1 and entire relevant Section IV.2, Eqs. (30)-(41), and figure captions.",
+        "method": "Accessible first-public arXiv full-text HTML, direct line/equation inspection; publication chronology separately checked against arXiv submission record.",
+        "title": "Bound on annealing performance from stochastic thermodynamics, with application to simulated annealing",
+        "trigger": "Primary motivating work; same transition rule and the exact neighborhood-passivity definition."
+      },
+      {
+        "assessment": "SAME_CLASSICAL_KERNEL_DIFFERENT_STATEMENT",
+        "evidence": "Equation (1.4) matches the uniform single-spin Glauber flip; Theorem 3.2 concerns asymptotic stochastic-cellular-automaton cooling, not finite-step local occupation inversion.",
+        "identifier_or_url": "https://arxiv.org/abs/2007.11287",
+        "material_read": "Introduction, Ising Hamiltonian, conventional Glauber Eq. (1.4), and annealing results/remarks including Theorem 3.2; textual searches for passivity and neighborhood.",
+        "method": "Lawful open-access arXiv full-text rendering and in-document keyword search.",
+        "title": "Mixing time and simulated annealing for the stochastic cellular automata",
+        "trigger": "Exact standard Glauber spin-flip kernel and a plausible general simulated-annealing comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4cea7c56-2746-4af2-8c48-92bf9f7fc070",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves the validity of a specific local sufficient assumption used to motivate a published annealing-performance conjecture, and gives a necessary-and-sufficient sharp boundary for the first nontrivial interacting Ising family. Minimal-spin sharpness and persistence for arbitrary weak cooling are structural findings beyond a numerical counterexample. The local failure explicitly does not claim that global activity exceeds one half.",
+    "status": "PASS"
+  }
+}

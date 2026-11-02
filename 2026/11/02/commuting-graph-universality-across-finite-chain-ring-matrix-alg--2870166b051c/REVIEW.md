@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof determines the exact three-coordinate commutator criterion, establishes the constant-size projective-lift forest for finite chain quotients, and proves that the coincidence of projective ancestors controls all wedge-zero relations, including the annihilating high-valuation cases. It reconstructs centralizers by counting scalar multiples of a primitive vector over a quotient, giving a complete pairwise-distinct centralizer spectrum, then recovers \(\ell\) from the number of graph degrees and \(q\) from graph order. Independent modular and truncated-polynomial ring arithmetic verifies all vertices and all commutation relations in four finite test pairs. A separate direct matrix multiplication census checks all \(256^2\) ordered matrix pairs for the key example. These tests corroborate, but cannot substitute for, the proof in arbitrary length and characteristic.
+
+## Originality — PASS relative to inspected sources
+The closest full primary text, Zhang (2021), proves the automorphism-group theorem for the conventional noncentral graph of matrices over \(\mathbb Z/p^s\mathbb Z\), with analogous valuation and rooted-partition lemmas. Its precise statements do not classify full commuting graphs across arbitrary finite chain rings, nor assert characteristic-insensitive isomorphisms between nonisomorphic coefficient rings. The present if-and-only-if classification uses an explicit projective-forest argument in three coordinates and reconstructs the two defining parameters. Mohammadian (2010) and Abdollahi (2008), inspected at abstract level, concern rigidity of finite-field matrix targets and do not settle the nonfield comparison. Further broad equivalences might exist; priority is provisional. No uninspected source was pronounced not covering based on its abstract.
+
+## Value — PASS
+Determining exactly which finite-ring parameters survive a complete commuting relation is a natural graph-reconstruction question. The theorem supplies a full iff classification and every centralizer-size multiplicity uniformly in characteristic and chain length. In particular two matrix rings of the same order but different additive-group exponents have identical full commuting graphs. This is a structural boundary on the information encoded by commutation, not a stand-alone low-dimensional census.
+
+## Closest literature and limitations
+Zhang (2021), DOI 10.3934/math.2021729, Lemmas 3.3/3.5 and Theorem 3.8 are closest and must receive explicit credit for the modular-ring valuation and branching mechanism. The universal cross-chain-ring claim and its converse are not stated there. Finite-field matrix-graph rigidity does not extend verbatim to matrix rings over different chain rings. A broad unpublished graph-universality principle could subsume this statement; independent examination remains desirable. The result is restricted to \(2\times2\) matrices over finite commutative chain rings and the graph convention including scalar matrices.
+
+Self-review: passed. Independent audit: not yet performed.

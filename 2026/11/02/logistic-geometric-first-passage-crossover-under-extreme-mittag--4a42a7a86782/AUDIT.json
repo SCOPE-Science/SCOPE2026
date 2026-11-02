@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the logistic weak limit of rescaled logarithmic Mittag-Leffler rates from an explicitly dominated integral. Uniform stopped-walk bounds ensure slow blocks preserve initial distance and a fast block absorbs in o(tau). Removing a shrinking transition band yields convergence of all noninteger survival points to a geometric distribution. The source spectral integral is independently checked numerically by the 40-assertion standalone checker. Limits exclude claims about moments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arutkin and Reuveni, arXiv:2302.07041v1, first-passage Eqs. (5)-(7); https://arxiv.org/abs/2302.07041",
+        "Levit and Reuveni, arXiv:2609.26925v1, main text Eqs. (2)-(7), supplementary Eqs. (S37)-(S53); https://arxiv.org/abs/2609.26925"
+      ],
+      "reasoning": "The 2023 general scheme evaluates distributions by random-clock averaging and treats first exit from a finite interval for exponential random rates. The 2026 paper treats Mittag-Leffler rates with an exact spectral survival law and first-passage mean asymptotics, but the parameters are not simultaneously scaled exponentially in inverse shape. An all-parameter representation is stronger finite-parameter information yet extracting this singular regime requires additional uniform analysis.",
+      "searches": [
+        "Levit Reuveni arXiv 2609.26925 First Passage in Presence of Jump Rate Fluctuations alpha zero target distance exponential logistic geometric limit",
+        "joint singular limit first passage tau and x0 exponent 1/alpha logistic transition and geometric hitting time",
+        "\"Doubly stochastic continuous time random walk\" 2023 Laplace hitting"
+      ]
+    },
+    "checked_sources": [
+      "Levit and Reuveni, arXiv:2609.26925v1, main text Eqs. (2)-(7), supplementary Eqs. (S37)-(S53); https://arxiv.org/abs/2609.26925",
+      "Arutkin and Reuveni, arXiv:2302.07041v1, first-passage Eqs. (5)-(7); https://arxiv.org/abs/2302.07041",
+      "Haubold, Mathai and Saxena (2011), structural representations of first-type Mittag-Leffler random variables, section 19.4; https://doi.org/10.1155/2011/298628",
+      "public published-finding corpus record (2026-10-11), “Exact geometric first-exit law for the ultradiscrete Selkov map”"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Levit and Reuveni, arXiv:2609.26925v1, main text Eqs. (2)-(7), supplementary Eqs. (S37)-(S53); https://arxiv.org/abs/2609.26925",
+        "Haubold, Mathai and Saxena (2011), structural representations of first-type Mittag-Leffler random variables, section 19.4; https://doi.org/10.1155/2011/298628",
+        "Arutkin and Reuveni, arXiv:2302.07041v1, first-passage Eqs. (5)-(7); https://arxiv.org/abs/2302.07041"
+      ],
+      "reasoning": "Fixed distance and fixed refresh time correspond to kappa=0: the source fair-coin argument motivates, but does not state or prove, the full geometric weak limit, especially kappa != 0. The source exact integral identity can be a starting point for the novel asymptotic; it does not by itself state the uniform joint-logarithmic scaling result. The classical moment and structural identities for Mittag-Leffler laws can yield a logistic log-rate limit, but not the spatial absorption comparison. No stronger published distributional joint-scaling statement was identified.",
+      "searches": [
+        "Levit Reuveni arXiv 2609.26925 First Passage in Presence of Jump Rate Fluctuations alpha zero target distance exponential logistic geometric limit",
+        "geometric weak limit first passage time for piecewise resampled Mittag Leffler jump intensities alpha approaching zero with alpha log x squared over tau to kappa",
+        "Levit Reuveni supplementary S49 S53 alpha zero mean first passage fixed x0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Levit and Reuveni, arXiv:2609.26925v1, main text Eqs. (2)-(7), supplementary Eqs. (S37)-(S53); https://arxiv.org/abs/2609.26925",
+        "Arutkin and Reuveni, arXiv:2302.07041v1, first-passage Eqs. (5)-(7); https://arxiv.org/abs/2302.07041",
+        "No equivalent full logistic-geometric first-passage crossover was identified among returned mathematical-record summaries."
+      ],
+      "reasoning": "The same claim can be expressed as P(T>(m+u)tau) tending to logistic(kappa)^(m+1), or as a geometric limit for number of redraw intervals preceding absorption. Source spectral formulas fix the finite-parameter survival function but do not report this non-uniform joint limit. Classical logistic limit of a log rate alone does not establish stopped-path convergence.",
+      "searches": [
+        "Levit Reuveni arXiv 2609.26925 First Passage in Presence of Jump Rate Fluctuations alpha zero target distance exponential logistic geometric limit",
+        "geometric weak limit first passage time for piecewise resampled Mittag Leffler jump intensities alpha approaching zero with alpha log x squared over tau to kappa",
+        "stochastic intensity mixing Laplace transform 1/(1+s^alpha) logistic log rate scaling alpha to zero crossing random walk target first passage",
+        "\"Mittag-Leffler\" logarithm convergence logistic small alpha"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-record search returned a geometric escape law for a piecewise-affine deterministic map, a logarithmic-rate transition for a different model, and general first-passage results; no matching rate-refresh walk result.",
+        "Closest nonmatching record: Exact geometric first-exit law for the ultradiscrete Selkov map, public published-finding corpus record (2026-10-11), “Exact geometric first-exit law for the ultradiscrete Selkov map”"
+      ],
+      "reasoning": "Geometric is a distributional label, not a claim match. The cited map has no random Mittag-Leffler rate redraws, log-distance scaling, or symmetric stochastic walk. Neither a numerical table nor an exact formula for this new double limit was found in the inspected records.",
+      "searches": [
+        "geometric weak limit first passage time for piecewise resampled Mittag Leffler jump intensities alpha approaching zero with alpha log x squared over tau to kappa",
+        "stochastic intensity mixing Laplace transform 1/(1+s^alpha) logistic log rate scaling alpha to zero crossing random walk target first passage",
+        "published-finding corpus semantic search: geometric weak limit first passage time for piecewise resampled Mittag Leffler jump intensities"
+      ]
+    },
+    "rationale": "The new mathematical statement is the singular joint-distance/refresh-time weak limit with explicit continuum of geometric success probabilities. The motivating 2026 work provides finite-parameter integral representations and a fixed-distance limiting mean, not the jointly exponential-distance distributional theorem. Uniform stop-time comparisons are supplied here. Targeted record and literature searches did not identify full statement coverage; abstract generic limiting-principle priority remains a risk.",
+    "residual_risks": [
+      "A previously published abstract singular random-clock/absorption theorem might imply the same joint limit without model-specific phrasing.",
+      "The motivating paper contains an exact finite-parameter survival representation, so the result is an asymptotic analysis of prior formulas rather than an unrelated stochastic identity.",
+      "Searches of the mathematical record are evidence of uncovered scope, not proof of historical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes source spectral law and alpha-zero mean and coin-flip heuristic at fixed x0, but does not contain the joint exponential-distance distributional crossover.",
+        "evidence": [
+          "Levit and Reuveni, arXiv:2609.26925v1, main text Eqs. (2)-(7), supplementary Eqs. (S37)-(S53); https://arxiv.org/abs/2609.26925"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.26925",
+        "material_read": "HTML full main analysis and relevant supplements S3.2 and S3.3, including Eqs. (2)-(7), (S37)-(S53) and the discussion of alpha approaching zero",
+        "method": "Direct primary HTML text inspection of equations, asymptotics and limiting discussion",
+        "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+        "trigger": "Same half-line walk and Mittag-Leffler rate law; source for full first passage spectral identity and alpha-zero claim"
+      },
+      {
+        "assessment": "Treated rate-resampled CT random walks and bounded-interval exit with exponential rate draws, not alpha-small Mittag-Leffler half-line logarithmic crossover.",
+        "evidence": [
+          "Arutkin and Reuveni, arXiv:2302.07041v1, first-passage Eqs. (5)-(7); https://arxiv.org/abs/2302.07041"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.07041",
+        "material_read": "Accessible arXiv HTML first-passage and rate-refresh sections, including Eqs. (4)-(7) and closing scope",
+        "method": "Direct primary HTML text inspection",
+        "title": "Doubly stochastic continuous time random walk",
+        "trigger": "Foundational arbitrary random-rate representation and finite-interval first-passage theory"
+      },
+      {
+        "assessment": "Rate law and Mellin representation prior mathematics; no moving-target stochastic first-passage theorem.",
+        "evidence": [
+          "Haubold, Mathai and Saxena (2011), structural representations of first-type Mittag-Leffler random variables, section 19.4; https://doi.org/10.1155/2011/298628"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2011/298628",
+        "material_read": "Accessible section 19.4 structural representation, Mellin moments and introductory description",
+        "method": "Direct journal full-text section inspection",
+        "title": "Mittag-Leffler Functions and Their Applications",
+        "trigger": "Possible broader coverage from classical Mittag-Leffler structural identities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4a42a7a8-6782-469f-92f2-4a5cee3158ff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies a natural singular joint scaling: the required jump clock for reaching a target is quadratic in distance, whereas random jump rates vary exponentially in inverse shape. The full geometric law with a logistic success parameter quantifies a continuum between immediate absorption and many refreshes and is not contained in the prior fixed-distance mean statement. This is a structural first-passage transition rather than a routine finite-parameter substitution.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The generator gives an exact coercive quadratic Lyapunov drift and a synchronous mean-square contraction, proving stationary existence and uniqueness. Exact stationary quadratic equations yield a,b,c; for linear observables conditional means evolve with A, hence K(t)=exp(At)C. Its antisymmetric off-diagonal factor is exactly -2/[gamma(r+2)+1] and the matrix exponential gives the claimed difference of decaying exponentials. Root ordering, positivity and a unique peak follow algebraically. Right first and second derivatives give s and gamma inverse explicitly; the probe-only zero-lag variance and right slope separately determine r and gamma. All parameter domains, noise factors, and time boundaries were checked. The bundled standard-library verifier passed 575 finite checks; this is corroboration only, not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "For linear observables the known Markov semigroup identity K(t)=exp(At) C holds; here the generator includes a one-coordinate jump reset.",
+        "The 2026 source determines the equal-time moments, which alone do not state the directional ordered-time comparisons or the inverse maps."
+      ],
+      "reasoning": "General linear-generator techniques permit a derivation but do not, as located, explicitly cover the strict sign, unique peak, or two-jet inverse identification in this retained-bath model. This is a narrow explicit specialization; broader universal novelty is not claimed.",
+      "searches": [
+        "viscoelastic bath resetting time reversed cross covariance signature inverse identification reset rate bath relaxation from initial slope curvature",
+        "general Markov semigroup reset OU matrix temporal covariance identifiability",
+        "stochastic reset viscoelastic memory cross lag identification"
+      ]
+    },
+    "checked_sources": [
+      "Santra and Das, arXiv:2603.17027, 2026-03-17 first submission, DOI:10.1088/1367-2630/ae868c (model and moment sections inspected through available full-text extracts).",
+      "Biswas, Dubbeldam, Sandev and Pal, arXiv:2412.09260, DOI:10.1063/5.0253019 (author-version correlation formula excerpts).",
+      "Stojkoski, Sandev, Kocarev and Pal, Autocorrelation functions and ergodicity in diffusion with stochastic resetting (2022), abstract/background comparison.",
+      "Goswami, arXiv:2412.19564, DOI:10.1103/PhysRevE.111.014150 (abstract/metadata only; possible stronger prior coverage not resolved)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Santra–Das 2026 Eqs. (11)-(12) supply an exact moment generator that the present proof explicitly reuses.",
+        "Biswas et al. 2024/2025 Eqs. (14),(20) give the position autocorrelation for a GLE renewal protocol.",
+        "Goswami, Phys. Rev. E 111, 014150 (2025), abstract: harmonically coupled tracer and bath with resetting that does not disturb the bath, focused on relaxation and first passage; full text unavailable."
+      ],
+      "reasoning": "The time-dependent one-time moment equations do not directly imply the ordered stationary two-time asymmetry without additional conditional Markov-semigroup analysis, and the older renewed-GLE model has no retained auxiliary coordinate for the particular ordered cross-covariance. The new work proves positivity/peak and both injective parameter reconstructions. Standard matrix algebra is a proof tool rather than claimed new general methodology. Goswami is materially plausible and inaccessible at full-text level; its abstract does not settle whether a cross-coordinate lag formula is included, so this remains a priority limitation rather than a definite noncoverage verdict.",
+      "searches": [
+        "stationary lagged cross correlation E[x(t)q(0)]-E[q(t)x(0)] exact time reversal antisymmetry",
+        "viscoelastic bath resetting time reversed cross covariance signature inverse identification reset rate bath relaxation from initial slope curvature",
+        "resetting in a viscoelastic bath time-dependent moments cross correlations",
+        "2024 Biswas viscoelastic GLE autocorrelation resetting renewal",
+        "Stochastic resetting in a nonequilibrium environment cross-correlation particle bath 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Santra–Das (arXiv:2603.17027; DOI:10.1088/1367-2630/ae868c) defines the exact partial reset model, but the inspected displayed moments are equal-time.",
+        "Biswas et al. (arXiv:2412.09260), Eq. (14) and renewal Eq. (20), concern two-time probe autocorrelation under their separate renewed-GLE setup."
+      ],
+      "reasoning": "Time reversal changes the ordered pair of coordinates rather than merely the lag sign of a scalar autocorrelation. Neither compared statement asserts the signed waveform or the inverse recovery of two physical parameters from its first right derivatives.",
+      "searches": [
+        "stationary lagged cross correlation E[x(t)q(0)]-E[q(t)x(0)] exact time reversal antisymmetry",
+        "2603.17027 resetting in viscoelastic bath the bath remembers stationary two time correlation irreversibility",
+        "resetting viscoelastic bath two-time cross correlation direction antisymmetry"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The main 2026 source lists position/mixed equal-time moments and nonequilibrium density asymptotics, not a table of antisymmetric ordered-time probe/bath correlations.",
+        "The 2025 source tabulates/derives scalar two-time resetting correlations, using its different system renewal construction."
+      ],
+      "reasoning": "The target is a continuum-time cross-coordinate waveform with an exact inverse map, not a tabulated invariant. A zero search hit is not asserted to establish novelty.",
+      "searches": [
+        "2603.17027 resetting in viscoelastic bath the bath remembers stationary two time correlation irreversibility",
+        "Santra Das 2603.17027 cross correlation lag time probe bath",
+        "Biswas Dubbeldam Sandev Pal time two correlation viscoelastic reset"
+      ]
+    },
+    "rationale": "The 2026 same-model source supplies the probe/bath SDE, resetting generator and stationary moment equations, but its inspected model/moment analysis treats equal-time moments and limiting densities; the assessed strict all-lag antisymmetry, unique lag extremum, and two distinct inverse maps from right-jet data are not in the examined source text. The 2024/2025 renewed-GLE treatment and the abstract of the Goswami 2025 selectively reset coupled-bath model has two-time probe autocorrelations, not a retained auxiliary bath under partial state resetting with directional cross-lag inverse map. The exact general semigroup principle is acknowledged and not called novel. Targeted literature and research-record searches did not locate equivalent formulas. Residual risk remains from full-text search limitations and possible general reset-OU treatment; independent priority review is still needed.",
+    "residual_risks": [
+      "Complete uninterrupted text of the identical-model 2026 article was not accessible; an uninspected equation or appendix could contain a closely related two-time result.",
+      "A general piecewise-linear jump-diffusion correlation/identifiability theorem elsewhere might imply the narrow special case, although no decisive matching statement was located.",
+      "The asymmetry formula is derived by elementary finite-dimensional matrix algebra once the stationary second moments are known; value rests on the sign/unique-peak/inverse interpretation, not on novel matrix techniques.",
+      "The 2025 Goswami paper uses harmonically coupled tracer/bath partial resetting, and its inaccessible full text might state relevant two-time cross-correlations or stronger results; a future priority review should inspect it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and solves the same base model at one-time moment level. No reported exact directional stationary two-time cross-lag comparison and inverse map in material inspected.",
+        "evidence": [
+          "Dimensionless dynamics has drift (Q-X),(X-Q)/gamma with noises sqrt(2),sqrt(2/gamma).",
+          "Reset Fokker–Planck Eq. (11) keeps bath coordinate unchanged.",
+          "Second-moment generator Eq. (12) is the common starting point; summary/conclusion highlight variance, kurtosis and density."
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1367-2630/ae868c",
+        "material_read": "Open-access publisher search-indexed full-text material: introduction/model Eqs. (1), reset Fokker–Planck Eq. (11), moment hierarchy and second-moment equations Eq. (12), stationary-density discussion, finite-return section, conclusion and appendix excerpts; paper metadata and abstract. Complete continuous full text was not retrievable in this session.",
+        "method": "Direct source and indexed full-text excerpts; compare displayed equations, main results and section content; no claim that all PDF pages were read.",
+        "title": "Resetting in a viscoelastic bath: the bath remembers",
+        "trigger": "Identical probe/bath Langevin equations and one-coordinate Poisson resetting; potentially decisive prior."
+      },
+      {
+        "assessment": "Related but materially different renewed-GLE probe autocorrelation; does not supply ordered probe–retained-bath cross lag or its inverse two-rate reconstruction.",
+        "evidence": [
+          "Eq. (14) is scalar probe correlation C(t,tprime).",
+          "Eq. (20) is a resetting renewal formula, depending on the last common renewal interval.",
+          "The current two-coordinate model is not fully renewed at tracer resets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.09260",
+        "material_read": "Accessible author-version full-text excerpts reproducing Eq. (14) GLE probe two-time correlation, Eq. (20) renewal-reset correlation, and analysis of Jeffreys bath; abstract and model description.",
+        "method": "Inspect public full-text excerpt of specific equations and their surrounding setup; not a complete page-by-page read.",
+        "title": "A resetting particle embedded in a viscoelastic bath",
+        "trigger": "Earlier viscoelastic-reset two-time correlation work could dominate proposed lag theorem."
+      },
+      {
+        "assessment": "Scalar Brownian resetting is not a two-coordinate retained-memory inverse problem.",
+        "evidence": [
+          "Discusses time correlations for diffusion with stochastic resetting."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/353728530_Autocorrelation_functions_and_ergodicity_in_diffusion_with_stochastic_resetting",
+        "material_read": "Indexed abstract and cited description of standard scalar time-autocorrelation approaches.",
+        "method": "Abstract-level comparison; not read in full.",
+        "title": "Temporal autocorrelation and reset dynamics literature",
+        "trigger": "Broader scalar resetting autocorrelation formulas as potential generalization."
+      },
+      {
+        "assessment": "Potentially same mechanism; reported focus is tracer relaxation and first passage, but unexamined full text leaves a non-negligible originality risk.",
+        "evidence": [
+          "Abstract explicitly states tracer-bath harmonic coupling, bath-preserving resetting, memory and first-passage calculations.",
+          "No explicit two-time directional covariance and inverse map appears in inspected abstract; this does not establish whole-paper absence."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.111.014150",
+        "material_read": "Abstract, accessible journal metadata, and author-version metadata; full research article not accessible.",
+        "method": "Abstract-level scientific comparison of model, objectives, and stated results.",
+        "title": "Stochastic resetting in a nonequilibrium environment",
+        "trigger": "Earlier harmonically coupled tracer/bath with bath-preserving Poisson resetting could be an exact or broader precursor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f53487f-213c-4db6-a2ff-f5ef7e96e359",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cross-time directionality is a natural measurement of nonequilibrium memory retained when the observable probe is reset but its environment is not. The all-lag sign and unique delay maximum specify a nontrivial response profile, while both a bath-assisted and a probe-only inverse map identify a hidden relaxation rate exactly using second-order time data. This directly addresses the source model’s physical control parameter and is neither an arbitrary parameter slice nor merely a numerical increment. No claims are made about finite-sample robustness or experimental validation; reconstructing derivatives from noisy data may be difficult.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For each block the coefficient E[x_i sign(sum x)]=binom(2m,m)/4^m follows by conditioning and parity. Orthogonality makes E[QF]=prod n_j for every admissible completion; Holder bounds the norm by prod alpha^{-1}. Block sign functions have only odd Fourier degrees so their product first appears in degree r, with exactly the desired one-from-each-block coefficients after scaling. Equality forces the values on Q!=0 and yields the weighted stability bound. Stirling with even/odd substitution gives the displayed correction. Checks/verify.py passed 269 exact-integer Walsh coefficient and dual/optimizer tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2302.00233, Theorem 3.1 states the projection constant is the absolute character-kernel average for any spectral support.",
+        "published-finding corpus 2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9 addresses canonical projection norms, not individual higher-degree tail cosets."
+      ],
+      "reasoning": "The projection-constant formula specializes to E|Q|, a distinct invariant. The present equality C E|Q|=number of hyperedges is not universal: for the triangle edge polynomial C=3 and E|Q|=3/2, while m=3. The blockwise sign Fourier condition is required for sharp equality. No stronger theorem from those sources was identified as directly implying the exact coset, uniqueness and stability together.",
+      "searches": [
+        "arxiv:2302.00233, Theorem 3.1, Sections 3-5",
+        "published-finding corpus: Projection and Sidon constants of complete bipartite quadratic Boolean characters Walsh spaces",
+        "published-finding corpus: lower bound saturated duality of uniform polynomial Q hypergraph product of Rademacher sums, sign function Fourier low-degree coefficients"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.00233 (first public version 2023-02-01, revised full text inspected)",
+      "arxiv:2311.09021 (first public version 2023-11-15, complete preprint inspected)",
+      "published-finding corpus: 2026/10/11/SCOPE-sharp-fourth-moments-and-euclidean-distortion-of-complete-quadra--5d09daee1c04",
+      "published-finding corpus: 2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9",
+      "published-finding corpus: 2026/10/11/SCOPE-exact-even-moment-constants-of-the-boolean-rectangular-spectrum--55e14d1bc7c7",
+      "Accessible prior real-functional-analysis-middle ledger through generation available collection snapshot (recoverable claims, dedup only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published projection constants are absolute norms of Fourier averaging projections; the claim fixes prescribed degree-r Fourier coefficients while allowing degree>r corrections.",
+        "The complete multipartite sign product has no low-degree Fourier components except the prescribed multilinear sum, unlike typical support kernels.",
+        "The triangle polynomial provides a direct counterexample to an indiscriminate projection-constant-to-quotient equality inference."
+      ],
+      "reasoning": "The proof uses a sharp L1-L-infinity dual pairing plus a special degree-parity Fourier-support certificate and equality classification. The closest published statements do not explicitly or generally yield that certificate for the present family. Tensorized one-block methods may nonetheless lead to equivalent prior formulations; this is retained as a risk.",
+      "searches": [
+        "arxiv:2302.00233, Theorem 3.1",
+        "arxiv:2311.09021, Proposition 1 and Theorems 2-4",
+        "published-finding corpus: Exact operator norm and projection constant of homogeneous quadratic Walsh polynomials on the Boolean cube, biased Bernoulli cube"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2311.09021, Theorems 2-4 treat different degrees/norms without the claimed exact multipartite identity.",
+        "published-finding corpus nearby fourth-moment and quadratic projection entries address distinct norms."
+      ],
+      "reasoning": "The natural aliases are tensor Rademacher chaos, complete multipartite hypergraph Walsh polynomial and uniform tail approximation. The searches returned no same-statement record. A tensor-product derivation from earlier one-block facts remains a residual priority risk; lack of a match is not uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Exact uniform quotient norm of complete bipartite quadratic Walsh polynomial (sum of Rademacher signs in group A)*(sum in B) modulo Fourier-Walsh degrees 3 and higher, sign-product optimizer, central binomial formula",
+        "published-finding corpus: complete multipartite Walsh chaos exact infinity quotient norm product central binomial coefficients unique sign function optimizer",
+        "Web: complete multipartite multilinear polynomial best L infinity Walsh tail approximation sign function Fourier",
+        "arxiv:2311.09021 (full-text search bipartite, product, tail)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible prior 2026-10_week4 ledger includes a distinct complete symmetric quadratic chaos quotient norm (item 741dc90f-54bc-4468-9c22-3475bb0ec3fa).",
+        "published-finding corpus 2026/10/11/SCOPE-exact-even-moment-constants-of-the-boolean-rectangular-spectrum--55e14d1bc7c7 treats even-moment extension constants, not the real uniform tail quotient."
+      ],
+      "reasoning": "No checked exact table or database entry supplies this formula with independent block sizes and all homogeneous degrees r≥2. The symmetric quadratic quotient is not a special case (complete graph versus multipartite hypergraph).",
+      "searches": [
+        "published-finding corpus: Sup norm minimal extension of bilinear Fourier Walsh coefficients on disjoint blocks, sign of Rademacher sums, quotient tail, uniqueness odd group sizes",
+        "published-finding corpus: complete multipartite Rademacher homogeneous polynomial approximation by degrees larger than r, exact distance and stability",
+        "Web: exact distance product of Rademacher sums to higher Walsh chaos",
+        "prior collection snapshot available collection snapshot; claims and identifiers inspected"
+      ]
+    },
+    "rationale": "Actual published-finding corpus alias/claim searches, accessible prior research records claims, and source inspection distinguish a full-multipartite L-infinity tail coset from previously published projection constants, one-block approximations and L1 general bounds. The exact product formula, zero-set rigidity and weighted stability were not located in the checked material; simpler tensor-product derivations remain a stated priority risk.",
+    "residual_risks": [
+      "Classical tensorization of sharp first-chaos coset norms may be expressed in older terminology outside the queried corpus.",
+      "The full primary 2017 Oleszkiewicz paper was not independently inspected; its one-block scope was identified through the 2023 Eskenazis–Zhang full text.",
+      "The finite source search is not proof of priority; independent literature review is pending."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.1 computes the related projection constant E|Q|, not the single-coset uniform tail quotient or its minimizers. General equality between a quotient norm and reciprocal projection constant does not follow for arbitrary Fourier supports; the multipartite sign-spectrum argument is additional.",
+        "evidence": [
+          "arxiv:2302.00233, Theorem 3.1, Sections 3-5",
+          "For the triangle edge polynomial, the universal bound m/E|Q| is strict, showing the need for a special equality mechanism."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.00233",
+        "material_read": "Original publication metadata and accessible complete arXiv text; Introduction, Sections 3-5, Theorem 3.1 with surrounding proof and consequence, and targeted searches for tail approximation, bipartite support, sign extremizers.",
+        "method": "Read arXiv full-text rendering and inspected PDF text/screenshot at the relevant theorem and related conclusions.",
+        "title": "Asymptotic insights for projection, Gordon-Lewis and Sidon constants in Boolean cube function spaces",
+        "trigger": "Theorem 3.1 gives an exact integral formula for Walsh-subspace projection constants, a plausible stronger result for the same support sets."
+      },
+      {
+        "assessment": "The cited formulas and bounds concern one-block Rademacher sums (Theorem 2) or L1 approximation of general/symmetric polynomials (Theorems 3-4). No exact L-infinity complete multipartite homogeneous quotient, rigidity or stability was identified.",
+        "evidence": [
+          "arxiv:2311.09021, Proposition 1; Theorems 2, 3 and 4; Corollary 5",
+          "Theorem 3 is an L1 upper estimate, whereas the present quantity is an exact L-infinity quotient norm."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.09021",
+        "material_read": "Accessible complete 8-page arXiv preprint text; definitions and Proposition 1, Theorems 2-4, Corollary 5, proof of duality, and targeted checks for tensor, multipartite and product formulas.",
+        "method": "Read arXiv full-text rendering and corresponding PDF text, with screenshot of the key theorem page.",
+        "title": "Approximation of polynomials from Walsh tail spaces",
+        "trigger": "Exact topic of approximation by higher Walsh-degree functions; Theorems 2-4 might dominate the proposed formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1320076f-c572-4ea1-8333-8c96589e580f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The coefficient-prescribed uniform quotient norm of a complete multipartite homogeneous Walsh chaos is a canonical local Banach invariant of a full r-partite hypergraph and is not determined by an arbitrary projection-constant bound. This computes the full multiblock and all-degree family, explicit optimizers and rigidity, quantitative stability, and a parity-sensitive growth law. It also identifies a genuine sharpness mechanism that fails for the triangle hypergraph, providing a motivated benchmark for general Walsh-tail approximation rather than an isolated numerical slice.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Starting at any point, Brownian hitting Laplace \\(f_c(x)=e^{-\\sqrt{r/D}|x-c|}\\) gives the exact one-attempt competing-risk identity. Solving the renewal equation yields M=(1-f(x0))/(r Phi), valid for arbitrary probability sources and positive r. Positive kernel ensures finite means. Holomorphy and unique Laplace transforms identify two distance pushforwards even from rate sets with interior accumulation points. Annihilated signed measure is antisymmetric under each target reflection; their composition is a nonzero translation, which cannot preserve nonzero finite total variation. Explicit 2-by-2 Fourier inversion is checked for determinant sin(k(b-a)) and filled at discrete resonances by continuity. The finite-scalar-readings nullspace proof and explicit four-atom witness are valid for any finite rate/target set. The sine-density sequence proves fixed TV distance and O(1/n) uniform MFPT discrepancy on compact rate windows. Standalone verify.py completed 95 assertions, including independent first-hit Monte Carlo; finite testing is not offered as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2206.14387 treats forward MFPT and entropy for stochastic distributed resets, including direction/parity dependence.",
+        "arXiv:2311.11897 studies forward search with multiple resetting locations and optimization, not infinitely many rates at two different absorbing targets.",
+        "Previously studied single-target coefficient-of-variation monotonicity concerns a restricted distance-density class and does not entail two-view arbitrary-source recovery."
+      ],
+      "reasoning": "Forward mean-time formulas are broader in resetting mechanisms, but neither forward identity nor distribution-specific optimizations imply source identifiability by themselves. The present inverse theorem is for arbitrary finite Borel measures and uses different target positions, not different reset locations. A broad inverse tomography theorem, if found, remains a genuine residual risk.",
+      "searches": [
+        "Exact recovery of a random resetting distribution from mean first passage time curves at two target sites Brownian Poisson resets via folded distance Laplace transforms",
+        "Resetting Brownian motion sampled random reset locations first passage time distribution first passage mean",
+        "First passage reset source reconstruction via varying resetting rate",
+        "arXiv:2206.14387 Sections II,V",
+        "arXiv:2311.11897 Sections II,III"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.01125 full HTML",
+      "arXiv:2206.14387 full HTML",
+      "arXiv:2311.11897 full HTML",
+      "arXiv:2410.16889 full HTML",
+      "public mathematical research record comparisons by the listed scientific searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Méndez et al. compute the one-target MFPT by an average of Brownian exponential distance kernels and discuss an equivalent reset point at a fixed rate; this supplies the forward Φ transform but does not imply its two-target inversion without additional reflection/translation arguments.",
+        "Abundo considers inverse first-passage distributions and random initial/reset parameters; specified target is not multi-site source identification for an arbitrary iid-reselected reset distribution.",
+        "Toledo-Marín and Boyer and Julián-Salgado et al. provide forward first-passage calculations for distributed and multiple resetting sites."
+      ],
+      "reasoning": "A known transform formula alone does not prove the nontrivial assertion that exactly two noncoincident centers suffice for arbitrary signed measure differences, nor the sharp finite-data noninjectivity and instability classification. The present theorem explicitly supplies those arguments rather than attributing them to source authors.",
+      "searches": [
+        "First-passage time Brownian resetting to random positions Mendez Campos 2401.01125 inverse distribution using two targets",
+        "arXiv:2401.01125 Sections II,VI and Appendices",
+        "arXiv:2410.16889 Intro and Section IV",
+        "arXiv:2206.14387 Sections II, IV, V",
+        "arXiv:2311.11897 Sections II,III"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The unknown law is encoded by two folded Laplace views at distinct centers.",
+        "A finite signed measure antisymmetric about both centers must be invariant under their nonzero composition translation and vanish.",
+        "arXiv:2410.16889 uses randomized initial position and prescribed first-passage distributions, and considers randomly selected but fixed reset positions."
+      ],
+      "reasoning": "Compared two-target Laplace folding, reflection operator, Fourier characteristic inversion and inverse first-passage distribution terminology. The exact reflection/translation mechanism and all-probability-law identification are not asserted in inspected closest physical sources or retrieved records. Classical transform uniqueness is an essential known ingredient; any general two-centered folded-measure injectivity theorem could imply this part.",
+      "searches": [
+        "Two distinct absorbing target locations uniquely determine random reset positions from their first-passage mean curves and characteristic function",
+        "Two-point distance distributions real line determine distribution reflection symmetrizations inverse tomography",
+        "Nonidentifiability one absorbing target reflection ambiguity Brownian stochastic resetting random reset location",
+        "arXiv:2401.01125 Section II and Section VI",
+        "arXiv:2410.16889 Section IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed generic restart result treats a restart variance envelope at fixed one-attempt success probability, not reconstructing an unknown spatial resetting law from two target-indexed mean first-passage functions.",
+        "Stationary membrane-current tomography on a ring uses a different kernel, a single interface and a reflection-antisymmetric invariant; it does not cover first-hitting mean inversion at two absorbing points on the real line."
+      ],
+      "reasoning": "This mathematical result concerns continuum probability sources, not a finite classified table. Queried indexed published research records and compared the relevant scientific statements; the absence of an indexed match does not prove literature novelty.",
+      "searches": [
+        "Exact recovery of a random resetting distribution from mean first passage time curves at two target sites Brownian Poisson resets via folded distance Laplace transforms",
+        "Two distinct absorbing target locations uniquely determine random reset positions from their first-passage mean curves and characteristic function",
+        "Nonidentifiability one absorbing target reflection ambiguity Brownian stochastic resetting random reset location",
+        "Exact recovery of a random resetting distribution from mean first passage time curves at two target sites Brownian Poisson resets via folded distance Laplace transforms",
+        "Two distinct absorbing target locations uniquely determine random reset positions from their first-passage mean curves and characteristic function"
+      ]
+    },
+    "rationale": "The prior forward renewal formula is acknowledged and is not the contribution. Four accessible primary full texts were materially compared with the asserted two-target arbitrary-measure uniqueness, explicit characteristic inversion, finite-reading impossibility and total-variation ill-conditioning; they discuss forward or differently parameterized inverse first passage questions without asserting this package of implications. Public mathematical research records were searched for matching scientific implications, not just wording; accessible previous related claims were separately compared for duplication. The two-target result is distinct from earlier single-target CV analysis and stationary-membrane current tomography. Residual risk remains from broader published inverse-source and symmetrized-measure reconstruction principles; priority is not certified.",
+    "residual_risks": [
+      "Classical inverse Laplace uniqueness and the two-reflection translation argument might be implicit in older mathematical measure-tomography literature not located by the targeted searches.",
+      "General inverse first-passage/source-identification theorems could contain this specialization as an unlabelled corollary.",
+      "Numerical inversion of analytic rate curves can be severely ill-conditioned; no finite-noise estimation theory is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the forward mean identity and optimization/equivalent reset-point arguments, but not recovery of an arbitrary source from MFPT curves at two distinct targets or the sharp nonidentifiability/stability boundaries.",
+        "evidence": [
+          "arXiv:2401.01125, Section II equations 6 and 13–16; Section VI; source first posted 2024-01-02"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+        "material_read": "Full open-access HTML source, including Section II renewal/mean derivation, Section VI equivalent resetting point, and concluding discussion.",
+        "method": "Section and displayed-equation comparison for parameterized inverse implications",
+        "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+        "trigger": "Same forward Brownian random-position Poisson reset mechanism and mean-first-passage formula"
+      },
+      {
+        "assessment": "Forward MFPT and entropy formulas, including fixed and toggling source distributions, do not formulate two-target reconstruction of an unknown probability law.",
+        "evidence": [
+          "arXiv:2206.14387 Sections II, IV and V"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.14387",
+        "material_read": "Full open-access HTML source, setup and forward mean/information sections, Section V and conclusion.",
+        "method": "Assumption, observable and direction-of-inference comparison",
+        "title": "First passage time and information of a one-dimensional Brownian particle with stochastic resetting to random positions",
+        "trigger": "Earlier broader forward first-passage and entropy theory for random resetting positions"
+      },
+      {
+        "assessment": "Investigates multiple resetting sites and forward search performance; not two absorbing sites for identification of one unrestricted iid resetting distribution.",
+        "evidence": [
+          "arXiv:2311.11897 introduction and Sections II–III"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.11897",
+        "material_read": "Full open-access HTML source with the multiple-reset-location model, renewal equations and first-passage optimization discussion.",
+        "method": "Compare target versus resetting sites and known versus unknown parameters",
+        "title": "Diffusion with two resetting points",
+        "trigger": "Possible ambiguity between two resetting positions and two different absorbing targets"
+      },
+      {
+        "assessment": "Prescribes FPT laws or exit probabilities to find initial-source densities and studies a random reset location, but no all-Borel-measure recovery from two target-indexed MFPT rate curves.",
+        "evidence": [
+          "arXiv:2410.16889 Sections I and IV, posted 2024-10-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.16889",
+        "material_read": "Full open-access HTML source including introduction, random reset position cases in Section IV, examples and conclusions.",
+        "method": "Compare random initial condition and reset-point sampling protocol with independent iid reset draws; inspect inverse unknowns and observed data",
+        "title": "Inverse first-passage problems of a diffusion with resetting",
+        "trigger": "Direct plausible inverse-first-passage source and random resetting-site problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2af4cf35-21b4-4a5a-a1ed-0324e8665dc2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating distributed-reset search papers derive forward first-passage statistics but leave the operational inverse question of how many distinct target positions identify an unrestricted spatial resetting law. The theorem gives a precise minimal two-site resolution, a constructive characteristic-function route, a sharp impossibility for finite scalar observations and a quantified TV-ill-conditioning boundary. These distinguish mathematical identifiability from practical estimability in a natural active first-passage experiment. The result is not an arbitrary parameter slice, known-table recomputation or routine special-case numerical approximation; classical transform ingredients are acknowledged. A general inverse-source theorem could diminish novelty, which is recorded as risk.",
+    "status": "PASS"
+  }
+}

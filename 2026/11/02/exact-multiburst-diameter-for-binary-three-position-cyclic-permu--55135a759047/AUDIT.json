@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For all integers n≥3 and 1≤k<n, nontrivial triple cyclic rotations exactly swap unequal bits at distance one or two, identifying the channel with F_k(P_n²). A constructive occupied-to-vacant positive-flow arc reduction proves that the graph metric equals integral unit-cost transport; network-flow duality gives integer Lipschitz potentials. Two-connectivity of P_n² forces nonadjacent rises of the sorted potential values. Even and odd m=n−k window-sum bounds give the universal upper bound ceil(km/2). Complement symmetry handles k>n/2. Two explicit integer Lipschitz potentials and the endpoint-packed word pair yield the matching lower bound. Independently coded exhaustive all-pairs breadth-first verification over n=3..15 (110,998,233 ordered pairs) and all-pairs matching duality through n=9 (66,174 ordered pairs) agree. Finite computations are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fabila-Monroy et al. arXiv:0910.4774v1 §3 Theorem 1 gives the general inequalities k(δ−k+1) ≤ diam F_k(G) ≤ kδ.",
+        "The source by Fischer, arXiv:2212.14634v1, concerns base graphs of diameter two in the abstract and is withdrawn in v2; it was not used as a valid universal theorem.",
+        "No inspected general bound was found which equals the claimed sharp diameter for every n,k of P_n^2."
+      ],
+      "reasoning": "Generic token-graph bounds do not specialize to the formula because δ=ceil((n−1)/2) and they are typically far from exact; the sorted-Lipschitz-potential sharp bound and extremal word pair are additional information. The available literature does not give an equivalent stronger theorem; an unlocated general graph bound remains possible.",
+      "searches": [
+        "\"diameter\" \"token graph\" \"2-connected\" \"half\"",
+        "\"diameter\" \"token graph\" \"power of a path\" square",
+        "\"2-connected\" \"token graphs\" \"diameter\" \"n-k\" k",
+        "On the connectivity and diameter of Token graphs from a vertex induced sub-graph perspective"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.15701v1 §V",
+      "arxiv:0910.4774v1 §3",
+      "arxiv:2101.01855 Theorems 1–2 and Appendix A",
+      "doi:10.61091/um123-02 §3",
+      "arxiv:2212.14634 withdrawn abstract (only; not used as coverage evidence)",
+      "Indexed mathematical research records on token-graph diameters, cyclic binary three-window moves, and transport formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Milenkovic Proposition 3 concerns single-error unique correction using syndromes, not multistep reachability.",
+        "Adame et al. arXiv:2101.01855 Theorems 1–2 concern Hamiltonicity of fan-graph token graphs, and Appendix A treats the P_n^2 correspondence.",
+        "Fabila-Monroy et al. token-graph general bounds are not sharp enough to force ceil(k(n−k)/2).",
+        "The independent transport-potential proof establishes both matching bounds for every length and composition."
+      ],
+      "reasoning": "Graph identification does not determine the diameter; existence of Hamilton cycles supplies no sharp shortest-path length. One-error code correction does not determine diameter after unrestricted sequential errors. Likewise neither generic kδ upper bound nor k(δ−k+1) lower bound forces the exact claimed answer.",
+      "searches": [
+        "\"token graphs\" \"distance\" \"earth mover\" graph",
+        "\"diameter\" \"token graph\" \"vertex connectivity\"",
+        "Binary length n Hamming weight k cyclic 3-substring permutations maximum shortest number of moves arbitrary two binary sequences, diameter floor or ceiling k(n-k)/2",
+        "\"Hamiltonicity of Token Graphs of Some Join Graphs\" \"diameter\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adame–Rivera–Trujillo-Negrete arXiv:2101.01855 Appendix A identifies the one-or-two-apart transposition graph as F_k(P_n^2).",
+        "Chen–Milenkovic arXiv:2610.15701v1 §V Proposition 3 identifies every nontrivial length-three binary cyclic rotation with one swap of unequal bits at distance one or two.",
+        "The claimed new invariant is the exact all-pairs graph diameter, not graph identification, Hamiltonicity, or one-error correction."
+      ],
+      "reasoning": "The graph-theoretic and coding-theoretic formulations are equivalent, so they were explicitly compared. The accessible 2021 source identifies the graph but gives Hamiltonian and Gray-code results rather than its exact diameter. The 2026 source handles single-burst code constructions. Neither statement implies this exact quadratic composition-dependent diameter.",
+      "searches": [
+        "Exact diameter of the k-token graph of the square of the n-vertex path, F_k(P_n^2), ceiling k(n-k)/2, binary cyclic length-three permutation sequential multiple errors",
+        "\"diameter\" \"k-token graph\" \"path\" \"power\"",
+        "\"token graph\" \"square of a path\" \"distance\" 2021",
+        "\"P_n^2\" \"token graph\" \"diameter\" formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected foundational and recent papers contain no table or exact formula for diam F_k(P_n^2).",
+        "2024 path-token packing work concerns F_k(P_n), not the squared path, and packing number rather than diameter.",
+        "Available prior claim summaries and full searchable current-collection claims had no match for this exact all-parameter diameter."
+      ],
+      "reasoning": "Searches included graph-square and burst-metric aliases and related exact-data phrases. The new theorem is an infinite formula, so a small-instance table would not cover it unless it contains or cites an all-parameter derivation; none was located.",
+      "searches": [
+        "\"token graph\" \"square of a path\" \"diameter\"",
+        "\"cyclic substring permutation\" \"diameter\" \"length 3\"",
+        "\"path\" \"square\" \"token graph\" \"diameter\" 2024"
+      ]
+    },
+    "rationale": "Compared the exact all-pairs distance/diameter statement against the motivating 2026 single-burst channel paper, foundational 2009 token-graph diameter bounds, 2021 published same-graph Gray-code correspondence, 2025 supertoken metric theory, and targeted mathematical-record and accessible prior claim searches. The same graph was already known, but the inspected graph-identification, Hamiltonicity, one-burst code, and broad-bound results do not imply the sharp all-parameter multiburst diameter. Unindexed prior work remains a genuine priority risk.",
+    "residual_risks": [
+      "The exact underlying graph F_k(P_n²) is already explicit in the 2021 Gray-code literature; an unindexed or differently titled prior exact diameter computation could exist.",
+      "Broad general-token-graph distance or reconfiguration results beyond the inspected sources could imply the formula; searches found none.",
+      "The withdrawn 2022 source on token-graph diameter was accessible only as an abstract and withdrawal notice; its announced base-graph diameter-two regime does not automatically cover all n."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "One-step patterns match the new graph. The source treats single-burst correcting codes and redundancy, not the exact diameter after arbitrary sequential applications.",
+        "evidence": [
+          "arxiv:2610.15701v1 §V Proposition 3 and Tables I–III",
+          "https://arxiv.org/abs/2610.15701 first public posting 2026-10-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.15701v1",
+        "material_read": "Full-text HTML sections on permutation bursts, particularly §IV bounds and §V Proposition 3 with explicit four error patterns and tables; source posting date checked on the arXiv abstract.",
+        "method": "Read the actual theorem/proposition statements and local error-pattern proof, and compare the channel and quantifiers to the proposed sequential metric.",
+        "title": "Correcting Burst Errors with Applications to DNA-Based Data Storage",
+        "trigger": "The source defines the recent cyclic-permutation-burst error model and handles length-three binary windows."
+      },
+      {
+        "assessment": "Generic bounds k(δ−k+1) and kδ do not imply the proposed exact F_k(P_n^2) diameter for all n,k.",
+        "evidence": [
+          "arxiv:0910.4774v1 §3 Theorem 1, lines 72–99 in arXiv HTML"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0910.4774v1",
+        "material_read": "Full-text HTML §2 Basic Properties and §3 Connectivity and Diameter, particularly Theorem 1 and its proof, including the path equality case.",
+        "method": "Compared exact parameter regime, inequalities and witness graphs by implication.",
+        "title": "Token Graphs",
+        "trigger": "Foundational token graph theory includes explicit diameter results and could dominate a specific metric claim."
+      },
+      {
+        "assessment": "The graph equivalence is prior, but an exact diameter and matching extremal potential statement are not part of the inspected conclusions.",
+        "evidence": [
+          "arxiv:2101.01855 Theorems 1–2, Appendix A; Appendix graph equivalence at source line 250"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.01855",
+        "material_read": "Accessible complete arXiv text: introduction, Theorems 1–2, and Appendix A on one-or-two-apart transpositions including the exact square-path graph isomorphism.",
+        "method": "Inspected the full primary-text content around relevant graph and its theorem statements; checked claims of Hamiltonicity against the claimed shortest-path diameter.",
+        "title": "Hamiltonicity of Token Graphs of some Join Graphs",
+        "trigger": "Its Gray-code appendix recognizes exactly F_k(P_n^2), a potentially decisive equivalent formulation."
+      },
+      {
+        "assessment": "Supertoken graphs permit multiple tokens per vertex and establish diameter k times base diameter, so their diameter formula is for a different, strictly less constrained model.",
+        "evidence": [
+          "2025 published article §3 Proposition 3.3"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/um-articles/vol-123/on-some-metric-properties-of-supertoken-graphs/",
+        "material_read": "Accessible full HTML, §§1 and 3, including Proposition 3.3.",
+        "method": "Checked its graph definition and diameter invariant against the no-collision finite-subset token model.",
+        "title": "On some metric properties of supertoken graphs",
+        "trigger": "Related metric work on graphs of indistinguishable tokens could contain a general stronger diameter statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "55135a75-9047-4b79-9cba-6f1b12fc609b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent 2026 channel literature motivates binary three-position cyclic permutation errors but does not determine unrestricted sequential reachability. The result supplies an exact quadratic extremal number of local bursts for every length/composition and an explicit diametral pair, with a structurally motivated transport-dual argument. This is an all-parameter natural channel metric, not a small arbitrary case or a recomputation of known integer code-size tables. Does not claim code-size or decoding consequences beyond reachability.",
+    "status": "PASS"
+  }
+}

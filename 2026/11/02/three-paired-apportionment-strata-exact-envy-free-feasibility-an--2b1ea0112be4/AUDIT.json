@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Twenty three-up-rounding outcomes contain exactly seven strict-order inversion-free patterns. Exact marginal equations yield off-diagonal 3-by-3 transport with rows \\(\\ell_i\\), columns \\(1-h_i\\), and the remaining all-singletons probability \\(1-S\\). A three-row Hall cut proof gives exactly four inequalities, valid over real residues. The off-diagonal six-cycle produces a support at most six. A rational quota witness with one-parameter flow interval \\([-2,1]\\) forces five positive transport arcs and positive singleton mass, so six is sharp. The standalone verifier independently checks 18,169 rational grid profiles and the support witness; finite checks are not offered as general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.24217v1 proves a polynomial-time general LP and therefore broader feasibility decision coverage",
+        "Doerr and Wahlström, DOI:10.1137/1.9781611972894.16, concerns generic randomized rounding under a cardinality constraint."
+      ],
+      "reasoning": "The general LP dominates the existence-decision task but neither the explicit cutoff description nor the exact forcing instance for minimum support is directly supplied in the inspected text. The new claim is deliberately about those structural outputs, not a more general algorithm.",
+      "searches": [
+        "\"Envy-Free Randomized Apportionment\" La Commare Tucker-Foltz Verdugo 2026",
+        "\"Six-party randomized apportionment envy-free 3 equal-floor pairs transportation flow Hall singleton cut support 6 outcomes\"",
+        "\"Fixed-sum categorical count pair blocks sharp support six outcomes dependent rounding minimal lottery support\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.24217v1",
+      "DOI:10.1137/1.9781611972894.16",
+      "Relevant mathematical findings on deterministic Webster and Jefferson quota failures and lottery support spectra"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source 2026 paper establishes feasibility by a general LP; its prefix ordering underlies the reduction here.",
+        "Prior divisor-apportionment quota-failure calculations concern deterministic seat choices, not coupling of exact-marginal lotteries.",
+        "The generic 6-support upper bound is a convex-geometric consequence; the exact sharp lower-bound example is an additional result."
+      ],
+      "reasoning": "The general LP implicitly contains a correct answer for every input of this subfamily, but supplying a decision algorithm is logically different from having stated or proved an explicit chamber characterization and a minimal-support sharp example. No exact prior implication for that combined sharp statement was identified; the result is not represented as independent of earlier theory.",
+      "searches": [
+        "arXiv:2610.24217v1, definitions and sections on LP and blockwise-prefix envy",
+        "\"Randomized Rounding in the Presence of a Cardinality Constraint\" Doerr Wahlström 2009",
+        "\"sharp first quota failure of Webster apportionment\"",
+        "\"sharp first upper quota failures of Jefferson apportionment\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "La Commare et al., arXiv:2610.24217v1, general zero-envy LP and block-prefix allocations",
+        "The six allowed nontrivial outcomes form a six-cycle in a 3-by-3 zero-diagonal transportation matrix; its margins are stated and proved in RESULT.md."
+      ],
+      "reasoning": "We compared both the original apportionment language and the off-diagonal coupling reformulation. The known algorithm can decide a feasible instance, but it does not explicitly state this four-inequality feasible chamber or a quota instance proving support six unavoidable. A failed or sparse search alone is not a novelty proof.",
+      "searches": [
+        "\"randomized apportionment six parties three different floors each floor has two parties three surplus seats envy free necessary sufficient sum low residues transportation derangement\"",
+        "\"coupling three ternary random variables sum three with marginals at zero one two zero diagonal transport envy free proportional apportionment\"",
+        "\"randomized apportionment six parties zero envy lottery support transportation derangement three strata\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identified prior exact six-party stratified quota table in targeted literature searches",
+        "The witness uses standard quotas derived from the integer vote vector (72,43,112,87,154,132) and chamber size 15, not values copied from a published table."
+      ],
+      "reasoning": "No matching tabulated exact feasibility region or minimum-support witness was located. This is limited evidence because no exhaustive literature database or full appendix was inspected.",
+      "searches": [
+        "\"Envy-Free Randomized Apportionment\" support size lottery three blocks two parties",
+        "\"multi-floor apportionment three pairs of parties exact Hall condition six parties 3 residual seats constructive lottery\"",
+        "\"randomized rounding 3x3 transportation forbidden diagonal sparsest support at most five\""
+      ]
+    },
+    "rationale": "The closest 2026 paper already establishes general zero-envy randomized-apportionment LP feasibility; the particular four-inequality stratified chamber plus an explicit six-outcome forcing construction are not stated in the inspected sections. The known Hall flow and cycle adjustment and a generic support upper bound are not independently claimed as new. Priority remains uncertain because of possible unstated corollaries, uninspected portions of the source and earlier coupling literature.",
+    "residual_risks": [
+      "The primary paper or its uninspected appendix may contain an equivalent specialization or stronger tight support result.",
+      "A prior derivation in stochastic coupling, transportation polytopes or dependent rounding could make the stated result a known corollary.",
+      "Abstract-only comparison of the earlier cardinality-constrained rounding work does not justify an assertion that its complete contents exclude overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General LP has broader decision scope. No exact six-party three-stratum residue chamber or sharp six-outcome witness located in material read.",
+        "evidence": [
+          "arXiv:2610.24217v1",
+          "https://arxiv.org/abs/2610.24217"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.24217",
+        "material_read": "Accessible HTML sections including problem definition, equal-floor blocks, blockwise prefix constraints, zero-envy and general optimization formulations; full remaining manuscript and appendix not exhaustively inspected.",
+        "method": "Direct reading of primary arXiv HTML text, section-level mathematical comparison.",
+        "title": "Envy-Free Randomized Apportionment",
+        "trigger": "Exact same apportionment setting, envy definition and general algorithm"
+      },
+      {
+        "assessment": "Background in fixed-cardinality random rounding; unresolved whether a special implicit result overlaps with minimal support in this setting.",
+        "evidence": [
+          "DOI:10.1137/1.9781611972894.16"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1.9781611972894.16",
+        "material_read": "Searchable bibliographic and abstract-level description; primary full-text comparison not completed.",
+        "method": "Abstract and bibliographic inspection",
+        "title": "Randomized Rounding in the Presence of a Cardinality Constraint",
+        "trigger": "Possibility that generic cardinality-preserving dependent rounding already supplies all support conclusions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b1ea011-2be4-4e38-a97a-651b5bd315ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The six-party, three-distinct-floor-pair, three-surplus-seat setting is the first natural case with three coupled binary prefix blocks and a nontrivial six-cycle coupling. The full feasible chamber has four explicit capacity inequalities; symmetric quotas exhibit the exact boundary \\(p=2/3\\); the rational witness shows an inherent minimum of six seat-allocation outcomes. These form a motivated exact implementation/feasibility classification rather than an arbitrary numerical slice; no broad algorithmic supremacy or larger-case theorem is claimed.",
+    "status": "PASS"
+  }
+}

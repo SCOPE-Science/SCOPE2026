@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Closed-neighborhood coverage is checked on the actual graph. Counting at most three rung edges covered per selected vertex gives the main lower bounds. Tight full-graph three-rung packing forces equally spaced sites and an impossible odd-cycle layer alternation at \(n\equiv3\pmod6\). On deletion, the equal-packing obstruction at \(n\equiv1\pmod6\) is forced by the two surviving boundary edges, and explicit alternating-layer selections give matching constructions for all six residues. Both boundary dimensions and the graph with a deleted vertex are covered. `verify.py` directly checks all subsets for \(3\le n\le10\) and the constructions for \(3\le n\le600\); these are corroboration rather than infinite proof.
+
+**Originality — PASS, qualified.** The full original manuscripts of Li–Zhang–Dong (arXiv:2610.26912v1), Brešar et al. (arXiv:2508.16338v1), and Caro–Hansberg (arXiv:1504.08055v1) were compared by mathematical implication, including synonymous isolation and vertex-edge domination. Brešar et al. Theorem 3.7 proves the intact even-case formula, which is credited, but only a lower bound for an odd base graph and no deleted-prism formula. The 2026 motivating paper addresses deletion globally without this graph family. A search of published research records found no same-claim or stronger covering result. The negative search is not proof of uniqueness; inaccessible or unindexed priority remains a risk.
+
+**Mathematical value — PASS.** A natural family of cubic graphs exhibits a sharp six-periodic transition in isolation and complete vertex-removal sensitivity: every vertex reduces the invariant exactly in two residue classes and preserves it in four. This makes the deletion partition exact, not merely an example or a routine rephrasing, and relates directly to the active graph-deletion problem and the bipartite/nonbipartite limitation of prior Cartesian-prism work. The local gap obstruction is structural and explains the two exceptional residues.
+
+**Limits.** No optimizer census or multivertex deletion theorem is asserted. Historical priority remains provisional and mathematical independence is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.

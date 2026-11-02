@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The exact three-moment matrix follows by conditional expectation; an explicit positive quadratic form proves sufficient stability and boundary conservation, while stationary-covariance impossibility establishes necessity. Differentiation gives unique capacity and floor optimizers. The all-erasure event and two witness paths prove the universal and unique finite-horizon optimum. All boundaries and normalization were independently rederived; 696 symbolic/rational checks were replayed from the actual verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Loizou–Richtárik arXiv:1710.10737 Theorem 1 gives sufficient L2 convergence under small momentum and describes that its rate guarantee is not improved by momentum.",
+        "Stamatiou arXiv:1704.08515 Proposition 3.2 gives generic necessary/sufficient second-moment stability conditions.",
+        "Gitman et al. arXiv:1910.13962 analyze stationary distributions for additive state-independent gradient noise."
+      ],
+      "reasoning": "The broad theory implies the isolated moment-stability inequality after nontrivial specialization and is acknowledged. The particular probability-one-half threshold for momentum increasing the *maximum* admissible step, the distinct optimal momentum for persistent additive UPDATE noise, and the strict no-hit lower bound with uniqueness at each horizon are not direct claims or corollaries of the inspected strong formulations under their stated update and noise assumptions. The final claim is the joint decision diagram, not mere recovery of generic covariance formulas.",
+      "searches": [
+        "https://arxiv.org/abs/1704.08515",
+        "https://arxiv.org/abs/1710.10737",
+        "https://arxiv.org/html/1910.13962v1",
+        "scalar stochastic heavy-ball multiplicative two-point random Hessian gradient dropout mean square stability momentum optimally increases step at p greater than half"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2206.07553v5",
+      "https://arxiv.org/abs/1710.10737",
+      "https://arxiv.org/abs/1704.08515",
+      "https://arxiv.org/html/1910.13962v1",
+      "https://arxiv.org/html/1803.05591v2",
+      "https://arxiv.org/abs/2312.14567"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The no-gradient event has exact probability \\((1-p)^n\\), forcing a universal lower bound, and two positive-probability patterns force the unique optimizer.",
+        "The derivative of the exact stability ceiling changes sign at \\(p=1/2\\); the derivative of the stationary update-noise denominator gives \\(\\beta=\\sqrt{\\gamma}-1\\), not generally the capacity optimizer.",
+        "Loizou–Richtárik arXiv:1710.10737 remarks that sufficient L2 bounds do not improve with momentum; it does not state this unique finite-horizon optimum and exact competing capacity/floor optima."
+      ],
+      "reasoning": "Generic AR(2) stability covers only one component of the statement; qualitative nonacceleration does not imply strict n-horizon uniqueness, and additive-noise QHM does not imply Bernoulli multiplicative-noise stability. The three optimized objectives have incompatible maximizers even though they refer to one method and one observation process. Specialized unsurfaced earlier exact formulations remain a priority risk.",
+      "searches": [
+        "momentum heavy ball independent Bernoulli gradient erasures zero-gradient trials quadratic exact finite-horizon lower bound probability no observation q^n pointwise optimal stepsize p",
+        "random-curvature scalar heavy-ball three objectives maximal mean-square stable stepsize versus optimal stationary variance and hitting zero Bernoulli dropout",
+        "stochastic heavy ball Bernoulli gradients mean square frontier 2p(1-beta^2)/(1+beta-2p beta) scalar quadratic",
+        "https://arxiv.org/abs/2206.07553",
+        "https://arxiv.org/abs/1710.10737"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stamatiou arXiv:1704.08515 treats general random-coefficient two-step equations; the three-moment operator is a special case.",
+        "Loizou–Richtárik arXiv:1710.10737 has the same raw heavy-ball update with general unbiased stochastic gradients."
+      ],
+      "reasoning": "Both the three-moment transfer and standalone stochastic stability belong to known general theory and are explicitly excluded as independent novelty. Unlike a generic stability statement, the assessed claim jointly optimizes three specific non-equivalent criteria on Bernoulli observations; neither inspected general theorem states those jointly.",
+      "searches": [
+        "Bernoulli sparsification heavy ball momentum quadratic mean-square stability exact step boundary p beta expected Lyapunov, phase transition 50 percent",
+        "scalar stochastic heavy-ball multiplicative two-point random Hessian gradient dropout mean square stability momentum optimally increases step at p greater than half",
+        "random coefficient AR2 second order recurrence Lyapunov mean square stability unbiased sparsified gradients",
+        "stochastic heavy ball Bernoulli gradients mean square frontier 2p(1-beta^2)/(1+beta-2p beta) scalar quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus query for formula \\(2p(1-\\beta^2)/(1+\\beta-2p\\beta)\\) returned scalar stochastic curvature OSGM, clipped HB and PAGE, but no exact matching record.",
+        "Closest published-finding corpus records on Bernoulli compressor with error-feedback, MARINA half dropout, deterministic QHM and Hessian corrected HB concern different recursions.",
+        "A previously published exact Gaussian rank-one momentum result and a separate reshuffled stochastic heavy-ball stationary-noise result concern different stochastic operators and do not establish this Bernoulli three-objective classification."
+      ],
+      "reasoning": "Relevant published scientific statements were compared by implication and by their stochastic operator, with the formula and equivalent stochastic-gradient terminology searched. An absent search match is not evidence of novelty. No located exact table or theorem states the complete joint optimization; broader historical publication coverage remains an explicit limitation.",
+      "searches": [
+        "momentum heavy ball independent Bernoulli gradient erasures zero-gradient trials quadratic exact finite-horizon lower bound probability no observation q^n pointwise optimal stepsize p",
+        "random-curvature scalar heavy-ball three objectives maximal mean-square stable stepsize versus optimal stationary variance and hitting zero Bernoulli dropout",
+        "rank one Gaussian heavy ball Kaczmarz optimal no momentum rate dropout comparative phase diagrams"
+      ]
+    },
+    "rationale": "Originality is claimed solely for the exact joint three-objective Bernoulli-erasure classification; the general AR(2) mean-square criterion and qualitative stochastic-momentum nonacceleration are already in 2017–2019 literature. Closest full-text statements do not state or directly encompass the combined sharp \\(p=1/2\\) capacity transition, update-noise floor optimum, and all-horizon erasure lower bound with unique optimizer. Priority risk remains for unlocated specialized sources.",
+    "residual_risks": [
+      "Generic linear two-step mean-square stability is covered by arXiv:1704.08515, and is not itself new.",
+      "Loizou–Richtárik 2017 already give a related stochastic-heavy-ball framework and non-improving sufficient L2 rate bounds; an unexamined specialized lemma could imply more.",
+      "Searches of accessible public literature and related scientific claims do not certify exhaustive historical priority.",
+      "Semantic search does not prove novelty; additional pre-2026 specialized dropout momentum publications may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General minibatch stochastic heavy-ball rates do not give the joint sharp dropout-specific three-objective classification",
+        "evidence": [
+          "https://arxiv.org/abs/2206.07553",
+          "https://arxiv.org/html/2206.07553v5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.07553v5",
+        "material_read": "Full-text HTML introduction, algorithm, quadratic convergence results and principal bounds; arXiv dated metadata was separately checked",
+        "method": "Read lawful arXiv HTML and checked the exact model and hypothesis against the Bernoulli-erasure recursion",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Motivating stochastic heavy-ball quadratic framework and main source dated 2022-06-15"
+      },
+      {
+        "assessment": "Provides general convergence bounds and no-improvement in its sufficient L2 bound, but not the exact probability-dependent momentum-enabled stable stepsize optimum, stationary additive-update-noise optimum or all-horizon unique annihilation law",
+        "evidence": [
+          "https://arxiv.org/abs/1710.10737"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.10737",
+        "material_read": "Full accessible text, Sections 1-3 including update (5), Theorem 1, remarks about momentum rates, Theorem 3 and experiments",
+        "method": "Read full arXiv text and compared projection/sampling operator and claimed rate bound with the new exact Bernoulli model",
+        "title": "Linearly Convergent Stochastic Heavy Ball Method for Minimizing Generalization Error",
+        "trigger": "Close same-algorithm stochastic quadratic theory, possibly stronger coverage"
+      },
+      {
+        "assessment": "GENERAL COVERAGE of the isolated mean-square-stability condition after specialization; not asserted novel alone. Does not state the joint step ceiling, additive floor and finite-horizon erasure optimum",
+        "evidence": [
+          "https://arxiv.org/abs/1704.08515"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.08515",
+        "material_read": "Full accessible text, especially general stochastic two-step equations and Proposition 3.2 plus related remarks and stability hypotheses",
+        "method": "Inspected full extracted arXiv text and compared random-coefficient second-moment criteria",
+        "title": "A note on Asymptotic mean-square stability of stochastic linear two-step methods for SDEs",
+        "trigger": "Generic random-coefficient AR(2) may imply the new stability criterion"
+      },
+      {
+        "assessment": "The stationary regime assumes gradient noise independent of position and studies different QHM parameterization, not Bernoulli multiplicative erasure and exact joint classification",
+        "evidence": [
+          "https://arxiv.org/html/1910.13962v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1910.13962v1",
+        "material_read": "Full HTML, Sections 1.1, 2, 4, 5 and Appendix E noise assumptions",
+        "method": "Read equations for QHM and its stationary covariance model and compared noise dependence and optimization variable",
+        "title": "Understanding the Role of Momentum in Stochastic Gradient Methods",
+        "trigger": "Momentum noise-floor optimization and stability tradeoff possibly dominate"
+      },
+      {
+        "assessment": "General nonacceleration counterexamples are known; not the present exact all-horizon erasure event law or capacity/floor juxtaposition",
+        "evidence": [
+          "https://arxiv.org/html/1803.05591v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.05591v2",
+        "material_read": "Full HTML, abstract, contributions, stochastic quadratic construction and main proposition context",
+        "method": "Compared example objects, oracle laws and logical implications",
+        "title": "On the insufficiency of existing momentum schemes for Stochastic Optimization",
+        "trigger": "Could cover nonacceleration or counterexamples stronger than finite-horizon claim"
+      },
+      {
+        "assessment": "Time-varying step and general rates, not exact three-objective scalar erasure classification",
+        "evidence": [
+          "https://arxiv.org/abs/2312.14567"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.14567",
+        "material_read": "Full accessible arXiv text with setup, main nonasymptotic convergence results and literature discussion",
+        "method": "Compared step-decaying anisotropic-noise assumptions with fixed independent Bernoulli erasure model",
+        "title": "Accelerated Convergence of Stochastic Heavy Ball Method under Anisotropic Gradient Noise",
+        "trigger": "Additional 2023 stochastic heavy-ball rate and noise analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11f2caf4-5cc5-4eb4-b493-6d581dbad20a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit probability-one-half transition separates when momentum truly expands the stability domain from when it cannot; a different unique momentum minimizes stationary additive update-noise error; yet no momentum uniquely optimizes every finite computation horizon. Distinguishing stability capacity from finite-budget risk and noise floor is a structural design lesson, with a natural random-gradient-loss model and exact arithmetic witness, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}

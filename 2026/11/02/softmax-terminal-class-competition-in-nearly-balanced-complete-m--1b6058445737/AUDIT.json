@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Detailed-balance stationary class frequencies pi_i=m_i(N-m_i)/S and uniform two-step Doeblin contraction yield O(t) variances for visits, hence o_p(n) local-clock errors at time O(n log n). Independent uniform coupon streams are an exact construction; a fixed initially seen coupon changes completeness with probability at most 1/m. The Poisson factorial-moment coupon limit proves independent Gumbel completion clocks with shifts theta_i/(k-1). The exponential minimum race gives exact softmax weights. The S log(x)/(N-x) derivative comparison yields deterministic dominance outside the n/log n window. The included checker passed 117 reproducible checks, including rational small-graph Markov solutions and critical-window asymptotic expansions; the analytic proof, not finite checks, supports all quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tishby–Biham–Katzav arXiv:2110.13592 Section 8 treats random regular graph scalar cover-time Gumbel, not multipartite class labels.",
+        "Rivera–Sauerwald–Sylvester DOI:10.4230/LIPIcs.ICALP.2021.107 abstract gives general cover-time estimates, not a last-class softmax.",
+        "Chang–Xu doi:10.4310/PAMQ.2015.v11.n3.a1 published abstract identifies multipartite spanning-tree and hitting-time formulas, but inaccessible full text remains a risk."
+      ],
+      "reasoning": "Known cover-time bounds and one-vertex hitting-time formulas do not by themselves determine the joint law of competing complete-part collection clocks in a moving near-balanced window. No cited accessible prior theorem states a strong coupling that immediately implies the full claim.",
+      "searches": [
+        "\"complete multipartite\" \"random walk\" \"cover time\"",
+        "random walk complete multipartite graph coupon collector stationary distribution",
+        "complete multipartite graph random walk cover time Gumbel limiting law near-balanced partition sizes softmax last visited class with weights exp(theta/(k-1))",
+        "Multiple Random Walks on Graphs Mixing Few to Cover Many multipartite cover time"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2110.13592, HTML Sections 1,8,9,15",
+      "arXiv:2209.08079, HTML entire short article",
+      "doi:10.4310/PAMQ.2015.v11.n3.a1, abstract only",
+      "doi:10.4230/LIPIcs.ICALP.2021.107, abstract only",
+      "previous accessible research records, recoverable titles and the bipartite last-vertex claim 45da9f17-7f4a-485b-8905-19dee72409a9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The accessible earlier item 45da9f17-7f4a-485b-8905-19dee72409a9 gives P(last part B)=P(C_b>=C_a) and the two-class logistic limit, with no third class or stationary class-frequency change.",
+        "Buchanan–Horn–Rombach arXiv:2209.08079 describes uniformity characterization of last-vertex probabilities, not asymptotic multipartite part weights.",
+        "Tishby–Biham–Katzav arXiv:2110.13592 obtains scalar Gumbel for random regular graphs, not the labeled vector limit."
+      ],
+      "reasoning": "An arbitrary dense graph can have a Gumbel scalar cover time without the joint independent classwise Gumbels or coefficient 1/(k-1). Bipartite alternation forces deterministic class counts, while k>=3 has an aperiodic nontrivial class chain and size-dependent stationary proportions; the new proof handles this feature. The earlier statements neither contain nor imply the new theorem without an additional argument.",
+      "searches": [
+        "last visited complete bipartite coupon collector logistic two parts previous ledger",
+        "Gumbel vector asymptotically independent classwise cover times complete k-partite simple random walk nearly balanced n/log n class last visited softmax exponent 1/(k-1)",
+        "arXiv:2209.08079 last new vertex theorem",
+        "arXiv:2110.13592 cover Gumbel regular graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus exact-vector query returned unrelated cover-time records, closest identified result 2026/9/17 record b2b4f7c61f17.",
+        "No exact k-partite Gumbel vector or last-part softmax in searches of accessible 2021 and 2022 full text."
+      ],
+      "reasoning": "The shifted-Gumbel representation is equivalent to Poisson late-vertex counts and to independent exponential races with rates exp(theta_i/(k-1)). The searched aliases (coupon collector, terminal class, last discovered part, Markov cover) did not expose this implication for multipartite walks. Absence of a search hit is not a proof of priority.",
+      "searches": [
+        "Gumbel vector asymptotically independent classwise cover times complete k-partite simple random walk nearly balanced n/log n class last visited softmax exponent 1/(k-1)",
+        "random walks complete multipartite graph terminal last discovered part nonuniform cover probability stationary class Markov coupon collector",
+        "\"complete multipartite\" \"cover time\" \"Gumbel\"",
+        "\"random walk\" \"last visited\" \"multipartite\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned graph-invariant and unrelated Gumbel entries; no matching stochastic graph table in returned records.",
+        "An accessible same-area own result computes exact last-class probabilities only for K_{a,b} (item 45da9f17-7f4a-485b-8905-19dee72409a9)."
+      ],
+      "reasoning": "The new object is a limiting vector of classwise completion times and its terminal-class probabilities; it is not an entry of a finite graph atlas or a known numerical probability table. The small K_{2,2,2} exact probabilities in the checker are only corroboration, not a substitute for a novel limit.",
+      "searches": [
+        "Gumbel vector asymptotically independent classwise cover times complete k-partite simple random walk nearly balanced n/log n class last visited softmax exponent 1/(k-1)",
+        "\"complete multipartite\" \"cover time\" simple random walk",
+        "complete multipartite unequal part random walk cover time last-vertex class logistic critical n/log n"
+      ]
+    },
+    "rationale": "The complete k>=3 classwise joint Gumbel vector, softmax exponent 1/(k-1), and sharp near-balance scale are not present in the inspected 2021 random-regular-graph cover-time analysis or 2022 last-vertex uniformity theorem. The earlier own two-class logistic statement applies only to the alternating bipartite class chain, not to k>=3, where class frequency depends on part sizes. The 2015 multipartite hitting-time source could not be read in full; its abstract does not state a covering theorem. Searches identified no broader implication encompassing the new vector limit. Novelty remains provisional, not independently certified.",
+    "residual_risks": [
+      "The 2015 Chang–Xu paper was accessible only by abstract; lawful full-text retrieval did not succeed. Its uninspected content could conceivably contain a stronger implication.",
+      "Literature and published-finding corpus searches cannot establish global priority or exclude uncatalogued generalized coupon-collector graph cover theorems.",
+      "No independent mathematical review has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Random-regular scalar cover-time law is not the nonregular complete multipartite partwise competition law",
+        "evidence": "Section 8 scalar cover-time distribution and Section 15 summary; no multipartite text match",
+        "identifier_or_url": "https://arxiv.org/abs/2110.13592",
+        "material_read": "Full accessible HTML sections: introduction, cover-time Section 8 formulas (42)–(53), Section 9 and Section 15 conclusion",
+        "method": "Read text in the arXiv HTML rendering and searched for multipartite and Gumbel",
+        "title": "Analytical results for the distribution of cover times of random walks on random regular graphs",
+        "trigger": "2016–2024 source on Gumbel graph cover times"
+      },
+      {
+        "assessment": "Uniformity characterization for all directed graphs does not give class probabilities or near-balance asymptotic law",
+        "evidence": "Lemma 1 and Theorem 2 concern equality of last-vertex probabilities; no multipartite theorem",
+        "identifier_or_url": "https://arxiv.org/abs/2209.08079",
+        "material_read": "Accessible full arXiv HTML, Lemma 1, Theorem 2 and proof plus statement of scope",
+        "method": "Read HTML text and searched multipartite terminology",
+        "title": "On the Last New Vertex Visited by a Random Walk in a Directed Graph",
+        "trigger": "Same last-discovered vertex statistic"
+      },
+      {
+        "assessment": "Abstract mentions spanning trees, hitting-time formulas and symmetric hitting-times; cannot exclude an uninspected stronger full-text result",
+        "evidence": "Published abstract at ResearchGate / Project Euclid, DOI as listed; full-text limitation explicit",
+        "identifier_or_url": "https://doi.org/10.4310/PAMQ.2015.v11.n3.a1",
+        "material_read": "Published abstract and bibliographic metadata only; complete text unavailable",
+        "method": "Checked projecteuclid publisher page, OA searches, arXiv searches and lawful full-text request; no full text returned",
+        "title": "Random walks on complete multipartite graphs",
+        "trigger": "Exact graph family and random walk; plausible dominating comparison"
+      },
+      {
+        "assessment": "Multiple-walker cover-time estimates and mixing framework, without a terminal-class softmax statement in accessible material",
+        "evidence": "Abstract emphasizes worst-case and stationary cover times, not terminal-class distribution",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2021.107",
+        "material_read": "Accessible journal and ICALP abstracts, not the full paper",
+        "method": "Read Cambridge and ICALP search-visible abstracts",
+        "title": "Multiple Random Walks on Graphs: Mixing Few to Cover Many",
+        "trigger": "Potential general graph cover-time bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1b605844-5737-47f5-9649-ae042a83d7cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The last discovered part is a natural localization statistic of a random cover tour. Part-size differences on the vanishing relative scale n/log n produce a nondegenerate full probability simplex of winners, while larger gaps force a unique winner. Unlike bipartite alternation, the nonbipartite class visitation rates oppose raw coupon-number advantages and yield the sharp attenuation exponent 1/(k-1). The joint Gumbel limit recovers all simultaneous late-cover probabilities, providing substantive extreme-value structure beyond a routine expected-time calculation.",
+    "status": "PASS"
+  }
+}

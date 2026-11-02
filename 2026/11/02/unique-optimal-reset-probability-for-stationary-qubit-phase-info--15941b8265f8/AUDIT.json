@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "An affine contraction gives the unique stationary qubit; its exact coherence leads by SLD to a full-rank rational QFI for every nonresonant phase. The exact derivative is \\(xP_t(x)/A^4\\), and a uniform one-sign-change argument plus endpoint signs proves one simple positive maximizing root. Scaling the polynomial at phase detuning gives the unique root limit and sharp Fisher constant. SymPy identities, an independent spectral-SLD calculation at 24 points, fixed-point checks and root brackets corroborate the analytic proof. The exact resonance is excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li, Tong and Bao, arXiv:2610.31249, setup and reset-QFI response section (https://arxiv.org/abs/2610.31249) contains a general QFI reset derivative identity for a relaxing Lindbladian.",
+        "Wald et al., arXiv:2410.11497v1, Secs. II–IV and Appendices A–C (https://arxiv.org/html/2410.11497v1) presents a general finite-dimensional discrete-time steady-state formula."
+      ],
+      "reasoning": "General response/resolvent results provide starting identities but do not prove that the concrete full-phase QFI derivative has one positive root, nor the optimizer’s singular detuning profile. The 2026 work assumes continuous-time relaxation, unlike this unitary-plus-Bernoulli map.",
+      "searches": [
+        "reset quantum metrology Poisson stochastic resets quantum Fisher phase angle estimation",
+        "\"stochastic resetting\" \"metrology\" \"optimal rate\" quantum",
+        "quantum stroboscopic unitary dynamics Poisson resetting coherence resonance Floquet phases"
+      ]
+    },
+    "checked_sources": [
+      "Wald et al., arXiv:2410.11497v1, Secs. II–IV and Appendices A–C (https://arxiv.org/html/2410.11497v1)",
+      "Li, Tong and Bao, arXiv:2610.31249, setup and reset-QFI response section (https://arxiv.org/abs/2610.31249)",
+      "O'Connor et al., Fisher information rates in sequentially measured quantum systems, https://doi.org/10.1088/1367-2630/ad345c",
+      "Public scientific searches for geometric-age qubit QFI, reset-assisted phase estimation and stationary reset-rate optimality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wald et al., arXiv:2410.11497v1, Secs. II–IV and Appendices A–C (https://arxiv.org/html/2410.11497v1) explicitly derives the stationary density matrix as a geometric sum; specialization produces the stated Bloch coefficient but not the unique optimizer.",
+        "Li, Tong and Bao, arXiv:2610.31249, setup and reset-QFI response section (https://arxiv.org/abs/2610.31249) derivative identity holds under its own full-rank smoothness assumptions and does not fix the sign globally."
+      ],
+      "reasoning": "The claim requires the SLD evaluation, an exact fifth-degree derivative factorization, a Descartes sign-count argument uniform in detuning, and a singular root asymptotic. Those steps are not stated or implied solely by prior fixed-point or response identities; no stronger encompassing theorem was located.",
+      "searches": [
+        "arxiv:2410.11497v1 stationary state geometric mixture Eq. (10) and eigenbasis Eq. (11)",
+        "arxiv:2610.31249 reset-rate QFI response identity Eq. (7)",
+        "stroboscopic gate resetting metrological sensitivity quantum Fisher optimal reset near resonance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wald et al., arXiv:2410.11497v1, Secs. II–IV and Appendices A–C (https://arxiv.org/html/2410.11497v1) gives the fixed-point resolvent but no optimization of phase QFI.",
+        "Li, Tong and Bao, arXiv:2610.31249, setup and reset-QFI response section (https://arxiv.org/abs/2610.31249) studies continuous-time dissipative reset metrology and gives a general response identity, not the qubit discrete-time root."
+      ],
+      "reasoning": "Checked aliases of Bernoulli stroboscopic reset, geometric age mixing, phase sensing and SLD information. The only exact overlap established is the underlying reset resolvent, not the optimality or near-resonance theorem.",
+      "searches": [
+        "Bernoulli reset single qubit phase quantum Fisher information optimal reset probability one unique maximum phase detuning",
+        "geometric dephasing stationary reset qubit Fisher information phase estimation resonance ratio polynomial Descartes",
+        "stroboscopic gate resetting metrological sensitivity quantum Fisher optimal reset near resonance",
+        "\"geometric distribution\" \"phase\" \"quantum Fisher information\" qubit",
+        "\"phase\" \"Fisher\" \"stochastic resetting\" qubit stationary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wald et al., arXiv:2410.11497v1, Secs. II–IV and Appendices A–C (https://arxiv.org/html/2410.11497v1) tables and plots concern two-qubit correlations and resonance structure, not stationary one-qubit QFI.",
+        "O'Connor et al., Fisher information rates in sequentially measured quantum systems, https://doi.org/10.1088/1367-2630/ad345c discusses Fisher-information rates with measured trajectories."
+      ],
+      "reasoning": "Checked for a tabulation of the proposed optimizer and the exact quartic/quintic sign law. No matching table was found in examined primary material or targeted literature search. Failed lookup alone is not novelty proof.",
+      "searches": [
+        "Bernoulli reset single qubit phase quantum Fisher information optimal reset probability one unique maximum phase detuning",
+        "geometric dephasing stationary reset qubit Fisher information phase estimation resonance ratio polynomial Descartes",
+        "\"reset\" \"quantum Fisher information\" \"discrete-time\" \"stationary\" qubit",
+        "\"stationary\" \"qubit\" \"phase\" \"resetting\" \"Fisher\" opt"
+      ]
+    },
+    "rationale": "The stationary geometric-age mixture and standard single-qubit QFI formula are known; the exact one-positive-root optimizer and universal punctured-detuning scaling were not found in the inspected published primary source or matched research records. The relevant prior results concern quantum coherences, two-qubit correlations, generic continuous-time reset response, or sequential readout; none yields the stated phase-dependent algebraic classification without additional argument. Unlocated general coverage remains a risk.",
+    "residual_risks": [
+      "Search indexes and accessible literature may miss a more general exact QFI optimization theorem; publication priority is not independently certified.",
+      "The broader O'Connor article was not exhaustively read; its accessible Fisher-rate setup uses a different observable and does not present decisive coverage.",
+      "The present result is a stationary unconditioned snapshot theorem. Statements involving preparation cost, reset history, or exact pure-state resonance require separate analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS stationary mixture, channel and resonance premise; NOT FOUND present qubit phase-QFI maximizing probability or singular optimum law.",
+        "evidence": "Equations (7), (10), (11); Sec. III observables are concurrence, LQU and spin correlations; Appendix B evaluates a cosine geometric sum.",
+        "identifier_or_url": "https://arxiv.org/html/2410.11497v1",
+        "material_read": "Abstract, model and Bernoulli stationary state (Secs. I–II); two-qubit correlation and entanglement sections (III); non-Poissonian comparison (IV); numerical details and correlation and no-reset appendices (A–C).",
+        "method": "Full accessible HTML preprint, text and formulas examined by section and searched for Fisher/precision.",
+        "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+        "trigger": "Same discrete-time random reset channel and spectral resonance structure."
+      },
+      {
+        "assessment": "GENERIC QFI response in dissipative continuous-time dynamics; no direct discrete-time Bernoulli gate optimizer implication.",
+        "evidence": "Equations (5)–(8) specify continuous-time reset Lindbladian, response identity and local sufficient condition.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.31249",
+        "material_read": "Abstract, introduction, Lindblad setup, steady-state QFI response identity, local improvement criterion and qubit thermometry benchmark.",
+        "method": "Accessible online extracted full-text sections and equations examined; exact discrete-time model comparison.",
+        "title": "Reset-Enhanced Dissipative Quantum Metrology",
+        "trigger": "Possible broader reset-QFI optimization framework."
+      },
+      {
+        "assessment": "Sequential measurement-record information rather than one unconditioned stationary qubit snapshot.",
+        "evidence": "Equation (21) uses outcome-conditioned transition probabilities; no Bernoulli stroboscopic stationary-gate phase optimization is established in examined sections.",
+        "identifier_or_url": "https://doi.org/10.1088/1367-2630/ad345c",
+        "material_read": "Section 2 on conditional Fisher information rates and selected examples comparing measurement intervals.",
+        "method": "Open-access article HTML text read for measurements and Fisher-rate definitions.",
+        "title": "Fisher information rates in sequentially measured quantum systems",
+        "trigger": "Same information functional name and optimization of measurement protocols."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15941b82-65f8-4f6d-9f44-98c379f7fe07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The reset frequency of a stroboscopic sensor controls a nontrivial competition between phase accumulation and stationary mixing. The theorem completely and rigorously resolves stationary unconditioned phase-precision optimization over the full nonresonant phase domain, supplies a simple opposite-phase calibration and a sharp singular near-resonance design scaling. It is more than a parameter substitution or a sample optimum, though it is not a cost-normalized device protocol.",
+    "status": "PASS"
+  }
+}

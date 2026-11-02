@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The incidence reduction is verified in both directions, the underfull row/column classification exhausts every maximal pattern, cycle components yield the complete balanced coefficients, and singularity expansion gives the first correction. The standalone graph enumeration independently checks every subset for eight parameter pairs (104272 subsets). Infinite validity rests on the written proof and not finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goddard–Kuenzel–Melville (2019), Sections 2–4: classifications and graph operations, with no labeled-cardinality coefficients for rook graphs.",
+        "Madsen–Nielsen–Skjernaa (2002), Sections 3–5: universal counting bounds and an enumeration algorithm, not the family exact polynomial."
+      ],
+      "reasoning": "An algorithm that can enumerate a family does not itself state the exact family enumerator. Scalar extremal order and well-bicovered status do not determine how many maximal sets occur. The new count refines but does not contradict the prior general results.",
+      "searches": [
+        "\"Graphs in which all maximal bipartite subgraphs have the same order\" \"rook\" 2020",
+        "\"On the Number of Maximal Bipartite Subgraphs of a Graph\" 2002 full text bipartite sets",
+        "Complete cardinality enumerator of maximal induced bipartite subgraphs of rectangular rook graphs, counts of maximal 2-matchings of K_{m,n}"
+      ]
+    },
+    "checked_sources": [
+      "Bachstein–Goddard, The Lower Bipartite Number of a Graph (2023), DOI 10.1556/314.2023.00003, full-text public transcription",
+      "Goddard–Kuenzel–Melville, Graphs in which all maximal bipartite subgraphs have the same order (2019), arXiv:1909.07503, open full PDF",
+      "Madsen–Nielsen–Skjernaa, On the Number of Maximal Bipartite Subgraphs of a Graph (2002), DOI 10.7146/brics.v9i17.21735, open full PDF",
+      "Classical exponential-formula count for labeled 2-regular bipartite graphs, independently derived in proof"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bachstein–Goddard (2023) Observations 13–14 imply support and extremal cardinality; they do not give either balanced multiplicity or the 1/(8n) asymptotic bias.",
+        "Classical alternating-cycle decomposition gives A_n, used openly in the proof."
+      ],
+      "reasoning": "The qualitative classification is substantially covered. The final claim is deliberately restricted to coefficientwise counts and uniform-size asymptotics. These quantities require the additional exhaustive incidence analysis, cycle-weighted enumeration and singularity coefficient calculation, rather than merely substituting a known extremal number. No decisive prior formula implying the entire claim was located.",
+      "searches": [
+        "For square rook graphs K_n square K_n, number of inclusion-maximal induced bipartite subsets of orders 2n and 2n-1 equals R_n and n^2 R_{n-1}, where R_n counts bipartite 2-regular graphs; fractions tend to one half",
+        "Asymptotic balanced size distribution of maximal induced bipartite subgraphs of rook graphs, size 2n−1 and 2n, limit 1/2",
+        "\"The Lower Bipartite Number of a Graph\" \"rook\" \"2-matching\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bachstein–Goddard (2023), Observation 13: bipartite induced subsets of line graphs of bipartite graphs correspond to 2-matchings; Observation 14 evaluates only the lower bipartite number of rook graphs.",
+        "Goddard–Kuenzel–Melville, arXiv:1909.07503, develops well-bicovered terminology and discusses Cartesian products but not the complete rook enumerator."
+      ],
+      "reasoning": "The precise equivalent formulation is maximal 2-matchings of K_{m,n} counted by edges. The closest 2023 paper already supplies the feasibility reduction and a scalar minimum, which are explicitly excluded from the novelty claim. No inspected text counts each size or the balanced asymptotic bias.",
+      "searches": [
+        "Inclusion-maximal induced bipartite vertex sets of rook graphs K_m square K_n, their size polynomial, well-bicovered property and 2-matchings of complete bipartite graphs",
+        "\"maximal induced bipartite\" \"rook graph\"",
+        "\"well-bicovered\" \"line graph\" \"complete bipartite\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical labeled 2-regular bipartite graph counts begin 1, 6, 90, 2040; these count the saturated class, not all inclusion-maximal bipartite subsets on a balanced rook board.",
+        "The second class consists of a distinguished isolated incidence plus a 2-factor; its exact n²A_{n-1} multiplicity and two-class ratio are not stated in the inspected sources."
+      ],
+      "reasoning": "The 2-factor sequence is a known counting ingredient, not an independent originality claim. No located exact table or generating function counts both maximal classes of the rook graph with the asymptotic probability in the same exact domain. Residual risk of an unindexed equivalent binary-matrix table is documented.",
+      "searches": [
+        "\"number of maximal 2-matchings\" \"K_{n,n}\"",
+        "\"2-regular bipartite graphs\" \"sqrt(1-x)\" \"exp\" enumeration",
+        "For square rook graphs K_n square K_n, number of inclusion-maximal induced bipartite subsets of orders 2n and 2n-1 equals R_n and n^2 R_{n-1}, where R_n counts bipartite 2-regular graphs; fractions tend to one half"
+      ]
+    },
+    "rationale": "The 2023 motivating paper already proves the 2-matching equivalence and lower bipartite numbers; these are excluded from the novelty assertion. The new assessed quantities are the complete labeled multiplicities on all rectangular rook boards and their balanced asymptotic class split. Comparison with three inspected primary works and topical scientific records did not identify equivalent coefficientwise and probabilistic statements; possible unindexed binary-matrix formulations remain a risk.",
+    "residual_risks": [
+      "An unindexed regular 0–1 matrix enumeration could state the complete same maximality polynomial under alternate terminology.",
+      "The general 2-factor count is classical, and the new contribution is the counted association to maximal induced bipartite rook subsets and the precise distribution, not standalone invention of that ingredient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the structural reduction and scalar sizes; no complete enumerator or asymptotic class probability",
+        "evidence": [
+          "Observation 13: induced bipartite line graph subsets are 2-matchings of a bipartite graph.",
+          "Observation 14: lower bipartite number of unequal and balanced rook graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1556/314.2023.00003",
+        "material_read": "Publicly accessible full-text HTML transcription, including Sections 1–5 and Observations 13–14",
+        "method": "Read and compared the source’s exact quantified 2-matching equivalence, rook lower bipartite number and bibliography",
+        "title": "The Lower Bipartite Number of a Graph",
+        "trigger": "Same maximal-induced-bipartite property on the exact rook graph family"
+      },
+      {
+        "assessment": "Does not supply the counted maximal 2-matching classes, their generating function or their asymptotic ratio",
+        "evidence": [
+          "Section 3.5 treats the well-bicovered property of Cartesian products rather than numbers of rook-family maximal subsets."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1909.07503",
+        "material_read": "Full 15-page open arXiv PDF text searched and relevant Sections 2–4, especially Section 3.5, read",
+        "method": "Compared Cartesian product and well-bicovered results to the new coefficientwise enumerator",
+        "title": "Graphs in which all maximal bipartite subgraphs have the same order",
+        "trigger": "Well-bicovered and Cartesian-product results may dominate the proposed size description"
+      },
+      {
+        "assessment": "Provides general worst-case enumerative bounds and algorithms; the family-specific exact counts are not present",
+        "evidence": [
+          "Theorem 1 constructs a lower-bound family; Theorem 2 counts an algorithmic upper bound for arbitrary graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.7146/brics.v9i17.21735",
+        "material_read": "Full 2002 10-page open PDF text and relevant theorem/proof pages, including Sections 3–6",
+        "method": "Compared lower-bound construction and general enumeration upper bound with the special-family exact counts",
+        "title": "On the Number of Maximal Bipartite Subgraphs of a Graph",
+        "trigger": "Direct general counting literature might contain the exact rook-family count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "27401fe8-3fbd-4de9-85de-cf36d510a689",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact labeled cardinality enumerator is a motivated natural invariant refining the prior scalar lower bipartite number and general maximal-subgraph counting bounds. The balanced family has two combinatorial types with a nontrivial limiting 50:50 split and a quantified positive first-order bias. The result solves a complete family census rather than an arbitrary small-order slice.",
+    "status": "PASS"
+  }
+}

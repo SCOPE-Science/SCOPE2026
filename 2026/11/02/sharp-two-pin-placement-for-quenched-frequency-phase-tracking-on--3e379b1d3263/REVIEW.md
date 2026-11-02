@@ -1,0 +1,13 @@
+# Self-review
+
+**Correctness — PASS.** The exact claim is for a linear, fixed-reference, two-pinned path driven by independent static mean-zero frequencies. The grounded Laplacian is positive definite; covariance contraction gives \(\operatorname{tr}(L_F^{-2})\); three elementary tridiagonal Green kernels give explicit block polynomials; convex differences force balanced exterior gaps; and a unique strictly convex fourth-order continuum minimizer yields the sharp \(\sqrt[3]{15}\) ratio and cost coefficient. `verify.py` passed 500343 finite arithmetic checks; these do not constitute independent scientific review. The finite program is not used to establish infinite quantifiers.
+
+**Originality — PASS, best knowledge with qualification.** The 2026 subsystem-reset source already proves the infinite-reset, grounded-Laplacian response and studies a centered order parameter. The 2016 and 2017 leader-selection sources already solve or algorithmize the white-in-time noise coherence problem \(\operatorname{tr}(L_F^{-1})\). Searches of these primary full texts, accessible research records, and adjacent graph-coherence literature found no identical fixed-reference, two-pin, quenched-frequency path classification. The underlying Green kernels and trace identity are standard; the scoped claim is the exact all-size placement reduction and sharp macroscopic gap design for this *different forcing and metric*. A broader preexisting theorem could imply the specialization, and publication priority has not been independently certified.
+
+**Value — PASS.** Reset-pin placement for frequency-disordered oscillator chains is motivated directly by the published grounded-Laplacian model. The sharp \(\sqrt[3]{15}\) middle-to-side proportion and exact finite optimization determine a practical design rule; the distinct \(1/5\)-versus-\(1/(2+\sqrt[3]{15})\) layouts expose the important difference between quenched heterogeneity and temporally white perturbations. This is a motivated structural classification rather than an arbitrary fixed graph census.
+
+**Closest relevant sources.** Paramero-Arias and Riascos (2026), https://arxiv.org/abs/2610.21842; Patterson, McGlohon and Dyagilev (2016), https://arxiv.org/abs/1604.07094; Patterson, Yi and Zhang (2017), https://arxiv.org/abs/1708.06873 .
+
+**Limitations and remaining risks.** The optimum is for absolute reference-phase tracking in a linear pinned system and does not optimize the centered Kuramoto order parameter or finite-rate/nonlinear phase dynamics. Static independent offsets are essential. The bounded publication search cannot rule out implied coverage by a more general theorem.
+
+Self-review: passed. Independent audit: not yet performed.

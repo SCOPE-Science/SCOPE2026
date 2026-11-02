@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Complete feedback-state bijection covers all 65,536 tables and selects exactly 2,048 single-orbit cycles; independent Hierholzer enumeration yields precisely the same 2,048 canonical words. The proven dynamic recurrence for distinct scattered-subsequence sets agrees bit-for-bit with definition-level earliest-match testing at k=8..14 for all cycles. Exact grouping gives classes 1,1,21,629,1520,2016,2048; 32 13-deck doubletons and 1,984 singletons. All 13-pairs satisfy XOR=5*2^t. A sample pair is directly verified. The extension lemma proves sharpness and prevents an unverified extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dress–Erdős 2005 Theorem 1.1 addresses universal reconstruction for 2k>N, sufficient at k=17 when N=32.",
+        "Barker et al. 2020 Theorem 8 gives linear-time equality testing for any pair at prescribed k."
+      ],
+      "reasoning": "The general sufficient bound k>=17 does not imply uniqueness at k=14 nor failure at k=13. A pair-comparison algorithm alone does not imply any numerical distribution over all 2048 canonical order-five cycles. It can be used to reproduce the finite classification, but does not state or logically force its particular output without the new exhaustive evaluation.",
+      "searches": [
+        "word reconstructed by set of subsequences length greater than half n deletion balls theorem distinct words universal reconstruction",
+        "doi:10.1007/s00026-004-0232-4",
+        "arxiv:2003.04629"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s00026-004-0232-4",
+      "https://arxiv.org/abs/1310.1278",
+      "https://arxiv.org/abs/2003.04629",
+      "https://epubs.siam.org/doi/10.1137/100808782"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2005 general theorem: all length-32 words uniquely reconstructed at 17, insufficient for precise restricted-family threshold.",
+        "2013 congruence index: cardinality over all unrestricted words for variable k, not a fixed de Bruijn subfamily.",
+        "2020 Theorem 8: algorithmic test for two arbitrary words, not an enumeration or theorem about 2048 particular words."
+      ],
+      "reasoning": "The new data require evaluating the exact 13- and 14-spectra of a special 2048-element family. Previous universal bounds and algorithms permit such a computation but do not imply the result or subsume its explicit finite answer.",
+      "searches": [
+        "de Bruijn sequences reconstructed from subsequence spectrum scattered subwords distinguish k Simon congruence",
+        "de Bruijn subsequence reconstruction first 32 ambiguous pairs k spectrum 14",
+        "doi:10.1007/s00026-004-0232-4",
+        "arxiv:1310.1278",
+        "arxiv:2003.04629"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2013 paper Section 2 defines equivalence by equal scattered-subsequence sets through k.",
+        "2020 paper Definition 1 and Theorem 8 treat the same equivalence and offer a comparison algorithm, not a restricted de Bruijn partition."
+      ],
+      "reasoning": "For fixed length 32 and k<=32, equality of exact k-decks is equivalent to equality of full decks through k because every shorter subsequence extends to some k-subsequence. This identifies the appropriate Simon-congruence formulation. No inspected result assigns its restricted order-five class counts or 13/14 boundary.",
+      "searches": [
+        "de Bruijn sequences reconstructed from subsequence spectrum scattered subwords distinguish k Simon congruence",
+        "de Bruijn sequence order 5 Simon congruence 13 14 scattered subwords 2048",
+        "arxiv:1310.1278",
+        "arxiv:2003.04629"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact web searches for de Bruijn order five plus Simon congruence, 13/14 and 2048 retrieved general de Bruijn and general reconstruction sources, not a matching 2016-class or 32-pair table.",
+        "The inspected 2020 paper contains de Bruijn only as motivation for contiguous universality, and does not give the canonically rooted 2048-word table."
+      ],
+      "reasoning": "No exact database or table containing the claimed seven class counts, 32 pairs, or threshold 14 was located. Absence of a search hit is not a proof of priority; an obscure or unindexed historical table remains possible.",
+      "searches": [
+        "de Bruijn sequence order 5 Simon congruence 13 14 scattered subwords 2048",
+        "de Bruijn subsequence reconstruction first 32 ambiguous pairs k spectrum 14",
+        "de Bruijn sequence subsequence k spectrum equivalence reconstructible length 32 5 binary",
+        "binary de Bruijn substring vs subsequence deck distinguish rooted cycles"
+      ]
+    },
+    "rationale": "The general 2005 reconstruction theorem, the 2013 all-words Simon-congruence index and the 2020 linear-time full-spectrum comparison theorem neither give the sharp restricted family threshold nor its exact class-size profile. Exact concept/parameter/implication searches located no dominating result; published-record summaries concerned universality indices or adjacent-pair multispectra instead. Residual priority uncertainty is explicitly retained.",
+    "residual_risks": [
+      "Unindexed or inaccessible papers might have independently listed the same 2048-order-five class partition.",
+      "The 2012 fixed-weight de Bruijn construction was checked only at abstract level; its stated topic does not suggest a length-13/14 scattered deck table.",
+      "The finite classification has a reproducible standalone checker but no independent external mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers universal k>length/2 sufficiency but not the sharp threshold 14 or restricted class sizes.",
+        "evidence": [
+          "Theorem 1.1 states 2k>N; for N=32 this is k>=17.",
+          "The introduction defines distinct length-k subword sets, matching the observed set-valued reconstruction problem."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/227190149_Reconstructing_Words_from_Subwords_in_Linear_Time",
+        "material_read": "Author-supplied full-text rendering: abstract, Section 1 definitions, Theorem 1.1 and stated general sufficiency, and Section 2 proof discussion.",
+        "method": "Readable full-text web rendering, compared to numerical threshold and specialized order-five family.",
+        "title": "Reconstructing Words from Subwords in Linear Time",
+        "trigger": "Closest general complete-deck reconstruction theorem"
+      },
+      {
+        "assessment": "Studies numbers of equivalence classes of all words, without restricting to de Bruijn cycles or computing the claimed exact finite spectrum.",
+        "evidence": [
+          "Section 2: two words are equivalent when they have identical subsequences up to k.",
+          "Document search found no de Bruijn specialization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.1278",
+        "material_read": "Title, abstract, introduction, Section 2 definitions and representative Section 3 combinatorial lemmas; text and page image of the primary PDF.",
+        "method": "Open-access original arXiv full text; inspected relevant pages and searched document for de Bruijn.",
+        "title": "On the index of Simon's congruence for piecewise testability",
+        "trigger": "Equivalent notion of k-deck equality and unrestricted congruence counting."
+      },
+      {
+        "assessment": "General O(N)-time test and universality results; no 2048-cycle separation profile or threshold 14.",
+        "evidence": [
+          "Section 3 Theorem 8 supplies a linear-time pairwise Simon-congruence test.",
+          "De Bruijn cycles appear in the introduction as the classical contiguous-factor analogy, not as a subject of a full-table classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "Abstract/introduction, definition of k-spectrum in Section 2, Section 3 Theorem 8 and its proof idea, conclusion and bibliography; relevant PDF page images.",
+        "method": "Open-access original arXiv full text, section-specific reading and text search for de Bruijn/reconstruction.",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Strongest found general equality-testing algorithm and circular-universality work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23fc491c-68c4-4245-8232-c02262170d7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest distinguishing scattered-subsequence deck length for a natural canonical family is a motivated exact invariant in string reconstruction and Simon congruence. Its sharp value 14 improves on the general length-32 sufficient bound 17, while the 32 precise ambiguity pairs and their local-swap geometry explain failures just below threshold. This is a complete natural finite benchmark for the first large binary de Bruijn family, not an arbitrary data slice.",
+    "status": "PASS"
+  }
+}

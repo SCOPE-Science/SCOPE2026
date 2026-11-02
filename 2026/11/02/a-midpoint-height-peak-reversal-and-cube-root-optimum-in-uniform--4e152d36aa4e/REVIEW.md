@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Conditioning at the midpoint splits the excursion into two independent uniformly distributed ballot prefixes, and only the interface creates an extra peak. A Lagrange-inversion calculation gives the exact expected internal prefix peaks and the ballot ratio gives the interface probability. Direct derivatives prove strict concavity on all but one feasible boundary triple; the remaining boundary is checked algebraically. Exact first differences imply the parity thresholds and the unique/adjacent-tie maximum property. Exact step differences establish cube-root localization; substitution yields the asymptotic maximum. The standalone verifier replays independent finite enumerations and exact identities. It does not replace infinite proofs.
+
+**Originality (PASS, with historical-priority qualification).** Ding–Du, Mortimer–Prellberg, and Du–Nie–Sun cover classical Narayana and related peak enumeration; Elizalde covers midpoint peaks in a different marked-permutation statistic. Their inspected relevant results do not state the conditional total-peak expectation's sharp parity reversal, its strict concavity, or the cube-root maximizing height. The classical ballot enumerator could allow a reader to derive the expectation, so priority for the intermediate formula is not asserted. No accessible historical finding reviewed directly covered the *phase and optimization theorem*. Search cannot establish absolute novelty; implicit older bivariate refinements remain a residual risk.
+
+**Mathematical value (PASS).** Peak count is a natural local-complexity statistic for Catalan excursions. Conditioning on central altitude introduces two opposed mechanisms: suppressing peaks inside each half and creating a new central peak. Their competition causes a sharp parity-specific finite-size transition and an unexpected cube-root optimizing height, separating it from the usual square-root excursion scale. This is a global classification, not a fixed numerical slice or trivial renaming.
+
+**Limits.** No claims are made about full conditional stochastic order, concentration, or independent validation; historical priority beyond inspected accessible literature is uncertain.
+
+Self-review: passed. Independent audit: not yet performed.

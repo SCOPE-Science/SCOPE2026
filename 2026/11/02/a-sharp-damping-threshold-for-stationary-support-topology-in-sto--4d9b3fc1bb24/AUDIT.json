@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Exact first-order RKC Chebyshev stage recurrence yields the affine shared-sample update. Strict interior contraction follows from positive damping and even Chebyshev parity. The random series proves stationarity and variance; two-map hull coverage establishes the support criterion; the s simple zeros and s-1 internal extrema establish the component count; the negative extrema attain the exact sharp variance bound and solve the unique damping threshold. Independent rational stage recurrences, exhaustive sign-history moments and extrema were replayed from verify.py, 25,394 checks. The analytic steps, not numerical extrapolation, prove the infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hermer--Luke--Sturm 2023 covers general invariant distributions of random function iterations rather than a computed Chebyshev damping phase diagram.",
+        "Classical Bernoulli-convolution theory covers the support criterion for an arbitrary fixed contraction ratio; the primary SRKCD paper covers Chebyshev polynomial stability."
+      ],
+      "reasoning": "Neither general theorem directly reports the coupled stepsize/damping threshold or the exact coincidence with the supremal stationary variance. It may be reconstructible by combining known theorems with specific Chebyshev alternation, which is a priority/value limitation expressly noted rather than misrepresented as a new general self-similar-set theorem.",
+      "searches": [
+        "Nonexpansive Markov Operators and Random Function Iterations for Stochastic Fixed Point Problems Hermer Luke Sturm",
+        "Bernoulli convolutions self similar support interval when parameter at least half Cantor when below one half Hausdorff dimension",
+        "stochastic RKC fixed learning rate invariant law Cantor nonlinear sample objective 2024",
+        "SRKCD: a stabilized Runge-Kutta method for stochastic optimization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.12782v1 (full-text HTML; relevant Sections 1--4 inspected, appendix not read in full)",
+      "Peres--Solomyak 1996 (publication abstract)",
+      "Jordan--Shmerkin--Solomyak 2011 (publisher abstract)",
+      "Baker--Koivusalo--Troscheit--Zhang 2026 (open-access full-text introduction)",
+      "Hermer--Luke--Sturm 2023 (journal abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest earlier two-stage Chebyshev result treats independently sampled curvature within stages and a mean-square contraction frontier, whereas this claim treats the source-prescribed shared component, fixed-offset stochastic forcing, arbitrary even stage count and positive damping.",
+        "The earlier classical Bernoulli convolution support dichotomy does imply the fixed-contraction part of the support proof, but has no SRKCD-specific damping or uniform-in-step optimization parameter.",
+        "An accessible earlier undamped SRKCD finding (item 179de4c8-46a6-4aa0-bc41-2399c98bc4b4) studies coincident internal neutral modes for two differently curved components and a variance blowup as damping is absent. Its theorem expressly excludes damped schemes; it does not imply the strictly contracting all-even-stage Cantor-window merger at positive damping or the finite sharp uniform-in-step variance cap."
+      ],
+      "reasoning": "The finding does not claim a new stability polynomial, a general Bernoulli-convolution dimension theorem, or a new random-IFS contraction principle. Its stated object and conclusion are the sharp damping/noise/topology classification for a specific numerical algorithm. Equivalence via an uninspected specialized SRKCD stationary-law paper remains a publication-priority risk. The undamped SRKCD resonance result is closer than a generic stage-resampled Chebyshev paper but remains inapplicable at positive damping because its sharp resonance multiplier is unit modulus, while all multipliers here have modulus strictly below one. Neither the component count nor the critical C=2 stationary-variance frontier is a corollary of that old statement.",
+      "searches": [
+        "stage-resampled two-stage Chebyshev descent mean square frontier",
+        "stochastic Runge Kutta Chebyshev undamped internal resonance invariant distribution",
+        "Runge Kutta Chebyshev stochastic optimization quadratic component sampling stability mean square randomized stage coupling",
+        "Absolute continuity of Bernoulli convolutions Peres Solomyak 1996"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2201.12782 specifies the damped same-client SRKCD algorithm and the Chebyshev stability polynomial, but its checked fixed-step discussion concerns stability, not invariant random-series support or the damping threshold.",
+        "Peres--Solomyak 1996 and Baker et al. 2026 recognize the classical Bernoulli convolution and its interval/Cantor support boundary."
+      ],
+      "reasoning": "For the two-offset scalar quadratic the SRKCD update equals a homogeneous two-map Bernoulli convolution with contraction equal to the RKC polynomial. The general Bernoulli-convolution equivalence is prior art, not a novelty claim. The exact all-even-stage component count as a function of damping, and the coincident sharp variance frontier, were not found as equivalent statements in the inspected algorithm literature. Generic ingredients make specialist overlap a residual risk.",
+      "searches": [
+        "stochastic Runge Kutta Chebyshev stationary distribution Bernoulli convolution Cantor support 2022",
+        "fractal stationary support random affine Chebyshev polynomial gradient descent reentrant Cantor intervals",
+        "even-stage same-sample SRKCD damping Chebyshev scalar shifted quadratics invariant Bernoulli convolution number Cantor support windows",
+        "arXiv:2201.12782 Sections 3.1--3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-stage damping threshold of the form s^2[cosh(arcosh(2)/s)-1] or sharp bound (C+1)/(C-1) was present in the checked primary SRKCD text or the closest retrieved mathematical records.",
+        "The source RKC stability interval itself is previously published and is not counted as new."
+      ],
+      "reasoning": "Actual exact-formula and parameter searches were performed; missing matches are not proof of uniqueness. The result is an analytical classification, not an entry imported from a numerical table.",
+      "searches": [
+        "T_s(1+epsilon/s^2) >2 merges Cantor support windows stochastic Chebyshev optimization",
+        "stochastic RKC damping stationary support two component quadratic phase transition",
+        "sharp uniform stationary variance (T_s(omega0)+1)/(T_s(omega0)-1) stochastic RKC",
+        "Chebyshev gradient stochastic two point shifted quadratics multiple noise-resonance stationary variance poles"
+      ]
+    },
+    "rationale": "The primary source publishes the algorithm and polynomial, and Bernoulli-convolution theory publishes fixed-contraction support behavior. The new narrowly identified mathematical statement is the all-even-stage damping-induced s-to-one topology merger and its exact equivalence to a sharp uniform stationary-variance bound. Comparison to the earlier stage-resampled curvature result and general invariant-measure work gives no direct prior coverage of this combined classification. Publication priority remains provisional.",
+    "residual_risks": [
+      "The exact damping/topology coincidence is a specialized composition of known Chebyshev and Bernoulli-convolution ingredients; an equivalent interpretation may exist under other terminology.",
+      "Specialized stationary stochastic RKC/stabilized-method literature could contain closely related results not indexed by the searches.",
+      "Some relevant broad sources were available only at abstract level; no whole-document noncoverage claim is made for them.",
+      "No independent expert priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers algorithm/stability inputs; does not state fixed-step two-offset Bernoulli stationary law, s-versus-one support-window merger, or exact supremal variance coincidence.",
+        "evidence": [
+          "First version dated 2022-01-30; Section 3 gives omega0=1+epsilon/s^2 and omega1=T_s(omega0)/T_s prime(omega0); Section 3.4 discusses conservative per-component stability and Section 4 fixes step size for experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.12782",
+        "material_read": "Accessible arXiv full-text HTML, with substantive inspection of Sections 1 and 2 (algorithm assumptions), Section 3 (Chebyshev coefficients, same-sample formulation, linearization) and Section 4 (fixed-step commentary). Appendix was referenced in the source but not read in full.",
+        "method": "Read and compare stage equations, coefficient identities, fixed-step commentary, linearization, empirical discussion and statement scope.",
+        "title": "SRKCD: a stabilized Runge-Kutta method for stochastic optimization",
+        "trigger": "Same named algorithm, damping coefficients, common sample per stage and stable step range; decisive primary comparison."
+      },
+      {
+        "assessment": "Confirms the classical support dichotomy is known. Addresses random Bernoulli convolution Fourier behavior, not the explicit RKC damping merger or all-step variance optimum.",
+        "evidence": [
+          "Full-text introduction explicitly distinguishes classical support Cantor for contraction under 1/2 and interval for contraction at or above 1/2."
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.70515",
+        "material_read": "Open-access full-text introduction and stated model/scope, including discussion of classical fixed-contraction support and singular/absolutely-continuous cases.",
+        "method": "Compared underlying random power-series model and fixed-parameter support results to the damped Chebyshev polynomial parameterization.",
+        "title": "On the Fourier transform of random Bernoulli convolutions",
+        "trigger": "Potentially stronger coverage of support topology for the resulting Bernoulli-convolution law."
+      },
+      {
+        "assessment": "Prior Bernoulli-convolution regularity theory is credited; no full-paper noncoverage claim is made.",
+        "evidence": [
+          "Peres--Solomyak (1996) studies the random series of fair signs and its absolute continuity for almost every contraction parameter above one half."
+        ],
+        "identifier_or_url": "https://www.microsoft.com/en-us/research/publication/absolute-continuity-bernoulli-convolutions-simple-proof/",
+        "material_read": "Accessible publication abstract and bibliographic description, not the complete paper.",
+        "method": "Checked covered problem and theorem scope at abstract level.",
+        "title": "Absolute continuity of Bernoulli convolutions, a simple proof",
+        "trigger": "Classical fixed-contraction stationary series theory."
+      },
+      {
+        "assessment": "Important prior stationary-law analysis; inspected material does not contain a Chebyshev step/damping classification. Full-text priority remains unchecked.",
+        "evidence": [
+          "Jordan--Shmerkin--Solomyak (2011) describes multifractal spectra of Bernoulli convolutions at fixed parameter."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0305004111000466",
+        "material_read": "Publisher abstract and public bibliographic description, not full text.",
+        "method": "Compared stated fixed-contraction multifractal problem to the method-specific damping variable.",
+        "title": "Multifractal structure of Bernoulli convolutions",
+        "trigger": "Potentially stronger invariant-measure dimension analysis."
+      },
+      {
+        "assessment": "General existence and convergence framework is broader but does not establish the explicit numerical parameter classification from inspected abstract.",
+        "evidence": [
+          "Hermer--Luke--Sturm (2023) investigates invariant measures of random function iterations and their convergence in distribution."
+        ],
+        "identifier_or_url": "https://journalofconvexanalysis.com/articles/jca30049/",
+        "material_read": "Public journal abstract, subject classifications and article description; complete article not read.",
+        "method": "Compared general Markov contraction/invariant-measure scope to claimed explicit support and damping threshold.",
+        "title": "Nonexpansive Markov Operators and Random Function Iterations for Stochastic Fixed Point Problems",
+        "trigger": "General stationary-invariant-measure implications for stochastic numerical algorithms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d9b3fc1-bb24-48c5-88ec-7f5dc2b5e177",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Constant-step stochastic stabilized descent is motivated by the primary paper, which introduces positive damping to avoid Chebyshev neutral points. The theorem identifies exactly how much damping controls the worst stationary error uniformly across the entire stability interval and discovers that the same sharp parameter merges all separated noninterval-support windows. The all-even-stage classification can benchmark damping selection and distinguishes support geometry from mean-square stability; it is not an arbitrary finite table or a generalization by parameter renaming.",
+    "status": "PASS"
+  }
+}

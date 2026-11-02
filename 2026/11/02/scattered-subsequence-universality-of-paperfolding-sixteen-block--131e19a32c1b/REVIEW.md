@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (C): PASS.** The claim is proved for every number of blocks and every permitted free-bit assignment. The only nonstandard step is a finite six-letter transition lemma, reduced to four initial configurations and eight transition configurations, with all sixty-four inputs in each configuration enumerated by the supplied standalone checker. Monotonicity, a strict low-state barrier and doubling of extreme greedy endpoint paths supply the infinite induction. The final two letters \(01\) establish exactly two absent extensions for each of \(2^q\) maximal greedy words. Independent finite-rank checks agree. Residual risk: an implementation or transcription defect in the finite lemma would invalidate the induction, so all twelve cases must be replayed independently for external validation.
+
+**Originality (O): PASS with residual historical risk.** Actual record-index searches for paperfolding universality, shortest absent scattered subsequences, the exact dyadic formula, and the exact \(16\)-block skeleton retrieved generalized binary universality and shortest-absent-subsequence results but no equivalently scoped conclusion. prior research records claims were compared for direct implication; none includes this skeleton classification. The paperfolding full text by Madill–Rampersad addresses contiguous Abelian factor complexity; Kosche–Koß–Manea–Siemer addresses general absent-subsequence algorithms and extremal constructions, without the present explicit paperfolding calculation. Novelty is a best-knowledge literature comparison, not a priority guarantee.
+
+**Value (V): PASS.** The invariant is natural in Simon-style subsequence universality and shortest absent words. The result does not merely tabulate one prefix: it proves a rigidity law for an exponentially large family with \(2q-1\) free bits at length \(16q\), and a closed all-rank expression for classical dyadic paperfolding prefixes. The exponential number of shortest absent subsequences coexists with a fixed \(3/8\) subsequence-universality rate; the local six-step renewal mechanism explains the effect.
+
+**Limits.** No claim for arbitrary prefix lengths, alphabets larger than two, or arbitrary block substitutions. No independent mathematical audit or external certification was conducted.
+
+Self-review: passed. Independent audit: not yet performed.

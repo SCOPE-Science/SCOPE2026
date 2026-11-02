@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Kummer transforms valuations into total carries for n+2n. The exact 3-state matrix, initial vector and final weight reproduce this total, including the upper terminal carry. The determinant and numerator reduce over Q(z,t); the derivative at z=1 proves the closed mean; dominant eigenvalue derivatives (1 and 4/3 at lambda=2) yield mean slope 1/2 and variance slope 11/12 and the characteristic-function limit. The no-single-carry and Fibonacci zero cases follow from the carry process. Exact independent computation checked all n in dyadic blocks up to 2^16, and separately verified carries to 2^13, without substituting enumeration for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spiegelhofer–Wallner 2016 fixed-row digit-word generating polynomials; 2017 fixed-row Gaussian result; Kummer theorem"
+      ],
+      "reasoning": "General Kummer and weighted digit automata are broader techniques, but no inspected theorem evaluates the specialized full 2-variable dyadic-block polynomial along (3n,n), gives its reduced order-three rational denominator, or forces the specified variance slope. A mechanism could subsume the derivation in principle, which is recorded as a risk rather than denied.",
+      "searches": [
+        "arXiv:1604.07089",
+        "arXiv:1710.10884",
+        "Spiegelhofer Wallner Divisibility of binomial coefficients by powers of two arxiv pdf",
+        "2-adic valuations nu_2(binomial(3n,n)) dyadic blocks n less than 2^r bivariate generating function rational carry automaton central trinomial distributions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1710.10884",
+      "https://arxiv.org/pdf/1604.07089",
+      "https://combinatorialpress.com/article/ars/Volume%20135/volume-135-paper-17.pdf",
+      "https://arxiv.org/abs/1812.02107",
+      "https://arxiv.org/pdf/2306.16889",
+      "https://en.wikipedia.org/wiki/Kummer%27s_theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang studies valuation of composite quotient s(n,k), not full positive layer of binomial(3n,n); fibbinary theorem identifies binary word property, not weighted positive carries; 2023 reciprocal sums concern analytic series; fixed-row statistic has distinct quantifiers",
+        "Accessible earlier digital results giving sums of the Thue–Morse correlation t(n)t(3n), and t(n)t(3n)t(5n), use different signs from (-1)^{V(n)}=t(3n); they do not directly produce the full weighted distribution P_r(z)."
+      ],
+      "reasoning": "The previous results either concern a different quotient, the zero-carry support, analytic series, or all entries in one Pascal row. They do not directly imply every coefficient of P_r(z) for all r, the exact reduced denominator, the linear variance coefficient, and CLT.",
+      "searches": [
+        "Ars Combinatoria 135 (2017) Yang theorem 1.2",
+        "arXiv:1812.02107 theorem 2.1",
+        "arXiv:2306.16889",
+        "arXiv:1710.10884"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kummer carry identity for n+2n; Spiegelhofer–Wallner fixed-row valuation functions and binomial-digit polynomials"
+      ],
+      "reasoning": "Equivalent expressions V(n)=2s_2(n)-s_2(3n), counting carries in n+2n, and dyadic-block frequency polynomials were compared. The prior fixed-row object theta_p(j,N) counts all k at one N, while the proposed coefficient frequency counts n for the moving pair (3n,n). The former is neither the same statement nor a direct implication without a new carry analysis.",
+      "searches": [
+        "2-adic valuations nu_2(binomial(3n,n)) dyadic blocks n less than 2^r bivariate generating function rational carry automaton central trinomial distributions",
+        "Distribution of carries in addition n+2n, valuation of binomial(3n,n), no values equal to one, exact mean variance and asymptotic normality",
+        "Exact distribution of p-adic valuations of multinomial coefficients C(3n,n) across binary n, Kummer carry generating function",
+        "\"binomial(3n,n)\" \"valuation\" \"generating function\" binary",
+        "arXiv:1710.10884",
+        "arXiv:1604.07089"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record searches identified related Thue–Morse valuation work and binomial divisibility results, but no matching dyadic-window distribution; known fibbinary zero-layer counts do not determine the positive layers."
+      ],
+      "reasoning": "The inspected public mathematical literature and semantic mathematical-record searches did not return a matching dyadic-block valuation polynomial; related hits concern other binomial families or Thue–Morse power valuations. Search nonappearance alone is not mathematical proof of absence.",
+      "searches": [
+        "2-adic valuations nu_2(binomial(3n,n)) dyadic blocks n less than 2^r bivariate generating function rational carry automaton central trinomial distributions",
+        "Distribution of carries in addition n+2n, valuation of binomial(3n,n), no values equal to one, exact mean variance and asymptotic normality",
+        "Exact distribution of p-adic valuations of multinomial coefficients C(3n,n) across binary n, Kummer carry generating function"
+      ]
+    },
+    "rationale": "Claim-to-claim comparison in the closest inspected primary sources found only fixed-row valuation counts, related-quotient divisibility, fibbinary zero support, and analytic binomial series. No result that directly states or dominates the exact two-variable diagonal dyadic frequency law was identified. Because literature search is bounded, this is not a uniqueness certificate.",
+    "residual_risks": [
+      "An unindexed or later paper may specialize generic digital-transfer methods to the same rational function.",
+      "The 2016 and 2017 Spiegelhofer–Wallner papers were checked for definitions, theorem domains and terms but not exhaustively line-by-line; an implicit stronger general framework may cover the claim.",
+      "Related dyadic Thue–Morse correlation identities count different signed products; a nonlinear transformation not examined might conceivably encode parts of this valuation statistic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines theta_p(j,N) as number of coefficients in a fixed Pascal row N of given valuation, and studies Gaussian behavior as row index varies, rather than P_r(z) along (3n,n). No exact diagonal-statistic theorem was identified in inspected material. The full text was not exhaustively line-reviewed.",
+        "evidence": [
+          "arXiv:1710.10884 first posted 2017-10-30; first page definition (1.2), p1 and exact-search for 3n"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1710.10884",
+        "material_read": "Abstract, fixed-row definitions, main theorem statement and fixed-column contextual discussion, plus search for exact 3n specialization",
+        "method": "Text PDF with visual first page",
+        "title": "Divisibility of binomial coefficients by powers of two",
+        "trigger": "Direct title match to binomial valuations, possibly stronger coverage"
+      },
+      {
+        "assessment": "Generates valuation counts across all entries in one Pascal row, unlike the single diagonal binomial family aggregated across dyadic n. Its general digit methods do not furnish the present specific rational fraction as a stated result. Unread chapters could contain a general transferable argument.",
+        "evidence": [
+          "arXiv:1604.07089 first posted 2016-04-24; pp1–2 and title/abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1604.07089",
+        "material_read": "Abstract, fixed-row valuation definition, digit-word formulas, part 2.4 on fixed-column distributions, and search for exact 3n specialization",
+        "method": "Text PDF with visual first page",
+        "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+        "trigger": "Potentially dominating general exact valuation-frequency generating functions"
+      },
+      {
+        "assessment": "The paper bounds valuations of a composite binomial quotient indexed by n,k (not exact frequencies of the standalone binomial on dyadic n). The theorem and its proof do not imply the displayed bivariate enumeration.",
+        "evidence": [
+          "Ars Combinatoria 135 (2017) pp213–221, theorem 1.2 and proof section 4; publisher page dates 2017-10-31"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20135/volume-135-paper-17.pdf",
+        "material_read": "Full-page images for pages 1,3,6,7,9, including statement and proof of Theorem 1.2 on a composite quotient",
+        "method": "Publisher PDF page-image reading",
+        "title": "A refinement of Guo’s theorem concerning divisibility properties of binomial coefficients",
+        "trigger": "Direct 2-adic valuation and binomial(3n,n) appearances"
+      },
+      {
+        "assessment": "Classifies indices of odd fibbinary numbers. This relates to the zero-carry layer but does not enumerate positive valuations of binomial(3n,n) or their dyadic fluctuations.",
+        "evidence": [
+          "arXiv:1812.02107 first posted 2018-12-05; Sections 1–3, Theorem 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.02107",
+        "material_read": "Full HTML text, background, theorem 2.1, lemmas and proof",
+        "method": "Open-access converted HTML full text",
+        "title": "Odd Fibbinary Numbers and the Golden Ratio",
+        "trigger": "No-carry layer corresponds to binary strings without adjacent ones"
+      },
+      {
+        "assessment": "Its objects are infinite reciprocal and weighted analytic binomial sums; inspected statements do not cover dyadic valuations. Not every page was line-by-line reviewed.",
+        "evidence": [
+          "arXiv:2306.16889 first posted 2023-06-29; pp1,2,10–15 and searches for valuation/2-adic"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.16889",
+        "material_read": "Title, abstract, introduction, main series sections, Fibonacci/Lucas reciprocal-series section, searches for valuation and 2-adic",
+        "method": "Text PDF with first-page visual inspection",
+        "title": "On Some Series Involving the Binomial Coefficients binom(3n,n)",
+        "trigger": "Exactly same family of binomial coefficients"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "499526ba-814d-4096-a906-aaf4ea44a7e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives all coefficient frequencies of the 2-adic valuation of binomial(3n,n) in each dyadic interval. The zero layer was known through no-adjacent-one digits, but all positive valuation layers and their fluctuations were not explicitly classified in the inspected sources. This exact bivariate generating function and normal law isolate a natural arithmetic statistic and do not rest on a selected finite range.",
+    "status": "PASS"
+  }
+}

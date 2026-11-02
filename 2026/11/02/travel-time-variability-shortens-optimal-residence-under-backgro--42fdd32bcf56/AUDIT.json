@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The bounded Bellman renewal operator has strict contraction modulus strictly below one. Its optimal value is attained by maximizing G_mu(t)/(1-A exp(-mu t)); differentiation gives a threshold curve with exact derivative a strictly negative derivative and endpoint range (0,1), proving a unique global solution for all positive decreasing gain rates. Strict Jensen and transform monotonicity prove convex-order comparison. The zero-mortality expansion follows from a regular implicit equation with nonzero slope at the classical optimum and finite third travel moments. Independent exact parameter calculations and a standard-library checker (2,311 assertions) are consistent. Limits and model hypotheses are stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Newman (1991) studies a refuge, predation hazard, stochastic prey and fixed travel times, with numerical dynamic programming and terminal survival rather than accumulated pre-death gain (https://doi.org/10.2307/3545404).",
+        "Wajnberg et al. (2006) optimize time allocation under fixed finite lifetime and random transits, comparing uniform versus triangular distributions with different means (https://doi.org/10.1007/s00265-005-0131-7).",
+        "Calcagno et al. (2013) give general MVT sensitivities with travel times through mean costs in the standard gain-rate objective (https://doi.org/10.1007/s00285-013-0734-y)."
+      ],
+      "reasoning": "The most plausible broader dynamic-programming frameworks concern different stopping objectives, mortality structure or finite horizons, so their statements cannot immediately imply the strict equality-mean convex-order residence comparison. The classic renewal contraction and Jensen inequality are known tools, but their combination in the particular all-gain-class ecological optimum with the variance-sensitive zero-hazard expansion was not stated in inspected relevant result sections.",
+      "searches": [
+        "foraging travel time variability mortality risk optimal patch duration",
+        "\"foraging\" \"travel time\" \"variance\" \"mortality\" \"optimal\"",
+        "foraging patch residence travel time variability distribution convex order equal mean mortality risk expected lifetime gain"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s00285-013-0734-y",
+      "https://doi.org/10.2307/3545404",
+      "https://doi.org/10.1007/s00265-005-0131-7",
+      "https://doi.org/10.1093/evolut/qpaf100",
+      "https://doi.org/10.1016/0040-5809(76)90040-X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 MVT formula needs only mean travel and does not define positive-hazard lifetime rewards (https://doi.org/10.1007/s00285-013-0734-y).",
+        "2006 deterministic finite-horizon Bellman recursion depends on age/time remaining and optimizes state-specific dwell times, not a stationary renewal discount value (https://doi.org/10.1007/s00265-005-0131-7).",
+        "1991 hazard/refuge dynamic program uses a different survival objective and fixed transit durations (https://doi.org/10.2307/3545404)."
+      ],
+      "reasoning": "The current theorem is not a corollary of the fixed-mean MVT statement because the objective changes; direct specialization of the published age-dependent finite-horizon policies does not give an exponential-hazard stationary policy or a covariance-order theorem. The exact stochastic-control mechanics are classical and conceded as such. A future discovery of an earlier general discounted patch theorem including convex order or the same variance term could subsume the novelty claim, so priority remains explicitly provisional.",
+      "searches": [
+        "marginal value foraging patch departure exponential hazard stochastic travel time renewal reward optimal time",
+        "stochastic patch leaving model mortality hazard temporal discounting marginal value theorem distributional first-order expansion variance",
+        "optimal patch residence under mortality variable travel time stochastic patch leaving time exponential death"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2013 classical homogeneous MVT has optimal gain-rate criterion g(t)=G_0(t)/(m+t), without a death hazard or Laplace-transform transit law (https://doi.org/10.1007/s00285-013-0734-y).",
+        "Indexed contemporary risk-MVT material models death risk in patch departure with fixed specified transit duration rather than a pair of mean-matched travel distributions (https://doi.org/10.1093/evolut/qpaf100)."
+      ],
+      "reasoning": "The aliases exponential-discount renewal reward, hazard-weighted residence time, Laplace-transformed travel survival, and marginal-value patch departure were compared as statements. The classic mean-only gain-rate optimum is a zero-mortality limit, not an equivalent positive-hazard theorem. The indexed risk-MVT generalizes a different risk mechanism and does not itself state the equal-mean convex-order theorem or small-hazard variance coefficient. Unavailable full text remains a residual risk.",
+      "searches": [
+        "Marginal value theorem with constant exponential mortality random travel durations Laplace transform order of patch residence times convex order",
+        "marginal value foraging patch departure exponential hazard stochastic travel time renewal reward optimal time",
+        "foraging patch residence travel time variability distribution convex order equal mean mortality risk expected lifetime gain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published research result titled “Mean matching exposes a systematic waiting-time bias in vaccination models” concerns immunization-before-infection under different waiting-time laws, not optimal patch residence.",
+        "A published result titled “Sharp variance envelope at fixed success probability under memoryless catastrophe” concerns restart runtime variance, not a foraging Bellman residence threshold.",
+        "The motivating marginal-value paper has verified publication on 2013-10-26 and uses a gain-rate condition (https://doi.org/10.1007/s00285-013-0734-y)."
+      ],
+      "reasoning": "The searched literature-record snippets contain nearby exponential-hazard and convexity ideas but no exact table or stated ordering for optimal deterministic residence across mean-matched transit laws. Database retrieval is not an exhaustive originality certificate, and the comparisons are based on scientific implications, not title match.",
+      "searches": [
+        "Marginal value theorem with constant exponential mortality random travel durations Laplace transform order of patch residence times convex order",
+        "foraging patch residence travel time variability distribution convex order equal mean mortality risk expected lifetime gain",
+        "stochastic patch leaving model mortality hazard temporal discounting marginal value theorem distributional first-order expansion variance"
+      ]
+    },
+    "rationale": "The joint all-decreasing-gain renewal-optimal residence theorem, exact strict convex ordering under mean-matched random travel, and first small-hazard variance coefficient were not found as claims or implications in the relevant material read from the principal marginal-value, predation-hazard, and finite-horizon random-travel papers. Classical renewal, convexity, and optimality techniques are expressly credited. Priority remains provisional, with particular risk from the later risk-MVT source not fully accessible.",
+    "residual_risks": [
+      "Independent historical-priority review not completed; searchable and accessible literature may omit obscure equivalent renewal-discount or behavioral-ecology results.",
+      "Complete text of the 2025 rMVT technical argument could not be opened; available indexed text is insufficient to assert its whole document lacks the stated comparison.",
+      "Some earlier sources were read as author-posted text extractions, which may imperfectly preserve equations and appendices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical rate-of-gain objective uses mean travel; no exponential death-clock random transit convex-order comparison is stated in inspected material.",
+        "evidence": [
+          "Publisher public date: 26 October 2013.",
+          "The homogeneous MVT condition is g(t)=G(t)/(T+t); sensitivity results and travel-time application assume the gain-rate objective."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-013-0734-y",
+        "material_read": "Full open-access HTML article: introductory setup, Eq. (1)–(5), homogeneous/heterogeneous residence theorems, travel-time application, discussion, and references.",
+        "method": "Read primary open-access article HTML and inspected relevant theorems and applications.",
+        "title": "How optimal foragers should respond to habitat changes: a reanalysis of the Marginal Value Theorem",
+        "trigger": "Closest motivating general marginal-value sensitivity theorem, same habitat and residence decision"
+      },
+      {
+        "assessment": "Different terminal-survival/physiological-state optimization with a refuge; travel is a specified constant, with numerical rather than universal convex-order threshold results.",
+        "evidence": [
+          "Model assumes equal fixed transit durations between patches/refuge (Figure 3).",
+          "Results vary the fixed travel time and predation hazard separately."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3545404",
+        "material_read": "Author-posted full-text HTML extraction: abstract, model, fixed transit/refuge assumptions, predation and travel-time results, and discussions.",
+        "method": "Read substantive primary full-text material displayed in HTML, including fixed travel-time assumption and numerical outcomes.",
+        "title": "Patch use under predation hazard: foraging behavior in a simple stochastic environment",
+        "trigger": "Strongest earlier plausible predation-risk patch-use work"
+      },
+      {
+        "assessment": "Finite deterministic remaining life is a state; compared travel distributions have different means. Not the exponential-hazard stationary lifetime objective, exact transform criterion or equal-mean variance comparison.",
+        "evidence": [
+          "Public source states first online publication 14 January 2006.",
+          "The two travel laws have respective means (T-1)/2 and (T-2)/3."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00265-005-0131-7",
+        "material_read": "Author-posted full-text HTML extraction: finite-horizon Bellman model, uniform/triangular transit laws, numerical outcomes, and discussion.",
+        "method": "Read relevant model and results sections including recurrence, travel-distribution comparison and the discussion of finite lifetime.",
+        "title": "Optimal patch time allocation for time-limited foragers",
+        "trigger": "Closest older combination of random travel durations and patch residence optimal control"
+      },
+      {
+        "assessment": "Indexed results use fixed travel duration and focus on risk type/intensity. No direct equal-mean transit-variability theorem was identified; full-text comparison remains a residual risk.",
+        "evidence": [
+          "Indexed discussion relates effective travel to mortality hazard times a specified travel duration.",
+          "Material also treats several death-risk scenarios with differing payoff rules."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/evolut/qpaf100",
+        "material_read": "Abstract and indexed excerpts on death-risk scenarios, fixed transit duration and predictions; complete technical text not accessible through current public retrieval.",
+        "method": "Indexed primary article excerpts and bibliographic record; not a complete full-text inspection.",
+        "title": "Taking fear back into the marginal value theorem: the rMVT and optimal boldness",
+        "trigger": "Later risk-generalized MVT; possible theoretical dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42fdd32b-cf56-4f32-b42d-add07904ce60",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Equal mean travel times are insufficient for lifetime-optimal patch-use decisions once death risk acts during travel; this is a biologically motivated information gap in the classical MVT. The theorem gives a usable distributional comparison for every strictly decreasing gain curve, a single Laplace-transform sufficient statistic and exact first-order variance sensitivity for low mortality, with a sharp exact two-law illustration. It is neither a mere renaming of a mean-rate criterion nor an arbitrary numerical special case. Its prediction is restricted to its explicitly idealized ecological model.",
+    "status": "PASS"
+  }
+}

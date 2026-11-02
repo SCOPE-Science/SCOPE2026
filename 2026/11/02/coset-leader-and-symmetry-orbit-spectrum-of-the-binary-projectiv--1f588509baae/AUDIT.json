@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The 13x13 Singer difference-set nonincidence matrix and self-dual parity-check matrix are explicit. All 8192 syndromes are exhaustively reached by BFS with maximum 5 and shortest paths divided by factorial to yield minimum-support counts. A disjoint independent direct enumeration of all error-coordinate subsets of sizes 0–5 gives identical syndrome-level distances and multiplicities. All 8192 codewords and full 5616-order collineation closure are exactly enumerated; an explicit duality doubles this to 11232, matching the full known automorphism-group order. Orbit closure partitions all 8192 states into 22 explicitly listed orbits, each homogeneous in distance and leader multiplicity; full standalone replay prints VERIFY_OK. Finite computations prove only this finite case and do not assert untested generalization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Höhn, Proposition 4.3: full automorphism group PGL(3,3):2; Theorem 4.2: unique code; §5 odd-Golay code descent.",
+        "Glynn, Theorem 2.1: exact weight enumerator of order-three plane code; no coset-leader orbit table."
+      ],
+      "reasoning": "These stronger structural results determine the code and its group and make this census meaningful, but give neither the action on all 8192 quotient syndromes nor the minimum-leader counts. The new theorem adds complete orbit sizes, classifications, and distance/leader multiplicities rather than the existing code-construction claims.",
+      "searches": [
+        "web: \"PGL(3,3)\" \"deep holes\" binary code length 26",
+        "web: \"projective plane\" \"26\" \"covering radius\" binary self dual",
+        "Höhn arXiv:2606.24573, §§4–5, full relevant sections",
+        "Glynn AJC 4 (1991), pp. 277–284"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.24573v1, Höhn 2026",
+      "Glynn, Australasian Journal of Combinatorics 4 (1991) 277–284",
+      "Conway, Pless, Sloane, JCTA 60 (1992) 183–195",
+      "Conway–Sloane, IEEE Transactions on Information Theory 36 (1990) 1038–1050",
+      "Harada–Munemasa binary self-dual-code catalogue"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Höhn arXiv:2606.24573v1: length-26 plane code and order-11232 full group; length-24 odd-Golay deep-hole analysis under flag puncturing.",
+        "Conway–Sloane 1990 DOI:10.1109/18.57203: orbit technique for a defined set of other codes, no length-26 entry.",
+        "published-finding corpus similar record 2026/10/4/SCOPE-covering-radius-three-for-two-extended-two-weight-bch-families--01880b509c86 is a different BCH family with covering radius 3."
+      ],
+      "reasoning": "Uniqueness permits carrying the new finite result to every equivalently represented [26,13,6] code; it does not force the numerical coset profile. A full automorphism-group description does not determine orbit sizes on quotient syndromes without additional group-action analysis. Golay length-24 coset information is not identical to length-26 coset information under the descent construction.",
+      "searches": [
+        "published-finding corpus: PG(2,3) point line nonincidence binary self dual code length 26 covering radius five distance profile 1990 deep hole cosets",
+        "published-finding corpus: dual binary self-dual 26 code five coset orbits 936 702 234 117 1 leader 10 18 26",
+        "published-finding corpus: binary [26,13,6] self-dual code projective plane order three exact covering radius coset leader distribution number of deep hole cosets non-incidence matrix",
+        "web: \"26,13,6\" \"covering radius\" self dual code 26 13 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Höhn 2026 arXiv:2606.24573v1, §§4-5, proves plane-code identity and full symmetry, not the coset orbit table.",
+        "Conway–Sloane 1990, DOI:10.1109/18.57203, studies length-16 and Golay-related lengths 22–24, not the length-26 plane code."
+      ],
+      "reasoning": "Possible equivalent forms include a syndrome covering-radius distribution, nearest-neighbor distance distribution, minimum error-set list sizes, and a quotient-space orbit census. The inspected directly relevant texts do not provide these values; Golay length-24 deep-hole cosets are a different code. Distinct known codeword weight spectra do not imply this quotient-space orbit data.",
+      "searches": [
+        "published-finding corpus: binary [26,13,6] self-dual code projective plane order three exact covering radius coset leader distribution number of deep hole cosets non-incidence matrix",
+        "published-finding corpus: self-dual [26,13,6] binary plane code PGL(3,3) 22 coset orbits radius 5 minimum leader multiplicities",
+        "web: \"26,13,6\" \"coset\" \"covering\"",
+        "web: \"26\" \"PGL(3,3)\" coset \"code\" orbit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Harada–Munemasa length-26 entry gives 103 classified binary self-dual codes and data in Magma format, not nearest-coset orbit statistics.",
+        "Conway–Pless–Sloane 1992 §2 concerns enumeration of length-26 children and classification; not 22 quotient-syndrome orbits."
+      ],
+      "reasoning": "Existing classification/generator tables are not direct tables of the coset-leader distribution and full 22 symmetry orbits. An available generator matrix permits re-computation but does not by itself state, prove, or imply the new exact values without further calculation.",
+      "searches": [
+        "Harada–Munemasa database https://www.math.is.tohoku.ac.jp/~mharada/research/codes/sd2.htm",
+        "Conway–Pless–Sloane 1992 PDF https://neilsloane.com/doc/pless.pdf, §2 and code tables",
+        "web: \"length 26\" \"coset leaders\" \"self dual\""
+      ]
+    },
+    "rationale": "The specific 22 full-automorphism coset-orbit classification and coset leader multiplicity census are not implied by the published uniqueness, weight-enumerator, or full-automorphism-order theorems. Targeted actual published-finding corpus and web searches under source identifiers, aliases, exact parameters and numerical invariants found no equivalent published entry; related 1990 Golay coset classification addresses different lengths. Unindexed/inaccessible prior computations remain a residual risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible historical coset computations for the unique length-26 code could already contain some or all of the numerical orbit table.",
+      "No independent human audit of the exhaustive program or group identifications is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes code, full group, uniqueness, and odd-Golay relation; does not state the claimed coset-distance/multiplicity/22-orbit classification",
+        "evidence": "§4 gives A=J+N, C={(u,uA)}, full order 11232; §5 refers to deep cosets of the length-24 odd Golay code.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.24573",
+        "material_read": "Full accessible article text, with focused reading of Introduction, §§4–5, proofs of Proposition 4.1, Theorem 4.2, Proposition 4.3, and deep-hole descent",
+        "method": "arXiv accessible full text and section-level statement/implication comparison",
+        "title": "The unique self-dual binary code of length 26 with minimum weight 6",
+        "trigger": "Direct same-code and same-group source, June 23, 2026"
+      },
+      {
+        "assessment": "Gives construction and exact codeword weight enumerator, not nearest-coset multiplicity or quotient orbit census",
+        "evidence": "Theorem 2.1 has weight enumerator beginning 1+52z^6+390z^8+..., matching the verifier normalizer.",
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/4/ocr-ajc-v4-p277.pdf",
+        "material_read": "Open article OCR and page images including pp. 277 and 281; Theorems 1.7 and 2.1, surrounding stated scope",
+        "method": "Lawful publisher-hosted open PDF and visual page confirmation",
+        "title": "The construction of self-dual binary codes from projective planes of odd order",
+        "trigger": "Original source of the identical order-three plane code"
+      },
+      {
+        "assessment": "Gives classification and child enumeration for length 26, but not this syndrome orbit and leader census",
+        "evidence": "Section 2 counts length-26 children of length-32 codes and references weight distributions.",
+        "identifier_or_url": "https://neilsloane.com/doc/pless.pdf",
+        "material_read": "Section 2 pages 7–8 (images and accessible full PDF text), with code-enumeration table description",
+        "method": "Author-hosted PDF, screenshots of pp. 7–8, source comparison",
+        "title": "The binary self-dual codes of length up to 32: a revised enumeration",
+        "trigger": "Classical covering classification of the same length and code equivalence class"
+      },
+      {
+        "assessment": "Different objects: binary codes of lengths 16 and 22–24, and ternary Golay; no length-26 plane-code table",
+        "evidence": "Introduction names every studied family and lists no length 26 code.",
+        "identifier_or_url": "https://doi.org/10.1109/18.57203",
+        "material_read": "Author-uploaded accessible full-text HTML, title/abstract/introduction and explicit code inventory",
+        "method": "Full-text search of the opening scope, introduction and studied-code listing",
+        "title": "Orbit and coset analysis of the Golay and related codes",
+        "trigger": "Closely related coset-orbit method and potentially stronger coverage"
+      },
+      {
+        "assessment": "Offers code generators/classification (103 length-26 classes), not the specific 22-orbit coset-leader spectrum",
+        "evidence": "Length-26 row links to a Magma matrix file; accompanying index gives classification references and no coset-distance data.",
+        "identifier_or_url": "https://www.math.is.tohoku.ac.jp/~mharada/research/codes/sd2.htm",
+        "material_read": "Complete accessible index and its length-26 entry",
+        "method": "Public classification database page",
+        "title": "Database of Binary Self-Dual Codes",
+        "trigger": "Search for published exact database/table results at length 26"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1f588509-baae-449c-a422-385ca850de0e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete quotient-space nearest-codeword/leader statistics and 22 full automorphism orbits of a unique, classical [26,13,6] code are natural error-decoding and symmetry invariants. They distinguish 1990 deepest cosets into five group orbits with meaningful list-size classes 10,18,26, including a unique full-group-fixed deep coset. These data are neither routine restatements of the known codeword weight enumerator nor arbitrary parameter slices; they complete a natural finite geometrical classification, without alleging a novel code or general covering bound.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each \\(n\\ge3\\) the independent insertion-rank representation gives \\(D_n\\) as a sum of record-low Bernoulli indicators and gives local rank inequalities for \\(B_i\\). On any interior leaf event, the affected three-rank sum has exact conditional upper tails 3/(i+1),3/[i(i+1)],0 versus unconditional 3/(i+1),(3i-2)/[i(i-1)(i+1)],1/[(i-1)i(i+1)]. Strict stochastic ordering follows by convolution with independent unaffected ranks. Boundary cases are checked separately and yield exact local covariance and telescoped aggregate. The checker enumerates every insertion permutation \\(3\\le n\\le8\\) and validates rational triple counts; the proof, not the enumeration, establishes all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2310.01053",
+        "https://arxiv.org/abs/1412.2796",
+        "https://algo.inria.fr/seminars/sem96-97/flajolet.html"
+      ],
+      "reasoning": "Ji 2023 Theorem 1.4 covers the multivariate aggregate record/peak/valley generating function and can potentially imply the aggregate covariance. Its variables weight counts rather than each marked position; the stronger *positional stochastic order* is not implied without additional information. Bóna–Pittel concerns vertex ranks by distance to leaves, and Flajolet concerns occurrences of fixed patterns.",
+      "searches": [
+        "random binary search tree leaves conditioned minimum key depth stochastic order",
+        "Eulerian Stirling joint distribution of valleys and left-to-right minima",
+        "Random binary search tree minimum-key depth left spine length versus leaf-count covariance, position indexed leaf indicator"
+      ]
+    },
+    "checked_sources": [
+      "https://algo.inria.fr/seminars/sem96-97/flajolet.html",
+      "https://arxiv.org/abs/1412.2796",
+      "https://arxiv.org/abs/2310.01053",
+      "published-finding corpus semantic searches (actual queries recorded above)",
+      "Earlier position-indexed record–peak and tree path-length–leaf dependence claims (compared for mathematical implication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2310.01053",
+        "https://arxiv.org/abs/1412.2796",
+        "2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9",
+        "2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+      ],
+      "reasoning": "An earlier uniform-permutation study of upper records with same-position peaks gives moment identities but does not compare lower records conditioned on peaks in stochastic order. Ji 2023 is strong coverage for the aggregated record/valley counts; no positional covariance or conditional tail probability is printed in the examined theorems. The new position-indexed statement is not established by the reported earlier aggregate identities alone.",
+      "searches": [
+        "Uniform random binary search tree left spine extreme key depth stochastic dominance conditioned on key i being a leaf",
+        "Uniform random permutation left-to-right minimum record count given specified interior peak position conditional stochastic ordering",
+        "Uniform permutation prefix minima versus local peaks in inverse insertion ranks, exact covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2310.01053",
+        "Position-indexed conditioned record/peak laws and extreme-key search-path interpretation were compared against available indexed sources."
+      ],
+      "reasoning": "Minimum-key depth corresponds to left-to-right record minima in insertion priorities; an inorder-key leaf corresponds to a local maximum. A general aggregate record/peak joint polynomial does not assert stochastic order at each specified position.",
+      "searches": [
+        "Random binary search tree minimum-key depth left spine length versus leaf-count covariance, position indexed leaf indicator",
+        "Random BST leftmost path depth and leaf count cross-covariance rank indicators",
+        "Uniform random binary search tree left spine extreme key depth stochastic dominance conditioned on key i being a leaf",
+        "Uniform random permutation left-to-right minimum record count given specified interior peak position conditional stochastic ordering",
+        "Rank insertion sequence record indicators and local peaks, exact record leaf covariance positive endpoint negative interior",
+        "Uniform permutation prefix minima versus local peaks in inverse insertion ranks, exact covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9",
+        "2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+        "2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+      ],
+      "reasoning": "Nearest retrieved records concern different tree statistics, such as root imbalance with total path length, or recursive-tree root degree with leaves. Neither gives a table of the all-position leaf-event conditional distribution or the claimed stochastic order. Search absence alone is not proof of uniqueness.",
+      "searches": [
+        "Random binary search tree minimum-key depth left spine length versus leaf-count covariance, position indexed leaf indicator",
+        "Random BST leftmost path depth and leaf count cross-covariance rank indicators",
+        "Uniform random binary search tree left spine extreme key depth stochastic dominance conditioned on key i being a leaf",
+        "Uniform random permutation left-to-right minimum record count given specified interior peak position conditional stochastic ordering",
+        "Rank insertion sequence record indicators and local peaks, exact record leaf covariance positive endpoint negative interior",
+        "Uniform permutation prefix minima versus local peaks in inverse insertion ranks, exact covariance",
+        "minimum key depth leaf indicator joint exact covariance binary search tree"
+      ]
+    },
+    "rationale": "The new result is the complete inorder-position-specific conditional stochastic ordering for minimum-key depth, with all-key covariance profile and exceptional boundary sign. The inspected Flajolet, Bóna–Pittel and Ji texts cover tree pattern-count marginals, fringe-rank distributions, and aggregate record/peak/valley polynomials respectively, not this conditional rank-by-rank stochastic order. The total covariance is susceptible to existing aggregate Eulerian–Stirling identities and is treated solely as a derived consequence. Priority risk from unlocated position-indexed generating-function literature persists.",
+    "residual_risks": [
+      "An unlocated positional multivariate permutation enumeration might imply the all-rank conditional order.",
+      "Aggregate covariance likely follows from pre-existing global Eulerian–Stirling polynomials and is not claimed as independently novel.",
+      "The archival research report behind the 1996 seminar was not examined separately; the complete accessible seminar HTML was examined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_position_specific_conditional_order_in_accessible_text",
+        "evidence": "Theorems 1–4 concern global occurrences of a fixed pattern, with mean/variance and Gaussian laws; no marked-key depth-by-leaf conditional ordering statement.",
+        "identifier_or_url": "https://algo.inria.fr/seminars/sem96-97/flajolet.html",
+        "material_read": "Full accessible 1996 dated seminar HTML, including pattern-count generating function, theorem summaries, applications and references; separate report text not inspected.",
+        "method": "Read complete 230-line primary seminar page, checked for minimum-key path conditioning or key-specific leaves.",
+        "title": "Patterns in Random Binary Search Trees",
+        "trigger": "Historical fixed-subtree-pattern enumeration, possible coverage of leaves and tree search paths"
+      },
+      {
+        "assessment": "NOT_COVERING_specific_marked_minimum_key_conditional_stochastic_order",
+        "evidence": "Theorems concern distance-to-descendant-leaf ranks of uniformly chosen vertices and their asymptotic distribution. There is no stipulated minimum inorder key depth and per-key leaf conditioning.",
+        "identifier_or_url": "https://arxiv.org/abs/1412.2796",
+        "material_read": "Full-text arXiv HTML accessible (564 lines); abstract, theorem 1.1, definitions, and pertinent body sections were read.",
+        "method": "Read relevant full-text sections and searched for depth/leaf and individual key-conditional comparisons.",
+        "title": "On a random search tree: asymptotic enumeration of vertices by distance from leaves",
+        "trigger": "Direct random BST leaf literature with potential stronger fringe statistic law"
+      },
+      {
+        "assessment": "AGGREGATE_COVERAGE_BUT_POSITION_CONDITIONED_ORDER_NOT_STATED",
+        "evidence": "Equation (1.17) jointly weights aggregate numbers of valleys, exterior peaks and left-/right-to-left maxima; Theorem 1.4 specifies the global generating function, with no variable marking the event that one designated inorder key is a leaf or conditional stochastic order.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.01053",
+        "material_read": "Full-text arXiv HTML accessible (769 lines); equations (1.17), (1.18), definitions, and pertinent sections of the grammatical-labeling proof were read.",
+        "method": "Inspected theorem, generating-function variables and the individual-position labeling; searched for stochastic order and covariance.",
+        "title": "The (α,β)-Eulerian Polynomials and Descent-Stirling Statistics on Permutations",
+        "trigger": "Strong potential covering theory for records and local peaks/valleys under permutation encoding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29e7eead-2a91-4d93-b8b3-8d669dd4d27f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural key-ordered boundary statistic has a full and sharp rank-wise conditional stochastic comparison, stronger than moment covariance and uniform over every size. The exceptional sign at the minimum key makes an otherwise counterintuitive aggregate covariance positive, providing structural information unavailable from global leaf-count results alone.",
+    "status": "PASS"
+  }
+}

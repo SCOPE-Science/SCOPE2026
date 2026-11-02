@@ -1,0 +1,15 @@
+# Scientific review of the full-subdivision minimal connected-domination theorem
+
+## Correctness
+**PASS.** The proof treats connected domination in the actual subdivided graph. An unselected edge subdivision cannot be dominated if both original endpoints are unselected, while a selected such subdivision would be isolated; hence the selected originals form a vertex cover. Connectivity forces the chosen internal subdivisions to connect those originals, and minimality makes them a tree. Boundary subdivisions must be chosen once per omitted original. Original-vertex indispensability is exactly the outside-neighbor condition on tree leaves, with a separately justified singleton-star case. A weighted matrix-tree determinant gives the requisite degree-restricted complete-bipartite tree count. The isolated two-original-vertex exception is excluded. Exhaustive direct graph checks match the classification and polynomial in all tested instances. All-order validity depends on the proof, not finite enumeration.
+
+## Originality
+**PASS, provisional.** The most relevant full text, arXiv:2205.00086 (2022), develops general and \(2\)-degenerate enumeration algorithms and complexity lower bounds, not a full-subdivision vertex-cover/tree bijection or these exact Stirling coefficients. The fully accessible arXiv:1908.02174 (2019) develops convex-bipartite enumeration rather than the present class. A preceding exact rook-graph minimal-connected-domination calculation already uses the same bipartite spanning-tree degree restriction and Stirling numbers. This shared kernel is explicitly credited; it does not by itself imply the arbitrary-base subdivision correspondence, boundary selection weights, or the two-spike result for \(\operatorname{Sub}(K_{2,b})\). Earlier calculations for ordinary and independent domination of subdivided graphs also count different set families. Unindexed or unpublished equivalent formulas remain a publication-priority risk.
+
+## Mathematical value
+**PASS.** The general tree-cover correspondence connects minimal connected domination in subdivisions to a constrained spanning-tree count on arbitrary base graphs. Its complete bipartite specialization gives every cardinality multiplicity, not merely an optimum, and yields connected bipartite \(2\)-degenerate examples whose attainable inclusion-minimal connected-domination sizes have a missing interval of length \(b-3\). That sharp, linearly growing gap is a nontrivial structural boundary for a sparse family, not a small numerical improvement or a recomputation of the earlier rook-graph polynomial.
+
+## Limits and closest work
+The formulas count labeled vertex sets and do not yield a general polynomial-time evaluation procedure. The all-order statements exclude a two-vertex base graph. Comparisons: Abu-Khzam et al., arXiv:2205.00086; Sayadi, arXiv:1908.02174; Lokshtanov et al., arXiv:1611.00840; and the earlier rook-graph, ordinary-subdivision-domination, and independent-subdivision-domination calculations. The self-review does not establish priority against unindexed sources.
+
+Self-review: passed. Independent audit: not yet performed.

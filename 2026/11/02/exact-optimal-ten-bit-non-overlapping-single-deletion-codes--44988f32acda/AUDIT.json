@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "A binary start/end-bit argument reduces all nonempty codes to one of two complementary orientations. Pair compatibility is exactly non-overlap and disjoint deletion balls. A complete, unpruned increasing-index clique enumeration checks every finite code for lengths 2..10; for n=10 it generates 142 eligible oriented vertices, six cliques of maximum size nine and no larger clique, then generates precisely twelve labeled maxima and three four-member reversal/complement orbits. All twelve are individually tested on actual deletion shadows and prefix/suffix comparisons. The shipped verifier replays VERIFY_OK; independent MILP gives optimum 9. Scope is finite, and no step extrapolates to larger n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al., IEEE TIT 59 (2013), pp. 4668-4675, Table I gives 24 for the unrestricted ten-bit cross-bifix-free maximum, not the deletion-correcting subproblem.",
+        "Sloane 2002, arXiv:math/0207197v1, pp. 1–4: deletion-code model and initial values, not non-overlap; No 2019 confirms unrestricted ten-bit one-deletion code optimum 94.",
+        "Heymann et al., ISITA 2012, pp. 1-3: simultaneous synchronization and deletion capability is developed for distinct-symbol permutation codes of M-ary alphabet; this is not a binary fixed-length cross-bifix-free capacity classification."
+      ],
+      "reasoning": "A stronger theorem covering both constraints could subsume the result, but the inspected broader construction and capacity results each omit at least one defining constraint or use a different alphabet and synchronization model. Their upper bounds 24 and 94 remain too large to imply the sharp joint upper bound nine.",
+      "searches": [
+        "simultaneous frame synchronization non-overlapping deletion correcting codes maximal length 10 9 codewords",
+        "cross bifix free codes Hamming deletion correction 2015 finite optimal binary",
+        "mutually uncorrelated deletion correcting binary codes codebooks 2012 2016"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0207197",
+      "https://arxiv.org/pdf/1303.1026",
+      "https://ymchee66.github.io/home/PDF/crossbifixjournal.pdf",
+      "https://ujcontent.uj.ac.za/esploro/outputs/conferencePaper/Combined-permutation-codes-for-synchronization/9910785307691",
+      "https://github.com/Resultary/2026",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7514547/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blackburn 2013: bounds and constructions for all-length cross-bifix-free codes, without requirement that deletion shadows be disjoint.",
+        "Sloane 2002: exact graph model for deletion correction, but no prefix/suffix-free constraint.",
+        "Heymann et al. 2012: permutation-code alphabets, segment separation and an algorithm, without an exact binary cross-bifix-free maximum.",
+        "Chee et al. 2013: computational non-overlapping maxima, without deletion channel."
+      ],
+      "reasoning": "The new statement is J(n) for the intersection of two graph constraints, with a complete extremizer classification at n=10. Separate maxima cannot imply the maximum of the intersection: the relevant prior claims supply only J(10)<=24 and J(10)<=94. The explicit compatible nine-word witness proves a lower bound, while the new complete clique enumeration supplies the missing upper bound and all equality cases.",
+      "searches": [
+        "At length 10 binary codes simultaneously non-overlapping cross-bifix-free and single-deletion-correcting maximum size nine and exactly twelve maximum sets",
+        "simultaneous frame synchronization non-overlapping deletion correcting codes maximal length 10 9 codewords",
+        "Blackburn Non-overlapping Codes 2013 cross bifix free 2015 deletion",
+        "cross-bifix-free codes Levenshtein deletion correction code optimal length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sloane 2002, arXiv:math/0207197v1, pp. 1-3: deletion codes are independent sets in the common-descendant conflict graph, with no prefix/suffix constraint.",
+        "Blackburn 2013, arXiv:1303.1026v1, pp. 2-4: equivalent cross-bifix-free definition but no deletion-output criterion.",
+        "Search of indexed published mathematical records found separate-constraint deletion and cross-bifix-free code entries, not a joint ten-bit maximum."
+      ],
+      "reasoning": "Equivalent code formulations are the intersection of the prefix/suffix non-overlap condition with disjoint deletion descendant sets, or maximum cliques in the induced compatibility graph. The inspected separate-constraint formulations lack an identity mapping their maximum sets to the joint feasible sets; neither proves the present ten-bit optimum or twelve equality cases.",
+      "searches": [
+        "At length 10 binary codes simultaneously non-overlapping cross-bifix-free and single-deletion-correcting maximum size nine and exactly twelve maximum sets",
+        "cross-bifix-free codes correcting one deletion maximal cardinality binary synchronized deletion code",
+        "cross-bifix free single deletion correcting non-overlapping codes exact length 10",
+        "non-overlapping codes correcting deletions cross bifix free construction deletion 2014"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chee et al. 2013 Table I is the closest non-overlap table: 24 at length ten, without deletion.",
+        "published-finding corpus index: Exact size and enumeration of maximum length-five non-overlapping codes (2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a) concerns non-overlap at length five and varying alphabet.",
+        "published-finding corpus index: Complete census of maximum binary length-six single-deletion codes (2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c) concerns deletion correction at length six, not the joint ten-bit code."
+      ],
+      "reasoning": "No inspected table or indexed record tabulates the joint capacity or equality-codebook list. The unrestricted length-ten non-overlap and deletion tables have distinct feasible domains and cannot be used as the exact database for the intersection. Search absence alone is not used as proof of novelty.",
+      "searches": [
+        "At length 10 binary codes simultaneously non-overlapping cross-bifix-free and single-deletion-correcting maximum size nine and exactly twelve maximum sets",
+        "combined cross-bifix-free code independent set deletion channel graph length 8 9 10 classification",
+        "binary non-overlapping deletion correcting optimum 10 12 codebooks",
+        "single deletion correcting cross bifix free codes 9 10 maximum"
+      ]
+    },
+    "rationale": "Published full-text foundational works and relevant indexed research records cover non-overlap-only, deletion-only, or permutation-alphabet combined codes, but not the exact binary ten-bit intersection maximum, twelve complete optimizers and three symmetry orbits. These results are not logical implications of the separate maxima. Index-search absence is treated as supporting context, not proof of uniqueness; residual historical risk remains.",
+    "residual_risks": [
+      "An inaccessible or unindexed earlier theorem may cover the two constraints jointly, especially under alternative names such as strong synchronization or comma-free insertion/deletion correction.",
+      "Two closely related published research-record summaries were available without their complete source files; comparisons are limited to their stated claims.",
+      "Historical priority has not received independent subject-expert verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DELETION-ONLY, not covering the joint cross-bifix-free length-ten capacity",
+        "evidence": [
+          "arXiv:math/0207197v1, pp.1-4; common deletion descendants characterize adjacency and the first deletion maxima are given without non-overlap"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0207197",
+        "material_read": "Relevant sections of a publicly available 23-page PDF: opening definitions, graph model, initial size table, Varshamov–Tenengolts code definition and decoding argument (pp. 1–4).",
+        "method": "Opened public arXiv PDF, read the relevant initial sections and searched for overlap; inspected page image",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Foundational primary deletion-graph result; possible direct tabulation of ten-bit deletion codes"
+      },
+      {
+        "assessment": "NON-OVERLAP-ONLY, not covering joint deletion correction",
+        "evidence": [
+          "arXiv:1303.1026v3, pp.1-4; defines non-overlap and bounds size, no deletion condition"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+        "material_read": "Relevant sections of a publicly available 14-page PDF: abstract, definition, introduction (pp. 1–3), Construction 1 (p. 6), and short-length section (p. 9); full-document search for deletion.",
+        "method": "Opened arXiv PDF, inspected text and page image, used text find for deletion",
+        "title": "Non-overlapping codes",
+        "trigger": "Standard definition and structural maxima for non-overlapping codes"
+      },
+      {
+        "assessment": "EXACT NON-OVERLAP TABLE ONLY: n=10 gives unrestricted 24, not joint 9",
+        "evidence": [
+          "IEEE Trans. Inform. Theory 59 (2013), Table I, n=10"
+        ],
+        "identifier_or_url": "https://ymchee66.github.io/home/PDF/crossbifixjournal.pdf",
+        "material_read": "Relevant sections of a publicly available seven-page PDF: abstract, definitions, code construction and Table I (pp. 1–4), plus the concluding scope statements.",
+        "method": "Opened author-hosted journal PDF, inspected page image and table",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Closest published exact ten-bit non-overlap table and computer-aided classification"
+      },
+      {
+        "assessment": "Different channel/code family: M-ary permutation symbols and segment construction, no binary ten-bit cross-bifix-free optimum",
+        "evidence": [
+          "ISITA 2012, pp.1-3: every permutation uses distinct labels 1..M and segment templates"
+        ],
+        "identifier_or_url": "https://ujcontent.uj.ac.za/esploro/outputs/conferencePaper/Combined-permutation-codes-for-synchronization/9910785307691",
+        "material_read": "Relevant sections of a publicly available five-page PDF: introduction, definitions, segment code construction, examples and synchronization decoder (pp. 1–3).",
+        "method": "Opened public institutional PDF text; visual screenshot retry was unavailable due remote redirect",
+        "title": "Combined Permutation Codes for Synchronization",
+        "trigger": "Plausible prior result combining resynchronization and deletion correction"
+      },
+      {
+        "assessment": "Neither summarized claim concerns the joint binary length-ten code; no whole-document absence claim is made",
+        "evidence": [
+          "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+          "2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026",
+        "material_read": "Search-returned titles and structured summaries for published non-overlap length five and deletion length six records; full GitHub pages not accessible in web browser",
+        "method": "Semantic index searches with claim, parameter and equivalence phrases; compared implications of summary statements",
+        "title": "published-finding corpus published finite-code classifications (two closest indexed records)",
+        "trigger": "Potential exact database overlap of fixed-length code capacities"
+      },
+      {
+        "assessment": "DELETION-ONLY, confirms unrestricted size 94 at n=10; does not add non-overlapping constraint",
+        "evidence": [
+          "No (2019), Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming, discussion of optimality for n≤10."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7514547/",
+        "material_read": "Open HTML article, abstract and problem framing, section reporting binary single-deletion code cardinality/Varshamov–Tenengolts optimality through length ten.",
+        "method": "Read public open-access HTML text and examined its discussion of finite-length optima.",
+        "title": "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming",
+        "trigger": "Verify deletion-only length-ten optimum and whether the exact result imposes cross-bifix-free synchronization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "44988f32-acda-428e-8c05-b98ba8412bc1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The intersection of frame-synchronizing non-overlap and one-symbol deletion correction is a natural finite-channel code design problem, not simply an arbitrary subset. At length ten the known separate maxima are 24 and 94, whereas the exact intersection maximum is 9; six oriented complete optimizers and their symmetry classes form a genuinely complete small-block classification. The exact bound and all codebooks provide benchmarks and reproducible design choices without asserting downstream physical gains.",
+    "status": "PASS"
+  }
+}

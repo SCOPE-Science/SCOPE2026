@@ -1,0 +1,15 @@
+# Scientific review: three 2-adic image balls
+
+## Correctness — PASS
+The recurrence, companion sequence, and three index classes are all precisely defined for every nonzero \(4\mid P\). The standard Lucas difference and doubling identities imply \(\nu_2(V_{2j})=1\), \(\nu_2(V_{2j+1})=h\), and \(\nu_2(U_{2j})=h+\nu_2(j)\). Substitution gives three normalized index isometries. Each isometry is a bijection on every finite quotient and hence has dense, indeed completed-surjective, image in \(\mathbb Z_2\). Disjoint balls then give an exact residue count and density. The standalone checker passed all 132 modular images and 25,308 independent isometry comparisons. These finite tests are consistency checks, not replacements for the infinite proof.
+
+## Originality — PASS within inspected evidence
+The strongest comparison is de Clercq et al., arXiv:2003.01559, Theorem 5, which classifies the all-residue permutation regime \(P\equiv2\pmod4\). Its stated result excludes \(4\mid P\) and does not give an exact closure for that side. The even-index ball follows from the known result by the trace-squaring identity \(U_{2a}(P)=P U_a(P^2-2)\), since \(P^2-2\equiv2\pmod4\); the remaining two odd-index balls and their image topology require additional argument. Ferrari, Luca and Moree, arXiv:2309.12843, focus on the \(4k+2\) trace family and discriminator values, not the asserted three-ball structure. Bragman–Rowland, arXiv:2202.00704, study Fibonacci density for a different recurrence. Sanna 2021 and Accossato–Sanna 2024 consider achievable counts across varied recurrences/moduli, not exact images for this fixed normalized sequence. The companion identities are standard; the contribution is the closed-form complementary image theorem and its exact isometric attainment, not the algebraic identities alone. Searches considered alternative Chebyshev terminology, dyadic images, recurrence-sign duality, and stronger coverage. An older exhaustive residue-image theorem in another notation is a residual bibliographic risk.
+
+## Mathematical value — PASS
+The discriminator literature isolates \(P\equiv2\pmod4\) as the complete-residue regime while leaving a natural infinite excluded parameter class. The theorem completely classifies the excluded divisible-by-four family, replaces nonattainment by three explicit full 2-adic balls, gives their exact dyadic residue counts and Haar density, and identifies canonical isometric parametrizations. This is a natural boundary/completion result for a studied arithmetic object, rather than an arbitrary modular sample or a one-off count.
+
+## Limitations
+The theorem concerns only the canonical \(U(P,1)\) sequence, the prime two, and \(4\mid P\). The conclusion is not a classification of discriminators. Literature searches do not establish uniqueness against all earlier work; residual risk is implicit equivalence in older recurrence/congruence literature. Independent scientific validation has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.

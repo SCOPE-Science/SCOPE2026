@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For each Dyck word with exactly two missing peaks, four equal-letter adjacencies force exactly two mismatch intervals against the alternating word, so the VC upper bound four follows from the three-run obstruction. Six-size words exhibit all 16 traces at positions 2,4,7,8 and padding preserves them. An inductively exact finite-shattering recurrence, verified by two implementations and explicit depth-seven/eight trees, proves the n=3..11 table. A one-defect interval embedding gives the unbounded Ldim lower bound. The computations use only exact integers; no general online formula is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chase–Freitag, arxiv:1801.06566, defines Littlestone/thicket dimension and discusses stability, without a Dyck class computation.",
+        "Cambie–Girão–Kang, 2019, studies union/symmetric-difference extremal set-system bounds, rather than finite Narayana online dimensions.",
+        "The standard two-interval VC bound yields the upper bound four only."
+      ],
+      "reasoning": "A general shattering bound for unions of two intervals does not certify the lower VC witness in the Dyck subclass; neither does it establish its finite online depths or the first cardinality-bound failure at nine. General online-learning papers characterize the invariant but do not provide these exact values.",
+      "searches": [
+        "union of two intervals restricted balanced parentheses Dyck words online shattering entropy first failure",
+        "VC dimension union of k intervals 2k Littlestone dimension 2019",
+        "arxiv:1801.06566 sections 1 and 4 stability thicket dimension",
+        "doi:10.37236/8288 VC Dimension and a Union Theorem for Set Systems"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1801.06566",
+      "arxiv:1806.00949",
+      "arxiv:2407.17168v1",
+      "doi:10.37236/8288",
+      "Public record: 2026/9/9/SCOPE032"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chase–Freitag 2018 provides the complete-tree definition and model-theoretic equivalence, not values for two-defect Dyck paths.",
+        "Shigechi 2024 studies Dyck peak/valley statistics, not online decision-tree obstructions.",
+        "Previous exact interval and two-run concept results concern full interval families, and their claims do not impose Dyck balance or exact peak deficit."
+      ],
+      "reasoning": "The new result makes the stronger joint assertion of an all-size four-point VC classification for a proper, constrained Narayana layer plus exact online depths through eleven and a first entropy obstruction. These do not follow logically from the named general definitions, Narayana counts, or full-interval bounds without the new finite and structural arguments.",
+      "searches": [
+        "arxiv:1806.00949 Private PAC learning implies finite Littlestone dimension",
+        "arxiv:1801.06566 Model Theory and Machine Learning",
+        "arxiv:2407.17168v1 Major Index on Catalan Combinatorics",
+        "Published finite interval online-shattering and at most two positive runs comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Narayana peak count in arxiv:2407.17168v1, sections 2 and 4, and exact peak enumerator in VERIFY.py.",
+        "Existing ordinary interval classes are related by the one-defect subclass, but the two-defect class has 336 concepts at semilength nine, whereas the whole two-interval family includes other subsets."
+      ],
+      "reasoning": "The new class can be encoded as a parity-adjusted subfamily of unions of two intervals, not all such unions; the explicit balanced-word and peak constraints matter. Replacing the position query with the XOR-adjusted interval query preserves shattering, but the published unrestricted interval statements do not imply the new subclass exact online table.",
+      "searches": [
+        "Dyck paths Narayana layer with two missing peaks fixed peak count n-2 Littlestone 7 8 9 10 11 VC dimension 4",
+        "Narayana Dyck paths fixed number of peaks VC dimension Littlestone dimension binary coordinate queries shattering",
+        "VC dimension Littlestone dimension Dyck words Catalan paths online learning 2019 2022",
+        "arxiv:2407.17168v1 section 4: peak and valley encodings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Class sizes 1,6,20,50,105,196,336,540,825 follow the classical Narayana formula; no exact VC/Littlestone table is displayed in the inspected primary material.",
+        "Public research records located a primitive-Dyck entropy result and a Catalan-permutation statistic census; these address other invariants, not the claimed dimensions."
+      ],
+      "reasoning": "Known enumerative tables determine the number of concepts, which bounds but does not determine adaptive depth: the new finite calculation proves depths below the counting ceiling at nine, ten and eleven. Searches alone cannot prove there is no unpublished or differently indexed exact table.",
+      "searches": [
+        "Narayana numbers fixed peaks Littlestone values sequence 2 4 5 6 7 7 8 8",
+        "Dyck path Catalan peak deficiency online shattering VC 4",
+        "published research records: Dyck paths Narayana two defects online learning",
+        "arxiv:2407.17168v1 Narayana Dyck peaks Catalan statistics"
+      ]
+    },
+    "rationale": "Actual literature and public mathematical-record queries found the underlying Narayana enumeration, general VC/online theory, and larger interval classes but no source logically covering the balanced two-defect peak layer exact dimensions. This is best-knowledge originality, not proof of worldwide uniqueness.",
+    "residual_risks": [
+      "Different encodings of run-bounded balanced words or Narayana/noncrossing-partition strata could hide earlier identical computations.",
+      "The 2019 union-theorem full article was not inspected beyond its public abstract; it is not a decisive exact-value competitor on current evidence.",
+      "Historical coverage cannot be ruled out by finite indexed searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found foundational general theory, not specific Narayana-slice evaluations.",
+        "evidence": [
+          "arxiv:1801.06566 first posted 2018-01-19; section 4 gives complete binary trees and thicket/Littlestone definitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.06566",
+        "material_read": "HTML introduction and online-learning sections 3–4, including Definitions 4.1–4.5 and online mistake-bound theorem",
+        "method": "Read primary article HTML and searched the entire article text for Dyck and Narayana terminology",
+        "title": "Model Theory and Machine Learning",
+        "trigger": "Exact mathematical definition of adaptive dimension and relevant model-theoretic ownership"
+      },
+      {
+        "assessment": "Accessible material covers enumerative statistics and bijections; no matching Boolean coordinate-shattering theorem located.",
+        "evidence": [
+          "arxiv:2407.17168v1 public timestamp 2024-07-24; section 4.4 encodes peaks/valleys; full-text search returned no Littlestone or VC dimension."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.17168v1",
+        "material_read": "Article HTML abstract, introduction, Dyck terminology and section 4 on peak/valley encodings; global string search for Littlestone and VC dimension",
+        "method": "Inspected relevant article text and searched full HTML for potentially covering dimension terminology",
+        "title": "Major Index on Catalan Combinatorics",
+        "trigger": "Same Dyck words, Catalan enumeration, peaks and valley encodings"
+      },
+      {
+        "assessment": "General theory and importance of threshold classes, not a claim on finite peak-restricted Dyck words.",
+        "evidence": [
+          "First posted 2018-06-04, with the Ldim context and threshold learning."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.00949",
+        "material_read": "HTML introduction and section 1.1 with discussion of thresholds, Littlestone dimension and model-theoretic rank",
+        "method": "Read relevant primary online text",
+        "title": "Private PAC learning implies finite Littlestone dimension",
+        "trigger": "General online-learnability and threshold-class perspective"
+      },
+      {
+        "assessment": "General extremal set-system union results, no exact Narayana slice in accessible abstract. Full article unresolved as a broader-coverage risk.",
+        "evidence": [
+          "Journal published 2019-08-02."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v26i3p24",
+        "material_read": "Journal title, abstract, publication metadata; full article not read",
+        "method": "Inspected public article abstract and scope",
+        "title": "VC Dimension and a Union Theorem for Set Systems",
+        "trigger": "Possible stronger covering result for two-interval family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ef6f617-2182-4e63-ab4e-69d0a295fb7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed two-peak-deficit Narayana slice is a natural Catalan refinement, not an arbitrary restriction. An all-size VC classification and a growing online dimension exhibit a robust separation. The exact nine-point entropy obstruction is a natural threshold where concept count ceases to predict attainable decision-tree depth, providing a sharp benchmark for future peak-deficit layers.",
+    "status": "PASS"
+  }
+}

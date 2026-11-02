@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The object is the Hamming metric on singleton/doubleton layers. Averaging any Hilbert embedding Gram matrix over S_n reduces to a PSD invariant form with A,B,D,T>=0 and C^2<=AB. Its five pair-distance classes are computed exactly in RESULT.md. For n>=5, delta_inc>=((n-2)/(4(n-1)))*delta_disjoint, and noncontraction on graph distance four yields c2^2>=4(n-2)/(n-1). For n=4, the constrained minimax M(C) yields (43-8 sqrt19)/3; n=3 gives 9/4 and n=2 is a path. Explicit (n-1)-dimensional embeddings attain all bounds. The exact checker tests 12006 inequalities across n=3..11, including Q(sqrt19). No finite test is taken as the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cioabă–Gupta–Ihringer–Kurihara arXiv:2109.09708, introductory hypotheses of distance regularity and Hamming/Johnson families.",
+        "Doust–Wolf arXiv:2109.07052, Theorem 1.1 and M-constant results for Hamming subsets.",
+        "Beaudou–Gravier–Meslem DOI:10.1137/070681909, Hamming-isometry classification."
+      ],
+      "reasoning": "The proposed graph is nonregular for n>=4; distance-regular graph formulas do not directly specialize. Negative type or isometric embedding into an ambient Hamming metric yields only a particular Euclidean map, not the optimum across Hilbert embeddings. The full-text comparison to the older same-graph paper remains incomplete but its published classification addresses a different target metric.",
+      "searches": [
+        "exact minimum Euclidean distortion of two adjacent levels of Boolean hypercube Hamming metric singletons and pairs",
+        "Hilbert distortion of fully subdivided complete graphs and incidence graph of K_n",
+        "least Euclidean distortion one-two layers of hypercube 4(n-2)/(n-1)",
+        "web search: exact Euclidean distortion \"partial cube\" graph c_2",
+        "web search: Hilbert distortion of rank-selected Hamming cube levels one two"
+      ]
+    },
+    "checked_sources": [
+      "Cioabă–Gupta–Ihringer–Kurihara, arXiv:2109.09708 (first posted 2021-09-20)",
+      "Doust–Wolf, arXiv:2109.07052 (first posted 2021-09-15)",
+      "Beaudou–Gravier–Meslem, DOI:10.1137/070681909 (2008; full text unavailable)",
+      "Exact graph metric of consecutive-layer S-hypersimplices (published graph-metric statement, not least Hilbert distortion)",
+      "Maximal Hilbert distortion for complete-bipartite transportation spaces (Banach–Mazur rather than vertex metric distortion)",
+      "Exact Löwner ellipsoids of arbitrary rank-selected Boolean polytopes (minimum-volume ellipsoids rather than vertex metric distortion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Results determining the graph metric of rank-selected hypersimplices do not determine its least Hilbert embedding distortion.",
+        "The projection norm of a graph circulation space and the negative-type exponent of a partially subdivided clique are different invariants and have no known implication to the claimed constant.",
+        "The n=3 value is the classical six-cycle boundary, not a separately asserted novelty."
+      ],
+      "reasoning": "Neither projection norm for the subdivision circulation space nor p-negative-type of a partially subdivided clique can imply the least Euclidean distortion of the completely subdivided clique vertex metric. The ambient Hamming distance representation is employed as a hypothesis, not treated as a newly discovered isometric embedding.",
+      "searches": [
+        "exact minimum Euclidean distortion of two adjacent levels of Boolean hypercube Hamming metric singletons and pairs",
+        "Hilbert distortion of fully subdivided complete graphs and incidence graph of K_n",
+        "least Euclidean distortion one-two layers of hypercube 4(n-2)/(n-1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The metric is exactly Hamming distance on levels {1,2}, i.e. the graph S(K_n).",
+        "Beaudou–Gravier–Meslem explicitly identify the singleton/doubleton Hamming model.",
+        "A published study of rank-selected hypersimplices concerns shortest-path metric of rank-selected polytopes, not the least Euclidean metric distortion."
+      ],
+      "reasoning": "The aliases subdivision graph S(K_n), incidence Levi graph of the complete 2-design, and rank-{1,2} Hamming layers were compared. Identifying the metric as Hamming does not determine the minimum c2 for its induced submetric; the all-cube distortion gives at most a nonsharp ambient bound.",
+      "searches": [
+        "exact minimum Euclidean distortion of two adjacent levels of Boolean hypercube Hamming metric singletons and pairs",
+        "Hilbert distortion of fully subdivided complete graphs and incidence graph of K_n",
+        "least Euclidean distortion one-two layers of hypercube 4(n-2)/(n-1)",
+        "web search: \"subdivision\" \"complete graph\" \"Euclidean distortion\" metric embedding",
+        "web search: \"incidence graph\" \"complete graph\" \"least Euclidean distortion\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published comparisons included Banach–Mazur distortion of complete-bipartite transportation spaces (distinct invariant) and Löwner ellipsoids of rank-selected Boolean polytopes (distinct geometric problem).",
+        "No exact least-Euclidean-distortion table for the subdivision-graph family was identified in the actual searches; this absence does not certify novelty."
+      ],
+      "reasoning": "Checked numerical expressions, the n=4 algebraic branch, and equivalent graph/Hamming terminology. Available closest tables have different objects or invariants; no claimed universal database exclusion.",
+      "searches": [
+        "exact minimum Euclidean distortion of two adjacent levels of Boolean hypercube Hamming metric singletons and pairs",
+        "Hilbert distortion of fully subdivided complete graphs and incidence graph of K_n",
+        "least Euclidean distortion one-two layers of hypercube 4(n-2)/(n-1)",
+        "web search: c2 of complete graph subdivision Euclidean embedding metric distortion"
+      ]
+    },
+    "rationale": "Exact least Euclidean distortion of the nonregular once-subdivided complete graph has a new all-orders piecewise formula, including the algebraic n=4 transition. Relevant published statements concern distance-regular graph c2, Hamming-subset distance matrices, or isometric Hamming embedding of this graph, none of which establishes its least Hilbert distortion. Search results and accessible historical claims did not identify a dominating formula; older equivalent forms remain a qualified risk.",
+    "residual_risks": [
+      "The same-graph 2008 paper was examined through its abstract and an independent detailed mathematical exposition, not its complete original text; a hidden stronger calculation is possible.",
+      "A general theorem for rank-selected Hamming submetrics under another terminology could subsume the result despite no identified hit.",
+      "Independent mathematical priority assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different domain: regular distance-regular graph vertex metrics, while the complete-graph subdivision has degrees n-1 and 2 for n>=4; its c2 is not supplied by the known full Hamming-cube or Johnson-graph constants.",
+        "evidence": [
+          "arXiv:2109.09708, pp. 1–2, distance-regular graph hypothesis and prior Hamming/Johnson results",
+          "arXiv:2109.09708, section on Odd graphs and Johnson scheme, pp. 16–18"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.09708",
+        "material_read": "Introduction and definition of least distortion, pp. 1–2; statements about Hamming/Johnson classes and distance-regularity; targeted odd/Johnson graph sections, pp. 16–18; document text searched for subdivision and incidence.",
+        "method": "Read public arXiv PDF text and inspected the first page image; compared theorem domains, not only keywords.",
+        "title": "The least Euclidean distortion constant of a distance-regular graph",
+        "trigger": "Central 2021 primary research on exact c2 of highly symmetric graph metrics."
+      },
+      {
+        "assessment": "The paper computes an M-constant and inverse-distance-matrix quantities of Hamming subsets, not least bilipschitz embedding distortion into Hilbert space; its result does not imply the stated piecewise c2.",
+        "evidence": [
+          "arXiv:2109.07052, abstract and Theorem 1.1",
+          "arXiv:2109.07052, sections 3–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.07052",
+        "material_read": "Abstract, pp. 1–2 introductory theorems; inspected sections on negative type, M-constants, spheres, and Hamming-subset distance matrices.",
+        "method": "Read accessible arXiv PDF text and inspected page-one image; traced the invariant and hypotheses of the main theorems.",
+        "title": "A problem on distance matrices of subsets of the Hamming cube",
+        "trigger": "Same ambient Hamming metric and 46B85; a potentially dominating theorem for all subsets."
+      },
+      {
+        "assessment": "Published statement classifies when complete-graph subdivisions embed isometrically in Hamming cubes. This verifies the chosen graph model but does not state a sharp Euclidean c2 value; uninspected portions remain a priority risk.",
+        "evidence": [
+          "DOI:10.1137/070681909, journal abstract",
+          "https://11011110.github.io/blog/2008/11/28/cubical-clique-subdivisions.html, explicit singleton/doubleton Hamming model"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/070681909",
+        "material_read": "Journal abstract and bibliographic text; contemporary mathematical exposition (David Eppstein, 2008-11-28) describing the singleton/doubleton labeling. Full original text not accessible through checked lawful sources.",
+        "method": "Compared stated classification with proposed claim; attempted open-access conference version and lawful institutional retrieval, without access to the full article.",
+        "title": "Isometric Embeddings of Subdivided Complete Graphs in the Hypercube",
+        "trigger": "Identical graph family, so a high-priority possible covering source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "282b21c2-353a-4f5f-b1ca-cbae39d91906",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp least-Hilbert-distortion invariant for every once-subdivided complete graph, a natural non-distance-regular partial cube whose Hamming inclusion does not settle its optimal c2. The isolated n=4 algebraic branch, exact n>=5 formula and convergence to two, low-dimensional optimizers, and local two-orbit lower certificate provide a reusable structural understanding. A small numerical instance alone would not suffice; the infinitely quantified theorem and sharp transition supply the substantive value.",
+    "status": "PASS"
+  }
+}

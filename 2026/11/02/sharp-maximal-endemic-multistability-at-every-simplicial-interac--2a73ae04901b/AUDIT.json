@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For M>=2, the endemic equation is degree M with leading coefficient -s_M/M!<0. Between two attracting roots an intervening equilibrium is necessary, proving at most ceil(M/2) stable. With epsilon rational in (0,min(1/8,eta/4)), delta=epsilon/[4(2M)^(M-1)] and Q=prod(x-j delta/M), all rate coefficients lambda_j remain positive because sum absolute coefficients of Q is <2. At t_j=(j+1/2)delta/M, the perturbation epsilon(1-t_j)Q(t_j) exceeds t_j^M in magnitude by factor >=4(1-delta)>1, forcing M alternating interior/boundary sign changes and exactly M simple roots. Their crossings provide exactly ceil(M/2) attractors and root simplicity gives robustness. Standard-library exact-rational verification for M=2..12 supports the algebra but is not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferraz de Arruda et al. (2023) demonstrate multiple stable branches on community structured hypergraphs with a critical mass activation mechanism.",
+        "Liang et al. (2024) give sufficient stability criteria for discrete-time higher-order SIS systems."
+      ],
+      "reasoning": "Neither stronger or broader numerical model subsumes the sharp equilibrium/root theorem in this one-dimensional continuous-time complete homogeneous specialization: their hypotheses, dynamics and specific established conclusions differ. No dominating arbitrary-order theorem was identified.",
+      "searches": [
+        "Complete simplicial complex higher-order SIS arbitrary many stable endemic equilibria positive all infection rates polynomial degree multistability equilibria construction",
+        "2024 2025 \"arbitrary\" \"stable endemic\" equilibria higher-order contagion",
+        "arxiv:2112.04273v1",
+        "arxiv:2408.08602v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.12752v1 (2023-09-22) Sections II.3, III and IV",
+      "arXiv:1810.07031v1 (2018-10-16) mean-field and general-order analysis",
+      "arXiv:2112.04273v1 and the 2023 open-access Nature Communications full text",
+      "arXiv:2408.08602v1 (2024-08-16) Section 6",
+      "Research record searches for complete simplicial SIS M roots, positive coefficient constructions, sharp stable count and alternate phrasing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kiss et al., arXiv:2309.12752v1, equation (II.31) and discussion of arbitrary-order multistability in Section IV",
+        "Original discussion says arbitrary numbers of strictly positive distinct endemic states may occur as order increases; its displayed analyses settle up to three simplex orders.",
+        "Iacopini et al. (2018/2019) prove restricted all-order configurations with only one higher-order channel."
+      ],
+      "reasoning": "The prior polynomial degree gives the upper bound M by a straightforward deduction, but neither prior article supplies a simultaneous lower-bound construction satisfying strict positivity for every infection order, nor proves the matching sharp attractor count. The main novelty is the attainable, robust all-order equality, not merely the upper degree bound.",
+      "searches": [
+        "Complete simplicial complex higher-order SIS arbitrary many stable endemic equilibria positive all infection rates polynomial degree multistability equilibria construction",
+        "Kiss Iacopini Simon Georgiou Insights from exact social contagion dynamics networks higher-order structures arbitrarily many endemic steady states",
+        "arxiv:2309.12752v1 Section IV",
+        "arxiv:1810.07031v1 supplementary note 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kiss et al., arXiv:2309.12752v1, equation (II.31) and discussion of arbitrary-order multistability in Section IV",
+        "Iacopini et al. (2018/2019) give the same generic polynomial mean-field incidence class."
+      ],
+      "reasoning": "Equivalence of the mean-field formulations follows from setting s_j=j! lambda_{j-1} and recovery equal to one. This existing equation does not by itself assert or prove simultaneous sharp realizability of all M positive roots under strictly positive coefficients.",
+      "searches": [
+        "Higher order social contagion polynomial (1-x) sum infection rates x^k arbitrary multistability number of endemic equilibria",
+        "arxiv:2309.12752v1 eq II.31",
+        "arxiv:1810.07031v1 eq 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected paper tabulates 1-, 2-, 3-simplex infection rate normalization and analyzes only up to 3-simplices in its explicit bifurcation classification.",
+        "The closest publicly indexed epidemic-equilibrium classifications concerned different delayed or media-responsive compartmental models and did not supply a complete-simplex coefficient table."
+      ],
+      "reasoning": "There is no observed exhaustive table or database enumerating all-order exact M-root realization for this parameter family. The low-order model equations and bifurcation tables have insufficient scope. Database nonappearance alone is not used as proof of originality.",
+      "searches": [
+        "maximum number hyperedge sizes M positive infection rates scalar SIS equilibria endemic stationary roots stable fixed points full complete simplex",
+        "sharp number attracting positive stationary prevalence states polynomial infection pressure complete simplicial complex order M",
+        "2025 2026 maximum number endemic equilibria high order simplicial complex scalar homogeneous",
+        "arxiv:2309.12752v1 Section IV prospective arbitrary-order dynamics"
+      ]
+    },
+    "rationale": "The 2023 exact-model source proves the polynomial form but explicitly leaves general all-order multistability open in its discussion. The new constructive saturation M interior roots with all positive near-unity coefficients and sharp ceil(M/2) attracting count is not a direct asserted result of the inspected primary sources. Searches of related research records found closest epidemic multiplicity results for different compartmental models, not an implication for this exact polynomial coefficient class. Remaining risk: an equivalent general polynomial-root construction may exist in unindexed or otherwise uninspected literature.",
+    "residual_risks": [
+      "A stronger unnamed general theorem about zeros of positive-coefficient polynomial incidence functions could entail the constructive example.",
+      "Relevant unpublished or unindexed work may already give a matching sharp result; searches do not establish priority.",
+      "The detailed bifurcation of arbitrary-order polynomials beyond the extremal construction is not classified here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the model and low-order cases; discussion anticipates arbitrary multiplicity but does not state the constructive all-order optimum. Not covering the new theorem.",
+        "evidence": [
+          "Kiss et al., arXiv:2309.12752v1, equation (II.31) and discussion of arbitrary-order multistability in Section IV",
+          "arXiv:2309.12752v1 Section IV: possibility of arbitrarily many positive endemic states is proposed for future investigation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.12752",
+        "material_read": "Public v1 full-text HTML, equation (II.31), Sections II.3, III.1–III.2 and IV, plus relevant mean-field appendix passages",
+        "method": "Read accessible arXiv full-text HTML and compared coefficient mapping, stated order limitations and Section IV prospect",
+        "title": "Insights from exact social contagion dynamics on networks with higher-order structures",
+        "trigger": "Exact same homogeneous complete simplicial SIS model and potential implication by its general polynomial"
+      },
+      {
+        "assessment": "The general polynomial includes this algebraic class, but the proved classifications are triangular and restricted single higher-order forms; no sharp all-positive-orders root realization.",
+        "evidence": [
+          "arXiv:1810.07031v1 mean-field equation (1), triangle analysis and statement that general-order arbitrary parameter solution remains out of reach."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.07031",
+        "material_read": "Accessible arXiv full text, mean-field analysis including equations (1)–(4), discussion and general-order supplementary treatment described in the paper",
+        "method": "Compared the general-order mean-field equation and special-case endemic equilibrium statements",
+        "title": "Simplicial models of social contagion",
+        "trigger": "Earlier general polynomial with same prevalence and nonnegative infection pressure"
+      },
+      {
+        "assessment": "Its community-structured group-threshold process and stable-branch observations are not the one-dimensional fully mixed all-positive-order optimal count.",
+        "evidence": [
+          "Nature Communications 14, 1375 (2023), model definition and multistability section: multiple branches tied to community structure."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41467-023-37118-3",
+        "material_read": "Open-access HTML results, model definition, multistability section and discussion",
+        "method": "Compared contagion mechanism, structural assumptions and conclusions about stable branches",
+        "title": "Multistability, intermittency, and hybrid transitions in social contagion models on hypergraphs",
+        "trigger": "Claims multistability with higher-order interactions, potentially stronger existence result"
+      },
+      {
+        "assessment": "Studies a discrete-time, tensor-network system with sufficient conditions; no equivalent continuous-time complete-homogeneous, sharp attained root count.",
+        "evidence": [
+          "arXiv:2408.08602v1 Section 6, Propositions 8–11, sufficient stability and bistability results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.08602",
+        "material_read": "Public arXiv full-text HTML, abstract, model definition and Section 6 on general higher-order systems",
+        "method": "Compared dynamical time convention, form of sufficient conditions and strength of equilibrium multiplicity claims",
+        "title": "Discrete-time SIS Social Contagion Processes on Hypergraphs",
+        "trigger": "General higher-order SIS stability and multistability could imply upper bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a73ae04-901b-4aff-882a-c64ebf9c9cec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This directly answers the primary source's stated prospect of arbitrarily many positive endemic equilibria from increasing simplex order. It obtains the exact sharp reachable number, optimal stable count, strict positivity at every order, arbitrarily near-unit normalized rates and open robust parameter sets, proving an order-dependent multistability capacity rather than a narrow computed special case. The result is only deterministic mean-field and should not be misread as finite-population persistence.",
+    "status": "PASS"
+  }
+}

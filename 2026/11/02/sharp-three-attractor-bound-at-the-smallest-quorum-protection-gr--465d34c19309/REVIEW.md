@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness: PASS.** The payoff differences are reconstructed from the two independently sampled co-players; the Jacobian trace/determinant identities follow by differentiation of the actual replicator vector field. The inequality \(\det J\ge0\Rightarrow\operatorname{tr}J>0\) follows from the square-and-positive-term expression in the proof, including nonhyperbolic interior points. Boundary dynamics exclude extra sinks, and the rational three-sink witness has exact signed eigenvalues. `verify.py` reproduces 1,344 payoff/Jacobian tests and 101 exact witness identity tests. Finite checks supplement the written universal proof, not replace it.
+
+**Originality: PASS with residual priority risk.** The closest source is Li, Li, He, Shi and Szolnoki, arXiv:2609.28132, which derives the governing model and conditional stability tests and numerically exhibits three local sinks for groups of five. Neither its inspected algebra nor its numerical sections gives the universal \(N=3\) interior-instability implication or the minimal-group exact witness. Semantic comparisons with other indexed evolutionary games and prior public mathematical records found no covering result; unindexed equivalent work remains possible. The novelty is not the general replicator or Jacobian formulas.
+
+**Mathematical value: PASS.** The minimum permissible quorum group is the first natural test of whether all-strategy coexistence can itself attract, and whether three distinct evolutionarily stable outcomes require larger groups. The theorem establishes a complete all-parameter obstruction to one phenomenon and a sharp bound for another. The conclusions are about locally stable equilibrium points, not global basins or periodic orbits.
+
+Self-review: passed. Independent audit: not yet performed.

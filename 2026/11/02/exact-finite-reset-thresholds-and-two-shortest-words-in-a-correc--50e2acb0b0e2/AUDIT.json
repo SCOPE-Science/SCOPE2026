@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Both full forward subset BFS and independently coded inverse-preimage BFS cover every reachable subset through the first globally resetting layer and agree on all 13 exact distances and exactly two words, with max visited 5,570,552/6,704,609. Literal transition reconstruction from Wang Section 2 and direct witness evaluations prove the two displayed strings attain the minimum and exhaust the count. No infinite conclusion is drawn.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang arXiv:2610.07044v1 Section 4 constructs a reset word for every p, Section 5 checks constructed upper words but states no exact global minimum",
+        "Szykuła arXiv:2608.24245v1 Figure 3/Conjecture 8 centers on first q0 collision and synchronizability"
+      ],
+      "reasoning": "The all-parameter existence and upper bound cover witness validity but do not imply shortest-word exactness or multiplicity. Results for other slowly synchronizing automata cannot imply a conclusion for the distinct Figure 3 transitions.",
+      "searches": [
+        "Qichao Wang compress with another threshold reset word optimal minimal length",
+        "\"Dżyga\" \"shortest reset\" family 2026",
+        "Szykuła Figure 3 corrected automaton A_p exact reset threshold 3p^2+4p-1 shortest reset word"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.07044v1, full eight pages",
+      "arXiv:2608.24245v1, Figure 3 and its surrounding conjecture",
+      "published-finding corpus search results for exact/reset/count formulation (nearby D_n, D'_n, Wielandt results)",
+      "Published reference to 2026 September independent cwa-series work, source access limited"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3 of arXiv:2610.07044v1: rt(A_p) <=3p^2+4p-1, with an explicit word",
+        "Proposition 3 and Theorem 2 prove different parameters: global rt and specified-state µ(q0)",
+        "The complete finite power-automaton BFS provides the missing lower bound and exact multiplicity for 3<=p<=15"
+      ],
+      "reasoning": "Published upper bounds plus pair-collision lower bounds do not yield sharp global thresholds or a two-word shortest-path census. The two distinct witnesses are not a consequence of the single exhibited reset word.",
+      "searches": [
+        "Szykuła Figure 3 corrected automaton A_p exact reset threshold 3p^2+4p-1 shortest reset word",
+        "Qichao Wang compress with another threshold reset word optimal minimal length",
+        "Qichao Wang 2026 corrected Figure 3 automata A_p reset threshold exact 3p squared plus 4p minus 1 two shortest synchronizing words for p 3 to 15"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang arXiv:2610.07044v1 Proposition 3 gives rt(A_p) <=3p^2+4p-1 without matching lower bound",
+        "In the power automaton, shortest global reset-word counts are shortest labeled paths from Q to all singleton subsets"
+      ],
+      "reasoning": "The global power-automaton threshold and the reverse preimage path census are equivalent to the claimed invariant, but µ(q0) and pair-graph distances are not: the first merge of one selected pair is weaker than full synchronization.",
+      "searches": [
+        "Szykuła Figure 3 corrected automaton A_p exact reset threshold 3p^2+4p-1 shortest reset word",
+        "Qichao Wang 2026 corrected Figure 3 automata A_p reset threshold exact 3p squared plus 4p minus 1 two shortest synchronizing words for p 3 to 15",
+        "\"corrected Figure 3\" \"reset\" optimal",
+        "\"3p^2 + 4p - 1\" automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest records concern the D_n, D'_n, and Wielandt families, not these A_p transitions",
+        "Wang arXiv:2610.07044v1 Section 5 mentions parameter checks of explicitly constructed reset words and kernel distances, not exhaustive shortest-reset-length tables"
+      ],
+      "reasoning": "No exact table or database claim located that gives the thirteen minimum reset thresholds together with exactly two shortest words; a search miss does not establish uniqueness in the literature.",
+      "searches": [
+        "Qichao Wang 2026 corrected Figure 3 automata A_p reset threshold exact 3p squared plus 4p minus 1 two shortest synchronizing words for p 3 to 15",
+        "Szykuła Figure 3 corrected automaton A_p exact reset threshold 3p^2+4p-1 shortest reset word",
+        "\"3p² + 4p − 1\" reset threshold automata optimal"
+      ]
+    },
+    "rationale": "No direct or implication-level coverage found for the corrected Figure 3 family exact global reset length and two-word classification over thirteen parameters. Wang proves only an upper bound; Szykuła studies distinct specified-state compression. Closely related research records concern different transition functions. Residual uninspected supplemental data and independent 2026 work leave priority uncertainty.",
+    "residual_risks": [
+      "Accessible published metadata of the third-party independent September work does not substitute for full supplementary document comparison; the matching source timed out",
+      "Earlier or unpublished exact shortest-reset enumerations might cover the finite parameters",
+      "The theorem stops at p=15 and gives no lower bound for p>=16"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides global upper bound and one reset word; does not state exact shortest length or multiplicity",
+        "evidence": [
+          "Section 2 transition rules",
+          "Section 4 Proposition 3 calls rt(A_p)<=3p^2+4p-1",
+          "Section 5 reports only constructibility checks"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.07044v1",
+        "material_read": "Full eight-page arXiv preprint, including transitions Section 2, pair-threshold proof, Proposition 3 reset construction, verification Section 5 and references",
+        "method": "Full-text reading and matching explicit transitions and bound against exact claimed invariant",
+        "title": "The compress-with-another threshold of Szykuła's Figure 3 family",
+        "trigger": "Same transition family and length formula"
+      },
+      {
+        "assessment": "Conjectured synchronizing and specified-state collision threshold; incomplete displayed transitions corrected by Wang; no shortest-reset census",
+        "evidence": [
+          "Figure 3 and Conjecture 8, page 37, originally n=3k+6"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.24245v1",
+        "material_read": "Figure 3, formal transition context, and Conjecture 8 on page 37; full relevant surrounding discussion",
+        "method": "Read relevant pages and inspect the figure image",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "Original Figure 3 family and Conjecture 8"
+      },
+      {
+        "assessment": "Unresolved source access; advertised results address compress-with-another and synchronizability, not explicitly shortest global reset length",
+        "evidence": [
+          "Wang arXiv:2610.07044v1 reference [5] lists claim focus; direct full text not read"
+        ],
+        "identifier_or_url": "https://ideosphere.ai/papers/cwa-series",
+        "material_read": "Search-result metadata and Wang reference only; direct webpage open timed out",
+        "method": "Search-engine result plus Wang bibliography cross-check, direct retrieval attempted",
+        "title": "The compress-with-another threshold of the series Ak: an upper bound 4n/3 for every k, exact values to n=186, and a one-letter correction",
+        "trigger": "Same family mentioned among independent work in Wang reference [5]"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "50e2acb0-b0e2-4852-ae80-c770a5504e0c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural finite sharpness problem for a newly defined slowly synchronizing family: an all-parameter upper construction was previously available but minimum reset lengths and multiplicities were not determined. Thirteen consecutive values to 45 states and complete two-word classification reveal rigidity and supply a meaningful invariant benchmark; no arbitrary parameter tuning or extrapolation.",
+    "status": "PASS"
+  }
+}

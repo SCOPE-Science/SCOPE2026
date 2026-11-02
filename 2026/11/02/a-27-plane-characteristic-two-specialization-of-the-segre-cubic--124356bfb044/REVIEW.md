@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The cone identification follows from an exact six-coordinate cubic identity in characteristic two. The base is smooth by the Jacobian criterion. The 27 plane count follows from the smooth-cubic 27-line theorem and the impossibility of planes avoiding the vertex; the Fano tangent calculation excludes embedded infinitesimal plane deformations. Exact \(\mathbb F_4\) enumeration places every geometric plane in the quadratic extension and finds 15 fixed points. The smooth-cubic Picard trace argument proves the zeta formula for all extensions. The packaged verifier was independently executed against its current path, not copied from a historical log.
+
+**Originality: PASS, qualified.** The classical sources Kondō 2011 (Section 2) and Dolgachev 2015 prove 15 planes for the ordinary 10-nodal Segre cubic and gives the defining power sums. Their inspected sections do not identify the characteristic-two cone or its 27-point Fano scheme. The strongest related later account, Vikulova 2023/2024, gives the Galois involution with 15 fixed lines on a smooth characteristic-two cubic surface, but not the degeneration of the cubic **threefold**. Kadyrsizova et al. 2020 treat cubic surfaces and not this special threefold. Exact-claim searches in mathematical literature, published-finding corpus, and accessible prior claims found no statement implying the cone-plus-Fano-plane result. Historical unindexed coverage remains possible; search absence alone is not treated as uniqueness proof.
+
+**Value: PASS.** This is a natural bad-reduction boundary of a celebrated 10-node, 15-plane cubic threefold: 10 isolated nodes coalesce into a single multiplicity-three cone vertex, while the finite scheme of contained planes grows from 15 to 27 yet remains reduced. The Frobenius orbit decomposition and full zeta function make the exceptional geometry arithmetically explicit. The result is therefore a geometric degeneration classification rather than a routine graph invariant or isolated small-field count.
+
+**Limits.** Only the specified six-coordinate integral model and its characteristic-two fiber are treated. The base cubic's Galois involution is earlier knowledge and not asserted as original. No independent audit or historical-priority guarantee is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

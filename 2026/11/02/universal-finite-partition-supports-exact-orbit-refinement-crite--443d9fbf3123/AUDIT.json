@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The finite orbit/profile equivalence is exact. Sufficiency follows from a pigeonhole induction with threshold S>=(k-1)(a-1). Necessity has exhaustive N<=k(a-1) and N>k(a-1) target-composition obstructions; these cover all quantifiers. Monotone induction against the greedy recurrence proves sharp max N and trimmed greedy weights prove all intermediate N. Python independently checked 4,844 exhaustive small instances and greedy small cases. Computations do not substitute for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Venkataramani constructs countable refinements by infinite-cardinal profiles on uncountable atom sets, §6.",
+        "Bruce studies finite partition supports of a countably infinite atom set; §§2–3 use stabilizers and infinite-cardinality arguments.",
+        "The finite prefix inequality rules out any support with too few blocks, which is absent from these infinite existence statements."
+      ],
+      "reasoning": "Although universal refinement under conjugation also occurs in the new motivating paper, its countable-infinite existence does not imply finite minimal block counts or the local prefix iff criterion. Different domain, resource measure, and additional obstruction calculation prevent domination of this statement by the cited results.",
+      "searches": [
+        "arXiv:2610.29752v1 §6 Lemma 6.3 and Corollary 6.4",
+        "Bruce 2014 §3",
+        "Choice principles in countable partition models Brinda Venkataramani 2026",
+        "every integer partition into at most k parts coarsening fixed partition"
+      ]
+    },
+    "checked_sources": [
+      "Venkataramani arXiv:2610.29752v1 §6 full proof and introduction (2026-10-21)",
+      "Bruce 2014 official open preprint §§1 and 3 and endmatter",
+      "Banerjee arXiv:2109.05914 abstract and institution metadata",
+      "Mathematical-index semantic searches by partition, k-way allocation, equivalences, recurrence and parameters (actual query list in structured audit)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The main source proves profile matching (Lemma 6.2) and qualitative countable universality (Lemma 6.3), neither its exact finite optimality nor an all-k prefix condition.",
+        "Classical two-bin complete-sequence fact is limited to two target bins; this result proves a k-parameter obstruction and simultaneous optimality.",
+        "The closest indexed partition results have different quantifiers and invariants."
+      ],
+      "reasoning": "The shared profile-matching reduction is inherited and not claimed as new. The new contribution is the if-and-only-if obstruction inequality for every finite R and every k>=2, plus the exact minimal number of support blocks. The previously available existence results do not imply the optimality theorem by specialization, and the two-bin statement does not cover the k>=3 cases.",
+      "searches": [
+        "arXiv:2610.29752v1 §6 Lemmas 6.2–6.3",
+        "Bruce preprint §§1,3",
+        "finite symmetric-group conjugacy refinement universal partition all k-cell partitions, support compression exact thresholds",
+        "Venkataramani 2026 Lemma 6.3 countable universal refinement conjugation finite atom restriction sharp minimal block count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finite conjugacy reduces exactly to weak k-composition surjectivity by grouping integer block sizes (proved in RESULT.md).",
+        "Binary k=2 case is the ordinary complete-subset-sum prefix condition, explicitly not claimed new.",
+        "No returned published or indexed claim contained both the full k-way prefix equivalence and orbit-refinement statement."
+      ],
+      "reasoning": "Checked alias as multi-bin weak compositions, k-complete weight sequences, symmetric-group orbit refinement, and numerical greedy prefix criteria; searched statements and matching implications rather than title alone. The known k=2 criterion does not logically give k>=3 universality, and no matching full-k theorem was observed; residual historical risk remains.",
+      "searches": [
+        "Universal finite partitions under permutation conjugation criterion sorted block sizes a_j <= 1+ floor((a_1+...+a_{j-1})/(k-1)); minimal universal supporting partition blocks",
+        "k-complete sequence of positive integer weights realizes every k-way composition by assigning each weight to a group; greedy maximum sum recurrence",
+        "Exact finite Sym(A)-orbit-universal refinement partitions support block counts all target partitions at most k cells iff (k-1)(a_j-1) <= sum earlier sizes; max capacity recurrence G_k(b+1)=G_k(b)+1+floor(G_k(b)/(k-1))",
+        "Multicolor complete sequence all weak k-compositions of N by allocating indivisible positive weights into k bins greedy recurrence minimum number weights",
+        "sequence positive integers every k-partition of sum can be obtained by dividing sequence into k groups sorted a_i prefix sum/(k-1)",
+        "\"k-way complete\" sequence weights partition sums every composition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact integer capacity table or prefix recurrence for this operation identified.",
+        "Closest indexed results concern random set partitions, unrelated product-profile bounds, or a singleton partition observation.",
+        "The values 1,2,4,7,11,17,26 arise directly from the proved recurrence and were rechecked, rather than being copied from an existing table."
+      ],
+      "reasoning": "Compared exact parameters (support block count, target budget k, total N), not merely terms. No existing table was found with dominating exact coverage, but search-index limitations cannot establish uniqueness.",
+      "searches": [
+        "Finite universal partition refinement minimum number of blocks for every partition into at most three blocks; optimal coarse-graining integers into three bins, symmetric-group conjugation",
+        "Common refinement of all partition conjugacy classes with at most k blocks; resource optimal finite partition models and universal integer partitions",
+        "Exact finite Sym(A)-orbit-universal refinement partitions support block counts all target partitions at most k cells iff (k-1)(a_j-1) <= sum earlier sizes; max capacity recurrence G_k(b+1)=G_k(b)+1+floor(G_k(b)/(k-1))",
+        "Multicolor complete sequence all weak k-compositions of N by allocating indivisible positive weights into k bins greedy recurrence minimum number weights",
+        "universal integer partition refinement all partitions into at most k blocks block sizes"
+      ]
+    },
+    "rationale": "The full relevant primary literature establishes qualitative infinite-atom universal refinement and group profile matching but does not establish this finite all-k sharp iff criterion or minimum resource capacity. Binary complete-sequence fact is explicitly acknowledged. Statement-and-implication comparisons plus targeted indexed search do not expose a dominating theorem; priority risk remains for older differently named multiway complete sequences.",
+    "residual_risks": [
+      "Historical priority: k-way complete weighted sequence / universal coarsening could be established under alternate older terminology; index nonmatches do not rule this out.",
+      "Full text of Banerjee 2021 was not inspected; however its accessible stated focus differs from the exact finite invariant.",
+      "This finite-atom theorem has no automatic conclusion for infinite Fraenkel–Mostowski models or axiom-of-choice strength."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest precursor, not covering the finite optimal prefix characterization or minimal block-capacity recurrence",
+        "evidence": [
+          "§6 Lemma 6.2 establishes conjugation iff equal block-cardinality profiles.",
+          "§6 Lemma 6.3 constructs universal countable refinement using singleton and cardinal-sized pieces on uncountable blocks.",
+          "§6 Corollary 6.4 gives universality for countably many or bounded-cardinal targets; no finite block minimum."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.29752v1",
+        "material_read": "Introduction, definitions and Section 6 (Lemmas 6.2–6.3, Corollary 6.4), Sections 7 and 10 context",
+        "method": "Full primary open-access HTML at arxiv; inspected theorem hypotheses, proof of profile matching and complete countable construction",
+        "title": "Choice principles in countable partition models",
+        "trigger": "Same partition supports and universality under conjugation as the proposed finite theorem"
+      },
+      {
+        "assessment": "Foundation for partition support terminology, but the atom set is countably infinite and paper is about choice principles, not sharp optimal finite ground-set support count",
+        "evidence": [
+          "Section 3 builds a model from finite partitions of countably infinite atoms.",
+          "Lemma 3.10 studies subsets supported by fixed partitions; it does not compute universal conjugate-refinement for finite atom sets."
+        ],
+        "identifier_or_url": "https://lsa.umich.edu/content/dam/math-assets/math-document/reu-documents/Bruce_Ben%20REU%202014.pdf",
+        "material_read": "Preprint pp. 1, 7–10, 16–17 (definitions, key claims, and final remarks)",
+        "method": "Official freely available PDF rendered and inspected together with extracted text",
+        "title": "A Permutation Model with Finite Partitions of the Set of Atoms as Supports",
+        "trigger": "Original finite partition support model and permutation stabilizers"
+      },
+      {
+        "assessment": "No exact finite criterion established by inspected material; incomplete inspection cannot exclude hidden equivalent special-case result",
+        "evidence": [
+          "Abstract states weak-choice investigations in Bruce finite-partition model and other topics.",
+          "A full-text comparison of all appendices/lemmas was not completed."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.05914",
+        "material_read": "Abstract, article metadata and published bibliographic description; full paper not read",
+        "method": "Arxiv abstract and institutional repository description; full HTML attempt unavailable",
+        "title": "Partition models, Permutations of infinite sets without fixed points, and weak forms of AC",
+        "trigger": "Historical prior in the exact finite partition support literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "443d9fbf-3123-4769-8df0-be829739bc49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result solves the full natural optimization problem of choosing a single finite partition support able to refine every <=k-block target up to atom renaming: it provides a necessary-and-sufficient local test, a constructive extremizer, exact maximum atom capacity at any block budget and the minimum support-block count at every finite ground-set size. This gives resource information omitted from the related countable existence theorem and is not merely the k=2 textbook case.",
+    "status": "PASS"
+  }
+}

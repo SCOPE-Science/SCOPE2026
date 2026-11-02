@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For each fixed finite connected rooted graph, the proof establishes detailed balance and regeneration for the exact empty-to-empty mean; a simple eigenvalue at full occupancy when \(q=0\); a first-order eigenvector correction represented by a killed one-particle Green function; and an exact stationary flux equation yielding \(\lambda_q=(1-q)q^N[1-qT_G+O_G(q^2)]\). The fixed-graph spectral separation yields an exponential scaling law and all positive moments. Explicit path and star constants follow from continuant and Schur-complement calculations. The reproducible verifier checks finite cases rather than proving the general theorem.
+
+**Originality — PASS, with qualification.** Chatterjee–Ramola–Dhar (arXiv:2609.32314) already supply the single-branch model, restricted generator, product stationary state, and \(q^r\) rate hierarchy. Classical Kac reasoning already implies an exact return-time mean, so the mean is contextual rather than the original core. The newly assessed content is the first relative density correction, its root Green representation and its graph-shape contrast, together with a rigorous fixed-graph exponential excursion limit. Published-result searches and accessible primary comparisons did not locate these explicit statements. The source's exact restricted generator nevertheless implicitly determines all its eigenvalues, and an earlier published asymptotic computation remains possible.
+
+**Value — PASS.** The graph Green coefficient measures the residence of a lone root particle before the next injection. It predicts distinct first finite-density bottleneck corrections between identical-size path and star branches even while the mean clearing time and principal \(q^N\) scale agree. This addresses geometric sensitivity of crowding-induced trapping rather than a parameter-chosen exercise.
+
+**Limitations and priority risks.** Fixed graph and edge rates only; no graph-size/density joint limit, arbitrary tagged-particle statistics on branching graphs, or multiple reservoir theorem. The 2001 semi-infinite open-SEP paper and another older stationary-source comparison were inspected at abstract level rather than in full. The result has no independent mathematical or literature-priority validation.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact count formula is a direct singleton choice. The full TP\\(_2\\) proof reduces adjacent minors to the identity \\(r a_r^2-(r+1)a_{r-1}a_{r+1}+(N-1)(b_{r-1}a_r-b_ra_{r-1})\\). The first summand is nonnegative by Newton ultra-log-concavity; the second by likelihood-ratio comparison of adjacent associated-Stirling coefficient rows, rigorously derived from Bóna–Mező Theorem 1 interlaced negative roots and the elementary Bernoulli-convolution log-concavity determinant. Edge cases \\(N=0,1,2,3\\) and feasible support intervals are explicitly handled. All minors follow from adjacent likelihood-ratio orders and transitivity. The strict stochastic and covariance statements follow from growing support maxima. The independent exact integer verifier passed 467,463 assertions (adjacent minors through \\(n=75\\), all minors through \\(n=22\\), and independent enumeration through \\(n=8\\)). The infinite theorem is proved analytically, not by finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bóna–Mező arXiv:0705.2734: interlaced univariate associated Stirling polynomials, a necessary ingredient but not bivariate singleton/block TP2.",
+        "Some Positivities in Stirling Arrays with Higher Level, Mediterranean Journal of Mathematics (2023): total positivity in a different array with rows indexing ground-set size, rather than fixed-size total block count versus singleton count."
+      ],
+      "reasoning": "Univariate real-rootedness, row-indexed Stirling-triangle positivity, and asymptotic conditional block-size laws do not state a dominating finite-n law for singleton count as the conditioned total block count changes. The new minor decomposition is necessary. A more general unpublished or implicitly equivalent occupancy theorem remains a residual risk.",
+      "searches": [
+        "Stirling numbers no singleton blocks total positivity interlacing stochastic order",
+        "conditional singleton blocks given number of blocks partition Stirling Bona Mezo",
+        "https://link.springer.com/article/10.1007/s00009-023-02488-x"
+      ]
+    },
+    "checked_sources": [
+      "Bóna–Mező, arXiv:0705.2734, first public version 2007-05-18, full primary manuscript.",
+      "Timashev 2003, DOI:10.4213/dm201, original Russian full primary article.",
+      "Pitman 1997, Some Probabilistic Aspects of Set Partitions, substantive pages 1–8 of university-hosted scan.",
+      "Some Positivities in Stirling Arrays with Higher Level, Mediterranean Journal of Mathematics (2023), published theorem and abstract; different matrix.",
+      "Goh–Schmutz 1994, Random Set Partitions, DOI:10.1137/S0895480190186974, abstract; studies largest-block size/multiplicity.",
+      "Published block-size covariance sign result on Lambert-W scale; title and summary only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Timashev, Random partitions of sets with a known number of blocks, 2003, Theorems 1–4 and equation (24): conditional size-r counts, asymptotics and moments.",
+        "Bóna–Mező, arXiv:0705.2734, theorem 1, equations (4)–(7): strict interlacing of coefficients polynomials as ground-set size varies.",
+        "J. Pitman, Some Probabilistic Aspects of Set Partitions (1997): random partition representations."
+      ],
+      "reasoning": "The joint formula alone leaves all signs of conditional-likelihood-ratio minors unresolved; the interlacing theorem controls a different one-dimensional family (nonsingleton-block count as ground-set size varies). Their combination permits the new argument, but the precise two-variable TP2 implication is not already an asserted theorem or immediate specialization of either paper. The new proof supplies the cross-product identity and rigorous LR transfer. A future search of more complete older literature could alter priority.",
+      "searches": [
+        "conditional singleton blocks given number of blocks partition Stirling Bona Mezo",
+        "https://arxiv.org/pdf/0705.2734",
+        "https://www.mathnet.ru/eng/dm201",
+        "uniform set partitions number of singleton blocks increasing conditional block count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "M. Bóna and I. Mező, arXiv:0705.2734, Theorem 1 and Section 2: root interlacing of nonsingleton block-count polynomials.",
+        "A. N. Timashev, DOI:10.4213/dm201, Theorems 1–7: conditioned fixed-size block counts and asymptotic approximations."
+      ],
+      "reasoning": "The TP2 minors, the monotone-likelihood-ratio conditional singleton laws, and all increasing-transform dependence are equivalent formulations of the final claim. Neither inspected primary source asserts these formulations or an equivalent pairwise cross-stratum comparison. Neither search matches under the aliases MTP2, likelihood-ratio order, or joint singleton/block-count positivity.",
+      "searches": [
+        "joint law of number of singleton blocks and number of blocks in uniform random set partitions TP2",
+        "monotone likelihood ratio singleton count conditioned on total blocks partitions",
+        "set partitions MTP2 joint singleton block total blocks",
+        "uniform set partitions fixed number of blocks singleton count monotone likelihood ratio total positive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical joint count is \\(\\binom{n}{s}A(n-s,k-s)\\), where \\(A\\) denotes associated Stirling numbers; the new claim concerns all its TP\\(_2\\) minors.",
+        "The closest published mathematical-search record, Block-size counts switch covariance sign at the Lambert-W scale, computes a different unconditional covariance and does not assert the fixed-\\(n\\) TP2 matrix."
+      ],
+      "reasoning": "The exact coefficients are classical and not claimed novel. The assertion that all minors of their joint block-count/singleton array are nonnegative for every finite size, and its distributional LR corollaries, is a structural statement not supplied by an exact coefficient table.",
+      "searches": [
+        "joint law of number of singleton blocks and number of blocks in uniform random set partitions TP2",
+        "2x2 minors joint distribution block count singleton count partition",
+        "https://www.mathnet.ru/eng/dm201"
+      ]
+    },
+    "rationale": "Novelty is assigned only to the exact finite-sample total-positivity and conditional likelihood-ratio ordering, not the known exact singleton count or nonsingleton-polynomial recurrence/interlacing. The full relevant Bóna–Mező Theorem 1 and Timashev (2003) primary formulas were compared at statement level. Timashev studies fixed-block-count size-r frequencies and asymptotic laws, without an ordering as the conditioning block count varies. Bóna–Mező proves one-variable real-rootedness and interlacing but does not establish the present two-variable TP2 minors; the new determinant decomposition and Bernoulli LR transfer are required. The published closest semantic result on unconditional block-size covariance at Lambert-W scale is strictly weaker/different. Priority remains qualified by possible indirect historical coverage.",
+    "residual_risks": [
+      "An older exact result may be phrased in occupancy total positivity or associated-Stirling cross-ratio terminology and not found under tested synonyms.",
+      "Only Russian mathematical statements were interpreted in the Timashev full paper; its entire prose has not been independently translated.",
+      "The closest published mathematical-record result was compared from its public abstract/summary, not its complete repository text; its described scalar covariance does not suggest the stronger statement.",
+      "Independent expert assessment of novelty and proof has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers proof ingredients but does not state the joint TP2 or cross-conditioned singleton likelihood-ratio ordering.",
+        "evidence": [
+          "Theorem 1: equations (6)–(7) root interlacing.",
+          "Equation (4): associated Stirling recurrence.",
+          "Section 3.1: singleton-block abundance discussion, not conditional likelihood-ratio comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0705.2734",
+        "material_read": "Relevant parts of the complete 16-page arXiv PDF: introduction, Section 2 recurrence and Theorem 1 with root-interlacing proof, and the singleton-block discussion in Section 3.1.",
+        "method": "Accessible full-text PDF with page visual check and textual theorem/equation comparison",
+        "title": "Real Zeros and Partitions without singleton blocks",
+        "trigger": "Critical real-rootedness/interlacing and associated Stirling recurrence used directly in proof"
+      },
+      {
+        "assessment": "Provides conditional count and asymptotic distribution results for fixed total block count; no exact finite-sample cross-block-count TP2 or monotone likelihood-ratio result identified.",
+        "evidence": [
+          "Theorems 1–2: asymptotic conditioned fixed-size block count.",
+          "Theorems 3–4: conditional moments and local normal limit.",
+          "Theorems 5–7: Poisson limit regimes."
+        ],
+        "identifier_or_url": "https://www.mathnet.ru/eng/dm201",
+        "material_read": "Original 11-page Russian full PDF; inspected abstract, exact-count representation and equations (1),(8),(24), theorem statements 1–7 and their surrounding proof text, with page images of core statements.",
+        "method": "Lawful full-text primary PDF, mathematical formula/statement reading and page-image comparison; Russian language limits prose nuance",
+        "title": "Random partitions of sets with a known number of blocks",
+        "trigger": "Closest earlier paper specifically on frequencies of blocks with prescribed size given total block count"
+      },
+      {
+        "assessment": "Provides general representation and marginal structures, not a claim of TP2 for singleton versus total block count.",
+        "evidence": [
+          "The 1997 paper develops representations of uniform set partitions and related counting identities."
+        ],
+        "identifier_or_url": "https://www.stat.berkeley.edu/~pitman/452.pdf",
+        "material_read": "Substantive content on pages 1–8 of the nine-page university-hosted scan, including the representation and applications; final bibliography page not separately inspected.",
+        "method": "Lawful university-hosted scanned PDF, page-image reading",
+        "title": "Some Probabilistic Aspects of Set Partitions",
+        "trigger": "Classical probabilistic representations of uniform set partitions and possible implicit conditioning statements"
+      },
+      {
+        "assessment": "Describes unconditional covariance as block size varies; the target exact TP2 and LR comparison are not covered by the inspected summary. Coverage risk retained for uninspected full text.",
+        "evidence": [
+          "Record summary gives a fixed-\\(r\\) covariance sign threshold near the Lambert-W scale, not all TP2 minors between singleton count and total block count."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad",
+        "material_read": "Published title and full abstract/record summary only, not full repository files",
+        "method": "Published mathematical-record abstract statement comparison",
+        "title": "Block-size counts switch covariance sign at the Lambert-W scale",
+        "trigger": "Nearest semantic result for block-size counts and total block count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "438279f3-f33e-49d9-a728-81dcbb7d3d7a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two natural statistics of a random set partition—number of blocks and number of singleton blocks—now have a sharp finite-n all-threshold dependence hierarchy, not merely a covariance or mean comparison. The bivariate TP2 property gives strict dependence for all increasing functions and survives arbitrary positive Gibbs weighting on total block count. This structural synthesis of real-rootedness, interlacing and adjacent-minor decomposition is mathematically motivated by richness-conditioned occupancy and yields a complete ordering absent from known univariate and asymptotic treatments.",
+    "status": "PASS"
+  }
+}

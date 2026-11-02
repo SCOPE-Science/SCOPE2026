@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2,t>=1,ell>=1, the contribution of a four-good block is at most one unless all four goods go to agent 1. With h whole blocks, EF-ell forces (n-1)(h-ell)<=t-h, while EFX forces (n-1)h<=t-h by deleting a primed good in a whole block. Explicit complete allocations achieve both floor bounds. A separate allocation is exactly EF with optimum t+floor(t/n); unrestricted optimum is 2t. A standalone exhaustive implementation checked 1,722,355 small complete allocations and matched all formulas, but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4.6 of arXiv:2610.15801v1 gives a general 1/3-maxUSW EFX allocation for binary SPOC-2; this does not determine optimum welfare in this family.",
+        "Babaioff et al. (2021), DOI:10.1609/aaai.v35i6.16647, assume dichotomous marginal gains in a submodular setting; physical-good complement utilities here have increasing pair marginal gains."
+      ],
+      "reasoning": "The primary general approximation and asymptotic bad-instance theorem do not imply the exact floor functions, the sharp EF equality, or an EF1 separation. The matroid-rank setting is strictly different: a pair-complement valuation is not submodular over physical goods.",
+      "searches": [
+        "arxiv:2610.15801v1 Section 4, Theorems 4.6-4.7",
+        "web: Fair and Truthful Mechanisms for Dichotomous Valuations Babaioff Ezra Feige 2021",
+        "web: EFX complementary valuations social welfare exact price 1/2 two types"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.15801v1 (first public date 2026-10-11), Section 2, Theorems 4.6-4.7 and full proof",
+      "ResearchGate public October 2026 manuscript revision of the same article, Theorem 4.7 and surrounding text",
+      "Babaioff–Ezra–Feige (2021), DOI 10.1609/aaai.v35i6.16647, publisher abstract",
+      "published-finding corpus semantic queries on exact EFX/EF/EF-l welfare of SPOC pair complements",
+      "Targeted web queries for exact complement-pair fairness prices"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published Theorem 4.7: for any fixed ell and epsilon, some binary SPOC-2 instance has all EF-ell welfare no more than (1/2+epsilon) of optimum; proof introduces the four-good blocks.",
+        "The inspected proof bounds welfare by a nonsharp expression involving agent 1 pair counts and does not construct optimal EF allocations or evaluate equality for finite n,t,ell.",
+        "The new proof obtains exact finite upper bounds via number of wholly assigned blocks and gives attaining EF and EF-ell constructions."
+      ],
+      "reasoning": "The published existential asymptotic inequality is logically weaker than complete equality for every n,t,ell in a specified family; it neither asserts EF attainability nor distinguishes EF from EF1. Conversely this new family calculation does not supplant the general approximation theorems.",
+      "searches": [
+        "arxiv:2610.15801v1 Theorem 4.7 complete proof and Section 2",
+        "researchgate: October 2026 manuscript full text, Theorem 4.7 lines near 1768-1857",
+        "published-finding corpus: Fair Allocation with Dichotomous Preferences over Item Complements arXiv 2610.15801 finite t n exact envy-free EFX EF-l maximum social welfare tightness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.15801v1, Theorem 4.7 gives an asymptotic welfare obstruction for EF-l but not an exact finite-instance optimization.",
+        "published-finding corpus semantic hits closest in title concern stochastic dominance and unrelated fair-division objectives rather than additive utilities over the displayed complement blocks."
+      ],
+      "reasoning": "Equivalent nomenclature includes SPOC-2, pair-complement utilities, binary complement bundles, exact price of fairness, EF-l and EFX. Neither the inspected primary theorem nor returned semantic summaries states the complete EF/EFX/EF-l finite formula.",
+      "searches": [
+        "Fair Allocation with Dichotomous Preferences over Item Complements arXiv 2610.15801 finite t n exact envy-free EFX EF-l maximum social welfare tightness",
+        "exact welfare price envy-freeness EF versus EFX versus EF1 for complementary disjoint pairs four-item blocks binary SPOC",
+        "web: price of envy freeness welfare EFX complement bundles exact optimal ratio binary SPOC Pyne"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus queries returned ranked entries on unrelated random assignment, social choice, and other extremal problems; no surfaced entry was a numerical database for this family.",
+        "The original article provides a schematic block family and asymptotic upper bound, not an optimizer table indexed by n,t,ell."
+      ],
+      "reasoning": "This result determines infinite-parameter optima and is not a retrieval of a published small-case table. Negative search is a residual uncertainty, not evidence of uniqueness.",
+      "searches": [
+        "published-finding corpus: two-tier complement pair valuation social welfare upper bound t plus floor(t/n) envy-free",
+        "published-finding corpus: exact welfare price envy-freeness EF versus EFX versus EF1 for complementary disjoint pairs four-item blocks binary SPOC",
+        "web: Pyne Viswanathan Yang Zick exact EF-l welfare formula floor t n"
+      ]
+    },
+    "rationale": "Full relevant source text (arXiv:2610.15801v1, and October 2026 manuscript) supplies only an asymptotic EF-ell welfare obstruction for this particular family, not its exact finite parameter welfare optima, equivalence of EF and EFX optima, or the EF1 integer gap. Searches covered aliases, approximate bounds, and published-finding corpus; no decisive broader covering result was identified. The result is a specifically motivated exact refinement and an unindexed equivalent remains possible.",
+    "residual_risks": [
+      "The original source supplies the construction, so the exact formulas could be derivable from a less-visible calculation or commentary.",
+      "A stronger unindexed article or unretrieved full text may cover the same exact finite-parameter benchmark.",
+      "The supporting 2021 paper was inspected at abstract/scope level only, but its disjoint premise rules out direct coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same family and a qualitative asymptotic welfare loss, but not the finite exact optima or EF construction.",
+        "evidence": [
+          "arXiv:2610.15801v1, Section 2 (pair-complement utilities, EF/EF-X), Theorem 4.7 (block family, existential upper bound)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.15801v1",
+        "material_read": "Full indexed Section 2 definitions, Section 4 Theorems 4.6-4.7 and proof, conclusions and relevant reference entries.",
+        "method": "Read indexed open HTML, compared all definitions, block structure, assertions, inequalities, and endpoint claims.",
+        "title": "Fair Allocation with Dichotomous Preferences over Item Complements (v1)",
+        "trigger": "Theorem 4.7 explicitly defines the exact complement-block family."
+      },
+      {
+        "assessment": "The same block construction and asymptotic bound; no exact EF/EFX/EF-ell frontier found in the inspected material.",
+        "evidence": [
+          "Full-text Section 4, Theorem 4.7 and proof with m=4t and EF-ell upper estimate."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/415749671_Fair_Allocation_with_Dichotomous_Preferences_over_Item_Complements",
+        "material_read": "Full-text reproduction of Section 4, Theorem 4.7 proof and surrounding theorems (lines 1748-1857), with manuscript dated October 14, 2026.",
+        "method": "Compared displayed equations, quantifiers, proof conclusions and appendices index against final claim.",
+        "title": "Fair Allocation with Dichotomous Preferences over Item Complements (October manuscript revision)",
+        "trigger": "Latest full public manuscript may strengthen v1 prior results."
+      },
+      {
+        "assessment": "Its matroid-rank dichotomous-marginal premises do not cover complement-based valuations, which are not submodular; not a decisive priority threat.",
+        "evidence": [
+          "AAAI 2021 abstract states submodular binary marginal premise and Lorenz-dominating allocations."
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/16647",
+        "material_read": "Publisher abstract and paper scope, with reference in the motivating paper; full body not accessed.",
+        "method": "Compared valuation classes and consequent theorems from abstract.",
+        "title": "Fair and Truthful Mechanisms for Dichotomous Valuations",
+        "trigger": "Potential stronger general fair-and-efficient allocation theorem for binary marginal valuations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "17eca79c-db9c-4325-8e90-dab9feda76dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact mathematical optimization invariant of the canonical asymptotic fairness obstruction in new 2026 literature. It computes, for all n,t,ell, the precise welfare loss and the zero-extra-cost equality of strong EF and EFX, identifies a sharp one-unit gain under EF1 precisely for n not dividing t, and provides constructive attaining allocations. Such exact phase thresholds are useful for calibration of fair-complement algorithms and clarify what the original asymptotic example actually demonstrates. It does not purport to prove a general SPOC price-of-fairness theorem.",
+    "status": "PASS"
+  }
+}

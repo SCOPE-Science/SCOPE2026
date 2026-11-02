@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Variance ODE yields explicit centered Gaussians; their symmetrized directed KL equals the specified rational variance reward. Direct differentiation proves a single convex-to-concave inflection of the reward, hence a unique positive root of xF'(x)-F(x); the tangent line and original concave tail give the exact least concave majorant. Jensen and contact-point equality prove the optimum and unique deterministic / unattainable two-point burst regimes for every finite-mean renewal law. A simple-root Taylor expansion supplies the sharp square-root small-reset-variance law. Python standard-library verification independently passed 7,123 finite assertions; universal statements rely on proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eule and Metzger, New J. Phys. 18, 033006 (2016): general intermittent resetting/renewal steady-state methodology, not identified as a fixed-mean endpoint-KL envelope in accessible material.",
+        "General least-concave-majorant and Jensen methods apply to fixed-mean reward optimization, but the specific one-tangent Gaussian reward shape, unique equality cases, and asymptotics require the present analysis."
+      ],
+      "reasoning": "A general moment-problem concavification principle provides the optimization template, and novelty is not attributed to that template. In the inspected sources no stronger theorem computing the exact Gaussian-envelope threshold or cold-width expansion was found. Broader uninspected treatment remains a residual risk.",
+      "searches": [
+        "\"resetting\" \"renewal\" \"concave majorant\" entropy",
+        "\"non Poissonian resetting\" thermodynamic optimal waiting distribution",
+        "\"renewal reward\" \"Jeffreys\" Gaussian time"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.28445v1",
+      "doi:10.1103/PhysRevResearch.6.033343",
+      "arxiv:2211.15372v1",
+      "doi:10.1088/1367-2630/18/3/033006",
+      "AMS MSC2020: 82C31"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Farago section II.3 fixes periodic waiting times or integrates against an exponential law; varying the entire law with fixed mean is not a stated extremum.",
+        "Mori et al., arXiv:2211.15372v1, examines a different trajectory-level entropy production and Poisson resetting.",
+        "Olsen et al., DOI 10.1103/PhysRevResearch.6.033343, optimizes physical resetting work, not symmetrized endpoint KL at fixed mean."
+      ],
+      "reasoning": "The present theorem specializes classical moment-concavification to a physically motivated Gaussian reward, derives the unique tangent and phase boundary, and classifies all equality/nonattainment situations. The fixed-mean maximization is not a corollary of the stated Poisson or deterministic-clock formulas alone; it requires optimization over all laws.",
+      "searches": [
+        "Farago 2026 resetting entropy production periodic Poisson exact Gaussian formulas",
+        "Mori Olsen Krishnamurthy 2023 entropy production resetting processes random reset position Poisson",
+        "Olsen Gupta Mori Krishnamurthy 2024 stochastic resetting arbitrary reset duration optimal physical work"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Farago, arXiv:2605.28445v1, sections II.1–II.3, Eqs. (10)–(19): Gaussian endpoint KL and separate Poisson/periodic estimates, with no arbitrary-clock fixed-mean supremum.",
+        "Olsen et al., Phys. Rev. Research 6, 033343 (2024): finite-time physical reset-work optimization, not endpoint Jeffreys law optimization."
+      ],
+      "reasoning": "Equivalent Gaussian-temperature parameterizations reduce to the displayed function of OU variance ratio; the cited papers use the same physical object but none of the inspected statements yields its fixed-mean least concave majorant or extremal waiting-time law.",
+      "searches": [
+        "\"Farago\" \"resetting heat engine\" \"arbitrary\" \"renewal\" optimum",
+        "\"Jeffreys divergence\" \"Ornstein Uhlenbeck\" \"concave envelope\" reset",
+        "\"resetting entropy production\" \"waiting time distribution\" fixed mean"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv primary 2026 source publishes the harmonic Gaussian endpoint expression and two clock families; no exact arbitrary-clock table or theorem is provided.",
+        "The stochastic resetting papers inspected do not present a tabulation of the nontrivial unique tangent parameter as a function of the Gaussian reset-width ratio."
+      ],
+      "reasoning": "The contribution is an analytic continuum theorem rather than a finite enumerated value; no prior table was identified that could simply be re-evaluated.",
+      "searches": [
+        "\"Gaussian reset\" \"Jeffreys divergence\" \"fixed mean\" optimum",
+        "\"reset clock\" \"fixed mean\" \"Gaussian\" renewal entropy rate",
+        "\"stochastic resetting\" \"optimal interarrival\" \"Kullback Leibler\""
+      ]
+    },
+    "rationale": "The evaluated new statement optimizes the endpoint Gaussian Jeffreys reward over every positive renewal waiting-time law with fixed mean and proves the unique tangent, deterministic/burst regime classification, and cold-width square-root transition. Farago derives endpoint KL for harmonic Gaussian resetting but treats prescribed Poisson and periodic protocols, not a fixed-mean arbitrary-law envelope. Olsen et al. treat physical trap resetting work and its control variables; Mori et al. treat Poisson reset positions and path-level entropy production. The classical renewal-reward theorem and concavification are acknowledged as prior general tools, not claimed novel. The distinct possible implication from a broader prior concave-envelope theorem remains a specific risk and priority is not certified.",
+    "residual_risks": [
+      "A broader existing moment-constrained renewal-reward theorem may already state the same concave-envelope specialization.",
+      "The 2016 intermittently resetting renewal paper was not available for full-text statement-level comparison; accessible abstract did not identify the specific endpoint-KL optimization.",
+      "The endpoint Jeffreys reward is not total physical entropy production; priority is qualified rather than independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same endpoint functional, periodic/Poisson prescribed clocks only; general renewal fixed-mean extremal envelope not presented.",
+        "evidence": [
+          "arxiv:2605.28445v1, §II.3, Eqs. (10)–(19) and conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.28445v1",
+        "material_read": "Full main text, especially §§II.1–II.3 and conclusion, including Eqs. (10)–(19).",
+        "method": "Author-controlled arXiv HTML full-text reading",
+        "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+        "trigger": "Same OU Gaussian endpoint Jeffreys reward and competing reset clocks"
+      },
+      {
+        "assessment": "Optimizes physical control and energy, not endpoint Jeffreys divergence of independently redrawn Gaussian cycles over renewal clocks.",
+        "evidence": [
+          "Olsen et al., Phys. Rev. Research 6, 033343 (2024), §§IV–V"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.6.033343",
+        "material_read": "Accessible full text, introduction and reset-work optimization sections, including relevant discussion around §§IV–V.",
+        "method": "Lawful publisher/open-access primary paper text",
+        "title": "Thermodynamic cost of finite-time stochastic resetting",
+        "trigger": "Alternative optimization of physical resetting protocols"
+      },
+      {
+        "assessment": "Treatment of Poisson reset processes and path-space cost, not the fixed-mean Gaussian endpoint-KL reward extremum.",
+        "evidence": [
+          "arxiv:2211.15372v1, pp. 1–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.15372",
+        "material_read": "ArXiv PDF pp. 1–4 plus abstract/intro; additional paper context inspected.",
+        "method": "Open-access arXiv PDF and scholarly web text",
+        "title": "Entropy production of resetting processes",
+        "trigger": "Potential stronger thermodynamic cost coverage for nonstandard resetting"
+      },
+      {
+        "assessment": "General renewal-reset methodology; full-text implication comparison remains limited.",
+        "evidence": [
+          "Eule and Metzger, New J. Phys. 18, 033006 (2016), abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1367-2630/18/3/033006",
+        "material_read": "Bibliographic abstract, title and general-topic excerpts, not full article.",
+        "method": "Publicly accessible abstract and bibliographic search",
+        "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+        "trigger": "General renewal schedules might subsume clock optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3fdf1f9d-c897-45a6-a5a2-d47a73bf5f11",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For an OU model of the finite-width resetting engine, the physically motivated question is to optimize the full iid waiting-time law under a mean-cycle-time resource. The theorem gives an explicit single boundary separating regular from burst-like timing, sharp equality and nonattainment classification, and a singular square-root dependence on the reset variance. This improves on restricting attention to Poissonian or deterministic clocks and provides a direct protocol-design benchmark, without conflating it with full entropy production.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The new theorem separates the previously known maximum from the first strictly smaller count. The proof independently derives a shortest-absent-subsequence recurrence for every concatenation of mixed binary pairs, establishes strict monotonicity in the number of alternating boundaries, computes the exact single-defect Fibonacci product, and excludes words of lower universality using an arch-extraction bound. Direct enumeration and two independent counting methods confirm the small instances. Finite checking is supplementary, not a substitute for the all-length proof.
+
+**Originality — PASS, qualified.** The closest result, *Fibonacci extremals for shortest absent subsequences of binary words* (2026), proves the maximum at each length, but its inspected complete RESULT contains no strict runner-up value or equality classification. The 2021 paper of Kosche, Koß, Manea, and Siemer proves fixed-universality extremality, and the 2022 nearly-universal study gives general count procedures, neither of which states the strict first-gap theorem. The 2013 Simon-congruence paper addresses congruence-index bounds rather than extremal multiplicities. Historical synonym or uncatalogued-result risk persists; a search failure alone is not evidence of novelty.
+
+**Value — PASS.** The first strict deficit below a natural Fibonacci extremum and the full equality classification quantify stability rather than merely recovering the known optimum. Every even length from ten onward has a forbidden interval of absent-subsequence counts immediately below the maximum, and the four runner-up words have a precise two-location local-defect structure. This gives a concrete diagnostic for how one arch-orientation error affects optimal scattered-subword omission.
+
+**Scope and risks.** The result is binary and even-length only, with no assertion of odd-length second optima or a complete ranking of lower values. The proof has received no independent external mathematical verification. The closest public texts were inspected by mathematical content and implications, but historical priority is not guaranteed.
+
+Self-review: passed. Independent audit: not yet performed.

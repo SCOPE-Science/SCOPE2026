@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes both directions of the two-cap equality using range-normalized test functions and explicit sign-saturated star potentials, then proves uniqueness of the decreasing tail-root equation and identifies its closed-form solution on sorted tail intervals. The zero measure and tie boundaries are handled. The embedded checker verified 916 independent LP comparisons and 1,370 rational exact optimizers; tests are supplementary, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2006.02703, Sections 1 and 4 and Theorem 7: generalized transport with fixed creation and destruction cost functions; \\(O(n\\log^2 n)\\) on trees.",
+        "The primal cost model uses fixed mass-creation or destruction penalties, whereas the target optimizes a shared bound on sup norm plus Lipschitz seminorm."
+      ],
+      "reasoning": "Tree scope is broader geometrically, but the functional is not the same: fixed separate penalties yield a maximum-type dual constraint, not the sum-normalized BL ball. Optimizing over the two bounds is an additional nontrivial step not supplied by Theorem 7. Hence no direct implication of the exact star root, optimizer, or \\(O(n\\log n)\\) scan.",
+      "searches": [
+        "arxiv:2006.02703 generalized Kantorovich Rubinstein tree exact algorithm dual metric",
+        "Sato Yamada Kashima Fast Unbalanced Optimal Transport on a Tree section 4 and Theorem 7",
+        "weighted tree flat norm Dudley sum-bound Lipschitz \\(O(n\\log n)\\)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2006.02703",
+      "arxiv:2206.12234",
+      "arxiv:2305.08500",
+      "Published online note: Exact Dudley norms and mass-imbalance thresholds on equiradial stars (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The equiradial record assumes every leaf has the same radius; this theorem permits arbitrary independent positive radii and gives multiple tail-height transitions.",
+        "The 2022 LP description and 2020 generalized transport algorithm are methods covering different formulations without providing the new explicit conclusion."
+      ],
+      "reasoning": "A same-object special case of the new result is previously covered, so the claim deliberately does not assert equal-arm novelty. The unequal-arm sorting formula, two independent sign caps and exact finite threshold constitute the asserted difference; none of the inspected sources gives a stronger statement with these conclusions.",
+      "searches": [
+        "published equiradial star Dudley norms mass imbalance threshold",
+        "arxiv:2206.12234 Lemma 6.1 Eq. 39",
+        "arxiv:2006.02703 Theorem 7 generalized transport"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2206.12234, Section 6, equation (39), works by linear programming for general finite metric measures, not a weighted-star tail root.",
+        "arxiv:2305.08500 describes general extremal test functions and does not formulate the weighted-star algorithm."
+      ],
+      "reasoning": "The dual bounded-Lipschitz or Dudley norm under the sum normalization is the same invariant under alternate terminology. The 2022 general LP is an algorithmic description but not the exact threshold/cap characterization; 2023 general extremal work lacks the star specialization.",
+      "searches": [
+        "dual bounded-Lipschitz distance unequal arm star metric root threshold",
+        "Dudley flat metric weighted star signed zero-mass measure",
+        "Fortet Mourier norm tree star two-tail mass cap formula",
+        "arxiv:2206.12234 §6",
+        "arxiv:2305.08500 Introduction and extremal-function discussion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest online published calculation entitled Exact Dudley norms and mass-imbalance thresholds on equiradial stars is explicitly restricted to equal-arm stars in its abstract."
+      ],
+      "reasoning": "No table or database of values for heterogeneous radii was located. The equal-radius formula does not determine arbitrary distinct radii without further argument; no novelty is attributed to the equal-radius specialization.",
+      "searches": [
+        "exact Dudley bounded-Lipschitz weighted star unequal arms mass threshold",
+        "finite star Fortet Mourier norm closed-form database signed measures",
+        "Dudley dual bounded-Lipschitz star nonuniform edge lengths exact two tail threshold root formula"
+      ]
+    },
+    "rationale": "Primary general LP work (arXiv:2206.12234, Section 6), norming/extremal theory (arXiv:2305.08500), and a quasi-linear tree generalized transport algorithm (arXiv:2006.02703) do not state or directly imply this exact two-tail root and \\(O(n\\log n)\\) scalar algorithm for the sum-normalized Dudley norm on heterogeneous stars. An online result for equal-arm stars is acknowledged as covered; unequal arms with multiple distinct tail intervals are the newly considered case. No equivalent statement was found in targeted scientific searches; residual priority risk remains.",
+    "residual_risks": [
+      "An older weighted-tree transport or flat-norm result could imply this threshold in a formulation not located by searches.",
+      "The online equal-arm star note was not available in full text; it is not assumed to lack unadvertised extensions.",
+      "A broader algorithm for another transport normalization might be adaptable; different objective alone does not certify independent historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different fixed-cost generalized transport objective; does not supply the sum-normalized Dudley formula or tail threshold.",
+        "evidence": [
+          "GKR objective has independent creation/destruction penalties; Theorem 7 obtains \\(O(n\\log^2 n)\\) on tree metrics."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.02703",
+        "material_read": "Abstract, introduction, generalized transport definition in Section 4, statement of Theorem 7 and associated algorithmic discussion.",
+        "method": "Primary preprint PDF inspected in readable text and page images, including first and fourth pages.",
+        "title": "Fast Unbalanced Optimal Transport on a Tree",
+        "trigger": "Quasi-linear tree transport algorithm might dominate computational claim."
+      },
+      {
+        "assessment": "Uses an explicit general linear-programming optimization; no two-tail star sorting formula given.",
+        "evidence": [
+          "Section 6 precisely defines the sum BL normalization and computes the norm through LP on a finite-dimensional half-space intersection."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.12234",
+        "material_read": "Abstract, Introduction, Sections 5 and 6 including equation (39), Lemma 6.1, and pages 15–16.",
+        "method": "Primary preprint full-text sections and page images examined.",
+        "title": "Explicit expressions and computational methods for the Fortet–Mourier distance to finite weighted sums of Dirac measures",
+        "trigger": "Direct same-norm general finite-metric computational paper."
+      },
+      {
+        "assessment": "Broad norming-set theorems; no explicit weighted-star tail-root formula.",
+        "evidence": [
+          "Introduction defines ∥f∥BL = ∥f∥∞ + Lip(f) and develops norming sets for the dual norm."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.08500",
+        "material_read": "Introduction, extremal-point discussion and main norming-function results, including real BL normalization.",
+        "method": "Public preprint full-text rendering and relevant passages inspected.",
+        "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+        "trigger": "Potential extreme-point characterization could imply optimizer without new work."
+      },
+      {
+        "assessment": "Abstract explicitly says equal-arm finite or countable stars. The equal-arm result is credited as covered; possible additional full-text coverage is residual priority risk.",
+        "evidence": [
+          "Abstract describes equal-arm radius and mass-imbalance transition, not independent radii."
+        ],
+        "identifier_or_url": "Online published 2026 research note (title supplied; full text not available)",
+        "material_read": "Published abstract/summary only; the original full text was inaccessible.",
+        "method": "Inspected public indexed abstract, not treated as full-text clearance.",
+        "title": "Exact Dudley norms and mass-imbalance thresholds on equiradial stars",
+        "trigger": "Closest same-invariant star family, a potentially covered specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b75311a-4eb3-4b26-a8a1-4de4e7e45fd0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural infinite family of heterogeneous metric stars, the result determines a useful dual measure norm exactly, constructs a maximizing test function, identifies a sharp one/two-cap transition, and replaces a generic finite high-dimensional linear program with \\(O(n\\log n)\\) sorting and scanning. Distinct sign-specific geometric scales are not captured by the equal-arm special case.",
+    "status": "PASS"
+  }
+}

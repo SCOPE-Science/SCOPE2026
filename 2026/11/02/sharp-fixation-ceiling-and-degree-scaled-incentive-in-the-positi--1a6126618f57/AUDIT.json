@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The published receiver-local transition rule reduces on a loopless star to exactly 2m transient lumped states. Explicit rational harmonic functions u_k and v_k satisfy the two backward recurrences and absorbing boundaries for all m>=2,r>=1; finite absorption establishes uniqueness. Substituting uniform seeding gives the rational F_m. Degree-weighted mutant mass has strictly positive drift at mixed-leaf states when r>1, proving strict advantage over leaf-only bias. Strong-bias limit differs from 9/16 by negative square -(m-3)^2/[16(m+1)^2]. Degree scaling follows directly from the exact expression. A standalone symbolic checker simplifies all critical equations to zero and independent exact Markov matrices match 28 test cases; no infinite claim rests on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Petsinis et al. prove monotonicity, approximation algorithms and strong-bias submodularity on some self-loop networks; these do not calculate a loopless-star fixation probability.",
+        "Durocher et al. solve an optimization question for a uniformly biased voter process.",
+        "Brendborg et al. study birth-then-death positional Moran transitions, not updater-dependent sampling."
+      ],
+      "reasoning": "A general algorithm for approximating fixation probabilities is not a published closed form or a sharp all-star ceiling. The source models differ in whether bias is global, linked to birth-site fitness, or localized to receiver preference. A source allowing calculations in principle does not itself imply it expressly established the claimed sharp scaling law.",
+      "searches": [
+        "positional voter star graph biased center fixation probability weak strong selection Petsinis Pavlogiannis Karras",
+        "voter model star graph localized bias hub fixation asymptotic 1/2",
+        "\"local bias\" \"star graph\" voter fixation probability",
+        "arxiv:2211.14676 Section 3–6; arxiv:2201.08207 Section 2; arxiv:2201.02248 Section 2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2211.14676",
+      "https://arxiv.org/pdf/2201.08207",
+      "https://arxiv.org/pdf/2201.02248",
+      "https://doi.org/10.1103/PhysRevE.77.041121"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 positional-voter article, its full text and appendix, includes no star specific one-biased-vertex formula nor a universal 9/16 bound; it describes qualitatively different non-submodularity examples.",
+        "The 2022 biased-voter article keeps bias globally active at all updating vertices.",
+        "The positional Moran update selects a parent with fitness advantage; the mathematical Markov kernel is not the positional voter kernel."
+      ],
+      "reasoning": "The theorem supplies a closed-form answer not given by source general monotonicity/FPRAS, and derives a sharp upper envelope and degree-scaled large-star transition. Neither a generic unbiased reproductive-value identity nor the existence of exact finite-state Markov solvers automatically establishes the stated sharp optimization result in inspected prior claims.",
+      "searches": [
+        "positional voter star graph biased center fixation probability weak strong selection Petsinis Pavlogiannis Karras",
+        "voter model star graph localized bias hub fixation asymptotic 1/2",
+        "arxiv:2211.14676v2 full text Section 2 and Sections 3-7",
+        "arxiv:2201.08207v2 Section 2",
+        "arxiv:2201.02248v3 Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Petsinis et al. arXiv:2211.14676v2 Section 2, equation (3): receiver-local bias; no formula for the star in Sections 3–6 or appendix.",
+        "Durocher et al. arXiv:2201.08207v2 Section 2: invasion bias applies at all update sites, unlike a singleton biased receiver.",
+        "Sood–Antal–Redner Phys Rev E 77 (2008): neutral degree-weighted voter martingale and uniform mutant preference, not receiver-local bias."
+      ],
+      "reasoning": "The same two-state voter language appears in several models. In the present model the copying preference is modified only at the hub, while every leaf copies deterministically; uniform selective imitation and speaker-active Moran updating are non-equivalent even on a star. No inspected source states the same finite-r formula or equivalent sharp one-site bound.",
+      "searches": [
+        "positional voter star graph one biased hub fixation probability scaling bias network size universal half ceiling",
+        "voter model localized selection star graph hub only biased center probability mutant fixation asymptotic",
+        "\"positional voter\" \"star\" \"fixation\" hub",
+        "\"voter\" \"star graph\" \"biased\" \"single\" vertex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Five semantic mathematical-record searches returned closest hits about star-graph convex geometry and metric invariants, not positional-voter fixation.",
+        "Comparable published mathematical claims inspected for biased-voter star, hub-targeted preference, exact rational fixation, and a sharp 9/16 ceiling showed no substantive overlap."
+      ],
+      "reasoning": "No direct numerical table or exact expression was located. Query results do not certify novelty, and the accessible corpus is not exhaustive.",
+      "searches": [
+        "positional voter star graph one biased hub fixation probability scaling bias network size universal half ceiling",
+        "voter model localized selection star graph hub only biased center probability mutant fixation asymptotic",
+        "hub-targeted incentive positional voter model complete star degree scaling survival mutant",
+        "exact one biased hub positional voter star K1,m fixation probability rational formula r(mr+1), sharp 9/16 maximum, linear bias m scaling theta/(1+2theta), leaf bias has no effect",
+        "\"positional voter\" \"9/16\" star",
+        "\"positional voter\" \"hub\" \"star\" fixation"
+      ]
+    },
+    "rationale": "Compared statement implications against original arxiv:2211.14676 full text/appendix, global-bias arxiv:2201.08207, positional birth-death Moran arxiv:2201.02248, and neutral-degree voter background. The exact hub-only rational fixation function and joint all-star sharp 9/16 and degree-scaled limits were not covered by these results. published-finding corpus semantic queries and the accessible prior research records claims show no substantive matching prior result. Remaining risk is unindexed or differently described analyses of singly biased star voter chains; these cannot be ruled out by search alone.",
+    "residual_risks": [
+      "Unindexed equivalent star calculations may exist; searches and comparisons cannot prove mathematical novelty.",
+      "The related neutral heterogeneous-network paper was consulted at abstract level, not certified fully excluded by full text.",
+      "The theorem is restricted to the no-loop, single-receiver-bias update and one uniformly random seed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general monotonicity/approximation and structural results do not state the exact loopless-star function, sharp 9/16 ceiling or degree-scaled large-star law.",
+        "evidence": [
+          "arxiv:2211.14676v1 dated 2022-11-26; model Section 2 equation (3); published lemmas 1–6 and theorems 1–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.14676",
+        "material_read": "Full article text including Section 2 model equation (3), Sections 3–7 theorems and counterexamples, appendix, and page images 2, 4, 6, 9",
+        "method": "open primary arXiv PDF, read text and page images, find star/complete-graph terms",
+        "title": "Maximizing the Probability of Fixation in the Positional Voter Model",
+        "trigger": "Originating model with precisely the same updater-local relative copying weights"
+      },
+      {
+        "assessment": "All sites preferentially sample A neighbors. Does not entail a single biased updater star result.",
+        "evidence": [
+          "arxiv:2201.08207v2, model preliminaries and global bias r"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.08207",
+        "material_read": "Section 2 stochastic update and main optimization results; PDF page images for the update and model assumptions",
+        "method": "read primary open-access PDF and visually inspect page 2",
+        "title": "Invasion Dynamics in the Biased Voter Process",
+        "trigger": "Potential stronger voter fixation result with biased copying"
+      },
+      {
+        "assessment": "Fitness belongs to mutant parent in Moran birth step; distinct transition kernel from positional voter receiver preference.",
+        "evidence": [
+          "arxiv:2201.02248v3 Section 2.1, positional mutant parent fitness and reproduction-first update"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.02248",
+        "material_read": "Introduction and Section 2 on positional fitness, birth-then-death model, and theorem overview",
+        "method": "read open-access PDF and page 2 image",
+        "title": "Fixation Maximization in the Positional Moran Process",
+        "trigger": "Closest positional fitness variant and possible domination"
+      },
+      {
+        "assessment": "Neutral heterogeneous-degree fixation background, but full-text novelty comparison not certified.",
+        "evidence": [
+          "Sood, Antal, Redner, Phys Rev E 77, 041121 (2008): graph-degree fixation claims in abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.77.041121",
+        "material_read": "Publisher abstract and metadata only",
+        "method": "read abstract; full text not relied on for exclusion",
+        "title": "Voter models on heterogeneous networks",
+        "trigger": "Neutral star consensus and biased voter background"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1a612661-8f57-4230-b71e-1552610e4852",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Star graphs isolate the hub-versus-periphery incentive placement problem in a familiar centrality extreme. Rather than a generic computation of a tiny graph, the result is an all-size closed form and sharp optimization across infinitely many sizes and arbitrarily strong bias, with a 9/16 universal ceiling and a phase-like linear resource scale r~m for positive limiting fixation from random single seeds. The result quantifies when localized influence cannot dominate diffusion despite a high-degree hub. No graph-wide or arbitrary network claim is made.",
+    "status": "PASS"
+  }
+}

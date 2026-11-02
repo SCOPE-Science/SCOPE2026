@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "A direct lower bound excludes solutions of weight <=2n-2 with either colour represented in every row or column. In the remaining case, forced red and blue rectangles and row/column coverage yield 2n-2+|u-v|; equality forces singleton dimensions, one common residual square, and exactly two disjoint interior perfect matchings. Both orientations are counted with the overlap removed. The converse feasibility is verified for all nine row/column group types. A standalone exhaustive checker confirms every configuration and count for n=2,3,4,5 without being used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lange, arXiv:2610.06906: definitions, general bounds/algorithms, and exact families of regular graphs, without the derangement classification of square rook graph optimizers.",
+        "Rao et al., arXiv:2608.14690: graph-operation theorems are not an all-minimizer enumeration of square rook products."
+      ],
+      "reasoning": "The general results do not bound the number of optimizers sharply or imply the required forced bars and disjoint matchings. An earlier scalar 2n-2 result is accepted as prior and not claimed.",
+      "searches": [
+        "rainbow domination regular graphs Lange 2026 complete multipartite",
+        "arxiv:2610.06906",
+        "dual-server domination complete multipartite rook graphs exact number"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.14690",
+      "arXiv:2610.06906",
+      "Related two-rainbow enumeration of complete multipartite (not Cartesian rook) graphs",
+      "Earlier square/rectangular rook-graph dual-server minimum-size statement; scalar only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously known: min total selected vertices equals 2n-2; that equality does not distinguish optimizers or their multiplicities.",
+        "Complete-multipartite graphs and the Cartesian square of complete graphs have different adjacency for n>=3; a full enumerator for the former cannot be substituted.",
+        "New theorem: every optimum decomposes into forced colored bars plus two edge-disjoint perfect matchings and is counted by an explicit derangement sum."
+      ],
+      "reasoning": "The new optimizer structure and labelled count are mathematically stronger than the prior scalar threshold and are not a special case of the checked complete-multipartite census.",
+      "searches": [
+        "arxiv:2608.14690",
+        "arxiv:2610.06906",
+        "all two-rainbow dominating functions complete multipartite graphs",
+        "minimum two rainbow domination square rook graph optimizing assignments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rao, Udupa, Prathviraj, arXiv:2608.14690: dual-server definitions and graph-operations results, not this optimizer enumeration.",
+        "Square rook graph is the line graph of K_{n,n}, so the assertion also concerns red/blue edge selections serving each unselected edge."
+      ],
+      "reasoning": "Under the line-graph translation, each unchosen bipartite edge must meet a selected edge of each colour, and two chosen colours cannot occupy one edge. No checked equivalence supplies an optimizer-count formula or characterizes the two-matchings interior.",
+      "searches": [
+        "singleton two-rainbow dominating functions rook graph optimal count",
+        "dual-server domination K_n Cartesian K_n all optimal placements",
+        "two-colour edge dominating configurations line graph complete bipartite row column",
+        "arxiv:2608.14690"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct labelled enumerations M_2=4, M_3=18, M_4=320, M_5=8450 arise from the new classification and a separate exhaustive verifier.",
+        "No accessible checked table was identified that lists or implies the infinite derangement census."
+      ],
+      "reasoning": "A finite computer count is not itself an infinite theorem; neither existing scalar values nor related tabulations determine the full family.",
+      "searches": [
+        "exact enumeration all minimum dual server rainbow two-color dominating assignments of square rook graphs",
+        "rainbow rook graph derangement domination",
+        "square rook graph rainbow domination minimum placements table"
+      ]
+    },
+    "rationale": "The previously established optimum 2n-2 for square rook graphs is explicitly excluded from the new claim. The new result determines every optimizer and counts them via a two-orientation barred-rectangle/disjoint-perfect-matching decomposition and derangements. Equivalent formulations and the primary papers were compared for coverage; neither the scalar optimum nor neighbouring complete-multipartite enumeration implies the new labelled optimizer census. Historical priority is provisional, with unindexed literature remaining a risk.",
+    "residual_risks": [
+      "Priority is provisional because unindexed or inaccessible literature may already contain this exact labelled optimal-placement census.",
+      "Other rainbow-domination conventions permit sets of colours at one vertex; the theorem uses singleton colours exclusively."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces pertinent terminology and operation statements; no matching square-rook all-optimizer classification or derangement enumerator found in inspected text.",
+        "evidence": "arXiv:2608.14690, first publicly posted 2026-08-07",
+        "identifier_or_url": "https://arxiv.org/abs/2608.14690",
+        "material_read": "Accessible full preprint text, including definitions and theorems on graph operations and Cartesian products",
+        "method": "Read accessible arXiv manuscript and compared graph-operation results and their quantifiers with the optimizer-classification claim",
+        "title": "The Dual-Server Domination Number of Some Graph Operations",
+        "trigger": "Identical dual-server domination terminology and Cartesian-product context"
+      },
+      {
+        "assessment": "General algorithms and bounds are pertinent, but no equivalent disjoint-matching minimizer enumeration found.",
+        "evidence": "arXiv:2610.06906, first publicly posted 2026-10-01",
+        "identifier_or_url": "https://arxiv.org/abs/2610.06906",
+        "material_read": "Accessible arXiv full text/HTML, introduction and exact-result sections",
+        "method": "Compared definitions, general bounds and studied exact families with the square-rook optimizer count",
+        "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+        "trigger": "Rainbow domination of regular graphs, including rook products as regular objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4fccf64a-f7b1-4bfe-87ff-c8c5ad3583c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem of classifying all minimum-cost two-colour service placements is not answered by knowing their scalar cost. The two sharp orientation phases, their coincidence boundary, and the derangement-controlled interior constitute a structural optimizer theorem for an infinite canonical rook-graph family, with exact dramatic multiplicity counts. The new count is natural, nontrivial, and relevant to the degeneracy and diversity of optimal placements.",
+    "status": "PASS"
+  }
+}

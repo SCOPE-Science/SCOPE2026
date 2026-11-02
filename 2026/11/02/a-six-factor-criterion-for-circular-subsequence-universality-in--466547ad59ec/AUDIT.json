@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes a bijection between all binary order-five de Bruijn necklaces and those of the 65,536 four-suffix Boolean feedback maps whose induced 32-state permutation is a single cycle. The checker iterates every map with integer arithmetic, separately reproduces the complete 2,048-necklace set by Euler tours, and compares greedy complete-arch indices with independent earliest-embedding distinct-subsequence dynamic programming at all 32 rotations. Its exact 512/768/768 feedback table proves all class frequencies; the two relevant feedback entries exactly characterize the two circular alternating length-six factors, and both together force a prohibited 2-cycle. The complete finite proof is in RESULT.md, the executable exhaustive enumeration in checker.py. Finite claims only, no infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu (2010), full-text Sections 1–4, enumerates multi-shift de Bruijn cycles using contiguous factors and Eulerian circuits; it does not examine scattered subsequences of every rooting.",
+        "Barker et al. (2020), full-text circular-variation and subsequence-universality lemmas, address general algorithms and bounds; a general rotation bound cannot give the exact spectrum inside order-five necklaces.",
+        "Published finding 2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949 establishes an insertion-distance extremum for all binary words, unrelated to this restricted per-necklace exact census."
+      ],
+      "reasoning": "An existing theorem for a broader family of word objects would subsume the claim only if it determines both the de Bruijn-conditioned conjugacy-class multiplicities and the circular length-six factor witness. Inspected broader results concern different statistics (window containment, word universality means, insertion radius or rotation bounds); no inspected implication yields these exact conditional numbers.",
+      "searches": [
+        "de Bruijn sequences subsequence universality arch factorization cycles all rotations 010101 101010",
+        "binary de Bruijn sequences scattered subsequence universal scattered pattern order five exact",
+        "arxiv:1004.1216v1",
+        "arxiv:2003.04629v1",
+        "arxiv:2104.09063",
+        "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1004.1216v1 (2010-04-08)",
+      "OEIS:A169672 (2010-04-11)",
+      "arxiv:2003.04629v1 (2020-03-10)",
+      "arxiv:2104.09063 (2021)",
+      "arxiv:2005.01638 (2020)",
+      "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+      "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+      "2026/10/4/SCOPE-fixed-content-bracelet-orbit-profiles-for-simon-s-circular-finit--087e4dd04736",
+      "Historical BWT-run item 1eb61f1d-72f3-4746-8bb0-22cc771ec65f",
+      "Historical palindrome-profile item 8196e282-ed1c-43c2-b772-089a7486f9e6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu (2010) provides the Hamilton/Euler graph framework and examples but its theorem conclusion is about contiguous modulo-shift window coverage, not scattered universality.",
+        "Published 2026/10/4/SCOPE-fixed-content-bracelet-orbit-profiles-for-simon-s-circular-finit--087e4dd04736 concerns dihedral orbit counting in a distinct mathematical object; its bracelet Burnside formula does not count subsequences or de Bruijn cycles.",
+        "Earlier BWT-run census 1eb61f1d-72f3-4746-8bb0-22cc771ec65f counts Burrows–Wheeler transform runs, whereas the current claim counts full-binary scattered subsequences.",
+        "Earlier palindrome-profile census 8196e282-ed1c-43c2-b772-089a7486f9e6 counts circular palindrome factors, not scattered subsequence universality."
+      ],
+      "reasoning": "Even full identification of a de Bruijn necklace does not make its scattered-universality index a known invariant of its BWT-run count or palindrome profile. The six-letter alternating local criterion is not implied by the distinct invariant classifications, and the generic Eulerian-tour existence and necklace total only justify enumerability, not the 512/1536 outcome. The new exact finite proof establishes that outcome separately.",
+      "searches": [
+        "de Bruijn feedback shift registers scattered subsequence universal circular rotations order 5 alternating length six",
+        "circular binary de Bruijn words subsequence universality alternating factors 010101 101010",
+        "https://arxiv.org/html/1004.1216v1",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "2026/10/4/SCOPE-fixed-content-bracelet-orbit-profiles-for-simon-s-circular-finit--087e4dd04736",
+        "historical item 1eb61f1d-72f3-4746-8bb0-22cc771ec65f",
+        "historical item 8196e282-ed1c-43c2-b772-089a7486f9e6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barker et al. (2020) treat subsequence universality and circular variants, including how universality changes under rotations; no order-five de Bruijn feedback-class split or alternating length-six decision criterion was found in the inspected relevant portions.",
+        "Fleischmann et al. (2021) use arch/remainder factorizations for repeated words and circular shifts; this framework is consistent with greedy arches but does not supply the finite 512/1536 dichotomy.",
+        "Public record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 counts universality indices of all binary words, not order-five de Bruijn necklaces or their 32-index profiles."
+      ],
+      "reasoning": "The proposed equivalent formulations are rotation-maximum scattered universality, arch count of each rooted cycle, earliest-embedding distinct-subsequence fullness, and the six-letter alternating circular-factor predicate. None of the cited general formulas asserts their equivalence on every one of the 2048 de Bruijn circles. In particular an unconditional all-binary-word distribution cannot be specialized to the constrained class without additional enumeration.",
+      "searches": [
+        "de Bruijn feedback shift registers scattered subsequence universal circular rotations order 5 alternating length six",
+        "circular binary de Bruijn words subsequence universality alternating factors 010101 101010",
+        "Scattered factor circular universality of de Bruijn sequences, arch factorization, rotation thresholds",
+        "arxiv:2003.04629v1",
+        "arxiv:2104.09063",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A169672, first posted 2010-04-11, gives an explicit lexicographically first binary order-five de Bruijn sequence, not a distribution across all 2048 cycles.",
+        "Gabric–Sawada (2020) enumerate discrepancy and related properties of de Bruijn sequences; inspected text and appendix concern discrepancy rather than scattered-subsequence rotation index.",
+        "Published record 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 is about maximum numbers of shortest absent subsequences among arbitrary binary words, not de Bruijn circular universal indices."
+      ],
+      "reasoning": "A listed order-five de Bruijn cycle, total necklace count, discrepancy table, or count of short *contiguous* factors is not an exact table of distinct *scattered* length-k subsequences for all 32 starts. No matching precomputed exact table was found in consulted sources, while historical priority remains qualified.",
+      "searches": [
+        "complete spectrum arch indices order five de Bruijn sequences 2048 512 1536",
+        "Binary order-five de Bruijn cycles circular subsequence universality index 10 11, 512 1536 classes and rotation multiplicities 28 23",
+        "https://oeis.org/A169672",
+        "https://arxiv.org/abs/2005.01638",
+        "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+      ]
+    },
+    "rationale": "Full-text research on de Bruijn cycles, finite-word subsequence universality, arch factorizations, and circular scattered-factor universality was compared at statement/implication level with the exact 2048-cycle rotation spectrum and six-factor iff criterion. The most relevant sources supply the object, enumeration methods, or general arch machinery but not the specific order-five joint spectrum or local six-factor witness. A published general finite-word generating function concerns all words of given length and does not determine this restricted conditional distribution. Previously accessible classifications of BWT-run and palindromic invariants on the same order-five cycles are logically different. Searches do not prove priority; an uncatalogued equivalent finite census remains a disclosed risk.",
+    "residual_risks": [
+      "Unindexed or non-searchable complete order-five circular scattered-subsequence tables may predate this analysis.",
+      "Full text of the original 1946 de Bruijn publication was not inspected; its verified public release is year-only, and the precise 2010-04-08 date applies to the explicitly selected arXiv anchor, not the earliest ever de Bruijn study.",
+      "General scattered-factor theorems might permit an indirect derivation of the special finite table with significant additional calculation; no inspected statement directly entails the claimed frequencies or six-factor iff criterion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: contiguous modulo-shift factors and Euler tours rather than circular scattered-subsequence index census",
+        "evidence": [
+          "v1 dated 2010-04-08; explicit circular equivalence and Euler/Hamilton graph structure; no scattered-universality profile."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1004.1216v1",
+        "material_read": "HTML abstract, introduction, definitions, graph construction, counting, both generation algorithms, conclusion and relevant examples",
+        "method": "Read freely accessible original arXiv v1 HTML and inspect substantive statements",
+        "title": "Multi-Shift de Bruijn Sequence",
+        "trigger": "Earliest precisely dated eligible first-public anchor for de Bruijn sequence constructions and direct full-text graph comparison"
+      },
+      {
+        "assessment": "NOT_COVERING for exact order-five de Bruijn cycle conditional distribution and six-factor criterion",
+        "evidence": [
+          "General circular universality changes and algorithmic framework; no inspected order-five conditional tabulation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "Open-access full-text searched; inspected abstract, definitions, relevant sections including circular rotation lemmas and source PDF pages",
+        "method": "Primary arXiv PDF text inspection with page-image spot checks",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Potentially dominating general subsequence universality and circular-shift results"
+      },
+      {
+        "assessment": "NOT_COVERING the finite 2048-cycle arch-index profiles",
+        "evidence": [
+          "General bounds and repeated-word/arch remainder statements, not de Bruijn-specific table or local alternating witness."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+        "material_read": "Open-access full-text searched; read arch/remainder definitions and related results with PDF page spot checks",
+        "method": "Original arXiv full-text search plus relevant page inspection",
+        "title": "Scattered Factor Universality – The Power of the Remainder",
+        "trigger": "Arch-factorization and periodic/circular factor results potentially imply counts"
+      },
+      {
+        "assessment": "NOT_COVERING: discrepancy and balance of letters, a different statistic",
+        "evidence": [
+          "The source tabulates discrepancy, not the count of all scattered subsequences under rotations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.01638v2",
+        "material_read": "HTML abstract, main discrepancy statements, and table/appendix material",
+        "method": "Read original open-access HTML source and inspect parameter/statistic correspondence",
+        "title": "Investigating the Discrepancy Property of de Bruijn Sequences",
+        "trigger": "Same finite object family, conceivable exact order-five table"
+      },
+      {
+        "assessment": "NOT_COVERING: single lexicographically earliest sequence, no all-cycle universality spectrum",
+        "evidence": [
+          "Example period and the order-five reference, not 2048 necklace profiles."
+        ],
+        "identifier_or_url": "https://oeis.org/A169672",
+        "material_read": "OEIS definition, example period, author and 2010-04-11 date, cross-references",
+        "method": "Read freely accessible database record",
+        "title": "OEIS A169672: Lexicographically earliest de Bruijn sequence for n=5 and k=2",
+        "trigger": "Possible exact database value for order-five sequences"
+      },
+      {
+        "assessment": "NO_DECISIVE_COMPARISON: historical object/count foundational, no evidence of this new metric; original full text not material-read",
+        "evidence": [
+          "1946, volume 49, issue 7, pages 758–764; no day/month publication evidence."
+        ],
+        "identifier_or_url": "https://research.tue.nl/en/publications/a-combinatorial-problem/",
+        "material_read": "Institutional bibliographic details and abstract-page context; the 1946 full article itself was not inspected",
+        "method": "Read official institutional source record; full text not claimed",
+        "title": "A Combinatorial Problem",
+        "trigger": "Historical source for de Bruijn word counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "466547ad-59ec-4d5e-a152-7e0a4474c483",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Classical de Bruijn cycles are maximally universal for contiguous five-bit windows, but scattered-subsequence universality of a single circular traversal is a different natural invariant. The exact dichotomy, its sharp index endpoints, and the small six-letter alternating-factor obstruction give a structural recognition criterion across all 2,048 cycles instead of a list of samples. Exact per-rotation class frequencies complete this tractable order-five census and create reproducible benchmarks for subsequence-based sequence analysis. The small rank is mathematically motivated by its classical full necklace count and exhaustive feasibility. No unproved relevance to larger orders or performance application is asserted.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "The explicit signed-increment decomposition gives alpha_N=1/2-tau/logN, v_N=12-8tau/logN, bounded martingale differences and exact conditional variances. The gamma-normalized martingale has predictable bracket converging uniformly to 12 Gamma(3/2)^2 integral_0^t exp(2tau u)du; its dependent correction is O(1/logN) in expectation via the proved exact second-moment recurrence and uniform log bound, while jumps satisfy Lindeberg. The functional martingale CLT and uniform gamma multiplier yield the OU limit; Doob L² control establishes tightness at time zero. An exact recurrence yields 12 F(tau) and the harmonic special case. Independently replayed script reports 2917 exact and 56 numerical diagnostics, not a substitute for analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang (2016), Theorems 2.1 and 3.1, fixes the derivative of the regression function while studying n→∞; it also supplies a Gaussian SDE approximation for a fixed stochastic algorithm.",
+        "Shi–Yin–Miao (2026), Theorem 3.3, assumes the fixed noncritical spectral inequality 3bp+cp>ap+c.",
+        "Janson (2004) and Bai–Hu–Zhang (2002) present broad fixed and nonhomogeneous urn Gaussian theories, with incomplete accessible material for a final priority decision."
+      ],
+      "reasoning": "A general fixed-parameter limit cannot simply be evaluated at p_N: its convergence depends on the parameter and constants diverge at the critical boundary. The claimed result gives a new joint N-dependent scaling, a full path law in logarithmic time and a finite interpolation profile. General stochastic-approximation techniques may support a proof, but the inspected theorems do not explicitly state or directly imply this precise triangular critical-window conclusion without new uniform analysis. Incompletely read broad papers are retained as genuine risks.",
+      "searches": [
+        "critical Pólya Friedman mixed urn random replacement matrix central limit theorem at eigenvalue half n log n fluctuations; subcritical random limit 2026",
+        "Pólya urn changing parameter with row length N critical eigenvalue 1/2 plus O(1/log N) functional central limit theorem Ornstein Uhlenbeck",
+        "https://arxiv.org/abs/1602.05708",
+        "https://doi.org/10.1016/j.spa.2003.12.002",
+        "https://doi.org/10.1214/aoap/1037125857"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.26669v1",
+      "https://arxiv.org/abs/1602.05708",
+      "https://arxiv.org/abs/2403.02881",
+      "https://doi.org/10.1016/j.spa.2003.12.002",
+      "https://doi.org/10.1214/aoap/1037125857",
+      "https://doi.org/10.1016/S0304-4149(98)00094-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shi–Yin–Miao Theorem 3.3: sqrt(n)(Z_n-1/2) has a fixed-parameter Gaussian limit under 3bp+cp>ap+c; equality and a parameter varying with n are not treated by that stated theorem.",
+        "Zhang Theorem 3.1: strong Gaussian approximation for a fixed regression derivative at rho=1/2, not a uniform triangular derivative rho_N=1/2+tau/logN.",
+        "The earlier critical functional theorem corresponds to tau=0, whose covariance is 12 min(s,t); it cannot imply the tau≠0 covariance by logical specialization.",
+        "The earlier rare-mixture result concerns p_N→0 and a beta-shrinkage limit, a different parameter boundary."
+      ],
+      "reasoning": "The new theorem strictly extends the fixed-critical tau=0 point to each fixed nonzero tau with drift and variance depending on tau. Its premises allow parameters on both sides of the phase boundary with a rowwise 1/logN separation. Neither the fixed noncritical CLT, critical-only Brownian process nor rare-p mixing law entails this uniform-critical-window path claim. Broader work might yield it after substantive uniform extension; this cannot be excluded by title or abstract comparison alone.",
+      "searches": [
+        "https://arxiv.org/html/2605.26669v1",
+        "https://arxiv.org/abs/1602.05708",
+        "critical Pólya Friedman mixed urn random replacement matrix central limit theorem at eigenvalue half n log n fluctuations; subcritical random limit 2026",
+        "Critical-window OU logarithmic-time process for Pólya Friedman urn with balanced replacements (1,3), Polya 4, Bernoulli switching probability p_N=1/3+2lambda/(3 log N); Brownian variance 12 and profile (1-exp(-2lambda))/(2lambda). Equivalence to elephant walk with random step sizes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "At fixed critical mixing p=1/3, the earlier logarithmic-time process is Brownian (tau=0); this is a genuine overlap, credited explicitly.",
+        "Roy–Takei–Tanemura arXiv:2403.02881 defines a triangular array through increasing or limited memory rather than a rowwise near-critical replacement probability.",
+        "The window covariance equals 12 exp(-tau(s+t)) integral_0^min(s,t) exp(2 tau u)du and changes with every nonzero tau."
+      ],
+      "reasoning": "Changing from the colour difference U to the proportion Z rescales the same assertion, rather than creating a second result. The exact-critical Brownian process is strictly a tau=0 subcase. A fixed-parameter elephant-walk or urn central limit does not entail a triangular rowwise family with finite nonzero tau without uniform-in-parameter estimates. Memory-truncated triangular elephant walks have a different transition kernel and parameters.",
+      "searches": [
+        "random replacement balanced two-color urn triangular array critical spectral eigenvalue 1/2 plus lambda over log n crossover variance (1-exp(-2 lambda))/(2 lambda)",
+        "Critical-window OU logarithmic-time process for Pólya Friedman urn with balanced replacements (1,3), Polya 4, Bernoulli switching probability p_N=1/3+2lambda/(3 log N); Brownian variance 12 and profile (1-exp(-2lambda))/(2lambda). Equivalence to elephant walk with random step sizes",
+        "https://arxiv.org/abs/2403.02881"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record searches returned near-semantic items in unrelated OU sensors or other critical phenomena, not an urn with p_N=1/3+2tau/(3logN).",
+        "Previously established mathematical results include the tau=0 fixed-critical Brownian limit and an epsilon_N log N rare-mixture regime approaching p=0, not the p=1/3 critical window.",
+        "No explicit finite table of the entire N-dependent OU covariance and crossover variance was located."
+      ],
+      "reasoning": "This is an infinite-size functional-limit assertion rather than a finite table. Recorded source searches showed no exact table or database record for the claim, but negative search cannot prove uniqueness or unindexed priority.",
+      "searches": [
+        "Polya Friedman mixed urn 2605.26669 crossover critical window p_n = 1/3 + 2 lambda/(3 log n) second eigenvalue half Gaussian",
+        "two colour random replacement Friedman Polya urn critical-window log n mixing parameter Ornstein Uhlenbeck process on logarithmic time, drift tau variance interpolation F(tau), P=1/3 + 2tau/(3logN)",
+        "Pólya urn near critical window lambda log n Gaussian Ornstein Uhlenbeck limit log time",
+        "urn critical window parameter varying n approaching critical eigenvalue generalized urn",
+        "p_N = 1/3+2tau/(3 log N) Friedman Polya mixed urn Ornstein Uhlenbeck critical",
+        "critical mixed Polya Friedman urn two colours logarithmic time variance tau e^-2tau Brownian Ornstein Uhlenbeck",
+        "Generalized Friedman urn logarithmic critical window functional Gaussian OU on log N"
+      ]
+    },
+    "rationale": "The full current claim is the triangular inverse-log spectral window and its nonzero-drift OU path/second-moment interpolation, not the earlier tau=0 Brownian theorem. Full accessible primary comparison showed only fixed-p noncritical CLTs; full Zhang comparisons showed fixed-drift Gaussian approximations, not the row-dependent OU conclusion without additional uniform estimates. Real mathematical-record and accessible historical-claim queries showed no direct covering assertion. Priority remains provisional owing to inaccessible or only abstract-inspected broader old generalized-urn papers.",
+    "residual_risks": [
+      "General fixed-parameter urn Gaussian approximation theory may be adaptable to the near-critical triangular row without using the present martingale argument; mathematical historical priority is not independently certified.",
+      "Janson (2004), Bai–Hu–Zhang (2002), and Bai–Hu (1999) were only abstract-level inspected, not complete full-text comparisons.",
+      "The full text of Janson (2004) could not be obtained; inaccessible material is not asserted to be noncovering.",
+      "Negative database and web searches are not proofs of global mathematical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the row-dependent critical-window OU process; its displayed CLT has a strict fixed-parameter inequality and hence cannot be substituted at the changing boundary.",
+        "evidence": [
+          "Theorem 3.3 condition 3bp+cp>ap+c, formula (3.5); definition of fixed p in Section 2; proof in Section 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.26669v1",
+        "material_read": "Full accessible HTML of definitions, Theorems 3.1–3.3 and proof sections, including spectral assumption and fixed mixture probability.",
+        "method": "Read preprint HTML definitions, numbered statements, and derivations; compared parameters and implications.",
+        "title": "Central Limit Theorem for a Pólya-Friedman Mixed Urn Model",
+        "trigger": "Original recent mixed-urn object with exactly the same Friedman/Pólya mechanism and a spectral one-half threshold."
+      },
+      {
+        "assessment": "Directly covers important fixed-parameter critical and Gaussian theory; the displayed theorems use fixed regression derivatives and do not supply a row-varying parameter at inverse-logarithmic distance from criticality.",
+        "evidence": [
+          "Theorem 2.1 fixes rho=1/2; Theorem 3.1 assumes a fixed regression function and gives a Gaussian approximation; Section 4 treats generalized urns."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.05708",
+        "material_read": "Relevant full HTML sections 1–4, especially Theorems 1.1, 2.1, 3.1 and their assumptions and Gaussian covariance (3.27).",
+        "method": "Read mathematical statements, hypotheses and Gaussian-process approximation; inspected the urn application section.",
+        "title": "Central Limit Theorems of a Recursive Stochastic Algorithm with Applications to Adaptive Designs",
+        "trigger": "Potential stronger Gaussian approximation and SDE treatment subsuming urn fluctuations."
+      },
+      {
+        "assessment": "Its triangular dimension is the number of remembered increments and each increment is ±1; it does not identify or imply a rowwise Bernoulli mixture with reinforcement ±2 or +4 in the inverse-log spectral window.",
+        "evidence": [
+          "Definitions (1.4)–(1.7) use memory length m_n, and (1.6) uses a fixed elephant parameter p."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.02881",
+        "material_read": "Introduction, formal definitions and main regimes; the accessible PDF early pages including the triangular-array definition were inspected.",
+        "method": "Read arXiv article and PDF preliminary sections, compared the evolving-index mechanisms.",
+        "title": "The elephant random walk in the triangular array setting",
+        "trigger": "Triangular-array terminology and a martingale-reinforcement analogue could be equivalent after a reduction."
+      },
+      {
+        "assessment": "No whole-document not-covering conclusion is drawn. Fixed-matrix Gaussian limit theory is a plausible proof foundation and historical-priority risk.",
+        "evidence": [
+          "Abstract describes functional limits for generalized Pólya urns and asymptotic covariance matrices, without specifying inverse-logarithmic triangular parameters."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spa.2003.12.002",
+        "material_read": "Accessible journal abstracts and bibliographic descriptions; full text was not obtained.",
+        "method": "Searched for lawful public full-text versions; full text remained unavailable.",
+        "title": "Functional limit theorems for multitype branching processes and generalized Pólya urns",
+        "trigger": "Broad generalized-urn functional limits might dominate a special two-colour model."
+      },
+      {
+        "assessment": "Unresolved indirect implication risk; the abstract does not itself establish an inverse-log row-dependent OU window.",
+        "evidence": [
+          "Abstract describes functional central limit theorems and Gaussian approximation for two-colour urns with homogeneous and nonhomogeneous generating matrices."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1037125857",
+        "material_read": "Abstract and bibliographic description; full article mathematical details were not inspected.",
+        "method": "Searched for lawful full text and compared accessible theorem descriptions; avoided inferring full-paper noncoverage.",
+        "title": "Gaussian approximation theorems for urn models and their applications",
+        "trigger": "A plausible stronger functional Gaussian approximation for homogeneous/nonhomogeneous Friedman urns."
+      },
+      {
+        "assessment": "Its abstract mentions equality at a critical eigenvalue and nonhomogeneity, so it is a genuine residual priority risk pending complete inspection. No not-covering assertion is made.",
+        "evidence": [
+          "Abstract explicitly discusses nonhomogeneous generating matrices and the equality of leading eigenvalue to twice the subleading real part."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0304-4149(98)00094-5",
+        "material_read": "Abstract and bibliographic description only.",
+        "method": "Inspected available abstract for quantified parameter setting and critical-eigenvalue coverage.",
+        "title": "Asymptotic theorems for urn models with nonhomogeneous generating matrices",
+        "trigger": "Nonhomogeneous generating matrices may conceal a triangular parameter limit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "263f2415-d555-432c-984c-ed6c5e47c86d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At an urn spectral one-half threshold, a perturbation of exactly order 1/logN produces a nontrivial multiplicative response exp(-tau logk/logN). The functional OU crossover exposes drift, covariance and variance amplification/suppression on both sides of the Gaussian/critical boundary; it is a motivated phase-window invariant absent from fixed-p critical or ordinary-CLT statements, not a renamed Brownian limit, arbitrary finite slice or small routine improvement.",
+    "status": "PASS"
+  }
+}

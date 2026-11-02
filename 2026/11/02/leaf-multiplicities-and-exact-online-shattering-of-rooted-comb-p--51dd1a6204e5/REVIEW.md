@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** Every leaf belongs to a single terminal group and every nontrivial internal-spine membership query is a suffix of groups. Leaf queries have only one positive hypothesis and therefore cannot occur before the final round of a completely shattered tree. This proves the upper bound by requiring a consecutive partition into double-leaf blocks; the corresponding balanced threshold-query tree proves the lower bound. The VC dimension follows directly from ancestor comparability. The greedy segment-count rule is justified by the earliest-ending exchange argument. Direct exact computation over 1,023 finite profiles, using a path-generated concept matrix, agrees with the classification.
+
+**Originality — PASS under the inspected sources.** Walker's 2022 paper (inspected sections 1–1.2) concerns embeddings and inequalities for leaf subsets in binary trees, not exact root-to-leaf path-membership dimensions on rooted combs. The full-text Ghazi–Golowich–Kumar–Manurangsi 2021 paper provides general class-aggregation upper bounds, not the exact ordered-packing invariant. Searches for caterpillar path concepts, laminar thresholds, hierarchical singleton tests and weighted groups did not locate a stronger result, and relevant prior exact path-window and poset-ideal results do not imply the claim. This is a best-knowledge comparison, not a comprehensive historical-priority certificate.
+
+**Value — PASS.** The explicit classification is for every positive multiplicity profile in a natural infinite family of rooted hierarchies, gives an efficient optimal mistake-bound computation, and identifies a sharp sensitivity to *order* not detected by the number of hypotheses, tree height, or even the multiset of terminal multiplicities. In particular, the two eight-leaf six-level examples differ by a full online mistake although both have VC dimension one. This ordered packing obstruction supplies concrete structure beyond a standard threshold-class estimate.
+
+The exact classification does not address branching subtrees attached to the spine or other query languages. Independent external validation and exhaustive historical-priority verification are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For n>=5 the four neighbor sites are distinct. An isolated run forces its two adjacent opposite runs to be isolated, giving a global checkerboard; without isolated runs a length-two run cannot meet the threshold at its boundary. Every run of length at least three is stable. Marked type-one run starts and binomial compositions prove the exact S_{n,m} sum with divisor k. The six-state matrix is primitive and has characteristic polynomial (t^3-t^2-1)(t^3-t^2+1), giving H_n~lambda^n. A standalone checker completed 134474 exact assertions; this finite test is not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakar and Ron (2022), Claim 9 and strongly stable definition, give a general radius-r structural restriction on temporally periodic states.",
+        "Brandt et al. (2012), introduction and analytic sections, bound dynamic run lengths of Schelling swaps.",
+        "Goles Domic et al. (2011), one-dimensional section, use two nearest neighbors."
+      ],
+      "reasoning": "The general 2022 structural result includes radius two and is stronger on qualitative dynamics, and its known strong-stability description covers one class here; it lacks a closed formula by each fixed number of type-one residents. The 2012 swap-dynamics work is not a population-resolved census, and the 2011 one-dimensional model uses a smaller neighborhood.",
+      "searches": [
+        "arxiv:2205.08972 majority automata fixed points radius r stable blocks",
+        "counting majority cellular automata fixed points cyclic ring trees fixed population",
+        "arxiv:1203.6346"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1203.6346",
+      "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+      "https://doi.org/10.1103/PhysRevE.83.056111",
+      "https://arxiv.org/abs/2205.08972",
+      "https://arxiv.org/abs/2312.13769 (abstract, tree-only comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2004 article: long same-type runs of length at least radius+one are stable.",
+        "2022 article: fixed points can have all long blocks or belong to short-block periodic cases; no n,m enumerator stated.",
+        "2012 article: estimates dynamical average run size but counts neither all satisfied configurations nor fixed-composition probabilities."
+      ],
+      "reasoning": "The present all-run>=3 sufficient condition and broad fixed-point framework are already implied by prior structural work. The exact coefficient for every (n,m), the explicit checkerboard correction, and the six-state Perron entropy require an additional exact enumeration. The final claim is restricted to these quantities; it does not rebrand known structural lemmas as a new theorem.",
+      "searches": [
+        "doi:10.1103/PhysRevE.83.056111",
+        "arxiv:1203.6346",
+        "arxiv:2205.08972",
+        "Tosic Agha 2004 majority rule radius two stable runs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nakar and Ron, arxiv:2205.08972, sections 1 and 4, identify large-run stable configurations and short-block periodic alternatives, without the explicit color-composition census.",
+        "Tosic and Agha, 2004, fixed-point section, supply long-run sufficient stability but not exact labeled n,m counts."
+      ],
+      "reasoning": "The radius-two satisfaction rule is equivalent to fixed points of five-site binary majority cellular automata with center retention on ties. This equivalence was treated directly rather than taken as evidence of novelty. The known fixed-point language is qualitatively related; the full bivariate enumeration and spectral asymptotic were not found in these complete inspected texts.",
+      "searches": [
+        "Schelling radius two neighborhood all happy color fixed population run length at least three exact enumeration",
+        "majority cellular automata radius two exact fixed point counts at fixed density six state transfer characteristic polynomial lambda cube minus lambda square minus one",
+        "arxiv:2205.08972"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Web searches for the first values 2,10,16,28,38,54,68,94 and for population-resolved radius-two fixed-point counts did not return an exact matching published table.",
+        "No indexed exact population-composition formula was identified in the relevant search results."
+      ],
+      "reasoning": "Search absence alone does not prove novelty. No known-table claim is made; a previously unlocated integer sequence or transfer-matrix table is specifically recorded as a risk.",
+      "searches": [
+        "OEIS 2 10 16 28 38 54 68 94 Schelling",
+        "fixed point counting one dimensional majority cellular automata radius 2 exact formula entropy",
+        "Schelling model one dimensional 2 neighborhood radius 2 all happy configurations count exact combinatorial formula"
+      ]
+    },
+    "rationale": "The asserted contribution is the full binomial population-resolved enumeration and its exact Perron asymptotic, not the earlier-known stability of large homogeneous runs. Direct comparisons with four relevant primary works, including the more general 2022 fixed-point structural theorem, found the stated exact census and entropy absent. Earlier run criteria imply part of the structural proof but do not state the composition count. Historical equivalent-table risk remains.",
+    "residual_risks": [
+      "General structural results could make the new exact count a short corollary, even without the explicit n,m formula having been previously printed.",
+      "An unlocated historical automata sequence, OEIS entry, or transfer-matrix enumeration could provide the exact counts.",
+      "The theorem counts static complete satisfaction, not swap-dynamics absorbing states or reachable equilibrium probabilities.",
+      "The independent audit of mathematical correctness and historical priority has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact fixed-composition all-happy census",
+        "evidence": "The work studies randomly selected unhappy-pair swaps, typical final run lengths, and firewall incubators rather than enumerating all satisfaction states.",
+        "identifier_or_url": "https://arxiv.org/abs/1203.6346",
+        "material_read": "Full arXiv HTML article, including model, main dynamic theorems, proof sections, appendices",
+        "method": "Read full primary text and inspected introduction/model/proofs; searched for exact counting",
+        "title": "An Analysis of One-Dimensional Schelling Segregation",
+        "trigger": "Same circular two-type radius-w happiness model with w=2, published before archive cutoff"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: known long-run stability; not explicit n,m formula",
+        "evidence": "Lemma 4 classifies the radius-one fixed points; the following paragraph notes radius-r runs of length r+1 are fixed. No exact population-resolved radius-two census is presented.",
+        "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "material_read": "Full ten-page paper, including PDF page 6 fixed-point classification and general radius discussion",
+        "method": "Read PDF extracted text and inspected page screenshots of fixed-point section",
+        "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+        "trigger": "Earlier majority rule with finite-radius cyclic rings could imply fixed-state classification"
+      },
+      {
+        "assessment": "NOT_COVERING four-neighbor population-resolved census",
+        "evidence": "The stated one-dimensional lattice has two neighbors per individual; results concern energy/interface dynamics and stability, not exact radius-two counts.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.83.056111",
+        "material_read": "Author-uploaded full article text accessible on ResearchGate, including model and section III A",
+        "method": "Read article's model, abstract, one-dimensional analysis and stability sections",
+        "title": "Dynamics and complexity of the Schelling segregation model",
+        "trigger": "Closely related pre-2016 studies of one-dimensional Schelling stable configurations"
+      },
+      {
+        "assessment": "STRONG_PARTIAL_COVERAGE: general structural fixed-point restrictions but no exact population-resolved numerical law",
+        "evidence": "Claim 9 separates all-long-run from all-short-run temporally periodic configurations; no explicit bivariate fixed-composition count or Perron eigenvalue census is given.",
+        "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+        "material_read": "Full arXiv HTML article, including introduction, stable block definitions, Claim 9 and periodicity proofs",
+        "method": "Inspected statement/sections and searched for counting/enumeration/entropy",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "General radius-r fixed-point and two-cycle theorem potentially stronger than the candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4275a2e2-8a92-482e-8992-d8e85a24d45a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Conservation of the population balance under Schelling swaps makes all S_{n,m} coefficients a natural, model-specific observable. The complete fixed-density census quantifies how many configurations can satisfy every resident at any population ratio and distinguishes minimum-run configurations from checkerboards. Perron entropy gives the exact exponential rarity of fully satisfied uniform layouts. The result is a motivated complete classification of a natural invariant, not a selected small parameter or a mere known-table recomputation.",
+    "status": "PASS"
+  }
+}

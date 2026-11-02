@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Proved the symbolic arch/run automaton recurrence A_j=1+zuE+zA_(j+1) when j<h and E=1+zA_1+zA_2 (where A_2=0 for h=1). Solving gives exact all-h rational GF; positive coefficient factors prove exact support and extremizers. For fixed h>=2 the dominant simple pole is unique because lengths 2 and 3 both occur; logarithmic derivatives yield rigorous CLT coefficients. Independently tested 249399 enumerated hosts, 2777 literal host checks and a separate labeled transfer recurrence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson et al. arxiv:2311.10658v1 Section 4 Lemma 24 supplies a general state-counting dynamic program, applicable to any regular language.",
+        "Adamson arxiv:2304.04583v1 Section 3 Theorem 2 supplies unrestricted fixed-length counts."
+      ],
+      "reasoning": "A general algorithm establishes computability of individual constrained-language counts, not the displayed uniform closed form and sharp all-parameter structural/support and Gaussian statements. Our proof uses a special small transfer and works simultaneously over all cap values; it does not claim generic finite-automaton counting as new.",
+      "searches": [
+        "published-finding corpus: run-bounded words subsequence universal words exact bivariate generating function central limit theorem run length limit",
+        "published-finding corpus: regular languages avoidance triple letters k-universal strings exact enumeration bivariate generating functions",
+        "arxiv:2311.10658v1, full-text Section 4 counting and ranking",
+        "arxiv:2304.04583v1, full-text Section 3 counting arches"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.10658v1",
+      "arxiv:2304.04583v1",
+      "arxiv:2003.04629 abstract",
+      "published-finding corpus published results (actual targeted semantic queries)",
+      "Accessible own week3 available collection snapshot and current week4 available collection snapshot claim/title metadata"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "prior finding 31909ca1 treats minimum *spacing of selected subsequence indices*, not maximum contiguous runs of identical letters.",
+        "Own finding d02b3147 treats *maximum allowed index jumps* in shortest universal words, not run-capped host enumeration.",
+        "published-finding corpus SCOPE unrestricted binary GF --e77c4e8d9f37 and regular-language count arxiv:2311.10658v1 are related baselines."
+      ],
+      "reasoning": "Gap constraints regulate embeddings, while present regular constraint forbids contiguous homopolymers in hosts; neither implies a full length-by-index distribution for run-capped hosts. The unrestricted GF is recovered only by removing the cap, and the general counting algorithm does not state the closed formula, exact support, or asymptotics.",
+      "searches": [
+        "published-finding corpus: Subsequence universality with bounded gaps, shortest universal words, minimum and maximum symbol spacing, exact enumeration",
+        "published-finding corpus: regular languages avoidance triple letters k-universal strings exact enumeration bivariate generating functions",
+        "prior research records: 2026-10_week3 available collection snapshot and 2026-10_week4 available collection snapshot (recoverable titles and claims)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37, the unrestricted GF (1+z)/(1-z-2uz^2).",
+        "arxiv:2304.04583v1, Section 3, counts unrestricted words by a finite dynamic program.",
+        "arxiv:2311.10658v1, Section 4, generic regular-language counting algorithms."
+      ],
+      "reasoning": "Unrestricted words are the limit h->infinity, not any fixed finite cap. The located formula lacks the run-ceiling h and therefore does not directly imply its exact coefficients. Exact 0/1-run automata are an equivalent encoding of the new statement, not an earlier located identity.",
+      "searches": [
+        "published-finding corpus: universality-index distribution of binary strings with bounded runs no 000 no 111 rational generating function, full support 2k to (h+1)k+h",
+        "Web: \"run length limited\" \"subsequence universality\" \"generating function\"",
+        "Web: \"avoid 000 and 111\" \"subsequence universality\"",
+        "Web: \"2z^2+z^3\" \"universality\" binary word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact cap-refined table or polynomial coefficient identity appeared among returned published-finding corpus records or searched pages.",
+        "The enumerator in verify.py reproduces coefficients only for h<=5 and n<=16 and is not used to infer the all-h identity."
+      ],
+      "reasoning": "The claimed object is a complete symbolic count for arbitrary positive cap, not a finite sequence of integers. Search absence alone is not a uniqueness certificate; priority risk is retained.",
+      "searches": [
+        "published-finding corpus: binary run-length-limited RLL words subsequence universality index enumeration homopolymer constraint automata",
+        "published-finding corpus: homopolymer constraint binary subsequence universality exact enumeration 2^k shortest words two extremal long words",
+        "Web: \"no three consecutive equal\" \"universal subsequences\""
+      ]
+    },
+    "rationale": "The unrestricted binary universality law and generic regular-language counting algorithms are known. Neither inspected primary counting section gives the simultaneous all-cap rational formula, gap-free sharp support, exact longest witnesses or cap-specific Gaussian constants. Targeted published-record and owned-history comparisons identified no equivalent or stronger covering claim. An unindexed constrained coding formula remains a genuine risk.",
+    "residual_risks": [
+      "An equivalent run-cap identity may appear in other constrained-coding, renewal, or symbolic dynamics literature that is not indexed by the completed queries.",
+      "A sufficiently explicit generic weighted automaton theorem could subsume the rational-form proof, but no located source supplies these coefficients, sharp support and CLT as a stated corollary.",
+      "Foundational 2020 source was assessed via abstract and secondary full-text statements, not direct full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General algorithms and arch factorization; no displayed exact all-run-cap bivariate GF/support/CLT in inspected material",
+        "evidence": [
+          "Section 4 Lemma 24 count recurrences for arbitrary automata",
+          "Section 5 identifies toolbox for counting and ranking regular-language universal words"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.10658v1",
+        "material_read": "Full accessible HTML sections 1, 2, 4, 5; Section 4 counting dynamic program and Lemma 24, pages represented as text",
+        "method": "Read published arXiv full-text HTML, compared statements of recurrences and theorems to present run-cap formulas",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Most relevant general regular-language universality/counting theorem"
+      },
+      {
+        "assessment": "Counts unrestricted universal words over any alphabet; contains no run-capped symbolic formula in inspected material",
+        "evidence": [
+          "Section 3 unrestricted arches, Section 3.2 recurrence, Theorem 2 O(n k sigma)"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/369925038_Ranking_and_Unranking_k-subsequence_universal_words",
+        "material_read": "Accessible author text of introduction, preliminaries, Sections 3.1 and 3.2 counting arches and Theorem 2, ranking transition; located lines 62-630",
+        "method": "Read accessible full-text transcription and compare unrestricted recurrence to finite-run constraint",
+        "title": "Ranking and Unranking k-Subsequence Universal Words",
+        "trigger": "General unrestricted enumeration may dominate the new all-cap identity"
+      },
+      {
+        "assessment": "Foundational concept acknowledged; possible unseen source details retained as residual risk",
+        "evidence": [
+          "2020-03-10 original preprint abstract and 2023 Adamson paper arch characterization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+        "material_read": "ArXiv abstract and foundational statements independently cited in 2023 full texts; full 2020 source not inspected directly",
+        "method": "Abstract and indirect theorem comparison; no whole-document noncoverage assertion",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational arch-universality characterization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19bfcecd-c328-4fb4-9729-9dce2ddff29b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Homopolymer caps define a standard, motivated constraint family. The infinite two-parameter length/index spectrum has an unexpectedly simple rational form valid at all cap values, sharp gap-free support, exactly two longest witnesses, explicit shortest counts, and Gaussian fluctuation laws interpolating from alternation toward the unrestricted source. Not a finite lookup or routine isolated coefficient.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For a pair to attract every factor, its positions must hit both letters and an occurrence of both oriented transitions. Conversely, the selected interior \(10\) boundary hits every factor of length at least the period by overlapping periodic occurrences, and all shorter factors are either monochromatic, cross an interior \(10\), or have the form \(0^u1^v\) crossing \(01\). This establishes the exact four-factor certificate for every positive run length. Inclusion-exclusion over the two boundary types proves both branch counts and disjoint extremal-position families; the explicit pair coordinates give the gap polynomial and extrema. Boundaries \(k=2\), \(a=1\), \(b=1\), and \(a=b=1\) are included. Exhaustive coverage-mask and separately implemented literal checks support, but do not replace, the symbolic proof.
+
+## Originality — PASS, with residual risk
+Prezza's introduction defines the measure but does not enumerate all optimal pairs for binary two-run powers. Mantaci et al. prove stabilization of minimum attractor cardinality in periodic powers, which is strictly weaker than the exact multiplicities, all-pair classification, local certificate, and span polynomial here. Restivo et al. address infinite words, and Dvořáková–Hendrychová address Rote/generalized-pseudostandard classes. A published exact enumeration of the alternating \((01)^k\) subfamily already exists and is specifically excluded from the novelty assessment. Its second family, \(0(1100)^{k-1}1\), is a different finite word, not a full two-run power. Later Fibonacci/period-doubling enumerations concern different families. Exact-claim and alias searches disclosed no broader covering theorem. A differently indexed general classification could exist; a negative search is not proof of novelty.
+
+## Value — PASS
+The family is the natural simplest nonconstant periodic string with adjustable run lengths. The all-parameter attractor multiplicity reveals a sharp difference between a singleton run and two nontrivial runs, and remarkably becomes independent of both run lengths in the latter regime. The explicit witnesses and distance enumerator offer a complete baseline for positional attractor multiplicity, separate from known optimal-cardinality stabilization. This is a natural infinite structural classification, not an arbitrary small-instance table.
+
+## Literature and limitations
+Closest sources: Prezza, arXiv:1709.05314; Mantaci et al., *A combinatorial view on string attractors*, Proposition 15; Restivo et al., arXiv:2206.00376; Dvořáková–Hendrychová, arXiv:2308.00850; the publicly accessible *All smallest attractors in two exceptional antipalindromic pseudostandard families*; Banbara et al., CPM 2026. No claim is made for arbitrary periods, for one repetition, or for a general attractor counting algorithm. Previously known alternating counts are not new. The novelty assessment may be incomplete if an unindexed general two-run-power census exists.
+
+Self-review: passed. Independent audit: not yet performed.

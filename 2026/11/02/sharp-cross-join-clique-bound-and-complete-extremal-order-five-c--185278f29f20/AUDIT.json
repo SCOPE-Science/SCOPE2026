@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Single-cycle successor permutations exactly characterize binary de Bruijn cycles. Cross-join adjacency is two interior truth-table changes. Pairwise-intersecting 2-subsets yield an all-order upper bound. At n=5 all 65536 tables were enumerated; 2048 were valid. The exact rooted extremal count 224 gives 224/14=16 distinct maximum cliques. An independent enumeration by Euler tours and independent maximal-clique enumeration using direct cyclic six-mer intersections give the same set of 16 cliques. The embedded standard-library checker was run successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alhakim (2018), Section 2, Table 1: all order-five vertex degrees; Sections 4-5: connectedness and Hamiltonian paths.",
+        "Ezerman–Fahreza–Szmidt (2018): all order-five truth-table-distance perturbation patterns, not mutual adjacency among entire candidate cliques.",
+        "Dąbrowski–Rachwalik–Szmidt (2026): abstract and indexed description of cross-join algorithms and Fryers polynomials; full article fetch was limited."
+      ],
+      "reasoning": "A complete degree distribution or full family of single-base perturbation-distance polynomials is weaker than the family of induced clique edge relations. The general graph-theoretic connectivity theorem applies to a different invariant and does not establish the clique count.",
+      "searches": [
+        "Hamiltonicity of the Cross-Join Graph of de Bruijn Sequences",
+        "Perturbations of Binary de Bruijn Sequences",
+        "The Cross-Joint Method and Generation of De Bruijn Sequences"
+      ]
+    },
+    "checked_sources": [
+      "https://eprint.iacr.org/2013/760",
+      "https://doi.org/10.37055/sbn/135237",
+      "https://arxiv.org/abs/1805.12059",
+      "https://www.researchgate.net/publication/326436065_Perturbations_of_Binary_de_Bruijn_Sequences",
+      "https://www.mdpi.com/2227-7390/14/9/1424"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mykkeltveit–Szmidt (2013/2014): reachability under cross-joins.",
+        "Alhakim (2018): cross-join graph Hamiltonian path, full order-five degree frequencies.",
+        "Standalone exhaustive checker: sixteen maximum 14-cliques and sharp all-order intersecting-family bound."
+      ],
+      "reasoning": "Reachability and Hamiltonicity do not imply a sharp clique bound or the number of maximal cliques. The degree distribution only bounds clique size by minimum degrees and is not enough to identify all pairwise adjacent families. The result retains a genuine simultaneous-adjacency comparison absent from inspected sources.",
+      "searches": [
+        "\"cross-join\" \"2048\" \"16\" \"clique\"",
+        "\"cross-join graph\" \"14-clique\"",
+        "exact clique number cross join graph de Bruijn sequences maximal clique n5 2048"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full relevant sections of Alhakim (arXiv:1805.12059) define cross-join adjacency and give degree frequencies; no clique or triangle statement appears in the document text.",
+        "All large cliques correspond to stars of feedback-bit-pair modifications, a formulation not stated in the checked material.",
+        "Mykkeltveit–Szmidt (2013), Theorem 2.4, proves cross-join toggling of two feedback entries; Theorem 3.1 gives reachability, without determining cliques."
+      ],
+      "reasoning": "A clique bound may be expressed as an intersection-family theorem for feedback-difference pairs or as a clique number of the cross-join graph. The prior source uses the same graph but proves connectivity and Hamiltonicity instead; it does not imply the exact count of sixteen extreme cliques.",
+      "searches": [
+        "\"cliques\" \"cross-join\" \"de Bruijn\" graph",
+        "\"maximal clique\" \"cross-join\" \"de Bruijn\"",
+        "clique number interlacement cross join graph of de Bruijn sequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Alhakim (2018), Table 1 lists degree-frequency values 31 through 64, not clique cardinalities.",
+        "Ezerman–Fahreza–Szmidt (2018), slide 19 and ensuing pages: 60 distance-distribution patterns at order five; no 14-clique table."
+      ],
+      "reasoning": "The published numerical tables are for one-vertex perturbation counts. The present count sixteen is an all-vertex maximal-complete-subgraph enumeration and cannot be read off from those tables alone. No exact 14-clique table was located.",
+      "searches": [
+        "\"cross-join\" \"2048\" \"16\" \"clique\"",
+        "\"cross-join graph\" \"14-clique\"",
+        "Fryers polynomials 60 patterns triangles cliques cross join graph"
+      ]
+    },
+    "rationale": "Relevant primary literature establishes connectivity and Hamiltonian paths of cross-join graphs, complete order-five degree frequencies and perturbation-distance patterns. The new theorem compares simultaneous pairwise adjacencies and classifies maximum complete subgraphs; degree sequences and one-source distance distributions do not determine such cliques. No directly covering clique theorem was found in reviewed relevant material. The complete 11-page 2013 archival manuscript was inspected in its available extracted text; no complete-subgraph theorem was present. Unindexed prior work remains a material historical risk.",
+    "residual_risks": [
+      "The later 2026 publisher full text was not fully inspected after an HTTP 429 response. The 2013 open-access PDF extracted text was inspected; page images could not be retrieved (HTTP 403).",
+      "A combinatorial equivalence using interlacement or Euler-tour transition systems could produce the same extremal-clique count in unindexed literature.",
+      "No independent historical priority certification has been obtained."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.4 establishes toggling two feedback-bit entries for one cross-join; Theorem 3.1 proves cross-join connectivity, and Section 4 discusses the order-four graph and order-five generation. The manuscript has no order-five fourteen-clique theorem or complete-subgraph census.",
+        "evidence": [
+          "Cryptology ePrint 2013/760, pp.2–4: Theorem 2.4 and Theorem 3.1",
+          "pp.6–8: order-four graph and generation of 2048 order-five cycles",
+          "Repository history lists receipt 2013-11-21; this is not asserted as the public-posting day"
+        ],
+        "identifier_or_url": "https://eprint.iacr.org/2013/760",
+        "material_read": "Public repository abstract/metadata plus the complete available extracted text of the eleven-page open-access PDF: sections 1–4, Theorems 2.4 and 3.1, order-four graphs, applications, and references. A page-image screenshot attempt returned HTTP 403; extracted text was accessible.",
+        "method": "Repository HTML and full extracted textual PDF; attempted page-image screenshot was unavailable",
+        "title": "On cross joining de Bruijn sequences",
+        "trigger": "Foundational binary feedback cross-join equivalence"
+      },
+      {
+        "assessment": "Cross-join connectivity and feedback functions; no clique comparison in inspected material",
+        "evidence": [
+          "Published December 5, 2014; journal volume 6(2), pp.271-284"
+        ],
+        "identifier_or_url": "https://doi.org/10.37055/sbn/135237",
+        "material_read": "Public metadata, abstract, publication date and cited research context",
+        "method": "Publisher/index HTML",
+        "title": "Nonlinear Feedback Shift Registers and Joining of Cross-Pairs States",
+        "trigger": "Earliest day-verified public source for this work"
+      },
+      {
+        "assessment": "Reports order-five degree counts and graph connectivity/Hamiltonian paths but not maximal complete subgraphs",
+        "evidence": [
+          "Section 2, Table 1 lists degrees/frequencies for 2048 vertices",
+          "Document-wide text search found no clique or triangle heading or statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.12059",
+        "material_read": "Full-text HTML introduction, preliminaries, Table 1, main connectedness/Hamiltonicity sections and conclusion; document-wide searches for clique and triangle",
+        "method": "Accessible arXiv HTML full text",
+        "title": "Hamiltonicity of the Cross-Join Graph of de Bruijn Sequences",
+        "trigger": "Exact same graph with order-five numeric table"
+      },
+      {
+        "assessment": "Classifies single-origin distances, not complete-mutual-adjacency cliques",
+        "evidence": [
+          "BFA 2018 presentation defines single-source Fryers perturbation polynomials and order-five distance patterns"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/326436065_Perturbations_of_Binary_de_Bruijn_Sequences",
+        "material_read": "Public full presentation text including 2018 perturbation tables and order-four graph description",
+        "method": "Open presentation text and indexed slide transcription",
+        "title": "Perturbations of Binary de Bruijn Sequences",
+        "trigger": "Potential dominating complete distance distributions"
+      },
+      {
+        "assessment": "No indexed clique theorem, but full-text absence increases priority uncertainty",
+        "evidence": [
+          "2026 article describes algorithms and Fryers polynomials; not a certified full-document exclusion"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/14/9/1424",
+        "material_read": "Indexed abstract and selected search passages; full publisher HTML request returned HTTP 429",
+        "method": "Search-result source text plus failed bounded full-page retrieval",
+        "title": "The Cross-Joint Method and Generation of De Bruijn Sequences",
+        "trigger": "Later manuscript with cross-join algorithms and weight matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "185278f2-9f20-4c0b-8adb-08b4de8bbbae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the natural cross-join reconfiguration graph, maximum cliques measure families of cycles mutually one operation apart. The general upper bound is a structural theorem, and the first nontrivial large order saturates it in exactly 16 distinct configurations. The complete natural extremal classification adds simultaneous-adjacency information not captured by existing one-vertex degree counts. The finite count is independently enumerated and not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "An elementary first-exceedance argument forces pi_1>=n-m; reverse-complementation forces pi_n<=m+1. The wrap edge then requires n<=3m+1. For m>=2 an explicit decreasing-with-two-moved-endpoints permutation works for every n<=3m+1, including empty-run boundaries. The equality of the bounds at n=3m+1 forces endpoints, then the first-exceedance predecessor argument forces pi_2=n and, by reverse-complement, pi_(n-1)=1. The m=1 path graph has no Hamiltonian cycle for n>=3. Exact finite independent exhaustive checks corroborate all corner cases but are not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vella (2003), pp. 3-5, makes the domain cyclic in the *pattern-occurrence definition* and treats rotational equivalence classes, without a numerical adjacent-difference bound.",
+        "Domagalski et al. (2021), Introduction and Theorem 2.1, define cyclic pattern containment via some rotation and establish a cyclic Erdős–Szekeres analogue, but impose no bounded numerical jumps.",
+        "Nadler (2026), Theorem 1, proves reverse-diagonal localization; even this stronger position bound supplies only the *necessary* cyclic threshold without construction."
+      ],
+      "reasoning": "General cyclic pattern-avoidance theorems concern a different requirement (all rotations) and do not imply existence of one anchored linear 123-avoiding tour with bounded return jump. Linear localization has been explicitly factored out of the novelty claim.",
+      "searches": [
+        "Pattern Avoidance in Permutations: Linear and Cyclic Orders Vella 2003",
+        "Cyclic Pattern Containment and Avoidance arxiv:2106.02534",
+        "cyclic 123 avoiding permutations bounded adjacent differences maximum length 3m+1",
+        "pattern-avoiding Hamiltonian cycles of powers of paths minimum power three times 123 avoidance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.02526 (Nadler 2026; earliest public source 2026-10-01)",
+      "Vella (2003), Electronic Journal of Combinatorics 10 R18, publisher-hosted primary PDF",
+      "arxiv:2106.02534 (Domagalski et al., 2021)",
+      "arxiv:1312.2051 (Ehrenborg, 2013)",
+      "OEIS A232864 (cyclic consecutive 123 enumeration)",
+      "Searches of accessible indexed mathematical-claim records for exact cyclic-bound/closed-tour aliases and stronger implications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original localization bound gives first entry at least n-m and last at most m+1; adding a wrap edge implies n<=3m+1. This one-way necessity is already an implication of prior theory.",
+        "Nadler explicitly describes constrained Hamiltonian *paths*, and does not provide an all-length Hamiltonian-cycle witness.",
+        "Ehrenborg 2013/2016, Section 2, forbids 123 only when it occurs in a cyclically consecutive window, rather than any increasing subsequence in the distinguished reading."
+      ],
+      "reasoning": "Novelty is confined to the simultaneous exact converse for every m>=2 and 3<=n<=3m+1, the formula for the optimal maximum cyclic jump at every n>=3, and equality-case endpoint rigidity. No compared theorem implies the constructive converse or the forced four labels.",
+      "searches": [
+        "arxiv:2610.02526 reverse-diagonal localization first and last bounds",
+        "arxiv:2610.02526 Theorem 8 Hamiltonian path interpretation",
+        "arxiv:1312.2051v1 cyclically consecutive 123 definition Section 2",
+        "Cyclically Consecutive Permutation Avoidance OEIS A232864"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nadler 2026, Theorem 8: bounded linear adjacent differences are equivalent to restricted Hamiltonian paths in the path power; the theorem does not require last-first adjacency.",
+        "The new statement is equivalently the sharp existence cutoff of distinguished-start Hamiltonian cycles in powers of paths under *classical* 123 avoidance.",
+        "Search for cyclic / Hamiltonian cycle within accessible full HTML text of arxiv:2610.02526 found no such assertion.",
+        "The three exact-claim searches returned mathematical topics such as cycle powers and unrelated permutation metrics, but no record asserting the sharp closing-edge threshold or forced extremal endpoints; this absence is not a uniqueness proof."
+      ],
+      "reasoning": "Closing the Hamiltonian path is a strictly additional edge constraint; the construction and boundary rigidity do not follow from a path enumeration merely by rotation. No equivalent all-parameter cyclic-tour statement was found in the checked records.",
+      "searches": [
+        "cyclic 123 avoiding permutations bounded consecutive adjacent differences and wrap-around circular permutations path powers Hamiltonian cycles",
+        "sharp 3m+1 cyclic 123-avoiding bounded adjacency permutations",
+        "123 avoiding Hamiltonian cycle pattern bandwidth min max adjacent jump",
+        "123 avoiding Hamiltonian cycles powers of paths adjacency restriction cyclic",
+        "arxiv:2610.02526 sections 2.1 and 7.1",
+        "Minimum cyclic adjacent label difference maximum over 123-avoiding permutations is max(2, ceiling((n-1)/3)); sharp 3m+1 threshold and forced (2m+1,3m+1,1,m+1) endpoints",
+        "123 avoiding rooted Hamiltonian tours path powers P_n^m length at most 3m+1 exact converse and rigid boundary",
+        "classical 123-avoidance and bounded circular numerical gaps sharp bottleneck bandwidth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A232864 enumerates avoidance of a *cyclically consecutive* 123 pattern and has no numerical jump bound.",
+        "The new claim is a two-parameter exact feasibility and minimum-bottleneck theorem, not a recomputation of the OEIS A232864 coefficient table."
+      ],
+      "reasoning": "No matching exact-invariant entry or sequence/table covering all integer m,n was located. Nonappearance from a database is not offered as proof of historical novelty.",
+      "searches": [
+        "OEIS cyclic bounded adjacent differences 123 avoiding permutations bandwidth",
+        "OEIS A232864 number of permutations not cyclically containing consecutive 123",
+        "cyclic bounded gap 123 avoiding permutations maximum n m"
+      ]
+    },
+    "rationale": "The necessary length inequality is an implication of Nadler 2026 and is not claimed as new. The candidate proves the sharp converse at every integer parameter, the least cyclic jump bandwidth for every length, and four-position equality rigidity. Accessible source texts and indexed-claim searches did not identify the complete statement; historical priority remains provisional.",
+    "residual_risks": [
+      "An older treatment of bottleneck pattern-avoiding circular tours might be indexed under bandwidth/Hamiltonian routing without 123 terminology.",
+      "Nadler's localization already implies the easy direction and an apparent numerical cutoff; the novelty must be evaluated specifically at the constructive converse and equality rigidity.",
+      "The exact historical-priority assessment is not independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_PRIOR_IMPLICATION: covers endpoint/localization obstruction and Hamiltonian paths, but not the sharp cyclic sufficiency or four-position equality rigidity.",
+        "evidence": [
+          "Theorem 1 reverse-diagonal localization: every pi_i is within m of the reverse diagonal.",
+          "Theorem 8 identifies the bounded-adjacency class with restricted Hamiltonian paths in P_n^m."
+        ],
+        "identifier_or_url": "arxiv:2610.02526; https://arxiv.org/abs/2610.02526",
+        "material_read": "Full-text HTML sections 1, 2.1 (statement and proof of Theorem 1), 7.1 (Theorem 8 and interpretation), 9 (further directions); document-wide searches for cyclic and Hamiltonian cycle.",
+        "method": "Read primary full-text HTML and compared hypotheses and explicit theorem implications.",
+        "title": "123-Avoiding Permutations with an Adjacency Constraint",
+        "trigger": "Same pattern and bounded linear adjacency, including a Hamiltonian-path interpretation and localization that implies one direction."
+      },
+      {
+        "assessment": "NOT_COVERING for the new object: cyclicity changes pattern-containment/rotation conventions, not a numerical wrap-edge bound.",
+        "evidence": [
+          "The paper defines cyclic arrangements as rotational equivalence classes, rather than distinguished readings constrained by a numerical jump radius."
+        ],
+        "identifier_or_url": "Vella, Electronic Journal of Combinatorics 10 (2003), R18; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i2r18/pdf/",
+        "material_read": "Primary PDF abstract, introduction and pp. 2-6 including the definitions of cyclic arrangements and orbit avoidance; relevant rendered page inspected; searches for bounded and adjacent.",
+        "method": "Read primary PDF text and corresponding page rendering.",
+        "title": "Pattern Avoidance in Permutations: Linear and Cyclic Orders",
+        "trigger": "The phrase cyclic pattern avoidance could denote a stronger or equivalent hypothesis."
+      },
+      {
+        "assessment": "NOT_COVERING under these different quantifiers: a cyclic pattern is present if some rotation contains it, and no bounded numerical jump assumption appears.",
+        "evidence": [
+          "Definition: [pi] consists of all rotations and contains [tau] if some rotation contains tau linearly; Theorem 2.1 uses cyclic Erdős–Szekeres without a jump bound."
+        ],
+        "identifier_or_url": "arxiv:2106.02534; https://arxiv.org/html/2106.02534v1",
+        "material_read": "Primary full-text HTML introduction, definitions of a cyclic permutation and cyclic pattern containment, and Section 2 cyclic Erdős–Szekeres theorem.",
+        "method": "Read and compared quantifiers over rotations and the absence of value-jump restrictions.",
+        "title": "Cyclic Pattern Containment and Avoidance",
+        "trigger": "Modern cyclic classical-pattern literature with a possible broad cutoff."
+      },
+      {
+        "assessment": "NOT_COVERING: cyclic consecutive 123 avoidance is weaker and different; it has no bounded numerical jump radius.",
+        "evidence": [
+          "Section 2 defines avoidance by each contiguous window of three positions modulo n; Theorem 3.3 enumerates this distinct class."
+        ],
+        "identifier_or_url": "arxiv:1312.2051; https://arxiv.org/html/1312.2051v1",
+        "material_read": "Full-text HTML Sections 1-3, especially the precise definitions at Section 2 and Theorem 3.3.",
+        "method": "Compared the consecutive-window restriction against arbitrary-index subsequence avoidance and checked for numerical adjacent-difference constraints.",
+        "title": "Cyclically consecutive permutation avoidance",
+        "trigger": "Title includes both cyclicity and 123 avoidance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1f775012-7569-4912-af91-1070cac8cef5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new condition of *closing* the bounded-jump tour changes an indefinitely extensible fixed-radius Hamiltonian-path family into a finite-support family. Its exact sharp cutoff n=3m+1, uniformly explicit witnesses, exact optimal jump bandwidth for all n, and forced extremal endpoints form a natural complete bottleneck-feasibility theorem, motivated directly by the source's Hamiltonian-path model. This is not a parameter substitution into the existing linear enumeration, nor merely a finite census.",
+    "status": "PASS"
+  }
+}

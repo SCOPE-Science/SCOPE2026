@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every integer s>=2, finite A>=0 with A_ii=0 and A1=d1,d>0, the exact binomial expansion T_s(h)=sum_j h^j A^j E_{s-j}(-dh)/j! has nonnegative terms for 0<=dh<=1, and L1=0 fixes each row sum at one. The walk-gap hypothesis forces the (u,v) entry to equal h^(s-1)(A^(s-1))_uv(1-dh)/(s-1)! for every h>=0, strictly negative for h>1/d. For a bipartite graph, a geodesic of length s-1 has no shorter walk and no length-s walk by parity. Exact package verifier: VERIFY_OK cases=29 exact_assertion_groups=698. Finite checks are ancillary to the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horvath 1998 derives method-level positivity/absolute-monotonicity radii for classes of positive systems.",
+        "Horvath 2005 Theorem 8 gives strict bounds with respect to broad positive IVP classes using 2x2 time-dependent witnesses.",
+        "Gottlieb--Grant--Higgs Sec.2 identifies the optimal SSP coefficient for high-linear-order methods, not the exact horizon of every bipartite regular graph."
+      ],
+      "reasoning": "Broad problem-class sufficient/sharp bounds and graph-specific bounds have different quantifiers. The source theorems may explain the sufficient half, but do not logically identify the negative (u,v) entry for each graph satisfying the distance criterion. The new claim does not assert an improved SSP coefficient.",
+      "searches": [
+        "Horvath 1998 doi:10.1016/S0168-9274(98)00050-6 Theorems 5-7",
+        "Horvath 2005 doi:10.1016/j.apnum.2004.08.026 Theorem 8",
+        "Gottlieb Grant Higgs arxiv:1403.6519v1 Section 2, linear-order s stage SSP",
+        "web: classical Runge Kutta 4 positivity preserving graph Laplacian bipartite uniformization timestep nonnegative Markov chains"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1403.6519v1 (primary full text, first public date 2014-03-25)",
+      "doi:10.1016/j.apnum.2004.08.026 (primary full text, available online 2004-10-27)",
+      "doi:10.1016/S0168-9274(98)00050-6 (primary full text, 1998 publication)",
+      "published-finding corpus search hits 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8, 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously established C=1 theorem implies T_s(h)>=0 when h<=1/d. It does not imply that any given regular bipartite graph loses entrywise positivity immediately above 1/d: such a per-graph necessity requires the exact zero of (A^s)_uv and positivity of (A^(s-1))_uv.",
+        "The fixed-network witness yields T_s(h)_uv<0 for every h>1/d, proving no re-entrant positivity, an assertion absent from the inspected generic SSP bounds.",
+        "The graph diameter and bipartite parity hypotheses are essential to produce the pair; K2 with s=4 has positivity at h=6/(5d)>1/d, showing the generic C=1 bound alone does not force the exact threshold."
+      ],
+      "reasoning": "A broad method coefficient bound and the graph-specific exact interval are not equivalent: classwise sharpness proves some generator fails, but not all sufficiently large-diameter regular bipartite networks. This proof supplies the graph-sensitive implication via shortest paths and parity.",
+      "searches": [
+        "arxiv:1403.6519v1 lines 97-120, s-stage linear-order s SSP coefficient one",
+        "Horvath 2005 doi:10.1016/j.apnum.2004.08.026 pp.345-350",
+        "Horvath 1998 doi:10.1016/S0168-9274(98)00050-6 pp.319-325",
+        "published-finding corpus: Explicit Runge Kutta classical Taylor stability polynomial positivity radius graph diffusion bipartite graphs diameter length s"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gottlieb--Grant--Higgs arxiv:1403.6519v1 Sec.2 gives generic linear-order-s SSP sufficiency C=1, not a per-graph negative transition witness.",
+        "published-finding corpus nearest: 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8: different Lanczos approximation and active-eigenvalue condition.",
+        "Horvath 2005 doi:10.1016/j.apnum.2004.08.026 Secs.2-4 studies general RK positivity classes and invariant cones."
+      ],
+      "reasoning": "Equivalent descriptions in terms of a graph-specific Markov semigroup, Taylor stability polynomial, positivity radius and explicit Runge--Kutta linear order were searched. The generic C=1 lower bound is stronger on method class but does not imply exact saturation on each fixed regular bipartite graph. A path-gap witness must be separately proved, as done in the proposed theorem.",
+      "searches": [
+        "published-finding corpus: Taylor polynomial order s of Markov graph Laplacian entrywise nonnegative exactly until inverse degree bipartite graph distance s-1",
+        "published-finding corpus: Regular bipartite graphs order independent sharp positivity step bound matrix Taylor exponential",
+        "web: \"Runge Kutta\" \"bipartite graph\" \"positivity\" step size",
+        "arxiv:1403.6519v1 Section 2 linear-order-s SSP coefficient one"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit in these actual semantic searches reports the Taylor-walk gap identity or the all-order regular-bipartite classification.",
+        "prior research records closest numerical diffusion results concern Crank--Nicolson and diagonal Pade/Gauss--Legendre updates, rather than Taylor-exponential stability polynomials.",
+        "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns [2/2] Pade positivity and a pure-birth witness."
+      ],
+      "reasoning": "Neither exact-table overlap nor an equivalently stated or stronger graph-Taylor entrywise positivity theorem was found. This is a bounded empirical comparison, not a formal proof of novelty.",
+      "searches": [
+        "published-finding corpus: Sharp positivity timestep for truncated exponential Runge Kutta Taylor scheme on regular bipartite graphs diameter order minus one graph Laplacian CFL",
+        "published-finding corpus: Markov chain uniformization truncated Taylor series graph distance positivity finite timestep",
+        "web: \"Taylor\" \"bipartite\" \"positivity\" \"Runge-Kutta\" \"diameter\""
+      ]
+    },
+    "rationale": "Known SSP and positivity radius theory includes the coefficient-one bound for linear-order-s, s-stage Taylor stability polynomials; that sufficient bound is credited rather than treated as original. Inspected primary papers do not state the universal fixed-graph necessity certificate defined by a missing length-s walk following a shortest length-(s-1) path, nor the consequent exact positivity interval on every regular bipartite graph of sufficient diameter. Search and primary-paper comparisons were substantive but cannot guarantee exhaustive historical novelty.",
+    "residual_risks": [
+      "Unindexed, inaccessible, or differently termed graph-specific SSP/Taylor positivity literature could independently contain the path-parity criterion.",
+      "This is not a necessary characterization for graphs without a walk gap; outside the theorem domain some positivity horizons exceed 1/d.",
+      "Primary linear-order-s SSP sufficiency is previously known and is not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides known classwise sufficient bound and optimal SSP coefficient; does not give fixed graph path-gap exact necessity",
+        "evidence": [
+          "arxiv:1403.6519v1 Sec.2, eqs. for s-stage linear-order-s methods and C=1",
+          "arxiv:1403.6519v1 introduction comparing general nonlinear SSP restrictions"
+        ],
+        "identifier_or_url": "arxiv:1403.6519v1; https://arxiv.org/html/1403.6519v1",
+        "material_read": "Full accessible HTML, introduction, Sec.2 canonical linear-order s stage construction and SSP coefficient one, Sec.3 order conditions, Sec.4 tabulated methods, conclusions and references",
+        "method": "arXiv primary full text HTML",
+        "title": "Optimal Explicit Strong Stability Preserving Runge--Kutta Methods with High Linear Order and optimal Nonlinear Order",
+        "trigger": "Closely relevant high linear order SSP positivity and possible implication of lower bound"
+      },
+      {
+        "assessment": "Universal positive-IVP classes and invariant vector cones are covered; no constant-rate bipartite walk gap condition or all-order fixed-network negative-entry identity",
+        "evidence": [
+          "Horvath (2005) page 345 Proposition 3 and Theorem 4, positivity thresholds",
+          "page 348 Theorem 8 sharpness on test problem sets",
+          "pages 352-354 Theorem 17 on invariant cones"
+        ],
+        "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+        "material_read": "Complete 16-page authorized full text; especially Theorem 4, Theorem 8, sections on classwise strict thresholds, Section 4 and references",
+        "method": "Authorized full-text PDF extract after arXiv/open-access full-text attempts did not yield paper",
+        "title": "On the positivity step size threshold of Runge--Kutta methods",
+        "trigger": "Plausible general RK positivity theorem dominating proposed statement"
+      },
+      {
+        "assessment": "Absolute monotonicity and positive IVP class threshold theory, but no path-parity certification of individual graph horizons",
+        "evidence": [
+          "Horvath (1998) pages 321-324, Theorems 5, 6, 7, classical positivity radii and thresholds"
+        ],
+        "identifier_or_url": "doi:10.1016/S0168-9274(98)00050-6",
+        "material_read": "Complete 18-page authorized full text, Sections 3 to 5, Theorems 5 to 7 and references",
+        "method": "Authorized full-text PDF extract after arXiv/open-access full-text attempts did not yield paper",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Original positivity radius theorem cited by Horvath (2005)"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c9867ce-7a18-46b1-8c12-0b38d95c0f48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers a concrete numerical safety question for graph diffusion: increasing the formal linear Taylor order cannot extend the exact nonnegative-transition timestep on any weighted constant-rate bipartite graph with sufficient diameter. The sharpness certificate is a natural graph-distance/parity condition, not a handpicked finite graph or unmotivated numerical parameter. It yields explicit failing entries, applies to weighted hypercubes/cycles/regular bipartite networks, and contrasts with known generic SSP sufficient bounds and potentially larger spectral-stability intervals. The limitation to the walk-gap domain is explicit.",
+    "status": "PASS"
+  }
+}

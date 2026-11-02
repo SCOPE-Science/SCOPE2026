@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The structural interval-growth argument converts a first legal force into a complete forcing chronology. Interior first-force witnesses require exactly \(2k\) prescribed initially blue vertices, and their support families have exactly \((2k-1)(n-2k)+1\) elements. Disjoint support families give the Poisson factorial moments; overlapping families have at least one additional occupied site and vanish at the prescribed scaling. A boundary union bound and an omitted-site union bound connect those motifs to actual zero forcing. Exhaustive finite forcing simulations and a separate weighted finite-state probability computation agree with the claimed ingredients.
+
+**Originality — PASS, qualified.** The graph-power paper establishes the numerical minimum, not random-set limits. The random-set paper establishes a general model and threshold comparisons, not the particular path-power constant. The outerplanar paper is about optimal sizes and chronologies. A prior exact minimum-set classification concerns seed sets of the smallest cardinality; these are negligible in the new critical window, where translated \(2k\)-site interior triggers govern the probability. No covering equivalent was located in the stated searches. Standard Poisson convergence of rare local patterns is acknowledged; the graph-specific classification and trigger sufficiency are essential additional ingredients. Historical indexing gaps and possibly different terminology remain residual risks.
+
+**Mathematical value — PASS.** Random-seed success is a natural quantitative question for zero forcing, and graph powers are a current focus. The result supplies a sharp critical exponent, an explicit nontrivial all-\(k\) limiting curve, and a precise half-success threshold constant rather than an optimal deterministic seed size or a generic one-sided bound. Counting distinct supports instead of the number of nominal first-force descriptions is mathematically necessary to obtain the correct constant.
+
+**Limitations.** Fixed \(k\), independent uniform Bernoulli seeds and path powers only; finite experiments do not certify limiting laws; historical priority and independent assessment remain open.
+
+Self-review: passed. Independent audit: not yet performed.

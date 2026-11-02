@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For all n>=k+2, one legal first force makes the complete closed neighborhood of its source blue; an interior interval of width 2k+1 can grow to an endpoint, and a blue prefix/suffix of length >=k+1 then grows to the opposite endpoint. Interior triggering supports are 2k-subsets of a 2k+1 consecutive window omitting a noncentral vertex: 2k-2 distinct internal-hole shifts plus one class of consecutive blocks. The count is (2k-1)(n-2k)+1. Factorial-moment overlaps occupy at least 2k+1 blue sites per nontrivial overlap component and contribute o(1) when p=c n^(-1/(2k)). A boundary-force error O_k(p^k) and missing-site error O_k(n p^(2k+1)) vanish. Full brute-force simulation compared 24456 initial assignments with an independently written first-force checker. Direct motif census matched 20 parameters. A distinct weighted finite-state enumeration produced three probabilities approaching the rigorously proven square-path limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.03892 Proposition 7 proves Z(P_n^k)=k, with a first-k-consecutive construction; it does not prove random initial-set success limits.",
+        "arXiv:2208.12899 Theorem 1.4 gives a general lower threshold bound, and its Section 2 discusses graph families, but no exact all-power Poisson crossover.",
+        "arXiv:2610.31138 computes deterministic outerplanar forcing numbers and chronologies."
+      ],
+      "reasoning": "A minimum number of seeds or one-sided universal random-set bound does not determine the density of interior 2k-site forcing motifs or their asymptotic Poisson law. General rare-pattern theory still needs the new exact graph-specific equivalence and motif classification.",
+      "searches": [
+        "The Zero Forcing Number of Graph Powers arXiv 2610.03892 Abiad Flagg Ghasemi Zeijlemaker Bernoulli random initial sets Poisson critical limit",
+        "Zero Forcing with Random Sets Curtis Gan Haddock Lawrence Spiro 2208.12899 path power threshold",
+        "arXiv:2610.03892 Proposition 7",
+        "arXiv:2208.12899 Sections 1–6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03892 (primary full text)",
+      "arXiv:2208.12899 (primary full text)",
+      "arXiv:2610.31138 (primary full HTML)",
+      "MDPI 2025 failed skew path powers (introduction and Section 2)",
+      "arXiv:1801.08910 (abstract and secondary reference only)",
+      "closest indexed published-finding corpus 2026/9/17/SCOPE002",
+      "closest indexed published-finding corpus 2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283",
+      "historical claim 816bf7a1-0356-40ed-bd67-43aad26d08bb (minimum path-power forcing sets)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The nearest accessible historical claim 816bf7a1-0356-40ed-bd67-43aad26d08bb classifies 2k minimum forcing seeds of P_n^k (and minimum cycle-power sets), not Bernoulli probability laws.",
+        "Even though minimum cardinality is k, the sharp random threshold is driven by O(n) interior configurations each using 2k blue sites; seed sets of cardinality k do not determine their count."
+      ],
+      "reasoning": "Neither deterministic minimum-set enumeration nor a general lower threshold inequality entails the present constant 2k-1. The new proof identifies a different contributing event family and explicitly accounts for duplicate forcing witnesses.",
+      "searches": [
+        "zero forcing polynomial path powers P_n^k strong structural one-step all zero forcing sets",
+        "minimum zero forcing sets k-th power path P_n^k count 2k",
+        "arXiv:2610.03892 Proposition 7",
+        "arXiv:2208.12899 Theorem 1.4 and Sections 2–4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches for Bernoulli seeding, Poisson thresholds, and powers of paths did not return an indexed statement of the (2k-1)-parameter limiting curve.",
+        "Full arXiv:2208.12899 states the random-set model and an ordinary-path threshold but does not treat path powers by the Poisson constant."
+      ],
+      "reasoning": "The claim is invariant under the equivalent formulations of random initial blue sets and Bernoulli random zero forcing, or independent site occupation. Its precise comparison target is the all-k limit 1-exp(-(2k-1)c^(2k)), not merely Z(P_n^k)=k.",
+      "searches": [
+        "random zero forcing path powers P_n^k Bernoulli p critical n^(-1/2k) probability limit Poisson 2k-1",
+        "sharp threshold zero forcing random subsets powers of paths local forcing pattern Poisson",
+        "random initial zero forcing path square probability limit 1-exp(-3c^4)",
+        "web search: \"random set zero forcing\" \"path powers\"",
+        "web search: \"zero forcing\" \"P_n^k\" \"Poisson\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical-record results include 2026/9/17/SCOPE002 (coefficientwise zero-forcing path extremality) and 2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283 (a different graph family).",
+        "No indexed exact numerical table or formula covering the claimed all-k critical-window constant was returned."
+      ],
+      "reasoning": "The nearby records concern ordinary path extremality or fan-graph all-cardinality seed polynomials; neither gives probability limits on powers of paths. The absence of matching indexed records is not by itself a uniqueness proof.",
+      "searches": [
+        "minimal local forcing motifs path powers Bernoulli 2k minus 1 rare Poisson onset exact constant",
+        "powers of paths P_n^k zero forcing set iff an initial force exists complete polynomial closed neighborhood all initial seeds",
+        "published-finding corpus semantic search: random zero forcing path powers P_n^k Bernoulli p critical n^(-1/2k) probability limit Poisson 2k-1"
+      ]
+    },
+    "rationale": "The closest primary graph-power result gives only minimum seed cardinality, and the random-set paper gives general comparisons and the ordinary path threshold, not the complete distributional law for all fixed path powers. An accessible earlier exact optimal-set classification only describes smallest-cardinality seed sets, whereas the new critical window arises from a linear number of distinct 2k-site interior trigger supports. The standard rare-local-pattern Poisson principle does not itself establish the structural first-force equivalence or the model-dependent exact constant. No equivalent was located in the reported literature and mathematical-record searches; index and alias gaps remain possible.",
+    "residual_risks": [
+      "Older sparse-pattern Poisson results could implicitly cover these exact graph motifs under different terminology.",
+      "The full 2018 zero forcing polynomial manuscript was not comprehensively reexamined in this round.",
+      "Mathematical-record indexing and inaccessible preprints may hide equivalent statements; no historical priority certificate or independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets the known deterministic cardinality baseline; no Poisson Bernoulli critical window in the inspected manuscript",
+        "evidence": [
+          "Proposition 7: Z(P_l^k)=k and M(P_l^k)=k for l>=k+2",
+          "Proposition 6 builds a forcing sequence from the first k vertices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03892",
+        "material_read": "Full text presented in the arXiv abstract/HTML-equivalent rendering, including introduction, Section 3 and Propositions 6–8, and references",
+        "method": "Examined theorem hypotheses, proof of path-power minimum and sections on graph powers; searched for random forcing",
+        "title": "The Zero Forcing Number of Graph Powers",
+        "trigger": "Same path powers and ordinary zero forcing; source date 2026-10-02"
+      },
+      {
+        "assessment": "Defines model and broadly bounds thresholds; no exact Poisson law for path powers",
+        "evidence": [
+          "Introduction defines B_p(G) with independent vertex selection",
+          "Proposition 2.3 and introductory discussion give ordinary path threshold order n^-1/2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.12899",
+        "material_read": "Full primary-text rendering, including Sections 1–6, general probability and threshold claims, and path discussion",
+        "method": "Examined Theorem 1.4, Proposition 2.3, Section 2 and the conclusion; searched for path powers and Poisson",
+        "title": "Zero Forcing with Random Sets",
+        "trigger": "Precisely defines the random initial-blue-set model"
+      },
+      {
+        "assessment": "Only deterministic minimum/chronology optimization; not random initial-set laws",
+        "evidence": [
+          "Section 1: if weak dual is a path, Z(G)=2",
+          "Main formula optimizes selected forest connections and repair costs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31138v1",
+        "material_read": "Full HTML sections 1–7 plus algorithmic appendix and references",
+        "method": "Compared statement and scope of its capacity and phase-repair formula",
+        "title": "Zero forcing on maximal outerplanar graphs: capacities and phase repair",
+        "trigger": "Square paths are a natural maximal outerplanar example"
+      },
+      {
+        "assessment": "Rule and invariant differ; cannot directly imply ordinary random-set Poisson critical curve",
+        "evidence": [
+          "Paper distinguishes skew from ordinary rule and investigates maximum failed skew seed sizes"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2673-9909/5/2/32",
+        "material_read": "Article introduction and Section 2 available in the open text",
+        "method": "Compared skew force rule and failure extremum to ordinary Bernoulli all-forcing event",
+        "title": "Failed Skew Zero Forcing Numbers of Path Powers and Circulant Graphs",
+        "trigger": "Explicitly studies powers of paths and a failure variant"
+      },
+      {
+        "assessment": "Framework and other graph families; residual risk that related coefficients could be hidden in inaccessible sections",
+        "evidence": [
+          "2018 abstract introduces the zero forcing polynomial and studies several graph families"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+        "material_read": "Abstract and bibliographic summary of the 2018 work; complete manuscript not rechecked for this comparison",
+        "method": "Checked identified graph families and polynomial framework via accessible summary and citations in 2022 paper",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "General counting baseline and terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29658af8-c0ee-4840-80ff-c8ef1c9c2f68",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Random-set zero forcing is a motivated threshold problem, and zero forcing of graph powers has an active 2026 primary literature. This result determines the exact finite-size scaling window, the limiting distribution and the half-success constant for every fixed k>=2, rather than only deterministic minimum size or a rough threshold. The exact (2k-1)-motif explanation resolves a nontrivial double-counting of adjacent first-force events, and its proof supplies a structural deterministic equivalence useful for other seed distributions.",
+    "status": "PASS"
+  }
+}

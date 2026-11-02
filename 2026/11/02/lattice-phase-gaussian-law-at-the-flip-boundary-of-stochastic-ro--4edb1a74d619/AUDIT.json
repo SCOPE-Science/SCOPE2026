@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "The common-uniform coupling gives exact W1 contraction q; the exact state-dependent rounding variance and periodic Lipschitz identity give the uniform phase bound. The stationary martingale difference expansion has max increments tending to zero, predictable conditional variance converging in L1 to psi(2 theta), and a negligible remote initial state, establishing the Gaussian limit. The half-grid Bernoulli invariant law and time covariances follow exactly. The independent finite-state verifier passed 160 exact-rational and 9 floating-point test groups; these are additional checks, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xia et al., arXiv:2202.12276, Sections 2–4, analyzes low-precision gradient descent stochastic rounding and stagnation/convergence but not invariant laws near a step-size flip.",
+        "Weiß–Zhu, arXiv:2402.15772, Sections 3.2–3.3, derives general stationary existence and ARMA moment bounds, not a near-unstable diffusion/phase limit.",
+        "Connolly–Higham–Mary, doi:10.1137/20M1334796, studies unbiased stochastic rounding error independence and general probability bounds rather than this stationary scaling law."
+      ],
+      "reasoning": "General convergence or stationarity theorems for related integer models can imply existence or coarse variance bounds but do not specify the lattice-phase constant, the Gaussian limit with the exact normalization, or its exceptional phase. A broad martingale CLT alone requires an additional state-dependent predictable-bracket calculation proven here.",
+      "searches": [
+        "Stochastic rounding fixed-point gradient descent scalar quadratic stationary variance Gaussian half-grid exceptional cancellation",
+        "unbiased stochastic rounding affine fixed point on integer grid overrelaxed gradient descent stationary Gaussian limit as relaxation approaches two",
+        "rounding innovation fractional phase noise at near negative one autoregressive coefficient variance resonance at half-grid",
+        "mean preserving stochastic rounding negative coefficient autoregressive process near unit root stationary Gaussian variance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2202.12276",
+      "https://arxiv.org/abs/2207.10321",
+      "https://arxiv.org/abs/2402.15772",
+      "https://www.researchgate.net/publication/236616464_Random_rounded_integer-valued_autoregressive_conditional_heteroskedastic_process",
+      "https://www.researchgate.net/publication/46537819_First-order_rounded_integer-valued_autoregressive_RINAR1_process",
+      "https://link.springer.com/article/10.1007/s10589-025-00656-1",
+      "doi:10.1137/20M1334796"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Weiß–Zhu (2024) equation (3.4) already provides ARMA Yule–Walker autocovariance recursion, so the present geometric autocorrelation is acknowledged as previously structurally available.",
+        "Liu–Yuan (2013), Proposition 1 already gives conditional mean-preservation and minimal one-step conditional rounding variance.",
+        "Xia et al. (2022) gives convergence and expected error analyses on low-precision gradient descent without stationary near-flip rescaling."
+      ],
+      "reasoning": "The claim is *not* originality of mean-preserving rounding, stationary existence, or generic AR autocorrelation. Its additional assertion is a specific uniform phase bound sufficient to prove stationary Gaussian rescaling and a sharp interior phase dichotomy. The inspected earlier statements do not imply those exact asymptotics without the new phase and martingale-quadratic-variation argument.",
+      "searches": [
+        "Mean-preserving rounded ARMA near negative unit root stochastic rounding lattice half-integer resonance stationary Gaussian limit",
+        "Stochastic rounding fixed-point gradient descent scalar quadratic stationary variance Gaussian half-grid exceptional cancellation",
+        "stochastic rounding fixed point contraction affine iteration negative relaxation factor near minus one quantization noise variance blows up resonance fractional part 2x star",
+        "\"Mean-preserving rounding integer-valued ARMA models\" pdf preprint Weiss Zhu 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Weiß–Zhu, arXiv:2402.15772, Sections 2–3, gives the same mean-preserving nearest-integer rounding operator, generic stationary integer ARMA conditions and conditional-variance/autocorrelation formulas.",
+        "Liu–Yuan (2013), Section 1.2, defines the identical first-order unbiased rounding operator but its RRINARCH model adds a separate heteroskedastic innovation.",
+        "Kachour–Yao (2009) defines deterministic rounded AR with separate integer innovations, which is not the proposed stochastic full-step kernel."
+      ],
+      "reasoning": "The update is an affine integer autoregression with a state-dependent two-point noise, hence generic integer AR theory overlaps basic uniqueness and covariance identities. The inspected close primary sources do not give a family indexed by q approaching -1 with phase psi(2 theta), its Gaussian stationary rescaling, or the unique bounded-variance half-grid exception. These constitute the assessed new core; familiar basic rounding formulas are explicitly excluded from novelty.",
+      "searches": [
+        "Mean-preserving rounded ARMA near negative unit root stochastic rounding lattice half-integer resonance stationary Gaussian limit",
+        "Unbiased stochastic rounding near flip parameter minus-one unit root Gaussian invariant law fractional-part intercept",
+        "stochastic rounding fixed point contraction affine iteration negative relaxation factor near minus one quantization noise variance blows up resonance fractional part 2x star",
+        "Stochastic rounding negative autoregressive coefficient -q affine fixed point integer lattice stationary variance near q=1",
+        "\"Mean-preserving rounding integer-valued ARMA models\" pdf preprint Weiss Zhu 2024"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved published note on negative-slope quantized affine contractions studies deterministic floor maps and periodic basins, not random rounding.",
+        "A retrieved published note on reflection with minibatch noise addresses additive-noise algorithmic schemes, not lattice phase of state-dependent rounding.",
+        "Weiß–Zhu, arXiv:2402.15772, Example 3.3.2 numerically tabulates finite-parameter stationary PMFs for its AR model with Skellam innovations, not a q-to-one half-grid classification."
+      ],
+      "reasoning": "No exact table or published record among these targeted searches gives the stated near-flip Gaussian variance phase or the half-grid Bernoulli resonance. A missing result from a finite search is not proof of priority; residual risks are recorded.",
+      "searches": [
+        "Mean-preserving rounded ARMA near negative unit root stochastic rounding lattice half-integer resonance stationary Gaussian limit",
+        "Unbiased stochastic rounding near flip parameter minus-one unit root Gaussian invariant law fractional-part intercept",
+        "Stochastic rounding fixed-point gradient descent scalar quadratic stationary variance Gaussian half-grid exceptional cancellation",
+        "stochastic rounding fixed point contraction affine iteration negative relaxation factor near minus one quantization noise variance blows up resonance fractional part 2x star",
+        "integer valued rounded autoregression invariant distribution asymptotic near negative unit root stochastic rounding"
+      ]
+    },
+    "rationale": "Credited earlier results include mean-preserving integer rounding (Liu–Yuan 2013; Weiß–Zhu 2024), AR covariance structure (Weiß–Zhu 2024) and stochastic-rounding GD convergence (Xia et al. 2022). Full-text comparisons and targeted published-result searches did not yield the uniform fractional-phase near-minus-one variance law, Gaussian stationary rescaling and unique half-grid exception as a claimed implication or table. Generic martingale CLT is not a novelty claim. Priority remains qualified by residual specialized near-unit-root literature risk.",
+    "residual_risks": [
+      "An equivalent near-negative-unit-root theorem could exist in specialized integer autoregressive/rounded time-series publications outside the inspected corpus.",
+      "Related 2024 mean-preserving ARMA theory is close to the model; it already covers generic stationarity and autocorrelation, and independent expert verification is needed to establish publication priority.",
+      "The result concerns ideal unbiased final-step rounding; it does not imply actual IEEE floating-point behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivating source covers stochastic rounding of gradient descent and convergence, not the near-flip invariant Gaussian or half-grid phase",
+        "evidence": [
+          "Source public date 2022-02-24, arXiv:2202.12276",
+          "Sections 2–4 identify rounding schemes and monotonicity/convergence statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.12276",
+        "material_read": "Accessible full arXiv HTML: Sections 1–2, the listed theorem summaries, and the overview of convergence results",
+        "method": "Read the primary arXiv HTML and inspect the listed theorems/definitions rather than title-only",
+        "title": "On the influence of stochastic roundoff errors and their bias on the convergence of the gradient descent method with low-precision floating-point computation",
+        "trigger": "Direct gradient descent under stochastic rounding, earliest motivating 2022 public source"
+      },
+      {
+        "assessment": "Covers the same unbiased rounding rule and stationary/covariance theory, so those elements are credited. No near-minus-one stationary Gaussian scaling or exceptional half-grid phase appears in inspected results; its AR model generally rounds a linear combination and adds an integer innovation rather than rounding the entire noninteger affine map.",
+        "evidence": [
+          "arXiv:2402.15772, equations (2.4), (3.1), (3.4), (3.6), and Example 3.3.2",
+          "First posted 2024-02-24"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.15772",
+        "material_read": "Full HTML, Sections 2, 3.1–3.3, Examples 3.3.1–3.3.2, Section 4 and appendix B proof outline",
+        "method": "Inspected arXiv primary full HTML for conditional variance, stationarity, AR structure, numerical examples and limiting claims",
+        "title": "Mean-preserving rounding integer-valued ARMA models",
+        "trigger": "Highly relevant alias: same rounding operator, integer state space, negative autoregressive coefficient"
+      },
+      {
+        "assessment": "First-order random rounding and general stationary AR theory overlap the basic methodology; its separate noise and fixed-parameter framework do not state the precise near-flip stationary phase law",
+        "evidence": [
+          "Liu–Yuan, Statistical Papers 54 (2013), 645–683",
+          "Section 1.2 defines the first-order unbiased rounding operator; equation (1.7) adds innovations"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/236616464_Random_rounded_integer-valued_autoregressive_conditional_heteroskedastic_process",
+        "material_read": "Author-uploaded full text, Sections 1.2–1.3 and opening of Section 2, including equations (1.1), (1.5)–(1.7) and Proposition 1",
+        "method": "Read the full-text HTML text of the author-provided article and compared its operator and explicit innovation structure",
+        "title": "Random rounded integer-valued autoregressive conditional heteroskedastic process",
+        "trigger": "Early primary article with probabilistic integer rounding and negative autoregressive dependence"
+      },
+      {
+        "assessment": "Martingale error-analysis methods, but no exact near-flip stationary Gaussian lattice phase",
+        "evidence": [
+          "Public arXiv date 2022-07-21",
+          "General stochastic rounding variance/bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.10321",
+        "material_read": "Primary HTML including Sections 2.3 and 3 and probabilistic bounds",
+        "method": "Read primary arXiv full-text HTML including rounding variance arguments",
+        "title": "Stochastic rounding variance and probabilistic bounds: A new approach",
+        "trigger": "Foundational stochastic rounding martingale error calculations"
+      },
+      {
+        "assessment": "Uses deterministic rounding with independent innovations; not the same one-step state-dependent unbiased rounding kernel",
+        "evidence": [
+          "Kachour–Yao (2009), deterministic rounded AR model"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/46537819_First-order_rounded_integer-valued_autoregressive_RINAR1_process",
+        "material_read": "Author-accessible full-text HTML, model definition in Section 2 and introduction",
+        "method": "Compared stochastic versus deterministic rounding definitions and innovation specifications",
+        "title": "First-order rounded integer-valued autoregressive (RINAR(1)) process",
+        "trigger": "Possible earlier same-object integer rounded AR prior art"
+      },
+      {
+        "assessment": "Convergence under regular steps, not a near-flip stationary Gaussian limit; subsequent 2025 publication is not used to set the first public motivating date",
+        "evidence": [
+          "Xia et al., Computational Optimization and Applications (2025), online 2025-02-11"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10589-025-00656-1",
+        "material_read": "Accessible complete HTML with introductory claims, problem formulation and stated step assumptions",
+        "method": "Inspected full source text for stationary laws and overrelaxation treatment",
+        "title": "On the convergence of the gradient descent method with stochastic fixed-point rounding errors under the Polyak–Łojasiewicz inequality",
+        "trigger": "Recent highly relevant fixed-point stochastic-rounding GD study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4edb1a74-d619-49d2-8fb9-a256f66db22b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This supplies a motivated numerical-stability boundary with exact fractional-grid phase, Gaussian error scale and a unique bounded-variance resonance. It shows that stationary iterate risk can diverge near the exact-gradient flip boundary while sample-average variance remains finite because of negative temporal correlations; the exact result can calibrate an idealized stochastic-rounding solver and separate grid alignment effects from ordinary convergence bounds.",
+    "status": "PASS"
+  }
+}

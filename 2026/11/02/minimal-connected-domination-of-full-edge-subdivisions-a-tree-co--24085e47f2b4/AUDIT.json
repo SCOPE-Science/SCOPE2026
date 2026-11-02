@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Necessary and sufficient connected-domination and inclusion-minimality arguments give an explicit bijection for every finite connected simple base graph of order at least three. The selected originals form a connected vertex cover, internal selected subdivision vertices form a spanning tree, each omitted original gets one boundary selected subdivision vertex, and tree leaves require an external neighbor. The singleton star and two-vertex exceptions are handled separately. The matrix-tree/rank-one determinant calculation yields the all-parameter Stirling counts. Direct independent graph-level exhaustive tests recovered the exact sets on 47 general base graphs and the exact coefficient distributions on seven complete-bipartite cases (1,280,106 tested subsets), with 144 further arithmetic parameter cases. Finite checks are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abu-Khzam et al., arXiv:2205.00086: enumeration algorithms and maximal counts including 2-degenerate graphs, without this stated exact coefficient formula.",
+        "Lokshtanov--Pilipczuk--Saurabh, arXiv:1611.00840: exponential upper bound for number of minimal connected dominating sets, not an identity for the full-subdivision class.",
+        "Sayadi, arXiv:1908.02174: algorithms for convex bipartite graphs, no general base-graph tree-cover correspondence."
+      ],
+      "reasoning": "General enumeration algorithms can in principle list the sets and compute these numbers, but their published bounds do not explicitly give the coefficient formula or tree-cover bijection. A generic computable enumeration is not the exact all-parameter polynomial. Stronger known graph-class bounds do not logically determine labeled cardinality counts for the specified incidence family.",
+      "searches": [
+        "minimal connected dominating sets of subdivision graphs spanning trees and connected vertex covers",
+        "minimal connected dominating sets subdivision complete graphs incidence graph all subdivisions enumeration",
+        "\"minimal connected dominating\" \"subdivided\" \"K_2\"",
+        "arXiv:2205.00086 Sections 2-6, algorithms and sparse graphs",
+        "arXiv:1611.00840 abstract general minimal connected dominating set upper bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.00086 (open full text)",
+      "DOI:10.4230/LIPIcs.ESA.2022.1 (same-paper open conference version metadata)",
+      "arXiv:1908.02174 (open full text)",
+      "arXiv:1611.00840 (abstract/record)",
+      "Previously recorded mathematical claims on rook-graph minimal connected domination and subdivision ordinary/independent domination",
+      "Semantic mathematical-record searches for full subdivisions, incidence graphs, tree cover, biclique, and Stirling variants",
+      "Web searches for exact polynomial and sequence/table variants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier rook-graph theorem counts minimal connected dominating sets of a different graph construction; only a degree-constrained bipartite spanning-tree subcount overlaps.",
+        "Ordinary/independent domination on subdivided graphs does not impose a connected induced subgraph and therefore does not supply the tree/leaf/minimality condition.",
+        "A previously indexed complete-bipartite spanning-tree-type result counts tree isomorphism classes rather than labeled minimal connected dominating sets of subdivided graphs."
+      ],
+      "reasoning": "Neither ordinary nor independent domination equals connected domination. Counting spanning trees of K_{a,q} with degree restrictions is a shared component, but determining which original vertices are selected and how each omitted vertex is uniquely attached requires the new correspondence. The sparse two-spike cardinality spectrum is not an immediate corollary of earlier rook-graph cardinality data.",
+      "searches": [
+        "previous mathematical result: exact minimal connected-domination polynomial of rook graphs K_a square K_b",
+        "previous mathematical result: ordinary domination polynomial of full edge subdivisions",
+        "previous mathematical result: independent domination polynomial of full edge subdivisions",
+        "quasipolynomial spanning-tree isomorphism-class counts for fixed-side complete bipartite graphs",
+        "\"minimal connected dominating sets\" \"subdivision\" \"complete bipartite\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2205.00086 (general and 2-degenerate enumeration, not a subdivision tree-cover bijection)",
+        "arXiv:1908.02174 (convex bipartite algorithms, not a structural subdivision bijection)",
+        "Closest earlier rook-graph calculation: degree-restricted spanning trees only; its ground graph is a Cartesian product, not a full edge subdivision."
+      ],
+      "reasoning": "The proposed exact triple uses a connected vertex cover of the unsubdivided base, a spanning tree with every leaf externally exposed, and one boundary edge per omitted original vertex. Rephrasing the subdivision as an incidence graph does not supply the triple or its universal uniqueness. The earlier rook-graph result shares the Stirling tree-count kernel but has a different counted set family and lacks the external-boundary assignment factor; it does not imply this theorem.",
+      "searches": [
+        "minimal connected dominating sets subdivision complete graphs incidence graph all subdivisions enumeration",
+        "minimal connected dominating sets of subdivision graphs spanning trees and connected vertex covers",
+        "connected dominating set polynomial subdivision complete graphs Cayley tree",
+        "Connected vertex covers spanning trees leaf outside vertex cover incidence subdivided graphs exact minimal connected dominating sets",
+        "\"minimal connected dominating sets\" \"subdivision graph\" spanning tree",
+        "\"connected domination\" subdivision graph vertex cover spanning tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact indexed entry was identified for the two-term labeled polynomial of the full subdivision of K_{2,b}.",
+        "The exact previous rook-graph enumeration concerns K_a square K_b, not the incidence bipartite full subdivision."
+      ],
+      "reasoning": "The two nonzero degrees and their coefficients were checked against targeted polynomial and sequence terms; a match on a shared Stirling function or on general subgraph counts alone is not an exact match of the claimed polynomial. Absence of an indexed match is not proof of first discovery.",
+      "searches": [
+        "site:oeis.org \"minimal connected dominating sets\" \"subdivision\"",
+        "\"minimal connected dominating sets\" \"subdivision of complete bipartite\"",
+        "\"minimal connected dominating\" \"K_2,n\" subdivision",
+        "Minimal connected dominating set polynomial of full subdivision of complete bipartite graphs K_{a,b} with Stirling surjection numbers and size gaps",
+        "Upper connected domination number of S(K2,n) and two cardinality strata gap"
+      ]
+    },
+    "rationale": "Compared exact mathematical implications against arXiv:2205.00086, 1908.02174, 1611.00840, related published mathematical records, and recoverable preceding results. An earlier rook-graph polynomial uses the same tree enumerator, which is credited rather than claimed anew. It does not state the full-subdivision arbitrary-base tree-cover bijection, boundary-choice weights, or two-spike 2-degenerate incidence-graph spectrum. No equivalent implication found in the inspected material; originality remains provisional given unindexed work and limited inspection of one broad-bound source.",
+    "residual_risks": [
+      "A published or unindexed combinatorial-equivalence statement could imply the correspondence despite not matching search terminology.",
+      "The entire arXiv:1611.00840 full text was not read, although its stated results concern general bounds.",
+      "Earlier rook-graph work already supplies the Stirling spanning-tree kernel; the new claim is the full subdivision bijection and resultant spectrum, not that kernel.",
+      "No independent literature priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected results establish enumeration algorithms, lower bounds and complexity; no arbitrary-base full-subdivision tree-cover correspondence or exact Stirling polynomial is stated.",
+        "evidence": [
+          "arXiv:2205.00086 posted 2022-04-29; general enumeration runtime and 2-degenerate runtime are explicit in the abstract.",
+          "ESA 2022 proceedings DOI 10.4230/LIPIcs.ESA.2022.1, same-paper conference version."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.00086",
+        "material_read": "Accessible full-text introduction and enumeration, sparse-graph, hardness, and lower-bound sections",
+        "method": "Inspected primary openly accessible arXiv full text and arXiv publication record; matched statements, objects and parameters.",
+        "title": "Enumerating Connected Dominating Sets",
+        "trigger": "Direct treatment of the same inclusion-minimal connected-domination notion, including 2-degenerate graphs"
+      },
+      {
+        "assessment": "The work bounds/enumerates minimal connected dominating sets algorithmically for convex bipartite graphs, not the precise labeled full-subdivision coefficient polynomial.",
+        "evidence": [
+          "arXiv:1908.02174 posted 2019-08-06; stated scope is an input-sensitive algorithm and maximal-count bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.02174",
+        "material_read": "Accessible full-text introduction, structural discussion and algorithmic sections",
+        "method": "Inspected open arXiv full text and compared the mathematical object and output type.",
+        "title": "On the maximum number of minimal connected dominating sets in convex bipartite graphs",
+        "trigger": "Possible broader bipartite-class enumeration that could cover the subdivided biclique graph family"
+      },
+      {
+        "assessment": "An exponential upper bound and enumeration algorithm do not state the exact new labeled polynomial; incomplete full-text inspection is a residual risk.",
+        "evidence": [
+          "arXiv:1611.00840 posted 2016-11-02; abstract concerns at most O(2^((1-epsilon)n)) minimal connected dominating sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.00840",
+        "material_read": "ArXiv abstract and bibliographic record; full text not inspected",
+        "method": "Read primary abstract and publication metadata.",
+        "title": "Below all subsets for Minimal Connected Dominating Set",
+        "trigger": "Potential global upper-bound theorem or equivalence that could imply the special-family counts"
+      },
+      {
+        "assessment": "Shared bipartite spanning-tree kernel acknowledged; different graph and no implication of the full-subdivision structural bijection or boundary assignment factor.",
+        "evidence": [
+          "Rook graph K_a square K_b is the line graph of K_{a,b}; full subdivision of K_{a,b} is its incidence graph and is generally nonisomorphic.",
+          "Present polynomial weights each omitted original vertex by the count of selected incident boundary subdivision edges."
+        ],
+        "identifier_or_url": "a4248c05-14e3-4d39-bcde-a3be43481b6b",
+        "material_read": "Recoverable claim and mathematical comparison; earlier work not re-audited",
+        "method": "Compared ground graph operation, counted sets, coefficient implications, and parameters.",
+        "title": "Prior exact minimal connected-domination calculation on rook graphs",
+        "trigger": "The same Stirling degree-constrained spanning-tree kernel appears in its enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24085e47-f2b4-42dd-adc0-d3b3588edbe6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The general triple correspondence is an exact structural reduction between minimal connected domination of every full edge subdivision and degree-constrained spanning-tree counting over connected vertex covers. The complete-bipartite specialization determines all cardinality multiplicities. The K_{2,b} family yields connected bipartite 2-degenerate examples with only two minimal connected-domination sizes and a provably absent interval of length b-3. This sharply exposes a sparsity-vs-cardinality phenomenon and goes beyond minimum-value calculations or the preexisting rook-graph Stirling kernel.",
+    "status": "PASS"
+  }
+}

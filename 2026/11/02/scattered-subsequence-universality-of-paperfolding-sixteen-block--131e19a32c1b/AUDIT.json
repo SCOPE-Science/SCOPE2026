@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The theorem is an all-q induction: the 4 initial and 8 recurring bit contexts each admit exactly two six-symbol greedy paths to the block extremum, every other local path ends at most two symbols before the next block boundary, and low previous paths cannot catch up. The local lemma is a finite complete 64-input enumeration per case, reproduced by embedded checker.py; the final suffix 01 provides both possible appended letters from any nonterminal endpoint, while the 2^q paths at the final endpoint give exactly 2^(q+1) absent words. Exact greedy automata were separately checked for all 2^(2q-1) skeleton assignments for q<=5 and paperfolding ranks 4..10. Unbounded quantification depends on the proved induction, not finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 counts all binary words by universality index, which does not determine shortest-absent sets for the chosen words.",
+        "published-finding corpus 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 identifies Fibonacci extremal counts across all words of a given length, whereas this result gives exact counts throughout an explicit subfamily.",
+        "published-finding corpus 2026/9/8/SCOPE079 concerns minimal string attractors (contiguous factors) of short dyadic prefixes, not scattered subsequences."
+      ],
+      "reasoning": "Stronger generic algorithms could compute individual finite cases, but none of the checked claims logically contains the closed uniform 16-block formula or determines its precise shortest-absent count. No known broader structural theorem giving this special case was identified.",
+      "searches": [
+        "regular paperfolding sequence unbordered factors automatic word algorithm",
+        "paperfolding word universality index subsequences 3 times power of two greedy arches",
+        "paperfolding sequence absent scattered subsequences shortest missing subword length"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1208.2856 full PDF accessible; pp.1–5 materially read",
+      "arxiv:2108.13968 full PDF accessible; pp.1–5 materially read; searched paperfolding",
+      "published-finding corpus hits 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37, 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28, 2026/9/8/SCOPE079, 2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3",
+      "Earlier available mathematical findings on Cantor and Thue–Morse shortest-absent subsequences compared by implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Madill–Rampersad, arXiv:1208.2856, §§1–3, studies abelian factor-complexity of the infinite paperfolding word, with Toeplitz descriptions and 2-regular recurrences.",
+        "Kosche–Koß–Manea–Siemer, arXiv:2108.13968, §§1–3, provides general SAS/MAS definitions, combinatorial characterizations and algorithms but no paperfolding case (text search for paperfolding gave no match).",
+        "published-finding corpus 2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3 concerns prefix-normal defect, unrelated to scattered subsequence missing counts."
+      ],
+      "reasoning": "Abelian contiguous-factor counts, prefix-normal defect and string attractor sizes do not determine subsequence universality or the number of shortest absent scattered subsequences. General SAS characterization is not itself a special-formula result; the sixteen-bit finite-state barrier must be shown separately here.",
+      "searches": [
+        "paperfolding word scattered subsequence universality dyadic finite exact 6 per sixteen",
+        "paperfolding word minimal absent words factor complexity recurrence paperfolding sequence",
+        "paperfolding dyadic prefixes scattered subsequence universality index 3*2^(k-3) shortest missing words number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus hits 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 and 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 concern respectively the full population distribution of binary universality indices and an extremal number of shortest absent subsequences, not exact paperfolding/skeleton invariants.",
+        "Kosche et al., arXiv:2108.13968, §§1–3, defines arch-factorization and shortest absent subsequences and presents general structural characterizations."
+      ],
+      "reasoning": "Greedy-arch formulations and complementary paperfolding conventions were compared. The exact fixed-block map and double-exponential dyadic shortest-absent count are not statements supplied by generic arch theory; applying generic algorithms to exponentially growing paperfolding words would not directly imply a uniform symbolic formula.",
+      "searches": [
+        "paperfolding word universality index subsequences 3 times power of two greedy arches",
+        "regular paperfolding word dyadic prefix shortest absent scattered subsequences count 2^(2^(k-4)+1)",
+        "fixed 16-block binary words 1101100x1100100y subsequence universality shortest absent 6q 2^(q+1)",
+        "paperfolding sequence absent scattered subsequences shortest missing subword length",
+        "subsequence universal words arches scattered subsequences 2015 2016 words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned indexed research-record summary gives the two explicit formulas for 16-bit skeletons or dyadic paperfolding prefixes.",
+        "Previous publicly stated results include nine shortest absent subsequences of Cantor words and Thue–Morse shortest-absent counts; these concern different substitution families."
+      ],
+      "reasoning": "Finite numerical matches alone would not establish coverage; this check sought the exact parameterized formula, its free-bit invariance and known database tables, and no such statement was located.",
+      "searches": [
+        "fixed 16-block binary words 1101100x1100100y subsequence universality shortest absent 6q 2^(q+1)",
+        "regular paperfolding word dyadic prefix shortest absent scattered subsequences count 2^(2^(k-4)+1)",
+        "paperfolding dyadic prefixes scattered subsequence universality index 3*2^(k-3) shortest missing words number"
+      ]
+    },
+    "rationale": "Searches of the research record index, accessible prior research records claims and relevant primary full-text comparisons did not find an implication yielding the uniform sixteen-bit skeleton theorem or its exact paperfolding subsequence-invariant specialization. The paperfolding abelian-complexity paper concerns contiguous-factor Parikh counts, while the absent-subsequence work gives generic algorithms and characterizations; neither supplies the all-q exact 2^(q+1) count. This is a best-knowledge literature assessment with priority uncertainty, not proof of uniqueness.",
+    "residual_risks": [
+      "Bibliographic coverage is not exhaustive; a specialised unindexed combinatorics paper could contain an equivalent block-skeleton result.",
+      "The 2023 absent-subsequence source was not read cover-to-cover; the keyword-level exclusion is bounded, though its general theorems could offer alternate derivations.",
+      "No independent mathematical review of the finite transition case table has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant source-object background but NOT_COVERING: its invariant concerns Parikh classes of contiguous factors, not absent scattered subsequences.",
+        "evidence": "Paper p.3 gives odd-part definition in 0-first convention; p.4 states 2-regular abelian complexity recurrences. Original arXiv v1 timestamp 2012-08-14.",
+        "identifier_or_url": "https://arxiv.org/pdf/1208.2856",
+        "material_read": "pp.1–5, especially definitions, Toeplitz construction, Theorems 1–2 and proof setup",
+        "method": "Open-access arXiv PDF text and visual inspection of page 3",
+        "title": "The abelian complexity of the paperfolding word",
+        "trigger": "Paperfolding arithmetic description and potentially overlapping exact complexity formula"
+      },
+      {
+        "assessment": "GENERAL_CONTEXT_NOT_SPECIFIC_COVERAGE: general definitions and algorithms do not state the paperfolding dyadic or 16-block law. Remaining sections not independently read in full.",
+        "evidence": "Section 2 defines SAS and greedy arch factorization; abstract and Section 3 describe general characterizations; exact keyword search paperfolding produced no match.",
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "pp.1–5: abstract, introduction, Definitions 2.1–2.4 and beginning of Section 3; whole-document text search for paperfolding",
+        "method": "Open-access arXiv PDF text, visual inspection of page 4 and term search",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Exact SAS/arch definitions and plausible broader general theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "131e19a3-2c1b-4b4a-9c6f-4a1c9fd1dc01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The shortest-absent-subsequence count is a motivated natural language invariant, and a complete all-q law is proved for an exponential-size family of 16q-bit words with 2q-1 free bits. Its dyadic paperfolding corollary has subsequence universality 3/8 of length and exponentially many shortest missing strings. The result is structural: a strict six-letter greedy-barrier recurrence explains the invariant, and does not follow from routine substitution of a known generic formula.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Explicit all-length reduction via the strict support bound s<4q/(q-1), Gaussian-binomial coordinate inclusion-exclusion on supports up to four, exhaustive enumeration of every RREF with every codeword on the remaining supports, corroboration by direct ambient counts, and a separate moment proof of length-seven binary simplex uniqueness. Standalone code and actual output give complete finite certificates, not samples or timeout estimates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horlemann–Ravi prove the existence of polynomial growth at fixed diameter with an exponent left unspecified, without enumerating fixed diameter four.",
+        "The 2016 optimal anticodes impose dimension equal to max-weight; the present enumeration includes every dimension."
+      ],
+      "reasoning": "A theorem proving only polynomial-order existence does not imply these numerical coefficients. Existing statements about *optimal* anticodes or generalized weights are neither stronger counting theorems nor equivalent to all bounded-diameter subspaces. No dominating explicit enumeration was located in the material inspected.",
+      "searches": [
+        "arXiv:2610.31618v1 Proposition 4.3 and Theorem 4.6",
+        "arXiv:1410.7207 Section 2",
+        "arXiv:2512.17542 abstract and introduction",
+        "Web: \"binary linear\" \"maximal weight 4\" enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.31618v1, Proposition 4.3, Theorem 4.6 and Section 5",
+      "arxiv:1410.7207, Section 2",
+      "arxiv:2512.17542, abstract and introduction",
+      "published-finding corpus primary and alias query results, including closest record 2026/10/4/SCOPE-exact-higher-support-spectra-for-the-new-systematic-simplex-lcd--c2fa52e0ba08",
+      "Accessible current-week historical claims used only for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source reduction shows a formal sum over supports, but does not give a_q(s,4) for exceptional supports s=5,6,7.",
+        "Source Theorem 4.6 leaves sigma_q(d) implicit; the newly stated values 7, 5, and 4 require support cutoffs plus nonvanishing exceptional coefficients."
+      ],
+      "reasoning": "The previously known decomposition requires additional classification/enumeration inputs to reach a fully evaluated formula; it does not logically entail the values from its printed statement alone. The published fixed-diameter degree theorem is strictly weaker than explicit exact coefficients and sharp field-dependent degrees.",
+      "searches": [
+        "arXiv:2610.31618v1 Theorem 4.6 and Proposition 4.3",
+        "published-finding corpus: The Asymptotic Number of Anticodes in Hamming Spaces Horlemann Ravi 2026 sigma_q(4) fixed diameter 4 polynomial enumeration",
+        "published-finding corpus: Exact number linear diameter 4 Hamming anticodes subspaces F_2^n polynomial 30 binomial n 7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim also counts all subspaces with maximum Hamming weight at most four, equivalently diameter at most four; none of the closest returned records counted all such subspaces.",
+        "Ravagnani 2016 describes optimal-dimensional anticodes, which is a proper subclass of the counted spaces."
+      ],
+      "reasoning": "Rewriting diameter as maximum weight, or converting to full-support generator-matrix counts, does not make the claim a special case of the searched generalized-weight and optimal-anticode classifications. The only formal equivalence is the support decomposition credited to the 2026 source; its missing coefficients are the new computation.",
+      "searches": [
+        "published-finding corpus: Exact number linear diameter 4 Hamming anticodes subspaces F_2^n polynomial 30 binomial n 7",
+        "published-finding corpus: support counts binary linear codes whose every vector has Hamming weight at most four sigma_2(4) 7 simplex",
+        "Web: \"linear Hamming anticodes\" \"diameter four\" exact enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus generalized-support hierarchy: 2026/10/4/SCOPE-exact-higher-support-spectra-for-the-new-systematic-simplex-lcd--c2fa52e0ba08 (particular code family, not this count).",
+        "The new finite coefficients were directly enumerated from all RREFs, not copied from an existing table."
+      ],
+      "reasoning": "A simplex-code table can cover the length-seven full-support type, but not the other coefficients or the all-alphabet polynomials. Closest structured database records concern particular code spectra and unrelated parameters; no exact count table was found. A missed database remains possible.",
+      "searches": [
+        "published-finding corpus: binary ternary quaternary all length counts linear 4 anticodes exact polynomial support coefficients 26 91 100 30 129 200 388 162",
+        "published-finding corpus: full-support subspaces maximum Hamming weight 4 F2 dimension 3 length 7 simplex enumeration 30",
+        "Web: \"linear anticode\" \"91\" \"100\" \"30\" weight 4"
+      ]
+    },
+    "rationale": "The closest 2026 source gives the support reduction and existence of a degree without evaluating the exceptional full-support coefficients; these were established by exhaustive RREF enumeration, and exact field-dependent degrees follow. Neither optimal-anticode classification nor generalized-weight literature inspected implies the claimed all-field enumerator. No equivalent accessible finding or primary source was identified, with explicit unindexed-priority residual risk.",
+    "residual_risks": [
+      "An inaccessible or unindexed prior enumeration may already contain the finite exceptional coefficients.",
+      "Partial examination of secondary generalized-weight literature does not establish that all possible stronger corollaries have been excluded.",
+      "The same mathematical conclusion should undergo independent scholarly priority review before publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides decomposition and unspecified degree but not coefficients nor diameter-four degree across fields",
+        "evidence": [
+          "arXiv:2610.31618v1, Section 4, Proposition 4.3, Theorem 4.6, Remark 4.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.31618v1",
+        "material_read": "Abstract, introductory problem statements, Proposition 4.3 with proof, Theorem 4.6 and proof, adjacent discussion of growth degrees, and Section 5",
+        "method": "Lawful arXiv PDF, text inspected by section and page, rendered page cross-check",
+        "title": "The Asymptotic Number of Anticodes in Hamming Spaces",
+        "trigger": "Closest source: same anticode counting problem, support decomposition and fixed diameter theorem"
+      },
+      {
+        "assessment": "Classifies dimension-optimal anticodes and their support, not an all-subspace enumeration for bounded maximum weight",
+        "evidence": [
+          "Ravagnani (2016), Section 2, optimal anticode classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1410.7207",
+        "material_read": "Section 2 anticode definitions and optimal anticode classification, with rendered-page cross-check",
+        "method": "arXiv open-access PDF, section inspection",
+        "title": "Generalized weights: an anticode approach",
+        "trigger": "Earlier anticode theory with potential coverage of linear diameter-bound spaces"
+      },
+      {
+        "assessment": "Treats generalized weights and optimal anticode test families; inspected passages did not state the diameter-four all-subspace counts",
+        "evidence": [
+          "Di Giusto, Gorla and Ravagnani (2025), introduction and abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2512.17542",
+        "material_read": "Abstract, introduction and relevant terminology/searches for counting and enumeration",
+        "method": "arXiv open-access PDF, partial material inspection and text find",
+        "title": "A distance-free approach to generalized weights",
+        "trigger": "Possible stronger generalized-weight formulation of anticode theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15ccf468-66d7-41b0-890d-ba2f6ec261c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact fixed-diameter polynomial enumeration and precise field-dependent degree answer natural quantitative questions left implicit by the recent all-diameter anticode counting theorem. The first exceptional alphabet regimes have distinct support cutoffs, and the binary extremal support has a unique simplex type. The facts provide explicit all-length counts with substantive support geometry beyond a routine bound.",
+    "status": "PASS"
+  }
+}

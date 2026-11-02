@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Kummer borrow count is checked at r=0 and r>0, all s,t domains; exact (p-1)/p^(s+1) and (p-1)/p^(t+1) independent residue densities sum to the rational mass formula. The geometric tail sums to delta. For E_v, a shift p^(a+v-1) preserves r and quotient q modulo p^(v-1); explicit witnesses show shift p^(a+v-2) changes E_v, so no smaller positive period can persist. Divisibility equivalence uses m binom(n,m)=n binom(n-1,m-1). Independent Legendre valuation verifier passes 11 (p,a) families; tests are not universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rowland 2010 fixed-row enumeration sums over all lower indices.",
+        "Spiegelhofer-Wallner 2016 Section 2.4 gives rho_2(j,t) for general binary fixed lower t; this dominates the binary marginal distribution as a specialization.",
+        "Rowland 2011 Section 3 known period p^(2a-1) for full fractional sequence m=p^a."
+      ],
+      "reasoning": "The binary specialization of the mass formula is stronger-covered by an existing p=2 general framework; the a=1 zero-probability and full-fraction period upper bound are also known. The proposed whole theorem asserts odd-prime uniform explicit masses and exact minimal periods for all thresholds, neither of which follows from the cited binary-only column theorem or fixed-row general theorem. The special-case and background overlap is credited explicitly.",
+      "searches": [
+        "Spiegelhofer Wallner 2016 column density rho_p(j,t) special t=p^a-1 exact odd p distribution",
+        "Drmota Kauers Spiegelhofer binomial coefficients fixed column p-adic valuations all primes p^a-1",
+        "https://arxiv.org/pdf/1001.1783 Section 2",
+        "https://arxiv.org/pdf/1604.07089 Section 2.4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1001.1783 (2010 initial preprint; updated PDF sections checked)",
+      "arxiv:1102.1464 (2011 initial posting; Section 3 checked)",
+      "arxiv:1604.07089 (2016 initial posting; Section 2.4 checked)",
+      "doi:10.4153/CMB-1982-052-3 (1982 published abstract only)",
+      "https://arxiv.org/abs/1604.07089",
+      "https://arxiv.org/abs/1001.1783"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kummer borrow theorem implies the individual valuation identity but not the stated density formula without exact residue distribution counting.",
+        "Rowland 2011 Proposition gives full fraction a period; the shortest period of each valuation threshold requires lower-bound witnesses not supplied there.",
+        "Spiegelhofer-Wallner binary formula specializes to the p=2 mass case; p odd and threshold least-period results are not asserted."
+      ],
+      "reasoning": "Deducing the theorem requires (i) all-prime q,r valuation law, (ii) counting all q,r to get the exact infinite mass profile, and (iii) proving least periods for every v via an explicit infinite witness family. Prior periodicity alone does not imply (ii)-(iii); binary column-density results provide (ii) in the p=2 subcase but not odd primes.",
+      "searches": [
+        "for prime p, a>=1, natural density of integers n such that n divides binomial(n,p^a), exact p/(p+1)(1-p^(-2a)) and least period p^(2a-1)",
+        "sharp eventual least period p^(a+v-1) of sequence 1[v_p(binomial(n-1,p^a-1)) >= v]",
+        "https://arxiv.org/abs/1102.1464 Section 3 Proposition on periods",
+        "https://arxiv.org/pdf/1604.07089 Section 2.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rowland arXiv:1102.1464 Section 3 establishes fractional-part periodicity for fixed m, not an all-v valuation mass function.",
+        "Spiegelhofer-Wallner arXiv:1604.07089 Section 2.4 explicitly defines binary column densities rho_2(j,t) and a polynomial evaluation algorithm."
+      ],
+      "reasoning": "The valuation mass function is the pushforward of a fixed-column normalized binomial fraction under the p-adic valuation. General periodicity bounds the candidate periods but does not give the exact masses or prove every threshold least period. The binary p=2 marginal component IS covered by the 2016 framework and is not counted alone as original. Neither document states all-prime explicit masses or every sharp threshold period.",
+      "searches": [
+        "for prime p, a>=1, natural density of integers n such that n divides binomial(n,p^a), exact p/(p+1)(1-p^(-2a)) and least period p^(2a-1)",
+        "valuation distribution v_p binomial(n-1,p^a-1) as n varies exact geometric tail with density p^-a at zero",
+        "sharp eventual least period p^(a+v-1) of sequence 1[v_p(binomial(n-1,p^a-1)) >= v]",
+        "https://arxiv.org/abs/1102.1464 Section 3",
+        "https://arxiv.org/pdf/1604.07089 pages 22-24"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published calculations concern fixed-row totals and binary column densities; no table of the p,a,v all-prime mass function and sharp threshold periods was located.",
+        "The exact numerical verifier enumerates residue periods only for finite stress-test parameters; it is not used as a pre-existing classification table."
+      ],
+      "reasoning": "An all-prime analytic formula and least-period hierarchy have more content than a finite table. No located indexed database provides the exact general statement, though not all specialized databases and historical preprints could be exhaustively checked.",
+      "searches": [
+        "fixed lower index prime power p^a Pascal column density of divisibility n | choose(n,p^a) distribution",
+        "Pascal triangle column prime power lower index exact valuation frequency mass generating function",
+        "https://oeis.org searches for binomial fixed lower index valuations and density",
+        "https://arxiv.org/abs/1001.1783"
+      ]
+    },
+    "rationale": "All-prime explicit valuation distribution and exact least threshold periods are not presented in inspected Rowland 2010/2011 or Spiegelhofer-Wallner 2016. Classical Kummer carries supply a premise, Rowland supplies general fractional-part periodicity and the a=1 case, and the 2016 paper explicitly supplies overlapping binary column densities. The combined general-prime closed profile and sharp period hierarchy were checked by statement/implication. Priority is subject to undiscovered equivalent results.",
+    "residual_risks": [
+      "The binary p=2 mass distribution is already covered by the general Spiegelhofer-Wallner binary column framework; no independent novelty is claimed for that subcase.",
+      "The a=1 zero-density and general normalized-fraction periodicity were already established by Rowland; novel scope is the all-prime profile and sharp all-v period hierarchy.",
+      "An unindexed column-distribution result for odd primes could imply the complete statement.",
+      "Robbins full text and all historical specialized articles were not available for exhaustive comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts number of lower indices with bounded valuation in a fixed row; does not assert all-prime exact density for fixed lower index p^a-1 or sharp thresholds.",
+        "evidence": [
+          "Section 1 defines a_{p^alpha}(n) as number of lower indices m with binomial(n,m) nonzero mod p^alpha.",
+          "Section 2 theorem uses subword-count partitions."
+        ],
+        "identifier_or_url": "arxiv:1001.1783 / https://arxiv.org/pdf/1001.1783",
+        "material_read": "Full ten-page PDF sections 1-3 located and inspected at introduction, Kummer theorem, Section 2 combinatorial formulas, and Section 3 formulas; selected pages visually inspected.",
+        "method": "Lawful open arXiv full text, PDF text section review and PDF page screenshots",
+        "title": "The number of nonzero binomial coefficients modulo p^alpha",
+        "trigger": "Foundational prime-power valuation-counting literature"
+      },
+      {
+        "assessment": "General normalized fraction periodicity and the prime-index frequency are known; this is explicit prior coverage, but the paper does not present the all-prime p^a valuation profile for a>1 or every threshold least period.",
+        "evidence": [
+          "Section 3 general periodicity proposition, discussion of Lu-Tsai period theorem.",
+          "Section 3 prime m=p case gives frequency (p-1)/p.",
+          "The paper focuses on m=p and m=2p concrete fractions."
+        ],
+        "identifier_or_url": "arxiv:1102.1464 / https://arxiv.org/abs/1102.1464",
+        "material_read": "Full open-access HTML, notably Section 3 on fractional parts and periodicity, prime and twice-prime indices, and conjecture.",
+        "method": "Open-access arXiv HTML primary text",
+        "title": "Two binomial coefficient conjectures",
+        "trigger": "Direct fixed-index question n divides binomial(n,m)"
+      },
+      {
+        "assessment": "Section 2.4 materially overlaps: the binary p=2 column densities for arbitrary fixed t are covered by an earlier general construction. No odd-prime full profile and no exact least-period hierarchy for each v is stated in this source.",
+        "evidence": [
+          "Section 2.4 explicitly defines rho_2(j,t) for fixed binary column t.",
+          "It evaluates rho_2(j,t)/rho_2(0,t) by the same polynomial P_j as in fixed-row enumerations."
+        ],
+        "identifier_or_url": "arxiv:1604.07089 / https://arxiv.org/pdf/1604.07089",
+        "material_read": "30-page lawful arXiv PDF; introduction, Theorem 0, Sections 2.3-2.4, particularly pp22-24 fixed-column densities, plus selected proof locations; screenshot checked.",
+        "method": "PDF text search, section inspection, page screenshots",
+        "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+        "trigger": "Potential stronger result on fixed-column valuations"
+      },
+      {
+        "assessment": "The abstract counts k with n dividing binomial(n,k) for each fixed row n, rather than the fixed lower index p^a while n varies; deeper unseen theorems remain a residual risk.",
+        "evidence": [
+          "Abstract defines A(n) as the number of k with n dividing binomial(n,k) and proves bounds involving Euler phi and omega."
+        ],
+        "identifier_or_url": "doi:10.4153/CMB-1982-052-3 / https://www.cambridge.org/core/journals/canadian-mathematical-bulletin/article/on-the-number-of-binomial-coefficients-which-are-divisible-by-their-row-number/AA796395B145C4164EBD4D77F5C24E49",
+        "material_read": "Official publisher abstract and bibliographic details; full PDF not accessible in this inspection.",
+        "method": "Official publisher abstract, no full text",
+        "title": "On the Number of Binomial Coefficients which are Divisible by their Row Number",
+        "trigger": "Plausible exact row-number divisibility precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4b211518-0ea3-4f80-9e5b-9764b742cf03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact infinite pmf for a natural fixed prime-power Pascal column for every prime and exponent, plus sharp full hierarchy of threshold periods, gives explicit arithmetic density of n|binom(n,p^a). This complements earlier fixed-row valuations and binary-only column theory with a complete odd-prime classification, not an arbitrary numeric slice or a finite table. Known a=1 and p=2 subcases are credited; no claim to full residue class distribution.",
+    "status": "PASS"
+  }
+}

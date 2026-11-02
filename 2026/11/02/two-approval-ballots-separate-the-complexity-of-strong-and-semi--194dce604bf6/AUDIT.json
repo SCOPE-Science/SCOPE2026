@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The support-intersection reduction is exact; if I_c={c,d} then every c-supporter ballot equals {c,d}, making c degree <=1 in the graph. Every edge therefore has a leaf, so graph components are stars and each has one candidate hitting all component requirements. This proves the top-k weight formula with padding. Cubic graph edges as two-approval voters and vertex candidates, k>=|V|/2, yield all candidates cohesive and make SSJR equivalent to vertex cover. Trivial K regions map to fixed promised instances. Independent exact script verifies 67,028 bounded profiles, 4,822 groupwise committees and the cubic examples; enumeration is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General NP-hardness of SJR/SSJR maximization is on unrestricted ballots and supplies no rank-two tractability.",
+        "Theorem 20 establishes tractability on CI/VI, but triangle two-approval ballots with pairs ab,bc,ac belong to neither domain.",
+        "A cubic graph gives pair-approval profiles with candidate supports exactly 3, beyond the interval hypothesis."
+      ],
+      "reasoning": "CI/VI are incomparable to the full pair-ballot class. Neither general NP-hardness nor interval algorithms determine optimization on the pair-ballot domain; general SSJR hardness does not imply hardness for the regular rank-two promise.",
+      "searches": [
+        "Diverse Representation in Approval-Based Committee Voting Chingoma Grossi Lindeboom Maly September 2026 SJR score cohesive candidates",
+        "Chingoma Grossi Lindeboom Maly Diverse Representation in Approval-Based Committee Voting 2026 polynomial candidate interval SJR optimization NP-complete SSJR",
+        "arxiv:2609.29332 Theorems 15,20,21 and Appendices B,C"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.29332",
+      "https://www.rupertfreeman.com/justifiedSCW.pdf",
+      "https://cdn.aaai.org/ojs/20418/20418-13-24431-1-2-20220628.pdf",
+      "https://doi.org/10.1016/0304-3975(76)90059-1",
+      "https://arxiv.org/abs/2606.29643"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 15 and its Appendix B reduction establish SSJR decision hardness without a degree-two ballot promise.",
+        "Theorem 20 interval algorithm optimizes both scores under a separate graph-orderability restriction.",
+        "The 2017 paper introduced SJR/SSJR, and Brill et al. study stronger individual representation."
+      ],
+      "reasoning": "Original result does not follow merely by restricting a known NP-complete theorem, nor by applying the interval algorithm outside its premises. The cubic vertex-cover equivalence and star-component optimum are separately justified. The two problems differ in objective: SJR score versus SSJR existence.",
+      "searches": [
+        "Semi strong justified representation SSJR ballot size two candidate approval degree two sparse ballots polynomial algorithm",
+        "NP-completeness of semi-strong justified representation (SSJR) even when each approval ballot approves precisely two candidates and all candidates receive three approvals, cubic graph vertex cover",
+        "Brill Israel Micha Peters individual representation semi strong justified representation NP-hard exact cover by 3 sets",
+        "arxiv:2609.29332 Theorems 15,20",
+        "Aziz et al. Definition 3",
+        "Brill et al. Individual Representation 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chingoma et al. definitions identify SJR with intersecting the common approval set of each cohesive candidate; this recasts the score as a weighted hitting problem.",
+        "Aziz et al. Definition 3 uses one-cohesive groups; higher-ell strong JR in Ai and Tao arXiv:2606.29643 has different quantifiers."
+      ],
+      "reasoning": "Checked dual group/vertex language, pair-ballot support sets and star-forest hitting formulation. None of the returned near hits provides the two-approval complexity separation. Strong JR with all ell must not be conflated with the one-cohesive-group axiom.",
+      "searches": [
+        "Strong justified representation SJR maximization approval ballots each voter approves at most two candidates, weighted star forest graph polynomial exact optimum",
+        "Semi strong justified representation SSJR ballot size two candidate approval degree two sparse ballots polynomial algorithm",
+        "Exact polynomial-time optimization of strong justified representation (SJR) score for approval ballots of size at most two, components of requirement graph are stars, top-k weighted components",
+        "NP-completeness of semi-strong justified representation (SSJR) even when each approval ballot approves precisely two candidates and all candidates receive three approvals, cubic graph vertex cover",
+        "arxiv:2609.29332 Definitions 4–9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record search returned irrelevant results involving ranking methods, social power indices and assignment rather than identical justified-representation structures.",
+        "The full source articles inspected present no table of two-approval scores or class-specific complexity result."
+      ],
+      "reasoning": "This is an all-input structural theorem rather than a lookup or small census. Lack of retrieved matches is not a novelty certificate; unindexed or differently named results are residual risks.",
+      "searches": [
+        "Strong justified representation SJR maximization approval ballots each voter approves at most two candidates, weighted star forest graph polynomial exact optimum",
+        "Exact polynomial-time optimization of strong justified representation (SJR) score for approval ballots of size at most two, components of requirement graph are stars, top-k weighted components",
+        "NP-completeness of semi-strong justified representation (SSJR) even when each approval ballot approves precisely two candidates and all candidates receive three approvals, cubic graph vertex cover",
+        "arxiv:2609.29332 Appendix C"
+      ]
+    },
+    "rationale": "New part is the specific degree-two ballot contrast, with complete star forest optimum and a cubic support, all-cohesive SSJR hardness promise. The 2026 primary establishes the scoring definitions, unrestricted hardness and interval tractability but not these degree-two statements; original 2017 and related 2022 works do not imply them. Recovered internal claims and published-finding corpus similarity searches do not show matching coverage, subject to unindexed priority risk.",
+    "residual_risks": [
+      "A previously unindexed or differently phrased sparse-approval complexity proof could cover an equivalent specialization.",
+      "published-finding corpus similarity search is not exhaustive bibliographic coverage.",
+      "The inspected graph hardness source establishes a classical premise; no novel graph-hardness claim is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides objective and general NP-hardness and CI/VI positive algorithms; does not present the pair-approval star decomposition or promised cubic-support SSJR feasibility reduction",
+        "evidence": "Definitions 4–8 and Theorems 15,20, Appendix B/C at https://arxiv.org/abs/2609.29332",
+        "identifier_or_url": "https://arxiv.org/abs/2609.29332",
+        "material_read": "Definitions 2, 4–9; Sections 3–5; Theorems 15, 17–21; Appendix B proof of Theorem 15 and Appendix C proof of Theorem 20",
+        "method": "Full-text HTML and corresponding original preprint materials, with proof passages read",
+        "title": "Diverse Representation in Approval-Based Committee Voting",
+        "trigger": "Exact definition of score and strongest recent competing general/interval complexity results"
+      },
+      {
+        "assessment": "Axioms and impossibility known; no max-score star formula or two-approval SSJR complexity promise seen in inspected passages",
+        "evidence": "Definition 3 and Example 7 in https://www.rupertfreeman.com/justifiedSCW.pdf",
+        "identifier_or_url": "https://www.rupertfreeman.com/justifiedSCW.pdf",
+        "material_read": "Definitions of strong and semi-strong JR, discussion of their insatisfiability and examples",
+        "method": "Read relevant primary PDF text and inspected its relevant page imagery",
+        "title": "Justified Representation in Approval-Based Committee Voting",
+        "trigger": "Original definitions and known impossibility examples"
+      },
+      {
+        "assessment": "Individual representation and its known hardness do not establish the claimed SJR score optimization or the two-approval SSJR promise",
+        "evidence": "Sections 2–4 and Figure 2 of original AAAI article",
+        "identifier_or_url": "https://cdn.aaai.org/ojs/20418/20418-13-24431-1-2-20220628.pdf",
+        "material_read": "Definition, main individual-representation complexity sections and specific comparison to semi-strong JR",
+        "method": "Read extracted primary PDF content and inspected relevant page images",
+        "title": "Individual Representation in Approval-Based Committee Voting",
+        "trigger": "Related hardness under stronger individual-representation axiom"
+      },
+      {
+        "assessment": "Known hardness premise used and credited; no claim of a newly proved graph problem",
+        "evidence": "Garey, Johnson, Stockmeyer (1976), Theoretical Computer Science; DOI:10.1016/0304-3975(76)90059-1",
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(76)90059-1",
+        "material_read": "Bibliographic characterization of the cubic-graph NP-hardness result",
+        "method": "Public bibliographic/result abstract checked; not represented as a fully read text",
+        "title": "Some Simplified NP-Complete Graph Problems",
+        "trigger": "Background NP-completeness of cubic-graph vertex cover used as a premise"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "194dce60-4bf6-44c6-8137-258ef725b563",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ballot arity 2 is the first substantive approval overlap regime. The theorem supplies an exact efficient optimization algorithm outside CI/VI and shows that semi-strong feasibility remains NP-complete even with uniformly cubic supporter degrees, a natural sharp frontier; not an arbitrary instance census.",
+    "status": "PASS"
+  }
+}

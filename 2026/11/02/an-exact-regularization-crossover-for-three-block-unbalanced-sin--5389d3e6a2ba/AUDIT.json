@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "At the unique constant optimum, derivatives of the two exact log-sum-exp blocks are -tau W and -tau W^T; the third exact KL gauge derivative is half the difference of the block means, yielding uniform eigenvalue -tau(1-tau)/2 and nonuniform multipliers tau^2 sigma_j(W)^2. Strict positivity of the doubly stochastic W gives sigma_perp<1. Every parameter case and equality boundary is handled algebraically; 42 independently computed Jacobians confirm local formulas but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2019 source is two-coordinate Sinkhorn with contractive marginals, not three-block gauge-maximized G",
+        "2025 generalized static Schrodinger bridge has fixed marginals/general entropy scaling, not KL-relaxed unbalanced three-block G"
+      ],
+      "reasoning": "General contraction theorems may bound two-block scaling but do not imply the sharp qualitative reversal between F and G at epsilon=2rho on positive balanced kernels; no stronger coverage of this exact map was found.",
+      "searches": [
+        "arXiv:1910.12958 unbalanced Sinkhorn linear convergence",
+        "arXiv:1607.05816 scaling algorithms unbalanced transport",
+        "\"translation invariant Sinkhorn\" \"rate\" \"G-Sinkhorn\" \"epsilon\"",
+        "Linear convergence of Sinkhorn generalized static Schrodinger bridge Choudhary Lyu 2025"
+      ]
+    },
+    "checked_sources": [
+      "Séjourné--Vialard--Peyré 2022, Appendix B.6 and algorithm definitions, https://proceedings.mlr.press/v151/sejourne22a/sejourne22a.pdf",
+      "Séjourné et al. 2019, https://arxiv.org/abs/1910.12958",
+      "Chizat et al. 2016, https://arxiv.org/abs/1607.05816",
+      "Choudhary--Lyu 2025 generalized static Schrödinger bridge literature, title/abstract comparison (not same KL UOT model)",
+      "Related public findings: 2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208, 2026/10/4/SCOPE-critical-damping-penalty-for-symmetric-three-block-admm--88ef47013166, 2026/9/18/SCOPE-natural-scale-qot-dual-conditioning--6d748f1f11d7, 2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+      "Overrelaxed balanced two-by-two Sinkhorn published result (opaque identifier 76301798-266c-4eb9-9804-96f38603ac9a)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating authors give only a heuristic switch near epsilon=rho; their named alternative H-Sinkhorn is not G",
+        "Claim proves an exact equality at epsilon=2rho plus an independent W-spectrum transition and negative uniform multiplier"
+      ],
+      "reasoning": "Source empirical trend does not logically imply an exact factor of two threshold, and two-block OT contraction inequalities do not compute the extra scalar translation derivative. This comparison is limited to balanced-kernel class and does not contest general H-Sinkhorn guarantees.",
+      "searches": [
+        "arXiv:2201.00730 published Appendix B.6 eq (22) and Figure 6",
+        "arXiv:1910.12958 convergence and generalized Sinkhorn",
+        "G-Sinkhorn three block gauge mass eigenvalue -tau(1-tau)/2 sharp convergence epsilon 2 rho"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Appendix B.6 defines an equivalent dual gauge λ and recovered potentials but only gives qualitative numerical comparison",
+        "Full eigenvalue calculation separates gauge-recovered common constant and ℓ1-perpendicular kernel modes"
+      ],
+      "reasoning": "The G transformed-coordinate algorithm is re-expressed in recovered physical potentials, so the scalar mode is not dismissed as redundant gauge. Neither the source empirical comparison nor balanced Sinkhorn spectral results give the negative multiplier -tau(1-tau)/2 and crossover.",
+      "searches": [
+        "\"G-Sinkhorn\" \"Jacobian\" \"convergence\" 3-block translation invariant",
+        "G-Sinkhorn three block gauge mass eigenvalue -tau(1-tau)/2 sharp convergence epsilon 2 rho",
+        "\"G-Sinkhorn\" \"2rho\" convergence rate",
+        "arXiv:2201.00730 Appendix B.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A related published numerical-analysis result on overrelaxed balanced 2x2 Sinkhorn (opaque identifier 76301798-266c-4eb9-9804-96f38603ac9a) establishes an area-preserving invariant, not this KL unbalanced G/F local rate comparison",
+        "Related public findings include fixed-product PDHG (788191221208), three-block ADMM (88ef47013166), and quadratic-regularized OT conditioning (6d748f1f11d7), none the same algorithm"
+      ],
+      "reasoning": "No located numerical-analysis source tabulates this exact F/G UOT spectral comparison. A negative search is not a uniqueness proof; the mathematical distinction is between balanced overrelaxed Sinkhorn and KL-penalized three-block gauge maximization.",
+      "searches": [
+        "G-Sinkhorn three block gauge mass eigenvalue -tau(1-tau)/2 sharp convergence epsilon 2 rho",
+        "unbalanced Sinkhorn translation projection uniform balanced kernel local Jacobian sign oscillation convergence rate",
+        "Séjourné Vialard Peyré G-Sinkhorn empirical regularization epsilon rho asymptotic slow fast crossover",
+        "unbalanced optimal transport translation invariant Sinkhorn two by two kernel exact contraction rate gauge normalization",
+        "unbalanced Sinkhorn scalar symmetric 2x2 KL marginals sharp convergence rate and exact eigenvalues",
+        "entropic unbalanced optimal transport dual translation invariant normalization spectral local convergence",
+        "G-Sinkhorn asymptotic rate tau(1-tau)/2 binary symmetric cost matrix",
+        "overrelaxed balanced 2x2 Sinkhorn invariant versus KL unbalanced F/G comparison"
+      ]
+    },
+    "rationale": "The G-Sinkhorn origin paper (2022, Appendix B.6) reports only an empirical approximately epsilon-versus-rho preference; primary earlier UOT Sinkhorn sources give general two-block updates and convergence, not the exact three-block Jacobian. Related published claims concerning PDHG, three-block ADMM and overrelaxed balanced Sinkhorn are mathematically distinct and do not imply this exact sharp crossover. Independent priority verification remains necessary.",
+    "residual_risks": [
+      "Other unpublished or inaccessible specialized gauge-Sinkhorn local analyses may already give an equivalent spectral result.",
+      "Comparisons based only on public searchable titles/abstracts for broader 2025 generalized Sinkhorn literature are weaker than full-text comparisons; the 2022 direct primary source was inspected in detail.",
+      "Spectral local rate is distinct from actual wall-clock cost and nonlinear finite-horizon performance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces three-block G-Sinkhorn and reports empirical faster/slower regularization trends; no exact n-dimensional balanced-kernel Jacobian spectrum or epsilon=2rho boundary established in inspected analysis",
+        "evidence": [
+          "Appendix B.6, equation (22), printed page 22 (PDF page index 21): G(fbar,gbar,lambda)=F(fbar+lambda,gbar-lambda); three sequential coordinate maximizations",
+          "Same appendix reports G empirical improvement when epsilon roughly below rho and deterioration above, calls that criterion a rule of thumb",
+          "arXiv:2201.00730 version 1 publicly submitted 2022-01-03"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v151/sejourne22a/sejourne22a.pdf",
+        "material_read": "Full published PDF text (27 pages), especially Appendix B.6 on page 22 (zero-based page 21), its update equations (22), qualitative comparison, figures and stated extensions; visually checked appendix page",
+        "method": "Read PDF full-text parsed sections plus actual page rendering/screenshot and compare three-block definitions to derived map",
+        "title": "Faster Unbalanced Optimal Transport: Translation invariant Sinkhorn and 1-D Frank-Wolfe",
+        "trigger": "Exact motivating G-Sinkhorn method; Appendix B.6 and published empirical crossover heuristic"
+      },
+      {
+        "assessment": "Establishes two-block generalized/unbalanced Sinkhorn convergence, not the extra exact gauge block spectral comparison",
+        "evidence": [
+          "arXiv:1910.12958 (first submitted 2019-10-28), generalized two-block Sinkhorn dual iteration and linear convergence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.12958",
+        "material_read": "Accessible HTML full text algorithm/convergence section, dual updates and linear convergence arguments; arXiv publication history",
+        "method": "Direct primary open-access text analysis, compared update objects and spectral claims",
+        "title": "Sinkhorn Divergences for Unbalanced Optimal Transport",
+        "trigger": "Potential stronger generalized KL Sinkhorn linear convergence and Jacobian overlap"
+      },
+      {
+        "assessment": "Foundational UOT scaling construction; no three-block G-variant or exact uniform-mode sign change",
+        "evidence": [
+          "arXiv:1607.05816 (first submitted 2016-07-20), MSC 65K10, entropic UOT scaling algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.05816",
+        "material_read": "Accessible full text and algorithmic scaling/convergence arguments; publication history and MSC",
+        "method": "Primary open-access source object-by-object comparison",
+        "title": "Scaling Algorithms for Unbalanced Transport Problems",
+        "trigger": "Classical scaling and equivalence of KL unbalanced OT solvers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5389d3e6-a2ba-4815-ac5b-2cdd9eec98b9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact balanced-kernel crossover sharpens a motivating empirical numerical observation into a universal parameter rule, identifies a previously nonobvious negative mass mode, and provides a separate singular-value-controlled transition. Circulant and translation-invariant positive kernels are natural numerical test cases; knowing the extra maximization can worsen the local rate guides actual solver choice. This is not a trivial general textbook corollary without deriving the gauge derivative.",
+    "status": "PASS"
+  }
+}

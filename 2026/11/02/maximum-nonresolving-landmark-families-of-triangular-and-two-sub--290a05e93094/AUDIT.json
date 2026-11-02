@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For any compared root edges either one endpoint overlaps (intersection comparison reduces to membership of b,c) or they are disjoint (membership on two disjoint pairs must balance). These exactly give A and D. Their counts and size crossing at n=5 produce the threshold. Connected-component union of a size-two cut identifies D subset A only at n=6 (besides n=4 A inside D); equal-size n=5 shapes are distinct. The Kneser diameter-two complement relation preserves equality of distances, including separate treatment of compared vertices. Independent BFS enumeration and maximality checks through n=10, plus full small-graph subset checks, all succeed. Finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bailey et al. (2013), Lemma 5 gives a necessary-and-sufficient resolving criterion and the paper constructs small resolving families and reports the ordinary metric dimension.",
+        "Kratica et al. (2024) give equality-distance set notions and the diameter-two complement relation, but not all inclusion-maximal nonresolving sets."
+      ],
+      "reasoning": "The resolving criterion and distance relation are accepted prior facts. Neither source evaluates largest all-equal-distance landmark families, classifies the two root-edge bisector families by inclusion, or counts maximum and inclusion-maximal failures. Thus the precise present conclusions require a distinct extremal argument.",
+      "searches": [
+        "arxiv:1203.2660 resolving sets Johnson Kneser graphs full PDF, Lemma 5 and Sections 2-4",
+        "arxiv:2406.17870 complete 10-page PDF",
+        "\"metric dimension threshold\" \"line graph\" complete graph"
+      ]
+    },
+    "checked_sources": [
+      "Korivand et al., Journal of Mathematics 2022, DOI:10.1155/2022/1838719",
+      "Bailey et al., European Journal of Combinatorics 2013, arxiv:1203.2660",
+      "Kratica et al., arxiv:2406.17870",
+      "Targeted mathematical-record semantic queries for universal threshold, bisectors, and Kneser/triangular graphs",
+      "Published mathematical findings on metric thresholds and equidistant-set classifications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bailey et al.: resolving iff every balanced symmetric-difference pair is separated by at least one landmark; discusses minimum resolving cardinalities.",
+        "Korivand et al.: Petersen universal threshold 5 and general bisector lower bound.",
+        "Kratica et al.: minimum equalizer cardinality 3 and known 2-subset complement relation."
+      ],
+      "reasoning": "The pairwise criterion is a tool used in the proof, but no prior theorem characterizes which entire landmark sets fail maximally in T_n, and the general lower bound cannot identify the maximizing bisector without explicit size comparison. The equidistant dimension imposes an existential equalizer for every exterior pair and is not a universal resolving threshold. This result adds the extremal bisectors, inclusion order, four ranges, and counts.",
+      "searches": [
+        "arxiv:1203.2660, Lemma 5 and Theorem 4",
+        "doi:10.1155/2022/1838719, Theorems 3 and 6",
+        "arxiv:2406.17870, Lemma 2 and Theorems 3/6",
+        "metric dimension threshold of Johnson graphs and triangular graphs; every sufficiently large vertex subset resolves",
+        "metric dimension threshold Johnson graph J(n,2), Kneser KG(n,2), Petersen graph extension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Korivand et al. (2022) define universal threshold and prove the Petersen value 5 only.",
+        "Kratica et al. (2024) define distance-equalizer sets with the opposite quantifier and derive minimum equidistant dimensions of J(n,2) and KG(n,2); no maximal nonresolving landmark family theorem."
+      ],
+      "reasoning": "A landmark set contained in a pair bisector is nonresolving; demanding one equal-distance landmark for every pair OUTSIDE a set does not imply it lies wholly inside any bisector. Equality of the Petersen scalar at n=5 does not imply the infinite threshold or inclusion-maximal obstruction structures.",
+      "searches": [
+        "metric dimension threshold of Johnson graphs and triangular graphs; every sufficiently large vertex subset resolves",
+        "metric dimension threshold Kneser graph KG(n,k), robust resolving sets equidistant vertices",
+        "\"metric dimension threshold\" \"triangular graph\" OR \"Johnson graph\"",
+        "\"metric dimension threshold\" \"Kneser graph\" OR \"Petersen graph\" exact",
+        "arxiv:2406.17870, sections 1.1, 2.2, 2.5; DOI:10.1155/2022/1838719, Theorem 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2022 Petersen theorem lists only its threshold 5.",
+        "The 2024 table lists equidistant dimensions, not universal resolving threshold counts.",
+        "Nearby published mathematical findings include Hamming-graph universal thresholds and triangular/Kneser minimum equidistant-set classifications; neither supplies this obstruction theorem."
+      ],
+      "reasoning": "No exact numerical table or previously observed record supplied the claimed entire parameter-range classification. Local accessible scientific-claim overlap screening is descriptive, not a global novelty certificate.",
+      "searches": [
+        "maximum nonresolving landmark subsets triangular graphs T(n) line graph complete graph, resolving threshold exact number",
+        "metric dimension threshold Johnson graph J(n,2), Kneser KG(n,2), Petersen graph extension",
+        "maximum bisector metric graph landmark sets triangular graph 2-subsets complete family",
+        "related resolving-threshold and distance-equalizer statements in available mathematical records",
+        "2022 source Theorem 3 Petersen 5; 2024 paper Table 1 eqdim values"
+      ]
+    },
+    "rationale": "No inspected threshold or Johnson/Kneser primary work covers the infinite universal-threshold formula together with exhaustive inclusion-maximal nonresolving configurations and their counts. The finite Petersen threshold and equidistant-dimension formulae are explicitly credited. Residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "Not all synonymous bisector-obstruction publications can be excluded.",
+      "The 2022 publisher did not expose a continuous full-article reading path, although substantive indexed sections including Petersen proof and threshold statements were read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the n=5 Petersen scalar but does not state the unbounded or optimizer-classification result.",
+        "evidence": [
+          "2022 Theorem 3: Petersen threshold 5; Theorem 6: maximum equal-distance set gives a lower bound."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2022/1838719",
+        "material_read": "Indexed article text: abstract, introduction, Section 2 definition, Theorem 3 Petersen proof, discussion of largest equal-distance sets and Theorem 6. Continuous publisher HTML open was blocked.",
+        "method": "Primary article indexed full-text excerpts viewed and compared to claim; no claim of continuous full-paper inspection.",
+        "title": "Metric Dimension Threshold of Graphs",
+        "trigger": "Defines the exact invariant and computes Petersen instance"
+      },
+      {
+        "assessment": "Constructs resolving sets, provides minimum-size results; its Lemma 5 is related but does not enumerate maximal failing sets.",
+        "evidence": [
+          "Pages 3-5: minimum metric dimension, pairwise resolving criterion; later sections construct resolving families."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1203.2660",
+        "material_read": "Full primary PDF accessible; inspected introduction, Johnson/Kneser setup, Lemma 2 and 5, metric dimension Theorem 4, Sections 2-4 and their outlined results.",
+        "method": "PDF text sections and page screenshot, plus searches for threshold/equidistant/nonresolving terminology.",
+        "title": "Resolving sets for Johnson and Kneser graphs",
+        "trigger": "Direct same graph families and resolving-set theorem"
+      },
+      {
+        "assessment": "Proves minimum distance-equalizer dimension, not universal-resolving threshold or inclusion-maximal pair-bisectors.",
+        "evidence": [
+          "Pages 2-4 define opposite quantifier; pages 5-8 prove eqdim(J(n,2)) and eqdim(K(n,2)) =3, with no maximal nonresolving classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.17870",
+        "material_read": "Entire ten-page primary PDF text and targeted page screenshot; definitions, Lemma 2, Theorems 3 and 6, and conclusion.",
+        "method": "Direct open and page screenshot, section and term searches.",
+        "title": "Equidistant dimension of Johnson and Kneser graphs",
+        "trigger": "Highest-risk close same objects and bisector terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "290a05e9-3094-4488-88ce-a7d15635418a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Infinite-family worst-case resolving-set robustness grows quadratically despite ordinary metric dimension growing linearly. Exact inclusion-maximal failure sets have a second structurally distinct, smaller family at all n>=7, and three exception transitions n=4,5,6. These are motivated structural and counting refinements for canonical graph families, not a mere substitution or single arbitrary small case.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The graph-level classification reconstructs the corrected four-term coefficient formula. The proof verifies strict initial growth, with quantitative inequalities at the two rectangle-sensitive steps, and a binomial tail whose initial rise makes the boundary comparison decisive. Exact integer arithmetic gives the factorial threshold with both directions, including the equality boundary. The standalone checker independently compared graph enumeration in five small cases and exercised threshold boundaries through \(a=11\); it returned `VERIFY_OK`. Only the written argument proves all parameters.
+
+**Originality — PASS.** The original 2024 paper posed the all-parameter unimodality question. The 2026 correction gives coefficients for all parameters and analyzes selected cases, notably \(a=3\), but the inspected material does not state or prove the sharp factorial phase transition for every \(a\ge5\) with \(r\ge2a+4\). This theorem is a new nontrivial property-level deduction requiring control of every coefficient before the binomial tail, not a claim to rediscover the coefficient formula. Relevant mathematical-record searches and accessible earlier claims yielded no equivalent threshold; that failure to find does not certify global priority.
+
+**Value — PASS.** The source literature explicitly motivates a classification of unimodality for these graphs. The theorem settles an unbounded two-dimensional region with a sharp, unexpectedly factorial cutoff rather than a finite experiment, showing that both unimodal and nonunimodal behavior persist for each fixed \(a\ge5\). The result is narrower than a complete classification and has no asserted consequences for other graph polynomials.
+
+**Closest literature and residual limits.** Iršič et al. (2024), Problem 5.2, motivates the question; Rather (2026), Theorems 5.3 and 5.6 and Corollary 5.7, supplies the corrected enumeration and certain smaller-parameter cases. The earlier printed enumerator cannot be substituted for the corrected one. Search coverage is incomplete for unindexed theses and manuscripts, and no independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

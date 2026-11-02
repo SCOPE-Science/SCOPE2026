@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For every nonempty white mask W, exposure counts outside unique-neighbor vertices exactly. The established fort equivalence proves two-leak success iff the complement of a blue set contains no exposure<=2 subset. The subset recurrence is proved by induction and evaluated on all 2^N masks, N<=20, with no unvisited cases. The enumerator checks all coefficient counts and minimal-fort certificates. A separate direct forcing simulator validates every set with 0-2 leaks for all four graph inputs N<=12, and all 2360 optimal sets plus deterministic samples in N=20; it ran 594303 individual leak tests on the dodecahedron. An explicit isomorphism certificate checks its GP(10,2) identity and the other graph inputs. Full infinite assertions are not made. Source and input integers fit the chosen bit widths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2019 paper develops minimum leaky forcing and an integer-programming approach for arbitrary graphs.",
+        "The 2020 resilience paper provides general propagation characterizations and results for trees, supertriangles and grid graphs.",
+        "The 2026 polynomial preprint gives a general exponential exact algorithm and explicitly evaluates clique-union and complete-multipartite graph families."
+      ],
+      "reasoning": "These broader frameworks could produce our finite counts after additional computation, so general decidability/fort-duality and the algorithm are not claimed. The specific 20-vertex exact distribution, optimal multiplicity 2360, and five-size minimal-fort profile require a nontrivial full evaluation of 2^20 subsets and were not present in the inspected explicit applications.",
+      "searches": [
+        "arXiv:1910.00168, Sections 2-5",
+        "arXiv:2008.06552, Sections 2-4",
+        "DOI:10.5281/zenodo.20388397, Sections 2-6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.00168 (primary PDF, relevant parts)",
+      "arXiv:2008.06552 (primary PDF, relevant parts)",
+      "arXiv:2508.02564 (primary PDF Section 4 and Table 1)",
+      "DOI:10.5281/zenodo.20388397 (open full-text preprint, relevant sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.8 establishes the known one-leak GP(10,2) number 6; this is explicitly treated as background.",
+        "Theorem 4.16 of the same source assumes k>=7 and n>=10k+10, invalid at k=2,n=10.",
+        "The modular-compression theorem does in principle imply a general algorithm for computing these finite graphs, but does not state the evaluated coefficients or obstruction spectrum."
+      ],
+      "reasoning": "The assessed statement consists of **exact evaluated natural finite invariants** and their complete minimal-fort spectra, rather than a new general fort characterization. The generic algorithm provides methodology but not the explicit computations. Values covered by the one-leak theorem are correctly identified as old.",
+      "searches": [
+        "arXiv:2508.02564, Theorems 4.8 and 4.16",
+        "DOI:10.5281/zenodo.20388397, Theorems 3.2 and 4.3 and Section 6",
+        "arXiv:2008.06552, Section 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The dodecahedral graph is GP(10,2), tested by an explicit labeled isomorphism certificate.",
+        "The 2025 Table 1 only lists GP(n,2) for 5<=n<=9.",
+        "The 2026 leaky-polynomial formulation is the same invariant at the generic level; its applications are clique-union and complete multipartite graphs."
+      ],
+      "reasoning": "The same invariant is called the leaky forcing polynomial, fault-tolerant zero-forcing-set enumerator, or fort transversal enumerator. The general counting scheme is equivalent and credited, but its unevaluated generic formula is not an explicit published certificate of these five evaluated coefficient arrays or inclusion-minimal-fort size distributions.",
+      "searches": [
+        "\"leaky forcing\" \"dodecahedral\" zero forcing",
+        "\"2-leaky\" \"dodecahedral\" zero forcing",
+        "arXiv:2508.02564, section 4, Table 1 and Theorems 4.8, 4.16",
+        "DOI:10.5281/zenodo.20388397, sections 2-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 of the 2025 generalized Petersen paper lists the two-leak numbers for GP(n,2), 5<=n<=9, not the dodecahedral GP(10,2).",
+        "For GP(10,2), the cited Theorem 4.8 supplies the already-known one-leak minimum 6.",
+        "No relevant exact two-leak polynomial or minimal-fort table was located for the five named Platonic graphs."
+      ],
+      "reasoning": "A table of two-leak forcing numbers for GP(n,2) through n=9 does not imply the explicit n=10 value or its forcing-set polynomial. Exact data tables may exist elsewhere and search absence does not establish mathematical priority.",
+      "searches": [
+        "\"leaky forcing\" \"dodecahedral\" zero forcing",
+        "\"leaky forcing\" \"Platonic\" cube icosahedron",
+        "\"2-leaky\" \"dodecahedral\" zero forcing",
+        "\"Leaky Forcing Polynomials\" \"dodecahedral\" \"icosahedral\"",
+        "arXiv:2508.02564, Table 1 and Theorem 4.8"
+      ]
+    },
+    "rationale": "Prior work already supplies the fort obstruction test, general exact enumeration and some small-graph minimum forcing numbers. The assessed new finite statements are the fully evaluated two-leak cardinality polynomials for all five Platonic skeletons and especially the exact dodecahedral and icosahedral minimal-fort distributions. The 2025 primary generalized-Petersen paper explicitly stops its exact two-leak table at GP(9,2), while its general two-leak upper bound is restricted to k>=7 and does not imply the GP(10,2) counts. The 2026 general polynomial paper offers an algorithm that in principle can derive these exact numbers, but does not evaluate or print these particular coefficients or fort spectra. No same-claim source identified in targeted searches; residual priority uncertainty is recorded.",
+    "residual_risks": [
+      "Prior exact two-leak values could be tabulated for Platonic graph aliases, generalized Petersen GP(10,2), or the icosahedral skeleton in an unindexed source.",
+      "The 2026 general polynomial theorem implies a way to compute these finite coefficients; the numerical evaluation, not any broad formula or algorithm, is the asserted contribution.",
+      "The 2022 Herrman hypercube paper may cover individual cube scalar values; those alone would not cover the full five-graph data, but no new cube-scalar priority is asserted.",
+      "Some primary material was inspected by section rather than exhaustively line-by-line; no unsupported universal NOT_COVERING claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior definition, general methods and particular graph families; no explicit five-graph two-leak coefficient arrays established in inspected material. Whole-text noncoverage is not asserted solely from snippets.",
+        "evidence": [
+          "v1 public 2019-10-01",
+          "Intro describes paths, cycles, wheels, products and algorithm; not a Platonic catalogue"
+        ],
+        "identifier_or_url": "arXiv:1910.00168",
+        "material_read": "PDF abstract, introduction, definitions and descriptions of Sections 3-5; searched for Platonic, dodecahedral, and icosahedral treatment",
+        "method": "accessible arXiv primary text with inspected PDF page image",
+        "title": "Leaky Forcing: A New Variation of Zero Forcing",
+        "trigger": "original definition, source date, possible small-family calculations"
+      },
+      {
+        "assessment": "General framework and results for trees, supertriangles and grid graphs do not themselves yield the evaluated five-graph coefficient arrays.",
+        "evidence": [
+          "2020 preprint AMS codes 05C57, 05C15, 05C50",
+          "Abstract lists trees, supertriangles and grid graphs as applications"
+        ],
+        "identifier_or_url": "arXiv:2008.06552",
+        "material_read": "PDF first page, introduction and relevant section-4 theorem text, including subject classifications",
+        "method": "accessible arXiv primary text and page-0 image",
+        "title": "On leaky forcing and resilience",
+        "trigger": "general resilience and potential graph-family reductions"
+      },
+      {
+        "assessment": "One-leak GP(10,2) minimum 6 already known; Table 1 n<=9 for GP(n,2) leaves n=10; two-leak large-parameter theorem assumes k>=7, not k=2.",
+        "evidence": [
+          "Table 1: 5<=n<=9 for GP(n,2)",
+          "Theorem 4.8: Z1(GP(n,2))=6 for n>=9",
+          "Theorem 4.16: requires k>=7"
+        ],
+        "identifier_or_url": "arXiv:2508.02564",
+        "material_read": "PDF Section 4 (Table 1, Theorems 4.8 and 4.16, neighboring proofs) with page images for the relevant pages",
+        "method": "arXiv full-text statements and actual inspected page images",
+        "title": "Leaky Forcing: Extending Zero Forcing Results to a Fault-Tolerant Setting",
+        "trigger": "dodecahedron alias GP(10,2), possible exact prior two-leak parameter"
+      },
+      {
+        "assessment": "Explicit general leaky-fort and leaky-polynomial framework; the presented evaluated families are clique unions and complete multipartite graphs, with no reported dodecahedral or icosahedral exact coefficient tables. The method is credited as prior.",
+        "evidence": [
+          "Proposition 2.3 is the fort-transversal equivalence",
+          "Theorem 4.3 generic exact algorithm",
+          "Applications restricted to other graph families"
+        ],
+        "identifier_or_url": "DOI:10.5281/zenodo.20388397",
+        "material_read": "open full-text rendering: abstract, Introduction, Definitions 2.1-2.4, Proposition 2.3, counting method and Sections 4-6 applications/conclusion",
+        "method": "open preprint primary full-text rendering (May 2026)",
+        "title": "Modular Compression of Leaky Forts and Leaky Forcing Polynomials",
+        "trigger": "very close modern broad fort polynomial counting framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23d377ed-733b-42a0-93a0-ea39061721e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact complete finite classification on the five canonical Platonic skeletons is a natural fault-tolerant propagation benchmark, not an arbitrary graph slice. The exact two-leak forcing polynomials record the number and size distribution of resilient placements. Most significantly, the previously known dodecahedral one-leak optimum 6 jumps to 9 under two leaks, with exactly 2360 optimal choices, and its 1205 inclusion-minimal 2-leak forts exhibit a five-size spectrum. The icosahedron has 240 optimal eight-vertex choices and 255 inclusion-minimal forts all of size four. These complete precise enumerators and obstructions are not inferable numerically from the previously published scalar minima alone, and can serve as benchmarks for future enumeration and structure conjectures; a general-family theorem is not claimed.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For each prime, exclusion of residues 0 and 1 produces three assignments, yielding the signed CRT identity. At an odd modulus the associated parity sums have odd length and alternating signs; at twice an odd modulus the mod-four character cancels in blocks of four with two remainder terms. The 2-adic branch follows from equal distribution of lifts modulo four. CRT reciprocity gives the two-prime sign and Dirichlet equidistribution gives equal branch densities. A standalone verifier passed exhaustive direct evaluation of n<=2000, 499 odd radical/parity checks and ordered distinct odd prime pairs below 100. All quantifiers and n=1,2 boundary cases are handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.13939v1, Sec. 2 Theorems 2,3,9,13; arXiv:2609.22305v2, Introduction and Section 2."
+      ],
+      "reasoning": "Renshaw treats the same arithmetic function and has broad but non-exact multi-prime bounds. Salazar applies a stronger explicit sieve to a different additive-representation count; no specialization of its results gives the two parity corrections or branch density here.",
+      "searches": [
+        "published-finding corpus: All moduli explicit CRT Möbius inclusion-exclusion parity correction for odd units m and (m-1)/2 units Renshaw totient",
+        "Web: Renshaw totient T(2n) exact formula prime factorization Chinese remainder 2026"
+      ]
+    },
+    "checked_sources": [
+      "Renshaw, arXiv:2603.13939v1 full text",
+      "Salazar, arXiv:2609.22305v2 relevant primary sections",
+      "published-finding corpus semantic record searches for formula, aliases, modular inverse branches and broader CRT coverage",
+      "Web searches for named function and sequence/database matches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Renshaw arXiv:2603.13939v1, Lemma 4 explicitly leaves mixed-intersection sign unresolved by its bounding argument; summary items 7 and 8 give prime-power and two-prime bound only. Salazar arXiv:2609.22305v2 concerns unordered sums."
+      ],
+      "reasoning": "The new claim is an exact factorization-supported formula for T at every positive integer, including the 2m parity correction; the semiprime modular sign and its 50/50 density are absent from the cited source. Deriving these requires tracking the exact CRT representative parity, not simply applying published bounds.",
+      "searches": [
+        "published-finding corpus: Renshaw totient T(n) odd two prime powers exact branch p q modular inverses parity Schemmel",
+        "Web: \"A Totient Function Associated with Variants of Groups\" closed formula",
+        "Web: Schemmel parity inclusion-exclusion totient coprime neighbors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.13939v1 Theorem 3 and Theorem 13 give bounds rather than equalities for arbitrary prime support."
+      ],
+      "reasoning": "A direct scan of the source full text and related exact-CRT searches did not locate the two stated universal correction sums.",
+      "searches": [
+        "published-finding corpus: Exact formula for Renshaw's totient T(n) using radical rad(n), Schemmel S(n), signed Chinese remainder sum 3^omega and mod four bias for 2n",
+        "Web: \"Renshaw\" \"T(n)\" \"Chinese remainder\" totient exact correction 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searches did not return an OEIS formula or research-record result evaluating the full Renshaw totient by signed CRT terms."
+      ],
+      "reasoning": "Sequence data, even if present, would not imply the universal formula, modular-inverse sign and prime-density theorem; no exact matching table/source was found.",
+      "searches": [
+        "Web: site:oeis.org \"Renshaw\" totient \"variants\" T(n)",
+        "published-finding corpus: Renshaw T(n) exact algorithm for all n semigroup variants totient parity Schemmel 2026"
+      ]
+    },
+    "rationale": "Renshaw establishes the precise source function and bounds but not all-support exact CRT correction formulas, exponent-invariant radical errors or the prime-density branch criterion. Salazar uses a similar 3^r CRT technique but counts unordered restricted additive representations with a fixed 6P modulus, so it does not imply the totient evaluations. Published research-record, web, and sequence-name searches did not expose an equivalent theorem; classical tools and residual independent-priority risk acknowledged.",
+    "residual_risks": [
+      "The tools are classical and an independently published or unindexed equivalent CRT derivation may exist.",
+      "Salazar establishes an analogous mechanism for a different arithmetic counting problem; similarity of method limits claims of technique novelty.",
+      "No independent literature-priority audit was conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers definition, Schemmel relation, bounds, special even and two-prime cases; not the new exact general CRT sums or density",
+        "evidence": [
+          "arXiv:2603.13939v1, Theorems 2,3,9,13 and Lemma 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.13939",
+        "material_read": "Source definitions, theorem statements and proofs across pages 1-13, plus closing summary",
+        "method": "Read text and inspected page images for sign bounds, all-modulus formula and special cases",
+        "title": "A Totient Function Associated with Variants of Groups",
+        "trigger": "Original definition and strongest potential coverage"
+      },
+      {
+        "assessment": "Counts unordered h+k=2n with gcd(h,6P)=gcd(k,6P)=1; not the parity-weighted one-variable Renshaw T modulus computation",
+        "evidence": [
+          "arXiv:2609.22305v2, Section 2, equation (2.1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.22305",
+        "material_read": "Abstract, introduction and Section 2 definitions and CRT setup",
+        "method": "Read PDF text and inspected first two page images",
+        "title": "Restricted Coprime Representations Modulo 6P: Exact CRT Formulas and Positivity Thresholds",
+        "trigger": "Plausible stronger 3^r-term CRT sieve for coprimality counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3113c843-0602-4022-ac02-ca51a08027ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Renshaw motivates evaluation of T(n) but gives general bounds only; the result replaces them with universal factorization-based finite exact evaluations, isolates two exponents-independent radical corrections, and fully resolves the semiprime sign together with balanced occurrence among primes. These are natural structural answers about the paper's own invariant, not arbitrary numeric cutoffs. No optimal algorithm or downstream cryptography theorem is claimed.",
+    "status": "PASS"
+  }
+}

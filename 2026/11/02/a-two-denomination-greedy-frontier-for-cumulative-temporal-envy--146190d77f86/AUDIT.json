@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For each strictly positive unit- or double-unit good, greedy discrepancy belongs to {0,1,2}; the only rounds where a competing allocation has lower absolute discrepancy (greedy 2 vs competitor 0) are paired injectively with an immediately preceding round having opposite cost difference +2. Every prefix therefore has no smaller cumulative envy. Explicit four-good allocations and lower bounds give exact boundary costs 6 vs 5, 6 vs 4, and 5 vs 3; finite exhaustive checker verifies all bounded counts and three-agent minimality. The proof excludes zero-valued arrivals and arbitrary two-level ratios.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldberg–Robinson–Teh 2026 Proposition 1: identical binary {0,1} greedy optimum, Appendix B.1; their general fixed-order algorithm is dynamic programming rather than this special greedy structural formula.",
+        "Elkind et al. Theorems 3.6 and 3.7: existence of temporal EF1 allocations for two types of goods and generalized binary valuations, without optimization of sum-of-rounds maximum envy.",
+        "The published related manuscripts do not present the parity/paired-deficit property for strictly positive steps 1 and 2."
+      ],
+      "reasoning": "Source 1 binary {0,1} is not broader coverage of this {1,2} model: value-two arrivals are indivisible and counted as one round, while splitting them into units creates extra rounds. Source 2 controls a different fairness criterion. The dynamic program in source 1 yields a solution but does not imply the greedy rule is globally optimal.",
+      "searches": [
+        "arxiv:2610.09843 Section 4 and Appendix B.1 (full-text material)",
+        "arxiv:2410.14593 Section 3.2 and AAMAS 2025 conference PDF",
+        "\"temporal fair division\" \"two values\" \"greedy\" exact (web search)",
+        "Temporal fair division myopic minimum load allocation greedy universally optimal two distinct item values (public record semantic search)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.09843; primary full-text relevant sections and proofs",
+      "arxiv:2410.14593 and AAMAS 2025 primary conference paper Section 3.2",
+      "Public mathematical research records: the four exact-claim semantic queries documented above",
+      "Open scholarly web queries concerning cumulative envy, two values, and two-machine signed-walk load balancing",
+      "Available same-domain historical ledger claims: 2026-10_week4 preceding generation, source/title/claim level for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Binary Proposition 1 obtains a per-round lower bound based on total unit-valued goods; the new two-denomination theorem instead allows a transient 2-unit greedy discrepancy to be smaller than a competitor’s discrepancy at a later round, so optimality requires cancellation over adjacent rounds.",
+        "Two-type TEF1 uses round-robin allocation and seeks EF1 at every round; the new exact numerical objective is not a logical consequence of EF1.",
+        "For the four-good sequence (1,1,2,0), the greedy method is worse although item values lie in {0,1,2}, verifying that the binary nonzero assumption is mathematically essential rather than a normalization."
+      ],
+      "reasoning": "Neither earlier result states stronger optimality that implies the new claim. A simpler binary theorem does not subsume the positive two-denomination class, and all-horizons cumulative objective is distinct from pointwise EF1. The original mathematical proof supplies the missing structural implication.",
+      "searches": [
+        "Goldberg Robinson Teh Minimizing Cumulative Envy fixed arrival order Proposition 1 general DP arxiv 2610.09843",
+        "Elkind Lam Latifian Neoh Teh Temporal Fair Division of Indivisible Items two types Theorem 3.6 arxiv 2410.14593",
+        "Cumulative maximum envy three identical agents sequence 1 2 1 2 greedy counterexample (published semantic record search)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new claim is equivalent to greedy optimality for area under an absolute signed walk with step lengths 1 and 2, with every step indivisible.",
+        "The web searches retrieved general load balancing/online sorting discussions but no explicit all-horizon theorem for this discrete signed-walk objective.",
+        "A public semantic search returned unrelated matching and optimization records, including ID 2026/10/4/SCOPE-exact-first-rank-maximality-failure-of-serial-dictatorship--a60f04d4085b; its assignment-ranking claim concerns a different object."
+      ],
+      "reasoning": "The signed-walk equivalence is exact for identical valuations and precisely two agents: maximum pairwise envy is absolute cumulative load difference. A theorem about terminal load balancing, online sorting, or EF1 feasibility does not in itself minimize the area at every fixed-arrival horizon. No dominating theorem with this exact two-step condition was identified in the consulted sources.",
+      "searches": [
+        "Two-agent prefix discrepancy cumulative absolute signed sum with increments 1 or 2 and minimum greedy recursion (published mathematical record search)",
+        "\"sum of absolute differences\" \"greedy\" \"1\" \"2\" \"online\" load balancing (web search)",
+        "\"cumulative maximum envy\" \"two agents\" \"1\" \"2\" (web search)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database/table result on the two-denomination greedy frontier was returned by these actual queries.",
+        "The closest-ranked published records were on random-priority allocations and stable-matching preference orderings (e.g., public record ID 2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1); they classify different mechanisms/metrics.",
+        "The boundary values were independently obtained from integer enumeration with full assignment enumeration and separate analytical arguments."
+      ],
+      "reasoning": "The retrieved records do not tabulate this temporal envy quantity, and their classification parameters cannot yield the positive greedy theorem or all three four-good witnesses. Missing hits are not a novelty proof; a specialized unindexed combinatorics/scheduling table remains possible.",
+      "searches": [
+        "Greedy envy-minimizing sequential assignment of values one and two to two identical agents is exactly optimal for cumulative total envy (published semantic record search)",
+        "Temporal fair division zero-valued good breaks greedy cumulative maximum envy after values 1,1,2 (published semantic record search)",
+        "\"cumulative envy\" \"values 1 and 2\" \"greedy\" temporal (web search)"
+      ]
+    },
+    "rationale": "The 2026 source proves greedy optimality for identical binary {0,1} values and describes general pseudopolynomial optimization, but does not state or imply the fixed-order exact all-horizons result for strictly positive {a,2a} and two agents. The 2024/2025 source proves temporal EF1 existence for two item types rather than minimization of summed numerical envy. Relevant semantic and web searches found no matching theorem, which is evidence only under best-knowledge review, not uniqueness certification.",
+    "residual_risks": [
+      "Equivalent theorem may exist under a different scheduling/sign-choice terminology in unindexed or inaccessible literature.",
+      "Only highly relevant primary sections and proof appendices were materially inspected; not every page of every available paper was read.",
+      "Scientific review is self-review, not independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proposition 1 applies to binary {0,1} and proves pointwise optimality, while Theorems 3-4 cover general DP/FPTAS. No exact {a,2a} two-agent greedy theorem or three listed four-good boundaries observed in the relevant original sections.",
+        "evidence": [
+          "arxiv:2610.09843, first version published 2026-10-07",
+          "Proposition 1, Appendix B.1; discussion preceding Section 4 and Algorithm 2 in Section 5"
+        ],
+        "identifier_or_url": "https://borowiecki.dev/pdf/2610.09843",
+        "material_read": "Full-text pages 1-5, 11, 16-17, 23-27; Sections 1, 4, 5 and Appendix B.1/B.2 relevant arguments",
+        "method": "Readable primary PDF text, targeted full-text phrase searches, and page-image inspection",
+        "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "trigger": "Defines identical-valuations fixed-order cumulative maximum envy and states greedy binary result"
+      },
+      {
+        "assessment": "Guarantees existence of temporal EF1 allocations, not exact optimization of cumulative maximum numerical envy; two-type method is a round-robin construction rather than universal greedy optimality.",
+        "evidence": [
+          "arxiv:2410.14593, first version 2024-10-18",
+          "AAMAS 2025 PDF, Section 3.2, Theorems 3.6 and 3.7"
+        ],
+        "identifier_or_url": "https://www.ifaamas.org/Proceedings/aamas2025/pdfs/p676.pdf",
+        "material_read": "Primary conference PDF Sections 1 and 3.2, definitions of two types and generalized binary, Theorems 3.6 and 3.7, contextual TEFX limitations",
+        "method": "Readable full-text primary PDF and page-image inspection of Section 3.2",
+        "title": "Temporal Fair Division of Indivisible Items",
+        "trigger": "Earlier two-item-type and generalized binary temporal fairness theorems could appear to cover the domain"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "146190d7-7f86-4c5e-9a4b-b43ad1e7dd8b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This finds a nontrivial, all-horizons exact online greedy island for two equal-valued agents in the new fixed-order cumulative maximum envy objective, between the previously known {0,1} trivial per-round bound and general fixed-order hardness. It establishes three sharp four-item failure boundaries that isolate item indivisibility, population size, and zero-valued waiting rounds; the positive theorem is infinite, not a finite census.",
+    "status": "PASS"
+  }
+}

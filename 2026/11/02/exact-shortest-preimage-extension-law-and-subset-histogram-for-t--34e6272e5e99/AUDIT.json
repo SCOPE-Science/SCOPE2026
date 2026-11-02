@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The preimage maps are inclusion-monotone; b^{-1} either deletes 0, fixes the set, or adds 0. A nonexpanding first inverse b can be removed while preserving an expanding final preimage, contradicting minimality. Thus the first b adds 0 after a pure cyclic inverse shift, uniquely identifying ba^j from the first 01 boundary. Prefix pattern counting proves the exact histogram and all n-1 stuck initial segments. The independently implemented inverse-subset BFS (n=2..13) and forward word enumeration including uniqueness (n=2..8) both passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miccinesi 2026 proves B(S)≥0 sufficient for extension length at most n-1, but says the condition gives no guarantee for B(S)<0 and explains that some Černý subsets are stuck.",
+        "Berlinkov–Ferens–Szykuła 2020 proves general computational complexity classifications for bounded extensions; it provides no per-subset C_n length law."
+      ],
+      "reasoning": "A uniform sufficient certificate or complexity decision theorem does not specify exact minext for all subsets or enumerate the n-1 exceptions. The present claim does not purport to improve their general theorems.",
+      "searches": [
+        "Černý automata beta star B(S) indegree certificate subset extension lengths negative region Miccinesi 2026",
+        "Černý DFA subsets no extension within n-1 precisely n-1 initial cyclic intervals one each cardinality",
+        "arXiv:2609.21603 §§4–8",
+        "arXiv:1704.08233v4 §§1–6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.21603 (full HTML)",
+      "https://arxiv.org/html/1704.08233v4 (full HTML)",
+      "https://doi.org/10.4230/LIPIcs.MFCS.2018.32 (14-page PDF)",
+      "https://arxiv.org/abs/2508.15655 (survey abstract)",
+      "Publicly indexed mathematical result: Exact k-avoiding thresholds of the Cerny automata (accessible record)",
+      "Publicly indexed mathematical result: Exact early deficiency profile of the Černý automata (accessible record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Miccinesi shows existence of a stuck subset for every C_n, but no multiplicity or identities; this claim implies that existential result and identifies all such subsets.",
+        "The indexed Černý k-avoiding threshold is kn for any target k-set: this involves words whose total image avoids that set, not the first growth of an arbitrary prescribed inverse image.",
+        "The indexed Černý early deficiency profile concerns minimizing rank of Q under a word, not expanding S^{-1} for each S."
+      ],
+      "reasoning": "This result implies known 3-state examples and the all-n existential obstruction, not conversely. Whole-image compression or avoidance data cannot directly bound the minimal expanding word for each arbitrary subset with its full distribution; the quantifiers and objective are different. This is not a corollary of the inspected stronger general statements.",
+      "searches": [
+        "arXiv:2609.21603 §8.1",
+        "arXiv:1704.08233v4 §1.2, §2",
+        "Černý automaton shortest extending word subset exact preimage boundary all subsets",
+        "Černý automaton all subsets unique shortest extending word ba^j first cyclic zero one boundary exact distribution t 2^{n-t-1}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.21603, Example 1, identifies two stuck subsets only for n=3; §8.1 notes an obstruction for every n but does not count or classify them.",
+        "arXiv:1704.08233v4 §1 illustrates a four-state extending word, while theorems address complexity of finding extensions."
+      ],
+      "reasoning": "The zero-to-one boundary formula is equivalent to a complete per-subset shortest-word classification, and the histogram is its count across all subsets. Neither primary source states this equivalence, complete enumeration, or uniqueness for all n. The examples and general existence claims are strictly weaker.",
+      "searches": [
+        "Černý automaton all subsets unique shortest extending word ba^j first cyclic zero one boundary exact distribution t 2^{n-t-1}",
+        "preimage expanding word Cerny cyclic automata unique shortest ba^j all subsets",
+        "\"Cerny\" \"minext\" subsets histogram shortest extension",
+        "arXiv:2609.21603 §3 Example 1; §8.1",
+        "arXiv:1704.08233v4 §§1–6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Miccinesi Appendix A reports experiments over populations of arbitrary automata and a three-state Černý illustration, not the stated C_n all-length histogram.",
+        "Accessible indexed published results include \"Exact k-avoiding thresholds of the Cerny automata\" and \"Exact early deficiency profile of the Černý automata\", neither presenting the per-subset preimage-extension distribution."
+      ],
+      "reasoning": "The checked tables and nearby indexed results do not supply H_n(t), the exact stuck count n-1, or the unique word b a^j. Database nonappearance alone is not treated as proof of priority.",
+      "searches": [
+        "Černý automata exact distribution shortest extending words over all 2^n-2 nonempty proper subsets t 2^{n-t-1} n-1 stuck",
+        "Cerny automaton number of stuck subsets exactly n-1 initial segments 0 through k extension length n",
+        "Černý automata exact distribution shortest extending words over all 2^n-2 nonempty proper subsets t 2^{n-t-1} n-1 stuck",
+        "arXiv:2609.21603 Appendix A tables"
+      ]
+    },
+    "rationale": "No checked primary text or accessible published result entails the all-parameter per-subset shortest-word uniqueness, exact histogram, and sharp classification together. Miccinesi (2026) proves an extension certificate and records two 3-state obstructions; Berlinkov–Ferens–Szykuła study preimage decision complexity. Published related Černý avoidance and image-compression results have different quantified objectives. Unindexed equivalent work remains a plausible priority risk.",
+    "residual_risks": [
+      "A short cyclic-boundary proof may occur in earlier unindexed or differently phrased literature on circular automata.",
+      "The accessible indexed records for nearby k-avoiding and rank-compression findings were compared from their summary statements, not every underlying full paper; their explicitly stated objectives differ.",
+      "Independent publication-priority and mathematical review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: two exceptional subsets for n=3 and existential all-n obstruction, not the all-n histogram/unique word.",
+        "evidence": [
+          "Example 1: the stuck subsets in C_3 are {0} and {0,1}.",
+          "§8.1: existence of at least one stuck subset in C_n follows from the extremal reset threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.21603",
+        "material_read": "Full arXiv HTML content including abstract, §§1–8, Example 1, §8.1, Appendix A data and references.",
+        "method": "Examined definitions, general quantified results, Černý examples and all-n statements; compared their logical implications to the proposed complete per-subset classification.",
+        "title": "Certificates for short extending words in a finite automaton",
+        "trigger": "Exactly the same minext quantity, explicitly names Černý stuck subsets and the negative-certificate region."
+      },
+      {
+        "assessment": "NOT_COVERING: computational complexity and one four-state example; no all-n C_n threshold counts.",
+        "evidence": [
+          "§1, Figure 1: a shortest extending word for one subset of a four-state Černý automaton.",
+          "§1.2 and §§2–4: complexity classifications rather than a specific complete distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1704.08233v4",
+        "material_read": "Full accessible HTML text, §§1–6, table of complexity results, conclusions and references.",
+        "method": "Checked all occurrences of Černý and the statements in each section on extending subsets, including length-bounded variants.",
+        "title": "Preimage problems for deterministic finite automata",
+        "trigger": "Same preimage extension definition; potential stronger all-subset decision theory."
+      },
+      {
+        "assessment": "NOT_COVERING: complexity bounds and examples, no all-n histogram.",
+        "evidence": [
+          "The paper considers existence of extending words and bounded word lengths for general automata."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2018.32",
+        "material_read": "The open-access 14-page conference PDF, including introductory Černý illustration and main complexity sections.",
+        "method": "Read the PDF and compared the extension claims and examples with an exact Černý family classification.",
+        "title": "Complexity of Preimage Problems for Deterministic Finite Automata",
+        "trigger": "Earlier conference version on precisely the preimage-extension problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34e6272e-5e99-43be-8e9f-b466ef680ca5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 extending-word certificate literature explicitly identifies the exact worst-case Černý family as a barrier to a uniform n-1 bound but gives only a finite example and existential all-n obstruction. This theorem solves a natural comprehensive classification: individual shortest witnesses, full threshold distribution, exact exceptions and a limiting mean, for every subset and every n. It explains mathematically why worst-case slow reset coexists with exponentially rare hard one-step extensions. The proof is structural and a complete classification rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "All two-state transition functions are permutations or constants, establishing the exact terminal-letter/terminal-run-parity criterion on cyclic conjugates. Four explicit three-state tables separate all unequal two-step rotations. The critical alternating-prefix lemma is proved by a closed 31-state product-transition table for each of 01 and 10, with all 62 rows and successor edges reproduced and checked by a standalone standard-library verifier. The source and target paths are inspected; a separately implemented 16-table two-state enumeration and four-witness test cover all 32,724 unequal pairs through length fourteen. The infinite conclusion is from the finite-state closure and direct algebra, not extrapolated enumeration. An elementary disjoint case count gives the exact formula and 5/12 limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nicol 2026, Proposition 5, arxiv:2608.30928v1: explicit bound R(n,k)<=2 min(k,n-k)+1, giving five for k=2 and n>=4.",
+        "Demaine et al. 2011, Propositions 4-5, arxiv:1103.4513v1: a separator based on initial or final differing positions, without uniform exact two-step classification.",
+        "Tran 2023, arxiv:2309.02766: larger universal and every-start-state problem, not an all-pairs two-step sharp result."
+      ],
+      "reasoning": "A stronger theorem giving at most two states would contradict the known length-four example. The available broad statements give only three- or five-state generic methods and do not determine the natural two-shift subfamily. The proposed theorem sharpens the published explicit bound, rather than restating it.",
+      "searches": [
+        "web literature search: automata separating conjugate binary words shift by 2 3 states",
+        "web literature search: binary conjugate words distance two cyclic shift distinguish three states DFA automata",
+        "semantic research-index query: separating two conjugate words cyclic shift k=2 three state DFA 2026 Nicol arxiv"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "Most relevant: general two-step upper bound five vs exact three and complete count",
+        "identifier": "arxiv:2608.30928v1"
+      },
+      {
+        "comparison": "Pre-existing n=4 three-state witness; not claimed as novel",
+        "identifier": "arxiv:1103.4513v1"
+      },
+      {
+        "comparison": "Different start-state quantifier and unrestricted pair maxima",
+        "identifier": "arxiv:2309.02766"
+      },
+      {
+        "comparison": "Primary PDF page 1 inspected: size of the minimal DFA accepting the full conjugate language C(w), not a separator of two prescribed words",
+        "identifier": "arxiv:1903.05442"
+      },
+      {
+        "comparison": "Abstract of 2014 factor-occurrence separation study, full text not inspected",
+        "identifier": "doi:10.1134/S1990478914020161"
+      },
+      {
+        "comparison": "No matching two-step separation theorem, several nearby but non-dominating automata/coding results",
+        "identifier": "Public mathematical research-index searches"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nicol 2026, arxiv:2608.30928v1, Section 3, Proposition 5: <=2k+1 construction yields <=5 at k=2; no >=3 or exact census.",
+        "Demaine et al. 2011, arxiv:1103.4513v1, Section 1: sep(0010,1000)=3, a special instance of lower bound.",
+        "Tran 2023, arxiv:2309.02766, Definition 2: every-start-state separation is a stronger quantifier than existence of one starting state."
+      ],
+      "reasoning": "The lower bound for n=4 and the known five-state upper bound jointly imply only 3<=R(n,2)<=5 for n>=4, not equality at every length, nor an exact 5/12 asymptotic density. The 31-state product lemma and separate counting argument are necessary new ingredients.",
+      "searches": [
+        "primary source inspection: https://arxiv.org/html/2608.30928v1",
+        "web literature search: Demaine Eisenstat Shallit Wilson 2011 separating words shift conjugate Proposition 2",
+        "primary source inspection: https://arxiv.org/abs/2309.02766"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2608.30928v1 defines R(n,k) as a maximum over pairwise cyclic conjugates.",
+        "The proposed equivalence of two-step separation and two-letter commutator testing is proved directly by the decomposition w=AB, rho_2(w)=BA, |A|=2.",
+        "The returned research records concerned rank compression, error-correcting codes and unrelated monoid identities rather than this commutation criterion."
+      ],
+      "reasoning": "The commutator interpretation exactly matches the prescribed-pair DFA problem because differing terminal states can be made accepting/rejecting. No equivalent closed formula or compact two-letter-commutation witness was retrieved.",
+      "searches": [
+        "semantic research-index query: binary word deterministic finite automaton separation of cyclic shifts by two positions: maximum 3 states, exact proportion needing three, 2-state separation classification",
+        "semantic research-index query: commutation of binary words two-letter prefix in three state full transformation monoid, 01 B vs B 01",
+        "web literature search: \"separating\" \"conjugates\" \"3 states\" DFA"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tran 2023, arxiv:2309.02766 Table 1 gives the *global* extremal D_exists(n) through length 18, not the number of two-position rotations attaining three states.",
+        "Demaine et al. 2011 gives an isolated length-four optimum pair, not a length-parametrized labeled-word census.",
+        "No indexed exact two-shift census or table was retrieved in the stated searches."
+      ],
+      "reasoning": "The natural quantity is a subfamily distribution C_n, which is not determined by the global maximum values S(n) or one pair. No matching table surfaced, although absence from indexes does not establish global uniqueness.",
+      "searches": [
+        "semantic research-index query: minimum distinguishing DFA separating two words of equal length cyclic shifts reversal exact state complexity new finite classifications",
+        "semantic research-index query: binary word deterministic finite automaton separation of cyclic shifts by two positions: maximum 3 states, exact proportion needing three, 2-state separation classification",
+        "web literature search: \"R(n,2)\" \"sep\" automata binary conjugate"
+      ]
+    },
+    "rationale": "Nicol (arXiv:2608.30928v1, Section 3) provides the natural cyclic-conjugate separation function and the five-state two-step upper bound but not the sharp three-state formula or complete count. Demaine et al. (arXiv:1103.4513v1) already provide the length-four three-state witness; that known instance is not claimed as new. Tran concerns a stronger start-state quantifier, and the conjugate-language complexity problem concerns acceptance of an entire language rather than separation of a prescribed pair. Targeted mathematical research-index and bibliographic searches found no explicit equivalent theorem; residual publication-priority risk remains.",
+    "residual_risks": [
+      "A specialized unindexed note could give the exact two-step rotation classification or the same finite commutation lemma.",
+      "Only the abstract of the 2014 subword-occurrence-separation paper was accessible; no direct two-step result is established from it.",
+      "The 2019 conjugate-language state-complexity source was inspected in its introductory section but not in all later technical sections; its stated invariant is materially different.",
+      "No independent expert priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers generic conjugate-word bounds but not the proposed sharp k=2 three-state classification or counts",
+        "evidence": [
+          "arxiv:2608.30928v1, Theorem 2, Proposition 5, explicit R(n,k)<=2 min(k,n-k)+1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.30928v1",
+        "material_read": "Abstract, introduction and all of Section 3, including definition of R(n,k), Proposition 3, Proposition 4, Proposition 5 and proofs (the abstract, introduction and entire relevant Section 3).",
+        "method": "Direct primary HTML full-section reading and mathematical comparison of explicit bounds",
+        "title": "Further Remarks on Separating Words",
+        "trigger": "Same object, same cyclic shift parameter, natural comparison theorem"
+      },
+      {
+        "assessment": "Length-four lower-bound witness and generic proximity/fingerprint separation, no all-length two-step theorem in inspected relevant sections",
+        "evidence": [
+          "arxiv:1103.4513v1, introductory example sep(1000,0010)=3 and Section 4 Propositions 4-5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1103.4513",
+        "material_read": "PDF introductory pages and Sections 3-4 including the 0010/1000 witness and Propositions 4-7; page screenshots reviewed.",
+        "method": "Primary PDF textual and page-image inspection",
+        "title": "Remarks on Separating Words",
+        "trigger": "Foundational original work and known pair requiring three states"
+      },
+      {
+        "assessment": "Different forall-start-state problem and global maxima, neither entails the two-shift count",
+        "evidence": [
+          "arxiv:2309.02766, Introduction Table 1 and Definition 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.02766",
+        "material_read": "Full accessible introductory definitions, exact small-n global maxima table and main theorem discussion.",
+        "method": "Primary arXiv HTML reading",
+        "title": "Separating Words from Every Start State with Horner Automata",
+        "trigger": "Nearby minimum-DFA separation conventions and exact small-length global table"
+      },
+      {
+        "assessment": "Studies minimal DFA recognizing the entire language of cyclic conjugates of one word, not the minimum DFA separating one specified word from its two-position rotation; the two invariants do not imply one another via the stated results.",
+        "evidence": [
+          "arxiv:1903.05442v2, page 1 introduction defines C(w)={all cyclic shifts} and sc(C(w)) as language state complexity"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1903.05442",
+        "material_read": "Primary PDF title, abstract and introductory definitions and main-result description (page 1); page screenshot inspected. Later full proofs not inspected.",
+        "method": "Primary PDF textual and rendered page inspection",
+        "title": "Maximal State Complexity and Generalized de Bruijn Words",
+        "trigger": "Potentially stronger result for cyclically conjugate words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "539b7b3c-53df-4436-8b2a-c85bde994cff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 conjugate-separation study gives an explicit five-state bound for two-step binary rotations but not the exact minimum. This theorem proves the optimal three-state bound at all lengths and a complete classification whose limiting three-state density is 5/12. The result is a natural infinite subfamily resolution, not a trivial change of notation or single finite instance; the compact two-machine commutation certificate provides an additional structural insight.",
+    "status": "PASS"
+  }
+}

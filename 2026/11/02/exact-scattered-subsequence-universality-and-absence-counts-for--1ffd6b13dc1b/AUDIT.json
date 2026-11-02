@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The binary greedy-first-occurrence recursion proves exact shortest absent length and count. Its option-distance difference has only three states. An exact 12-cell transfer table over the four explicit length-16 blocks preserves equal counts, multiplies them by 2^(delta-min-4), and fixes the final difference away from zero; multiplication proves the arbitrary-block theorem. Binary-digit decomposition identifies the Rudin–Shapiro block morphism, and a paired-edge parity recurrence E(2q)=-E(q)-1 yields the all-rank index and count. The standalone embedded checker independently runs the table updates, direct next-occurrence DP, all 340 block concatenations up to four blocks, and ranks 4..13. Brute force also checked binary subsequence presence at ranks 4 and 5. Boundary k=4 is explicit; finite tests are evidence, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2108.13968, Section 3 gives structural descriptions of SAS and general extremal examples over larger alphabets; it does not specialize to the Rudin–Shapiro morphism.",
+        "arxiv:2407.18599, Introduction and Theorem 1 study extremal values of absent counts over classes of words of fixed index, not all arbitrary concatenations of the four explicit Rudin–Shapiro blocks.",
+        "published-finding corpus e77c4e8d9f37 records the distribution of indices over all binary words; no statement there supplies the exact statistics for the present structured input."
+      ],
+      "reasoning": "Broader counting and algorithmic results make finite cases computable but their stated implications do not determine this infinite class-specific invariant. The block theorem has a morphism-aligned hypothesis not implied by generic index distribution or extremal statements.",
+      "searches": [
+        "published-finding corpus: shortest absent subsequences binary words block transfer formula exact counts",
+        "published-finding corpus: Rudin Shapiro binary word shortest absent scattered subsequences universality index count dyadic prefixes 5 times 2 power",
+        "arxiv:2108.13968",
+        "arxiv:2407.18599"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1301.4972 Section 8",
+      "arxiv:1508.02074 Sections 2 and Rudin–Shapiro results",
+      "doi:10.4230/LIPIcs.ICDT.2015.230 sections on k-subsequence separation",
+      "arxiv:2108.13968 Sections 1 and 3",
+      "arxiv:2407.18599 Introduction and Theorem 1",
+      "published-finding corpus record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 (summary and implication compared)",
+      "published-finding corpus record 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 (summary and implication compared)",
+      "published-finding corpus record 2026/9/8/SCOPE079 (summary and implication compared)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Currie–Rampersad–Saari–Zamboni (2013), Section 8, Theorem 8 describes the lexicographic least infinite Rudin–Shapiro shift word; it defines the same four-letter morphism but not scattered absence counts.",
+        "Schaeffer–Shallit (2015), Section 2 and results on Rudin–Shapiro factor properties address contiguous factors such as maximal palindromes, privileged words, and balance.",
+        "Kosche et al. derive SAS characterizations and algorithms, not this automatic-sequence exact law.",
+        "The published Fibonacci-extremal record concerns a sharp maximum across all binary words; the Rudin–Shapiro count is neither stated there nor a direct corollary of only the maximum."
+      ],
+      "reasoning": "The new result is a precise rank-by-rank count plus an arbitrary-block transfer invariant. Lexicographic extremal words, contiguous-factor automata, global extremal bounds, and generic algorithms do not individually or jointly imply these exact formulas without the new block-state and dyadic-parity calculation.",
+      "searches": [
+        "arxiv:1301.4972 Section 8 Rudin-Shapiro",
+        "arxiv:1508.02074 Section 2 Rudin-Shapiro",
+        "arxiv:2108.13968 Section 3 shortest absent subsequences",
+        "published-finding corpus: 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kosche–Koß–Manea–Siemer, arxiv:2108.13968, introductory definition and Section 3: general SAS characterization and compact representations, with no Rudin–Shapiro occurrence in the full searchable text.",
+        "Adamson et al., arxiv:2407.18599, Sections 1–3: extremal absent-subsequence bounds at fixed universality, with no Rudin–Shapiro occurrence in the full searchable text.",
+        "The two-option greedy absence dynamic program and rank-one block transfer independently imply both proposed formulas but do not follow as a stated specialization in the inspected papers."
+      ],
+      "reasoning": "Names and aliases checked: scattered factors/subwords, SAS, subsequence k-universality, binary arch factorization, and the Golay–Rudin–Shapiro sequence. An abstract general algorithm for computing SAS for any fixed input is not the all-rank closed-form theorem, and no inspected primary source states the same claim.",
+      "searches": [
+        "published-finding corpus: Rudin-Shapiro sequence arch factorization SAS number 2^(2^k) greedily subsequences",
+        "published-finding corpus: Rudin Shapiro word scattered-subword complexity universality subsequence embeddings recurrence",
+        "Published web: \"Rudin-Shapiro\" \"shortest absent subsequences\"",
+        "Published web: \"Rudin-Shapiro\" \"absent subsequence\" 2^n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identified public exact table for the dyadic SAS count in the inspected published search results.",
+        "The recorded Rudin–Shapiro string-attractor table SCOPE079 concerns a different invariant and cannot supply shortest absent scattered words.",
+        "The new checker independently validates concrete ranks 4 through 13 without adopting a published numeric table."
+      ],
+      "reasoning": "No exact sequence-specific database or matching table was identified. This is only a limitation-qualified search result, not a proof of global absence of earlier tables; generic computability cannot alone establish originality.",
+      "searches": [
+        "published-finding corpus: binary 16-block Rudin Shapiro sequence subword universality subsequence deficiency missing words",
+        "Published web: \"Rudin Shapiro\" \"universal\" \"subsequences\" counting",
+        "Published web: \"Rudin Shapiro\" \"arch factorization\" \"shortest absent\""
+      ]
+    },
+    "rationale": "published-finding corpus semantic searches, accessible prior research records claims, and specific primary literature on Rudin–Shapiro and shortest absent subsequences were compared by mathematical implication. No inspected work proves the same morphism-specific index, SAS cardinality or arbitrary-four-block identity. Generic SAS algorithms, fixed-index extremal bounds and unrelated contiguous-factor properties do not imply the new formulas without substantial new analysis. Search is nonexhaustive and unindexed priorities remain possible.",
+    "residual_risks": [
+      "Unindexed earlier equivalent Rudin–Shapiro subsequence results may exist; searching cannot prove universal novelty.",
+      "published-finding corpus nearest generic records were compared using returned published summaries, not their entire independently hosted full text.",
+      "A generic algorithmic result might encode a computational route to a special-case identity, but the closed formula and transfer proof were not stated in the checked materials."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same coding, different lexicographic shift invariant; the inspected section does not count missing scattered subsequences.",
+        "evidence": [
+          "Section 8 displays f(0)=01, f(1)=02, f(2)=31, f(3)=32 with coding 0,1→0 and 2,3→1; Theorem 8 states the least shift word as 0w."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.4972",
+        "material_read": "Abstract, preliminaries, Section 8 on Rudin–Shapiro including morphism and Theorem 8, and adjoining discussion",
+        "method": "Accessible primary PDF textual reading plus first-page visual inspection",
+        "title": "Extremal words in morphic subshifts",
+        "trigger": "Primary Rudin–Shapiro four-letter morphism and closest exact-sequence reference"
+      },
+      {
+        "assessment": "Contiguous factor properties, not exact absent scattered-subsequence index or counts.",
+        "evidence": [
+          "Section 2 defines the Rudin–Shapiro sequence; Theorem 3 gives eight maximal palindromes and Theorem 6 gives rich-factor totals, distinct from scattered subsequences."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.02074",
+        "material_read": "Abstract, Section 2 definitions and Rudin–Shapiro recurrence, relevant Rudin–Shapiro theorems in Sections on palindromes, richness, privilege, and balance",
+        "method": "Accessible primary PDF textual reading, relevant-section searches and first-page visual inspection",
+        "title": "Closed, Palindromic, Rich, Privileged, Trapezoidal, and Balanced Words in Automatic Sequences",
+        "trigger": "Detailed classical automatic-word factor results including Rudin–Shapiro"
+      },
+      {
+        "assessment": "Decision complexity of language separability, not all-rank Rudin–Shapiro absence formulas.",
+        "evidence": [
+          "Theorem 19 gives a polynomial-time separability result for two explicit finite words and fixed subsequence length; no closed formula for this particular automatic word is present in the inspected material."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol031-icdt2015/LIPIcs.ICDT.2015.230/LIPIcs.ICDT.2015.230.pdf",
+        "material_read": "Abstract, definitions of subsequence-language separability, Section 3 and results for finite words",
+        "method": "Accessible primary PDF textual reading and first-page visual inspection",
+        "title": "Separability by Short Subsequences and Subwords",
+        "trigger": "Historic public work on bounded scattered-subword information"
+      },
+      {
+        "assessment": "General characterization/algorithms and other extremal constructions, not the four-block family or Rudin–Shapiro dyadic specialization.",
+        "evidence": [
+          "Introduction defines universality index and SAS; Section 3 counts SAS for specially constructed examples; searchable text contains no Rudin–Shapiro reference."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Introduction, Section 3 combinatorial results for SAS and their examples, relevant count and factorization lemmas",
+        "method": "Accessible primary PDF textual reading, searches for Rudin and SAS, and first-page visual inspection",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Closest modern SAS definitions, structure and computational methods"
+      },
+      {
+        "assessment": "General bounds/characterization at fixed index do not specify this morphic input family.",
+        "evidence": [
+          "Theorem 1 characterizes shortest words maximizing existing subsequences at fixed index; no Rudin–Shapiro mention in searchable text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+        "material_read": "Introduction, summary of main results, Theorem 1 and context on extremal words, searched for Rudin",
+        "method": "Accessible primary PDF textual reading plus first-page visual inspection",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Potentially dominating general absent-subsequence cardinality statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ffd6b13-dc1b-4cb6-a36e-dd35d9afe351",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact all-rank subsequence universality index and exact count of distinct shortest absent subsequences answer motivated natural statistics of a classical automatic sequence. The 16-bit block transfer identity covers exponentially many concatenations and conceptually explains the power-of-two SAS count and parity anomaly. These are nontrivial explicit invariants, not routine fixed-rank enumeration or a direct table lookup.",
+    "status": "PASS"
+  }
+}

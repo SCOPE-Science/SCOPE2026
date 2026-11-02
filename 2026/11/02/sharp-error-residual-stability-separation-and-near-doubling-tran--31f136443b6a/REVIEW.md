@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For every finite flat real orthogonal-column matrix and every starting error, both conditional moment identities follow directly by expansion, independent uniform averaging, and the constant squared modulus of each column entry. Matrix definiteness proves the sharp step-size boundaries, including equality and strict-failure cases. For the two-mode family, the two-coordinate nonnegative second-moment recursion follows by direct row-sign cancellation; the residual is bounded by 2 using the error-contraction inequality and induction, and a joint high-contrast/long-horizon sequence proves sharpness. The exact-rational standalone test performed 370 supplementary comparisons, including a direct all-path recursion check. These finite checks do not establish the universal result by themselves.
+
+## Originality — PASS, subject to priority limits
+The 2026 Xia–Zhou paper is the source of the unnormalized independent row/coordinate rule, and its introduction explicitly recognizes potential nonmonotonicity of residual-related quantities. The current contribution is the precise paired *sharp* one-step thresholds and optimal-step large-contrast near-doubling transient, not the base algorithm, generic moment expansion or qualitative nonmonotonicity. The 2019 Du–Sun and 2018 Razaviyayn–Hong–Reyhanian–Luo papers use entry-weighted joint sampling with local-block normalization, not the uniform independently sampled unnormalized method under analysis. Their results give convergence bounds under different stochastic laws, not the stated exact two-norm frontier and sharp transient. Searches of mathematical records and accessible prior claims also revealed no directly covering theorem. The source paper's later full text was not accessible; an unlocated equivalent in its later sections or older exact-moment theory remains a priority risk, rather than a proved absence.
+
+## Mathematical value — PASS
+This is a natural gap in two criteria used to evaluate a numerical inverse-problem regularization: solution-error contraction and physical-residual decrease. It supplies sharp formulas, a concrete strict residual reversal at a step optimal for solution error, and an exact worst multistep transient constant, allowing precise evaluation of residual-driven stopping heuristics in a canonical balanced-row design. The result is not merely a one-example negative check, a restatement of a general error bound, or a numerical observation. It does not establish general noisy-data regularization conclusions.
+
+## Scientific limitations and verification
+Uniform row and coordinate sampling, flat column magnitude, full column rank, exact arithmetic and consistency are necessary hypotheses of the presented theorems. Sources were compared at update-law and implication level; limited availability of the complete 2026 motivating article is a nonzero historical-priority risk. The accompanying Python script checks finitely many cases only. No independent mathematical audit or certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

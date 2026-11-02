@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The four simple rational poles give genus six and exactly four rational points above the branch locus. The translation-orbit argument proves the extension-count identity for every integer \(n>0\) coprime to three. Complete degree-\(1\) through degree-\(6\) finite-field enumeration and independently implemented Artin–Schreier image/trace counts supply the six exact power sums. The genus-six Weil functional equation uniquely determines the other six coefficients; explicit polynomial multiplication and an irreducibility argument give the full simple-factor decomposition. The embedded checker independently cross-checks degrees \(7\)–\(9\) and alternate field presentations at degrees \(3\) and \(6\). The proof does not infer infinite claims from finite tests. Critical assumptions: the chosen smooth projective \(\mathbb F_3\)-form, the four simple poles, and standard Weil/finite-field isogeny theorems.
+
+## Originality — PASS (with historical-priority qualification)
+The full relevant construction in Tafazolian, arXiv:2610.05539, Propositions 8.7–8.8, establishes genus and automorphisms but does not state a zeta numerator, finite-extension point counts, or the \(\mathbb F_3\) Jacobian's simple isogeny factors. Giulietti–Korchmáros, arXiv:1507.03737, concerns different large-group and genus-\(p-1\) constructions and does not contain the present arithmetic statement. Exact-formula and alias queries against accessible mathematical research records found no equivalent or dominating statement; two superficially related archived genus-six claims describe unrelated curves. The principal residual risk is unindexed arithmetic calculation under a birationally different model or in specialized tables. Search absence is not proof of worldwide uniqueness.
+
+## Mathematical value — PASS
+The source identifies this characteristic-three genus-six curve as an exceptional equality-case family with unusually large automorphisms; genus and automorphisms alone do not determine its zeta polynomial. The computed full Weil numerator is a natural and previously unspecified arithmetic invariant: it determines all extension-field point counts and the rational Jacobian order. The factorization identifies the dimensions and multiplicities of simple \(\mathbb F_3\)-isogeny components, while the uniform trace-orbit identity gives structural control of infinitely many extensions without relying on isolated numerical data. The sharply scoped prime-field invariant is thus intrinsically motivated rather than an arbitrary coordinate slice.
+
+## Limitations and closest sources
+Source [1] is the directly inspected construction; source [2] is an earlier related but non-covering classification. The result does not address non-prime-field coefficients, twist classes, polarizations, or integral endomorphism rings. An independent check and exhaustive historical-priority determination remain to be performed.
+
+Self-review: passed. Independent audit: not yet performed.

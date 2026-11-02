@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For each feasible reversible kernel, the bipartition contrast vector gives Rayleigh quotient 1-T/(ab), while the q-1 dimensional larger-part zero-sum subspace gives mean quotient 1-T/b. Uniform edge flow attains the two lower bounds via the exactly factored spectrum. Scalar minimax gives unique T* including a=1/3 boundary. Equality at the upper spectral bound forces all larger-class zero-sum vectors to be actual eigenvectors, hence edge-flow rows constant; at T=a capacities force all row totals equal, and at T<a the negative-extreme cut-vector equation forces the same. Thus no asymmetric optimizer exists. Exact rational symbolic tests 112, 1,800 random feasible comparisons, 45 zero-sum perturbations, eight MH checks and six numerical optimizations passed; numerical checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jafarizadeh 2020, DOI 10.1109/TSIPN.2020.2964211, abstract, setup, star optimization and concluding sections inspected; clique lifts include within-fiber transitions not allowed in independent-set bipartite support.",
+        "Jafarizadeh arXiv:1008.2588, introductory problem specification and symmetric K-partite structure; common stationary law is uniform."
+      ],
+      "reasoning": "General reversible FMMC with arbitrary prescribed stationarity is a broader numerical optimization framework, not an explicit general closed-form optimum or universal uniqueness theorem. Clique-lift and uniform-multiblock results cannot directly be substituted for the support and full nonuniform uniqueness claim; incomplete inspection of all specialist results remains a residual risk.",
+      "searches": [
+        "Complete bipartite reversible Markov mixing optimal transition probabilities nonuniform stationarity two classes exact SLEM global rigidity uniqueness",
+        "Jafarizadeh Fastest Mixing Reversible Markov Chain Clique Lifted Graphs and Subgraphs 2020 complete bipartite",
+        "Jafarizadeh Fastest Mixing Markov Chain on Symmetric K-Partite Network 2010"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1137/S0036144503423264",
+      "https://doi.org/10.1137/070689413",
+      "https://arxiv.org/abs/1008.2588",
+      "https://doi.org/10.1109/TSIPN.2020.2964211",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao 2004 section 7.1 explicitly treats the uniform stationary K_{m,n} specialization, where two-mass stationary probabilities coincide after a=p/(p+q).",
+        "The complete tripartite prior result has an optimal-value branch with zero flow on an optional class edge but does not classify all asymmetrically weighted optimizers on the standalone K_{p,q}.",
+        "The proved W_B saturation and cut-vector extremality force rowwise uniform flow for every optimal kernel, a rigidity statement distinct from existence by group averaging."
+      ],
+      "reasoning": "Prior uniform-stationarity formulas imply the uniform special case, and some numerical optimal-value formulas also follow from the larger complete-tripartite setting. The residual newly assessed implication is global uniqueness over all independent edge flows, all positive two-mass stationary laws and arbitrary p,q≥2, together with the necessary-and-sufficient Metropolis threshold. No inspected source proves this combined claim, though a stronger unlocated optimality theorem could.",
+      "searches": [
+        "Complete bipartite reversible Markov mixing optimal transition probabilities nonuniform stationarity two classes exact SLEM global rigidity uniqueness",
+        "Boyd–Diaconis–Xiao section 7.1 K_{m,n} versus prescribed stationary distribution",
+        "Prior complete-tripartite stationary masses and optimal flow c991250f-dec2-4021-be94-c57f7cfe4502"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao 2004, DOI 10.1137/S0036144503423264, section 6 formulates a given-stationary-law semidefinite program; section 7.1 solves the uniform-equilibrium complete-bipartite case.",
+        "Boyd–Diaconis–Parrilo–Xiao 2009, DOI 10.1137/070689413, section 5.4.2 specializes uniform-equilibrium bipartite graph spectra."
+      ],
+      "reasoning": "Detailed-balance edge flows give an equivalent convex SLEM problem for prescribed two-level stationary probabilities. The general SDP already covers the feasible set algorithmically, and uniform stationary complete bipartite cases have exact solutions; neither inspected primary section states the nonuniform two-mass formula together with uniqueness across every asymmetric edge flow. Uniform stationary specialization is acknowledged as covered, not claimed novel.",
+      "searches": [
+        "Fastest-mixing reversible Markov chain complete bipartite graph K_{p,q} with stationary masses a/p and b/q on each partition: unique transition kernel and 1/3 stationary mass threshold for Metropolis-Hastings optimality",
+        "Complete bipartite reversible Markov mixing optimal transition probabilities nonuniform stationarity two classes exact SLEM global rigidity uniqueness",
+        "Boyd Diaconis Xiao 2004 section 6 prescribed stationary law, section 7.1 complete bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant available comparison: SLEM optimization on a complete tripartite network with two equal class masses, c991250f-dec2-4021-be94-c57f7cfe4502; a different feasible support and no all-kernel bipartite rigidity claim.",
+        "Related published record 2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f concerns compositions of two-cell conditional expectations, not arbitrary edge-flow SLEM optimization."
+      ],
+      "reasoning": "No inspected exact table or classified family provides the stated all-(p,q,a) edgewise-unique optimized kernel. Failure to retrieve a table does not establish originality; the closest known graph-specific counterpart overlaps special optimal values and is disclosed.",
+      "searches": [
+        "Fastest-mixing reversible Markov chain complete bipartite graph K_{p,q} with stationary masses a/p and b/q on each partition: unique transition kernel and 1/3 stationary mass threshold for Metropolis-Hastings optimality",
+        "Metropolis-Hastings fastest mixing optimal iff minority bipartition stationary mass at most one third complete bipartite chains",
+        "Published-result search: Optimal fastest mixing reversible Markov chain on cycles with two alternating stationary probabilities, complete bipartite graph arbitrary stationary distribution, three-block graph"
+      ]
+    },
+    "rationale": "Primary full-text comparisons distinguish the prescribed-two-class nonuniform stationary kernel and the proof of global rigidity from established uniform stationary Kpq solutions, general prescribed-stationarity SDP formulations, related clique lifts and broader graph examples. Uniform mass and some special optimal-value cases are explicitly prior coverage. Actual targeted source and semantic-result searches found no equally strong full nonuniform, all-kernel uniqueness statement. Novelty remains qualified by possible unlocated specialist literature.",
+    "residual_risks": [
+      "General prescribed-stationarity SDP literature might contain an all-bipartite explicit theorem in another parametrization.",
+      "Not all pages of Jafarizadeh multipartite 2010 and clique-lift 2020 have been materially inspected.",
+      "Earlier complete-tripartite optimized-value work overlaps part of the parameter range but not the statement of all-kernel uniqueness.",
+      "Same mathematical model literature checks do not constitute independent originality certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers uniform stationary specialization and arbitrary stationary numerical SDP, not the asserted nonuniform global uniqueness formula",
+        "evidence": [
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "section 7.1 page 685; section 6 prescribed stationary distribution"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+        "material_read": "Full author-hosted PDF, including abstract, section 6, section 7.1 and graph example around page 685",
+        "method": "Examined mathematical model, uniform-equilibrium constraint, reduced spectrum and proposed solution, compared exact assumptions",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Explicit K_{m,n} optimum and arbitrary stationary distribution method"
+      },
+      {
+        "assessment": "Uniform stationary and symmetric invariant optimum; uniqueness of arbitrary nonsymmetric nonuniform kernels not established in inspected section",
+        "evidence": [
+          "https://arxiv.org/abs/0709.0955",
+          "section 5.4.2 page 813"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/070689413",
+        "material_read": "Author preprint PDF, section 5.4.2 complete bipartite example and associated spectrum",
+        "method": "Compared stationary assumptions, block eigenvalues and use of graph automorphisms",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Symmetry reductions could dominate current result"
+      },
+      {
+        "assessment": "Reported symmetric multipartite uniform-stationary setting differs; incomplete-document scope is explicitly reserved",
+        "evidence": [
+          "https://arxiv.org/abs/1008.2588"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1008.2588",
+        "material_read": "Introduction and mathematical setup in PDF, pages 1–3; remaining sections not exhaustively inspected",
+        "method": "Checked stationarity, partition assumptions and specified objective",
+        "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+        "trigger": "Potential complete multipartite dominating parameter result"
+      },
+      {
+        "assessment": "Clique lift and star results are not the independently weighted Kpq-with-selfloops model with both parts at least two; specialist overlap risk remains",
+        "evidence": [
+          "https://arxiv.org/abs/2501.02421",
+          "DOI 10.1109/TSIPN.2020.2964211"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TSIPN.2020.2964211",
+        "material_read": "Author-hosted full document, introduction, star theorem, conclusions; not every lifted case was fully inspected",
+        "method": "Compared allowed transitions within classes and whether all asymmetric Kpq optima are identified",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "General nonuniform stationary reversible graph optimization and lift structures"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "22d27ae4-95b6-479f-8ea0-461c03e65749",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a closed-form solution to a standard nonuniform reversible Markov sampling design problem, a sharp 1/3 criterion for optimality of the widely used Metropolis rule, and rigidity of the optimizer under independently adjustable transitions for every bipartition size p,q>=2. The hard part is proving uniqueness beyond symmetry reduction, not reparametrizing an already-known symmetric spectrum.",
+    "status": "PASS"
+  }
+}

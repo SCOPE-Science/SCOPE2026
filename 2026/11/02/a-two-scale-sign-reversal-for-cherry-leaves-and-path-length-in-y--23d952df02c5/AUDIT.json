@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every finite tree, direct counting under one uniform leaf split gives exact increments of cherry count, total tip depth and cherry-tip depth sum. Multiplying increments before averaging yields the mixed moment recurrence. Induction from n=3 establishes the first-moment identities and K_(n+1)=(n-1)K_n/n-2/9, whence global K_n=-(n-3)(n+2)/(9(n-1)); uniform tip sampling gives local covariance 2/9 and conditional depth gap 1. Boundaries n=2 and n=3 specified. A standalone standard-library exact verifier passed 60,677 assertions across 46,233 growth histories and 873 independent transition cases; finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mir–Rosselló–Rotger: Yule Sackin expectations, not cherries.",
+        "Wu–Choi: cherry/pitchfork joint distribution, no depth variable.",
+        "Coronado et al.: Sackin/cophenetic covariance, not cherry count."
+      ],
+      "reasoning": "Published stronger-seeming statements were checked for implication. A Sackin expectation plus separate cherry marginal does not determine their covariance; cherry/pitchfork joint laws lack tip depths; Sackin/cophenetic mixed moments do not directly determine cherry-weighted depth.",
+      "searches": [
+        "Yule Harding random phylogenetic trees exact covariance between number of cherries and Sackin leaf depth sum, conditional expectation, phylogenetic shape balance",
+        "Yule random tree exact mixed moments Sackin index cherry count depth weighted cherries",
+        "joint Yule tree balance indices Sackin cherries full generating function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.1223v1",
+      "McKenzie and Steel (2000), Mathematical Biosciences 164:81–92",
+      "arXiv:1508.03139v1",
+      "Coronado et al. (2020), doi:10.1186/s12859-020-3405-1",
+      "Plazzotta et al. (2016), doi:10.1038/srep21159"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "McKenzie–Steel determines the cherry marginal, Mir–Rosselló–Rotger determines the Sackin mean, and Wu–Choi determines joint cherries/pitchforks; none fixes E[C_n S_n] or the cherry-depth-weighted sum.",
+        "The new conditional mixed-product recurrence uses Q_n, absent from the compared marginal calculations."
+      ],
+      "reasoning": "Exact mixed-product expectation requires additional information Q_n = sum of depths of cherry tips. Deriving its expectation and the C_n S_n recurrence is new mathematical input relative to the inspected results. Partial structural overlap (n/3 cherry mean; Sackin mean) is explicitly acknowledged.",
+      "searches": [
+        "leaf belongs to cherry and depth correlation Yule tree Palm size biased cherry tip one third deeper",
+        "local global sign reversal cherry leaf depth versus whole-tree cherry number Sackin index",
+        "Yule random tree exact mixed moments Sackin index cherry count depth weighted cherries"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yule-Harding and Kingman topology distribution aliases compared; Sackin index is total root-to-tip topological depth and cherry count is number of two-tip sister clades.",
+        "Wu–Choi provides a cherry/pitchfork law; McKenzie–Steel gives a marginal cherry law, not the equivalent local-tip/global-depth pair."
+      ],
+      "reasoning": "Equivalent names, Yule-Harding-Kingman, topology/Sackin path length and cherry-tip membership were considered. An exact two-component mixed moment could be derived from a hypothetical larger generating function, but none was found in the inspected primary materials.",
+      "searches": [
+        "cherries Sackin covariance Yule tree",
+        "cherry count Sackin index correlation finite sample joint distribution",
+        "cherry leaf depth Yule conditional Sackin path length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record nearest results concerned random recursive tree root degree and leaves, root attachments/path length, Cayley endpoint distances and random BST root imbalance; these are different stochastic models or statistics.",
+        "Published comparable results do not provide the simultaneous local sampled-tip and global Yule covariance formulas."
+      ],
+      "reasoning": "No directly tabulated identical all-size local and global covariance pair found. Failed database queries alone cannot prove absence, so the priority assertion is limited to the searched records and inspected primary sources.",
+      "searches": [
+        "coalescent phylogenetic tree cherries Sackin index correlation finite sample joint distribution",
+        "Under Yule Harding tree distribution, uniform random leaf cherry membership positively covaries with depth 2/9 independent of n, while cherry count negatively covaries with Sackin index -(n-3)(n+2)/(9(n-1))",
+        "Yule tree cherries Sackin exact correlation table"
+      ]
+    },
+    "rationale": "The exact two-scale sign reversal was compared by implication with the Yule cherry marginal law, the Sackin first moment, Yule cherry/pitchfork joint distribution, Sackin/cophenetic joint analysis, and outbreak-tree correlations. Neither marginal first moments nor the different joint distributions imply the new mixed moment; independent all-size transition identities supply it. Semantic searches of published mathematical research records returned no equivalent statement. Historical priority remains uncertain, especially unindexed multivariate tree enumerations and inaccessible dissertation material.",
+    "residual_risks": [
+      "Unexamined older multivariate Yule subtree generating functions may implicitly entail the mixed covariance.",
+      "A 2020 dissertation on classical phylogenetic balance indices mentions cherry depth in indexing but its full text was not accessible in the research session; no direct overlapping formula was available.",
+      "Web and research-database searches are incomplete; independent bibliographic priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Sackin mean and cophenetic-index calculations, but does not establish cherry membership depth or mixed cherry/Sackin covariance.",
+        "evidence": [
+          "Mir, Rosselló and Rotger, arXiv:1202.1223v1, Yule Sackin expectation E[S_n]=2n(H_n-1); no cherry-count mixed-moment statement in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1202.1223",
+        "material_read": "Open-access paper introduction, mathematical definitions and Yule expectations, principal balance-index sections and references; page one was rendered and inspected.",
+        "method": "Direct full-text inspection and formula comparison",
+        "title": "A new balance index for phylogenetic trees",
+        "trigger": "Classical expectation of the Sackin path length in the Yule model and possible mixed balance-index identities"
+      },
+      {
+        "assessment": "Establishes cherry-count marginal law and mean n/3, but not its covariance with total tip depth nor conditional sampled-tip depth.",
+        "evidence": [
+          "McKenzie and Steel (2000), Mathematical Biosciences 164:81–92, cherry-count marginal distribution and Yule expectation."
+        ],
+        "identifier_or_url": "https://ir.canterbury.ac.nz/server/api/core/bitstreams/246ff6f4-967f-4550-9f98-c4b3d671fe84/content",
+        "material_read": "Freely available research manuscript, definitions, distributional formulas, cherry moments, main proofs and references; a page was rendered and inspected.",
+        "method": "Primary-paper full-text comparison of statistics and implications",
+        "title": "Distributions of cherries for two models of trees",
+        "trigger": "Exact Yule cherry count might dominate the new covariance via a multivariate extension"
+      },
+      {
+        "assessment": "Joint subtree counts concern cherries and pitchforks, not Sackin total depth or depth of sampled cherry tips.",
+        "evidence": [
+          "Wu and Choi, arXiv:1508.03139v1, joint cherries and pitchforks under Yule and uniform models."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.03139",
+        "material_read": "Complete open-access manuscript in available PDF view, abstract, theorems for cherries/pitchforks, sections and concluding material; page one rendered and inspected.",
+        "method": "Primary-paper formulas and variable-by-variable implication comparison",
+        "title": "On joint subtree distributions under two evolutionary models",
+        "trigger": "Joint Yule cherry distribution could contain a broader exact multivariate result"
+      },
+      {
+        "assessment": "Reports Sackin/total-cophenetic covariance and depth variability, not cherry count against Sackin or sampled cherry-tip depth.",
+        "evidence": [
+          "Coronado et al. (2020), BMC Bioinformatics 21:154, covariance between Sackin and total cophenetic indices."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s12859-020-3405-1",
+        "material_read": "Full accessible indexed PDF text: introduction, balance-index definitions, theorem overview, variance and covariance sections, and references; a separate page-render request failed.",
+        "method": "Section-level direct text inspection",
+        "title": "On Sackin's original proposal: the variance of the leaves' depths as a phylogenetic balance index",
+        "trigger": "Could contain a general joint moment covering the new cherry/Sackin identity"
+      },
+      {
+        "assessment": "Empirical correlations for outbreak trees, with different conditioning/reproduction law, do not cover exact fixed-size Yule covariance.",
+        "evidence": [
+          "Plazzotta et al. (2016), Scientific Reports 6:21159, outbreak-model shape correlations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/srep21159",
+        "material_read": "Accessible full article HTML: overview, model descriptions and correlation results.",
+        "method": "Model comparison and statement inspection",
+        "title": "Effects of memory on the shapes of simple outbreak trees",
+        "trigger": "Tree-shape covariation including cherries and imbalance in a branching model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23d952df-02c5-4fd7-8f5c-ff9cde6b9be0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cherry count and Sackin topological depth are widely used and motivated phylogenetic shape/imbalance observables. The exact sign reversal separates sampled-tip association (cherry tips one edge deeper on average) from whole-tree negative covariance for every n>=4. This is a structural phenomenon with a complete closed-form dependence baseline, not a marginal cherry or Sackin calculation, and the two-scale distinction matters when interpreting shape measures. No downstream inference performance theorem or independent priority certification is claimed.",
+    "status": "PASS"
+  }
+}

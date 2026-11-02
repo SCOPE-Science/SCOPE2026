@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed every source equation (5) stage with constant Q. Its exactly summed one-step map is E X E + h(E Q E+Q)/2. The discrete and continuous stationary matrices have explicit componentwise expressions. Strict concavity of the positive Langevin function follows from a fully proved hyperbolic inequality, yielding the strict 2x2 determinant frontier. Endpoints and negative-eigenvalue asymptotics follow from justified Taylor/hyperbolic expansions and spectral perturbation. verify.py executes direct-stage, stationary-equation, determinant and asymptotic tests, which support but do not replace universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang–Lan–Jing (2026), Theorem 3.2, proves SPSD of X_h, not SPSD of the difference X_h-X_*.",
+        "Chen–Borzì (2023), DOI:10.1007/s10915-023-02275-6, available abstract describes exponential Euler/midpoint rather than the IF-SSPRK2 equation (5).",
+        "Gillis–Diehl (2013), DOI:10.1109/CDC.2013.6761121, available abstract describes positivity-preserving collocation rather than the IF-SSPRK2 recurrence."
+      ],
+      "reasoning": "Prior positivity propagation and norm-accuracy theorems do not imply a sign of stationary covariance differences; their matrix/order quantifiers are different. The 2023/2013 full texts are incompletely accessible and remain a disclosed priority risk, not treated as proof of exclusion.",
+      "searches": [
+        "integrating factor trapezoidal quadrature continuous controllability Gramian discrete invariant covariance difference strictly indefinite Loewner order stationary",
+        "fixed-step trapezoidal exponential integrator stationary Lyapunov matrix covariance rank one forcing bias indefinite heterogeneous exponential decay Loewner order",
+        "Positivity Preserving Exponential Integrators for Differential Riccati Equations Chen Borzi 2023 stationary covariance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.15703v1; complete accessible primary HTML, Sections 1–5",
+      "DOI:10.1007/s10915-023-02275-6; publisher abstract/preview",
+      "DOI:10.1109/CDC.2013.6761121; accessible conference-paper abstract",
+      "DOI:10.1007/s10444-025-10228-w; publisher abstract/references",
+      "Relevant published mathematical-record searches for IF-SSPRK2, Langevin bias kernels, and related covariance errors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.15703v1 equation (5) is the required premise; Theorems 3.2/3.4 control positivity and finite-time norm errors, without a fixed-point order comparison.",
+        "The existing related Gauss–Legendre rotating-Gramian finding concerns finite-time quadrature rank/singularity with skew rotation, not the discrete steady state of a diagonal IF-SSPRK2 map.",
+        "The previously published harmonic ULMC stationary-bias result concerns different Langevin noise updates; no implication to the deterministic IF-SSPRK2 map follows from it."
+      ],
+      "reasoning": "The scalar trapezoidal error is part of the algebra but only yields positive diagonal entries. Combining the exact two-mode stationary map, strict Langevin midpoint inequality, and forcing PSD constraint gives a sign threshold not implied by scalar error bounds, SPSD of each covariance, or different stationary covariance schemes.",
+      "searches": [
+        "arxiv 2606.15703 Zhang Lan Jing IF-SSPRK2 stationarity numerical fixed-point error",
+        "Lyapunov equation integrating factor SSPRK2 rank-one source stationary covariance indefiniteness",
+        "Lyapunov equation integrating factor SSPRK2 rank-one source stationary covariance indefiniteness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The discrete stationary error is the Schur product Q ∘ K, with K_ij=hL(h(a_i+a_j)/2)/2.",
+        "arXiv:2606.15703v1 equation (5), Section 3, Section 4 and Section 5 do not state the correlation classification or this kernel as a stationary-error operator."
+      ],
+      "reasoning": "Alternative language includes the Hadamard multiplier, steady-state controllability Gramian quadrature, and Langevin-function kernel. Exact-formulation searches found no indexed equivalent. The kernel arises from an explicit summation of the new method's full stages; this is not the same as a scalar trapezoidal estimate.",
+      "searches": [
+        "hyperbolic cotangent matrix kernel K(x,y)=coth(h(x+y)/2)-2/[h(x+y)] indefinite Schur multiplier",
+        "Langevin function coth - reciprocal kernel sum of decay rates nonpositive definite covariance bias",
+        "arxiv 2606.15703 Zhang Lan Jing IF-SSPRK2 stationarity numerical fixed-point error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result determines an exact continuous correlation frontier θ_h(a,b), not a numerical table entry.",
+        "Previously published harmonic UBU covariance-bias records concern stochastic Langevin sampling algorithms with different updates and matrices."
+      ],
+      "reasoning": "There is no enumerated finite database invariant to read off here: the variables a,b,h and correlation r vary continuously. Closest indexed stationary-bias records do not tabulate this IF-SSPRK2 correlation threshold.",
+      "searches": [
+        "IF-SSPRK2 differential Lyapunov steady state covariance quadrature overestimation matrix Loewner indefinite rank one forcing unequal drift eigenvalues",
+        "controllability Gramian quadrature overestimation diagonal underestimation off-diagonal Loewner indefinite",
+        "fixed-step trapezoidal exponential integrator stationary Lyapunov matrix covariance rank one forcing bias indefinite heterogeneous exponential decay Loewner order"
+      ]
+    },
+    "rationale": "The exact stationary-covariance order classification depends on the IF-SSPRK2 stage map and the strictly log-concave Langevin error kernel. The full 2026 source provides the stage map, SPSD propagation and finite-time error estimates but not its stationary fixed point or sharp correlation threshold. The inspected previews for other positivity schemes concern distinct discretizations. Real semantic published-record searches and available adjacent claims yielded no equivalent or stronger statement. A significant but nondecisive priority risk from inaccessible full texts is acknowledged.",
+    "residual_risks": [
+      "Historical priority is not proved by a negative search; older analytical quadrature and matrix-kernel work could contain equivalent consequences.",
+      "The full 2023 Riccati-integrator and 2013 collocation papers were not accessible; their accessible descriptions concern different methods.",
+      "The full 2025 low-rank Riccati paper was not accessible; publisher abstract indicates a different integrator family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the step map, SPSD preservation and finite-time convergence; no stationary covariance-order threshold, rank-one drift heterogeneity classification or Langevin kernel formula is present.",
+        "evidence": [
+          "arXiv:2606.15703v1, Section 2, equation (5)",
+          "arXiv:2606.15703v1, Section 3, Theorems 3.2 and 3.4",
+          "arXiv:2606.15703v1, Sections 4 and 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+        "material_read": "Complete accessible HTML: introductory assumptions, Sections 2–5, equation (5), Theorems 3.2 and 3.4, numerical tests, conclusions and references; no appendix shown in version.",
+        "method": "Primary full text in arXiv HTML, not title or snippet alone",
+        "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+        "trigger": "Exact IF-SSPRK2 formula and motivating published method"
+      },
+      {
+        "assessment": "Proposes exponential Euler and exponential midpoint methods, not the IF-SSPRK2 three-stage map. Cannot decisively exclude uninspected statements on general quadrature covariance order.",
+        "evidence": [
+          "DOI:10.1007/s10915-023-02275-6, abstract: Euler/midpoint schemes and positive-semidefinite preservation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10915-023-02275-6",
+        "material_read": "Publisher abstract and references; lawful publisher preview abstract/introduction first page; full text not available in accessible public version.",
+        "method": "Publisher article page and lawful preview",
+        "title": "Positivity Preserving Exponential Integrators for Differential Riccati Equations",
+        "trigger": "Predecessor on positive-semidefinite-preserving matrix integrators, same Lyapunov/Riccati class"
+      },
+      {
+        "assessment": "Describes implicit collocation-based PDPLD, a different method. No direct implication to the 2026 IF-SSPRK2 stationary map can be established from material read.",
+        "evidence": [
+          "DOI:10.1109/CDC.2013.6761121, abstract on collocation and positive-definiteness"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/CDC.2013.6761121",
+        "material_read": "Bibliographic record and accessible research-paper abstract; complete conference full text unavailable.",
+        "method": "Scientific metadata and abstract",
+        "title": "A Positive Definiteness Preserving Discretization Method for Lyapunov Differential Equations",
+        "trigger": "Prior positivity-preserving Lyapunov discretization"
+      },
+      {
+        "assessment": "Deals with low-rank exponential Euler/midpoint Riccati methods, numerical low-rank errors and convergence, not the specified full-matrix IF-SSPRK2 recurrence.",
+        "evidence": [
+          "DOI:10.1007/s10444-025-10228-w, abstract and list of integrator literature"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10444-025-10228-w",
+        "material_read": "Publisher abstract, introduction metadata and reference list; full text restricted.",
+        "method": "Publisher article page",
+        "title": "Low-rank exponential integrators for stiff differential Riccati equations",
+        "trigger": "A later predecessor cited by the motivating paper, related exponential matrix integration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f16ed31-cfd1-476f-9e15-97f3e7e27d5c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For an actually published positive-semidefinite-preserving Lyapunov integration scheme, the precise stationary bias has a nontrivial forcing-correlation phase boundary. The result distinguishes guaranteed positive output from upper covariance bounds, with an all-step rank-one obstruction and explicit small/large-step behavior. This is a complete natural two-mode classification relevant to stationary controllability/uncertainty covariances, not an isolated unmotivated algebraic sign example.",
+    "status": "PASS"
+  }
+}

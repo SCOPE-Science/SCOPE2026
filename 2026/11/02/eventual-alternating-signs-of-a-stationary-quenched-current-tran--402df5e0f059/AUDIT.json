@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The stationary crossing probabilities in both models are exactly U(x)=exp(-κx)/2. Direct spatial integration gives Gλ(z)=exp[-λLi₂((1-z)/2)], whose only unit-circle singularity is the logarithmic branch point z=-1. Expanding there yields -(λ/2)e^(-λπ²/6)(1+z)log(1+z), and logarithmic singularity transfer gives the alternating λe^(-λπ²/6)/(2n(n-1)) term with Oλ(log n/n³). An independent Pringsheim argument and Laplace periodicity establish that no positive law realizes this transform. The exact recurrence, low-order threshold and numerical values were executed in the attached standard-library script. Risk: asymptotic is fixed λ and the checker is finite only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet-Sedgewick, Analytic Combinatorics, Chapter VI, covers the general logarithmic singularity transfer technique but not the resetting-current geometry.",
+        "arXiv:2302.06696v1 provides the entire formal generating functional; the first nontrivial analysis of its coefficient-sign consequences is not stated there.",
+        "The published statement \"First sign failure at an elliptic absolute-monotonicity endpoint\" treats an unrelated elliptic Taylor-positivity boundary."
+      ],
+      "reasoning": "The primary generating functional formally determines all coefficients, but its statement alone does not establish their signs or whether it is realizable by a measure. The new domain-specific theorem requires branch-point expansion, transfer control and the Laplace-periodicity obstruction. Generic singularity-transfer theorems are used transparently as prior methods. A broader published theorem covering this exact functional remains a residual priority risk.",
+      "searches": [
+        "exponential of a dilogarithm pgf coefficient asymptotics positive negative alternating n^-2",
+        "Brownian resetting stationary quenched particle current dilogarithm generating function negative coefficients not probability law",
+        "\"Di Bello\" \"quenched\" \"dilogarithm\" distribution generating function positivity",
+        "analytic combinatorics singularity analysis log powers transfer theorem Flajolet Sedgewick n^-2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.06696v1, relevant sections read",
+      "arxiv:0907.3294, abstract only",
+      "Flajolet-Sedgewick Analytic Combinatorics Chapter VI, public book-site material",
+      "Public research-record searches of stationary quenched-current coefficient positivity and related Bernoulli generating functions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Di Bello et al., eq. (56), already gives the exact stationary dilogarithm in the Brownian case and notes that extracting the complete stationary law from the complex transform is difficult.",
+        "Derrida-Gerschenfeld, arXiv:0907.3294, treats nonreset step-initial diffusion and a scaling current large-deviation framework; the source does not supply this fixed-reset-rate dilogarithm.",
+        "The new coefficient asymptotic is derived from the nonanalytic \\((1+z)\\log(1+z)\\) term, not by changing an existing table entry."
+      ],
+      "reasoning": "The primary exact transform is strictly stronger as functional data than any finite set of coefficients, and is acknowledged. But the physical realizability property and exact eventual sign pattern were not stated, tabulated, or directly inferred in the inspected source. The derivation is a nontrivial structural analysis, not a renamed equation. Its claim remains vulnerable to an unlocated general theorem on coefficient signs of geometrically averaged Bernoulli generators.",
+      "searches": [
+        "arXiv:2302.06696v1 full-text: Sections II.2, III.2, IV.2, V.2; equations (35)-(39), (47), (56), (89), (98) and conclusion",
+        "arxiv:0907.3294 Derrida Gerschenfeld quenched annealed current step initial profile 2009",
+        "fractional power of probability generating function negative coefficients Bernoulli not infinitely divisible"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.06696v1, equations (35)-(39), defines the exponentiated mean log of the conditional transform.",
+        "Related published statements include \"Exact two-crossing transport law for Bernoulli pair balancing\" and \"Cumulant effective-trial hierarchy for Poisson-binomial laws\"; these concern genuine Poisson-binomial laws rather than the exponential of a continuum of fractional Bernoulli logarithms."
+      ],
+      "reasoning": "An ordinary Poisson-binomial distribution has nonnegative coefficients; the present geometric average is not a single product with integer multiplicities. The assessed theorem is its universal eventually alternating coefficient tail and nonrealizability, not a rearrangement of Bernoulli probabilities. Related genuine-Bernoulli searches do not entail the signed asymptotic.",
+      "searches": [
+        "quenched current distribution geometric average generating function stochastic resetting noninteracting Brownian particles dilogarithm positivity Poisson-binomial is it probability distribution",
+        "quench Poisson-binomial geometric averaged generating function -Li2((1-z)/2) alternating signs stationary current",
+        "\"quenched\" \"generating function\" \"negative coefficients\" particles current",
+        "geometric mean probability generating functions not a probability generating function Bernoulli"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Previously considered mathematical results on dilogarithmic large deviations of a rescaled Brownian process and interacting active-lattice-gas current variance concern different models and observables.",
+        "Targeted public-record searches returned no numerical table or exact signed tail attached to arxiv:2302.06696; highest similarity results addressed unrelated models and Bernoulli-law statistics."
+      ],
+      "reasoning": "Earlier claim objects and parameters were compared at the statement level. A shared use of a dilogarithm or quenched current terminology does not subsume the all-parameter signed-tail law. No matching table of these Taylor coefficients was identified; negative search results do not prove complete priority.",
+      "searches": [
+        "Current fluctuations in stochastically resetting particle systems Di Bello Hartmann Majumdar Mori Rosso Schehr 2302.06696 quenched Brownian current stationary dilogarithm",
+        "quenched current distribution full distribution coefficient positivity probability generating function Pringsheim",
+        "\"quenched\" \"dilogarithm\" \"negative probability\" stochastic resetting",
+        "source and claim keyword checks of arxiv:2302.06696, quenched current, dilogarithm, probability generating function, and coefficient sign"
+      ]
+    },
+    "rationale": "The first published source gives the *formal* dilogarithmic transform, which is acknowledged as prior, but does not state the full sign-tail nonrealizability obstruction. Earlier accessible claims and targeted semantic searches, and primary-literature examinations were compared by implications. The mathematical method of singularity transfer is not new; the source-specific universal obstruction is the assessed claim. A broader prior theorem or overlooked appendix could still subsume it.",
+    "residual_risks": [
+      "The published primary transform already determines its coefficients; a general coefficient-sign result not encountered in the targeted searches might make the new observation an implicit covered corollary.",
+      "No independent full-text inspection of arxiv:0907.3294 or all potentially related published papers was completed.",
+      "The distinction between typical quenched large-deviation observables and a literal positive probability law must be maintained in interpretation; the theorem says nothing adverse about genuine fixed-configuration measures.",
+      "No independent scientific or priority audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the entire formal transform and stationary crossing kernels but does not assert coefficient nonpositivity or any eventual alternating tail. Its observation that full distribution extraction is nontrivial motivates precisely the present realizability question.",
+        "evidence": [
+          "arxiv:2302.06696v1 lines 37-56, 220-243, 262-269, 301-314, 463-483, 628-633; equations (39), (47), (56), (89), (98)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.06696v1",
+        "material_read": "Original arXiv HTML: introduction, definitions and current-generating construction in Sections II and III; Brownian stationary crossing and dilogarithm in Section IV; run-and-tumble stationary exponential kernel and Section V.2; conclusions and distribution caveats.",
+        "method": "Full relevant primary-text inspection, formula-by-formula comparison against the new claim",
+        "title": "Current fluctuations in stochastically resetting particle systems",
+        "trigger": "Same resetting current, stationary dilogarithm, and quenched generator"
+      },
+      {
+        "assessment": "Unreset diffusive current scaling, distinct from the fixed resetting stationary generating function. Full-text noncoverage is not claimed.",
+        "evidence": [
+          "arxiv:0907.3294 summary, 2009 source and DOI 10.1007/s10955-009-9830-1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0907.3294",
+        "material_read": "Open abstract and source metadata only; full text not inspected.",
+        "method": "Abstract-level comparison and scope identification, explicitly limited",
+        "title": "Current Fluctuations in One Dimensional Diffusive Systems with a Step Initial Density Profile",
+        "trigger": "Foundational related quenched-vs-annealed current formalism"
+      },
+      {
+        "assessment": "General transfer method is prior mathematics and openly acknowledged; no source-specific stationary-current result is claimed by this reference.",
+        "evidence": [
+          "Flajolet-Sedgewick, Analytic Combinatorics, Chapter VI, Cambridge University Press"
+        ],
+        "identifier_or_url": "https://ac.cs.princeton.edu/home/",
+        "material_read": "Public book-site description of the singularity-analysis chapter and method; no complete book chapter examined.",
+        "method": "Method comparison, not source claim of domain-specific noncoverage",
+        "title": "Analytic Combinatorics, Chapter VI: Singularity Analysis of Generating Functions",
+        "trigger": "Potential broader mathematical coverage by logarithmic singularity transfer"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "402df5e0-f059-473a-b3c6-ea76b6a79a4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original stationary quenched-current transform is widely used to describe a physical current and was said to be difficult to invert globally. The finding proves a universal all-parameter obstruction to interpreting that transform as any ordinary nonnegative law, derives a sharp alternating n^-2 tail, and identifies an explicit low-order failure region. It applies simultaneously to reset Brownian and reset run-and-tumble motion and clarifies exactly what true annealed or fixed-configuration probability laws retain. This is a structural interpretive boundary rather than an arbitrary negative entry.",
+    "status": "PASS"
+  }
+}

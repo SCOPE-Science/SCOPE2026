@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers are explicit: simple cycles of orders m,n>=3; for 5<=m<=n the n C_m-fibers require at least three selected vertices each by the cited Cartesian-fiber criterion. For each nonexceptional pair, the explicit floor-stretching construction uses exactly three vertices per column, each a rotation of the cycle-monitoring triple. The selected columns for a fixed row are unions of fibers of the nondecreasing surjection floor(mj/n); consecutive selected column blocks have circular gaps bounded by ceil(floor((m-1)/3)*n/m)+1. This is strictly less than n/2 when n>=13, or when 5<=m<=n<=12 except (5,6),(7,8). The two exceptional arrays have column and row circular gaps strictly less than half the relevant cycle lengths. The C_3,C_4 cases follow because each of those factors requires all vertices. The proof is infinite and does not infer anything infinite from finite experiments. The standalone program independently checks all 36 small arithmetic cases, 7491 explicit construction parameters, and each edge-deletion monitoring condition directly on 14 small product graphs (1318 edges), all passed, with 16 additional direct checks for short-cycle factors. No unproved external lemma beyond the cited, directly inspected Cartesian-fiber characterization and elementary cycle facts is required.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haslegrave, arXiv:2210.08955v3, Theorem 1, general product upper and lower bounds; Theorem 4 treats the square torus: https://arxiv.org/html/2210.08955v3",
+        "Monitoring-edge-geodetic sets in product networks, DOI:10.1080/17445760.2024.2301929, accessible abstract lists join, corona, cluster, lexicographic and direct products."
+      ],
+      "reasoning": "The stronger product theorem gives max(3m,3n)<=meg(C_m square C_n)<=3m+3n-9, so it cannot determine the sharp rectangular value from those inequalities. The 2024 paper is not demonstrated to be non-covering from an abstract alone; the scope mismatch is plausible but remains a documented access risk.",
+      "searches": [
+        "\"monitoring edge-geodetic\" \"Cartesian product\" exact theorem",
+        "\"monitoring edge-geodetic\" \"torus\" \"optimal\" \"cycle\"",
+        "\"monitoring-edge-geodetic number\" \"Cartesian product of cycles\" formula",
+        "\"monitoring-edge-geodetic sets in product networks\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2210.08955v3 (complete arXiv HTML theorem and proof)",
+      "arxiv:2210.03774v3 (full HTML; relevant definitions and cycle/grid sections)",
+      "doi:10.1080/17445760.2024.2301929 (abstract and bibliographic metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Haslegrave's Theorem 1 lower bound is 3 max(m,n) and upper bound is 3m+3n-9 when m,n>=5; Theorem 4 proves equality for m=n: https://arxiv.org/html/2210.08955v3",
+        "Dev et al. Section 3.2 proves meg(C_n)=3 for n>=5 and meg(C_4)=4: https://arxiv.org/html/2210.03774v3"
+      ],
+      "reasoning": "At (m,n)=(5,6), the prior numerical bounds read 18<=meg<=24, whereas the present result proves meg=18, demonstrating that prior inequalities do not already assert the claimed equality. At m=n the conclusion is covered and explicitly excluded from the originality claim; at min(m,n)<=4 the full-vertex case is also a prior implication. The genuinely new uniform range is unequal m,n>=5.",
+      "searches": [
+        "arxiv:2210.08955v3 Theorem 1 Theorem 4 Cartesian product tori",
+        "arxiv:2210.03774v3 Theorem 3.4 cycles monitoring edge-geodetic",
+        "\"monitoring edge-geodetic\" \"Cartesian product\" \"cycles\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haslegrave, arXiv:2210.08955v3, Theorem 4, states only the square case C_m square C_m for m>=5: https://arxiv.org/html/2210.08955v3",
+        "Dev et al., arXiv:2210.03774v3, Section 3.2 gives the separate cycle monitoring values: https://arxiv.org/html/2210.03774v3"
+      ],
+      "reasoning": "An equivalent formulation is a binary m-by-n incidence matrix of weight three in every C_m-column and satisfying the cyclic monitoring condition in each C_n-row. Published square circulant matrices solve the m=n instance; they do not specify the unequal aspect-ratio matrices constructed here. No exact equivalent all-rectangle result was located.",
+      "searches": [
+        "\"monitoring edge-geodetic\" \"C_m\" \"C_n\" product",
+        "\"monitoring edge-geodetic\" \"toroidal\" \"exact\"",
+        "\"monitoring edge-geodetic\" \"rectangular tori\"",
+        "arxiv:2210.08955v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Haslegrave, arXiv:2210.08955v3, Figure 1 and Theorem 4 give a square C_5 square C_5 example, not a rectangular table: https://arxiv.org/html/2210.08955v3",
+        "The present package records explicit columns for (5,6) and (7,8) and a uniform formula for all remaining unequal orders."
+      ],
+      "reasoning": "The inspected square numerical example is a special case already covered by Haslegrave, but no exact rectangular database or table was identified. Absence from search results alone is not evidence of novelty, hence the conclusion is restricted to inspected literature and explicit implication comparisons.",
+      "searches": [
+        "\"meg(C_m\" \"C_n\" 3 graph product",
+        "\"monitoring edge-geodetic\" \"rectangular tori\"",
+        "\"monitoring edge-geodetic\" \"C5\" \"Cn\"",
+        "\"monitoring edge-geodetic\" \"toroidal\" \"exact\""
+      ]
+    },
+    "rationale": "Haslegrave's Theorem 4 establishes the square Cartesian torus only, meg(C_m square C_m)=3m. His Theorem 1 establishes a lower bound max(3m,3n) for two cycles and an upper bound 3m+3n-9. When m!=n>=5 these bounds differ, so that theorem by itself does not imply their equality. The new contribution explicitly attains the lower bound for every unequal aspect ratio, using a balanced staircase retraction and two exceptional tables. The founding paper classifies cycles and ordinary grid families but not rectangular toroidal products. The closely titled product-network article's accessible abstract identifies other product operations and does not state the new formula; its full text was unavailable for a conclusive comparison. Literature and published-record searches found no equivalent result, which cannot prove publication priority. The prior square case and known small-cycle cases are credited rather than recast as new.",
+    "residual_risks": [
+      "The full text of the 2024 product-networks article was not accessible for a conclusive negative comparison; abstract-level scope does not establish noncoverage.",
+      "Unindexed unpublished or subsequently published equivalent results may exist.",
+      "The science has no independent mathematical audit or external priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Square factor equality proved; all unequal cycle lengths remain outside the stated exact result; general upper and lower bounds are not decisive for them",
+        "evidence": [
+          "Theorem 1 and proof, lines 52-94; Theorem 4 and proof, lines 114-120"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.08955v3",
+        "material_read": "Full article text with focus on section 2, the complete proof of Theorem 1, Corollary 3, Theorem 4, and references",
+        "method": "Open-access arXiv HTML full text, with theorem-statement and implication comparison",
+        "title": "Monitoring edge-geodetic sets: hardness and graph products",
+        "trigger": "Same parameter and directly relevant toroidal Cartesian-product theorem"
+      },
+      {
+        "assessment": "Foundational cycle values and ordinary grid results; no complete rectangular toroidal classification in the examined material",
+        "evidence": [
+          "arXiv:2210.03774 first posted 2022-10-07; cycle theorem in section 3.2; grid theorem in section 3.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.03774v3",
+        "material_read": "Definitions and background (sections 1-2), section 3.2 on cycle graphs, sections 3.7 and related-work overview",
+        "method": "Open-access arXiv HTML text and scientific theorem inspection",
+        "title": "Monitoring edge-geodetic sets in graphs",
+        "trigger": "Original definition and known values for cycles and Cartesian path grids"
+      },
+      {
+        "assessment": "The abstract highlights join, corona, cluster, lexicographic, and direct products, not the Cartesian torus; whole-document noncoverage cannot be established",
+        "evidence": [
+          "Published online 2024-01-09; pages 264-277; listed product families in abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/17445760.2024.2301929",
+        "material_read": "Public abstract, product-operation list, bibliographic metadata; full article not obtained",
+        "method": "Publisher public abstract and cross-indexed search results only",
+        "title": "Monitoring-edge-geodetic sets in product networks",
+        "trigger": "Plausibly related paper specifically on product monitoring"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1eb742b8-d821-4072-be34-c10395353a03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This closes a natural two-parameter exact invariant classification in an established graph-product monitoring problem. Prior research explicitly highlights the square torus as a case where the Cartesian lower bound is attained; the rectangular theorem shows this persists without any aspect-ratio penalty. Its discrete floor-stretching layout supplies an explicit optimal sensor choice for every size, including two genuine short-aspect exceptional adjustments. This is a complete structural extension, not a cosmetic change of the already known square formula, and it distinguishes rectangular toroidal grids from path products where the opposite bound is attained.",
+    "status": "PASS"
+  }
+}

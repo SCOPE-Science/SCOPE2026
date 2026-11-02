@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The Rule-54 local truth table yields the exact four-state Boolean predecessor relations T0=(1,8,0,12), T1=(2,4,3,0). Each classical forbidden block annihilates the relation, proving necessity. The 13-state proper-prefix automaton captures all cyclic avoidance words; an exhaustive closure over its state, the 4x4 relation product and a length counter capped at two checks that every returning walk of length >=2 has a positive relation diagonal. This is an all-length finite-state certificate, not a finite-word cutoff: 1322 distinct triples were visited across the 13 origins. Ring length one is handled separately and yields only output zero. The 13 exact integer transfer traces and Newton identities give det(I-zA)=(1+z^2)(1-2z+z^3-z^4), hence the all-length logarithmic-derivative image enumerator with the one-cell correction. All possible rings through length 16 were independently enumerated; the self-contained standard-library verifier prints VERIFY_OK. The direct census only corroborates the all-length arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Salo, On von Neumann Regularity of Cellular Automata (arXiv:2209.13373), develops periodic-point lifting notions and algorithms for general cellular automata.",
+        "Jen (1989) supplies an effective finite forbidden basis for the Rule-54 image, but does not explicitly identify all equal-period cyclic preimages or their count in the inspected proposition."
+      ],
+      "reasoning": "General algorithms for testing periodic-point properties and counting walks in automata can in principle be applied to Rule 54. No inspected statement specifies the required full Rule-54 periodic-image classification or characteristic polynomial. The current work is a concrete solved invariant, not a claim to invent general finite-state automata methods.",
+      "searches": [
+        "regular language image cellular automata SFT periodic points lifting one step Jen 1989",
+        "Rule 54 exact reachable configurations number periodic ring length n growth generating function image counts",
+        "elementary cellular automata rule 54 image shift forbidden blocks Garden of Eden regular language 1990 2010"
+      ]
+    },
+    "checked_sources": [
+      "Jen (1989), primary PDF Prop.2 p.445",
+      "Martínez–Adamatzky–McIntosh (2014), primary full-text sections 3.3–3.4.1 and arXiv original metadata",
+      "Salo (2022/2023), primary article on finite-state and periodic point considerations",
+      "Semantic mathematical research record searches for Rule54 periodic-image claims; closest hit concerned a Rule54 subsystem in a different map",
+      "Relevant prior exact image work for Rule184 and Rule110, different rules"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jen 1989, p.445: four forbidden words for valid linear image factors. It does not assert an n-periodic input for each cyclic avoiding word.",
+        "Martínez–Adamatzky–McIntosh 2014, §§3.3–3.4.1: subset/de Bruijn diagrams and Garden-of-Eden observations, with a different objective from all-ring enumerations.",
+        "Salo 2022 preprint / 2023 paper: general weak periodic point condition and decidability, not the present explicit Rule-54 all-length computation.",
+        "Earlier exact ring-image formulas for elementary Rule 184 and Rule 110 do not transfer under bit flips/reflection to Rule 54 because those elementary rules have distinct local truth tables and global behavior."
+      ],
+      "reasoning": "The forbidden-language basis and general transfer-matrix methods are acknowledged prior art. A strictly stronger full-shift image statement would dominate only the language membership portion, not necessarily a same-period finite-ring predecessor, since periodic point lifting is extra. No inspected source directly implies the full lifting theorem and exact Q(z) formula. A historical-priority risk remains.",
+      "searches": [
+        "Rule 54 elementary cellular automaton cyclic ring one step image Garden of Eden forbidden words 10110 10101 01101 10111101 periodic preimages",
+        "rule 54 cellular automaton preimage language image entropy sofic shift garden eden 54 2000",
+        "regular language image cellular automata SFT periodic points lifting one step Jen 1989",
+        "exact image cellular automata rule 54 cyclic preimage counting reachable configurations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jen, Enumeration of Preimages in Cellular Automata (1989), Proposition 2, p.445, explicitly lists four minimal forbidden linear-output patterns.",
+        "Martínez, Adamatzky and McIntosh, arXiv:1410.3096, Sections 3.3–3.4.1 analyze Rule-54 diagrams and Garden-of-Eden configurations.",
+        "The present Boolean relation criterion asks for a diagonal entry after exactly n letters; linear occurrence and arbitrary bi-infinite predecessor are weaker conditions."
+      ],
+      "reasoning": "The aliases image language, sofic shift, Garden-of-Eden language, circular preimage, periodic point lifting and labeled de Bruijn closed walk were compared. The previously known finite-block forbidden list does not by itself guarantee an n-periodic predecessor. The new all-n diagonal-lifting certificate addresses this extra condition, with an explicit exception at n=1.",
+      "searches": [
+        "Rule 54 elementary cellular automaton cyclic ring one step image Garden of Eden forbidden words 10110 10101 01101 10111101 periodic preimages",
+        "Rule 54 surjective injective Garden of Eden words preimages one step regular language",
+        "elementary cellular automata rule 54 period preserving preimages cyclic forbidden pattern 1^n n=1",
+        "rule 54 cellular automaton preimage language image entropy sofic shift garden eden 54 2000"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact counts of cyclic avoiding words 2,2,5,14,22,41,79,150,... were regenerated from a 13-state automaton rather than taken from an existing numerical table.",
+        "The GF denominator (1+z^2)(1-2z+z^3-z^4) and the n=1 correction were compared against searched sequences and Rule-54 counting terms; no exact matching archival table was located."
+      ],
+      "reasoning": "A coincident initial sequence would not establish non-overlap; the search also targeted the rational function, growth constant, automaton and predecessor-lifting interpretation. Negative searches are not proof of historical novelty; less searchable tables remain a stated risk.",
+      "searches": [
+        "\"Rule 54\" \"number of configurations\" \"reachability\" cyclic",
+        "\"2, 2, 5, 14, 22, 41, 79, 150\" rule 54",
+        "site:oeis.org \"2, 2, 5, 14, 22, 41, 79\"",
+        "\"1.866760399\" \"rule 54\""
+      ]
+    },
+    "rationale": "The four forbidden blocks of the bi-infinite Rule-54 image were proved previously by Jen (1989); they are used as input, not claimed as new. The new statement determines exactly when those constraints admit an input with the same prescribed ring period and enumerates every periodic-ring image size, including the nontrivial period-one exception. The inspected original Jen proposition concerns allowed factors and not periodic lifting. Rule-54 glider/de Bruijn diagrams in Martínez–Adamatzky–McIntosh and the general decidability framework in Salo do not supply the explicit all-ring criterion and rational count in the inspected passages. Mathematically adjacent Rule-184 and Rule-110 image enumerations concern different local maps. Remaining risk is an unindexed historical exact image count or a result buried in an older CA table.",
+    "residual_risks": [
+      "Historical priority is not independently established; less accessible older Rule54 finite-state/tabulation papers might contain an equivalent formula.",
+      "The full generality of Jen finite-image language and periodic compatibility must not be conflated; the latter is independently proved here.",
+      "All mathematical conclusions rest on an exhaustive 1322-state reproducible finite-state computation; the verifier should be run by independent readers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the linear forbidden basis; no all-n same-period ring lifting theorem or rational cyclic-image census in the inspected passages.",
+        "evidence": "Prop.2 lists 10110, 10101, 01101, 10111101 as the complete minimal forbidden factors for Rule54 image blocks.",
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "Primary PDF title, Rule-54 Section 5.1 on pp.444–446, Proposition 2 on printed p.445, including the minimal four forbidden patterns and discussion",
+        "method": "Read original document text and visually inspected PDF pages with the displayed Rule-54 proposition",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "Foundational Rule-54 image forbidden-word theorem and possible stronger exact periodic image claims"
+      },
+      {
+        "assessment": "Develops Rule54 glider diagrams and qualitative finite Garden-of-Eden patterns; inspected sections do not provide the exact n-periodic image criterion, one-cell exception and enumeration GF.",
+        "evidence": "arXiv:1410.3096, initially submitted 2014-10-12; Rule54 de Bruijn/subset structures and GOE patterns discussed.",
+        "identifier_or_url": "https://arxiv.org/abs/1410.3096",
+        "material_read": "Lawful available complete HTML rendering of the primary manuscript, relevant Sections 3.3, 3.4 and 3.4.1 and other portions on cellular-automaton structure",
+        "method": "Read full-text HTML reproduction and compared definitions, example forbidden patterns and section-level conclusions with present statement",
+        "title": "Complete Characterization of Structure of Rule 54",
+        "trigger": "Same elementary rule, de Bruijn/subset diagrams and possible cyclic Garden-of-Eden classification"
+      },
+      {
+        "assessment": "Supplies general framework and algorithms but no specialized Rule54 one-step image count or explicit periodic-point obstruction in the inspected results.",
+        "evidence": "Salo, Natural Computing 22 (2023), 527–538, arXiv:2209.13373.",
+        "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+        "material_read": "Full publicly available publisher HTML, notably the weak periodic point and finite-state decidability discussions",
+        "method": "Read the pertinent definitions, propositions and algorithmic results on periodic points and finite-type constraints",
+        "title": "On von Neumann Regularity of Cellular Automata",
+        "trigger": "Could potentially give a general periodic lifting theorem dominating the specialized result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3615c2fb-7c1d-4180-ad01-c667bf4c17c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rule 54 is a canonical nonlinear elementary cellular automaton, and the global one-step image of a finite periodic ring is a natural exact reachability invariant. Knowing forbidden factors for bi-infinite image words does not decide equal-period preimage existence: the n=1 exception makes this precise. The theorem completely resolves this mismatch for every n, supplies a constructive constant-size transfer criterion and exact rational and asymptotic state counts, and quantifies one-step information loss. It is a complete all-size result rather than an arbitrary finite census or a mere restatement of the known forbidden factors.",
+    "status": "PASS"
+  }
+}

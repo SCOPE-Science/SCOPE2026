@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Every never-chosen color has unit weight, giving exact transition P(new parent at t | history)=(t-I_{t-1})/S_{t-1}. The full-state rational enumeration verifies the reduced transition and exact moments (856 assertions). The divergent regimes have a bounded-difference martingale strong law and triangular martingale CLT with conditional quadratic variation asymptotic to the deterministic hazard. In the summable regime first/second Bonferroni bounds show the exact last-activation tail; an infinite survival product gives the star probability. Limits are proved analytically, not inferred from finite data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sethuraman–Venkataramani 2017, Section 1, selects vertices with weights w(degree)=degree^gamma, unlike reinforcement by time of selection.",
+        "Sidorova 2018, Theorems 1.1–1.2, studies monopoly in a fixed two-color urn without fresh colors.",
+        "Ruszel–Thacker 2024, Introduction/Section 1.6, assumes a fixed finite number d of colors.",
+        "Bellina–De Marzo–Loreto 2025, Sections II–IV, introduces new colors conditional on novelty rather than at every step."
+      ],
+      "reasoning": "These stronger or more general results concern distinct state spaces or stochastic update rules. In particular, a fixed-color monopoly conclusion does not provide the number of newly activated colors when immigration creates one new candidate at every step, nor the tail of its last activation. The cited papers do not supply an explicit implication covering the present theorem.",
+      "searches": [
+        "web: superlinear reinforcement preferential attachment condensation finite number non-leaf vertices last attachment power law",
+        "web: time-dependent reinforcement leaves preferential attachment urn",
+        "arXiv:1704.05568",
+        "arXiv:1807.04844",
+        "DOI:10.1007/s10959-024-01366-w",
+        "DOI:10.1103/PhysRevResearch.7.023127"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.10197",
+      "https://arxiv.org/abs/1807.04844",
+      "https://arxiv.org/abs/1704.05568",
+      "https://doi.org/10.1007/s10959-024-01366-w",
+      "https://doi.org/10.1103/PhysRevResearch.7.023127",
+      "published-finding corpus semantic search of exact model title, deterministic new-color and last first-selection aliases",
+      "Accessible prior research records of 105 prior finding titles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original expanding-color work specifies a conditional selection law and marginal N_{j,t}, but its discussion at the end of Section IV identifies asymptotic degree distributions as future work.",
+        "The new proof uses the exact total weight of never-selected colors to obtain a closed global Markov chain, which is not stated in the source.",
+        "The new heavy-tail asymptotic requires cross-time control of first selections, not just one-time degree probabilities.",
+        "Accessible own findings b7a3e24d-f5c3-4af0-883c-66aa88a54b7a (multinomial Hoppe forest) and 686bfbe0-329e-40e9-8dfb-699435f41fe2 (recursive-tree broadcasting residual) have different selection/labeling laws and no implied phase result."
+      ],
+      "reasoning": "The predecessor marginal theorem subsumes computation of E I_n, so this component is explicitly attributed to the source. It does not directly imply the joint Gaussian fluctuation, almost-sure finite/infinite transition or last-activation tail without new arguments. No inspected stronger theorem meets the exact model hypotheses, hence no established implication covers the whole final claim.",
+      "searches": [
+        "arXiv:2308.10197 sections II–V",
+        "arXiv:1807.04844 sections 1–2",
+        "arXiv:1704.05568 section 1 and asymptotic results",
+        "DOI:10.1103/PhysRevResearch.7.023127 sections II–IV",
+        "published-finding corpus: number of distinct previously sampled colors with deterministic one new color each draw time dependent reinforcement power law Gaussian limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2308.10197 sections II–III explicitly give one new color per step and fixed-color draw-count marginals (Theorem 1).",
+        "The 105 accessible prior research records titles include reinforced urn and random tree claims but none states this power-reinforcement activated-parent trichotomy or last-activation tail.",
+        "published-finding corpus search returned unrelated color-profile, coupon and general network records; it did not return an equivalent urn activation theorem.",
+        "Owned finding eec7ff09-5db9-40de-8ad5-e8ab38e6225a treats singleton correlation in a finite fixed-color Pólya urn; 60fae505-081e-4fa7-8e4e-713b3d3a57ef treats finite-color Dirichlet-weighted urn overdraws. Neither introduces deterministic color immigration nor counts first-used colors as the population grows."
+      ],
+      "reasoning": "A parent-activation count is equivalently the number of colors ever drawn, hence it is not equivalent to the marginal distribution of draws of a single fixed color. The exact single-color marginals can give the first moment by summation but not the joint normal law or final-activation tail without further global analysis.",
+      "searches": [
+        "published-finding corpus: \"Generating Preferential Attachment Graphs via a Pólya Urn with Expanding Colors\" new color draw count leaf activation",
+        "published-finding corpus: number of distinct previously sampled colors with deterministic one new color each draw time dependent reinforcement power law Gaussian limit",
+        "web: growing Polya urn deterministic new colors each step reinforcement t power alpha number of seen colors 2019",
+        "web: immigration Polya urn every step new colour growing reinforcement distinct observed colors law",
+        "prior research records: all 105 recoverable prior finding titles and claim identifiers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Singh et al. Theorem 1 tabulates individual-color marginal draw counts, not the aggregate activation count or stopping-time tails.",
+        "The owned ledger contains 105 historical research rows; the recoverable title comparison did not identify a matching aggregate activation law.",
+        "The most similar published-finding corpus query results were general urn, graph and combinatorial records, not an exact table of this count."
+      ],
+      "reasoning": "No covering exact database or recorded result was identified among the actually accessible searches. This is not treated as a proof of uniqueness; the decisive O comparison is with the primary model paper and nearby full-text methods.",
+      "searches": [
+        "published-finding corpus: time growing reinforcement Polya urn expanding colors preferential attachment number of non-leaf vertices finite phase transition summability",
+        "published-finding corpus: last time an unselected color first drawn in a polynomial reinforcement preferential attachment urn",
+        "web: expanding colors number of leaves Singh",
+        "web: polynomial reinforcement preferential attachment nonleaf last activation tail",
+        "local owned ledger last available generation 2026-10_week4__prior research records__p0001_g000105.jsonl"
+      ]
+    },
+    "rationale": "The model is the exact deterministic-color-immigration urn of Singh et al. Their full text contains a one-color marginal theorem and simulations, not the aggregate three-regime parent-activation law, its Gaussian count limit, the eternal-star probability or the last-activation tail. Earlier two-color reinforcement and degree-superlinear attachment results do not imply these statements under their hypotheses; 2025 triggered-novelty models have a different color-creation rule. Record searches and the accessible ledger yielded no equivalent result. An abstract urn-occupancy equivalence remains possible and historical priority is not independently certified.",
+    "residual_risks": [
+      "A different name for dynamically immigrating Pólya colors or a general occupancy martingale may contain an implication-equivalent CLT or last-discovery theorem not uncovered by these searches.",
+      "The original source supplies individual-color marginal laws that already imply finite-time expectations by summation, so expectation alone is not asserted as new.",
+      "Independence of external proof validation and exhaustive historical-priority certification has not been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact process matches; named results are marginal one-color counts and degree simulations, not global activation fluctuation/last-activation asymptotics",
+        "evidence": "Model defines one new color after each draw; Theorem 1 treats N_{j,t}; Section IV says asymptotic degree distributions remain future work.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.10197",
+        "material_read": "Full rendered text: Introduction, Section II model and selection law, Section III marginal-count theorems, Section IV numerical degree distributions and concluding future-work discussion",
+        "method": "read primary open-access arXiv HTML text directly, including Theorems 1–2 and Sections IV–V",
+        "title": "Generating Preferential Attachment Graphs via a Pólya Urn with Expanding Colors",
+        "trigger": "exact originating model and direct overlap risk"
+      },
+      {
+        "assessment": "Fixed two-color setting; no color immigration or first-use population count",
+        "evidence": "Equation (1.1) and Theorems 1.1–1.2 address two-color proportions and monopoly.",
+        "identifier_or_url": "https://arxiv.org/abs/1807.04844",
+        "material_read": "Abstract, Introduction, Theorems 1.1–1.2, model and monopoly definitions",
+        "method": "read arXiv full-text display and statements",
+        "title": "Time-dependent Pólya urn",
+        "trigger": "possible general reinforcement and monopoly coverage"
+      },
+      {
+        "assessment": "Probability proportional to degree^gamma, not positive time-dependent reinforcement on colors; no implication covering the present transition",
+        "evidence": "Section 1 defines w(d)=d^gamma and discusses count Phi_k and condensation.",
+        "identifier_or_url": "https://arxiv.org/abs/1704.05568",
+        "material_read": "Abstract and Section 1 definitions, degree-count growth and superlinear phase statements",
+        "method": "read arXiv rendered full text and compare selection rules",
+        "title": "On the growth of a superlinear preferential attachment scheme",
+        "trigger": "degree-condensation and finite nonleaf count may be stronger coverage"
+      },
+      {
+        "assessment": "Theorem framework fixes finitely many urn colors; cannot directly control new colors born each time",
+        "evidence": "Abstract and Section 1.6 assume d fixed, with sigma_n balls allocated among those d urns.",
+        "identifier_or_url": "https://doi.org/10.1007/s10959-024-01366-w",
+        "material_read": "Abstract and Introduction Sections 1.1–1.6 including fixed d and update scheme",
+        "method": "read open-access publisher HTML full text excerpts and model assumptions",
+        "title": "Positive Reinforced Generalized Time-Dependent Pólya Urns via Stochastic Approximation",
+        "trigger": "plausible general time-reinforced urn covering theorem"
+      },
+      {
+        "assessment": "Its innovation count is for trigger-on-new-draw immigration, not a fresh unit-weight color deterministically every draw; related asymptotics do not directly entail the stated tail and CLT",
+        "evidence": "Section II defines new colors only when an undrawn color is selected; Section III retains conditional triggering.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.7.023127",
+        "material_read": "Introduction, Sections II–IV, novelty-triggered color introduction, power-reinforcement exponent scenarios",
+        "method": "read publisher full text rendering and compare precise triggering mechanism",
+        "title": "Full spectrum of novelties in time-dependent urn models",
+        "trigger": "distinct-color count phase diagrams could subsume claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15c4fbd7-595a-477e-8b6d-a35b980e91c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of distinct parents is a structural graph diversity statistic not determined in distribution by any single vertex degree. This theorem gives its sharp polynomial/logarithmic/finite trichotomy, Gaussian count fluctuations, and a quantitative power-law last-activation tail with a moment cutoff. It identifies a meaningful condensation boundary in the first explicit expanding-color reinforcement model.",
+    "status": "PASS"
+  }
+}

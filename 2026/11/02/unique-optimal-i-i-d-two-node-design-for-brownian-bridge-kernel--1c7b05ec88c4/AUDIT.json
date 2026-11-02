@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The Brownian-bridge conditional integral-variance identity yields the exact cubic-gap functional, and its interval-emptiness representation supplies a nonnegative signed-measure quadratic form. The normalized candidate density has constant potential on its interior support and a strict quadratic obstacle outside. Expansion against any Borel competitor proves global optimality; equality of interval-mass differences and the unit interior mass prove uniqueness even with atoms or endpoints. Exact moment calculation gives the risk; a standalone symbolic/exact-rational/high-precision verifier confirms critical finite and algebraic identities. Limits are two iid noiseless nodes and the E[sup] RKHS posterior variance objective.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Briol et al. (2017), Sections 1–3 and equation (3), optimize a proposal for a distinct criterion ordering supremum over integrands outside expectation.",
+        "Hayakawa, Oberhauser and Lyons (2023), Sections 2–5 and appendix, establish general sampling/Nyström construction results and error estimates, not a closed-form law for two independent sites.",
+        "Santin (2022) gives a stronger deterministic-design pointwise result for a different admissible class and criterion."
+      ],
+      "reasoning": "General error bounds and deterministic design theorems do not determine the optimizer of this exact expected posterior-variance functional on all Borel iid laws. In particular the two orders sup E and E sup cannot be interchanged.",
+      "searches": [
+        "Expected integrated posterior variance of Brownian-bridge kernel under two i.i.d. landmarks strict convex potential compact support optimal distribution",
+        "https://arxiv.org/abs/1706.03369",
+        "https://proceedings.mlr.press/v202/hayakawa23a.html"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2210.15959",
+      "https://arxiv.org/abs/1706.03369",
+      "https://proceedings.mlr.press/v202/hayakawa23a.html",
+      "https://doi.org/10.1137/18M1210332"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new claim optimizes E of the fixed-knot worst-case RKHS squared integration error over all iid Borel laws, and proves uniqueness using an explicit equilibrium potential and positive interval-mass quadratic form.",
+        "Santin: optimal deterministic grid for uniform pointwise interpolation power. Briol et al.: alternative worst-function-after-averaging criterion. Hayakawa et al.: finite-rank approximations and algorithmic kernel-quadrature bounds."
+      ],
+      "reasoning": "Neither deterministic pointwise interpolation performance nor general randomized quadrature estimates imply a strict central-support density or its exact minimum under the present iid E[sup] risk. Standard Brownian-bridge gap formula and measure convexity are acknowledged ingredients; the explicit equilibrium and all-distributions classification are the nontrivial asserted contribution.",
+      "searches": [
+        "https://arxiv.org/abs/2210.15959",
+        "https://arxiv.org/abs/1706.03369",
+        "https://arxiv.org/abs/2301.09517",
+        "Optimal random landmark density kernel quadrature iid two points minimax Brownian bridge expected cubic spacings equilibrium measure"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For sorted knots x<=y, the posterior integral variance is (x^3+(y-x)^3+(1-y)^3)/12; minimizing its iid expectation is equivalently minimizing expected cubic spacings.",
+        "Santin (2022), Theorem 5, concerns deterministic, equally spaced interpolants minimizing uniform pointwise power rather than an iid distribution minimizing a posterior integral variance."
+      ],
+      "reasoning": "An exact cubic-spacing order-statistics identity exposes an equivalent criterion; no inspected result supplied its unique interior-supported iid optimum. The deterministic optimum does not dominate a constrained iid optimization as a proof of the unique law.",
+      "searches": [
+        "Optimal iid two-point sampling distribution for Brownian bridge kernel Bayesian quadrature posterior variance exact finite sample density supported central interval",
+        "Two-sample random knot design minimizing E[min(X,Y)^3 + abs(X-Y)^3+(1-max(X,Y))^3]",
+        "https://arxiv.org/abs/2210.15959"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record searches returned no same-claim entry; one of the closest hits concerns a special-function threshold rather than kernel quadrature.",
+        "Another nearby record concerns randomized coordinate-descent probabilities for inverse-positive Hessians, not knot proposal distributions."
+      ],
+      "reasoning": "No exact density, risk constant, scalar root, or all-Borel uniqueness theorem was located in queried records. Absence from a finite search is not a proof of priority, and the residual specialized-spacings literature risk remains.",
+      "searches": [
+        "Unique optimal iid probability density 2(1+r squared)/(1+(2x-1) squared)^2 on compact central interval r+(1+r squared)arctan r=1 minimizing two random knot cubic gaps Brownian bridge Bayesian quadrature",
+        "Brownian bridge kernel quadrature independent random nodes optimized design density inverse squared gap quadratic optimal two sample"
+      ]
+    },
+    "rationale": "The motivating full-text sources and semantic research-record searches were compared at the statement/implication level. Prior deterministic power optimality and proposal-sampling frameworks do not imply the unique all-Borel two-iid-node optimum for E[squared fixed-knot worst-case integration error]. An exact specialized cubic-spacing result could remain unlocated; originality is a qualified best-knowledge judgment, not proof of priority.",
+    "residual_risks": [
+      "Specialized optimal random-spacing and stochastic-design literature may contain an equivalent variational classification not retrieved by keyword/semantic searches.",
+      "Full text of Pronzato–Zhigljavsky (2020) was not accessible; only abstract and bibliographic metadata were considered.",
+      "The cited proposal distribution optimization with sup outside expectation is not the same risk criterion, and no novelty is claimed for that alternative problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different criterion (pointwise power) and design class (fixed deterministic locations); supplies no iid distribution law",
+        "evidence": [
+          "Theorem 5 optimizes the uniform pointwise interpolation power and identifies equally spaced deterministic locations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.15959",
+        "material_read": "Full accessible preprint sections 2, 4, 5 and Theorem 5, including statements and argument about uniform power function; first preprint dated 2022-10-28",
+        "method": "Read primary full text and its mathematical criterion and optimizing class",
+        "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+        "trigger": "Same kernel and deterministic design optimality could subsume a random-node claim"
+      },
+      {
+        "assessment": "Investigates proposal sampling, but not exact two-point Brownian-bridge posterior integral-variance optimizer; error criterion differs",
+        "evidence": [
+          "Equation (3) and surrounding text place worst-over-integrand optimization outside the sample expectation, unlike the present E[sup] objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.03369",
+        "material_read": "Full accessible preprint Sections 1–3 including displayed equation (3), sampling risk and numerical design discussion",
+        "method": "Read primary full text and compare order of expectation and supremum and kernel",
+        "title": "On the Sampling Problem for Kernel Quadrature",
+        "trigger": "Possible preexisting optimization over sampling distribution for kernel quadrature"
+      },
+      {
+        "assessment": "General algorithmic constructions and error bounds do not determine the unique two-node sampling density",
+        "evidence": [
+          "Theorems 2–3 give kernel quadrature/Nyström approximation bounds, not a closed-form probability law minimizing exact two-draw expected Brownian-bridge variance."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v202/hayakawa23a.html",
+        "material_read": "Open-access PMLR paper Sections 2–5, Theorems 2–3, appendix on random sampling and kernel quadrature",
+        "method": "Read full primary PDF/HTML and inspect assumptions and theorem conclusions",
+        "title": "Sampling-based Nyström Approximation and Kernel Quadrature",
+        "trigger": "General theory of random kernel landmark selection might directly imply an optimal density"
+      },
+      {
+        "assessment": "Potential overlap in general potential-theoretic methodology; cannot certify absence of this two-node exact distribution theorem",
+        "evidence": [
+          "Abstract discusses Bayesian quadrature and design by energy minimization; no direct accessible evidence of the specific distributional formula."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/18M1210332",
+        "material_read": "Accessible abstract and bibliographic data only; full article unavailable during bounded access attempts",
+        "method": "Read available abstract, not full paper",
+        "title": "Bayesian quadrature, energy minimization, and space-filling design",
+        "trigger": "Classical potential-energy design theory might overlap variational optimality proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c7b05ec-88c4-4af8-8753-e96574e35667",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Choosing a node proposal in kernel quadrature is a motivated design question. The first nontrivial independent-node case has a genuinely nonuniform, compact-central-support optimum with a sharp root defining its support, unique among all Borel laws, and a 35.8 percent reduction in expected posterior integral uncertainty versus uniform sampling. This exact benchmark can test adaptive and learned proposal-design algorithms and exposes a meaningful sampling-versus-deterministic design distinction; no general larger-n theorem is claimed.",
+    "status": "PASS"
+  }
+}

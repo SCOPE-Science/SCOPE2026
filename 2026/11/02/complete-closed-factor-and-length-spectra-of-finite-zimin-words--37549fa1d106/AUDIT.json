@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The identity \\(Z_n[p]=a_{1+\\nu_2(p)}\\) yields a unique highest-marker representation with \\(i,j<2^{r-1}\\). Equal dyadic shells admit an explicit border translated by \\(2^{t+1}\\), containing exactly the two local occurrences of \\(a_{t+1}\\). Unequal shells force any proposed border to occur again after translation by \\(-2^{t+1}\\) entirely within the longer extension, while zero-side cases are unbordered. Shell squares give \\(H_r=(4^{r-1}+2)/3\\); summation gives \\(C_n=(4^n+6n-1)/9\\). Counting ordered pair sums yields the triangular length spectrum. A direct factor/border checker agrees through rank eight, which is diagnostic rather than an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Badkobeh–Fici–Lipták arXiv:1305.6395 Theorem 25 constructs binary words with quadratically many closed factors but gives no Zimin exact formula.",
+        "Parshina–Puzynina arXiv:2111.00863 state the maximum asymptotic constant 1/6 for arbitrary words, without a Zimin-specific profile.",
+        "Wojcik CIRM 2019 slides pp.5–10 characterize factor representation and prefix/suffix continuations for the infinite Zimin word."
+      ],
+      "reasoning": "A general upper bound of order N^2 and the ruler factor parameterization are not a closedness criterion; deciding whether a candidate border occurs exactly twice is an additional nontrivial condition, proved here. The general maximum cannot determine the exact Zimin count.",
+      "searches": [
+        "Zimin words closed factor count ruler sequence complete return words",
+        "arXiv:2111.00863 PDF introduction and structural bounds",
+        "\"Zimin word\" \"complete return\" 2009"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1305.6395",
+      "arXiv:1508.02074",
+      "CIRM:Wojcik-2019-Zimin-word",
+      "arXiv:2111.00863",
+      "OEIS:A047849",
+      "OEIS:A375453",
+      "Published summary: Exact binary closed-rich maxima at lengths 25–27 (global binary extrema, not Zimin spectra)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previous unbordered-factor theorem tests i & j = 0, which is neither equivalent to nor sufficient for closure, requiring a border exactly twice. For example suffix_1(Z_3) a_4 prefix_3(Z_3) is bordered but open.",
+        "The source Zimin factor decomposition fixes possible (i,j) but does not restrict closed factors to equal dyadic shells.",
+        "The cited closed-factor papers concern general word criteria or different specific words.",
+        "Existing classifications for Zimin unbordered and Lyndon factors, suffix automata, and cyclic transforms concern different invariants and have no closed-factor iff statement."
+      ],
+      "reasoning": "A factorization of all objects merely supplies the domain of the new predicate; the dyadic iff classification, exact length distribution, and total-count law require additional valuation and return-occurrence proofs. Earlier results about unbordered, Lyndon, automata, and BWT invariants have different logical conclusions and do not entail closedness. Final semantic comparison also found unrelated short-length binary closed-rich extrema but no implication of the Zimin shell criterion.",
+      "searches": [
+        "arXiv:1305.6395 PDF Theorems 11,17,23,25 and conclusion",
+        "arXiv:1508.02074 PDF Section 5 closed-word theorem",
+        "CIRM: Wojcik 2019 Zimin slides pp.5–10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1305.6395 defines closedness as complete first return (PDF pp.1–3); arXiv:1508.02074 defines the same property (PDF p.2); scanned primary text has no Zimin specialization."
+      ],
+      "reasoning": "The classification was compared both under closed factor, complete first return, and periodic-like word terminology; these are the same property here. Retrieved references do not state a dyadic-shell iff condition for finite Zimin factors.",
+      "searches": [
+        "Zimin word finite closed factors complete first returns count 4^n polynomial",
+        "ruler word n-ary Zimin factors complete return closed word length spectrum",
+        "\"Zimin word\" \"factors\" \"closed\" complete return",
+        "complete closed-factor and length spectrum of finite Zimin words; closed factor iff two extension lengths lie in same dyadic shell; count (4^n+6n-1)/9",
+        "Zimin ruler word complete first returns triangular length profile closed factors all ranks",
+        "exact number of closed factors of Zimin word and per-letter marker 4^(r-1)/3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A047849 gives (4^m+2)/3 with unrelated closed-walk and permutation interpretations.",
+        "OEIS A375453 starts 1,3,9,31,117,459,1835, whereas the independently enumerated Zimin totals start 1,3,9,31,117,459,1825; they diverge at rank seven.",
+        "arXiv:1305.6395 Table 1 lists maxima for binary words of lengths 1–20, not Zimin sequences on growing alphabets."
+      ],
+      "reasoning": "Coincident arithmetic values do not contain the statement relating those values to Zimin closed factors. The superficially matching total sequence demonstrably diverges, so it is not an exact table of the claimed invariant.",
+      "searches": [
+        "site:oeis.org \"1, 3, 9, 31, 117, 459\"",
+        "site:oeis.org \"1, 2, 6, 22, 86, 342\"",
+        "closed factors of Zimin words dyadic suffix prefix classification"
+      ]
+    },
+    "rationale": "Three relevant primary works and one original-presentation source were compared at theorem/implication level. The general closed-factor bounds, automatic-sequence predicates, and Zimin unique-highest-letter representation do not state or immediately yield the explicit iff criterion that left/right lengths occupy the same dyadic shell, or its exact length spectrum. A broader finite closed-rich extremal asymptotic is compatible, not dominating. Previously available Zimin results on unbordered factors, Lyndon factors, automata and cyclic transforms concern different invariants and do not establish the present closed-factor census. Residual priority risk persists, especially for unindexed theses or specialized literature.",
+    "residual_risks": [
+      "Semantic research-record search is not an exhaustive index of all published mathematical literature.",
+      "Wojcik 2019 slides are not the complete associated doctoral research and may not capture all closely related claims.",
+      "Independent priority review has not been performed; numerical coincidences alone cannot settle precedence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related foundational theory; quadratic general constructions do not claim finite Zimin exact dyadic classification.",
+        "evidence": [
+          "arXiv:1305.6395 pp.1–3 closed/complete-return definition",
+          "pp.8–9 Theorem 25 and Table 1 binary extremal counts",
+          "p.10 proposed further work on factors of particular words"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1305.6395",
+        "material_read": "PDF pp.1–10: definition, CR-poor classifications, Theorem 25, table of binary maxima, conclusions and references; extracted-text search for Zimin yielded no hit.",
+        "method": "Opened lawful arXiv full PDF; read sections and proof passages; inspected rendered first page.",
+        "title": "On the Number of Closed Factors in a Word",
+        "trigger": "Foundational primary closed-factor definitions, bounds, and potential complete classifications"
+      },
+      {
+        "assessment": "Its automatic-word decision procedures and listed sequence-specific conclusions do not supply the complete finite Zimin spectrum.",
+        "evidence": [
+          "arXiv:1508.02074 §5 lists closed-factor existence for Thue–Morse, Rudin–Shapiro, paperfolding, period-doubling, Fibonacci",
+          "§2 defines closed and privileged separately"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.02074",
+        "material_read": "PDF pp.1–5 introduction, definitions and main closed-word theorem; pp.10–11 related material; specific sequences and theorem statements; extracted-text search for Zimin yielded no hit.",
+        "method": "Opened lawful arXiv full PDF; inspected rendered definition page; compared Section 5 theorem statements and scope.",
+        "title": "Closed, Palindromic, Rich, Privileged, Trapezoidal, and Balanced Words in Automatic Sequences",
+        "trigger": "Potential stronger algorithmic coverage of closed-factor enumerations in automatic words"
+      },
+      {
+        "assessment": "The factor parameterization is credited as known; no complete closed-factor count or criterion found in read material; priority risk remains for additional presentations or thesis.",
+        "evidence": [
+          "2019 slides pp.5–10 state each factor has a unique highest letter and give a prefix/suffix parameterization"
+        ],
+        "identifier_or_url": "https://www.cirm-math.fr/RepOrga/1991/Slides/Wojcik-Lyndon-CIRM.pdf",
+        "material_read": "Extracted slides 5–10 show ruler valuation formula, unique largest letter, and factor parameterization; searches of parsed slide text for closed and return had no match; not a comprehensive unpublished-thesis inspection.",
+        "method": "Read extracted slide text and checked relevant theorem statements; displayed-page access was unsuccessful.",
+        "title": "The Zimin word and words with a Lyndon orbit",
+        "trigger": "Most directly related factor-decomposition results for the same underlying ruler word"
+      },
+      {
+        "assessment": "Proves global maximum ~N^2/6, compatible with rather than implying the complete Zimin distribution ~N^2/9.",
+        "evidence": [
+          "arXiv:2111.00863 abstract and §I–II state general maximum constant 1/6, not rankwise Zimin classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2111.00863",
+        "material_read": "PDF abstract, introduction pp.1–3, extremal results and selected proof sections; extracted-text search for Zimin had no hit.",
+        "method": "Opened lawful arXiv PDF; inspected rendered title page; read results on asymptotic maxima and word families.",
+        "title": "Finite and infinite closed-rich words",
+        "trigger": "Potential dominating general maximal closed-factor law and explicit constructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "37549fa1-d106-4ad3-b7ae-8911e7e24bd5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closed factors, equivalently complete first returns, are natural invariants in combinatorics on words and compression. The theorem supplies a full iff structural classification for literal finite Zimin words, an exact length-by-length triangular spectrum with systematic dyadic holes, and the exact total \\(C_n=(4^n+6n-1)/9\\). It produces a concrete quadratic-density \\(1/9\\) family of words of length \\(2^n-1\\), without claiming global optimality, and identifies a reusable valuation mechanism rather than an arbitrary numerical increment.",
+    "status": "PASS"
+  }
+}

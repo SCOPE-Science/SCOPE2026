@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The one-node normalized Lanczos estimator is derived from the Rayleigh quotient. Constant sign output gives exact squared bias. Absolute convergence of the circular logarithm Fourier expansion and orthogonality give spherical mean, variance and dilogarithmic MSE. The risk-difference derivative has a strictly increasing numerator crossing from -1 to 2 log 2; combined with H(0)=0 and H(1-)=+infinity this proves one unique interior reversal. A standalone checker supplies independent exact rational bounds and finite angular quadrature diagnostics, with no claim that finite testing proves the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cortinovis/Kressner combined bounds concern unnormalized probes and probability of error",
+        "Chen/Trogdon/Ubaru sphere result bounds deviations of trace probes and analytic matrix-free spectral sums"
+      ],
+      "reasoning": "General tail and uniform high-probability estimates do not imply an exact crossing of the *mean-squared* error for the non-linear one-node log rule; no stronger general theorem computing this comparison was found in inspected primary statements.",
+      "searches": [
+        "one-step stochastic Lanczos quadrature log determinant Rademacher normalized Gaussian spherical probe exact mean squared error two-dimensional diagonal spectrum crossover",
+        "one probe one-step Lanczos log determinant two by two diagonal matrix condition number normalized Gaussian spherical versus Rademacher probes squared error risk crossover",
+        "arxiv:2005.10009 Sections 3-4",
+        "arxiv:2204.01941 Lemma 9 and spectral-sum bounds"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2005.10009v2",
+      "https://arxiv.org/html/2204.01941v3",
+      "https://arxiv.org/html/2307.00847v5",
+      "2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8",
+      "2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4",
+      "2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The normalized Gaussian direction has samplewise norm sqrt(2), unlike [1] and [3] Gaussian random vectors",
+        "The uniform sphere quadratic-form concentration result [2] makes no all-parameter MSE ranking claim",
+        "In [1] a higher number of Lanczos steps and samples is selected to guarantee epsilon error"
+      ],
+      "reasoning": "Even a general error bound or an exact trace-probe variance does not imply the risk reversal because the one-node logarithm adds deterministic quadrature bias. The new object is an exact distribution-sensitive nonlinear MSE law and sharp unique crossing; the nearest previously read papers provide algorithmic context and tools, not this implication.",
+      "searches": [
+        "arxiv:2005.10009 Sections 3-4",
+        "arxiv:2204.01941 Lemma 9",
+        "arxiv:2307.00847 Section 3 and Algorithm 2",
+        "stochastic Lanczos quadrature logarithm dilogarithm cosh unique error threshold 254"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fourier/circular-average form: sphere Rayleigh quotient has law c|1+t exp(2i theta)|^2",
+        "Equivalent log-cosh vs dilogarithm condition H(x)=0",
+        "[1] [2] [3] contain related probe choices but not the exact paired risk condition"
+      ],
+      "reasoning": "Equivalent normalized-Gaussian-direction, uniform-circle and arcsine-Rayleigh formulations were considered. Standard Gaussian without norm fixing is not equivalent; the natural single-node quadrature plus log transform is non-linear, so unbiased trace sampling bounds cannot be substituted.",
+      "searches": [
+        "one-step stochastic Lanczos quadrature log determinant Rademacher normalized Gaussian spherical probe exact mean squared error two-dimensional diagonal spectrum crossover",
+        "logdet one-step Lanczos Gaussian sphere versus Rademacher sketch risk phase transition dilogarithm",
+        "randomized matrix quadrature log determinant sign sphere probe bias variance exact spectral anisotropy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest record 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 deals with sign changes of exp(-tA)b after two Lanczos steps",
+        "Closest record 2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4 studies Ritz-value lower bounds",
+        "Record 2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03 studies CG power-law spectra"
+      ],
+      "reasoning": "These near topical index matches concern different matrix functions, outputs, and error criteria; none gives a table or exact formula for this two-probe comparison. Absence of a match is not by itself proof of novelty.",
+      "searches": [
+        "one-step stochastic Lanczos quadrature log determinant Rademacher normalized Gaussian spherical probe exact mean squared error two-dimensional diagonal spectrum crossover",
+        "logdet one-step Lanczos Gaussian sphere versus Rademacher sketch risk phase transition dilogarithm",
+        "randomized matrix quadrature log determinant sign sphere probe bias variance exact spectral anisotropy",
+        "one probe one-step Lanczos log determinant two by two diagonal matrix condition number normalized Gaussian spherical versus Rademacher probes squared error risk crossover",
+        "stochastic Lanczos quadrature logarithm dilogarithm cosh unique error threshold 254",
+        "published mathematical-results-index: Lanczos exponential positivity and Lanczos convexification"
+      ]
+    },
+    "rationale": "Compared implications of original Lanczos determinant-estimation literature (unnormalized Gaussian and Rademacher), uniform-sphere randomized matrix-free quadrature, and newer asymmetrical SLQ error-budget theory. No inspected theorem entails the two-dimensional fixed-norm spherical-vs-sign *one-node logdet MSE crossover and uniqueness*. Actual published mathematical record searches exposed only distinct Lanczos spectral positivity, proximal Ritz safety, and Haar-CG results. Standard probe laws and classical Fourier series are prior tools, not novelty. Priority risk of uninspected specialized calculation remains.",
+    "residual_risks": [
+      "A pre-existing two-dimensional exact logarithmic quadrature calculation might implicitly contain the same equality under a different description.",
+      "The exact statement has not been independently audited for priority or correctness.",
+      "The finding is restricted to norm-matched two-dimensional single-node estimators, not general matrix-free logdet estimation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the specialized claim; paper uses unnormalized Gaussian and sign distributions with high-probability error bounds, not fixed-norm uniform-sphere exact one-node risk reversal",
+        "evidence": [
+          "Section 4 combined bounds defines norm-weighted Lanczos estimates and bounds on probe/sample counts",
+          "Section 1 distinguishes standard Gaussian and Rademacher vectors"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.10009v2",
+        "material_read": "Introduction, trace-estimator setup, Sections 3-4 (Lanczos and combined determinant bounds), Gaussian/Rademacher theorems and discussion",
+        "method": "full-text HTML reading and comparison of estimator definition, norm law, risk metric and theorem quantifiers",
+        "title": "On randomized trace estimates for indefinite matrices with an application to determinants",
+        "trigger": "same log-determinant Lanczos estimator and Gaussian/Rademacher probe comparison"
+      },
+      {
+        "assessment": "NOT_COVERING; it uses sphere sampling and gives general concentration/uniform bounds, not exact one-node logarithmic two-by-two MSE crossover",
+        "evidence": [
+          "Lemma 9: concentration for uniform sphere quadratic forms",
+          "Rademacher and Gaussian bounds are distinguished from sphere laws"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2204.01941v3",
+        "material_read": "Abstract, estimator/quadrature framework, Section concentration discussion including Lemma 9 on uniform sphere, spectral-sum bounds",
+        "method": "full-text HTML sections and exact statement-implication check",
+        "title": "Randomized matrix-free quadrature: unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+        "trigger": "mathematically relevant spherical probe construction in randomized Lanczos quadrature"
+      },
+      {
+        "assessment": "NOT_COVERING for fixed-norm spherical-versus-Rademacher one-node sharp crossover; it analyzes resource allocation and high-probability criteria",
+        "evidence": [
+          "Algorithm 2 defines stochastic Lanczos trace estimate",
+          "Section 3 concerns asymmetric quadrature error bounds and error-budget allocation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.00847v5",
+        "material_read": "Algorithm 2, Sections 2-4, Rademacher/Gaussian error-bound/resource results",
+        "method": "full-text HTML comparison of distributions, number of Lanczos nodes, and MSE vs probability bounds",
+        "title": "An analysis on stochastic Lanczos quadrature with asymmetric quadrature nodes",
+        "trigger": "direct analysis of SLQ for log determinants and comparison of Rademacher/Gaussian query choices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "151310b1-c3e7-48fa-9e2e-9f7d5e967a51",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "One matrix-vector-product logdet quadrature is a meaningful limiting computational budget. Even when Rademacher sampling has zero randomness on the diagonal model, its deterministic log-Jensen quadrature bias can exceed the bias-plus-variance of a spherical probe. The theorem isolates this unexpected error trade-off with complete sharp conditioning classification and explicit risk law. This is a motivated structural boundary, not a numerical table recomputation or a universal performance claim.",
+    "status": "PASS"
+  }
+}

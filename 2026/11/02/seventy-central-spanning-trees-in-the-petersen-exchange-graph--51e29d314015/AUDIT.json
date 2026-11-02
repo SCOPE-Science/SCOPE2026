@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Every distance is one-edge set difference by the previously proved exchange lemma. For each tree, maximal disjoint exchanges equal graphic rank of its six-edge cotree; girth five gives ranks five or six, with precisely 12*5 + 10 = 70 cyclic cotrees. Direct enumeration checked all 2000 trees and 1,999,000 pairs; an independent contraction/Kirchhoff/Bareiss census checked all 32768 edge subsets and all ten exact forest moment values, yielding the stated pair-distance polynomial. Both embedded programs ran successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/1601.01041, pp. 2-4, Lemma 2.3 and Introduction",
+        "https://doi.org/10.1002/jgt.23237, Section 1 and Theorems 1.3-1.6"
+      ],
+      "reasoning": "The general geodesic identity covers only d(T,U)=9-|T∩U| and is fully credited. General Hamiltonian/pancyclic theorems establish cycle existence in basis graphs but neither the Petersen center count nor its exact distance distribution.",
+      "searches": [
+        "Dara Hegde Deva Rao Zaslavsky forest graph distance Lemma 2.3 2016",
+        "Kim Oum Hamiltonicity basis graphs even delta-matroids 2025 Petersen"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1601.01041 (relevant sections and PDF text search)",
+      "https://aeb.win.tue.nl/graphs/Petersen.html (full short reference)",
+      "doi:10.1002/jgt.23237 (relevant theorems)",
+      "https://www.researchgate.net/publication/266273614_The_Petersen_matroid (partial search-indexed excerpts only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1601.01041 Lemma 2.3; generic metric formula, not its Petersen-specific evaluation",
+        "Kim–Oum 2025 studies Hamiltonicity/pancyclicity rather than distance distribution",
+        "Al-Hawary manuscript abstract/excerpts discuss minors/duality/regularity; full document unavailable",
+        "Earlier restricted-pivot theorem gives 2000 trees, pivot eccentricities 7/8, pivot pair distances, and aggregate excess relative to ordinary exchange; it does not assert 70 ordinary centers or this polynomial."
+      ],
+      "reasoning": "The prior pivot-result excess distribution alone cannot reconstruct the ordinary pair histogram, and does not classify ordinary centers; its strong constraints make distances different. Earlier unrestricted basis-exchange theory implies a short proof strategy but not these finite numerical and cycle-structural conclusions.",
+      "searches": [
+        "tree graph Petersen matroid metric 1966 Cummins 2016 forest graph",
+        "Petersen matroid Al-Hawary basis graph full text",
+        "Petersen pivot-edge spanning tree reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dara et al. arXiv:1601.01041, Lemma 2.3: generic d(T,U)=|T\\U|",
+        "Brouwer Petersen graph: 12 pentagons and 10 hexagons, no basis graph metric",
+        "Previously recorded Petersen *pivot*-exchange claim uses restricted incident-edge exchange and has different radius and diameter"
+      ],
+      "reasoning": "The tree-graph, matroid basis-graph, and one-edge tree-exchange formulations are equivalent here. Pivot exchanges are a strict subset of unrestricted basis exchanges; pivot distances cannot determine the unrestricted eccentricity profile or pair-distance histogram from the prior statement alone.",
+      "searches": [
+        "tree graph Petersen spanning trees exchange distance radius",
+        "Petersen graphic matroid basis exchange graph eccentricity",
+        "Petersen matroid basis graph pair overlap polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://aeb.win.tue.nl/graphs/Petersen.html provides small graph structure and cycle counts",
+        "Public mathematical searches returned standard Petersen counts, not the 70 centers or the pair-distance polynomial"
+      ],
+      "reasoning": "The known 2000 spanning trees and 12/10 cycles are not the asserted new output; the classification and pair distribution require additional structure/counting. An unindexed table remains a risk.",
+      "searches": [
+        "Petersen graph tree graph 2000 vertices 70 centers radius 5",
+        "Petersen basis exchange graph Wiener index 7200000",
+        "Petersen spanning trees pair intersection 28140 222360 651080"
+      ]
+    },
+    "rationale": "The new graph-specific center count (70, with 60 pentagonal and 10 hexagonal complements), sharp radius/diameter and complete pair-distance census are not stated by the inspected general tree-graph and matroid-basis results, or by the Petersen graph census. This does not claim novelty for the basis exchange distance identity, the 2000 spanning-tree total, or the 12/10 cycle counts. An earlier restricted *pivot* exchange classification is not a covering result: its adjacency demands incident removed and inserted edges, and it reports pivot metrics and excess counts, not the 70-center ordinary basis-exchange classification; equivalence was checked by statement/implication, not keywords. Full access to an on-topic Petersen matroid manuscript was unavailable, leaving residual priority risk.",
+    "residual_risks": [
+      "Unindexed historical spanning-tree basis-graph metric census may predate this work.",
+      "Full on-topic Petersen matroid manuscript was not readable; no negative full-document claim is made.",
+      "Earlier restricted-pivot analysis reports pairwise excess statistics; a fuller unindexed numerical table could contain additional baseline information not stated in its principal theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general shortest-path identity, not Petersen-specific center/census results",
+        "evidence": [
+          "Lemma 2.3 d(F1,F2)=number of exchanged edges",
+          "No Petersen example found in text search"
+        ],
+        "identifier_or_url": "arxiv:1601.01041",
+        "material_read": "Introduction, Section 2 including full Lemma 2.3 proof, and PDF text search for Petersen",
+        "method": "HTML/full PDF text and page screenshot inspection",
+        "title": "The Dynamics of the Forest Graph Operator",
+        "trigger": "Original definition and exact general exchange geodesic theorem"
+      },
+      {
+        "assessment": "COVERS classical 12 pentagons, 10 hexagons, graph structure; not the present tree-exchange metrics",
+        "evidence": [
+          "Disjoint two-subset model, 12 cycles of length five and 10 of length six"
+        ],
+        "identifier_or_url": "https://aeb.win.tue.nl/graphs/Petersen.html",
+        "material_read": "Complete accessible short graph reference, including cycles",
+        "method": "HTML textual inspection",
+        "title": "The Petersen graph",
+        "trigger": "Classical graph cycle enumeration"
+      },
+      {
+        "assessment": "COVERS Hamiltonicity and pancyclicity; does not imply Petersen center or distance counts",
+        "evidence": [
+          "Theorem 1.3 Hamiltonian cycle conditions; Theorem 1.5 vertex pancyclicity"
+        ],
+        "identifier_or_url": "doi:10.1002/jgt.23237",
+        "material_read": "Accessible HTML introduction and Theorems 1.3-1.7",
+        "method": "Publisher HTML reading",
+        "title": "Note on Hamiltonicity of Basis Graphs of Even Delta-Matroids",
+        "trigger": "General strong theory of matroid basis graphs"
+      },
+      {
+        "assessment": "INCONCLUSIVE plausible document, recorded as a priority risk",
+        "evidence": [
+          "Indexed key terms Matroid, Deletion, Contraction, Dual, Graph, Gammoid; snippets about minors, regularity"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/266273614_The_Petersen_matroid",
+        "material_read": "Search-indexed abstract and excerpts on deletion/contraction/dual; full text open failed",
+        "method": "Search snippet and failed full-page retrieval",
+        "title": "The Petersen Matroid",
+        "trigger": "Plausible graph-specific historical work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "51e29d31-4015-4f15-8c25-68b88bb21d37",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a canonical extremal cubic graph, the classification gives a sharp and interpretable non-self-centered spanning-tree transformation space: exactly 70 central trees (3.5%), distinguishable by the lengths of complementary cycles, against 1930 peripheral trees. The full exchange-distance enumerator and Wiener index are natural precise benchmarks for graphic-matroid basis-exchange geometry; neither the 2000-tree count nor the generic metric identity provides this classification without additional finite combinatorics. A general downstream theorem is not claimed.",
+    "status": "PASS"
+  }
+}

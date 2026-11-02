@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The falling-factorial interpolation converges uniformly, and the divided-difference polynomials converge uniformly because each summand is divisible by a factorial whose 2-adic valuation diverges. The derivative is odd on odd arguments and is two modulo four on even arguments. This proves exact valuation preservation on the three parameter branches, hence bijectivity of the induced finite quotients and precise fibers at every dyadic level. All small-level boundaries were checked separately. An embedded standalone verifier independently checked the recurrence, derivative congruences, and all target multiplicities through exponent 15. Its finite tests are corroboration rather than the infinite argument.
+
+**Originality — PASS (historical-priority qualification).** Sun–Wu–Zhuang treat Bell/derangement polynomial congruences, Aebi–Cairns treat Wilson-type congruences, Wang–Miska–Mező treat modularity and prime-adic valuations, and O'Desky–Richman provide prime-adic interpolation. Inspected relevant statements do not identify the full three-branch isometry and exact multiplicity spectrum modulo every power of two. A previously accessible weighted-derangement theorem already gives the least period, so the period is not treated as novel. Targeted searches for equivalent fiber, value-set, and limiting-measure formulations did not find a dominating theorem, but an unlocated specialization of earlier p-adic techniques remains possible.
+
+**Mathematical value — PASS.** Exact all-level fibers are a natural arithmetic invariant not determined by periodicity, valuation-zero sets, or continuity alone. The sharp distinction between even residues of multiplicity one and odd residues of multiplicity four determines a complete 2-adic support, natural density, and a structural isometry decomposition. This is a full classification for a classical sequence, not a finite sample or a routine evaluation at selected indices.
+
+**Scope and residual risk.** This does not concern odd prime powers or generalized derangements; historical priority and independent validation remain open. The proof and code are supplied for reproducibility.
+
+Self-review: passed. Independent audit: not yet performed.

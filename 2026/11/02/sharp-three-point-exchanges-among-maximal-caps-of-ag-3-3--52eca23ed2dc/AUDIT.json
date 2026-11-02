@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The finite universe comprises exactly 27 labelled points and 117 three-point affine lines. Recursive cap generation and an independent exhaustive scan of all C(27,9)=4,686,825 subsets produce exactly 2,106 nine-caps; no cap extends to ten, proving maximality. One implementation compares all cap-pair intersections, the other generates literal three-point replacements. Both find 75,816 edges and degree 72 for every cap, and independently BFS from all 2,106 vertices with identical joint intersection/distance distributions. This establishes connectedness, both radius and diameter four, and that all distance-four pairs are disjoint. Source Proposition 2.2 establishes the interpretation of their unique three-cap partition; no infinite inference or undocumented computation is required.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Follett et al., arXiv:1302.4703, Proposition 2.2: all maximum nine-caps affinely equivalent; unique three-cap partition; these known facts are excluded from novelty.",
+        "Awan et al., arXiv:2106.14141, Section 3 Proposition 3.1 and Table 1: the dimension-three two-secant number and dimension-four demicap partition analysis, not a nine-cap exchange graph.",
+        "The computed degree 72 and complete distance-by-intersection spectrum are not numerical consequences of affine transitivity or partition uniqueness alone."
+      ],
+      "reasoning": "The strongest materially relevant primary results classify caps geometrically and complementary partitions. They imply neither existence of three-replacement paths between every pair nor a sharp four-step bound, nor the 24 exceptional three-overlap detours. Related dimension-four claims concern different cardinalities and affine spaces.",
+      "searches": [
+        "Partitions of AG(4,3) into Maximal Caps Follett Kalail McMahon Pelland Won 2013 full text Proposition 2.2",
+        "Demicaps in AG(4,3) and Their Relation to Maximal Cap Partitions Awan Frechette Li McMahon 2021 Proposition 3.1",
+        "cap sets AG(3,3) exchange graph symmetric difference six neighbors 72",
+        "maximum cap sets finite affine geometries 3-for-3 swap connectivity"
+      ]
+    },
+    "checked_sources": [
+      "Follett et al. (2013 first public, 2014 published), arxiv:1302.4703, https://arxiv.org/html/1302.4703v1; Sections 1–3 with dimension-three Proposition 2.2",
+      "Awan et al. (2021), arxiv:2106.14141, https://arxiv.org/pdf/2106.14141; Section 3/Table 1 and related dimension-four results",
+      "MSC2020 05C12 graph distance classification verified against published mathematics subject classification",
+      "Targeted public searches of cap-set exchange graphs, intersection-size-six graphs, Steiner triple-system independent-set replacements, affine oval/ovoid analogues"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited 2013 Proposition 2.2 proves unique completion of three disjoint nine-caps, but gives no path through intermediate intersecting caps.",
+        "The cited 2021 Proposition 3.1 establishes two secant lines completed by an outside point but does not determine whether two-point exchanges exist or calculate three-point-exchange distances.",
+        "Two independently implemented full enumerations and full breadth-first searches verify the stronger new metric assertion."
+      ],
+      "reasoning": "Prior exact geometric information is explicitly acknowledged. It neither supplies nor automatically implies the 72-neighbor graph or its four distance layers; the new theorem requires and provides a complete adjacency and BFS computation. An unlocated general theorem yielding the same special case would supersede this claim, and remains a literature risk.",
+      "searches": [
+        "arxiv:1302.4703 Section 2 Proposition 2.2 proof affine-equivalence unique three-cap partition",
+        "arxiv:2106.14141 Section 3 Proposition 3.1 table AG(3,3) two completed secants",
+        "cap sets AG(3,3) swaps three points 9 cap reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 27-point affine Steiner triple system has as blocks exactly the 117 affine lines; its size-nine maximum independent sets are precisely the caps considered here (definition and explicit computation).",
+        "Follett et al. 2013, arXiv:1302.4703, Section 2, Proposition 2.2, uses nine-caps and affine equivalence, not their three-for-three exchange metric."
+      ],
+      "reasoning": "Reformulations as maximum independent sets of the affine Steiner triple system, 9-point line-free ternary codes, and an intersection-size-six orbital graph give the same exact graph. The searched published treatments concern the caps and partitions, not the diameter-four 72-regular three-swap reconfiguration graph. Not finding another paper is not a novelty proof; full-text implication comparison is decisive for the cited closest source.",
+      "searches": [
+        "maximum cap set reconfiguration graph local search 3-exchanges 3-dimensional affine F3",
+        "Maximum independent sets in Steiner triple system STS(27) affine space AG(3,3), symmetric difference six, three-for-three replacement graph diameter",
+        "graph of maximum caps of affine geometry AG(3,3) swap 3 points distance diameter",
+        "9 caps AG(3,3) point exchange graph 3 replacement 72 regular diameter 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Follett et al. (arXiv:1302.4703), Table 1 lists maximum cap size nine and Proposition 2.2 the partition; neither is a table of three-exchange distances.",
+        "Direct exact 27-point subset enumeration certifies 2106 caps and all 2,216,565 cap pairs, including 75,816 pairs meeting in six points."
+      ],
+      "reasoning": "Previously listed maximum cap sizes and partition counts must not be mistaken for a database supplying the entire exchange adjacency or shortest-path table. Targeted searches did not identify a covering table, with residual possibility of an unindexed specialized data source.",
+      "searches": [
+        "AG(3,3) 9-caps 2106 72 graph diameter four",
+        "2106 vertices 72 regular graph affine caps",
+        "F3^3 nine point cap set intersection graph 2106",
+        "AG(3,3) maximum cap set counts table 9 2106 exchange"
+      ]
+    },
+    "rationale": "The closest fully inspected primary source, Follett et al. 2013 Proposition 2.2, already gives the size-nine bound and unique disjoint-cap partition; those are explicitly not asserted as new. Awan et al. 2021 Table 1 adds the known two-secant property. Neither supplies any three-for-three cap exchange graph, nor sharp move threshold, valency, joint intersection/distance spectrum or diameter. Searches also covered the equivalent 27-point affine Steiner triple-system independent-set formulation and a possible graph-theoretic orbital-graph alias. No claim found implies the complete theorem, subject to explicit unindexed-literature risk.",
+    "residual_risks": [
+      "A specialized finite-geometry association scheme or maximum-independent-set exchange table not indexed under cap terminology might imply the same graph parameters.",
+      "Other unpublished or inaccessible sources have not been exhaustively excluded; novelty is best-knowledge self-review, not a priority certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS known maximum size, affine equivalence and unique three-cap partition; NOT the three-point exchange regularity, connectivity, distance table, or diameter.",
+        "evidence": [
+          "Section 2, Proposition 2.2: all nine-caps affinely equivalent; each in a unique partition into three.",
+          "No maximum-cap exchange graph or shortest-path claim in the relevant dimension-three analysis."
+        ],
+        "identifier_or_url": "arxiv:1302.4703; https://arxiv.org/html/1302.4703v1",
+        "material_read": "2013 arXiv full text, introduction, Section 2 and Proposition 2.2 with proof, and the statements and relevant results of Sections 3–4; corresponding journal PDF page 3 visually checked",
+        "method": "Read accessible original arXiv HTML and primary journal PDF, comparing hypotheses and conclusions by implication rather than title.",
+        "title": "Partitions of AG(4,3) into Maximal Caps",
+        "trigger": "Same affine-cap objects at dimension three in a paper otherwise addressing dimension four"
+      },
+      {
+        "assessment": "COVERS the known two-secant count for maximum nine-caps and dimensional-four demicap theory; does not cover the maximum-nine-cap three-exchange metric.",
+        "evidence": [
+          "Proposition 3.1/Table 1 lists two completed lines through each point outside a maximum nine-cap in AG(3,3).",
+          "The surrounding constructions and classifications concern 20-caps/demicaps in AG(4,3)."
+        ],
+        "identifier_or_url": "arxiv:2106.14141; https://arxiv.org/pdf/2106.14141",
+        "material_read": "Full-text primary PDF abstract and introduction, Section 3 Proposition 3.1/Table 1, and selected structural demicap results and propositions of later sections",
+        "method": "Inspected primary open-access PDF text and page image; compared the dimension-three table entry and dimension-four theorems to the claim.",
+        "title": "Demicaps in AG(4,3) and Their Relation to Maximal Cap Partitions",
+        "trigger": "Related cap-pair incidence and number of secants through exterior points"
+      },
+      {
+        "assessment": "Different 81-point AG(4,3) space, size-20 caps, fixed 10-point demicap fiber; does not imply graph metric on nine-caps of 27-point AG(3,3).",
+        "evidence": [
+          "The result conditions on a 10-point demicap in 4-dimensional affine space and concerns six 20-caps, whereas the present claim quantifies over all 2106 nine-caps of AG(3,3)."
+        ],
+        "identifier_or_url": "published mathematical record 2026/9/9/SCOPE016",
+        "material_read": "Published title, precise result summary and parameter/domain statement",
+        "method": "Scientific claim-level comparison; no full-text assertion for this record.",
+        "title": "Demicap-fiber rigidity in AG(4,3): six maximal 20-caps through a demicap",
+        "trigger": "Closest semantically returned published claim on affine caps and cap intersection spectra"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52eca23e-d2dc-49c8-aab0-20e0ab38c9f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the smallest genuinely three-dimensional ternary cap problem, a natural local-search question is how many optimal points must be replaced simultaneously and how far extremizers are in the resulting graph. Here exchanges of one or two are impossible, three exchanges yield a connected 72-regular 2,106-state graph, and the exact distance-four antipodes are the disjoint partners from the classical cap partition. The 24 three-point-overlap caps at distance three and the unavoidable fourth step between disjoint caps give nontrivial, geometrically interpretable shortest-path detours. These are not routine restatements of the previously known maximum cardinality, cap equivalence or partition uniqueness.",
+    "status": "PASS"
+  }
+}

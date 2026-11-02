@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The recursive-tree increasing-tree decomposition gives dF/dx=u exp(z[(1-p)B+pG]), with exp(-pG)=1-u+u(1-x)^p. The exact conditional increments EA=1/n, ED=pR/n and EAD=p/n yield a telescoping covariance recurrence and positive sign for n>=3. The normalized root-cluster martingale has bounded L2 moments by its explicit second-moment recursion. Splitting original root attachments at m_n=floor(exp(sqrt(log n))) gives a Gaussian late sum independent of the early martingale limit, which proves the independent joint limit. Exact rational enumerations independently verify 345 assertions at finite sizes. Restrictions p in (0,1), n>=3 for strictness and the role of marginals are explicit. L2 convergence and asymptotic scales are separately justified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 Random Structures & Algorithms work covers broadcasting cluster statistics in recursive and preferential trees but does not mark original root degree in its root-cluster equations.",
+        "Kürsten (2016) treats first-generation cluster totals under percolation and a two-dimensional elephant-walk representation; these observables are not original root degree."
+      ],
+      "reasoning": "The closest broader frameworks contain related marginals and other joint variables, but do not imply a marked original-root-degree transform, the covariance constant, or independence of the specifically standardized degree Gaussian.",
+      "searches": [
+        "\"percolation cluster\" \"root degree\" \"random recursive tree\" independent",
+        "\"Desmarais\" \"Holmgren\" \"Wagner\" root cluster root degree joint",
+        "\"Random recursive trees and the elephant random walk\" \"degree\" \"root\" \"cluster\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2110.15050v1",
+      "DOI:10.1002/rsa.21142 (full HTML)",
+      "arXiv:1512.05275v1 / DOI:10.1103/PhysRevE.93.032111 (full relevant PDF)",
+      "arXiv:1407.2508 (abstract/context only; near-critical retention, not fixed p)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Setting z=1 in the new identity recovers the known root-cluster generating function; setting u=1 recovers the classic root degree generating function. Neither marginal implies the mixed coefficient.",
+        "The prior two-observable first-generation cluster laws count sizes of deleted-edge descendant clusters, which are not the original root attachment count K_n.",
+        "The displayed positive covariance is compatible with the new asymptotic independence after scaling n^p and sqrt(log n), a combination not supplied by the prior one-dimensional limits."
+      ],
+      "reasoning": "The new joint transform strictly refines two known univariate transforms. Original-degree conditioning and the asymptotic independent Gaussian can be established from the early/late martingale argument here but are not a formal corollary of the cited marginals. Inaccessible further equivalences remain a historical-priority risk.",
+      "searches": [
+        "\"root cluster\" \"degree\" \"recursive tree\" percolation joint law",
+        "\"root cluster\" \"root degree\" \"random recursive tree\" percolation covariance",
+        "\"Random recursive trees and the elephant random walk\" \"degree\" \"root\" \"cluster\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Desmarais–Holmgren–Wagner, arXiv:2110.15050, Section 4: cluster-only transform G(x,u)=-(1/p)log(1-u+u(1-x)^p).",
+        "Kürsten, arXiv:1512.05275, Section IV and Appendix B: joint observables concern first-generation clusters across deleted edges, not number of original root children."
+      ],
+      "reasoning": "Treat root outdegree as total original parent-to-root attachments, retained or deleted, and root component size as the connected retained cluster. A marginal transform in only x and u cannot specify their bivariate generating function; the older first-generation cluster-size count is a distinct statistic and does not determine original-degree dependence.",
+      "searches": [
+        "\"root cluster\" \"degree\" \"recursive tree\" percolation joint law",
+        "\"root cluster\" \"root degree\" \"random recursive tree\" percolation covariance",
+        "\"Mittag-Leffler\" \"normal\" \"root degree\" percolation independent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published marginal root-cluster generating function from arXiv:2110.15050, Section 4, is the specialization z=1 of the claimed transform; no joint original-degree table is present in the inspected relevant sections.",
+        "Direct exact enumerations through n=6 and dynamic distributions through n=9 were computed anew to check the formulas, not used as an earlier claimed table."
+      ],
+      "reasoning": "No exact table or database law located that includes both variables. Search failure alone does not certify historical novelty; the exact structural source comparisons carry the main weight.",
+      "searches": [
+        "\"root cluster\" \"root outdegree\" \"Mittag Leffler\" joint",
+        "\"percolated recursive tree\" original root offspring and percolation cluster joint generating polynomial"
+      ]
+    },
+    "rationale": "The closest source, Desmarais et al., gives the x,u root-cluster marginal, without z marking original root offspring. Kürsten (2016) tracks first-generation cluster sizes, not original root degree. The new complete bivariate transform, strictly positive covariance with coefficient 1-gamma-psi(1+p), and joint Gaussian/Mittag–Leffler independence refine but do not follow from the cited marginals. Searches found no covering stronger theorem; historical priority is provisional.",
+    "residual_risks": [
+      "A mathematically equivalent joint transform might be embedded in another recursive-tree or urn paper under different names.",
+      "The checked literature does not exhaust all unpublished theses or all broadcasting/generalized Pólya-urn literature.",
+      "Kürsten paper sections were checked for its precise variables; no claim about every unrelated statement in that source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the root-cluster marginal and Mittag–Leffler limit but does not include a simultaneous original-root-degree marker or joint Gaussian statement",
+        "evidence": "Section 4 root-cluster relation exp(-p G)=1-u+u(1-x)^p, reproduced here when z=1.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21142",
+        "material_read": "Full accessible HTML, particularly Sections 2.2 and 4 including the root-cluster ordinary generating function",
+        "method": "Read full publisher-hosted article text and inspect root-component derivation and tracked variables",
+        "title": "Broadcasting induced colourings of random recursive trees and preferential attachment trees",
+        "trigger": "Direct source defining the identical root-cluster model and marginal transform"
+      },
+      {
+        "assessment": "Its multivariate statistics concern first-generation cluster sizes across deleted edges, not root original degree; no identified implication of the present bivariate transform",
+        "evidence": "Section IV around Eq. (45) and Appendix B first-generation cluster decomposition.",
+        "identifier_or_url": "https://www.ruediger-kuersten.de/publications/PhysRevE.93.032111.pdf",
+        "material_read": "PDF Section IV and Appendix B; relevant equations and definitions of first-generation cluster observables; visual PDF page examination",
+        "method": "Read full relevant primary PDF sections and compare the variables and implications, rather than titles or abstracts",
+        "title": "Random recursive trees and the elephant random walk",
+        "trigger": "The closest earlier joint root-percolation treatment"
+      },
+      {
+        "assessment": "Establishes eligibility for the middle publication-date window; the manuscript is not used as proof of novelty beyond the inspected full journal version",
+        "evidence": "arXiv:2110.15050v1 announced 2021-10-28.",
+        "identifier_or_url": "https://arxiv.org/abs/2110.15050",
+        "material_read": "Version/date and abstract metadata and accessible arXiv manuscript information",
+        "method": "Checked earliest arXiv version October 28, 2021; cross-referenced the publisher full text",
+        "title": "Broadcasting induced colourings of random recursive trees and preferential attachment trees (initial manuscript)",
+        "trigger": "Earliest publicly verified source date and alternative preprint route"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39923349-79d1-448e-9ff0-6054dedfec64",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Root offspring is a natural local growth statistic while its percolated retained component is a macroscopic random cluster; their finite covariance and asymptotic decoupling answer a structurally motivated dependence question that marginal cluster or degree formulas cannot answer. The marked generating function also provides every finite mixed moment and makes the origin of positive dependence transparent, rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}

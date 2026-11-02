@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "Under strict best-shot response, coexistence forces initially producing vertices to deactivate on first selection until extinction of one side; a uniform random first-update permutation proves the joint survivor probabilities. Independent Poisson update clocks give the harmonic commitment mean and memoryless postcommit completion mean, multiplied by total selection rate for discrete scheduled ticks. Explicit edge cases and geometrically dominated balanced asymptotics are established, and independent rational dynamic-programming recurrences agree for all 1936 tested small count states. Finite tests corroborate rather than prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broad anti-coordination convergence results imply eventual equilibrium and bound strict action switches, but do not identify the absorbing equilibrium probabilities or schedule-with-replacement hitting times",
+        "Klimm–Stahlberg establishes a polynomial bound in improving switches, not a distribution on random vertex selections",
+        "The current theorem counts all scheduled ticks including null selections; those cannot be inferred from an action-switch count without analyzing occupation times"
+      ],
+      "reasoning": "A known stronger graph-general qualitative convergence theorem does not logically imply the exact quantitative random-update law. The discrete update protocol is materially different from improving-switch-only or uniform permutation one-pass greedy algorithms. The claimed all-parameter exact formulas require a separately derived extinction lottery and exponential-clock analysis.",
+      "searches": [
+        "published-finding corpus query: random asynchronous best response binary public goods game on complete bipartite graph threshold zero equilibrium selection last initial active producer logarithmic time",
+        "published-finding corpus query: random update independent set complete bipartite graph winning side probability i/(i+j) harmonic absorption time",
+        "Ramazi Riehl Cao 2016 PNAS published full-text main result on asynchronous best response",
+        "Klimm Stahlberg 2023 decreasing-pattern convergence theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.11849 (full primary text)",
+      "arXiv:1002.3572 (full primary text)",
+      "DOI:10.1073/pnas.1610244113 (open-access main results)",
+      "DOI:10.1088/1367-2630/ac3319 (open-access model and results)",
+      "Published exact random-greedy maximal independent sets on chain graphs (complete RESULT.md)",
+      "Published random greedy independent sets on threshold graphs (complete RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first two primary articles give the response class and equilibrium/computational setting but do not analyze complete-bipartite stochastic initial-state selection or exact expected time",
+        "The chain-graph and threshold-graph laws compute one-pass random greedy output; initial active vertices in both sides change the transient process, and repeated updates introduce a harmonic clock absent from their statements",
+        "Jones–Pauls–Fu study two-color graph-coloring anti-coordination and coordination under a separate Markov kernel"
+      ],
+      "reasoning": "The implication from known results stops at existence, qualitative convergence, or empty-start output selection. Even when the same two equilibria occur, neither their possible existence nor the empty-start winner probability determines the i/(i+j) nonempty-start law, conditional survivor masses, or exact fixation time. A different indexed specialist publication could still contain such formulas, hence residual uncertainty.",
+      "searches": [
+        "arXiv:2301.11849 full article; search within for random and bipartite",
+        "arXiv:1002.3572 full article; search within for bipartite",
+        "Published chain-graph random-greedy RESULT.md, random-order process starting with no accepted vertices",
+        "Published threshold-graph random-greedy RESULT.md, one-pass creation-sequence recurrence",
+        "The dual problems of coordination and anti-coordination on random bipartite graphs, PMC9165663"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klimm–Stahlberg Sec. 1, Sec. 3: decreasing binary response and polynomially bounded improving sequences",
+        "Dall’Asta–Pin–Ramezanpour Eq. (1): same best-shot response with maximal-independent-set equilibria",
+        "Published chain-graph random greedy result: one-pass uniformly random vertex order starts with empty accepted set and yields an output distribution"
+      ],
+      "reasoning": "The local response is indeed equivalent to best-shot play, and graph equilibrium states are maximal independent sets; neither equivalence includes the random repeated-update process. On bicliques the empty-start eventual winner distribution coincides with one-pass greedy and is credited; the new theorem chiefly concerns arbitrary initially positive production on both sides, survivor suffixes, and fixation-time law, which a one-pass greedy output law cannot determine.",
+      "searches": [
+        "arXiv:2301.11849 full text: best response pattern T(0)=1 and T(k)=0 for k>=1",
+        "arXiv:1002.3572 full text: best shot game and maximal independent sets",
+        "published-finding corpus query: best-shot game equilibrium selection random asynchronous best response complete bipartite",
+        "GitHub published RESULT.md: exact random-greedy maximal-independent-set law on chain graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed stochastic graph result: Exact random-greedy maximal-independent-set law on chain graphs, published RESULT.md, concerns a randomly ordered one-pass greedy algorithm from empty",
+        "Closest accessible historical local claim: Exact random-order greedy welfare on biclique coalition networks, item edac4ca0-d7fe-4164-bd41-15ae7d40995b; this is an additively separable coalition game, not the binary best-shot response"
+      ],
+      "reasoning": "No exact numerical table or already-published complete formula was identified for the positive-on-both-sides best-shot process. An empty-start subcase is covered by the published random-greedy output law, but it does not dominate the new nonempty-start/hitting-time claim; no novelty is claimed for that subcase alone.",
+      "searches": [
+        "published-finding corpus query: initial producers extinction lottery exact harmonic convergence time complete bipartite best shot",
+        "published-finding corpus query: two-color antimonotone dynamics complete bipartite graph coupon collector exponential clocks extinction time first-visit equilibrium",
+        "Accessible prior claims searched: best shot; best-shot; random greedy; bipartite producer random"
+      ]
+    },
+    "rationale": "Relevant primary texts and public exact random-greedy results were compared by mechanism and implication. The all-zero equilibrium-selection subcase is already covered by a chain-graph greedy result and is explicitly credited, while the positive initial producer-count extinction lottery, joint survivor law and exact repeated-update mean were not found in the inspected literature or indexed mathematical records. Specialist prior coverage outside searched sources remains possible.",
+    "residual_risks": [
+      "A differently indexed public-goods or stochastic-dynamics paper might contain the same arbitrary-initial-state formulas.",
+      "General random-greedy results already cover the empty-initial-profile equilibrium selection; only the richer nonempty-start and repeated-update law is assessed as an addition.",
+      "No independent publication-priority certification or external audit has been obtained."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers equilibrium existence and improving-response convergence; no directly implying random repeated-update selection/time law identified",
+        "evidence": [
+          "arXiv:2301.11849 initial posting Jan 27 2023",
+          "Section 1.1 and decreasing-pattern theorem; response pattern T=10*"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.11849",
+        "material_read": "Full openly available text, including response definitions, convergence results, related work and conclusion; targeted in-document random/bipartite checks",
+        "method": "Read rendered arXiv full text and checked available preprint PDF; compared statements rather than titles",
+        "title": "Complexity of equilibria in binary public goods games on undirected graphs",
+        "trigger": "Exact strict decreasing-pattern model and eligible 2023 primary source"
+      },
+      {
+        "assessment": "The source states the exact response and equilibrium structure, but its random/socially controlled annealing is not the uniformly random best-response scheduler studied here",
+        "evidence": [
+          "arXiv:1002.3572 Eq. (1) best response",
+          "Maximal independent set equilibrium identification in introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1002.3572",
+        "material_read": "Openly available full text; examined Eq. (1), equilibrium characterization, proposed controlled optimization mechanism and conclusion",
+        "method": "Read arXiv HTML/PDF text and compared defined stochastic process",
+        "title": "Optimal equilibria of the best shot game",
+        "trigger": "Same player response and maximal-independent-set equilibrium interpretation"
+      },
+      {
+        "assessment": "Broad existence and convergence statements do not determine winner probabilities or all scheduled-tick expected time",
+        "evidence": [
+          "DOI:10.1073/pnas.1610244113, 2016",
+          "At most six times edge count strategy switches is not expected number of random selections"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5135341/",
+        "material_read": "Open full-text article abstract and main mathematical results on convergence and improving-switch count",
+        "method": "Read open-access PNAS HTML and compared convergence/switch statement to exact repeated-tick law",
+        "title": "Networks of conforming or nonconforming individuals tend to reach satisfactory decisions",
+        "trigger": "Potential broader all-graph asynchronous threshold-game convergence"
+      },
+      {
+        "assessment": "Different two-color graph-coloring local response; no best-shot conditional survivor law follows",
+        "evidence": [
+          "DOI:10.1088/1367-2630/ac3319",
+          "Its absorbing set is proper two-coloring rather than a maximal independent set in the best-shot public-goods game"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9165663/",
+        "material_read": "Open full-text article abstract and model/transition-rule discussion",
+        "method": "Compared definitions of local colors, graph-coloring target and Markov process",
+        "title": "The dual problems of coordination and anti-coordination on random bipartite graphs",
+        "trigger": "Plausible bipartite stochastic anti-coordination literature"
+      },
+      {
+        "assessment": "One-pass uniformly random greedy selection from an initially empty accepted set; covers empty-start selection only, not nonempty-start repeated-update hitting time",
+        "evidence": [
+          "Its theorem assumes uniformly random permutation and accepts unblocked vertices exactly once",
+          "It supplies no nonempty initial producer-count parameters or update-with-replacement hitting-time expectation"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+        "material_read": "Complete publicly accessible RESULT.md (finding, assumptions, proof, prior work, limits)",
+        "method": "Fetched public mathematical result and inspected its exact stochastic mechanism",
+        "title": "Exact random-greedy maximal-independent-set law on chain graphs",
+        "trigger": "Chain graphs include complete bipartite graphs and random greedy maximal independent sets are a natural alias"
+      },
+      {
+        "assessment": "Covers random greedy output distribution on threshold graphs; no arbitrary initial producer process or repeated-update clock",
+        "evidence": [
+          "Greedy process scans a uniform random permutation once",
+          "A uniform random threshold-graph greedy law is not a repeated best-response stochastic process from a nonempty state"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+        "material_read": "Complete publicly accessible RESULT.md (finding, scope, proof, limits)",
+        "method": "Fetched public mathematical result and compared one-pass acceptance rule",
+        "title": "Exact random-greedy independent-set law on threshold graphs",
+        "trigger": "Stars (one-sided bicliques) also lie in the threshold-graph class"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "27f323f5-f0b4-4cd3-8bcb-1ed08098fca6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural unresolved quantitative issue is which best-shot equilibrium random asynchronous play selects from an arbitrary initially active configuration, and how many random update opportunities it requires. The exact producer-ratio selection law, complete terminal-suffix spectrum, all-parameter mean and sharp N log N balanced clock provide structural decision and efficiency information not supplied by generic convergence or empty-start greedy-set results.",
+    "status": "PASS"
+  }
+}

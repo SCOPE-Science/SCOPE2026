@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For a>=2, a short leaf cannot host a stack of size >=3: its only length-three exits reach long-arm ends and force a stack >=4, larger than the eccentricity-three target can ever receive. Each short leaf must therefore send its initial cup to the center or receive the center single cup. Two leaves cannot both clear: two incoming cups immobilize the center, while an outgoing center move empties it forever. For a=1 the four target orbits have exact move words; the outer-end construction has verified even/odd index rules and consumes each original vertex exactly once. BFS-distance replay of 476 positive orbit cases b=2..120, and full state enumeration of nine negative finite cases, both pass. Unbounded correctness comes from these symbolic arguments, not interpolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2401.06189 Theorem 1: Hamilton-path graphs; Theorems 11-12: powers of trees; Lemma 17: two pendant leaves and diameter <=3; arXiv:2310.06192 Theorem 5: spiders with every arm longer than one"
+      ],
+      "reasoning": "For b>=2 the considered trees have >=3 leaves, hence no Hamilton path. They are diameter 4 rather than diameter 3; the earlier negative principle suggests the obstruction but not positive all-target stackability. Tree-power results concern different graphs. All-long-arm spiders omit the required unit arm.",
+      "searches": [
+        "\"cup stacking\" \"spider\" theorem \"short\" leaf 2024 2025 2026",
+        "arXiv:2401.06189 Theorems 1,6,11,12, Lemma 17",
+        "arXiv:2310.06192 Fact 4, Theorem 5"
+      ]
+    },
+    "checked_sources": [
+      "Fay-Hurlbert-Tennant arXiv:2310.06192 v2 pdf, first public v1 2023-10-09",
+      "Gregor-Merino-Mütze-Verciani arXiv:2401.06189 v3 pdf, first public v1 2024-01-11",
+      "Relevant mathematical-record and public-literature results for cup stacking, frog jumping and spider trees"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2310.06192 p.5 states unresolved spiders with some unit arms and some longer arms, except the single-longer-arm subcase",
+        "arXiv:2401.06189 p.2 states Hamilton path sufficient, while p.11 proves local pendant-leaf obstruction under diameter <=3"
+      ],
+      "reasoning": "The new classification treats at least two length-two arms and >=1 unit arm: it supplies positive all-target moves for the one-short-arm case and a sharp obstruction for two or more. Neither inspected source has a premise yielding the full classification in this range.",
+      "searches": [
+        "arXiv:2310.06192 pdf page 5 (Fact 4, Theorem 5 and open mixed-arm statement)",
+        "arXiv:2401.06189 pdf pp. 1-4, 9-11 (Theorem 1, Lemma 17 and tree powers)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.06189 pp. 2-3 says non-geodesic frog jumping coincides with geodesic cup stacking on trees; arXiv:2310.06192 defines the geodesic game"
+      ],
+      "reasoning": "Both published terminologies are equivalent for trees, so published frog-jumping spider claims were considered. The earlier thesis is described as settling the unique longer-arm subcase, not multiple two-edge arms.",
+      "searches": [
+        "\"cup stacking\" \"spiders\" \"length two\" short arms graph",
+        "\"cup stacking\" \"mixed\" \"spiders\" stackable",
+        "frog jumping Hamilton lazy frog graph spiders one short arm and several long arms cup stacking characterization",
+        "arXiv:2401.06189 §1.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical-record searches returned spider results about edge-general position, power domination, and zero forcing but no cup-stacking claim; accessible existing publication discusses mixed spider arm lengths as left open."
+      ],
+      "reasoning": "The identified exact statements concern different invariants or non-overlapping parameter classes. Search nonappearance is not a proof of absolute novelty.",
+      "searches": [
+        "\"S(1,2,2)\" cup stacking graph",
+        "site:arxiv.org \"spider\" \"cup stacking\" 2025",
+        "cup stacking spider trees pendant arms length one two leaves r-stackable stackability",
+        "complete enumeration or characterization of cup stacking on spiders S(1,...,1,2,...,2)"
+      ]
+    },
+    "rationale": "The first paper explicitly identifies the mixed-arm spider cases as open beyond a single longer arm. The second paper proves broad sufficient conditions and negative obstructions but neither implies the full all-target positive construction for S(1,2^b), whose high-degree center prevents any Hamilton path and whose diameter is four. Source and alias searches have found no matching theorem. Residual risk of unpublished/unindexed work is acknowledged.",
+    "residual_risks": [
+      "The original 2022 Veselovac thesis was not accessed directly; its scope is described by both inspected papers.",
+      "Unindexed, unpublished, or inaccessible statements may contain equivalent mixed-spider classifications.",
+      "The construction provides full stackability only for the two-arm-length subfamily, not arbitrary spiders."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING claimed a>=1,b>=2 classification; does establish prior a=0 case",
+        "evidence": "PDF page 5 explicitly says spiders with both arm lengths one and >one remain open, except exactly one longer arm; p.2 supplies legal-move definition.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.06192",
+        "material_read": "PDF abstract; definitions and general results pp.1-5; the spider discussion with Fact 4, Theorem 5, open cases and local proof context",
+        "method": "PDF text and page-image visual inspection",
+        "title": "Cup Stacking in Graphs",
+        "trigger": "Original definition, prior spider results and explicitly missing mixed-arm cases"
+      },
+      {
+        "assessment": "NOT_COVERING the all-target positive classification on diameter-four mixed spiders",
+        "evidence": "Theorem 1 requires a Hamilton path; the considered multi-arm spiders have at least three leaves. Theorem 6 requires path segments of length at least the diameter squared. Theorems 11-12 address powers of trees, and Lemma 17 is an obstruction for diameter at most 3.",
+        "identifier_or_url": "https://arxiv.org/pdf/2401.06189",
+        "material_read": "PDF abstract and introduction, sections 2, 3.2, 3.4, 4; Theorems 1, 6, 11, 12, Lemma 17",
+        "method": "PDF text and page-image visual inspection",
+        "title": "Graphs that admit a Hamilton path are cup-stackable",
+        "trigger": "Subsequent graph-game results potentially implying the spider classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2f571ca6-a5a9-4fde-a958-a2f7c73c5e9e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives an exact infinite-parameter classification for the natural shortest unresolved mixed-arm spider family in a recent graph stacking game: a single short arm is compatible with all targets, but any second short arm prevents stacking onto all length-two-arm inner vertices. The positive side supplies explicit linear-length winning algorithms, including distinct odd and even routing mechanisms to distant arm ends. This is not a routine bound or a numerical table.",
+    "status": "PASS"
+  }
+}

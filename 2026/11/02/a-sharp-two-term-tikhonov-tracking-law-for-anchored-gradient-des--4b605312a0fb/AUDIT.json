@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Writing s=k+gamma, the exact coefficient identities MC/L=gamma b, MD/L=-(gamma-1/2) C, ME/L=(1-gamma)D cancel the s^-1, s^-3/2, and s^-2 defects. The remaining local defect is O(s^-5/2). Monotonicity and L=||M|| give ||B_s||<=sqrt((1-gamma/s)^2+1/s)=1-(gamma-1/2)/s+O(s^-2), hence the claimed contractive propagator. Its discrete convolution yields O(s^-3/2 log s) for gamma=2 and O(s^-3/2) for gamma>2. The independently expanded instantaneous Tikhonov resolvent has second coefficient -gamma^2 L^2 M^-2 b, giving nonzero lag gamma L^2 M^-2 b/2. Exact-rational testing of 416 cancellation/lag identities and 36 finite-trajectory assertions corroborates the calculations. The proof applies to arbitrary finite-dimensional nonnormal invertible monotone real M; the numerical checker is not presented as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Surina et al., arXiv:2604.03782v1, Theorem 3.1 proves squared residual O(1/t) for an abstract monotone saddle operator.",
+        "Chen, arXiv:2605.30905v1, Theorem 1 provides the O(1/sqrt(k)) bound for gamma=4 and cites classical regularization/halpern tracking."
+      ],
+      "reasoning": "These bounds apply to broader nonlinear classes but do not imply any nonzero exact coefficient for this linear specialization; upper bounds can hold with zero or faster decay. A hypothetical general second-order tracking theorem could cover this claim, and the remaining priority risk is recorded.",
+      "searches": [
+        "Halpern forward step linear strong monotonicity exact leading residual coefficient",
+        "vanishing Tikhonov forward second-order discrete asymptotic expansion 1/k",
+        "\"vanishing Tikhonov\" \"forward\" \"asymptotic expansion\" optimization iterates",
+        "arXiv:2604.03782v1",
+        "arXiv:2605.30905v1"
+      ]
+    },
+    "checked_sources": [
+      "Cai and Zheng (2026), arXiv:2604.12235v1, Sections 1-4, https://arxiv.org/html/2604.12235v1",
+      "Surina et al. (2026), arXiv:2604.03782v1, Sections 2-3, https://arxiv.org/html/2604.03782",
+      "Chen (2026), arXiv:2605.30905v1, Sections 3-4.2, https://arxiv.org/html/2605.30905v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From Cai--Zheng the claim ||Mu_k||<=C/sqrt(k) alone permits infinitely many asymptotic leading vectors and cannot prove the exact nonzero limit.",
+        "From Chen the instantaneous regularized zero equation yields v_k expansion; it does not give the discrete iterate u_k to order s^-1."
+      ],
+      "reasoning": "Deriving the signed coefficient requires solving the time-dependent recurrence and controlling accumulated nonnormal errors to second order; neither a one-sided rate theorem nor the static resolvent law supplies this step. The present theorem therefore is not formally implied by the identified closest results.",
+      "searches": [
+        "anchored gradient descent Tikhonov regularization tracking lag finite-dimensional linear monotone",
+        "vanishing Tikhonov forward second-order discrete asymptotic expansion 1/k",
+        "arXiv:2604.12235v1 Section 3 Theorem 1",
+        "arXiv:2605.30905v1 Section 4.2 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cai--Zheng, arXiv:2604.12235v1, Eq. (2) gives the same schedule and Theorem 1 only a last-iterate norm upper bound.",
+        "Chen, arXiv:2605.30905v1, Sections 3.1 and 4.2 explicitly define moving Tikhonov zeros and the forward step but prove residual inequalities, not the lag coefficient."
+      ],
+      "reasoning": "Translation to the operator-side Tikhonov language is equivalent at the algorithmic update level and acknowledged as prior; translating does not make a bound on norm or on target drift determine the asymptotic vector s(u_k-v_k). The new statement is specifically the second-order discrete tracking law.",
+      "searches": [
+        "anchored gradient descent exact asymptotic quadratic 1/sqrt k second-order limit",
+        "anchored gradient descent Tikhonov regularization tracking lag finite-dimensional linear monotone",
+        "\"anchored gradient descent\" \"exact asymptotic\" \"quadratic\"",
+        "arXiv:2604.12235v1",
+        "arXiv:2605.30905v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The target is a vector-valued asymptotic for all finite-dimensional accretive invertible matrices and all gamma>=2, not a finite table of numerical instances.",
+        "The inspected papers present rates and regularization equations, not a catalog of these signed second-order lag coefficients."
+      ],
+      "reasoning": "No finite table or isolated parameter answer could subsume the quantified matrix-class theorem. Search absence alone is not used to assert novelty.",
+      "searches": [
+        "anchored gradient descent exact asymptotic quadratic 1/sqrt k second-order limit",
+        "Halpern forward step linear strong monotonicity exact leading residual coefficient",
+        "\"anchored gradient\" \"linear\" \"asymptotic constant\"",
+        "arXiv:2604.12235v1"
+      ]
+    },
+    "rationale": "The main 2026 sources establish one-sided asymptotic norm bounds and the anchoring/Tikhonov interpretation. Their theorems do not determine the signed second-order coefficient of the actual discrete trajectory or the nonzero limit of s(u_k-v_k). The result is an exact linear-monotone class theorem, not a paraphrase of an upper-rate bound or a reformulation of the regularized root. Earlier general asymptotic-expansion literature remains a historical-priority risk.",
+    "residual_risks": [
+      "An older general theorem for asymptotics of slowly varying linear iterations or vanishing Tikhonov regularization might imply this exact coefficient; historical priority is not independently certified.",
+      "The full universe of dissertations, monographs and nonindexed preprints was not exhaustively read; searches are evidence rather than proof of uniqueness.",
+      "No external independent mathematical validation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same update on A=0; proves O(1/sqrt(k)) tangent residual without the exact leading vector, two-term iterate expansion or signed regularization lag.",
+        "evidence": [
+          "Equation (2) schedule alpha=1/(L sqrt(t+gamma)), beta=gamma/(t+gamma).",
+          "Theorem 1 and Theorem 2 state upper residual bounds; proof concludes with inequalities, not exact asymptotic equivalents."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.12235v1",
+        "material_read": "Full arXiv HTML: introduction, equation (2), Sections 3 and 4 including Theorem 1, stability lemmas and proof, plus references.",
+        "method": "Read original public full text and compare the mathematical update, rate conclusions and their implications.",
+        "title": "Last-Iterate Convergence of Anchored Gradient Descent",
+        "trigger": "Same exact gamma>=2 schedule, algorithmic parent and finite-time main theorem"
+      },
+      {
+        "assessment": "Same anchor schedule and broad O(1/k) squared-gradient upper bound; does not determine the exact second-order discrete tracking coefficient.",
+        "evidence": [
+          "Section 2 algorithm anchored GDA.",
+          "Section 3 schedule and Theorem 3.1 guarantee ||G(z_t)||^2<=C/t."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.03782",
+        "material_read": "Full arXiv HTML: Sections 2, 3 and mathematical proof of Theorem 3.1, appendix index.",
+        "method": "Read public arXiv HTML and compare schedule, assumptions, theorem statements and discrete recurrence bounds.",
+        "title": "An Improved Last-Iterate Convergence Rate for Anchored Gradient Descent Ascent",
+        "trigger": "Earlier 2026 full-text primary theorem for the same anchored method"
+      },
+      {
+        "assessment": "Provides operator-side regularization interpretation, target drift bounds and O(1/sqrt(k)) residual guarantee for gamma=4, but not the exact signed lag or all-gamma two-term formula.",
+        "evidence": [
+          "Section 4.2 equation (11) is the same anchored forward step.",
+          "Theorem 1 uses delta_k=4/(k+4) and derives ||F(x_k)||<=24LR/sqrt(k+3)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.30905v1",
+        "material_read": "Public full-text HTML: Sections 2 and 3 (regularization target and tracking), Section 4.2 and Theorem 1/proof, relevant references.",
+        "method": "Read original arXiv full text, and also viewed the first-page image of the accessible PDF as part of source inspection.",
+        "title": "A Unifying View of Anchoring via Operator-Side Tikhonov Regularization",
+        "trigger": "Strongest nearby Tikhonov-tracking framework; possible coverage by a moving-zero theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4b605312-a0fb-46c9-8b60-f70777854ef9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The signed nonzero gamma L^2 M^-2 b/(2s) discrete-to-Tikhonov tracking discrepancy is a natural invariant of a published anchoring method and informs second-order bias/calibration. The vector residual limit proves that its generic O(s^-1/2) worst-case scale cannot be improved for the fixed schedule even on strongly convex quadratics, while an invertible skew bilinear saddle lies in the same theorem. These are substantive asymptotic method-specific limits; the claim does not advertise a universal lower bound for other algorithms.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The two explicit 64-vertex 9-regular adjacency constructions independently reproduce local Smith valuation counts for all 63 reduced Laplacian factors. Python and C++ verifiers perform invertible modular row/column operations over 2^9 and 3^5, with every pivot valuation below precision. The exact spectrum gives the reduced determinant 2^147*3^27, so the verified 2- and 3-primary factors are complete; no extra primes can occur. The resulting elementary divisors give the asserted 4-torsion counts exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacobson–Niedermaier–Reiner, J. Graph Theory 44 (2003), abstract: full p-primary result for products of complete graphs at primes not dividing their factor sizes; indexed proposition 9 treats a complete-graph Cartesian factor algebraically.",
+        "Peeters (2002), Section 3 and Theorem 3.4, treats rank modulo p rather than all higher prime-power valuations.",
+        "The distance-regular survey explicitly attributes the Shrikhande versus H(2,4) critical-group counterexample to Biggs."
+      ],
+      "reasoning": "The known base-level 16-vertex example is prior coverage, but does not determine the Smith group of its Cartesian product with K4. The general K4 product block formula does not itself give the enumerated 63 local elementary divisors. Peeters prime-field ranks are strictly weaker because these two groups have the same mod-2 rank but different subgroups annihilated by four. Full method-paper access was incomplete, so exact implicit coverage cannot be ruled out absolutely.",
+      "searches": [
+        "\"Shrikhande\" \"K4\" \"critical group\"",
+        "\"Doob graph\" \"sandpile\"",
+        "Jacobson Niedermaier Reiner critical groups Cartesian products complete graphs 2003 pdf",
+        "https://onlinelibrary.wiley.com/doi/abs/10.1002/jgt.10139",
+        "https://arxiv.org/html/1410.6294v2"
+      ]
+    },
+    "checked_sources": [
+      "Peeters (2002) pp.136–141, DOI 10.1023/A:1013842904024",
+      "Van Dam–Koolen–Tanaka (2016), Sections 3.1, 10.2, 15.2.2, arXiv:1410.6294v2",
+      "Jacobson–Niedermaier–Reiner (2003), DOI 10.1002/jgt.10139, abstract and indexed Proposition 9 excerpt",
+      "Published 16-vertex Shrikhande/rook critical-group table considered as earlier baseline, not claimed new"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Peeters (2002), page 141, states the corresponding p-ranks of Doob and Hamming graphs agree.",
+        "Van Dam–Koolen–Tanaka (2016), Section 15.2.2, notes prior 16-vertex nonuniqueness of critical groups under a shared intersection array.",
+        "Jacobson et al. (2003), abstract and indexed proposition 9: reduction method for Cartesian K_n factors."
+      ],
+      "reasoning": "The novelty is an exact higher 2-adic distinction for the 64-vertex pair, not the known phenomenon that the base 16-vertex groups differ. Equal field ranks cannot imply inequality of order-four torsion, and common Laplacian spectra only imply the common group order. A general block decomposition identifies a computational route, but the explicit full groups and the 2^67 versus 2^69 obstruction are not stated in the inspected materials.",
+      "searches": [
+        "\"Doob graphs\" \"Smith normal form\" Laplacian",
+        "R Peeters 2002 On the p-ranks of the adjacency matrices of distance-regular graphs full text pdf Doob",
+        "https://www.maths.tcd.ie/EMIS/journals/JACO/Volume15_2/v121065651493101.fulltext.pdf",
+        "https://onlinelibrary.wiley.com/doi/abs/10.1002/jgt.10139"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Peeters, J. Algebraic Combin. 15 (2002), Section 3, defines D(n,m) from complete four-cliques and Shrikhande factors and determines equal associated prime-field ranks.",
+        "Van Dam–Koolen–Tanaka, Distance-regular graphs, Sections 3.1, 10.2 and 15.2.2, identifies Doob/Hamming equivalence by intersection arrays, and sandpile-group terminology."
+      ],
+      "reasoning": "The equivalence from D(1,1) to Shrikhande square K4 and from H(3,4) to K4 cubed is used directly in the graph definitions. Critical group/Jacobian/sandpile terminology denotes the same integer reduced-Laplacian cokernel. Rank over a prime field gives only the count of nontrivial p-primary cyclic factors, not the higher valuations. No inspected equivalent phrasing supplies the two distinct exponent lists.",
+      "searches": [
+        "\"Doob graphs\" \"critical groups\"",
+        "\"Doob graph\" \"sandpile\"",
+        "\"Doob graphs\" \"Smith normal form\" Laplacian",
+        "\"H(3,4)\" \"sandpile\" \"group\"",
+        "https://www.maths.tcd.ie/EMIS/journals/JACO/Volume15_2/v121065651493101.fulltext.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Peeters (2002) gives a relevant modular rank result, not a 64-vertex two-adic Smith table.",
+        "The available critical-group table of the Shrikhande and rook graphs concerns 16 vertices, not the 64-vertex Cartesian products."
+      ],
+      "reasoning": "No inspected paper, accessible table, or mathematical research-record hit explicitly listed the two 64-vertex elementary-divisor distributions or the order-four torsion discrepancy. Negative searches are documented as limits, not proof of uniqueness.",
+      "searches": [
+        "\"Doob graphs\" \"Smith normal form\" Laplacian",
+        "\"Doob\" \"sandpile\" \"critical group\"",
+        "\"H(3,4)\" \"sandpile\" \"group\"",
+        "Doob graph K4 Shrikhande critical group"
+      ]
+    },
+    "rationale": "The target is a specific 64-vertex higher-2-adic distinction after a K4 Cartesian extension, which is not a corollary of the known Shrikhande/rook 16-vertex difference, common spectra, equal p-ranks, or the cited abstract-level complete-graph product results. Full Peeters relevant pages and distance-regular survey sections were read. A plausible closest product-method paper was not fully accessible, leaving a named residual risk. No checked indexed mathematical record or primary citation states the two factor lists.",
+    "residual_risks": [
+      "Full text of Jacobson–Niedermaier–Reiner (2003) was inaccessible in this session; its general K4-factor method could contain an unstated special computation.",
+      "Unindexed or inaccessible tables might already give the exact Doob/Hamming 64-vertex Smith groups.",
+      "Peeters has a 1994 research memorandum known with year-only dating; May 30, 2002 is the earliest verified full day of a selected published source, not a claim that no earlier research-memorandum version existed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes equality of modular ranks, but does not state higher-prime-power 64-vertex critical-group structures",
+        "evidence": "Section 3.2 and p.141 conclude that associated prime-field p-ranks of Hamming and Doob graphs agree.",
+        "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JACO/Volume15_2/v121065651493101.fulltext.pdf",
+        "material_read": "Full text pages 136–141, especially definitions, Theorem 3.4, formulas (5)–(8), and page 141; abstract and source metadata also inspected",
+        "method": "Primary full-text mathematical text and PDF page image inspection",
+        "title": "On the p-Ranks of the Adjacency Matrices of Distance-Regular Graphs",
+        "trigger": "Exact same Hamming/Doob graph families and potential stronger p-rank classifications"
+      },
+      {
+        "assessment": "Confirms equal intersection arrays and p-ranks; acknowledges a different 16-vertex critical-group distinction, not this exact 64-vertex computation",
+        "evidence": "Sections 10.2 and 15.2.2 explicitly mention equal p-ranks and the previous Shrikhande/H(2,4) sandpile counterexample.",
+        "identifier_or_url": "https://arxiv.org/html/1410.6294v2",
+        "material_read": "HTML sections 3.1, 10.2 and 15.2.2; reference lists for Peeters and earlier chip-firing work",
+        "method": "Primary survey full-text section reading and implication comparison",
+        "title": "Distance-regular graphs",
+        "trigger": "Canonical Hamming/Doob definitions, matching intersection arrays, earlier sandpile distinguishing example"
+      },
+      {
+        "assessment": "General technique is applicable, but neither inspected source gives the specific higher-2-adic elementary divisors; uninspected remainder poses an access risk",
+        "evidence": "Scope explicitly includes complete multipartite graphs and Cartesian products of complete graphs; Proposition 9(iv) gives a general Laplacian block representation for K_n square G.",
+        "identifier_or_url": "https://doi.org/10.1002/jgt.10139",
+        "material_read": "Publisher abstract with theorem scope and an indexed excerpt of Proposition 9 and its Cartesian-factor block reduction; complete article could not be retrieved",
+        "method": "Accessible publisher record and indexed mathematical excerpt; bounded full-text attempt failed",
+        "title": "Critical Groups for Complete Multipartite Graphs and Cartesian Products of Complete Graphs",
+        "trigger": "Closest general method for product-with-K4 critical groups"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4167b0b2-57c3-4d76-8fcf-2fba402d556c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "These canonical isospectral distance-regular graphs agree in spanning-tree number and even the ordinary prime-field ranks known from Peeters, while their higher two-primary chip-firing torsion separates them by an exact factor four at exponent four. The full finite primary decompositions are natural integral invariants and a substantive benchmark for Cartesian-product critical-group behavior, not a parameter renaming or arbitrary filtered subset.",
+    "status": "PASS"
+  }
+}

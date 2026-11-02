@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Exact expectation from independent ignitions, explicit difference factorization, one root per increasing polynomial, and strictly unimodal continuous interpolation exclude reversed threshold ordering and triple ties. Boundary cases N>=4 and both parities proven. 2968 exact/finite checker assertions corroborate, but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hwang–Rothblum treats optimization with Schur-convex sum objective functions. Here the scalar function for one compartment is x exp(-t x), with second derivative exp(-t x)(t^2 x-2t), changing sign at x=2/t.",
+        "Finney 2001 focuses on arrangements affecting front propagation; Wei et al. 2008 focuses on GIS/mixed-integer landscape expected losses; Russo et al. 2015 studies heterogeneous graph-centrality removal."
+      ],
+      "reasoning": "Standard global Schur-convex balancing does not directly yield this staircase across all ignition probabilities because curvature changes with state and risk; the full phase ordering is derived from a separate unimodality argument. A more general partition theorem could still imply it.",
+      "searches": [
+        "optimal partition N into two blocks maximizing a q^a plus b q^b firebreak",
+        "maximizing sum l q^l over partition with two parts unique thresholds increasing",
+        "partition maximizing sum x exp(-t x) discrete split optimal transitions",
+        "Partition-Optimization with Schur Convex Sum Objective Functions Hwang Rothblum 10.1137/S0895480198347167"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1509.04065v1",
+      "https://www.fs.usda.gov/rm/pubs/rmrs_gtr292/2001_finney.pdf",
+      "doi:10.1139/X07-162",
+      "doi:10.1016/j.foreco.2010.03.013 (abstract only)",
+      "doi:10.1137/S0895480198347167 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finney, Forest Science 47 (2001) 219–228, analyzes geometry and propagation rate under regular treatment.",
+        "Wei, Rideout & Kirsch, Canadian Journal of Forest Research 38 (2008) 868–877, gives landscape-level optimization and risk modeling.",
+        "Russo et al., arXiv:1509.04065v1, describes network-centrality treatment selection and simulation on heterogeneous landscapes.",
+        "Rytwinski & Crowe (2010), DOI 10.1016/j.foreco.2010.03.013, abstracts a large-landscape combinatorial simulation-optimization rather than the exact cycle theorem."
+      ],
+      "reasoning": "None of the material actually inspected supplies a statement that logically entails all-N strictly ordered algebraic ignition thresholds, distinct uniquely optimal gaps, or exactly two-way ties in the specified ideal model. The inaccessible parts of the 2010 paper and potential broad reliability/partition theorems remain residual risks.",
+      "searches": [
+        "two firebreaks cycle independent ignitions expected burned forest patches exact optimal cyclic separation probability thresholds",
+        "optimal partition N into two blocks maximizing a q^a plus b q^b firebreak",
+        "wildfire firebreak two cuts cycle iid ignitions deterministic spreading expected burned balanced segments staircase transition probability optimal partition",
+        "expected connected component size multiple independent seed nodes edge deletion optimal partition network",
+        "Finney 2001 fuel treatment regular landscape optimal patterns",
+        "Wei Rideout Kirsch 2008 optimizing fuel treatments landscape expected fire losses",
+        "Rytwinski Crowe 2010 simulation optimization fuel breaks stochastic ignition",
+        "Russo Russo Siettos 2015 complex network theory fire breaks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact object is minimizing expected burned size after two edge cuts on a cycle, equivalently maximizing the sum of component sizes times their zero-ignition probabilities."
+      ],
+      "reasoning": "No equivalent published result was found in the accessible comparisons. Burn-number results optimize ignition source scheduling rather than independent multi-ignition propagation; both formula and quantifiers differ. Search absence is not proof of priority.",
+      "searches": [
+        "two firebreaks cycle independent ignitions expected burned forest patches exact optimal cyclic separation probability thresholds",
+        "sum of block sizes times probability all nodes survive q power fire spread ring two removed edges phase transitions",
+        "optimal partition N into two blocks maximizing a q^a plus b q^b firebreak",
+        "wildfire firebreak two cuts cycle iid ignitions deterministic spreading expected burned balanced segments staircase transition probability optimal partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record searches produced no exact table of optimal two-edge positions and algebraic ignition cutoffs for C_N.",
+        "No same stochastic cycle-cut table was identified in accessible full-text sections of the directly related primary sources."
+      ],
+      "reasoning": "The algebraic thresholds are characterized for every cycle size, rather than fitted from a precomputed finite optimization table. The database search is evidence of comparison only, not a uniqueness certificate.",
+      "searches": [
+        "two firebreaks cycle independent ignitions expected burned forest patches exact optimal cyclic separation probability thresholds",
+        "sum of block sizes times probability all nodes survive q power fire spread ring two removed edges phase transitions",
+        "optimal firebreak placement cycle ring independent ignitions two fire breaks expected burned components",
+        "independent ignition deterministic spread cycle path firebreak balanced clustering optimization",
+        "\"two firebreaks\" \"cycle\" \"ignition probability\" \"expected\"",
+        "\"firebreak\" \"ring\" \"independent ignitions\""
+      ]
+    },
+    "rationale": "The specific all-N strictly ordered algebraic two-cut optimal-gap staircase was not identified in pertinent mathematical records or relevant inspected primary literature. Existing studies concern treatment geometry, heterogeneous landscape MIP, simulation optimization or centrality, not this homogeneous-ring exact phase diagram. Priority remains provisional against uninspected full texts and general partition/reliability theory.",
+    "residual_risks": [
+      "Broader graph-reliability or partition-optimization theorem may subsume the simple two-cut ring model.",
+      "Relevant full body of 2010 stochastic firebreak optimization study was inaccessible; abstract alone cannot rule out covered results.",
+      "Hwang–Rothblum full paper was inaccessible; discussion of Schur-convex hypotheses does not exclude all stronger applications.",
+      "Search matching and inspecting finite sets of literature cannot prove global historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not identified as containing the i.i.d.-ignition two-cut exact phase diagram; focus on forward spread rates and regular patch geometry",
+        "evidence": [
+          "Forest Science 47 (2001), 219–228; article abstract says analysis seeks shape/pattern maximizing impact on forward fire spread rate."
+        ],
+        "identifier_or_url": "https://www.fs.usda.gov/rm/pubs/rmrs_gtr292/2001_finney.pdf",
+        "material_read": "Abstract, model setup, regular treatment geometry, results and discussion sections across ten-page PDF",
+        "method": "Lawfully available full PDF; text passages and visual PDF inspection",
+        "title": "Design of Regular Landscape Fuel Treatment Patterns for Modifying Fire Growth and Behavior",
+        "trigger": "Classical geometric optimization of arrangement of fire control treatments"
+      },
+      {
+        "assessment": "Landscape treatment allocation with weather/spread scenarios and mixed-integer components; no analytical two-edge cycle threshold found in sections read",
+        "evidence": [
+          "Canadian Journal of Forest Research 38 (2008), 868–877; GIS landscape expected loss treatment location study."
+        ],
+        "identifier_or_url": "doi:10.1139/X07-162",
+        "material_read": "Available author full-text abstract, model description, method and concluding summary sections",
+        "method": "Lawful author-posted full-text rendering inspected in relevant passages",
+        "title": "An Optimization Model for Locating Fuel Treatments Across a Landscape to Reduce Expected Fire Losses",
+        "trigger": "Expected fire loss objective and fuel-treatment location optimization"
+      },
+      {
+        "assessment": "No negative whole-document coverage conclusion is drawn. Abstract describes 220000-hectare stochastic spread simulation-optimization; possible uninspected details are recorded as risk.",
+        "evidence": [
+          "Forest Ecology and Management 260 (2010), 1–11; AGRIS abstract: stochastic model plus metaheuristic selection under total treated area."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.foreco.2010.03.013",
+        "material_read": "Abstract and bibliographic metadata only, not whole manuscript",
+        "method": "Publisher bibliographic abstract via AGRIS; accessible preprint/full manuscript not obtained",
+        "title": "A simulation-optimization model for selecting the location of fuel-breaks to minimize expected losses from forest fires",
+        "trigger": "Especially plausible same optimization objective with random ignition"
+      },
+      {
+        "assessment": "Heterogeneous weighted graph centrality and computational fire-spread experiments rather than the homogeneous ring independent-ignition exact objective and thresholds",
+        "evidence": [
+          "arXiv:1509.04065v1, submitted 2015-09-14 12:48:55 UTC; PDF describes CA and weighted network centrality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.04065",
+        "material_read": "First-page model/abstract, network and cellular automaton methodology, example and conclusions in arXiv manuscript sections; relevant PDF pages visually inspected",
+        "method": "arXiv v1 full-text PDF; relevant sections text plus screenshots",
+        "title": "A complex network theory approach for the spatial distribution of fire breaks in heterogeneous forest landscapes for the control of wildland fires",
+        "trigger": "Early preprint of graph-based optimized firebreak placement, verified archive source"
+      },
+      {
+        "assessment": "Common Schur-convex sufficient hypotheses are not met globally by x times q to x, whose curvature varies; other possible stronger coverage not excluded",
+        "evidence": [
+          "SIAM Journal on Discrete Mathematics, DOI 10.1137/S0895480198347167; scope concerns Schur-convex objective functions."
+        ],
+        "identifier_or_url": "doi:10.1137/S0895480198347167",
+        "material_read": "Bibliographic abstract only; no full paper",
+        "method": "Scholarly abstract search",
+        "title": "Partition-Optimization with Schur Convex Sum Objective Functions",
+        "trigger": "Potential dominating classical partition-optimization general theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "20549d04-bba2-42ad-be47-cdfa736081a4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact two-barrier firebreak allocation problem is physically motivated by limited intervention budgets, and proves all intermediate gaps have genuinely nonempty optimal ranges, not just two endpoint prescriptions. A complete formula, ordered critical risks, and exact eight-patch examples quantify structural tradeoffs; not a generic substitution or finite table result.",
+    "status": "PASS"
+  }
+}

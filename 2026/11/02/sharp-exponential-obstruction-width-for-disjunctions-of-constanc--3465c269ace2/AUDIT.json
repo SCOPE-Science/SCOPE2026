@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary domain and team, induct on m to find finite failure; in a minimal failure every one-point deletion has a covering tuple, yielding a rational nonzero diagonal interpolation matrix. The rank is bounded by the dimension 2^m of the multilinear polynomials. The Boolean cube is a size-2^m minimally failing witness. The verified program exhaustively checks all binary m<=4 and ternary m<=2 teams and cube interpolation diagonals m<=6. The proof, not these checks, establishes the infinite-domain statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barlag et al. arXiv:2605.31269, Section 3 shows FO-rewritability equivalent to existence of some finite coherence bound, without a numerical uniform width.",
+        "Barlag et al. Section 5.1 states a 2^m trivial maximum team size only in the binary propositional m-variable setting."
+      ],
+      "reasoning": "Neither existence of some bound nor the fact that a binary m-coordinate team has at most 2^m tuples implies the same bound for teams over alphabets of arbitrary cardinality. The proof supplies this independent-alphabet implication. General polynomial-method covering results remain a residual priority risk.",
+      "searches": [
+        "\"union of coordinate hyperplanes\" \"Helly number\"",
+        "\"cover\" \"one hyperplane\" \"each direction\" \"2^d\"",
+        "Helly number coordinate hyperplane cover finite point set one hyperplane from each of m coordinate directions 2^m"
+      ]
+    },
+    "checked_sources": [
+      "Fröhlich–Kolaitis–Meier, 2025 arXiv:2508.16146/CSL2026, Section 4 Corollary 23 and Appendix",
+      "Barlag et al., 2026 arXiv:2605.31269, Sections 2,3,5 and Theorems 27-28",
+      "Oxford Journal of Logic and Computation, Flattening operator in team-based logics (partial readable inspection)",
+      "Published mathematical research records (semantic searches of multi-constancy disjunction, equivalent coordinate-cover and multilinear rank terms)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2025 source: proof limited to disjunctions of two dependence atoms; Corollary 23 is m=2.",
+        "2026 source: Theorems 27–28 use multiple constancy atoms to prove failure of smaller fixed k under an additional FO disjunct, and do not establish the least uniform local-test size over all structures.",
+        "Classical square-free polynomial rank is a proof technique; its use here as an exact obstruction certificate is fully derived in RESULT.md."
+      ],
+      "reasoning": "One direction of prior implication is restricted to the m=2 special case; qualitative bounds and limited-alphabet cardinality arguments do not imply m≥3 over arbitrary universes. Our theorem is the all-m exact maximum size of inclusion-minimal counterteams.",
+      "searches": [
+        "arXiv:2508.16146 Corollary 23 dep(y) vee dep(z) coherence-level 4",
+        "arXiv:2605.31269 Theorem 27 disjunction k constancy atoms",
+        "\"minimal non-coverable\" \"coordinate hyperplanes\" 2^d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fröhlich et al., arXiv:2508.16146/CSL2026, Corollary 23 gives precisely two-variable width four.",
+        "Barlag et al., arXiv:2605.31269, Section 5 Theorems 27-28 explicitly uses multiple constancy atoms without an exact all-m obstruction theorem."
+      ],
+      "reasoning": "Translated the disjunctive team formula into covering coordinate tuples with one chosen value per coordinate. The m=2 prior claim matches only the m=2 instance; searches for m≥3 exact widths/axis-parallel cover analogues returned no equivalent statement.",
+      "searches": [
+        "\"disjunction of three constancy atoms\" \"coherence\"",
+        "\"constancy atoms\" \"coherence\" team semantics bound",
+        "k coherence disjunction constancy atoms =(x) or =(y) teams minimal obstruction matching rectangle",
+        "team semantics disjunction of m constancy atoms dep(x1) or ... or dep(xm) exact coherence number 2^m multilinear polynomial interpolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "CSL2026 Table 1 and Corollary 23 list specific two-atom cases, with the constancy pair at four.",
+        "2026 Aspects Section 5.1 gives the trivial binary maximum-team-cardinality observation but no table for arbitrary domain sizes."
+      ],
+      "reasoning": "A matching integer sequence of powers of two without the underlying team property would not constitute statement coverage. No inspected semantic table lists all m and arbitrary alphabets.",
+      "searches": [
+        "\"disjunction\" \"constancy atoms\" \"2^k\" coherence",
+        "minimal unsatisfiable team for disjunction of any number of constancy atoms 2 power exact",
+        "sharp Helly number disjunctive constancy functional dependencies and coordinate hyperplane covering"
+      ]
+    },
+    "rationale": "The known two-constancy width-four case is explicitly excluded from novelty. Primary full text of 2025/2026 papers and independent semantic searches did not establish the sharp uniform all-m width over arbitrary alphabets. Qualitative existence of some coherence bound and a trivial binary-domain size bound do not imply the quantitative domain-independent 2^m theorem. A more general interpolation or coordinate-cover theorem could subsume it and remains the historical-priority risk.",
+    "residual_risks": [
+      "A historically prior generic interpolation/Helly theorem on coordinate-parallel covers may subsume the unbounded-alphabet obstruction-width result under a different name.",
+      "Not every older publication on team logic and covering arrays could be read exhaustively; historical priority is not independently certified.",
+      "The two cited papers sometimes describe coherence via exactly k-element subteams; the new claim explicitly uses the unambiguous at-most-k obstruction invariant and does not assert a literal exact-size test on smaller teams."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly covers m=2, not all m; other disjuncts are dependence atoms of higher arity, but still only two disjuncts",
+        "evidence": [
+          "Section 4 Corollary 23: dep(y) vee dep(z) has coherence-level 4.",
+          "Section 5 treats disjunctions of two higher-arity dependence atoms, not m>=3 separate constancy disjuncts."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+        "material_read": "Article HTML Sections 1-2, 4 (Theorem 22 and Corollary 23), 5 (Theorem 30, Corollary 31), and appendix proof of Theorem 24",
+        "method": "Read relevant full-text HTML paragraphs, definitions, statements, proof and appendix; compared scope by number of disjuncts and universe quantification",
+        "title": "Disjunctions of Two Dependence Atoms",
+        "trigger": "Same constancy atoms and claimed exact coherence level for two disjuncts"
+      },
+      {
+        "assessment": "Proves qualitative FO/coherence relation and undecidability using multi-constancy disjunctions; does not assert sharp arbitrary-alphabet width 2^m",
+        "evidence": [
+          "Theorems 27 and 28 use disjunctions of k constancy atoms to obtain non-k-coherence.",
+          "Section 5.1 observes a trivial 2^n maximum in binary propositional teams with n variables; no uniform domain-independent minimal obstruction theorem stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.31269v1",
+        "material_read": "HTML Introduction, team semantics Section 2, definitions and proof in Section 3, Sections 5 and 5.1 including Theorems 27-28 and binary-team size observation",
+        "method": "Read accessible HTML source and inspected precise theorems with multi-atom formula, searched constancy/coherence occurrences",
+        "title": "Aspects of Coherence in Dependence Logic",
+        "trigger": "Most recent direct study of coherence and multiple disjunctions of constancy atoms"
+      },
+      {
+        "assessment": "No direct all-m sharp statement observed in inspected material; incomplete full-text review creates residual risk",
+        "evidence": [
+          "Describes zero-arity dependence atoms as constancy atoms in general language; no covering width located."
+        ],
+        "identifier_or_url": "https://academic.oup.com/logcom/article/35/6/exaf045/8244578",
+        "material_read": "Accessible abstract, introductions and displayed discussion of constancy atoms and team-based logics; not the entire full text",
+        "method": "Searched indexed readable content for constancy and k-coherence",
+        "title": "Flattening operator in team-based logics",
+        "trigger": "Potential earlier general framework and definitions for constancy and k-coherence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3465c269-ace2-49a0-bf0f-6bba81ea0efc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides an exact sharp natural local obstruction invariant for a syntactically fundamental family of dependence-logic formulas over arbitrary universes. Unlike a trivial bound on binary teams, it is independent of alphabet cardinality and supplies an explicit certificate and new m>=3 exact levels. The magnitude and sharp Boolean-cube extremizers are meaningful for finite-obstruction first-order translations.",
+    "status": "PASS"
+  }
+}

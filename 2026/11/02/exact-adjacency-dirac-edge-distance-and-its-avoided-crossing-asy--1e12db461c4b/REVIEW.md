@@ -1,0 +1,15 @@
+# Scientific review: adjacency–Dirac edge distance on triangular graphs
+
+## Correctness
+**PASS (self-review).** The graph and Dirac normalization are explicit. Averaging over the fixed-endpoint stabilizer and antisymmetrizing preserves the edge difference and cannot increase the operator norm. The commutator exchanges transpose-swap parity sectors. Its entire negative-parity Gram matrix is explicitly calculated, and the zero-sum eigenmode is dominated strictly by the two-by-two block. This establishes a global exact formula rather than an upper bound from a restricted ansatz. The strong-convexity argument proves uniqueness of the scalar optimizer. The crossing of the two diagonal limiting curves, with nonzero coupling of order \(\sqrt m\), yields the stated two-term asymptotics and optimizer expansion. Exact rational independent finite-case replay reproduced the Gram identities for 54 parameter/graph cases; finite tests are not used as proof for all dimensions.
+
+## Originality
+**PASS, subject to historical-priority limitations.** Full available text of Besnard (arXiv:2105.09056) and Clare–Li–Poon–Swartz (arXiv:2409.04146), plus the relevant sections of Swartz (arXiv:2610.07718), was compared with this exact graph/Dirac/edge invariant. The first gives general estimates and examples; the second treats a complete classification on path graphs, not on triangular graphs; the third addresses edge deletion and cycles. Iochum–Krajewski–Martinetti (arXiv:hep-th/9912217) is a foundational earlier source, but its full text was not independently inspected here. Neither the generic Connes-distance definition nor general spectral-distance inequalities imply the explicit matrix or the new asymptotic coefficients without a graph-specific computation. Search-index and accessible prior-claim comparisons found no equivalent statement. Older unindexed sources and alternative terminology remain residual risks, so independent novelty certification is not asserted.
+
+## Mathematical value
+**PASS.** The edge is a canonical orbit of the natural distance-transitive graph family \(J(n,2)\), and its adjacency–Dirac length is a natural invariant distinct from shortest-path distance. The result removes a high-dimensional noncommutative norm optimization exactly, gives its complete parameter dependence through an algebraic scalar prescription, proves uniqueness, and shows quantitatively how the length collapses as vertex degree grows. The second asymptotic term is a structurally motivated avoided-crossing effect rather than a routine substitution or arbitrary tabulated instance.
+
+## Scope and remaining questions
+Disjoint-pair Connes distance and weighted/alternative Dirac models are not addressed. The finite-dimensional formula is exact but uses a uniquely specified one-variable minimum rather than a closed radical in \(n\). Historical priority remains subject to independently checking older specialized sources; independent mathematical review is pending.
+
+Self-review: passed. Independent audit: not yet performed.

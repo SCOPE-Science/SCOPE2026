@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The Zimin interleaving recursion rigorously partitions suffixes by initial symbol; preserving the projected lexicographic order gives the exact suffix-array recurrence. The a1 alternation proves that suffix-prefix comparisons retain their order under circular wrap. Predecessor characters and the primary-row recurrence give the exact transform. Special boundary n=2 has merged a1 blocks; n>=3 has 2n-1 runs. Independent finite checks reproduce complete rotations through n=9 and all suffixes through n=11. No computational extrapolation is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simpson and Puglisi (2008), Section 4, assume the BWT has one contiguous block per alphabet symbol.",
+        "Restivo and Rosone (2009) available abstract studies the fully clustered one-block-per-letter case.",
+        "Brlek et al. (2019), Sections 3.1–3.3, treat Thue–Morse, generalized Fibonacci/Tribonacci, and compositions of finite-alphabet morphisms, not the expanding-alphabet Zimin family."
+      ],
+      "reasoning": "The Zimin BWT has more than one run of several letter types at every rank at least three, so full-clustering characterizations do not apply. Fixed-alphabet morphic results do not imply its exact expanding-alphabet suffix order or transform.",
+      "searches": [
+        "\"Words with simple Burrows-Wheeler transforms\" 2008",
+        "\"Burrows-Wheeler transform and palindromic richness\" 2009",
+        "\"Burrows-Wheeler transform of words defined by morphisms\" 2019"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cs.jhu.edu/~langmea/resources/burrows_wheeler.pdf",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1r83/pdf/",
+      "https://arxiv.org/abs/1403.2431",
+      "https://flore.unifi.it/bitstream/2158/1171602/6/BWT-morphism_%20Last.pdf",
+      "https://doi.org/10.1016/j.tcs.2009.03.008",
+      "https://habr.com/ru/articles/132289/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brlek et al. (2019) Theorems 2–3 give transform recurrences for other morphisms; the Zimin recursion is not among their hypotheses.",
+        "Simpson and Puglisi (2008), Theorem 4.5, assumes an ordered single-symbol-block BWT, contradicted by the claimed Zimin output at rank three and above.",
+        "Earlier descriptions of Zimin factor/suffix language automata specify recognized substrings and transitions, not a lexicographic suffix permutation or cyclic BWT."
+      ],
+      "reasoning": "These statements do not entail the exact ordered suffix permutation and descending run-length product. In particular, automaton state complexity does not determine BWT order; the cited compression theorem works on different words.",
+      "searches": [
+        "\"Burrows-Wheeler transform of words defined by morphisms\" theorem 2 theorem 3",
+        "\"Words with simple Burrows-Wheeler Transforms\" theorem 4.5",
+        "\"Zimin\" factor automaton suffix array"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2011 ABACABA worked example produces BCABAAA, agreeing with the rank-three instance but not asserting an all-rank formula.",
+        "Brlek et al. (2019), Section 3.2, lists the same rank-three word as one Tribonacci iterate, with its BWT, but later Tribonacci iterates use a fixed three-letter alphabet and are not the higher Zimin words."
+      ],
+      "reasoning": "The current all-rank recurrence has a new letter at each rank; a single example, even under another name, cannot imply the exact formula at all ranks.",
+      "searches": [
+        "\"Zimin\" \"Burrows\" \"Wheeler\"",
+        "\"Zimin word\" \"suffix array\"",
+        "\"abacaba\" \"BWT\" runs",
+        "\"ruler sequence\" \"Burrows-Wheeler\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The standard finite instance BWT(ABACABA)=BCABAAA is public in an earlier compression example.",
+        "No inspected primary table provides the full sequence of length-(2^n-1) BWT blocks or recursively defined suffix permutation for arbitrary n."
+      ],
+      "reasoning": "The known seven-letter instance is a covered specialization and is credited. The general theorem is stronger than the located examples or tables.",
+      "searches": [
+        "\"Zimin word\" \"BWT\"",
+        "\"ABACABA\" \"BCABAAA\"",
+        "\"Zimin word\" \"suffix array\"",
+        "\"finite Zimin\" \"Burrows Wheeler\""
+      ]
+    },
+    "rationale": "Searches and implication-level comparisons found no source covering the all-rank Zimin suffix-array recurrence, exact symbol-by-symbol cyclic BWT, and primary row. Earlier work defines the BWT, classifies one-block-per-letter transforms, and gives transform expressions for different recursive families. The rank-three instance abacaba is expressly already known. The inaccessible full text of one close general BWT paper is a disclosed priority risk, not treated as proven noncoverage.",
+    "residual_risks": [
+      "The full Restivo–Rosone 2009 paper could not be inspected; its available abstract does not include this multi-run family.",
+      "No exhaustive worldwide priority search is possible; non-indexed theses, notes or examples might contain an all-rank formula.",
+      "Exact results depend on the increasing alphabet order and sentinel-free convention."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the transform and original row; does not treat Zimin words.",
+        "evidence": [
+          "May 10, 1994 cover.",
+          "Section 2, Algorithm C, sorts cyclic rotations, records last column and row index."
+        ],
+        "identifier_or_url": "https://www.cs.jhu.edu/~langmea/resources/burrows_wheeler.pdf",
+        "material_read": "Report cover, introduction, and Section 2 (Algorithm C).",
+        "method": "Full-text PDF and page images.",
+        "title": "A Block-sorting Lossless Data Compression Algorithm",
+        "trigger": "Original definition of the sentinel-free cyclic transform and primary row"
+      },
+      {
+        "assessment": "The family investigated has fully clustered outputs; does not yield multi-block Zimin structure.",
+        "evidence": [
+          "Page 1 published June 20, 2008, MSC 68R15.",
+          "Section 4, Equation (4.1), and Theorem 4.5 require descending single symbol blocks."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1r83/pdf/",
+        "material_read": "Full PDF, abstract, introduction, Sections 2 and 4 and Theorem 4.5 with hypotheses and conclusion.",
+        "method": "Original journal PDF text with page-image inspection.",
+        "title": "Words with Simple Burrows-Wheeler Transforms",
+        "trigger": "Potentially dominating theorem about ordered alphabets and simple transforms"
+      },
+      {
+        "assessment": "Rank-three example covered, but all-rank Zimin recurrence not stated or implied.",
+        "evidence": [
+          "Section 3.2 lists t4=abacaba and its BWT.",
+          "All theorem applications are to finite-alphabet morphic families distinct from Zimin."
+        ],
+        "identifier_or_url": "https://flore.unifi.it/bitstream/2158/1171602/6/BWT-morphism_%20Last.pdf",
+        "material_read": "Full PDF text: Section 2 and Sections 3.1–3.4, particularly Theorems 2–3 and Tribonacci sample table.",
+        "method": "Open-access PDF text and page images.",
+        "title": "Burrows-Wheeler transform of words defined by morphisms",
+        "trigger": "Possible general morphic-word BWT result; same rank-three example as a Tribonacci word"
+      },
+      {
+        "assessment": "Analyzes palindromic suffixes and algorithmic complexity, not the BWT or suffix-array recurrence.",
+        "evidence": [
+          "March 10, 2014 arXiv first version.",
+          "Palindromic structure of Zimin words motivates a worst-case complexity example."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.2431",
+        "material_read": "arXiv HTML abstract, introduction, and available Zimin sections.",
+        "method": "Open-access arXiv HTML.",
+        "title": "A Subquadratic Algorithm for Minimum Palindromic Factorization",
+        "trigger": "Classical Zimin recursion and prior structural analysis"
+      },
+      {
+        "assessment": "No decisive coverage established; original abstract treats one-block-per-letter fully clustered outputs. Full-text priority risk retained.",
+        "evidence": [
+          "The stated hypothesis is a descending product with one run per letter.",
+          "Full text could not be inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2009.03.008",
+        "material_read": "Available original abstract and bibliographic description; full text unavailable in the accessible archive.",
+        "method": "University repository abstract and publisher/database record.",
+        "title": "Burrows-Wheeler transform and palindromic richness",
+        "trigger": "General alphabet theorem linking BWT and richness, possible Zimin overlap"
+      },
+      {
+        "assessment": "Rank-three numerical instance previously available.",
+        "evidence": [
+          "The sample ABACABA transforms to BCABAAA."
+        ],
+        "identifier_or_url": "https://habr.com/ru/articles/132289/",
+        "material_read": "Worked example producing BCABAAA.",
+        "method": "Public web article example, not a research theorem.",
+        "title": "ABACABA BWT worked example",
+        "trigger": "Exact rank-three specialization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39057231-26bc-482e-8932-72bfd996df76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A closed complete BWT output and suffix-array permutation for all ranks of a classical recursive-word family is a motivated compression/indexing invariant, not an arbitrary finite slice. It realizes logarithmic RLE length with exact blocks and a known primary row for exponentially long inputs; the full structure does not follow from the elementary n-symbol run lower bound or earlier single-instance BWT examples. It does not purport to optimize over all words.",
+    "status": "PASS"
+  }
+}

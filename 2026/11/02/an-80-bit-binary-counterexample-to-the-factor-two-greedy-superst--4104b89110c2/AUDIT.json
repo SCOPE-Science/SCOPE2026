@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "An explicit 17-codeword 10-bit family has no nonempty proper suffix-prefix matches, proved by its start 000, end 1, and absence of an internal 000. This proves tenfold overlap scaling for any source strings and any merged intermediates. Direct standard-library replay enumerates 252 distinct source words and checks all 251 maximum-overlap greedy choices against every ordered live pair, then 63252 binary input overlap equalities, 17^2*9 codeword mismatches, and containment in a constructed 2590-bit superstring. All 252 binary words have distinct occurrences spaced at least ten apart, giving universal OPT>=80+251*10=2590. Both 5190 and 2590 are exact; no finite experiment is extrapolated to infinite inputs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vassilevska slides pp. 31–40 give a q-symbol alphabet reduction with common binary codeword length 2(q+1)",
+        "For the 17-letter length-eight source, the displayed general reduction yields binary length 288 rather than 80",
+        "The 2026 source paper proves a length-eight all-alphabet obstruction but does not discuss binary encoding"
+      ],
+      "reasoning": "The general existence of some binary factor-two counterexample is already implied by earlier work and is not claimed. The 80-bit quantitative bound is stronger than the bound obtained from the specifically exhibited general-purpose 2005 code and the 2026 length-eight construction; a direct dominating 80-bit result was not located.",
+      "searches": [
+        "https://www.cs.cmu.edu/afs/cs/Web/People/virgi/MFCS05.pdf",
+        "https://ideosphere.ai/papers/greedy-scs-v2.pdf",
+        "\"greedy superstring\" \"binary\" \"counterexample\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://ideosphere.ai/papers/greedy-scs-v2.pdf",
+      "https://arxiv.org/abs/2609.01365",
+      "https://www.cs.cmu.edu/afs/cs/Web/People/virgi/MFCS05.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shibata supplies a 10-symbol-window source family, not the 80-bit finite binary instance",
+        "Theorem 21 of the later work supplies the large-alphabet 252-word source with ratio 519/259",
+        "The 2005 overlap-preserving encoder has length 36 on this source alphabet, so it produces width 288",
+        "A new explicit 17-element cross-bifix-free code of word length 10 yields width 80 and is verified independently"
+      ],
+      "reasoning": "The construction does not claim a new source counterexample, nor a new qualitative binary-alphabet failure. The distinct assertion is an explicit, substantially smaller binary uniform-width cutoff and complete test certificate. A theorem already guaranteeing a code of this exact length combined with the known source witness could imply it, but no inspected source stated that combined quantitative bound; the short-code ingredient is elementary and thus residual priority risk is acknowledged.",
+      "searches": [
+        "https://arxiv.org/abs/2609.01365",
+        "https://ideosphere.ai/papers/greedy-scs-v2.pdf",
+        "https://www.cs.cmu.edu/afs/cs/Web/People/virgi/MFCS05.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Length-80 binary worst-case ratio equals existence of 252 distinct 80-bit factors with OPT=2590 and a legal 5190-bit maximum-overlap greedy output",
+        "The inspected length-eight source theorem states 252 words over a 17-character alphabet with 519/259, not 80-bit binary strings",
+        "The 17-codeword construction is checked exhaustively for all proper suffix-prefix overlaps"
+      ],
+      "reasoning": "The exact binary parameter and source alphabet are not interchangeable. Encoding every source symbol into a 10-bit cross-bifix-free code preserves all overlaps, proving the new quantitative binary width bound. No matching 80-bit certificate appeared in the inspected sources or targeted searches.",
+      "searches": [
+        "\"greedy superstring\" \"binary\" \"80\" approximation ratio 2026",
+        "\"greedy superstring\" \"binary alphabet\" \"252\" 2026",
+        "\"shortest superstring\" \"80\" \"binary\" greedy counterexample",
+        "https://ideosphere.ai/papers/greedy-scs-v2.pdf",
+        "https://arxiv.org/abs/2609.01365"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected primary theorem or indexed exact-result entry specified 252 binary length-80 strings with ratio 519/259",
+        "The current numerical counts are reproduced by a standard-library executable enumerating all 251 merges and 63252 ordered binary input overlaps"
+      ],
+      "reasoning": "The result is an explicit finite approximation-ratio test instance, not a maximal code-size table entry. Exact binary length-80 duplicate coverage was sought directly without finding it; incomplete indexing remains a risk.",
+      "searches": [
+        "\"greedy superstring\" \"binary\" \"80\" approximation ratio 2026",
+        "\"greedy superstring\" \"binary alphabet\" \"252\" 2026",
+        "\"k-SCS\" binary \"2\" 80 2026"
+      ]
+    },
+    "rationale": "The quantitative binary fixed-width 80 obstruction is distinguished from the prior general-alphabet 8-character obstruction and the established qualitative alphabet reduction. The explicit 2005 binary code applied to the relevant 17-letter source would produce width 288, not 80. No inspected source or targeted index entry gave width 80 and the same fully verified greedy/optimum certificate; an elementary shorter cross-bifix construction and unindexed publication priority remain residual risks.",
+    "residual_risks": [
+      "A generic shorter cross-bifix coding technique or independently published width-eighty binary witness could imply the claimed quantitative cutoff without matching wording",
+      "Targeted searches and indexed results do not exhaust publications or unpublished work",
+      "The original 252-string source claim and qualitative binary reduction are established prior findings, not original contributions"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Established large-alphabet failure and source method; does not state the finite 80-bit binary instance",
+        "evidence": [
+          "arXiv:2609.01365, submitted 2026-09-01",
+          "Construction uses special letters plus one fresh letter per block and treats even word widths at least ten"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.01365",
+        "material_read": "Full accessible HTML, including input definitions, the maximum-overlap greedy path and the asymptotic conclusion",
+        "method": "Read primary full-text construction and compared its parameter-specific implications",
+        "title": "Disproving the Greedy Superstring Conjecture",
+        "trigger": "Original source construction and overlap calculations"
+      },
+      {
+        "assessment": "Covers exactly the original 17-symbol source instance and ratio 519/259, not a binary 80-bit construction",
+        "evidence": [
+          "Theorem 21: 252 source strings of length eight, optimal 259, legal greedy 519",
+          "No occurrence of binary-alphabet encoding in the PDF text"
+        ],
+        "identifier_or_url": "https://ideosphere.ai/papers/greedy-scs-v2.pdf",
+        "material_read": "Abstract, Sections 1, 8–10, Theorem 21, Proposition 22, and relevant formula pages in the 23-page primary PDF",
+        "method": "Read text and inspected rendered first page; matched numeric source witness and the finite construction",
+        "title": "The greedy superstring ratio at small string lengths",
+        "trigger": "Direct 252-source-word width-eight example, the closest mathematical premise"
+      },
+      {
+        "assessment": "Establishes qualitative binary reduction and a length 2(q+1) explicit code, yielding width 288 from this 17-letter length-eight source",
+        "evidence": [
+          "Slide 31–36: codewords of length 2(m+1)",
+          "Slide 38: transformed superstrings scale by exactly that factor"
+        ],
+        "identifier_or_url": "https://www.cs.cmu.edu/afs/cs/Web/People/virgi/MFCS05.pdf",
+        "material_read": "Binary alphabet section, slides 25–40 of the 78-page source, including code definition and its scaling property",
+        "method": "Read source slide text and inspected a rendered source slide",
+        "title": "Explicit Inapproximability Bounds for the Shortest Superstring Problem",
+        "trigger": "Established general binary alphabet reduction could subsume a purported novelty claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4104b891-10c2-42f4-912b-6f9a3aca5460",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The length-eighty obstruction provides a natural finite complexity cutoff and a compact benchmark for greedy string assembly over the smallest nontrivial alphabet. It strengthens the 288-bit width obtained from the explicitly documented general reduction for the same 17-letter source by a factor of 3.6, without weakening the exact 519/259 ratio. Both the optimum and every greedy step are independently reproducible without solvers. This is a quantitative explicit example, not a broad novel lower bound or claim of minimality.",
+    "status": "PASS"
+  }
+}

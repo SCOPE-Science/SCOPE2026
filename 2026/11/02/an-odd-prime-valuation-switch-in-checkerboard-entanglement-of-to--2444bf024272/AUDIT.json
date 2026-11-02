@@ -1,0 +1,186 @@
+{
+  "correctness": {
+    "rationale": "Full proof: Fourier-character Schmidt decomposition makes entropy rank_Fp(D). The full adjacency is off-diagonal in checkerboard order and corresponds to the Laurent multiplier (x+y)(1+xy)/(xy). Splitting x^m-1, y^n-1 into p-power root multiplicities yields two d0-point spectral branches meeting at precisely (1,-1),(-1,1). Ordinary local points each contribute min(P,Q); at crossings, monic-quadratic freeness and Frobenius show quotient dimension 2 min(P,Q) when P!=Q, or 2P-1 when P=Q. Counting gives full nullity 2g (unequal valuations) or 2g-2 (equal), whence cut rank mn/2-g+delta. No extrapolation from finite cases. Exact independent Gaussian elimination: 420 grids over p=3,5,7,11 and 15 local intersection quotient computations, all passing. Critical assumptions: p odd, m,n even >=4, unit edge weights, pure states.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General periodic convolution framework covers this operator class abstractly, but not its explicit all-parameter local quotient length in the inspected text.",
+        "Hunziker–Machiavelo–Park analyze open square-grid automata and their characteristic polynomials, not an all-periodic nearest-neighbor torus formula with prime-adic branch classification."
+      ],
+      "reasoning": "Broad frameworks explain methods and could in principle be used to compute a result, but the actual theorem requires the additional nonsemisimple crossing calculation. Open-boundary grid formulas are not stronger coverage of periodic tori. An undiscovered specialized closed formula remains a residual risk.",
+      "searches": [
+        "Finite field periodic harmonic functions nearest neighbor square torus odd characteristic multiplicities degeneracies when side lengths divisible by p",
+        "Qudit cluster state toroidal checkerboard cut rank formula over F_p synchronized valuations",
+        "Rank of the toroidal square-lattice adjacency matrix over finite field characteristic odd p, gcd side lengths and equal p-adic valuation correction",
+        "https://arxiv.org/abs/math-ph/0606070",
+        "https://doi.org/10.1016/j.tcs.2004.03.031"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/quant-ph/0307130",
+      "https://arxiv.org/abs/quant-ph/0602096",
+      "https://arxiv.org/abs/math-ph/0606070",
+      "https://arxiv.org/abs/0712.1979",
+      "https://arxiv.org/abs/1507.05386",
+      "https://doi.org/10.1016/j.tcs.2004.03.031",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-integral-face-winding-obstruction-in-toroidal-total-two-cut--a66192a534f8",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-rank-one-tcp-cores-detect-toroidal-correlations-exactly--2a493af0e07d",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-perfect-matching-trichotomy-for-perfect-grid-states--7ed1871c3028",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-schmidt-spectrum-of-cubic-alltop-two-qudit-states--0d24ade98197",
+      "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-prime-power-digit-factorization-modular-laplacian--c49cdde3a491"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior qubit torus claim has local field F_2, whereas this result holds for every odd prime and introduces a new equal-/unequal-valuation distinction.",
+        "Standard qudit phase-state formalism gives entropy = rank_Fp D; the exact formula requires counting two transversal crossings of factors (x+y) and (1+xy) through powers of p.",
+        "The closest published-finding corpus toroidal homology result concerns a different invariant and does not imply rank."
+      ],
+      "reasoning": "The present theorem is not a specialization of the characteristic-two theorem. Generic entanglement and convolution theories are used with citation, not presented as new. The arithmetic exact count is a substantive calculation beyond their stated claims.",
+      "searches": [
+        "qudit prime odd square lattice torus checkerboard entanglement rank gcd characteristic finite field missing bond",
+        "Exact nullity adjacency of even toroidal grid C_m square C_n over odd prime finite field; dimension gcd(m,n) minus indicator equal p-adic valuations",
+        "Qudit graph-state checkerboard bipartite entropy on C_m x C_n and valuation-dependent one-unit entanglement deficit",
+        "https://arxiv.org/abs/quant-ph/0307130",
+        "https://arxiv.org/abs/0712.1979",
+        "https://arxiv.org/abs/math-ph/0606070"
+      ]
+    },
+    "closest_published_records": [
+      {
+        "assessment": "Same toroidal grid family, but invariant is integral topological extension order of cut complexes; does not imply modular adjacency rank or quantum entropy.",
+        "id": "2026/10/11/SCOPE-the-integral-face-winding-obstruction-in-toroidal-total-two-cut--a66192a534f8"
+      },
+      {
+        "assessment": "Toroidal is a property of correlation matrices and quantum channels, not a periodic grid cut; no implication.",
+        "id": "2026/10/4/SCOPE-rank-one-tcp-cores-detect-toroidal-correlations-exactly--2a493af0e07d"
+      },
+      {
+        "assessment": "Grid-state terminology concerns matching conditions for winding matrices, not controlled-phase graph-state entanglement.",
+        "id": "2026/10/4/SCOPE-perfect-matching-trichotomy-for-perfect-grid-states--7ed1871c3028"
+      },
+      {
+        "assessment": "Prime-qudit Schmidt spectrum for two-qudit Alltop states, unrelated to large toroidal graph-state cut rank.",
+        "id": "2026/10/4/SCOPE-exact-schmidt-spectrum-of-cubic-alltop-two-qudit-states--0d24ade98197"
+      },
+      {
+        "assessment": "Prime-power digit structure of modular Laplacian dynamics in time, not the nearest-neighbor adjacency nullity on an odd-prime even torus.",
+        "id": "2026/9/19/SCOPE-prime-power-digit-factorization-modular-laplacian--c49cdde3a491"
+      }
+    ],
+    "equivalent_formulations": {
+      "evidence": [
+        "Quantum claim equivalent to exact rank of the even-torus checkerboard adjacency D over F_p and to nullity of multiplication by (x+y)(1+xy) in F_p[x±,y±]/(x^m-1,y^n-1).",
+        "Zaidenberg develops periodic convolution and modular eigenfunctions; inspected text did not state this inseparable local intersection formula. Hein et al. supply generic rank-to-entanglement conversion, not its value."
+      ],
+      "reasoning": "Checked aliases as modular nullity, periodic harmonic function, convolution, graph-state Schmidt rank and torus checkerboard entropy. The core new datum is the exact p-adic intersection length, which is not an automatic numerical consequence of the generic conversion statement.",
+      "searches": [
+        "qudit prime odd square lattice torus checkerboard entanglement rank gcd characteristic finite field missing bond",
+        "Exact nullity adjacency of even toroidal grid C_m square C_n over odd prime finite field; dimension gcd(m,n) minus indicator equal p-adic valuations",
+        "Periodic solutions convolution Laplace equation Z_m x Z_n over GF(p) exact nullity x+x inverse+y+y inverse",
+        "https://arxiv.org/abs/math-ph/0606070",
+        "https://arxiv.org/abs/quant-ph/0602096"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantic search closest torus result concerns a cut-complex winding obstruction, not mod-p adjacency.",
+        "Characteristic-two toroidal formula gives mn/2-g bits and is not an odd-prime p-adic table.",
+        "Independent finite checker confirms p=3,5,7,11 instances; these computations are validation, not a claim of database novelty."
+      ],
+      "reasoning": "No exact all-prime table was found by the actual searches, and no checked prior assertion implies the p-adic branch. Search absence is not proof of novelty; finite test tables are not an exhaustive classification.",
+      "searches": [
+        "Exact nullity adjacency of even toroidal grid C_m square C_n over odd prime finite field; dimension gcd(m,n) minus indicator equal p-adic valuations",
+        "Qudit graph states on periodic square lattice Schmidt rank checkerboard over F_p, entropy torus",
+        "Periodic solutions convolution Laplace equation Z_m x Z_n over GF(p) exact nullity x+x inverse+y+y inverse",
+        "Earlier characteristic-two toroidal graph-state entropy formula"
+      ]
+    },
+    "rationale": "Searches of the published semantic findings, relevant previously recorded scientific claims, and six inspected primary texts found no identical or stronger all-odd-prime toroidal checkerboard Schmidt-rank formula. General graph-state rank and modular convolution methods are prior art, but neither supplies the local crossing multiplicity 2 min(P,Q)-1 at equal p-powers nor the associated arithmetic one-dit jump without further work. Residual priority uncertainty is explicitly retained; this is not independent certification.",
+    "residual_risks": [
+      "A specialized matrix-nullity or cellular-automaton formula in unsearched literature may subsume the result even without identical wording.",
+      "The inspected public primary sources and published semantic database are not an independent literature-priority certificate.",
+      "Hunziker–Machiavelo–Park covers related finite-field grid recurrences; additional unpublished or difficult-to-access variants could involve periodic boundary conditions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General qubit graph-state entropy machinery, not the explicit odd-prime toroidal adjacency nullity with p-adic valuation branches.",
+        "evidence": [
+          "Binary graph-state entanglement is expressed using adjacency-matrix rank; no printed odd-prime valuation criterion was located in the inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0307130",
+        "material_read": "Accessible article text, graph-state entanglement definitions and bipartite-rank discussion",
+        "method": "Inspected primary accessible text and corresponding relevant propositions; compared the characteristic and geometry of the actual claim",
+        "title": "Multi-party entanglement in graph states",
+        "trigger": "Foundational graph-state Schmidt and cut-rank claim in characteristic-two graph-state theory"
+      },
+      {
+        "assessment": "Establishes standard graph-state cut-rank method in characteristic two; does not state the all-odd-prime closed p-adic torus rank.",
+        "evidence": [
+          "The relevant bipartite graph-state rank statement supplies the reduction, not the evaluation of modular toroidal zero multiplicities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0602096",
+        "material_read": "Full available HTML text, including Proposition 10 and graph-state bipartite entanglement sections",
+        "method": "Followed cut-rank statements and their hypotheses, compared against odd-prime local algebras and parameterized nullity",
+        "title": "Entanglement in Graph States and its Applications",
+        "trigger": "Potential general cut-rank entropy theorem that might imply the candidate trivially"
+      },
+      {
+        "assessment": "Supplies general convolution concepts. No explicit all-even-torus symbol (x+y)(1+xy), inseparable two-branch intersection length, or equal-versus-unequal p-adic valuation entropy law was located.",
+        "evidence": [
+          "General periodic convolution algebra is prior methodology; the present crossing length 2 min(P,Q) minus a one-dimensional equal-power correction requires an additional local computation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math-ph/0606070",
+        "material_read": "Full accessible article HTML text, introduction and sections on convolution, periodicity, Fourier and modular characteristic",
+        "method": "Compared Laurent polynomial symbols, root counting, prime-to-characteristic semisimplicity and ramification treatment",
+        "title": "Convolution equations on lattices: periodic solutions with values in a prime characteristic field",
+        "trigger": "Strongest plausible general theorem subsuming modular periodic adjacency ranks"
+      },
+      {
+        "assessment": "Confirms qudit graph-state framework, not a closed checkerboard cut spectrum on all even periodic square grids.",
+        "evidence": [
+          "Finite-field qudit phases and adjacency matrices are established; no exact p-adic toroidal rank dichotomy found."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0712.1979",
+        "material_read": "Full available HTML text, introductory construction and qudit graph-state/code sections",
+        "method": "Compared controlled-phase normalization and general code/cut tools against entire two-parameter toroidal entropy claim",
+        "title": "Quantum Error Correcting Codes Using Qudit Graph States",
+        "trigger": "Prime-dimensional qudit graph-state definitions and finite-field stabilizer methods"
+      },
+      {
+        "assessment": "More general local dimension and circuit constructions, but not exact two-variable finite-torus cut ranks.",
+        "evidence": [
+          "The studied constructions do not present a formula involving gcd(m,n) and equality of v_p(m), v_p(n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.05386",
+        "material_read": "Full available HTML text, qudit constructions and small-dimensional equivalence sections",
+        "method": "Compared family of graphs and computed invariants with the infinite even-torus statement",
+        "title": "Graph states of prime-power dimension from generalized CNOT quantum circuit",
+        "trigger": "Possibly broader qudit graph-state entanglement classifications"
+      },
+      {
+        "assessment": "Treats finite open rectangular square-grid automata with distinct update conventions; not a direct statement of unweighted periodic toroidal odd-p adjacency nullity. Historical-priority risk remains because related methods may be adaptable.",
+        "evidence": [
+          "The square-grid boundary conditions and recurrence differ from the Laurent quotient x^m-1, y^n-1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2004.03.031",
+        "material_read": "Accessible rendered article text, especially square-grid recurrence and Chebyshev discussion",
+        "method": "Compared boundary conditions, local update polynomial and claimed rank quantity",
+        "title": "Chebyshev polynomials over finite fields and reversibility of sigma-automata on square grids",
+        "trigger": "Very plausible primary earlier finite-field grid rank table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2444bf02-4272-45d1-88d9-86f6e335c840",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This solves a natural complete cut-entanglement invariant for prime-dimensional qudit cluster states on an entire two-parameter family of periodic square lattices. The new p-adic equality test captures a nonsemisimple spectral branching effect, gives an explicit one-dit arithmetic phase switch, and distinguishes these systems from their characteristic-two analogues. The structural local-intersection lemma is reusable in modular periodic-convolution calculations. It is not an arbitrary finite slice or merely a generic cut-rank identity, and it suggests concrete tuning of grid periods versus local qudit prime dimension.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "A uniformly contractive backward Euler recursion admits a stationary conditional Gaussian representation. Its mixing variance lies between deterministic-step fixed-point variances. A first-long-step geometric decomposition proves the sharp endpoint small-ball exponent; Mills bounds and Laplace estimates rigorously transfer this to the two-sided tail law. Two rational examples match their mean step and stationary squared error, but have distinct logarithmic tail rates. The included verification code passed 50,315 finite diagnostic assertions; it is not the proof of the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Mao–Wu, arXiv:2206.09970, Sections 2–5: fixed-grid backward Euler–Maruyama invariant-measure existence and convergence; no two-atom random-step stationary extreme-tail estimate is among the inspected results.",
+        "Liu–Wang, arXiv:2307.05039, Sections 1–2: infinite-horizon strong convergence and invariant approximation, rather than short-run endpoint small deviations.",
+        "The pre-existing stochastic-theta stationary-moment classification gives the Gaussian-mixture representation and second/fourth moment facts, but not the sharp extreme-tail exponent or a matched mean-step, matched second-moment exponential tail separation."
+      ],
+      "reasoning": "The fixed-step numerical-invariant results and the all-finite-step stochastic-theta moment formula are broader in existence or moments, not in extreme-tail asymptotics. The claimed power exponent and exponentially separated matched-moment pair require an additional endpoint small-ball argument and cannot be obtained merely by changing a label in the moment formula.",
+      "searches": [
+        "randomized implicit Euler OU invariant measure stationary covariance step length mixing, sharp jitter cross-over s^2 - delta^2=1",
+        "stochastic theta method Ornstein Uhlenbeck random timesteps stationary Gaussian mixture exact tail asymptotics",
+        "2022 arxiv randomized time step invariant measure BEM",
+        "Ornstein Uhlenbeck backward Euler iid two point step stochastic theta stationary extreme tail t^-1-2kappa gaussian exponent short step endpoint small-ball Bernoulli",
+        "random time step stochastic theta Gaussian stationary variance mixture tail asymptotics run lengths polynomial prefactor endpoint"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2206.09970",
+      "https://arxiv.org/abs/2307.05039",
+      "https://onlinelibrary.wiley.com/doi/full/10.5402/2012/345784"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu–Mao–Wu, arXiv:2206.09970, Sections 2–5: fixed-grid backward Euler–Maruyama invariant-measure existence and convergence; no two-atom random-step stationary extreme-tail estimate is among the inspected results.",
+        "Liu–Wang, arXiv:2307.05039, Sections 1–2: infinite-horizon strong convergence and invariant approximation, rather than short-run endpoint small deviations.",
+        "Cui (2012), Section 2.2: Gaussian variance mixtures with unbounded mixing-scale tail hypotheses; not the compact upper-endpoint Bernoulli-contraction law.",
+        "The pre-existing stochastic-theta stationary-moment classification gives the Gaussian-mixture representation and second/fourth moment facts, but not the sharp extreme-tail exponent or a matched mean-step, matched second-moment exponential tail separation."
+      ],
+      "reasoning": "The broad random-step moment result implies the formula for unconditional stationary variance, including the witness equality, but does NOT imply a sharp tail rate or separation. The new logical ingredient is the geometric-run support-endpoint exponent plus Mills/Laplace tail transfer; the joint theorem therefore is not a direct corollary of a prior moment bound. Existing Gaussian mixture tail transfers seen concern unbounded scales and require different assumptions.",
+      "searches": [
+        "random-step backward Euler OU stationary Gaussian tail exact polynomial t^-2kappa same mean step same invariant variance exponential tail separation",
+        "Gaussian mixture asymptotic tail bounded mixing variance endpoint regular variation power asymptotics",
+        "2022 2023 arxiv random time stepping stochastic differential equation invariant measure random mesh weak convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu–Mao–Wu, arXiv:2206.09970, Sections 2–5: fixed-grid backward Euler–Maruyama invariant-measure existence and convergence; no two-atom random-step stationary extreme-tail estimate is among the inspected results.",
+        "Cui (2012), Section 2.2: Gaussian variance mixtures with unbounded mixing-scale tail hypotheses; not the compact upper-endpoint Bernoulli-contraction law.",
+        "The pre-existing stochastic-theta stationary-moment classification gives the Gaussian-mixture representation and second/fourth moment facts, but not the sharp extreme-tail exponent or a matched mean-step, matched second-moment exponential tail separation."
+      ],
+      "reasoning": "Looked for alternate formulations as bounded Gaussian scale mixtures, random affine perpetuities, geometric endpoint local dimension and random-coefficient autoregressions. Prior moment/measure statements do not give the two-sided tail exponent; generic Gaussian mixture transfer is acknowledged as proof background. A general specialized theorem with the same exact result remains a priority risk.",
+      "searches": [
+        "random-step backward Euler OU stationary Gaussian tail exact polynomial t^-2kappa same mean step same invariant variance exponential tail separation",
+        "Ornstein Uhlenbeck backward Euler iid two point step stochastic theta stationary extreme tail t^-1-2kappa gaussian exponent short step endpoint small-ball Bernoulli",
+        "random time step stochastic theta Gaussian stationary variance mixture tail asymptotics run lengths polynomial prefactor endpoint",
+        "\"Gaussian mixture\" \"Bernoulli contraction\" \"Euler Maruyama\" stationary tail"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact two-atom backward-Euler OU extreme-tail benchmark or mean-matched, variance-matched pair was found among the actual mathematical research record search results. Negative search is not a uniqueness proof."
+      ],
+      "reasoning": "This is a continuum-parameter stationary-law theorem with two rational witnesses rather than a known finite numerical table. Existing benchmark searches yielded different integrators and invariant-moment conditions; lack of an exact table is only supporting evidence.",
+      "searches": [
+        "random time step stochastic theta Gaussian stationary variance mixture tail asymptotics run lengths polynomial prefactor endpoint",
+        "Ornstein Uhlenbeck backward Euler iid two point step stochastic theta stationary extreme tail t^-1-2kappa gaussian exponent short step endpoint small-ball Bernoulli"
+      ]
+    },
+    "rationale": "The accepted theorem is the exact two-sided Gaussian-extreme-tail correction under two-atom random backward Euler steps and a matched-moment, exponentially separated risk witness. Broad BEM invariant-measure papers and previously recorded general stochastic-theta moments do not state these tail conclusions. A bounded Bernoulli affine variance perpetuity and Gaussian tail transfer are individually classical ingredients; publication priority against specialized combinations remains a residual risk.",
+    "residual_risks": [
+      "A general published theorem for endpoint tails of affine perpetuities composed with Gaussian scale mixtures might implicitly subsume the derived asymptotic; bibliographic completeness cannot be guaranteed.",
+      "The result measures stationarity per update rather than uniformly in physical time; this distinction matters when interpreting the matched-mean witness.",
+      "The two-sided power law is Θ rather than an exact constant; arithmetic small-ball oscillations may persist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its analysis assumes fixed equidistant grid and proves general invariant-measure existence and approximation. The inspected theorems do not state the two-atom stationary extreme-tail exponent or matched-moment tail separation.",
+        "evidence": [
+          "arXiv:2206.09970, pp. 2–3 fixed equidistant grid, p.8 invariant-measure argument; 2022-06-20 first publication evidence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.09970",
+        "material_read": "Public manuscript pages 1–3 and 8 visually checked, including the fixed equidistant partition and a uniqueness proof; introduction, method and main results examined in extracted source text.",
+        "method": "Open-access arXiv primary full-text PDF and page screenshots",
+        "title": "The backward Euler–Maruyama method for invariant measures of stochastic differential equations with super-linear coefficients",
+        "trigger": "Same implicit numerical integrator and invariant-measure question; earliest motivating preprint"
+      },
+      {
+        "assessment": "Proves strong-convergence and invariant-approximation principles, not Gaussian-mixture support-endpoint tails of iid two-step-size samplers.",
+        "evidence": [
+          "arXiv:2307.05039, Theorem 6 and preceding stationarity definitions on p.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.05039",
+        "material_read": "Public PDF pages 1–2 and 5 visually checked with theorem statement; introduction and Section 2 hypotheses inspected.",
+        "method": "Open-access arXiv primary PDF and page screenshots",
+        "title": "Strong convergence in the infinite horizon of numerical methods for stochastic differential equations",
+        "trigger": "Related invariant-measure and strong-convergence result for the same BEM family"
+      },
+      {
+        "assessment": "The stated Gaussian mixture tail theorems address large mixing variance and associated unbounded-scale densities, not an endpoint deficit in a compactly supported Bernoulli variance perpetuity. They provide relevant general context rather than direct coverage.",
+        "evidence": [
+          "Cui (2012), DOI 10.5402/2012/345784, Section 2.2."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.5402/2012/345784",
+        "material_read": "Open-access full-text HTML, Section 2.2 Theorems 2.1–2.3 and Section 2.3.",
+        "method": "Primary journal full HTML",
+        "title": "Semiparametric Gaussian Variance-Mean Mixtures for Heavy-Tailed and Skewed Data",
+        "trigger": "Plausible broader Gaussian-mixture tail-transfer theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46fc36c9-11a5-414a-947c-60b552d910cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a natural, reproducible extreme-event reliability benchmark for random-step numerical sampling: identical mean time step and identical stationary squared error fail to control exponentially different rare-event tails. The polynomial correction quantitatively isolates the probability of runs of the shortest step. This is a distributional phenomenon not captured by variance or kurtosis classification alone.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "All positive indices are partitioned into odd, once-even and divisible-by-four cases. The first two follow from direct residues mod4 or mod8. For n divisible by four, the rational identity \\(D_n-1=n^2\\sum_{j\\ge1}(2^j/j^2)P_j(n)\\), \\(\\operatorname{Li}_2(2)=0\\) in \\(\\mathbb Q_2\\) and coefficient-valuation bound \\(E(j,m)\\) show all nonlinear terms even except the two cancelling quadratic terms \\(j\\in\\{4,8\\}\\). The remaining coefficient at \\(j=4\\) is \\(-11/3\\), a 2-adic unit. The simple finite checks for \\(j\\le31\\) and explicit high-j inequalities cover every coefficient. The included standalone verifier passes exact tests, but finite tests alone are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2021 Lengyel Theorem 3 establishes \\(\\nu_2(D_{a2^r}-1)\\ge2r+2\\) for r>=2 and odd a.",
+        "2025 Alekseyev et al Theorem 3 calculates \\(\\nu_p(P_n(r))\\) for \\(\\nu_p(r)\\ge1\\), and Theorem 6 gives \\(\\nu_p(P_n(p))\\) for \\(p\\ge3\\).",
+        "2025 Wang-Zhong Theorem 1.3 concerns weighted sums of Delannoy terms, not \\(\\nu_2(D_n-1)\\)."
+      ],
+      "reasoning": "The 2021 bound is strictly weaker than equality \\(3r\\) for \\(r>2\\) and does not determine exact orders. The 2025 theorems have different valuation arguments or sum operators, so do not imply the claim.",
+      "searches": [
+        "Congruences central Delannoy D(n) ≡ 1 mod 2^{3r} for n divisible by 2^r, sharp valuations",
+        "central Delannoy sharp cubic congruence solution Tamas Lengyel conjecture n divisible by four",
+        "web: Lengyel Delannoy Conjecture 3 proved valuation 2026 2025"
+      ]
+    },
+    "checked_sources": [
+      "Lengyel, INTEGERS 21 (2021), A86, Conjectures 1–3, Lemma 3, Theorem 3 and its proof.",
+      "Mikić, arXiv:2311.14623, posted 2023-11-24.",
+      "Alekseyev et al., arXiv:2505.08935, §3 Theorems 3–8.",
+      "Wang and Zhong, arXiv:2505.05728, §3 equation (3.2) and main theorems.",
+      "Public mathematical-record searches with six exact queries recorded under named checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lengyel 2021 Lemma 3 gives the two parity cases; Conjecture 3, not a theorem, gives the hard case.",
+        "Mikić 2023 first paragraph and divisibility theorems determine \\(\\nu_3(D_n)\\), not \\(\\nu_2(D_n-1)\\).",
+        "Alekseyev et al 2025 Theorem 3 applies to \\(\\nu_p(P_n(x))\\) for \\(\\nu_p(x)\\ge1\\); here \\(x=3\\) has \\(\\nu_2(x)=0\\) and the measured quantity is \\(P_n(3)-1\\)."
+      ],
+      "reasoning": "Earlier valid results establish partial cases or unrelated valuations. The sharp cubic result was conjectured explicitly in the most directly relevant source; no checked stronger theorem subsumes it.",
+      "searches": [
+        "Generalized central trinomial coefficients valuations at parameter (3,2), Delannoy minus one",
+        "Prove Conjecture 3 Lengyel 2021 central Delannoy 2-adic valuation v2(d(n)-1) = 3 v2(n) for n divisible by 4",
+        "web: \"v_2(D_n-1)\" \"3v_2(n)\" Delannoy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lengyel 2021 Conjecture 3 (PDF page 5): \\(\\nu_2(d(2m)-1)=3\\nu_2(2m)\\) for even m; stated as conjecture.",
+        "A mathematical-record result concerned generalized Domb sums, not Delannoy numbers."
+      ],
+      "reasoning": "The previously written formula is exactly the same statement, but was not proved in the inspected earlier source. Originality is in the proof, not in proposing the identity.",
+      "searches": [
+        "Exact 2-adic valuation of central Delannoy numbers minus one D_n-1, Legendre polynomials P_n(3), v2(D_n-1) = 3 v2(n) for multiples of four",
+        "Prove Conjecture 3 Lengyel 2021 central Delannoy 2-adic valuation v2(d(n)-1) = 3 v2(n) for n divisible by 4",
+        "web: \"Delannoy\" \"Conjecture 3\" \"proved\" 2-adic",
+        "web: \"d(4m)\" \"3ν\" Delannoy conjecture proof"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Central Delannoy OEIS A001850 tabulates D_n, but a table cannot prove an all-index conjecture.",
+        "The searched public mathematical-record entries include unrelated cyclotomic polynomial roots, but no exact published proof was identified."
+      ],
+      "reasoning": "No exact all-index certified table/database theorem was identified. A finite list of values does not cover the theorem.",
+      "searches": [
+        "Exact 2-adic valuation of central Delannoy numbers minus one D_n-1, Legendre polynomials P_n(3), v2(D_n-1) = 3 v2(n) for multiples of four",
+        "polylogarithmic 2-adic Li_2(2)=0 central Delannoy number difference congruence",
+        "web: OEIS \"central Delannoy\" \"2-adic valuation\" \"conjecture\" Lengyel"
+      ]
+    },
+    "rationale": "Lengyel (2021) explicitly poses exactly the cubic valuation as Conjecture 3 and proves only a weaker bound. The present work supplies a proof, rather than repeating the conjecture. Full relevant main statements and the exact earlier proof were inspected. Other close 2023 and 2025 work concerns different p-adic parameters or sums; targeted public mathematical-index queries found no proof of this exact conjecture. Residual risk: unindexed or uninspected later proofs may exist, so priority is not certified.",
+    "residual_risks": [
+      "Unindexed or otherwise undiscovered proof of Lengyel Conjecture 3 could precede this result.",
+      "Bibliographic searches and source reading do not certify publication priority or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The new nontrivial statement is Conjecture 3 in this publication, not an established result. Theorem 3 is weaker.",
+        "evidence": [
+          "PDF page 4: Theorem 3 lower bound >=2r+2; PDF page 5: Conjecture 3 exact 3r.",
+          "PDF page 11 Proof of Theorem 3 uses binomial valuation lower bounds and does not prove equality 3r.",
+          "PDF page 1 publication line Published: 8/27/21."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/v86/v86.pdf",
+        "material_read": "PDF pages 1–5, 10–11, 20, including definitions (1), Theorem 3, Corollary 1, Conjectures 1–3, Lemma 3, and full Proof of Theorem 3.",
+        "method": "Source PDF text, verification using rendered page-four screenshot, targeted proof location and statement-to-statement comparison.",
+        "title": "On Some p-adic Properties and Supercongruences of Delannoy and Schröder Numbers",
+        "trigger": "Exact same Delannoy 2-adic valuation and named conjecture"
+      },
+      {
+        "assessment": "Gives 3-adic valuations of \\(D_n\\), not the 2-adic valuation of \\(D_n-1\\).",
+        "evidence": [
+          "arXiv posted 2023-11-24; introduction identifies \\(D_n=P_n(3)\\) and describes the 3-adic result."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.14623",
+        "material_read": "HTML preprint introduction, Delannoy identity, valuation framework and relevant theorem statements.",
+        "method": "Read arXiv rendered full-text HTML and compare prime, polynomial argument and subtracted constant.",
+        "title": "On new divisibility properties of generalized central trinomial coefficients and Legendre polynomials",
+        "trigger": "Same Delannoy sequence and p-adic valuation methodology"
+      },
+      {
+        "assessment": "Theorem 3 requires v_p(r)>=1 and computes v_p(P_n(r)), neither of which matches \\(\\nu_2(P_n(3)-1)\\).",
+        "evidence": [
+          "arXiv §3 Theorem 3 requires v_p(r)>=1; §2 identifies \\(D_n=P_n(3)\\) but discusses \\(\\nu_3(D_n)\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.08935v1",
+        "material_read": "HTML introduction, motivation, and main Theorems 3–8, including their explicit parameter hypotheses.",
+        "method": "Read author-posted arXiv HTML, inspect actual conditions and outputs.",
+        "title": "On the p-adic valuations of values of Legendre polynomials",
+        "trigger": "Possible general Legendre polynomial valuation covering the present statement"
+      },
+      {
+        "assessment": "Theorems concern weighted sums over indices. Citation to Lengyel repeats only lower 2-adic bound for individual \\(D_{2^a}\\).",
+        "evidence": [
+          "§3 equation (3.2) quotes \\(D_{2^a}\\)≡1 mod 4^{a+1}; main results weight sums of \\(D_k\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.05728v1",
+        "material_read": "HTML introduction, Theorems 1.1 and 1.3, §3, its citation of Lengyel and stated 2-adic congruences.",
+        "method": "Read mathematical statements and nature of summed versus individual quantities.",
+        "title": "Congruences for sums of Delannoy numbers and polynomials",
+        "trigger": "Later congruences involving central Delannoy numbers and powers of two"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2170cbfa-eec0-4e0a-b3e7-db3359cac4f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit, unresolved conjecture in a motivated 2021 paper receives an all-index proof. The sharp exponent \\(3\\nu_2(n)\\) strengthens a prior \\(\\nu_2\\ge2r+2\\) bound, with nontrivial cancellation and a meaningful 2-adic analytic lemma. The formula gives a complete three-case classification; it is not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}

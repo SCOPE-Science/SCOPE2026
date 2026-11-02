@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every SPD A with eigenvalues in [mu,L], spectral-midpoint decomposition gives ||SAb|| >= (L+mu)||Sb||/2 -(L-mu)/2, hence sharp necessity. The explicit involution exchanges b and normalized Pb and has spectrum {-1,0,1}; thus A_eta is SPD with two exact extreme eigenvalues and sampled image eta Sb. Minimizing the resulting scalar squared residual yields the displayed exact ratio and shows divergence. The proof covers all n>s>=1 and all q>1, eta>0. check.py passed 62206 numerical assertions as supplementary reproducibility.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1], Remark in Section 5.2 flags missing sharp deterministic dsGMRES residual understanding, with no exact counterexample formula.",
+        "[2], Fact 1 obtains guarantees when the sketch embeds span of the sampled objective and right side; a fixed s-row sketch here need not embed that affine two-dimensional subspace.",
+        "[3] derives floating-point backward-stability estimates for sketched GMRES under assumptions on sketched data; it does not give this deterministic row-selection classification."
+      ],
+      "reasoning": "General subspace-embedding theory would dominate the claim only if it required no more than preservation of the one-dimensional Krylov basis. It explicitly concerns the affine residual span instead. A condition-number-independent SPD bound on the true sketched residual would contradict the explicit construction; none was found in the inspected source portions.",
+      "searches": [
+        "published-finding corpus: deterministic sketching Krylov subspace methods row subset selection exact subspace embedding 2026 orientation subset conditioning",
+        "published-finding corpus: Ritz values deterministic sketched Krylov rank revealing row subset selection maximal volume deterministic guarantees",
+        "published-finding corpus: sketched Krylov deterministic row selection singular values oblique projector stability",
+        "Web: \"On the numerical stability of sketched GMRES\" Burke Carson Ma 2025",
+        "Web: \"Fast and accurate randomized algorithms for linear systems and eigenvalue problems\" 2024 arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.07158v1, complete rendered text",
+      "arXiv:2111.00113, full rendered source relevant Sections 2–3",
+      "arXiv:2503.19086, full rendered source relevant Sections 3–4",
+      "arXiv:1808.10473, complete rendered source relevant DEIM sections",
+      "arXiv:1505.00370, complete rendered source relevant QR/DEIM sections",
+      "published-finding corpus semantic searches: nine distinct queries",
+      "Accessible prior mathematical research claims were reviewed for substantive claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1], Algorithm 5 selects rows using the basis but forms the least-squares system with the basis image; this is the exact setting under which the new example is evaluated.",
+        "[2], under its affine-embedding hypothesis, residual comparability holds; the proposed counterexample does not meet that hypothesis.",
+        "[4] and [5] study noisy interpolation/oversampling of a vector-valued reduced model from its samples rather than annihilation of an independently transformed basis by a well-conditioned SPD operator."
+      ],
+      "reasoning": "The baseline algebra (one-dimensional least squares and standard norm inequalities) is known; applying it to top-s selection plus a sharp involution construction yields the explicit problem-specific impossibility. The already-published conditional approximation theorem neither rules out nor directly constructs this behavior. The recent deterministic paper does not state the formula in its inspected sections or appendix.",
+      "searches": [
+        "published-finding corpus: deterministic sketched GMRES row subset selection basis SV invertible but SAV singular near identity SPD arbitrarily large residual",
+        "published-finding corpus: Kantorovich sharp condition number eigenvalue bound coordinate cancellation positive definite matrix dominant vector coordinate",
+        "published-finding corpus: row subset selection max minimum singular value basis but sampled operator Av zero sketched GMRES",
+        "Web: \"deterministic sketching for Krylov subspace methods\" \"counterexample\" \"SPD\" \"GMRES\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1], Sections 3, 4, and 5.2: maximization of the sampled-basis singular value and the distinct sampled-image QR in dsGMRES.",
+        "[2], Section 2.1: the affine residual-space embedding is the object in a valid residual comparison.",
+        "No retrieved published-finding corpus hit or web claim states the operator-image annihilation threshold and residual blow-up for globally optimal coordinate-basis selection."
+      ],
+      "reasoning": "A maximal-volume/DEIM coordinate sketch for a single basis vector is exactly top-s energy sampling. The claimed obstruction is not merely that the basis interpolation is ill-conditioned: the chosen basis sketch is the exact global maximizer, but its sampled image can vanish. Existing general SPD angular inequalities may imply the elementary lower bound, so originality is asserted for the method-specific sharp threshold combined with full residual analysis, not for an elementary inequality isolated from its numerical problem.",
+      "searches": [
+        "published-finding corpus: DEIM row subset selected from b versus Ab zero sampled derivative SPD well conditioned n dimensional threshold (sqrt(n)+1)/(sqrt(n)-1) sketched GMRES failure",
+        "published-finding corpus: deterministic sketched GMRES row subset selection basis SV invertible but SAV singular near identity SPD arbitrarily large residual",
+        "published-finding corpus: sharp rank one s row deterministic sketched GMRES condition number threshold sqrt(s/n) SPD selecting largest entries basis residual blow up",
+        "published-finding corpus: row subset selection max minimum singular value basis but sampled operator Av zero sketched GMRES",
+        "Web: \"deterministic sketching\" GMRES DEIM \"SAV\" singular \"SV\"",
+        "Web: \"sqrt(s/n)\" \"DEIM\" \"GMRES\" \"condition\" singular SPD sampled"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returns related results on two-coordinate GMRES error, Kaczmarz, row coherence, and sampling, but not the exact frontier or residual ratio.",
+        "The subject is an infinite parametric family and not an existing finite numerical table."
+      ],
+      "reasoning": "A literature/database result covering the exact symbolic frontier or any universally stronger bound with the same hypotheses would subsume the claim. The inspected records concern other objectives and do not supply either. Absence of a hit is not a proof of publication priority.",
+      "searches": [
+        "published-finding corpus: DEIM row subset selected from b versus Ab zero sampled derivative SPD well conditioned n dimensional threshold (sqrt(n)+1)/(sqrt(n)-1) sketched GMRES failure",
+        "published-finding corpus: sharp rank one s row deterministic sketched GMRES condition number threshold sqrt(s/n) SPD selecting largest entries basis residual blow up",
+        "published-finding corpus: oversampled DEIM positive definite coordinate annihilation sampled A times vector",
+        "Web: \"sketched GMRES\" \"row subset\" \"unbounded\" \"residual\""
+      ]
+    },
+    "rationale": "The 2026 full text motivates maximizing sigma_min(SV) while its GMRES system uses SAV; it does not derive the dimension-sharp SPD annihilation threshold and unbounded exact residual ratio even for an optimal one-dimensional basis-only row selector. Relevant general affine-embedding and sketch-stability papers require other assumptions; prior DEIM work addresses different interpolation objects. Classical norm decompositions themselves are not claimed as original. Residual unindexed-literature risk is explicitly identified.",
+    "residual_risks": [
+      "A specialized unpublished or unindexed result may have derived the same exact SPD cancellation frontier for coordinate sketches.",
+      "The result relies on a basis-only selection objective; extrapolating to the behavior of specific multirow heuristic implementations would require additional verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No sharp sampled-image annihilation threshold or explicit unbounded exact one-step residual ratio stated; Section 5.2 points to unexplained error behavior.",
+        "evidence": "Sections 4.1 and 5.2 distinguish the sampled Krylov basis \\(SV\\) from its separately sampled image \\(SAV\\), with an explicit least-squares algorithm.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.07158",
+        "material_read": "Full rendered arXiv manuscript, Sections 1–7 and Appendix A; specifically Section 3, 4.1–4.2, Algorithm 5 in Section 5.2, Section 6.2",
+        "method": "Read arXiv full-text HTML including algorithms, proofs, experiments and outlook",
+        "title": "Deterministic sketching for Krylov subspace methods",
+        "trigger": "Exact source algorithm and basis-only selection objective"
+      },
+      {
+        "assessment": "Guarantees require embedding of the affine residual space; hypothesis absent from the new construction.",
+        "evidence": "Section 2.1, Fact 1 (inequalities for the residual span).",
+        "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+        "material_read": "Full rendered arXiv paper; Section 2.1 Fact 1, Section 3 sGMRES, conditions for affine embedding and residual comparison",
+        "method": "Inspected arXiv full-text HTML and relevant original theorem hypotheses",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "General sGMRES residual comparison may imply a broader theorem"
+      },
+      {
+        "assessment": "Finite precision and randomized/preconditioned sketch stability, no top-s deterministic sampled-image threshold.",
+        "evidence": "Section 3 states subspace-embedding assumptions and discusses sampled AV in QR.",
+        "identifier_or_url": "https://arxiv.org/abs/2503.19086",
+        "material_read": "Full rendered arXiv text, introduction and Sections 3–4 hypothesis and algorithm descriptions, with source-wide searches for row and deterministic selection",
+        "method": "Read arXiv full-text HTML and checked relevant hypotheses",
+        "title": "On the numerical stability of sketched GMRES",
+        "trigger": "Potentially stronger sketched GMRES stability theorem"
+      },
+      {
+        "assessment": "Analyzes noisy interpolation of sampled reduced vectors, not a distinct operator-image SPD cancellation problem.",
+        "evidence": "Abstract and Sections 1–2.",
+        "identifier_or_url": "https://arxiv.org/abs/1808.10473",
+        "material_read": "Full rendered arXiv manuscript, introduction, DEIM interpolation and oversampling material; searched for GMRES",
+        "method": "Read full-text arXiv HTML and section/term searches",
+        "title": "Stability of discrete empirical interpolation and gappy proper orthogonal decomposition with randomized and deterministic sampling points",
+        "trigger": "DEIM and oversampling may cover a stronger deterministic selection guarantee"
+      },
+      {
+        "assessment": "Provides QR pivot basis sampling and interpolant error bounds; no exact SPD sampled action frontier.",
+        "evidence": "Intro and selection method.",
+        "identifier_or_url": "https://arxiv.org/abs/1505.00370",
+        "material_read": "Full rendered arXiv manuscript, DEIM projection motivation, QR selection and error bounds, with searches for Krylov",
+        "method": "Read arXiv HTML and searched its discussion of Krylov/GMRES",
+        "title": "A New Selection Operator for the Discrete Empirical Interpolation Method",
+        "trigger": "Origin of Q-DEIM row-pivoting and spectral selection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46affa61-89d7-4ef6-a27e-1d77dd13cbd5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dimension-sharp threshold answers a concrete numerical design gap between preserving the Krylov basis and preserving its matrix image in deterministic sketched GMRES. It shows that globally optimal coordinate preservation and even substantial fixed oversampling cannot safeguard true residual minimization, with arbitrarily well-conditioned SPD matrices when s/n tends to zero; and quantifies exactly the full residual divergence. This is a motivated algorithmic boundary, not a gratuitous small example or unmotivated parameter choice.",
+    "status": "PASS"
+  }
+}

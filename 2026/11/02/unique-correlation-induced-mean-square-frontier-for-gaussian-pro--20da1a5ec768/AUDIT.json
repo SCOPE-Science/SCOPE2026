@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "From the original exact slow-Euler/fast-OU scheme the scalar recurrence is exact. Conditioning on independent position innovations gives an exact product moment identity. The compact positive self-adjoint Mehler-kernel operator has strictly positive top-eigenfunction overlap, so its top eigenvalue gives necessary and sufficient second-moment boundedness. Normalized Hermites prove strict increase in correlation because the inverse multiplier is not square-integrable at its zero sphere; strong OU-semigroup convergence gives the infinite-correlation endpoint. Exact Gaussian moments give the independent threshold and 25/24 rational witness. The standalone verifier passed 95 exact rational checks; finite tests do not prove the operator theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mulayoff-Michaeli 2024, Section 2, assumes batch draws independently across iterations.",
+        "Douglas 1993 abstract describes bounds for correlated Gaussian inputs without exposing the complete theorem or any monotonicity in probe correlation.",
+        "Pavliotis-Stuart-Vaes 2021 reports multiscale algorithm stiffness and comparisons rather than the correlation-phase theorem."
+      ],
+      "reasoning": "Independent-batch covariance formulas do not imply a correlated path-product spectral law. A general correlated-regressor algorithm could cover the model computationally but does not by its abstract alone demonstrate the universal monotonicity and unique phase boundary. This is the principal residual coverage risk, not a confirmed non-coverage.",
+      "searches": [
+        "Douglas 1993 LMS colored Gaussian regressors stationary Markov OU exact step stability monotone correlation unique critical threshold",
+        "linear SGD multiplicative Gaussian rank-one Hessian noise stationary covariance exact critical learning rate trace criterion",
+        "Gaussian AR(1) stochastic gradient temporally correlated minibatch exact mean square stability quadratic random curvature",
+        "Exact Mean Square Linear Stability Analysis for SGD Mulayoff Michaeli 2024",
+        "Exact expectation analysis correlated Gaussian input Scott C Douglas 1993"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.17037v1",
+      "https://arxiv.org/abs/2102.00540",
+      "https://proceedings.mlr.press/v247/mulayoff24a/mulayoff24a.pdf",
+      "https://doi.org/10.1109/ICASSP.1993.319549",
+      "https://statistics.berkeley.edu/tech-reports/427"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Della Noce-Vaes 2026 Section 2.1 defines the identical slow/fast numerical scheme; Section 3 and the conclusion explicitly restrict theorems to a compact torus and list unbounded-space analysis as future work.",
+        "Pavliotis-Stuart-Vaes 2021 discusses real-space multiscale dynamics and numerical stability empirically; no exact OU-correlation eigenvalue classification was located in inspected sections.",
+        "Mulayoff-Michaeli 2024 derives exact linear SGD second-moment criteria for independent batches.",
+        "The abstract of Douglas 1993 gives a potentially broad correlated Gaussian LMS stability approach, making historical implication an open issue."
+      ],
+      "reasoning": "The proposed theorem quantifies a strictly monotone and uniquely crossed correlation parameter at fixed c and finite J, plus a rational reversal witness. The principal new 2026 paper supplies the algorithm but not this real-space second-moment theorem. Previously known iid stability and Kac transfer principles provide ingredients; a possible specialized corollary of a comprehensive older colored-input LMS theorem has not been conclusively excluded.",
+      "searches": [
+        "Della Noce Vaes 2610.17037 zeroth-order multiscale sampler scalar Gaussian quadratic potential Ornstein Uhlenbeck probe correlation exact spectral mean square threshold",
+        "Douglas 1993 LMS colored Gaussian regressors stationary Markov OU exact step stability monotone correlation unique critical threshold",
+        "multiscale derivative-free sampler fast OU probes multiplicative random drift quadratic Gaussian target finite J second moment instability spectral radius",
+        "arXiv:2102.00540",
+        "arXiv:2610.17037v1",
+        "PMLR:247:mulayoff24a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 method gives the affine-forward Euler/OU recurrence; the new theorem specializes its real-space scalar version.",
+        "1993 Douglas abstract states an exact correlated-Gaussian LMS expectation algorithm but contains no accessible strict-correlation monotonicity or unique-threshold statement."
+      ],
+      "reasoning": "The transfer operator is a Markov multiplicative-functional reformulation of correlated-sample LMS and derivative-free Langevin. The result is not claimed novel merely for this reformulation: its strict Loewner increase, unique transition for each finite J, and Gaussian-probe consequence are the claimed additions. Full-text historical equivalence to the 1993 comparator remains unresolved and is explicitly retained as risk.",
+      "searches": [
+        "Della Noce Vaes 2610.17037 zeroth-order multiscale sampler scalar Gaussian quadratic potential Ornstein Uhlenbeck probe correlation exact spectral mean square threshold",
+        "Douglas 1993 LMS colored Gaussian regressors stationary Markov OU exact step stability monotone correlation unique critical threshold",
+        "multiscale derivative-free sampler fast OU probes multiplicative random drift quadratic Gaussian target finite J second moment instability spectral radius",
+        "Exact expectation analysis of the LMS adaptive filter for correlated Gaussian input data pdf",
+        "arXiv:2610.17037v1",
+        "DOI:10.1109/ICASSP.1993.319549"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record queries returned related OU observation statistics, i.i.d. Gaussian sampler covariance biases, and independent stochastic-gradient stability bounds; none returned the claimed exact OU-probe correlation frontier.",
+        "No exact published table for the specified finite-J critical eigenvalue was identified."
+      ],
+      "reasoning": "The quantitative claim is an operator-defined unique threshold, rather than a listed decimal. Failure to find a matching record or table is only negative search evidence, not proof of novelty.",
+      "searches": [
+        "Della Noce Vaes 2610.17037 zeroth-order multiscale sampler scalar Gaussian quadratic potential Ornstein Uhlenbeck probe correlation exact spectral mean square threshold",
+        "Douglas 1993 LMS colored Gaussian regressors stationary Markov OU exact step stability monotone correlation unique critical threshold",
+        "multiscale derivative-free sampler fast OU probes multiplicative random drift quadratic Gaussian target finite J second moment instability spectral radius",
+        "OU Gaussian probe Markov multiplicative operator spectral radius increasing correlation critical second moment",
+        "LMS colored Gaussian mean square exact correlation table"
+      ]
+    },
+    "rationale": "Available 2026 primary text defines the numerical method but studies compact torus and omits the real-space Gaussian second-moment spectral frontier. Earlier 2021 multiscale work discusses stiffness rather than this theorem. Independently sampled SGD stability does not imply temporal OU-probe correlation monotonicity. A 1993 exact correlated-Gaussian LMS paper could conceivably imply a specialization, so full-text historical priority remains the main unverified risk; the accessible abstract is not used to claim non-coverage.",
+    "residual_risks": [
+      "1993 Douglas colored-Gaussian LMS full text unavailable; a stronger historical implication cannot be ruled out.",
+      "Potential specialized results in older Gaussian AR(1) multiplicative-recursion literature not exhaustively excluded.",
+      "Self-review only; independent external mathematics validation not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the recurrence and limits its proofs to torus; does not supply claimed real-line moment boundary",
+        "evidence": [
+          "Section 2.1 equations (DFOL) and (EM-DFOL), affine-drift identity",
+          "Theorem 3.12 assumptions on the torus",
+          "Conclusion identifies unbounded-space analysis as an extension"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.17037v1",
+        "material_read": "Full accessible HTML consulted, numerical method 2.1, Theorems 3.8 and 3.12, and Conclusions 6; affine drift and spatial assumptions checked",
+        "method": "Section-by-section original-text comparison",
+        "title": "Analysis of a zeroth-order multiscale sampler: strong convergence, convergence of ergodic averages and weak convergence",
+        "trigger": "Exact numerical method and newly stated compact-state estimates"
+      },
+      {
+        "assessment": "Discusses gradient-free multiscale method and timestep stiffness; exact strict OU-correlation spectral transition not identified in inspected material",
+        "evidence": [
+          "Section 2.2 exact fast OU discretization",
+          "Section 2.4 stability motivation and Section 3.3 numerical behavior"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.00540",
+        "material_read": "Accessible arXiv full HTML/text examined, Sections 1, 2.2, 2.4, 3.3",
+        "method": "Original text search for stability, Gaussian, time discretization and exact temporal correlation thresholds",
+        "title": "Derivative-free Bayesian Inversion Using Multiscale Dynamics",
+        "trigger": "Earlier multiscale numerical method and potential prior stability conclusion"
+      },
+      {
+        "assessment": "Proves exact independent-batch SGD threshold, not the temporally correlated OU Gaussian path operator",
+        "evidence": [
+          "Section 2 explicitly states batches are sampled independently across iterations",
+          "Theorems concern independent minibatches"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v247/mulayoff24a/mulayoff24a.pdf",
+        "material_read": "Full PDF text accessed; Section 2 assumptions and Sections 3-4 stability formulation read",
+        "method": "Checked independence of sampled batches and claimed covariance scope",
+        "title": "Exact Mean Square Linear Stability Analysis for SGD",
+        "trigger": "Possible broad exact mean-square stability result"
+      },
+      {
+        "assessment": "Historical priority unresolved; abstract reports exact step-size bounds but cannot determine whether it implies strict OU-correlation monotonicity or unique threshold",
+        "evidence": [
+          "1993 ICASSP abstract states exact expectation recursions for finite-time-correlated input and mean-square step bounds"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ICASSP.1993.319549",
+        "material_read": "DOI-indexed IEEE abstract and bibliographic records; full text not obtained",
+        "method": "ArXiv and lawful open-access copy searches; publisher page restricted; no accessible full text obtained",
+        "title": "Exact expectation analysis of the LMS adaptive filter for correlated Gaussian input data",
+        "trigger": "High-priority older colored-input LMS result with potential stronger coverage"
+      },
+      {
+        "assessment": "Supports classical operator transfer intuition, but neither unique correlation phase diagram nor its Gaussian numerical application is present in the inspected abstract",
+        "evidence": [
+          "Pitman 1995 report / 1997 Annals paper abstract presents general Kac operator moments"
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/tech-reports/427",
+        "material_read": "Berkeley publication record and abstract",
+        "method": "Compared general moment-functional framework with claimed special OU monotonicity",
+        "title": "Kac's moment formula for additive functionals of a Markov process",
+        "trigger": "Broader classical Markov path-functional operator methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "20da1a5e-c768-4ab5-aa1d-5755e891771f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives an exact, unique finite-correlation instability frontier for a concrete recently analyzed numerical sampling scheme, for every finite number of Gaussian probes. It exposes a structural and practically consequential distinction between preserving Gaussian probe marginals and preserving long-time second-moment stability. It also supplies an exact rational counterexample and a computable operator criterion for permissible OU correlation and step parameters; the claim does not overreach to general sampling ergodicity.",
+    "status": "PASS"
+  }
+}

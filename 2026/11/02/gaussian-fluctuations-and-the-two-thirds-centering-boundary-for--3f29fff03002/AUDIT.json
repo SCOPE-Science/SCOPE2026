@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The proof derives \\(S_\\infty(A)=\\log A+2\\gamma+O(A^{-1})\\) by explicit Riemann sums, subtracts the finite tail \\(A/N+O(A/N^2+A^2/N^2)\\), and solves the exact mean equation. Direct Riemann sums give \\(A S_N\\u0027(A)\\to1\\) and \\(A\\operatorname{Var}(R_N(A))\\to1/2\\). A split at indices below \\(A^{2/3}\\) establishes Lindeberg, and event inversion yields the Gaussian hitting-time law. The exact-root shift is \\(c_\\theta^2 N^{2\\theta-1}+O(1+N^{3\\theta-2})\\), with threshold \\(\\theta=2/3\\). The checker passed 72 finite/computational assertions, none of which substitutes for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chebunin–Zuyev 2020/2022, DOI 10.1007/s10959-020-01053-6, §1 and Theorem 1: fixed summable probability sequence and functional missing-mass CLT",
+        "Müller–Šebek arXiv:2607.08551v1, §6: explicit leading scale and variance bound, not a CLT or refined root expansion"
+      ],
+      "reasoning": "Potential broader CLTs were compared by their assumptions and consequences. Fixed infinite probabilities cannot equal \\(q_{i,N}=1/(iH_N)\\) simultaneously for every N because the harmonic normalization diverges. The cutoff correction \\(A/N\\) is not obtained by applying a fixed-frequency FCLT. Existing standard Lindeberg machinery is acknowledged, not claimed as new.",
+      "searches": [
+        "regularly varying infinite urn missing mass hitting level Poissonised Zipf frequencies 1/(i H_N) Gaussian random stopping time fluctuations",
+        "occupancy scheme missing mass central limit theorem asymptotic Zipf 1/i poissonized"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.08551v1, full HTML, first public 2026-07-09",
+      "doi:10.1007/s10959-020-01053-6, full open HTML",
+      "doi:10.1007/s00605-026-02153-x, full open HTML",
+      "arxiv:1412.8652, abstract/background only; no whole-document noncoverage claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Müller–Šebek Sections 3/6 prove concentration, leading constant and variance upper bound; none implies the limiting Gaussian law without Lindeberg and inverse control",
+        "Chebunin–Zuyev Theorem 1 treats fixed summable frequency arrays rather than moving finite Zipf normalization",
+        "Baake–Baake 2026, DOI 10.1007/s00605-026-02153-x, Theorem 6.3 concerns embedding Markov generators, not asymptotic threshold fluctuations"
+      ],
+      "reasoning": "The new normal law refines the leading law; its finite-population correction yields a \\(\\theta=2/3\\) threshold that cannot follow from the source first-order limit and variance bound alone. It may be derived using classical probabilistic methods, which are credited. No inspected stronger statement directly subsumes the combined result.",
+      "searches": [
+        "weighted threshold coupon collector quorum time homogeneous exponential clocks central limit non Gaussian mesoscopic weight n^-1/2 one big weight Bernoulli Gaussian mixture fluctuation",
+        "critical Zipf harmonic coupon coverage threshold finite-size centering correction Euler constant n^(2theta-1)",
+        "A multiple coupon collection process and its Markov embedding structure 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Müller–Šebek, arXiv:2607.08551v1, Theorem 6.3: convergence in probability at the leading scale, not normalized fluctuations.",
+        "Chebunin–Zuyev, Theorem 1: a functional CLT for a fixed summable infinite frequency sequence, rather than a finite triangular harmonic-quorum hitting-time distribution."
+      ],
+      "reasoning": "Compared both the direct hitting-time formulation and an equivalent Gaussian fluctuation of the weighted discovered-mass process followed by threshold inversion. The first is not stated in the inspected motivating text; the second requires a triangular harmonic array not covered by the fixed-probability theorem.",
+      "searches": [
+        "weighted threshold coupon collector Zipf s=1 central limit theorem quorum time fluctuations",
+        "quorum time Zipf critical s=1 central limit theorem fluctuations",
+        "harmonic Zipf weighted quorum threshold time n^theta H_n Gaussian CLT center expectation inverse variance c_theta/2 2/3 finite N boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating source gives the first-order constant \\(c_\\theta=e^{(\\theta-2)\\gamma}\\), but no second-order centering term in Theorem 6.3.",
+        "An existing scientific-record search found closest entries on nonuniform reset coupon rates and other occupancy problems rather than a matching exact-root CLT and two-thirds centering transition"
+      ],
+      "reasoning": "Compared the exact variance/slope constants, the mean-root correction and the sharp boundary rather than relying on absent title/parameter matches. No exact published table or database value found for the joint claim; a failed search is not proof of uniqueness.",
+      "searches": [
+        "critical Zipf harmonic coupon coverage threshold finite-size centering correction Euler constant n^(2theta-1)",
+        "Müller Šebek weighted threshold coupon collection critical Zipf central limit theorem second-order fluctuations"
+      ]
+    },
+    "rationale": "The first-order constant is credited to Müller and Šebek. The novelty assessed here is the exact-root Gaussian hitting-time limit together with the positive finite-population correction and its sharp two-thirds change of valid first-order centering. The closest inspected first-order and infinite-urn CLT statements do not yield that combined theorem under their stated assumptions.",
+    "residual_risks": [
+      "General results on triangular-array missing-mass processes or inverse empirical processes may contain an equivalent corollary not located in these searches.",
+      "Historical-priority searches cannot prove uniqueness; independent literature review remains necessary.",
+      "The mathematical theorem is self-reviewed only and is not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "First-order scale and constant already known; no exact-mean-root fluctuation CLT nor \\(N^{2\\theta-1}\\) correction/centering transition stated in inspected text",
+        "evidence": [
+          "First public arXiv v1 date July 9 2026",
+          "Section 6 Theorem 6.3 identifies c_theta and proves convergence in probability; Lemma 6.2 bounds variance"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.08551",
+        "material_read": "Accessible arXiv full-text HTML, directly inspected Sections 2, 3, 5, 6 and 7 excerpts, with Lemmas 6.1–6.2, Theorem 6.3 and relevant proof passages.",
+        "method": "Direct reading and implication comparison of definitions, mean, variance, stated limits and proof scope",
+        "title": "Weighted-threshold Coupon Collection",
+        "trigger": "Self-review, aligned harmonic weights and quorum stopping time"
+      },
+      {
+        "assessment": "Relevant general techniques, but stated theorem does not directly cover the moving harmonic array or its finite-population centering phase boundary",
+        "evidence": [
+          "Introduction equation (3): a fixed probability sequence summing to one, together with regular variation.",
+          "Theorem 1 states a functional Gaussian limit for this fixed infinite-urn scheme"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10959-020-01053-6",
+        "material_read": "Open-access HTML Introduction, exact regular-variation assumptions, Theorem 1 and surrounding covariance conclusions; the other full-text sections were not independently read in entirety.",
+        "method": "Direct comparison of fixed infinite summable frequencies to finite N-dependent harmonic normalization, and of missing mass to threshold inversion",
+        "title": "Functional Central Limit Theorems for Occupancies and Missing Mass Process in Infinite Urn Models",
+        "trigger": "Plausible broad Gaussian limit for Poissonized missing mass"
+      },
+      {
+        "assessment": "The inspected main result concerns embedding transition matrices in a continuous-time semigroup, not harmonic quorum fluctuation limits",
+        "evidence": [
+          "Theorem 6.3 gives a matrix logarithm/Markov generator iff condition"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00605-026-02153-x",
+        "material_read": "Open-access HTML abstract, introduction, model discussion and Theorem 6.3 with accompanying explanation; not every section was read.",
+        "method": "Compared the object and the claimed Markov semigroup criterion with the target hitting-time asymptotic",
+        "title": "A multiple coupon collection process and its Markov embedding structure",
+        "trigger": "Plausible broader generalization of coupon collection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f29fff0-3002-44e0-bd2b-240e2f617ebc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An actual critical-Zipf quorum reaches a random threshold at a nonstandard time scale; the Gaussian uncertainty and its coefficient were not supplied by the leading-order source. More importantly, the finite-N truncation contributes a positive centering term exceeding the fluctuation scale precisely for quorum thresholds above \\(2/3\\). This gives a sharp usability boundary for the natural published first-order centering; the exact-root law supplies the valid replacement without arbitrarily tuned parameters. It is a motivated second-order extension, not a textbook relabeling.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact Lagrange stencil and parity-sum action; exact left eigenvector; strict Schur--Cohn certificate on all nonzero Fourier modes; parity reflection covers the other half interval; exact Simpson integral and sharp checkerboard bound; exact two-step left-map composition. A standalone stdlib checker passed 2458 exact rational and finite supplemental cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferretti--Mehrenberger 2026 Theorem 3.2: 2-norm stability for arbitrary Courant numbers, not conservation",
+        "Ferretti (2013) abstract: area-weighted Lagrange--Galerkin equivalence; full theorem inaccessible",
+        "Hamiaz et al. (2016) abstract: classical semi-Lagrangian nonconservation"
+      ],
+      "reasoning": "Power stability permits damping but does not imply which positive left invariant corresponds to the reconstructed integral or characterize the nonconservative-step cancellation set. The inaccessible 2013 source is a residual priority risk, not assumed excluded.",
+      "searches": [
+        "\"On the relationship between Semi-Lagrangian and Lagrange–Galerkin schemes\"",
+        "\"On the stability of semi-Lagrangian advection schemes under finite element interpolations\" \"conservation\"",
+        "alternating semi Lagrangian time steps restore conservation nonconservative interpolation P2"
+      ]
+    },
+    "checked_sources": [
+      "Ferretti--Mehrenberger, arxiv:2610.19806v1, full accessible body (Sections 1--3, Theorems 3.1--3.2)",
+      "Ferretti--Perrone, 2007 chapter, only 2026 source characterization and bibliographic metadata",
+      "Hamiaz--Mehrenberger--Sellama--Sonnendrücker, DOI 10.1515/caim-2016-0024, public abstract",
+      "Ferretti, DOI 10.1007/s00211-012-0505-5, public abstract",
+      "Mathematical-record and open-web scientific searches for Simpson mass, parity invariant, two-step compensation and equivalent formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source proves stability of the same operator and includes the underlying interpolation stencil, but its results do not assert Simpson conservation",
+        "The new exact stationary left weight is computed from a separate two-class mass map, leading to two unique Simpson displacements and a nontrivial two-step algebraic curve"
+      ],
+      "reasoning": "The new classification is not a restatement of Fourier spectral radius bounds: those control growth but do not state or force agreement with Simpson mass. Although the proof uses the prior stencil, it derives a distinct invariant and its all-data iff conditions. Older inaccessible sources remain a priority risk.",
+      "searches": [
+        "periodic P2 quadratic Lagrange finite-element semi-Lagrangian interpolation conserved modified mass invariant quadrature Simpson weights Courant number two-thirds",
+        "two-step Courant compensation conserves Simpson quadrature mass for quadratic P2 semi-Lagrangian interpolation",
+        "\"Stability of the P_2 semi-Lagrangian scheme\" Ferretti Mehrenberger 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full Ferretti--Mehrenberger 2026 text identifies right spectral stability rather than the unique stationary left functional",
+        "Search returns concerned classical quadrature or unrelated invariant-measure calculations, not an equivalent mass-invariant theorem"
+      ],
+      "reasoning": "The exact claim is a left-nullvector and two-step conservation classification. The paper supplies a block symbol; neither a unique invariant mass formula nor a compensation curve is included in its conclusions. An alias through numerical invariant measures was also searched.",
+      "searches": [
+        "periodic P2 quadratic Lagrange finite-element semi-Lagrangian interpolation conserved modified mass invariant quadrature Simpson weights Courant number two-thirds",
+        "Ferretti Mehrenberger 2026 P2 semi-Lagrangian exact long-time invariant measure left stationary eigenvector odd even nodes mass bias",
+        "2026 Ferretti Mehrenberger stability quadratic interpolation invariant quadrature left eigenvector"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual mathematical-record search hits concerned different Simpson quadrature error bounds and integrator mass conservation, without matching the \\(2/3,4/3\\) resonance or the two-step polynomial"
+      ],
+      "reasoning": "No matching published numerical table or exact threshold was retrieved; this does not establish global priority, but neither an exact tabulation nor an implication was identified.",
+      "searches": [
+        "Simpson mass exact conservation Courant 2/3 quadratic Lagrange semi-Lagrangian update periodic grid",
+        "two-step Courant compensation conserves Simpson quadrature mass for quadratic P2 semi-Lagrangian interpolation",
+        "semi Lagrangian quadratic finite element two parity nodes stationary distribution mass convergence nonconservative weighted sum"
+      ]
+    },
+    "rationale": "Inspected 2026 source has block Fourier stability rather than the left-invariant mass and two-step cancellation classification; actual published-record searches found no equivalent or dominating result. Exact 2007 and 2013 predecessor full texts were inaccessible and are explicitly noted as priority risks, not asserted to be excluded.",
+    "residual_risks": [
+      "The 2007 Ferretti--Perrone chapter was inaccessible in full, and might contain a left-invariant calculation",
+      "The full Ferretti (2013) equivalence paper was inaccessible; it may imply stronger special mass identities",
+      "No literature search is a proof of absolute global novelty; independent peer review not performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides spectral and power stability, reflection and even-shift conjugacy, but not Courant-dependent conserved mean, Simpson coincidence or two-step compensation",
+        "evidence": [
+          "Equations (7), (13)--(20) and Theorems 3.1--3.2 concern update and stability",
+          "Section 3.3 treats even shifts; no integrated mass or left invariant stated"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.19806",
+        "material_read": "Full accessible HTML text, introduction, sections 2 and 3.1--3.3, Theorems 3.1--3.2 and references",
+        "method": "Primary arXiv HTML rendering, full section-by-section comparison",
+        "title": "Stability of the P2 Semi-Lagrangian scheme",
+        "trigger": "Exact same quadratic interpolation and block Fourier symbol"
+      },
+      {
+        "assessment": "2026 paper attributes an eigenvalue bound to its Theorem 5.1; whether it calculates an equivalent invariant mass could not be excluded by full-text inspection",
+        "evidence": [
+          "2026 arXiv:2610.19806 section 1 and Lemma 3 cite the 2007 partial spectral result"
+        ],
+        "identifier_or_url": "Ferretti--Perrone (2007), Applied and Industrial Mathematics in Italy II, 339--350",
+        "material_read": "Bibliographic metadata and its precise characterization in the 2026 source; original chapter inaccessible",
+        "method": "Publisher/bibliographic web searches and unavailable authorized retrieval",
+        "title": "On the stability of semi-Lagrangian advection schemes under finite element interpolations",
+        "trigger": "Direct predecessor employing the same quadratic element"
+      },
+      {
+        "assessment": "Discusses nonconservation and high-order reconstruction but not this periodic quadratic two-parity exact invariant",
+        "evidence": [
+          "Abstract specifically notes classical backward semi-Lagrangian methods preserve constants but not mass"
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/caim-2016-0024",
+        "material_read": "Public detailed abstract and bibliographic description only",
+        "method": "Institutional publication metadata",
+        "title": "The semi-Lagrangian method on curvilinear grids",
+        "trigger": "Previous discussion of semi-Lagrangian mass nonconservation"
+      },
+      {
+        "assessment": "The abstract describes an area-weighted Lagrange--Galerkin equivalence; a prior derivation of the exact periodic stationary Simpson resonance is a residual possibility",
+        "evidence": [
+          "2013 published abstract describes variable-velocity perturbative equivalence, not the exact two-step algebra"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00211-012-0505-5",
+        "material_read": "Public abstract and bibliographic record only; full text inaccessible",
+        "method": "Open abstract and broad literature search",
+        "title": "On the relationship between semi-Lagrangian and Lagrange--Galerkin schemes",
+        "trigger": "Possible stronger equivalence or invariant mass results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "278de663-9240-4c58-ac66-04019a5bc303",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Stable P2 semi-Lagrangian advection can preserve a modified, Courant-dependent positive mean rather than its natural Simpson reconstructed mass. The classification identifies exactly two single-step mass-consistent Courants, the sharp 1/3 worst-case long-time mass discrepancy at vanishing fractional shift, and a complete polynomial law allowing two individually nonconservative steps to cancel their mass defects. These provide natural diagnostic and paired-step design criteria; checkerboard extremizers and smooth-data limits are explicitly distinguished.",
+    "status": "PASS"
+  }
+}

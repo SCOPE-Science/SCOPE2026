@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. Finite-ring radical nilpotence and the absence of nonzero nilpotents in a product of fields give an exact iff reduction of the event to the semisimple quotient. The quotient pushforward is uniform, so independent coordinate events give the product formula. Inclusion-exclusion has a unique largest positive exponential base, with coefficient equal to its field-factor multiplicity, proving constructive reconstruction. The finite comparison uses an explicitly invertible shifted Vandermonde matrix, including repeated exponential bases by grouping them. In the two-factor case both sizes are recovered from their product and sum, and a one-versus-two-factor collision is excluded algebraically. Exact check programs corroborate finite cases, including a noncommutative ring.
+
+## Originality
+PASS, qualified. Sarma and Subedi (arXiv:2610.07892) explicitly provide two-factor nilpotent-product formulas, a collision at probability 15/64, and the two-factor triangular-matrix law; all are acknowledged as prior. Their earlier all-length zero-product paper (arXiv:2506.10392) already implies the elementary field-product forward formula, which is not claimed as novel. The core inverse-identification theorem, its universal finite-prefix bound, and its sharp two-factor identification threshold are not stated in the inspected documents. Searches of relevant published mathematical records found no equivalent inverse. There remains a genuine risk that these identifiability conclusions follow from an older, unlocated exponential-moment inverse theorem or are implicit in earlier zero-product work; historical priority is not independently certified.
+
+## Value
+PASS. A published equality collision for the two-factor scalar invariant raises the natural issue of what information an entire sequence of nilpotent-product statistics retains. The result supplies a full isomorphism criterion for all commutative semisimple quotients of finite unital rings, together with concrete finite recognition horizons and a sharp minimal threshold for one- or two-factor quotients. It also separates the recoverable field spectrum from the undetectable radical in genuinely noncommutative examples. The contribution is inverse classification and finite determination, not routine recomputation of field probabilities.
+
+## Closest prior literature and boundaries
+The October 2026 nilpotent-product paper gives only the length-two invariant and its local-product classification; its \(15/64\) equality example is not claimed here. The June 2025 paper treats all-length zero products and supplies antecedents for the forward field formula, but not inverse recognition of field factors. Published trace-graph reconstruction pertains to a different invariant. General matrix-algebra quotients are excluded because nonzero nilpotent matrices exist modulo the Jacobson radical. Limits are exact, not a statistical stability guarantee; no optimality is asserted for the general finite bound.
+
+Self-review: passed. Independent audit: not yet performed.

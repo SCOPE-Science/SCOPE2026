@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Uniform rank representation from iid chord endpoints; exact Dirichlet moment computation yields mixed conditional projection covariance zero; all other mixed indicator-pair covariances vanish; same-pair mutual exclusion yields -n(n-1)/18. Nondegenerate projection has covariance I_2/45; degenerate remainder variance 8 binom(n,2)/45=o(n^3), so the multivariate iid CLT proves the joint limit. Extracted verify.py passed 652 assertions and exhaustive enumeration through n=7. No finite computation is substituted for the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kasraoui–Zeng 2006 Section 4 Proposition 4.4 provides the entire finite bivariate joint count enumerator \\(L_n(p,q)\\)",
+        "Klazar 2005 establishes joint count-distribution extension identities",
+        "Flajolet–Noy 2000 Theorem 3 gives already-known marginal crossing moments and univariate normality"
+      ],
+      "reasoning": "These are genuinely stronger in exact finite-law enumeration: any finite covariance is recoverable from their bivariate polynomial, so finite covariance alone is not claimed original. However the inspected sources do not state or demonstrate a multivariate count-level Gaussian limit, the exact cross-pair Bernoulli independence, or the orthogonal Hoeffding first projections. Deriving these asymptotics from the continued fraction is not a simple specialization of the published formulas; it requires extra asymptotic argument.",
+      "searches": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r33/pdf",
+        "https://arxiv.org/pdf/math/0503012",
+        "random chord diagrams exact crossing nesting covariance -n(n-1)/18, asymptotic zero correlation, multivariate normal"
+      ]
+    },
+    "checked_sources": [
+      "Flajolet–Noy INRIA RR3914 (2000) Section 2 Theorem 3",
+      "Chen–Deng–Du–Stanley–Yan arXiv:math/0501230 (2005), Introduction and asymptotic maxima",
+      "Klazar arXiv:math/0503012 (2005), Introduction and matching-tree identities",
+      "Kasraoui–Zeng EJC 13 R33 (2006) Section 4 Proposition 4.4",
+      "Baik–Jenkins arXiv:1111.0269 (2011), Introduction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Noy states one-dimensional crossing CLT only; two univariate CLTs do not imply a joint Gaussian law",
+        "Kasraoui–Zeng gives generating polynomials without an evaluated joint asymptotic or local cancellation identity",
+        "Baik–Jenkins uses maximal k-crossing and k-nesting size whose limits are GOE Tracy–Widom, not counts",
+        "The new proof evaluates \\(\\mathbb E[p_Xp_N]\\) and shows an \\(O(n^2)\\) bivariate U-statistic remainder, producing independent Gaussian limiting coordinates"
+      ],
+      "reasoning": "The finite covariance is a derivative consequence of existing exact bivariate enumerators and is treated as context, not an independently novel theorem. The specific pair-indicator orthogonality and joint count CLT need independent arguments and are not obtained by equidistribution, a single-coordinate CLT, or max-size independence. Residual risk of an earlier unlocated derivation is acknowledged.",
+      "searches": [
+        "joint central limit theorem crossing count nesting count in random perfect matchings asymptotically independent Gaussian 1/45",
+        "conditional chord crossing probability orthogonal to nesting probability Dirichlet 1 1 1; cross nesting indicators on different chord pairs independent",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r33/pdf",
+        "https://arxiv.org/pdf/1111.0269"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The conditioned chord probability representations are \\(2b(a+c)\\) and \\(b^2+2ac\\); their \\(\\operatorname{Dirichlet}(1,1,1)\\) covariance is exactly zero",
+        "Baik–Jenkins arXiv:1111.0269 concerns largest k-crossing sizes and Tracy–Widom fluctuations, not sums of crossing/nesting pairs",
+        "Targeted published-record searches returned related covariance and matching topics but no explicit theorem for these two-edge counts"
+      ],
+      "reasoning": "Checked both local indicator cancellation and joint 2-edge count CLT aliases. Maximal crossing/nesting size is a distinct random variable with different limiting law and scale, hence its asymptotic independence does not imply the present result. No matching equivalent claim was found in accessible records.",
+      "searches": [
+        "random chord diagrams pairwise independence crossing and nesting indicators for overlapping distinct pairs of chords, covariance matrix",
+        "joint central limit theorem crossing count nesting count in random perfect matchings asymptotically independent Gaussian 1/45",
+        "conditional chord crossing probability orthogonal to nesting probability Dirichlet 1 1 1; cross nesting indicators on different chord pairs independent",
+        "Web: \"crossings and nestings\" \"jointly normal\" matching",
+        "Web: \"crossing\" \"nesting\" \"bivariate normal\" \"matching\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publicly described chord-diagram results cover conditional crossing variances and local crossing statistics, but no identified public table gives the stated joint Gaussian limit",
+        "Kasraoui–Zeng lists low-degree bivariate \\(L_2,L_3\\) terms, which determine corresponding finite moments but no joint limit",
+        "Targeted published-result search returned no exact matching entry for the two-edge crossing/nesting joint Gaussian limit"
+      ],
+      "reasoning": "The inspected single-coordinate results and finite joint-count tables do not furnish simultaneous asymptotic normality. Known small polynomials and the full continued fraction are expressly credited, not presented as new numerical tables. Absence of a retrieved claim is not uniqueness proof.",
+      "searches": [
+        "random chord diagrams pairwise independence crossing and nesting indicators for overlapping distinct pairs of chords, covariance matrix",
+        "joint central limit theorem crossing count nesting count in random perfect matchings asymptotically independent Gaussian 1/45",
+        "random chord diagrams exact crossing nesting covariance -n(n-1)/18, asymptotic zero correlation, multivariate normal",
+        "conditional chord crossing probability orthogonal to nesting probability Dirichlet 1 1 1; cross nesting indicators on different chord pairs independent"
+      ]
+    },
+    "rationale": "Claims are restricted to the explicit cross/nesting indicators on different edge-label pairs being independent and the joint count-level asymptotically independent Gaussian limit. Known Flajolet–Noy univariate limit and Kasraoui–Zeng full bivariate enumerator dominate the finite marginals and in principle encode all finite moments; those are expressly not claimed original. A targeted scientific comparison of the relevant primary texts and published records did not find the local orthogonality or simultaneous normal limit; residual historical risk remains.",
+    "residual_risks": [
+      "The full existing bivariate continued fraction mathematically determines all finite mixed moments; the originality scope is confined to the explicit local mixed-indicator independence and the proved simultaneous Gaussian limit.",
+      "Priority beyond the inspected accessible full texts, including specialized unpublished notes or alternative multivariate U-statistics treatments, cannot be independently guaranteed.",
+      "The INRIA 2000 report is dated by month as a report and its individual manuscript page is dated March 4; exact day of first PUBLIC release could not be established. The first exact verified archived source date selected is January 14, 2005."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact crossing mean/variance and univariate Gaussian law; does not give nesting joint-count CLT or mixed labeled-indicator independence",
+        "evidence": [
+          "INRIA RR3914 March 2000, Section 2 Theorem 3 states mean n(n-1)/6, variance n(n-1)(n+3)/45, one-dimensional Gaussian limit",
+          "Section 2 explicitly restricts the asymptotic law to crossing count alone"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Report front matter, introduction, Section 2 around Theorem 3 and its proof; report release month and manuscript date distinguished",
+        "method": "Full-text parsed mathematical statements plus page image; targeted theorem/proof passage",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Univariate crossing central limit and marginal variance, potentially broad enough to cover joint limit"
+      },
+      {
+        "assessment": "Focuses on symmetry of maximum k-crossing and k-nesting statistics and associated tableaux, not the joint CLT for total numbers of two-edge crossing/nesting pairs",
+        "evidence": [
+          "arXiv math/0501230 first submitted 2005-01-14; Introduction defines k-crossing/k-nesting as a set of k arcs",
+          "Later asymptotic discussion concerns maximal crossing via Tracy-Widom, not number of 2-crossing pairs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0501230",
+        "material_read": "Complete PDF introduction, definitions and crossing/nesting distribution discussion; Section on asymptotic extremal noncrossing patterns",
+        "method": "Primary arXiv PDF page image and section text, including distinction between maximum-size statistic and count",
+        "title": "Crossings and Nestings of Matchings and Partitions",
+        "trigger": "Closely matching title, possible simultaneous Gaussian theorem"
+      },
+      {
+        "assessment": "Proves finite joint count-distribution identities and symmetry for matching-tree descendants; not a bivariate Gaussian limit or labeled mixed-indicator orthogonality statement",
+        "evidence": [
+          "arXiv math/0503012 first submitted 2005-03-01; abstract expressly covers joint crossing/nesting statistics",
+          "Introduction lines 69-77 states bivariate distribution symmetry; the main result concerns extension identities"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0503012",
+        "material_read": "Primary PDF introduction and main results on matching-tree extension and joint distribution; searched for Gaussian statements",
+        "method": "Primary arXiv PDF full text with page-image verification and targeted statements",
+        "title": "On Identities Concerning the Numbers of Crossings and Nestings of Two Edges in Matchings",
+        "trigger": "Exact same two edge crossing/nesting statistics with joint identities"
+      },
+      {
+        "assessment": "Genuinely broader exact bivariate enumerator; can determine all finite mixed moments in principle but no joint Gaussian limit or local edge-label indicator independence is established in the inspected text",
+        "evidence": [
+          "Electronic Journal of Combinatorics 13 R33, published 2006-04-04, Section 4 Proposition 4.4 gives a full bivariate crossing/nesting continued fraction",
+          "No joint-count Gaussian asymptotic is stated; existing enumerator is acknowledged as the relevant coverage risk"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r33/pdf",
+        "material_read": "Complete introduction and results on involution; Section 4 continued fractions through Proposition 4.4 and references",
+        "method": "Open-access primary full text, section-level comparison and page image",
+        "title": "Distribution of Crossings, Nestings and Alignments of Two Edges in Matchings and Partitions",
+        "trigger": "Potential dominating exact bivariate enumerator"
+      },
+      {
+        "assessment": "Deals with maximal k-crossing/k-nesting sizes under Poissonization and GOE Tracy–Widom limits, not total two-edge crossing/nesting counts with Gaussian n^(3/2) scaling",
+        "evidence": [
+          "arXiv 1111.0269 first submitted 2011-11-01, Section 1 defines cr_n(M) as the largest size of a k-crossing",
+          "Theorem addresses Tracy–Widom laws and maximal statistics; different domain variable from total pair counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.0269",
+        "material_read": "Primary PDF front matter, introduction definitions and asymptotic-limit statement",
+        "method": "Full-text source and first-page image; compare the random variables, scaling, limiting distribution",
+        "title": "Limiting Distribution of Maximal Crossing and Nesting of Poissonized Random Matchings",
+        "trigger": "Title asserts asymptotic independence of crossing/nesting, potentially covering this theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "114d089f-fb68-461c-a95b-d0e39fdc1830",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact first-projection orthogonality provides a structural explanation for a natural and initially counterintuitive phenomenon: negative finite cross-covariance but asymptotically independent nondegenerate Gaussian crossing/nesting fluctuations. It settles simultaneous inference for the two natural random-matching pair statistics and cannot be inferred from equal marginals or from their separate CLTs.",
+    "status": "PASS"
+  }
+}

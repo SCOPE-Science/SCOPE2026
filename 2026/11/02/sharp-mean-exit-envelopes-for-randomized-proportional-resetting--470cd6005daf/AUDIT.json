@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Finite expected absorption follows from a uniform no-reset exit chance. The entire even-power series solves the exact killed backward equation termwise and matches both absorbing boundaries. Bounded-solution uniqueness follows by the stopped generator. Jensen and U^j<=U yield sharp coefficient comparisons; strictness and equality are forced by the j=2 coefficient. Analytic expansions establish weak/strong-rate gaps. The packaged numerical solver passed 93 separate tests; proof does not depend on these finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mendez et al., arxiv:2401.01125, restart locations are sampled independently of the current position",
+        "Pierce, arxiv:2204.07215, treats a fixed proportional factor and position moments",
+        "Pal and Prasad, arxiv:1812.03009, full interval survival and MFPT for fixed-position restart"
+      ],
+      "reasoning": "Known more general *independent-location resetting* renewal formulas are not directly applicable to state-dependent resets X->AX; the resetting law changes as a function of the pre-reset state. Fixed-proportion stationary-law results do not impose or solve the fixed-second-moment distributional optimization.",
+      "searches": [
+        "Brownian stochastic resetting random contraction fraction partial resetting independently sampled multiplier first exit time",
+        "randomized partial resetting stationary Brownian",
+        "arxiv:2401.01125 Section II",
+        "arxiv:2204.07215 Sections II-IV"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2406.08387v1",
+      "https://arxiv.org/html/1812.03009v2",
+      "https://arxiv.org/abs/2401.01125",
+      "https://arxiv.org/abs/2204.07215"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Biroli et al. give the single-factor even coefficient product ∏(1-a^{2j}), which at two symmetric boundaries supplies the deterministic upper specialization",
+        "Pal and Prasad provide fixed-origin interval exit, yielding the all-or-nothing lower expression after thinning at rate r(1-q)",
+        "Mendez et al. provide independent-location renewal kernels, not the state-dependent AX kernels"
+      ],
+      "reasoning": "The two endpoint expressions are specializations of established techniques, but the universal comparison for arbitrary factor laws at the same E[A^2], both equality characterizations, distribution-sensitive weak-rate gap and diverging fast-rate extremal ratio are not implied by any stated theorem in the examined sources without the new random-factor recurrence and moment extremal comparison.",
+      "searches": [
+        "arxiv:2406.08387v1 fixed-a backward coefficient recurrence",
+        "arxiv:1812.03009v2 stationary symmetric interval restarted at origin",
+        "arxiv:2401.01125 random location mean passage formulas"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Biroli et al., arxiv:2406.08387v1, Section III solves a one-sided target for fixed multiplier a; its even-power recursion is a precursor, not the random-law optimizer theorem",
+        "Pal and Prasad, arxiv:1812.03009v2, Sections II-III restart at a fixed original position, not a fresh multiplier of the current position"
+      ],
+      "reasoning": "Neither reflection of the one-target setting nor a change of target wording yields the random-factor constraint optimization. For symmetric targets, equality and sharp global bounds depend on all even moments of A, unlike the fixed-a one-target formula.",
+      "searches": [
+        "random rescaling factor resetting Brownian first exit interval mean optimal factor distribution",
+        "partial stochastic resetting Brownian motion exit finite interval two absorbing boundaries q Pochhammer rescaling",
+        "arxiv:2406.08387v1 Eq. (23)-(36)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked full-text equations and appendices of arxiv:2406.08387v1 and arxiv:1812.03009v2 give no table of randomized multiplier exit-time optimizers",
+        "The original single-sided target calculation specifies a fixed a, so its coefficient table cannot enumerate laws of A"
+      ],
+      "reasoning": "No exact database or published table of the requested law-level extremal interval escape values was identified. This absence does not establish exhaustive global novelty.",
+      "searches": [
+        "random multiplicative resetting factor first exit two absorbing boundaries fixed second moment",
+        "Stochastic resetting X to A X random multiplicative factor same E[A^2] mean first exit time to either +L or -L q-Pochhammer coefficient",
+        "sharp mean exit envelopes randomized partial resetting symmetric interval"
+      ]
+    },
+    "rationale": "The reviewed primary articles treat either a fixed proportional factor with a one-sided target, fixed-location resets with two boundaries, or state-independent random reset locations. Their statements and displayed general backward equations do not assert sharp optimization over all random multiplicative-factor laws at fixed quadratic retention. The current theorem supplies necessary and sufficient equality classes, a variance-preserving search-time separation, and its asymptotic rate. Prior single-factor recurrences and convex moment inequalities are acknowledged; literature priority is qualified by residual risks.",
+    "residual_risks": [
+      "An unlocated general comparison theorem for positive-kernel nonlocal Dirichlet equations may subsume the sharp factor-law inequality.",
+      "Published work not indexed in the checked sources may treat random rescaling multipliers and symmetric absorption.",
+      "The reviewed statement concerns mathematical novelty of the law-level extrema, not novelty of the fixed-a recursion or ordinary Jensen inequality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSE_PRECURSOR_NOT_COVERING",
+        "evidence": [
+          "One fixed multiplier a is assumed throughout",
+          "Section III absorbs at x=L only and derives fixed-a coefficient recurrences",
+          "No fixed E[A^2] optimization over factor laws is given"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.08387v1",
+        "material_read": "Full accessible HTML including model, Sections II-V, MFPT recurrence equations (23)-(38), conclusion, and reference context; PDF pages 1 and 8 visually inspected",
+        "method": "Read equation statements, target geometry, multiplier assumptions, and whether factor-distribution optimization or symmetric exit is present",
+        "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+        "trigger": "Same multiplicative-reset Brownian object and single-target first-passage equation"
+      },
+      {
+        "assessment": "NOT_COVERING_RANDOM_MULTIPLIER",
+        "evidence": [
+          "Backward Eq. (1) has rQ(x0,t), reset to constant x0",
+          "No resetting operation X->AX or optimization over factor distributions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.03009v2",
+        "material_read": "Full HTML material including Introduction, backward survival equation, renewal equation, Sections III-IV and summary",
+        "method": "Compared operator, reset destination, boundaries and optimization variables",
+        "title": "First passage under stochastic resetting in an interval",
+        "trigger": "Two absorbing endpoints and possible dominating interval-exit results"
+      },
+      {
+        "assessment": "NOT_COVERING_STATE_DEPENDENT_MULTIPLIER",
+        "evidence": [
+          "Master equation has a fixed resetting density f(x), independent of the current position",
+          "The target is single-sided and comparisons concern independent-location distributions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+        "material_read": "Accessible full-text article Sections I-II and key formulas for the independent reset-position kernel",
+        "method": "Examined reset-source term, state dependence and target geometry",
+        "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+        "trigger": "Possible stronger random-reset distribution principle"
+      },
+      {
+        "assessment": "FIXED_FACTOR_ONLY",
+        "evidence": [
+          "The proportion epsilon is a fixed parameter",
+          "Stationary distribution and moments are solved; interval absorption-law optimization is not established"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.07215",
+        "material_read": "Accessible paper Introduction, model, forward evolution, stationary moments, section summaries",
+        "method": "Compared fixed proportional factor, dynamics and stated first-passage scope",
+        "title": "An advection-diffusion process with proportional resetting",
+        "trigger": "Fixed-proportion pantograph dynamics potentially subsuming the factor optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "470cd600-5daf-4f67-8afa-0efcfea08f32",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed E[A^2] restriction fixes stationary positional variance for the unbounded searcher, creating a natural common-cost comparison. Despite identical stationary variance, mean symmetric exit has unique globally optimal reset-factor laws and an exponentially diverging fast-reset protocol ratio. This is a motivated exact protocol-design invariant not merely a new coefficient in a known table.",
+    "status": "PASS"
+  }
+}

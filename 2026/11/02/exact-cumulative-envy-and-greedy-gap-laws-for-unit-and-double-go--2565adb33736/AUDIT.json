@@ -1,0 +1,88 @@
+{
+  "correctness": {
+    "rationale": "Proof reduces maximum envy to |d_t|, obtains a rigorous sum-of-steps lower bound, treats all-double parity separately, gives exact constructions, and derives the greedy indicator by parity. Exact DP independently checked 529 finite parameter pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The paper proves a universal total-value lower bound and broad upper approximations, plus NP-completeness for arbitrary identical values.",
+        "Its Section 4 exact DP concerns fixed input order, not a closed free-order optimum for all 1/2-valued multiplicities."
+      ],
+      "reasoning": "The broad approximation/complexity theorems apply to our domain, but do not logically determine the exact objective or when their greedy upper bound is strict. Our proof shows a structural attainability exception when a=0,b odd.",
+      "searches": [
+        "arxiv:2610.09843v1 Sections 4-5 and Appendix C.5",
+        "two agents binary positive integer valuations {1,2} cumulative envy envy area under curve exact lower bound tight"
+      ]
+    },
+    "checked_sources": [
+      "Full arXiv primary manuscript at https://arxiv.org/html/2610.09843v1",
+      "Previously available mathematical claims (scientific overlap only)",
+      "Publicly indexed mathematical research abstracts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 1 implies OPT >= (a+2b)/2, but does not imply equality and indeed fails to be sharp for a=0,b odd.",
+        "Appendix C.5 proves greedy/OPT=3/2 at a=2,b=1; our exact classification includes all multiplicities, with failure only for a positive even and b odd."
+      ],
+      "reasoning": "The result uses the prior lower bound with fresh constructions and proves an iff classification of greedy failures; the earlier example is acknowledged and not treated as novel.",
+      "searches": [
+        "arxiv:2610.09843v1 Lemma 1, Theorems 5.1-5.4, Example 3",
+        "sequence item allocation minimize total maximum envy 1 2 valued goods order greedy optimal exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full source defines the same two-agent difference-of-loads objective, and Example 3 treats a=2,b=1 only.",
+        "Source theorem gives a 3/2 approximation for general item sizes, without a closed exact two-parameter formula."
+      ],
+      "reasoning": "Cumulative maximum envy equals the sum of the absolute two-agent load difference. Comparing this equivalent form to the source reveals the published example and lower bound, but not the all-multiplicity equality and greedy optimality classification.",
+      "searches": [
+        "two agent identical valuation cumulative maximum envy two item sizes one and two optimal sum ceil half total greedy penalty parity",
+        "sequence item allocation minimize total maximum envy 1 2 valued goods order greedy optimal exact formula",
+        "arxiv:2610.09843v1 §5, Appendix C.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible ledger contains a prior weighted two-agent online recourse/maximin-share claim; its quantities and constraints differ.",
+        "The paper appendix tabulates one tight witness (2,1), not the entire parameter plane."
+      ],
+      "reasoning": "One published numerical witness and unrelated ledger entries cannot imply the closed-form classification; no exact table of all (a,b) was located.",
+      "searches": [
+        "two agent identical valuation cumulative maximum envy two item sizes one and two optimal sum ceil half total greedy penalty parity",
+        "Goldberg Robinson Teh cumulative envy smallest 1 2 item sizes 3/2 greedy tight",
+        "Prior accessible mathematical-result claims on online allocation and temporal fairness"
+      ]
+    },
+    "rationale": "The full relevant source manuscript was read (Sections 4-5 and Appendix C.5); its universal lower bound and a=2,b=1 witness are excluded as novel, while the all-multiplicity closed optimum and exact greedy iff classification are not stated or implied by its other approximation or complexity results. Actual research-record and local overlap searches found no equivalent statement; unindexed prior remains a risk.",
+    "residual_risks": [
+      "Earlier unindexed rephrasing of the 1/2-value closed formula may exist.",
+      "The starting lower bound and smallest greedy-failure example are explicitly prior work; priority claimed only for full multiplicity classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source has the shared objective and known 2,1 witness but does not state full two-count optimum or necessary/sufficient parity criterion.",
+        "evidence": [
+          "arXiv:2610.09843v1 Lemma 1; Theorems 5.1-5.4; Example 3, Appendix C.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09843v1",
+        "material_read": "Full accessible HTML: Sections 1-5, Section 4 tractable-domain statements, theorem statements 5.1-5.4, proofs and Appendix C.5, including exact example and its proof (lines 319-371, 825-839).",
+        "method": "Direct full text from arXiv HTML search-indexed source, including mathematical formulas and appendices.",
+        "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "trigger": "Source introduces the exact objective, broad sequencing hardness, general lower bound, greedy guarantee and a three-good tightness example."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2565adb3-3736-41b5-a4ea-aa42cbffcff4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper proves NP-completeness of arbitrary-value reordering and only 3/2 guarantee for two agents. Exact closed optimum and complete parameter classification for the first nontrivial positive heterogeneous size domain identify precisely when the source greedy algorithm succeeds, extending the isolated sharpness example to all multiplicities; the infinite characterization has nonroutine model-specific content.",
+    "status": "PASS"
+  }
+}

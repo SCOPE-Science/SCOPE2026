@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The exact graph and no-jump loss convention are fixed in `RESULT.md`. A Boolean up/down incidence identity gives the full orthogonal harmonic-string decomposition, not just an empirical rank. Its positive singular values produce all \(2\times2\) non-Hermitian blocks and their multiplicities; the remaining down-map kernel is an exact one-eigenvalue dark sector. The discriminant is explicitly computed, the imaginary part rules out positive-real-loss defects away from half filling, and the nonzero off-diagonal entry proves a genuine size-two Jordan block at every listed half-filling critical rate. The matrix-exponential trace gives the normalized first-jump survival formula with the required Jordan limiting convention. `verify.py` independently reconstructs occupation graphs, complex eigenvalues, exact characteristic polynomials and Jordan nullities, and all-time survival values; it passed 121 checks. Mathematical limits: no statements for bond disorder, interactions beyond hard-core exclusion or extra sinks.
+
+## Originality — PASS on examined evidence
+
+The previously established complete-graph hard-core one-site capture theorem already determines the dark-space dimension \(\binom{n-1}{k}-\binom{n-1}{k-1}\) and its infinite-time probability. Those statements are explicitly excluded from the claimed addition. Neither the recoverable claim of that antecedent nor its dark-rank calculation specifies the finite-loss complex eigenvalues, all-time survival, the positive-loss Jordan classification or the multiplicity cascade; these require an additional simultaneous harmonic-block reduction. Wong's complete arXiv main text treats a Hermitian one-*vertex* search oracle on Johnson graphs, rather than one physical occupation site's absorptive projector. Le et al.'s accessible HTML discusses general dark eigenspaces and noise-assisted transport, not these Johnson loss blocks. Tschernig et al.'s open full text addresses non-hard-core multi-photon waveguide exceptional-point branching, not fixed-occupancy complete-graph hard-core loss. Published-record searches found a Johnson harmonic face-concentration result about a two-coordinate *bandlimiting* operator, not this no-jump Hamiltonian. Such comparison is evidence of no identified coverage, not a proof of absolute novelty.
+
+## Mathematical value — PASS
+
+The finite-time law is a genuinely additional transport observable beyond the known ultimate capture fraction, and the resulting exactly \(k\) critical rates classify the change from oscillatory to overdamped decay within every harmonic channel at half filling. The abrupt disappearance of real-loss exceptional points outside half filling, despite a persistent exact dark sector, is a substantive boundary between different non-Hermitian dynamical regimes. The all-particle-number proof supplies exact Jordan multiplicities, including macroscopically degenerate second-order exceptional points, with an explicit reproducibility route. The result does not depend for its value on asserting that a routine new notation or the previously known dark dimension is original.
+
+## Closest sources and residual risks
+
+The central antecedent is the earlier complete-network hard-core one-site loss capture theorem, which is strictly weaker in the all-time and spectral dimensions but covers the infinite-time limit. Wong (2016), Le et al. (2017), and Tschernig et al. (2022) were materially examined in accessible main text. A public Johnson face-concentration record was available only in summarized form and remains a possible indirect-harmonic-implication risk, although its stated operator and two-coordinate domain differ. More specialized many-body exceptional-point classifications could affect historical priority. The mathematical review is not an independent publication or independent expert audit.
+
+Self-review: passed. Independent audit: not yet performed.

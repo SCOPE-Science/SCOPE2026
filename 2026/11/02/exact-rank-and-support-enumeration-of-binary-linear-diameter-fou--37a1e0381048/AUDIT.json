@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For dimension k>=1, reduced row-echelon pivots force k<=4; summing weights over all binary codewords of a full-support rank-k generator yields s2^(k-1)<=4(2^k-1), hence s<=7. The exact finite rank-by-column-multiplicity formula counts full-rank matrices with no zero column and every row combination of weight<=4, with free GL(k,2) quotient. Two exact, independently organized exhaustive enumerators in verify.py agreed in all forty cells. The exact-support bijection produces the all-length formula; the rank-four seven-support case is excluded by a second moment inequality, and Walsh inversion gives the unique rank-three seven-support simplex type and 30 labelled copies. No infinite conclusion is extrapolated from finite-length sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horlemann–Ravi, arXiv:2610.31618v1, Proposition 4.3: generic binomial support sum with unspecified coefficients; Theorem 4.6: fixed-diameter polynomial order.",
+        "Di Giusto–Gorla–Ravagnani, arXiv:2512.17542v1, Theorem 2.20: optimal binary anticode decomposition."
+      ],
+      "reasoning": "The 2026 general statement implies the *form* of a polynomial but leaves all diameter-four exact support-by-rank coefficients undetermined. The 2025 structural result applies to optimal dimension=maxweight only, so does not count ranks one through three or prove the displayed all-rank total.",
+      "searches": [
+        "The Asymptotic Number of Anticodes in Hamming Spaces Horlemann Ravi fixed diameter four exact rank support count F2",
+        "arxiv:2610.31618v1 Proposition 4.3 Theorem 4.6 support coefficients",
+        "arxiv:2512.17542v1 Theorem 2.20 binary optimal anticodes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.31618v1, Horlemann–Ravi, complete relevant full text",
+      "arXiv:2512.17542v1, Di Giusto–Gorla–Ravagnani, relevant Section 2.2 full text",
+      "arXiv:1410.7207, Ravagnani, abstract only",
+      "OEIS A182176; A289541, definitions and sequences",
+      "Exact higher-support spectra for systematic simplex LCD families (published mathematics record)",
+      "Minimum-support multiplicities for simplex SR-sums (published mathematics record)",
+      "Complete support profile of a binary LCD [55,7,25] code (published mathematics record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier diameter-three profile enumerates binary diameter-three subspaces, not diameter four.",
+        "An earlier nonbinary diameter-three profile enumerates q>=3, diameter-three subspaces.",
+        "Published support-spectrum result Exact higher-support spectra for systematic simplex LCD families describes generalized Hamming support counts for a specific systematic simplex LCD family, not arbitrary diameter-four anticodes.",
+        "Published support-spectrum result Minimum-support multiplicities for simplex SR-sums concerns minimum-support subcodes of a particular simplex SR-sum family."
+      ],
+      "reasoning": "The earlier diameter-three coefficient table is not sufficient to recover the rank-by-support difference at diameter four, which includes dimension four and Fano seven-coordinate supports. Neither an evaluated support polynomial for arbitrary binary diameter-four linear subspaces nor a stronger inclusion covering these coefficients was identified.",
+      "searches": [
+        "binary linear Hamming diameter four anticodes enumeration exact polynomial support dimension coefficient",
+        "The Asymptotic Number of Anticodes in Hamming Spaces Horlemann Ravi fixed diameter four exact rank support count F2",
+        "binary diameter four anticode Fano simplex support seven 30 labeled subspaces full support",
+        "binary and nonbinary linear anticode diameter three rank/support polynomials",
+        "linear anticodes binary diameter four maximum-weight subspaces exact enumeration formula full support"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.31618v1, Section 4: diameter of a linear code equals maximum codeword weight.",
+        "arXiv:2512.17542v1, Section 2.2: binary optimal anticode classification at dimension equal to maximum weight."
+      ],
+      "reasoning": "A bounded-diameter linear anticode is exactly a binary linear code with all codewords of Hamming weight at most four; changing this terminology did not uncover an all-dimension rank-by-support table. Optimal anticode results restrict to rank equal to the maximum weight and are strictly narrower than this all-rank count.",
+      "searches": [
+        "linear anticodes binary diameter four maximum-weight subspaces exact enumeration formula full support",
+        "binary linear Hamming diameter four anticodes enumeration exact polynomial support dimension coefficient",
+        "\"binary linear codes\" \"maximum weight four\" enumeration",
+        "linear codes of length n with maximum Hamming weight four rank support seven simplex Fano code exact number weighted count 30 binomial(n,7)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A182176 counts affine subspaces of binary vector spaces without a diameter bound.",
+        "OEIS A289541 counts even-dimensional subspaces without a maximum-weight bound.",
+        "Published coding tables found in searches concern large *minimum* distance, rather than Hamming diameter at most four."
+      ],
+      "reasoning": "Neither identified sequence/database gives the exact diameter-at-most-four rank-by-support coefficients. The searched initial totals and full-support coefficient signature did not retrieve an exact covering table. Search incompleteness remains a risk.",
+      "searches": [
+        "OEIS 1, 2, 5, 16, 67, 307 binary subspaces diameter 4",
+        "OEIS \"1, 2, 5, 16, 67, 307\" linear subspaces",
+        "\"26, 91, 100, 30\" linear anticodes",
+        "binary diameter four anticode Fano simplex support seven 30 labeled subspaces full support"
+      ]
+    },
+    "rationale": "The closest published paper arXiv:2610.31618v1 states generic polynomiality and an unevaluated support-coefficient decomposition, not the fully evaluated binary diameter-four all-rank table. Theorem 2.20 of arXiv:2512.17542v1 covers structural classification only for dimension equal to maximum weight and does not imply the lower-rank exact counts. The diameter-three anticode profile and published simplex-support results do not imply this new coefficient table. Literature and mathematical-record searches did not find an exact covering table, although an obscure historical equivalent cannot be excluded.",
+    "residual_risks": [
+      "An older or unindexed exact enumeration might exist under low-maximum-weight codes rather than linear anticodes; absence from searches is not proof of priority.",
+      "The general support decomposition and the existence of the seven-column simplex code are already published. Neither is claimed new.",
+      "The PDF of the 2014/2016 generalized-weights paper was not inspected in full; its abstract indicates a different focus, so definitive whole-document noncoverage is not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers support-sum form and asymptotic polynomiality, not numerical diameter-four rank-refined table; simplex existence already prior.",
+        "evidence": [
+          "arXiv:2610.31618v1, Proposition 4.3",
+          "arXiv:2610.31618v1, Theorem 4.6 and Remark 4.8"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31618v1",
+        "material_read": "Accessible primary HTML text: definitions, the complete relevant fixed-diameter Section 4 arguments (Lemma 4.1, Proposition 4.3, Theorem 4.6, Remarks 4.7–4.8), and bibliography.",
+        "method": "Primary arXiv full-text reading and statement/implication comparison.",
+        "title": "The Asymptotic Number of Anticodes in Hamming Spaces",
+        "trigger": "same anticode family and fixed-diameter exact counting framework"
+      },
+      {
+        "assessment": "Classifies the dimension-equals-diameter subclasses, but does not provide an all-rank full-support table for maximum weight at most four.",
+        "evidence": [
+          "arXiv:2512.17542v1, Theorem 2.20 (PDF page 13)",
+          "arXiv:2512.17542v1, introductory statement of scope"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2512.17542",
+        "material_read": "Primary arXiv PDF abstract/introduction and Section 2.2, especially displayed Theorem 2.20 and its proof on PDF page 13; graphical page verified.",
+        "method": "Full-text relevant-page reading, including PDF render, to inspect classification assumptions.",
+        "title": "A distance-free approach to generalized weights",
+        "trigger": "cited prior classification of binary optimal anticodes, possibly covering rank-four cases"
+      },
+      {
+        "assessment": "Identified as relevant background; not used to assert complete noncoverage.",
+        "evidence": [
+          "arXiv:1410.7207 abstract; research.tue.nl publication overview"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.7207",
+        "material_read": "Authoritative publication abstract/metadata and source citation, not full PDF.",
+        "method": "Bibliographic relevance check, not a whole-document negative coverage claim.",
+        "title": "Generalized weights: an anticode approach",
+        "trigger": "older theory of optimal anticodes and generalized weights"
+      },
+      {
+        "assessment": "They count different types of subspaces without the exact diameter restriction.",
+        "evidence": [
+          "OEIS A182176: affine subspaces",
+          "OEIS A289541: even-dimensional subspaces"
+        ],
+        "identifier_or_url": "https://oeis.org/A182176 ; https://oeis.org/A289541",
+        "material_read": "Public sequence names, initial terms and stated definitions.",
+        "method": "Definition and initial-term comparisons.",
+        "title": "OEIS A182176 and A289541",
+        "trigger": "exact sequence/database match search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "37a1e038-1048-4b99-a62f-caef8081ee40",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural exact counting invariant from the 2026 fixed-diameter anticode program is evaluated completely at the structurally distinctive binary diameter-four boundary: the full dimension/support table yields an all-n enumerator, dimension-four contributions and Fano-simplex seven-support rigidity. The precise 30-labelled-class leading coefficient is not just another instance of generic polynomiality and the rank refinement serves related low-weight code enumeration; no broad new coding theorem is claimed.",
+    "status": "PASS"
+  }
+}

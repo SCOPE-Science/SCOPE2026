@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3, translation reduces every member to support weight <=2; pairwise intersecting 2-supports are a star or triangle, forcing exactly three maximal templates. Explicit maximality proofs cover all three, and distinct templates meet in <=3 vertices, so every face of size >=4 has one maximal extension. Degree counting gives edge coefficient and rooted-triangle enumeration gives triangle coefficient; binomial subsets of unique maximal balls plus individual four-facets give all higher coefficients. The resulting total agrees with algebra. Independent stdlib brute subset census for n=3,4 and maximal-clique enumeration n=3..7 verify all displayed coefficients in that range. Finite checks are not used to infer n-uniform correctness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2507.10828 Theorems 1-3 concern bounds on sizes/structure of maximal d-sets, not all-cardinality face counts.",
+        "arXiv:2408.01288 Theorem 4 and discussion of rigid facets use general scales and Hadamard configurations; no n-parameter scale-two face polynomial occurs in inspected manuscript.",
+        "arXiv:2610.31618v1 Proposition 3.4 has exact d=1 count but only 2^{Theta(n)} for d=2."
+      ],
+      "reasoning": "A general size bound or a homotopy-type theorem does not imply exact face counts. The d=1 exact formula cannot specialize to d=2, and the 2024 rigid-facet constructions do not enumerate all nonrigid ball faces.",
+      "searches": [
+        "Exact enumeration maximal binary diameter-two anticodes maximal cliques of square of hypercube, Hamming balls, 2-dimensional subcubes and parity 4-sets",
+        "web search: facets scale two Vietoris Rips complex Q_n 2 combinatorial characterization families maximal",
+        "web search: binary anticodes diameter 2 exact enumeration maximal number"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.31618v1 (primary sections and Proposition 3.4)",
+      "arXiv:2507.10828 (primary main statements and supporting text)",
+      "arXiv:2103.01040 (primary Theorem 1 and structural proof)",
+      "arXiv:2408.01288 (primary Theorems and discussion)",
+      "2026/10/4/SCOPE-a-parity-reduction-of-penultimate-hypercube-rips-complexes--7b869e8f79d9",
+      "2026/10/11/SCOPE-scale-two-ech-complexes-of-multinary-hamming-graphs-collapse-to--dc62d4e0316e",
+      "2026/10/11/SCOPE-symmetric-group-homology-character-of-constant-weight-three-hamm--11db16b6cb70",
+      "2026/10/4/SCOPE-sharp-tur-n-constant-and-all-extremizers-for-the-weight-two-bool--e912a3cb52c4",
+      "Indexed published records on Hamming-cube graphs, Rips complexes, coding anticodes, and clique invariants were compared with the claimed polynomial; no equivalent implication was identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.31618v1 Proposition 3.4 only establishes 2^{Theta(n)} for binary d=2.",
+        "arXiv:2103.01040 Theorem 1 computes wedge-of-spheres homotopy type, which is invariant under operations altering the face vector.",
+        "2026/10/4/SCOPE-sharp-tur-n-constant-and-all-extremizers-for-the-weight-two-bool--e912a3cb52c4 has a Fourier positive-definiteness extremum rather than subset enumeration."
+      ],
+      "reasoning": "No inspected prior statement logically entails the exact count or three-family maximal-antichain classification; similarly, the new count does not claim the known Kleitman maximum n+1 or known homotopy type as novel.",
+      "searches": [
+        "Exact enumeration maximal binary diameter-two anticodes maximal cliques of square of hypercube, Hamming balls, 2-dimensional subcubes and parity 4-sets",
+        "Exact clique polynomial distance-two Hamming cube square graph hypercube binary anticodes all cardinalities",
+        "Every diameter 2 binary anticode in F_2^n lies in unique maximal Hamming ball radius one, coordinate square, or affine even parity tetrahedron; count exact all sizes",
+        "web search: The Asymptotic Number of Anticodes in Hamming Spaces Proposition 3.4 exact binary d=2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An anticode is a clique of the distance-at-most-two graph and a face of VR(Q_n;2).",
+        "arXiv:2103.01040 Theorem 1 gives homotopy type only, not the clique polynomial.",
+        "2026/10/4/SCOPE-a-parity-reduction-of-penultimate-hypercube-rips-complexes--7b869e8f79d9 studies penultimate scale n-2, not the complete all-dimensions scale-two enumerator."
+      ],
+      "reasoning": "All three formulations were compared. A homotopy equivalence is insufficient to recover counts of faces; the penultimate-scale statement coincides with scale two only at dimension four, so it cannot directly imply a uniform n>=3 polynomial.",
+      "searches": [
+        "Exact enumeration maximal binary diameter-two anticodes maximal cliques of square of hypercube, Hamming balls, 2-dimensional subcubes and parity 4-sets",
+        "Exact clique polynomial distance-two Hamming cube square graph hypercube binary anticodes all cardinalities",
+        "f-vector clique polynomial Vietoris Rips complex binary hypercube Q_n scale 2 square graph",
+        "web search: Hamming cube Vietoris Rips radius 2 f-vector clique counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/11/SCOPE-scale-two-ech-complexes-of-multinary-hamming-graphs-collapse-to--dc62d4e0316e concerns Čech nerves of q-ary cubes for q>=3, a different complex.",
+        "2026/10/11/SCOPE-symmetric-group-homology-character-of-constant-weight-three-hamm--11db16b6cb70 concerns a constant-weight-three layer rather than the whole cube.",
+        "No directly comparable all-dimensions clique/f-vector table was recovered."
+      ],
+      "reasoning": "Examined same-parameter table candidates by graph/complex definition and quantifier; none of the retrieved records supplies the exact coefficients. This absence is a limited search result, not a uniqueness proof.",
+      "searches": [
+        "f-vector clique polynomial Vietoris Rips complex binary hypercube Q_n scale 2 square graph",
+        "exact counts of maximal cliques hypercube square Q_n^2 stars coordinate faces parity planes",
+        "web search: f-vector of Vietoris–Rips complexes of hypercube graphs Q_n scale two"
+      ]
+    },
+    "rationale": "A full symbolic comparison of the complete diameter-two subset enumerator with primary literature finds the initiating 2026 source proves only exponential-order bounds for d=2; homotopy and general facet results do not imply cardinality coefficients. Semantic searches of published records and comparison with published indexed results found no equivalent all-size formula. Residual priority uncertainty is stated and no search is treated as a proof of uniqueness.",
+    "residual_risks": [
+      "The arXiv and indexed-source search is not an exhaustive historical literature proof; an equivalent clique or f-vector formula may appear in older coding/graph theory work.",
+      "The local Kneser-link classification in arXiv:2103.01040 is close background and may make part of the global combinatorics accessible as an unstated corollary; the exact counts are not stated in the inspected primary text.",
+      "No independent expert priority assessment was conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "For fixed binary diameter two supplies exponential-order bounds but does not supply total or all-size exact formula",
+        "evidence": [
+          "Proposition 3.4: 2^{m_q(n,d)} <= |A_q(n,d)| <= 2^{m_q(n,d)+n log_2 q+O_q(log n)} for d=1,2,3; exact displayed count only for d=1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31618v1",
+        "material_read": "Section 3, Proposition 3.4 including proof, Theorem 3.11, exact diameter-one formula, definitions",
+        "method": "Open-access arXiv HTML primary manuscript",
+        "title": "The Asymptotic Number of Anticodes in Hamming Spaces",
+        "trigger": "Initiating public 2026 work, same anticode object and diameter parameter"
+      },
+      {
+        "assessment": "General structural bounds for maximal fixed-diameter sets and Kleitman optimal size, not exact radius-two facet types/counts and size polynomial",
+        "evidence": [
+          "Theorems 1-3 give upper bounds on size of d-maximal subsets without 1-balls; Lemma 18 restates Kleitman largest-size theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.10828",
+        "material_read": "Abstract, introduction Theorems 1-3, Lemma 18, related discussion and proof sections",
+        "method": "Open-access arXiv HTML primary manuscript",
+        "title": "Maximal sets of a given diameter in Hamming cubes",
+        "trigger": "Identical maximal-diameter-set notion and possible dominating family theorem"
+      },
+      {
+        "assessment": "Proves homotopy type and local Kneser-link structural statements; does not state global all-size face-count polynomial",
+        "evidence": [
+          "Theorem 1: VR(Q_n;2) homotopy equivalent to a wedge of 3-spheres.",
+          "Proof treats local link maximal simplices as stars or triangles."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2103.01040",
+        "material_read": "PDF pages 1-2 and 4-8, especially Theorem 1, graph definitions, and the local intersection-edge classification in Lemma 7",
+        "method": "Open-access full primary PDF text with visual first-page inspection",
+        "title": "On Vietoris–Rips complexes of hypercube graphs",
+        "trigger": "Identical scale-two clique complex, possible f-vector results"
+      },
+      {
+        "assessment": "Studies general-scale rigid facets and Hadamard constructions rather than a dimension-uniform count of all scale-two facets and faces",
+        "evidence": [
+          "Theorem 4 constructs rigid facets from Hadamard simplices.",
+          "Discussion states open general questions about dimensions of facets."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.01288",
+        "material_read": "PDF abstract and introduction, Theorems 4-5, extremal discussion pp. 9-11 including open facet questions",
+        "method": "Open-access full primary PDF text with visual first-page inspection",
+        "title": "Facets in the Vietoris–Rips complexes of hypercubes",
+        "trigger": "Exact maximal simplex object; check for a stronger facet enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ed418f4-3bd2-4528-b195-5d9751bfc1ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent 2026 anticode counting paper leaves the fixed binary diameter-two count at 2^{Theta(n)}; this theorem supplies a complete natural face-vector and exact total, including sharp leading asymptotic 2*4^n. Its three structural maximal classes also determine all maximal faces of an actively studied simplicial complex VR(Q_n;2), a useful invariant not recoverable from its known homotopy type. The full natural infinite-family classification is mathematically motivated and not a miscellaneous finite table.",
+    "status": "PASS"
+  }
+}

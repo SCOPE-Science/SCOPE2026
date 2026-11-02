@@ -1,0 +1,11 @@
+# Scientific review: three-point exchanges of maximal ternary affine caps
+
+**Correctness — PASS.** The problem is finite and fully specified: \(27\) labelled ternary points, \(117\) affine lines, every nine-subset, and every exact three-point replacement. One verifier recursively enumerates all caps through size ten; the other visits all \(4686825\) nine-subsets and rules out ten-point extensions. Both obtain \(2106\) maximum caps. Independently constructed exchange graphs have the same \(75816\) edges and degree \(72\). Full BFS from every cap reproduces the joint distance/intersection table, proves connectivity, and gives diameter four. The classification is not an inference from partial exploration.
+
+**Originality — PASS, with a residual literature risk.** Follett et al. (arXiv:1302.4703, Section 2 and Proposition 2.2) already establish maximum size, affine equivalence, and the unique three-cap partition; those facts are explicitly excluded from the novelty claim. Awan et al. (arXiv:2106.14141, Proposition 3.1 and Table 1) include the previously known two-secant property for exterior points; their detailed results concern dimension-four demicaps. The inspected material does not determine the least mobile exchange size, the degree, the joint BFS spectrum, or the diameter of the maximum-nine-cap exchange graph. Searches also considered the maximum-independent-set formulation for the affine Steiner triple system and geometric intersection graphs. Equivalent results in obscure or unindexed finite-geometry or association-scheme literature remain possible.
+
+**Value — PASS.** Maximum cap size alone does not describe whether two extremal cap sets can be modified locally. This theorem finds the sharp mobility threshold, proves global reachability in at most four three-point exchanges, identifies the two geometric distance-four antipodes, and detects genuine shortest-path detours among caps sharing three points. These are natural exact invariants of the first nontrivial three-dimensional ternary cap space and supply a calibrated instance for local search among extremal progression-free subsets.
+
+The proof and its computational certificates establish only the stated finite case. No independent scholarly validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

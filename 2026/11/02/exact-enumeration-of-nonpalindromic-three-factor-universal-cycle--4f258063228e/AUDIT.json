@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Precisely q² vertices and q²(q-1) labeled edges encode all a!=c triples. Adjacency A(F)=1(F1)^T-F^T is decomposed into symmetric and alternating doubly centered matrices, the all-ones line, and q-1 explicit 2x2 blocks. These contribute exactly the displayed characteristic polynomial. The directed Laplacian has one zero eigenvalue and row/column sum zero, so its common cofactor is the product of its nonzero eigenvalues divided by q². This produces the positive rooted-tree count and strong connectivity; BEST with a distinguished edge yields the exact rotation-class product with no extra factor. For q=2 the graph is a directed 4-cycle. The standalone integer-minor checks q=2..6 and exhaustive q=2,3 circuit enumeration independently agree. Infinite correctness rests on proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gardner--Godbole arXiv:1711.07029v1 presents existence criteria for particular restricted-word families rather than a theorem enumerating Euler tours for arbitrary palindrome deletion.",
+        "Chen--Kitaev--Sun doi:10.3390/math8050778 treats existence-probability enumeration for removing up to two words and tiny binary cases, not q^2 simultaneously removed palindrome words or a count of full Eulerian circuits.",
+        "Bernardini et al. doi:10.4230/LIPIcs.CPM.2022.12 optimize Eulerian extensions and do not enumerate Euler tours of a preexisting balanced graph."
+      ],
+      "reasoning": "More general Eulerian graph theory (BEST, matrix-tree) implies a generic determinant formula but does not by itself supply the evaluated all-q spectrum or product. The cited restricted-universal-cycle and extension results have differing hypotheses and conclusions and cannot imply the explicit count without a new nontrivial graph analysis.",
+      "searches": [
+        "Palindromic three-letter factors forbidden exact de Bruijn universal cycles non-backtracking sequences",
+        "Universal cycle over q-ary words length three avoiding palindromes enumeration BEST matrix tree",
+        "Nonbacktracking Euler tours on directed line de Bruijn graph vertices ordered pairs (a,b) edges (a,b)->(b,c) a != c matrix tree eigenvalues",
+        "Gardner Godbole 2017 Universal Cycles of Restricted Words arXiv 1711.07029",
+        "Chen Kitaev Sun 2020 universal cycle probability removing forbidden words exact enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1711.07029v1",
+      "doi:10.3390/math8050778",
+      "arXiv:1608.08480v1",
+      "doi:10.4230/LIPIcs.CPM.2022.12",
+      "doi:10.1016/j.laa.2018.07.010",
+      "published-finding corpus indexed records matching the actual semantic queries",
+      "Accessible prior research records claims, most recent available collection snapshot"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The generic BEST theorem reduces the problem to an unknown rooted directed spanning-tree cofactor; the proof obtains that cofactor by splitting the q²-dimensional overlap adjacency operator into explicit invariant pieces.",
+        "Arrigo--Grindrod--Higham--Noferini, doi:10.1016/j.laa.2018.07.010, derives non-backtracking walk-generating structures, not Eulerian once-per-word orbit counts.",
+        "Chen--Kitaev--Sun, doi:10.3390/math8050778, counts how many small forbidden subsets preserve existence, a different input/output parameter than counting circuits for the specified large forbidden set."
+      ],
+      "reasoning": "The new claim is not merely an immediate corollary of existence or spectral walk counting: it requires a graph-specific full characteristic polynomial, a directed tree cofactor, and fixed-initial-edge BEST normalization. Broad general formulae could dominate a special case if they already evaluated this graph, but none of the inspected relevant works did.",
+      "searches": [
+        "Universal cycle over q-ary words length three avoiding palindromes enumeration BEST matrix tree",
+        "Nonbacktracking Euler tours on directed line de Bruijn graph vertices ordered pairs (a,b) edges (a,b)->(b,c) a != c matrix tree eigenvalues",
+        "Gardner Godbole 2017 restricted universal cycle paper full text",
+        "Arrigo 2018 nonbacktracking walks paper full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The prior research records contains a result counting length-three words with exactly two distinct letters (id ac5120e6-8159-43ee-8371-8d91a8f0ac77), which is not the a!=c language; its first/last equality patterns differ.",
+        "Burris--Motta--Shipman arXiv:1608.08480v1 treats unoriented/reversal classes rather than separate oriented abc and cba.",
+        "Arrigo et al. doi:10.1016/j.laa.2018.07.010 analyze non-backtracking walk generating functions and do not count edge-distinct Euler tours."
+      ],
+      "reasoning": "The cyclic orbit quotient here is ONLY rotation, and the edge set includes all q^2(q-1) words with a different first and third symbol. A result over reversal classes, fixed-content words, or arbitrary non-backtracking walks is not equivalent. Spectral transfer techniques could in principle specialize to part of the characteristic polynomial; no inspected specialization establishes the full BEST-multiplied enumeration.",
+      "searches": [
+        "Exact number of Eulerian universal cycles of length three non-palindromic words abc with a distinct from c",
+        "Palindromic three-letter factors forbidden exact de Bruijn universal cycles non-backtracking sequences",
+        "Nonbacktracking Euler tours on directed line de Bruijn graph vertices ordered pairs (a,b) edges (a,b)->(b,c) a != c matrix tree eigenvalues",
+        "Nonpalindromic ternary 3-mer universal cycles enumeration 108 cycles length 18",
+        "Universal cycles all length-3 q-ary words with distinct first and last letter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available prior research records has related counts for restricted four-letter words (id 6d6a1bc4-c054-45fc-8fbf-956b5ed09a47), and a distinct set of three-letter words with exactly two distinct symbols (id ac5120e6-8159-43ee-8371-8d91a8f0ac77).",
+        "published-finding corpus nearest indexed item 2026/10/4/SCOPE-exact-length-three-single-deletion-covering-number-for-odd-alpha--9607d49b27ed concerns deletion covering rather than Euler-tour enumeration.",
+        "The searched 2020 work deals with deletion of up to two words from a de Bruijn inventory, rather than the present full q²-palindrome deletion."
+      ],
+      "reasoning": "No checked database or table presented the numbers U_3=108 and U_4=231928233984 as counts of this exact cyclic object, nor the all-q product. Search nonhits are not themselves proof of novelty; the direct implication comparisons provide the relevant scientific distinction.",
+      "searches": [
+        "Exact q-ary universal cycles enumerating every non-palindromic length-three word abc with a unequal c exactly once, count 108 for q=3 and 231928233984 for q=4",
+        "Nonpalindromic ternary 3-mer universal cycles enumeration 108 cycles length 18",
+        "Universal cycles all length-3 q-ary words with distinct first and last letter",
+        "published-finding corpus search q-ary nonpalindromic length-three universal cycles",
+        "prior research records claim searches: nonpalindromic 3-mer; palindromic universal cycles; Euler BEST arborescences; length three q-ary universal cycle"
+      ]
+    },
+    "rationale": "A prior-implication comparison distinguishes exact enumeration of all Euler tours in the q^2-palindrome-deleted length-three de Bruijn graph from existence theorems for other restricted languages, small forbidden-set probabilities, reversal-quotiented covering, Eulerization, and counting non-backtracking walks. Actual indexed semantic queries and accessible full-text material found no equivalent all-q product or evaluated characteristic polynomial. This does not rule out unindexed specialized results.",
+    "residual_risks": [
+      "An unindexed exact q-ary universal-cycle formula or Euler-tour count for the same palindrome-deleted de Bruijn graph could duplicate the result.",
+      "A broader non-backtracking matrix-tree identity may imply the evaluated spectrum after specialization, even if the inspected sources do not publish this count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different restricted languages and existence-focused results; not the present all-q counted family",
+        "evidence": "arXiv:1711.07029v1, 2017-11-19.",
+        "identifier_or_url": "https://arxiv.org/pdf/1711.07029",
+        "material_read": "Abstract, introduction, statement of restricted families, relevant existence arguments and text searches for palindromes and exact enumeration",
+        "method": "lawful arXiv full PDF text inspection and page screenshot",
+        "title": "Universal Cycles of Restricted Words",
+        "trigger": "Closest guiding work on restricted-word universal cycles; 2017 public version within cohort"
+      },
+      {
+        "assessment": "Its counted objects are forbidden subsets preserving existence, not universal cycles of all nonpalindromic 3-mers",
+        "evidence": "Mathematics 8 (2020), 778, doi:10.3390/math8050778.",
+        "identifier_or_url": "https://strathprints.strath.ac.uk/72338/1/Chen_etal_Mathematics_2020_Lower_bounds_and_exact_enumeration_in_particular_cases.pdf",
+        "material_read": "Abstract, setup, sections on deleting forbidden words and exact small cases, reference scope",
+        "method": "Open-access complete PDF text inspection, targeted finds, page screenshot",
+        "title": "Lower Bounds, and Exact Enumeration in Particular Cases, for the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+        "trigger": "Title contains exact enumeration and universal cycles"
+      },
+      {
+        "assessment": "Unoriented reverse classes and once-per-reversal constructions differ from counting every distinct oriented nonpalindrome",
+        "evidence": "arXiv:1608.08480v1.",
+        "identifier_or_url": "https://arxiv.org/pdf/1608.08480",
+        "material_read": "Introduction, definitions, reversal-class coverage and main structural context",
+        "method": "Open-access arXiv full PDF text, page screenshot",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "Plausible direct coverage because three-letter palindromes and reversal are discussed"
+      },
+      {
+        "assessment": "Eulerian augmentation/optimization problem, not counting Euler circuits on the already balanced palindrome-excluded graph",
+        "evidence": "CPM 2022, doi:10.4230/LIPIcs.CPM.2022.12.",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol223-cpm2022/LIPIcs.CPM.2022.12/LIPIcs.CPM.2022.12.pdf",
+        "material_read": "Abstract, introduction and optimization objectives, relevant structural definitions",
+        "method": "Publisher open-access PDF text and page screenshot",
+        "title": "Making de Bruijn Graphs Eulerian",
+        "trigger": "Potential general theorem about restricted de Bruijn graph Eulerian circuitry"
+      },
+      {
+        "assessment": "Walk-count generating functions, not each-edge-once universal cycles; related spectral technology remains a residual general-method risk",
+        "evidence": "Linear Algebra and Its Applications 556 (2018), doi:10.1016/j.laa.2018.07.010.",
+        "identifier_or_url": "https://strathprints.strath.ac.uk/64878/1/Arrigo_etal_LAA_2018_On_the_exponential_generating_function_for_non_backtracking_walks.pdf",
+        "material_read": "Abstract, introduction, matrix setup and main non-backtracking generating-function context",
+        "method": "Open-access full PDF text and page screenshot",
+        "title": "On the Exponential Generating Function for Non-Backtracking Walks",
+        "trigger": "Plausible spectrum domination via nonbacktracking graph factorization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f258063-228e-4094-8bd1-86df4107a9ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A canonical, non-arbitrary forbidden-factor language is obtained by removing every ordinary 3-letter palindrome, leaving all other q³-q² triples. An Eulerian universal cycle is the shortest possible once-only cyclic test string for precisely this language. Existence alone does not determine how many such strings exist, and the exact count together with the full spectral decomposition is a structural all-alphabet invariant, not an isolated small numeric improvement or known de Bruijn count with parameters relabeled. The paper-sized generalization is not claimed. The result is restricted to ordinary length-three palindrome exclusion and labeled rotation classes.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "evidence": [
+      "Carmon 2014 arxiv:1409.3694v1 §2.1 and §2.3",
+      "verify_cubic_mobius.py: direct root tests in GF(2), GF(8), GF(32)"
+    ],
+    "rationale": "The proof establishes a bijection between cubic coefficients and a free translation parameter plus depressed coefficients; the repeated-root criterion is exactly v=0; the cited cubic Berlekamp expression and Pellet formula give the Möbius sign for v nonzero. Odd extension degree makes both the trace of 1 equal to 1 and cubing bijective. Additive-character orthogonality yields precisely q^2 times the rational critical-point count; separable P has no common roots with P', including boundary cases k=1 and k=q. An independent direct root-based finite-field checker tested 268 shift sets and 458264 cubic terms, plus an even-degree counterexample.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carmon 2014 Theorem 1.1 is a uniform upper bound for characteristic two and degree greater than two; no equality case or explicit constant-shift cubic moment.",
+        "Carmon–Rudnick 2012 Theorem 1.1 assumes odd characteristic."
+      ],
+      "reasoning": "A magnitude bound alone neither identifies the correlation nor its sign; odd-characteristic coverage is inapplicable. The present statement handles any number of shifts up to the field size and yields an exact integer value, so neither general theorem subsumes it.",
+      "searches": [
+        "polynomial Möbius k point autocorrelations cubic GF(2^r) exact formula derivative of product shifts and Berlekamp discriminant",
+        "Carmon 2014 Berlekamp discriminant monic cubics all constant shift correlations derivative critical points",
+        "arxiv:1409.3694v1 Theorem 1.1",
+        "arxiv:1205.1599 Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "Carmon 2014 arxiv:1409.3694v1 (primary full text)",
+      "Carmon and Rudnick 2012 arxiv:1205.1599 (open article text)",
+      "Targeted published-web mathematical search for exact cubic characteristic-two correlations",
+      "Targeted semantic mathematical-record searches for all-order cubic Möbius correlations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carmon 2014 §2 furnishes the precise ingredients \\(\\operatorname{Berl}(T^3+uT+v)=1+u^3/v^2\\) and \\(\\mu=-\\psi(\\operatorname{Berl})\\) for squarefree cubics.",
+        "Carmon 2014 Theorem 1.1 proves an asymptotic upper bound, and §5 concerns degree-two correlations.",
+        "An accessible existing claim about odd-characteristic cubic three-point correlations evaluates \\(q^2\\) when \\(q\\equiv2\\pmod3\\), with odd \\(q\\); it does not apply to characteristic two and does not cover arbitrary \\(k\\)."
+      ],
+      "reasoning": "The exact assertion is not a corollary of the magnitude bounds. It requires summing over the cubic coefficient \\(u\\), using \\(\\gcd(3,2^m-1)=1\\), then identifying zeros of the logarithmic derivative; the distinct-shift and squarefree boundary cases are essential. Earlier odd-field claims do not imply the binary case.",
+      "searches": [
+        "polynomial Möbius k point autocorrelations cubic GF(2^r) exact formula derivative of product shifts and Berlekamp discriminant",
+        "cubic Möbius arbitrary many additive constant shifts characteristic two odd extension field exact correlation",
+        "Carmon 2014 Berlekamp discriminant monic cubics all constant shift correlations derivative critical points",
+        "arxiv:1409.3694v1 §§1–7",
+        "arxiv:1205.1599 §§1–2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carmon 2014 §2.1, §2.3: explicit cubic Berlekamp discriminant and characteristic-two Pellet identity, but no shift-product critical-point equality in inspected sections.",
+        "For squarefree P, the rational identity \\(\\sum_i 1/(y+c_i)=P'(y)/P(y)\\) makes the exact critical-point count equivalent to an all-order cubic correlation theorem."
+      ],
+      "reasoning": "Compared the derivative-root statement, the all-order nonnegative-multiple statement, and the four-shift zero/nonzero criterion; generic uses of Berlekamp discriminants are ingredients, not an assertion or implication of the exact summation without the cube-permutation and character-orthogonality steps.",
+      "searches": [
+        "exact Möbius correlation monic cubics characteristic two finite fields constant shifts derivative roots polynomial squarefree product characteristic 2",
+        "polynomial Möbius k point autocorrelations cubic GF(2^r) exact formula derivative of product shifts and Berlekamp discriminant",
+        "cubic Möbius arbitrary many additive constant shifts characteristic two odd extension field exact correlation",
+        "exact kth Möbius correlation cubic polynomials over F_(2^m) critical points of squarefree shift polynomial P'(t)",
+        "\"Möbius\" \"cubic\" \"derivative\" \"shifts\" finite fields correlations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected computations in Carmon 2014 §7 evaluate families of Berlekamp numerator/denominator polynomials but do not tabulate cubic constant-shift correlation values.",
+        "The targeted searches did not identify an exact finite-field correlation table containing the parameterized critical-point law."
+      ],
+      "reasoning": "This is a symbolic formula for infinitely many fields and every distinct shift set, not a finite table entry. No identified numerical database or theorem in the inspected sources determines the stated full parameter family.",
+      "searches": [
+        "exact Möbius correlation monic cubics characteristic two finite fields constant shifts derivative roots polynomial squarefree product characteristic 2",
+        "four point Möbius correlations degree three polynomial characteristic two constant shifts q squared sum of shifts",
+        "exact kth Möbius correlation cubic polynomials over F_(2^m) critical points of squarefree shift polynomial P'(t)",
+        "\"Möbius\" \"cubic\" \"constant shifts\" \"characteristic two\" function fields exact",
+        "\"Berlekamp discriminant\" \"cubic\" \"autocorrelation\" exact",
+        "arxiv:1409.3694v1 §7 Computations"
+      ]
+    },
+    "rationale": "An exact derivative-root formula valid for arbitrary distinct constant-shift sets over all binary fields of odd extension degree was not found in the inspected full-text primary work or in targeted literature and mathematical-record searches. Carmon gives the Berlekamp starting formula but only a general asymptotic bound, not this equality, positivity, or four-shift classification. The previously recorded odd-characteristic three-point formula has disjoint field hypotheses and does not imply the present all-order binary-field result.",
+    "residual_risks": [
+      "The 2014 primary article contains the two discriminant identities from which the new argument starts; an unpublished or differently named short corollary may have been known.",
+      "An unindexed later exact low-degree correlation paper or table might imply the statement.",
+      "An unindexed equivalent symbolic formula for this very specific finite-field family could exist in older literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides critical identities and only a general correlation upper bound, not an exact all-order cubic constant-shift critical-point law in inspected material.",
+        "evidence": [
+          "arxiv:1409.3694v1 lines 43–60, 67–85, 99–112, 298–340, 341–365, 367–453"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1409.3694v1",
+        "material_read": "Primary full-text HTML: abstract and introduction, §§2–3, §5 on quadratics, §6 on square independence, §7 computation appendix, including Theorem 1.1 and equations (2.3),(2.6).",
+        "method": "Read public full-text HTML, compared exact equation and hypotheses to statements and computation appendix.",
+        "title": "The autocorrelation of the Möbius function and Chowla’s conjecture for the rational function field in characteristic 2",
+        "trigger": "Same correlation objects in characteristic two and a relevant degree-three Berlekamp formula"
+      },
+      {
+        "assessment": "Explicitly assumes odd field characteristic; cannot imply characteristic-two exact formula.",
+        "evidence": [
+          "arxiv:1205.1599, introduction Theorem 1.1 and §2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1205.1599",
+        "material_read": "Open publicly rendered article text, introduction and main theorem, §2 treatment of discriminant character sums and exceptional coefficients.",
+        "method": "Read openly rendered full article relevant sections; compared hypotheses and conclusions.",
+        "title": "The autocorrelation of the Möbius function and Chowla’s conjecture for the rational function field",
+        "trigger": "Predecessor general Chowla-type correlation theorem and analogous odd-characteristic results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "53fbe397-5dad-4157-889e-dac867eb9135",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "Carmon 2014 Theorem 1.1 addresses general asymptotic cancellation rather than exact cubic correlations",
+      "Proof and shift-set verification in RESULT.md and verify_cubic_mobius.py"
+    ],
+    "rationale": "The all-order exact Chowla-type correlation reduces a natural family of arithmetic statistics to the rational critical points of the shift polynomial, yielding a uniform positivity/divisibility phenomenon and an exact four-shift zero/nonzero classification. It is not merely a reparameterized known bound: the general large-field theory does not identify these integer correlations and the result spans arbitrary k and infinitely many binary fields. Its explicit derivative geometry suggests meaningful comparisons to other degrees and even extensions without claiming them.",
+    "status": "PASS"
+  }
+}

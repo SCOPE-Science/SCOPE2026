@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The unrestricted upper bound follows from the one-third positive response to any triple and the requirement of at least 2^(d-1) distinct concepts in the positive subtree. Directly verified complete depth-1,3,5,7,10,13 trees provide matching lower bounds for n=3..8; every witness at all 9386 leaves satisfies its whole path. All static values n=3..6 come from exhaustive trace-refinement DFS, not a fixed depth cap. Distinct reversal classes and all boundary cases were checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peters and Procaccia, AAAI 2021, pp. 1-3, study binary *pairwise direction* comparisons and expected number of sorting queries under specified distributions.",
+        "Manurangsi and Rubinstein 2017, Sections 1-2 and Appendix A, give hardness and a general dimension algorithm for arbitrary explicit classes, not exact midpoint-language values."
+      ],
+      "reasoning": "Even if generic algorithms can be specialized, an algorithm schema does not logically imply the tabulated outputs without applying the calculation. Pairwise direction answers cannot be substituted for a ternary betweenness answer as one atomic query in a mistake tree.",
+      "searches": [
+        "Exact Littlestone dimension of total-order betweenness indicator concept class, ternary midpoint queries, reversal-equivalent permutations, first n=6 positive-branch obstruction, n=8",
+        "Boolean ternary betweenness order theory query entropy majority orientation online learning",
+        "Littlestone dimension of betweenness permutations ternary triples online learning",
+        "betweenness queries online concept learning total order betweenness mistakes optimal decision tree VC dimension Littlestone",
+        "Peters Procaccia AAAI 2021 full text: query model and goal",
+        "Manurangsi Rubinstein arXiv:1705.09517: Sections 1-2 and Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2004.09777 (primary full preprint, definition and reconstructibility)",
+      "arxiv:1705.09517 (primary paper, generic dimension computations)",
+      "doi:10.1609/aaai.v35i6.16709 (primary PDF, pairwise elicitation)",
+      "doi:10.1007/s004930070023 (abstract only; different VC invariant)",
+      "public research search records for ordinal orbit counts, inversion metrics, ternary queries and query learning (summary-level only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Courcelle gives uniqueness up to order reversal, implying the number of concepts, which is used as established background.",
+        "Generic cardinality bound only yields floors 8, 11, 14 at label counts six through eight; the new one-third-root bound yields 7, 10, 13, and the supplied complete trees prove equality.",
+        "Pairwise-comparison order class has a different Boolean question domain and double the distinct order concepts; its exact depth does not imply the result for reversal-invariant ternary predicates."
+      ],
+      "reasoning": "The finite sharpness, first cardinality obstruction, and first static/adaptive separation require the new certificates and VC search; these values do not follow just from the identified source statements.",
+      "searches": [
+        "permutation betweenness ternary relation Boolean concept Littlestone dimension VC shattering betweenness triples",
+        "Exact Littlestone dimension of total-order betweenness indicator concept class, ternary midpoint queries, reversal-equivalent permutations, first n=6 positive-branch obstruction, n=8",
+        "VC dimension of betweenness relations on permutations, ternary predicate a-b-c, shattering of triples",
+        "2026-10_week4 accessible claim ledger: total-order pairwise comparison entropy, maximal independent sets, poset ideals and graph orientation concepts",
+        "Courcelle arXiv:2004.09777 Section 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bruno Courcelle, arXiv:2004.09777, pp. 1-3, states B(x,y,z) iff x<y<z or z<y<x, with only reversal producing the same complete relation.",
+        "Pasin Manurangsi and Aviad Rubinstein, arXiv:1705.09517, Sections 1-2, give the generic mistake-tree dimensions, without a special ternary betweenness class."
+      ],
+      "reasoning": "Reversal quotient is already recognized in the literature and not claimed new. Neither the identical concept universe under a query-language change nor the order-reconstruction property establishes the precise Ldim; no equivalent finite-depth classification was found among inspected material.",
+      "searches": [
+        "permutation betweenness ternary relation Boolean concept Littlestone dimension VC shattering betweenness triples",
+        "Exact Littlestone dimension of total-order betweenness indicator concept class, ternary midpoint queries, reversal-equivalent permutations, first n=6 positive-branch obstruction, n=8",
+        "permutation betweenness concept class VC dimension learning betweenness ternary queries",
+        "betweenness relation permutation learning preference elicitation triple queries 2018 2020 2021",
+        "Courcelle 2004.09777 Definitions 1; strict linear order betweenness up to reversal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ran Raz, Combinatorica 20 (2000), abstract defines a permutation VC dimension via restrictions of permutations to chosen *labels*, not Boolean trace shattering on specific ternary betweenness questions.",
+        "The checked public research records concern ordered tuple orbits, inversion precision, and other ordinal structures, not the numerical depth sequence in this question language."
+      ],
+      "reasoning": "No exact ternary-query mistake-tree depth table was located in the checked resources. This is a bounded search result only; absence of a found table is not a proof of novelty.",
+      "searches": [
+        "VC dimension of betweenness relations on permutations, ternary predicate a-b-c, shattering of triples",
+        "Exact Littlestone dimension of total-order betweenness indicator concept class, ternary midpoint queries, reversal-equivalent permutations, first n=6 positive-branch obstruction, n=8",
+        "VC dimension order betweenness relations permutations combinatorics",
+        "ordering betweenness preference constraints VC dimension Littlestone",
+        "Ran Raz 2000 VC-dimension of sets of permutations; definition check"
+      ]
+    },
+    "rationale": "The inspected papers establish axioms and reversal identification for betweenness, generic VC/Littlestone algorithms, or pairwise ranking-query bounds, rather than complete ternary-midpoint mistake trees and their finite exact depths. Semantic overlap with the existing pairwise-order claim was compared: pairwise direction questions are different from ternary between-ness questions, and a Boolean reduction does not transfer exact Ldim. Public research search hits concerned different permutation or orbit invariants. Remaining priority risk is explicitly retained.",
+    "residual_risks": [
+      "Older order-betweenness or optimal-mistake-tree literature may contain equivalent finite values under another name. The searches and scoped full-text inspections do not establish exhaustive historical priority.",
+      "The exact finite lower bounds are independently replayable but their validity has not been assessed by an independent human or external audit.",
+      "Uninspected full text of a different permutation-VC paper could introduce further equivalences; the accessible abstract defines a nonidentical invariant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the definition, quotient by reversal, and reconstruction fact; not the adaptive/shattering dimensions or their finite table.",
+        "evidence": [
+          "Page 2 defines B in strict linear orders; introduction discusses order uniqueness up to reversal and main MSO/FO axiomatization goals."
+        ],
+        "identifier_or_url": "arxiv:2004.09777; https://arxiv.org/pdf/2004.09777",
+        "material_read": "PDF pp. 1-4, including introduction, Definitions 1, axioms B1-B6, overview of axiomatization and reconstruction results",
+        "method": "Full primary preprint page text and inspected PDF page image",
+        "title": "Betweenness of partial orders",
+        "trigger": "Exact same ternary betweenness relation and reversibility, possibly a stronger representation theorem"
+      },
+      {
+        "assessment": "Provides definitions and general complexity/algorithm background. The finite betweenness family and target table are not addressed in inspected relevant sections.",
+        "evidence": [
+          "Definition 4 gives the exact complete binary mistake-tree formalism; generic algorithms do not provide these parameter outputs."
+        ],
+        "identifier_or_url": "arxiv:1705.09517; https://proceedings.mlr.press/v65/manurangsi17a/manurangsi17a.pdf",
+        "material_read": "Full original abstract/introduction and preliminary dimension definitions, related work, computation discussion, appendix method description",
+        "method": "Primary published PDF text with inspected first-page image and full-text arXiv view",
+        "title": "Inapproximability of VC Dimension and Littlestone’s Dimension",
+        "trigger": "Potential general sharp result or exact tables for finite concept-class dimensions"
+      },
+      {
+        "assessment": "Studies expected sorting elicitation under pairwise comparison queries; not the ternary betweenness query class or complete adversarial shattering trees.",
+        "evidence": [
+          "Section 2 defines each query as whether one candidate ranks higher than another; the performance measure is expected identification queries under a ranking distribution."
+        ],
+        "identifier_or_url": "doi:10.1609/aaai.v35i6.16709; https://ojs.aaai.org/index.php/AAAI/article/view/16709/16516",
+        "material_read": "Primary PDF pp. 1-3, sections 1, related work, and the explicit query algorithm in section 2",
+        "method": "Full primary PDF text with inspected page image",
+        "title": "Preference Elicitation as Average-Case Sorting",
+        "trigger": "Closely related adaptive ranking-query work that could dominate comparison-query depth claims"
+      },
+      {
+        "assessment": "The explicitly defined invariant selects labels whose restricted permutation patterns cover all orders, unlike shattering binary betweenness questions. Historical-priority risk for other permutation-language work remains.",
+        "evidence": [
+          "Abstract gives the selected-label, all-linear-orders formulation; different domain and quantification from fixed midpoint Boolean queries."
+        ],
+        "identifier_or_url": "doi:10.1007/s004930070023; https://weizmann.elsevierpure.com/en/publications/vc-dimension-of-sets-of-permutations/",
+        "material_read": "Original abstract and public bibliographic/definition record; not full paper",
+        "method": "Public primary-author publication abstract; source full text not inspected",
+        "title": "VC-dimension of sets of permutations",
+        "trigger": "Potential equivalent terminology for VC dimension of permutations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1e4f6396-f49e-45c7-ae68-35673f7094bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The ternary midpoint question language captures order only up to global reversal, yielding a natural online learnability invariant not reducible by name to pairwise comparisons. The result isolates the first obstruction to the generic cardinality depth at exactly six labels, proves a sharp improved bound through eight despite an 8192-leaf witness, and locates the first adaptive-versus-static gap at four labels. These threshold and full finite-range facts are motivated by sharpness of a universal one-third-root counting obstruction, not arbitrary slices.",
+    "status": "PASS"
+  }
+}

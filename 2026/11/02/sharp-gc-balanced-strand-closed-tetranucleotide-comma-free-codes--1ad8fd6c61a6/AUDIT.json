@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "There are exactly 96 balanced four-mers and 52 reverse-complement orbits, including 8 singletons. Orbit selection is logically equivalent to closure; every comma violation and distance violation has a forbidden support of size at most 3. The finite exact search branches exhaustively and prunes only with rigorously justified greedy incompatibility-class upper bounds. It establishes strict maxima 21/17/7 and enumerates 136/16/72 equality codebooks. Every output codebook is subsequently direct-checked against the original definitions; all class counts and fixed-word values are reconstructed. Python stdlib verifier and exact result inventory have been executed together, yielding VERIFY_OK. No infinite-length claim or unverified computational extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golomb–Gordon–Welch, Comma-Free Codes (1958), Section 3, general alphabet-size-four length-four estimates without the GC/strand/distance intersection.",
+        "B. H. Jiggs, Recent Results in Comma-Free Codes (1963), Theorem 4, unconstrained quaternary length-four bound.",
+        "King, Bounds for DNA codes with constant GC-content (2003), Sections 1–4, includes GC-Hamming packing bounds but employs reverse-complement separation rather than RC-closed codebooks."
+      ],
+      "reasoning": "Upper bounds on an unrestricted code family may give weaker ceilings but do not establish an exact restricted optimum or its optimizer counts. A general GC-only upper bound also does not make the RC-closure and comma-free constraints automatic. Reverse-complement separation requires d_H(x,RC(y)) positive for all selected x,y; if C is closed and nonempty, choosing y=RC(x) makes this distance zero, so the separation family cannot contain these closed codebooks at positive separation.",
+      "searches": [
+        "comma free code length four Watson Crick complement closed GC content two",
+        "maximum tetranucleotide comma free self complementary GC balanced DNA 17",
+        "maximum length four comma free code reverse complement closed DNA 21 17",
+        "arxiv:math/0306197 reverse complement GC code upper bound"
+      ]
+    },
+    "checked_sources": [
+      "S. W. Golomb, B. Gordon and L. R. Welch, Comma-Free Codes, Canadian J. Math. 10 (1958), DOI 10.4153/CJM-1958-023-9",
+      "B. H. Jiggs, Recent Results in Comma-Free Codes, Canadian J. Math. 15 (1963), DOI 10.4153/CJM-1963-021-1",
+      "O. D. King, Bounds for DNA codes with constant GC-content, arXiv:math/0306197, first public 2003-06-12",
+      "Semantic public research-index searches on the exact strand-closed GC-balanced comma-free four-mer theorem and its mathematical synonyms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Forbidding every proper prefix/suffix match (non-overlapping) is stronger than merely forbidding every misframed codeword splice (comma-free); the explicit 21-word example verifies its feasible size under the latter grammar.",
+        "Binary length-six comma-free distance-two code classifications concern a different alphabet and word length; the claimed 96-word balanced universe is quaternary at length four.",
+        "Single-deletion correction forbids shared deletion descendants, whereas the present condition forbids only cross-boundary splices and close framed Hamming pairs; neither type of channel constraint automatically entails the other."
+      ],
+      "reasoning": "A general non-overlapping code is comma-free, but the converse need not hold: a bound for non-overlapping codes cannot imply a bound for the larger comma-free class. Equal numerical 17 at one threshold does not imply matching concepts or maximizers (the present distance-two optimum has 16 labeled codebooks, each with one RC-fixed word). Six-bit binary comma-free and four-letter deletion-code theorems have no evident reductions that force all three present maxima or equality counts. Direct earlier-record comparisons used only recoverable claim summaries, without reconsidering historical scientific status.",
+      "searches": [
+        "comma-free DNA GC balanced four nucleotide length-4 min Hamming distance 2",
+        "reverse-complement closed four nucleotide non-overlapping code 17 length 4",
+        "maximum comma-free DNA four-mers with GC content two and reverse-complement closure Hamming distance 2 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "S. W. Golomb, B. Gordon and L. R. Welch (1958), DOI 10.4153/CJM-1958-023-9, define comma-free synchronization but do not impose Watson–Crick closure or exact GC content.",
+        "O. D. King (2003), arXiv:math/0306197, defines reverse-complement separation, distinct from closure."
+      ],
+      "reasoning": "An alphabet relabeling respecting Watson–Crick complement preserves RC closure; the complete eight-permutation orbit census is incorporated into the claim. Changing the comma-free condition to non-overlap, or changing closure to separation, changes the admissible set and is not an equivalent formulation. A previous length-four non-overlapping RC-closed result gave a maximum of 17 without these GC/distance conditions; it does not cover this model, whose distance-one maximum is 21.",
+      "searches": [
+        "maximum comma-free DNA four-mers with GC content two and reverse-complement closure Hamming distance 2 3",
+        "exact tetranucleotide self complementary comma free code size 21 17 7",
+        "constant-GC reverse-complement invariant comma free length four single substitution detection and correction",
+        "comma-free nucleotide GC balanced Hamming 3 four-letter strand-symmetric code",
+        "DNA tetranucleotide self-complementary comma free code maximal size reverse complement 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "King (2003), arXiv:math/0306197, numerical tables concern constant-GC Hamming codes and reverse-complement-separated DNA codes, not simultaneous comma-free and RC-closed codebooks.",
+        "Relevant public research-index record: 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a, which concerns length-five non-overlapping codes, not GC-balanced tetranucleotide comma-free ones.",
+        "Closest length-five quaternary symbol-weight finding: 2026/10/4/SCOPE-exact-quaternary-length-five-symbol-weight-code-at-distance-four--12740c640b24, different length and metric."
+      ],
+      "reasoning": "No inspected exact table has the simultaneous three defining constraints or the three paired maximum/census values. The result is a complete 224-codebook finite enumeration and cannot be recovered as a table lookup from the inspected work. Absence of a search hit is not a uniqueness guarantee.",
+      "searches": [
+        "exact tetranucleotide self complementary comma free code size 21 17 7",
+        "GC balanced reverse complement closed four mer code tables Hamming comma-free",
+        "comma-free DNA GC balanced four nucleotide length-4 min Hamming distance 2"
+      ]
+    },
+    "rationale": "The exact joint statement (quaternary four-letter GC-two comma-freeness, reverse-complement closure, Hamming-distance thresholds and complete optimum census) is not implied by the inspected primary bounds for unrestricted comma-free codes nor by constant-GC DNA codes with reverse-complement separation. Direct semantic comparison of actual constraints, rather than title similarity, distinguishes previous exact non-overlapping, binary and deletion-code results. Multiple targeted public-literature and published-finding corpus record searches found no corresponding sharp three-threshold classification. This is a qualified best-knowledge originality assessment, not a proof of global historical priority.",
+    "residual_risks": [
+      "Unindexed older literature or unpublished exact enumerations may have an equivalent classification; the searches do not certify historical priority.",
+      "The broader literature of biological circular codes sometimes studies overlapping word sets with alternate synchronization definitions; no implication from such a formulation has been established here.",
+      "No independent external audit of the executable exhaustive proof has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not a sharp statement for constant-GC reverse-complement-closed tetranucleotides with pairwise Hamming restrictions",
+        "evidence": "Section 3 treats unrestricted alphabet-size and word-length code bounds; additional GC and strand closure are not imposed.",
+        "identifier_or_url": "https://doi.org/10.4153/CJM-1958-023-9",
+        "material_read": "Full open-access journal PDF; definition and length-four construction/bound sections, including original examples",
+        "method": "Primary PDF textual inspection and page screenshot, followed by logical comparison of object constraints",
+        "title": "Comma-Free Codes",
+        "trigger": "Foundational comma-free definitions and unrestricted length-four bounds potentially covering the claim"
+      },
+      {
+        "assessment": "Unrestricted bound for comma-free codes; does not establish joint nucleotide GC/RC/distance optimum or maximizer census",
+        "evidence": "Theorem 4 concerns unrestricted quaternary comma-free word length four; constraints central to this result are absent.",
+        "identifier_or_url": "https://doi.org/10.4153/CJM-1963-021-1",
+        "material_read": "Open-access journal PDF introductory statement and theorem covering quaternary length-four code bounds",
+        "method": "Text and page-image inspection of original PDF with special attention to Theorem 4",
+        "title": "Recent Results in Comma-Free Codes",
+        "trigger": "Relevant plausible older result on length-four alphabet-four comma-free code maximum"
+      },
+      {
+        "assessment": "Different reverse-complement constraint and no simultaneous comma-free requirement; tabulated bounds do not determine this complete joint optimum",
+        "evidence": "King defines RC-distance constraints, which prohibit RC-closed nonempty codebooks for positive RC separation.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0306197",
+        "material_read": "Primary arXiv abstract and substantive full-text sections on GC constant codes, Hamming distance and reverse-complement separation, including numerical bounds",
+        "method": "Read primary public text and compare quantified reverse-complement conditions with the new RC-closure definition",
+        "title": "Bounds for DNA codes with constant GC-content",
+        "trigger": "Closest plausible constant-GC DNA code packing results, with reverse-complement terminology and tabulated bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ad8fd6c-61a6-4289-ab31-a726a184f289",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Four-nucleotide DNA barcodes provide a compact, natural test case for jointly imposing exact half-GC content, strand reversal symmetry and frame synchronization, with distinct framed substitution-detection and substitution-correction requirements. The sharp 21→17→7 cardinality tradeoff gives exact constrained coding capacity at three canonical Hamming thresholds, while the complete 224-optimum census and symmetry/fixed-point classification provide structural design information for codebook selection. This is not a routine special case of a known unconstrained code bound: intersecting comma-freeness, RC closure and GC content changes feasibility in ways not captured by separate constraint counts.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The low-degree bound follows from 24 necessary evaluation/parity congruences with exact integer determinant 4096 and binary rank 12, forcing all 24 coefficient entries even via Smith normal form. Reduction modulo two to a lower-triangular matrix ring proves every entrywise-even null polynomial remains null under right coefficient multiplication and central-degree shifts. Exact exhaustive evaluation of the explicit sextic on each of the 128 ring elements proves its nullity, and the displayed idempotent/right-input gives 2E21 as a nonzero output. The standalone checker reconstructs both finite certificates with exact arithmetic; no randomized or nonexhaustive claims are used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu arXiv:2609.01150 Theorem 5.1 bounds ring order below by 128 and Proposition 5.2 gives the characteristic-four ring.",
+        "Werner arXiv:2608.25853 Theorem 1.2 applies when the radical cube vanishes; this ring has a radical with nonzero cube, and his theorem therefore does not settle its degree filtration."
+      ],
+      "reasoning": "Minimum counterexample order and radical nilpotency restrictions are about the ring as an object, rather than the first polynomial degree giving right-instability inside the fixed ring. Their statements have no degree-five coefficient implication.",
+      "searches": [
+        "\"Peirce Stability of Null Polynomials and a Sharp Radical Bound for Finite Rings\"",
+        "\"Some results on null ideals of finite rings\" Werner 2026",
+        "null polynomial non two sided right stability polynomial degree cutoff sextic finite ring"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.01150, Sections 1-5 and Proposition 5.2",
+      "arXiv:2608.13251, Theorem 2.1 and proof",
+      "arXiv:2608.25853, Theorem 1.2 and radical discussion",
+      "Targeted mathematical-record text queries for null-polynomial first instability degree and coefficient parity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu proves existence of a degree-six right-instability witness on exactly S; this implies only that the minimum degree is at most six.",
+        "Our coefficient-even lemma forces right stability for every null polynomial of degree at most five and thus establishes the missing lower bound.",
+        "Havlovec's ring differs in characteristic and representation; Werner's radical theorem excludes other classes of rings, not low-degree polynomials in S."
+      ],
+      "reasoning": "The accepted statement is not a corollary of a nonclosure example: a polynomial of degree two through five could still witness failure unless excluded separately. The determinant and parity argument are needed for precisely that exclusion.",
+      "searches": [
+        "arXiv:2609.01150 Proposition 5.2 witness degree",
+        "arXiv:2608.13251 Theorem 2.1",
+        "arXiv:2608.25853 Theorem 1.2",
+        "Peirce Stability of Null Polynomials Sharp Radical Bound Hongfeng Wu degree 5 all null polynomials stable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu arXiv:2609.01150, Section 5: exhibits S and sextic null polynomial with non-null right multiple; no minimum-degree assertion or coefficient parity statement in its accessible full text.",
+        "The 24-by-24 integer certificate in RESULT.md proves the lower degree bound, which is logically stronger than exhibiting a sextic witness."
+      ],
+      "reasoning": "The equivalents queried were minimal-degree right-instability, degree-five right stability, and coefficient parity in the same characteristic-four matrix ring. Neither existence of a sextic witness nor the general non-two-sidedness theorem implies absence of degree-five witnesses.",
+      "searches": [
+        "\"minimum degree\" \"null polynomial\" \"two-sided\" \"128\"",
+        "\"Peirce Stability of Null Polynomials\" \"degree\" \"128\"",
+        "all degree at most five null polynomials have even matrix entries Peirce ring characteristic four",
+        "arXiv:2609.01150 section 5 Proposition 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Wu/Havlovec/Werner papers do not contain a complete table or exact first-degree classification for this ring.",
+        "The small exact certificate is newly reconstructed and supplies all degree-five exclusions in one 24-variable computation."
+      ],
+      "reasoning": "No published exact table matching this fixed ring and the minimal right-instability degree was located; a failed search alone is not a priority proof.",
+      "searches": [
+        "sharp minimum degree six for non-right-stable null polynomials in tiled matrix ring over Z/4Z order 128",
+        "minimal degree 6 right-instability witness null polynomial tiled 2 by 2 matrix ring Z4 order 128",
+        "\"Peirce Stability\" degree witness"
+      ]
+    },
+    "rationale": "The new mathematical claim is the exact lower degree bound six for Wu's characteristic-four order-128 ring, together with the stronger parity and all-degree right-stability lemmas. Wu already supplies the same ring and a sextic non-stable null polynomial, which are not asserted as new. The inspected primary sources do not state or imply the degree-five parity obstruction: Wu gives only the upper bound, Havlovec uses a different characteristic-two ring, and Werner's radical criterion gives no degree filtration for this ring. Targeted searches did not identify equivalent results. An implicit pre-existing degree argument remains a residual risk.",
+    "residual_risks": [
+      "The original ring and an upper-bound sextic are known from Wu; only lower-degree exclusion and stronger parity lemma are proposed as new.",
+      "An earlier unpublished computation, overlooked specialized article or implicit older null-polynomial theorem might already establish the degree-five statement.",
+      "Self-review is not independent certification of correctness or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the ring, non-two-sidedness, and a sextic witness; NOT FOUND the sharp minimum-degree obstruction or entrywise-even right-stability lemma.",
+        "evidence": [
+          "Theorem 5.1 establishes minimum ring order 128; Proposition 5.2 establishes null-ideal nonclosure on S.",
+          "No degree-five classification, coefficient parity obstruction or minimum polynomial degree theorem is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.01150",
+        "material_read": "Accessible HTML full article: introduction, Sections 2-5 including Theorem 5.1, Proposition 5.2, Corollary 5.3 and bibliography.",
+        "method": "Read source text and compared objects, coefficient ring, right-evaluation convention, polynomial degrees, statement implications and Section 5 proof.",
+        "title": "Peirce Stability of Null Polynomials and a Sharp Radical Bound for Finite Rings",
+        "trigger": "Exact same ring and degree-six witness; highest-priority overlap comparison."
+      },
+      {
+        "assessment": "Nonclosure example in a nonisomorphic characteristic-two ring; no direct implication about the degree spectrum of S.",
+        "evidence": [
+          "Theorem 2.1 uses a subring of 4-by-4 upper triangular matrices over F2; our ring is a subring of 2-by-2 matrices over Z4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.13251",
+        "material_read": "Accessible HTML article, especially Sections 1-2, Theorem 2.1, explicit polynomial, proof and Remarks 2.2-2.3.",
+        "method": "Compared the ring matrix presentation, characteristic, witness and quantified statement.",
+        "title": "Null polynomials over a finite ring need not form a two-sided ideal",
+        "trigger": "Earlier characteristic-two finite ring counterexample at same cardinality."
+      },
+      {
+        "assessment": "Broader structural sufficient condition for two-sidedness under radical nilpotency at most three; not applicable to this nonclosure ring and contains no needed degree-five bound.",
+        "evidence": [
+          "Theorem 1.2 assumes Jacobson radical nilpotency at most three, whereas Wu explicitly records nonzero radical cube for S."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.25853",
+        "material_read": "Accessible HTML article: introductory statements, Theorem 1.2, Peirce/radical sections and counterexample discussion.",
+        "method": "Checked whether published nilpotency sufficient conditions imply a first-degree cutoff for the ring S.",
+        "title": "Some results on null ideals of finite rings",
+        "trigger": "Potential broader result controlling all null ideals and radical nilpotency."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13c7a0fd-0902-4308-848f-ee54b46793de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural first-degree invariant for a minimal-order counterexample to the two-sided null-ideal conjecture was not determined by exhibiting one sextic. The sharp impossibility of all lower degrees and the stronger coefficient-parity mechanism are mathematically informative about the finite ring's polynomial-function structure; this is a genuinely complete first-cutoff classification, not a routine adjustment of parameters. It does not claim a universal bound for other rings.",
+    "status": "PASS"
+  }
+}

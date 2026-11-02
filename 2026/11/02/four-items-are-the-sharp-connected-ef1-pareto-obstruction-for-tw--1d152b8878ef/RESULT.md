@@ -1,0 +1,44 @@
+# Four items are the sharp connected EF1–Pareto obstruction for two agents
+
+## Finding
+For two agents dividing indivisible goods on a path, arbitrary **strictly positive additive** valuations guarantee a complete contiguous allocation that is simultaneously envy-free up to one good (EF1) and Pareto optimal among **all** allocations when there are at most three goods. Four goods suffice to make the requirements incompatible. The same threshold and example apply to two agents dividing indivisible chores, using standard chore EF1 and cost-minimizing Pareto optimality.
+
+## Assumptions and scope
+The agents are labeled \(1,2\), and the path is the ordered set of \(m\) indivisible items. Each item has positive additive value for each agent. A complete allocation is a partition \((X_1,X_2)\). Each bundle is an interval (the empty set is permitted). Global Pareto optimality means no alternative partition, whether contiguous or not, weakly improves both utilities and strictly improves at least one. Goods EF1 means, for both distinct agents \(i,j\),
+\[v_i(X_i)\ge v_i(X_j)-\max_{g\in X_j}v_i(\{g\}),\]
+with the maximum over an empty bundle interpreted as zero. For chores, agent utilities are replaced by strictly positive additive costs, both inequalities for Pareto optimality are reversed, and EF1 removes one item from the envying agent's **own** bundle.
+
+## Proof
+**At most two items.** With one item, allocating it to either agent is Pareto optimal and EF1. With two items, either singleton/singleton split is EF1: removing the other agent's only good eliminates any envy. Because all item values are strictly positive, no allocation putting both items with one agent dominates a singleton/singleton split. Of the two singleton splits, at least one is not dominated by the other. Hence one is globally Pareto optimal.
+
+**Three items.** Denote the ordered items \(L,M,R\), and write the two agents' strictly positive item values as \((a,b,c)\) and \((d,e,f)\). Reverse the path, if necessary, to ensure \(a\ge c\). The four nondegenerate contiguous splits are
+\[P=(\{L\},\{M,R\}),\quad Q=(\{L,M\},\{R\}),\]
+\[R_0=(\{M,R\},\{L\}),\quad S=(\{R\},\{L,M\}).\]
+Their utility vectors are respectively \((a,e+f)\), \((a+b,f)\), \((b+c,d)\), and \((c,d+e)\). The two disconnected splits have vectors \((b,d+f)\) and \((a+c,e)\), which we call \(Y\) and \(Z\). The two all-to-one allocations cannot dominate any of the four nondegenerate splits because values are positive.
+
+The elementary EF1 conditions are: \(P\) is EF1 since \(a\ge c\ge\min(b,c)\); \(Q\) is EF1 exactly when \(f\ge\min(d,e)\); \(R_0\) is EF1 exactly when \(d\ge\min(e,f)\); and \(S\) is EF1 exactly when \(c\ge\min(a,b)\). Comparing the eight utility vectors gives the following exhaustive cases; a dominator must improve at least one coordinate strictly.
+
+1. If \(f>d\), then \(P,Q\) are EF1. The only possible strict dominator of \(P\) is \(Y\), requiring \(b\ge a,d\ge e\); the only possible strict dominator of \(Q\) is \(Z\), requiring \(c\ge b,e\ge f\). These cannot both occur with a strict improvement: their inequalities would force \(a=c=b\) and \(f\le d\), contradicting \(f>d\). At least one of \(P,Q\) is globally Pareto optimal.
+2. If \(d>f\) and \(a>c\), then \(P,R_0\) are EF1. A strict dominator of \(P\) must be \(R_0\) or \(Y\); one of \(R_0\) must be \(P\) or \(Z\). Neither candidate can dominate the other in both directions; \(R_0\succeq P\) together with \(Z\succeq R_0\) would require \(d\ge e+f\) and \(e\ge d\), impossible since \(f>0\); \(Y\succeq P\) with \(P\succeq R_0\) would require \(b\ge a\ge b+c\), impossible since \(c>0\); and \(Y\succeq P\) with \(Z\succeq R_0\) forces \(b\ge a\ge b\) and \(d\ge e\ge d\), leaving no strict gain. Thus at least one is globally Pareto optimal.
+3. If \(d>f\) and \(a=c\), then \(R_0\) is EF1. Its only possible strict dominator is \(Z\), which requires \(a\ge b,e\ge d\). If this domination occurs, \(S\) is EF1 because \(c=a\ge\min(a,b)\), and \(S\) is globally Pareto optimal: all other splits have strictly smaller second-agent utility than \(d+e\), except possibly \(Y\), whose second-agent utility \(d+f\) is also smaller because \(e\ge d>f\). If \(Z\) does not dominate \(R_0\), use \(R_0\).
+4. If \(d=f\) and \(a>c\), then \(Q\) is EF1. Its only possible strict dominator is \(Z\), requiring \(c\ge b,e\ge f\). If it exists then \(b\le c<a\), and \(P\) is EF1 and globally Pareto optimal: its only possible strict dominator is \(Y\), ruled out by \(b<a\). Otherwise use \(Q\).
+5. If \(d=f\) and \(a=c\), then \(P,R_0\) are EF1. The only possible strict dominator of \(P\) is \(Y\), requiring \(b\ge a,d\ge e\). The only possible strict dominator of \(R_0\) is \(Z\), requiring \(a\ge b,e\ge d\). Both require equality throughout and hence neither strict domination. One of \(P,R_0\) is globally Pareto optimal.
+
+These five cases exhaust all \(d,f>0\) and \(a,c>0\), proving the three-item guarantee. (Weak dominance arrows in the comparisons include equality; strict Pareto domination additionally needs a strict coordinate.)
+
+**Four items.** Take \(v_1=(1,1,1,1)\) and \(v_2=(1,2,2,1)\). At a contiguous split giving agent \(1\) one endpoint item, agent \(1\)'s value is \(1\), but after deleting any one of the other three goods, agent \(1\) still values the remainder at \(2\), violating EF1. At a split giving agent \(2\) one endpoint, that agent values it at \(1\), but values the other three at \(5\) and at least \(3\) after deleting any one, again violating EF1. Allocations giving all items to one agent also violate EF1. At either two/two cut, the connected allocation has utility vector \((2,3)\). Giving both endpoints to agent \(1\) and the two middle items to agent \(2\) is a (disconnected) allocation with utility vector \((2,4)\), so the cut is not globally Pareto optimal. Therefore no connected EF1 and globally Pareto-optimal allocation exists.
+
+**Chore duality.** For any two-agent goods partition \(Y=(Y_1,Y_2)\), form the chores partition \(X=(Y_2,Y_1)\), keeping each agent's item weights numerically unchanged and treating them as costs. Agent \(i\)'s cost is \(c_i(X_i)=c_i(M)-v_i(Y_i)\). Thus goods Pareto improvements correspond exactly to chores cost Pareto improvements; connectedness is preserved. Moreover \(c_i(X_i)-\max_{g\in X_i}c_i(g)\le c_i(X_j)\) is algebraically equivalent to \(v_i(Y_i)\ge v_i(Y_j)-\max_{g\in Y_j}v_i(g)\). Hence chore EF1 and goods EF1 are equivalent, including empty bundles. Every positive existence and four-item obstruction transfers exactly.
+
+## Verification
+A standalone exhaustive integer checker is supplied as `verify.py`. It tests all strictly positive integer valuation pairs with each coordinate in \(\{1,2,3,4\}\) and at most three goods (\(4368\) profiles), comparing every connected allocation against all unrestricted partitions for EF1 and global Pareto optimality. It also checks the explicit four-item obstruction. This finite check is corroborative; the preceding inequality proof treats arbitrary positive real valuations.
+
+## Relationship to prior work
+Igarashi and Peters, *Pareto-Optimal Allocation of Indivisible Goods with Connectivity Constraints* (2019), Section 4, Example 1, exhibit a **five-item**, two-agent binary-valued path where connected EF1 and global Pareto optimality conflict. Their construction includes zero-valued items and does not establish a four-item obstruction or rule out incompatibility below five. Lin, Liu, Tao and Zhou, *Comparison-Based Fair Division of Indivisible Chores* (2026), investigate contiguous chore fairness, including PROP1 and EF1 under restricted information, but do not establish the present exact connected-EF1/global-PO threshold. Our theorem sharpens the first incompatibility size to four, proves minimality for arbitrary strictly positive additive two-agent valuations, and transfers it to chores by an exact duality.
+
+## Limitations
+Global Pareto optimality compares contiguous allocations against **every** allocation, even disconnected allocations; requiring efficiency only among contiguous allocations is a different problem. The result treats two agents and arbitrary positive additive valuations, not three agents or nonadditive valuations. The four-item obstruction is not binary-valued, although it uses only two positive item values. Publication-priority remains subject to external independent review; differently phrased prior small-instance results may exist.
+
+## References
+1. A. Igarashi and D. Peters, *Pareto-Optimal Allocation of Indivisible Goods with Connectivity Constraints* (2019), Section 4, Example 1. https://dominik-peters.de/publications/efficiency.pdf
+2. Z. Lin, S. Liu, B. Tao and S. Zhou, *Comparison-Based Fair Division of Indivisible Chores*, arXiv:2609.08687v1, first public 2026-09-08. https://arxiv.org/abs/2609.08687

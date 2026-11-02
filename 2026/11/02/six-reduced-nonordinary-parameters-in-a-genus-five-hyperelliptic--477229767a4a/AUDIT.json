@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For t!=±2 the branch polynomial is separable of degree 12 and genus is 5. The exact standard Hasse--Witt matrix is diagonalized by a constant F13-basis; the eigenvalues factor as one nonvanishing, two copies of (t+2)^3 P(t), and two scalar multiples of Q(t). Constant-basis diagonalization ensures the stable Frobenius rank equals one-step rank over any algebraically closed field. P and Q are disjoint, separable cubics avoiding ±2, with six roots in F169; Cartier kernel dimension is g-rank. Direct standard-library polynomial and F169 checks reproduced all critical identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ohashi--Kudo Proposition 4.6: Jacobian isogenous to five elliptic curves via isogeny degree a power of two, with two repeated factors; Corollary 4.7 concerns superspeciality.",
+        "Yui 1978 provides the general hyperelliptic Cartier--Manin formula; it does not specify factors P,Q of this one-dimensional pencil.",
+        "Bouchet et al., arXiv:2506.06457, study global hyperelliptic p-rank strata via computation and conjectures rather than the explicit special locus."
+      ],
+      "reasoning": "The known isogeny decomposition strongly suggests paired rank drops and implies structural constraints, but it does not itself determine which six characteristic-13 parameters have p-rank three. The new computation determines both rank-drop equations and their multiplicity.",
+      "searches": [
+        "\"genus 5\" \"(x^4+1)\" \"(x^8\" \"rank\"",
+        "p rank hyperelliptic curves with extra automorphisms genus 5 D8 Hasse-Witt 2019",
+        "p-rank jump divisor sextic characteristic 13 x^12+a x^8 + b x^4 + 1 hyperelliptic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.21569v1 (Sections 2,3,4.2, Section 6 tables, HTML)",
+      "arXiv:2506.06457v1 (abstract/metadata only)",
+      "Yui 1978 (bibliographic and standard formula context; full article not inspected)",
+      "PassageMath/Sage published Cartier_matrix documentation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ohashi--Kudo 2026: the exact family and power-of-two five-elliptic isogeny factors. Its explicit objects do not give the six parameter roots or their separability.",
+        "The standard Hasse--Witt coefficient recipe must be specialized and factored; direct comparison yields two disjoint cubic conditions with rank drop exactly two.",
+        "The alternative genus-five pencil \\(y^2=x^{12}+A x^6+1\\) has different ramification symmetry and no parameter-wise implication producing these two cubics."
+      ],
+      "reasoning": "A stronger result characterizing ordinary reduction of every elliptic factor as a function of this exact parameter would dominate the claim, but none was identified. Formulae for the factors plus classical Hasse invariants make this accessible to derivation, not already stated as the same mathematical assertion.",
+      "searches": [
+        "\"x^4+1\" \"x^8\" \"13\" \"p-rank\" hyperelliptic",
+        "\"genus 5\" \"(x^4+1)\" \"(x^8\" \"rank\"",
+        "hyperelliptic genus five type 7 D8 characteristic 13 a-number 0 2 six exceptional parameters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ohashi--Kudo arXiv:2603.21569 Section 4.2 equation (4.9) and explicit equivalence with the minus-sign presentation (HTML lines 360--372).",
+        "The presented coordinate equivalence changes the model but not the stated Jacobian invariants; no six-point criterion appears in this section."
+      ],
+      "reasoning": "The alternative (x^4+1)(x^8-Ax^4+1) form is explicitly the same pencil; novelty is not based on renaming it. The matrix factorization and six nonordinary parameter values are absent from the source section.",
+      "searches": [
+        "\"(x^4+1)(x^8-Ax^4+1)\" p-rank",
+        "\"x^4+1\" \"x^8\" \"13\" \"p-rank\" hyperelliptic",
+        "hyperelliptic genus five family y^2=(x^4+1)(x^8-Ax^4+1) characteristic thirteen p-rank three nonordinary Cartier Hasse Witt"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ohashi--Kudo Tables 2--3 are superspecial isomorphism-class counts for several automorphism types, not the p-rank of all smooth parameters.",
+        "Bouchet et al. arXiv:2506.06457 describes sampled hyperelliptic moduli p-rank statistics, not an exact cubic-factor parameter table."
+      ],
+      "reasoning": "No inspected table or indexed exact-database result lists the six parameters or the (5,0)/(3,2) classification. Searches do not constitute exhaustive evidence against unindexed tables.",
+      "searches": [
+        "\"type 7\" \"genus 5\" \"p-rank\" hyperelliptic",
+        "characteristic 13 genus 5 type 7 hyperelliptic ordinary nonordinary locus",
+        "\"genus 5\" \"(x^4+1)\" \"(x^8\" \"rank\""
+      ]
+    },
+    "rationale": "The identified original paper classifies the special automorphism family, provides a five-elliptic isogeny splitting and superspecial criteria, but neither its Section 4.2 nor its tabulated superspecial counts specify the exact six characteristic-13 nonordinary parameters or their Hasse--Witt determinant multiplicities. The standard hyperelliptic matrix formula is an input rather than an evaluation. Published-record queries found no claim-level equivalent; priority remains provisional.",
+    "residual_risks": [
+      "An unindexed computation under the coordinate-equivalent positive-sign model could already contain these exact parameter values.",
+      "The 2025 global hyperelliptic rank-strata manuscript was checked only at abstract level; its body could contain an explicit small-family example.",
+      "No independent external mathematical review; priority is provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_NOT_COVERING_EXACT_INVARIANT",
+        "evidence": "Section 4.2 explicitly identifies both coordinate forms and five elliptic factors; the assertions concern superspeciality rather than p-rank-three fibers, and no P,Q parameter equations are given.",
+        "identifier_or_url": "https://arxiv.org/abs/2603.21569",
+        "material_read": "HTML abstract/introduction, Section 2 classification, Sections 3 and 4.2, and superspecial count tables in Section 6",
+        "method": "Direct HTML text reading and claim-level comparison of equations (4.9)--(4.12), Proposition 4.6, Corollary 4.7, and table scope",
+        "title": "On superspecial hyperelliptic curves of genus 5 whose automorphism groups contain (Z/2Z)^3",
+        "trigger": "Exact curve model, genus and related isogeny decomposition"
+      },
+      {
+        "assessment": "NO_IDENTIFIED_EXACT_FAMILY_RESULT_ABSTRACT_ONLY",
+        "evidence": "Paper studies sampling and geometric irreducibility conjectures of global p-rank strata, without naming this one-dimensional type-7 automorphism pencil in its abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2506.06457",
+        "material_read": "Abstract, MSC and scope from arXiv record; not full manuscript",
+        "method": "Abstract-level comparison to the explicit pencil",
+        "title": "Heuristics for (ir)reducibility of p-rank strata of the moduli space of hyperelliptic curves",
+        "trigger": "Potential broader genus-five hyperelliptic rank stratification"
+      },
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_PARAMETER_RESULT",
+        "evidence": "States M_(i,j)=c_(pi-j) for f(x)^((p-1)/2); no special factorization of the genus-five pencil.",
+        "identifier_or_url": "https://passagemath.org/docs/10.6/html/en/reference/arithmetic_curves/sage/schemes/hyperelliptic_curves/hyperelliptic_finite_field.html",
+        "material_read": "Documentation section describing coefficient matrix c_(pi-j) and examples",
+        "method": "Formula and convention comparison",
+        "title": "HyperellipticCurve_finite_field.Cartier_matrix documentation",
+        "trigger": "Check normalization of standard hyperelliptic Hasse--Witt formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47722976-7a4a-4f94-95bf-b69a281dbbb7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 large-automorphism classification singles out this one-dimensional genus-five family but does not identify its nonordinary fibers. The theorem exhaustively identifies the natural smooth p-rank-three divisor, proves all drops occur in paired directions, and shows the determinant vanishes doubly at six distinct geometric parameters. This gives fine Jacobian-stratification data not implied numerically by the known automorphism or elliptic-isogeny descriptions. The classification is exact for its full parameter domain, not a random sample or arbitrary chosen curve.",
+    "status": "PASS"
+  }
+}

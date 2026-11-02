@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness (PASS).** The existing general exchange-distance theorem gives \(d(T,U)=9-|T\cap U|\). A forest-extension argument identifies the eccentricity of \(T\) with the graphic rank of its six-edge complement, and the girth and cycle classification give precisely 70 central trees. All 2000 spanning trees and all 1,999,000 unordered pairs are covered by the direct checker; an independent 32,768-subset contraction-determinant calculation proves the histogram without enumerating tree pairs. The numeric table is an exact finite certificate, not sampling.
+
+**Originality (PASS, with risk).** Dara et al. (arXiv:1601.01041, Lemma 2.3) already prove the metric's general *expression*, not its Petersen-specific evaluation. Brouwer supplies the graph and 12/10 cycle counts, not the center classification or pair-distance distribution. Kim–Oum's general Hamiltonicity/pancyclicity results do not imply these specific values. No covering claim was found in the targeted mathematical literature and research-record comparisons, but the full text of a plausible Petersen-matroid manuscript was unavailable; priority is consequently qualified. Existing spanning-tree counts and exchange identities are not proposed as new.
+
+**Value (PASS).** The output determines the complete geodesic-distance distribution and sharp central/peripheral stratification of the canonical smallest snark's spanning-tree exchange space. The exactly characterized 70 central trees, divided into two types of complementary cycles, reveal structure invisible in the known tree count and general exchange theorem. These are natural benchmark data for finite graphic-matroid basis-exchange dynamics, although no general mixing result is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

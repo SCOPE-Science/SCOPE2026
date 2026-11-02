@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For the explicitly stationary Gaussian diffusion, the cross-time covariance equals a damped planar rotation, and noisy sampling adds a diagonal covariance term. Circular polarization diagonalizes the spectral matrices, and geometric-decay Toeplitz-to-circulant comparison reduces full-path relative entropy to a positive scalar frequency integral. Exact Poisson-kernel convolution gives the closed formula. Its Puiseux expansion gives the displayed fixed-noise square-root coefficient. Strictly positive Gaussian covariance at zero spacing for each fixed observation block yields a quadratic finite-block KL, proving the noncommuting iterated limits. The independent standard-library numerical verifier passed 36 deterministic cross-checks. These checks are corroboration, not a substitute for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "T. Sagawa, Stochastic Thermodynamics for Autoregressive Generative Models: A Non-Markovian Perspective, arXiv:2604.07867 (first submitted 2026-04-09), https://arxiv.org/pdf/2604.07867",
+        "T. R. Gingrich et al., Thermodynamic inference from noisy single-molecule time series, arXiv:2606.23619 (first submitted 2026-06-22), https://gingrich.chem.northwestern.edu/papers/JCP26-AR-03331.pdf",
+        "Sagawa §VI treats a general linear Gaussian Kalman innovation representation; Gingrich et al. §II develops general noisy-observation path irreversibility bounds and discusses finite observation history."
+      ],
+      "reasoning": "Both papers are broader in model coverage and furnish important antecedents. The full nonlinear coefficient in the fixed-noise high-frequency singular limit, including opposite orders of history and temporal-resolution limits, is not stated in the inspected portions. They are credited for methods and qualitative effects, and the remaining implication risk is explicitly retained.",
+      "searches": [
+        "arXiv:2604.07867",
+        "arXiv:2606.23619",
+        "rotating Ornstein Uhlenbeck process additive observation noise full path entropy production nonanalytic square root sampling"
+      ]
+    },
+    "checked_sources": [
+      "T. Sagawa, Stochastic Thermodynamics for Autoregressive Generative Models: A Non-Markovian Perspective, arXiv:2604.07867 (first submitted 2026-04-09), https://arxiv.org/pdf/2604.07867",
+      "T. R. Gingrich et al., Thermodynamic inference from noisy single-molecule time series, arXiv:2606.23619 (first submitted 2026-06-22), https://gingrich.chem.northwestern.edu/papers/JCP26-AR-03331.pdf",
+      "D. da Costa and G. A. Pavliotis, The entropy production of stationary diffusions, arXiv:2212.05125, https://arxiv.org/abs/2212.05125",
+      "C. Godrèche and J.-M. Luck, Characterising the nonequilibrium stationary states of Ornstein–Uhlenbeck processes, arXiv:1807.00694, https://arxiv.org/abs/1807.00694"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "T. Sagawa, Stochastic Thermodynamics for Autoregressive Generative Models: A Non-Markovian Perspective, arXiv:2604.07867 (first submitted 2026-04-09), https://arxiv.org/pdf/2604.07867",
+        "T. R. Gingrich et al., Thermodynamic inference from noisy single-molecule time series, arXiv:2606.23619 (first submitted 2026-06-22), https://gingrich.chem.northwestern.edu/papers/JCP26-AR-03331.pdf",
+        "D. da Costa and G. A. Pavliotis, The entropy production of stationary diffusions, arXiv:2212.05125, https://arxiv.org/abs/2212.05125",
+        "C. Godrèche and J.-M. Luck, Characterising the nonequilibrium stationary states of Ornstein–Uhlenbeck processes, arXiv:1807.00694, https://arxiv.org/abs/1807.00694"
+      ],
+      "reasoning": "The continuous OU entropy-production benchmark is a known consequence of standard stationary-current theory. General Gaussian path-KL methods imply that the observed law could be evaluated; that broad capability is not claimed as original. The finite sensor-variance, h-to-zero square-root rate and exact failure of every fixed-history time reversal estimator were not found as preexisting stated results, and their simultaneous proof supplies the candidate contribution.",
+      "searches": [
+        "arXiv:2604.07867 §VI",
+        "arXiv:2606.23619 §II-§IV",
+        "arXiv:2212.05125",
+        "arXiv:1807.00694"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "T. Sagawa, Stochastic Thermodynamics for Autoregressive Generative Models: A Non-Markovian Perspective, arXiv:2604.07867 (first submitted 2026-04-09), https://arxiv.org/pdf/2604.07867",
+        "The Kalman innovation representation covers general Gaussian observation paths, but its displayed results treat generic covariance/innovation matrices rather than the stated sharp square-root coefficient under fixed-variance, high-frequency sampling."
+      ],
+      "reasoning": "Gaussian frequency-domain path KL, innovations KL, and autoregressive state-space KL are equivalent ways to evaluate long stationary observed-path relative entropy. Such equivalence covers the general method and possibly an unexpanded formula, not automatically the explicit nonanalytic resolution asymptotic and noncommuting history limits. These narrower claimed components were compared separately rather than asserting a wholly novel generic KL method.",
+      "searches": [
+        "sampled rotational Ornstein Uhlenbeck time reversal entropy production additive observation noise",
+        "discrete noisy linear Gaussian process time reversal spectral density entropy production singular high frequency sampling limit",
+        "arXiv:2604.07867 §VI"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible mathematical-research search results concerned sampled OU autocorrelation reversal, numerical integration bias and generic KL theory, not the same exact noisy pathwise asymptotic.",
+        "T. R. Gingrich et al., Thermodynamic inference from noisy single-molecule time series, arXiv:2606.23619 (first submitted 2026-06-22), https://gingrich.chem.northwestern.edu/papers/JCP26-AR-03331.pdf"
+      ],
+      "reasoning": "No exact table or published collection giving the stated full-history noisy sampling law was located. The absence of a database hit is not proof of novelty, and a standard general formula might permit derivation of this special case.",
+      "searches": [
+        "noisy sampled rotational Ornstein Uhlenbeck exact Gaussian path reversal KL rate square-root temporal resolution noncommuting memory length limits",
+        "sampling hides entropy production nonreversible Ornstein Uhlenbeck process oscillation discrete-time aliasing",
+        "arXiv:2606.23619"
+      ]
+    },
+    "rationale": "A claim-level inspection distinguishes the new explicit noisy planar rotational OU full-history expression, square-root temporal-resolution coefficient, and singular finite-history/infinite-history limits from already known general Gaussian state-space path-KL methods and general noise-induced hidden-process memory. Both motivating full texts were inspected in their directly relevant theory sections. No equivalent special asymptotic or noncommutation statement was identified in those passages, the searched research records, or accessible preceding findings. Potential coverage by a broader Gaussian spectral theorem remains a publication-priority risk.",
+    "residual_risks": [
+      "A broader linear-Gaussian spectral entropy-production theorem may specialize to the closed expression and potentially dominate part of the candidate.",
+      "Only directly relevant material, not every related work cited by the source papers, could be inspected.",
+      "Independent human priority and mathematical reviews have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides generic linear Gaussian stationary-observation and path-reversal method; no explicitly extracted fixed-noise high-frequency square-root coefficient or fixed-block noncommutation was found in the inspected analysis",
+        "evidence": [
+          "Sec. VI discusses Eq. (36)–(44) state-space model and EPR through innovations",
+          "The generality of Sec. VI could allow deriving the special formula after nontrivial calculation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.07867",
+        "material_read": "Abstract/introduction; Sec. VI setup, Kalman representation, path covariance and backwards innovation calculations on PDF pp. 13–16; references to OU work",
+        "method": "Read full-text PDF sections and displayed equations, not just abstract",
+        "title": "Stochastic Thermodynamics for Autoregressive Generative Models: A Non-Markovian Perspective",
+        "trigger": "General linear Gaussian observation path irreversibility could subsume the spectral computation"
+      },
+      {
+        "assessment": "Establishes generic noise-induced memory and pitfalls of short-history EPR estimation; does not display the planar rotating OU exact full-history formula or its sharp square-root coefficient",
+        "evidence": [
+          "Sec. II explains additive localization errors, P(Y|X), and non-Markovian observation law",
+          "Finite-resolution effects and finite-history estimators are studied but in different models"
+        ],
+        "identifier_or_url": "https://gingrich.chem.northwestern.edu/papers/JCP26-AR-03331.pdf",
+        "material_read": "Full-text theory Sec. II and finite-observation analyses, including noise-model equations and illustrative examples through Sec. IV; examined relevant later numerical examples",
+        "method": "Read author-provided accepted manuscript PDF theory, formulas and examples",
+        "title": "Thermodynamic inference from noisy single-molecule time series",
+        "trigger": "Directly addresses noisy observed trajectories, memory, and temporal resolution"
+      },
+      {
+        "assessment": "Continuous-time entropy theory is credited; no inference about its complete absence of a noisy discretization result is made",
+        "evidence": [
+          "Stationary diffusion entropy production and linear Gaussian specializations are established background"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.05125",
+        "material_read": "Bibliographic abstract and relevant stated scope; not a full-document negative-coverage claim",
+        "method": "Checked public abstract/summary and scope",
+        "title": "The entropy production of stationary diffusions",
+        "trigger": "Possible domination of the continuous-time OU EPR benchmark"
+      },
+      {
+        "assessment": "Known stationary OU theory covers the continuous benchmark, which is not claimed new",
+        "evidence": [
+          "General steady OU covariance/current mechanism is antecedent"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1807.00694",
+        "material_read": "Bibliographic description, known relevant OU framework; not used for whole-text negative-coverage claim",
+        "method": "Checked public scope and compared stationary versus noisy-sampling objects",
+        "title": "Characterising the nonequilibrium stationary states of Ornstein–Uhlenbeck processes",
+        "trigger": "General stationary OU covariance and irreversible-current formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "27aac62e-5e5d-445b-b3da-f93878d5ac5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact noisy-trajectory entropy-production recovery resolves a nontrivial ambiguity identified by Gingrich et al.: shorter windows can falsely suggest diminished irreversibility when measured more often. The universal-in-history noncommutation and explicit nonanalytic coefficient provide a sharp diagnostic in a physically motivated, minimal rotational Gaussian model. They distinguish full-path inference from a fixed-order proxy without asserting general results for arbitrary hidden stochastic systems.",
+    "status": "PASS"
+  }
+}

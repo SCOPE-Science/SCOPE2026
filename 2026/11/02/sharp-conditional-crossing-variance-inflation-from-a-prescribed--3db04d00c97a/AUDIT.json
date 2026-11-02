@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For each n>=3 and a+b=2n-2, pairing probabilities yield E Y, Var Y and the mixed covariance Cov(X,Y) by an explicit finite double sum. Addition with independently established Var X gives the stated rational conditional variance; algebraic sign and strict extremizers follow from an integer product. Original Python standard-library verifier passed 194 exact-arithmetic assertions on 293194 exhaustively enumerated matching instances through n=7; general proof is analytic and not inferred from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1307.6440, abstract: generating functions at prescribed total crossing number, not a specified edge",
+        "arxiv:1501.01489v1: directed intersections, k-core, and root degree, no global/root joint second moment in inspected sections"
+      ],
+      "reasoning": "A stronger joint generating function refined by the root chord would imply the new variance. No such coverage was found in the inspected material, but the abstract-only source prevents ruling out an indirect refinement elsewhere.",
+      "searches": [
+        "joint crossings root chord degree random chord diagrams distribution generating function length",
+        "random matchings crossings given fixed matching edge variance crossing count",
+        "rooted chord diagram crossing enumerator chord containing vertex one length crossing polynomial"
+      ]
+    },
+    "checked_sources": [
+      "INRIA RR3914 original report (relevant full crossings section)",
+      "arxiv:1501.01489v1 original arXiv full-text section 2",
+      "arxiv:1307.6440 abstract only",
+      "Touchard–Riordan unrestricted crossing enumeration as cited by primary texts",
+      "Available historical claim titles/claims for deduplication",
+      "Published research-record results returned by targeted semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "inria:RR3914, Theorem 3: Var(C_m)=m(m-1)(m+3)/45",
+        "arxiv:1501.01489v1, section 2: E and Var of the number of chords crossing the root chord at fixed length",
+        "new proof: Cov(X,Y)=ab(a-1)(b-1)/[6(M-3)(M-1)]"
+      ],
+      "reasoning": "Flajolet–Noy plus Acan imply Var(X)+Var(Y) but not Var(X+Y), since the mixed covariance remains unspecified. The new calculation supplies exactly that missing positive term. The first-moment formula is directly prior-implied and is not the novelty claim.",
+      "searches": [
+        "random chord diagram number of crossings conditioned on a prescribed chord endpoints length; conditional expected crossing count and covariance chord event",
+        "uniform random perfect matching on cyclic labeled points crossing count covariance with chord length, adjacent chords",
+        "conditional variance of total intersection count in a uniform random chord diagram when an endpoint pair is fixed; chord arc sizes a,b and polynomial variance inflation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1501.01489v1, section 2: moments of the chord degree conditional on length",
+        "inria:RR3914, section 2 Theorem 3: unconditional crossing count moments"
+      ],
+      "reasoning": "Equivalent rephrasings as crossing count of a root-chord diagram, edge-count variance conditional on a specified chord, or covariance of residual crossing edges and root degree require the mixed term. The two inspected primary formulas alone do not specify that term.",
+      "searches": [
+        "conditional variance of total intersection count in a uniform random chord diagram when an endpoint pair is fixed; chord arc sizes a,b and polynomial variance inflation",
+        "variance of crossing number conditioned on a fixed chord of specified length in random perfect matching",
+        "conditional variance crossings given chord length uniform random chord diagram"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Riordan 1975 Touchard–Riordan count enumerates diagrams by total crossings, without a prescribed chord parameter",
+        "inria:RR3914 Theorem 3 is unconditional mean/variance"
+      ],
+      "reasoning": "The exact Touchard–Riordan table by total crossing count cannot by itself determine conditional moments for a particular endpoint pair. An indexed conditional table or formula matching the claimed rational polynomial was not identified in the performed comparisons.",
+      "searches": [
+        "random chord matching crossing number covariance between induced submatching crossings and number of chords straddling a fixed cut, sharp formula",
+        "chord diagram crossing statistics and number of short chords joint distribution covariance",
+        "random chord diagrams crossings variance chord length adjacent endpoints enumeration formula"
+      ]
+    },
+    "rationale": "The reviewed claim is the conditional variance of the total crossing count and its sharp arc maximum. Original Flajolet–Noy section 2 gives only unconditional crossing moments; Acan section 2 gives only the distinguished chord degree moments. Neither provides their mixed covariance, which is a separately computed positive structural term. The first conditional mean is explicitly treated as prior-implied. Closest retrieved research records concern a generic-chord orbit count or geometric polygon chords rather than a uniform perfect matching. Historical priority of the variance formula is provisional, and a plausible generating-function paper remains abstract-only.",
+    "residual_risks": [
+      "Historical or later two-variable generating functions for rooted matchings may indirectly encode this conditional variance.",
+      "Pilaud–Rué full text was not inspected; no full-document noncoverage claim is made.",
+      "Research-record search and finite enumeration do not constitute proof of universal priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UNCONDITIONAL MOMENTS; NO OBSERVED FIXED-CHORD VARIANCE",
+        "evidence": "Theorem 3: E C_m=m(m-1)/6 and Var C_m=m(m-1)(m+3)/45; section 2 is written for unconditioned crossing count.",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Original dated report abstract/introduction; pages 9–12 containing crossings Theorem 3, equations for second/third moments, proof, notes and references",
+        "method": "Original publicly hosted PDF, checked relevant page images and textual passages",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Exact unconditioned crossing variance might already be refined for a specified edge"
+      },
+      {
+        "assessment": "ROOT DEGREE MOMENTS ALREADY COVERED; NO INSPECTED MIXED COVARIANCE WITH RESIDUAL GLOBAL CROSSINGS",
+        "evidence": "Section 2 equations (2.1) and (2.2) compute E and Var of internal chords on the smaller arc and thereby the root degree.",
+        "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+        "material_read": "Full-text arXiv presentation, introduction, notation, complete section 2 root-degree first/second moments and theorem, and searchable remainder of article",
+        "method": "Read arXiv full-text presentation, searched for total crossings/covariance/variance",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Nearest source on chord length and root degree"
+      },
+      {
+        "assessment": "PRIORITY RISK NOT RESOLVED; ABSTRACT ALONE NOT USED TO EXCLUDE COVERAGE",
+        "evidence": "Abstract describes families with precisely k crossings and rational generating-function constructions, with no explicit fixed-edge conditional second moments.",
+        "identifier_or_url": "https://arxiv.org/abs/1307.6440",
+        "material_read": "Public abstract and bibliographic information only; full text not examined",
+        "method": "ArXiv abstract and institutional research record",
+        "title": "Analytic combinatorics of chord and hyperchord diagrams with k crossings",
+        "trigger": "Potential stronger refined crossing-count enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3db04d00-c97a-4932-8c1b-04cdfc5a9083",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural global crossing-count variance of a random chord diagram responds nontrivially to conditioning on one root chord. The exact positive mixed covariance is invisible to existing separate global crossing and root-degree moment formulas; the result gives a sharp shape-dependent variance inflation and a complete zero/maximum classification, with order-n^2 maximal effect. No additional theorem outside this natural invariant is needed for its precise usefulness.",
+    "status": "PASS"
+  }
+}

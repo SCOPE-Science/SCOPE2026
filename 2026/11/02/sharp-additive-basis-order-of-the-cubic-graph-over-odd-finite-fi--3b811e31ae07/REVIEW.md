@@ -1,0 +1,11 @@
+# Review: sharp additive basis order of the cubic graph over odd finite fields
+
+**Correctness — PASS.** The reduction from simultaneous first/cubic sums to a plane cubic is exact. Its only potentially singular parameter values have explicit representations; otherwise two affine partial derivatives exclude singular points, and all three points at infinity are smooth. The Hasse bound gives a fourth rational point for every field order at least eleven. An exact finite-field checker confirms the exceptional missing sets and tests extension fields. The theorem explicitly excludes characteristic two.
+
+**Originality — PASS, qualified.** The nearest fully inspected published result on the same cubic graph is an exact fourth Fourier-moment/extension theorem based on twofold additive collision fibers. That is weaker in the relevant direction: aggregate twofold collision data cannot establish every threefold sum target has a representation. The 2010 Sidon-method paper focuses on quadratic graph equations, the 2023 generalized-Jacobian paper treats additive quadruple uniqueness, and the 2022 APN maximality framework has characteristic-two hypotheses. No exact all-odd-field covering classification or 5/7 exceptional table was identified. Historical priority is not independently certified.
+
+**Mathematical value — PASS.** The exact least additive basis order and its two exceptional field sizes give a natural finite-field structural classification. The proof shows why the threshold is controlled by genus-one point counts, and provides complete missing-target descriptions at the two small fields. This is an exact invariant rather than an arbitrary sample or a restatement of Sidon collision identities.
+
+**Closest literature and limitations.** Cilleruelo (2010), Forey–Fresán–Kowalski (2023), Carlet (2022, characteristic two), and the publicly archived exact cubic-graph fourth-moment theorem (2026) were compared at the level of their claims. An equivalent older result might remain undiscovered. Hasse's bound is invoked rather than reproved; direct enumeration corroborates only tested orders. The theorem does not determine triple representation multiplicities or cover characteristic two.
+
+Self-review: passed. Independent audit: not yet performed.

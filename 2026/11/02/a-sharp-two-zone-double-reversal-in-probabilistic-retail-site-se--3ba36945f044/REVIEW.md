@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The general-degree bound follows by clearing a strictly positive Huff-choice denominator. The full two-zone classification follows from an exact quadratic identity and Vieta's positive-root criterion. The two-crossing example factors as \((3t-1)(t-3)\) and has an explicit Euclidean inverse-square realization. The separately supplied standard-library checker passed 16,663 rational, sign, and geometry checks. The proof is analytical for all strictly positive permitted parameters, so finite tests are corroboration only.
+
+**Originality — PASS, provisional.** The Huff market-share model and the competitive location/quality literature are acknowledged prior work. The closest inspected open texts include Drezner's 2014 full review, the full 2014 location-and-quality network study of Suárez-Vega and colleagues, and Lin–Tian–Zhao's 2022 full proportional-choice model. Their objectives and results do not state an exact two-zone candidate rank-reversal criterion. A detailed search uncovered no identified equivalent comparison theorem. Drezner and Drezner's 2004 global Huff optimization article and Drezner's 2010 cannibalization study were only available in abstract; their inaccessible bodies remain genuine priority risks, and negative search results do not establish global novelty.
+
+**Value — PASS.** A reentrant site preference is relevant to retail expansion decisions: site A can dominate both at low and high spending while site B dominates at intermediate spending, although each site's own captured demand increases monotonically. The result gives an exact, complete phase classification and the sharp minimum of two demand zones, not merely an isolated example. Its planar witness shows the effect is consistent with geographic inverse-square attraction. This is a model-level structural fact, not an assertion of empirical profitability or optimal resource allocation.
+
+**Limitations and residual risks.** Exact market-share expectation under fixed demand, fixed incumbent attraction and a linear entrant-quality scale only. No strategic incumbent response or cost function. Inaccessible historical work may contain stronger coverage; independent historical-priority validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

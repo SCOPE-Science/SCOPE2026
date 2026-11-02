@@ -1,0 +1,11 @@
+# Review of the least-mobile fence-extension theorem
+
+**Correctness — PASS.** The proof makes the poset, move and degree unambiguous. Comparable adjacent pairs are a matching in the fence cover path. Maximum matching structure forces a unique optimal word in even order; for odd order it gives disjoint left and right block chains and precisely \(\binom mj\) optimal shuffles at each unmatched odd label. Every odd-length optimal word has precisely one optimal neighbor, from swapping the first two entries. Direct exhaustive and independent C++ enumerations confirm the claimed structure through order thirteen. The diameter statement is proved separately using incomparable-pair inversion distance.
+
+**Originality — PASS, qualified by residual risk.** The closest primary full text inspected, Bondarenko (2011), proves general regularity and boundary degree facts but not the parity-dependent optimal-fence induced subgraph. Naatz (2000) identifies vertex connectivity with the poset jump number, which implies a minimum degree value in general contexts but not the number of minimizers or their adjacency. Pruesse–Ruskey's Gray-code work does not determine this stratum. Separate searches considered the inverse-alternating-permutation convention, jump-optimal schedules, zigzag-poset aliases, cover-path matchings and permutahedral adjacency. No claim of literature-wide uniqueness is made; Naatz's full paper and obscure bump polynomial literature remain material possible overlap.
+
+**Value — PASS.** The comparison distinguishes two sharply different geometric regimes within a natural, connected family of permutation-reconfiguration graphs: at even order the least-mobile vertex is unique, while at odd order an exponentially large least-mobile set fractures into independent edges. The exact characterization identifies all extremizers and the induced move structure, rather than merely re-evaluating the fence jump number.
+
+**Limitations.** The result concerns only alternating height-two fence posets and adjacent-position exchanges. Some relevant older texts were accessible only by abstract or slides. The diameter identity is contextual, not a new theorem claim. Finite checks are not the all-size proof.
+
+Self-review: passed. Independent audit: not yet performed.

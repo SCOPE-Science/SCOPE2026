@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Direct argument: two adjacent fully monitored triangle columns propagate globally; successive occupied columns with weights a,b<=2 and directed gap d<a+b force such a pair in exhaustive cases d=1,2,3. Summing all cyclic gap inequalities yields n>=2|S| for any failed placement with >=2 occupied columns; the one-column n=3 exception is excluded separately. Alternating same-row sensors yield a stalled set of floor(n/2), proving equality. Standalone C++17 direct exhaustive checks n=3..7 and local checks up to n=13 passed; finite checks supplement an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Glasser et al. (2019), Theorem 5.3 on PDF p. 11, determines K_k square P_l for k,l>=3.",
+        "Byrne et al. (2023), Theorem 5 on PDF pp. 9-10, determines square tori C_n square C_n for n>=4.",
+        "Girish and Somasundaram (2024) discuss generalized Petersen GP(m,1), a 3-regular cycle-prism family."
+      ],
+      "reasoning": "The path and square-torus exact results have incompatible factor hypotheses with the nonsquare cyclic width-three family; even-length comparison with the path formula is numerically different. The Petersen product has a K_2 rather than K_3 layer. No general rectangular-torus theorem covering this case was identified.",
+      "searches": [
+        "https://personal.math.vt.edu/gmatthews/failed_power_dom.pdf",
+        "https://www.cs.rit.edu/~spr/PUBL/bj19.pdf",
+        "https://www.mdpi.com/2073-8994/16/7/781",
+        "\"failed power domination\" products cycles tori exact formula"
+      ]
+    },
+    "checked_sources": [
+      "https://personal.math.vt.edu/gmatthews/failed_power_dom.pdf",
+      "https://www.cs.rit.edu/~spr/PUBL/bj19.pdf",
+      "https://arxiv.org/abs/1909.02057",
+      "https://www.mdpi.com/2073-8994/16/7/781",
+      "https://personal.math.vt.edu/gmatthews/publications.html",
+      "doi:10.2140/involve.2023.16.705",
+      "Semantic literature search of mathematical research records (exact query strings in the originality checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 path case at k=3: floor((n-1)/2).",
+        "2023 square torus formula: n(n-3) for n>=4.",
+        "New formula: floor(n/2) on C_3 square C_n for n>=3, in particular a different value from path at even n."
+      ],
+      "reasoning": "No theorem for paths immediately implies its cyclic-edge completion, and the exact values differ for even n; square-torus results use equal factors with n>=4 and cannot be specialized to a fixed factor C_3. The C_3 square C_3 case is outside their stated parameter domain, and no result asserting all rectangular tori was found.",
+      "searches": [
+        "https://www.cs.rit.edu/~spr/PUBL/bj19.pdf Theorem 5.3",
+        "https://personal.math.vt.edu/gmatthews/failed_power_dom.pdf Theorem 5",
+        "https://www.mdpi.com/2073-8994/16/7/781 generalized Petersen GP(m,1)",
+        "C_3 \\square C_n failed power domination number exact n/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "C_3=K_3, so the graph can also be called a cyclic triangle-clique strip or a width-three toroidal grid.",
+        "The problem is also the maximum unsuccessful placement of power-system PMU sensors under one-unknown-neighbor propagation."
+      ],
+      "reasoning": "Checked the alias descriptions and parameter changes, including cyclic K_3 products, thin rectangular tori and failed-power-domination notation. None of the compared accessible findings states the complete C_3 square C_n formula; terminology differences alone would not establish originality.",
+      "searches": [
+        "\"failed power domination\" \"torus\" \"3\" \"n\" formula",
+        "\"failed power domination\" \"C3\" \"Cn\"",
+        "\"failed power domination\" \"C_3\" \"C_n\" torus",
+        "\"failed power domination\" \"rectangular torus\" \"cycle\"",
+        "\"failed power domination\" \"K3\" \"Cn\"",
+        "C_3 \\square C_n failed power domination number exact n/2",
+        "toroidal graph products triangle cycle monitoring failure PMU",
+        "cyclic clique chain K_3 square C_n power domination"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest returned mathematical records concern power domination polynomials on books and spider trees, neither being a thin torus.",
+        "No exact numeric table or database record of this family was found by these concrete searches."
+      ],
+      "reasoning": "The identified graph families are books and spider trees, not cyclic triangle-clique strips. A null search does not prove uniqueness; absence of a found table is recorded with publication-priority risk.",
+      "searches": [
+        "Failed power domination number of the Cartesian product of a triangle K3 C3 with a path P_n, triangular prism strips and length-n clique chains exact largest unsuccessful sensor set",
+        "Power domination on K3 square P_n and exact maximum non-power-dominating sets; packing adjacent occupied columns and sensor gap inequalities",
+        "Failed power domination rectangular cylinders Cm square Pn with m=3, exact formulas, maximal failed sets",
+        "C_3 \\square C_n failed power domination number exact n/2",
+        "toroidal graph products triangle cycle monitoring failure PMU",
+        "cyclic clique chain K_3 square C_n power domination",
+        "\"failed power domination\" \"C3\" \"Cn\" table",
+        "\"failed power domination\" \"triangular\" torus"
+      ]
+    },
+    "rationale": "Statement-level literature comparisons found nearest exact results for K_k square P_l (Glasser et al. 2019 Theorem 5.3) and C_n square C_n with n>=4 (Byrne et al. 2023 Theorem 5), neither of which covers C_3 square C_n for arbitrary n. The path formula differs for even n; a square-only theorem is restricted to diagonal parameters. Published related monitoring of generalized Petersen graphs concerns another family. Compared published mathematical records and relevant prior statements for equivalent results; no covering result identified, subject to unindexed-literature risk.",
+    "residual_risks": [
+      "A priority-equivalent theorem may exist in unindexed, inaccessible, or later sources not found by the searches.",
+      "No independent mathematical audit has been performed.",
+      "Cyclic-gap proof relies on correctness of the three local forcing cases; independently tested at small n but the written proof is the infinite justification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 5.3 applies to K_k Cartesian P_l for k,l>=3; its k=3 path value is floor((l-1)/2). No wrap-around cycle is included.",
+        "identifier_or_url": "https://www.cs.rit.edu/~spr/PUBL/bj19.pdf",
+        "material_read": "Definitions, Section 5 Theorems 5.1-5.3, especially Theorem 5.3 and proof on PDF pp. 10-12",
+        "method": "Inspected primary PDF full-text passages and page images; compared factor hypotheses and values",
+        "title": "Failed power domination on graphs",
+        "trigger": "Potential exact clique-path result covering a cyclic product"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 5 has domain square torus T_{n x n}, n>=4, with value n(n-3); the thin C_3 square C_n family is not among those parameters.",
+        "identifier_or_url": "https://personal.math.vt.edu/gmatthews/failed_power_dom.pdf",
+        "material_read": "Introduction, definitions, Section 3 including Theorems 4 and 5 and torus proof, concluding scope",
+        "method": "Read full relevant primary PDF sections and page images; checked exact square-versus-rectangular parameter range",
+        "title": "Failed power domination in grids, cylinders, and tori",
+        "trigger": "Paper explicitly addressing tori and potentially all rectangles"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The discussed generalized Petersen GP(m,1) is cubic and has two cycle layers, unlike the four-regular product C_3 square C_n with three-vertex clique layers.",
+        "identifier_or_url": "https://www.mdpi.com/2073-8994/16/7/781",
+        "material_read": "Available full HTML article summary and section on GP(m,1) including the reported exact failed-placement formula",
+        "method": "Read accessible primary article text, compared adjacency degrees and the graph parameters",
+        "title": "Bound for the k-Fault-Tolerant Power-Domination Number",
+        "trigger": "Related post-2023 exact failed power domination on cycle-based graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2f309654-36bc-480d-8089-0bc22a8cba52",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem determines the exact natural failed-power-domination invariant for every length of the first thin rectangular torus not covered by 2023 square-torus results. Its cyclic weighted-gap obstruction and sharp stalled family show how a periodic boundary changes the guaranteed-monitoring threshold relative to known clique-path values, particularly at even lengths; it is not a routine numerical table or arbitrary finite slice. The precise graph family is motivated by a published toroidal-grid literature gap.",
+    "status": "PASS"
+  }
+}

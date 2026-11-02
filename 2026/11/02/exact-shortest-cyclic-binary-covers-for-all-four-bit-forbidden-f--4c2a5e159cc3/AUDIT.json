@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For each of 72 cases the exact de Bruijn mandatory-arc enumeration, integer augmentation conservation, directed strong connectivity, vertex-potential inequalities, primal-dual equality and emitted cyclic-window coverage were checked from standalone files. The min/max values match the displayed 72-cell table. Independent exhaustive binary circle enumeration confirms all six order-four minima.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moreno–Matamala, arXiv:0711.1695v1, pp. 2–3, defines the language using periodic admissibility and minimizes lexicographic ordering of an exactly-once de Bruijn sequence.",
+        "Cazaux–Rivals 2016 accepted manuscript, Introduction and Section 4.2, optimizes a set of cyclic strings and states a sufficient graph-connectedness criterion for one circle, but no numerical table for one forbidden four-bit word."
+      ],
+      "reasoning": "Neither source asserts a universal numeric closed form that automatically subsumes all 72 values. The general 2016 algorithm may calculate related relaxed optima, but proving equality for the stipulated single circle here requires explicit connected optimal traversals.",
+      "searches": [
+        "Web: Minimum de Bruijn Sequence in a Language with Forbidden Substrings Moreno Matamala arxiv 0711.1695",
+        "Web: Cazaux Rivals 2016 linear time shortest cyclic cover of strings accepted manuscript",
+        "Indexed research database query: Cazaux Rivals 2016 shortest cyclic cover string one cycle forbidden substring numerical values"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/0711.1695 (full nine pages)",
+      "https://www.researchgate.net/publication/303392809_A_linear_time_algorithm_for_Shortest_Cyclic_Cover_of_Strings (full-text transcription; key sections examined)",
+      "https://arxiv.org/abs/1006.4828 (abstract only)",
+      "https://oeis.org/A016031 (nonmatching unrestricted de Bruijn sequence count)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible earlier claims cover various two- and three-bit avoidance restrictions, e.g. ordinary finite 001-avoiding and 010-avoiding words, or restricted weight-two windows, but not a general four-bit forbidden-factor classification.",
+        "The 2007 language notion is periodic/exact-once and the 2016 general SCCS numerical objective may use multiple circles; neither gives the displayed values or a verified one-circle optimum for these cases."
+      ],
+      "reasoning": "A result about different forbidden factors or a general method to compute related optima does not itself state the exact required values. This work supplies both the explicit values and full tight primal/dual one-circle certificates; residual priority risks are disclosed.",
+      "searches": [
+        "Indexed research database query: Exact shortest single circular binary superstring containing every length n word avoiding one prescribed four-bit substring, all six reversal complement symmetry classes",
+        "Previously recorded claim comparison: forbidden four; avoiding 0000; avoiding 0011; avoiding 0101; avoiding 0110; shortest circular; arxiv 0711.1695"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The problem is the shortest connected covering closed walk over the mandatory n-gram arcs of a binary de Bruijn graph; integer flow augmentation gives a lower bound, and strong connectivity must still be checked.",
+        "Kundeti–Rajasekaran–Dinh, arXiv:1006.4828, studies a general bi-directed DNA postman graph, not these directed forbidden-four-factor minima."
+      ],
+      "reasoning": "A generic postman formulation is equivalent as an optimization method but does not provide the exact table without executing and certifying its specialized instances. The present claim concerns the resulting 72 integer values, not novelty of the general postman algorithm.",
+      "searches": [
+        "Indexed research database query: Minimum Eulerian augmentation of de Bruijn graph with one forbidden four letter block, optimum cycle lengths 0000 0001 0010 0011 0101 0110",
+        "Web: Chinese postman de Bruijn graph forbidden n gram shortest cyclic superstring prohibited substring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches surfaced OEIS de Bruijn enumeration A016031 and other nonmatching datasets, but no table of the six forbidden-factor minimum lengths.",
+        "Indexed research records returned unrelated finite classifications and code benchmarks; no matching exact six-class table was identified."
+      ],
+      "reasoning": "No identified database entry reproduces or dominates the 72-value classification. Negative searches are not considered uniqueness proofs; unindexed prior tables remain an explicit risk.",
+      "searches": [
+        "Web: OEIS 15 30 60 120 236 467 922 1816 3572 7018 13771 26992",
+        "Web: OEIS shortest binary cyclic word covers all strings avoiding 0000 0011",
+        "Indexed research database query: cyclic binary covering all finite factor-avoiding words forbidden 0000 0001 0010 0011 0101 0110 exact minimum"
+      ]
+    },
+    "rationale": "The classified quantity is the exact shortest length of one circular string containing all ordinary finite n-words avoiding one four-bit pattern. The inspected close sources neither state these 72 exact values nor imply them through a proved hypothesis on the six finite families; specific calculations and connectivity certificates are required. Best-knowledge priority is qualified by the risk of unindexed numerical tables.",
+    "residual_risks": [
+      "Unindexed published exact-value tables or technical reports may give overlapping numbers.",
+      "A specialized computation using the known general SCCS algorithm may have appeared without an indexed title.",
+      "The 2010 bi-directed postman paper was checked only at abstract level and is not treated as whole-document exclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different periodic language and lexicographic exact-once objective; no single-circle length-minimal ordinary finite-word table",
+        "evidence": "The language is defined through the repeated periodic word and the optimization is the lexicographically minimum Eulerian label; Section 4 remarks address minimum labeling.",
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+        "material_read": "Full nine-page 2007 arXiv preprint; especially pp. 1–3 definitions and the final remarks",
+        "method": "Accessible arXiv PDF full text, page images, theorem and definition examination",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Foundational constrained-language universal-cycle reference; closest possible exact-once coverage source"
+      },
+      {
+        "assessment": "General minimum multi-circle cover; theorem states connectedness can permit a single optimal circle but gives no classification for binary four-bit avoidance",
+        "evidence": "Introduction defines SCCS as a set of cyclic words and SCyS as one; Section 4.2 provides connected-superstring-graph condition, without these 72 numbers.",
+        "identifier_or_url": "https://www.researchgate.net/publication/303392809_A_linear_time_algorithm_for_Shortest_Cyclic_Cover_of_Strings",
+        "material_read": "Accessible full-text accepted-manuscript transcription; introduction and definitions pp.1–6, Section 4.2 pp.20–21; targeted full-text searches for forbidden classes",
+        "method": "Full-text HTML transcription of accepted manuscript and focused searching",
+        "title": "A linear time algorithm for Shortest Cyclic Cover of Strings",
+        "trigger": "Potential stronger all-input cyclic-cover algorithm"
+      },
+      {
+        "assessment": "Related general bidirected method, not proof that its uninspected body excludes these directed four-factor exact values",
+        "evidence": "The abstract specifies bi-directed DNA assembly postman walks and general algorithms, not individual forbidden-factor numerical tables.",
+        "identifier_or_url": "https://arxiv.org/abs/1006.4828",
+        "material_read": "Abstract and bibliographic metadata only",
+        "method": "Open-access abstract inspection",
+        "title": "An Efficient Algorithm For Chinese Postman Walk on Bi-directed de Bruijn Graphs",
+        "trigger": "Broader de Bruijn postman methods could dominate algorithmic approach"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4c2a5e15-9cc3-4b01-864c-f8528c3cfeb9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete classification for all sixteen forbidden four-bit factors, modulo their six natural symmetries, at twelve consecutive window orders, not a routine single-instance extension. It yields 72 exact single-circle benchmarks with tight combinatorial certificates and exposes a nontrivial change in the ordering of six constrained-language cover lengths. The precise invariants matter for constrained universal sequencing and testing general shortest-superstring methods.",
+    "status": "PASS"
+  }
+}

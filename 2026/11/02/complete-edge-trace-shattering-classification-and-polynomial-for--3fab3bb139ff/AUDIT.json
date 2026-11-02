@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Contracting all positively queried path runs turns negative constraints into a max-degree-two forbidden adjacency graph on m=t+u blocks. Dirac covers m>=6; explicit cycles handle m=3,4,5. The two-component boundary is decided by exact 3- and 4-block orientation constraints, including failure for order-two/three path components. EGF and partition enumeration give all polynomial coefficients. Exhaustive edge-trace enumeration matches the theorem for every compatible support through seven vertices and representative boundary types up to nine; this is supporting finite verification, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kranakis et al., DOI:10.1016/S0166-218X(96)00137-0, abstract accessible, full paper not inspected",
+        "Mofidi, DOI:10.22108/TOC.2021.127880.1832, entire stated host cycle family broader in hypotheses but weaker for exact spanning-only labeling criteria"
+      ],
+      "reasoning": "Neither inspected full manuscript supplies the two-component boundary or full labeled shattering polynomial. The uninspected older graph-defined VC paper is an explicit historical risk, rather than assumed noncoverage.",
+      "searches": [
+        "Hamiltonian cycle edge incidence VC dimension all shattered subsets linear forest K_n",
+        "Hamiltonian cycle Boolean concept class Littlestone dimension online mistake bound adaptive edge queries",
+        "Kranakis Krizanc Ruf Urrutia Woeginger VC graph set systems Hamiltonian cycles"
+      ]
+    },
+    "checked_sources": [
+      "published-finding corpus semantic searches listed in the prior checks and O-schema records",
+      "Accessible current-week prior research records up through generation 23",
+      "Mofidi all-cycle paper DOI:10.22108/TOC.2021.127880.1832",
+      "Abasi and Bshouty arXiv:1803.10639",
+      "Alon et al. arXiv:2202.06810",
+      "Kranakis et al. DOI:10.1016/S0166-218X(96)00137-0 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible earlier own finding 3eaf6a69-af80-449b-87d2-fd0b310a767a establishes a numerical VC dimension for Hamiltonian cycles and small adaptive dimensions but does not classify every shattered support",
+        "Accessible earlier own finding 95f32c02-3fdb-4d19-a476-35c12ba6fa73 treats spanning Hamiltonian paths, not cycles",
+        "Mofidi Theorem 3.3 for all cycles, not spanning-only cycles"
+      ],
+      "reasoning": "A scalar maximum shattering size does not determine which edge supports realize each smaller size or the coefficient sequence. The earlier Hamilton-path characterization does not imply the Hamilton-cycle boundary. This finding deliberately does not re-claim the numerical VC or adaptive dimension.",
+      "searches": [
+        "VC shattered edge supports Hamiltonian cycle set system in complete graph exact characterization cycles edge incidence",
+        "Hamiltonian cycle Boolean concept class Littlestone dimension online mistake bound adaptive edge queries",
+        "prior research records Hamiltonian cycles edge-membership VC dimension and Littlestone dimension",
+        "prior research records Hamiltonian paths shattered edge supports"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mofidi, DOI:10.22108/TOC.2021.127880.1832, Theorem 3.3: all cycles, not only spanning cycles",
+        "published-finding corpus semantic queries for Hamiltonian-cycle edge-trace shattering returned no exact classification"
+      ],
+      "reasoning": "Edge traces of spanning Hamilton cycles are restrictions of the all-cycle trace family, but shattering in a bigger concept class does not imply shattering in its Hamiltonian subfamily. The all-cycle theorem thus supplies necessary constraints, not this if-and-only-if characterization.",
+      "searches": [
+        "VC shattered edge supports Hamiltonian cycle set system in complete graph exact characterization cycles edge incidence",
+        "VC dimension and count of maximum shattered edge sets of all labeled Hamiltonian cycles",
+        "cycle hypergraph edge-trace VC-dimension complete graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ranked hits included a cover-free-family paper 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2, unrelated to edge traces and cycle-hypothesis VC dimensions"
+      ],
+      "reasoning": "No database or previously recorded exact coefficient table of the asserted all-order edge-trace polynomial was located. Lack of a hit is not a proof of uniqueness.",
+      "searches": [
+        "VC dimension and count of maximum shattered edge sets of all labeled Hamiltonian cycles",
+        "published-finding corpus Hamiltonian cycle shattered supports polynomial linear forests two path"
+      ]
+    },
+    "rationale": "The complete support classification and shattering polynomial are not implications of accessible earlier numerical VC dimensions, the Hamiltonian-path result, or the inspected all-cycle and online graph-learning papers. Complete historical uniqueness is not claimed; an uninspected plausible older full text remains a documented risk.",
+    "residual_risks": [
+      "Older Kranakis et al. full paper not inspected, despite highly relevant general graph-VC title.",
+      "Searches and accessible sources do not establish definitive historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different concept family: all simple cycles, not Hamiltonian spanning cycles; necessary structure and scalar thresholds do not imply all-support cycle-only classification.",
+        "evidence": [
+          "Theorem 3.3 studies cycles of arbitrary lengths and associated VC-dimension in K_n."
+        ],
+        "identifier_or_url": "https://toc.ui.ac.ir/article_25746_890e066e8b9dd269c189910e7e780475.pdf",
+        "material_read": "Primary paper full text, especially pages containing Theorem 3.3 and examples for complete graphs",
+        "method": "Accessible open PDF text and inspected page renderings",
+        "title": "On the VC-dimension, covering and separating properties of the cycle and spanning tree hypergraphs of graphs",
+        "trigger": "Closely matching topic: VC dimension of cycles as graph-defined concept sets"
+      },
+      {
+        "assessment": "Vertex-subset edge-detection yes/no queries have different domain and concept models than fixed individual-edge traces of Hamilton cycles.",
+        "evidence": [
+          "arXiv posted 2018-03-28; formal queries detect existence of an edge inside a vertex subset."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.10639",
+        "material_read": "Full open-access manuscript introduction, formal learning setting and query definitions",
+        "method": "arXiv open text",
+        "title": "On Learning Graphs with Edge-Detecting Queries",
+        "trigger": "Established edge-query learning context with verified public date"
+      },
+      {
+        "assessment": "Symmetric-difference Hamilton-cycle coding requirement does not imply independent realization of every labeling on an arbitrary fixed query support.",
+        "evidence": [
+          "Theorem on structured codes is phrased in terms of pairs of graphs and their symmetric differences."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.06810",
+        "material_read": "Full open-access manuscript, especially definitions and main symmetric-difference statements",
+        "method": "arXiv HTML",
+        "title": "Structured Codes of Graphs",
+        "trigger": "Hamiltonian-cycle structural constraints in Boolean edge-vector codes"
+      },
+      {
+        "assessment": "Priority risk preserved; cannot claim whole-document noncoverage. No identified abstract-level stronger result that implies exact polynomial.",
+        "evidence": [
+          "1997 graph-VC article, broad title and scope."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0166-218X(96)00137-0",
+        "material_read": "Bibliographic abstract only; full primary text not obtained",
+        "method": "Author/institution bibliographic abstract and secondary references",
+        "title": "The VC-dimension of set systems defined by graphs",
+        "trigger": "Directly plausible earlier graph-defined shattering theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3fab3bb1-39ff-4406-9e3e-a261f72a529d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Classifies every realizable fixed-edge trace support of the canonical Hamiltonian-cycle concept class, including exact two-component boundary exclusions and an all-order enumeration polynomial. Unlike a maximum dimension alone, the polynomial and support criterion describe the entire shattering complex and distinguish spanning-only cycles from unrestricted graph cycles.",
+    "status": "PASS"
+  }
+}

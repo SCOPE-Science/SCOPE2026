@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Under gamma>0, lambda>0, D>=0, iid independent Poisson kicks with E|J|^4 finite, the stationary convolution exists in L4. Its fourth cumulant is lambda E[J^4]/(4 gamma). Writing centered Y_t=qY_0+eta with independent, mean-zero eta and variance v(1-q^2), exact chronological fourth moment expansions give Delta=-kappa4 q(1-q^2). The cubic has its unique positive peak at q=1/sqrt(3). Independent stationary reversible additive observations cancel in the difference of fourth joint cumulants. The general mixed-cumulant hierarchy follows from multilinearity; higher moments explicitly require E|J|^n finite. All claims have analytic proofs and the accompanying standard-library program passes generator/quadrature/innovation checks; no finite test is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spiliopoulos arxiv:0807.2832 Secs. 1-3 treats stationary cumulants and second-order autocorrelation",
+        "Yuvan and Bier PRE 104 014119 (2021) pp. 1-5 derive a climbing/descending step statistic for alpha-stable driving",
+        "Ohga-Ito-Kolchinsky arxiv:2303.13116 formulates a cycle-affinity inequality for short-lag normalized cross-correlation asymmetry on finite-state Markov chains"
+      ],
+      "reasoning": "These stronger toolkits do not state the evaluated Poisson-kick fourth-order lag profile, its universal peak, or additive reversible-noise invariance. Alpha-stable forcing at alpha<2 has no fourth moment and the Yuvan-Bier statistic is a different observable. General stationary cumulants alone do not evaluate the nonlinear time ordering; the transition decomposition and Wick cancellations are used here explicitly.",
+      "searches": [
+        "\"time reversal asymmetry\" \"Lévy\" \"Poisson\" \"Ornstein Uhlenbeck\" cross-correlation",
+        "\"fourth-order\" \"time asymmetry\" \"Ornstein Uhlenbeck\" shot noise",
+        "arxiv:0807.2832 higher moments autocorrelation",
+        "doi:10.1103/PhysRevE.104.014119 time reversal parameter",
+        "arxiv:2303.13116 cross-correlation bound"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2309.13424v2 (full HTML Sections 2, 3, 5 and Appendix A)",
+      "arxiv:0807.2832 (full HTML Sections 1-3)",
+      "doi:10.1103/PhysRevE.104.014119 (full PDF, selected pages 1-5)",
+      "arxiv:2303.13116 (public full HTML main result)",
+      "doi:10.1016/j.physa.2005.06.056 (abstract only; material limit)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Di Bello et al. already give enough stochastic representation ingredients to derive the formula algebraically, but report the chronological observable numerically",
+        "Spiliopoulos Remark 3.2 admits higher stationary moments, not these temporal fourth-order exchange asymmetries",
+        "Eliazar and Klafter abstract describes stationary cumulants and autocovariance, not an accessible evaluated nonlinear fourth-order lag formula"
+      ],
+      "reasoning": "There is no assertion that a generic Ornstein–Uhlenbeck solution, stationary fourth cumulants, or the presence of irreversibility is new. The assessed claim is the exact observable-specific evaluation, universal maximization/inversion, and arbitrary independent reversible-noise cancellation. These require combining stationary fourth cumulants, chronological innovation moments, nonlinear maximization, and general joint-cumulant additivity. A previously published formula for all multi-time cumulants could imply the specialization; that is an acknowledged residual risk.",
+      "searches": [
+        "arxiv:2309.13424v2 stationary characteristic function Eq. (16) and finite-time solution Eq. (10)",
+        "arxiv:0807.2832 Sec. 3 cumulants and autocovariance",
+        "doi:10.1016/j.physa.2005.06.056 nonlinear shot-noise cumulants"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2309.13424v2 Sec. 5 Eq. (68) and Fig. 5 gives numerical forward/reverse X,X^3 cross-correlations",
+        "arxiv:2309.13424v2 Sec. 2 Eq. (10), Sec. 3 Eq. (16) supply stationary process representation and transform"
+      ],
+      "reasoning": "Centered raw fourth-order cross-correlation asymmetry equals a difference of fourth joint cumulants. The source numerical curves motivate it but do not print its closed entire-lag identity, distribution-free optimal lag, or reversible-contamination cancellation. Equivalent centering and cumulant wording were searched.",
+      "searches": [
+        "\"Poisson shot noise\" \"X^3\" \"cross correlation\" asymmetry exact time lag formula",
+        "\"time asymmetry\" \"shot noise\" harmonic \"fourth moment\" analytic",
+        "\"X(t)^3\" \"X(0)\" \"OU\" \"irreversibility\" Poisson",
+        "arxiv:2309.13424v2 (Eq. 68, Fig. 5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source paper includes a numerical Fig. 5, not a table of the evaluated lag-function coefficients",
+        "No relevant exact fourth-order time-arrow table was found from the stated searches"
+      ],
+      "reasoning": "The exact coefficient and optimal temporal lag are not a lookup of an existing database entry. Failed searches alone do not establish priority.",
+      "searches": [
+        "\"Poisson-shot-noise\" \"C^{X,X^3}\" analytical",
+        "\"Poisson shot noise\" \"X^3\" \"cross correlation\" asymmetry exact time lag formula",
+        "\"Poisson shot noise\" \"fourth cumulant\" \"universal optimal lag\"",
+        "arxiv:2309.13424v2 Fig. 5 Eq. (68)"
+      ]
+    },
+    "rationale": "The full-lag centered fourth-order chronological asymmetry with its exact optimizer, inferred kick-fourth-intensity formula, and invariance under arbitrary independent stationary reversible contamination were not found in the inspected directly relevant sources. Di Bello et al. explicitly plot the same temporal observable numerically, so the observable itself and the known stationary distribution are excluded from novelty. The result is an evaluated structural prediction based on classical cumulant tools; unpublished or inaccessible equivalent expressions remain possible.",
+    "residual_risks": [
+      "A historical paper on general shot noise and multi-time cumulants could directly subsume this evaluation; relevant 2006 full text was not accessible for a decisive full-text comparison.",
+      "The source model and stationary transform are established; the new evaluated result is an algebraic development, not a new process construction or a proof of priority.",
+      "General independent-sum cumulant additivity is classical; only the combined observable-specific consequence is asserted as a contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIOR_MODEL_AND_NUMERICAL_OBSERVATION; no inspected evaluated full-lag or optimal timing/noise invariance statement",
+        "evidence": [
+          "Sec. 5 explicitly presents numerical comparisons and suggests future exploration of nontrivial cross-correlation structure",
+          "stationary transform and linear filtering are earlier established ingredients"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.13424v2",
+        "material_read": "Sections 2 and 3, equations (10), (16), (23)-(26), Section 5 equations (67)-(68), Fig. 5 discussion, and Appendix A moments",
+        "method": "public arXiv full HTML read",
+        "title": "Brownian particle in a Poisson-shot-noise active bath: exact statistics, effective temperature, and inference",
+        "trigger": "identical physical model and identical X,X^3 time-order observable"
+      },
+      {
+        "assessment": "PRIOR_STATIONARY_MOMENTS_AND_SECOND_ORDER_ESTIMATION; no stated evaluated fourth-order chronological sign and optimizer",
+        "evidence": [
+          "Remark 3.2 higher stationary moments",
+          "ordinary stationary autocorrelation and estimators"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0807.2832",
+        "material_read": "Sections 1-3, especially Proposition 2.2, Proposition 3.1, Remark 3.2 and correlation formula",
+        "method": "public arXiv full-text HTML read",
+        "title": "Method of Moments Estimation of Ornstein-Uhlenbeck Processes Driven by General Lévy Process",
+        "trigger": "general Lévy-driven OU higher-moment and parameter reconstruction coverage"
+      },
+      {
+        "assessment": "DIFFERENT_STABLE_NOISE_AND_STEP_COUNT; does not provide finite-fourth-moment X,X^3 lag identity",
+        "evidence": [
+          "stable alpha<2 noise has divergent variance and higher moments",
+          "time-arrow parameter is the asymmetry of climbing versus descending steps"
+        ],
+        "identifier_or_url": "https://myweb.ecu.edu/bierm/papers/PhysRevE2021.pdf",
+        "material_read": "PDF pages 1-5, including equations (1)-(4) and (18)-(22)",
+        "method": "lawful full-text PDF inspected, including graphical page inspection",
+        "title": "Breaking of time-reversal symmetry for a particle in a parabolic potential that is subjected to Lévy noise",
+        "trigger": "same parabolic drift and possible stronger time-reversal theorem"
+      },
+      {
+        "assessment": "BOUND_DIFFERENT_CLASS; finite-state cycle-affinity bound does not specialize to an exact shot-noise curve",
+        "evidence": [
+          "main theorem is a general inequality for a normalized short-lag measure on finite Markov jump systems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.13116",
+        "material_read": "main text through system formulation and bounding inequality equations (1)-(6)",
+        "method": "public arXiv full-text HTML read",
+        "title": "Thermodynamic Bound on the Asymmetry of Cross-Correlations",
+        "trigger": "general cross-correlation asymmetry could imply the proposed evaluated curve"
+      },
+      {
+        "assessment": "UNRESOLVED_MATERIAL_ACCESS_RISK; no unsupported claim of complete noncoverage",
+        "evidence": [
+          "abstract lists stationary log-Laplace cumulants, autocovariance and dependence range, without enough text to exclude a broader multi-time identity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.physa.2005.06.056",
+        "material_read": "publication abstract and bibliographic description only; no accessible full text obtained",
+        "method": "arXiv/OA search then authorized institutional retrieval attempt; institution connection unavailable",
+        "title": "Non-linear shot noise: Lévy, Noah, & Joseph",
+        "trigger": "very relevant general shot-noise system, possible joint cumulant coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36590c0f-b266-4366-bb09-4a2bd5335259",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The identical nonlinear cross-correlation was shown numerically, without an evaluated analytic profile, in a directly relevant 2023 physical model. This result yields an exact optimal lag for the observable, a strict sign for all nonzero jump laws including symmetric marks, a way to recover aggregate fourth jump intensity and relaxation, and exact robustness to unknown independent reversible contamination. The content is an observable-specific structural inference law and a universal calibration, not an arbitrary fixed-parameter value, while finite-sample efficiency and entropy-production estimates are explicitly excluded.",
+    "status": "PASS"
+  }
+}

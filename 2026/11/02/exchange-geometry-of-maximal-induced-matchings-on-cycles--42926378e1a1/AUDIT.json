@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For all n>=7 the gap bijection is exact; bounded transfers connect fixed-excess gap vectors and the shift-order partial order realizes every global translation unless the state is frozen. Local 3-by-3 move table gives degrees and edge formula. Johnson graph triangle classification excludes top-type triangles, leaving exactly the three-position windows. Direct finite subset enumeration for n<=18 and independent gap enumerator for n<=27 reproduce every stated numerical formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonsma, Kaminski and Wrochna, arXiv:1403.0359v1, pp.1-4 distinguish fixed-size independent-set token jumping and token sliding, and do not enforce maximality at intermediate states.",
+        "Their generic reachability algorithms do not give this gap-sector degree polynomial, exact triangles, or Eulerian classification."
+      ],
+      "reasoning": "The paper can give decision procedures for a broader set of configurations, but that graph has extra vertices and edges. A path through it does not establish connectivity when every intermediate matching must be maximal.",
+      "searches": [
+        "\"reconfiguration\" \"maximal induced matchings\" cycles",
+        "\"maximal independent sets\" \"powers of cycles\" degree graph token jumping",
+        "Reconfiguring Independent Sets in Claw-Free Graphs arxiv:1403.0359"
+      ]
+    },
+    "checked_sources": [
+      "https://pimvanthof.github.io/inducedmatchings_journal.pdf",
+      "https://arxiv.org/pdf/1403.0359",
+      "https://doi.org/10.1002/jgt.21804",
+      "https://arxiv.org/abs/1312.5180"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Basavaraju et al., arXiv:1312.5180v1, theorem 1 proves an upper bound and enumeration algorithm for maximal induced matchings of all triangle-free graphs.",
+        "Bonsma et al., arXiv:1403.0359v1, theorem classifies reachability algorithms for ordinary independent sets under TJ/TS, not the restricted maximal-independent-set subgraph.",
+        "Work on maximal independent sets of ordinary C_n uses gap lengths 2,3, unlike gap lengths 3,4,5 needed for induced matchings."
+      ],
+      "reasoning": "Neither the broad enumeration bound nor unrestricted fixed-k reachability implies a maximality-preserving exchange graph degree distribution. Ordinary-cycle MIS is a different graph and cannot be substituted for its square. The specific triangle threshold requires the 3/4/5 gap local rule.",
+      "searches": [
+        "Maximal induced matchings in triangle-free graphs Basavaraju Heggernes van t Hof Saei Villanger",
+        "Reconfiguring Independent Sets in Claw-Free Graphs Bonsma Kaminski Wrochna",
+        "\"gamma independent dominating graphs\" cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Basavaraju et al. arXiv:1312.5180v1 p.2 identify induced matchings as independent sets in the squared line graph; the line graph of C_n is C_n.",
+        "Search results did not exhibit an exact maximal-independent-set reconfiguration theorem for the square of the cycle."
+      ],
+      "reasoning": "The equivalent formulation is token jumping restricted to maximal independent sets of C_n squared. General all-size-k token jumping may traverse nonmaximal intermediates and does not imply this restricted graph metric.",
+      "searches": [
+        "\"maximal independent\" \"square of cycle\" reconfiguration",
+        "\"reconfiguration\" \"maximal induced matchings\" cycles",
+        "\"induced matching\" \"exchange graph\" \"cycle\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Basavaraju et al. arXiv:1312.5180v1 give general enumeration bounds, not the exchange degree table.",
+        "No indexed exact degree/girth/triangle table for this configuration graph was retrieved in the targeted queries."
+      ],
+      "reasoning": "A pure configuration count would not suffice for novelty. The degree and triangle enumerators and phase transition are finer invariants; this check does not rule out inaccessible tables.",
+      "searches": [
+        "site:oeis.org \"maximal induced matchings\" cycle",
+        "\"maximal induced matching\" \"cycle\" \"reconfiguration\"",
+        "\"degree polynomial\" \"maximal induced matchings\" cycle"
+      ]
+    },
+    "rationale": "The strongest inspected primary sources treat either maximal-induced-matching enumeration (Basavaraju et al.) or reconfiguration of independent sets without maintaining maximality (Bonsma et al.). Neither supplies degree, girth, triangle multiplicities or full connectivity of fixed-cardinality maximal induced matchings in cycles. Published mathematical-record comparisons found no implication dominating this full claim; residual unindexed risk remains.",
+    "residual_risks": [
+      "Equivalent gap-exchange and degree/triangle results may appear in unindexed maximal-independent-set or strong-matching Gray-code literature under different terminology.",
+      "A potentially relevant older dominating-induced-matching paper was inspected only at abstract level; its stronger exact domination definition is distinct, but full-text overlap has not been ruled out.",
+      "The same mathematical model proof and checks are not independent external mathematical review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General extremal enumeration and listing bound; no matching-exchange graph invariants identified.",
+        "evidence": [
+          "Theorem 1 gives 3^(n/3) maximal-induced-matching upper bound for triangle-free graphs.",
+          "Introduction explains squared-line-graph correspondence; final section proves the upper bound using local graph transformations."
+        ],
+        "identifier_or_url": "https://pimvanthof.github.io/inducedmatchings_journal.pdf",
+        "material_read": "17-page authorized preprint: abstract, definitions and introduction (pages 1-3); middle proof of extremal upper bound (pages 6-15, selective passages); closing theorem/corollaries (page 17), with full-document keyword searches for reconfiguration and cycles.",
+        "method": "Read searchable paper text and visually inspected page 2.",
+        "title": "Maximal induced matchings in triangle-free graphs",
+        "trigger": "Same maximal induced matching objects on triangle-free graphs, including cycles."
+      },
+      {
+        "assessment": "All fixed-cardinality independent sets considered, with no requirement that intermediate independent sets be inclusion-maximal; exact restricted degree/girth formulas are not supplied.",
+        "evidence": [
+          "Pages 2-3 define TJ_k(G) and TS_k(G) on all independent k-sets.",
+          "Page 16 explicitly distinguishes maximal from maximum independent sets in an auxiliary lemma."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.0359",
+        "material_read": "22-page preprint: introduction and definitions pages 1-4, theorem context and full-text searches for maximal and squared line graphs, targeted appendix passages about maximum versus maximal sets.",
+        "method": "Read searchable PDF text; visually inspected page 3.",
+        "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+        "trigger": "General token jumping/slide theorems plausibly dominate reconfiguration for powers of cycles."
+      },
+      {
+        "assessment": "Efficient-edge-domination condition (each other edge shares exactly one endpoint with a matching edge) differs from inclusion-maximal induced matching; retains residual full-text risk.",
+        "evidence": [
+          "2014 first publication; abstract describes exact domination/efficient-edge-domination rather than exchange moves."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.21804",
+        "material_read": "Full bibliographic abstract and stated definition/aim on publisher page.",
+        "method": "Abstract-level assessment only; no full-text noncoverage claim.",
+        "title": "The Maximum Number of Dominating Induced Matchings",
+        "trigger": "Potential similar terminology involving induced matchings and domination."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42926378-e1a1-4eec-ad62-9c51aed524ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural maximal strong-matching exchange family; determines all fixed-size connected components, frozen configurations, Eulerian and girth regimes, full exact degree spectrum, and formulas for edges and triangles in every size. The first triangle phase has no analogue in the two-state ordinary-cycle maximal-independent-set exchange process and exposes constrained local mobility rather than mere total counts.",
+    "status": "PASS"
+  }
+}

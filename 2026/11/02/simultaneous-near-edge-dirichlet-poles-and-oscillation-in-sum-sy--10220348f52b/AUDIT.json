@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The source Dirichlet identity and Stirling generating function give an exact rational function with m−1 simple real poles and explicit nonzero residues. Uniform Bohr recurrence on Re(s)>1 (derived from absolute convergence and simultaneous finite-prime phase returns) plus Rouché produces the same unbounded vertical shift for every pole; uniform derivative convergence proves residue transport. Strict triangle inequality yields no nonreal pole on or right of r_m. Lowry-Duda Theorem 2 then proves Ω± after accounting for the unique real pole at r_m; partial summation independently prohibits any fixed power-saving bound. Both cited nonstandard analytic inputs and their conditions were inspected. The packaged verify.py independently checks 549 exact rational-series coefficients and 744 exact Dirichlet coefficients, not infinite pole claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lowry-Duda, arXiv:1910.09969, Theorem 2, proves Ω± for a general meromorphic Dirichlet series once nonreal poles are known to approach a sharp real boundary and the real principal poles are identified.",
+        "Hwang–Janson, arXiv:0902.3419, Section 2, derive the ordered-factorization 1/(1-P(s)) Dirichlet series and Delange asymptotics; their general method is not the stated m-part simultaneous-pole theorem."
+      ],
+      "reasoning": "The general oscillation theorem is a substantive imported premise, not independently proved anew. It does not itself show that the sum-system Dirichlet function has the required poles, which is established by a common almost-period and Rouché argument. The m=2 ordered-factorization analogy and previously known main term are excluded from the novelty claim.",
+      "searches": [
+        "Dirichlet series 1/(2-zeta(s)) non real poles near rightmost real pole asymptotics error term",
+        "ordered factorizations no power saving error term zeta(s)=2 nonreal complex poles arbitrarily near real pole",
+        "Kalmár factorization error term omega x rho epsilon no power saving",
+        "Non-real Poles and Irregularity of Distribution Theorem 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.13864v1, source Sections 3 and 5",
+      "arXiv:1910.09969, Theorem 2 and proof",
+      "arXiv:1107.5134, Sections 2–3",
+      "arXiv:0902.3419v1, Introduction and Section 2",
+      "arXiv:1910.02455, sum-system counting construction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huxley–Lettington–Schmidt (2026) supply F_m(s) and r_m; this gives a leading pole but does not by itself prove the existence of nonreal near-edge poles and two-sided oscillations.",
+        "Lowry-Duda (2019) gives the conditional step from these poles to Ω±. Arias de Reyna–van de Lune (2011) give extremal a-point location, but do not state the simultaneous m−1-level residue limit or summatory consequence.",
+        "Fixed-parameter prime-valuation counts and real-threshold asymptotic expansions concern different claims and do not directly give this nonreal pole ladder or error obstruction."
+      ],
+      "reasoning": "Combining a recent exact counting series with an older general oscillation criterion still requires verifying a nontrivial target-specific hypothesis: joint recurrence of all denominator pole levels and their residues, with no nonreal boundary pole. None of the inspected sources state the resulting theorem for all labelled m-part sum systems. A broader unpublished or unindexed application remains a priority risk.",
+      "searches": [
+        "sum systems count summatory asymptotic zeta root m/(m-1) power saving error",
+        "ordered factorizations error term Omega plus minus rho epsilon no power saving",
+        "simultaneous zeta a points residue pole ladder sum system Dirichlet function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huxley–Lettington–Schmidt, arXiv:2610.13864, Theorem 5.3, gives the exact sum-system Dirichlet expansion and real threshold but not nonreal pole replication or an error lower bound.",
+        "Arias de Reyna–van de Lune, arXiv:1107.5134, Theorem 3.1, gives a real-part supremum for ζ(s)=a; its a>1 case includes the trivial real root and does not establish simultaneous residue transport for the m-part rational series."
+      ],
+      "reasoning": "The precise compared object is one sequence of common vertical heights with all m-1 simple poles and residue convergence, together with the all-m two-sided error obstruction. Near-edge ζ a-point location in isolation is not claimed new.",
+      "searches": [
+        "nonreal poles near rightmost real pole Riemann zeta a-point ζ(s)=1+1/(m-1) sum systems counting no power saving",
+        "vertical almost periodic replication of zeta a points for rational generating Dirichlet sum system error oscillations",
+        "sum systems Dirichlet counting error Omega plus minus no power saving",
+        "zeta a-points ζ(s)=a rightmost line real sigma nonreal points arbitrarily close"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The reported pole points depend on unbounded imaginary heights and vary continuously with zeta values; no finite database of integers or precomputed table can imply the theorem.",
+        "Huxley–Lettington–Schmidt, Section 5, reports the real convergence threshold, not a complete pole table; the present finite verifier checks only an algebraic identity."
+      ],
+      "reasoning": "The result concerns an infinite analytic obstruction and pole convergence, not a fixed finite invariant or rediscovered OEIS sequence. Searches found no exact tabulation implying this all-parameter statement.",
+      "searches": [
+        "sum systems Huxley Lettington Schmidt 2026 number of m part sum systems no power saving error",
+        "sum systems Dirichlet counting error Omega plus minus no power saving",
+        "m-part sum systems counting non-power saving sharp error term"
+      ]
+    },
+    "rationale": "The recent source identifies the count and real threshold, earlier work identifies a-point boundaries and an abstract oscillation implication, and previous analytic counting results cover the leading asymptotic but not the joint common-height pole/residue ladder or the resulting all-m two-sided error obstruction. Searches did not identify a logically covering theorem for this specific count. The residual risk of an equivalent unindexed application is material and acknowledged.",
+    "residual_risks": [
+      "A published result may already explicitly combine zeta a-point almost-periodicity with the general pole-oscillation theorem for these same counts; this would subsume the application.",
+      "One older bibliographic collection was not exhaustively available; accessible collections and published semantic records were checked, but neither ensures global uniqueness.",
+      "Oscillation constants and pole heights are non-effective; finite algebra checks cannot prove asymptotic signs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact source series and real threshold; no stated nonreal pole ladder, preserved residues or two-sided error obstruction",
+        "evidence": [
+          "Theorem 5.3: Σ N_m(n)n^{-s}=Σ_L m! S(L−1,m−1)(ζ(s)−1)^L; condition ζ(Re s)<m/(m−1).",
+          "Section 5 discusses convergence and bounds rather than oscillatory errors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.13864",
+        "material_read": "Full accessible HTML, particularly Introduction, Section 3 and Section 5 Theorems 5.1, 5.3 and Remarks 5.2–5.5",
+        "method": "Read original mathematical formulae and compared object, poles and theorem conclusions",
+        "title": "On Divisor Function Polynomials and Dirichlet Series",
+        "trigger": "Same labelled m-part sum-system counts and zeta Dirichlet series"
+      },
+      {
+        "assessment": "Theorem 2 supplies the imported Ω± implication but no evaluation of the sum-system poles, their common recurrence or residues",
+        "evidence": [
+          "Theorem 2: if supremum of nonreal pole real parts is σ0, error from the stated real-pole main term is Ω±(X^{σ0−ε}).",
+          "Theorem 2 proof uses Landau-type singularity reasoning and is applicable with Perron weight."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.09969",
+        "material_read": "Full accessible HTML, Theorems 1–3 and the proof of Theorem 2",
+        "method": "Read hypotheses and proof; matched real-pole main term and nonreal pole supremum",
+        "title": "Non-real Poles and Irregularity of Distribution",
+        "trigger": "Directly potentially dominating general nonreal pole to error theorem"
+      },
+      {
+        "assessment": "Establishes extrema of zeta a-point real parts; its a>1 bound includes the real root and does not state the joint m−1 residue ladder for rational counting functions",
+        "evidence": [
+          "Theorem 3.1: for a>1 supremum Re ζ(s)=a is the unique real root ζ(σ)=a.",
+          "Section 2 uses Kronecker and Hurwitz for extremal points."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.5134",
+        "material_read": "Full accessible HTML, Sections 2–3 especially Theorem 3.1, plus Section 6",
+        "method": "Compared a-point supremum to simultaneous level/residue and counting conclusions",
+        "title": "Some bounds and limits in the theory of Riemann’s zeta function",
+        "trigger": "Possible direct coverage via extremal zeta a-points for all positive a"
+      },
+      {
+        "assessment": "Covers ordered-factorization analogue and leading asymptotic; no explicit same m-part pole ladder or two-sided non-power-saving theorem",
+        "evidence": [
+          "Section 2: Dirichlet generating function 1/(1−P(s)) and Delange leading asymptotic.",
+          "Section 1 distinguishes obtaining asymptotics from error-term zero-free-region estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0902.3419v1",
+        "material_read": "Full accessible HTML, Introduction and Section 2 generating functions, Tauberian asymptotic, derivative recurrence",
+        "method": "Compared the exact family P(s)=ζ(s)−1 and its general leading term with the claimed all-m pole/residue hierarchy",
+        "title": "Delange’s Tauberian theorem and asymptotic normality of random ordered factorizations of integers",
+        "trigger": "Historical stronger analytic result for ordered factorization counts"
+      },
+      {
+        "assessment": "Supplies arithmetic factorization framework, not the new complex-analytic pole and error result",
+        "evidence": [
+          "Introduction and theorem statements count joint ordered factorizations and sum systems by arithmetic divisor functions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.02455",
+        "material_read": "Full accessible HTML Introduction and Sections 2–4, including joint ordered factorization framework",
+        "method": "Compared its exact finite counting formulae to analytic poles and errors",
+        "title": "Divisor Functions and the Number of Sum Systems",
+        "trigger": "Original sum-system bijection and exact counting mechanism"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10220348-f52b-4198-9ad3-ba69926a3407",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact leading growth exponent and main asymptotic do not preclude power-saving errors. The result identifies a coherent simultaneous m−1-level near-real pole-and-residue structure and proves the sharp impossibility of any polynomially smaller remainder for each m≥3. This is a natural boundary in the analytic enumeration of additive tiling systems and supplies information not equivalent to the known real-pole constant. It is not a finite table, parameter renaming, or routine numerical improvement.",
+    "status": "PASS"
+  }
+}

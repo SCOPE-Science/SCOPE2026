@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For c=a+ib, exact identity |P(iy)|²−1=y²((a²+b²)y²−2by+1−2a). The bracket is convex, so two endpoints suffice. Each endpoint is an exact disk in c; center distance squared minus squared radii sum equals ((R+S)²−4)/(R²S²), proving the global iff. At equality the disks are externally tangent, yielding the unique c=(2+i(R−S))/(R²+S²); symbolic factorization gives strict damping on all nonzero interior points. The real c bound is attained uniquely at c=1, and normal-matrix contractivity follows by spectral theorem. Supplementary SymPy exact identities and 5959 rational tests/198 floating tests passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1201.3035 : general stability-polynomial numerical optimization uses real-coefficient polynomials and its imaginary-axis examples are symmetric.",
+        "https://doi.org/10.1007/s10915-024-02478-5 : Section 1 explicitly optimizes polynomial coefficients in R, not complex coefficients; high-stage method design.",
+        "https://arxiv.org/html/2601.07730v2 : Theorem 2 pertains to one chosen positive half-axis under a sufficient perturbation hypothesis."
+      ],
+      "reasoning": "General real-coefficient stability optimizers and an existence-of-complex-perturbation theorem do not mathematically imply a closed-form complex feasible set for a prescribed asymmetric two-sided band, its sharp sum boundary, or the unique optimizer. The closest one-sided theorem controls R and S individually, weaker than R+S<=2.",
+      "searches": [
+        "Optimal stability polynomials for numerical integration of initial value problems Ketcheson Ahmadia asymmetric imaginary axis complex coefficients",
+        "Many-Stage Optimal Stabilized Runge Kutta Methods for Hyperbolic Partial Differential Equations complex coefficients imaginary axis",
+        "Mixed-sign oscillatory linear ODE spectral upper lower frequencies optimal complex two-step Euler h=2/(omega plus + omega minus) and real coefficient speedup"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2601.07730v2",
+      "https://arxiv.org/abs/2601.07730",
+      "https://arxiv.org/abs/1201.3035",
+      "https://doi.org/10.1007/s10915-024-02478-5",
+      "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2601.07730v2 : Theorem 1 implies only R<=2 and S<=2 from separate half-axis limits; the present simultaneous R+S<=2 bound is strictly stronger.",
+        "https://arxiv.org/abs/1201.3035 : real-coefficient bound yields h<=1/max(Ω+,Ω−), not h<=2/(Ω++Ω−) for complex coefficients.",
+        "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0 : real-coefficient extragradient minimax on a half-disk is structurally a different operator and optimization objective."
+      ],
+      "reasoning": "No inspected stronger theorem was seen to dominate the entire mixed-sign interval objective. Distinct real-axis or one-sided criteria cannot simply be restated to give the unique complex tangency optimizer. An independent two-disk argument is needed, so the claim is not a direct corollary of identified prior statements.",
+      "searches": [
+        "For two complex-conjugate explicit Euler substeps summing to a real macro step, sharp stability interval on imaginary axis and negative real axis, optimally balanced complex time direction, exact Pareto frontier",
+        "Sharp contractivity and positivity limits for complex time step explicit Euler integrators on scalar diffusion and wave modes",
+        "Mixed-sign oscillatory linear ODE spectral upper lower frequencies optimal complex two-step Euler h=2/(omega plus + omega minus) and real coefficient speedup",
+        "arXiv:2601.07730v2 Theorem 1 complex quadratic first order one-sided",
+        "arXiv:1201.3035 spectral optimization real coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2601.07730v2 : Theorem 1 gives the +axis and -axis separately with c=(1±i)/2 and length two; the two-sided R,S>0 condition and disk-intersection theorem are not stated.",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe : unrelated first-order periodic-recurrence inverse norm rather than complex RK stability-polynomial design."
+      ],
+      "reasoning": "An equivalent formulation would be an exact feasibility criterion for complex quadratic P(i[-S,R]) contained in the unit disk, a two-disk coefficient-plane tangency formula, or a sharp h-bound for both signs. One-sided extremals are the boundary S->0 or R->0, not equivalent to or implying the two-variable sum frontier. No equivalent claim was located in compared source sections and results; this is bounded search, not a universal novelty proof.",
+      "searches": [
+        "Two-stage first-order complex-coefficient Runge--Kutta stability polynomials 1+z+kz² on an asymmetric imaginary interval [-iS,iR], exact feasibility R+S<=2, unique optimal coefficient k=(2+i(R-S))/(R²+S²)",
+        "degree two first-order complex stability polynomial P(z)=1+z+cz² stable simultaneously on positive and negative imaginary axis, exactly R+S<=2, tangency of two disks and unique optimal coefficient",
+        "complex coefficient two stage Runge Kutta mixed sign imaginary spectrum stability disk intersections",
+        "https://arxiv.org/html/2601.07730v2 Sections 3.1--3.2, Theorem 1 and Theorem 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2601.07730v2 : Tables 1 and 2 optimize intervals [0,iY] and conjugates [-iY,0], rather than mixed two-sided pairs.",
+        "https://arxiv.org/abs/1201.3035 : table for real-coefficient imaginary-axis methods, symmetric by real coefficient constraint.",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 : two-stage Richardson on positive definite spectra, no relevant mixed imaginary-axis coefficient table."
+      ],
+      "reasoning": "Reviewed published tables and relevant indexed mathematical results for the exact two-sided boundary, coefficient and cost ratio. The tabulated settings are one-sided complex or symmetric real; no exact table or database entry covering all R,S>0 and the uniqueness statement was found.",
+      "searches": [
+        "Two-stage first-order complex-coefficient Runge--Kutta stability polynomials 1+z+kz² on an asymmetric imaginary interval [-iS,iR], exact feasibility R+S<=2, unique optimal coefficient k=(2+i(R-S))/(R²+S²)",
+        "Optimal real versus complex Runge Kutta method on asymmetric two sided imaginary axis interval Pareto frontier",
+        "degree two first-order complex stability polynomial P(z)=1+z+cz² stable simultaneously on positive and negative imaginary axis, exactly R+S<=2, tangency of two disks and unique optimal coefficient",
+        "arXiv:2601.07730v2 Tables 1 and 2",
+        "arXiv:1201.3035 imaginary axis table"
+      ]
+    },
+    "rationale": "Compared actual implications of the full relevant 2026 George et al. one-sided complex theorem, Ketcheson--Ahmadia real-coefficient general optimization, and Doehring--Gassner--Torrilhon real-coefficient high-stage optimization. No result inspected provides a simultaneous mixed-sign closed-form R+S boundary and unique complex coefficient. Multiple semantic searches of indexed results using exact formulas, aliases, endpoint-disk geometry, and real/complex reduction found only different problems. This is best-knowledge scientific originality, not absolute historical uniqueness; equivalent older specialized results are a residual priority risk.",
+    "residual_risks": [
+      "An older specialized optimal complex quadratic stability-polynomial theorem or disk-intersection formulation may have the same consequence without the present search terminology.",
+      "Some references outside the reviewed full open-access sources could not be exhaustively checked; no claim of comprehensive historical exclusion or independent priority certification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the two-sided R,S>0 Pareto frontier; explicitly optimizes positive or negative half-axis separately. Both one-sided endpoints are recovered in a limiting sense by the new theorem.",
+        "evidence": [
+          "https://arxiv.org/html/2601.07730v2 Section 3.2 Theorem 1 gives P=1+z+(1±i)z²/2, maximal one-sided length 2.",
+          "https://arxiv.org/html/2601.07730v2 Section 3.2 Theorem 2/Table 1 uses y in [0,Ymax] and conjugate negative case, not both signs simultaneously."
+        ],
+        "identifier_or_url": "arXiv:2601.07730v1; arXiv:2601.07730v2; https://arxiv.org/html/2601.07730v2",
+        "material_read": "HTML Section 2 for complex Euler factorization and order, Section 3.1 asymmetric examples, Section 3.2 Theorems 1 and 2 with proof, Remarks and Tables 1--2; version 1 checked for publication date and relevant one-sided results.",
+        "method": "Direct primary preprint HTML review and theorem/constraint comparison.",
+        "title": "Explicit complex time integrators for stiff problems",
+        "trigger": "Same degree-two complex time-stability polynomial and one-sided extremal; most plausible direct coverage."
+      },
+      {
+        "assessment": "Related real-coefficient/general numerical optimization, not the exact analytic complex mixed-sign classification.",
+        "evidence": [
+          "https://arxiv.org/abs/1201.3035 abstract and Sections 1.1--1.2 parameterize coefficients real for standard RK; imaginary-axis illustrations concern real stability polynomials."
+        ],
+        "identifier_or_url": "arXiv:1201.3035; https://arxiv.org/abs/1201.3035",
+        "material_read": "Primary article abstract, Sections 1--2 on polynomial/accuracy and optimization, and Section 4 examples including symmetric imaginary-axis bounds.",
+        "method": "Direct full HTML preprint review, including equations and imaginary-axis examples.",
+        "title": "Optimal stability polynomials for numerical integration of initial value problems",
+        "trigger": "General optimal-stability polynomial framework could potentially subsume the claimed coefficient optimization."
+      },
+      {
+        "assessment": "Related optimization for higher-stage real-coefficient polynomials; does not cover the two-stage complex coefficient Pareto formula.",
+        "evidence": [
+          "https://doi.org/10.1007/s10915-024-02478-5 Introduction equation (1.3) optimizes alpha in R; hyperbolic PDE application concerns higher stage counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10915-024-02478-5",
+        "material_read": "Open-access primary HTML abstract, Introduction and Section 1 optimization formulation, including equation (1.3) and associated real coefficient vector.",
+        "method": "Direct HTML article inspection.",
+        "title": "Many-Stage Optimal Stabilized Runge--Kutta Methods for Hyperbolic Partial Differential Equations",
+        "trigger": "Optimized imaginary-axis RK stability regions and possible domination by high-stage general results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c70b734-f08f-4117-8c52-f0f9359627ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-sided imaginary spectrum is a natural design object for complex oscillatory time discretizations, unlike a one-sided-only Schrödinger spectrum. The sharp sum-law gives a complete one-parameter Pareto frontier of positive and negative stability lengths, proves unique optimal coefficient at every imbalance, derives exact damping factor and optimal h=2/(Ω++Ω−), and quantifies a nontrivial 1-to-nearly-2 gain over real coefficients. This supplies a reusable spectral step-selection benchmark not reducible to unmotivated parameter plugging, although it is deliberately restricted to first order, two stages and normal linear systems.",
+    "status": "PASS"
+  }
+}

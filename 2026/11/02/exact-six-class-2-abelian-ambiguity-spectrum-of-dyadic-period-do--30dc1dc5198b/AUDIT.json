@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Every factor of even length is exactly E(u) or O(u) by parity of its starting position. For input lengths >=2 the images are disjoint because overlap would require a forbidden all-ones input; base F_2={00,01,10}, so |F_{2^j}|=3·2^{j-1}. The endpoint-zero-count matrices have only two zero-content strata and evolve exactly as (z,a,b)->(2m-z,2b,a+b), swapping strata. The parity table follows by induction with 2^j mod6. At the next scale the three disjoint 2-Abelian signature types per stratum have exact cardinalities (a+b,a+b,2b). Substitution yields the stated six sizes for all k>=3, including nonempty class and boundary cases. Replayed exact checker directly enumerates factors through k=10 and separately checks E/O recursion and signature profiles; finite tests corroborate the induction only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Parreau–Rigo–Rowland–Vandomme, arXiv:1405.3532, §5, Propositions 34–35 and Corollary 41 (first public 2014-05-14) proves a complexity recurrence/2-regularity for numbers of classes, not the sizes of each class",
+        "Karhumäki–Saarela–Zamboni, arXiv:1302.3783, §4, Lemmas 6–7 (first public 2013-02-15) treats Abelian complexity of the period-doubling word and a 2-Abelian analysis for Thue–Morse",
+        "The published three-block period-doubling lift record concerns topological component/fibre ranks, not 2-Abelian factor signature fibers"
+      ],
+      "reasoning": "A broader theorem would subsume the claim if it supplied complete 2-Abelian factor multiplicities for every length or a stronger factor-by-signature enumeration. Neither of the fully inspected relevant sections claims those multiplicities. The different topological fibre-rank invariant does not imply finite-word ambiguity.",
+      "searches": [
+        "period doubling 2-abelian complexity fiber distribution distinguishable factors power of two",
+        "arXiv:1405.3532",
+        "arXiv:1302.3783",
+        "2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899"
+      ]
+    },
+    "checked_sources": [
+      {
+        "id": "arXiv:1405.3532",
+        "material": "§5 pp23–27",
+        "title": "Parreau et al., 2-regularity of ℓ-Abelian complexity"
+      },
+      {
+        "id": "arXiv:1302.3783",
+        "material": "§4 pp6–8",
+        "title": "Karhumäki et al., Variations of Morse–Hedlund"
+      },
+      {
+        "id": "arXiv:1301.5104",
+        "material": "abstract and introduction",
+        "title": "Karhumäki et al., Generalization of Abelian equivalence"
+      },
+      {
+        "id": "2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+        "material": "published mathematical summary; different invariant",
+        "title": "Published greedy string attractor of period-doubling word"
+      },
+      {
+        "id": "2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "material": "published mathematical summary; different finite-word universe and observation",
+        "title": "Published exact binary r=2 length-limited composition reconstruction"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Parreau–Rigo–Rowland–Vandomme, arXiv:1405.3532, §5, Propositions 34–35 and Corollary 41 (first public 2014-05-14) yields the equivalence criterion and six-class count at appropriate lengths, without individual class multiplicities",
+        "Karhumäki–Saarela–Zamboni, arXiv:1302.3783, §4, Lemmas 6–7 (first public 2013-02-15) gives alphabet-sum rather than 2-Abelian fiber sizes",
+        "Published binary length-limited composition reconstruction concerns all binary words and a different observation map; published greedy string-attractor result concerns attractors"
+      ],
+      "reasoning": "Known 2-Abelian complexity is the number of fibers, while the new claim counts their individual sizes. The six values require the additional exact endpoint-and-content census and the E/O desubstitution argument; the cited old statements do not determine these data. A stronger unseen characterization remains a residual historical-priority risk.",
+      "searches": [
+        "arXiv:1405.3532",
+        "arXiv:1302.3783",
+        "2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Parreau–Rigo–Rowland–Vandomme, arXiv:1405.3532, §5, Propositions 34–35 and Corollary 41 (first public 2014-05-14) characterizes 2-Abelian equivalence and counts distinct signatures",
+        "Karhumäki–Saarela–Zamboni, arXiv:1302.3783, §4, Lemmas 6–7 (first public 2013-02-15) distinguishes Abelian from higher Abelian factor complexity"
+      ],
+      "reasoning": "The new invariant is the multiset of cardinalities of fibers of the map from distinct length-2^k factors to their overlapping one- and two-letter count signatures. Searches encompassed 2-Abelian equivalence, adjacent digram counts, factor signature multiplicity and ambiguity; a result giving only number of signatures or factor complexity is not equivalent to the six cardinalities. No matching spectrum was identified in the inspected portions.",
+      "searches": [
+        "period doubling word dyadic length 2-abelian equivalence class sizes six classes multiplicities factor length powers of two",
+        "exact frequency multiplicity of 2-abelian factor equivalence classes in period doubling word at lengths 2^k",
+        "period doubling word 2-abelian equivalence number of equivalent factors",
+        "arXiv:1405.3532 Proposition 35"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Parreau–Rigo–Rowland–Vandomme, arXiv:1405.3532, §5, Propositions 34–35 and Corollary 41 (first public 2014-05-14) contains 2-Abelian complexity values and recurrences, not six multiplicities",
+        "Exact direct factor spectra through k=10 were recomputed with an included independent finite checker rather than obtained from a published table"
+      ],
+      "reasoning": "Exact counts of distinct signatures and raw factor counts do not determine class-size distributions. No source with a matching 6-tuple table/formula was located; search absence does not certify historical novelty.",
+      "searches": [
+        "exact frequency multiplicity of 2-abelian factor equivalence classes in period doubling word at lengths 2^k",
+        "period doubling 2-abelian length powers",
+        "arXiv:1405.3532"
+      ]
+    },
+    "rationale": "A full-text comparison of the same-word 2-Abelian complexity paper and two foundational primary works isolates the difference between counting signatures and counting each signature fiber. The new exact dyadic six-fiber distribution is not stated or implied by the inspected propositions. Published research-record searches and accessible prior claims revealed no equivalent spectrum, but cannot exclude unlocated older equivalent formulations.",
+    "residual_risks": [
+      "An earlier exact 2-Abelian fiber distribution under alternate terminology or as an unstated corollary of another source may exist.",
+      "Other general higher-order Abelian-equivalence literature outside the inspected primary sections was not exhaustively surveyed.",
+      "One foundational 2013 paper was inspected only at abstract/introduction depth."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides class-count complexity and signature criteria, not the new class-size multiset at powers of two.",
+        "evidence": [
+          "Parreau–Rigo–Rowland–Vandomme, arXiv:1405.3532, §5, Propositions 34–35 and Corollary 41 (first public 2014-05-14)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+        "material_read": "Full Section 5 (PDF pages 23–27), particularly Proposition 34, Proposition 35 and Corollary 41, including surrounding derivations and statements.",
+        "method": "Original freely available PDF text and page images.",
+        "title": "A new approach to the 2-regularity of the ℓ-Abelian complexity of 2-automatic sequences",
+        "trigger": "Exactly the same infinite word and 2-Abelian equivalence, hence the strongest covering-risk source."
+      },
+      {
+        "assessment": "Period-doubling result here concerns Abelian complexity; 2-Abelian family discussed is Thue–Morse, not the claimed fiber-size spectrum.",
+        "evidence": [
+          "Karhumäki–Saarela–Zamboni, arXiv:1302.3783, §4, Lemmas 6–7 (first public 2013-02-15)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.3783",
+        "material_read": "Full relevant Section 4 (PDF pages 6–8), Lemmas 6–7 and surrounding discussion.",
+        "method": "Original arXiv PDF text and page images.",
+        "title": "Variations of the Morse–Hedlund theorem for k-Abelian equivalence",
+        "trigger": "Foundational 2013 treatment of Abelian and 2-Abelian complexity and the period-doubling word."
+      },
+      {
+        "assessment": "Definitions and general theoretical framework; this inspection does not supply or imply the specific six-fiber spectrum. Entire paper was not read.",
+        "evidence": [
+          "Karhumäki–Saarela–Zamboni, arXiv:1301.5104, abstract and introductory definitions (first public 2013-01-22)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+        "material_read": "Abstract/introduction (PDF opening pages) and full-text search for period doubling; no period-doubling mention returned.",
+        "method": "Original arXiv PDF page images and targeted text search.",
+        "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+        "trigger": "Foundational introduction of higher Abelian equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "30dc1dc5-198b-4565-8e8b-9dd0c14e8406",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The six class sizes quantify ambiguity in reconstructing a distinct period-doubling factor from local single-letter and digram counts, rather than merely giving the previously studied number of signatures. The result simultaneously gives exact all-dyadic multiplicities, a proof-driven endpoint census, and sharp linear extrema (~N/6 and ~N/3); these cannot be inferred from class-count complexity alone. It is a natural complete classification for a canonical automatic word and a motivated invariant, not a single small computation.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "A disconnected induced subset with an isolated vertex is contained in its row–column cross and yields precisely the row, column or two-arm form; otherwise, one edge in one component forces the other component to use the two cross-corners, and no isolates force exactly a 2-by-2 rectangle. Case separation is unique. Inclusion-maximal disconnected subsets are full crosses and rectangles, yielding cut counts and sizes. Direct independent brute-force BFS checked 1,151,488 labeled subsets across (3,3),(3,4),(3,5),(4,4),(4,5), including coefficients and inclusion-maximality. Reliability treats empty survivor separately and follows by summing Bernoulli weights. Finite tests do not replace the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang and Shan, arXiv:1105.1567, Theorems 1 and 3, inspected complete text.",
+        "Soliemany, Ghasemi and Varmazyar, DOI 10.1051/ro/2022085, Theorems 2.1–2.5 and proof details inspected.",
+        "Anand et al., DOI 10.2298/AADM111230001A, direct-product Theorem 5.12 explicitly concerns clique separators, not unrestricted minimal vertex cutsets."
+      ],
+      "reasoning": "Wang–Shan implies the already known scalar minimum vertex connectivity and neighborhood minimum cuts. The 2022 direct-product paper includes the known scalar complete-factor-three superconnectivity case. The inspected stronger connectivity bounds do not enumerate every disconnected induced survivor subset or both families of all inclusion-minimal cuts; no automatic implication to coefficientwise reliability is present. The 2012 direct-product theorem covers only clique separators: the present product has none, while its inclusion-minimal nonclique vertex cuts are nonempty and classified here.",
+      "searches": [
+        "All inclusion-minimal vertex cutsets of direct products of complete graphs K_m x K_n: neighborhoods of vertices and complements of 2x2 subgrids; size distribution and super-connectivity",
+        "Vertex reliability polynomial of tensor product of two complete graphs, induced connected subgraph enumeration and random vertex failure",
+        "On the super connectivity of Kronecker products of graphs arXiv 1105.1567",
+        "On the super connectivity of direct product of graphs 10.1051/ro/2022085",
+        "Atoms and clique separators in graph products Anand Balakrishnan Changat Peterin 2012 direct product Theorem 5.12"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1105.1567",
+      "DOI:10.1051/ro/2022085",
+      "DOI:10.1137/0220009 (classical problem definition and generic framework)",
+      "OEIS:A360873 (different product)",
+      "published mathematical-record search on direct/tensor graph-product cuts, reliability and connected induced subsets",
+      "DOI:10.2298/AADM111230001A (direct-product clique separators, section 5 text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2011 source proves connectivity and super-connectedness, including all minimum cuts being neighborhoods.",
+        "2022 source identifies specific superconnectivity bounds and cites the K_3 x K_n scalar case.",
+        "The original minimum cut size equals (m-1)(n-1), which is not asserted to be novel."
+      ],
+      "reasoning": "The classification is not a reformulation of the known minimum-cut result: it counts all disconnected vertex subsets of every size, identifies a second nonminimum inclusion-minimal cut family, and yields the full probability polynomial. The known scalar minimum and some scalar superconnectivity results are explicitly credited; their implications do not cover the additional claims in the inspected texts.",
+      "searches": [
+        "Minimal vertex separators, minimal vertex cuts, maximal disconnected induced vertex subsets of categorical products of complete graphs K_m tensor K_n (complements of rook graphs), explicit classification two by two subgrids and crosses, count and cut polynomial",
+        "All inclusion-minimal vertex cutsets of direct products of complete graphs K_m x K_n: neighborhoods of vertices and complements of 2x2 subgrids; size distribution and super-connectivity",
+        "Wang Shan 2011 Kronecker product super connected complete graph",
+        "Soliemany Ghasemi Varmazyar 2022 direct product super connectivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The product is also described as a categorical, Kronecker or tensor product; the graph is the complement of K_m square K_n for these labels.",
+        "Wang–Shan arXiv:1105.1567 studies Kronecker products and vertex cut neighborhoods."
+      ],
+      "reasoning": "The same mathematical question could be phrased as connected induced subsets of the complement of a rook graph, or minimal separators in the categorical product. The searched alternatives did not produce an exact case partition or cardinality polynomial. Structural equivalence was used when comparing claims, not title similarity.",
+      "searches": [
+        "Minimal vertex separators, minimal vertex cuts, maximal disconnected induced vertex subsets of categorical products of complete graphs K_m tensor K_n (complements of rook graphs), explicit classification two by two subgrids and crosses, count and cut polynomial",
+        "Minimal separators of co-bipartite graph, complement of rook graph, tensor product complete graphs K_m x K_n, vertex connectivity, separators enumeration",
+        "Exact node reliability polynomial, vertex-subset induced connectivity polynomial of graph K_m tensor K_n (complement of rook graph), counts of all disconnected induced subgraphs classified by row-column crosses and 2-by-2 rectangles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A360873 explicitly concerns Cartesian rook graphs K_m square K_n, whose adjacency is common row or column.",
+        "The present graph K_m tensor K_n has adjacency only when both coordinates differ."
+      ],
+      "reasoning": "The table counts connected induced subgraphs of the complementary Cartesian product, not the required categorical product; complementing a graph does not exchange connected-subset enumerators in a way that supplies this polynomial. The database therefore does not duplicate the computed coefficients.",
+      "searches": [
+        "Exact node reliability polynomial, vertex-subset induced connectivity polynomial of graph K_m tensor K_n (complement of rook graph), counts of all disconnected induced subgraphs classified by row-column crosses and 2-by-2 rectangles",
+        "Vertex reliability polynomial of tensor product of two complete graphs, induced connected subgraph enumeration and random vertex failure",
+        "OEIS A360873 connected induced subgraphs rook graph"
+      ]
+    },
+    "rationale": "Compared the complete four-case characterization, all-size disconnected-subset polynomial, both inclusion-minimal separator families and nonempty-connected reliability against direct-product connectivity results, classical reliability framework, related Cartesian rook-graph tables and mathematical records. Previous scalar connectivity/neighborhood-cut statements are acknowledged and not treated as novel. Targeted implication checks found no source that covers the full package, subject to residual risks documented below.",
+    "residual_risks": [
+      "Specialized complement-of-rook-graph separator counts may exist under a different terminology or in an unindexed thesis.",
+      "The related 2025 generic node-reliability PDF could not be fully read; no claim of exclusion from its results is made.",
+      "An independent literature-priority or mathematical validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Already covers scalar minimum connectivity and all minimum cuts as vertex neighborhoods, but not disconnected-survivor cardinality polynomial nor the complete inclusion-minimal cut family.",
+        "evidence": [
+          "Theorem 1 proves a minimum vertex connectivity formula for G times K_n.",
+          "Theorem 3 addresses super-connectedness."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1105.1567",
+        "material_read": "Full paper, particularly definitions, Theorems 1 and 3 and their proofs in pages 1–8.",
+        "method": "Open-access PDF examined including page screenshots and main proof text.",
+        "title": "On the super connectivity of Kronecker products of graphs",
+        "trigger": "Close known general vertex-connectivity and minimum-cut theorem for complete-factor graph products."
+      },
+      {
+        "assessment": "Provides existing scalar bounds and references for complete-factor products, but no explicit full disconnected-subset polynomial and no two-tier enumeration of all minimal cutsets.",
+        "evidence": [
+          "Online publication date 2022-08-18, DOI 10.1051/ro/2022085, primary MSC 05C40.",
+          "Theorem 2.5 proof includes known scalar κ′(K_3 × K_n)=3n−4."
+        ],
+        "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022085.pdf",
+        "material_read": "Full paper, including abstract, assumptions and Theorems 2.1–2.5 with discussion and proofs.",
+        "method": "Publisher-hosted open PDF examined including page screenshots of theorem and hypotheses.",
+        "title": "On the super connectivity of direct product of graphs",
+        "trigger": "Direct-product super-connectivity results and exact scalar K_3 x K_n comparator."
+      },
+      {
+        "assessment": "The direct-product classification is explicitly limited to clique separators; complete graph factors of order at least three have no pendant vertices and meet the paper’s no-clique-separator case. The nonclique cut and subset polynomial claim is outside those theorem statements.",
+        "evidence": [
+          "Theorem 5.12 classifies minimal clique separators of direct products.",
+          "Theorem 5.13 addresses maximal atoms without clique separators."
+        ],
+        "identifier_or_url": "https://doi.org/10.2298/AADM111230001A",
+        "material_read": "Full-text public extract of the abstract and section 5, including definition of clique separator and statements of Theorems 5.12–5.13; other sections not examined in full.",
+        "method": "Publisher-linked and author-posted text excerpt compared with the product assumptions and the distinction between arbitrary and clique separators.",
+        "title": "Atoms and clique separators in graph products",
+        "trigger": "Could supply a stronger all-separator theorem for direct products."
+      },
+      {
+        "assessment": "Different product adjacency; does not count connected subsets of the graph in this claim.",
+        "evidence": [
+          "The sequence is described for K_m square K_n rather than K_m tensor K_n."
+        ],
+        "identifier_or_url": "https://oeis.org/A360873",
+        "material_read": "Description and example definitions of counted graph family.",
+        "method": "Online sequence entry compared by adjacency predicate.",
+        "title": "OEIS A360873: connected induced subsets of Cartesian rook graphs",
+        "trigger": "Possible exact enumerator for rook-graph complements."
+      },
+      {
+        "assessment": "Coverage cannot be ruled out; listed as residual risk rather than falsely reported as inspected or not covering.",
+        "evidence": [
+          "A related generic node reliability manuscript exists; full results could not be compared."
+        ],
+        "identifier_or_url": "https://www.nas.ewi.tudelft.nl/people/Piet/papers/IEEE_TNSM2025_Node_reliability_polynomial.pdf",
+        "material_read": "Only indexed title/description; PDF could not be inspected.",
+        "method": "Attempted lawful direct PDF retrieval; not available during research.",
+        "title": "General node reliability polynomial manuscript (2025)",
+        "trigger": "Plausible broader reliability-polynomial treatment with possible encompassing specialized graph family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4559f4a2-c7e9-42de-b5ce-54775c542a94",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The polynomial enumerates every vertex-failure pattern leading to disconnected operation and determines nonempty-connected network reliability. Its maximal-disconnected-set duality completely classifies all inclusion-minimal cuts in a natural infinite symmetric graph family, including a structurally different second family with unbounded cut-size gap. These are meaningful structural and probabilistic invariants beyond preexisting scalar minimum connectivity; not an arbitrary single coefficient.",
+    "status": "PASS"
+  }
+}

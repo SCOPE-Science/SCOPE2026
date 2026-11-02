@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "All parameter restrictions are explicit. Positive denominators and the two-case max/min endpoint reduction give an exact iff. Solving the linear p thresholds and a one-positive-root quadratic gives the fixed-slope boundary; taking p down to zero and comparing polynomial signs at 6/7 gives the uniform two-branch boundary. Finite R witnesses prove sharpness for the interval. A standalone standard-library verifier provides 34,400 exact-rational checks in addition to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source also gives more permissive conditions involving actual local speeds, equations (121)--(122), and speed-spread bounds, equation (127).",
+        "The earlier 2021 paper develops monotone reconstruction and does not contain the 2026 interval under analysis."
+      ],
+      "reasoning": "The broader admissibility formulas need unknown actual stage speeds or differ from the specified conservative interval. They do not supply a uniform threshold for the operational (118) interval; the new theorem does not claim necessity for these broader conditions.",
+      "searches": [
+        "Active Flux TVD nonlinear bounds CFL condition wave-speed ratio Simpson gamma 1/6 positive scalar",
+        "Barsukow 2021 Active Flux limiter monotone power law reconstruction CFL",
+        "doi:10.1007/s10915-020-01381-z section 5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.05920",
+      "https://link.springer.com/article/10.1007/s10915-020-01381-z",
+      "https://arxiv.org/abs/2105.13403",
+      "https://arxiv.org/abs/2502.05101"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source proves nonemptiness at s <= (sqrt(97)-7)/4 via an upper bound that inserts the factor 2 in its quadratic estimate.",
+        "The new universal CFL is in the genuinely larger range s>0.712 for all speed contrasts; the exact admissible set has explicit finite-slope necessity and sufficiency."
+      ],
+      "reasoning": "The printed source theorem alone does not imply nonemptiness at the larger step sizes. Its endpoint formula permits the new exact algebraic optimization, which is the entire claimed contribution. Existing exact-stage or broad TVD bounds are not asserted to be beaten.",
+      "searches": [
+        "arxiv:2610.05920v1 Sections 4--5 and Theorem 4",
+        "doi:10.1007/s10915-020-01381-z Section 5",
+        "arxiv:2105.13403 background abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 4 gives endpoints of a nonlinear flux-correction interval and a sufficient, not sharp, CFL bound.",
+        "The complete new equivalence gives a slope parameter cutoff and an exact largest feasible Courant number for the identical interval."
+      ],
+      "reasoning": "Equivalent formulations were compared at the level of endpoint inequalities. The source defines the interval but neither solves its all-parameter feasibility optimization nor proves the contrast/slope frontier. The source formula is openly credited and is the basis of the proof.",
+      "searches": [
+        "\"A TVD Active Flux method for scalar conservation laws\" CFL improved theorem 4",
+        "\"2610.05920\" \"sqrt73\" \"6/7\"",
+        "arxiv:2610.05920v1 Theorem 4 equations (118),(127)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected indexed mathematical table or exact threshold record identified the two-branch contrast law or 1/6 switch.",
+        "The source printed root (sqrt(97)-7)/4 but not the root of s^2+7s-6 or the speed-contrast phase diagram."
+      ],
+      "reasoning": "The searches used exact constants, source-specific phrases and the object name. Negative searches do not prove worldwide uniqueness; the conclusion concerns inspected material only.",
+      "searches": [
+        "\"Active Flux\" \"sqrt(73)\" \"Courant\" TVD",
+        "\"Active Flux\" \"6/7\" nonlinear limiter",
+        "\"Active Flux\" \"0.772\" TVD flux",
+        "\"(sqrt(73)-7)/2\" Active Flux limiter"
+      ]
+    },
+    "rationale": "The strongest directly related published source prints the sufficient correction interval and an approximately 0.712 guaranteed CFL, explicitly leaving improved CFL estimates open. The new theorem gives sharp feasibility for each positive speed contrast and local slope, including an unreported switch at speed ratio 1/6. This is an exact optimization of prior inequalities, not a claim to have invented them. Searches of mathematical research records and accessible prior scientific claims showed no equivalent claim; incomplete historical coverage and direct algebraic accessibility from the source remain risks.",
+    "residual_risks": [
+      "The new criterion is an elementary but sharp optimization of a published explicit interval, and prior authors or other sources might have privately or publicly derived it without indexing.",
+      "Not every relevant older full paper was accessible or read; no universal priority assertion is made.",
+      "Sharper feasibility for equation (118) does not imply infeasibility of general TVD corrections for larger steps."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT starting point; source provides interval and conservative 0.712 sufficient bound, but not the optimized r,p frontier",
+        "evidence": [
+          "2026 paper Theorem 4, eqs. (118),(127),(130)--(134); immediately following remark explicitly permits CFL refinement"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.05920",
+        "material_read": "Full accessible HTML relevant Sections 2--5, especially derivation of (111), Theorem 4, proof (118)--(134), and algorithm steps",
+        "method": "Primary full-text mathematical comparison of constraints and sharpness claims",
+        "title": "A TVD Active Flux method for scalar conservation laws",
+        "trigger": "Same nonlinear scalar Active Flux flux-limiting interval, explicit bound and possible CFL improvement"
+      },
+      {
+        "assessment": "Provides power-law monotone reconstruction but not the later fully discrete speed-bound feasibility interval",
+        "evidence": [
+          "2021 article Section 5 Theorems 5--6 and power-law reconstruction formula"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10915-020-01381-z",
+        "material_read": "Open full-text introduction, reconstruction discussion and Section 5 limiting including Theorems 5--6",
+        "method": "Compare objects, constraints and type of limiter",
+        "title": "The Active Flux Scheme for Nonlinear Problems",
+        "trigger": "Earlier monotone power-law reconstruction and nonlinear Active Flux limiting"
+      },
+      {
+        "assessment": "Background reference; unresolved whole-text comparison is residual historical-priority uncertainty",
+        "evidence": [
+          "Public 2021 abstract focuses on approximate evolution operators and well balancing"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.13403",
+        "material_read": "Abstract and bibliographic metadata only; full text not material-read",
+        "method": "Scope screening only; no whole-document exclusion inference",
+        "title": "Approximate evolution operators for the Active Flux method",
+        "trigger": "Earlier nonlinear evolution-operator construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3052f2d6-af9e-4b72-b199-cb4dc582134a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source uses explicit local bounds to select feasible nonlinear TVD point updates. The sharp criterion raises its certified Courant budget by approximately 8%-20% depending on wave-speed contrast, identifies an exact contrast threshold of 1/6, and yields an implementable slope-dependent bound, without extra nonlinear speed solving. This is a substantive, motivated sharp discretization cutoff for the published sufficient interval, not a universal solver stability claim.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Explicit de Bruijn edge construction gives one mandatory copy of each binom(k,2) target edge and a k-1 edge one-marker cycle; all graph degrees balance and every target rotation orbit meets the added cycle. For necessity, subtracting mandatory edges from a closed walk gives an integral circulation. A hypothetical <k-1 edge augmentation splits into short periodic walks; Fine–Wilf shows distinct primitive-support walks cannot meet, while a short periodic walk meeting the adjacent-ones target orbit meets no other target orbit. The mandatory graph has at least two disjoint orbits for k>=4, contradicting connectedness. Constructive and exhaustive small-case checks succeeded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nellore–Ward, arXiv:2108.07759v1: arbitrary-length near-uniform counts for all window types, not a specified-weight hitting problem.",
+        "Ruskey–Sawada–Williams 2012 Theorem 2.4: Eulerian cycles for the weight interval {1,2} in shorthand, not a lower bound for full length-k weight-two coverage.",
+        "Gabric et al. arXiv:2603.11934 abstract: bounded-weight de Bruijn decoding; unverified full-text risk recorded."
+      ],
+      "reasoning": "A longer universal cycle for all windows of weight one or two gives an upper bound at length binom(k,2)+k, which is one position longer than this optimum, so it does not cover sharpness. The arbitrary-length balanced sequence objective is orthogonal.",
+      "searches": [
+        "Universal cycles and shortest covering sequences for fixed-weight binary words, all k-subsets two ones, directed Eulerian augmentation",
+        "2026 Gabric Sawada bounded-weight de Bruijn sequences length weight up to 2 exact"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/100808782",
+      "doi:10.1007/978-3-030-83508-8_43",
+      "arxiv:2108.07759v1",
+      "arxiv:1008.2251",
+      "arxiv:2603.11934",
+      "prior research records records 88edb89f, eb316cc2, fd51f9f7 (claim/title deduplication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blanca–Godbole arXiv:1008.2251: (1+o(1))-type covering guarantee, not the exact excess k-1 for weight two.",
+        "Sawada–Williams 2021 full-text Sections 1 and 4: unambiguous shorthand formulation; full length-k fixed-weight u-cycle generally unavailable.",
+        "Ruskey–Sawada–Williams 2012 full-text Sections 1,2,7: exact shorthand universal cycles, not minimal literal full-window circular cover.",
+        "Prior prior research records record 88edb89f concerns the golden-mean forbidden-11 language; record eb316cc2 concerns ternary three-palindrome cyclic coverage; record fd51f9f7 concerns bounded-zero-run language."
+      ],
+      "reasoning": "The claimed number is a new sharp length of a directed rural-postman completion for the exact weight-two edge set, with an infinite periodicity lower bound. Neither a shorthand cycle theorem nor an asymptotic general covering statement implies it. Prior own cyclic-cover theorems use different required edge languages and none subsumes all fixed-weight-two words.",
+      "searches": [
+        "Shortest circular superstring of all two-one words, sparse-window universal cover weight 2, k-subset necklace",
+        "Minimal length circular binary sequence containing all k-bit words with two ones: k(k+1)/2 - 1, weight 2 cover and necklaces",
+        "Minimum Eulerian augmentation of all weight-2 arcs in binary de Bruijn graph, length k-1 extra and Fine Wilf periodicity lower bound",
+        "\"De Bruijn Sequences for Fixed-Weight Binary Strings\" Ruskey Sawada Williams pdf",
+        "binary 2-subsets shortest cyclic superstring length n choose 2 + n - 1 universal covering cycles",
+        "weight two universal cycles minimal length covering sequences n length n binary words exactly two ones",
+        "Ruskey Sawada Williams 2012 De Bruijn Sequences for Fixed-Weight Binary Strings shortest covering exactly weight k binary string pdf",
+        "2026 Gabric Sawada bounded-weight de Bruijn sequences length weight up to 2 exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ruskey–Sawada–Williams (2012), DOI 10.1137/100808782, Abstract and Sections 1–2: their fixed-weight universal sequence is defined on length-(k-1) shorthand words, not literal weight-two length-k windows.",
+        "Sawada–Williams (2021), DOI 10.1007/978-3-030-83508-8_43, introduction and Section 4: shortest exact shorthand universal cycle, explicitly says full-content universal cycle does not exist."
+      ],
+      "reasoning": "A shorthand length-(k-1) factor of weight 1 or 2 encodes a length-k weight-two word by adding a forced terminal bit; the codeword completion is not necessarily equal to the actual next bit in the cyclic sequence. Hence the shorthand |S|-cycle is not equivalent to a literal full-window cover. Even its construction does not imply the minimum number of extra full-window factors.",
+      "searches": [
+        "Exact shortest cyclic binary superstring covering all length-k words of Hamming weight exactly two, optimal length binomial(k,2) + k - 1 and constant-weight necklaces",
+        "Universal cycles and shortest covering sequences for fixed-weight binary words, all k-subsets two ones, directed Eulerian augmentation",
+        "\"De Bruijn Sequences for Fixed-Weight Binary Strings\" Ruskey Sawada Williams pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent exact finite optimization via directed graph MILP for k=4..8 yielded lengths 9,14,20,27,35; literal-word enumerations k=4..6 yield the same, but these are not a cited published exact table.",
+        "published-finding corpus returned nearby but non-equivalent records including 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 and 2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925."
+      ],
+      "reasoning": "The searched coding/multispectrum and attractor tables are on different objects and do not enumerate fixed-weight circular covers. No precise published exact table for this invariant was identified; a search miss is not treated as proof of novelty.",
+      "searches": [
+        "Binary weight-two length-k windows covering all compositions minimal cyclic word and de Bruijn restricted Eulerization",
+        "Minimal length circular binary sequence containing all k-bit words with two ones: k(k+1)/2 - 1, weight 2 cover and necklaces",
+        "binary 2-subsets shortest cyclic superstring length n choose 2 + n - 1 universal covering cycles"
+      ]
+    },
+    "rationale": "Direct comparisons with full text of 2012 and 2021 shorthand universal-cycle papers show their implied full-window statements are not the sharp claimed completion. Relevant asymptotic and balanced-window results do not determine this exact optimum. published-finding corpus and prior research records were queried; no covering implication found. Risk remains for unlocated equivalent form and 2026 bounded-weight paper not fully inspected.",
+    "residual_risks": [
+      "Older fixed-weight or rural-postman literature might state the same sharp literal covering formula in a different vocabulary.",
+      "The 2026 bounded-weight universal-cycle source was not accessible for complete full-text comparison; its advertised decoding/range-of-weights theorem does not itself imply the exact result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as written; explicit shorthand factor model differs from literal k-window cover",
+        "evidence": [
+          "The paper defines its fixed-weight cycle using length-(k-1) factors with weights in {w-1,w}; Figure 1.2 separately identifies shorthand and longhand representations.",
+          "Theorem 2.4 proves Eulericity of the shorthand weight-interval graph."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/265351686_De_Bruijn_Sequences_for_Fixed-Weight_Binary_Strings",
+        "material_read": "full-text rendered abstract, introduction, Section 2 balanced/Eulerian graph and discussion of shorthand versus longhand, concluding open problems",
+        "method": "HTML-extracted primary full-text reading",
+        "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+        "trigger": "Most plausible original result directly naming fixed-weight binary strings"
+      },
+      {
+        "assessment": "NOT_COVERING; explicitly constructs shortened representations and no literal full-window sharp bound",
+        "evidence": [
+          "Introduction says universal cycles for literal fixed-weight strings generally do not exist; its replacement is the shorthand length-(k-1) representation.",
+          "Its Example 2 for length five weight two constructs 10-symbol cycle of four-bit shorthand factors."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/350948020_A_Universal_Cycle_for_Strings_with_Fixed-Content_which_are_also_known_as_Multiset_Permutations",
+        "material_read": "primary full-text introduction/examples, Sections 2–4, main theorem and appendix description",
+        "method": "HTML-extracted primary full-text reading",
+        "title": "A Universal Cycle for Strings with Fixed-Content (Which Are Also Known as Multiset Permutations)",
+        "trigger": "Generalizes fixed-weight cycle to fixed-content multisets"
+      },
+      {
+        "assessment": "Nondecisive comparison: advertised near-balanced frequency objective differs, but source not exhaustively assessed",
+        "evidence": [
+          "arXiv:2108.07759v1 timestamp 2021-08-17; theorem objective makes each length-m word occur floor(L/2^m) or ceil(L/2^m) times."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.07759v2",
+        "material_read": "public arXiv abstract, problem definition, accessible HTML overview and bibliography (not full algorithmic proof)",
+        "method": "abstract and bibliographic/HTML comparison only; no whole-document exclusion inferred",
+        "title": "Arbitrary-length analogs to de Bruijn sequences",
+        "trigger": "Recent public source for arbitrary-length cyclic word constructions"
+      },
+      {
+        "assessment": "Residual risk, though advertised task is decoding bounded-weight cycles rather than exact fixed-weight literal shortest covers",
+        "evidence": [
+          "arXiv abstract advertises decoding/ranking bounded-weight de Bruijn universal cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.11934",
+        "material_read": "arXiv abstract/metadata; direct full-text HTML unavailable",
+        "method": "arXiv public abstract and bibliography comparison, no full-text NOT_COVERING claim",
+        "title": "Decoding universal cycles for t-subsets and t-multisets by decoding bounded-weight de Bruijn sequences",
+        "trigger": "Recent plausible broader bounded-weight source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d481664-98e3-4007-9772-69db7ed9acbf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The family of all binary weight-two k-mers is a canonical fixed-composition target in universal cycles and sequence assembly. The formula gives the exact shortest possible cyclic host for every k>=4 and a constructive optimum, quantifying the unavoidable price of connecting isolated necklace cycles rather than a routine example or isolated numerical improvement.",
+    "status": "PASS"
+  }
+}

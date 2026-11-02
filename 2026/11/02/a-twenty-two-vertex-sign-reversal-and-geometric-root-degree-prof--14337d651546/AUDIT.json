@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The exact uniform-attachment update changes the degree-profile polynomial by 1+(z−1)z^r. Conditional covariance with the root attachment indicator gives recurrence (1), which is independently checked against exhaustive parent arrays through size 9. The finite unary identity follows by exact coefficient extraction and summation; strict signs at sizes 21 and 22 plus the positive difference for n≥7 prove the complete threshold. For fixed k, geometric profile means and vanishing root degree-k probabilities make the covariances a Cesàro recurrence with limit 2^{−k−1}. All critical hypotheses and endpoint n=2 were checked; 637 exact assertions pass, but tests are only finite corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson (2005), Theorems 1.1 and 1.4, provides full global count covariance and process limits but no root-marked mixed moment or n=22 reversal.",
+        "Acan–Hitczenko (2014) Propostion 1 and preliminary paragraph focus on the different plane-recursive tree model and global class-count covariance."
+      ],
+      "reasoning": "A potentially stronger theorem on global count fluctuations does not imply a finite-n covariance with an identified root. No inspected theorem conditions on or marks the degree of vertex 1, and no derivation of the exact unary sign boundary follows from the published covariance matrix.",
+      "searches": [
+        "random recursive tree joint distribution root degree and fixed outdegree counts covariance low degrees",
+        "limiting covariance of distinguished root outdegree and count of outdegree k vertices equal 2^{-k-1}",
+        "https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+        "https://arxiv.org/abs/1411.5756"
+      ]
+    },
+    "checked_sources": [
+      "https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+      "https://arxiv.org/abs/1112.1250",
+      "https://arxiv.org/abs/1411.5756",
+      "https://doi.org/10.1002/rsa.3240030305",
+      "https://doi.org/10.1002/rsa.20046"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson (2005) Theorem 1.1 supplies the geometric coefficient 2^{-k-1} as an unmarked frequency, not as the *root cross-covariance*; deriving the latter needs the independent root-marked recursion.",
+        "The existing root–leaf identity Cov(D,N_0)=(n-2)/(2(n-1)) is a special case and cannot determine Cov(D,N_1) from the fixed-size identity sum_k Cov(D,N_k)=0.",
+        "Mahmoud–Smythe (1992) is cited by Janson for count-based degree central limits, but its full text was not accessible for direct statement comparison."
+      ],
+      "reasoning": "The claim is not a renaming of a global count covariance or a corollary of leaf-only mixed covariance: the remaining count classes may offset one another and even change signs. The explicit n=22 transition is a new joint-statistic boundary relative to the inspected statements. There is a residual possibility of implicit earlier formulas in uninspected literature.",
+      "searches": [
+        "random recursive tree root outdegree covariance with number of vertices of outdegree k profile asymptotic 2^{-k-1}",
+        "root degree covariance number of vertices with exactly one child in a uniform recursive tree reverses at n=22",
+        "limiting covariance of distinguished root outdegree and count of outdegree k vertices equal 2^{-k-1}",
+        "Mahmoud Smythe asymptotic joint normality outdegrees of nodes in random recursive trees 1992 full text",
+        "https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+        "https://arxiv.org/abs/1112.1250",
+        "https://arxiv.org/abs/1411.5756"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janson (2005), Theorem 1.1 and Section 4, uses global profile pair covariance Cov(N_i,N_j)/n and mean proportions; neither is Cov(D_root,N_k).",
+        "Backhausz–Móri (2011), Section 3, concerns counts of fixed degrees among first-level descendants, not globally coupled to root outdegree."
+      ],
+      "reasoning": "The root outdegree is a distinguished-label statistic of logarithmic size, whereas Janson’s global profile counts are order n with square-root fluctuations; a global profile covariance is not a disguised version of the mixed root–profile covariance. Tree-vertex-degree aliases (children, outdegree, root branching, unary vertices) were compared explicitly.",
+      "searches": [
+        "random recursive tree root outdegree covariance with number of vertices of outdegree k profile asymptotic 2^{-k-1}",
+        "random recursive tree joint distribution root degree and fixed outdegree counts covariance low degrees",
+        "https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+        "https://arxiv.org/abs/1112.1250"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Janson (2005), numerical covariance matrix near Theorem 1.1, tabulates asymptotic Cov(N_i,N_j)/n, not root–count covariances.",
+        "Direct exact rational enumeration within the present standalone package establishes n=21 and n=22 signs; these computed values are not claims about historical tables."
+      ],
+      "reasoning": "The examined tables are about two bulk degree classes, so they cannot contain the present root-marked 22-vertex transition. Searches did not locate a table explicitly giving the proposed formula. Absence of a search result is not interpreted as proof of priority.",
+      "searches": [
+        "root degree covariance number of vertices with exactly one child in a uniform recursive tree reverses at n=22",
+        "covariance root degree and number of vertices with one child uniform recursive tree 22",
+        "https://www2.math.uu.se/~svantejs/papers/sj155.pdf"
+      ]
+    },
+    "rationale": "The new statement is the finite sign reversal at 22 vertices and the unscaled mixed covariance between the distinguished root degree and every fixed global outdegree count. The closest complete source, Janson (2005), establishes the limiting degree frequencies and covariances between global count variables, not a distinguished-root cross moment; no implication to the stated sign threshold is available from those results. Full arXiv text of Backhausz–Móri and Acan–Hitczenko was inspected and treats, respectively, fixed tree levels and a different plane-oriented model. The prior exact root-degree/leaf covariance covers only degree zero; that special case is expressly not novel. Search failures do not certify historical uniqueness, particularly given the inaccessible 1992 Mahmoud–Smythe full text.",
+    "residual_risks": [
+      "The 1992 Mahmoud–Smythe paper could not be examined in full; an implicit root-degree mixed moment might occur in its appendices or formulas.",
+      "General urn/polynomial methods in older papers could imply the exact recurrence without the same wording; priority cannot be certified by searches alone.",
+      "Janson’s PDF was inspected as parsed full text; image-based page inspection was unavailable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines global count counts N_k and proves their mutual asymptotic covariances; no distinguished-root degree cross covariance or unary finite sign transition is stated in inspected material.",
+        "evidence": [
+          "Theorem 1.1: sigma_ij = Cov(V_i,V_j) for centered global counts.",
+          "Section 4 (equations 4.3–4.4) computes global count covariance generating function.",
+          "Page 1 manuscript dated February 21, 2003, but publisher verified first public posting November 16, 2004."
+        ],
+        "identifier_or_url": "https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+        "material_read": "Full-text transcription of Introduction, Theorems 1.1–1.5, and Section 4 degree-urn covariance derivation and Section 5 model contrast.",
+        "method": "Read and searched publicly accessible author-hosted full-text PDF transcription; PDF page-image requests were unavailable, so comparisons rely on parsed mathematical text.",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Same uniform-parent recursive tree and all global outdegree counts; strongest potential coverage source."
+      },
+      {
+        "assessment": "First-level degree-count Poisson limits and age–degree facts, but not root-degree-by-global-outdegree covariance.",
+        "evidence": [
+          "Section 3 Theorem 3.1: first-level degree counts are asymptotically independent Poisson.",
+          "The paper explicitly distinguishes uniform from plane-oriented recursive trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1112.1250",
+        "material_read": "Full arXiv-transcribed body including Introduction, Sections 2 and 3 and their theorem statements.",
+        "method": "Read HTML full-text rendering from arXiv record.",
+        "title": "Degree distribution in the lower levels of the uniform recursive tree",
+        "trigger": "Root-adjacent degree statistics might dominate an identified-root covariance."
+      },
+      {
+        "assessment": "Works with plane-oriented preferential-attachment recursive trees and covariance of global degree counts, neither the uniform-parent root-marked statistic nor its finite crossover.",
+        "evidence": [
+          "Opening text specifies random plane recursive trees and reformulates Janson Theorem 1.3.",
+          "Proposition 1 simplifies the global outdegree covariance matrix."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.5756",
+        "material_read": "Complete short HTML full-text with abstract, Proposition 1, lemmas and proof.",
+        "method": "Read arXiv HTML record and proposition statements.",
+        "title": "On the covariances of outdegrees in random plane recursive trees",
+        "trigger": "Title includes outdegree covariance; check for stronger all-class results."
+      },
+      {
+        "assessment": "Plausibly covers correlations among global counts of vertices of 0,1,2 children; direct exclusion of a root-marked formula is impossible without its full text.",
+        "evidence": [
+          "Janson (2005), Introduction, attributes to Mahmoud–Smythe the joint normal law of numbers of vertices of outdegrees 0,1,2.",
+          "Original full text access unavailable; explicit historical-priority risk retained."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240030305",
+        "material_read": "Citation metadata, abstract-level summaries and its precise scope as characterized in the full Janson (2005) Introduction; original article full text not accessed.",
+        "method": "Bibliographic search and primary citation cross-reference; no original full-text inspection.",
+        "title": "Asymptotic Joint Normality of Outdegrees of Nodes in Random Recursive Trees",
+        "trigger": "Older highly relevant title could have an implicit marked-node formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "14337d65-1546-4429-80a9-f012a75ed95e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of unary vertices is a canonical part of the degree profile of a growing rooted tree, and its correlation with founder branching reverses sharply at exactly 22 vertices. The geometric cross-covariance profile for every fixed degree uncovers a structured founder effect not described by bulk profile CLTs, and the finite conservation identity sum_k Cov(D,N_k)=0 shows why high-degree contributions must offset these positive limits. This is a motivated joint-statistic classification with a nontrivial finite boundary and limit, not a numerical table or a routine restatement of degree frequencies.",
+    "status": "PASS"
+  }
+}

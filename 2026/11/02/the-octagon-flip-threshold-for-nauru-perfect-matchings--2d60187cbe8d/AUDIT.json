@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The least-uncovered-vertex matching recursion is exhaustive and unique by induction, yielding 120 matchings. Any symmetric difference of two perfect matchings is a union of alternating cycles, so a single length-l cycle is the exact legal flip criterion. The cycle-first Python verifier enumerates 0,12,54 simple cycles of lengths 4,6,8, then every legal move. The independently implemented pair-first C++ verifier checks all 7140 unordered matching pairs for connected symmetric differences. Both compute the 0,192,414 edge counts; 6-cycle component partition (9 singles, three 18, one 57); full 8-cycle connectivity, radius 4, diameter 6, eccentricity histogram 72/42/6. Both executed successfully with hard assertions. No infinite inference is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ito et al., arXiv:1907.01700, Definition of adjacency and Theorem 3.1: a move may use any single alternating cycle, and a shortest-path algorithm applies to outerplanar graphs.",
+        "Bonamy et al., arXiv:1904.06184, abstract/introduction: their permitted move is an alternating cycle of exactly length four.",
+        "Nauru has girth six (verified from the explicit edge model), and hence no quadrilateral flips."
+      ],
+      "reasoning": "Unrestricted alternating-cycle reachability holds for every graph with perfect matchings by decomposing the symmetric difference; this does not entail reachability restricted to cycles of **exact length eight** or an upper bound of six such flips. The quadrilateral framework becomes empty on Nauru. No covering universal bounded-length theorem was located.",
+      "searches": [
+        "generalized Petersen graph P(12,5) perfect matching reconfiguration 8-cycle switching shortest paths",
+        "fixed length alternating cycle reconfiguration perfect matchings cubic graph 8",
+        "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles arxiv 1907.01700"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1407.5409v1",
+      "arxiv:1907.01700v1",
+      "arxiv:1904.06184v1",
+      "mathworld:NauruGraph",
+      "Existing exact Nauru anti-forcing and two-factor classification, claim compared for deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Csikvári, arXiv:1407.5409, develops quantitative lower bounds and asymptotic properties of perfect-matching numbers in vertex-transitive bipartite graphs.",
+        "Ito et al. treat unrestricted single alternating cycles and general complexity; this does not give octagon-only diameter six.",
+        "Bonamy et al. restrict to four-edge cycles, and Nauru has no such cycles.",
+        "An earlier Nauru anti-forcing census uses the same states but a different invariant, which does not report the asserted flip graph."
+      ],
+      "reasoning": "The new assertion is the precise fixed-length transition classification: all 120 vertices, thirteen length-six components with sizes 57, 18, 18, 18 and nine singletons, and a connected length-eight graph with 414 edges and radius four/diameter six. These quantities are neither rephrasings nor consequences of the cited counting, arbitrary-length connectivity, four-flip complexity or anti-forcing results without a new finite exchange computation.",
+      "searches": [
+        "Nauru graph perfect matching 8-cycle flips single cycle alternating 8, 120 matchings, connectivity",
+        "Nauru graph 6-cycle flips have 13 components, octagon flips connect all matchings with diameter 6",
+        "Perfect matchings on cubic symmetric graphs F024A alternating cycle length constrained exchange shortest paths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MathWorld NauruGraph identifies the same 24-vertex graph with generalized Petersen GP(12,5), Foster F(024)A, 4-permutation star graph, and Coxeter-configuration Levi graph aliases.",
+        "Direct scientific comparison of graph states and exchange relations distinguishes unrestricted cycle flips and fixed-size alternating flips."
+      ],
+      "reasoning": "The Nauru, GP(12,5), F(024)A and star-graph aliases denote the same underlying cubic graph, so an equivalent classification under any alias would cover the claim. The tested searches did not retrieve such a classification; lack of retrieval is not a uniqueness proof.",
+      "searches": [
+        "Perfect matching alternating 6 cycle and 8 cycle reconfiguration graphs of Nauru graph GP(12,5), 120 matchings, 9 isolates hexagon and connected octagon diameter 6",
+        "Nauru graph F024A permutation star graph S4 Cayley graph perfect matching 8-cycle alternating exchanges fixed cycle length flip metric",
+        "Star graph S4 24 vertices dimer octagon alternating cycle matching reconfiguration 120 perfect matchings",
+        "Nauru graph perfect matching flip graph hexagon octagon alternating cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A pre-existing Nauru perfect-matching anti-forcing and two-factor census reports 120 matchings and eight symmetry orbits, with the anti-forcing polynomial and cycle-type statistics, not fixed-length exchange graph distances.",
+        "MathWorld NauruGraph describes canonical graph parameters and aliases, not matching flip graph edge counts or components.",
+        "The new certificate explicitly enumerates all 120 matching states, all relevant cycles or matching pairs, and the full distance matrix."
+      ],
+      "reasoning": "The known 120-state count is excluded from the new contribution. Two-factor or anti-forcing tables do not by themselves list single-cycle length-eight adjacencies, hexagon component sizes or the all-pairs octagon metric. No exact matching flip graph table matching these values was found, though unindexed computational tables remain a risk.",
+      "searches": [
+        "Nauru graph perfect matching 8-cycle flips single cycle alternating 8, 120 matchings, connectivity",
+        "Nauru graph 6-cycle flips have 13 components, octagon flips connect all matchings with diameter 6",
+        "Nauru graph perfect matching enumeration 120 2014"
+      ]
+    },
+    "rationale": "The published archived matching-count paper concerns lower bounds and asymptotic matching measures, not fixed-cycle transitions. The inspected alternating-cycle reconfiguration paper permits arbitrary cycle lengths, and the quadrilateral-flip paper permits length four; neither implies that the Nauru graph is connected by **only length-eight** alternating cycles with diameter six. An earlier exact Nauru 120-matching anti-forcing/two-factor census provides the baseline number of states but not the 13 hexagon components or sharp octagon distances. Searches under the graph aliases and equivalence to symmetric difference single cycles identified no statement dominating these exact structural assertions. The residual risk of unpublished or unindexed tabulations remains.",
+    "residual_risks": [
+      "An equivalent exact octagon-flip census may exist under F(024)A, permutation-star or Nauru aliases in inaccessible or unindexed literature.",
+      "The current published search is not exhaustive; negative search results do not certify publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts and extremal bounds, without fixed-length flip graphs; no text match on Nauru or reconfiguration.",
+        "evidence": [
+          "ArXiv v1 timestamp 2014-07-21 08:15:17 UTC; primary 2010 MSC 05C35.",
+          "Theorem 1.1 and introduction concern perfect-matching lower bounds for regular bipartite graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.5409",
+        "material_read": "ArXiv version history, first PDF page, abstract and initial section/theorem; full-text searches for Nauru and reconfiguration.",
+        "method": "Read public arXiv primary source, inspect first page PDF and inspect matching-count theorems and search for asserted object.",
+        "title": "Matchings in vertex-transitive bipartite graphs",
+        "trigger": "Earliest verified publicly dated archival literature directly about the regular bipartite matching setting and primary 05 MSC ownership."
+      },
+      {
+        "assessment": "General one-cycle moves allow all cycle lengths; no fixed-octagon Nauru census or its diameter found.",
+        "evidence": [
+          "The paper defines perfect-matching adjacency when symmetric difference is any single alternating cycle.",
+          "Its outerplanar shortest path theorem and bipartite hardness results are not length-eight-only or Nauru-specific."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1907.01700",
+        "material_read": "Definition of alternating-cycle moves, introductory examples, sections on outerplanar tractability and general hardness, concluding discussion and PDF full-text Nauru/Petersen searches.",
+        "method": "Read the open arXiv PDF with page inspection and targeted text search; compare the move relation and theorem hypotheses.",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Same solution object and general alternating single-cycle adjacency: strongest plausible broader-coverage comparison."
+      },
+      {
+        "assessment": "Four-cycle-only flips do not cover the hexagon and octagon dynamics, and the Nauru four-cycle graph is empty.",
+        "evidence": [
+          "Abstract explicitly says flip operations exchange edges along an alternating cycle of length four.",
+          "No Nauru-specific parameter or classification was located in the PDF."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.06184",
+        "material_read": "Abstract, introduction, definition of flip, representative technical statements, and targeted Nauru/Petersen full-text searches.",
+        "method": "Read the open arXiv PDF and compare admissible cycle size to the Nauru graph girth.",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Canonical exact-length local cycle-flip formulation, but only quadrilaterals."
+      },
+      {
+        "assessment": "Confirms GP(12,5) and multiple aliases; the page does not provide the fixed-length matching reconfiguration graph.",
+        "evidence": [
+          "The graph is 24-vertex cubic symmetric F(024)A, a permutation star graph and a generalized Petersen graph.",
+          "Named graph page lists structural invariants rather than matching exchange distances."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/NauruGraph.html",
+        "material_read": "Textual graph definition, aliases and displayed graph parameters.",
+        "method": "Compare naming and graph order with the explicit generalized Petersen construction.",
+        "title": "Nauru Graph",
+        "trigger": "Check graph aliases and the named canonical graph specification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d60187c-be8d-45ef-b6c4-123a35e67685",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the canonical 24-vertex edge-transitive cubic bipartite graph of girth six, the contrast between blocked quadrilateral moves, 13 hexagon components, and connected octagon moves isolates a sharp natural local-update threshold. The exact diameter six quantifies how efficiently all perfect matchings can be reached under only the first usable globally connecting even cycle size. These are structural dynamical features absent from the known 120-state count and complementary two-factor statistics, and they provide a reproducible benchmark for length-constrained matching reconfiguration without requiring an infinite-family result.",
+    "status": "PASS"
+  }
+}

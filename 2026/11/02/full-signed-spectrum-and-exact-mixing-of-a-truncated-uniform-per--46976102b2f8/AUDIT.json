@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The selfadjoint Hilbert-Schmidt kernel yields a reflected ODE for any nonzero eigenfunction; the endpoint condition is the cotangent equation, monotonic intervals exhaust all roots, and direct substitution verifies the converse. Differentiating Kf=0 gives the entire nullspace. A positive root defines the Doob h-transform; its unitary conjugation to K/lambda0, exact signed-root ordering and spectral theorem establish sharp contraction. Endpoint root limits give 4a/pi and 1/3. Numerical checker independently reproduced 14,206 supplementary assertions; no finite check is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aurzada–Worf addresses all theta in [-1,1), but only the principal eigenpair and limiting transition kernel are determined explicitly.",
+        "Reversible-chain spectral theorem is general but does not compute complete eigenvalues or the sharp endpoint coefficient in this model.",
+        "A related published result treating reversible-chain two-autocorrelation variance bounds does not compute this killed-kernel spectrum."
+      ],
+      "reasoning": "Broader parameter-range coverage of a principal eigenpair does not cover this stronger full signed spectral statement. General spectral theorems provide a method, not the evaluated problem-specific spectrum. Prior a>=1 support is disjoint.",
+      "searches": [
+        "arxiv 2606.01832 Aurzada Worf uniform MA(1) persistence conditioned Doob chain theta=-1 exact stationary density reversible spectral gap",
+        "negative moving-average coefficient minus one uniform innovations positive process conditioned survival stationary eigenvalue mixing",
+        "uniform innovations [-a,1] positive moving average x+y>0 spectral gap small negative support asymptotic 4a/pi",
+        "https://arxiv.org/abs/2507.04427",
+        "https://arxiv.org/abs/2606.01832"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2507.04427",
+      "https://arxiv.org/abs/2606.01832",
+      "arxiv:2507.04427v2 full PDF",
+      "Two autocorrelations give the sharp reversible-chain variance floor (abstract)",
+      "Exact mixing norms and time-reversal obstruction for binary conditional-expectation chains (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper gives a Doob kernel and leading eigenvalue. Its Remark 2 formula implies stationarity for the symmetric case once left and right eigenfunctions coincide, so stationary h^2 is not credited independently.",
+        "The 2025 generating function contains persistence-decay information, but no theorem about complete nonprincipal signed spectrum or exact L2 mixing.",
+        "The existing a>=1 spectral formula has no plateau and therefore does not imply the a<1 cotangent spectrum."
+      ],
+      "reasoning": "Principal h/eigenvalue and invariant law are inputs/known consequences; the new claim specifically needs solving the entire nonprincipal reflected ODE spectrum and identifying its largest negative eigenvalue for exact contraction. No inspected prior result with those stronger conclusions was found.",
+      "searches": [
+        "https://arxiv.org/abs/2507.04427",
+        "https://arxiv.org/abs/2606.01832",
+        "MA(1) uniform innovations conditioned positivity theta minus one stationary distribution Doob h process reversibility spectral gap eigenvalues mixing",
+        "operator kernel indicator x+y>0 on interval [-a,1] spectrum cot spectral gap Doob transform"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aurzada–Raschel arXiv:2507.04427 studies persistence generating functions, not Markov-chain spectral mixing.",
+        "Aurzada–Worf arXiv:2606.01832 Theorem 1.1 and 1.2 identify the leading eigenfunction and Doob process; Remark 2 characterizes stationary density implicitly.",
+        "An existing support-a>=1 spectral calculation applies to a different state interval and does not cover 0<a<1."
+      ],
+      "reasoning": "The nonzero eigenvalues here are all signed roots of a cotangent equation, including a negative gap-defining mode and infinite-dimensional nullspace. The persistence root in prior work is only the leading one. The fixed support-a>=1 model does not imply the spectral deformation for 0<a<1. No matching full spectral equivalent was identified.",
+      "searches": [
+        "MA(1) uniform innovations conditioned positivity theta minus one stationary distribution Doob h process reversibility spectral gap eigenvalues mixing",
+        "uniform moving average negative one persistence Q-process spectral decomposition reflected Volterra kernel",
+        "operator kernel indicator x+y>0 on interval [-a,1] spectrum cot spectral gap Doob transform",
+        "https://arxiv.org/abs/2507.04427",
+        "https://arxiv.org/abs/2606.01832"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table of cotangent roots for this truncated persistence kernel was returned by the targeted mathematical-record search.",
+        "Aurzada–Raschel provide generating functions; the new object is the full eigenvalue list and the sharp relaxation quotient, not a finite tabulated statistic."
+      ],
+      "reasoning": "The claim is an infinite operator-spectrum classification for continuously varying a, not an item from a finite database. Search absence does not establish uniqueness, and the corpus may omit historical integral-equation literature.",
+      "searches": [
+        "Q process positivity moving average one independent uniform theta negative one stationary spectral eigenvalues",
+        "arxiv:2606.01832 theta=-1 0<a<1 killed integral kernel full signed eigenvalues transcendental cot spectral gap mixing ratio",
+        "MA(1) persistence yellow region exact spectral decomposition stationary density mixing rate"
+      ]
+    },
+    "rationale": "Primary 2025 persistence paper and 2026 Doob-chain paper cover persistence-generating functions and principal positive eigenpair, respectively, but not the full signed spectrum or sharp centered L2 contraction for 0<a<1. The earlier own a>=1 result is excluded. Independent priority remains open.",
+    "residual_risks": [
+      "An unindexed classical integral-equation solution or persistence spectral analysis might imply the same cotangent roots; historical priority remains subject to independent literature review.",
+      "The invariant h-squared formula is already implicit in the 2026 paper for symmetric theta=-1 and is not claimed as a standalone original theorem.",
+      "Some results of generic positive-operator theory imply reversibility and convergence abstractly once spectral values are known; originality is the evaluated complete spectrum and exact sharp rate, not those generic implications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Persistence probabilities and leading decay characterized, but no full conditioned-chain spectrum or exact L2 gap stated",
+        "evidence": [
+          "arxiv:2507.04427v1: 2025-07-06",
+          "arxiv:2507.04427v2: relevant phase generating function; Doob identified as follow-up"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.04427",
+        "material_read": "Full 24-page arXiv v2 PDF; initial v1 date verified on arXiv abstract page",
+        "method": "Read abstract, main statements, yellow-region generating function, relevant discussion and searched PDF for Doob, stationary, mixing, spectral gap",
+        "title": "Persistence probabilities for MA(1) sequences with uniform innovations",
+        "trigger": "Same innovations/positivity phase; candidate stronger spectral coverage"
+      },
+      {
+        "assessment": "The source leading eigenpair and Q-kernel align; it does not state complete signed cotangent spectrum, infinite nullspace or sharp L2 contraction",
+        "evidence": [
+          "arxiv:2606.01832v1, 2026-06-01",
+          "Theorems 1.1–1.2 and Remark 2, 2026 full text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.01832",
+        "material_read": "Full arXiv HTML text, including Theorems 1.1–1.2, Remark 2 and yellow-region derivation",
+        "method": "Compared source operator, positive eigenvalue and stationary-density characterization; inspected main mathematical derivation and searched for cot, signed spectrum, spectral gap and mixing",
+        "title": "MA(1) processes with uniform innovations conditioned to stay positive in the non-expanding regime",
+        "trigger": "Exact Doob model and leading eigenpair; likely direct coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46976102-b2f8-4c5b-b023-bfb251afa1ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full spectrum and exact sharp operator contraction solve a natural equilibration problem for the same persistence-conditioned process whose Doob kernel had been constructed, and determine the nontrivial rate onset 4a/pi in the distinct small-negative-support phase. This is a motivated structural spectral classification, not an arbitrary finite numerical invariant.",
+    "status": "PASS"
+  }
+}

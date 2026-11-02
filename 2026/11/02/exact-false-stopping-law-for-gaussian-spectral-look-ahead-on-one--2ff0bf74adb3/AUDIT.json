@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "For real diagonal E, E E^T = d^2 I+(1-d^2)e1e1^T gives the exact top eigenvalue of Q^T E^2 Q. A deterministic one-axis scaling lemma gives ||P_{D_h R}e1||^2 = S/(S+h^2(1-S)), and Gaussian Haar invariance gives S~Beta(b/2,(N+1-b)/2), equivalently chi-square ratio. Solving the threshold inequality proves the exact CDF with endpoints. Chi-square LLN proves both sharp fixed-width and growing-width limits. All boundaries and quantifiers were independently reconstructed; the standalone 1133-test numerical checker passed. Numerical tests are supplementary, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Halko-Martinsson-Tropp 2011 Theorems 18-21: expected and high-probability norms of (I-QQ^T)A in terms of singular tail energy, not the lower-tail CDF of ||Q^T E||_2.",
+        "Saibaba 2018 Theorem 1 and Section 3.4: canonical-angle bounds with gamma^(2q+1), predicting the significance of power steps but not the exact L CDF.",
+        "Liu-Yu 2025 discusses heavy spectral tails and rank-revealing block deflation, with bounds rather than beta-calibrated look-ahead stopping."
+      ],
+      "reasoning": "The older upper bounds are compatible with the new law and may suggest its scale. None supplies an implication that fixes its finite-dimensional equality, the exact threshold-dependent false-stop probability, or the sharp 1/(4q+2) critical exponent. The finding does not claim the qualitative need for oversampling or power iteration is new.",
+      "searches": [
+        "Gaussian sketch matrix diagonal singular value spike outlier capture transition block size noise bulk spectral norm",
+        "randomized range finder spectral norm estimate blind large stable rank fixed oversampling block",
+        "adaptive matrix free low rank Smith Do Chen spectral look ahead failure probability",
+        "arxiv:0909.4061v2 Sections 4, 9-10",
+        "arxiv:2508.07553v1 Sections 2-3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.06758v1 (full accessible HTML, relevant algorithms/proofs)",
+      "arxiv:0909.4061v2 (full accessible HTML, relevant theory)",
+      "arxiv:1804.02614 (full accessible HTML, canonical-angle theory)",
+      "arxiv:2508.07553v1 (full accessible HTML, rank deflation)",
+      "published one-spike ellipsoid RESULT.md (complete)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Smith-Do-Chen 2026 Algorithm 5 stops when ||B_i||_2 <= epsilon and Theorem 4.3 bounds residual error by eta*epsilon with a probabilistic eta; eta need not be 1.",
+        "The new theorem fixes a concrete E and computes the full distribution of ||Q^T E||_2, whereas the source uses a high-probability inequality.",
+        "Accessible previous own finding e078e250-fc79-4300-b533-16deb249715d treats Frobenius-row pruning after an unpivoted QB block and a different rank-two data family, not the spectral look-ahead decision."
+      ],
+      "reasoning": "The new 99% false-stop example does not contradict a bound allowing eta greater than 1 and is not the source theorem restated. The precise tail-dependent block-width and power-filter threshold are additional consequences for the spectral indicator, not for Frobenius pruning or generic rank approximation error.",
+      "searches": [
+        "Smith Do Chen 2607.06758 spectral lookahead rank detection Gaussian spiked diagonal high-dimensional noise",
+        "fixed-block randomized QB spectral look-ahead stopping premature convergence diffuse tail spiked operator",
+        "Gaussian look ahead spectral norm proxy Q transpose A rank adaptive stopping probability spike flat tail chi-square beta",
+        "arxiv:2607.06758v1 Algorithm 5 and Theorem 4.3",
+        "arxiv:2508.07553v1 Sections 2-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-spike ellipsoid radius: a monotone transform of the Haar Beta(n/2,(N-n)/2) projection, but acting on an unfiltered Haar section; read its entire RESULT.md.",
+        "Saibaba 2018 Theorems 1-2: canonical-angle bounds with sigma-tail ratio and Gaussian pseudoinverse, not an exact one-spike spectral look-ahead probability.",
+        "The new formula involves the filtered plane range(diag(1,d^(2q+1)) Omega) and then Q^T diag(1,d,...,d); the output is the spectral proxy rather than an ellipsoid radius."
+      ],
+      "reasoning": "The common Haar beta projector is openly treated as classical. A monotone transform from the one-spike section radius does not alone evaluate the two-stage filtered QB spectral statistic or characterize its false decision. Exact equality to a prior formulation or a dominating statement was not found in the inspected records; mathematical simplicity and other possible formulations leave explicit residual priority risk.",
+      "searches": [
+        "spiked diagonal matrix Gaussian range finder subspace principal angle exact F distribution leverage score one spike isotropic bulk",
+        "rank one spike diffuse tail Frobenius stable rank Gaussian range finder spectral projected norm collapse",
+        "Gaussian range finder top singular vector angle exact chi square Wishart leverage score phase transition",
+        "Gaussian randomized QB singular spike flat residual exact spectral projection beta false acceptance",
+        "arxiv:1804.02614; Sections 3.1 and 3.4",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical records contain a beta-distributed Haar random-section-radius law, not a table of spectral look-ahead false-stop probabilities.",
+        "Exact 0.9897679877478459 one-spike look-ahead false-stop probability at N=10000,b=16,d=0.1,tau=0.5 is calculated from the new CDF, not copied from a table.",
+        "Accessible own-history claims are distinct, in particular the unpivoted QB Frobenius rank-pruning arcsine obstruction."
+      ],
+      "reasoning": "No queried database or table asserted these false-stop values or the exact threshold formula. The lack of a search hit is not proof of novelty; equivalence and source-theorem implications were compared separately.",
+      "searches": [
+        "Gaussian look ahead spectral norm proxy Q transpose A rank adaptive stopping probability spike flat tail chi-square beta",
+        "Gaussian randomized QB singular spike flat residual exact spectral projection beta false acceptance",
+        "one-spike Gaussian subspace filter power iteration fixed block dimension sharp asymptotic failure",
+        "randomized one-spike matrix low rank detection chi squared Gaussian orthogonal projection",
+        "published-finding corpus one-spike ellipsoid record e99f37d3b7ae",
+        "prior research records full claims"
+      ]
+    },
+    "rationale": "Read the specific spectral look-ahead algorithm and its probability-factor theorem, the Gaussian range-finding and canonical-angle literature, the 2025 fixed-threshold method, and the closest published one-spike Haar-section law. The latter supplies the classical beta ingredient, but its radius functional does not state the filtered Gaussian QB spectral indicator, the false-stop CDF, the sharp growing-dimensional detection threshold, or its block-size calibration. The original QB work and canonical-angle estimates provide bounds/qualitative predictions rather than this exact decision probability. Prior identical formula under alternative terminology remains a priority risk.",
+    "residual_risks": [
+      "A previously published equivalent spiked angular-Gaussian or matrix-beta formula may be indexed under a different name; mathematical priority is not independently established.",
+      "The one-spike Haar beta calculation is classical and the link to a specific look-ahead decision is an application, not a claim that the underlying beta distribution is new.",
+      "The theorem applies to the block-level indicator on a fixed residual; it is not an unconditional failure-probability theorem for a whole adaptive randomized algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_ESTIMATOR_DIFFERENT_CLAIM: no exact one-spike CDF or sharp false-stop phase classification in inspected material",
+        "evidence": [
+          "Original first public timestamp 7 July 2026",
+          "Algorithm 5 block Q_i = orth(E_{i-1} Omega_i), B_i = Q_i^T A, stopping if ||B_i||_2 <= epsilon",
+          "Theorem 4.3 uses ||E||_2 <= eta ||B_i||_2 with non-unit eta"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.06758",
+        "material_read": "Full accessible arXiv HTML, especially initial problem/MSC, Section 2.2, Section 2.4, Section 4.1 Algorithm 5, and Section 4.2 Theorem 4.3 and proof",
+        "method": "Compared the exact spectral statistic and logic of the probabilistic factor bound to the proposed one-spike CDF",
+        "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+        "trigger": "Exact source definition of the spectral look-ahead estimator and factor guarantee"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_CDF",
+        "evidence": [
+          "Theorem 21 gives deviation bound for ||(I-P_Y)A||_2 by spectral tail/Frobenius tail, not exact distribution of ||Q^T E||_2",
+          "Power iteration Y=(AA^*)^q A Omega is known"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0909.4061v2",
+        "material_read": "Full HTML source with Sections 4.1-4.5, 9.1-9.4, 10.1-10.4 located and Theorems 18-21/associated discussions inspected",
+        "method": "Compared target statistic (projected spectral norm) with approximate range residual and canonical norm bounds",
+        "title": "Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions",
+        "trigger": "Classical strongest Gaussian randomized range-finding/power literature"
+      },
+      {
+        "assessment": "QUALITATIVE_SCALING_RELATED_NOT_EXACT_DECISION_LAW",
+        "evidence": [
+          "Theorem 1 contains gamma^(2q+1) and ||Omega_2 Omega_1^dagger|| controls",
+          "No specific flat-tail one-spike beta-CDF or source spectral look-ahead decision follows as a stated theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.02614",
+        "material_read": "Accessible complete arXiv HTML searched/read for Sections 2-4, key Theorems 1-2, 3.4 probabilistic bounds, Section 5 proofs",
+        "method": "Compared exact projection of a single singular vector to published canonical-angle bounds and probability estimates",
+        "title": "Randomized Subspace Iteration: Analysis of Canonical Angles and Unitarily Invariant Norms",
+        "trigger": "Potential broader implication through canonical-angle distribution"
+      },
+      {
+        "assessment": "RELATED_PROJECTION_BOUNDS_NOT_EXACT_SPECTRAL_LOOKAHEAD_CDF",
+        "evidence": [
+          "Section 1 explicit heavy-tail example",
+          "Section 3 analyzes Gaussian projected subspaces via bounds; no one-spike false-stop beta law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.07553",
+        "material_read": "Accessible complete arXiv HTML, Sections 1-3 including heavy tail example, Gaussian block algorithm, Lemma 3.1, Theorem 3.3 discussion",
+        "method": "Compared spectral stopping quantity, rank-deflation aims, and high-probability bounds with the new false-stop CDF",
+        "title": "Efficient Adaptive Randomized Algorithms for Fixed-Threshold Low-Rank Matrix Approximation",
+        "trigger": "Plausible previous rank-revealing and Gaussian power-method result"
+      },
+      {
+        "assessment": "SHARED_HAAR_BETA_INGREDIENT_DISTINCT_FUNCTIONAL",
+        "evidence": [
+          "Its random variable is an ellipsoid section radius (a^{-2}+(b^{-2}-a^{-2})T)^{-1/2}",
+          "Its Haar beta projector does not state ||Q^T E||_2 when Q is orth(E^(2q+1) Omega) or the false-stop transition"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae",
+        "material_read": "Complete published RESULT.md including all-dimensional statement, rank-one compression proof and limitations",
+        "method": "Compared mathematical observables and whether the one-spike section radius formula implies the two-operator filtered Gaussian QB spectral norm without further derivation",
+        "title": "Exact random-radius law for one-spike ellipsoids in every codimension",
+        "trigger": "Closest published geometric result with a Haar beta projector"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ff0bf74-adb3-4a34-bb88-fba5e5b7ba77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact false-stop probability for a new spectral look-ahead decision is directly useful for calibrating the block width of matrix-free low-rank calculations: a natural dimension-10001 one-spike residual with best rank-one error 0.1 has a false-stop probability 0.9897679877 for a 16-column look-ahead threshold 0.5. The sharp b/(N d^(4q+2)) limit quantifies an actual sample/power tradeoff despite diverging spectral gap; this is more than a normalization or routine parameter update. Scope is explicitly limited to one flat-tail family and exact arithmetic.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact scalar complex-Gaussian ratio law for every compression entry, beta-transformed median second moment, and Gamma-shape-two Schur complement jointly prove the stated expectation identity for every integer n>m>=1, arbitrary complex A and orthonormal W; boundary E=0 and E nonzero are explicit. An independent fixed-seed exact-moment and simulation verifier passed for m=1,2; the analytic proof, not simulation, establishes universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2604.01037 Theorem 2 is a high-probability extracted eigenpair statement, not a moment identity; 5.3 uses a total-least-squares rectangular pencil.",
+        "Nakatsukasa--Tropp 2024 provides the least-squares sketched Ritz formulation and subspace-embedding accuracy bounds with typical sketch size multiple of the subspace dimension.",
+        "The published result Worst-case sharpness of multistage adaptive randomized pivoting deals with a different residual-projection error measure."
+      ],
+      "reasoning": "High-probability stability, standard subspace embedding accuracy and classic inverse-Wishart expectation do not cover the stated entrywise three-sample median estimator or the universal *equality* between two constructions. Prior works are stronger in some different dimensions (eigenpairs, general sketch models) but not implication-dominating for the new result.",
+      "searches": [
+        "Randomized Rayleigh Ritz Gaussian Petrov Galerkin no oversampling infinite variance squared matrix compression inverse Wishart",
+        "Gaussian sketched Rayleigh Ritz expected Frobenius squared compression error m/p orthogonal residual",
+        "Shao stabilizing Rayleigh Ritz randomization Gaussian pseudoinverse infinite second moment median aggregation no oversampling",
+        "web: \"coordinatewise median\" \"Gaussian\" \"sketch\" matrix estimator",
+        "arxiv:2604.01037 sections 4 and 5.3",
+        "doi:10.1137/23M1565413 section 6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2604.01037 (public 2026-04-01; HTML sections 1,3,4,5.2,5.3,6)",
+      "https://www.researchgate.net/publication/403429787_Stabilizing_the_Rayleigh--Ritz_procedure_by_randomization (accessible full text manuscript v1)",
+      "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf (2024 full PDF, particularly equations (1.11)-(1.13), section 6)",
+      "Published related results concerning spectral filtering, adaptive randomized pivoting, and robust scalar medians",
+      "Published randomized Ritz perturbation and subspace-embedding results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shao illustrates empirical medians of error across repeated sketches for figures, rather than returning the medians of independent compressed matrices; his oversampled formulation solves a rectangular total-least-squares eigenvalue problem.",
+        "Nakatsukasa--Tropp study least-squares compression, which supplies the comparator but not the median algorithm.",
+        "Complex Gaussian ratios, beta order statistics and inverse complex Wishart are established identities used and explicitly proved/credited as inputs."
+      ],
+      "reasoning": "The moment theorem for oversampling is a classical corollary of inverse-Wishart expectations, so no standalone novelty is claimed for that half. The statement needing comparison is that exactly THREE independent square sketches, under an entrywise coordinatewise median, have a finite risk matching ONE additional Gaussian test row for every A,W. Neither cited stronger algorithmic theorem entails this specialized equality as a stated corollary without separate analysis of the median and shared-column Gaussian structure.",
+      "searches": [
+        "arxiv:2604.01037 Algorithm 1/2, Theorem 2, section 5.3",
+        "doi:10.1137/23M1565413 equations (1.11)-(1.13) and section 6",
+        "Randomized Rayleigh Ritz Gaussian Petrov Galerkin no oversampling infinite variance squared matrix compression inverse Wishart",
+        "Three independent square complex Gaussian Rayleigh Ritz sketched projection matrices coordinatewise median mean squared Frobenius error equals single additional oversampling row"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shao, arxiv:2604.01037, defines square complex Gaussian RRR compression, Theorem 2 bounds extracted eigenpairs rather than mean-squared compression risk.",
+        "Nakatsukasa--Tropp 2024 equation (1.12) defines the sketched least-squares compression.",
+        "The published finding Sharp Rayleigh-residual distortion under normal spectral filtering concerns normal spectral filtering rather than Gaussian ratio medians."
+      ],
+      "reasoning": "The exact statement can be formulated either as a robust median estimator for matrix-valued Gaussian-ratio errors or as equality of two random compression algorithms under Frobenius loss. Classical medians and inverse-Gamma moments enable a new comparison; none of the inspected sources presents that equivalence. Search failure is not uniqueness proof.",
+      "searches": [
+        "Randomized Rayleigh Ritz Gaussian Petrov Galerkin no oversampling infinite variance squared matrix compression inverse Wishart",
+        "Gaussian sketched Rayleigh Ritz expected Frobenius squared compression error m/p orthogonal residual",
+        "Rayleigh Ritz randomized complex Gaussian projected matrix inverse Wishart exact mean square risk",
+        "Three independent square complex Gaussian Rayleigh Ritz sketched projection matrices coordinatewise median mean squared Frobenius error equals single additional oversampling row",
+        "Median of three independent square complex Gaussian Petrov Galerkin compressions exact expected Frobenius risk inverse Wishart",
+        "web: \"complex Cauchy\" \"median\" \"variance\" exact",
+        "web: \"median of three\" \"Gaussian sketches\" matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related perturbative randomized Ritz eigenpair coefficient laws do not state exact all-matrix median compression risk.",
+        "Related statements for sketched Ritz embedding distortion and nonreal Ritz pairs address different errors and different mathematical events.",
+        "The published finding Sharp large-noise asymptotics for variance-gamma medians concerns a different scalar statistical model."
+      ],
+      "reasoning": "No matching identity or table was located in the searched scholarly sources and published mathematical finding abstracts. This finite search cannot certify historical uniqueness or exhaustive coverage.",
+      "searches": [
+        "Three independent square complex Gaussian Rayleigh Ritz sketched projection matrices coordinatewise median mean squared Frobenius error equals single additional oversampling row",
+        "Median of three independent square complex Gaussian Petrov Galerkin compressions exact expected Frobenius risk inverse Wishart",
+        "Shao stabilizing Rayleigh Ritz randomization Gaussian pseudoinverse infinite second moment median aggregation no oversampling",
+        "Gaussian sketched Rayleigh Ritz expected Frobenius squared compression error m/p orthogonal residual"
+      ]
+    },
+    "rationale": "The original Gaussian RRR algorithm, prior least-squares sRR and generic Student/Wishart inputs are known. Neither inspected full primary text states the exact equality of the entrywise complex-coordinate median of three square compressions to one extra row of least-squares oversampling, or its simultaneous infinite-unaggregated-risk contrast. The equality is not a mere rewording of a stronger cited theorem; it is an explicitly derived cross-estimator identity. Possible older exact median/ratio results remain a priority risk.",
+    "residual_risks": [
+      "An earlier robust Gaussian-sketch aggregation or exact complex Student sample-median identity might lead to an equivalent compression-risk theorem not indexed by the searches.",
+      "The motivating arXiv manuscript has revisions after its original 2026-04-01 public date; inspected versions/sections do not establish that every historical revision contains no related corollary.",
+      "No independent scientific audit or mathematical priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Square randomized Ritz pencils and empirical medians of errors covered; no entrywise median-of-three compressed-matrix estimator or exact equality of Frobenius risks located",
+        "evidence": [
+          "First public date 2026-04-01 and MSC2020 65F15 on arXiv landing page",
+          "arXiv HTML section 5.2 describes median over 1000 independent trial errors; section 5.3 uses 20-by-10 minimal-perturbation total-least-squares oversampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.01037",
+        "material_read": "ArXiv HTML introduction, Gaussian setup and algorithm, stability lemmas and Theorem 2, empirical median and oversampling sections 5.2-5.3, conclusion; first-version lawful accessible manuscript text also compared",
+        "method": "Full-document section-level examination and phrase searches for medians, moments, oversampling and compression error",
+        "title": "Stabilizing the Rayleigh--Ritz procedure by randomization",
+        "trigger": "Exact complex Gaussian square projection/pencil under investigation"
+      },
+      {
+        "assessment": "Describes the oversampled least-squares comparator and approximation accuracy; does not state the robust square-sketch entrywise-median identity",
+        "evidence": [
+          "Equation (1.12) and its pseudoinverse formula, with typical sketch size four times subspace dimension",
+          "Sections 6.1-6.3 give the sRR framework and high-probability subspace embedding accuracy."
+        ],
+        "identifier_or_url": "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "material_read": "Full accessible 2024 PDF including introduction 1.3.1 equations (1.11)-(1.13), main section 6 sketched Rayleigh--Ritz and referenced residual/embedding treatment",
+        "method": "Read parsed PDF plus page image and searched median and exact squared-risk terms",
+        "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Earlier least-squares sketched Ritz method might subsume the comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "149133b2-bf54-4fc4-b6d9-cf8f682a895c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural square Gaussian Ritz sketch is almost surely defined yet has infinite squared compression risk for any nonzero residual. The entrywise median of exactly three independent realizations repairs this mathematically consequential robustness deficit and exactly matches the risk obtainable by increasing the sketch height by one. The equality is uniform over all complex matrices, nonnormal matrices and trial spaces, and quantifies a practical robustness-versus-computation tradeoff without claiming overall eigenpair or computational-cost improvement.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Strong regularity gives exactly two positive nonzero Laplacian eigenvalues q1,q2 with q1+q2=S and q1q2=μv. Rational polynomial interpolation gives exact off-diagonal Pade coefficients. Their denominator is strictly positive, nonedge coefficient >0, and edge sign equals the concave quadratic F(t)=1+μt/2−μΔt²/12; thus all timesteps and both boundaries are proved. The Padé scalar numerator and denominator are positive for nonnegative eigenvalues, so diagonals remain positive. Exact-rational replay from verify_srg_pade.py checked 10 named strongly regular graphs, 50 matrices and 8740 off-diagonal entries, supporting the proof without replacing it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zappavigna–Colaneri–Kirkland–Shorten (2010), https://mural.maynoothuniversity.ie/id/eprint/2195/, provide general conditional sufficient positivity results for Metzler systems.",
+        "The 2012 expansion, https://mural.maynoothuniversity.ie/id/eprint/3761/, includes failure phenomena and nonsharp general step constraints.",
+        "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns a directed pure-birth chain, while 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a concerns the [1/1] Crank–Nicolson map."
+      ],
+      "reasoning": "The inspected general Padé work does not state or derive a sharp all-parameter SRG time window; its general sufficiency statements do not imply this necessary-and-sufficient, continuum-of-time graph result. The published-finding corpus examples have different schemes or nonreversible/non-SRG objects. This is a limited novelty assessment, not a claim of universal nonexistence.",
+      "searches": [
+        "\"strongly regular\" \"Padé\" \"positivity\"",
+        "\"strongly regular\" \"Gauss-Legendre\" \"positivity\"",
+        "Positivity preservation numerical time discretization graph Laplacians [2/2] Padé regular strongly regular spectral",
+        "A regular connected graph with exactly three Laplacian eigenvalues diagonal Pade [2/2] exact positivity criterion and threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+      "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+      "https://mapthe.upc.edu/en/congresses/docs/congresses_2011_the-m-property-for-distance-regular-graphs.pdf",
+      "doi:10.1080/03081087.2011.589047",
+      "arxiv:1208.3067",
+      "published-finding corpus:2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "published-finding corpus:2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "published-finding corpus:2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known M-property inequality from Bendito et al. agrees exactly with the new theorem’s unconditional region, through a standard SRG counting identity.",
+        "Zappavigna et al. treat Padé rational-map positivity but not a complete strongly regular graph classification.",
+        "van Dam and Omidi (arXiv:1208.3067) use three-eigenvalue adjacency algebra; this algebraic method alone does not include the explicit Padé transition kernels or root classification."
+      ],
+      "reasoning": "The overlap is explicit and material: the unconditional threshold is old. The specific accepted claim is the exact time-dependent [2/2] Padé matrix-entry expression, all finite-safe-step interval including endpoint, strict off-diagonal sign regimes and large-step expansions. The prior pseudoinverse graph theorem alone is not a statement about finite steps, and the inspected general Padé results stop short of this exact graph-specialized calculation. Nonetheless an undiscovered specialized Padé/SRG paper would defeat originality.",
+      "searches": [
+        "\"strongly regular\" \"Padé\" \"positivity\"",
+        "\"Moore Penrose inverse off diagonal\"",
+        "Strongly regular graphs Padé [2/2] fourth order rational approximation heat semigroup entrywise positivity unconditionally iff 2k minus lambda plus mu at least v, adjacency nonnegative time step",
+        "Exact [2/2] Padé entrywise positivity interval for strongly regular graphs with parameters (v,k,lambda,mu); finite horizon and complement duality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bendito–Carmona–Encinas–Mitjana (2011 online, DOI 10.1080/03081087.2011.589047) prove the pseudoinverse M-property condition μ≥k−k²/(v−1).",
+        "The SRG identity (v−k−1)μ=k(k−λ−1) gives (v−1)μ−k(v−k−1)=k(2k−λ+μ−v), hence exactly the same graph-side threshold.",
+        "Their publicly accessible 2011 primary presentation pages containing the criterion, complement duality and triangular-graph discussion were examined."
+      ],
+      "reasoning": "The unconditional graph-parameter boundary is an equivalent formulation of a known pseudoinverse M-property, and no novelty is claimed for it. However this static criterion does not give the exact Padé rational transition kernel, finite-horizon endpoint, nonedge signs, or the critical and failing large-time coefficients; these temporal statements require the separate rational matrix computation and were not present in inspected primary material.",
+      "searches": [
+        "\"strongly regular\" \"Padé\" \"positivity\"",
+        "\"Moore Penrose inverse off diagonal\"",
+        "Strongly regular graphs Padé [2/2] fourth order rational approximation heat semigroup entrywise positivity unconditionally iff 2k minus lambda plus mu at least v, adjacency nonnegative time step",
+        "Exact [2/2] Padé entrywise positivity interval for strongly regular graphs with parameters (v,k,lambda,mu); finite horizon and complement duality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bendito et al. explicitly cover conference graphs, complement effects, and a triangular-graph cutoff under the static M-property.",
+        "Research-record searches returned structural or spectral results on the named graph families, not an exact table of [2/2] Padé positivity horizons."
+      ],
+      "reasoning": "The familiar graph-family parameter tables cannot establish full time-dependent signs. The triangular and conference parameter thresholds themselves belong to [3] and are presented only as applications, not newly discovered facts. No database or published table containing the actual Padé endpoint function was identified.",
+      "searches": [
+        "Triangular graphs line graphs complete graphs unconditional positivity fourth order Padé time step threshold triangle strongly regular",
+        "Fourth-order Gauss Legendre positive stochastic diffusion on Paley conference strongly regular graphs and triangular line graphs",
+        "Exact [2/2] Padé entrywise positivity interval for strongly regular graphs with parameters (v,k,lambda,mu); finite horizon and complement duality"
+      ]
+    },
+    "rationale": "The static conditional equivalence S≥v was already published in the SRG Laplacian pseudoinverse M-property work by Bendito et al. and is explicitly excluded from novelty. Material checked in that source and in 2010 and 2012 primary general Padé positivity works does not state the dynamic all-time/finitely sharp [2/2] Padé endpoint H, off-diagonal rational coefficients, or asymptotic sign laws. Dedicated searches of relevant published-finding corpus and literature identified neighboring different-object/different-integrator findings but no equivalent temporal theorem. Unexamined specialized history is the residual risk.",
+    "residual_risks": [
+      "The unconditional parameter boundary, complement duality, and named-family cutoffs are known static M-property consequences, not priority claims here.",
+      "A highly specialized earlier strongly-regular Padé sign-classification theorem not surfaced by targeted searches could subsume the time-dependent result.",
+      "Primary literature search is substantial but not an exhaustive census of every publisher and language."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STATIC_THRESHOLD_ALREADY_KNOWN; PADÉ_TIME_DEPENDENT_CLAIM_NOT_STATED_IN_INSPECTED_MATERIAL",
+        "evidence": "The published inequality μ≥k−k²/(v−1) equals S≥v under the SRG parameter identity; the slides discuss triangular and conference graph cases, but not P(h) rational kernels or finite-step H.",
+        "identifier_or_url": "doi:10.1080/03081087.2011.589047; https://mapthe.upc.edu/en/congresses/docs/congresses_2011_the-m-property-for-distance-regular-graphs.pdf",
+        "material_read": "Public 2011 lecture PDF, relevant sections and pages 27 and 32 covering the SRG M-property inequality, complement identity and graph-family examples; publisher metadata for first online date.",
+        "method": "Original full presentation retrieved and mathematically compared with the exact new Padé statement.",
+        "title": "Distance-regular graphs having the M-property",
+        "trigger": "The graph-side unconditional criterion exactly matches the known Laplacian inverse M-property."
+      },
+      {
+        "assessment": "GENERAL_SUFFICIENT_CONDITIONS_DO_NOT_STATE_SHARP_SRG_INTERVAL",
+        "evidence": "The general positivity conditions do not provide the exact graph-parameter edge quadratic, nonedge coefficient or finite positive root H for connected strongly regular Laplacians.",
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+        "material_read": "Author PDF with introduction and Section III general Metzler-matrix positivity results, including Theorem 2.",
+        "method": "Opened and visually examined the actual primary PDF and extracted theorem comparison.",
+        "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+        "trigger": "Direct prior work on positivity of Padé time discretizations."
+      },
+      {
+        "assessment": "NOT_A_SHARP_ALL_PARAMETER_SRG_PADÉ_HORIZON_IN_INSPECTED_SECTIONS",
+        "evidence": "The paper treats general systems and sufficient timestep constraints and negative phenomena; no equivalent SRG adjacency-class transition formula or exact H was found.",
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+        "material_read": "Author PDF, Section IV and theorem discussion across pages 12–18 including the matrix positivity statements.",
+        "method": "Original source PDF inspected, with theorem hypotheses and graph-specific applicability compared.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Related fourth-order Padé/positivity counterexamples and possible broader negative results."
+      },
+      {
+        "assessment": "ADJACENCY_ALGEBRA_KNOWN; NOT_THE_TIME_STEPPING_RESULT",
+        "evidence": "The article addresses walk regularity, not the [2/2] Padé semigroup surrogate or the exact sign of its transition entries.",
+        "identifier_or_url": "arxiv:1208.3067",
+        "material_read": "Original arXiv PDF including the beginning of the spectral and adjacency-algebra analysis.",
+        "method": "Primary full-document access, targeted inspection of graph spectral identities.",
+        "title": "Strongly walk-regular graphs",
+        "trigger": "Possible earlier use of the same three-eigenvalue algebra."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4defdf9c-32e5-45bb-b599-5a52064a92c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural highly symmetric network class, the exact finite-step condition answers the applied question whether a fourth-order A-stable conservative integrator produces genuine nonnegative diffusion transition probabilities, where spectral stability alone is insufficient. The result gives a continuum-valid unique sharp positivity horizon (including boundary), strictly positive nonedge transitions, no reentrant safe windows, and critical vs failing large-step laws. These are substantive quantitative dynamics not furnished by the already-known static Laplacian inverse M-property or by generic timestep sufficiency.",
+    "status": "PASS"
+  }
+}

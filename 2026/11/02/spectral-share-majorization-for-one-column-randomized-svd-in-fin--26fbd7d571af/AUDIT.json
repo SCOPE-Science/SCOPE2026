@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Finite or countable output sample exists by Tonelli and the Hilbert--Schmidt trace. The rank-one error formula reduces to bounded normalized shares. Exchangeability produces exact positive-denominator pairwise swap identities; weighted-mean ordering proves majorization and Abel summation gives the spectral functional comparison. Absolute double-sum convergence justifies the infinite-rank pair identity. Exact-rational verifier checks 1,984 iid configurations and dependent/equality cases; these tests corroborate, not replace, the infinite proof. Strict iid equality follows from independence plus equal positive amplitudes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.31333v1 Theorem 3.15 provides high-probability Hilbert--Schmidt error estimates for sub-Gaussian sketch functionals",
+        "arXiv:2308.05814 Theorems 3.4,3.7,3.10,3.13 provide non-Gaussian sufficient bounds",
+        "arXiv:0909.4061 provides Gaussian range-finder error theory"
+      ],
+      "reasoning": "These general frameworks include the same algorithmic object but their stated bounds do not mathematically force every-prefix majorization, nor the precise all-pairs equality. They do not dominate the presented claim merely by handling more dimensions or sketch columns.",
+      "searches": [
+        "one-pass randomized SVD one-column rank one Rademacher Gaussian diagonal Hilbert Schmidt expected Frobenius error exact optimal iid sketches",
+        "one column random range finder isotropic Rademacher expected Hilbert Schmidt residual diagonal operator",
+        "mean residual one sketch rank one randomized SVD Rademacher Gaussian distribution optimal stochastic dominance",
+        "Rademacher sketch minimizes expected Frobenius error one column randomized SVD all singular values exchangeability exact",
+        "randomized range finder energy captured singular value majorization Rademacher Gaussian one vector"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.31333v1",
+      "arxiv:2308.05814",
+      "arxiv:0909.4061",
+      "arxiv:2206.08793",
+      "prior research records item c21f09b1-36fc-4b3e-a151-8710d59519ad (claim comparison only)",
+      "published-finding corpus identifiers listed in prior_checks.closest_results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Two-mode pair comparison does not assert the ordered n-vector normalized expected spectral shares for every cutoff",
+        "The stochastic sample-covariance bounds in arXiv:2308.05814 do not imply the exact equality cases for arbitrary exchangeable amplitudes",
+        "published-finding corpus hits on adaptive pivoting, Haar subspace descent and radial laws have different objects or quantifiers"
+      ],
+      "reasoning": "Main implication is distributional ordering across every spectral mode, plus infinite-rank countable convergence under no sub-Gaussian tail assumption. Existing scalar 2D facts or general high-probability bounds do not logically supply this statement without the pairwise and weighted-mean argument supplied.",
+      "searches": [
+        "one-pass randomized SVD one-column rank one Rademacher Gaussian diagonal Hilbert Schmidt expected Frobenius error exact optimal iid sketches",
+        "pairwise sum formula Rademacher optimal among iid isotropic sketches all singular values Hilbert Schmidt operators",
+        "one column random range finder isotropic Rademacher expected Hilbert Schmidt residual diagonal operator",
+        "Rademacher extremality unbounded Gaussian penalty in two mode randomized SVD",
+        "mean residual one sketch rank one randomized SVD Rademacher Gaussian distribution optimal stochastic dominance",
+        "exchangeable squared sketch amplitudes majorization expected singular mode energy fractions diagonal Hilbert Schmidt",
+        "expected singular mode energy shares of one-column randomized SVD are majorized by deterministic squared singular values, exact exchangeable squared amplitude pairwise excess, infinite Hilbert Schmidt"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Swap formula \\(r_j-r_i=(\\lambda_i-\\lambda_j)\\mathbb E[(X_i-X_j)^2/(TT^{ij})]/2\\) yields simultaneous cutoff dominance; no exact literature equivalent identified in targeted searches",
+        "Closest preexisting two-mode result applies only two weights, and gives no n-mode prefix comparison"
+      ],
+      "reasoning": "Checked both spectral-distribution stochastic dominance wording and normalized exchangeable-weight aliases. Majorization is stronger than one scalar residual inequality. A general weighted-normalization theorem remains a stated priority risk rather than assumed absent.",
+      "searches": [
+        "pairwise sum formula Rademacher optimal among iid isotropic sketches all singular values Hilbert Schmidt operators",
+        "exchangeable squared sketch amplitudes majorization expected singular mode energy fractions diagonal Hilbert Schmidt",
+        "expected singular mode energy shares of one-column randomized SVD are majorized by deterministic squared singular values, exact exchangeable squared amplitude pairwise excess, infinite Hilbert Schmidt",
+        "normalized exchangeable positive random variables weighted shares majorization deterministic normalized weights theorem",
+        "random weights x_i exchangeable lambda_i x_i / sum lambda_j x_j majorization expectation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "prior research records exact two-mode record c21f09b1-36fc-4b3e-a151-8710d59519ad: residual expectation identity for two modes",
+        "Retrieved 2026 randomized-SVD paper contains numerical error comparisons, not tabulated exact all-mode shares"
+      ],
+      "reasoning": "The two-mode entry is a genuine special case and is not reissued as new. For a three-mode distribution the exact vector of expected shares and all spectral cutoffs are distinct and absent from checked finite tables.",
+      "searches": [
+        "Rademacher extremality unbounded Gaussian penalty in two mode randomized SVD",
+        "exchangeable squared sketch amplitudes majorization expected singular mode energy fractions diagonal Hilbert Schmidt",
+        "expected singular mode energy shares of one-column randomized SVD are majorized by deterministic squared singular values, exact exchangeable squared amplitude pairwise excess, infinite Hilbert Schmidt"
+      ]
+    },
+    "rationale": "New claim is the all-cutoff expected spectral-share majorization for finite/countable Hilbert--Schmidt rank under exchangeable amplitudes, with an exact globally summable pairwise excess formula. Known two-mode Rademacher comparison is explicitly excluded from novelty. Inspected primary 2026 paper and relevant randomized range-finder literature have general bounds, not this mode-resolved implication. Direct published-finding corpus and prior research records searches identify related but nondominating statements. Residual risk is a classical normalized-exchangeable-weight theorem not located by targeted searches.",
+    "residual_risks": [
+      "A general earlier theorem on majorization of randomly normalized exchangeable weights may imply the algebraic prefix inequality; targeted searches have not conclusively settled historical priority.",
+      "The nonstandard-Gaussian 2022 paper was not reviewed line by line; an unnoticed specialized identity is possible.",
+      "Only fixed singular-vector coordinates and a single rank-one range sketch are covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "High-probability sample-covariance/sub-Gaussian bounds for sketches, not the claimed all-cutoff expected energy ordering or exact pairwise residual identity",
+        "evidence": [
+          "2026-10-22 arXiv v1, primary MSC 65F55, PDF p1",
+          "Theorem 3.15 PDF p18 uses tail bound with sketch width above target rank; not a one-sample exact expectation",
+          "Figure 3 and Figure 4 PDF p27 compare Rademacher and Gaussian examples empirically"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.31333",
+        "material_read": "Full PDF text of introduction, Algorithm 1, sketch-functional setup, Theorem 3.15 with proof context, and Sections 4 numerical comparison; images checked for pages 1, 18, 27",
+        "method": "Full-primary-text inspection of the relevant definitions, theorems, and experiments, plus PDF screenshots",
+        "title": "Sketching Outside the Hilbert Space for the Infinite-Dimensional Randomised SVD",
+        "trigger": "Primary motivating source with same cylindrical-sketch and Hilbert--Schmidt objects; potential direct overlap"
+      },
+      {
+        "assessment": "Sample-covariance estimates and nonasymptotic bounds for families of sketches, not exact normalized spectral shares for all finite and infinite mode cutoffs",
+        "evidence": [
+          "Abstract and contribution outline enumerate distribution classes and approximation error bounds",
+          "Main theorems 3.4, 3.7, 3.10, 3.13 address sufficient performance conditions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.05814",
+        "material_read": "Primary full text introduction and Sections 2–3 theorem descriptions plus principal proof framework and distribution comparison",
+        "method": "OA full-text inspection and PDF visual page check",
+        "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+        "trigger": "Potential broader general-non-Gaussian result dominating current one-column law"
+      },
+      {
+        "assessment": "General one- and multi-column randomized range-finding framework and Gaussian error estimates; no distribution-uniform all-prefix majorization identified in relevant material",
+        "evidence": [
+          "Halko--Martinsson--Tropp randomized range-finder algorithm",
+          "Gaussian expectation and high-probability bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+        "material_read": "Primary algorithm/range-finder definition, Gaussian error-estimate statements, background discussion",
+        "method": "OA primary PDF inspection and screenshot of first page",
+        "title": "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions",
+        "trigger": "Original randomized range finder and possible exact expected Hilbert--Schmidt coverage"
+      },
+      {
+        "assessment": "General Gaussian mean/covariance expected-error bounds; inaccessible sections could conceal specialized conclusions, priority risk retained",
+        "evidence": [
+          "Abstract explicitly frames spectral/Frobenius norm error bounds for non-standard Gaussian matrix variables"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.08793",
+        "material_read": "Primary abstract and methodological summary; full mathematical statements not exhaustively inspected",
+        "method": "Open-abstract and accessible source outline",
+        "title": "A general error analysis for randomized low-rank approximation methods",
+        "trigger": "Nonstandard Gaussian mean/covariance may subsume comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "26fbd7d5-71af-4591-bb67-5bcca2d71d04",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-prefix majorization describes which singular directions benefit or lose from changing the amplitude distribution, providing a simultaneous performance guarantee for every monotone spectral objective rather than a single average residual number. The exact convergent pair sum quantifies the cost of exchangeable amplitude variance in each pair of singular modes and remains valid for cylindrical infinite-dimensional sketches. This directly addresses a natural distribution-selection and spectral-allocation question in recent Hilbert--Schmidt randomized SVD literature, with a nontrivial three-mode rational witness.",
+    "status": "PASS"
+  }
+}

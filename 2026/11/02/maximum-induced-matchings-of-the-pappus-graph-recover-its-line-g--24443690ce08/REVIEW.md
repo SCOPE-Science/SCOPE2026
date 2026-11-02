@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Counting the incidences from selected points to omitted lines bounds every induced matching by five edges. The column-profile/tangent argument classifies every equality case by two intersecting affine lines and yields exactly 27 optimal matchings. The explicit local-intersection table, the 18 noncollinear-triple triangle blocks, and the three-net reconstruction prove that the two-edge exchange graph is the line graph of the Pappus graph. Two executable standard-library programs build the graph independently (affine incidence versus LCF), enumerate every optimum by distinct algorithms, and verify the entire distance table. Numerical conclusions are confined to this finite graph.
+
+**Originality — PASS, qualified.** The accessible full texts of Nguyen (2014, arXiv:1407.7604) and Joos (2014, arXiv:1407.8336) prove general lower bounds on induced matching number, not the 27 optimal Pappus configurations or the self-line-graph exchange correspondence. Brouwer's Pappus graph description gives the underlying affine configuration, not the optimum-solution graph. Published results on the ordinary Pappus matching complex concern ordinary matchings and do not imply the induced-matching classification; only summary material for these newer records was accessible. A plausible older general study by Dabrowski, Demange and Lozin (2013) was checked at abstract level; full text could not be verified, so an equivalent example is a residual risk. Matching wording or negative search results are not treated as proof of originality.
+
+**Value — PASS.** The result recovers a canonical incidence geometry purely from optimal strong matchings: the optimal-solution exchange graph is the line graph of its host, with a sharp two-edge mobility threshold and complete shortest-path information. This is a structural classification, not an arbitrary isolated numerical invariant; the batch-exchange metric and exceptional geodesics make the exact geometry useful for understanding feasible transformations of maximum induced matchings.
+
+**Limits and priority risk.** This is an order-three finite geometry, not a claimed uniform theorem for all affine nets. Historical coverage is incomplete; independent mathematical review is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

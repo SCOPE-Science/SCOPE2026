@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The stationary bivariate OU Lyapunov solution and pair Gaussian covariance were reconstructed. Orthogonal sum/difference conditioning gives a positive-definite two-by-two Schur complement and exact Gaussian KL. The noiseless rational expression was evaluated and checked by an independent direct four-by-four Gaussian inverse. Expanding it yields sigma and first-order finite-sampling loss; the noisy exact expression is analytic after h=zt substitution, giving sensor loss h/t. Strict path-to-endpoint KL contraction uses non-endpoint-measurable signed area, localizing all maximizers; equicoercivity then yields t_h/sqrt(h/kappa)->1 and max J_h/sigma=1-2sqrt(kappa h)+o(sqrt h). The delivered standard-library checker passed 64 deterministic checks. The result does not assert finite-h uniqueness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mazzolo–Monthus arXiv:2210.05353, sections III and VI: time-additive continuous-path entropy-production and stochastic-area fluctuations.",
+        "Otsubo et al., Communications Physics 5, 11 (2022), Fig. 3e–f: increased interval reduces empirical measurement-noise bias; no global model-specific analytic optimum.",
+        "Lucente et al. arXiv:2306.14558v2, sections 3–4: spatially coarse-grained empirical irreversibility, Poisson-driven gyrator and mean entropy production."
+      ],
+      "reasoning": "A continuous-path large-deviation theorem does not evaluate Gaussian KL of two independently corrupted frames. General variational data-inference and finite-resolution results motivate the question but do not logically state the all-maximizers square-root asymptotic. Ordinary Gaussian KL and covariance facts make the matrix computation possible but leave a genuine global variational limit to prove.",
+      "searches": [
+        "arxiv:2210.05353",
+        "doi:10.1038/s42005-021-00787-x",
+        "arxiv:2306.14558v2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.05248v1",
+      "arxiv:2306.14558v2",
+      "doi:10.1038/s42005-021-00787-x",
+      "arxiv:2210.05353v1",
+      "doi:10.1103/PhysRevResearch.4.043080 (published abstract; supportive context only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The stationary covariance, continuous-time sigma and Gaussian KL formula are classical ingredients.",
+        "The evaluated new conclusion is the asymptotic of EVERY maximizer of the *noisy* pairwise KL rate, requiring finite-lag noise tradeoff, strict data processing, localization, and a two-scale Taylor analysis."
+      ],
+      "reasoning": "Known stationary covariance and pathwise entropy production imply the infinitesimal sigma but not by themselves the optimized noisy pairwise law. The previous finite-step angular-momentum PDFs do not imply the noise-optimized KL statement without a distinct calculation. A more general sensor-channel theorem not found in the scoped searches could subsume the asymptotic, a recorded residual risk.",
+      "searches": [
+        "arxiv:2307.05248v1",
+        "arxiv:2306.14558v2",
+        "\"time irreversibility\" \"sensor noise\" optimal delay Ornstein Uhlenbeck KL",
+        "\"Brownian gyrator\" \"sampling interval\" \"entropy production\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Viot et al. arXiv:2307.05248, sections 2–4 and supplementary text: finite-step angular momentum and angular velocity distributions; no Gaussian-pair relative-entropy optimum.",
+        "The candidate is also a two-time time-reversal discrimination criterion; matching the model alone does not match this variational claim."
+      ],
+      "reasoning": "Reformulated the claim as KL between swapped stationary two-frame Gaussian laws, as discrete-time time-reversal information, and as sensor-noise-limited sampling optimization. No evaluated equivalent optimization or coefficient was found in the compared materials.",
+      "searches": [
+        "\"Brownian gyrator\" \"Kullback-Leibler\" \"sampling\" entropy production",
+        "\"Brownian gyrator\" discrete-time relative entropy two-time",
+        "2023 Viot Brownian gyrator sampled forward reverse pair relative entropy Kullback Leibler measurement noise optimal lag square root",
+        "arxiv:2307.05248v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 source specifies the same drift and thermal tensor and reports finite-step angular-momentum statistics.",
+        "The known continuous entropy-production rate in Lucente et al. equation (38) matches the coefficient sigma; it is explicitly prior work."
+      ],
+      "reasoning": "This is an exact continuum optimization over the sampling lag, not a finite combinatorial invariant or database entry. The known tabulated/derived continuous rate is insufficient to determine the sensor-noise-dependent optimizer; no table containing the square-root optimum was located.",
+      "searches": [
+        "\"Brownian gyrator\" \"optimal sampling\" \"measurement noise\"",
+        "\"sampled\" \"entropy production\" \"Ornstein Uhlenbeck\" \"measurement noise\"",
+        "arxiv:2307.05248v1 equations (1)–(10)",
+        "arxiv:2306.14558v2 equation (38)"
+      ]
+    },
+    "rationale": "The targeted accessible primary literature addresses Brownian-gyrator angular momentum distributions, complete-path entropy-production statistics, and finite-resolution empirical inference, but not the evaluated exact noisy two-frame Gaussian relative-entropy maximizer and its sharp universal high-precision square-root law. General Gaussian KL and covariance lemmas are not claimed as new. Residual risk of a stronger unlocated general observation theorem remains.",
+    "residual_risks": [
+      "Search cannot exclude a published broader theorem on high-SNR sampling of irreversible multivariate OU signals.",
+      "The original model already has Gaussian transition kernels, so portions of the algebra follow from standard Gaussian KL theory; novelty is specifically the sharp global sensor-noise optimum.",
+      "The proportional readout-noise assumption is essential for the universal leading coefficient; the theorem does not claim noise-covariance universality.",
+      "No independent publication-priority assessment or independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_AND_FINITE_STEP_PRIOR; no evaluated noisy pairwise KL optimum in inspected text.",
+        "evidence": [
+          "arXiv v1 2023-07-11",
+          "Section 2 equations (1)–(4); Section 3 equations (5)–(10)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.05248",
+        "material_read": "Full accessible parsed primary text, including model, angular-momentum/velocity computations, and embedded supplementary descriptions.",
+        "method": "Compared model equations (1)–(2), observed random variables (3)–(4), main density/moment results and supplementary sections against pairwise KL and readout noise.",
+        "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+        "trigger": "Exact identical two-temperature harmonic gyrator with time-discretized observations."
+      },
+      {
+        "assessment": "CONTINUOUS_RATE_AND_COARSE_RESOLUTION_PRIOR; noisy exact two-frame optimum not evaluated.",
+        "evidence": [
+          "arXiv:2306.14558v2, sections 3–4, equation (38), figures 10–11"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.14558v2",
+        "material_read": "Accessible full HTML: methods on resolution-dependent empirical entropy production, Section 4 gyrator, Gaussian baseline and appendices.",
+        "method": "Compared scale-resolved trajectory statistics, Gaussian baseline formula (38), Poisson gyrator, and sampling-resolution discussion.",
+        "title": "Statistical Features of Systems driven by non-Gaussian Processes: Theory & Practice",
+        "trigger": "Empirical entropy production at finite sampling intervals and a two-dimensional gyrator."
+      },
+      {
+        "assessment": "RELATED_NOISE_TRADEOFF_BUT_DIFFERENT_OBSERVABLE; no sharp analytic universal high-precision coefficient.",
+        "evidence": [
+          "Communications Physics 5, 11 (2022), Fig. 3e–f and equation (19)"
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s42005-021-00787-x",
+        "material_read": "Open-access full HTML: variational theory, numerical experiments, Figure 3, measurement-noise section, conclusions.",
+        "method": "Compared experimentally motivated bias mitigation at larger intervals with the mathematical all-lags Gaussian two-frame KL optimum.",
+        "title": "Estimating time-dependent entropy production from non-equilibrium trajectories",
+        "trigger": "Direct measurement-noise and sampling-interval motivation."
+      },
+      {
+        "assessment": "CONTINUOUS_PATH_PRIOR_NOT_SAME_OBSERVABLE_OR_OPTIMIZATION.",
+        "evidence": [
+          "arXiv:2210.05353, Section III.3 and Section VI.2–VI.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.05353",
+        "material_read": "Accessible full parsed paper introduction, entropy-production theorem in Section III, Brownian gyrator and stochastic-area sections VI, plus document-wide sampling/discretization checks.",
+        "method": "Compared pathwise time-additive large deviations and stochastic-area derivation with endpoint-swap Gaussian KL after independent readout noise.",
+        "title": "Nonequilibrium diffusion processes via non-Hermitian electromagnetic quantum mechanics with application to the statistics of entropy production in the Brownian gyrator",
+        "trigger": "Potentially dominating OU entropy-production result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4957f0ce-1935-4ee6-be3a-48276f9de334",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem answers a natural mathematical measurement-design problem for the same Brownian engine already studied at finite time resolution: independent detector noise suppresses the small-lag time arrow whereas coarse time resolution loses path information. A sharp universal optimum sqrt(h/kappa), for all possible global optimizers, and an exact leading relative distinguishability loss 2sqrt(kappa h) quantify the competing scales. It is neither a numerical parameter substitution nor merely the previously known continuous entropy-production rate. It is limited to pairwise KL under matched proportional readout noise, not an assertion about finite-sample inferential power.",
+    "status": "PASS"
+  }
+}

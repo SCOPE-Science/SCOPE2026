@@ -1,0 +1,12 @@
+# Mathematical review: exact four-term quadratic progressions
+
+## Correctness — PASS
+Normalization \(\Delta_j/u^2=X+jY+j^2\) follows from the discriminant formula and gives a bijection of coefficient pairs in odd characteristic. Characteristic two follows from two independent absolute-trace constraints; characteristic three from the three-line sign moment and correct treatment of zero discriminants. In characteristic at least five, the triple moments each equal \(q\), the fourfold moment is \(q-U_q\), and the zero-line and pair-intersection correction terms give the exact expression in `RESULT.md`. The squarefree cubic Hasse bounds and direct \(q=7\) witness establish a sharp existence criterion. Exhaustive independent polynomial-root tests cover 19 finite fields and 258 affine steps but are not a proof beyond these fields.
+
+## Originality — PASS, with limitations
+Bary-Soroker's *Hardy–Littlewood tuple conjecture over large finite fields*, arXiv:1206.3930, Theorem 1.1 treats exactly the broader tuple family but only yields an asymptotic with \(O(q^{3/2})\) for quadratic four-tuples, not this exact formula, the sharper arithmetic structure, or finite-field cutoff. Bank, Bary-Soroker and Rosenzweig, arXiv:1302.0625, concern intervals and congruence-progressions rather than four simultaneously irreducible polynomial translates. Pollack's simultaneous specialization theorem likewise gives asymptotic predictions and statements rather than this exact specialization. These sources were materially compared, not just identified by title. A prior exact three-shift quadratic theorem recovers the characteristic-three branch because the fourth shift repeats the first; for other characteristics it does not determine the required four-shift intersection. Residual risk: a classical character-sum treatment, obscure table or unlocated exact finite-field identity might already imply this count. A search failure is not proof of priority.
+
+## Mathematical value — PASS
+This answers a natural fixed-degree, four-prime analogue of the finite-field Hardy–Littlewood counting question exactly for all finite fields and affine nonconstant steps. It identifies arithmetic elliptic oscillations and a universal sharp obstruction set \(\{2,3,5\}\), neither determined by existing broad asymptotic bounds. The theorem is substantive even though it does not extend to higher degrees.
+
+Self-review: passed. Independent audit: not yet performed.

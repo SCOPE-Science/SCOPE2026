@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Exactly 70 odd primes p<=353 enumerated by complete sieve. Algebraic equivalence of tuple condition and clique graph is exact. The included bitset branch-and-bound proof uses proper color classes as certified clique upper bounds and partitions branches exhaustively; all witnesses directly checked. This is a finite exhaustive proof, not extrapolation. Ten record primes independently cross-checked via separate enumerator.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dujella–Kazalicki arxiv:1609.09356, Theorem 17 and final Section 6",
+        "Kim–Yip–Yoo arxiv:2404.05514, Theorem 1.1 and §3",
+        "Shparlinski arxiv:2301.04063, Theorem 1.2"
+      ],
+      "reasoning": "Sufficient existence bounds for all sufficiently large p and q-asymptotic tuple counts are one-sided and do not establish absence at all smaller primes; none implies the claimed exact inverse minima. The original paper does give known examples and bounds for small m up through six, which are acknowledged.",
+      "searches": [
+        "finite fields Diophantine m-tuples smallest prime 353 first 12",
+        "Diophantine tuples finite fields maximum clique computational exact q primes table"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2404.05514v1",
+      "DOI:10.1007/s11139-024-00888-5",
+      "arxiv:1609.09356",
+      "arxiv:2201.06232",
+      "arxiv:2301.04063"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dujella–Kazalicki arxiv:1609.09356 p.24: constructions ensure m<=6 for various primes, but not least values m=7..12",
+        "Hammonds et al. arxiv:2201.06232 §3, Appendix B: higher order rather than pairwise",
+        "Kim–Yip–Yoo arxiv:2404.05514 §3: parametric lower bounds"
+      ],
+      "reasoning": "The prior m<=5 cases are treated as known/elementary, not individually new. The m=6 explicit published existence threshold is not sharp for first occurrence (computed P(6)=37). None of these theorems implies first m=7..12 primes or the upper M(353)<=12.",
+      "searches": [
+        "\"Diophantine tuples\" first \"12-tuple\" finite fields 353",
+        "\"Diophantine tuples\" \"size\" \"353\" finite field quadratic residue"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim–Yip–Yoo (2024), arxiv:2404.05514, Definition M(q) and Theorem 1.1",
+        "Dujella–Kazalicki (arxiv:1609.09356), introduction and Section 6"
+      ],
+      "reasoning": "The first-prime quantity P(m) is equivalently min{p odd prime: omega(G_p)>=m}, where G_p joins a,b if ab+1 is a square. The previously defined M(q) concerns this same object, but the inspected works do not give the exact first-prime list, in particular values at m>=7.",
+      "searches": [
+        "First occurrence minimum prime supporting finite-field Diophantine m-tuples 2<=m<=12, prime thresholds 3 7 11 23 37 59 83 131 181 251 353; M(353)=12 exact",
+        "Diophantine 12-tuple in F_353 with maximum clique 12 and no smaller prime supporting 12 pairwise ab+1 squares",
+        "Finite field Diophantine tuple graph complete enumeration prime p under 353, exact clique spectra first occurrence function",
+        "maximum size Diophantine tuples finite prime fields M(p) exact largest clique graph p=101 103 127 2024 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hammonds et al., arxiv:2201.06232, Appendix B Tables 1-2 and Figures 1-2",
+        "Dujella–Kazalicki arxiv:1609.09356, no corresponding m>=7 table in inspected material"
+      ],
+      "reasoning": "The concrete available appendix tables classify/count k=3 generalized Diophantine tuples (products of three), not the pairwise k=2 condition. Exact phrase/sequence/database searches disclosed no prior full table. This search is not itself a novelty proof.",
+      "searches": [
+        "\"3, 7, 11, 23, 37, 59, 83, 131, 181, 251, 353\" Diophantine",
+        "\"7,11,23,37,59,83,131,181\" Diophantine tuples",
+        "site:oeis.org \"3,7,11,23,37,59,83,131,181,251,353\" Diophantine"
+      ]
+    },
+    "rationale": "The complete prime-field first-occurrence spectrum through size 12 and M(353)=12 were not derived in inspected primary papers. Published exact counts stop at smaller tuple orders; general existence/asymptotic estimates do not settle the sharp finite prime minima or the exclusions. Actual semantic and exact-sequence searches uncovered no equivalent table, though absence from indexes does not prove novelty.",
+    "residual_risks": [
+      "Some earlier tables or programs not indexed by the searched literature could have obtained these exact prime thresholds.",
+      "Only the prime-field finite cutoff through 353 is proved; wider prime powers or arbitrary m are not covered.",
+      "The older preprint already supplies small-m existence information; the strongest distinctive new data start at m=7."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Asymptotic and explicit lower-bound constructions; no finite first-occurrence spectrum",
+        "evidence": [
+          "arxiv:2404.05514v1",
+          "Theorem 1.1",
+          "Theorem 3.5",
+          "Remark 3.6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11139-024-00888-5",
+        "material_read": "Open access HTML: definitions and Introduction; Theorem 1.1; sections 2-3 including constructive propositions, theorem proof and remarks; References",
+        "method": "Read primary public full-text HTML and searched for exact values 353, minimal/table",
+        "title": "Explicit constructions of Diophantine tuples over finite fields",
+        "trigger": "Same maximum-size invariant M(q) and closest motivating paper"
+      },
+      {
+        "assessment": "Counts m<=4 and sufficient large-p existence, explicit m<=6 examples; does not give least primes m>=7",
+        "evidence": [
+          "Theorem 17",
+          "Proposition 18",
+          "Proposition 19",
+          "page 24 small-m examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1609.09356",
+        "material_read": "Original PDF Introduction, Theorem 1, Section 6 Theorem 17, Propositions 18-19, last page small-m constructions, references",
+        "method": "Inspected accessible open preprint, page images and full-text passages",
+        "title": "Diophantine m-tuples in finite fields and modular forms",
+        "trigger": "Original definition/counts and potentially stronger size theorem"
+      },
+      {
+        "assessment": "Generalized higher-factor tuples, appendix tables for k=3; not equivalent to pairwise first-prime spectrum",
+        "evidence": [
+          "Theorem 1.3",
+          "Appendix B Table 1",
+          "Appendix B Table 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.06232",
+        "material_read": "Original PDF introduction, Theorem 1.3 and 1.4, Appendix B tables and figures",
+        "method": "Inspected fulltext passages and page 15 screenshot",
+        "title": "k-Diophantine m-tuples in Finite Fields",
+        "trigger": "Possible generalized theorem and exact appendical tables"
+      },
+      {
+        "assessment": "Asymptotic improvement without sharp finite first occurrences",
+        "evidence": [
+          "Theorem 1.2",
+          "equation (1.2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.04063",
+        "material_read": "Original six-page PDF abstract, introduction, Theorem 1.2, proof strategy and first pages",
+        "method": "Read open preprint text and page image",
+        "title": "On the number of Diophantine m-tuples in finite fields",
+        "trigger": "Stronger asymptotic counting might imply existence for small primes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36b6b253-fe39-48e5-b2de-28b59faaf62d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "First-occurrence primes P(m) are natural sharp arithmetic field-size invariants complementing the 2021 published question asking how large p must be for existence. The full spectrum through m=12 resolves precise first occurrences rather than arbitrary slices. It provides witnesses and complete exclusion certificates for finite-field construction tests; no infinite generality or downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Poisson thinning gives independent site failures e^{-a x_1}, e^{-a x_2}, e^{-b x_3}. At fixed weak-site allocation, the product of high-site failures is fixed and their sum is uniquely minimized by equal efforts (AM-GM). The remaining scalar failure probability is \\(u^2+2u(1-u)v\\), with derivative \\(u[u(1-v)+(1-2h)v(1-u)]\\). For \\(h\\le1/2\\) the unique minimizer is \\(z=0\\); for \\(h>1/2\\) the derivative changes sign exactly once because (exp(hz)-1)/(exp((B-z)/2)-1) increases strictly from zero to infinity. Logarithmic root asymptotics establish both stated limits. The standalone checker was replayed and passed 18898 supplementary assertions; these are not substitutes for the continuum proof. All parameter boundaries, equality cases, and model assumptions are stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Derman et al. (1974), Management Science, abstract covers k-out-of-n investment with a common P(x); no asymmetric efficiency result is stated there.",
+        "Derman, Lieberman and Ross (1975), Optimal allocation of resources in systems, is a known related chapter but only bibliographic information was accessible.",
+        "Majety, Dawande and Rajgopal (1999), doi:10.1287/opre.47.6.899, present a general discrete-data reliability optimization framework, without identifying the continuous Poisson cutoff in the inspected abstract."
+      ],
+      "reasoning": "The prior problem family is broader in network size and reliability objectives, yet the available statements do not provide this asymmetric closed classification as an immediate special case. Inaccessible full texts could contain a stronger general optimization theorem and remain a genuine unresolved priority risk; no conclusion of full-document noncoverage is asserted.",
+      "searches": [
+        "optimal effort allocation probability at least k successes exponential resource investment reliability redundant components two out of three",
+        "Derman Lieberman Ross 1975 optimal allocation of resources in systems heterogeneous components allocation reliability",
+        "reliability allocation 2 of 3 exponential budget unequal rates optimal effort sharp threshold",
+        "Optimal Reliability Allocation with Discrete Cost-Reliability Data for Components Majety Dawande Rajgopal 1999"
+      ]
+    },
+    "checked_sources": [
+      "Eriksson et al. 2014 full PMC main article: https://pmc.ncbi.nlm.nih.gov/articles/PMC4027396/",
+      "Derman et al. 1974 publisher abstract: https://doi.org/10.1287/mnsc.21.3.241",
+      "Stanford 1973 Derman report catalog: https://statistics.stanford.edu/technical-reports/optimal-allocations-construction-k-out-n-reliability-systems",
+      "Leung et al. 2004 first PDF page: https://underc.nd.edu/assets/191257/fullsize/leung_2004.pdf",
+      "Majety et al. 1999 abstract: https://doi.org/10.1287/opre.47.6.899",
+      "Derman et al. 1975 bibliographic listing only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Derman 1974 abstract states a shared investment-success probability P(x), whereas b<a means functions P_i(x)=1-e^{-a x} and 1-e^{-b x} differ.",
+        "Eriksson et al. 2014 §§2–4 use Poisson immigration, Ricker recruitment, slow-mode stochastic metapopulation dynamics; they do not optimize a fixed three-site introduction budget in the inspected full article.",
+        "Leung et al. 2004 study propagule-pressure invasion probabilities and environmental heterogeneity, but only the abstract/first PDF page were materially available for comparison."
+      ],
+      "reasoning": "The known k-out-of-n objective provides the standard framework but not an accessible theorem whose hypotheses directly dominate the asymmetric statement. Neither the 2014 dynamic rescue analysis nor the 2004 empirical invasion formulation supplies the global optimizer. Because the 1974/1975 complete proofs are not inspected, no claim of independent historical priority or of whole-document negative coverage is made.",
+      "searches": [
+        "doi:10.1287/mnsc.21.3.241 abstract and Stanford LIE ONR 155 1973 catalog",
+        "doi:10.1098/rspb.2013.3127 PMC full article §§2–4",
+        "doi:10.1890/02-0571 ecology abstract and public PDF page 1",
+        "Derman Lieberman Ross 1974 Optimal Allocations in the Construction of k-Out-of-n Reliability Systems pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Independence reduces the ecological objective to heterogeneous 2-out-of-3 reliability; the k-out-of-n terminology is deliberately searched.",
+        "Derman et al. (1974), doi:10.1287/mnsc.21.3.241, explicitly describe one common success function P(x) in the accessible abstract.",
+        "The highest semantically related published records concerned a weighted-shift allocation transition or failure-marginal identifiability, not the stated Poisson founding optimization."
+      ],
+      "reasoning": "The original claim is not merely a relabeled reliability identity: it characterizes the unique optimizer and a universal efficiency cutoff for one weaker component. Equal-efficiency general allocation theorems imply only the h=1 subcase; they do not directly imply the strict h=1/2 support boundary for h in (0,1).",
+      "searches": [
+        "two out of three k-out-of-n system optimal resource allocation heterogeneous exponential reliability two identical one weaker threshold half rate",
+        "Poisson propagule establishment at least two of three patches allocation efficiency threshold 1/2",
+        "exact two out of three reliability budget symmetric components third component efficiency threshold",
+        "reliability allocation 2 of 3 exponential budget unequal rates optimal effort sharp threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches for the threshold, aliases, and reliability formulation returned no exact three-site efficiency allocation.",
+        "Standard k-out-of-n reliability references give evaluation formulas, not a table of the heterogeneity-dependent global optimum in the inspected material.",
+        "Prior local research about founder allocation with two survivors per site concerns a different single-site threshold, while stochastic habitat-growth allocation concerns a different almost-sure Lyapunov-growth objective."
+      ],
+      "reasoning": "The number 1/2 is the analytic support-transition threshold proved from the objective derivative, not an arbitrary catalogued parameter, and no exact matching table was identified. A negative search is not a proof of uniqueness; the search boundary is explicitly retained as risk.",
+      "searches": [
+        "two identical components one less efficient probability at least two exponential investment 3 components reliability",
+        "heterogeneous 2-out-of-3 resource allocation exponential reliability",
+        "reliability allocation 2 of 3 exponential budget unequal rates optimal effort sharp threshold",
+        "Poisson propagule establishment at least two of three patches allocation efficiency threshold 1/2"
+      ]
+    },
+    "rationale": "The identifiable mathematical novelty is the exact unequal-efficiency activation cutoff \\(b/a=1/2\\) for the two-success-of-three Poisson seeding budget, plus its unique optimizer and two distinct effort-budget limits. Derman et al. describe the same general k-out-of-n optimization family but with the same effort-success function for each component in the accessible abstract. The asymmetric efficiency is not covered by that stated hypothesis. The inspected ecological model analyzes persistence/rescue instead of this constrained one-shot objective. No exact prior or general implication was established in the accessible sources. Complete older reliability papers are important outstanding historical-priority risks.",
+    "residual_risks": [
+      "Derman et al. 1974 complete article/1973 report could establish a general heterogeneous cost allocation theorem implying this classification; neither complete text was retrieved.",
+      "Derman et al. 1975 related resource-allocation chapter was identified bibliographically but not read; possible historical overlap remains.",
+      "Leung et al. 2004 PDF was only available as a first-page excerpt; its remaining text was not inspected.",
+      "Search and deductive comparisons do not establish independent novelty or unique historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related ecological dynamics and rescue effects; no stated fixed three-site Poisson effort optimizer or the support cutoff in the inspected main article",
+        "evidence": [
+          "§2 explicitly models Poisson arrivals to patches in the large-population limit",
+          "§3 uses dynamic slow-mode reconstruction, not cross-site fixed-budget optimization"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4027396/",
+        "material_read": "Full accessible main article including abstract, sections 1–4, model equations described around §2 and slow-mode analysis §§3–4, and references",
+        "method": "Opened PMC HTML; inspected mechanistic assumptions, population-size distribution, Poisson arrivals and conclusions",
+        "title": "The emergence of the rescue effect from explicit within- and between-patch dynamics in a metapopulation",
+        "trigger": "Founding/immigration motivation and possible stronger model"
+      },
+      {
+        "assessment": "Important closest prior; accessible abstract uses one common P(x) function and does not state the heterogeneous Poisson cutoff. Whole-document noncoverage is not claimed.",
+        "evidence": [
+          "Management Science abstract: if x dollars are invested in a component it succeeds with probability P(x)",
+          "Stanford technical report LIE ONR 155 lists September 1973 but does not verify an exact day of public release"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/mnsc.21.3.241",
+        "material_read": "Publisher abstract and Stanford technical-report catalog metadata; complete proof unavailable",
+        "method": "Opened indexed publisher abstract and catalog; sought arXiv/open full text and sought lawful full-text alternatives; none was accessible",
+        "title": "Optimal Allocations in the Construction of k-Out-of-n Reliability Systems",
+        "trigger": "Exact same general 2-out-of-3 reliability objective and possible dominating optimization theory"
+      },
+      {
+        "assessment": "Motivates the Poisson-style founding hypothesis but cannot support a whole-paper novelty exclusion; no allocation criterion appears in the material inspected.",
+        "evidence": [
+          "Ecology 85(6), 2004, pp. 1651–1660, first page treats propagule-pressure estimation, heterogeneity and Allee effects"
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/02-0571",
+        "material_read": "Public publisher abstract plus first page of Notre Dame PDF (one-page available excerpt)",
+        "method": "Opened publisher article and PDF, visually inspected first page",
+        "title": "Predicting Invasions: Propagule Pressure and the Gravity of Allee Effects",
+        "trigger": "Biological motivation for founders and site-specific establishment"
+      },
+      {
+        "assessment": "Presents nonlinear integer formulations and methods for discrete cost-reliability data, not an exact continuous three-site Poisson threshold in the inspected abstract.",
+        "evidence": [
+          "1999 Operations Research abstract explicitly focuses on discrete component data and linear relaxations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/opre.47.6.899",
+        "material_read": "Publisher abstract",
+        "method": "Opened indexed Operations Research abstract",
+        "title": "Optimal Reliability Allocation with Discrete Cost-Reliability Data for Components",
+        "trigger": "Potential general theory of heterogeneous cost and reliability"
+      },
+      {
+        "assessment": "Plausible overlap source not substantively inspected; explicit residual risk.",
+        "evidence": [
+          "A 2013 research biography and an author publication bibliography identify the 1975 chapter"
+        ],
+        "identifier_or_url": "Derman, Lieberman and Ross, SIAM Reliability and Fault Tree Analysis (1975), pp. 307–324",
+        "material_read": "Bibliographic records only; no source text obtained",
+        "method": "Searched title and references in author bibliography and later review",
+        "title": "Optimal allocation of resources in systems",
+        "trigger": "Possible broadened follow-up treatment to the 1974 optimization problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34c909dd-7ca2-4404-8ee4-3619bce5da11",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reintroduction programs naturally seek at least two independently established habitats rather than a single founder site; this is the smallest nontrivial redundancy objective. The exact \\(b/a=1/2\\) cutoff identifies when a lower-efficiency third habitat must receive no introduction budget or must receive positive effort, for all budgets. The unique optimizer and small-/large-budget fractions quantify a substantial shift in the optimal weak-site share. The result is a nontrivial full parameter classification, not a mere fixed-parameter evaluation; however biological applicability requires independent Poisson success and is expressly not a persistence result.",
+    "status": "PASS"
+  }
+}

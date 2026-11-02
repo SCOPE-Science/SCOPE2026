@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Brown and Hoshino's Theorem 4.9 gives rank-five equivalence of ordinary cycles of all orders at least nineteen. The displayed square-adjacency interpretation adds at most one quantifier to the rank of an arbitrary formula, giving the unbounded tail. The complete first-order tuple-type recursion proves that fifteen small parameter representatives have distinct rank-four types, as checked by direct and dihedral-orbit implementations. The two algorithms agree on every pair among orders five through thirty-two. The finite experiment is not used to infer the infinite tail.
+
+**Originality (PASS, qualified).** The closest covering candidate is the 2007 cycle theorem. Its statement applies to unsquared cycles, and its interpretation consequence proves only the large-order equivalence, not the sharp lower bound or the fourteen finite distinctions in this claim. The complete text inspected of the 2012 cycle-power biclique-colouring study treats a different invariant. Semantic research-index comparisons for square cycles, cyclic Cayley graphs, logical equivalence, and quantifier rank four did not return this partition. An earlier rank-three analysis of cycle powers does not settle a rank-four partition. Historical priority remains a risk, particularly for unindexed or inaccessible work.
+
+**Mathematical value (PASS).** Powers of cycles are a natural family of homogeneous bounded-degree graphs, and the complete sharp logical threshold is not determined by their degree alone or by their finite induced four-vertex patterns. Four-distinct-vertex patterns stabilize at twelve vertices, while full four-round equivalence stabilizes only at nineteen. The result answers a motivated finite-model-theoretic classification question and establishes the exact least common family representative, rather than an arbitrary isolated computation.
+
+The result is limited to the stated language and parameter range. The finite boundary relies on independently reproducible exhaustive type calculations, while the infinite bound uses a published theorem. Unindexed prior work and independent mathematical validation remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

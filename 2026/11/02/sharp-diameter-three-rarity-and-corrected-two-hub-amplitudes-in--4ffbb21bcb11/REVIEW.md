@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact marked-double-star recursion is obtained by enumerating attachment targets under the full growth rule. Fixed-size asymptotics follow by induction using a contractive recurrence. The nontrivial exchange of limit and infinite summation is justified by an explicit fractional-moment drift bound, \(\sup_n n\sum_{b>K}q_n(b)\le64K^{-1/8}\). The exact checker reconstructs histories rather than using the proof recurrence as its only test; extrapolation is explicitly not treated as a proof. Critical hypotheses (positive hub leaf counts, \(n\ge12\) drift case split, and growth initiated from one edge) were checked.
+
+**Originality — PASS, with priority risk.** The closest source, Krapivsky–Redner (2017), has the exact two-hub recurrence as its equation (11). It subsequently reports amplitudes \(U_b=4(b+1)/(b+2)!\) and summed coefficient \(D_2=2\). Comparison of the equations shows the factor \(b-1\), present in (11), absent in their continuum equation (22). That omission makes the stated prior amplitude formula disagree with the exact dynamics for \(b\ge3\). The corrected profile and full diameter-three probability are not implied by the *stated* prior asymptotic theorem. The result is a substantive correction and complete sharp rarity statement rather than a claim to have discovered double-star recurrences. Addario-Berry et al. (2024) study diameter and the same process but do not state the exact coefficient here. Residual risk: an unlocated independent derivation may precede this one.
+
+**Value — PASS.** The canonical rare-event probability of diameter at most three is a natural invariant for a random-tree model with typically growing diameter. Correcting the two-hub probability coefficient from 2 to 3 changes the leading constant for this rare event from the value implied by the published near-hub asymptotics. The polynomial-tailed marked-hub profile gives a full limiting classification, not a one-off finite computation.
+
+The proof does not address typical-tree diameter, large secondary hubs on the linear scale, or other redirection variants. The existing 2017 exact recurrence and the 2024 probabilistic model are acknowledged.
+
+Self-review: passed. Independent audit: not yet performed.

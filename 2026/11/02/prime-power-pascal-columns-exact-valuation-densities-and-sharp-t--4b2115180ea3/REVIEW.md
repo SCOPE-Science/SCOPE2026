@@ -1,0 +1,15 @@
+# Review of the prime-power Pascal-column theorem
+
+## Correctness — PASS
+The exact valuation identity follows from Kummer's count of borrows in subtracting \(p^a-1\) from \(n-1\): for \(n=p^a q+r\), the valuation is zero when \(r=0\), and is \(a-\nu_p(r)+\nu_p(q)\) otherwise. The proof then counts all \(p\)-adic residue classes of \(r\) and exact valuations of \(q\), obtaining the normalized probability mass function and its geometric tail. Threshold periodicity follows because the largest required quotient congruence exponent is \(v-1\). Explicit witnesses disprove its unique maximal proper \(p\)-power divisor as a period. Exact direct-binomial and factorial-valuation tests support the general mathematical proof. Edge cases \(a=1\), \(v=1\), \(p=2\), and values \(n=p^a\) are treated. Tests are not infinite proofs.
+
+## Originality — PASS, with qualified coverage
+Rowland (arXiv:1001.1783) studies a different axis of Pascal's triangle: how many lower indices in a fixed row have bounded valuation. Rowland (arXiv:1102.1464, Section 3) already establishes periodicity of fixed-column normalized binomial fractions and the zero frequency for the prime-index case; neither is claimed new. Spiegelhofer–Wallner (arXiv:1604.07089, Section 2.4) gives a general *binary* fixed-column valuation-density framework, subsuming the binary marginal densities. The present combined all-prime explicit distribution and the sharp least periods of *every* valuation threshold are not stated by the inspected prior texts. The 1982 Robbins work counts different lower indices in each fixed row, not frequencies along a fixed column. No exact all-prime complete classification or period hierarchy was located in accessible historical records or the indexed semantic comparisons. That absence is not proof of priority.
+
+## Mathematical value — PASS
+The motivating object is the failure frequency of \(n\mid\binom{n}{p^a}\), a natural fixed-column version of the problem studied by Rowland. The result gives a rational expression simultaneously for every prime and prime-power lower index, an entire infinite valuation law rather than a single divisibility proportion, and exact least periods for all filtration levels. It distinguishes the complete fixed-column problem from known fixed-row counts; for odd primes it also goes beyond the available published binary column framework. The theorem has no claim to settle the full residue distribution.
+
+## Closest literature and limitations
+The classical borrow theorem supplies the key valuation identity. Rowland's periodicity bounds the full normalized fraction; the new period statements concern the minimum periods of its valuation-threshold predicates, not the known existence of a period. Spiegelhofer and Wallner's binary column-density theory is genuine overlapping special-case coverage and is explicitly credited. The scope is limited to prime-power lower indices and valuations, not residues themselves. Independent validation has not been performed; historical priority is subject to specialist literature comparison.
+
+Self-review: passed. Independent audit: not yet performed.

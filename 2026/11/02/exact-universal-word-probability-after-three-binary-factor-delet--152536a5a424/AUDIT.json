@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The edge-deletion/Euler-trail correspondence fixes quantifiers and exact linear length. Unique short directed cycles give four balanced triples; exact 2- and 3-edge open-walk counts yield four unbalanced terms summing to 10*2^n-46. By the published super-edge-connectivity theorem, at most three arc removals disconnecting active vertices can only isolate a constant vertex; direct divergence enumerates exactly five obstructing choices per constant, hence ten exceptional triples and 10*2^n-56 total. A standalone exhaustive implementation checks n=4..7, all 388,560 tested deletion triples, independently reconstructing graph connectivity and degree patterns.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen, Kitaev and Sun, arXiv:1908.01116 (2019), Sections 1, 3 and 4; binary n=4, s=3 table",
+        "Xu and Lu, Restricted Edge-Connectivity of de Bruijn Digraphs (2008), Corollary 1",
+        "The lower bound in Chen–Kitaev–Sun Theorem 3.1 is not an exact enumeration for s=3, whereas their Theorem 4.3 is exact only for s=2"
+      ],
+      "reasoning": "Super-edge-connectivity is a reusable known input, not a stronger counting result. The published probability lower bound and the corresponding cyclic Eulerian enumeration do not count all open trails and do not entail the claimed formula.",
+      "searches": [
+        "de Bruijn digraph super-edge-connected cut size one Xu Lu 2008",
+        "universal word three deleted n-grams exact all-length formula",
+        "On the probability of existence of a universal cycle or universal word Theorem 3.1 Theorem 4.3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1908.01116",
+      "https://combinatorialpress.com/article/ars/Volume%20087/volume-87-paper-30.pdf",
+      "https://doi.org/10.3390/math8050778"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen, Kitaev and Sun, arXiv:1908.01116 (2019), Sections 1, 3 and 4; binary n=4, s=3 table",
+        "Xu and Lu, Restricted Edge-Connectivity of de Bruijn Digraphs (2008), Corollary 1",
+        "Prior exact enumeration of three-factor omissions for cyclic universal necklaces over q>=3; cyclic balanced trails rather than linear semi-Eulerian trails"
+      ],
+      "reasoning": "The closest prior s=3 universal-cycle result imposes zero divergence, giving only balanced deleted triples; the present degree-compatible family additionally contains 10*2^n-50 unbalanced triples and removes ten disconnected cases. Hence the cyclic result does not imply the linear count. Chen–Kitaev–Sun do not derive the all-n linear count; their known n=4 special case agrees. The published connectivity theorem handles one necessary lemma only.",
+      "searches": [
+        "arxiv:1908.01116 Theorem 3.1 and 4.3 binary s 3",
+        "de Bruijn cycle vs linear universal word three deletions",
+        "three omitted binary factors exact semieulerian degree compatible triple"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen, Kitaev and Sun, arXiv:1908.01116 (2019), Sections 1, 3 and 4; binary n=4, s=3 table",
+        "Theorem 1.1 in arXiv:1908.01116 identifies the equivalent Euler-trail criterion; Sections 3-4 treat bounds and s=2 exactly"
+      ],
+      "reasoning": "The path formulation is explicitly reduced to semi-Eulerian trails in B(2,n-1). The compared source states general lower bounds, exact s<=2, and a table of n<=4; no identical all-n formula for s=3 appears in the inspected full text.",
+      "searches": [
+        "\"P_w(n,2,3)\" universal words exactly three excluded factors probability",
+        "\"linear universal word\" \"three deleted\" binary",
+        "\"de Bruijn\" \"three forbidden\" universal word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen, Kitaev and Sun, arXiv:1908.01116 (2019), Sections 1, 3 and 4; binary n=4, s=3 table",
+        "For n=4 the displayed probability 13/70 equals 104/binom(16,3), consistent with the theorem",
+        "No all-n exact s=3 table or stronger expression identified in the inspected predecessor"
+      ],
+      "reasoning": "The n=4 datapoint is previously published and is not presented as novel; the new proposition is a uniform symbolic count and precise exceptional classification for n>=4.",
+      "searches": [
+        "Chen Kitaev Sun Pw 4 2 3 table 13/70",
+        "\"10*2^n-56\" \"universal word\"",
+        "\"P_w(n,2,3)\" universal word exact"
+      ]
+    },
+    "rationale": "The most closely relevant 2019 full preprint provides s<=2 exact answers, bounds for s=3, and the n=4 instance; it does not imply an all-length s=3 linear enumeration. Known cyclic three-deletion counts only balanced Euler circuits; the present open-trail cases dominate and require different enumeration and connectivity analysis. Non-indexed equivalent research remains a disclosed risk.",
+    "residual_risks": [
+      "An equivalent general three-arc-deletion trail enumeration may exist under graph-theoretic terminology not caught by indexing.",
+      "Independent literature/priority audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents exact small n=4 case, general lower bounds and exact up-to-two-deletion formulas, but not the all-n s=3 linear count",
+        "evidence": [
+          "Chen, Kitaev and Sun, arXiv:1908.01116 (2019), Sections 1, 3 and 4; binary n=4, s=3 table",
+          "arXiv:1908.01116 lines 117-181, 470-504, 740-767"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1908.01116",
+        "material_read": "Full 17-page arXiv preprint, including introduction, probability tables, Theorem 3.1, Theorem 4.3, proofs and discussion",
+        "method": "Direct full-text reading and comparison of quantifiers, s=3 bounds, and exact s=2 statements",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "Same channel notation and three-deletion question"
+      },
+      {
+        "assessment": "Confirms B(d,m) super-edge-connected for d>=2 and m>=1, which supplies the cited connectivity lemma but no triple deletion count",
+        "evidence": [
+          "Xu and Lu, Restricted Edge-Connectivity of de Bruijn Digraphs (2008), Corollary 1",
+          "pp. 385, 386 and 391-392"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20087/volume-87-paper-30.pdf",
+        "material_read": "Abstract, definitions, theorem statement and corollary on pp. 385-386, 391-392 of the full 8-page PDF; supporting graph definitions and proof sections inspected",
+        "method": "PDF page-image inspection of parameter scope and Corollary 1",
+        "title": "Restricted Edge-Connectivity of de Bruijn Digraphs",
+        "trigger": "Needed nonstandard assertion that a minimum one-arc directed cut isolates a vertex"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "152536a5-a424-463a-9dd0-d19b84d304cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact probability P_w(n,2,3) is a directly motivated open enumeration slice in the guiding paper; determining it for all n>=4, with a structural ten-obstruction classification, extends a small-n table and general lower bounds to an exact all-length law. The formula also separates degree-feasible from physically realizable shortest universal words, relevant to sequence assembly and combinatorial generation.",
+    "status": "PASS"
+  }
+}

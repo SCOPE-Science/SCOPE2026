@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For all n≥2, every putative shattered five-query support has a 2-vertex cover, at most seven active points and at most 29 traces, so VC≤4. At n=7, the four-query active graph must have five active points and a degree-one vertex, which forces a trace collision. Explicit stars give VC lower bounds at n=4,5,6,8. In any adaptive root zero branch, a second query has a child with at most four hypotheses or a fixed-center star, both with Littlestone dimension at most two; thus overall Ldim≤4. A complete depth-four tree with sixteen distinct terminals on n=7 was checked path by path; small orders have independent counting upper bounds. Full direct finite recurrences corroborated n≤14. Every part is a proof or complete finite witness, not an extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general Johnson open-neighborhood bound from arXiv:2007.16042 does not specialize by complementation to Kneser open neighborhoods without replacing open by closed Johnson balls.",
+        "Manurangsi arXiv:2211.01443 gives general complexity and reduction results for abstract concept classes, not this restricted combinatorial structure."
+      ],
+      "reasoning": "A general boundedness or computational hardness result does not determine the four piecewise VC thresholds, one sharp adaptive gap, or explicit online tree in this family.",
+      "searches": [
+        "rank-two Kneser graph open neighborhoods as Boolean concept class: VC dimension 1 2 3 4, online dimension 4",
+        "online shattering decision tree for 2-subset intersection versus disjointness, adaptive static gap",
+        "Littlestone dimension or thicket dimension of triangular graph closed neighborhoods and complement Kneser rank two",
+        "arXiv:2007.16042 Theorem 1.1 and Section 3",
+        "arXiv:2211.01443 Theorem 2 and Section 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.16042, primary PDF, Theorem 1.1, Theorem 3.7 and Johnson proof material",
+      "arXiv:2405.07588, arXiv full-text HTML",
+      "arXiv:2211.01443, arXiv primary HTML",
+      "Semantic scientific-record searches for rank-two Kneser and triangular-neighborhood formulations",
+      "Related published research on open Johnson neighborhoods and higher-rank Kneser neighborhoods"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Open-neighborhood J(n,2) has VC 4 at n≥7 in the inspected 2020 theorem, whereas complement-of-closed-neighborhood J(n,2), equivalently open-neighborhood KG(n,2), has VC 3 at n=7.",
+        "The exact first gap is shown by a depth-four 7-point tree and a separate no-four-VC argument, neither appearing in the inspected general algorithms/hardness literature."
+      ],
+      "reasoning": "The known result on open-Johnson neighborhoods cannot be substituted for the closed-Johnson complement; the quantitative mismatch at n=7 makes this explicit. General graph VC algorithms could calculate small instances but do not imply the all-order theorem or determine Littlestone dimensions.",
+      "searches": [
+        "Exact VC dimension and Littlestone dimension for open neighborhood concepts in Kneser graphs KG(n,2), disjointness of two-subsets and sharp threshold at n=7",
+        "closed neighborhood VC dimension of triangular graph J(n,2), complement of KG(n,2), exact thresholds n 4 5 6 7 8",
+        "Littlestone dimension or thicket dimension of triangular graph closed neighborhoods and complement Kneser rank two",
+        "arXiv:2007.16042, Theorem 3.7, Section 3",
+        "arXiv:2405.07588 Sections 1–5",
+        "arXiv:2211.01443 Sections 1–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For every center c in the rank-two Johnson graph, open-Kneser N_KG(c) equals the complement of closed-Johnson N_J[c].",
+        "Benediktsson–Macpherson–Adler Theorem 3.7 (arXiv:2007.16042, pp.17–18) treats open-Johnson neighborhoods and gives rank-two VC dimension 4 already at n=7; the present open-Kneser VC dimension is 3 there.",
+        "The 2024 paper treats closed-neighborhood graph VC algorithms in general, without an exact KG(.,2) formula in its accessible text."
+      ],
+      "reasoning": "Complementing every concept preserves both dimensions, so any exact closed-Johnson theorem would cover this finding. The inspected Johnson paper establishes open-Johnson dimension and only boundedness of closed Johnson; exact closed-Johnson order thresholds and online values are not supplied. The Ldim result especially is not obtained by the cited Johnson VC result.",
+      "searches": [
+        "Exact VC dimension and Littlestone dimension for open neighborhood concepts in Kneser graphs KG(n,2), disjointness of two-subsets and sharp threshold at n=7",
+        "closed neighborhood VC dimension of triangular graph J(n,2), complement of KG(n,2), exact thresholds n 4 5 6 7 8",
+        "Littlestone dimension or thicket dimension of triangular graph closed neighborhoods and complement Kneser rank two",
+        "arXiv:2007.16042 Theorem 3.7",
+        "arXiv:2405.07588: full-text Kneser search"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant independently described Boolean query systems include the open-neighborhood Johnson class and rank-three Kneser neighborhoods; neither yields this rank-two open-Kneser theorem by a direct specialization.",
+        "Retrieved results for rank-two Kneser graph neighborhoods include Lovasz-neighborhood-complex topology, a different invariant from VC and online shattering.",
+        "The directly enumerated finite cases and complete 16-leaf adaptive certificate are provided; no examined primary table gives their combined all-order classification."
+      ],
+      "reasoning": "No retrieved exact table of the same Boolean query relation was found. Neighbor complexes, open-Johnson query systems and rank-three Kneser systems have distinct mathematical statements; the absence of a search hit is not by itself proof of priority.",
+      "searches": [
+        "Exact VC dimension and Littlestone dimension for open neighborhood concepts in Kneser graphs KG(n,2), disjointness of two-subsets and sharp threshold at n=7",
+        "shattering graph neighborhood hypergraph Petersen graph Kneser KG(5,2) and KG(7,2)",
+        "closed neighborhood VC dimension of triangular graph J(n,2), complement of KG(n,2), exact thresholds n 4 5 6 7 8"
+      ]
+    },
+    "rationale": "The explicit family has a nontrivial and isolated one-order adaptive excess. Direct comparison with the closest 2020 Johnson-neighborhood full text, 2024 graph VC computation paper, 2022 general hardness results, related neighborhood literature, and semantic mathematical record searches did not identify an exact KG(n,2) open-neighborhood VC/Littlestone classification. Johnson J(n,2) open neighborhoods are not KG(n,2) open neighborhoods: the latter are complements of the former's closed neighborhoods. The 2020 paper Theorem 3.7 gives a different rank-two Johnson open VC threshold (four already at n=7). Historical-priority risk remains.",
+    "residual_risks": [
+      "Historical priority is not guaranteed; equivalent results may be indexed under closed triangular-graph neighborhoods, pair-disjointness matrices or thicket dimension.",
+      "General graph-neighborhood computation papers might encode the finite VC values implicitly as a computation, though not as the exact all-parameter structural theorem.",
+      "Not every page of all related original papers was manually re-read; negative relevance assessment is limited to material actually inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.7 is for *open* Johnson adjacency and gives four already for J(7,2); abstract/intro only assert boundedness for closed Johnson neighborhoods. It does not state the sharp rank-two closed-Johnson VC and adaptive table here.",
+        "evidence": [
+          "arXiv:2007.16042 Theorem 1.1, pp.4–5; Theorem 3.7 pp.17–18; Section 3 uses open N(v); abstract notes bounded closed N[v]."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Primary arXiv PDF: abstract, introduction, relevant definitions, Johnson Section 3 and the Theorem 3.7 statement with selected proof cases, density discussion and references. Inspected two source-page images. Not an exhaustive page-by-page review.",
+        "method": "Viewed search-indexed primary PDF text, theorem statement, selected original Johnson proof cases, and two page images.",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Closest same vertex set and complement duality; possible stronger coverage of closed Johnson neighborhoods."
+      },
+      {
+        "assessment": "Studies closed graph neighborhoods and their VC dimension in general; does not assert rank-two Kneser adaptive dimension or the exact per-order table.",
+        "evidence": [
+          "arXiv:2405.07588 introduction explicitly defines closed graph neighborhoods and notes open and closed yield different values."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.07588",
+        "material_read": "Primary arXiv-rendered HTML: abstract, introduction, principal definitions and algorithms, and selected theorem statements; exact-text term search for Kneser and Littlestone. The full paper was not read line by line.",
+        "method": "Read accessible arXiv-rendered HTML primary text and searched for Kneser and Littlestone.",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Potential complete graph-specific VC tables and algorithms for the dual closed-Johnson formulation."
+      },
+      {
+        "assessment": "The central results concern hardness of computing or approximating abstract class dimensions; no rank-two Kneser closed-Johnson complement classification.",
+        "evidence": [
+          "arXiv:2211.01443 Theorems 2–8, introduction, reduction from biclique."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.01443v1",
+        "material_read": "Accessible primary HTML abstract, introduction, theorem list, table of contents and preliminaries context; searched for Kneser and neighborhood.",
+        "method": "Read primary arXiv HTML and performed exact-text searches for special graph classes.",
+        "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+        "trigger": "Potential general reduction subsuming both invariants, and exact meaning of adaptive shattering."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24e035fd-bd99-4d5c-a4a1-b07e72083873",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a complete family-wide classification of static and online shattering for the natural disjointness graph on two-element subsets, and isolates a single strict adaptive gap on exactly 21 graph vertices. The VC proof is a structural 2-cover/trace argument; the online upper bound is uniform and the lone exceptional lower bound has an explicit certificate. The exact order of the first and only separation is mathematical content, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}

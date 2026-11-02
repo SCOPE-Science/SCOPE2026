@@ -1,0 +1,15 @@
+# Review: four-phase three-agent strategic epidemic law
+
+## Correctness — PASS
+The model follows the published unique best response and strict post-update infection rule. The first-selection partition exhausts all possible infinite uniform update sequences up to null sets: infected first, first susceptible followed by infected first, or both susceptibles first. The latter two subcases contain exactly the race factors \(1/2\), \(1/2\), and \(1/3\), producing the infection-count probabilities. The three algebraic inequalities are solved with their **weak safe-side equality cases**. Contraction and absorbing-risk arguments verify the almost-sure action limits. Exact-rational independent state enumeration covers 96 parameter pairs, 288 enclosed probabilities, and all three exact threshold boundary cases; it does not substitute for the infinite proof.
+
+## Originality — PASS, subject to the stated literature risk
+Karmakar, Podder, Roy and Sadhukhan's 2023 preprint, revised and published in 2025, contains the identical strategic epidemic model. Inspection of the revised open-access primary full-text relevant sections shows Theorems 7–8 assume \(\tau\ge1/(n-1)\), and Theorems 9–10 assume \(\tau\le a/(n-1)\) whenever \(\tau<a\). Theorem 5–6 assume \(a\le\tau\). Their domain therefore does not logically include \(a/2<\tau<\min\{a,1/2\}\) at three agents. Actual mathematical-record searches for the source and exact four-phase parameters and a recoverable own-publication-claim comparison found no equivalent statement. Related epidemic-model results do not imply the specific transition law. Indexed-search absence is not absolute novelty proof; unindexed specialist work remains a residual risk.
+
+## Value — PASS
+The uncovered immunity band is a specific mathematical gap in a published classification of a strategic epidemic model; the three-agent network is its smallest nontrivial instance. The exact four-step distribution and three threshold equations show which best-response update races create sudden changes in long-run outbreak size. The joint limiting action distribution follows in the same natural classification. This adds exact structural information rather than a numerical slice or already-covered corollary.
+
+## Closest literature and limitations
+Primary: S. Karmakar, M. Podder, S. Roy, S. Sadhukhan, *The spread of an epidemic: a game-theoretic approach*, arXiv:2303.09771 (2023), *Advances in Applied Probability* 57 (2025), 749–810, and author-hosted revised full text: https://sayarkarmakar.github.io/publications/AAP_revision.pdf. Broader related game-theoretic containment: J. Aspnes, K. Chang and A. Yampolskiy, *Inoculation strategies for victims of viruses and the sum-of-squares partition problem* (2006), which uses another mechanism. The result applies only to equal-weight complete graphs with exactly three agents, uniform selection, a common action/immunity pair, and no recovery. It is not validated by an independent external audit. A model-specific specialist priority gap cannot be excluded.
+
+Self-review: passed. Independent audit: not yet performed.

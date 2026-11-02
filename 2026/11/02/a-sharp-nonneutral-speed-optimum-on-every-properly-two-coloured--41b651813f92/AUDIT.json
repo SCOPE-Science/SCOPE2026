@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof derives exact original-update transitions, an r-independent embedded Markov jump chain, a bounded martingale giving fixation probabilities, transient occupation sums weighted by Doob h, exact geometric holding times and finite power sums yielding A_l,B_l,C_l. The positive harmonic difference C_l-A_l proves strict convexity and unique minimizer. A standalone standard-library checker independently enumerated every labelled transient state, solved exact rational linear systems, and agreed on 128 assertions; no finite test is used as proof of a universal quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broom-Hadjichrysanthou-Rychtar Section 2 gives exact fixation-time recurrences for a star under genotype-constant fitness or symmetric pairwise game payoffs, with central fitness mu_i and nu_i tied to genotype-neighbour interactions.",
+        "Kaveh et al. (2020) Theorems 1-2 and star Example 1 provide broad fixation-probability formulas for two-chromatic graphs, not the conditional time formula."
+      ],
+      "reasoning": "The general Markov-chain recursion is an established tool and can be instantiated for a new model; it does not directly imply the closed-form coefficients, strict C_l>A_l, or all-size optimizer without the intervening state reduction and sums. The payoff-only star model cannot represent this background matching: a red individual at the hub and one at a leaf have distinct fitness even when neighboring genotypes are identical. The later two-chromatic theorem dominates the probability part but not the new conditional-time part.",
+      "searches": [
+        "Evolutionary games on graphs and the speed of the evolutionary process star mean fixation time general games",
+        "fitness fixation time bipartite star environment Moran",
+        "Kaveh McAvoy Chatterjee Nowak two chromatic star fixation probability theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1311.3214",
+      "https://openaccess.city.ac.uk/id/eprint/1005/1/Evolutionary%20games%20on%20graphs%20and%20the%20speed%20of%20the%20evolutionary%20process_Final.pdf",
+      "https://arxiv.org/abs/1406.4415",
+      "https://doi.org/10.1371/journal.pcbi.1008402"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Maciejewski-Puleo Theorem 1 -> neutral fixation probability; not conditional-time rigidity. Its Section 4 -> comparisons involving three background colours and mean over starts.",
+        "Broom et al. -> conditional time from general game-specific star transition coefficients; genotype/location matching not their payoff mechanism.",
+        "Hindersin-Traulsen -> genotype-constant process; Kaveh et al. -> coloured-graph fixation probabilities."
+      ],
+      "reasoning": "The probability corollary is covered and attributed. None of the inspected related claims implies the full all-l conditional duration formula, its positivity gap or its unique nonneutral minimum without mathematically separate specialization, occupation counts and nontrivial summation. This claim therefore remains a potentially original explicit duration theorem, subject to historical-priority uncertainty.",
+      "searches": [
+        "Fixation time on environmental properly two-coloured Moran star with red adapted hub and blue adapted leaves exact mean conditional absorption time A*r+B+C/r",
+        "Neutral fixation probability but optimal nonneutral environmental selection r>1 minimizes time to fixation in a bipartite habitat star",
+        "Maciejewski Puleo 2013 properly coloured graph fixation time star exact nonmonotone speed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Maciejewski-Puleo Section 3 Theorem 1 proves r-independent fixation probability on proper two-colour graphs, which directly covers the probability component of this setup; Section 4 examines a three-background-colour configuration instead of the two-colour all-size star time law.",
+        "Hindersin-Traulsen analyses constant genotype-specific fitness and exact conditional times, not genotype-by-habitat matching on a star."
+      ],
+      "reasoning": "The exact object and probability neutrality are prior, so neither model nor neutral probability is asserted new. The proposed statement is a conditional duration A_l*r+B_l+C_l/r and its strict nonneutral minimizer for every l>=2. The inspected primary theorems do not give an equivalent duration formula or optimizer.",
+      "searches": [
+        "Environmental evolutionary graph theory properly two-coloured graph birth-death neutral fixation probability conditional fixation time star hub mutant selection strength r nonmonotonic",
+        "Moran process properly two-colored conditional fixation time",
+        "reference: Maciejewski-Puleo Theorem 1 (arxiv:1311.3214)",
+        "reference: Hindersin-Traulsen four-vertex fixation-time formulas (arxiv:1406.4415)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Maciejewski-Puleo three-background-colour curves and equations concern a different habitat colouring and a different initial distribution.",
+        "Broom et al. present star-game formulas but not a coefficient table for this two-colour fixed-habitat condition; Kaveh et al. include a star example for probability, not duration."
+      ],
+      "reasoning": "No checked primary exact-value table or database entry supplied the displayed coefficient law or the unique >1 speed optimum. This is evidence of no direct match in inspected material only, not proof that no equivalent result exists.",
+      "searches": [
+        "star K1n proper red blue environmental matching birth-death Moran conditional expected fixation time U shaped r harmonic numbers minimizer",
+        "selection neutral fixation probability but conditional fixation time decreases with increased site matching fecundity stationary environmental two-colouring star",
+        "Environmental Evolutionary Graph Theory time to fixation star hub leaves two color"
+      ]
+    },
+    "rationale": "The central habitat-matched properly two-colour model and its neutral fixation probability are known from Maciejewski-Puleo (2013); this theorem does not claim either as new. Inspected primary all-size star time work (Broom et al. 2010), constant-selection network time work (Hindersin-Traulsen 2014), and two-chromatic graph work (Kaveh et al. 2020) do not establish the exact matching-fitness star time law A_l*r+B_l+C_l/r and sharp r_l*>1. Novelty is provisional, with source-by-source implication comparison and explicit risk of an unlocated equivalent specialization.",
+    "residual_risks": [
+      "An earlier or differently named exact environmental-star conditional-time calculation may exist outside the inspected sources.",
+      "A general finite-chain or star-game formula may be specialized to this matching model by further algebra, although the displayed sharp all-size coefficient and optimality identity are not stated in the inspected publications.",
+      "No independent human priority assessment has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fully covers neutrality of fixation probability but not the claimed exact conditional-time law and optimizer for hub-initialized two-colour stars of all sizes.",
+        "evidence": "Sections 3, 4 and 6.3; Theorem 1, equation (8), Figure 8 and Appendix proof.",
+        "identifier_or_url": "https://arxiv.org/abs/1311.3214",
+        "material_read": "Open-access full-text sections 1-4 and Appendix 6.3, including model assumptions, Theorem 1, three-background-colour fixation-time example and proof of neutrality.",
+        "method": "Read primary complete-text HTML, focusing on model transitions, theorems, time results and appendix proof.",
+        "title": "Environmental Evolutionary Graph Theory",
+        "trigger": "Exact same habitat-matching birth-death model and proper two-colour graph theorem; most likely possible overlap."
+      },
+      {
+        "assessment": "A star-game formula potentially supplies general computational machinery but assumes genotype-specific symmetric neighbour games; the fixed genotype-by-environment matching star is not the stated payoff model or coefficient result.",
+        "evidence": "PDF pp. 1, 5-8, 18; equations (2.1)-(2.2), (2.30)-(2.33), Discussion.",
+        "identifier_or_url": "https://openaccess.city.ac.uk/id/eprint/1005/1/Evolutionary%20games%20on%20graphs%20and%20the%20speed%20of%20the%20evolutionary%20process_Final.pdf",
+        "material_read": "Lawful complete PDF relevant Introduction; Section 2 star equations (2.1)-(2.33), including conditional-time formula; fixed-fitness and game examples and Discussion.",
+        "method": "Primary PDF page images and extracted text of star transitions, holding/conditional-time equations and concluding model scope.",
+        "title": "Evolutionary games on graphs and the speed of the evolutionary process",
+        "trigger": "Exact star conditional-fixation-time formulas for arbitrary star size; strongest apparent competing general method."
+      },
+      {
+        "assessment": "Different fitness model: fixed fitness advantage for mutants independent of habitat. No same-object two-colour matching duration theorem.",
+        "evidence": "Abstract and Sections 1.1-1.3, especially constant-selection assumptions and fixation-time equation.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.4415",
+        "material_read": "Open-access full-text abstract, model Section 1, fixation-time and state-time methodology and specific small-network results.",
+        "method": "Read primary arXiv full-text HTML, including stated constant-genotype-fitness assumptions and method.",
+        "title": "Counterintuitive properties of the fixation time in network-structured populations",
+        "trigger": "Exact fixation-time study of small stars/graphs, possible selection/time reversal."
+      },
+      {
+        "assessment": "Deals with fixation probabilities and background colourings; its star result is an exact probability formula, not a conditional fixation-time characterization.",
+        "evidence": "Results introduction, Theorems 1-2 and Example 1 star, equations (24)-(25).",
+        "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1008402",
+        "material_read": "Full open-access HTML abstract, introduction, theorem/equation discussion, star Example 1 and references.",
+        "method": "Read primary PLOS full text and find matches for fixation time and star example.",
+        "title": "The Moran process on 2-chromatic graphs",
+        "trigger": "Broad proper-colouring theorem includes star and arbitrary matching fitness parameters."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scientific_limits": [
+    "All-star result restricted to hub-initialized, proper red-hub/blue-leaf colouring, discrete birth-death reproduction and counted null updates.",
+    "Probability neutrality is prior literature; only time law and optimizer are presented as possible new mathematics.",
+    "Independent audit not performed; historical priority provisional."
+  ],
+  "scope_run_id": "41b65181-3f92-4d46-b22e-41b594b1ad49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The established environmental graph model has selection-independent fixation probability on proper colourings, leaving meaningful ambiguity about *successful-trajectory duration*. The exact all-star harmonic law reveals that fixation speed has a unique nonneutral optimum although fixation probability is constant. The structural result separates jump-chain geometry from parameter-dependent waiting times and yields a reproducible finite-population benchmark and quantified large-star limit; no ungrounded empirical claims.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact two-transition finite chain and absorbing x=1 boundary are derived and independently enumerated. Fluid limit x/y-log(y/beta)=constant yields y*=beta exp(-alpha/beta); the bounded-jump martingale has predictable limiting variation [4-exp(-r)(r+2)^2]/y* and its small-x tail tends to zero, giving variance beta exp(-r)[4-exp(-r)(r+2)^2]. The derivative of the exact ratio proves its unique minimum at r=1. Exact checker and simulated diagnostics are supplementary, not proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer and Frieze (1991), DOI 10.1002/rsa.3240020104, publisher abstract: general worst-case and sparse-family bounds; full text not obtained.",
+        "Dyer, Frieze and Pittel (1993), DOI 10.1214/aoap/1177005436, accessible summary: sparse random graphs/trees, not dense fixed split graphs.",
+        "Krivelevich et al. (2020), DOI 10.4230/LIPIcs.AofA.2020.20, investigates random greedy independent sets using local graph limits."
+      ],
+      "reasoning": "A general model or generic concentration inequality alone is not an implication of a family-specific Gaussian variance or sharp ratio. Existing general bound >=1/2 is weaker than the sharp family bound; inaccessible full proofs may contain special cases, explicitly retained as a risk. A general density-dependent Markov-chain limit method supplies a possible proof strategy, but does not itself evaluate this particular nonlinear trajectory, endpoint fluctuation variance or sharp aspect-ratio optimization.",
+      "searches": [
+        "Randomized greedy matching - Dyer Frieze 1991 pdf complete split graphs",
+        "The Average Performance of the Greedy Matching Algorithm Dyer Frieze Pittel 1993 project euclid full text",
+        "Greedy maximal independent sets via local limits 2020 matching line graphs",
+        "random sequential greedy matching on complete split graph independent peripheral survival asymptotic log invariant clique core"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1287/stsy.2021.0082",
+      "https://doi.org/10.1002/rsa.3240020104",
+      "https://doi.org/10.1214/aoap/1177005436",
+      "https://doi.org/10.4230/LIPIcs.AofA.2020.20",
+      "Published record summaries: Sharp variance of random greedy maximal independent sets on complete multipartite graphs; Sharp lower bound for average maximal matchings in cyclic graphs (different quantities, not full-document exclusions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arnosti (2021) PDF pp.1-11: definitions, Theorems 1-2 and proof sections apply to bipartite graphs with random edge sets, not dense nonbipartite complete split graphs.",
+        "Dyer and Frieze (1991) general worst-case guarantee is 1/2 and improved results are described for sparse graph families.",
+        "Dyer, Frieze and Pittel (1993) covers Gaussian limits in sparse random graph and tree ensembles, not this deterministic dense graph family."
+      ],
+      "reasoning": "The new claim demands the explicit terminal recursion, y*=beta exp(-alpha/beta), variance beta exp(-r)[4-exp(-r)(r+2)^2], and unique sharp ratio 1-1/(2e). A cited general bound or a central limit theorem for a different graph ensemble does not entail these values. No inspected stronger statement forces all these consequences.",
+      "searches": [
+        "Greedy Matching in Bipartite Random Graphs Arnosti 2021 PDF",
+        "Randomized greedy matching 1991 Dyer Frieze publisher abstract",
+        "The Average Performance of the Greedy Matching Algorithm 1993 Dyer Frieze Pittel abstract",
+        "Asymptotic unmatched independent set in random greedy matching of dense split graph clique joined to independent set, martingale central limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No same-object theorem was returned in these exact phrase and semantic searches.",
+        "Arnosti DOI 10.1287/stsy.2021.0082, full PDF: graph model is bipartite; in this theorem a clique adds internal matches.",
+        "A greedy matching on a graph equals greedy independent-set selection on its line graph, but the compared local-limit papers do not state the complete-split matching law."
+      ],
+      "reasoning": "Matched-edge subsets are independent sets of the line graph, an equivalent encoding, not a covering earlier calculation. The line graph of a dense split graph has neighborhoods growing with graph size, so sparse local-limit formulas cannot simply be substituted. The exact generator, residual law, and endpoint CLT have not been found in either formulation.",
+      "searches": [
+        "random greedy maximal matching split graph complete split graph random edge order unmatched vertices asymptotic",
+        "random greedy matching split graph asymptotic e inverse n clique independent random edges",
+        "Random greedy maximal matching on complete split graph clique independent set edges selected uniformly; unmatched independent vertices limit b exp(-a/b) central limit theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact phrase searches did not return a split-graph jamming table or numerical law.",
+        "Related published record: sharp variance of random greedy maximal independent sets on complete multipartite graphs, a different random object and algorithm.",
+        "Related published record: sharp lower bound for average maximal matchings in cyclic graphs, a different uniform-over-matchings measure rather than uniform random edge order."
+      ],
+      "reasoning": "Neither an exact law for unmatched independent vertices in complete split graphs nor a Gaussian variance/efficiency table was located. Search incompleteness is not proof of novelty.",
+      "searches": [
+        "\"complete split graph\" \"random greedy\" matching",
+        "\"split graph\" \"random sequential adsorption\" dimers",
+        "\"1-1/(2e)\" \"greedy matching\" split graph",
+        "The sharp 1-1/(2e) asymptotic performance guarantee for uniform random edge greedy maximal matching on complete split graphs"
+      ]
+    },
+    "rationale": "The fixed dense complete-split graph has clique-clique matching transitions absent from Arnosti's fully inspected random bipartite model. Published records and accessible published research records did not yield the exact residual survivor law, Gaussian fluctuation variance, or the sharp asymptotic 1-1/(2e) split-graph efficiency ratio. Earlier general-graph full text is inaccessible, so historical priority remains a substantive residual risk.",
+    "residual_risks": [
+      "Full text of Dyer and Frieze (1991) was not obtained; the accessible abstract cannot exclude a hidden special split-graph calculation.",
+      "Full text of Dyer, Frieze and Pittel (1993) was not obtained.",
+      "An equivalent result in an unindexed thesis, conference paper, alternate terminology or more general theorem is possible; novelty is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover a graph with internal clique-clique matches or this exact survivor Gaussian law",
+        "evidence": [
+          "pp. 1-3 define bipartite jobs-days graph and RANDOM-EDGE",
+          "sections 2-3 compare algorithms under bipartite random-edge input; split/clique absent"
+        ],
+        "identifier_or_url": "https://pubsonline.informs.org/doi/epdf/10.1287/stsy.2021.0082",
+        "material_read": "Open-access 18-page PDF: pages 1 and 3, exact model and theorems in pages 1-5, the sections 2-3 proof passages, and full-document targeted searches for split/clique",
+        "method": "PDF text and two original page-image inspections; searchable full-document terms split and clique returned no matches",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Same RANDOM-EDGE algorithm, 2021 primary starting point"
+      },
+      {
+        "assessment": "Abstract discusses general worst case and sparse families; cannot decisively exclude special dense split calculations in unseen text",
+        "evidence": [
+          "Dyer and Frieze (1991) abstract: general 1/2 worst-case and 0.769 forest result",
+          "The absence of full text is a stated residual historical-priority risk"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher title, abstract, bibliographic metadata, references; full article unavailable",
+        "method": "Publisher abstract and targeted lawful preprint/full-text searches; full paper unavailable",
+        "title": "Randomized greedy matching",
+        "trigger": "Foundational same random-edge matching algorithm on general graphs"
+      },
+      {
+        "assessment": "Accessible description is sparse random graphs and random trees, not deterministic dense split graphs",
+        "evidence": [
+          "Dyer, Frieze and Pittel (1993) abstract describes mean, variance and asymptotic normality for sparse random graphs and trees"
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1177005436",
+        "material_read": "Abstract, bibliographic information and cited-scope summary only; full article unavailable",
+        "method": "Publisher/secondary bibliographic sources and open-access full-text search",
+        "title": "On the average performance of the greedy algorithm for finding a matching in a graph",
+        "trigger": "Gaussian limits for a related greedy-matching process"
+      },
+      {
+        "assessment": "The generic equivalence to line-graph independent sets is known, but no dense complete-split Gaussian law was found",
+        "evidence": [
+          "Introduction names matching as greedy MIS on the line graph, and local-limit asymptotics for sparse graph families"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2020.20",
+        "material_read": "Open-access article summary, introduction and line-graph relationship, not complete proof",
+        "method": "Open-access publication page and full HTML introduction",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Line-graph dual encoding of random greedy matching"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52e64992-7799-491d-9225-ca27e99664c9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "On a canonical dense graph family with a perfect matching at balanced sizes, uniform random-edge matching wastes a positive 1/(2e) fraction of optimal matching edges. A sharp family-wide worst aspect ratio and a closed Gaussian fluctuation variance make the precise inefficiency and finite-size uncertainty mathematically interpretable. The clique-clique edge channel creates the loss and distinguishes the model from complete bipartite matching.",
+    "status": "PASS"
+  }
+}

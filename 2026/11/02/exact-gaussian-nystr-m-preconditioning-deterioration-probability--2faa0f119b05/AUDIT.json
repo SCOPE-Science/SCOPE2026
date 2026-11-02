@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the exact Nyström preconditioned condition ratio to active-plane trace and determinant, factors the sign exactly, establishes a unique positive polynomial root, integrates the exact Haar-plane coordinate law, and verifies null endpoints and dimension-minimality. SymPy confirms the symbolic factor, critical-root identity and asymptotics; 160 Gaussian sketches and an exact rational example independently exercise the formulas. No finite experiment is substituted for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source high-rank condition-number guarantee requires effective-dimension-sized ranks/regularization and does not entail an exact unregularized ℓ=2 spiked probability.",
+        "The mixed-precision paper gives approximate bounds incorporating Nyström error, not the strict event probability."
+      ],
+      "reasoning": "Qualitative statements about misalignment, rank/error bounds or expectation cannot imply an exact sharp CDF at all L>1. Related results do not dominate the stated parameters and conclusion.",
+      "searches": [
+        "low rank sketch preconditioner can make condition number worse than original even when n-1 sketch and rotationally invariant Gaussian; exact spike asymptotics",
+        "spectral preconditioner inexact eigenvectors local perturbation probability of increasing condition number Giraud Gratton",
+        "arxiv:2110.02820 Section 5.1, main condition-number theorem",
+        "doi:10.1137/22M154079X §3.1"
+      ]
+    },
+    "checked_sources": [
+      "Frangella–Tropp–Udell arxiv:2110.02820 full accessible HTML",
+      "Martinsson–Tropp arxiv:2002.01387 §§14,17.3 accessible HTML",
+      "Carson–Daužickaitė DOI:10.1137/22M154079X full publisher HTML",
+      "Giraud–Gratton (2006) author-posted full readable report",
+      "published-finding corpus targeted published-findings similarity hits, compared IDs 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80, 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee, 2026/10/4/SCOPE-infinite-mean-adam-conditioning-under-gaussian-initialization-wi--f6fc8639ade2, 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "Recoverable prior research records claim 8657b829-3542-49f2-a65e-aa1a64b67aba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact method P is sourced from Frangella–Tropp–Udell, whereas probability evaluation uses additional rotational geometry and a sharp polynomial sign analysis absent from inspected coverage.",
+        "Classical spectral preconditioning sensitivity does not imply the Beta-coordinate probability, exact spike threshold or minimal dimension."
+      ],
+      "reasoning": "Source method and classical inequalities are acknowledged. Novel part is the exact coupled Nyström sketch geometry, preconditioned eigenvalue event probability and asymptotic constant. None of the checked stronger conclusions includes these under the same parameters.",
+      "searches": [
+        "arxiv:2110.02820 Eq.(2), Eq.(17), Section 5",
+        "arxiv:2002.01387 §17.3",
+        "Giraud-Gratton 2006 §3.3-3.4",
+        "spectral preconditioner inexact eigenvectors local perturbation probability of increasing condition number Giraud Gratton"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The only orientation parameter is squared first coordinate of a Haar-uniform plane normal; the desired event is a comparison of two generalized eigenvalues with preconditioning, not random low-rank approximation error.",
+        "Frangella et al. Eq.(17) supplies the method but no complete Gaussian-3D event theorem."
+      ],
+      "reasoning": "The claimed result is invariant under fixing the spike direction and rotating the two equal eigenvalue directions; the exact CDF could equivalently be stated as a Beta(1/2,1) subspace-angle inequality. Searches for Gaussian rank-two spiked condition-number worsening and eigenpair sensitivity did not locate an equivalent event identity.",
+      "searches": [
+        "randomized Nyström preconditioner 3x3 one spike diagonal matrix Gaussian sketch rank 2 exact probability condition number worsens unpreconditioned; minimum singular value, condition number harmful event",
+        "rank two Nyström spiked matrix preconditioner Gaussian random 2-plane probability worsening condition number",
+        "arxiv:2110.02820 Eq.17",
+        "arxiv:2002.01387 §17.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus searches yielded no direct statement of the exact rank-two Gaussian-Nyström harm probability.",
+        "prior research records closest item 8657b829-3542-49f2-a65e-aa1a64b67aba analyzes randomly pivoted Cholesky trace error rather than Gaussian-sketch preconditioned condition numbers."
+      ],
+      "reasoning": "No verified exact numerical database or table for this continuous random subspace condition event was found. A search nonhit is not proof of priority.",
+      "searches": [
+        "randomized Nyström preconditioner 3x3 one spike diagonal matrix Gaussian sketch rank 2 exact probability condition number worsens unpreconditioned; minimum singular value, condition number harmful event",
+        "Frangella Tropp Udell Randomized Nyström Preconditioning arxiv 2110.02820 condition number 3x3 one spike",
+        "rank two Nyström spiked matrix preconditioner Gaussian random 2-plane probability worsening condition number",
+        "published-finding corpus ranked search, 25-35 hits per targeted query",
+        "accessible prior research records claims up to 2026-10_week4 p0001 available collection snapshot"
+      ]
+    },
+    "rationale": "The specific exact 3-by-3 spiked Gaussian rank-two Nyström condition-number harm probability, sharp L^-2 asymptotic and minimal-dimension classification were compared by implication, not titles, against source Eq. (17), full-text preconditioning surveys and sensitivities, published published-finding corpus search hits and accessible prior research records claims; none of those identified statements implies this exact probability. Novelty remains qualified by incomplete discoverability of specialized literature.",
+    "residual_risks": [
+      "There could be a prior specialized, uncatalogued exact small-matrix Gaussian-sketch calculation or an equivalent result in preconditioning perturbation theory.",
+      "Main original theorem is not an expected-iteration guarantee; performance interpretation must not be overstated.",
+      "Independent human priority validation is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers construction and qualitative high-rank spectral preconditioning, but not an exact minimal-spike probability of strictly worse conditioning; the high-rank theorem does not apply to the stated low-rank unregularized parameter range.",
+        "evidence": [
+          "Eq. (2) defines Gaussian sketch Nyström N; Eq. (17) gives P with μ≥0.",
+          "The theorem controls large-rank expected condition numbers under additional regularization/effective-rank assumptions, not a strict Gaussian event."
+        ],
+        "identifier_or_url": "arxiv:2110.02820, https://ar5iv.labs.arxiv.org/html/2110.02820",
+        "material_read": "Full accessible HTML: introduction, definitions (1)-(3), Nyström construction, section 5.1 including Eq. (17), and main expected-condition-number performance theorem; its assumptions compared to zero-regularization rank-two regime",
+        "method": "Primary full text, equations and theorem hypotheses compared by logical implication",
+        "title": "Randomized Nyström Preconditioning",
+        "trigger": "Exact source method for the Gaussian rank-two Nyström matrix and its spectral preconditioner"
+      },
+      {
+        "assessment": "Provides spectral preconditioning formula and motivation but no sharp 3×3 rank-two harm probability.",
+        "evidence": [
+          "Section 17.3 discusses misaligned eigenvectors and spectral clustering; does not give a distributional threshold for the spiked case."
+        ],
+        "identifier_or_url": "arxiv:2002.01387, https://ar5iv.labs.arxiv.org/html/2002.01387",
+        "material_read": "Full HTML relevant sections 14 and 17.3 around formula (17.3), approximate eigenvectors, conditioning discussion",
+        "method": "Primary survey full text, method/eigenvalue comparison",
+        "title": "Randomized Numerical Linear Algebra: Foundations & Algorithms",
+        "trigger": "Equivalent formulation as random spectral preconditioning of a low-rank approximation"
+      },
+      {
+        "assessment": "Finite-precision and random low-rank approximation error bounds; no exact orientation CDF or minimal dimension result.",
+        "evidence": [
+          "Theorem 3.1 bounds preconditioned condition number in terms of approximation/rounding errors, not the exact probability for Gaussian rank two and no regularization."
+        ],
+        "identifier_or_url": "doi:10.1137/22M154079X, https://epubs.siam.org/doi/full/10.1137/22M154079X",
+        "material_read": "Open full HTML section 3 formulas (3.3)-(3.6), theorem 3.1, section 4 condition-number experiments and appendix discussion",
+        "method": "Primary full text formula/theorem scope comparison",
+        "title": "Single-Pass Nyström Approximation in Mixed Precision",
+        "trigger": "Potential stronger condition-number bound or deterioration example for the same preconditioner"
+      },
+      {
+        "assessment": "Perturbation sensitivity and local eigenvalue errors offer qualitative reasons for possible harm but do not determine the distribution over a random Gaussian Nyström plane.",
+        "evidence": [
+          "Eigenpair error sensitivity is not a finite-sketch orientation law; no equivalent closed-form event probability identified in examined sections."
+        ],
+        "identifier_or_url": "Giraud-Gratton-2006, https://www.researchgate.net/publication/220656613_On_the_Sensitivity_of_Some_Spectral_Preconditioners",
+        "material_read": "Author-posted readable full report, introduction, section 3.3 first-order eigenpair sensitivity and section 3.4 numerical results",
+        "method": "Accessible long-form report, sensitivity theorem and numerical claim comparison",
+        "title": "On the Sensitivity of Some Spectral Preconditioners",
+        "trigger": "Potential general theorem implying any misaligned spectral preconditioner worsening"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2faa0f11-9b05-4179-a76e-adda6ee7ec44",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest genuinely nontrivial Gaussian Nyström spectral preconditioner can make a linear system strictly more ill-conditioned. A sharp positive probability, its L^-2 decay, and the dimension-minimality boundary quantify a real algorithmic risk absent from broad expected-error analyses. The specific event is motivated by sensitivity of PCG conditioning, not by an arbitrary numerically chosen parameter slice.",
+    "status": "PASS"
+  }
+}

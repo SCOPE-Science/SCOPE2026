@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Every quantity is derived by direct multiplication of two 2x2 orthogonal projectors. The exact GMRES step solves its one-variable residual normal equation with w^TAw=1-z and ||Aw||²=(1-z)(1+z-z²). Exact squared residual and solution-error ratios follow, are strictly ordered for 0<z<1, and the derivative of the rational error excess has a unique interior zero. Full 2-step GMRES termination follows from det(w,Aw)=-cs³ != 0; AP remains nonzero at every finite sweep. The new packaged verify.py implements 2,485 exact-rational specializations and supplementary numeric maximization checks. Finite tests are supplementary, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bauschke–Deutsch–Hundal–Park (2003) analyze an accelerated method of alternating projections employing extrapolation; the abstract does not establish a universal superiority of conventional residual-minimizing GMRES1 in solution distance.",
+        "Published symmetric-GMRES(1) error bounds exhibit an error spike for symmetric indefinite systems, but do not include the specific nonsymmetric product of two orthogonal line projections and the competing projection sweep."
+      ],
+      "reasoning": "Neither a general residual decrease nor the convergence of Anderson/GMRES implies Euclidean dominance over a different projection algorithm at the first step. The closest full text and available relevant abstracts do not state a stronger implication covering the specific sharp comparison.",
+      "searches": [
+        "principal angle GMRES one-step versus alternating projection norm error sharp relative penalty 3.74 percent",
+        "GMRES accelerated method alternating orthogonal projections two lines first step euclidean error worse than cyclic projections"
+      ]
+    },
+    "checked_sources": [
+      "Lerman–Zhang arXiv:2610.30073v1 (full accessible HTML)",
+      "Bauschke–Deutsch–Hundal–Park 2003 (title, abstract, bibliographic summary)",
+      "Saad–Schultz 1986 (classical GMRES setup and bibliographic information)",
+      "Nearby published mathematical research records for symmetric GMRES(1) solution error and finite-horizon two-row Kaczmarz overrelaxation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lerman–Zhang (2026), arXiv:2610.30073v1: windowed Anderson convergence theory on affine contractions, and a GMRES link, not a universal first-step AP-versus-GMRES Euclidean-error reversal.",
+        "Bauschke et al. (2003): a different extrapolation-based acceleration of alternating projections; an accelerated projection method is not the present Euclidean-residual GMRES step.",
+        "Classical GMRES residual optimality (Saad–Schultz, 1986) explains improved fixed-point residual within a Krylov space, but by itself does not compare its solution error to the unaccelerated non-Krylov sweep."
+      ],
+      "reasoning": "The new statement is an exact specialized cross-metric and cross-algorithm comparison, not a renamed residual optimality lemma. The prior methods cannot be substituted for the defined GMRES1 update. No stronger known statement found among examined sources logically entails the sharp 1.037386... constant, although further historical coverage remains a residual risk.",
+      "searches": [
+        "GMRES accelerated method alternating orthogonal projections two lines first step euclidean error worse than cyclic projections",
+        "GMRES on I minus product of two orthogonal projections two dimensional first iterate counterexample",
+        "principal angle GMRES one-step versus alternating projection norm error sharp relative penalty 3.74 percent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical GMRES minimizes A-residuals; a one-step residual minimizer need not minimize the Euclidean error, but that general observation does not state the angle-by-angle comparison to an ordinary alternating-projection sweep.",
+        "The 2026-10-21 affine-acceleration article relates Anderson acceleration to GMRES; its inspected formulation emphasizes residual and convergence analyses rather than the exact squared error ratio 1+z(1-z)^3/(1+z-z^2)^2 for two-line projection products."
+      ],
+      "reasoning": "The exact same claim would require one GMRES step on A=I-P2P1, the same x0 and competing ordinary sweep, both residual and solution-error inequalities for all 0<z<1, and the sharp constant. Generic norm non-equivalence, GMRES convergence bounds, and optimal residual polynomials do not supply this angle-optimized two-algorithm statement without new explicit calculation.",
+      "searches": [
+        "GMRES accelerated method alternating orthogonal projections two lines first step euclidean error worse than cyclic projections",
+        "GMRES on I minus product of two orthogonal projections two dimensional first iterate counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searchable mathematical findings surfaced a sharp bound for symmetric GMRES(1) Euclidean-error spikes and a separate finite-horizon Kaczmarz overrelaxation effect, neither of which evaluates the current error-ratio curve or its optimizing principal angle.",
+        "The formulas arise from exact two-dimensional projection and GMRES normal equations rather than a prior numerical table."
+      ],
+      "reasoning": "Compared title, method, target metric, initial vector and implication. No exact entry or parameterized table matching the current angle-dependent GMRES-versus-sweep error and residual ratios was identified in inspected accessible records; absence of a match is not proof of priority.",
+      "searches": [
+        "GMRES on I minus product of two orthogonal projections two dimensional first iterate counterexample",
+        "principal angle GMRES one-step versus alternating projection norm error sharp relative penalty 3.74 percent"
+      ]
+    },
+    "rationale": "Statement-and-implication comparison against the directly relevant full-text 2026-10-21 affine-acceleration paper, the classical GMRES residual-minimization framework, a distinct 2003 accelerated alternating-projections abstract, and nearby published mathematical records did not identify the exact sharp all-angle first-step residual/error reversal. The geometric factor, quantifiers, update and competing method were compared rather than only titles. Priority may be affected by an uninspected older GMRES/projection analysis.",
+    "residual_risks": [
+      "An older full text on projection-based GMRES, principal angles or short-horizon acceleration may state an equivalent exact error-ratio formula that was not found in bounded accessible searches.",
+      "The 2003 accelerated-projections paper was inspected only at accessible abstract/bibliographic level, not a full-document exclusion.",
+      "The result is low-dimensional and the maximal first-step disadvantage is approximately 3.74 percent; its mathematical motivation rests on the sharp metric reversal and iteration-vs-residual stopping distinction, not its numerical size."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the specified GMRES1-versus-ordinary-projection strict error/residual reversal or its optimal angle",
+        "evidence": [
+          "arXiv:2610.30073v1, first public 2026-10-21; its subject is windowed Anderson convergence on affine contractions and GMRES connections"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30073v1",
+        "material_read": "Full accessible HTML; setup and acceleration/GMRES relation including discussion near the method statement, results, and end matter",
+        "method": "Read full text and compared hypotheses, competing algorithms, norms, and formulas to the present projected two-dimensional model",
+        "title": "When Windowed Anderson Acceleration Converges Faster",
+        "trigger": "Recent eligible numerical-acceleration paper explicitly connects affine Anderson acceleration with GMRES"
+      },
+      {
+        "assessment": "Different accelerator; abstract does not entail present cross-metric exact two-line constant",
+        "evidence": [
+          "Bauschke, Deutsch, Hundal and Park (2003), Transactions of the American Mathematical Society 355"
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0002-9947-03-03136-2",
+        "material_read": "Accessible title/abstract and bibliographic summary; not a full-paper negative comparison",
+        "method": "Compared described extrapolation-based acceleration to the specified residual-minimizing GMRES update",
+        "title": "Accelerating the convergence of the method of alternating projections",
+        "trigger": "Same underlying pair-of-subspaces problem and historical acceleration priority"
+      },
+      {
+        "assessment": "Prior residual minimization is explicitly credited; exact geometric cross-method comparison not attributed as classical",
+        "evidence": [
+          "Saad and Schultz (1986), SIAM Journal on Scientific and Statistical Computing 7, 856–869"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0907058",
+        "material_read": "Standard GMRES residual minimization setup and bibliographic information; no complete theorem-by-theorem audit",
+        "method": "Compared the one-step normal equation (classical) to the new sharp Euclidean-error versus projection-sweep comparison",
+        "title": "GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems",
+        "trigger": "Classical definition of the comparator algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "412c0b7b-12d1-4c89-a3e9-80db6a774930",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural, measurable failure mode in residual-based acceleration of a prototypical fixed-point projection method is characterized for every principal angle, with both outcomes and unique sharp global penalty. The theorem distinguishes convergence in residual, actual solution-distance improvement, and two-step exact termination, providing a closed-form finite-horizon benchmark for acceleration and termination criteria. It is not an arbitrary sample, isolated parameter calculation, or claim that all GMRES solves are worse.",
+    "status": "PASS"
+  }
+}

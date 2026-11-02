@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The ordered magnitudes have density 2f(p)f(u), the reinforcing-sign event has probability 1/2, and the exact Schur complement splits the event according to the maximum original entry. Two rescaled two-deficit simplices each contribute J/2, while the three-deficit pivot-max region is O(epsilon^3). A Gaussian integral evaluates J=1/(2*pi^2). The standard-library verifier tests the algebra on independent samples; experiments are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Trefethen–Schreiber (1990), page 1 and section 6, focuses on average growth and dependence on matrix dimension.",
+        "Trefethen (2026), page 1 and Theorem 2, gives exponentially rare large high-dimensional corner entries.",
+        "Urschel (2026), publicly available abstract: Gaussian GEPP growth rarely far above a constant times the square root of dimension."
+      ],
+      "reasoning": "Large-dimension probabilistic inequalities and mean estimates do not determine the two-by-two edge constant as threshold approaches the worst-case factor; a theorem encompassing all dimensions and resolving this precise boundary would dominate, but none was identified in available material. Urschel full text remains a material priority uncertainty.",
+      "searches": [
+        "Gaussian elimination exact sharp near-worst growth probability 2x2 Gaussian independent normal",
+        "Trefethen Schreiber average-case stability Gaussian elimination pdf 1990 growth factor",
+        "Urschel On the Growth Factor of Random Matrices October 2026 arxiv 2610.06785 pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.04761v1 (author PDF inspected)",
+      "doi:10.1137/0611023 (author-hosted PDF inspected)",
+      "arxiv:2610.06785v1 (abstract only)",
+      "Selected public mathematical research-record summaries of sharp pivot growth, distinct complete-pivot ACA and other probabilistic matrix estimates"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wilkinson deterministic GEPP bound is 2 at dimension two; it supplies no Gaussian probability or exponent.",
+        "Trefethen (2026) Theorem 2 is a tail statement for last-entry growth as dimension varies, not a threshold-to-2 expansion at n=2.",
+        "Trefethen–Schreiber (1990) estimates and computations do not supply the edge coefficient."
+      ],
+      "reasoning": "The exact implication sought is a limit P(rho>2-epsilon)/epsilon^2 at dimension 2. Deterministic bounds, high-dimensional decay, and average-case moments do not imply this limit or its leading constant without additional local density calculations.",
+      "searches": [
+        "Gaussian 2x2 partial pivoting growth factor near maximal two asymptotic tail probability (2-rho)^2",
+        "Gaussian elimination exact sharp near-worst growth probability 2x2 Gaussian independent normal",
+        "arxiv:2610.04761v1",
+        "arxiv:2610.06785v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Trefethen–Schreiber (1990), sections 2–6, derives estimates for average pivot and growth statistics rather than the two-by-two near-maximal cumulative tail.",
+        "Trefethen (2026), abstract and Theorem 2, studies corner-entry growth on a dimension-dependent scale."
+      ],
+      "reasoning": "An equivalent formulation would be a small-deficit asymptotic for the exact two-by-two Gaussian GEPP growth-factor CDF at 2, or the mass of its near-extremal Gaussian matrix configurations. Neither such formula nor an immediate equivalent appears in the inspected material or matched research-record summaries.",
+      "searches": [
+        "Gaussian 2x2 partial pivoting growth factor near maximal two asymptotic tail probability (2-rho)^2",
+        "Gaussian elimination exact sharp near-worst growth probability 2x2 Gaussian independent normal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical 1990 paper gives numerical averages and density models but not an exact fixed-dimension near-maximum entry or table.",
+        "The 2026 primary text discusses high-dimensional rare events and numerical figures at n=8,16,32."
+      ],
+      "reasoning": "A finite numerical growth-factor table cannot provide this limiting coefficient unless accompanied by a covering analytic identity. Neither an exact table entry nor a known explicit CDF yielding it was found in accessible records.",
+      "searches": [
+        "Gaussian 2x2 partial pivoting growth factor near maximal two asymptotic tail probability (2-rho)^2",
+        "partial pivoting two by two random Gaussian last pivot growth extremal rare event codimension",
+        "Gaussian elimination with partial pivoting on random matrices exact 2x2 growth factor probability"
+      ]
+    },
+    "rationale": "A fixed-dimensional Gaussian near-extremal probability law with exact positive coefficient is not supplied by the inspected large-dimensional bounds, older average-case analysis or indexed research summaries. Claims of global priority are limited by uninspected Urschel full text and specialized older sources.",
+    "residual_risks": [
+      "Urschel 2026 full text was not available and could contain a specialized small-dimensional subresult despite an abstract framed at large dimension.",
+      "An earlier exact two-by-two Gaussian growth distribution, possibly in a numerical analysis thesis or rare-event literature, may exist without appearing in checked indexed records.",
+      "No independent historical-priority assessment was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "High-dimensional exponential rarity of the final diagonal entry; does not cover the dimension-two epsilon-to-zero edge coefficient",
+        "evidence": "arXiv:2610.04761v1 pp. 1–6, especially Theorem 2",
+        "identifier_or_url": "https://people.maths.ox.ac.uk/trefethen/ge26.pdf",
+        "material_read": "Full publicly available eight-page PDF; abstract, introductory definitions, theorem statements and proof sections",
+        "method": "Read author-hosted PDF text and pages",
+        "title": "Instability of Gaussian elimination is exponentially rare (proof of partial result)",
+        "trigger": "2026 public source on Gaussian partial-pivoting growth"
+      },
+      {
+        "assessment": "Distributional heuristics and dimension-dependent average growth estimates; no fixed dimension-two near-maximum probability constant identified",
+        "evidence": "Trefethen and Schreiber (1990), pp. 335–360, sections 2–6",
+        "identifier_or_url": "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1990_44.pdf",
+        "material_read": "Full PDF inspected through abstract, definitions, pivot/multiplier-density analysis and section 6 averages and asymptotics",
+        "method": "Read accessible author-hosted publisher manuscript PDF text and pages",
+        "title": "Average-case stability of Gaussian elimination",
+        "trigger": "Classical average-case random GEPP primary literature"
+      },
+      {
+        "assessment": "Describes asymptotic high-dimensional Gaussian partial-pivoting growth; a full-text implication comparison remains unresolved in the absence of manuscript access",
+        "evidence": "arXiv:2610.06785, first submitted 2026-10-05",
+        "identifier_or_url": "https://arxiv.org/abs/2610.06785",
+        "material_read": "Public abstract only; complete manuscript not retrieved",
+        "method": "Read dated arXiv abstract and related indexing",
+        "title": "On the Growth Factor of Random Matrices",
+        "trigger": "2026 potentially broad probabilistic GEPP result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "465b1636-c184-43dc-a6bb-ee67341b9c8e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-by-two GEPP is the smallest natural setting in which Wilkinson growth can occur, so its exact Gaussian mass near the extremal face is a motivated canonical invariant. The exact quadratic exponent and 1/(2*pi^2) coefficient are not obtained from the deterministic maximum and supply a benchmark for rare-event simulation and future higher-dimensional local analysis without asserting any such extension.",
+    "status": "PASS"
+  }
+}

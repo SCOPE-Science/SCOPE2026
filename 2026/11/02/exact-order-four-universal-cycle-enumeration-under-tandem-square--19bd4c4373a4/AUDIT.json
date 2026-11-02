@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The word/edge bijection and Euler-circuit normalization are explicit. Deleting q loops and q(q-1) antiparallel edges changes the de Bruijn Laplacian by -DD^T. A^3=J gives the exact zero-sum inverse; D^T D=2I, D^T A D=-2I and D^T A^2 D=B^T B reduce the matrix-tree cofactor to two known incidence eigenvalues. BEST counts q^2 reduced-degree vertices and q^3-q^2 full-degree vertices. A valid binary prefix 0100(1100)^infinity has unequal initial/terminal triple types for every length>=4, forcing an unbalanced higher-order overlap graph. Exact standalone Bareiss cofactors for q=2,3,4, exhaustive binary Euler circuits and length 4..150 witness checks passed; finite checking is not claimed to prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moreno--Matamala (WG 2004; arXiv:0711.1695) supplies an algorithm for a minimal universal sequence in a forbidden-substring language, but its abstract does not evaluate the number of cycles in this language.",
+        "The standard BEST and matrix-tree theorems give counts from directed Laplacian cofactors, not the evaluated particular cofactor.",
+        "Theorem 2.1 of Chen--Kitaev--Sun establishes existence for certain deletions, a strictly weaker outcome than enumerating all tours."
+      ],
+      "reasoning": "Potential broad methods have been treated as covering the parts they do imply (notably existence). The explicit q-dependent determinant collapse is not an immediate stated corollary of the inspected works. The older Moreno--Matamala full text was not accessible for a decisive full-document comparison; this remains an explicit risk.",
+      "searches": [
+        "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "Designing preference functions for de Bruijn sequences with forbidden words",
+        "remove loops and all 2-cycles from B(q,3), determinant spanning trees arborescence complete graph incidence matrix enumeration"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1908.01116",
+      "https://arxiv.org/html/1908.01116v1",
+      "https://doi.org/10.1007/s10623-022-01077-5",
+      "https://scholarworks.aub.edu.lb/server/api/core/bitstreams/2e6f0d7f-c823-4b95-8c7d-301d6a2f8a08/content",
+      "https://arxiv.org/abs/0711.1695",
+      "https://debruijnsequence.org/db/graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A prior exact cyclic covering result concerns how shortly one can cover all forbidden squares, permitting extra factors; it does not enumerate cycles of their complement.",
+        "A prior exact count for universal cycles of four pairwise-distinct letters addresses a strict subset of the current permitted factor set. Euler-tour counts cannot be inferred by subtracting subset counts.",
+        "Chen--Kitaev--Sun cover existence at order four; the theorem here adds an evaluated number for every q and proves nonexistence at every order m>=5 for the same fixed forbidden four-factors."
+      ],
+      "reasoning": "The compared conclusions and quantifiers differ materially. Known existence and complementary counting are acknowledged, but neither directly implies the new combined enumeration and threshold.",
+      "searches": [
+        "exact number Eulerian circuits universal cycles all length four q-ary words avoiding tandem squares abab, square-free de Bruijn sequences, 4-window",
+        "forbid squares abab in de Bruijn graph order 4 spanning tree count number",
+        "universal cycles local factor avoidance abab existence failure order five length m",
+        "q-ary four-letter tandem square avoiding universal cycles enumeration",
+        "Exact shortest cyclic covers of all four-letter tandem squares",
+        "Explicit spectrum and count of four-permutation universal cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The forbidden family comprises all q^2 words abab (including aaaa); equivalently one deletes the q loops and all antiparallel 2-cycles in the order-three de Bruijn graph.",
+        "Chen--Kitaev--Sun (arXiv:1908.01116), Theorem 2.1, already implies existence for q>=3 when all binary short cycles are deleted, but does not enumerate resulting Euler circuits.",
+        "Alhakim (2022), Section 4.1, uses the term square-free for adjacent-symbol distinctness (j=1), which differs from this motif family."
+      ],
+      "reasoning": "Equivalent graph presentations were compared at the level of removed edges and accepted words, not merely titles. A general existence theorem cannot determine this count or the all-orders cutoff. The square-free/separative terminology is not equivalent to forbidding only abab.",
+      "searches": [
+        "exact number Eulerian circuits universal cycles all length four q-ary words avoiding tandem squares abab, square-free de Bruijn sequences, 4-window",
+        "q-ary de Bruijn universal cycles of length q^4 minus q^2 avoiding all abab and aaaa four-letter squares exact BEST theorem count",
+        "de Bruijn sequences avoiding tandem repeat abab forbidden four letters enumeration spanning arborescence",
+        "tandem-square-free de Bruijn cycles avoiding all abab on q-letter alphabets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen--Kitaev--Sun Table 1.3 records Pc(4,2,4)=3/910: probability over all four-word forbidden sets, not the number of cycles for the specified four-square set.",
+        "Direct finite checking gives four length-twelve cycles for q=2, and the all-q expression is backed by a symbolic incidence determinant.",
+        "Published-record motif searches did not retrieve a table for this exact family."
+      ],
+      "reasoning": "The probabilistic table is a different invariant and does not determine the fixed-family tour count. Lack of a search hit is only supporting, not conclusive, priority evidence.",
+      "searches": [
+        "q-ary de Bruijn universal cycles of length q^4 minus q^2 avoiding all abab and aaaa four-letter squares exact BEST theorem count",
+        "forbidden length-four tandem squares abab: no universal cycle at order m>=5 because unbalanced overlap graph",
+        "exact number de Bruijn cycles avoiding 0101 1010 0000 1111 q=2",
+        "Chen Kitaev Sun table Pc(4,2,4)"
+      ]
+    },
+    "rationale": "The previously available existence criteria do cover order-four existence and are explicitly excluded from the novelty assertion. The complete q-ary Euler-circuit enumeration after deleting all length-four tandem-square factors, and the all-higher-orders imbalance obstruction for the same forbidden family, are not implied by the inspected primary theorem or the nearby recovered claims. A general graph-counting framework is known but the specific incidence-spectrum evaluation is supplied here. Searches and material comparisons support originality with an unindexed-equivalent risk.",
+    "residual_risks": [
+      "The older general-language paper of Moreno--Matamala was not readable in full; its exact implications beyond the accessible abstract are not certified.",
+      "A specialized unindexed equivalent count of Euler circuits after deleting all de Bruijn 2-cycles may exist; search nonhits do not prove novelty.",
+      "The fourth-order existence component follows from known results and is not an independent novelty claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers fourth-order existence but not the q-ary fixed-family Euler-circuit count or the all-orders cutoff",
+        "evidence": [
+          "Theorem 2.1: cycles survive deletion of short binary cycles for alphabet size at least three.",
+          "Table 1.3 gives probability over deleted four-word sets for q=2 and order four."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1908.01116v1",
+        "material_read": "Full accessible arXiv HTML, including definitions, introduction, Theorem 2.1, proof of binary short-cycle deletion, and Table 1.3",
+        "method": "Direct inspection of primary source sections and their exact quantifiers",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "Most relevant existence criteria for universal cycles after deleting factor sets"
+      },
+      {
+        "assessment": "Defines square-free in this treatment as no equal adjacent letters, not fixed tandem-square motifs abab; gives constructions, not the present count",
+        "evidence": [
+          "Section 4.1: j=1 square-free means adjacent symbols differ.",
+          "Proposition 4.1: preference-function cycles for j-separative words."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-022-01077-5",
+        "material_read": "Primary open-access PDF abstract, introduction, Section 4.1 and the accompanying statement of Proposition 4.1",
+        "method": "Direct extracted full-text reading of relevant sections; page screenshot attempt timed out",
+        "title": "Designing preference functions for de Bruijn sequences with forbidden words",
+        "trigger": "Square-free and separative restricted universal cycles might cover motifs"
+      },
+      {
+        "assessment": "General minimal-cycle algorithm is relevant but inaccessible full text prevents a definitive whole-paper noncoverage conclusion",
+        "evidence": [
+          "The abstract concerns greedy construction of a lexicographically minimal de Bruijn sequence in a forbidden-substring language."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0711.1695",
+        "material_read": "ArXiv abstract and bibliographic details; accessible full-text attempt through author preprint returned HTTP 403",
+        "method": "Abstract reading and attempted lawful public-author PDF fetch",
+        "title": "Minimal de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Earlier general forbidden-language result potentially dominates existence claim"
+      },
+      {
+        "assessment": "General BEST normalization agrees; it does not discuss the particular forbidden 2-cycle family",
+        "evidence": [
+          "Counts are obtained by rooted arborescences and factorial local edge-orderings, with cycles identified by rotation."
+        ],
+        "identifier_or_url": "https://debruijnsequence.org/db/graph",
+        "material_read": "Construction page on in-arborescences, Euler circuits, BEST and de Bruijn counting",
+        "method": "Direct open-web reading",
+        "title": "De Bruijn Sequence and Universal Cycle Constructions: Euler cycles",
+        "trigger": "Check correct BEST theorem normalization for cyclic sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19bd4c43-73a4-4cdd-b238-e621148b747f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact, all-alphabet enumerative invariant of the natural fixed forbidden-factor language of length-two tandem squares, not just a small census or an implicit determinant. The incidence-spectrum rank reduction turns an exponentially sized Laplacian into a two-eigenvalue evaluation. The sharp order-four/order-five universality change explains a structural obstruction for exact constrained one-pass word coverage. This combines a meaningful infinite classification with an exact integer formula useful for constrained sequence generation.",
+    "status": "PASS"
+  }
+}

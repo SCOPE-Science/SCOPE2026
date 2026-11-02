@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The real Hermitian trace-norm unit ball reduces the norm to pure inputs, and local-unitary covariance makes every qubit–qudit pure input Schmidt-equivalent to a one-parameter state. The exact output spectrum is a Hermitian two-by-two block with eigenvalues \\(\\frac14\\pm\\frac12\\sqrt{1-bu^2}\\), two nonpositive diagonal entries with total absolute mass \\(\\frac12\\), and \\(n-2\\) pairs of eigenvalues \\(\\pm u/(2n)\\). The resulting trace norm is \\(\\frac12+cu+\\max\\{\\frac12,\\sqrt{1-bu^2}\\}\\). Its square-root branch is strictly concave with a unique admissible optimum at \\(c/\\sqrt{b(b+c^2)}\\), and this beats the linear branch for every \\(c=(n-2)/n\\in[0,1)\\) by \\(\\frac34-c+\\frac{c^4}{4b}\\ge\\frac{(1-c)^2(c^2+2c+3)}4>0\\). Trace duality yields the spectral norm, and a product-state tensor calculation plus convexity gives the sharp separable bound. The standalone checker independently replayed 958 finite numerical assertions; they are supplementary to the analytic proof for all integers in the domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2305.00460v2 Sec II and III proves separable-state bounds in coefficient spaces, without any induced Hermitian map norm theorem.",
+        "The distinct prior one-body marginal projection has the shape sum t_j(E_j-E_0); the present claim is the tensor product (I-E_A)(I-E_B) and has entangled rather than product pure norm extremizers."
+      ],
+      "reasoning": "An all-dimension bound for the physical correlation projection could imply the new statement only if it were sharp and identified an extremal Schmidt profile; the inspected primary result does neither. Standard abstract completely bounded maps do not automatically yield this real-Hermitian induced norm as an equality. Residual risk remains from broader older theory.",
+      "searches": [
+        "norm of tensor square id minus normalized partial trace Schatten 1-to-1 Schmidt states",
+        "local qubit quantum Hoeffding projection completely centered operator norm",
+        "\"depolarizing\" \"trace norm\" \"tensor products\" \"entangled\" \"induced\"",
+        "\"tensor product\" \"traceless projection\" \"trace norm\" depolarizing"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.00460v1 (earliest public 2023-04-30; full text inspection via v2)",
+      "Published mathematical records covering related Schatten norms and tensor projection invariants",
+      "Previously established first-order projection formula (opaque mathematical claim id c4f05a55-606a-483f-b1d2-2d40eb9802c7)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own previous finding classifies weighted one-body marginal projections and shows product-state optimizer; it explicitly excludes higher-body projections.",
+        "The primary paper bounds norms of T_{alpha,beta}(rho) and W_{a,b,alpha,beta}(rho), rectangular matrices of Bloch coefficients, not P_n(rho) as an operator on the physical Hilbert space."
+      ],
+      "reasoning": "Neither the one-body sum theorem nor the coefficient-matrix inequality dominates the two-body physical trace-norm claim. A tensor-product of local projections is not a scalar weighted sum of those projections, and neither source states or implies the required extremal Schatten eigenvalue calculation.",
+      "searches": [
+        "one-body marginal projection exact Hermitian norm and excluded higher-body projections (opaque mathematical claim id c4f05a55-606a-483f-b1d2-2d40eb9802c7)",
+        "arXiv:2305.00460v2, Theorems 1–3, Corollaries 2–3, and Conclusions",
+        "Schmidt optimal partially entangled pure states norm two body quantum Hoeffding projection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 paper arXiv:2305.00460 writes the state in Bloch tensor coordinates and takes the Ky Fan norm of the coefficient matrix T(rho), not the physical physical bipartite double-centered correlation operator.",
+        "Closest prior mathematical record on flip-entanglement-plane transpose symmetrization (opaque prior-result identifier d968ae995271) uses another superoperator, with no asserted dimension-dependent formula."
+      ],
+      "reasoning": "The double-centering projection is the tensor of the local traceless projections, so names involving Hoeffding decomposition, covariance extraction and depolarizing complements were searched. Bloch coefficient-matrix singular values are not the eigenvalue absolute sum of the physical centered operator; no equivalent complete formula was recovered.",
+      "searches": [
+        "bipartite qubit qudit correlation projection (identity minus normalized partial traces) exact Hermitian Schatten trace norm induced norm separable entangled",
+        "tensor of trace annihilating depolarizing complementary projections qubit qudit entanglement optimizes trace norm",
+        "\"correlation operator\" \"trace norm\" \"partial trace\" \"qubit\" \"qudit\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2305.00460 examples compute thresholds for particular qubit–qudit coefficient-matrix tests, not a sequence of exact physical projection norms for arbitrary qudit dimensions.",
+        "The three closest published-record search hits concerned transpose symmetrization, qutrit coherence moments, and Schmidt spectra of a distinct state family."
+      ],
+      "reasoning": "No searched exact table reports the closed n-dependent value 1/2+sqrt((4+3c²)/(4-c²)) for this double-centered projection. This is evidence of no recovered exact table, not a logical proof of novelty.",
+      "searches": [
+        "qubit qudit centered two-body correlation operator trace norm entanglement amplification 1-to-1 norm",
+        "\"projection onto correlations\" \"trace norm\" bipartite",
+        "arXiv:2305.00460v2 pp. 3–7, formulas and numerical examples"
+      ]
+    },
+    "rationale": "The exact physical-operator Schatten trace norm of the double-centered qubit–qudit projection, its sharp real-Hermitian induced norm, and its strict optimal entangled Schmidt profile differ from existing Bloch-coefficient nuclear-norm separability tests and from the exact first-order marginal projection. No decisive stronger implication was identified after direct published-record queries, accessible prior research records claim comparisons, and inspection of the most directly relevant 2023 primary full text. Broader nomenclature coverage is not provably exhaustive.",
+    "residual_risks": [
+      "Equivalence under other names for traceless tensor projections or noncommutative Hoeffding decomposition may occur in older literature not recovered.",
+      "A general operator-space or Schatten-class theorem could subsume the exact Hermitian constant, despite no identified decisive implication.",
+      "No independent external mathematical or historical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: sharp coefficient-matrix nuclear norm bounds for separable states do not give the physical-operator double-centered Schatten trace/spectral induced norms, nor the all-dimension Schmidt optimizer.",
+        "evidence": [
+          "Sec I Eq. (2) defines T(rho) as (M²-1)×(N²-1) coefficient matrix; Sec II Eq. (7) bounds ||T_{alpha beta}(rho)||_KF; Sec III Eq. (10) similarly bounds ||W_{ab,alpha beta}(rho)||_KF; Sec IV summarizes coefficient-based criteria."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.00460",
+        "material_read": "Full eight-page version 2: Sec I Bloch expansion and correlation-matrix definitions; Sec II and III theorems, proofs and examples; Sec IV conclusions and bibliography; earliest arXiv v1 date verified separately.",
+        "method": "Read PDF extracted pages and inspected rendered page screenshots, comparing dimensions, quantities optimized, hypotheses and formulas.",
+        "title": "A Family of Bipartite Separability Criteria Based on Bloch Representation of Density Matrices",
+        "trigger": "Closest 2023 primary work on bipartite correlation tensors, separability and nuclear norms"
+      },
+      {
+        "assessment": "DISTINCT: its projected one-body sum omits the second-order correlation component; its product optimizer cannot settle this entangled optimizer.",
+        "evidence": [
+          "The distinct formula treats a weighted sum of one-body marginal projections and expressly omits higher-order projections."
+        ],
+        "identifier_or_url": "opaque mathematical claim id c4f05a55-606a-483f-b1d2-2d40eb9802c7",
+        "material_read": "Statement of the previous first-order marginal projection formula and its stated domain.",
+        "method": "Compared operator definitions and logical implications: first-order summation versus second-order tensor centering.",
+        "title": "Exact Hermitian norms of weighted one-body marginal projections",
+        "trigger": "Relevant earlier exact first-order marginal-projection theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1cb18f65-beef-4516-a763-7fffd2699c52",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The real-Hermitian tensor correlation projection is a natural second-order Banach-space operator and entanglement observable. The theorem is the exact endpoint norm for every qubit–qudit dimension, identifies unique optimal Schmidt coefficients and establishes a strict separable-versus-entangled trace norm gap, yielding a sharp sufficient entanglement witness. The first-order marginal projection has different optimizer geometry; hence the new all-n phenomenon is motivated and not merely a local substitution. No claim of a universal entanglement detector or general higher-local-dimension extension is made.",
+    "status": "PASS"
+  }
+}

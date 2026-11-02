@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact grafting and block-permutation sampling are reconstructed. Independent relative ranks prove joint left/right record CLT with covariance 1-H_m^(2)=O(1). Reed (2003) expectation/variance make internal heights negligible at sqrt(log n); multinomial block concentration transfers the limit to permuton samples; finite maxima and L2 bounds give the Gaussian-tree limit and expectation coefficient. 85,028 exhaustive finite assertions corroborate exact identities only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peca-Medlin--Zhong 2025/2026 Theorem 2 has the broader first-order law for fixed external block size, but no centered square-root-logarithmic CDF or expectation coefficient.",
+        "Corsini--Dubach--Féray 2024 Theorem 1.1 needs positive density on the whole square, which finite block-permutation permutons lack."
+      ],
+      "reasoning": "Neither first-order theorem implies the second-order centered limit: convergence divided by log n does not determine behavior divided by sqrt(log n). The exact decompositions combined with additional independent-rank asymptotic analysis yield the new Gaussian field; leading height constants themselves are not new.",
+      "searches": [
+        "web: \"binary search tree\" \"direct sum\" \"height\" permutation",
+        "web: \"block BST\" \"square root\" \"height\" \"Gaussian\"",
+        "Height of binary search tree built from a direct sum of independent uniform permutations, block diagonal permuton, k blocks, height asymptotic (c+k-1) log n; right spine grafting"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.03151v1 / arxiv HTML v2",
+      "arxiv:2507.04505v1 / 2026 open-access full text",
+      "Reed 2003 publisher abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Peca-Medlin--Zhong (2025), Section 2 equations (3) and Theorem 2, establish the needed exact decomposition and logarithmic height but not fluctuation or mean correction.",
+        "Reed (2003) expectation and variance estimate imply only that each internal uniform-BST height is negligible after centered sqrt(log n) normalization.",
+        "Independent prefix-relative ranks, including negative bounded left/right covariance, are needed to identify independent Gaussian edge labels and the non-Gaussian maxima."
+      ],
+      "reasoning": "Prior inputs make the result derivable but do not alone state or logically guarantee the new centered limit without a joint record-path CLT, conditional random block-size argument, and uniform integrability. The new conclusion is not a special case of the cited first-order limiting height theorem.",
+      "searches": [
+        "web: \"block binary search tree\" \"sqrt(log\" \"height\"",
+        "web: \"permuton\" \"binary search trees\" \"Gaussian tree\" height",
+        "height of uniform random binary search tree composed of three independently random blocks variance and limiting distribution conditional outer permutation 123 vs 213"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2507.04505 Section 2, Lemma 1/Corollary 2: exact block grafting formula and first-order limit, not a square-root-logarithmic fluctuation theorem.",
+        "Reed (2003) supplies height estimates only for a single uniform BST."
+      ],
+      "reasoning": "The new theorem is a joint second-order limit for all deepest blocks as a Gaussian tree and its mean correction. Equivalent formulations via wreath products, prefix-record minima/maxima, and maxima of correlated Gaussians were checked; none of the inspected sources states the joint limit. The exact graft identity is acknowledged as prior, not presented as original.",
+      "searches": [
+        "Second-order fluctuations height random block binary search trees, fixed external three-block permutation, conditional central limit Gaussian versus maximum of independent Gaussians, 213 pattern, permutation wreath product",
+        "Block BST height Gaussian limit at square root logarithmic scale; maximum of Gaussian extreme record spines; binary search trees permuton samples",
+        "height of uniform random binary search tree composed of three independently random blocks variance and limiting distribution conditional outer permutation 123 vs 213",
+        "web: \"block BST\" \"second-order\" Gaussian height",
+        "web: \"wreath product\" \"BST\" \"central limit theorem\" height"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest independently catalogued random-BST result concerns root-imbalance/path-length covariance, rather than the distribution of block-permuton height; the published primary articles were checked for any equivalent table or stronger formulation."
+      ],
+      "reasoning": "Neither published-result database search nor available local claim inventory revealed an exact probability table or equivalent statement. Absence from an index is not proof of priority.",
+      "searches": [
+        "Binary search trees of permuton samples: root subtree sizes, number of records, right spine depth, finite-sample distribution for diagonal block permutons, exact covariance and conditional distributions",
+        "Second-order fluctuations height random block binary search trees, fixed external three-block permutation, conditional central limit Gaussian versus maximum of independent Gaussians, 213 pattern, permutation wreath product",
+        "Block BST height Gaussian limit at square root logarithmic scale; maximum of Gaussian extreme record spines; binary search trees permuton samples"
+      ]
+    },
+    "rationale": "The first-order block height and exact grafting formula are acknowledged as prior (Peca-Medlin--Zhong 2025); the 2024 permuton height model also predates this. The new contribution is the centered Gaussian-tree maximum limit, complete deepest-branch positivity criterion for the sqrt(log n) mean correction, and three-block shape classification. Priority remains uncertain despite direct scientific source comparison.",
+    "residual_risks": [
+      "Implicit prior derivation from known block grafting, classical rank processes, and Reed height estimates is possible.",
+      "Not every potential non-English, unpublished, or later published source was inspectable; semantic search does not certify uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines permuton BST sampling, universal first-order height under positive bounded density; finite block permutation densities have zeros and are not covered. Does not state Gaussian-tree block height fluctuations.",
+        "evidence": [
+          "https://arxiv.org/abs/2403.03151 ; 2024-03-05 v1",
+          "https://arxiv.org/html/2403.03151v2 , Theorems 1.1 and 1.2, Section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.03151v2",
+        "material_read": "Full-text HTML Sections 1.1--1.4 and 5.1--5.5, with statement of assumptions and examples",
+        "method": "Read primary HTML and match exact model, height results and hypotheses",
+        "title": "Binary search trees of permuton samples",
+        "trigger": "Motivating 2024 primary-MSC 60C05 permuton BST model and height universality"
+      },
+      {
+        "assessment": "Contains exact graft formula and first-order external-shape height law, acknowledged as prior. No Gaussian-edge second-order law, CDF for balanced block shapes, or positive sqrt(log n) mean correction observed in the inspected text.",
+        "evidence": [
+          "https://arxiv.org/abs/2507.04505 ; 2025-07-06 v1",
+          "https://onlinelibrary.wiley.com/doi/10.1002/rsa.70068 , Section 2"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.70068",
+        "material_read": "Open-access full-text Section 2, especially Lemma 1, Corollary 2, Theorem 2 and proof, Sections 1.4 and 4 discussion",
+        "method": "Read full-text HTML, compare exact path decomposition, implications and centered scales",
+        "title": "Heights of butterfly trees",
+        "trigger": "Directly relevant stronger fixed-block height theorem and grafting representation"
+      },
+      {
+        "assessment": "Supplies the stated expectation expansion and variance O(1); establishes the negligible internal-height fluctuations but does not cover composite permuton BSTs.",
+        "evidence": [
+          "Bruce Reed, Journal ACM 50 (2003), 306--332; explicit theorem in publisher abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/765568.765571",
+        "material_read": "Publisher article abstract listing expectation expansion and bounded variance",
+        "method": "Read original publisher scientific abstract and bibliographic page",
+        "title": "The height of a random binary search tree",
+        "trigger": "Required quantitative uniform BST internal-height theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38fa0ad6-66fb-46d6-8f07-81f79ed131da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For natural block-permuton search trees, the theorem identifies a topology-dependent full second-order law and a sharp dichotomy for positive sqrt(log n) mean excess. Balanced three-block trees have a non-Gaussian max law and coefficient 1/sqrt(pi), whereas skew trees have N(0,2) and no such correction. This quantifies a substantive search-complexity effect absent from first-order results.",
+    "status": "PASS"
+  }
+}

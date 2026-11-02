@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For each incidence edge, orientation at the original endpoint converts an induced matching into a partial map with all heads outside its tail set. If either shore of a complete bipartite original is fully selected as tails, every function to the other shore is maximal; otherwise both residual shores are nonempty and all unused tails must be images of opposite-shore functions. Counting surjections gives the exact polynomial. The same argument on a complete original gives a single onto map. Coefficient support follows from positivity of Stirling numbers. The standalone adjacency-based enumeration independently matches all coefficients for 25 graph instances and 51 support checks; finite evidence is corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yuan et al. arXiv:2410.11288 Theorems 1.2 and 1.3 bound the overall number among connected graphs of a fixed order.",
+        "Akbari et al. arXiv:1903.03197 introduction and sections on tree/girth classes address the minimum and maximum attainable maximal-induced-matching cardinalities and well-indumatched property, not the present incidence-family polynomial."
+      ],
+      "reasoning": "A universal extremal bound does not determine an individual graph polynomial; the well-indumatched classifications do not cover all these incidence graphs or imply the individual labeled coefficients.",
+      "searches": [
+        "Maximal and maximum induced matchings in connected graphs arxiv:2410.11288",
+        "Well-indumatched Trees and Graphs of Bounded Girth arxiv:1903.03197",
+        "2019 induced matchings graph subdivisions maximal lower upper 2022 paper",
+        "Maximum and minimum sizes of maximal induced matchings in subdivided complete bipartite graphs and arbitrary large gaps"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cs.ubc.ca/tr/2001/tr-2001-12",
+      "https://arxiv.org/abs/2410.11288",
+      "https://arxiv.org/abs/1903.03197",
+      "https://arxiv.org/abs/1312.5180 (background abstract only)",
+      "https://arxiv.org/abs/1904.10244 (background abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pippenger (2001) Theorem 4.1 gives total ordinary matchings in incidence graphs of K_{n,n}, and Section 5 counts their ordinary matching orbits. Theorem 2.1 similarly counts ordinary matchings of I(K_n).",
+        "Yuan et al. (2024) Theorem 1.2 bounds the maximum number of maximal induced matchings over connected graphs of the same order; no graph-specific Stirling sum follows.",
+        "Akbari et al. (2019) study the well-indumatched property and do not determine each cardinality coefficient for the present families."
+      ],
+      "reasoning": "Induced matching is a proper restriction of ordinary matching, and inclusion-maximality is another predicate not recoverable from its aggregate count. General upper bounds and recognition results are insufficient to derive the two exact polynomials or the unbounded cardinality gap.",
+      "searches": [
+        "Pippenger Enumeration of Matchings in the Incidence Graphs of Complete and Complete Bipartite Graphs",
+        "Maximal and maximum induced matchings in connected graphs 2024 arxiv",
+        "Well-indumatched Trees and Graphs of Bounded Girth 2019",
+        "maximal induced matchings subdivision complete bipartite graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pippenger TR-2001-12 Section 4 uses maps forbidding mutually exchanged pairs for ordinary matchings; selected heads may themselves be tails.",
+        "The induced matching condition requires all selected tails to lie outside the complete image set, a strictly stronger restriction.",
+        "Graph conflict-graph equivalence identifies the invariant as a maximal independent-set polynomial of the square of the incidence line graph, but no exact such formula was found."
+      ],
+      "reasoning": "The equivalent strong matching/induced matching and full subdivision/incidence graph terminology was searched. Pippenger has the same graph construction but a different matching predicate. Semantic research-record search nearest hits concern other graph parameters and do not assert an equivalent enumerator.",
+      "searches": [
+        "maximal induced matchings subdivision complete graph enumeration",
+        "maximal induced matching subdivision Stirling number",
+        "induced matching incidence graph complete graph enumeration",
+        "maximal induced matching subdivision graph complete graph maximal",
+        "Exact maximal induced matching polynomial of full-edge subdivisions of complete bipartite graphs: incidence graph of K_{a,b}, Stirling-number surjections, cardinality gap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-parameter table or indexed coefficient sequence matching the two Stirling polynomials was located in the actual results.",
+        "Pippenger TR-2001-12 tables and orbit counts pertain to ordinary matchings, not inclusion-maximal induced ones."
+      ],
+      "reasoning": "Finite enumerations or ordinary matching tables do not imply full cardinality-refined maximal-induced-matching formulas. A negative database search is not proof of absence, so an unindexed table remains an explicit risk.",
+      "searches": [
+        "maximal induced matchings incidence graph of complete bipartite graph polynomial",
+        "spectrum of sizes of maximal induced matchings graph gaps cardinality",
+        "maximal induced matching size spectrum incidence graph complete graph S(K_n)",
+        "well-indumatched subdivision complete bipartite graphs maximal induced matchings"
+      ]
+    },
+    "rationale": "Full-text material from Pippenger (2001), same incidence graph family, treats ordinary matchings encoded by partial functional digraphs forbidding exchanged pairs, which neither requires tail/head disjointness nor inclusion-maximality. Yuan et al. (2024) prove connected-graph extremal bounds on counts; Akbari et al. (2019) characterize well-indumatched tree/girth classes. Neither supplies the complete family-specific maximal induced matching polynomial. Matching record searches located no stronger or equivalent all-parameter result. Priority remains provisional.",
+    "residual_risks": [
+      "Unindexed or unavailable literature may already contain the same family-specific maximal-induced-matching polynomial.",
+      "Other general enumeration frameworks may imply this via additional specialized derivations not exposed by searched statements.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: ordinary matchings, not inclusion-maximal induced matchings.",
+        "evidence": "Theorem 4.1 enumerates all ordinary matchings via partial maps excluding only 2-cycles; our induced property forbids every map image in the domain, a genuinely stricter condition.",
+        "identifier_or_url": "https://www.cs.ubc.ca/sites/default/files/tr/2001/TR-2001-12_0.pdf",
+        "material_read": "Title and abstract; Sections 2 and 4 theorem statements and directed-map proofs; Section 5 orbit statement; closing references and relevant PDF text checks.",
+        "method": "Open university technical-report full PDF; inspected selected pages including 1, 3, 9-12, 15 and 22.",
+        "title": "Enumeration of Matchings in the Incidence Graphs of Complete and Complete Bipartite Graphs",
+        "trigger": "Exact same graph objects and matching enumeration, strongest plausible coverage"
+      },
+      {
+        "assessment": "NOT_COVERING for incidence graph polynomials; determines extremal general-graph counts rather than exact all-cardinality family formulas.",
+        "evidence": "Theorems 1.2 and 1.3 maximize the number of maximal/maximum induced matchings over all connected graphs of order n.",
+        "identifier_or_url": "https://arxiv.org/abs/2410.11288",
+        "material_read": "Public HTML introduction and definitions; Theorems 1.2/1.3; proof setting in Section 3; searches for incidence and subdivision terminology.",
+        "method": "arXiv public full-text HTML",
+        "title": "Maximal and maximum induced matchings in connected graphs",
+        "trigger": "Relevant 2024 treatment of maximal induced matching enumeration"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected relevant statements; focus is well-indumatched tree/girth classifications and recognition complexity.",
+        "evidence": "Section 1 defines minimum maximal induced matching and well-indumatched graphs; Section 3 addresses trees, with no incidence-family polynomial.",
+        "identifier_or_url": "https://arxiv.org/abs/1903.03197",
+        "material_read": "Public HTML abstract, introduction, problem definitions, and tree/girth characterizations in Sections 2–3.",
+        "method": "arXiv public full-text HTML",
+        "title": "Well-indumatched Trees and Graphs of Bounded Girth",
+        "trigger": "Potential prior size-spectrum/well-indumatched domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3a1144b1-760f-4b92-9ea3-736a6d7b57af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full labeled cardinality distribution for every full subdivision of a complete or complete bipartite graph is a natural extremal strong-matching invariant. In I(K_{2,b}), inclusion-maximal induced matchings occur only at sizes 2 and b, so the gap can grow arbitrarily even though the graph is connected and bipartite. The exact Stirling coefficient formulas, support conditions, and top-stratum multiplicities improve materially on merely knowing maximum/minimum cardinalities or enumerating ordinary matchings.",
+    "status": "PASS"
+  }
+}

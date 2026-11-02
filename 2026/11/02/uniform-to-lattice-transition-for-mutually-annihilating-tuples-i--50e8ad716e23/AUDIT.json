@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "evidence": [
+      "Explicit shell-size and annihilator proof in RESULT.md",
+      "verify.py executes actual ring multiplication for \\(\\mathbb Z/p^m\\mathbb Z\\) and \\(\\mathbb F_p[t]/(t^m)\\)",
+      "Finite checks do not claim infinite certification"
+    ],
+    "rationale": "Every chain ring has exact shell sizes and xy=0 iff valuations sum to at least the nilpotency length. The pair calculation accounts for v(0)=m, the lattice normalizers split into exhaustive disjoint cases, and for r>=3 the geometric majorant is summable, proving the normalization and total-variation limit. Direct finite ring enumeration in 22 configurations independently checks the finite identity; 128 shell checks and 42 pair-flatness checks corroborate it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arunkumar et al. 2022, Section 3, prove every such zero-divisor graph is a threshold graph, and any threshold graph embeds in some principal local ring; this does not supply the random clique distributions for growing chain length.",
+        "published-finding corpus 2026/10/4/SCOPE-zero-forcing-and-real-minimum-rank-of-finite-chain-ring-zero-div--86625146ed7a addresses minimum rank and forcing, not conditioned tuples."
+      ],
+      "reasoning": "General structural coverage of threshold graphs and their graph parameters does not by itself imply the weighted random clique law. No inspected dominating theorem supplies these exact parity normalizers or total-variation conditional limits.",
+      "searches": [
+        "published-finding corpus: Random clique size r in zero-divisor graph of commutative chain ring, exact count and valuation vector limiting distribution as nilpotency index grows",
+        "published-finding corpus: finite chain ring random zero divisor clique statistics occupancy valuation profile n growing",
+        "web: \"zero-divisor graph\" \"clique\" \"chain ring\" asymptotic valuation",
+        "web: \"pairwise annihilating\" \"truncated polynomial\" \"asymptotic\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1810.13312",
+      "https://arxiv.org/abs/2207.11741",
+      "https://arxiv.org/abs/2306.16416",
+      "published-finding corpus 2026/10/4/SCOPE-zero-forcing-and-real-minimum-rank-of-finite-chain-ring-zero-div--86625146ed7a",
+      "published-finding corpus 2026/10/4/SCOPE-ideal-based-zero-divisor-graphs-recover-finite-chain-quotient-pa--c73f7414610d",
+      "published-finding corpus 2026/10/4/SCOPE-the-simple-annihilator-compressed-graph-determines-chain-lengths--40c25eb1d807"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Khasraw 2018 Theorem 3.1 implies the stated two-factor scalar normalization for \\(R=\\mathbb Z/p^m\\mathbb Z\\), but not the conditional joint law for three or more factors.",
+        "Arunkumar et al. 2022 pages/sections on principal maximal ideals imply v(x)+v(y)>=m adjacency; an additional weighted lattice probability summation and limit theorem are required for the result here.",
+        "Salih 2023 results use pairwise annihilator sums and focus on P(XY=0), which cannot determine the r-way conditioning from the scalar P alone."
+      ],
+      "reasoning": "The previous results directly imply some premises and one unrefined special case; these are credited. The higher-tuple lattice law is not a corollary of scalar pair counts or graph-isomorphism structure without the new multidimensional analysis. A hidden prior theorem about random weighted threshold-graph cliques remains a residual priority risk.",
+      "searches": [
+        "published-finding corpus: finite chain ring zero divisor graph clique probabilities asymptotic r equal 2 versus r at least 3",
+        "published-finding corpus: Arunkumar Cameron Kavaskar zero-divisor threshold graph random clique conditional valuation distribution",
+        "web: pairwise zero products truncated polynomial random elements asymptotic",
+        "web: probability finite group algebra product zero Salih 2023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Khasraw arXiv:1810.13312 Theorem 3.1 covers the two-factor scalar probability and no r>=3 conditional valuation law.",
+        "Arunkumar et al. arXiv:2207.11741 Theorem 3.2 proves threshold graph structure via valuation sums, a necessary structural input but not the conditional law."
+      ],
+      "reasoning": "The new result is not identified by the known scalar pair probability, because it concerns the entire joint conditional distribution and a fixed-r transition. An equivalent formulation as a weighted clique-valuation or tropical constrained occupancy measure was sought, with no exact matching statement found. Search absence alone is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: finite ring pairwise mutually annihilating random tuples r>=3 parity limit discrete Gibbs law",
+        "published-finding corpus: 2018 Khasraw zero product probability Z_p^m ring and triplewise annihilation conditioned all products zero finite chain ring valuation law",
+        "web: \"mutually annihilating\" \"finite chain ring\" \"tuples\" count",
+        "web: \"random cliques\" \"zero-divisor graph\" \"finite chain rings\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Khasraw 2018 states \\(P(\\mathbb Z/p^k\\mathbb Z)=((k+1)p-k)/p^{k+1}\\), which equals the scalar two-factor case in the prime-residue family.",
+        "Salih arXiv:2306.16416 tabulates zero-product probabilities for several small finite group algebras, not joint valuation distributions of r>=3."
+      ],
+      "reasoning": "The known scalar pair table and formulas are explicitly excluded from novelty. A table of multivariate conditioned valuations or parity-dependent asymptotic weights was not identified; absence of a match in retrieved indexes does not establish priority.",
+      "searches": [
+        "published-finding corpus: Nilpotent chain ring annihilating ordered tuples r, asymptotic zero product probability and parity dependent distribution",
+        "published-finding corpus: zero product clique tuples random ring elements truncated polynomial ring conditional valuations asymptotic",
+        "web: \"cliques\" \"zero-divisor\" \"finite chain ring\" count formula 2022"
+      ]
+    },
+    "rationale": "The 2018 two-factor probability and 2022 principal-local-ring zero-divisor adjacency are prior and acknowledged. The inspected complete texts do not present the conditional joint all-pairs-annihilation law for r>=3, its parity-dependent lattice weights or total-variation convergence. Multiple equivalence and covering searches in published-finding corpus and broader literature found relevant different invariants, not a decisive implication. Remaining priority uncertainty is explicit.",
+    "residual_risks": [
+      "A prior equivalent weighted-clique enumeration of threshold graphs or p-adic tropical valuation conditioning may exist outside the inspected corpus.",
+      "Some broader primary graph-probability literature was identifiable only through abstracts or snippets and is not asserted NOT_COVERING on full-text grounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the scalar two-factor probability for \\(\\mathbb Z/p^m\\mathbb Z\\); DOES NOT COVER conditioned tuples with three or more entries or joint limits",
+        "evidence": "Theorem 3.1 gives \\(P(\\mathbb Z/p^k\\mathbb Z)=((k+1)p-k)/p^{k+1}\\); paper defines only pairs.",
+        "identifier_or_url": "https://arxiv.org/abs/1810.13312",
+        "material_read": "Entire web-accessible article sections 1-3 and Theorem 3.1 (88-line full-text rendering)",
+        "method": "Direct full-text reading, theorem and proof comparison",
+        "title": "What is the probability that two elements of a finite ring have product zero?",
+        "trigger": "Same invariant for two factors and its exact finite ring probability"
+      },
+      {
+        "assessment": "COVERS valuation adjacency and threshold-graph structure; does not give weighted random r-clique limits",
+        "evidence": "Section 3 states xy=0 iff v(x)+v(y)>=m, and Theorem 3.2 shows thresholdness and universality, without conditional probability enumeration.",
+        "identifier_or_url": "https://arxiv.org/abs/2207.11741",
+        "material_read": "Full accessible article, especially Section 3, Theorem 3.2, proof and definition of principal-ideal valuation",
+        "method": "Direct full-text theorem and proof comparison",
+        "title": "Induced subgraphs of zero-divisor graphs",
+        "trigger": "Same zero-product graph of principal local rings and adjacency condition"
+      },
+      {
+        "assessment": "Treats probability for two group-algebra elements, not conditioned mutually annihilating r-tuples of chain rings",
+        "evidence": "Abstract and equations (1.1)-(1.2) explicitly sum annihilators for a pair; paper lists small scalar probability tables.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.16416",
+        "material_read": "Full accessible article, sections 1-3 including main tables and theorems (221-line full-text rendering)",
+        "method": "Direct full-text comparison to all-pairwise-annihilating tuple law",
+        "title": "The probability that the product of two elements of finite group algebra is zero",
+        "trigger": "Same scalar zero-product probability for finite group algebras; verified Primary MSC 16S34"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "50e8ad71-6e23-4d51-b88f-043f1285184f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves a natural probability law of mutually annihilating tuples and asymptotic weighted cliques in chain-ring zero-divisor graphs, revealing a non-obvious r=2 versus r>=3 transition from a continuum-scale uniform valuation split to two parity-dependent discrete limiting laws. It is universal over all finite commutative chain rings with the same residue-field order and length. It determines full distributions, not a routine increment to a scalar count, and supplies explicit constants relevant to random zero products.",
+    "status": "PASS"
+  }
+}

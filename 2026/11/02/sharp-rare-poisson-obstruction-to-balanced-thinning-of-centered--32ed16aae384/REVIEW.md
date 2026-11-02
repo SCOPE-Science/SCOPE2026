@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** Directly verified the independent Bernoulli thinning model, joint Poisson/selector limits, finite second-moment uniform integrability, exact Poisson absolute-deviation mass identity, continuity across its moving modes, interval-wise log convexity, Robbins factorial bounds, separate even/odd integer reductions, and the global uniqueness at intensity \(\lambda=1\). The exact-rational and independent numerical tests passed 2,210 assertions, but the infinite parameter and sample-size results rely on the full proof rather than the tests. No all-laws sharp constant is asserted.
+
+**Originality (PASS, qualified).** The motivating primary paper's Theorem 2.3 gives a non-sharp universal \(40\sqrt q\) upper bound; its Sections 11 and 13 do not state this exact rare-Poisson optimized lower-bound obstruction. The mean absolute deviation identity and Robbins bounds themselves are standard, so they are not claimed. Targeted mathematical-record and web queries found no matching optimized expression or a prior stronger statement directly implying this family-specific theorem. A comprehensive historical review of sharp thinning constants was not possible, so independent priority verification remains necessary.
+
+**Value (PASS).** The thinning exponent is important for convex-order homogenization arguments. This computes an exact extreme ratio for the natural Poisson small-jump regime and forces a numerical lower bound \(\sqrt{e/2}\) on the universal constant, separating rare-spike amplification from the high-intensity Gaussian ratio \(1/\sqrt2\). The uniquely optimal unit-intensity regime is a meaningful boundary, not an arbitrary parameter slice. The result deliberately does not solve the unrestricted sharp-constant problem.
+
+**Closest literature and limits.** Kontorovich (2026), Theorem 2.3 and its full proof, is the direct broader theorem; Robbins (1955) supplies a classical factorial estimate; standard Poisson theory supplies the absolute-deviation formula. No full proof of historical uniqueness is asserted, and the result does not extend here to unequal selector probabilities, heterogeneous coordinates, or other convex losses.
+
+Self-review: passed. Independent audit: not yet performed.

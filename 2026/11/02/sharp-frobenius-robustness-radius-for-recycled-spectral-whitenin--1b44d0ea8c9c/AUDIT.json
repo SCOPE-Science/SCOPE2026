@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For 0<=t<=t*, strict t*<lambda_min(A) ensures uniform SPD. The spectral K-bound is equivalently all orthonormal-pair Rayleigh gaps <=0. Exact Frobenius duality turns their worst-case gap into 1-K+t times a two-plane norm; rotation within the compressed plane gives a convex quadratic in squared cosine, maximized at its top H eigenvector, and Ritz interlacing yields the sharp maximum sqrt(K^2/lambda_1^2+1/lambda_2^2). A rank-two commuting unit-Frobenius E realizes equality and scaled copies violate the cap at any larger t. Exact rational two-dimensional calculation and 8472 replayed seeded checks confirm examples; no numerical test substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diouane et al. (2026), arXiv:2610.28808v1, Theorem 3.8 and conclusion",
+        "Diouane et al. (2026), arXiv:2603.28969v1, Sections 3--4 and conclusion",
+        "Giraud--Gratton (2006), Sections 2, 3.2, 3.3 and numerical examples",
+        "Rump (2003) full text Sections 2, 4, 12 and Theorem 12.1"
+      ],
+      "reasoning": "The all-E finite conditioning theorem is not implied by fixed-direction first-order PCG-error bounds, by unperturbed finite-iteration cluster-placement optimality, by first-order sensitivity of approximate eigenpairs, or by the distance to singularity. The new exact threshold uses the condition-number target K, not merely nonsingularity. More general perturbation results may exist outside inspected sources, recorded as historical priority risk.",
+      "searches": [
+        "distance to condition number K whitening SPD under Frobenius symmetric perturbations least two eigenvalues diagonal adversary",
+        "recycled spectral preconditioner worst-case symmetric perturbation direction condition number threshold",
+        "Sharp perturbation radius reuse full spectral preconditioner condition number under arbitrary symmetric additive perturbation",
+        "web: distance to condition number K symmetric positive definite Frobenius metric congruence perturbation",
+        "web: \"On the sensitivity of some spectral preconditioners\" Giraud Gratton pdf"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.28808v1, public PDF",
+      "arXiv:2603.28969v1, public PDF",
+      "Giraud--Gratton 2006 author-posted full-text sections",
+      "Rump 2003 full author-hosted PDF Sections 1, 2, 4 and 12",
+      "published-finding corpus semantic searches using the focused queries above",
+      "Published mathematical findings concerning two-dimensional Nyström preconditioning and Frobenius perturbations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.28808v1 conclusion explicitly fixes E and proposes varying E as further work",
+        "Giraud--Gratton 2006 Section 3.3 derives condition numbers of individual preconditioned eigenvalues from directional first-order formulas",
+        "Rump (2003) gives structured distance to singularity, not distance to a chosen finite spectral ratio",
+        "Published two-dimensional one-pass Nyström/sketch preconditioner analyses compare a distinct randomized construction, not exact full spectral whitening"
+      ],
+      "reasoning": "Neither finite first-order bounds about t=0 at fixed E nor the full-rank algebraic identity B(0)=I imply the global radius t*(A,K), let alone a commuting rank-two optimal adversary over arbitrary symmetric noncommuting perturbations. The known sharp 2D Nyström/sketch phenomena do not dominate a universal n-dimensional Frobenius-ball exact whitening theorem.",
+      "searches": [
+        "recycled spectral preconditioner worst-case symmetric perturbation direction condition number threshold",
+        "Exact Frobenius radius condition number preconditioned SPD whitened A^(-1/2)(A+E)A^(-1/2), two lowest eigenvalues rank-two adversary",
+        "Sharp perturbation radius reuse full spectral preconditioner condition number under arbitrary symmetric additive perturbation",
+        "web: \"On the Sensitivity of Some Spectral Preconditioners\" condition number perturbation Frobenius"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.28808v1 Sections 3.3, 3.8 and 5",
+        "Giraud--Gratton (2006) Section 3.3, DOI:10.1137/040617546"
+      ],
+      "reasoning": "An equivalent statement is the weighted Frobenius distance, measured in original-matrix coordinates, from the identity-preconditioned spectrum to a matrix with eigenvalue ratio exceeding K. The inspected derivative-level matrix sensitivity claims concern different limits and do not give an exact global Frobenius distance. No equivalent all-K formula or two-smallest-eigenvalues rank-two extremizer was found.",
+      "searches": [
+        "sharp Frobenius norm perturbation robust condition number of perfectly preconditioned positive definite matrix A inverse square root E inverse square root two smallest eigenvalues",
+        "Exact Frobenius radius condition number preconditioned SPD whitened A^(-1/2)(A+E)A^(-1/2), two lowest eigenvalues rank-two adversary",
+        "Frobenius distance to condition number threshold for matrix after symmetric congruence by A inverse square root",
+        "web: \"Frobenius\" \"condition number\" \"perturbation\" \"smallest two eigenvalues\" SPD",
+        "web: optimal Frobenius perturbation attain prescribed spectral condition number relative SPD rank two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus published findings hit 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "published-finding corpus published findings hit 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+        "Diouane et al. (2026), arXiv:2610.28808v1, numerical experiments Section 4"
+      ],
+      "reasoning": "No checked table or database fixes the exact all-matrix Frobenius perturbation radius at arbitrary K and pair of lowest reference eigenvalues. Neighboring results concern Jacobi damping or SPD of an additive split preconditioner, not full whitening under Frobenius perturbations.",
+      "searches": [
+        "sharp Frobenius norm perturbation robust condition number of perfectly preconditioned positive definite matrix A inverse square root E inverse square root two smallest eigenvalues",
+        "Exact Frobenius radius condition number preconditioned SPD whitened A^(-1/2)(A+E)A^(-1/2), two lowest eigenvalues rank-two adversary",
+        "Frobenius distance to condition number threshold for matrix after symmetric congruence by A inverse square root",
+        "web: \"Frobenius\" \"condition number\" \"perturbation\" \"smallest two eigenvalues\" SPD"
+      ]
+    },
+    "rationale": "The claim is the exact finite Frobenius perturbation radius for a uniform spectral-condition-number cap after full spectral whitening of a reference SPD matrix. The inspected 2026 paper has fixed-direction asymptotic PCG versus deflated-CG error inequalities and itself identifies uniform varying-E bounds as a further issue. The March 2026 precursor optimizes finite-iteration energy error for unperturbed systems. Giraud--Gratton (2006) studies derivative-level eigenspectrum sensitivity from inexact eigenelements, not a finite all-directions condition cap. Rump (2003) addresses distance to singularity and condition numbers of matrix inversion. Published-findings searches returned neighboring preconditioning robustness results but not an implication covering the two-smallest-eigenvalues formula with commuting rank-two optimizer.",
+    "residual_risks": [
+      "An older theorem on weighted Frobenius distance to a prescribed condition-number variety could imply the exact formula under a different terminology; no exhaustive priority certification is claimed.",
+      "Full whitening is an expensive benchmark; the theorem makes no partial-spectral-preconditioner performance claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Treats fixed perturbation direction E and asymptotic Krylov error comparisons, not a finite-radius uniform condition-number cap. Explicitly proposes varying E for future analysis.",
+        "evidence": [
+          "arXiv:2610.28808v1 pp. 1--2, 9, 13, 19: model and Theorem 3.8; conclusion on variable E"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.28808",
+        "material_read": "Abstract, introduction, Sections 3.3, 3.8, 4 numerical comparisons, Section 5 conclusion and references",
+        "method": "Public full PDF textual and page inspection",
+        "title": "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems",
+        "trigger": "Direct motivating perturbation model, same recycled spectral eigeninformation"
+      },
+      {
+        "assessment": "Selects cluster placement to optimize fixed-iteration energy error on one matrix; contains no perturbation ball or uniform sharp conditioning radius.",
+        "evidence": [
+          "arXiv:2603.28969v1 pp. 1, 4--11, 12"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.28969",
+        "material_read": "Abstract, introduction, Section 3 formulation, Section 4 main statements and Section 6 conclusion",
+        "method": "Public arXiv PDF text and page inspection",
+        "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+        "trigger": "Same authors and exact spectral-preconditioner family; plausible precursor coverage"
+      },
+      {
+        "assessment": "Directional first-order eigenvalue changes for preconditioners using inaccurate eigenpairs; no exact non-asymptotic uniform Frobenius radius for a κ2 cap after full whitening.",
+        "evidence": [
+          "Giraud and Gratton, SIAM J. Matrix Anal. Appl. 27 (2006), 1089--1105; author-posted text Section 3.3, equation (26)"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220656613_On_the_Sensitivity_of_Some_Spectral_Preconditioners",
+        "material_read": "Author-posted manuscript abstract, Sections 1, 2, 3.2, 3.3 and numerical examples",
+        "method": "Public author-posted full-text HTML transcription inspected by sections",
+        "title": "On the Sensitivity of Some Spectral Preconditioners",
+        "trigger": "Earlier named close precedent on perturbed preconditioners and spectral condition numbers"
+      },
+      {
+        "assessment": "Its condition number is an infinitesimal data-to-solution sensitivity and its Theorem 12.1 determines distance to singularity, using operator norm. Neither establishes the finite Frobenius radius to exceed a prescribed spectral condition number after whitening.",
+        "evidence": [
+          "Rump (2003), Sections 2 (definition 2.1), 4 (matrix-condition sensitivity) and 12 (Theorem 12.1, singularity distance)"
+        ],
+        "identifier_or_url": "https://www.tuhh.de/ti3/paper/rump/Ru03f.pdf",
+        "material_read": "Author-hosted complete public PDF: Sections 1, 2, 4, 12, including Theorem 12.1 and related definitions",
+        "method": "Direct full-text PDF inspection with first-page screenshot",
+        "title": "Structured Perturbations Part I: Normwise Distances",
+        "trigger": "Potential broad normwise structured matrix-distance result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1b44d0ea-8c9c-4123-848a-94042d5bc315",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp radius is a motivated robust-use tolerance for spectral information reused after an unknown symmetric change of a reference SPD system. Compared with the elementary Weyl condition bound lambda_1(K-1)/(K+1), the new radius is strictly larger, depends precisely on two smallest reference eigenvalues independent of dimension, and reveals that a commuting rank-two adversary controls the worst-case noncommuting Frobenius ball. It includes repeated eigenvalues and supplies an exact benchmark for studying more practical partial preconditioners without falsely asserting such an extension.",
+    "status": "PASS"
+  }
+}

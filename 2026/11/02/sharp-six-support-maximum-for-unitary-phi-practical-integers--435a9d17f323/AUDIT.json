@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "claim_to_evidence": {
+      "computed_checks": "verify.py: 1252 bitset comparisons; first five Fermat primes; factorization and primality of F5 factors; 15 OEIS examples",
+      "critical_steps": [
+        "indexed unitary-divisor weights sum to n",
+        "necessary/sufficient prefix inequality",
+        "greedy envelope and rigid five-support equality",
+        "strict bound for submaximal five-prefix",
+        "non-prime-power F5 and largest admissible 2^32",
+        "attainment and uniqueness"
+      ],
+      "domain": "all positive n with exactly six distinct prime factors; prime powers may have any exponent",
+      "unproved_limits": [
+        "seven-support maximum",
+        "complete classification of six-support elements"
+      ]
+    },
+    "rationale": "For prime-power components Q_i ordered by size, unitary-totient weights are the 2^r products of Q_i-1. A missing-sum argument and interval induction prove exact equivalence to Q_i<=M_(i-1)+2. The bound M_i<=2^(2^i)-1 is monotone with equality only at consecutive Fermat components. If M_5<G_5, M_6<=G_5^2-1; otherwise the sixth prime power is at most 2^32 since 2^32+1=641*6700417 has two distinct prime factors. The attained product 2^32*(2^32-1) is therefore the unique maximum. The embedded checker independently verified 641 and 6700417 primality by exact trial division, arithmetic, 1252 small bitset cases and 15 initial sequence examples. Universal inference rests on the proof, not those cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2017 paper Theorem 1.4 and §5.1 are global counting bounds for ordinary-divisor f-practicals, not fixed-support maximum results.",
+        "The published two-prime phi-practical multiplicity theorem has only ordinary Euler-totient weights and two prime supports."
+      ],
+      "reasoning": "A distribution bound or two-prime degree-multiplicity classification does not determine the sharp six-support maximum. The generic greedy upper bound is not the asserted exact maximum because F5 is composite.",
+      "searches": [
+        "published-finding corpus: prime power prefix coin completion Fermat primes maximum six prime divisors",
+        "published-finding corpus: unitary phi practical integers exactly three distinct primes and divisor subset sums",
+        "published-finding corpus: unitary phi practical three distinct prime factors total multiplicity four",
+        "2017 Schwab–Thompson arXiv full text §1, §2 and §5.1"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A286906, definition and dated initial terms",
+      "arXiv 1701.08504v1 (2017-01-30), full HTML v2 relevant sections",
+      "Published two-prime ordinary-phi divisor-degree multiplicity theorem, full RESULT.md",
+      "Mathematical-record semantic search results compared at claim/implication level",
+      "Full published result on ordinary-phi two-prime degree multiplicities inspected for any stronger implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS A286906: definition and initial membership table only.",
+        "Schwab–Thompson (2017): ordinary-divisor f-practical framework and distribution, no fixed support six extremum.",
+        "Published multiplicity theorem: n=2^a p^b, two prime supports, ordinary phi weights; no unitary weights or six-support bound."
+      ],
+      "reasoning": "Even allowing general subset-sum necessary and sufficient criteria, none of the inspected prior statements implies an exact maximum or uniqueness at support six without new extremal analysis and the non-prime-power F5 obstruction.",
+      "searches": [
+        "Full OEIS A286906 page",
+        "Full arXiv HTML 1701.08504v2, §2, §5.1",
+        "Full public RESULT.md: Interior divisor degrees are never unique for two-prime φ-practical numbers",
+        "published-finding corpus: unitary phi-practical maximum six prime factors 2^32 2^32-1 Fermat number first composite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A286906 explicitly defines the indexed unitary-divisor subset-sum problem; its table only extends to n=10000.",
+        "Schwab and Thompson 2017 Definition 2 sums f(d) over all ordinary divisors, rather than the unitary-divisor subset in the claim; §5.1 applies to that different convention."
+      ],
+      "reasoning": "Equivalent coin-change and degree formulations were checked. The unitary-divisor indexing, sorted prime-power components and exact support six are all material; the ordinary-divisor version has different weight multiplicity. No examined equivalent statement gives the extremum.",
+      "searches": [
+        "published-finding corpus: unitary phi-practical maximum six prime factors 2^32 2^32-1 Fermat number first composite",
+        "published-finding corpus: unitary totient divisor subset sums maximal integer with six distinct prime bases sharp extremum",
+        "web: \"unitary phi-practical\" \"Fermat\" prime powers maximal number",
+        "OEIS A286906",
+        "arXiv:1701.08504v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS displayed first terms and the 10000-item table do not reach the claimed 18446744069414584320 maximum and state no fixed-support bound.",
+        "No exact-value match in the returned mathematical-record results."
+      ],
+      "reasoning": "A list of early membership examples is not an extremal classification over all six-prime-support integers, and no inspected table states or implies the sharp value.",
+      "searches": [
+        "OEIS A286906 and linked table of n,a(n) for n=1..10000",
+        "web: \"unitary phi-practical\" \"18446744069414584320\"",
+        "published-finding corpus: 18446744069414584320 phi practical unitary 65537 4294967296"
+      ]
+    },
+    "rationale": "Compared the theorem against the exact 2017 unitary-divisor defining sequence, the general f-practical primary paper using all ordinary divisors, and a full published theorem on ordinary phi-practical two-prime divisor-degree multiplicities. Their statements do not imply the unique six-support unitary maximum. Targeted research record searches on prime powers, Fermat factors and the exact large integer found no covering result; this is evidence for originality but not a proof of global novelty.",
+    "residual_risks": [
+      "An unindexed article could state the same exact extremum in different terminology; no claim of independent bibliographic certification.",
+      "No maximality claim beyond exactly six distinct prime factors."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact unitary-divisor object and lists examples; no fixed-six-support maximum stated",
+        "evidence": [
+          "Definition sums uphi over unitary divisors, including the example 12; first dated May 15 2017",
+          "The only linked table advertised is n=1..10000"
+        ],
+        "identifier_or_url": "https://oeis.org/A286906",
+        "material_read": "Complete displayed sequence page: definition, examples, Mathematica test, cross-references, links, date and author",
+        "method": "read HTML with OEIS entry lines 14-56",
+        "title": "Unitary phi-practical numbers",
+        "trigger": "exact definition, synonyms and tables for the studied object"
+      },
+      {
+        "assessment": "Its unitary-totient f-practicals use all ordinary divisors and yield counting bounds, not the claimed unitary-divisor six-support maximum",
+        "evidence": [
+          "Definition 2 ranges over all d|n, while Section 5.1 states phi*(p^e)=p^e-1",
+          "Theorem 5.2 gives an X/log X upper bound; Section 5.1 has no Fermat maximum"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1701.08504v2",
+        "material_read": "Abstract, definitions, theorems and proofs of Section 2; Section 5.1 on unitary totient including Lemma 5.1 and Theorem 5.2",
+        "method": "read open-access arXiv HTML full-text sections (first public arXiv v1 2017-01-30)",
+        "title": "A generalization of the practical numbers",
+        "trigger": "earliest primary general f-practical theory and unitary-totient comparison"
+      },
+      {
+        "assessment": "Concerns Euler phi(d) over all divisors and exactly two prime supports; neither statement nor proof covers the unitary six-support extremal claim",
+        "evidence": [
+          "Its theorem assumes n=2^a p^b and counts monic divisors of X^n-1 by degree",
+          "Its weights are Euler phi(m) for all m|n and its conclusion is coefficient multiplicity at least two"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-interior-divisor-degrees-are-never-unique-for-two-prime-practica--02336813184a/RESULT.md",
+        "material_read": "Entire RESULT.md: finding, mathematical proof, verification, relationship and references",
+        "method": "read full public source file via repository content access",
+        "title": "Interior divisor degrees are never unique for two-prime phi-practical numbers",
+        "trigger": "closest ranked published record for phi-practical divisor subset sums"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "435a9d17-f323-4eb2-9f9f-730956cf9fd8",
+  "self_review_status": "passed",
+  "value": {
+    "limitations": [
+      "Does not classify all six-support integers.",
+      "Higher-support optimal values are not asserted."
+    ],
+    "rationale": "The maximum over exactly r distinct prime supports is a canonical extremal invariant for an established sequence, not a chosen finite interval. The first five support sizes attain the universal greedy envelope 2^(2^r)-1; six is the first failure because the next Fermat number is composite. The theorem computes the exact optimal deficit and proves uniqueness. This is a motivated natural transition with structural explanatory content beyond membership tables or a bare finite check.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The proof has explicit distance and geodesic normalization, proves at most one chosen vertex per clique layer and at most two per color, uses a disjoint-interval obstruction plus the one-layer gap obstruction for every saturated set, and gives matching constructive sufficiency and binomial-count bijection. The unsaturated word proves the scalar lower bounds in all remaining ranges; no computational extrapolation is used. A separate graph BFS enumeration verifies all at-or-above-optimum candidate sets for m=2,3,4 and 2<=L<=2m+3, and matches every applicable saturated count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2112.13024 Theorem 3.2 gives broad Cartesian-product mutual-visibility bounds and Theorem 3.4 an equality if the factor has mu_i=mu; it does not determine the independent maximum of P_L square K_m.",
+        "arXiv:2602.23403 Proposition 5.3 concerns strong products, and Theorem 6.1 complexity of independent MV, not the Cartesian path-clique exact invariant.",
+        "Korže--Vesel DOI 10.1007/s00025-024-02139-x Proposition 2.2 treats ordinary mu(P_2 square C_3)=4, whereas the present independent parameter there equals 2."
+      ],
+      "reasoning": "The present graph and invariant are not covered by the stronger unrestricted parameter results: maximal ordinary MV sets need not be independent, and a generic upper bound does not force equality or enumerate independent optimizers. Strong and lexicographic graph products do not specialize to the Cartesian path-clique product.",
+      "searches": [
+        "Web: \"independent mutual visibility\" \"Cartesian\" \"path\"",
+        "Web: \"independent mutual visibility\" \"clique\" \"path\" geodesic",
+        "Cicerone--Di Stefano--Klavžar arXiv:2112.13024 sections 2--3",
+        "Brešar et al. DOI 10.1007/s00010-026-01280-y section 5",
+        "Tian--Bujtás--Klavžar arXiv:2602.23403 sections 5--6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2112.13024",
+      "doi:10.1007/s00025-024-02139-x",
+      "arxiv:2505.04144",
+      "doi:10.1007/s00010-026-01280-y",
+      "arxiv:2602.23403",
+      "OEIS:A389184",
+      "Connected mutual-visibility in Cartesian products of high-girth graphs (mathematical-record summary)",
+      "Mixed metric bases of complete prisms (mathematical-record summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general Cartesian-product inequalities in arXiv:2112.13024 do not force equality at any specific length or enumerate maximizers.",
+        "Power domination of path--clique products concerns iterative neighborhood propagation, which neither implies nor is implied by geodesic-clearance requirements.",
+        "Vertex general-position sets forbid a chosen vertex on every shortest path between two others; independent mutual visibility requires one clear path, a different quantifier.",
+        "Ordinary mutual-visibility enumerators for clique-by-clique products apply to a different graph family and omit independence.",
+        "Independent resolving sets distinguish distance vectors, while edge-general-position sets select edges rather than vertices; neither theorem determines independent mutual visibility."
+      ],
+      "reasoning": "Matching graph family in some past claims does not imply the new independent-mutual-visibility theorem. Resolving, power domination, vertex general position, ordinary MV in clique-by-clique products, and edge general position have different quantified conditions, so none supplies the two-occurrence interval obstruction, threshold or permutation-gap census. The prior 2021 bound supplies only mu_i<=2m (and the independent layer bound <=L), without its isolated strict case.",
+      "searches": [
+        "published-finding corpus: independent mutual visibility path clique prism parameter geodesic two occurrences per coordinate",
+        "Web: \"μ_i\" \"P_n\" \"K_m\" mutual visibility Cartesian",
+        "Web: \"independent mutual visibility\" \"clique\" \"path\" geodesic",
+        "Cicerone--Di Stefano--Klavžar arXiv:2112.13024 Sections 2--3 and the Cartesian-product theorems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cicerone--Di Stefano--Klavžar, arXiv:2112.13024, Sections 2--3 define the independent parameter and give general Cartesian bounds, not a path-clique exact formula.",
+        "Brešar--Peterin--Samadi--Yero, arXiv:2505.04144 / DOI 10.1007/s00010-026-01280-y, Section 5 studies Cartesian-product chromatic partitions, not the maximum independent mutual-visibility set."
+      ],
+      "reasoning": "Synonyms include independent MV, IMV, mu_i, independent geodesically visible sets and permutation placements. The exact claim concerns the maximum cardinality of a single independent MV set, whereas the closest colorings minimize the number of distinct color classes. General bound equality in other graph families does not imply the exceptional boundary or exact optimizer count.",
+      "searches": [
+        "published-finding corpus: independent mutual visibility in path clique Cartesian product",
+        "published-finding corpus: Exact independent mutual-visibility number μ_i(P_L square K_m) equals min(L,2m) except L=2m one less, two complete permutation rounds separated by an empty layer",
+        "Web: \"independent mutual visibility\" \"path\" \"complete graph\" Cartesian",
+        "Web: K_m square P_n independent visibility optimum count permutations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published connected mutual-visibility theorem for Cartesian products of high-girth graphs concerns connected selected sets; path--clique fibers fail the high-girth hypothesis.",
+        "A published classification of mixed metric bases of complete prisms concerns distance resolution by landmarks, not independent mutual visibility.",
+        "OEIS A389184 enumerates ordinary mutual-visibility sets of cycle prisms C_n square K_2, not independent MV saturated sets in P_L square K_m."
+      ],
+      "reasoning": "No inspected exact table or record matches both the path-clique graph family and the independent mutual-visibility quantifier. These searches cannot exclude unindexed data or private computations.",
+      "searches": [
+        "published-finding corpus: Maximum independent mutually visible landmark sets Cartesian path and clique graph, count (m!)^2 binomial(L-1,2m)",
+        "published-finding corpus: mutual visibility number P_n square K_m independent",
+        "Web: OEIS independent mutual visibility Cartesian product path complete graph",
+        "Web: \"mutual visibility\" \"(m!)^2\" path"
+      ]
+    },
+    "rationale": "Full relevant literature gives the general invariant and product bounds, but the exact path-clique independent MV threshold, isolated L=2m defect, and saturated-set enumeration are not implied by those statements. Comparisons with related mathematical claims and published-finding corpus semantic searches identify related but differently quantified or differently operated graph problems; priority remains provisional because no finite search proves absence.",
+    "residual_risks": [
+      "An older equivalent formula or set classification under different terminology could exist outside indexed primary sources.",
+      "Math-record similarity ranking is not exhaustive and cannot by itself certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines mu_i and gives broad inequalities but no exact independent parameter or saturation classification for P_L square K_m.",
+        "evidence": [
+          "arXiv metadata first-public date 2021-12-24; MSC 05C12.",
+          "Section 2 defines independent mutual-visibility; Section 3 proves product upper and lower bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.13024",
+        "material_read": "Full accessible rendered arXiv manuscript, especially introduction, Sections 2 and 3, definitions, Lemma 2.1, Theorems 3.2 and 3.4 and their proofs.",
+        "method": "Primary full-text HTML/text reading and theorem implication comparison.",
+        "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+        "trigger": "Introduces exactly the independent mutual-visibility parameter and compares Cartesian products."
+      },
+      {
+        "assessment": "Computes ordinary visibility of path-cycle products. Its numerical P_2 square C_3 example is not an independent-visibility result and does not imply the present theorem.",
+        "evidence": [
+          "Proposition 2.2 gives ordinary mu(P_2 square C_3)=4, while independent maximum in same graph is 2."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00025-024-02139-x",
+        "material_read": "Accessible full open-access article introduction, Proposition 2.2 and proof, Theorem 2.4, concluding scope statement.",
+        "method": "Publisher open HTML, inspected same graph boundary and compared ordinary versus independent definitions.",
+        "title": "Mutual-Visibility Sets in Cartesian Products of Paths and Cycles",
+        "trigger": "Path-cycle product contains P_2 square C_3, isomorphic to the smallest P_2 square K_3 case."
+      },
+      {
+        "assessment": "Its Cartesian product assertions concern MV/IMV colorings and Hamming graph colorings, not the exact independent MV maximum for P_L square K_m.",
+        "evidence": [
+          "Theorem 24 bounds chi_mu(G square K_n) via chi_mu_i(G); Corollary 25 concerns tree factor coloring, not mu_i(G square K_n)."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-026-01280-y",
+        "material_read": "Full open-access HTML: definitions, independent-set comparisons, Sections 4--5 including Theorems 22, 24 and 26 and their proof contexts.",
+        "method": "Publisher full-text HTML reading; compared chromatic minimization with independent-set maximization and product types.",
+        "title": "Independent mutual-visibility coloring and related concepts",
+        "trigger": "Potentially broader independent mutual-visibility exact product theorem."
+      },
+      {
+        "assessment": "Develops edge-critical classifications and computational hardness; Proposition 5.3 concerns strong not Cartesian products, with no path-clique formula or optimizer census.",
+        "evidence": [
+          "Section 5 Proposition 5.3: strong product G boxtimes K_n; Section 6 complexity, not an exact Cartesian formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.23403",
+        "material_read": "Full accessible rendered arXiv manuscript, particularly Sections 2, 5, 6, Proposition 5.3 and Theorem 6.1 with surrounding explanation.",
+        "method": "Primary rendered full text reading; checked graph operation and quantifier.",
+        "title": "Independent mutual-visibility sets and distance edge-critical graphs",
+        "trigger": "Recent dedicated independent mutual-visibility paper could dominate the stated result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "296d3028-83eb-44fd-97b8-f2fe72690cec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact two-parameter independent mutual-visibility maximum with a sharp exceptional length, an explicit structural classification of all saturated sets and an exact labeled multiplicity. This answers when local nonadjacency and global shortest-path clearance are simultaneously saturable in a canonical clique-fiber network; the obstruction and separator construction are nontrivial beyond the universal 2m bound.",
+    "status": "PASS"
+  }
+}

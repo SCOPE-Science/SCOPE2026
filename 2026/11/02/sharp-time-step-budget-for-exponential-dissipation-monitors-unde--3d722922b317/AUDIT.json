@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The cumulative monitor integral inverts to e^{-lambda p t_j}=(nu+N-j)/(nu+N); subtraction yields h_j=H(nu+N-j-1)/(lambda p). The positive Laplace mixture representation of H gives strict log-convexity (variance >0), hence F(x)=H(x)/H(x+1) strictly decreases from infinity to 1. This proves ordering, uniqueness, threshold equivalence and strict integer rounding for all admissible inputs, not merely sampled cases. The exact standalone verifier performs 1,296 high-precision comparisons including independent node inversion, ratio checks, boundary decisions and asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2610.30454v1: classical sufficient ratio restriction is paired with controller clamping rather than an exact minimal mesh size.",
+        "https://arxiv.org/abs/2201.00527: BDF2 stability on arbitrary grids, indicating the chosen ratio limit is not a necessary method-independent stability limit."
+      ],
+      "reasoning": "Allowing arbitrary grids to achieve stability does not cover the separate minimal-N problem under exact equidistribution AND a stipulated strict ratio cap. Conversely, the present statement cannot infer anything about stability for non-equidistributed meshes.",
+      "searches": [
+        "variable step BDF2 r < 1+sqrt2 adaptive monitor sqrt dissipation energy equidistribution",
+        "BDF2 graded temporal mesh exponential solution equidistribution geometric energy dissipation step ratios sharp threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.30454v1",
+      "https://arxiv.org/abs/1912.11182",
+      "https://arxiv.org/abs/2201.00527",
+      "published mathematical findings indexed for equidistribution, step-ratio thresholds, and exact exponential-grid compatibility"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2610.30454v1: Definition 3.1 and Proposition 2 provide the continuous equidistribution condition; Proposition 3 identifies the two monitor exponents; Proposition 8 imposes a ratio bound.",
+        "https://arxiv.org/abs/1912.11182: variable-step BDF2 convergence and stability on nonuniform grids without exact exponential monitor quantiles.",
+        "https://arxiv.org/abs/2201.00527: stronger stability on arbitrary grids does not constrain the ratio of an ideal monitor-generated partition."
+      ],
+      "reasoning": "The primary paper supplies the three motivating ingredients separately; its assertions do not contain the explicit exponential-quantile step formula, prove the endpoint is the worst neighboring ratio, solve the unique sharp threshold equation, or deliver the integer step-count and asymptotic exponent dichotomy. Those results require additional analysis of the positive Laplace representation of H. An older general graded-mesh theorem might nonetheless subsume the calculation; priority must remain qualified.",
+      "searches": [
+        "arxiv 2610.30454 SSAV BDF2 energy-rate equidistribution gradient flow exponential relaxation time mesh ratio exact minimum number steps sqrt dissipation monitor",
+        "exact adjacent time-step ratio of equidistributed dissipated exponential energy E(t)=exp(-lambda t), BDF2 step-ratio bound 1+sqrt2",
+        "Exact sharp minimum number of energy-rate equidistributed time steps on exponentially decaying energy to satisfy every variable-step BDF2 neighboring step-ratio bound; logarithmic adjacent interval ratio decreasing, final ratio maximal, comparing dissipation monitor power p=1 and p=1/2."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2610.30454v1: Sections 3.2 and 4.1 give monitor equidistribution and ratio clamping but not the closed-form exponential-grid maximum or minimum N.",
+        "https://arxiv.org/abs/2201.00527: arbitrary-grid BDF2 stability is a different assertion and neither computes nor bounds minimum steps for an equidistributed exponential monitor."
+      ],
+      "reasoning": "Potential aliases are graded exponential-time meshes, log-spaced transformed-energy nodes, and equidistributed exponential-density quantiles. A closed-form quantile is simpler than the new sharp all-ratios integer minimization; no inspected source stated an equivalent quantified boundary. The Laplace log-convexity identity may be classical and is not claimed itself as novel.",
+      "searches": [
+        "\"energy-rate equidistribution\" \"step ratio\" exponential gradient flow BDF2",
+        "\"equidistribution\" \"BDF2\" \"exponential\" \"step ratio\"",
+        "Ideal adaptive time mesh logarithmic exponential relaxation geometric grading adjacent step ratio H(u)/H(u+1) minimal N floor threshold u_R(D^p-1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2610.30454v1: example power monitors and convergence bounds occur, but no table of sharp integer step budgets for exponential energy decay in Sections 3–5.",
+        "The explicit values N=36 and N=4 for D=100 were obtained from the independently verified exact formula, not copied from a table."
+      ],
+      "reasoning": "The named numerical examples merely illustrate a continuous one-dimensional parameter-dependent theorem. Checked published-index similarities concern step-size optimization or BDF2 stability without this parameter mapping; no exact precomputed table was found.",
+      "searches": [
+        "energy equidistributed exponential decay time grids adjacent step ratios completely monotone log-convex",
+        "Exact sharp minimum number of energy-rate equidistributed time steps on exponentially decaying energy to satisfy every variable-step BDF2 neighboring step-ratio bound; logarithmic adjacent interval ratio decreasing, final ratio maximal, comparing dissipation monitor power p=1 and p=1/2."
+      ]
+    },
+    "rationale": "The complete strict step-count cutoff and monotone ordering of all adjacent ratios for exact power-monitor equidistribution of exponential dissipation are absent from the inspected motivating paper (equidistribution Proposition 2, monitor Proposition 3, Algorithm 1, convergence Proposition 8). The related variable-step BDF2 studies analyze stability or error, not the exact inverse monitor-grid step budget. Mathematical-index searches found no equivalent claim. A general graded-grid formula may imply the result; this is a residual priority risk, not a claim of exhaustive uniqueness.",
+    "residual_risks": [
+      "A classical general log-convexity, graded-mesh or variable-transform mesh design theorem may already imply the exact cutoff under another notation.",
+      "The analysis quantifies an ideal unregularized energy-dependent mesh, not the fully implemented adaptive algorithm.",
+      "The source-paper ratio threshold is sufficient in its framework; other BDF2 results permit larger ratios."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the monitor and BDF2 restrictions as prior; does not identify the sharp number of exactly equidistributed exponential-energy steps compatible with those restrictions.",
+        "evidence": [
+          "Section 3.2, Definition 3.1 and Proposition 2, equations (10) and (11)",
+          "Proposition 3(a,b) and combined monitor (c)",
+          "Section 4.1 ratio clamp and Proposition 8 ratio hypothesis"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30454v1",
+        "material_read": "Full accessible HTML through its problem setup, Definition 3.1 and Propositions 2–3, Algorithm 1, Proposition 8, time-stepper comparisons, numerical experiments and conclusions; explicit searches for exponential profiles, geometry and ratios.",
+        "method": "Read freely available primary arXiv HTML sections and nearby formulas.",
+        "title": "Energy-rate equidistribution for adaptive SSAV–BDF2 integration of gradient flows",
+        "trigger": "Same exact monitor definitions and adjacent-ratio hypothesis as the new claim"
+      },
+      {
+        "assessment": "Relevant BDF2 step-ratio results; no exact exponential dissipation monitor grid was identified in inspected material.",
+        "evidence": [
+          "2019 adaptive BDF2 analysis, introductory and ratio-condition discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1912.11182",
+        "material_read": "Open-access primary arXiv PDF abstract, introduction, method setup, and searches for monitor and equidistribution terms; complete paper not exhaustively checked.",
+        "method": "Read accessible PDF text and inspected the first page image.",
+        "title": "Analysis of adaptive BDF2 scheme for diffusion equations",
+        "trigger": "Possible broader earlier restriction for variable step-ratio convergence"
+      },
+      {
+        "assessment": "Demonstrates BDF2 stability can hold on arbitrary grids; therefore the cap in the new theorem is a stipulated design criterion, not a universal stability barrier.",
+        "evidence": [
+          "2022 paper abstract and introductory arbitrary-grid BDF2 stability theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+        "material_read": "Open-access primary arXiv PDF abstract, introduction, and searches for monitor/equidistribution; one page image inspected, not a line-by-line entire-paper reading.",
+        "method": "Read accessible PDF text and inspected the second page image.",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "A stronger general theorem might dominate the BDF2-related interpretation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d722922-b317-493b-964b-d70aab6d27f9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A design conflict arises when energy-rate equidistribution is used with a fixed maximum neighboring-step ratio. The exact sharp number of mesh intervals required to satisfy both restrictions is a motivated planning quantity, not an arbitrary example: for exponential relaxation it scales as D under the energy-rate monitor but only sqrt(D) under the square-root monitor. The single universal transcendental root of R gives the complete classification for every horizon, monitor exponent and strict cap, including equality cases. The result quantifies why the square-root alternative can avoid aggressive grid-ratio clamping at substantially lower mesh cost, without asserting an implementation-level performance theorem.",
+    "status": "PASS"
+  }
+}

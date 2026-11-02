@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For target state \\(t\\), reversing a reset word gives a rotating infection set whose first appearances follow a forced predecessor chain. Its \\(n-1\\) effective merge events require at least \\(t+(n-2)(n-1)\\) rotations, giving a sharp bound \\(L_n+t\\). At one letter of slack the extra inverse merge cannot remove a vertex; classifying its neutral phase yields exactly two boundary extensions, \\(n-1\\) doubled merges, and \\((n-2)(n-3)\\) internal split positions. The standalone verifier compares exact forward-subset counts for \\(n=2,\\ldots,13\\) and exhaustive literal sets for \\(n=2,\\ldots,8\\). No infinite conclusion is inferred from finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1702.05455 Sections 1–3 provides general reset-length upper bounds and the classic shortest Černý word.",
+        "arXiv:2207.05495 Sections 1–3 optimizes shortest-reset-length algorithms, rather than counting words one letter above that length.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3 addresses early deficiency, not the full-length reset boundary."
+      ],
+      "reasoning": "Neither generic bounds nor early rank-compression thresholds determine the number of distinct reset words of length \\(L_n+1\\). Other exact shortest-reset multiplicity results involve different transition structures. These do not dominate the present claim.",
+      "searches": [
+        "Cerny synchronizing automaton shortest reset word count number near shortest reset words length (n-1)^2+1 enumeration",
+        "Černý automaton exactly one longer than shortest reset words enumeration near minimal synchronizing words",
+        "\"second-shortest\" \"synchronizing\" \"Černý\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1702.05455 (first version 2017-02-17)",
+      "arXiv:1708.04864 (first version 2017-08-16)",
+      "arXiv:2207.05495 (first version 2022-07-03)",
+      "2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+      "2026/10/4/SCOPE-exactly-four-shortest-reset-words-in-the-deficiency-two-family-d--c55ed3dc1ef0",
+      "2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49",
+      "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1702.05455 states the known reset threshold and its four-state witness.",
+        "arXiv:1708.04864 studies factor-minimal reset words as regular ideals.",
+        "The closest published-finding corpus record 2026/10/4/SCOPE-exactly-four-shortest-reset-words-in-the-deficiency-two-family-d--c55ed3dc1ef0 counts shortest words for a different automaton."
+      ],
+      "reasoning": "Knowing the unique shortest word does not determine the next coefficient of a regular reset language: a letter inserted in the interior need not remain a reset word. The present result proves the full admissible-insertion classification using an independent inverse-preimage invariant. The other-family count has no implication for the present transitions.",
+      "searches": [
+        "Cerny synchronizing automaton shortest reset word count number near shortest reset words length (n-1)^2+1 enumeration",
+        "DFA Černý automaton reset language generating function reset word enumeration",
+        "Černý automaton exactly one longer than shortest reset words enumeration near minimal synchronizing words",
+        "one insertion near-optimal Černý reset words unique shortest language"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1708.04864 Sections 3–5 analyzes factor-minimal reset-word languages and ideal decompositions; it does not present the coefficient of the Černý reset language at length \\(L_n+1\\).",
+        "No equivalent expression for \\((n-2)^2+3\\) was found in the actual targeted searches."
+      ],
+      "reasoning": "A regular-language description or a general automaton algorithm can compute an instance but does not state, or directly algebraically specialize to, the identified all-\\(n\\) second-layer formula. No hidden implication was identified in the materially inspected theorems.",
+      "searches": [
+        "DFA Černý automaton reset language generating function reset word enumeration",
+        "(n-2)^2+3 Cerny automaton number of synchronizing words length (n-1)^2+1",
+        "number of \"reset words\" Černý automaton given length one more than reset threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual searches returned works on general reset thresholds, algorithms, and other automata, without a table or formula matching \\((n-2)^2+3\\).",
+        "Independent exact finite enumerations in verify.py agree for \\(n=2,\\ldots,13\\), but those are generated checks, not a pre-existing table."
+      ],
+      "reasoning": "A matching initial sequence alone would not prove novelty or coverage. No pre-existing exact table or generating function for this same family and the specified length was identified.",
+      "searches": [
+        "(n-2)^2+3 Cerny automaton number of synchronizing words length (n-1)^2+1",
+        "\"Černý automaton\" \"reset words\" \"enumeration\" second shortest",
+        "\"near shortest\" \"Černý\" number reset words",
+        "\"Černý automaton\" \"number of reset words\" length"
+      ]
+    },
+    "rationale": "The exact labeled second-shortest count \\((n-2)^2+3\\), terminal distribution, and complete word classification were not established by the inspected primary papers or retrieved research records. The classical sharp reset length and shortest word are expressly prior work. General reset-word ideals and fixed-instance algorithms do not themselves imply the stated uniform coefficient. Residual risk of an unlocated equivalent enumeration is acknowledged.",
+    "residual_risks": [
+      "A specialized older result in synchronizing-word language enumeration could imply this precise next-to-minimum coefficient without matching the searched terminology.",
+      "Some potentially related published research-record manuscripts were not accessible in full via the available public browser; their summaries, not complete contents, were compared.",
+      "No independent human or external formal proof audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the second-shortest reset-word count or classify near-optimal words.",
+        "evidence": [
+          "arXiv:1702.05455 introduction displays the four-state shortest word; Sections 2–3 bound avoiding and reset lengths."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.05455",
+        "material_read": "Primary accessible arXiv HTML: introduction, statements/proofs in Sections 2–3, and concluding open problems.",
+        "method": "Read primary HTML and compared definitions, Černý example, theorem conclusions and cited bounds.",
+        "title": "Improving the upper bound on the length of the shortest reset words",
+        "trigger": "Direct statement of the classical extremal Černý word and reset threshold."
+      },
+      {
+        "assessment": "The broad language theory does not give the specified coefficient or near-threshold classification for the Černý family.",
+        "evidence": [
+          "arXiv:1708.04864 Theorem 1 studies missing factors in minimal-reset languages; Theorems 3–4 concern reset ideal decompositions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.04864",
+        "material_read": "Primary accessible arXiv HTML: Section 3 theorem statements/proof framework and Sections 4–5 reset-ideal constructions.",
+        "method": "Inspected actual theorem statements, distinction between factor-minimal words and shortest-length words, and subsequent ideal constructions.",
+        "title": "Synchronizing automata and the language of minimal reset words",
+        "trigger": "A plausible dominating result about reset-word language ideals."
+      },
+      {
+        "assessment": "No same-family all-parameter near-threshold reset-word enumerator was identified.",
+        "evidence": [
+          "arXiv:2207.05495 Section 2 constructs an exact algorithm for the shortest reset threshold; Section 3 evaluates efficiency and random-automaton thresholds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.05495",
+        "material_read": "Primary accessible arXiv HTML: Sections 1–3, algorithm details, and the experiment conclusions.",
+        "method": "Compared the computed invariant (minimum length) and the new invariant (number and structure of words of the next length).",
+        "title": "An Improved Algorithm for Finding the Shortest Synchronizing Words",
+        "trigger": "Relevant exact algorithms could dominate a naive finite enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f41f687-5260-4c6c-a697-9698f69828d5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinct length-\\(L_n+1\\) reset words measure the first perturbative layer at a natural extremal synchronizing automaton. The exact count, complete insertion positions, and terminal-state split hold uniformly for all sizes and give interpretable structural rigidity beyond the known threshold or finite enumeration. This motivated boundary invariant is useful as a benchmark for algorithms enumerating or recognizing reset languages.",
+    "status": "PASS"
+  }
+}
