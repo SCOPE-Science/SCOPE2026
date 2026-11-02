@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and boundaries
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the extracted file directory. This checker uses only the Python 3 standard library and reports `VERIFY_OK exact_profiles 80 rejection_dimensions 3` on successful completion. It checks exact rational moment and determinant identities in 76 dimension-parameter profiles, independently integrates four planar polygons by exact triangle moments, and performs three direct-rejection covariance comparisons against the defining inequalities, with fixed random seeds. Numerical asymptotic diagnostics use dimensions 1,000, 10,000, and 100,000.
+## correctness
 
-The symbolic identities, measure-preserving tile decomposition, and the central limit theorem in `RESULT.md` are the actual evidence for arbitrary dimension. The finite numerical comparisons are corroborative only. Total-variation convergence is proved by an explicit coupling rather than statistical testing. No independent mathematical audit has occurred.
+PASS
+
+For every d>=2 and fixed 0<a<ell, the centered body is C+[-a/2,a/2]1. A.e. partition into a central delta-cube and d swept positive facets has Jacobian one, central mass delta/(delta+da), wing masses a/(delta+da). Integrating central and special-wing coordinate products proves zero mean, diagonal/offdiagonal covariance and the two stated eigenspaces exactly. The determinant combined with volume delta^(d-1)(delta+da) yields (12L^2)^d and the fixed-parameter limit d log(12L²)+log d→2. Coupling all but a singled-out wing index proves TV error (delta+ka)/(delta+da); conditional iid uniform CLT proves the empirical-mean Gaussian fluctuation. Independent 44 exact rational tile/moment/determinant profiles agree. The central+wing sampling is measure-uniform; finite checks do not establish the all-d or CLT claims.
+
+## originality
+
+PASS
+
+The isocanted shape, zonotope and exact total volume predate the claim. What survives is its body-uniform covariance tensor, isotropic constant correction, finite-marginal shared latent interval limit and quantitative coupling. Neither the examined complete 2020 combinatorial paper nor complete 2024 volume/polar-volume paper provides those probability statements. The closer 2025 face-measure paper remains full-text-unread; novelty is qualified, not guaranteed.
+
+## value
+
+PASS
+
+Uniform interior covariance and isotropic constant are natural affine/geometric-probability invariants of a canonical all-dimensional zonotope. Explicit dependent shared-shift limit and quantitative rate reveal high-dimensional behavior not determined by vertex/face data or scalar volume. An independent researcher can use the exact tensor in probabilistic convex geometry, so the result is not only a volume substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
