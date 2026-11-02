@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (C)
+## correctness
 
-PASS. The fixed-subgraph threshold theorem shows that every generator has a zero-one limit away from the reciprocal maximum densities of graphs on at most four vertices. The complete finite density set is \(\{1/2,2/3,3/4,1,5/4,3/2\}\), so the spectrum of every Boolean combination is contained in \(S=\{2/3,4/5,1,4/3,3/2,2\}\). Each of the six witness patterns is strictly balanced, and the standard Poisson limit has mean \(1/|\operatorname{Aut}(H)|\). The parity table gives the six stated limits, all strictly between zero and one.
+PASS
 
-## Originality (O)
+PASS: Complete independent enumeration of labelled simple graphs on 1..4 vertices yields possible positive maximum subgraph edge/vertex densities {1/2,2/3,3/4,1,5/4,3/2} (independent_checks.py: SIX_SPECTRA_OK). For each fixed H, classical subgraph threshold at n^-1/rho_max(H) gives 0/1 occurrence outside these six critical powers; finite Boolean combinations preserve 0/1 limits. The chosen six patterns are strictly balanced with automorphism counts 24,4,6,2,2,2 respectively, checked by independent full label-permutation enumeration, so critical copy counts tend to Poisson means 1/24,1/4,1/6,1/2,1/2,1/2. At each distinct critical alpha, the other five indicators have deterministic limits; direct parity gives e^-1/24, 1-e^-1/4, e^-1/6, 1-e^-1/2, e^-1/2, 1-e^-1/2, all strictly (0,1). The asymptotic theorem is an invoked published theorem, not inferred from finite enumeration.
 
-PASS with residual literature risk. The closest primary work, Yarovikov–Zhukovskii (arXiv:2111.11470v1; later DOI 10.1145/3641547), proves finiteness of the full quantifier-depth-four spectrum and explicitly states the fixed-subgraph threshold theorem. The inspected text does not give the exact maximum of six for the Boolean subgraph-occurrence fragment or the parity witness with its six limiting probabilities. Related finite-model spectrum and quantifier-rank results concern different spectra or structures. Searches do not prove absolute priority; that risk is recorded in AUDIT.json.
+## originality
 
-## Value (V)
+PASS
 
-PASS. The claim gives a complete exact invariant for a standard bounded-pattern fragment: it identifies every possible sparse phase-transition exponent and proves that all six can be realized simultaneously by one depth-four sentence. The explicit limiting probabilities make the sharpness witness reproducible and distinguish the result from the general statement that the full depth-four spectrum is finite.
+PASS best knowledge, with substantial routine-derivation risk: Yarovikov–Zhukovskii show finite spectrum for all FO depth four and state fixed-subgraph threshold technology, but not the exact bound and six-bit witness for Boolean non-induced occurrence fragment. Strict-balanced Poisson limits are classical. The complete restricted result is an elementary combination of known pieces and independent finite classification; it is not claimed as a new probability limit theorem, nor as a bound for all FO4.
 
-## Closest literature and limitations
+## value
 
-The full first-order depth-four result is broader in syntax but does not state this exact fragment-specific maximum. Classical random-graph threshold and Poisson theorems supply the asymptotic tools. The theorem does not classify the full depth-four spectrum, and the full texts of the 1986 threshold source and 1990 Poisson-limit source were not directly inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The bounded-pattern non-induced graph-query Boolean fragment is natural in sparse random-graph descriptive complexity. Identifying the entire six-point spectral support and one formula attaining every point is a complete exact phase-transition classification for a nontrivial bounded syntax, useful to separate it from full FO quantifier-depth-4 spectra. Uses standard thresholds and small finite graph enumeration, so the contribution is exact fragment-wide synthesis rather than a new asymptotic threshold theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
