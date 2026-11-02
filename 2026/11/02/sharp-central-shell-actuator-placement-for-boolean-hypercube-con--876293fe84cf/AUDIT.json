@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Complete real-number argument: hypercube Walsh spectra give exact PBH lower bound; the rank-incidence commutator proves injections between lower Hamming shells; complement parity and adjacency recurrence prove the central slice is a uniqueness set for any odd-cube eigenvector. For an even cube, restriction to one facet splits into Walsh degrees k and k-1; two complementary middle face shells separate these components and the odd result kills both. The eigen-equation then kills the opposite facet. Both constructed sizes equal the maximum multiplicity. Two-field exact modular replay tested 130 spectral restriction ranks and 10 direct Kalman ranks, only for finite dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang–Camlibel–Cao 2011, Theorem 1, gives the necessary condition diameter × number of inputs at least number of vertices minus one; Corollary 1 gives the sufficient size N-diameter.",
+        "Dai 2023 characterizes other graph families using critical sets, without asserting the stated shell/facet hypercube placement."
+      ],
+      "reasoning": "The generic distance-regular selection has much larger cardinality for cubes in dimensions at least three and does not imply the sharp set; the later critical-set framework lacks a hypercube-specific theorem in inspected sections.",
+      "searches": [
+        "controllability of hypercube networks cube graph leader selection Laplacian central binomial",
+        "https://skoge.folk.ntnu.no/prost/proceedings/cdc-ecc-2011/data/papers/0872.pdf",
+        "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12385"
+      ]
+    },
+    "checked_sources": [
+      "https://skoge.folk.ntnu.no/prost/proceedings/cdc-ecc-2011/data/papers/0872.pdf",
+      "https://www.nature.com/articles/ncomms3447",
+      "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12385",
+      "https://www.researchgate.net/publication/357772457_Signed_zero_forcing_number_and_controllability_for_a_networks_system_with_a_directed_hypercube",
+      "https://doi.org/10.1137/060674909"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2011 paper Theorem 2 selects all but one vertex per distance shell, whereas the present construction uses one central shell (odd) or two face shells (even).",
+        "2022 paper explicitly treats directed hypercubes through signed zero forcing rather than the fixed undirected symmetric Laplacian."
+      ],
+      "reasoning": "The new shell uniqueness proof is not an automatic consequence of knowing eigenvalue multiplicities; PBH requires simultaneous full-rank evaluation on every eigenspace for the one fixed vertex set. Inspected sources do not establish those restrictions, although stronger unindexed interpolation theorems remain a risk.",
+      "searches": [
+        "\"minimum number of leaders\" hypercube \"binomial\"",
+        "\"Boolean cube\" controllability leaders binomial",
+        "https://doi.org/10.1109/CDC.2011.6160658",
+        "https://doi.org/10.1051/matecconf/202235501012"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The general maximum eigenvalue multiplicity bound, and an abstract count-of-inputs theorem, are stated in Yuan et al. 2013.",
+        "2011 distance-regular paper gives general necessary and sufficient conditions but not a central-sphere choice."
+      ],
+      "reasoning": "Generic eigenvalue-multiplicity statements may cover the numerical minimum as an abstract count, but do not specify the claimed coordinate-node sets in each parity. Claim novelty is confined to constructive, dimension-uniform optimal location and shell uniqueness.",
+      "searches": [
+        "hypercube graph controllability minimum leaders binomial coefficients eigenvalue multiplicity",
+        "hypercube controllability minimal input nodes maximum eigenvalue multiplicity Hamming cube binary Fourier",
+        "Boolean hypercube Laplacian leader controllability optimal actuator placement central binomial coefficient",
+        "https://www.nature.com/articles/ncomms3447"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Yuan et al. 2013, Table 1, lists regular unweighted networks such as paths/rings/stars/cliques, not the two parity-dependent hypercube vertex sets.",
+        "Search located Mou–Zhang 2022 on directed hypercubes, whose objective is a signed zero-forcing upper bound rather than exact undirected Laplacian eigenspace control."
+      ],
+      "reasoning": "No checked table contains the specified exact coordinate selection. A generic numerical multiplicity entry, if located elsewhere, would not by itself imply either explicit location statement.",
+      "searches": [
+        "\"hypercube\" \"leader\" \"controllability\" Laplacian",
+        "\"hypercube\" \"driver nodes\" \"binomial\" controllability",
+        "\"hypercube\" \"minimal\" \"leaders\" controllability",
+        "https://www.nature.com/articles/ncomms3447"
+      ]
+    },
+    "rationale": "Novelty is not attributed to the general PBH or maximum-multiplicity theorem, which is covered. The distinctive all-dimensional *explicit* dedicated-vertex placement and spectral uniqueness argument were not found in the inspected graph-control literature; the nearest direct distance-regular theorem gives a substantially larger sufficient set and no such local geometry. Historical equivalence outside inspected material remains a risk.",
+    "residual_risks": [
+      "General 2013 maximum-multiplicity theory may already imply the number of independent controls; novelty should be understood strictly as explicit coordinate-vertex placement and proof.",
+      "The 2009 symmetry paper could not be inspected in full, so a specialized equivalence in unreviewed sections is possible.",
+      "Boolean-slice interpolation literature may contain the underlying uniqueness lemma under different terminology.",
+      "Parts of the 2022 directed hypercube article text were garbled, but its directed model and upper-bound nature were readable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its N-diameter sufficient bound and cycle/complete-graph constructions do not give the claimed binomial-size hypercube placement.",
+        "evidence": [
+          "Theorem 1: diameter times leader count >= N-1.",
+          "Corollary 1: N-diameter leaders suffice.",
+          "Section VI specializes to cycles and complete graphs."
+        ],
+        "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/cdc-ecc-2011/data/papers/0872.pdf",
+        "material_read": "Primary PDF abstract, formulation, Sections V–VI including Theorems 1–3 and Corollary 1, and conclusion.",
+        "method": "Full-text theorem and implication comparison; viewed original pages 1, 5, and 6 of six.",
+        "title": "Controllability of Diffusively-Coupled Multi-Agent Systems with General and Distance Regular Coupling Topologies",
+        "trigger": "Hypercubes are distance-regular; this paper is a directly applicable pre-2016 multileader study."
+      },
+      {
+        "assessment": "The abstract lower-bound/count concept is known; the central-shell/facet construction is not in inspected text.",
+        "evidence": [
+          "General max-geometric-multiplicity formula; example table for chain, ring, star and complete graph."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/ncomms3447",
+        "material_read": "Open-access HTML introduction, exact-controllability measurements, driver-identification section and Table 1.",
+        "method": "Statement and implication comparison between arbitrary input counts and explicit binary-coordinate leader positions.",
+        "title": "Exact Controllability of Complex Networks",
+        "trigger": "General maximum-geometric-multiplicity driver theorem potentially dominating the claimed count."
+      },
+      {
+        "assessment": "The examined treatments concern critical sets and specific families, without the shell/facet hypercube theorem.",
+        "evidence": [
+          "Abstract names deterministic scale-free networks and Cayley trees, rather than hypercubes."
+        ],
+        "identifier_or_url": "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12385",
+        "material_read": "HTML abstract, introduction and contributions, Proposition 1, and concluding remarks.",
+        "method": "Graph-family and specified-controller comparison.",
+        "title": "Minimum Leader Selection for Controllability of Undirected Graphs with Leader–Follower Framework",
+        "trigger": "Modern methods for minimum dedicated leader selection."
+      },
+      {
+        "assessment": "Distinct directed structural robustness problem; the available Theorem 3.9 states an upper bound rather than the exact undirected spectral selector claimed here.",
+        "evidence": [
+          "Definition 3.6: directed hypercube has directed edges.",
+          "Theorem 3.9: upper bound on a minimum-leader quantity in its directed model."
+        ],
+        "identifier_or_url": "https://doi.org/10.1051/matecconf/202235501012",
+        "material_read": "Author-posted text including abstract, directed-hypercube definition, Theorems 3.8–3.9 and conclusion (some mathematical glyphs garbled).",
+        "method": "Compare directed sign-pattern family and bound to the symmetric unit-weight Laplacian, noting text corruption.",
+        "title": "Signed Zero Forcing Number and Controllability for a Networks System with a Directed Hypercube",
+        "trigger": "Exact title overlaps hypercubes and minimum control vertices."
+      },
+      {
+        "assessment": "Plausible but unresolved detailed-content comparison; its symmetry subject alone does not dominate the explicit shell/facet theorem.",
+        "evidence": [
+          "Abstract discusses automorphism symmetry and equitable partitions; publicly available online date 2009-02-11."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060674909",
+        "material_read": "Publisher abstract, MSC classification and publication-history information; full original text not accessible.",
+        "method": "Abstract-level contextual comparison; not a whole-document noncoverage judgment.",
+        "title": "Controllability of Multi-Agent Systems from a Graph-Theoretic Perspective",
+        "trigger": "Early symmetry/equitable partition methods, focal pre-2016 source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "876293fe-84cf-4620-a07a-495118584778",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural exponential graph family is given a complete constructive vertex-specific optimal actuator placement, with no numerical search. Unlike an abstract multiplicity count, the theorem identifies actual nodes achieving PBH simultaneously for every spectral mode, splits the geometry correctly by parity, and establishes a sharp eigenfunction uniqueness principle. It shows the minimum controllable fraction is asymptotic to sqrt(2/(pi*d)), useful for interpreting scalable distributed control.",
+    "status": "PASS"
+  }
+}
