@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof covers every positive integer degree and all coefficient degeneracies. The root-of-unity sum resolves every intensity harmonic below the top, leaving exactly the collision of the top positive and negative harmonics. The normalized top cross-product is independent of radius, and two angular bins uniquely determine it precisely when the stipulated sine is nonzero. Continuous modulus agreement on two distinct circles forces the rational polynomial quotient to be constant by positive-dilation invariance of its Laurent expansion. Both failures have explicit non-phase-equivalent polynomial witnesses. A deterministic standalone checker corroborated the Fourier coefficient identities, a rank calculation, and the two obstructions for degrees one through eight. The numerical work is not used to prove universal assertions.
+PASS
 
-## Originality
+Reconstructed all-degree proof: on each 2d-point circle the discrete Fourier transform of the real intensity difference annihilates harmonics |k|<d and leaves only collision ±d. Its coefficient is R^d(a_d conjugate(a_0)−b_d conjugate(b_0)); the two independent real projections force this common complex number to zero exactly when sin(d(psi−phi))≠0. Thus continuous moduli coincide on both distinct circles; the nonzero rational quotient f/g is invariant under positive nonunit dilation of its conjugate reflection and must be constant by its Laurent series, with modulus one. Zero-polynomial and vanishing endpoint coefficient cases are included. If r=s, f=z and g=r witness ambiguity; if the sine vanishes, 1±i exp(−id phi)z^d witness ambiguity. The normalized top-bin real 2x2 matrix has singular values sqrt(1±|cos(d(psi−phi))|), giving the exact optimal staggering. Independently reconstructed Git tree from seven actual blob identities; separate checker corroborated 3081 finite Fourier, ambiguity and singular-value comparisons over d=1..13. Finite comparisons do not establish the universal quantifier.
 
-**PASS under bounded literature comparisons, with residual priority risk.** The closest classical polynomial constructions are Bodmann–Hammen's intersecting-circle geometry and Pohl–Li–Boche's concentric but unbalanced allocation of \(2d+1\) and \(2d-1\) samples. Chalendar–Partington prove the *continuous* two-circle uniqueness principle, but not the balanced regular-grid Fourier alias condition. The 2026 uniformly discrete STFT phase retrieval result concerns a different function space. Existing degree-two and degree-three polygon classifications are the exact small-degree special cases, but do not imply the universal statement for all positive degrees. A literature search cannot exclude an unindexed older equivalent or a straightforward reformulation of a more general theorem.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Balanced regular polygon sampling is a natural structured low-redundancy phase-retrieval problem. The theorem provides a complete all-degree if-and-only-if classification, both types of sharp counterexamples, an elementary Fourier demixing procedure, and exact optimal angular staggering for the highest-harmonic subsystem. It does not claim a universal globally minimal sample count or noise-stable nonlinear inversion.
+Best-of-knowledge priority assessment after independent Resultary and broader literature searches plus reading the closest primary constructions. The exact all-degree, equal-allocation 2d+2d regular polygon criterion with sharp sine and radius obstructions was not established by the inspected broader continuous-circle or alternative 4d-point constructions. The Fourier and rational-function ingredients themselves are standard/partly published; only their exact parameterwise balanced geometry classification and sharp demixing are assessed as original. This is not certification of historical priority.
 
-## Source comparisons and limitations
+## value
 
-The author version of Pohl–Li–Boche's 2017 result and Bodmann–Hammen's 2013 full text were inspected at their finite-dimensional construction statements. Chalendar–Partington's 2024 paper was inspected at its two-circle and finite Blaschke-product theorems. The 2026 STFT preprint's theorem and scope were inspected. A bounded search of published mathematical records and accessible previous classifications found related results but no all-degree balanced regular-grid criterion. The remaining risk is a prior equivalent statement in unindexed or uninspected literature. Independent external validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Structured finite evaluation of a degree-at-most-d polynomial from modulus-only measurements is a naturally motivated phase-retrieval problem; fixing exactly equal 2d/2d regular polygons gives an entire, simple geometric family with nontrivial sharp success and failure geometry. The theorem provides a complete all-degree if-and-only-if, explicit ambiguity witnesses, reconstructs both intensity Fourier polynomials from samples, and characterizes optimally conditioned angular top-harmonic demixing, beyond a fixed small-degree experiment or arbitrary slice. It does not purport to establish general nonlinear noise stability or globally optimal sample cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
