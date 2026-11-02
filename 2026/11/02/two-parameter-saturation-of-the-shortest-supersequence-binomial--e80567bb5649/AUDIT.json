@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Parikh lower bound and terminal clash force length >=2pn+1. At that length, a terminal-letter split reduces membership to two boundary-separation conditions. Every marked postboundary opposite letter deletes exactly once; a minimum-milestone-count contradiction proves the inverse inserts all 2(n-1) letters before the last unmarked one. Thus the bijection is valid for all p,n>=2. Actual standalone tests passed 84 DP cases, 14706 bridges and 5960 brute words; no finite test substitutes for the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin establishes a general inequality bounding the shortest-supersequence count by C(a+b,a); after setting a=b=h it reads C(2h,h).",
+        "The supplied construction attains that ceiling for both p,n>=2 and supplies an explicit inverse, which the inequality alone cannot establish."
+      ],
+      "reasoning": "A universal upper bound does not imply that these particular highly overlapping inputs attain it. An arbitrary-input generation algorithm can enumerate the answers but does not itself state their number or the equality characterization.",
+      "searches": [
+        "arxiv:2609.26650v1",
+        "arxiv:2209.11882v1",
+        "arxiv:2603.22591v1",
+        "exact number of shortest common supersequences of (0^p 1)^n and (1^p 0)^n periodic complementary run words central binomial"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.22591v1",
+      "arxiv:2609.26650v1",
+      "arxiv:2209.11882v1",
+      "earlier opposite-single-block claim",
+      "semantic searches of published mathematical research records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior universal inequality is an upper bound only.",
+        "The older opposite single-block result uses 0^m1^m versus 1^m0^m and has a profile of variable minimal lengths; repeated 0^p1 / 1^p0 input blocks with n>=2 are not a substitution instance.",
+        "The new proof establishes exact attainability and a bijection, not a stronger general inequality."
+      ],
+      "reasoning": "Neither the known upper-bound statement nor the distinct single-block enumeration logically forces equality for the repeated-run strings. The binomial count here concerns shortest words; no claim is made about longer deletion-minimal supersequences.",
+      "searches": [
+        "arxiv:2609.26650v1",
+        "arxiv:2603.22591v1",
+        "arxiv:2209.11882v1",
+        "Complete length spectrum of minimal common supersequences for opposite binary blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact count is equivalent to equality in the general shortest-supersequence count bound when both excess lengths equal h=(p-1)n+1.",
+        "The bijection identifies shortest supersequences with all balanced length-2h words."
+      ],
+      "reasoning": "The primary literature discusses general enumeration and the generic binomial estimate; searches for the repeated complementary run inputs and balanced-bridge equality did not reveal their exact family-specific classification. No uniqueness is inferred from missing search hits.",
+      "searches": [
+        "exact number of shortest common supersequences of (0^p 1)^n and (1^p 0)^n periodic complementary run words central binomial",
+        "shortest common supersequences repeated opposite binary blocks central binomial count binomial two periodic words",
+        "minimal common supersequences opposite periodic runs (001)^n (110)^n all minimal shortest",
+        "arxiv:2603.22591v1",
+        "arxiv:2609.26650v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact periodic-run supersequence counting table or sequence was found in the returned ranked research records.",
+        "An accessible prior result treats opposite *single* blocks with different length spectra; it is not this repeated-run input family."
+      ],
+      "reasoning": "The closest returned records concern adjacent-pair spectra or subsequence universality; these observables differ from minimal-supersequence counts. Lack of an indexed result does not establish nonexistence.",
+      "searches": [
+        "exact number of shortest common supersequences of (0^p 1)^n and (1^p 0)^n periodic complementary run words central binomial",
+        "shortest common supersequences repeated opposite binary blocks central binomial count binomial two periodic words",
+        "minimal common supersequences opposite periodic runs (001)^n (110)^n all minimal shortest",
+        "Complete length spectrum of minimal common supersequences for opposite binary blocks",
+        "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "rationale": "The inspected Lin paper states a general C(a+b,a) bound and the inspected Sopp paper discusses general enumeration, but neither inspected material explicitly gives the repeated-run equality family with a balanced bridge bijection. The related single-block case does not imply it. Priority residuals from unindexed work and incompletely accessible older full text remain acknowledged.",
+    "residual_risks": [
+      "Earlier general counting papers, especially the 2022 primary full text, were not available for full textual inspection.",
+      "Search indexing may omit a previously published periodic-run equality case.",
+      "No independent priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General algorithmic results; no equality classification in inspected sections; incomplete-inspection risk retained",
+        "evidence": [
+          "2026-03-23 arXiv posting; stated O(n)-delay enumeration of minimal supersequences"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.22591",
+        "material_read": "arXiv HTML abstract, introduction, definitions and description of the enumeration method, especially lines 30-75; not the entire article",
+        "method": "direct primary HTML",
+        "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+        "trigger": "2026 general framework for minimal supersequence enumeration"
+      },
+      {
+        "assessment": "Explicit C(a+b,a) upper bound for r=0; exact repeated-run equality family not stated in inspected results",
+        "evidence": [
+          "2026-09-22 first arXiv version; Lemma 3.1 upper bound and Pascal induction"
+        ],
+        "identifier_or_url": "https://www.paperpeel.com/paper/2609.26650",
+        "material_read": "full accessible HTML representation, including introduction, lemma bounding minimal supersequence counts, proof and ensuing applications (lines 29-107)",
+        "method": "accessible textual rendering linked to arXiv primary paper",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "general upper bound that the present family saturates"
+      },
+      {
+        "assessment": "Earlier general upper-bound context; unresolved specific-claim coverage risk because full text not read",
+        "evidence": [
+          "2022-09-23 abstract mentions counts of longest common subsequences and shortest common supersequences"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11882",
+        "material_read": "arXiv abstract, not full text; HTML full text unavailable",
+        "method": "public arXiv abstract and 2026 citing description",
+        "title": "Logarithmically larger deletion codes of all distances",
+        "trigger": "prior counting theorem underlying the 2026 binomial bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e80567bb-5649-48ac-bd26-73f604d7f151",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent binomial bound has nontrivial overlapping equality cases: this infinite two-parameter pair family has LCS length 2n-1 and reaches the full C(2h,h) ceiling. The explicit balanced-bridge bijection gives a complete construction and natural model for enumeration/sampling; it is not a parameter-free restatement of the inequality.",
+    "status": "PASS"
+  }
+}
