@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies all near-shortest \(k\)-universal fixed-composition words into two disjoint families using the unique greedy arch factorization, and computes every scattered-\(01\) contribution of each family. The resulting exact all-\(k\) product identity implies each claimed coefficient, bound, and peak. Independently written finite enumeration checks \(k=1\) through \(9\), including direct all-pattern testing through \(k=5\). These computations do not stand in for the general proof.
+## correctness
 
-## Originality — PASS within examined literature
-The closest primary source, Fazekas–Huang–Mercaş (arXiv:2610.06717), supplies the arch characterization and Parikh-fiber existential/∀-universal conditions. Richomme (arXiv:2510.07159) identifies fixed binary 2-decks with bounded partitions. A relevant research record counts all words by universality index, but without the scattered-\(01\) statistic. The joint \(01\)-enumerator for \((k+1,k)\) is not stated by these results; the proof computes the missing refinement. The unrefined total alone is not asserted to be new. An unindexed equivalent formula remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The count is indexed simultaneously by arbitrarily large universality order and exact scattered-pair number. It characterizes the whole first nonminimal composition layer, not a routine short table, and exhibits a natural three-point modal plateau, symmetry, and sharp support. Fixed scattered-pair counts are precisely binary Parikh-matrix/2-deck fibers.
+For binary words, the greedy shortest-complete-arch count equals k-subsequence universality index. Composition (k+1 zeros,k ones) and length 2k+1 force exactly k full arches, each with one 1, with either k two-letter 01/10 arches and trailing 0, or k arches and no suffix with exactly one length-three arch necessarily 001. The first contributes z^C(k,2)(1+z)^k; the second contributes z^C(k,2)(1+z)^(k-1) sum_{j=1}^k z^(k-j+2). Factoring gives stated polynomial, and its convolution coefficients, symmetric support 0..2k, three-point maximum and total follow algebraically. New exhaustive fixed-composition enumeration independently verified each coefficient for k=1..8, with explicit all-pattern universality cross-check k<=4. These finite checks do not replace the all-k structural proof.
 
-## Scope and limits
-Exactly \(k+1\) zeros and \(k\) ones, arbitrary \(k\ge1\), and exact scattered-\(01\) statistic. No general composition, larger surplus, or greater alphabet assertion is made. Only the stated self-review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact q-enumerator of a natural first-redundancy fixed-composition class, not original greedy arch criterion or unrefined count. Closest 2026 primary paper gives existence/all index questions for fixed Parikh matrices; original 2025 partition work counts all fixed-01 words, not those that are subsequence universal.
+
+## value
+
+PASS
+
+A complete coefficient distribution for a canonical first-redundancy universality layer, refining previously known unweighted counts by the natural scattered pair statistic used in Parikh matrices. The polynomial yields exact support, a symmetric unimodal law and sharp plateau; not an arbitrary numerical slice, and its exact self-contained classification does not require a larger theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
