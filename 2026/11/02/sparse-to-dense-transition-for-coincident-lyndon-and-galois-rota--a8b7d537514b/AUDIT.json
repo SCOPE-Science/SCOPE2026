@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The 1-based alternating parity is checked against the 2024 definition. Circular 00 makes the minima incompatible. For positive gaps, the first mismatch between a shorter and longer first gap is at position a+2. If the unique minimum is odd, both select it; if even, agreement is impossible. For three gaps a repeated odd minimum still selects the same rotation, at first mismatch 2a+3. Anchored compositions derive both rational generating functions and the all-k unique-minimum enumerator. Its order-k pole yields half of primitive fixed-content necklaces; the circular no-00 count and exponentially negligible periodic words give the positive-density exclusion. A directly enumerating verifier checked the specified finite ranges; finite checks are not used to prove infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hendrian et al., Theorems 25, 32, 36: linear-time recognition, factorization and Galois rotation; their Section 8 counts factors in datasets, not a fixed-content simultaneous-rotation distribution.",
+        "Dolce–Restivo–Reutenauer, Theorems 32-33: prefix characterization and first Galois factor, no global comparison counts.",
+        "Reutenauer, Mots de Lyndon généralisés, Sections 2-3: general cyclic order, Galois words and homographic classes."
+      ],
+      "reasoning": "Algorithms computing either canonical rotation for each input do not state the global number of simultaneous minima by content or the limit regimes. Generalized Lyndon factorization characterizes words but does not give this quantitative intersection theorem. All three source scopes were compared at the claim level.",
+      "searches": [
+        "arXiv 2403.02636 Algorithms for Galois Words Detection Factorization Rotation comparison Lyndon cyclic normal form",
+        "arXiv 1812.04515 generalized Lyndon words alternating vs ordinary lexicographic minimal rotations",
+        "Galois words Lyndon words alternate lex order simultaneous minimum rotation intersection enumeration binary necklaces"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.02636",
+      "doi:10.4230/LIPIcs.CPM.2024.18",
+      "arxiv:1812.04515",
+      "Reutenauer 2006, Séminaire Lotharingien de Combinatoire 54 B54h",
+      "OEIS Lyndon-word index, https://oeis.org/locate_tab.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 algorithms output a canonical Galois representative for a given word; no count of agreement with the ordinary representative, sparse asymptotic, or dense exponential estimate appears in its statements.",
+        "The 2018 paper supplies generalized Lyndon characterizations but not the joint fixed-content law.",
+        "Classical fixed-content Möbius formula gives \\(P_{n,k}\\), not the claimed \\(C_{n,k}\\)."
+      ],
+      "reasoning": "The new claim is an additional comparison of two different minimization orders. Knowing how to compute each minimum and how to count all primitive necklaces does not imply the count or law of their coincidences. The proofs use the novel gap-parity comparison and a positive-density adjacency obstruction. A stronger unindexed equivalence cannot be conclusively excluded.",
+      "searches": [
+        "Galois words alternating lexicographic order Lyndon words binary necklaces canonical representative gap sequence intersection",
+        "arxiv:2403.02636",
+        "arxiv:1812.04515",
+        "Reutenauer 2006 Mots de Lyndon généralisés"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hendrian et al., arXiv:2403.02636, Sections 1-3 and 7-8, defines lexicographic and alternating cyclic minima but presents rotation algorithms rather than coincidence counts.",
+        "Dolce–Restivo–Reutenauer, arXiv:1812.04515, Sections 6 and 7, treats generalized Lyndon characterizations and factorization."
+      ],
+      "reasoning": "The same property is equivalently a word that is simultaneously Lyndon and Galois, or a primitive necklace with coincident ordinary and alternating cyclic least rotations. These aliases were searched. The inspected results do not quantify their fixed-content intersection or its asymptotic transition.",
+      "searches": [
+        "Galois words alternating order enumeration number binary primitive necklaces weight two Galois rotations",
+        "Galois Lyndon word enumeration distinct necklaces parity alternating lexicographic order",
+        "Coincidence of lexicographically minimal Lyndon rotation and alternating-order Galois rotation of binary necklaces, fixed number zeros, exactly half asymptotically",
+        "Binary Lyndon and Galois words simultaneous intersection fixed co-weight two or three, generating function, cyclic gap parity",
+        "\"simultaneously Lyndon and Galois\" words",
+        "\"both Lyndon and Galois\" words enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS index for Lyndon word sequences and primitive necklaces provides classical necklaces and general tables, not an identified simultaneous Galois/Lyndon fixed-content table.",
+        "Hendrian et al., Section 8 Table 1, concerns factor counts across datasets, not rotation-coincidence counts."
+      ],
+      "reasoning": "No exact indexed table of coincident two-order minima was found. The classical Möbius fixed-content necklace denominator and the elementary k=2 floor sequence may appear under unrelated interpretations, but they do not state or cover the two-order intersection theorem; sequence non-discovery is not treated as novelty proof.",
+      "searches": [
+        "site:oeis.org \"Galois words\" \"Lyndon\" binary",
+        "site:oeis.org \"both\" \"Galois\" \"Lyndon\"",
+        "site:oeis.org \"alternating order\" \"Lyndon\"",
+        "Fixed k zeros primitive binary necklace shortest odd one-run unique minimal gap Lyndon Galois simultaneous distribution"
+      ]
+    },
+    "rationale": "The exact agreement statistic is not established by the primary articles defining or algorithmically computing Galois rotations, or by the standard necklace formula. The explicit two- and three-zero generating functions, exact arbitrary-fixed-zero subfamily, and half-versus-zero asymptotic contrast do not follow from their published claims without new comparison and counting. A possible equivalent unindexed study remains a residual priority risk.",
+    "residual_risks": [
+      "A separately indexed or unindexed equivalent intersection theorem may exist under another phrase, or in subsequent Galois-word enumeration work not retrieved by these searches.",
+      "A more general all-orders or fixed-content theorem could imply the claim without explicitly using the same title; none was identified in the materially inspected primary sources.",
+      "No external independent priority determination is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines Galois minimum and computes it; no matching fixed-zero coincidence counts or asymptotics identified",
+        "evidence": [
+          "Definition of alternate order at publisher PDF p3; Theorem 36 p13; experiments p14; arXiv initial date 2024-03-05"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.02636",
+        "material_read": "Full 16-page lawful publisher open-access PDF, including Sections 1-3, 5-8 and Table 1, plus abstract and arXiv article",
+        "method": "Direct text and page-image inspection; theorem statements, rotation definitions, experiments and references compared",
+        "title": "Algorithms for Galois Words: Detection, Factorization, and Rotation",
+        "trigger": "Same objects and both canonical rotations; plausible dominant source"
+      },
+      {
+        "assessment": "No fixed-weight count for simultaneous ordinary/alternating least rotations in inspected material",
+        "evidence": [
+          "arXiv first public 2018-12-11; Theorems 32-33; Remarks and open problems p13"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.04515",
+        "material_read": "16-page lawful arXiv version, with definitions, Sections 6-7, examples and theorem statements",
+        "method": "Text and page-image review of Galois characterization, factorization, remarks and references",
+        "title": "On generalized Lyndon words",
+        "trigger": "Original detailed generalized and Galois Lyndon characterizations"
+      },
+      {
+        "assessment": "Background normal form and homographic number bijections, not stated two-order coincidence distributions",
+        "evidence": [
+          "Séminaire Lotharingien de Combinatoire 54, B54h, sections 2-3"
+        ],
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/s/s54reut.pdf",
+        "material_read": "Lawful public PDF, Sections 2-3 including cyclic representatives, numbers and algorithm of Schützenberger–Melançon",
+        "method": "Direct text and page inspection of primitive cyclic word/Galois correspondence and later remarks",
+        "title": "Mots de Lyndon généralisés",
+        "trigger": "Foundational earlier Galois-word source with cyclic-normal-form theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8b7d537-514b-4e91-8aca-706f87b87d3c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The intersection of classical and alternating canonical cyclic representations is a motivated stability statistic in combinatorics on words and Burrows–Wheeler variants. Exact fixed-content counts, a general exact subfamily, and a sharp half-versus-exponentially-zero asymptotic change provide structural information not supplied by algorithmic access to either representative. The result is not merely a low-length table or the standard primitive-necklace total.",
+    "status": "PASS"
+  }
+}
