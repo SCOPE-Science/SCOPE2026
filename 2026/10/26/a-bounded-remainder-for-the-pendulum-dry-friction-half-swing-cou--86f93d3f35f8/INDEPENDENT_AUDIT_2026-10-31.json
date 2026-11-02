@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:08:25.871024Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X>=6epsilon, g(z)=cos z-cos X-epsilon(X+z) is strictly decreasing; g(X)<0 and g(0)>0 by 1-cos X>=2X²/pi², ensuring a unique next root z in (0,X). Let Delta=X-z and m=(X+z)/2. Energy identity integral_z^X sin t dt=2epsilon m, whereas F(X)-F(z) with F prime=sin t/(2t) differs from epsilon by a symmetric Taylor defect whose linear term integrates to zero; the smooth kernel sin t/(2t) extends with bounded derivatives to zero and yields |e|<=C Delta³. Uniform Delta²<=C epsilon, all Delta disjoint and sum Delta<=pi, so total defect <=C epsilon. For small X<=pi/2, Delta<=pi epsilon and X>=6epsilon imply Delta<=m, so no singularity is introduced. The terminal F(X_K)<3epsilon. Telescoping gives D=K epsilon+O(epsilon) and therefore a bounded absolute error. Independent high-precision evaluation of D=0.9259685259912329 and six recursively solved parameter values epsilon=.02,...,.0005 produced K=44,90,183,460,923,1849 with bounded K-D/epsilon about -2.30 to -2.98; this diagnostic is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ovseevich theorem estimates maximal switching count of optimal trajectories at leading order; it does not give the stated O(1) for this specific quasioptimal recurrence.",
+          "Reshmin 2009 accessible abstract concerns a large-control single-switch regime."
+        ],
+        "reasoning": "A stronger general quantitative uniform discretization theorem may imply this via application, but the inspected broader pendulum results do not supply that bound with this endpoint convention.",
+        "searches": [
+          "minimum time physical pendulum dry friction optimal control switching asymptotic Ovseevich theorem [web]",
+          "Reshmin 2009 bifurcation time optimal one switch control [web]"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1311.5729, Eq.(2.16), Theorem 3.1, Eq.(3.4) and full original PDF",
+        "DOI:10.1016/j.jappmathmech.2009.08.011 (abstract only)",
+        "Resultary query: pendulum dry friction half swing Poincare recurrence epsilon count bounded O(1) remainder integral sin x over 2x Ovseevich"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same recurrence and constant D are expressly pre-existing; Ovseevich proof uses local epsilon+o(epsilon), which by itself does not sum to an O(epsilon) global error.",
+          "This review derives a per-step O(Delta³) bound with total O(epsilon), leading to K=D/epsilon+O(1)."
+        ],
+        "reasoning": "The specific bounded remainder is not a corollary of the previously stated leading limit absent a sharper uniform local estimate. No claim is made about optimal-control switching count.",
+        "searches": [
+          "Ovseevich arXiv:1311.5729 Eq (2.16) Theorem 3.1 and formula (3.4)",
+          "Reshmin DOI:10.1016/j.jappmathmech.2009.08.011"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ovseevich arXiv:1311.5729, Eq. (2.16), has the exact same energy-loss recurrence, and Theorem 3.1 states lim epsilon N_epsilon(u)=D.",
+          "The present stopping threshold X<6epsilon is fixed, and the new conclusion controls K-D/epsilon by an absolute constant."
+        ],
+        "reasoning": "The leading statement epsilon K->D implies only o(1/epsilon) count error and is not logically equivalent to O(1). The stronger remainder is the sole novelty claimed.",
+        "searches": [
+          "Ovseevich 2014 pendulum half swing Poincare map cos next epsilon bounded remainder [web]",
+          "pendulum dry friction half swing Poincare recurrence epsilon count bounded O(1) remainder integral sin x over 2x Ovseevich [Resultary]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The count depends continuously on a small positive parameter until integer jumps; finite numerics in verify_pendulum_half_swing.py do not establish a universal bounded remainder."
+        ],
+        "reasoning": "There is no finite exact database capable of deciding an epsilon->0 remainder theorem; sought alternative quantitative recurrence tables but no scientifically decisive covering table was located.",
+        "searches": [
+          "pendulum low energy dry friction number half swings sharp remainder table [web]"
+        ]
+      },
+      "rationale": "PASS, qualified: Ovseevich arXiv:1311.5729 explicitly derives the same recurrence (2.16) and its leading limit epsilon N_epsilon(u)->D, so no novelty is attributed to the recurrence, control choice or leading constant. The source theorem and surrounding exact equation do not state a uniform O(1) error for this stop convention; the symmetric defect summation is a genuinely stronger quantitative statement. Full Reshmin 2009 text was unavailable and quantitative pendulum estimates could exist elsewhere.",
+      "residual_risks": [
+        "Full Reshmin (2009) unavailable, even though accessible abstract concerns a distinct control regime.",
+        "Unindexed numerical-analysis treatment might prove a general O(epsilon) quadrature remainder for exactly this recurrence.",
+        "The result is not the maximal number of switches among all time-optimal controls."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: same map and leading limit; no bounded O(1) absolute remainder stated",
+          "evidence": "Theorem 3.1: epsilon N_epsilon(u)->D; local map formula is identical. A first-order limit alone does not entail a bounded count error.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.5729",
+          "material_read": "Full original 17-page preprint, recurrence Eq. (2.16), Theorem 3.1/Equation (3.4), low-energy control and Section 4 estimates; inspected relevant PDF pages",
+          "method": "full arXiv original PDF and page images",
+          "title": "Complexity of the Minimum-Time Damping of a Physical Pendulum (Ovseevich)",
+          "trigger": "Same physical model, exact recurrence and constant"
+        },
+        {
+          "assessment": "INCONCLUSIVE for any detailed quantitative recurrence theorem; abstract discusses sufficient large-control one-switch regime",
+          "evidence": "Cannot infer whole-document lack of a small-epsilon remainder solely from abstract.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jappmathmech.2009.08.011",
+          "material_read": "Accessible abstract/bibliographic description; entire original article not read",
+          "method": "abstract only; full text inaccessible",
+          "title": "Bifurcation in a time-optimal problem for a second-order non-linear system (Reshmin)",
+          "trigger": "Related optimal pendulum switching potential antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A bounded absolute correction to an existing epsilon^{-1} switching count is a meaningful finite-parameter improvement for an explicitly controlled nonlinear dissipation map, rather than simply a reparameterization of the leading asymptotic. It quantifies the accumulation of local quadrature defects and separates half-swing counts from the unproved globally optimal policy count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Reshmin (2009) unavailable, even though accessible abstract concerns a distinct control regime.",
+    "Unindexed numerical-analysis treatment might prove a general O(epsilon) quadrature remainder for exactly this recurrence.",
+    "The result is not the maximal number of switches among all time-optimal controls."
+  ],
+  "schema_version": 1
+}
