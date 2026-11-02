@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "A fixed-priority induction gives the exact 0/1 coupled support for every wheel. The path first-edge recursion yields G(z)=z(1-exp(-2z))/(2(1-z)^2), the linear constant rho, and superfactorially vanishing path correction. Before the hub is used at least half of eligible edges are spokes, so early rim dimers have geometric count; their locations are widely separated with high probability. Conditional on first spoke, residual paths have fresh independent greedy orders and their additive boundary corrections cancel when the occupied blocks are separated. Uniform integrability handles rare small separations and negligible no-spoke probability. This proves wheel mean rho(n+1)+o(1), cycle mean rho n+o(1), and Bernoulli total-variation convergence. A standalone checker produced 49,615 exact/computational assertions; finite calculations are diagnostic, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General randomized greedy matching approximation results cited by Hertz et al. are bounds on expected ratios for broad graph classes, not second-order additive constants under a shared edge-priority coupling.",
+        "Tang, Wu and Zhang study oblivious vertex-decision variants, not an asymptotic wheel-versus-cycle Bernoulli increment."
+      ],
+      "reasoning": "Broad performance ratios or forest lower bounds cannot specify an order-one expected gain, its exact limiting constant, or its two-point coupled distribution. The primary Dyer–Frieze full text was unavailable, which is retained as a residual risk rather than declared not covering in full.",
+      "searches": [
+        "vertex addition effect on random edge priority greedy maximal matching matching size increase at most one coupling monotonic wheel",
+        "edge-order greedy matching wheel exact large-n expected size universal hub order-one shift",
+        "https://doi.org/10.1002/rsa.3240020104",
+        "https://arxiv.org/abs/1907.05135"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1907.02572",
+      "https://arxiv.org/abs/2204.10236",
+      "https://doi.org/10.1002/rsa.3240020104",
+      "https://arxiv.org/abs/1907.05135",
+      "Sharp lower bound for average maximal matchings in cyclic graphs (published mathematical index; uniform maximal-matching comparison)",
+      "Exact random-greedy maximal-independent-set law on chain graphs (published mathematical index; vertex rather than edge process)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The wheel's hub has growing degree; Pasinetti et al. random-network adsorption is vertex-first neighbor sampling and is not equal to uniform edge sampling when degrees differ.",
+        "In Hertz et al. §1 and §5.1, the relevant wheel result is a uniform average of maximal matchings, which weights outcomes differently than the edge-priority process."
+      ],
+      "reasoning": "A known limiting jammed-dimer density \\(\\rho\\) does not by itself imply \\(\\mathbb E M_n^{\\mathrm W}-\\mathbb E M_n^{\\mathrm C}\\to\\rho\\), as that requires cancellation of multiple residual-path boundary terms, and it does not imply the deterministic Bernoulli support under shared priorities.",
+      "searches": [
+        "random sequential adsorption of edges wheel graph fan graph exact expected dimer coverage random greedy matching wheel vs cycle",
+        "edge-order greedy matching wheel exact large-n expected size universal hub order-one shift",
+        "https://arxiv.org/abs/2204.10236",
+        "https://arxiv.org/abs/1907.02572"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dyer–Frieze name the uniform-currently-eligible-edge algorithm, matching the edge-priority law, but the accessible abstract describes approximation results rather than a coupled wheel limit.",
+        "Hertz et al. §1 distinguish expected edge-greedy matching size from the uniform maximal-matching invariant, which they study on wheels in §5.1."
+      ],
+      "reasoning": "The proposed coupled difference is Bernoulli-valued with parameter tending to the one-dimensional dimer density. The closest wheel maximal-matching formulas have a different sampling law; no identity or reduction from uniform maximal matching to priority-greedy matching is established.",
+      "searches": [
+        "uniform random greedy maximal matching size wheel graph W_n cycle with hub dimer random sequential adsorption limiting expected additive gain (1-exp(-2))/2",
+        "random sequential adsorption of edges wheel graph fan graph exact expected dimer coverage random greedy matching wheel vs cycle",
+        "random greedy matching cycle wheel n jammed dimers limit (1-e^{-2})/2",
+        "https://arxiv.org/abs/2204.10236"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hertz et al. §5.1 provides wheel maximal-matching counts/average under uniform sampling of maximal matchings; §1 explicitly notes nonuniform greedy output probabilities.",
+        "Pasinetti et al. provide numerical RSA/jamming profiles on other substrates rather than this coupled perturbation distribution."
+      ],
+      "reasoning": "No inspected table yields probabilities for the coupled edge-greedy difference, and numerical occupancy densities do not determine its Bernoulli success probability. The one-dimensional density is acknowledged as known, not claimed to be an original table entry.",
+      "searches": [
+        "uniform random greedy maximal matching size wheel graph W_n cycle with hub dimer random sequential adsorption limiting expected additive gain (1-exp(-2))/2",
+        "random matching jamming wheel hub path cycle triangle first edge greedy",
+        "random greedy matching cycle wheel n jammed dimers limit (1-e^{-2})/2",
+        "https://arxiv.org/abs/2204.10236"
+      ]
+    },
+    "rationale": "The close 2022 wheel result uses uniform sampling of maximal matchings, not the edge-priority greedy law, and the 2019 adsorption source treats jamming on other substrates and a vertex-first sampling rule in random networks. General greedy-matching ratio bounds do not imply this coupling-level, order-one asymptotic. Published research index searches did not return an exact equivalent. The density and general random greedy matching model are credited. Full Dyer–Frieze text was inaccessible and historical priority is explicitly not certified.",
+    "residual_risks": [
+      "Dyer–Frieze (1991) full text unavailable despite searches for lawful preprint/open-access versions; no full-document NOT_COVERING conclusion is made.",
+      "Potential unindexed special wheel computations or equivalent stabilization results under different terminology cannot be excluded by these searches.",
+      "General deterministic deletion stability could be previously known and is not independently claimed as the novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the present edge-greedy coupled Bernoulli claim; wheel formula is for uniform maximal matchings.",
+        "evidence": "Introduction explicitly contrasts the uniform maximal-matching average and the probability-weighted greedy output; §5.1 counts all maximal matchings on wheels.",
+        "identifier_or_url": "https://arxiv.org/abs/2204.10236",
+        "material_read": "Accessible full arXiv HTML, introduction on algorithm differences, definitions, and §5.1 paths/cycles/wheels, including wheel proof and recurrence.",
+        "method": "Read arXiv HTML with section-specific comparison of output measures.",
+        "title": "The average size of maximal matchings in graphs",
+        "trigger": "Same wheel graph and maximal matching sizes; plausible exact coverage"
+      },
+      {
+        "assessment": "NOT_COVERING coupled wheel-cycle law; processes and target measurements differ.",
+        "evidence": "§IV describes random-vertex/neighbor attempts on Erdős–Rényi and regular random networks, §III treats fractals; no deterministic wheel/cycle hub comparison.",
+        "identifier_or_url": "https://arxiv.org/abs/1907.02572",
+        "material_read": "Accessible full arXiv HTML Sections I–V, lattice edge attempts and random-network vertex-neighbor sampling, jamming discussions and tables.",
+        "method": "Read online full-text HTML and compared stochastic dynamics and graph families.",
+        "title": "Random sequential adsorption on Euclidean, fractal and random lattices",
+        "trigger": "Exact dimer RSA objects and a 2019 primary public source of this line of work"
+      },
+      {
+        "assessment": "INDETERMINATE full-document coverage; abstract concerns approximation, planar graphs and forests and does not state a wheel limit.",
+        "evidence": "Publisher abstract explicitly defines uniform eligible-edge choice and describes performance guarantees; inaccessible full text may contain further examples.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and bibliographic record only; full text inaccessible after checking available preprints and lawful open-access versions.",
+        "method": "Read publisher abstract, compared summary of results, checked lawful full-text versions.",
+        "title": "Randomized greedy matching",
+        "trigger": "Foundational exact uniform-eligible-edge greedy matching algorithm on arbitrary graphs"
+      },
+      {
+        "assessment": "Different vertex-decision algorithms and ratio guarantees, no abstract-level wheel claim; whole-document coverage not asserted.",
+        "evidence": "Abstract specifies choosing an unmatched vertex in random order, unlike uniform currently feasible edges.",
+        "identifier_or_url": "https://arxiv.org/abs/1907.05135",
+        "material_read": "Abstract and summary only.",
+        "method": "Compare described Random Decision Order and Modified Randomized Greedy procedures with edge-priority greedy.",
+        "title": "Towards a Better Understanding of Randomized Greedy Matching",
+        "trigger": "Nearby general random-greedy matching analysis with potentially dominating results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bc819eb-2b23-4696-befb-1ba12e1075b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The high-degree apex is a singular but natural one-vertex perturbation of a cycle. Its asymptotic extra matching contribution is an order-one Bernoulli variable with explicit probability rho, despite having unbounded degree; this information is invisible to the known first-order jammed density. The result gives a rigorous perturbation law and a useful benchmark for robustness of stochastic greedy matching, not an arbitrary or routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
