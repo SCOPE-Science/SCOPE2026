@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:46:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/10/26/sharp-disk-concentration-and-spectral-gap-resonances-in-the-firs--60f08a58beae/RESULT.md",
+        "frozen 2026/10/26/sharp-disk-concentration-and-spectral-gap-resonances-in-the-firs--60f08a58beae/REVIEW.md",
+        "independent_checks.py: INDEPENDENT_CHECKS_OK 1272",
+        "Git tree e52d4c36fccd8b280543fb63119e803db159ec21"
+      ],
+      "rationale": "Complex Hermite basis Φ0=bar z, Φ_n=(z^n bar z−nz^{n−1})/√n! has distinct angular frequencies and Gaussian normalized norms. Disk Toeplitz eigenvalues are λ0=1−e^(−x)(1+x), λn=(1/n!)∫0^x e^(−t)t^(n−1)(n−t)^2dt (n≥1), tending0. Adjacent difference equals −e^(−x)x^n(x−n)(x−n−1)/(n+1)!, proving eventual decrease but possibly a remote bump. A Gamma-density comparison f_n(n+s)>f_n(n−s) excludes remote maxima by λn(n)<1/2 for n≥1, while elementary exponential bounds show λ0(x)>1/2 for x≥2 and λ1(x)>1/2 for x≥3. Comparing λ2−λ0=−(1/2)e^(−x)x²(x−1) and λ1−λ3=(1/6)e^(−x)x(x−2)(x²−3) proves all-radius leading/second distinct indices, with ties at x=1,2. The optimal gap is their difference and Parseval proves sharp equality exactly in their eigenspace sum. Independently checked 16 radii over 75 modes plus 25 adjacent identities/radius (464 tests). Infinite ranking relies on the Gamma bound, not the finite samples.",
+      "residual_risks": [
+        "Only centered disks, first excited true level and Gaussian normalization; not higher Hermite levels or arbitrary radial masks.",
+        "Finite numerical ranking cannot exclude remote modes without the analytic Gamma bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic radial Toeplitz formula gives the input eigenvalue sequence.",
+          "Gaussian-window sharp concentration does not dominate the higher-level first-excited window, because the eigenvalue spectra differ."
+        ],
+        "reasoning": "The prior all-level formula is broader in symbolic representation but not stronger in spectral-ordering conclusions; the new classification requires a separate Gamma half-mass estimate and runner-up comparisons.",
+        "searches": [
+          "web:",
+          "web:"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: first Hermite true polyanalytic Fock disk concentration largest eigenvalue spectral gap localization Toeplitz",
+        "web:",
+        "web:"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 6.3 supplies known integral (with disk indicator), not explicit maximizer and second eigenvalue.",
+          "Abreu Section 5 equation (5.1) explicitly treats Gaussian window h0."
+        ],
+        "reasoning": "Known eigenvalue formula is a premise; analytic ranking and sharp gap remain the assessed result and are not known automatic corollaries of Gaussian-window optimality.",
+        "searches": [
+          "web:",
+          "web:"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximenko–Tellería-Romero Proposition 6.3 exactly covers the generic radial eigenvalue expression.",
+          "Abreu–Speckbacher Section 5 sharp disk optimizer is the Gaussian window h0, not the first Hermite window."
+        ],
+        "reasoning": "The diagonalization is known, but it does not immediately decide infinitely many competing modes or the piecewise optimal spectral gap; no exact same-claim prior implication found.",
+        "searches": [
+          "web:",
+          "web:",
+          "Resultary query: first Hermite true polyanalytic Fock disk concentration largest eigenvalue spectral gap localization Toeplitz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic index returned a Hermite half-line spectral gap under arbitrary masks, distinct from a radial disk true Landau level; no exact disk-eigenindex table."
+        ],
+        "reasoning": "Bounded searches found no table of the x=1 and x=2 transitions but cannot prove global priority.",
+        "searches": [
+          "Resultary query: first Hermite true polyanalytic Fock disk concentration largest eigenvalue spectral gap localization Toeplitz",
+          "web:",
+          "web:"
+        ]
+      },
+      "rationale": "Maximenko–Tellería-Romero 2019 Section 6 Proposition 6.3 gives the general Laguerre radial Toeplitz eigenvalue integrals (including this disk by specialization), but does not rank them globally or compute optimal first-Hermite gap. Abreu–Speckbacher 2018 Section 5 discusses sharp disk concentration explicitly for Gaussian h0 and local Hermite large-sieve bounds; different window and no first-excited two-resonance phase diagram. Analytic specializations alone do not supply the nontrivial global spectral ordering; possible older Laguerre/Gamma study remains a risk.",
+      "residual_risks": [
+        "Potential prior exact Laguerre/Gamma eigenvalue ordering under non-Fock terminology.",
+        "The eigenvalue integral itself is fully prior and is not presented as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 6.3 determines eigenvalue integrals for arbitrary radial mask; it does not provide x-dependent all-mode top/runner-up spectral rank.",
+          "evidence": "web:; web:",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.00978",
+          "material_read": "Full PDF accessible; Sections 1–6, Proposition 6.3, 6.6, neighboring proofs and disk indicator examples; page index20 screenshot inspected.",
+          "method": "Full document web text + PDF screenshot of p20",
+          "title": "Radial operators on polyanalytic Bargmann–Segal–Fock spaces",
+          "trigger": "Identical true-polyanalytic Fock objects and radial Toeplitz eigenvalues"
+        },
+        {
+          "assessment": "Exact extremal disc case is stated for Gaussian h0; general Hermite large-sieve bounds do not imply first excited sharp eigengap.",
+          "evidence": "web:; web:",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.02258",
+          "material_read": "Full PDF available; Sections 4–5, especially page index15 screenshot and formula (5.1), conclusion.",
+          "method": "PDF text and screenshot p15",
+          "title": "Donoho–Logan Large Sieve Principles for Modulation and Polyanalytic Fock Spaces",
+          "trigger": "Closest Hermite STFT disk concentration optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen 2026/10/26/sharp-disk-concentration-and-spectral-gap-resonances-in-the-firs--60f08a58beae/RESULT.md",
+        "Resultary query: first Hermite true polyanalytic Fock disk concentration largest eigenvalue spectral gap localization Toeplitz",
+        "web:",
+        "web:"
+      ],
+      "rationale": "The first non-Gaussian Hermite window is a natural next case after Gaussian concentration. This identifies exact optimal signal modes at every disk radius, a triple top-eigenspace at x=1, and a sharp stability constant and equality directions, including the runner-up resonance at x=2. It is more useful than simply restating diagonal integrals.",
+      "residual_risks": [
+        "Concentration is only for one true polyanalytic level, not its accumulated lower levels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact maximal and runner-up radial Toeplitz disk eigenvalues for first true-order-two Fock level, sharp concentration for every x>0, three-dimensional resonances at x=1 and runner-up at x=2, and optimal piecewise spectral-gap stability.",
+  "limitations": [
+    "Only centered disks, first excited true level and Gaussian normalization; not higher Hermite levels or arbitrary radial masks.",
+    "Finite numerical ranking cannot exclude remote modes without the analytic Gamma bound.",
+    "Potential prior exact Laguerre/Gamma eigenvalue ordering under non-Fock terminology.",
+    "The eigenvalue integral itself is fully prior and is not presented as new.",
+    "Concentration is only for one true polyanalytic level, not its accumulated lower levels."
+  ],
+  "schema_version": 1
+}
