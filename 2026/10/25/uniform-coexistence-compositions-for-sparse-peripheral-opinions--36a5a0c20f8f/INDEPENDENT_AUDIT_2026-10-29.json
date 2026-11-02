@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:46:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Counting productive hub/leaf pairs gives P(x±e_i)=x_i/(2s), with s=sum leaf counts; all idle steps can be ignored for absorption probabilities. h(x)=∏x_i is harmonic for the chain, vanishes if any leaf is extinct, and is positive at fully surviving terminals. Doob h-transform gives probabilities (x_i+1)/(2s) up and (x_i−1)/(2s) down. Their total up/down probabilities (s+d)/(2s) and (s−d)/(2s) depend only on s; with t_i=x_i−1, the conditional leaf composition under any realized total-size trajectory is Dirichlet-multinomial with shape 2 for each type: upward steps are Pólya additions of weight t_i+2; downward steps uniformly delete among t_i tokens. At size n, h-transform probability is C∏ell_i, and dividing by h(ell)=∏ell_i gives identical original probability C=(n−d)!(2d−1)!/(n+d−1)!. The chain is finite and a.s. absorbs at an extinction or s=n; under the transform s hits n a.s. Counting positive compositions yields full coexistence and the fixed-d asymptotic and simplex weak limit. Independent exact-rational absorbing-chain solves agree for six small cases, e.g. d=3,n=7 each of 15 compositions 1/126; finite computations corroborate only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berenbrink et al. lower bound individual opinion survival and concentration for number of survivors, not the full terminal vector law in indexed material.",
+          "Classical h-transform/urn identities calculate the conditioned law once model-specific harmonic h is found."
+        ],
+        "reasoning": "A general conditioned multitype diffusion or urn absorption theorem could imply this special case; the exact finite-particle star boundary formula must be compared directly rather than assuming absence from different titles. No dominating explicit formula was identified in inspected material.",
+        "searches": [
+          "arXiv:2610.16684 Section 2.2 indexed text",
+          "Hardin–Lanchier arXiv:1912.06746",
+          "generic Dirichlet-multinomial Pólya urn"
+        ]
+      },
+      "checked_sources": [
+        "Berenbrink–Götte–Hoefer–Koglin arXiv:2610.16684 indexed sections (full unread)",
+        "Öztürk arXiv:1112.4624 abstract/metadata",
+        "Hardin–Lanchier arXiv:1912.06746 abstract/metadata",
+        "Resultary search: star opinion voter model all peripheral opinions survive final composition uniform Dirichlet Polya urn",
+        "SCOPE repository search: voter opinion graph coexistence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known single-opinion survival lower bounds do not determine the correlations between d peripheral survivals or their terminal occupancies.",
+          "Master-equation treatments of three opinions do not state the universal uniform-composition formula for d arbitrary."
+        ],
+        "reasoning": "The central implication from single-survival probabilities to an exact joint law fails in general; the new product-harmonic h-transform gives the missing dependence information. Prior broader conditioned Markov chain methods are techniques rather than an identical proved application.",
+        "searches": [
+          "Berenbrink et al. arXiv:2610.16684",
+          "Öztürk arXiv:1112.4624",
+          "Hardin–Lanchier arXiv:1912.06746"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "EdgeVOG transition rule is a neutral multi-type voter process whose productive star chain has P(x±e_i)=x_i/(2s).",
+          "Öztürk studies bounded-confidence opinions including three-opinion line and numerically computed exit probabilities, different initial configurations."
+        ],
+        "reasoning": "Checked aliases include multitype birth-death/voter model, Pólya urn conditioned survival, gambler ruin and opinion-graph compatibility. Neither accessible comparison states constant probability of every positive labelled terminal vector in arbitrary star degree.",
+        "searches": [
+          "arXiv:2610.16684 EdgeVOG opinion star",
+          "Resultary: star opinion voter model all peripheral opinions survive final composition uniform Dirichlet Polya urn",
+          "Öztürk arXiv:1112.4624"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact rational small-state terminal laws agree, but a finite table does not cover arbitrary d,n.",
+          "Resultary hits concerned voting rules/profiles rather than the stochastic opinion graph model."
+        ],
+        "reasoning": "No relevant exact all-size table surfaced. The theorem gives a two-parameter factorial law and conditional scaling limit, not merely a lookup of finitely many states.",
+        "searches": [
+          "Resultary: star opinion voter model all peripheral opinions survive final composition uniform Dirichlet Polya urn",
+          "SCOPE source scientific query: voter opinion graph coexistence"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS limited to the exact all-leaf terminal composition law and its asymptotics. Berenbrink–Götte–Hoefer–Koglin introduce EdgeVOG and study single opinion survival / number survivors and convergence; a full joint terminal composition is not stated in inspected indexed sections. Generic Doob transformations and urn deletion consistency are established and not claimed original. Full 2026 EdgeVOG preprint access failed; stronger hidden coverage is a real risk.",
+      "residual_risks": [
+        "Complete primary 2026 EdgeVOG manuscript unavailable in this run; could contain an exact stronger absorption formula in unread portions.",
+        "Unindexed multitype birth-death or conditional Pólya urn hitting laws may already give this model-specific special case.",
+        "The star, singleton-leaf initialization and fair complete-communication assumptions are restrictive and should remain explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces rule and bounds, but cannot exclude an exact exit formula in unread sections",
+          "evidence": "Section 2.2 indexed lower bound per surviving opinion; Section 2.1 star total-hub gambler ruin",
+          "identifier_or_url": "https://arxiv.org/abs/2610.16684",
+          "material_read": "ArXiv abstract and indexed excerpts including Sections 2.1–2.2; complete text/PDF not retrieved; authorized Oxford attempt blocked by disconnected VPN",
+          "method": "Open arXiv and OA attempts, indexed excerpts, institutional attempt",
+          "title": "The Voter Model with Opinion Graph",
+          "trigger": "Exact same EdgeVOG star model and normalization"
+        },
+        {
+          "assessment": "Related bounded-confidence master equations and polarization, no verified all-degree terminal composition result",
+          "evidence": "Three-opinion line process and numerical/master-equation exit analysis",
+          "identifier_or_url": "https://arxiv.org/abs/1112.4624",
+          "material_read": "Accessible abstract, listed model and absorption-method scope; full primary paper not read",
+          "method": "ArXiv metadata/abstract",
+          "title": "Dynamics of discrete opinions without compromise",
+          "trigger": "Possible equivalent three-opinion line special case"
+        },
+        {
+          "assessment": "Consensus bounds on spatial confidence graphs, not a verified exact labelled all-leaf law",
+          "evidence": "Consensus-event probability bounds rather than all-leaf rare-event vector distribution",
+          "identifier_or_url": "https://arxiv.org/abs/1912.06746",
+          "material_read": "Accessible abstract and problem scope, not complete paper",
+          "method": "ArXiv abstract/indexed metadata",
+          "title": "Probability of consensus in spatial opinion models with confidence threshold",
+          "trigger": "Potential stronger voter-model absorption theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The probability that every peripheral opinion survives is a natural rare-event statistic missing from individual survival estimates. The theorem determines the entire labelled composition law, reveals exact unconditioned uniformity independent of balance, and supplies a sharp n^(-d) coexistence probability and conditional Dirichlet law. This gives a meaningful complete result for a specified natural star compatibility model rather than an arbitrary small sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the fair complete-communication EdgeVOG star with d>=2 leaves, n>=d+1 agents initially one per leaf, every positive terminal all-leaf composition ell_1+...+ell_d=n has the same unconditioned probability (n−d)!(2d−1)!/(n+d−1)!. The all-leaf survival probability is binom(n−1,d−1) times this constant; conditioned on all surviving, the counts are uniform and normalized proportions tend to Dirichlet(1,...,1) for fixed d.",
+  "limitations": [
+    "No law for partial survival after any peripheral extinction; no unequal agent rates or other confidence graphs.",
+    "Fixed d Dirichlet limit is conditional on rare event; finite checker not a universal proof."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The productive transition probabilities follow directly by counting compatible hub–peripheral pairs. The product of peripheral counts is a bounded harmonic function; its Doob transform separates total-count motion from Dirichlet–multinomial composition. An explicit addition/deletion induction proves the terminal transformed distribution, and the terminal likelihood ratio cancels its count product. There is no reliance on finite data to prove the infinite-parameter assertion. The standalone rational-arithmetic absorbing-chain program checked 114 distinct terminal probabilities across 13 nontrivial parameter pairs.
+## correctness
 
-**Originality — PASS (within inspected material).** Berenbrink et al., *The Voter Model with Opinion Graph*, arXiv:2610.16684v1, Section 2.2 and proofs address single-opinion survival and the number of surviving opinions; their star gambler's ruin concerns total hub counts and stabilization times. Those results neither state nor directly imply the terminal composition identity. Öztürk, *Dynamics of discrete opinions without compromise*, arXiv:1112.4624, treats bounded-confidence three-opinion absorption using master equations and numerics; it does not establish the present factorial uniform-composition formula for arbitrary star degree. Hardin–Lanchier, arXiv:1912.06746, address consensus bounds. Searches for equivalent star exit laws, multitype branching representations, and conditioned compositions found no decisive statement. The closest published mathematical-result records concerned other processes. Residual risk: a stronger, unindexed multitype birth–death or urn theorem could cover this exact boundary law; the search is not a proof of novelty.
+PASS
 
-**Value — PASS.** Existing one-opinion survival lower bounds do not quantify the probability that every peripheral viewpoint persists. The theorem gives the entire rare-event terminal law and its sharp factorial probability, showing asymptotically vanishing simultaneous coexistence together with a nondegenerate conditional Dirichlet distribution. This is a natural structural question in an emerging opinion-compatibility model rather than an arbitrary enumeration.
+Counting productive hub/leaf pairs gives P(x±e_i)=x_i/(2s), with s=sum leaf counts; all idle steps can be ignored for absorption probabilities. h(x)=∏x_i is harmonic for the chain, vanishes if any leaf is extinct, and is positive at fully surviving terminals. Doob h-transform gives probabilities (x_i+1)/(2s) up and (x_i−1)/(2s) down. Their total up/down probabilities (s+d)/(2s) and (s−d)/(2s) depend only on s; with t_i=x_i−1, the conditional leaf composition under any realized total-size trajectory is Dirichlet-multinomial with shape 2 for each type: upward steps are Pólya additions of weight t_i+2; downward steps uniformly delete among t_i tokens. At size n, h-transform probability is C∏ell_i, and dividing by h(ell)=∏ell_i gives identical original probability C=(n−d)!(2d−1)!/(n+d−1)!. The chain is finite and a.s. absorbs at an extinction or s=n; under the transform s hits n a.s. Counting positive compositions yields full coexistence and the fixed-d asymptotic and simplex weak limit. Independent exact-rational absorbing-chain solves agree for six small cases, e.g. d=3,n=7 each of 15 compositions 1/126; finite computations corroborate only.
 
-**Limits.** The star, singleton-peripheral initialization, complete communication, and unbiased imitation assumptions are essential. The result makes no claim for arbitrary opinion graphs or for independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS limited to the exact all-leaf terminal composition law and its asymptotics. Berenbrink–Götte–Hoefer–Koglin introduce EdgeVOG and study single opinion survival / number survivors and convergence; a full joint terminal composition is not stated in inspected indexed sections. Generic Doob transformations and urn deletion consistency are established and not claimed original. Full 2026 EdgeVOG preprint access failed; stronger hidden coverage is a real risk.
+
+## value
+
+PASS
+
+The probability that every peripheral opinion survives is a natural rare-event statistic missing from individual survival estimates. The theorem determines the entire labelled composition law, reveals exact unconditioned uniformity independent of balance, and supplies a sharp n^(-d) coexistence probability and conditional Dirichlet law. This gives a meaningful complete result for a specified natural star compatibility model rather than an arbitrary small sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
