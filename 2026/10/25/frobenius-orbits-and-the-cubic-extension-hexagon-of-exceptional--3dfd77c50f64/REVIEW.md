@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The defining surface and irreducible cubic pencil are established in [1]. The degree-nine base polynomial is independently certified irreducible modulo \(5\). A geometric section identifies the elliptic pencil with its Jacobian; the induced isometry of the fiber-orthogonal root lattice is independent of the section because translations act trivially on degree-zero generic-fiber divisor classes. The \(240\) roots have an exhaustive three-class integer enumeration, and the orbit lengths and intersection matrix follow by exact permutation arithmetic. The standalone script verifies all of those finite calculations. This verification does not purport to replace the geometric argument.
+## correctness
 
-**Originality — PASS, scoped.** [1] supplies rational Picard Galois data and the construction, but does not list the Frobenius permutation on all exceptional curves or the six-curve intersection graph. [2] describes arithmetic types, with tables for degrees \(3\)–\(6\). [3] establishes maximal Galois action on *generic* del Pezzo surfaces, not on this finite-field specialization. [4] studies concurrency patterns, not the Frobenius-fixed configuration. Precise searches for this explicit equation, curve fields of definition, nine-cycle root orbit lengths and six-curve hexagon found no covering statement. The possibility of an unindexed Weyl-group table encoding the same numerical cycle structure remains a concrete residual risk.
+PASS
 
-**Mathematical value — PASS.** This is an exact arithmetic-geometric splitting classification of the entire exceptional-curve set of a newly exhibited unirational, arithmetic-Picard-rank-one surface. It determines the least extension with any exceptional curve (cubic), the least full splitting field (degree nine), and the complete six-curve disjointness graph over the cubic extension. These data govern rational exceptional contractions and distinguish geometric splitting from arithmetic Picard rank; they are not an arbitrary parameter slice or a generic restatement of \(240\) curves.
+The cited degree-nine base polynomial z^9+z^6+z-1 is irreducible in F5[z] (rechecked independently with finite-field factorization). Nine base points are therefore one Frobenius cycle. On the nine-point blowup, the fiber-orthogonal quotient F^perp/ZF is an E8 root lattice. The paper supplies geometric irreducibility of pencil fibers and identification with the Jacobian elliptic surface of S; translation of section origin acts trivially on generic-fiber Pic^0, giving the essential integral Frobenius-equivariant root lattice isometry. Every root has the unique degree-mod-three normal form d=0 (one +1 and one -1 among m_i), d=1 (three +1), or d=2 (six +1), giving 72+84+84=240. Cycling nine coordinates yields no fixed roots, precisely three three-subset and three six-subset roots fixed by Frobenius cubed, and 234 other roots in nine-cycles. The six exceptional classes have pair-intersection histogram {0:6,2:6,3:3}, and their six disjoint pairs connect in a C6. Geometric descent of unique exceptional representative follows fixed divisor class. Independent exhaustive 240-root orbit and intersection check corroborates these finite steps, not the imported geometric premises.
 
-**Limitations.** No classification of all rational points, explicit equations for the exceptional curves, or local intersection multiplicities is claimed. The cited primary geometric-fiber theorem is used as a premise. An unlocated tabulation of this particular Weyl conjugacy class may overlap the numerical part, and independent validation is not supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicitly constructed F5 surface and rational Galois Picard data are antecedents. The new precise arithmetic curve census is the integral 240-root orbit decomposition with fixed-class disjointness graph, not an independent construction of the surface. Published generic Weyl group results and arithmetic-type surveys are context but their stated parameters do not directly resolve this surface-specific six-curve configuration. Best of knowledge, with material source-access priority risks.
+
+## value
+
+PASS
+
+The exceptional-curve fields of definition and their intersection/disjointness graph are natural arithmetic invariants of a concrete arithmetic-Picard-rank-one degree-one del Pezzo surface. A complete 240-curve orbit census distinguishes first appearance over the cubic extension from total splitting over degree nine; the six-curve C6 geometry is useful for arithmetic contractions and Galois-equivariant configurations. The work is not merely a numerical test or an arbitrary surface slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
