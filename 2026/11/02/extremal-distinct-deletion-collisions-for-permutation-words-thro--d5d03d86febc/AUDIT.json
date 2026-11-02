@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For every n=3,...,8, exact inverse insertion enumerates all n-permutation parents of each (n-1)-permutation, and a counter counts each shared DISTINCT child once per unordered parent pair. A separate exhaustive forward deletion construction reproduces every entire positive-intersection histogram and the exact extremizer ID set. All maximum pairs for n=4,...,8 exactly equal the explicitly generated consecutive-value four-block replacements; n=8 yields 600 and maximum 4. The universal four-common-child lower-bound construction follows directly from the four distinct equal local deletion patterns of 2413 and 3142. Checked standalone source verify.py and its output; finite enumeration does not imply an infinite upper bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu et al., arXiv:2609.37578, Section II-A, Lemma 2 provides parent-count upper bounds for permutation-invariant deletion; Section II-B treats systematic codes.",
+        "Smith (2006) concerns complete-deck injectivity rather than sharp partial overlaps.",
+        "Gouveia-Lehtonen (2021) gives the sharp maximum of common cards with multiplicity, which need not maximize the distinct-child overlap."
+      ],
+      "reasoning": "A stronger result would need to bound distinct-child intersections and classify all equality pairs, not merely provide a reconstruction threshold, parent count, or multiset-overlap bound. None of the inspected results covers the exact 600 distinct-shadow extremizers at n=8.",
+      "searches": [
+        "permutation reconstruction distinct one-point deletion patterns 5 enough every n",
+        "permutation two distinct permutations common immediate subpatterns maximum 4 common children one deletion",
+        "arxiv:2609.37578 (opened full HTML)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.37578",
+      "https://arxiv.org/html/2609.37578v1",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1n11/pdf",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i3p41/pdf/",
+      "https://oeis.org/A342854"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Smith (2006) proves set-valued deck reconstruction from all child patterns at length five and above, which allows pairs with several shared children.",
+        "Gouveia-Lehtonen (2021) proves the maximum MULTISET-card overlap at length eight is five and tabulates 16 multiset extremizers. The complete 600-pair distinct-shadow maximizer set is a different objective.",
+        "Wu et al. (2026), arXiv:2609.37578, studies code constructions and gives an at-most parent bound, not this intersection equality case."
+      ],
+      "reasoning": "The prior full-deck theorem does not imply partial overlap maximum or equality cases. Multiset maximum 5 bounds a set maximum by 5 and its full enumerated table can be used to exclude five distinct children, so the sharp numerical distinct maximum may be deducible from prior results. But neither that implication nor their listed 16 multiset maximizers provides the required complete classification of 600 distinct-shadow maximizers. No stronger prior statement found implying the 600-pair structure.",
+      "searches": [
+        "DOI:10.37236/10403 (opened primary PDF and found common partial decks)",
+        "permutation set reconstruction number 5 deck distinct cards n-1",
+        "Two distinct permutations length eight with four common distinct standardized length seven deletion patterns; exactly 600 extremal pairs obtained by replacing a contiguous consecutive-value 2413 block by 3142; permutation-invariant deletions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Smith (2006), Proposition 2.1, proves uniqueness from the whole distinct child set at n >= 5; DOI:10.37236/1149.",
+        "Gouveia-Lehtonen (2021), Definition 3, uses intersections of multisets, DOI:10.37236/10403.",
+        "The known base collision 2413/3142 is explicitly identified by Smith (2006), Theorem 2.3."
+      ],
+      "reasoning": "Our invariant is the maximum intersection CARDINALITY of two sets of standardized one-point deletions and the entire equality-case family. Complete-deck uniqueness, multiset overlap, and ordinary pattern containment use related but not equivalent quantifiers. A pair of 8-permutations can share several copies of one child but fewer distinct child values.",
+      "searches": [
+        "Two distinct permutations length eight with four common distinct standardized length seven deletion patterns; exactly 600 extremal pairs obtained by replacing a contiguous consecutive-value 2413 block by 3142; permutation-invariant deletions",
+        "permutation reconstruction one deletion set deck distinct cards intersection 4",
+        "permutation poset 4 common covers upper shadow pairs four shadows patterns"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gouveia-Lehtonen (2021), Table 1 and Table 2 (n = 2 to 8), enumerate extrema under MULTISET overlap; their n=8 list has 16 multiset-maximum pairs, not a 600-pair set-valued equality classification.",
+        "Smith (2006), Theorem 2.3 identifies the n=4 2413/3142 pair.",
+        "OEIS A342854 concerns the number of occurrences of 2413 in an individual permutation, not collision pairs of deletion shadows."
+      ],
+      "reasoning": "The nearest exact table classifies a different measurement with repetitions, and lower-length collision witnesses are credited. The 600 labeled pairs and their uniform local-block characterization are not data stated in the checked published tables. Reproducing an already-known numeric bound is not used as the novelty basis.",
+      "searches": [
+        "One-deletion parent permutations lower shadows intersection count four extremal 2413 3142, unique deletion pattern set reconstruction, multiset 2021 Gouveia Lehtonen",
+        "permutation pattern poset two permutations have at most four common (n-1)-patterns lower covers 2413 3142",
+        "DOI:10.37236/10403, Table 1 and Table 2 (opened primary PDF)",
+        "2413"
+      ]
+    },
+    "rationale": "The claim classifies maximizers of intersection of DISTINCT standardized deletion-child sets, especially 600 labeled unordered pairs at n=8. Smith (2006) proves injectivity of entire set-valued decks, not maxima of partial overlaps; Gouveia and Lehtonen (2021) determine MULTISET-deck maximal intersections and tabulate those maximizers, not the complete maximizers for the distinct-child statistic. The 2021 n=8 multiset extremum five may imply the numeric bound four after further examination of its table, so that numerical upper bound alone is not claimed as new. Wu et al. (2026) investigate asymptotic coding and parent enumeration, not the exact finite equality classification. Source text was inspected in the relevant sections; accessible mathematical-record searches yielded no equivalent statement, but unindexed work remains possible.",
+    "residual_risks": [
+      "Unindexed code, unpublished tables or a prior equivalent enumeration of the distinct-child maximizers may exist.",
+      "The numerical bound four at n=8 can be inferred by additional calculation from the already-published multiset extremal Table 2; only the complete 600-pair equality classification is advanced as new.",
+      "No claim is made about an all-n upper bound or all-n uniqueness of this equality family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the finite distinct-shadow extremizer classification; covers coding constructions and coarse inverse parent bound.",
+        "evidence": [
+          "arXiv:2609.37578, submission record 2026-09-29; Section II-A Lemma 2: PID parents at most t! binomial(m+t,t)^2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.37578v1",
+        "material_read": "Abstract, deletion-channel definitions and Section II-A Lemma 2 with proof, Section II-B code definition.",
+        "method": "Direct reading of open full HTML text and the first-public arXiv landing-page record.",
+        "title": "Order-Optimal Systematic Permutation Codes for Correcting t Deletions",
+        "trigger": "Recent motivating source defining PID and bounding parent counts."
+      },
+      {
+        "assessment": "NOT_COVERING the 600-pair equality classification; proves whole-set reconstruction for length at least five and identifies the length-four base pair.",
+        "evidence": [
+          "Smith (2006), Proposition 2.1 and Theorem 2.3, DOI:10.37236/1149."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1n11/pdf",
+        "material_read": "Definitions 1.1, Proposition 2.1, Theorem 2.3, Section 2 proof and opening of Section 3.",
+        "method": "Read primary PDF extracted text and inspected page 2 image.",
+        "title": "Permutation Reconstruction",
+        "trigger": "Classical primary source on set-valued versus multiset deletion decks."
+      },
+      {
+        "assessment": "CLOSEST; exact multiset-overlap maximum and extremizers, not 600 pair maxima for distinct-child set overlap.",
+        "evidence": [
+          "Gouveia-Lehtonen (2021), Definition 3, Table 1 and Table 2, DOI:10.37236/10403."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i3p41/pdf/",
+        "material_read": "Definitions and Section 3, Table 1 and full Table 2 for ranks 2-8, and methodological statements in Section 4.",
+        "method": "Read primary PDF extracted text and inspected relevant page image.",
+        "title": "Permutation Reconstruction From a Few Large Patterns",
+        "trigger": "Directly adjacent extremal common-card result; distinguishes multiplicity counting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5d03d86-febc-42ed-a2fe-7a97517b5e7d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Distinct received standardized deletion patterns are the natural observable set in permutation-invariant deletion reconstruction, distinct from the multiset deck of repeated deletion positions. At both n=7 and n=8, published multiset overlap reaches five while the set-valued extremum remains four; at n=8 the distinct-shadow equality cases form exactly 600 pairs, unlike the 16 listed multiset extrema. The complete rigid classification of all 600 worst-case set-valued collision pairs (not only their number) is a motivated finite reconstruction benchmark with a uniform local-block structural explanation. The exact classification does not pretend to solve larger n.",
+    "status": "PASS"
+  }
+}
