@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The recurrence and the prime-replacement lemma reduce all four-prime odd candidates to the first four odd primes. Exact integer bounds \((22,15,13,10)\) contain all possible smaller exponents. The full prefix-sum inclusion-exclusion recurrence tests all \(2757\) candidate exponent quadruples and identifies exactly one ample candidate; an independent direct-divisor recurrence on all \(864\) sub-vectors of its exponent vector corroborates the critical value. Finite enumeration is exhaustive only after the explicit global reductions. The package `verify.py` reproduces this logic without relying on other files.
+
+**Originality — PASS on the sources inspected.** Fink (2020) establishes the recursive-divisor function and the unrestricted smallest odd ample number with five odd prime supports. The previously recorded three-support minimum is a distinct natural extremum. Neither of those claims determines the first *four*-support odd ample integer. Targeted mathematical-record and literature searches for this exact number and the four-support formulation did not identify a covering result. The related 2023 ordered-factorization paper was not fully inspected, so an unindexed table/equivalent computation remains a bibliographic risk. These limitations do not assert proof of absolute novelty.
+
+**Mathematical value — PASS.** Exactly four distinct odd primes form a natural missing cardinality between the published unrestricted five-support minimum and the separate three-support extremum. The result determines the exact extremum and a complete bounded certificate, rather than an arbitrary cutoff or trivial substitution. The count itself is not claimed to have any general asymptotic implication.
+
+Self-review: passed. Independent audit: not yet performed.
