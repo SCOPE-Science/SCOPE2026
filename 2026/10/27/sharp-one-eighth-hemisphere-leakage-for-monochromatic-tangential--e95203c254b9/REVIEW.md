@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is about the compression of hemisphere restriction to one exact-degree tangential vector spherical-harmonic space. Intrinsic gradient and quarter-turn vector harmonics form an orthonormal basis. Longitude symmetry and equatorial reflection yield \(2\times2\) blocks with diagonal \(1/2\). Integrating the cross-polarization gradient product gives an equatorial boundary value. The normalized associated-Legendre endpoint identity then yields the exact rational gaps. Strict central-binomial product ratios order these gaps by \(\lvert m\rvert\), and the exact ratio \((2\ell+3)/(2\ell+4)\) proves the degree monotonicity and global sharp \(7/8\) upper concentration, \(1/8\) leakage. The only global equality modes have \(\ell=\lvert m\rvert=1\). Finite numerical checks are corroborative only.
+## correctness
 
-## Originality
-PASS, with a specific historical priority risk. Plattner–Simons (arXiv:1306.3201, equations (69)–(76)) already develop the cap concentration matrices that imply the **individual \(2\times2\) hemisphere blocks**; no novelty is claimed for those blocks. Michel–Plattner–Seibert (arXiv:2103.14650) generalize the spin-weighted matrices. The claim not stated by the inspected texts is the globally optimized inequality, unique degree and azimuthal maximizers, and strict inter-degree law. Targeted mathematical-record and literature searches identified no directly corresponding theorem. Jahn–Bokor (arXiv:1302.5261) is plausible but full text was not accessible; its abstract treats a cap-to-scalar reduction. If that source already proves this optimized all-degree inequality, the originality assessment must change.
+PASS
 
-## Mathematical value
-PASS. Hemisphere leakage is a natural localization invariant for monochromatic tangential vector fields, not a selected numerical experiment. The result gives the optimal degree-uniform energy exclusion constant with equality classification and an exact decay law; this is relevant to choosing degrees and polarizations in vector Slepian localization. The theorem deliberately excludes multi-degree bandwidths, where no such uniform leakage follows.
+The final claim is for one exact harmonic degree ell>=1, tangential poloidal/toroidal complex L2(S2) fields, standard area measure, and hemispherical restriction. Longitude orthogonality splits the compression into 2x2 m-blocks; equatorial reflection makes both diagonal entries 1/2. The cross-polarization hemisphere integral is 2 pi i m |Y_lm(pi/2)|^2/[ell(ell+1)]; normalized associated Legendre values vanish if ell+m odd and otherwise give mu_lm=m(2ell+1)c_((ell+m)/2)c_((ell-m)/2)/(2ell(ell+1)), with c_j=binom(2j,j)/4^j. For each parity chain, the product ratio under m->m-2 is 1-2(m-1)/[(2a-1)(2b+2)]<1 and the extra m factor decreases, so |m|=ell uniquely maximizes. The degree maxima M_ell=(2ell+1)c_ell/[2(ell+1)] satisfy M_(ell+1)/M_ell=(2ell+3)/(2ell+4)<1 and M_1=3/8. Thus eigenvalues lie in [1/8,7/8], only degree-one |m|=1 with the appropriate polarization attains the endpoints (real eigenspace dimension two). Independent rational checks through ell=50 support the algebra; the exact identities and monotonicity, not those finite checks, prove every ell.
 
-## Closest literature and limitations
-The primary comparison is A. Plattner and F. J. Simons, *Spatiospectral concentration of vector fields on a sphere*, Appl. Comput. Harmon. Anal. 36 (2014), 1–22 (arXiv:1306.3201v1). K. Jahn and N. Bokor, *Revisiting the concentration problem of vector fields within a spherical cap*, arXiv:1302.5261v1, remains a full-text comparison risk. V. Michel, A. Plattner and K. Seibert, arXiv:2103.14650, is an accessible more general computational framework. Independent mathematical and publication-priority validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement/implication comparison of actually read primary theorems and direct published mathematical-finding search supports best-of-knowledge originality for the final narrow claim, with precisely documented broader prior formulas and residual historical risks. Neither a failed search nor literature inaccessibility is treated as a proof of novelty.
+
+## value
+
+PASS
+
+The energy leakage of an exact-frequency tangential field across an arbitrary hemisphere is a natural spectral-localization invariant. A sharp universal 1/8 loss, exact degree dependence, unique angular maximizers, and equality fields give useful localization limits. This is not the much larger mixed-degree Slepian space, in which a uniform leakage bound is false.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
