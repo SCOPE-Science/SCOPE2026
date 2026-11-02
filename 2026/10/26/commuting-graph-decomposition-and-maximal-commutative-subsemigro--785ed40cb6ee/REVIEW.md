@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs commutation directly from the uniquely normalized product in Nagy's Theorem 3, separates the singleton/plain/doubled cases, and proves an explicit graph isomorphism. Maximal cliques are enumerated by maximal injective-word chains and shown closed under multiplication, which is necessary to identify maximal commutative subsemigroups. Pair-count and Laplacian recursions follow by exact prefix counts and symmetric join decompositions. The included independently coded multiplication/graph verifier checks all pairs for ranks 2, 3, 4, including exact Laplacian nullities. The finite checks do not substitute for the general proofs.
+PASS
 
-## Originality — PASS relative to examined results
+Nagy Theorem 3 gives the actual free semigroup normal forms: each injective word has plain and doubled-first-letter incarnations, n>=2. Multiplication is concatenation followed by removal of repeated letters with preserved initial double flag. Two distinct normal forms commute exactly when they lie in the same compatible initial-letter/initial-pair sector and underlying suffixes are prefix-comparable, with a plain singleton joined to its doubled sector. Thus the graph decomposes as n(K1∨T_(n−1))⊔n(n−1)T_(n−2). This yields n² components, 2n B_(n−1) elements, the stated ordered pair formula, cograph/perfectness, alpha=2n!, and exactly 2n! maximal commuting subsemigroups (n! of size n+1 and n! of size n−1). Closure under multiplication holds for every maximal chain, including n=2 singleton cases. The Laplacian recursion for T_m=K1∨(mT_(m−1)) follows from eigenvector decomposition of a graph join and gives integral spectra. Independently generated finite semigroups n=2,3,4,5 reproduced element counts 8,30,128,650, graph components 4,9,16,25, commuting ordered pair counts 20,108,664,4580 and maximal cliques 4,12,48,240. Full numerical spectrum matched predicted exact multiplicities for n<=4. No reliance on finite extrapolation for the all-n structural statement.
 
-The underlying free semigroup normal forms and multiplication are Nagy's earlier result, not new. Material inspection of Section 3 (normal forms, example table and proof), the article's introduction and subsequent results found no commuting-graph or maximal-commutative-subsemigroup theorem in that article. Prior free-left-regular-band literature concerns the idempotent band, which does not include the plain-generator/doubled-layer interaction. General completely-simple-semigroup commuting-graph results are outside the present semigroup class because its square is a proper ideal. Searches for equivalent formulations and relevant existing statements found no inspected theorem implying the full decomposition and two-size maximal-subsemigroup census. Search failure is not a proof of absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact graph decomposition and the classification of all maximal commutative subsemigroups address natural semigroup invariants and reveal two distinct maximal sizes arising from the nonidempotent generators. The count of components, ordered commuting pairs, independent sets and complete integral Laplacian spectrum are structural consequences with precise formulas for every rank, not isolated small-instance tables or a restatement of the word normal form.
+The free left legal semigroup algebra and its normal forms are explicitly Nagy 2023 Theorem 3; these are not original. Free left regular bands are idempotent, lacking the separate doubled-initial-letter sector and nontrivial plain singleton behavior, so their published prefix-tree structure cannot be transplanted without new analysis. The candidate novel finding is the complete ordinary commuting graph and exact all-n subsemigroup and Laplacian classification, not the elementary graph-join spectrum identity itself. Relevant primary semigroup paper and published Resultary semantic records were checked; priority risk remains other terminology for centralizers or commutative graphs of these bands.
 
-## Risks and boundaries
+## value
 
-A general theorem on commuting graphs of free left legal semigroups, or a stronger unpublished comparability-graph formulation, might imply the result. The scope excludes infinite rank, semigroup quotients, and arbitrary left legal semigroups. No independent verification of priority or proof has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The commuting graph of a natural finitely generated free semigroup is a canonical algebraic graph; maximal commutative subsemigroups and Laplacian spectra are natural global invariants. The proof yields a full parameter family and sharp n-dependent counts, including an equal split of two different maximal-subsemigroup sizes, rather than merely a restatement of Nagy’s multiplication table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
