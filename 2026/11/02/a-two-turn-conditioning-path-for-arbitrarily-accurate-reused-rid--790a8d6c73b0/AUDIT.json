@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For all t>0 and λ≥0, the generalized Gram eigenvalues reduce the squared singular-value condition number to a ratio of two positive eigenvalues. The exact J eigenvalue gap yields P=37λ²−67λ+40 with negative discriminant −1431; differentiating yields derivative sign −F_t. The cubic is positive at 1, negative at 2 and positive at infinity and, by its +,−,−,+ coefficients, has exactly two simple positive roots. The sketch is realized by an explicit Cholesky construction; Gaussian positivity follows from continuity of simple roots and a strictly positive density. The independent direct B R^-1 singular-value verifier passed its 154 matrix/derivative/distortion comparisons and exact identities. Limits: neither finite checks nor literature search proves arbitrary parameter assertions; those follow analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2203.07329v1 Lemma 2 bounds κ(BR^-1) by sketch embedding singular values but does not order λ values or eliminate turning points.",
+        "https://arxiv.org/html/1109.5981v2 Section 5 concerns a regularized LSRN formulation and not a reused partly exact Cholesky sketch path."
+      ],
+      "reasoning": "An upper bound independent of λ does not imply unimodality, and classical generalized-eigenvalue continuity does not itself locate or count two turning points. The possible strongest broader prior would explicitly control the shape of shifted SPD-pencil condition-number paths. No such covering statement was retrieved, but the general matrix-pencil literature remains a priority risk.",
+      "searches": [
+        "generalized eigenvalue shifted SPD matrix pencil condition-number regularization path nonunimodal extrema",
+        "shifted SPD pencils (A+lambda I, B+lambda I) spectral condition number two stationary points near commuting matrices",
+        "regularized least squares gaussian sketch Cholesky preconditioning scalar lambda dependence nonunimodal condition numbers",
+        "partly exact Tikhonov sketch Cholesky preconditioner regularization parameter nonmonotone condition number proportional Gram matrix exact worst lambda square root spectral extremes",
+        "regularized least squares sketch preconditioner condition number unimodal lambda zero infinity optimal scaling A transpose X transpose X A proportional A transpose A",
+        "arxiv:1109.5981v2 Section 5",
+        "Meier Nakatsukasa condition-number ridge sketch embedding bound"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2203.07329v1 (primary motivating algorithm and bound, Sections 1–2)",
+      "arxiv:2302.07202v2 (related numerical stability work, Sections 1, 2 and 6)",
+      "arxiv:1109.5981v2 (earlier LSRN regularized sketch method, Sections 3–5)",
+      "Related published mathematical work on regularization paths, shifted SPD matrix pencils and sketch-preconditioner condition numbers, queried by the listed scientific terms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meier–Nakatsukasa Algorithm 1 introduces R^TR=(XA)^T(XA)+λI; Lemma 2 gives κ(BR^-1)≤κ(XU_A), a bound with no λ-path assertion.",
+        "Meier et al. 2023 studies rounding stability of different sketch-and-precondition implementations and not λ-dependent cubic turning-point counts.",
+        "LSRN uses an SVD-based preconditioning construction, not this fixed Gram-sketch Cholesky pencil."
+      ],
+      "reasoning": "The mathematical novelty is not the ridge algorithm, a Cholesky factorization, embedding inequality, or general derivative rules; it is the precise nonunimodal two-turn existence theorem under arbitrarily small embedding error and Gaussian positive-probability support. The motivating bound permits the construction but cannot alone determine its sign changes.",
+      "searches": [
+        "Tikhonov sketched Cholesky preconditioner two turning points condition number as function of ridge parameter despite arbitrarily accurate subspace embedding",
+        "Meier Nakatsukasa partially exact sketch 2x2 ridge shifted Gram nonmonotone condition number local maximum minimum",
+        "generalized eigenvalue shifted SPD matrix pencil condition-number regularization path nonunimodal extrema",
+        "partly exact Tikhonov sketch Cholesky preconditioner regularization parameter nonmonotone condition number proportional Gram matrix exact worst lambda square root spectral extremes",
+        "arxiv:2203.07329v1 Sections 2.1.1 and 2.1.2",
+        "arxiv:2302.07202v2 Section 6.4",
+        "arxiv:1109.5981v2 Section 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2203.07329v1 Section 2.1 gives the same preconditioner Gram factorization but only a norm embedding bound.",
+        "https://arxiv.org/html/2302.07202v2 examines backward error and sketch-and-apply rather than two extrema across ridge λ."
+      ],
+      "reasoning": "Equivalent variants include the generalized eigenvalue ratio of (G+λI,H+λI), the spectral condition of (G+λI)^(-1/2)(H+λI)(G+λI)^(-1/2), and singular-value conditioning of augmented BλRλ^-1. These are explicitly identified and searched for rather than assumed different. Neither inspected paper provides the cubic sign pattern for both turning points.",
+      "searches": [
+        "Tikhonov sketched Cholesky preconditioner two turning points condition number as function of ridge parameter despite arbitrarily accurate subspace embedding",
+        "Meier Nakatsukasa partially exact sketch 2x2 ridge shifted Gram nonmonotone condition number local maximum minimum",
+        "Meier Nakatsukasa 2022 partially exact Cholesky sketch ridge regularization condition number curve lambda two local extrema arbitrarily accurate Gaussian embedding 2x2 spectral avoided crossing",
+        "nonmonotone double turning regularization parameter preconditioned least squares 2x2 ridge shifting sketched Gram matrix",
+        "shifted SPD pencils (A+lambda I, B+lambda I) spectral condition number two stationary points near commuting matrices",
+        "arxiv:2203.07329v1 Algorithm 1 and Lemma 2",
+        "arxiv:2302.07202v2 Sections 1, 2, 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2203.07329v1 Algorithms 1–3 and its displayed empirical comparisons concern preconditioning bounds and convergence, not the exact cubic or a two-turn ridge parameter table.",
+        "https://arxiv.org/html/2302.07202v2 addresses finite-precision preconditioner stability without the two-turn ridge parameter example.",
+        "https://arxiv.org/html/1109.5981v2 addresses earlier Gaussian/SVD sketch preconditioning rather than this Gram-sketch path."
+      ],
+      "reasoning": "The exact rational Gram matrices, cubic polynomial and two positive critical roots were not located in the identified primary literature, its related works or relevant retrieved mathematical record descriptions. Searches cannot certify that no older algebraic formulation exists.",
+      "searches": [
+        "Tikhonov sketched Cholesky preconditioner two turning points condition number as function of ridge parameter despite arbitrarily accurate subspace embedding",
+        "Meier Nakatsukasa partially exact sketch 2x2 ridge shifted Gram nonmonotone condition number local maximum minimum",
+        "nonmonotone double turning regularization parameter preconditioned least squares 2x2 ridge shifting sketched Gram matrix",
+        "regularized least squares gaussian sketch Cholesky preconditioning scalar lambda dependence nonunimodal condition numbers",
+        "\"preconditioned condition number\" nonmonotone \"regularization parameter\" sketch",
+        "\"ridge\" \"preconditioner\" \"condition number\" \"nonmonotonic\""
+      ]
+    },
+    "rationale": "The exact two-turn ridge-path condition-number law and arbitrary-embedding-accuracy Gaussian positive-probability realization were compared against Algorithm 1 and Lemma 2 of the 2022 motivating full text, an adjacent 2023 preconditioner stability paper, classical LSRN, related published mathematical claims, and literature searches for sketching, ridge/Tikhonov, shifted SPD pencils and turning points. None of the inspected scientific statements gives or implies the exact path classification; source bounds do not assert monotonicity. Distinct known algorithmic material and basic eigenvalue facts are not claimed as new. A classical matrix-pencil special-case result could still cover this and remains an explicit bibliographic risk.",
+    "residual_risks": [
+      "A classical result about generalized eigenvalue ratios for affine-shifted SPD pencils might imply the two-turn construction without using ridge-sketch terminology; broad mathematical bibliography is not exhaustive.",
+      "The Gaussian event has unspecified possibly very small probability; it is not a performance or failure-frequency estimate.",
+      "No independent publication-priority or proof audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the motivating preconditioner and a uniform spectral bound, not the new λ-path shape classification",
+        "evidence": "arxiv:2203.07329v1 sections 1.1 and 2.1; Gram identity in Algorithm 1, Lemma 2 spectral bound",
+        "identifier_or_url": "https://arxiv.org/html/2203.07329v1",
+        "material_read": "Introduction, Section 1.1, 1.2, Section 2.1.1 Algorithm 1, Section 2.1.2 Lemma 2 and its proof, and section contents/related literature",
+        "method": "Read accessible arXiv HTML primary source, matched R^TR and B matrices directly",
+        "title": "Randomized algorithms for Tikhonov regularization in Linear Least Squares",
+        "trigger": "Exact target preconditioner, same λ-parameter family and two-column sketch objects"
+      },
+      {
+        "assessment": "Investigates floating-point stability and sketch-and-apply variants, not fixed-sketch ridge parameter turns in exact arithmetic",
+        "evidence": "arxiv:2302.07202v2 abstract, Sections 1, 2, 6.4",
+        "identifier_or_url": "https://arxiv.org/html/2302.07202v2",
+        "material_read": "Abstract and introduction; preconditioning framework sections and discussion including 6.4 variants",
+        "method": "Read accessible arXiv HTML primary source and compared exact objects and conclusions",
+        "title": "Are sketch-and-precondition least squares solvers numerically stable?",
+        "trigger": "Closely related numerical preconditioning with overlapping authors and apparent stability/conditioning language"
+      },
+      {
+        "assessment": "Provides an SVD-based method and a regularized linear system, not the two-turn path of a partly exact Cholesky Gram sketch",
+        "evidence": "arxiv:1109.5981v2 Sections 3–5",
+        "identifier_or_url": "https://arxiv.org/html/1109.5981v2",
+        "material_read": "Introduction, preconditioning algorithm overview and Section 5 on Tikhonov regularization",
+        "method": "Read accessible arXiv HTML primary source and compared regularization construction",
+        "title": "LSRN: A Parallel Iterative Solver for Strongly Over- or Under-Determined Systems",
+        "trigger": "Older Gaussian sketching preconditioning with explicit Tikhonov section"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "790a8d6c-73b0-4d94-b7f1-e7d88aeefc62",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reusable partly exact sketches target a series of ridge parameters, so controlling preconditioned spectral condition number along λ is a directly motivated numerical linear algebra question. This exact counterexample proves that arbitrary subspace-embedding accuracy cannot guarantee the seemingly natural monotonicity or unimodality of this path; it has two strict turning points even under Gaussian full-support perturbations. It isolates which additional structural assumptions would be needed for a monotone condition-number search. The result is narrow, but its metric, scope, and limitation are intrinsic to the source algorithm, not a chosen arbitrary statistic.",
+    "status": "PASS"
+  }
+}
