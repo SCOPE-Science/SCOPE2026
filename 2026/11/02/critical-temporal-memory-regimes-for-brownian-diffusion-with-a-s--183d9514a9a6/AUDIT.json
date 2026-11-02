@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the first environmental redraw gives the exact killed-survival renewal equation and resolvent, with denominator positive for fixed positive refresh. Conditional on reset times, the common Brownian-history interval yields the exact two-time covariance, and Tonelli plus differentiation gives the integrated normalized correlation. Small-parameter estimates for two Stieltjes integrals prove the sharp five-regime phase diagram. The subcritical gamma profile follows from Laplace continuity of the survival-weighted law; the \\(\\alpha=1\\) logarithmic profile follows from the product-Laplace positive-association sandwich. The standalone mpmath checker passed 271 deterministic finite checks; its finite checks are not a replacement for the analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arutkin–Reuveni Eq. (23) is an exact one-time stationary characteristic function for every intensity distribution, mathematically supplying the kernel of our exact transform.",
+        "Stojkoski et al. Section 3.2 proves fixed-rate covariance and discusses dependence on last-reset times.",
+        "Taźbierski Chapter 3 §3.4 studies Cox-reset mean-square displacement; Chapter 4 §4.2 treats memory resets with no position relocation, a distinct mechanism."
+      ],
+      "reasoning": "The published exact spatial transform covers a central intermediate function, but it does not explicitly state or establish the limiting stationary two-time covariance profiles at \\(\\mu\\downarrow0\\), especially the logarithmic-lag law and integrated-correlation threshold at exponent two. The comparison is implication-based, not a title mismatch. General results on renewal autocorrelations may assist but the Cox reset intervals are not iid renewal intervals because rate persistency crosses positional resets.",
+      "searches": [
+        "Primary: arXiv:2509.25365v1, Sections 2–5, especially Eq. (11) and Eq. (23)",
+        "Primary: arXiv:2107.11686, full accessible HTML, autocorrelation and general reset-time equations",
+        "Thesis: K. Taźbierski, 2025, Chapter 3 pp. 49–61 and Chapter 4 §4.2 pp. 73–74",
+        "Web: Cox stochastic resetting temporal correlation slowly switching reset rate incomplete gamma logarithmic aging Brownian 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2509.25365v1",
+      "https://arxiv.org/abs/2107.11686",
+      "https://bip.pwr.edu.pl/d/HGBUKOTtQKxVvBFh6GDxYBxZIQnh4WUFABWdbExYbWGFBRAg9RgNtcXccVjU3ClVBDkNLfnxcVVQU/d_tazbierski_k_rozprawa_doktorska.pdf",
+      "https://arxiv.org/abs/1907.06819"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arutkin–Reuveni Eq. (23) yields \\(\\widehat P(k)=1-Dk^2 R_\\mu(Dk^2)\\); thus their exact spatial law implies the same killed-rate resolvent at positive Laplace arguments.",
+        "Stojkoski et al. Eq. (26) yields the homogeneous-rate special case \\(e^{-rt}\\), compatible with the present theorem.",
+        "The accessible earlier two-phase claim concerns mean first-passage time and finite optimal switching, with rates restricted to zero and a fixed positive intensity, not the stationary covariance or density exponent classification."
+      ],
+      "reasoning": "Known stronger spatial-transform coverage is openly acknowledged. The assessed claim is not that transform, nor a parameter substitution into it: it is the construction of a stationary two-time covariance from Brownian history plus a new singular scaling analysis yielding a full gamma distribution limit, a marginal log-time profile, and a variance/correlation threshold separation. The preceding first-passage theorem and homogeneous-rate autocorrelation neither contain nor imply the complete two-index profile without additional nontrivial results. Independent broader-literature verification is still needed.",
+      "searches": [
+        "Full article: https://arxiv.org/html/2509.25365v1",
+        "Full article: https://arxiv.org/abs/2107.11686",
+        "Relevant thesis chapters: Taźbierski 2025, Chapter 3 and Chapter 4",
+        "Accessible previous finding on two-state Markov reset-modulated first-passage time (source arxiv:2509.25365)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2107.11686, Eq. (26): steady autocorrelation \\(e^{-rt}\\) under fixed-rate homogeneous Poisson resetting.",
+        "arXiv:2509.25365v1, Eq. (11): stationary spatial characteristic transform through the environment integrated survival; Eq. (23): exact transform for Poisson-redrawn rate.",
+        "The deterministic-intensity specialization of the present exact resolvent gives exp(-rt), matching the established fixed-rate case."
+      ],
+      "reasoning": "The common Brownian-reset covariance mechanism is not claimed novel. The fixed-rate equivalence lacks low-intensity disorder and cannot produce either singular weak-refresh profile. The prior spatial transform determines the killed-survival resolvent but does not directly state the temporal covariance or the two scaling profiles, which require a Brownian covariance identity and asymptotic analysis. Residual risk: a general existing stochastic-intensity spectral theorem may contain an equivalent formulation.",
+      "searches": [
+        "published-finding corpus: Brownian motion modulated Cox Poisson resetting rate random switching slow rate, two-time autocovariance, integrated correlation time logarithmic",
+        "published-finding corpus: renewal-reset Brownian stochastic rate mixture time-correlations incomplete gamma scaling",
+        "Web: Brownian motion stochastic rate resetting power law near zero autocorrelation two time aging slow modulation",
+        "Primary: arXiv:2107.11686, Sections 3.2 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic record matches concerned OU spectral-edge autocorrelations, stationary renewal-age correlations, and different reset/hybrid oscillator models, not the Cox-rate Brownian weak-refresh profile.",
+        "No exact parameter table or published index entry identified by these actual targeted searches; absence is not a proof of novelty."
+      ],
+      "reasoning": "The claimed invariant is a continuum correlation function and exact asymptotic classification, not a tabulated finite value. Available record results and nearby titles did not exhibit the specific object/parameter triple. The limited scope of semantic indexing remains a residual risk.",
+      "searches": [
+        "published-finding corpus: complete Brownian resetting in Cox random environment, stationary two-time covariance, inverse-rate density critical indices one and two, incomplete gamma temporal profile",
+        "published-finding corpus: quenched annealed reset-rate slow switching logarithmic-lag aging curve 1-q, gamma survival age",
+        "published-finding corpus: Diffusion with doubly stochastic resetting Arutkin Reuveni 2025 stationary correlation long memory refresh",
+        "Web: randomly fluctuating reset rate Cox autocorrelation long time memory stationary variance diverges alpha one alpha two"
+      ]
+    },
+    "rationale": "Claim-level comparison against the exact Poisson-rate-reset stationary transform (Arutkin–Reuveni), established Poisson reset autocorrelation (Stojkoski et al.), relevant Cox resetting dissertation sections, and published semantic records disclosed no stated weak-refresh two-time correlation classification. The exact spatial resolvent is prior work and is explicitly acknowledged. The new mathematical object is the full stationary temporal covariance phase diagram, including the shape-\\((1-\\alpha)\\) incomplete-gamma lag profile and log-time boundary. This is a qualified best-knowledge judgment, not a certification of originality.",
+    "residual_risks": [
+      "Arutkin–Reuveni Eq. (23) already determines the killed-survival Laplace resolvent; some temporal statements may be obtainable from earlier general covariance representation theorems with relatively little extra calculation.",
+      "General Cox-process spectral theory or Tauberian results could implicitly imply some or all of the classified scaling limits.",
+      "The relevant thesis chapters were inspected via extracted text, but page-image corroboration was unavailable; the dissertation was not exhaustively read.",
+      "The related switched-diffusivity source was compared only at abstract level, and semantic database search cannot establish publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the exact model and one-time spatial transform; does not state the two-time covariance or the critical weak-refresh observation-lag profiles.",
+        "evidence": [
+          "Eq. (11) gives a general integrated-intensity survival functional for the stationary spatial characteristic function.",
+          "Eq. (23) gives the exact one-time law for iid Poisson plateaus.",
+          "Sections 4–5 analyze spatial density and localization, not stationary two-time covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.25365v1",
+        "material_read": "Full accessible article sections 1–5, especially the mathematical exposition, Eq. (11), Eq. (23), Eq. (24), and conclusion.",
+        "method": "Primary arXiv HTML full-text reading; comparison of the Fourier transform with the covariance-resolvent identity.",
+        "title": "Diffusion with doubly stochastic resetting",
+        "trigger": "Exactly the independently Poisson-redrawn Cox intensity model and any dominating stationary result."
+      },
+      {
+        "assessment": "Establishes general reset-time covariance strategy and fixed Poisson-rate correlation, but not Poisson-refreshed stochastic intensity or the weak-refresh gamma/log-time limit.",
+        "evidence": [
+          "Eq. (26) is the constant-rate exponential temporal correlation.",
+          "Eq. (24) is a general expression involving last-reset-time statistics; no refreshed-rate law is substituted."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.11686",
+        "material_read": "Accessible arXiv full text, Section 3.2 equations (18)–(26), Section 4 and conclusion.",
+        "method": "Primary full-text mathematical comparison of last-reset probabilities and fixed-rate temporal correlation.",
+        "title": "Autocorrelation functions and ergodicity in diffusion with stochastic resetting",
+        "trigger": "Potential exact generic two-time correlation theorem dominating the proposed result."
+      },
+      {
+        "assessment": "The examined chapters focus on displacement, mean-square displacement and non-positional memory resets; no exact stationary two-time correlation law for Poisson-rate-redraw environment was found in the examined material. This is a bounded relevant-section comparison, not a full-document exclusion.",
+        "evidence": [
+          "Chapter 3 §3.4 Eq. (3.40) is a general Cox resetting mean-square-displacement identity.",
+          "Chapter 4 explicitly describes memory resetting without repositioning, unlike complete positional reset here.",
+          "Relevant PDF pages were retrieved as text; image checks failed on timeout."
+        ],
+        "identifier_or_url": "https://bip.pwr.edu.pl/d/HGBUKOTtQKxVvBFh6GDxYBxZIQnh4WUFABWdbExYbWGFBRAg9RgNtcXccVjU3ClVBDkNLfnxcVVQU/d_tazbierski_k_rozprawa_doktorska.pdf",
+        "material_read": "Indexed PDF text from Chapter 3 introduction, §3.1, §3.4 including Eq. (3.40) and Table 3.1, and Chapter 4 introduction and §4.2 including Eqs. (4.51)–(4.53).",
+        "method": "Primary dissertation sections read as indexed PDF text; two requests for page screenshots timed out, so visual corroboration was unavailable.",
+        "title": "Representations and applications of stochastic processes with resetting",
+        "trigger": "A plausible broader doctoral account explicitly covering Cox resetting, mixed Poisson rate laws and memory."
+      },
+      {
+        "assessment": "Randomly switched diffusivity and its relaxation function, not a random reset intensity with Brownian positional resets. No whole-document noncoverage conclusion is claimed.",
+        "evidence": [
+          "Abstract specifies alternately fluctuating diffusivity with renewal sojourns and a free or harmonically trapped particle."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.06819",
+        "material_read": "Public arXiv abstract and model description; full text not inspected.",
+        "method": "Abstract-level model and observable comparison only.",
+        "title": "Brownian motion with alternately fluctuating diffusivity: Stretched-exponential and power-law relaxation",
+        "trigger": "A superficially similar random-environment temporal relaxation theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "183d9514-a9a6-4f67-a2f6-3aa4ac4a4db4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An established non-renewed Cox resetting model has measurable time dependence not determined by a simple stationary variance threshold. For low-rate exponent \\(1<\\alpha\\le2\\) the variance has a finite limit while integrated normalized correlations diverge, distinguishing static localization from temporal memory. Exact incomplete-gamma and logarithmic-lag profiles give natural, distribution-class-universal predictions for slow environmental relaxation. The exact exponent-two time-memory threshold and critical observation-time profile address a structural gap, not arbitrary parameter substitutions.",
+    "status": "PASS"
+  }
+}
