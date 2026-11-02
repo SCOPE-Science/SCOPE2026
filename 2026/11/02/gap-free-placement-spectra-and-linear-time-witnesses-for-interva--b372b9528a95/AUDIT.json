@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Every resident constraint is exactly one interval on a sum of at most two binary sites; componentwise two-state DP reconstructs min and max. For two feasible assignments the only forbidden mixed pair states are encoded by implications between opposite-sign disagreements. Their strongly connected components occupy alternating paths or even cycles and have occupancy change at most one. Reverse topological switching preserves feasibility and crosses every intermediate cardinality. A seven-vertex degree-three star-subdivision has precisely feasible sizes {1,3}. Brute-force comparison and 10000-site construction passed, but are not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2302.13997, Section 3, proves polynomial-time decision with an explicit cardinality-indexed dynamic program, including quadratic-sized tables for paths.",
+        "arXiv:2308.09501, Theorem 4.3, proves linear time only under approvals of the form [0,u], not strictly positive lower bounds."
+      ],
+      "reasoning": "The first algorithm solves a broader *approval-set* input class but with a weaker running-time conclusion and without a complete feasible-cardinality spectrum; the second has a stronger running time only on a narrower preference class. Neither theorem subsumes the combined arbitrary-interval gap-free and constructive linear-time statement.",
+      "searches": [
+        "https://arxiv.org/abs/2302.13997",
+        "https://arxiv.org/abs/2308.09501",
+        "Knop Schierreich refugee housing improvement linear time interval preferences paths"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2302.13997",
+      "https://arxiv.org/abs/2308.09501",
+      "https://arxiv.org/abs/2405.03302"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 original employs a dynamic-programming dimension for the target number, so its stated existence theorem does not imply a no-gap spectrum or a linear-time all-target algorithm.",
+        "Downward closure in upper-bound-only housing forces interval sizes starting at zero, but cannot be invoked when lower bounds are positive.",
+        "The new seven-vertex star subdivision illustrates that interval constraints alone without the degree-two hypothesis do not guarantee no gaps."
+      ],
+      "reasoning": "An existing polynomial-time solver for exact k does not imply a linear-time algorithm, and the upper-only linear method needs a monotonicity assumption absent here. The new SCC jump lemma supplies the missing mathematical implication.",
+      "searches": [
+        "https://arxiv.org/abs/2302.13997 Section 3 maximum-degree-two theorem",
+        "https://arxiv.org/abs/2308.09501 Section 4.3 upper-bounds theorem",
+        "binary placements on cycles paths with local interval constraints x_i+x_{i+1} cardinality support gapless exchange property"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The result can be recast as binary interval-sum constraints with every variable in at most two constraints; the constructed disagreement implication graph has alternating signs.",
+        "The inspected primary sources formulate refugee housing, but neither presents this equivalence and its small-SCC exchange proof."
+      ],
+      "reasoning": "A generic exact-cardinality dynamic program does not imply an interval spectrum. Conversely a pre-existing exact result for interval binary CSP with incidence degree at most two could cover the theorem, so this is a residual search risk rather than a proven absence.",
+      "searches": [
+        "interval-constrained binary pairwise CSP maximum degree two path cycle solutions all Hamming weights contiguous exchange linear time",
+        "cardinality spectrum 2-CNF satisfying assignments consecutive possible Hamming weights 2SAT",
+        "\"cardinality\" \"satisfying assignments\" \"2-SAT\" \"interval\" path cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete seven-vertex counterexample is given algebraically by three exact-one constraints; it is not presented as a known small-graph database entry.",
+        "The consulted primary works do not tabulate the set of all feasible population sizes on degree-two graphs."
+      ],
+      "reasoning": "The claim is an infinite theorem rather than a table lookup. A small exhaustive validation confirms, but does not define, the proof. An unlocated specialized table would not automatically cover the universal theorem.",
+      "searches": [
+        "\"refugee housing\" \"gap-free\" numbers of refugees",
+        "exact cardinality two variable interval sums cycle paths all feasible cardinalities no gaps",
+        "\"anonymous refugee housing\" \"interval\" \"paths\" complexity"
+      ]
+    },
+    "rationale": "The original arbitrary-interval degree-two result uses a cardinality-indexed dynamic program rather than a no-gap structural theorem or linear-time any-size witness, while the later linear-time result is restricted to lower bound zero. The proof here establishes a new implication-SCC interpolation for arbitrary positive/zero lower and upper approvals, with a seven-vertex sharp boundary. Semantically similar results in general binary-CSP literature remain a priority risk.",
+    "residual_risks": [
+      "Other nomenclatures for degree-two binary CSPs could contain an equivalent gap-free Hamming-weight theorem.",
+      "Public abstract-only comparisons cannot exclude coverage deeper in unread papers.",
+      "Exact priority and historical novelty have not been independently validated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest source; proves polynomial-time feasibility, not the interval cardinality theorem or arbitrary-interval linear construction",
+        "evidence": [
+          "Section 3 definition uses approved numbers of occupied neighbor sites and defines interval approvals.",
+          "Section 3 degree-two theorem gives a table indexed by the requested number of refugees and a quadratic path table; degree-three hardness is separately established."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.13997",
+        "material_read": "Relevant portions of the accessible primary arXiv HTML full-text view: abstract, introduction, model definitions, and Section 3 formulation, degree-two proof and degree-three restriction.",
+        "method": "Read the primary full text and compared degree-two proof steps, exact-cardinality DP dimension, constraints and claimed complexity against the new statement",
+        "title": "Host Community Respecting Refugee Housing",
+        "trigger": "Originating model and closest arbitrary-interval degree-two result"
+      },
+      {
+        "assessment": "Linear-time algorithm handles only [0,u] upper-bound restrictions; not arbitrary positive lower bounds",
+        "evidence": [
+          "Introduction explicitly restricts preferences to include zero.",
+          "Theorem 4.3 gives O(n) on degree-two for ARH-UB and cites arbitrary-interval predecessor as slower."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.09501",
+        "material_read": "Relevant portions of the accessible primary arXiv HTML full-text view: abstract, introduction, model definitions, Section 4 degree-three hardness context and degree-two upper-bound theorem/proof.",
+        "method": "Read primary full text and compared approval-set assumptions and algorithmic guarantees",
+        "title": "Towards More Realistic Models for Refugee Integration: Anonymous Refugee Housing with Upper-Bounds",
+        "trigger": "Potentially stronger linear-time degree-two housing algorithm"
+      },
+      {
+        "assessment": "Abstract addresses distribution of number of random 2-SAT solutions, not the deterministic exact size spectrum; full-text absence means no whole-document exclusion claim",
+        "evidence": [
+          "The accessible abstract concerns a central limit theorem for the logarithm of satisfying-assignment counts in random 2-SAT."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.03302",
+        "material_read": "Public abstract and bibliographic metadata, not full text",
+        "method": "Compared the abstract objective with exact possible Hamming weights for path/cycle interval constraints",
+        "title": "The number of random 2-SAT solutions is asymptotically log-normal",
+        "trigger": "Nearby binary satisfiability solution-count literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b372b952-8a95-4f2d-8462-3dfc94e16809",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact feasible-intake spectrum is a natural resource-planning invariant. Positive lower quotas destroy the trivial downward-closed property of the previous upper-bound-only model. Proving no gaps and constructing any specified feasible intake in linear time on all degree-two networks is a structural strengthening with a sharp degree-three boundary.",
+    "status": "PASS"
+  }
+}
