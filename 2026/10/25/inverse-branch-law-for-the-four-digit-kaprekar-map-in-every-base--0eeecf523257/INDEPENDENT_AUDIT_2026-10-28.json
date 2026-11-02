@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:36:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Sorting each four-digit input into A≥B≥C≥D yields u=A-D, v=B-C with 1≤u≤b−1 and 0≤v≤u. Direct subtraction gives Y=(b³−1)u+(b²−b)v, injective by reducing modulo b and realizable for every pair. Choosing D in b−u ways and the internal gap s in 0..u−v yields permutation totals 12u−4 at v=0, 24(u−v) at 0<v<u, and 6 at v=u. Constant strings give exactly b zero preimages. Quadratic optimization of the interior branch gives 24 floor((b−1)²/4) for b≥3, with parity-dependent tie count, versus 8 at b=2. Positive image pairs fill an integer triangle; under uniform image output the interior Riemann-sum limit has density two on s,t>0,s+t<1 and Q=24st. Integrating its hyperbolic tail yields the displayed sqrt/log law supported on [0,6]. An independently written exact direct enumeration matched every output fiber, maximum, and mass for bases 2 through 14; finite checks only corroborate the symbolic all-base proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamagami–Matsui 2019 focuses fixed points/constants",
+          "Chen–Ono–Schwartz–Thakur, Four-digit Kaprekar dynamics in odd bases, 2026, indexed abstract"
+        ],
+        "reasoning": "Forward orbit/cycle and fixed-point classifications do not immediately imply the one-step full fiber distribution, including multiplicities under uniform image sampling; the inspected 2026 primary Theorems 1 and 24 concern a forward stable-region conjugacy and terminal-cycle counts, not this image-uniform inverse-branch distribution.",
+        "searches": [
+          "web: Kaprekar four digit bases Yamagami Matsui formulas Kaprekar constants",
+          "web: Kaprekar four digit odd bases 2026 dynamics Chen Ono Schwartz Thakur"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md/verify_inverse.py and all source tree entries at assigned Git snapshot",
+        "Hanover (2017), arXiv:1710.06308, relevant full sections",
+        "Walden (2005), primary accessible full text",
+        "OEIS A099009, fixed-point data",
+        "Chen–Ono–Schwartz–Thakur, Four-digit Kaprekar Dynamics in Odd Bases, JIS 29 (2026), Theorems 1 and 24, published 21-page primary full PDF",
+        "Resultary search for all-base four-digit inverse fiber"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Walden, Searching for Kaprekar’s constants: algorithms and results (2005), forward algorithm and cycle computation",
+          "Hanover 2017, Sections 2–3, base-dependent map coordinates and forward dynamics"
+        ],
+        "reasoning": "The prior digit-gap substitution is an input to the proof, but its inverse multiplicities are additional combinatorial information depending on repeated digits. The limit law uses uniform distinct output sampling, not typical forward-orbit statistics; no exact prior implication demonstrated.",
+        "searches": [
+          "Walden 2005 Kaprekar constants algorithms and results vs fiber counts",
+          "Hanover 2017 four-digit difference parameter vs inverse multiplicities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hanover, The Base Dependent Behavior of Kaprekar’s Routine, arXiv:1710.06308, Section 2.3 gap coordinates",
+          "Source theorem’s three multiplicity cases and uniform-output limit"
+        ],
+        "reasoning": "The conventional two-gap forward map makes the image parameter Y accessible but does not specify the number of ordered original strings for each pair. The inverse-branch count requires a separate multiset multiplicity sum.",
+        "searches": [
+          "Resultary: four-digit Kaprekar arbitrary-base inverse images fiber spectrum preimage multiplicities",
+          "web: Kaprekar four digit arbitrary base preimage count inverse mapping frequency output number multiplicities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A099009 is a fixed-point sequence, not the complete inverse fiber spectrum",
+          "Direct exact fiber enumeration b=2..14 as corroboration, not an existing known table"
+        ],
+        "reasoning": "The claim is an arbitrary-base formula plus a limiting law, not a lookup of a finite fixed-point table. No identified indexed table lists the asserted complete family; nonfind is not a novelty certificate.",
+        "searches": [
+          "OEIS A099009 Kaprekar fixed points",
+          "Resultary semantic inverse-branch Kaprekar arithmetic dynamics",
+          "web: Kaprekar four digit base b number of predecessors table"
+        ]
+      },
+      "rationale": "PASS to best of knowledge with original classical gap coordinates credited. Hanover and Walden develop standard four-digit gap coordinates and forward trajectories, not the exact ordered-input inverse-fiber law or its image-uniform asymptotic distribution in the material read. The complete 2026 odd-base primary paper (Chen–Ono–Schwartz–Thakur, JIS 29, Article 26.4.7) was inspected in its theorem and proof sections; it classifies forward stable-region dynamics and terminal cycles, not input-string inverse-fiber multiplicities. No exact coverage found in Resultary or bibliographic/table search, not proof of absolute priority.",
+      "residual_risks": [
+        "2019 Yamagami–Matsui and 1988 Eldridge–Sagong complete texts not all accessible; an exact inverse formula could reside there.",
+        "Hasse–Prichett and Kay–Downes-Ward predecessors cited by the 2026 complete forward classification were not themselves read in full; those historical sources remain residual exact-fiber priority risks.",
+        "The limit law holds for uniform positive image output, not for uniform original input or the eventual dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GAP_COORDINATES_NOT_EXACT_FIBERS",
+          "evidence": "Establishes standard gap coordinates, analyses forward map and cycles; no complete ordered-input three-branch fiber law in inspected relevant sections.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.06308",
+          "material_read": "Accessible full ar5iv primary text, Sections 2–3 on difference coordinates and iteration dynamics",
+          "method": "Open-access ar5iv full-text reading",
+          "title": "The Base Dependent Behavior of Kaprekar’s Routine",
+          "trigger": "Same arbitrary-base four-digit map and gap coordinates"
+        },
+        {
+          "assessment": "FORWARD_DYNAMICS_DISTINCT",
+          "evidence": "The studied outputs are constants/cycles and algorithmic search; not the exact uniform-image indegree limiting law.",
+          "identifier_or_url": "https://www.researchgate.net/publication/265794898_Searching_for_Kaprekar%27s_constants_algorithms_and_results",
+          "material_read": "Accessible primary reproduction, algorithm and results sections concerning Kaprekar fixed points/trajectories",
+          "method": "Primary full-text reproduction reading",
+          "title": "Searching for Kaprekar’s constants: algorithms and results",
+          "trigger": "Possible comprehensive older computation of all-base map"
+        },
+        {
+          "assessment": "FORWARD_CYCLE_THEOREMS_DISTINCT_FROM_INVERSE_FIBER",
+          "evidence": "Theorem 1 gives eventual conjugacy to projective doubling on an odd stable region, Theorem 24 counts terminal cycles; neither counts multiplicities of original four-digit strings mapping to each one-step output nor proves the uniform-image fiber-count limit.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL29/Ono/ono3.pdf",
+          "material_read": "Published 21-page full PDF, Sections 1–5, Theorems 1, 24 and their proofs inspected; screenshot page 3 confirms gap-coordinate statements; Appendix 6 only formal verification, not relevant to this inverse comparison",
+          "method": "Published full PDF mathematical reading with required screenshot",
+          "title": "Four-digit Kaprekar dynamics in odd bases",
+          "trigger": "Recent primary same-digit map, odd-base complete forward classification"
+        },
+        {
+          "assessment": "DISTINCT_DATA",
+          "evidence": "Fixed points alone cannot recover the image-fiber counts of all preimages.",
+          "identifier_or_url": "https://oeis.org/A099009",
+          "material_read": "Entry label and description of fixed-point sequence",
+          "method": "OEIS entry inspection",
+          "title": "A099009 Fixed points of the Kaprekar map",
+          "trigger": "Exact database entry in closely related problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The complete indegree/fiber spectrum measures one-step compression of a natural arithmetic functional graph and is not determined by its terminal cycles or fixed points. A parameter-uniform closed formula, sharp maximum and nontrivial limiting law for uniformly chosen distinct outputs answer a mathematically natural inverse-dynamics question. The logarithmic tail and explicit sampling normalization distinguish this from routine small-base computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Source RESULT.md/verify_inverse.py and all source tree entries at assigned Git snapshot",
+    "Hanover (2017), arXiv:1710.06308, relevant full sections",
+    "Walden (2005), primary accessible full text",
+    "OEIS A099009, fixed-point data",
+    "Chen–Ono–Schwartz–Thakur, Four-digit Kaprekar Dynamics in Odd Bases, JIS 29 (2026), Theorems 1 and 24, published 21-page primary full PDF",
+    "Resultary search for all-base four-digit inverse fiber"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all bases b≥2, exact distinct one-step positive image outputs and their complete ordered-input fiber counts, maxima, and the nonpolynomial limiting distribution for a uniform positive image output.",
+  "limitations": [
+    "One-step image only, not eventual iteration basins/cycle attractors.",
+    "Asymptotic is for uniformly sampled positive distinct outputs, not an input-pushforward measure."
+  ],
+  "residual_risks": [
+    "2019 Yamagami–Matsui and 1988 Eldridge–Sagong complete texts not all accessible; an exact inverse formula could reside there.",
+    "Hasse–Prichett and Kay–Downes-Ward predecessors cited by the 2026 complete forward classification were not themselves read in full; those historical sources remain residual exact-fiber priority risks.",
+    "The limit law holds for uniform positive image output, not for uniform original input or the eventual dynamics."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR_GAP_COORDINATES_NOT_EXACT_FIBERS",
+      "evidence": "Establishes standard gap coordinates, analyses forward map and cycles; no complete ordered-input three-branch fiber law in inspected relevant sections.",
+      "identifier_or_url": "https://arxiv.org/abs/1710.06308",
+      "material_read": "Accessible full ar5iv primary text, Sections 2–3 on difference coordinates and iteration dynamics",
+      "method": "Open-access ar5iv full-text reading",
+      "title": "The Base Dependent Behavior of Kaprekar’s Routine",
+      "trigger": "Same arbitrary-base four-digit map and gap coordinates"
+    },
+    {
+      "assessment": "FORWARD_DYNAMICS_DISTINCT",
+      "evidence": "The studied outputs are constants/cycles and algorithmic search; not the exact uniform-image indegree limiting law.",
+      "identifier_or_url": "https://www.researchgate.net/publication/265794898_Searching_for_Kaprekar%27s_constants_algorithms_and_results",
+      "material_read": "Accessible primary reproduction, algorithm and results sections concerning Kaprekar fixed points/trajectories",
+      "method": "Primary full-text reproduction reading",
+      "title": "Searching for Kaprekar’s constants: algorithms and results",
+      "trigger": "Possible comprehensive older computation of all-base map"
+    },
+    {
+      "assessment": "FORWARD_CYCLE_THEOREMS_DISTINCT_FROM_INVERSE_FIBER",
+      "evidence": "Theorem 1 gives eventual conjugacy to projective doubling on an odd stable region, Theorem 24 counts terminal cycles; neither counts multiplicities of original four-digit strings mapping to each one-step output nor proves the uniform-image fiber-count limit.",
+      "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL29/Ono/ono3.pdf",
+      "material_read": "Published 21-page full PDF, Sections 1–5, Theorems 1, 24 and their proofs inspected; screenshot page 3 confirms gap-coordinate statements; Appendix 6 only formal verification, not relevant to this inverse comparison",
+      "method": "Published full PDF mathematical reading with required screenshot",
+      "title": "Four-digit Kaprekar dynamics in odd bases",
+      "trigger": "Recent primary same-digit map, odd-base complete forward classification"
+    },
+    {
+      "assessment": "DISTINCT_DATA",
+      "evidence": "Fixed points alone cannot recover the image-fiber counts of all preimages.",
+      "identifier_or_url": "https://oeis.org/A099009",
+      "material_read": "Entry label and description of fixed-point sequence",
+      "method": "OEIS entry inspection",
+      "title": "A099009 Fixed points of the Kaprekar map",
+      "trigger": "Exact database entry in closely related problem"
+    }
+  ]
+}

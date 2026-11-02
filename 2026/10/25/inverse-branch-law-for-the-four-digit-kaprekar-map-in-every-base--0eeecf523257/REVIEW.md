@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Sorted-digit differences parametrize all positive images injectively; a complete case distinction by equal-digit multiplicities produces every inverse-fiber count. The sharp maximum follows by discrete quadratic optimization, and the weak limiting law follows from a uniform lattice-triangle Riemann sum and an evaluated one-variable integral. The independently coded direct four-digit census reproduces all fibers for bases 2 through 22. The infinite result relies on the displayed proof.
+## correctness
 
-**Originality — PASS with priority limitations.** Earlier work establishes the digit-difference coordinates and cyclic dynamics; those facts are explicitly not asserted as new. The contribution is instead the full weighted inverse-fiber formula, sharp branching number and a universal image-uniform limiting distribution. The inspected full texts of Hanover (2017) and Wang–Lu (2021), the OEIS record, and the available bibliographic descriptions of Walden (2005), Yamagami–Matsui (2019), and Eldridge–Sagong (1988) did not show these precise laws. The last three were not all available as full text, and a stronger equivalent formula could exist.
+PASS
 
-**Value — PASS.** In-degree distributions of arithmetic functional graphs quantify deterministic compression and branching. The output-uniform law is a natural invariant that does not reduce to known fixed-point or cycle classifications; its limiting distribution has a nontrivial logarithmic tail and sharp support and supplements studies of the dynamics' basin geometry. The result covers all bases simultaneously, rather than an arbitrary computational cutoff.
+PASS. Sorting each four-digit input into A≥B≥C≥D yields u=A-D, v=B-C with 1≤u≤b−1 and 0≤v≤u. Direct subtraction gives Y=(b³−1)u+(b²−b)v, injective by reducing modulo b and realizable for every pair. Choosing D in b−u ways and the internal gap s in 0..u−v yields permutation totals 12u−4 at v=0, 24(u−v) at 0<v<u, and 6 at v=u. Constant strings give exactly b zero preimages. Quadratic optimization of the interior branch gives 24 floor((b−1)²/4) for b≥3, with parity-dependent tie count, versus 8 at b=2. Positive image pairs fill an integer triangle; under uniform image output the interior Riemann-sum limit has density two on s,t>0,s+t<1 and Q=24st. Integrating its hyperbolic tail yields the displayed sqrt/log law supported on [0,6]. An independently written exact direct enumeration matched every output fiber, maximum, and mass for bases 2 through 14; finite checks only corroborate the symbolic all-base proof.
 
-Scientific limits: no conclusion about full orbits or cycle basins; the 1988, 2005 and 2019 material was not exhaustively read; no independent audit has been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS to best of knowledge with original classical gap coordinates credited. Hanover and Walden develop standard four-digit gap coordinates and forward trajectories, not the exact ordered-input inverse-fiber law or its image-uniform asymptotic distribution in the material read. The complete 2026 odd-base primary paper (Chen–Ono–Schwartz–Thakur, JIS 29, Article 26.4.7) was inspected in its theorem and proof sections; it classifies forward stable-region dynamics and terminal cycles, not input-string inverse-fiber multiplicities. No exact coverage found in Resultary or bibliographic/table search, not proof of absolute priority.
+
+## value
+
+PASS
+
+PASS. The complete indegree/fiber spectrum measures one-step compression of a natural arithmetic functional graph and is not determined by its terminal cycles or fixed points. A parameter-uniform closed formula, sharp maximum and nontrivial limiting law for uniformly chosen distinct outputs answer a mathematically natural inverse-dynamics question. The logarithmic tail and explicit sampling normalization distinguish this from routine small-base computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
