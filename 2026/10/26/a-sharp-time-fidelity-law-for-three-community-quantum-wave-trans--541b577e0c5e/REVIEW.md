@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized three-vertex path Laplacian has eigenvalues \(0,1,3\). The endpoint cosine-wave amplitude is therefore \(1/3-\cos s/2+\cos(\sqrt3s)/6\). Every bounded normalized high-fidelity sequence must be within \(O(s^{-1})\) of the odd/even phase lattices. A completed-square identity and the nonzero integer \(p^2-3q^2\) impose the global lower constant \(\pi^4/144\). Odd powers of the Pell unit supply phases saturating that inequality. The scaling from \(s\) to \(\tau\) is exact. All quantifiers and the wave-only scope are explicit. The included program passed 319 finite checks. Numerical experiments do not prove the universal lower bound.
+PASS
 
-## Originality — PASS, best-knowledge
+Eigenvalues of the unweighted P3 path Laplacian are 0,1,3; endpoint propagator amplitude a(s)=1/3-(1/2)cos(s)+(1/6)cos(sqrt(3)s), s=τsqrt(k/M). Because a lies in [-1/3,1], nearly unit fidelity entails s within O(1/s) of odd πq and sqrt(3)s near even πp. Taylor expansion yields infidelity e1²/2+e2²/6+O(s^-4). Completion into ((e2-sqrt(3)e1)²+(sqrt(3)e1+e2)²)/12, and the nonzero integer Pell norm p²-3q², give the uniform over-all-times lower bound π⁴/144 after scaling. Odd powers (2+sqrt(3))^(2j+1), p even q odd, norm +1, give phases with exact errors π/(2sqrt(3)z), -π/(2z) at s=πz/(2sqrt(3)), saturating the sharp constant. No uniform-in-τ claim is made for original small-ε discrete walk.
 
-The principal motivating paper supplies the symmetric-Laplacian wave equation and exactly the same three-community amplitude; this premise is not claimed. Previously known Pell witnesses establish near-perfect transfer with \(O(q^{-2})\) infidelity. The claim evaluated here is instead a **matching global reverse estimate over every observation time** with the sharp \(\pi^4/144\) coefficient and optimized, attainability-proving readout times. The unshifted Pell times have asymptotic normalized deficit twice the sharp constant. Primary general quantum-walk transfer references describe spectral transfer criteria and peak transfer for different operators or models; no inspected statement yielded this exact quantitative reduced-wave result. An unknown general Diophantine-approximation theorem could imply parts of this specialized calculation, and complete literature-wide priority remains unverified.
+## originality
 
-## Value — PASS
+PASS
 
-The exact global lower bound resolves a natural time-to-fidelity question raised by the multi-community oscillatory transport regime: achieving infidelity \(\delta\) cannot generically require less than order \(\delta^{-1/2}\) reduced time, and an explicit infinite sequence attains the optimal leading constant. The distinction between unshifted approximate resonances and optimized resonances is substantive: it halves the sharp leading scaled infidelity, while proving no alternative observation time can improve upon the optimized constant. The result is a motivated asymptotic transport invariant, not a finite-table or arbitrary-parameter computation.
+Best-of-knowledge originality: Known three-community reduced wave and qualitative transfer do not furnish the matched global liminf π⁴/144.
 
-## Sources and limitations
+## value
 
-Hosaka–Segawa, arXiv:2610.07768v1, Theorem 3.1 and Section 4.1; Chan–Zhan, arXiv:2105.03762, Sections 3–4 and 7; Guo–Schmeits, arXiv:2411.05560v2, Introduction and Theorem 3.5. The proof does not exchange the singular small-coupling limit with the unbounded optimized time limit, nor address full Grover-walk finite-coupling time scaling. Any broader source giving this precise sharp lower bound would change the originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The matching global lower bound and exact optimum timing constant quantify nearly perfect transfer, beyond qualitative irrational-frequency recurrence or unshifted Pell examples, and distinguish a reduced continuous wave from nonuniform discrete-walk extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

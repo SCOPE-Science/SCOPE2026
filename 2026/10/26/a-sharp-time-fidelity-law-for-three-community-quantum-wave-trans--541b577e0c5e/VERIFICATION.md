@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The reproducibility program `verify.py` was executed with Python 3, `numpy` and `mpmath`. It passed 319 independent finite assertions: a three-by-three Laplacian eigendecomposition, comparison of 114 endpoint amplitudes against independent cosine formulas, 150 exact weighted-square identities evaluated to high precision, and seven Pell-recurrence checks with optimized and unshifted times. The computed dimensionless constant is \(\pi^4/144=0.6764520210694613696975\ldots\); for the example with \(M=12,k=1\), it is \(\pi^4/12=8.11742425283353643637\ldots\).
+## correctness
 
-Execute `python verify.py`; Python package requirements are supplied in `requirements.txt`.
+PASS
 
-The exact global lower bound rests on the proof in `RESULT.md`: bounded normalized infidelity forces errors of order \(O(s^{-1})\) around odd/even phase multiples, after which a completed-square identity reduces the lower bound to the nonzero integer norm \(p^2-3q^2\). No finite computation can replace this quantifier argument. The asymptotic statement is confined to the reduced cosine-wave propagator. The weak-coupling limit in the underlying discrete walk is only invoked at fixed reduced observation times.
+Eigenvalues of the unweighted P3 path Laplacian are 0,1,3; endpoint propagator amplitude a(s)=1/3-(1/2)cos(s)+(1/6)cos(sqrt(3)s), s=τsqrt(k/M). Because a lies in [-1/3,1], nearly unit fidelity entails s within O(1/s) of odd πq and sqrt(3)s near even πp. Taylor expansion yields infidelity e1²/2+e2²/6+O(s^-4). Completion into ((e2-sqrt(3)e1)²+(sqrt(3)e1+e2)²)/12, and the nonzero integer Pell norm p²-3q², give the uniform over-all-times lower bound π⁴/144 after scaling. Odd powers (2+sqrt(3))^(2j+1), p even q odd, norm +1, give phases with exact errors π/(2sqrt(3)z), -π/(2z) at s=πz/(2sqrt(3)), saturating the sharp constant. No uniform-in-τ claim is made for original small-ε discrete walk.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: Known three-community reduced wave and qualitative transfer do not furnish the matched global liminf π⁴/144.
+
+## value
+
+PASS
+
+The matching global lower bound and exact optimum timing constant quantify nearly perfect transfer, beyond qualitative irrational-frequency recurrence or unshifted Pell examples, and distinguish a reduced continuous wave from nonuniform discrete-walk extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
