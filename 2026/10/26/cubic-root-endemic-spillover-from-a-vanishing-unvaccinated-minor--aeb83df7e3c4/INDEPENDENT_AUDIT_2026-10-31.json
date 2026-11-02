@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:00:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/cubic-root-endemic-spillover-from-a-vanishing-unvaccinated-minor--aeb83df7e3c4/RESULT.md",
+        "2026/10/26/cubic-root-endemic-spillover-from-a-vanishing-unvaccinated-minor--aeb83df7e3c4/verify.py",
+        "2026/10/26/cubic-root-endemic-spillover-from-a-vanishing-unvaccinated-minor--aeb83df7e3c4/VERIFICATION.md",
+        "https://pure.rug.nl/ws/files/821706260/A_Polarized_Temporal_Network_Model_to_Study_the_Spread_of_Recurrent_Epidemic_Diseases_in_a_Partially_Vaccinated_Population_1_.pdf"
+      ],
+      "rationale": "Reconstructed six-compartment stationary equations directly from Frieswijk–Zino–Cao Proposition 5 equation (18): for fixed group masses epsilon and 1-epsilon, total infected fractions and mildly infectious fractions satisfy the stated balance relations. Eliminating quarantined compartments gives u/(1-u)=(M z)_1 and w/(1-w)=(M z)_2. Under the two critical conditions M=[[1+(R-1)epsilon,(1-1/R)(1-epsilon)/s],[s(R-1)epsilon,1-(1-1/R)epsilon]]. Independently expanded det(M)=1, trace(M)=2+epsilon(R-1)^2/R>2. Strictly positive M has Perron root >1; a positive Perron subsolution, unit supersolution, monotone iteration and strict subhomogeneity yield exactly one positive fixed point besides the origin. Setting epsilon=t^3, u=tU, w=t^2W leads to U^2=B W, W^2=C U, with unique positive solution and Jacobian determinant 3BC>0. Implicit function theorem establishes the claimed epsilon^(1/3), epsilon^(2/3) and population prevalence coefficients; reconstructed compartments are biologically admissible. Symbolic independent determinant and cubic-balance checks passed; finite residual tests do not establish this limit.",
+      "residual_risks": [
+        "All-parameter proof relies on positivity a>b>0, s>0, exact beta+tau=2lambda b and theta=1/R, not arbitrary regime.",
+        "Analytic fixed point result does not establish finite stochastic metastability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frieswijk Theorem2 assumes sigma_v=1 and analyzes a reducible infection route; the assessed model requires sigma_v<1.",
+          "Wang 2021 handles feedback-modified SIS and Perron criterion, not the SIQS two-way critical singular limit."
+        ],
+        "reasoning": "Published more general threshold or uniqueness properties have neither the necessary joint critical parameter equalities nor the claimed epsilon exponents; disjoint model assumptions bar direct implication.",
+        "searches": [
+          "Frieswijk Zino Cao SIQS endemic equilibrium sigma_v=1 Theorem2",
+          "Wang Gracy Ishii Johansson SIS unique equilibrium Perron criterion",
+          "Hiraoka vaccination homophily SIR static network"
+        ]
+      },
+      "checked_sources": [
+        "https://pure.rug.nl/ws/files/821706260/A_Polarized_Temporal_Network_Model_to_Study_the_Spread_of_Recurrent_Epidemic_Diseases_in_a_Partially_Vaccinated_Population_1_.pdf",
+        "https://arxiv.org/pdf/2112.07538",
+        "https://arxiv.org/pdf/2106.00122"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original SIQS equations are reused exactly; Theorem2 was proved only under sigma_v=1.",
+          "Hiraoka computes outbreak size in SIR contact networks and Wang concerns a different controlled SIS dynamics."
+        ],
+        "reasoning": "A Perron root above 1 gives existence but not cubic-root type, population-wide 2/3 exponent or uniqueness at every nonzero minority share without the subsequent nonlinear analysis.",
+        "searches": [
+          "Frieswijk Zino Cao IEEE TNSE 2023 Proposition5 equation18 Theorem2 Assumption2",
+          "Hiraoka arxiv:2112.07538 full SIR percolation analysis",
+          "Wang arxiv:2106.00122 SIS feedback"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eliminating I/Q at equilibrium gives a positive 2x2 concave logistic map with determinant one at joint tuning.",
+          "Claim is equivalent to the unique positive fixed point with u~epsilon^(1/3), w~epsilon^(2/3)."
+        ],
+        "reasoning": "General cooperative-map uniqueness can explain existence but does not by itself determine the singular fractional asymptotics or constants of the specified six-state epidemic system.",
+        "searches": [
+          "vaccination homophily SIQS two population critical small minority cubic root endemic equilibrium",
+          "arxiv:2209.08045 full source 6-compartment SIQS stationary equations",
+          "near critical reducible 2 population SIS cusp fractional scaling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frieswijk 2023 contains vaccination-coverage and homophily simulation curves, but not an exact asymptotic parameter table for epsilon->0 at both critical equalities.",
+          "No matching singular-exponent table found in inspected prior papers."
+        ],
+        "reasoning": "A simulation of small subpopulation outbreaks is not an exact analytic two-group endemic scaling law; search failure alone is not novelty proof.",
+        "searches": [
+          "vaccination homophily SIQS two population critical small minority cubic root endemic equilibrium",
+          "SIQS minority epsilon 2/3 prevalence scaling two critical channels"
+        ]
+      },
+      "rationale": "Qualified PASS: Frieswijk–Zino–Cao model and threshold equations are prior, but the paper explicitly assumes sigma_v=1 for its analytic endemic Theorem 2, disjoint from positive vaccinated-to-others coupling sigma_v<1. Hiraoka–Rizi–Kivelä–Saramäki treat static-network SIR percolation final sizes and herd-immunity thresholds, not the two-way SIQS endemic equilibrium. Wang–Gracy–Ishii–Johansson prove a generic modified SIS spectral-root criterion, not the jointly tuned epsilon^(1/3), epsilon^(2/3) singular exponents with SIQS constants. No inspected prior statement or stronger theorem automatically implies the exact limiting law. A general two-type critical bifurcation literature may contain an equivalent scaling result.",
+      "residual_risks": [
+        "A general multi-type near-threshold bifurcation classification might imply epsilon exponents and coefficients after appropriate reduction, even without matching SIQS title.",
+        "A failed Resultary or web keyword search does not establish historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source sets the model and threshold; analytic endemic theorem assumes sigma_v=1, excluding this two-way positive vaccinated transmission regime",
+          "evidence": "Frieswijk–Zino–Cao, IEEE TNSE 10 (2023) pp.3732–3743, §IV eq(18), Assumption2 sigma_v=1",
+          "identifier_or_url": "https://pure.rug.nl/ws/files/821706260/A_Polarized_Temporal_Network_Model_to_Study_the_Spread_of_Recurrent_Epidemic_Diseases_in_a_Partially_Vaccinated_Population_1_.pdf",
+          "material_read": "Publisher-version primary PDF: inspected Proposition 5 equation (18), Section IV and Assumption 2/Theorem 2; rendered page 5 inspected",
+          "method": "Direct extraction of six compartment equations and exact published theorem scope",
+          "title": "A Polarized Temporal Network Model to Study the Spread of Recurrent Epidemic Diseases in a Partially Vaccinated Population",
+          "trigger": "The identical primary SIQS model and possible stronger endemic theorem"
+        },
+        {
+          "assessment": "The paper concerns SIR final outbreak and herd-immunity threshold, not a repeated-infection endemic fixed-point epsilon power law",
+          "evidence": "Hiraoka et al., Physical Review E 105 (2022), L052301, arXiv:2112.07538",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.07538",
+          "material_read": "Primary PDF abstract, model and introduction establishing SIR transmission network and herd-immunity objective; rendered page zero inspected",
+          "method": "Compare stochastic/static network outbreak-size quantity versus SIQS endemic equilibrium",
+          "title": "Herd Immunity and Epidemic Size in Networks with Vaccination Homophily",
+          "trigger": "Close vaccine-homophily minor-population qualitative implications"
+        },
+        {
+          "assessment": "Different feedback-controlled SIS system gives Perron uniqueness and stability but not this SIQS vanishing-minority singular exponent",
+          "evidence": "Wang et al., arXiv:2106.00122, abstract and Sections1–2",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.00122",
+          "material_read": "Primary PDF abstract and introduction specifying feedback-controlled SIS, Perron criterion and uniqueness theorem; rendered page zero inspected",
+          "method": "Direct comparison of model/state feedback and singular-limit quantifiers",
+          "title": "Suppressing the endemic equilibrium in SIS epidemics: A state dependent approach",
+          "trigger": "Potential broadly dominating monotone SIS equilibrium uniqueness theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/cubic-root-endemic-spillover-from-a-vanishing-unvaccinated-minor--aeb83df7e3c4/RESULT.md"
+      ],
+      "rationale": "This resolves a genuinely motivated critical-mixing limit in the source epidemic model. The minority epsilon produces total endemic burden of larger order epsilon^(2/3), with distinct group fractions epsilon^(1/3) and epsilon^(2/3), exact constants and unique endemic existence. The nonlinear singular behavior is not captured by the source linear invasion criterion.",
+      "residual_risks": [
+        "The two critical equalities make this a codimension-two parameter slice; the model-based cusp and disproportionate prevalence motivate this slice."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic large-population mean field first, minority epsilon to zero second; two exact critical parameter equalities and strictly positive cross-group infectious coupling required.",
+    "No finite-population survival, basin of attraction or global dynamic stability claim."
+  ],
+  "schema_version": 1
+}
