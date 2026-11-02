@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For rank-one residual, exact trial-plane isometry gives H=K+gr^T. Its discriminant is Δ²+(g^Tr)²−2Δ(g1r1−g2r2). Sign reduction restricts a negative discriminant to one angular quadrant; balanced r reduces it to 1+t²sin²ψ−2t cosψ, with explicit root h(t), probability arccos(h)/π and unique t=√2 maximum 1/4. A positive-definite 3×3 Aδ has Ritz gap δ and balanced residual; sketch Gram eigenvalues 1±√2δ and 1 yield exact probability 1/4 as distortion tends to zero. The checker recomputes identities and tests exact rational matrices, while finite sampling is explicitly supplemental, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu and Liu, Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices, arXiv:2610.22261v1, https://arxiv.org/html/2610.22261 gives sketched Rayleigh–Ritz H=(SU)^T(SAU), real Schur treatment and accuracy analysis; its inspected §§1–3 and accessible overview do not furnish angular law.",
+        "Nakatsukasa and Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems (2024), §6.8, https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf discusses nonreal sRR output and small nonsymmetric perturbations; no distributional formula appears in the inspected §6.8.",
+        "Shao, Stabilizing the Rayleigh–Ritz procedure by randomization, arXiv:2604.01037v1, https://arxiv.org/abs/2604.01037 concerns a distinct randomized stabilization construction; only abstract available."
+      ],
+      "reasoning": "General perturbation bounds are broader in dimensions and algorithms but provide no lower-bound instance proving sharp fixed-length isotropic angular probability. The proposition is not a corollary of a mere nonreal-possibility assertion. An uninspected section of the motivating source remains a priority risk, not evidence of absence.",
+      "searches": [
+        "sharp threshold nonreal complex conjugate eigenvalues of sketched Rayleigh Ritz of real symmetric SPD matrix two dimensional trial subspace eigenvalue gap residual norm sketch distortion",
+        "sketched symmetric Rayleigh Ritz perfect embedding trial subspace complex Ritz eigenvalues rank one residual perturbation Bauer Fike gap half sharp complex imaginary bound",
+        "Liu and Liu, Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices, arXiv:2610.22261v1, https://arxiv.org/html/2610.22261",
+        "Nakatsukasa and Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems (2024), §6.8, https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "Shao, Stabilizing the Rayleigh–Ritz procedure by randomization, arXiv:2604.01037v1, https://arxiv.org/abs/2604.01037"
+      ]
+    },
+    "checked_sources": [
+      "Liu and Liu, Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices, arXiv:2610.22261v1, https://arxiv.org/html/2610.22261",
+      "Nakatsukasa and Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems (2024), §6.8, https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+      "Shao, Stabilizing the Rayleigh–Ritz procedure by randomization, arXiv:2604.01037v1, https://arxiv.org/abs/2604.01037",
+      "Sharp Rayleigh-residual distortion under normal spectral filtering (2026)",
+      "Zero-residual false positives in projected certification of constrained extremal eigenpairs (2026)",
+      "A sharp angular phase boundary for the Frobenius symmetric-modulus defect (2026)",
+      "Previously available research claims, compared for mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu and Liu, Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices, arXiv:2610.22261v1, https://arxiv.org/html/2610.22261 motivates real Schur due to nonsymmetric compression.",
+        "Nakatsukasa and Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems (2024), §6.8, https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf already observes complex outputs and perturbation mechanisms.",
+        "Sharp Rayleigh-residual distortion under normal spectral filtering (2026) supplies a distinct spectral-filter distortion theorem."
+      ],
+      "reasoning": "The published observations imply complex Ritz pairs can occur, but not the sharp 1/4 measure under isotropic rank-one cross-coupling. The elementary half-gap condition is included only as a boundary within the angular law and is not claimed independently original. The new statement specifies a probability measure and attaining near-isometric SPD sequence that are not supplied by the compared claims.",
+      "searches": [
+        "sharp threshold nonreal complex conjugate eigenvalues of sketched Rayleigh Ritz of real symmetric SPD matrix two dimensional trial subspace eigenvalue gap residual norm sketch distortion",
+        "For sketched Rayleigh Ritz SPD symmetric matrix 2x2 rank-one nonsymmetric projected perturbation with uniform circular sketch direction, universal 1/4 probability nonreal eigenvalues, sharp gap residual sketch threshold and vanishing embedding distortion",
+        "Liu and Liu, Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices, arXiv:2610.22261v1, https://arxiv.org/html/2610.22261",
+        "Nakatsukasa and Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems (2024), §6.8, https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "Sharp Rayleigh-residual distortion under normal spectral filtering (2026)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nakatsukasa and Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems (2024), §6.8, https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf states sRR on symmetric inputs can have nonreal eigenvalues, which is the same qualitative mechanism but does not determine angular measure.",
+        "Sharp Rayleigh-residual distortion under normal spectral filtering (2026) treats Rayleigh-residual amplification for normal spectral filters, not the eigenvalue discriminant of a sketched 2D compression."
+      ],
+      "reasoning": "The claim is invariant under orthogonal Ritz-plane basis signs and is equivalent to an exact negative-discriminant angular probability for a rank-one nonsymmetric update. General nonsymmetric perturbation observations and basic symmetric gap bounds imply possible complex eigenvalues and sufficient no-crossing bounds; they do not supply the universal 1/4 isotropic-angle measure, its balanced profile, or the SPD near-isometry sharpness construction.",
+      "searches": [
+        "Sketched Rayleigh Ritz non-real Ritz values symmetric positive definite under small subspace embedding distortion gap residual threshold",
+        "sketched symmetric Rayleigh Ritz perfect embedding trial subspace complex Ritz eigenvalues rank one residual perturbation Bauer Fike gap half sharp complex imaginary bound",
+        "Nakatsukasa and Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems (2024), §6.8, https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "Sharp Rayleigh-residual distortion under normal spectral filtering (2026)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zero-residual false positives in projected certification of constrained extremal eigenpairs (2026) reports projected stopping criteria false positives for non-dominant eigenvectors, not nonreal sketched Ritz probabilities.",
+        "A sharp angular phase boundary for the Frobenius symmetric-modulus defect (2026) determines an angular threshold in a distinct symmetric-modulus norm inequality, not a sketched eigensolver.",
+        "Previously available research results were checked for claim-level overlap; none of the recoverable statements matched the present probability law."
+      ],
+      "reasoning": "No searched published-finding corpus result or accessible prior research records claim gave an exact sketched-Ritz quadrant probability or the probability profile. Lack of matching indexed claims is not evidence of uniqueness, and database search alone does not prove originality.",
+      "searches": [
+        "For sketched Rayleigh Ritz SPD symmetric matrix 2x2 rank-one nonsymmetric projected perturbation with uniform circular sketch direction, universal 1/4 probability nonreal eigenvalues, sharp gap residual sketch threshold and vanishing embedding distortion",
+        "Zero-residual false positives in projected certification of constrained extremal eigenpairs (2026)",
+        "A sharp angular phase boundary for the Frobenius symmetric-modulus defect (2026)"
+      ]
+    },
+    "rationale": "The primary predecessors already identify nonreal sketched Ritz outputs, and classical perturbation theory supplies the half-gap sufficient inequality. Inspected literature and actual published-finding corpus/prior research records searches did not identify the sharp circular-cross-coupling probability profile, its universal one-quarter extremum, or the near-isometric 3×3 attaining family. Novelty is the distributional classification under the explicit nonstandard ensemble, not nonreality itself. Missing sections and specialist older calculations remain recorded risks.",
+    "residual_risks": [
+      "No exhaustive historical priority guarantee: an equivalent older specialized random rank-one 2×2 discriminant law might be known.",
+      "The motivating arXiv manuscript was not inspected completely beyond accessible text segments; uninspected results may affect priority.",
+      "The angular sketch ensemble is specially constructed and the theorem should not be presented as a standard Gaussian or CountSketch failure probability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Underlying algorithm and possibility of nonreal Ritz pairs covered; no angular law found in the inspected material; incomplete later access creates priority risk",
+        "evidence": [
+          "Defines sketched Rayleigh–Ritz extraction and explains why real Schur is used for possible nonreal eigenvalues",
+          "Inspected main contribution and algorithm statements focus on arithmetic and accuracy rather than circular cross-coupling probabilities"
+        ],
+        "identifier_or_url": "arxiv:2610.22261v1; https://arxiv.org/html/2610.22261",
+        "material_read": "Abstract, introduction, §§1–3, definitions/algorithms and accessible later overview; later sections not read in full",
+        "method": "HTML full text segments opened and text compared around H=(SU)^T(SAU), Ritz extraction and complex values",
+        "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+        "trigger": "Direct source of the sketched projected matrix, nonsymmetry and real-Schur motivation"
+      },
+      {
+        "assessment": "Qualitative mechanism preexisting; no exact isotropic one-quarter law or balanced probability profile in the inspected section",
+        "evidence": [
+          "§6.8 expressly notes sRR can return nonreal estimates even from symmetric A and discusses perturbation"
+        ],
+        "identifier_or_url": "arxiv:2111.00113; https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "material_read": "§6.8, including displayed discussion on journal PDF page 20",
+        "method": "Inspected full page text and screenshot of the primary PDF",
+        "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Prior original statement that sRR of symmetric inputs can be nonsymmetric and produce nonreal Ritz values"
+      },
+      {
+        "assessment": "Different stabilization method, not a decisive coverage comparison; full text uninspected",
+        "evidence": [
+          "Abstract describes stabilization and asymptotic eigenpair convergence, without matching isotropic-angle probability"
+        ],
+        "identifier_or_url": "arxiv:2604.01037v1; https://arxiv.org/abs/2604.01037",
+        "material_read": "Abstract and bibliographic description only",
+        "method": "Checked preprint record and abstract",
+        "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+        "trigger": "Plausible alternative randomized Rayleigh–Ritz treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86f8010d-501f-4737-b63a-199493bb40a5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Real-valued sketched eigensolvers must accommodate complex 2×2 Ritz outputs. An exact one-quarter risk under a natural rotationally symmetric residual coupling, together with an attainable all-distortion-to-zero SPD family and a sharp gap/residual transition, establishes a motivated numerical stability benchmark beyond a trivial example. It quantitatively demonstrates that small embedding distortion alone, without controlling the Ritz gap relative to residual coupling, does not uniformly prevent complex Ritz pairs.",
+    "status": "PASS"
+  }
+}
