@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact scalar derivatives determine the branch ratio \((p-1)|x|^{(p-3)/2}\). For \(p=3\), the branch conditions and radius comparison give the stated three exact contraction factors. For \(p>3\), the middle branch is selected, the unconstrained step-to-radius ratio tends to \(4\), and the boundary recurrence yields \(|x_k|^{-s}\sim s k/(4\rho_{\min})\) with \(s=(p-3)/2\). The parameter floor is reached because the first inner-loop trial satisfies the source's acceptance condition locally. The script checks finite examples only; the proof is analytic.
+PASS
 
-## Originality — PASS
+Inspected 1D exact UTR-Adaptive Strategy 4.1 update on f_p(x)=|x|^p/p with p>=3 and rho floor>0. Gradient magnitude a^(p-1), Hessian (p-1)a^(p-2), and ratio H/sqrt(|g|)=(p-1)a^((p-3)/2) drive branch selection. For p=3, the two branch radii and constrained Newton solutions yield q3(rho)=1/2 (rho<=1), 1-1/(2rho) (1<rho<=2), and 1-1/(4rho) (rho>2). At p>3 branch H/sqrt|g| ->0, radius a^((p-1)/2)/(4rho) is eventually active, and descent acceptance tends to 1/4>eta; accepted updates lower rho to rho_min. Exact recurrence a_{k+1}=a_k-a_k^((p-1)/2)/(4rho_min) gives a_k ~ [8rho_min/((p-3)k)]^(2/(p-3)) by inverse-power telescoping. Formula describes local infinite zero-tolerance update, not a fixed positive-stopping-tolerance run. Independently checked branch thresholds and recurrence algebra and inspected provided verification.py; finite checks alone do not establish asymptotics.
 
-The primary source's Theorem 4.3 establishes quadratic convergence under a non-degenerate local-optimum assumption and does not cover the power minima with \(f_p''(0)=0\). published-finding corpus semantic searches returned nearby analyses of other methods, but no direct match for the Strategy 4.1 branch classification or its \(p>3\) asymptotic constant. The comparison is based on statements and update rules, not title similarity. Search is not exhaustive; an equivalent result may exist in unqueried literature.
+## originality
 
-## Value — PASS
+PASS
 
-Degenerate minima are precisely outside the non-degenerate hypothesis behind the source's quadratic local-convergence result. The exact threshold at \(p=3\), including the dependence on the parameter floor, and the polynomial rate for \(p>3\) quantify how the method behaves when that hypothesis fails. The leading constant gives a concrete diagnostic for flat minima rather than a mere numerical observation.
+The algorithm and quadratic local rate at nondegenerate optima are prior Jiang et al. material. This claim investigates exact degenerate power minima with f_p''(0)=0, outside positive-definite Hessian theorem assumptions. The cubic-versus-higher flatness branch boundary, rho-floor dependent contraction and polynomial leading constant are not implied by that theorem as stated. Related Bregman/regularized Newton papers use different updates.
 
-## Closest literature and limitations
+## value
 
-The closest primary source is Jiang et al., arXiv:2311.11489v1, Algorithm 3, Strategy 4.1, and Theorem 4.3. Mishchenko's regularized Newton method and Doikov–Nesterov's Bregman-regularized Newton method use different update rules and strong-convexity assumptions; they are adjacent but do not imply the claimed UTR recurrence as stated. The claim is one-dimensional and local, assumes exact subproblem solves, and describes the pre-termination limit as tolerance decreases.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp, explicit degeneracy threshold for a standard adaptive trust-region algorithm is useful for diagnosing its limits at flat minima: cubic flatness contracts linearly but higher powers show quantified polynomial stall, with exact dependence on parameter floor. The test family is natural and the asymptotic rate is nontrivial beyond mere substitution, despite the one-dimensional and pre-termination restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
