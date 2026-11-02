@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For a Dirac atom at \(u\), the weighted Möbius operator \(H_u\) obeys \(H_uH_v=H_{uv}\). Duality with \(H^1\) and \(A^1\), plus a direct \(D^1\) estimate, bounds \(\|H_u\|\) by \(C/u\), giving \(r(H_t)\le t^{-1}\). For each punctured-disk spectral parameter, the functions \((1-z)^s\), with \(t^s=w\) and \(\operatorname{Re}s>-1\), supply infinitely many independent predual eigenvectors, hence an infinite-codimensional range obstruction. The exact point-eigenvector recurrence yields only forbidden poles at the boundary. Finally, spectral mapping in both the bounded-operator and Calkin algebras gives the asserted polynomial/analytic images and injectivity for nonconstant \(F\). The boundary follows from closedness, not a finite computation. The packaged exact-rational coefficient checker passed 21,360 assertions.
+## correctness
 
-## Originality — PASS with residual historical priority risk
-The focal 2026 paper of Galanopoulos, Mahillo, Oliva-Maza and Siskakis proves BMOA/Bloch spectral formulas under membership of the Mellin transform in the extended Dunford–Riesz class, whereas the present nonconstant geometric-lattice Mellin transform is imaginary-periodic and does not belong to that class. Its primary full text was inspected, including the main theorems, duality and functional calculus. Galanopoulos–Papadimitrakis (2006) classifies boundedness rather than exact Fredholm spectral geometry. Abadias–Oliva-Maza (2024) gives spectral methods on Hardy/Bergman/Dirichlet/little Korenblum settings. Its accessible abstract and initial repository preview do not settle the present BMOA/Bloch statement, but its full text was unavailable and the implications of any broader unpublished semigroup theorem remain a residual risk. Distinctly formulated older spectrum results could still dominate the claim; no uniqueness guarantee is inferred from negative searches. Published mathematical records matching semigroup, geometric-atomic, matrix, and Fredholm aliases were compared by implication; no stronger covering result was found.
+PASS
 
-## Mathematical value — PASS
-The exact ordinary/Fredholm spectral image for every nonconstant analytic positive generating series and both nonreflexive function spaces is a complete structural classification of a motivated singular-atomic subclass excluded from the recent sectorial Mellin criterion. Infinite-codimension obstructions distinguish the result from a mere spectrum inclusion, and absence of point spectrum identifies the operator's spectral type. This is not a re-evaluation of the smooth-class theorem.
+For each u in (0,1], H_u f(z)=[1-(1-u)z]^{-1}f(uz/[1-(1-u)z]); direct Möbius composition gives H_u H_v=H_uv. The H1 and Bergman-A1 preadjoint composition norms are O(u^{-1}), so the spectral radius of H_t on BMOA/Bloch is at most t^{-1}. For every 0<|w|<t^{-1}, s_k=(log w+2πik)/log t has Re s_k>-1, and independent H1 predual eigenvectors (1-z)^{s_k} and their J-images produce an infinite-dimensional adjoint eigenspace; the primal (w-H_t) range closure therefore has infinite codimension. Closedness of Fredholm essential spectrum yields the entire closed disk and, with the radius bound, equality for H_t. A local variable z=v/(1+v) shows each putative eigenfunction is a scalar z^k/(1-z)^{k+1}, not Bloch, so H_t has empty point spectrum. Strict convergence radius rho>t^{-1} ensures F(H_t)=Σa_jH_t^j converges and permits holomorphic spectral mapping in B(X) and the Calkin algebra. Factorization of F(z)-λ by finitely many zeros on a neighborhood of the compact disk leaves injective factors, proving F(H_t) has no eigenvalues even when distinct w share the same F-image. The same predual eigenspaces give infinite-codimensional range closures at all F(w), 0<|w|<t^{-1}. Inspected the actual 9822-byte RESULT.md and exact checker.py blob; the finite 21360 rational coefficient checks test semigroup and formal matrix identities only, not spectral Fredholm properties.
 
-## Limitations
-The theorem assumes a nonconstant nonnegative-coefficient generating series analytic on a disk strictly larger than the critical disk. No claim is made for its limiting convergence radius or for incommensurable atomic supports. Historical priority remains subject to older Hausdorff semigroup literature whose complete primary text was not accessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Galanopoulos–Mahillo–Oliva-Maza–Siskakis (October 15 2026) establishes BMOA/Bloch spectra conditional on the Mellin transform belonging to the extended Dunford–Riesz class E; a nonconstant geometric-lattice Mellin transform F(t^{z-1}) is nonconstant periodic along imaginary translates, violating the required sectorial limit at infinity. The 2024 Abadias–Oliva-Maza general operator-semigroup paper covers Hardy/Bergman/Dirichlet/Korenblum and is mathematically antecedent but, from material inspected, does not provide this BMOA/Bloch Fredholm disk without E. The all-interior infinite-codimensional obstruction, exact analytic F-image, and eigenvalue exclusion survive these comparisons; an older equivalent weighted-composition/cyclic-semigroup theorem remains a real originality risk.
+
+## value
+
+PASS
+
+This is an all-parameter spectral and Fredholm-essential classification for natural discrete Hausdorff operators on two standard nonreflexive holomorphic function spaces. Infinite-codimensional residual obstruction throughout an analytic disk despite atomically supported positive measure distinguishes it sharply from generic boundary-Fredholm formulas; its exact spectral-image property is useful beyond the two-atom example. The exact hypothesis rho>t^{-1}, absence of point spectrum and failure of the prior sectorial assumption make this a motivated structural theorem, not an unmotivated coefficient calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
