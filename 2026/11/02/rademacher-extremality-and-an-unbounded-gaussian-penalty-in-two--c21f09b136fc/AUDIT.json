@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Equation (1) is the exact one-sample orthogonal-projection residual; exact rational symmetrization (2) yields the positive iid expectation gap. Equality requires coordinate magnitudes a.s. constant by independence, and centering/unit variance forces Rademacher. Gaussian polar-angle integration (3) gives sqrt(ab), hence exact unbounded ratio. The shipped standalone checker passed 5,316 checks; finite tests are supplemental only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lynch-Davies and Webb, arXiv:2610.31333v1, Algorithm 1; sections 3.3, 4.1--4.2 and conclusions (https://arxiv.org/html/2610.31333v1)",
+        "Diouane et al., arXiv:2206.08793, sections 1 and 3 (https://arxiv.org/abs/2206.08793)",
+        "Halko--Martinsson--Tropp 2011 is cited for the randomized range-finder algorithm (via arXiv:2610.31333v1, Introduction)"
+      ],
+      "reasoning": "General randomized SVD projection/error bounds may apply as inequalities but do not imply strict Rademacher optimality among all iid laws, nor the exact Gaussian residual and unbounded ratio. The 2022 analysis focuses on Gaussian matrix distributions and contains no Rademacher comparison. The original 2011 algorithmic paper was not independently inspected in full, leaving a stated risk.",
+      "searches": [
+        "Rademacher Gaussian rank one randomized SVD expected Frobenius error 2x2 diagonal singular values",
+        "Gaussian rank one randomized range finder two singular values expected error sigma1 sigma2 Rademacher comparison"
+      ]
+    },
+    "checked_sources": [
+      "Lynch-Davies and Webb, arXiv:2610.31333v1, Algorithm 1; sections 3.3, 4.1--4.2 and conclusions (https://arxiv.org/html/2610.31333v1)",
+      "Diouane et al., arXiv:2206.08793, sections 1 and 3 (https://arxiv.org/abs/2206.08793)",
+      "Halko--Martinsson--Tropp (2011), referenced through arXiv:2610.31333v1 (not full-text inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lynch-Davies and Webb, arXiv:2610.31333v1, Algorithm 1; sections 3.3, 4.1--4.2 and conclusions (https://arxiv.org/html/2610.31333v1)",
+        "Diouane et al., arXiv:2206.08793, sections 1 and 3 (https://arxiv.org/abs/2206.08793)"
+      ],
+      "reasoning": "The source proves generic bounds for sub-Gaussian sketches and provides practical comparisons but no exact single-sample expected loss. Diouane et al. give general Gaussian bounds, not a cross-law minimization. The new statement obtains equality classification and a contrast-divergent Gaussian/Rademacher ratio that neither inspected statement implies.",
+      "searches": [
+        " (arxiv:2610.31333v1, inspected Algorithm 1 and introduction)",
+        " (arxiv:2206.08793, inspected setup and deterministic bounds)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lynch-Davies and Webb, arXiv:2610.31333v1, Algorithm 1; sections 3.3, 4.1--4.2 and conclusions (https://arxiv.org/html/2610.31333v1)",
+        "Diouane et al., arXiv:2206.08793, sections 1 and 3 (https://arxiv.org/abs/2206.08793)"
+      ],
+      "reasoning": "Equivalence includes squared residual, captured Frobenius energy and one-vector range sketch; no inspected result gives both the exact iid-law extremizer and singular-contrast penalty. The source defines the algorithm but reports distribution comparisons only experimentally and with general sub-Gaussian bounds.",
+      "searches": [
+        "rank-one randomized range finder Rademacher versus Gaussian exact expected squared Frobenius residual harmonic geometric mean two singular values",
+        "two by two SVD random sketches discrete Rademacher minimizes expected residual among iid coordinate magnitude laws",
+        "Rademacher Gaussian one-sample range finder expected Frobenius energy sigma1 sigma2 condition number unbounded advantage"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record searches returned no equivalent exact rank-one Rademacher/Gaussian Frobenius comparison in the inspected ranked results",
+        "No equivalent or dominating parameter statement was identified among the inspected source literature."
+      ],
+      "reasoning": "Queries targeted the rank-one range-finder distribution, expected squared Frobenius loss, harmonic/geometric means and the two-singular-mode spectrum. A negative search result alone does not establish priority; the positive differentiation is based on the primary-source statement and implication comparisons.",
+      "searches": [
+        "rank-one randomized range finder Rademacher versus Gaussian exact expected squared Frobenius residual harmonic geometric mean two singular values",
+        "two by two SVD random sketches discrete Rademacher minimizes expected residual among iid coordinate magnitude laws",
+        "Rademacher Gaussian one-sample range finder expected Frobenius energy sigma1 sigma2 condition number unbounded advantage"
+      ]
+    },
+    "rationale": "Direct primary-source implication comparisons separate general sub-Gaussian SVD performance bounds and Gaussian-specific approximation analysis from a sharp equality-classified iid-distribution extremum and an exact unbounded Gaussian/Rademacher one-sample penalty. Semantically close published research records  were queried without an equivalent or stronger result; historical coverage remains an identified risk.",
+    "residual_risks": [
+      "Historical specialized 2x2 Rademacher/Gaussian comparison outside inspected sources may predate this work",
+      "The original Halko--Martinsson--Tropp article was not independently inspected in full",
+      "Search-based coverage is nonexhaustive; no independent novelty audit has been performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm and sketch distributions covered; no exact 2-mode single-sample iid extremality or unbounded expected residual ratio stated in inspected material",
+        "evidence": [
+          "Algorithm 1 defines Q=orth(A Omega), Ahat=QQ^T A; Example 3.9 gives Rademacher sketches; Sections 4.1 and 4.2 compare Gaussian/Rademacher median error experimentally with multiple samples."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31333v1",
+        "material_read": "Abstract and primary classification; Algorithm 1; introduction; Example 3.9; Theorem 3.15 setup; Sections 4.1--4.2 experimental comparisons; conclusions",
+        "method": "Inspected openly accessible article HTML, section and find navigation",
+        "title": "Sketching Outside the Hilbert Space for the Infinite-Dimensional Randomised SVD",
+        "trigger": "Direct motivating paper sharing randomized range finder, Rademacher and Gaussian sketches"
+      },
+      {
+        "assessment": "Gaussian expectation and deterministic error bounds do not provide a distribution-free Rademacher minimizer or exact unbounded ratio in inspected statements",
+        "evidence": [
+          "Section 1 defines Frobenius projection loss, Section 3 compares deterministic and Gaussian expected bounds; no within-text occurrence of Rademacher."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.08793",
+        "material_read": "Abstract; Section 1 definitions; Section 3 deterministic bound and sketch specializations; searched Rademacher and two-dimensional",
+        "method": "Inspected full open-text HTML portions and targeted within-source searches",
+        "title": "A general error analysis for randomized low-rank approximation methods",
+        "trigger": "Potentially stronger expected Frobenius approximation result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c21f09b1-36fc-4b3e-a151-8710d59519ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact strict distribution-free minimizer and unbounded Gaussian/Rademacher expected error ratio reveal a substantive low-sample regime distinction between isotropic sketch laws; the result supplies an exact diagnostic benchmark for randomized numerical linear algebra. It does not claim superiority for arbitrary rotations or oversampled/high-dimensional workflows.",
+    "status": "PASS"
+  }
+}
