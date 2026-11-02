@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Bipartite integrality identifies all vertices. The known one-component symmetric-difference criterion partitions incident edges into four disjoint classes whose counts sum to the stated formula; the displayed recurrence and case split establish every monotonicity boundary. A separate exact-integer verifier checks all adjacency pairs among 1,011 vertices and 820 rectangular parameter pairs for inequality, while no infinite claim is inferred from those finite checks.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The 2019 general degree theorem counts matching-good paths and cycles and already proves nondecreasing degree under matching inclusion, hence nondecreasing rank-degree for the complete bipartite family; it does not state the explicit \(\(K_{a,b}\)\) closed rank profile or strict rank ordering. The inspected 2023 Merino–Mütze matching-polytope section concerns Hamilton traversal, not this vertex-degree distribution. Source searches, mathematical-result searches, and a comparison with different earlier geometric invariants found no equivalent formula, but no search can establish uniqueness. The 2022 Cao–Chen square-polytope face paper could not be read in full, creating a specific unresolved residual risk; its accessible abstract does not assert the formula.
+PASS
 
-**Value — PASS.** This is a complete local-degree classification for a canonical two-parameter family of polytopes rather than one numerical instance. The exact multiplicities, **strict** rank ordering beyond the known weak order, simplex collapse, and \(2\times2\) exception determine structural irregularity of the full skeleton and provide its edge count without constructing the exponentially many matchings.
+For every integer a,b>=1 and rank 0<=k<=min(a,b), full-dimensional bipartite matching-polytope vertices are precisely partial permutation matrices. The established edge criterion equates neighbors to exactly one connected alternating path/cycle. With p=a-k,q=b-k, mutually exclusive classes contribute alpha_k (matched-matched paths), pq(1+alpha_k) (unmatched-unmatched), (p+q)alpha_k (one unmatched end), and beta_k=sum_{t>=2}binom(k,t)(t-1)! (alternating cycles; directed cyclic order matters). This yields pq+(p+1)(q+1)alpha_k+beta_k, all rank multiplicities, and the handshake count. The recurrence alpha_(k+1)=(k+1)(alpha_k+1) gives the stated exact degree increment; k=0, k=1, k>=2 and the only potentially negative coefficient p=q=1,k=2 were checked symbolically. It is positive for min(a,b)>=2 except the tie (2,2) at ranks 1/2, while min(a,b)=1 is a simplex of constant degree. An INDEPENDENT edge test based on ranks of common tight coordinate/row/column facet equations, not the path/cycle criterion, exhaustively matched degrees and multiplicities for a,b=(1,4),(2,2),(2,3),(2,4),(3,3),(3,4), altogether 153 actual matching vertices. Exact integer strictness/equality checks covered 1275 pairs with 1<=a<=b<=50. These are supporting finite checks, not the proof of all parameters.
 
-**Limits.** The theorem is restricted to complete bipartite matching polytopes. Published adjacency/degree-counting and weak monotonicity principles are acknowledged. No independent validation or priority certification is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete bivariate rank-stratified local-degree numbers and sharp strictness/tie classification, not for established matching adjacency or general weak monotonicity. The exact theorem for all graphs of Abreu et al. expresses d(M) as a graph-dependent count of admissible paths and cycles, but the inspected full primary text does not evaluate the complete-bipartite rank profile or prove its global strictness and unique exceptions. The all-parameter four-class ordered-path/cycle enumeration and rank-difference case proof are additional mathematics. Heuer-Striker identifies exactly the rectangular polytope and cites older enumerations of rook-polytope edges/faces; that source and the inaccessible Cao-Chen square faces article leave material historical priority risk, but abstracts/citations alone do not establish coverage. No priority certification.
+
+## value
+
+PASS
+
+The complete-bipartite matching/rectangular doubly-substochastic polytope is a canonical full-dimensional 0/1 polytope. Its complete one-skeleton local-degree multiset is a natural invariant. This all-parameter factorial rank classification gives every vertex degree and multiplicity, exact edge count without explicit exponential skeleton enumeration, rank-strictness, and the unique 2x2 tie. These are mathematical structural facts beyond an arbitrary small instance; the prior general path/cycle adjacency and weak inclusion monotonicity are acknowledged. The unknown exact closed bivariate rank profile and its sharp equality cases make a plausible independently reusable invariant, without needing a broader new theorem or paper-sized downstream application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

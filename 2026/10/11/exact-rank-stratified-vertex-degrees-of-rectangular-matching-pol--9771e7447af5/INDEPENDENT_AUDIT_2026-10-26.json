@@ -1,0 +1,206 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T16:54:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Original frozen RESULT.md at Git blob 6f9b52f977af5437d122cf53498e7a841edb0c51",
+        "Original frozen VERIFICATION.md and verify.py, inspected but not treated as proof",
+        "Abreu et al. arxiv:1701.06210v2 Theorem 2.3 classical adjacency",
+        "Seven actual source-tree Git blobs at frozen commit; independently reconstructed Git tree object SHA eef56eaccb9839e82805999a585d07650591bb61"
+      ],
+      "rationale": "For every integer a,b>=1 and rank 0<=k<=min(a,b), full-dimensional bipartite matching-polytope vertices are precisely partial permutation matrices. The established edge criterion equates neighbors to exactly one connected alternating path/cycle. With p=a-k,q=b-k, mutually exclusive classes contribute alpha_k (matched-matched paths), pq(1+alpha_k) (unmatched-unmatched), (p+q)alpha_k (one unmatched end), and beta_k=sum_{t>=2}binom(k,t)(t-1)! (alternating cycles; directed cyclic order matters). This yields pq+(p+1)(q+1)alpha_k+beta_k, all rank multiplicities, and the handshake count. The recurrence alpha_(k+1)=(k+1)(alpha_k+1) gives the stated exact degree increment; k=0, k=1, k>=2 and the only potentially negative coefficient p=q=1,k=2 were checked symbolically. It is positive for min(a,b)>=2 except the tie (2,2) at ranks 1/2, while min(a,b)=1 is a simplex of constant degree. An INDEPENDENT edge test based on ranks of common tight coordinate/row/column facet equations, not the path/cycle criterion, exhaustively matched degrees and multiplicities for a,b=(1,4),(2,2),(2,3),(2,4),(3,3),(3,4), altogether 153 actual matching vertices. Exact integer strictness/equality checks covered 1275 pairs with 1<=a<=b<=50. These are supporting finite checks, not the proof of all parameters.",
+      "residual_risks": [
+        "No independent infinite computer formalization is asserted; correctness follows from mathematical reconstruction and classical adjacency criterion.",
+        "Finite independent facet-rank experiments use floating rank on 0/1 matrices but their outcomes are corroborative and not logical premises."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abreu et al. Theorem 2.3 is valid for every graph G and every matching M but leaves the number of M-good path and cycle components as a graph-dependent enumeration; Theorem 3.1 proves only d(M)<=d(N) for M subset N.",
+          "Merino-Mütze Section 7.3 / Corollary 34 provides a Hamiltonian enumeration of graph matchings using small alternating changes, not the number of all incident polytope edges at each k.",
+          "Heuer-Striker discusses all rectangular partial permutation polytopes and cites Allen 2017 for edges/faces enumerated; full Allen formula was unavailable for checking."
+        ],
+        "reasoning": "Broader graph-domain theorems supply the foundational adjacency and weak monotonicity; they do not assert this closed complete-bipartite factorial evaluation and the only possible ties. The latter require explicit combinatorial class counts and proof of strict inequalities. Any genuinely equivalent stronger statement in the inaccessible papers would overturn the best-of-knowledge judgment, which remains a named residual risk.",
+        "searches": [
+          "one skeleton matching polytope complete bipartite K_{m,n} degree of vertex depending on matching size and rank monotonicity",
+          "Abreu Costa Nascimento Patuzzi Theorems 2.3 and 3.1 arXiv:1701.06210v2 full primary text",
+          "Merino Mütze arXiv:2304.08567 Section 7.3 Corollary 34",
+          "Cao Chen 2022 faces doubly substochastic matrices DOI 10.1016/j.laa.2021.11.012"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1701.06210v2 Theorems 2.3 and 3.1",
+        "arxiv:2012.09901v3 Section 3, Remark 3.3, original page images",
+        "arxiv:2304.08567v2 Section 7.3 and Corollary 34, original page image",
+        "arxiv:1804.00360v3 Section 4",
+        "doi:10.1016/j.laa.2021.11.012 abstract only",
+        "Aaron Allen 2017 CU Boulder thesis archival metadata/citation only",
+        "Three real Resultary semantic queries (same submitted record excluded from novelty evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abreu Theorem 2.3 gives degree via good-component numbers; to obtain d_{a,b}(k) one still has to count four concrete classes including cyclic orders and prove the rank-difference sign/equality cases.",
+          "Abreu Theorem 3.1 entails weak rank monotonicity through symmetry but does not exclude equality at any rank.",
+          "Merino-Mütze Corollary 34 constructs a traversal, which needs only a subset of skeleton edges and thus does not give their degrees.",
+          "Cao-Chen abstract indicates one-dimensional square faces; Allen cited as enumerating rook-polytope edges/faces: both could cover a subcase, but no full theorem was accessible for a decisive mathematical implication."
+        ],
+        "reasoning": "Specializing a general combinatorial counting identity is relevant prior coverage; however it is not a closed evaluation of the sum nor a strict global classification. The new complete bivariate factorial rank-degree profile and exceptional equality require additional derivation. The square literature may dominate the square slice; its inaccessible full text is a genuine material residual risk, not a refutation established by a snippet.",
+        "searches": [
+          "arXiv:1701.06210v2 Theorem 2.3 general local degree and Theorem 3.1 weak inclusion monotonicity",
+          "arXiv:2012.09901v3 Section 3 / Remark 3.3",
+          "Cao-Chen LAA 637 (2022) pp 59-81 abstract 1-faces",
+          "arXiv:2304.08567v2 Section 7.3 / Corollary 34"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heuer-Striker Section 3 identifies PPerm(a,b) with the convex hull of rectangular partial permutation matrices and supplies the row/column/substochastic inequalities; exactly Q_{a,b}.",
+          "Abreu et al. arXiv:1701.06210v2 Theorem 2.3 defines matching-polytope local degree by connected good alternating paths and cycles, with the same vertex objects."
+        ],
+        "reasoning": "The different names denote the same 0/1-polytope and its one-skeleton. Prior equivalence and general adjacency criteria do not by themselves tabulate the exact per-rank degree, number of vertices at each degree after ties, and sharp rank order. An inaccessible thesis on rook polytopes has direct relevance and is preserved as an unresolved historical priority risk.",
+        "searches": [
+          "rectangular doubly substochastic matrix polytope vertex degree partial permutation rank k falling factorial exact degree multiset",
+          "rook monoid polytope graph degree formula partial permutation matrices path cycle adjacency",
+          "partial permutation matrix polytope, rook polytope, doubly substochastic, complete bipartite matching polytope; Heuer-Striker arXiv:2012.09901 Section 3 and Remark 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same current submitted finding was returned by published-result semantic search; explicitly excluded as independent prior evidence.",
+          "Other matching Resultary findings describe the same polytopes’ Euclidean ellipsoids/inballs or a different harmonic-polytope vertex degree, not a comparable rank-local degree table.",
+          "Heuer-Striker Remark 3.3 says rook-polytope edges/faces were enumerated in Allen 2017; source full text not available and cannot be claimed not covering."
+        ],
+        "reasoning": "No independent exact rank-stratified table was identified in the searches; search absence is not a novelty proof. Allen may provide a square or rectangular edge census, and f1 by itself determines only a weighted sum of local degrees, not the entire per-rank profile. Original complete text should be revisited for historical-priority verification.",
+        "searches": [
+          "rectangular doubly substochastic matrix polytope vertex degree partial permutation rank k falling factorial exact degree multiset",
+          "one skeleton matching polytope complete bipartite K_{m,n} degree of vertex depending on matching size and rank monotonicity",
+          "rook monoid polytope graph degree formula partial permutation matrices path cycle adjacency",
+          "Resultary semantic published record search: exact rank-stratified local degree vs partial permutation",
+          "Heuer-Striker 2022 Remark 3.3 citing Allen 2017 rook polytope face enumeration"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete bivariate rank-stratified local-degree numbers and sharp strictness/tie classification, not for established matching adjacency or general weak monotonicity. The exact theorem for all graphs of Abreu et al. expresses d(M) as a graph-dependent count of admissible paths and cycles, but the inspected full primary text does not evaluate the complete-bipartite rank profile or prove its global strictness and unique exceptions. The all-parameter four-class ordered-path/cycle enumeration and rank-difference case proof are additional mathematics. Heuer-Striker identifies exactly the rectangular polytope and cites older enumerations of rook-polytope edges/faces; that source and the inaccessible Cao-Chen square faces article leave material historical priority risk, but abstracts/citations alone do not establish coverage. No priority certification.",
+      "residual_risks": [
+        "Aaron Allen, The combinatorial geometry of rook polytopes (2017), was not accessible in full and is described by a 2022 primary source as enumerating relevant edges and faces; it could already determine all or part of rank-local degree.",
+        "Cao and Chen, Faces of the polytope of doubly substochastic matrices (2022), full text not accessible; might contain or imply square-case formula.",
+        "General counting theorem Abreu et al. 2017 already covers d(M) as an unevaluated path/cycle sum; judgment that closed bivariate evaluation plus global equality classification is additional work may be sensitive to novelty standards.",
+        "Search and full-text inspection are bounded, not exhaustive historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes adjacency, graph-general component counting and weak monotonicity; no explicit K_ab bivariate rank-degree evaluation or strict rank profile in text inspected.",
+          "evidence": [
+            "Theorem 2.3: d(M)=nu_P(M)+nu_C(M).",
+            "Theorem 3.1: M subset N implies d(M)<=d(N).",
+            "Text contains no complete-bipartite rank-specific degree theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1701.06210v2",
+          "material_read": "Complete 2017 public arXiv HTML, definitions of good paths/cycles, Theorem 2.3 and proof, Theorem 3.1 and proof, minimum/regularity results and reference sections.",
+          "method": "Read full HTML and checked exact hypotheses/quantifiers and Theorem 2.3 vs proposed four counts.",
+          "title": "On the vertex degrees of the skeleton of the matching polytope of a graph",
+          "trigger": "Most directly dominating published general graph local-degree theorem"
+        },
+        {
+          "assessment": "Provides exact object identification, vertices, inequalities, and cites the older Allen thesis for edge/face enumeration; the material read does not state the full rank-stratified degree formula.",
+          "evidence": [
+            "Section 3 identifies PPerm(m,n) as rectangular partial permutation convex hull.",
+            "Remark 3.3 attributes enumeration of edges and faces of PPerm(m,n) to Allen (2017)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.09901",
+          "material_read": "Intro, Section 3 definition/inequalities/face discussion, Remark 3.3 and thesis reference on PDF page 23; corresponding page images were inspected.",
+          "method": "Read public open-access PDF text and its relevant page images.",
+          "title": "Partial Permutation and Alternating Sign Matrix Polytopes",
+          "trigger": "Same rectangular polytope PPerm(m,n) and direct citation to older rook-polytope edge enumeration"
+        },
+        {
+          "assessment": "Studies Hamiltonian traversals/Gray-code moves; does not count all neighbors per rank or classify exceptional equalities.",
+          "evidence": [
+            "Section 7.3 restates alternating-path/cycle adjacency.",
+            "Corollary 34 is a traversal by alternating paths of length at most 3, not a degree formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.08567",
+          "material_read": "Abstract, Table 1, Section 7.3 on PDF pages 28-29, Corollaries 34-36; inspected PDF page 29 image.",
+          "method": "Read public full-text PDF relevant section and screenshot of original page.",
+          "title": "Traversing combinatorial 0/1-polytopes via optimization",
+          "trigger": "Primary matching-polytope skeleton and local exchange literature"
+        },
+        {
+          "assessment": "Identifies partial permutations as stable sets of rook graph; general adjacency statements do not tabulate k-matching local degrees. References Allen thesis.",
+          "evidence": [
+            "Section 4 identifies rook graph stable sets with partial permutations.",
+            "References identify Aaron Allen 2017 thesis as a primary item."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1804.00360v3",
+          "material_read": "HTML Section 4 Birkhoff polytope of a relation and references, together with the relevant general stable-set adjacency discussion.",
+          "method": "Read open arXiv HTML and compared object and theorem statements.",
+          "title": "Stable set polytopes and their 1-skeleta",
+          "trigger": "Same rook-graph stable-set polytope and highly relevant cited Allen thesis"
+        },
+        {
+          "assessment": "NOT classified as not covering. Abstract says it describes one-dimensional faces of the square polytope, a material originality risk.",
+          "evidence": [
+            "L. Cao and Z. Chen, Linear Algebra and its Applications 637 (2022), 59-81, DOI 10.1016/j.laa.2021.11.012.",
+            "Abstract explicitly includes description of one-dimensional faces; numerical rank-degree consequences not accessible."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2021.11.012",
+          "material_read": "Bibliographic metadata and abstract only; full text inaccessible through attempted lawful preprint/OA routes and authorized institutional retrieval (VPN disconnected).",
+          "method": "Searched arXiv/OA first; then requested authorized institutional copy once; did not bypass authentication.",
+          "title": "Faces of the polytope of doubly substochastic matrices",
+          "trigger": "Very close square-polytope face description might imply the k-degree spectrum for a=b"
+        },
+        {
+          "assessment": "NOT assessed as noncovering. May have full f1 face census or rank-degree classification; important unresolved priority risk.",
+          "evidence": [
+            "Heuer-Striker (2022) Section 3 Remark 3.3: edges and faces of rectangular partial-permutation polytope previously enumerated in Allen 2017.",
+            "University of Colorado archival identifier tq57nr38h, original full text inaccessible."
+          ],
+          "identifier_or_url": "https://scholar.colorado.edu/concern/undergraduate_honors_theses/tq57nr38h",
+          "material_read": "Bibliographic title, 2017 thesis metadata/abstract snippet, and the Heuer-Striker published citation; thesis full text not accessible (repository returned HTTP 403).",
+          "method": "Searched exact title, author, archival identifier and lawful repository link; examined secondary citation in primary open PDF.",
+          "title": "The combinatorial geometry of rook polytopes",
+          "trigger": "Heuer-Striker expressly credits 2017 thesis with enumeration of rook-polytope edges and faces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Abreu et al. Theorems 2.3, 3.1 show the precise prior general baseline",
+        "Heuer-Striker Section 3 recognizes rectangular partial permutation polytope as natural classical family",
+        "Original RESULT.md precise rank-degree theorem and classification"
+      ],
+      "rationale": "The complete-bipartite matching/rectangular doubly-substochastic polytope is a canonical full-dimensional 0/1 polytope. Its complete one-skeleton local-degree multiset is a natural invariant. This all-parameter factorial rank classification gives every vertex degree and multiplicity, exact edge count without explicit exponential skeleton enumeration, rank-strictness, and the unique 2x2 tie. These are mathematical structural facts beyond an arbitrary small instance; the prior general path/cycle adjacency and weak inclusion monotonicity are acknowledged. The unknown exact closed bivariate rank profile and its sharp equality cases make a plausible independently reusable invariant, without needing a broader new theorem or paper-sized downstream application.",
+      "residual_risks": [
+        "The proof is a relatively elementary specialization of known component counting, so significance should not be represented as a new general adjacency theorem.",
+        "An inaccessible earlier exact rank census would remove the claimed independently unknown aspect of value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Original frozen RESULT.md at Git blob 6f9b52f977af5437d122cf53498e7a841edb0c51",
+    "Original frozen VERIFICATION.md and verify.py, inspected but not treated as proof",
+    "Abreu et al. arxiv:1701.06210v2 Theorem 2.3 classical adjacency",
+    "Seven actual source-tree Git blobs at frozen commit; independently reconstructed Git tree object SHA eef56eaccb9839e82805999a585d07650591bb61",
+    "arxiv:1701.06210v2 Theorems 2.3 and 3.1",
+    "arxiv:2012.09901v3 Section 3, Remark 3.3, original page images",
+    "arxiv:2304.08567v2 Section 7.3 and Corollary 34, original page image",
+    "arxiv:1804.00360v3 Section 4",
+    "doi:10.1016/j.laa.2021.11.012 abstract only",
+    "Aaron Allen 2017 CU Boulder thesis archival metadata/citation only",
+    "Three real Resultary semantic queries (same submitted record excluded from novelty evidence)",
+    "Abreu et al. Theorems 2.3, 3.1 show the precise prior general baseline",
+    "Heuer-Striker Section 3 recognizes rectangular partial permutation polytope as natural classical family",
+    "Original RESULT.md precise rank-degree theorem and classification"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No claim of newly establishing classical matching adjacency or general weak inclusion monotonicity.",
+    "No all-parameter claim about arbitrary noncomplete bipartite graph matching polytopes.",
+    "Best-of-knowledge originality retains significant inaccessible same-object primary-source risks; exact historical priority unverified."
+  ]
+}
