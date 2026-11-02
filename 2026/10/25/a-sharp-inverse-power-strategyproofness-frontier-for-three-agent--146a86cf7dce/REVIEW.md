@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three-region local derivative lemma bounds the omitting probability for an arbitrary two-distance interpolation, with exponent at most three. A global interpolation argument translates this into individual strategyproofness on any metric space without requiring geodesics. The explicit three-point line perturbation gives a profitable deviation for every larger exponent. The closest-pair geometry gives exact optimal social cost and an exact one-variable welfare maximization; the cubic root is unique. The auxiliary standard-library checker passes 62,500 exact comparisons and a rational counterexample for exponent four. No finite test is used to infer universal truthfulness.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+For 3 distinct reports write u=d(z,y1)<=v=d(z,y2), w=d(y1,y2), r=u and omission P. The three exhaustive regions w<=u<=v, u<=w<=v, u<=v<=w give the sharp 1−P+r Pdot>=0 for p<=3; in the last region the bound reduces to (1−a)(2−a)>=0 with a=(u/v)^p. For an arbitrary unilateral deviation at distance h<R, linearly interpolate the two NUMERICAL distances, not metric points; triangle reverse inequality ensures 1-Lipschitz velocities. C(s)=s+(R−s)P(s) has derivative >=0, including nearest-neighbor switches by absolute continuity; h>=R and <=2 distinct reports are immediate boundary cases. A line at (−1,0,1+ε) yields limiting right derivative 2(3−p)/9<0 for each p>3. The closest-pair optimum equals a, and the exact welfare profile F_p(t)=(2+t^(p−1))/(2+t^p) is realized by (0,t,t+1); at p=3 its unique critical root solves t³+6t=4 and F_p decreases strictly with p for 0<t<1. Independently rebuilt 62,500 exact-rational four-point comparisons, a p=4 strict gain and cubic-root bracket. Bounded checks corroborate only finite cases, not universal claims.
 
-Chan–Lin–Wang (arXiv:2608.22484, complete HTML Section 4 read) prove exponent two for every population, while their cited Escoffier–Gourvès–Nguyen–Pascual–Spanjaard 2011 mechanism uses exponent one. Neither statement includes the new exponent-three theorem, the sharp three-agent power frontier, or the exact improved three-agent welfare ratio; neither implies a report-dependent third-power distribution as a corollary. Targeted literature and mathematical-results queries did not disclose a covering claim. The 2011 author PDF was identified but its complete contents remained inaccessible here; therefore its unpublished or unindexed extensions are a residual priority risk, not a claim of exhaustive novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The smallest nontrivial facility-budget regime admits a complete incentive-compatibility threshold for a natural one-parameter family. The newly established exponent three strictly improves the exact worst-case approximation ratio over the previously analyzed exponent two for three agents, from \((1+\sqrt{3/2})/2\approx1.11237\) to approximately \(1.06527\), and no larger power stays strategyproof even on a line. This is a structural family-optimal mechanism-design result, not a routine reparametrization.
+Qualified best-of-knowledge original sharp three-agent inverse-power boundary and family-optimal welfare ratio. Read the 2011 author-hosted first-power proof and 2026 complete inverse-square paper, so the nearest same-mechanism prior results are not just abstracts. They guarantee p=1 and p=2 respectively at arbitrary population; they do not cover p=3, failure p>3 or the exact p=3 ratio. Similar probabilities are not a mathematical implication; unindexed or future literature remains a priority risk.
 
-## Closest literature and limits
+## value
 
-The closest full text is Chan, Lin, and Wang (2026), Section 4; the older Escoffier et al. paper (2011) is known from its bibliographic record and from the later authors' characterization of its inverse-first-power construction, but was not read in full. The guarantee does not extend to arbitrary population sizes by this proof and does not establish optimality among unrelated randomized mechanisms.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exponent p is an intrinsic continuous parameter in a natural randomized nearest-report-omission family. A sharp incentive-compatibility boundary on every metric space, explicit unilateral obstruction above it, and a unique family-optimal welfare ratio answer a motivated mechanism-design design question. The result is not a routine renaming of the p=1 or p=2 rule and does not overclaim optimality among all randomized two-facility mechanisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
