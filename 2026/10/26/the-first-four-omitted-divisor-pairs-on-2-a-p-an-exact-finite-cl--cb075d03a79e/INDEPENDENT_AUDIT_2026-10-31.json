@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:55:37.370520Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e74de62a93052c13477e63246f658e5869dbe1a1",
+        "Frozen verify.py blob e7620e3131cd54b6323a4fb8c371ce3244224fb0",
+        "independent_mathematical_checks.py"
+      ],
+      "rationale": "The complete divisor-pair partition for n=2^a p (a>=1, p odd prime) consists of P_i=(2^i,p 2^(a-i)), 0<=i<=a, since n is nonsquare. Removing I gives a retained sum 2n iff p=(2^(a+1)-1-sum_{i in I}2^i)/(1+sum_{i in I}2^(a-i)). P_0 is too large to omit; P_a yields an even denominator and odd numerator, so I is a subset of 1..a-1. For n<=630194176, 3*2^a<=n forces a<=27, giving exactly 17,550 triples and 80,730 quadruples. Exhaustive exact-divisibility sieve yields 3 odd integral triple quotients (3531,4595,76083), none prime, and 8 integral quadruple quotients, exactly prime 601,2311,49123 with a=20,20,24. At n=2^20*601=630194176, unique four-pair indices (9,16,18,19) have omitted sum sigma(n)-2n=2096550, and independent checks rule out orders 1 or 2; order 3 is excluded for a<=27. The assertion is finite a<=27 except for the least-over-all-n order-4 example (proved via exponent bound); no statement about absence of larger-a 3-pair instances. Independently reran full sieve via separately written exact integer code and reproduced lists and counts.",
+      "residual_risks": [
+        "All 27 exponents are certified by exhaustive finite enumeration; computation does not prove nonexistence for exponents a>27."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strongly pseudoperfect definition and Mersenne restrictions concern all integer factor patterns; 2026 Resultary exact pair-mask criterion is already stronger at the formulation level."
+        ],
+        "reasoning": "A more general definitional/parametrization result does not alone give a classified finite prime-output table; no inspected broader theorem implying this table was identified.",
+        "searches": [
+          "Resultary query: strongly pseudoperfect numbers 2^a p complementary divisor pairs 3 4 omissions exact finite classification first four",
+          "Wang and Zelinsky arXiv:2609.36068"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob e74de62a93052c13477e63246f658e5869dbe1a1",
+        "Frozen verify.py blob e7620e3131cd54b6323a4fb8c371ce3244224fb0",
+        "Published Resultary first multi-pair RESULT.md full",
+        "arXiv:2609.36068 abstract and assigned primary reference",
+        "Resultary query: strongly pseudoperfect numbers 2^a p complementary divisor pairs 3 4 omissions exact finite classification first four"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier criterion makes a complete sieve possible but supplies no evaluation of 17550 and 80730 index subsets."
+        ],
+        "reasoning": "The claimed finite outputs logically follow from earlier criterion plus new exhaustive finite arithmetic; they are not explicitly present or immediate closed-form corollaries of the earlier 11776 cutoff. The sieve identity itself is not new.",
+        "searches": [
+          "Resultary query: strongly pseudoperfect numbers 2^a p complementary divisor pairs 3 4 omissions exact finite classification first four",
+          "arXiv:2609.36068; Resultary first multi-pair RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full published RESULT.md proves the identical p=(M-A_I)/(1+B_I) criterion and the n=11776 first two-pair witness."
+        ],
+        "reasoning": "The quotient reparametrization is exactly covered and cannot confer novelty. It does not list all size-3 or size-4 index sets through a<=27; the complete prime-filtered tables are additional concrete arithmetic.",
+        "searches": [
+          "Resultary query: strongly pseudoperfect numbers 2^a p complementary divisor pairs 3 4 omissions exact finite classification first four",
+          "Resultary 2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual published first-multi-pair record gives 11776 and n<=11776 listings, not n=630194176, the 3 nonprime triple candidates, or three prime four-pair outputs."
+        ],
+        "reasoning": "A targeted published-corpus query and inspection of its closest same-parameter full result did not locate this exact bounded table, not an absolute novelty proof.",
+        "searches": [
+          "Resultary query: strongly pseudoperfect numbers 2^a p complementary divisor pairs 3 4 omissions exact finite classification first four",
+          "Resultary 2026/10/4 published first-multi-pair item"
+        ]
+      },
+      "rationale": "Published Oct 4 Resultary note already gives the general pair-mask quotient and the first two-pair case n=11776; both are PRIOR and credited. A complete reading of its RESULT.md establishes no enumeration of three- and four-pair omissions for a<=27. Wang–Zelinsky 2026 introduces/studies strongly pseudoperfect integers, but accessible abstract and cited propositions do not establish the specific finite table. The new claim is the sharp least four-pair witness plus complete bounded 3/4-pair census, not the general sieve; priority is best-of-knowledge.",
+      "residual_risks": [
+        "Another unindexed arithmetic enumeration of order-three/four omission indices for 2^a p might cover the finite table.",
+        "The original Wang–Zelinsky full text was not independently examined in this run.",
+        "No bound or result asserted beyond a<=27 except the proven global least four-pair integer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general quotient and n=11776 two-pair theorem; DOES NOT state a<=27 order-three/four finite table",
+          "evidence": "Published theorem explicitly gives n=11776, only two-pair {4,6}, and all smaller cases, with mask quotient for any I.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02/RESULT.md",
+          "material_read": "Complete RESULT.md: theorem, sieve, cutoff, proof, verification, limitations, references",
+          "method": "GitHub connector fetch_file full UTF-8 at main",
+          "title": "The first multi-pair strongly pseudoperfect number of the form 2^a p",
+          "trigger": "Same integer family and exact omitted-pair criterion"
+        },
+        {
+          "assessment": "PRIOR fundamental definitions and known few-pair restrictions; whole-document noncoverage NOT claimed",
+          "evidence": "The assigned source cites the original Mersenne-prime restrictions; accessible abstract does not publish the new bounded 4-pair table.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.36068",
+          "material_read": "Abstract and available bibliographic theorem summaries; full manuscript not verified here",
+          "method": "arXiv abstract/search and assigned cited primary statements",
+          "title": "Strongly Pseudoperfect Numbers",
+          "trigger": "Foundational identical divisor-pair condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e74de62a93052c13477e63246f658e5869dbe1a1",
+        "Published Resultary first multi-pair RESULT.md full",
+        "arXiv:2609.36068 abstract and assigned primary reference"
+      ],
+      "rationale": "The order of omitted complementary divisor pairs is a natural complexity parameter for strongly pseudoperfect representations of the natural two-prime-support family 2^a p. The least exact order-four witness with uniqueness, an unexpected no-order-three phenomenon through exponent 27, and the full finite three/four-pair census are independently useful reproducible arithmetic facts beyond a generic small-search table. The finite cutoff is explicitly meaningful because a<=27 suffices to prove global minimality of the claimed four-pair integer.",
+      "residual_risks": [
+        "Does not classify all a or show infinitely many order-four examples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob e74de62a93052c13477e63246f658e5869dbe1a1",
+    "Frozen verify.py blob e7620e3131cd54b6323a4fb8c371ce3244224fb0",
+    "Published Resultary first multi-pair RESULT.md full",
+    "arXiv:2609.36068 abstract and assigned primary reference",
+    "Resultary query: strongly pseudoperfect numbers 2^a p complementary divisor pairs 3 4 omissions exact finite classification first four"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All 27 exponents are certified by exhaustive finite enumeration; computation does not prove nonexistence for exponents a>27.",
+    "Does not classify all a or show infinitely many order-four examples.",
+    "The finite independent checker is corroboration, not an infinite proof or originality/value certification.",
+    "Scientific judgment is best-of-knowledge; publication remains withheld because public metadata cannot be sanitized with validated guarded complete bytes."
+  ],
+  "residual_risks": [
+    "Another unindexed arithmetic enumeration of order-three/four omission indices for 2^a p might cover the finite table.",
+    "The original Wang–Zelinsky full text was not independently examined in this run.",
+    "No bound or result asserted beyond a<=27 except the proven global least four-pair integer."
+  ],
+  "schema_version": 1
+}

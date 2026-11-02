@@ -1,17 +1,21 @@
-# Scientific review: first four-pair omission in the dyadic semiprime family
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is exactly limited to integers \(2^a p\) with \(a\ge1\) and an odd prime \(p\). The complement involution on divisors has exactly \(a+1\) pairs \(\{2^i,p2^{a-i}\}\), and the total deficit is \(2^{a+1}-1-p\). Pair \(i=0\) is too large; pair \(i=a\) creates an impossible parity. Thus every omission of any positive order is exactly represented by the integral quotient formula (2) with a subset of \(\{1,\ldots,a-1\}\). If \(n\le630194176\), primality forces \(a\le27\).
+PASS
 
-Complete exact exhaustion tests \(17550\) triple index sets and \(80730\) quadruple sets. For triples, the only odd integer quotients are \(3531,4595,76083\), all composite. For quadruples the eight possible integer quotients reduce to exactly three primes, with the least resulting integer \(630194176\). The four direct complementary pairs sum to \(2096550=\sigma(n)-2n\). The standalone checker independently recomputes all divisor sums and excludes smaller omission orders for that integer. No extrapolation from a partial finite search is used. Risk: code, arithmetic, and the finite bound must all be preserved together; a finite range does not establish a global statement beyond that range.
+The complete divisor-pair partition for n=2^a p (a>=1, p odd prime) consists of P_i=(2^i,p 2^(a-i)), 0<=i<=a, since n is nonsquare. Removing I gives a retained sum 2n iff p=(2^(a+1)-1-sum_{i in I}2^i)/(1+sum_{i in I}2^(a-i)). P_0 is too large to omit; P_a yields an even denominator and odd numerator, so I is a subset of 1..a-1. For n<=630194176, 3*2^a<=n forces a<=27, giving exactly 17,550 triples and 80,730 quadruples. Exhaustive exact-divisibility sieve yields 3 odd integral triple quotients (3531,4595,76083), none prime, and 8 integral quadruple quotients, exactly prime 601,2311,49123 with a=20,20,24. At n=2^20*601=630194176, unique four-pair indices (9,16,18,19) have omitted sum sigma(n)-2n=2096550, and independent checks rule out orders 1 or 2; order 3 is excluded for a<=27. The assertion is finite a<=27 except for the least-over-all-n order-4 example (proved via exponent bound); no statement about absence of larger-a 3-pair instances. Independently reran full sieve via separately written exact integer code and reproduced lists and counts.
 
-## Originality — PASS, subject to independent priority review
+## originality
 
-Wang–Zelinsky, *Strongly Pseudoperfect Numbers*, arXiv:2609.36068v3 (2026), studies few omitted divisors and other prime-support families, but the inspected text does not give this full low-exponent three-/four-pair spectrum. A published mathematical note on the first multi-pair example for \(2^a p\) already introduces the general bit-mask quotient and identifies the first two-pair case; those facts are explicitly acknowledged, not represented as new. The new mathematical output is the complete three- and four-pair census through exponent \(27\), including no three-pair cases, the three precise four-pair cases, and the first four-pair witness. Exact-parameter searches did not identify a known table containing these results. The full text of the close published note was not retrievable; broader or less-indexed results remain a bibliographic risk.
+PASS
 
-## Mathematical value — PASS
+Published Oct 4 Resultary note already gives the general pair-mask quotient and the first two-pair case n=11776; both are PRIOR and credited. A complete reading of its RESULT.md establishes no enumeration of three- and four-pair omissions for a<=27. Wang–Zelinsky 2026 introduces/studies strongly pseudoperfect integers, but accessible abstract and cited propositions do not establish the specific finite table. The new claim is the sharp least four-pair witness plus complete bounded 3/4-pair census, not the general sieve; priority is best-of-knowledge.
 
-Omission order counts the complementary divisor pairs that a strongly pseudoperfect representation must discard. This is a natural measure of representation complexity, highlighted by studies of near-perfect and strongly pseudoperfect numbers with few omitted divisors. A first realization threshold for order four and the full low-exponent spectrum resolve a concrete motivated finite question. The absence of order three up to the point where order four first appears shows that realizable omission sizes are not encountered in ascending order of their sizes. The exact list supplies useful calibration for future structural classification and search of the higher-order representations. No assertion is made about an infinite family, general minimal-order classifications, or a global nonexistence of three-pair omissions.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The order of omitted complementary divisor pairs is a natural complexity parameter for strongly pseudoperfect representations of the natural two-prime-support family 2^a p. The least exact order-four witness with uniqueness, an unexpected no-order-three phenomenon through exponent 27, and the full finite three/four-pair census are independently useful reproducible arithmetic facts beyond a generic small-search table. The finite cutoff is explicitly meaningful because a<=27 suffices to prove global minimality of the claimed four-pair integer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
