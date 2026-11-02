@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every integer N>=3, occupancy 0<phi<1, persistent rate a>0, unbiased hopping rate d>=0 and reversal r>0, differentiating the specified factorized nonlinear dynamics yields an exact 2x2 Bloch symbol. Its trace is negative for each nonconstant mode, and its determinant is q times a real affine function of q=1-cos k for phi>1/2; for phi<=1/2 the determinant is directly positive. Therefore the first nonzero harmonic controls instability, and expansion gives exactly the explicit quadratic activity inequality. Its positive leading coefficient characterizes the existence of a positive activity threshold; the quadratic root, N<=4 no-go, sharp N=5 density barrier, and inverse-square ring-size shift follow algebraically. The standalone Python 3 checker, independently differentiating the nonlinear equations with Fourier perturbations and checking finite parameter sets, passed 4,917 deterministic assertions. These numerical checks supplement but do not replace the analytic proof. At equality a mode is marginal; no nonlinear or stochastic phase-transition claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.07823 supporting information II supplies the zero-wave-number expansion and Bloch matrix; its indexed main passage says finite-size stability is obtained numerically rather than by a universal all-N formula.",
+        "Mason et al., DOI 10.1098/rspa.2023.0524, concern an exact hydrodynamic continuum limit for an active exclusion process and the onset of phase separation, not the finite-site factorized Bloch criterion established here.",
+        "Dandekar et al., DOI 10.1103/PhysRevE.102.062111, study hydrodynamic coefficients of a hard-core run-and-tumble lattice process, not this finite-size mean-field threshold in accessible text."
+      ],
+      "reasoning": "The published general Bloch matrix is a legitimate predecessor and algorithmically encodes discrete eigenvalues. The proposed additional classification requires evaluating all discrete eigenvalue signs, proving monotonicity across modes, and finding exactly when the parameter quadratic can ever be positive. A continuum long-wave spinodal is necessary but not sufficient at fixed finite N. The accessible broader hydrodynamic theorems have different limits or observables and do not state the finite discrete classification.",
+      "searches": [
+        "Exact mean-field phase diagram for self-avoiding active particles in a lattice Hawthorne Woellner Freire finite-size ring stability exact",
+        "motility-induced phase separation finite-size suppression 1D active lattice mean field rotational diffusion Bloch",
+        "Exact hydrodynamics and onset of phase separation for an active exclusion process Mason Erignoux Jack Bruna"
+      ]
+    },
+    "checked_sources": [
+      "Hawthorne–Woellner–Freire (2026), arXiv:2606.07823 — abstract, detailed supporting information and main-text snippets",
+      "Mason–Erignoux–Jack–Bruna (2023), DOI 10.1098/rspa.2023.0524 — repository abstract",
+      "Dandekar–Chakraborti–Rajesh (2020), DOI 10.1103/PhysRevE.102.062111 — abstract",
+      "Yao–Jack (2025), DOI 10.1063/5.0253530 — indexed introduction and model",
+      "Public related record: Sharp species–diffusion cutoff for alternating frozen waves in biased cyclic replicators — distinct replicator dynamics",
+      "Public related record: Parity-selective equilibrium stabilization in a coupled Gumowski–Mira ring — distinct coupled map dynamics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hawthorne et al. determine infinite-ring long-wavelength instability, reproduced by \\((1-\\phi)(2\\phi-1)a^2>r(a+2d)\\).",
+        "The exact discrete ring instead requires an additional positive \\(\\sin^2(\\pi/N)\\) stabilization term.",
+        "At N=5, phi=3/4, d=0, r=1, the prior infinite criterion a>8 holds for large activity while the new finite-ring expression has a nonpositive quadratic coefficient and never allows growth.",
+        "A distinct 2026 finite-size polymer spinodal experiment involves confinement in polymer blends, not active exclusion mean-field dynamics."
+      ],
+      "reasoning": "The finite-ring statement strictly strengthens the infinite-wave statement by a size-dependent condition and gives counterexamples to the converse implication. General Bloch operators are prior exact input, not themselves the reported solved analytic N-threshold, and prior hydrodynamics concerns different scaling limits. The existence of uninspected stronger published coverage is a residual risk, not affirmatively excluded.",
+      "searches": [
+        "Hawthorne Woellner Freire finite-size spinodal 2026",
+        "hard core run and tumble particles one-dimensional lattice finite-size spectrum",
+        "finite size scaling spinodal suppression in confined blends of strongly segregating polymers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hawthorne–Woellner–Freire, arXiv:2606.07823, states the infinite-lattice spinodal and a general Bloch eigenproblem; accessible finite-lattice discussion describes numerical treatment.",
+        "The new determinant reduces every nonzero mode to a threshold involving the discrete sine-square wave-number factor, and the first mode m=1 is rigorously minimal.",
+        "Closest publicly indexed records retrieved on related lattice thresholds concern different systems (biased cyclic replicator frozen waves, coupled Gumowski–Mira rings, finite-volume cellular automata) rather than this exclusion mean field."
+      ],
+      "reasoning": "Equivalent representations as a 2x2 Bloch determinant, a first-harmonic activity inequality, and a smallest admissible lattice size were searched and compared. The source gives the matrix problem implicitly but not the full finite-size classification in accessible material; named nearby results study different dynamics and their conditions cannot be transformed into this particle-exclusion threshold.",
+      "searches": [
+        "one dimensional active exclusion lattice mean field finite periodic ring exact linear instability minimum five sites motility-induced phase separation density threshold sin(pi/N)^2",
+        "finite ring active lattice gas 5 sites density 3-sqrt(5) finite-size linear instability two orientation exclusion",
+        "active exclusion one dimensional ring exact finite size spinodal N w_r w_a w_t"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2606.07823 supporting-information table of lattice geometry factors contains the linear lattice factor -1, which determines long-wave behavior but is not a finite-ring size/activity table.",
+        "The source exhibits finite square-lattice spectrum examples and finite-lattice numerical stability; no finite one-dimensional critical-size table was located in inspected material.",
+        "No directly matching 3-to-5-site exact classification was found in the actual scientific searches."
+      ],
+      "reasoning": "The known geometry-factor table records an infinite-volume expansion coefficient, not the exact finite-ring activity root or the density threshold the exact sine-cosine density cutoff. A failed search alone is not proof of novelty; unresolved complete-main-text and broader-database coverage remains explicit.",
+      "searches": [
+        "self-avoiding active particles one-dimensional finite lattice spinodal wave number",
+        "active lattice gas mean field minimum five lattice sites motility induced phase separation instability",
+        "linear stability active exclusion finite periodic chain four sites cannot phase separate"
+      ]
+    },
+    "rationale": "The 2026 motivating source supplies the general Bloch eigenproblem and its infinite-lattice small-wave-number spinodal; its accessible main-text excerpt explicitly treats finite-lattice stability numerically. The new theorem solves all discrete wave numbers for the one-dimensional ring, gives a sharp closed activity criterion for every N, the density-only obstruction through N=4 and first N=5 onset, and the positive inverse-square ring-size finite-size correction. At N=5 and occupancy 3/4 the infinite-volume criterion predicts instability at high activity but the finite ring remains stable for all activity, so the infinite long-wave condition does not imply the exact finite result. No matching explicit theorem was found in the cited relevant literature or available published-record comparisons, but the motivating full main text and some related full texts were inaccessible, leaving genuine residual priority risk.",
+    "residual_risks": [
+      "The complete main text and possible appendices of the motivating 2026 preprint could not be inspected; accessible supplement and main-text excerpts do not settle every potential implicit coverage question.",
+      "Full texts of some older related active-exclusion works were inaccessible; a hidden equivalent finite-ring theorem or broader spectral-classification corollary remains possible.",
+      "The prior general Bloch eigenproblem algorithmically contains the finite-size eigenvalues, making the distinction between a new exact analytic classification and an implicit solution a genuine priority-interpretation risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Established model, general Fourier Jacobian, long-wave spinodal and finite-lattice numerical approach credited. No solved all-N one-dimensional ring criterion was present in inspected material; cannot fully exclude appendix coverage.",
+        "evidence": [
+          "arXiv:2606.07823 submitted 2026-06-05",
+          "Supporting information II presents the Bloch expansion and linear lattice coefficient -1",
+          "Accessible indexed main text states finite-lattice stability must be handled numerically"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.07823",
+        "material_read": "ArXiv abstract and supporting-information text sections I–IV, including Bloch small-wave-number formulas, linear-lattice geometry and the general mean-field Jacobian; indexed excerpts of the main text on finite-lattice numerical stability. The complete main paper PDF was not obtained.",
+        "method": "Public preprint text and lawful search-indexed author-manuscript excerpts",
+        "title": "Exact mean-field phase diagram for self-avoiding active particles in a lattice",
+        "trigger": "Exact motivating microscopic mean-field model and general Bloch stability calculation"
+      },
+      {
+        "assessment": "Continuum hydrodynamics and phase onset in an exclusion process; no direct same finite-site factorized Bloch conclusion in inspected material. Full-text coverage unresolved.",
+        "evidence": [
+          "Cambridge repository record titled Exact hydrodynamics and onset of phase separation for an active exclusion process, published Proceedings of the Royal Society A 479"
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rspa.2023.0524",
+        "material_read": "Author repository abstract, bibliographic and model scope; full repository PDF did not load.",
+        "method": "Cambridge repository HTML abstract; attempted lawful public PDF",
+        "title": "Exact hydrodynamics and onset of phase separation for an active exclusion process",
+        "trigger": "Potential stronger phase-separation theory for an active exclusion lattice process"
+      },
+      {
+        "assessment": "Focus is mass-transfer mapping and hydrodynamic diffusivity/conductivity; no accessible exact finite ring linear-spinodal classification. Full-text risk remains.",
+        "evidence": [
+          "Dandekar–Chakraborti–Rajesh, Physical Review E 102, 062111 (2020), abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.102.062111",
+        "material_read": "Journal abstract and listed study scope; full article restricted.",
+        "method": "Publisher abstract",
+        "title": "Hard core run and tumble particles on a one-dimensional lattice",
+        "trigger": "Earlier one-dimensional exclusion model with persistent orientation and periodic boundary conditions"
+      },
+      {
+        "assessment": "Uses a two-dimensional lattice with continuous propulsion orientations; not the two-state one-dimensional finite Bloch model. Stronger unseen results cannot be excluded.",
+        "evidence": [
+          "Yao–Jack, Journal of Chemical Physics 162, 114902 (2025), accessible introduction and model excerpt"
+        ],
+        "identifier_or_url": "https://doi.org/10.1063/5.0253530",
+        "material_read": "Indexed full-text introduction and model description; full publisher article unavailable in the browser.",
+        "method": "Lawful web index excerpt",
+        "title": "Interfacial and density fluctuations in a lattice model of motility-induced phase separation",
+        "trigger": "Lattice active-gas phase separation and possible finite lattice-size precedents"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "feb96548-8439-45dc-8074-e46e7e6fc750",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural finite-size stability question was expressly left to numerical analysis in the motivating model, despite an available infinite-volume long-wave spinodal. The exact finite-ring solution supplies an all-parameter threshold for a primary one-dimensional Bravais-lattice geometry, a sharp four-site obstruction and first five-site realization, and a quantified O(inverse-square ring-size) contraction. For example the infinite threshold predicts growing long waves at density 3/4 whereas a five-site ring forbids them at any activity. This structurally informative finite cutoff is a meaningful physical and mathematical benchmark, not an arbitrary isolated numeric evaluation.",
+    "status": "PASS"
+  }
+}
