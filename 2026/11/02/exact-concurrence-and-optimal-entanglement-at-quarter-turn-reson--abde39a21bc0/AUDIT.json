@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "At theta=pi/4, exact spectral-projector calculation reproduces the stated real order-four unitary, and the four orbit vectors give the exact stationary geometric mixture. The characteristic polynomial of the spin-flip product is z²(z²-Tz+P), with exact rational T and P and a positive square root on all 0<q<1. Thus Wootters concurrence is q(1-q)/(1+q²). For U^3 the odd orbit weights exchange but spin-flip spectral invariants are unchanged; U^2=I tensor sigma_x preserves product states and has zero concurrence. The derivative has one root in (0,1), q=sqrt(2)-1, yielding the claimed unique optimum. verify.py passes exact symbolic tests and ten independent numerical reconstructions. No empirical verification is used as proof of the whole domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni and Majumdar, arXiv:2307.07485, consider continuous-time Poisson resets and a ferromagnetically coupled two-spin Hamiltonian, not the discrete-time four-cycle Wald gate.",
+        "Ghosh et al., arXiv:2604.19333, concern driven extended quantum spin chains, numerical rate optimization and drive-frequency effects, rather than an all-p exact two-qubit four-cycle formula.",
+        "Wald et al., arXiv:2410.11497v1, Eq. (10) renewal stationary state; Sec. III.2 source generator and Fig. 4(b) plots concurrence at theta=pi/4; no exact closed rational concurrence or algebraic optimum given."
+      ],
+      "reasoning": "General quantum-reset stationary-state resolvents are prior art and used as premises, but do not state a universal optimizer across all gate generators. The precise C(p) is specific to a fixed entangling matrix; comparable rate optimizations for distinct spin Hamiltonians and periodically driven chains do not imply the formula or exact optimum.",
+      "searches": [
+        "Wald Yao Platini Hooley Carollo resonant entangling gate theta pi/4 Bernoulli reset stationary concurrence analytic maximization",
+        "resonant quantum reset entanglement concurrence closed form r theta pi/4 Hadamard CNOT",
+        "Poissonian reset two qubit Bell entangling gate theta pi/4 steady state PPT entangled for every reset probability",
+        "arxiv:2307.07485 abstract and model",
+        "arxiv:2604.19333 abstract and model"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2410.11497v1 Sections II and III",
+      "arxiv:2410.11497v3 Sections 2-3 and Appendices A-B",
+      "arxiv:2307.07485 abstract",
+      "arxiv:2604.19333 abstract",
+      "Wootters 1998 concurrence formula"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior general fixed-point formula permits computing any stationary matrix but requires a nontrivial spin-flip spectral simplification to determine concurrence and a separate global optimization.",
+        "Prior proof of strict negativity of the partial-transpose determinant certifies entanglement but does not specify concurrence or determine which p maximizes it.",
+        "Exact symbolic spin-flip derivation in RESULT.md and executable verify.py computes the rational dependence and its unique global maximizer."
+      ],
+      "reasoning": "The claimed novel object is exact concurrence and its unique maximizing p, not an entanglement-existence classification. Previously demonstrated nonzero concurrence for p>0 and resonance robustness are explicitly credited. The old statements do not logically bound or determine a unique concurrence peak; the new rank-two spin-flip spectral calculation supplies this missing quantitative content.",
+      "searches": [
+        "Wald Yao Platini Hooley Carollo resonant entangling gate theta pi/4 Bernoulli reset stationary concurrence analytic maximization",
+        "resonant quantum reset entanglement concurrence closed form r theta pi/4 Hadamard CNOT",
+        "Poissonian reset two qubit Bell entangling gate theta pi/4 steady state PPT entangled for every reset probability",
+        "arxiv:2410.11497v1 Eq. (10), Sec. III.2",
+        "arxiv:2410.11497v3 Appendix A.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wald et al., arXiv:2410.11497v1, Eq. (10) renewal stationary state; Sec. III.2 source generator and Fig. 4(b) plots concurrence at theta=pi/4; no exact closed rational concurrence or algebraic optimum given.",
+        "Wald et al., arXiv:2410.11497v3, Sec. 3.2 and Appendix A.1: vectorized resolvent form and numerical evaluation; the numerical picture is qualitative rather than the theorem claimed here.",
+        "The exact reset-angle four-cycle evaluation yields nonzero spin-flip eigenvalues whose square-root difference gives the stated rational concurrence; this is not identical to the scalar partial-transpose determinant."
+      ],
+      "reasoning": "Equivalent parameterizations q=1-p, geometric reset odds, and 4-cycle age weights were compared to the source. The source computes the stationary density via a general resolvent and plots concurrence; the exact all-p concurrence identity and its optimum were not written as results in inspected full-text sections.",
+      "searches": [
+        "Wald Yao Platini Hooley Carollo resonant entangling gate theta pi/4 Bernoulli reset stationary concurrence analytic maximization",
+        "stationary two-qubit entanglement concurrence r(1-r)/(1+(1-r)^2) stochastic resetting entangling gate",
+        "four-cycle Hadamard CNOT gate stochastic pure reset stationary concurrence exact optimal reset probability",
+        "arxiv:2410.11497v1 Section III.2 and Eq. (10)",
+        "arxiv:2410.11497v3 Section 3.2 and Appendix A.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Figure 4(b) is a numerical curve at the exact resonance and two nearby angles, not a tabulation of an exact peak or whole-domain closed form.",
+        "Mathematical research search returned unrelated amplitude-damping thresholds and entanglement-control benchmarks, not an exact table for this gate."
+      ],
+      "reasoning": "Checked for an algebraic value 2-sqrt(2), peak (sqrt(2)-1)/2, and the equivalent rational profile at the resonant gate. None appears in the inspected primary full-text material or the returned semantically similar research summaries; a negative retrieval result is not an exhaustive priority certificate.",
+      "searches": [
+        "stationary two-qubit entanglement concurrence r(1-r)/(1+(1-r)^2) stochastic resetting entangling gate",
+        "optimal reset probability 2-sqrt 2 0.585786 concurrence 0.207106 quantum gate",
+        "four-cycle Hadamard CNOT gate stochastic pure reset stationary concurrence exact optimal reset probability",
+        "resonant quantum reset entanglement concurrence closed form r theta pi/4 Hadamard CNOT",
+        "Wald et al. Figure 4(b), arXiv:2410.11497v1 and v3"
+      ]
+    },
+    "rationale": "The relevant 2024 first preprint and 2025 updated open-access full-text sections and numerical appendix already show the geometric stationary state and a qualitative nonzero-concurrence resonant feature. No exact full quarter-turn p-dependent concurrence formula, unique algebraic maximizing rate or peak concurrence was found in these inspected materials. Prior finite-reset partial-transpose negativity is not a concurrence formula. Semantic research-record comparisons using the named actual searches identified different quantum damping, resetting and entanglement tasks but no covering expression. Priority is best knowledge and not independently certified.",
+    "residual_risks": [
+      "Definitive priority has not been independently established; unindexed derivations or supplementary work may contain an equivalent formula.",
+      "The 2026 driven-spin-chain paper was compared at the abstract/model level only; no exact overlapping four-cycle construction was found.",
+      "The mathematical value and generality are limited to this specifically motivated fixed resonance; no universal rate optimum is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies model, global reset formula, resonance and qualitative concurrence behavior; not exact concurrence profile or optimizer",
+        "evidence": "Sections II.2 and III.2, including Figure 4(b) and source matrix",
+        "identifier_or_url": "https://arxiv.org/html/2410.11497v1",
+        "material_read": "Full accessible HTML main setup and Sec. III with source generator, resonance matrices, numerical Fig. 4 discussion",
+        "method": "Direct inspection of accessible arXiv HTML, equations (10), generator, and Sec. III.2",
+        "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems (first preprint)",
+        "trigger": "Exact origin of the four-eigenvalue two-qubit gate and stationary concurrence plots"
+      },
+      {
+        "assessment": "Still only numerical concurrence plots at pi/4 and general resolvent procedure; no closed exact optimizer stated",
+        "evidence": "Figure 4(b), Sec. 3.2, Appendix A.1 equations (55)-(61)",
+        "identifier_or_url": "https://arxiv.org/html/2410.11497v3",
+        "material_read": "Main setup, Sec. 3.2, conclusions, Appendix A.1 stationary numerical resolvent and Appendix B",
+        "method": "Direct inspection of HTML full-text content and named equations",
+        "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems (updated preprint)",
+        "trigger": "Check updated 2025 text and appendices for exact result after original preprint"
+      },
+      {
+        "assessment": "Continuous-time reset of two ferromagnetically coupled spins, hence a different generator/protocol; abstract alone does not exclude possible special case",
+        "evidence": "arXiv:2307.07485 abstract and Phys. Rev. A 108 062210 abstract",
+        "identifier_or_url": "https://arxiv.org/abs/2307.07485",
+        "material_read": "Original paper abstract and model description; not full article",
+        "method": "arXiv metadata/abstract and journal abstract",
+        "title": "Generating Entanglement by Quantum Resetting",
+        "trigger": "Similar concept of maximizing stationary quantum entanglement under resetting"
+      },
+      {
+        "assessment": "Many-spin driven chains with numerically located rate optima; no direct identification with this 4-cycle gate, unresolved full-text comparison risk recorded",
+        "evidence": "arXiv:2604.19333 abstract",
+        "identifier_or_url": "https://arxiv.org/abs/2604.19333",
+        "material_read": "arXiv abstract only",
+        "method": "Abstract and model description",
+        "title": "Generating pairwise entanglement in periodically driven quantum spin chains with stochastic resetting",
+        "trigger": "Later paper treats optimized reset rate and special drive frequencies"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abde39a2-1bc0-4e41-8862-2c2cd0089c23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The reference explicitly highlights a robust entanglement ridge at the resonant angle via Fig. 4(b). The exact classification of all three quarter-turn resonances, including the zero-entanglement intermediate angle, and unique optimal Bernoulli reset rate specify a natural operating point and the achievable peak without numerical scanning. Unlike a mere positivity check, this exact nontrivial quantitative optimization gives an actionable stationary entanglement design fact, within its sharply fixed resonant-angle, gate and state assumptions.",
+    "status": "PASS"
+  }
+}
