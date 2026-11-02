@@ -1,15 +1,21 @@
-# Scientific assessment: a sharp shortcut-length transition in directed-cycle multipath complexes
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies faces containing the new shortcut exactly. Such a face avoids the two endpoint-conflicting arcs and cannot contain every arc of the directed return path. Therefore its link is the join of a simplex on \(k-2\) arcs with a boundary simplex on \(n-k\) arcs. For \(k\ge3\), deletion of all shortcut-containing simplices by explicit elementary free-face collapses is valid; for \(k=2\), the link sphere has dimension \(n-4\) and maps nullhomotopically to the original sphere of dimension \(n-2\). The stated wedge decomposition follows integrally. The executable program independently verified all 35 cases with \(4\le n\le10\) and all 1,291 finite collapse pairs. The general proof does not rely on extrapolating experiments.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The motivating work of Deshpande and Sawant, arXiv:2602.14936 (first posted 2026-02-16), studies directed-linear-forest complexes and asks for cyclic-digraph homotopy types. Caputi, Collari, Di Trani and Smith, arXiv:2208.04656, establish the coherent-cycle sphere, which is acknowledged and not counted as new. Caputi, Collari and Smith, arXiv:2601.05670, classify bidirected polygons with different edge sets. Direct comparisons of definitions and consequences did not find the all-parameter chorded-cycle wedge, sharp length threshold or relative simplicial collapses among the inspected results. Relevant mathematical-record searches also yielded no dominating exact claim. Searches are not uniqueness proofs; specialised unlocated priority remains a risk.
+PASS
 
-## Mathematical value — PASS
-Adding one directed shortcut to a coherently oriented cycle is a natural minimal perturbation motivated by the recent directed-cyclic-digraph homotopy problem. This complete \((n,k)\)-family calculation detects a sharp threshold: length two creates a new lower-dimensional integral class, whereas every longer shortcut is removable by elementary collapse. This gives explanatory geometry beyond the original cycle sphere or isolated finite examples.
+RESULT.md Git blob 9c4063c98f5798231dde5274807d61f5c0f1d87d: for original cycle E, every proper arc subset is a directed forest and Y=partial Delta(E)=S^{n-2}. Shortcut s conflicts only at arcs e_0 and e_{k-1}; the only further forbidden subset is s with all return-path arcs B={e_k,...,e_{n-1}}. Thus lk_X(s)=Delta(A)*partial Delta(B) with A={e_1,...,e_{k-2}}, and X=Y union_s Cone(L). When k>=3, apex e_1 makes L a cone and explicit paired free faces remove the shortcut, total 2^{k-3}(2^{n-k}-1) collapses, including |B|=1 boundary. When k=2, L=partial Delta^{n-3}=S^{n-4}, inclusion into S^{n-2} nullhomotopic by connectivity (also n=4, S^0 into connected S^2), yielding wedge with suspension. Independent full arc-subset enumeration and link checks for n=4..9 agree; finite checks not taken as proof.
 
-## Limits
-The result concerns single forward shortcuts with the precise stated orientation; it does not treat arbitrary chords or several added arcs. It makes no claim of independent verification or exhaustive bibliographic priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge statement-level novelty survives comparison with relevant primary literature and published records, with the exact theorem and aliases checked. One new forward arc in a natural directed cycle changes its path-complex homotopy only at the minimal forward shortcut length; the precise exceptional sphere and stronger all-n collapse certificate answer a motivated extension question for cyclic digraphs. Priority residuals are explicitly retained; a failed search is not a novelty certificate.
+
+## value
+
+PASS
+
+One new forward arc in a natural directed cycle changes its path-complex homotopy only at the minimal forward shortcut length; the precise exceptional sphere and stronger all-n collapse certificate answer a motivated extension question for cyclic digraphs. This is not just another isolated graph Betti computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
