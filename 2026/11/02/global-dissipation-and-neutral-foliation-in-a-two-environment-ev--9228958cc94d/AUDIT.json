@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For each interior invariant leaf K=logit(n)-logit(m), the equilibrium is unique because E_K is a strictly increasing bijection. H_K is a proper nonnegative one-well energy. Exact differentiation gives Hdot=Delta(x-xstar)^2/[B(x)B(xstar)]. For negative Delta, a compact sublevel and the sole invariant subset of x=xstar imply global convergence via LaSalle. For Delta=0, every positive H-level is a smooth compact Jordan oval with nonvanishing vector field, so every nonequilibrium orbit is periodic. For positive Delta, an assumed bounded-energy orbit would have an interior omega-limit in the sole invariant zero-derivative equilibrium despite strictly positive energy; hence H tends to infinity and distance to the cube boundary tends to zero. The packaged SymPy identity checks and SciPy trajectories passed but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gong et al., arXiv:2205.10734, Sections 2--3: two-variable replicator-mutator equation, mutation-dependent equilibrium and Dulac criteria, rather than two environmental edge states.",
+        "Betz--Fu--Masuda 2024, Sections 4.2 and 6: local eigenvalue criteria and special payoff-mirror periodic case, not complete global classification."
+      ],
+      "reasoning": "A global theorem for one environmental variable cannot imply how two different environmental variables select a specific equilibrium. The nearest exact two-environment paper proves local stability only and remarks on a special neutral family. None of the inspected broader work dominates the proposed point-selection and global three-regime statement.",
+      "searches": [
+        "eco evolutionary feedback game planar ratio logit environmental states Lyapunov global convergence Volterra Hamiltonian neutral cycles",
+        "edge dependent environment symmetric two community evolutionary game global attraction invariant log odds difference payoff determinant",
+        "environmental feedback replicator mutant global limit cycles all initial conditions Lyapunov",
+        "Betz Fu Masuda 2024 global Lyapunov stable equilibrium line"
+      ]
+    },
+    "checked_sources": [
+      "K. Betz, F. Fu, N. Masuda, arXiv:2404.17082, primary model equations (13)--(15) and Secs. 4.2, 6.",
+      "J. S. Weitz et al., PNAS 113 (2016) E7518--E7525, doi:10.1073/pnas.1604096113, text excerpts and abstract.",
+      "Limit Cycles Analysis and Control of Evolutionary Game Dynamics with Environmental Feedback, arXiv:2205.10734, Sections 2--3.",
+      "L. Shu, F. Fu, Eco-Evolutionary Dynamics of Bimatrix Games, arXiv:2208.13306, abstract only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Betz--Fu--Masuda 2024 Sec. 4.2: a line of equilibria with transverse eigenvalues negative under cross-ratio condition; no global basin or equilibrium-selection theorem.",
+        "Betz--Fu--Masuda 2024 Sec. 6, Eq. (47): one special mirror payoff construction with closed periodic orbits; the paper suggests generic convergence based on local eigenvalues.",
+        "Present exact relation: dH/dt = Delta (x-xstar)^2/[B(x)B(xstar)] with H proper and first integral K; the critical non-mirror payoff matrices have Delta=0 without Eq. (47) structure."
+      ],
+      "reasoning": "Strict negative transverse linearization implies local stability but does not imply global convergence or which equilibrium point is approached. A particular neutral mirror construction does not entail universal periodicity for the entire Delta=0 codimension-one class. The dissipative identity resolves the global behavior and the independent conserved odds fixes the equilibrium limit.",
+      "searches": [
+        "Betz Fu Masuda 2024 two community environmental feedback replicator theta1 theta12 equal conservation log odds first integral global convergence periodic orbits",
+        "eco evolutionary feedback game planar ratio logit environmental states Lyapunov global convergence Volterra Hamiltonian neutral cycles",
+        "edge dependent environment symmetric two community evolutionary game global attraction invariant log odds difference payoff determinant",
+        "conserved environmental log odds common feedback game critical Hamiltonian closed orbits",
+        "arxiv 2404.17082 Betz Fu Masuda local stability equilibrium line initial environment odds invariant",
+        "Betz Fu Masuda line of equilibria transverse eigenvalues mirror payoff orbit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Betz--Fu--Masuda 2024, equations (13)--(15), Section 4.2 and Section 6: two environment coordinates, equilibrium line, transverse local stability, special mirror-payoff periodic observation.",
+        "Weitz et al. 2016, published description and author-provided full-text excerpt: classical shared single-environment replicator-feedback system."
+      ],
+      "reasoning": "The proposed logit-odds invariant creates a two-dimensional invariant leaf inside a three-dimensional two-environment system; a generic one-environment model has neither a distinct pair of environmental odds nor an initial-odds-selected point on an equilibrium line. The original paper supplies neither this conserved quantity nor the proper global energy. A special critical mirror-matrix observation does not imply the non-mirror all-initial periodic classification.",
+      "searches": [
+        "Betz Fu Masuda 2024 two community environmental feedback replicator theta1 theta12 equal conservation log odds first integral global convergence periodic orbits",
+        "conserved environmental log odds common feedback game critical Hamiltonian closed orbits",
+        "symmetric community environment feedback theta1 equals theta12 period cycle payoff cross ratio",
+        "\"Evolutionary game dynamics with environmental feedback in a network with two communities\" first integral conserved odds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record searches returned nearest scientific results on cyclic two-sex Volterra flows, Hamiltonian foliations of other systems, and assortative evolutionary games; their model equations and claimed invariants differ.",
+        "The primary article contains no exact table of the invariant-odds-selected equilibrium or all-leaf energy trichotomy."
+      ],
+      "reasoning": "Neither a numerical table nor a database claim retrieved for this reduced eco-evolutionary edge-environment system gives the same three regimes. Search absence is not a novelty proof; direct model and implication comparisons were used.",
+      "searches": [
+        "Betz Fu Masuda 2024 two community environmental feedback replicator theta1 theta12 equal conservation log odds first integral global convergence periodic orbits",
+        "arxiv 2404.17082 Betz Fu Masuda local stability equilibrium line initial environment odds invariant",
+        "R0 T0 S0 P0 R1 T1 S1 P1 environmental feedback delta cross product global convergence",
+        "symmetric community environment feedback theta1 equals theta12 period cycle payoff cross ratio"
+      ]
+    },
+    "rationale": "The primary same-equation source explicitly gives the equilibrium line, negative transverse eigenvalues under the determinant inequality, and critical periodic orbits only for a mirror-symmetric payoff family. It does not state or imply all-initial global attraction on each environmental-odds leaf or every-payoff critical periodicity. Supporting inspected papers use one environmental variable or mutation and do not dominate the two-environment invariant. Remaining unindexed or abstract-only equivalent treatment is a disclosed uncertainty.",
+    "residual_risks": [
+      "Specialized equivalent classification in a non-indexed paper or a result published after the source remains possible; literature searches cannot prove uniqueness.",
+      "Bimatrix paper arXiv:2208.13306 was only inspected at abstract level and therefore no whole-document NOT_COVERING conclusion is asserted for it.",
+      "The proven theorem covers the equal-feedback symmetric invariant subsystem, not generic five-dimensional two-community trajectories."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NEAR-NOT-COVERING: includes local equilibrium-line analysis and special mirror periodic behavior, but not a global Lyapunov sign law, conserved odds selection, or full equality/non-mirror foliation.",
+        "evidence": [
+          "Section 4.2 Eq. (42)--(43), local eigenvalues via Appendix E; Sec. 6 Eq. (47) and discussion of critical equality."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.17082v2",
+        "material_read": "Full online article model equations (1)--(15), Sections 3 and 4.2, Section 6, Appendix E local stability formulation, discussion of Eq. (47).",
+        "method": "Opened and read primary HTML sections including equation text and hypotheses.",
+        "title": "Evolutionary game dynamics with environmental feedback in a network with two communities",
+        "trigger": "Exact same reduced three-dimensional model and conditions; strongest covering candidate"
+      },
+      {
+        "assessment": "NOT-COVERING: one environmental variable and a mutation parameter; no second edge environment, no odds invariant or equilibrium line.",
+        "evidence": [
+          "Section 3 equilibrium depends on mutation; Section 3.1 Dulac comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.10734",
+        "material_read": "Section 2 specification of environmental feedback and mutation, Section 3 interior equilibrium (Eq. (7)), Lyapunov/Dulac (Eq. (8)) and Lemma 2 cases.",
+        "method": "Read arXiv full-text HTML rendering sections and equation context.",
+        "title": "Limit Cycles Analysis and Control of Evolutionary Game Dynamics with Environmental Feedback",
+        "trigger": "Closest plausible general feedback-game limit-cycle and noncycle treatment"
+      },
+      {
+        "assessment": "NOT-COVERING for the two-environment initial-odds selection; **limited full-text coverage disclosed**.",
+        "evidence": [
+          "The model coordinates are a cooperator fraction and one environment; feedback drives cycles or heteroclinic behavior."
+        ],
+        "identifier_or_url": "https://doi.org/10.1073/pnas.1604096113",
+        "material_read": "Scientific abstract and author-provided full-text excerpt including the one environmental variable, system setup, Methods and Results, Discussion.",
+        "method": "Read openly indexed author-provided text excerpt and bibliographic record; original full publisher article was not separately inspected end-to-end.",
+        "title": "An oscillating tragedy of the commons in replicator dynamics with game-environment feedback",
+        "trigger": "Foundational well-mixed evolutionary feedback model directly cited by primary article"
+      },
+      {
+        "assessment": "Distinct matrix-game/environment switching feedback, but remaining whole-document coverage uncertainty acknowledged.",
+        "evidence": [
+          "Abstract identifies bimatrix switching control rather than within- and between-community environmental states with equal logit feedback."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.13306",
+        "material_read": "ArXiv publicly available abstract describing two-population payoff-switching approach and control of oscillations.",
+        "method": "Abstract-level inspection; paper was not used to support a whole-document absence claim.",
+        "title": "Eco-Evolutionary Dynamics of Bimatrix Games",
+        "trigger": "Potential coverage of two-communities and stable periodic orbit construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9228958c-c94d-41b7-8bf6-0c176044684d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a natural globally relevant phase diagram for the published two-environment game: local eigenvalue stability of a continuum cannot select where a trajectory converges. The conserved environmental odds provides the exact selected equilibrium from the initial pair, and a proper energy proves global convergence, non-mirror neutral cycles, or boundary escape for arbitrary positive interaction and feedback parameters. The results are structural and clarify a live mathematical gap, not a numerical parameter slice.",
+    "status": "PASS"
+  }
+}
