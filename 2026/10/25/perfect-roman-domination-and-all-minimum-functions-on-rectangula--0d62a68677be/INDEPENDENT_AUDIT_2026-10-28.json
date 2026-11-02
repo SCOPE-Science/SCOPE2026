@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:08:00.568809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For a fixed set T of vertices labelled 2, the number of nondefender cells that can be labelled 0 is exactly e(T)=r1(q-c)+(p-r)c1, where r/c count occupied rows/columns and r1/c1 count singleton rows/columns; unique optimal completion has weight pq+|T|-e(T). For t<p the proved lower bound in r,c,t is >2p for p>=4 and the p=2,3 cases are checked separately; for t>=p any 2p equality requires t=p and every nondefender has exactly one defender, forcing T=R×C and either a single entire column, or a row on the square board. Enumerating singleton exceptions gives counts. Independently exhaustively enumerated defender subsets (and their optimal completion weights) for boards (2,2),(2,3),(2,4),(2,5),(3,3),(3,4),(3,5),(4,4), reproducing all predictions. Infinite all-p,q conclusion follows from inequalities, not small enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General perfect domination upper bound yields <=2p from full column of 2-defenders, but not sharpness or exhaustive minimum functions.",
+          "Published Cartesian product results treat paths/cycles rather than Kp□Kq."
+        ],
+        "reasoning": "The only obviously dominating upper bound is insufficient to imply the lower bound or the 9/15 exceptional counts; no inspected stronger theorem covered both.",
+        "searches": [
+          "Almulhim et al 2022 full primary",
+          "Paleta-Jamil 2020 general bound",
+          "Resultary: perfect Roman domination complete Cartesian rook graph Kp square Kq minimum function enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Commit-pinned RESULT.md and verify.py",
+        "Independent exact defender-set exhaustive tests for eight boards",
+        "Almulhim et al 2022 complete primary text",
+        "Paleta-Jamil general bound citation",
+        "Resultary perfect Roman queries including rook/complete multipartite"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common perfect dominating set approach gives construction attaining 2p, not uniqueness or a lower bound.",
+          "Path and cycle Cartesian products have different adjacency than complete-factor rook graphs."
+        ],
+        "reasoning": "Prior inequalities and family-specific bounds do not imply exact optimizer classification; independent defender-set inequality supplies missing sharpness.",
+        "searches": [
+          "DOI:10.1155/2022/1957027 full text",
+          "DOI:10.29020/nybg.ejpam.v13i3.3763",
+          "Resultary: perfect Roman domination complete Cartesian rook graph Kp square Kq minimum function enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A rook graph is the line graph of complete bipartite Kp,q, so equivalent searches under line-graph terminology matter.",
+          "Perfect Roman functions demand exactly one neighbor of every 0 label to be assigned 2."
+        ],
+        "reasoning": "Compared alternate rook/line graph/Cartesian complete-product formulations and excluded ordinary Roman domination and merely dominating sets as non-equivalent parameters.",
+        "searches": [
+          "Resultary: perfect Roman domination complete Cartesian rook graph Kp square Kq minimum function enumeration",
+          "R_{p,q}=L(K_{p,q})",
+          "Almulhim et al 2022 DOI:10.1155/2022/1957027"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complete multipartite graph K_{a1,...,ar} is generally not the rook graph L(Kp,q); matching parameters alone does not equate them.",
+          "No indexed table for all rectangular Kp□Kq perfect Roman optimum configurations."
+        ],
+        "reasoning": "An exact small-board count would be covered if already tabulated, but searches found only different graph families/parameter variants, and the present all-p,q proof is not finite-table extrapolation.",
+        "searches": [
+          "Resultary: perfect Roman domination complete Cartesian rook graph Kp square Kq minimum function enumeration",
+          "Resultary published perfect Roman domination polynomial of complete multipartite graphs 2026/10/4",
+          "Almulhim et al 2022"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Perfect Roman domination is distinct from ordinary, total, and Roman-{k} forms. Almulhim-Akwu-Al Subaiei 2022 Cartesian-product paper was read in full and concerns products of paths and cycles, not complete-factor rook graphs. Paleta/Jamil general upper bound via perfect dominating sets already implies <=2p and is NOT claimed novel. The all-parameter sharp lower bound and exact optimizer count for Kp□Kq were not found in Resultary indexed perfect Roman results or the inspected primary source. Possible line-graph-of-Kp,q literature remains residual risk.",
+      "residual_risks": [
+        "An unindexed domination paper may treat perfect Roman domination of the line graph of K_{p,q} under the line-graph name.",
+        "General published upper bound 2p is old; only tightness, all minimizers and exceptions are considered additional.",
+        "No polynomial enumerating nonminimum feasible functions is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Computes products involving paths/cycles, not all rectangular complete-factor rook graphs.",
+          "evidence": "Theorems deal with Cartesian paths/cycles; no Kp square Kq minimum-function enumeration.",
+          "identifier_or_url": "https://doi.org/10.1155/2022/1957027",
+          "material_read": "Read accessible complete 2022 Wiley HTML article, including introduction, graph-factor definitions and main Cartesian product cases.",
+          "method": "Primary full text theorem-by-theorem graph-class comparison",
+          "title": "The Perfect Roman Domination Number of the Cartesian Product of Some Graphs",
+          "trigger": "Most title-similar Cartesian-product perfect Roman primary publication"
+        },
+        {
+          "assessment": "General bound from perfect dominating sets implies the easy <=2p but not sharp lower bound or equality-case count.",
+          "evidence": "General bound is credited; not claimed novel.",
+          "identifier_or_url": "https://doi.org/10.29020/nybg.ejpam.v13i3.3763",
+          "material_read": "Checked primary bibliographic and known general bounds cited in originating text; full primary article not read in this execution.",
+          "method": "Bounded published-statement comparison",
+          "title": "More on Perfect Roman Domination in Graphs",
+          "trigger": "General inequalities may dominate claimed upper bound"
+        },
+        {
+          "assessment": "Applies to complete multipartite adjacency, which is not rook adjacency Kp□Kq for general p,q.",
+          "evidence": "Indexed theorem graph class is multipartite, unlike line graph of Kp,q.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-perfect-roman-domination-polynomial-of-complete-multipartite-gra--fe03532a3f23",
+          "material_read": "Read indexed Resultary scientific summary, not complete original text.",
+          "method": "Resultary semantic statement",
+          "title": "Perfect Roman domination polynomial of complete multipartite graphs",
+          "trigger": "Strong indexed algebraic classification on superficially related graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A natural widely studied domination variant on the canonical two-parameter rook graph family, with complete solution and exceptional equality cases. The optimizer counting function is mathematically informative beyond an obvious dominating column upper bound; explicit small-board exceptions are structural, not arbitrary slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 2<=p<=q and exactly two complete factors; the equality enumeration is of labeled functions, not automorphism orbits or all feasible functions.",
+    "An unindexed domination paper may treat perfect Roman domination of the line graph of K_{p,q} under the line-graph name.",
+    "General published upper bound 2p is old; only tightness, all minimizers and exceptions are considered additional.",
+    "No polynomial enumerating nonminimum feasible functions is claimed."
+  ],
+  "schema_version": 1
+}
