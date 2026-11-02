@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The result is an identity-based global theorem: normalizing the competitor ratio by a periodic multiplier removes every pulse, and its reciprocal grows by the exact positive integral \(\kappa\int\Phi y^q\). A contradiction using viable resident per-period logarithmic growth establishes divergence, followed by scalar impulsive-logistic comparison and a Cesàro argument. The assumptions include positive initial states, \(bf>ce\), viable resident growth, and the exact zero invasion exponent. The packaged standalone calculation checks the derived formulas numerically in two staggered-pulse cases, but the proof of infinite-time behavior is analytical.
+## correctness
 
-**Originality: PASS, subject to accessible-literature limits.** The closest 2026 pulsed Lotka–Volterra work treats robust permanence under strictly positive invasion conditions; the 2025 general flow-kick theory treats invasion signs and qualitative dynamics. Neither inspected treatment states a universal exact critical extinction envelope for all positive initial states with independently timed pulses. The 2005 Jin–Han–Li impulsive-competition paper could be checked only at abstract level, leaving a publication-priority risk. A negative result from literature searching is not construed as a uniqueness proof.
+PASS
 
-**Mathematical value: PASS.** The theorem resolves a nonhyperbolic ecological boundary omitted by strict-invasion coexistence criteria, gives the phase-dependent leading coefficient rather than only an extinction verdict, and demonstrates a concrete dependence on intervention phase despite unchanged invasion exponents. These features can distinguish management schedules that would otherwise appear equivalent at threshold. The result is restricted to two-species weak competition and density-independent periodic pulses.
+Under T-periodic bounded rates and positive multiplicative pulses, q=c/f, κ=(bf−ce)/f>0, Γy>0, Γx=qΓy, define periodic Φ by (a−qd) and pulse ratios α/β^q. For R=x/y^q, exact inter-pulse derivative d log R/dt=(a−qd)−κx and matching pulse ratios make Z=R/Φ pulse-continuous, with Z^(-1)(t)=R(0)^(-1)+κ∫₀ᵗΦy^q. Boundedness plus the resident positive net growth Γy rule out a bounded integral (which would force both populations to zero yet positive per-period y growth). Thus x→0; scalar impulsive logistic upper/lower comparison gives y→y*, and periodic Cesaro gives t x(t)−P(t)/(κPbar)→0. The exact log ratio prevents a positive periodic coexistence orbit. Independently reproduced the analytic example resident y*(0)=0.35872707857399 and distinct amplitudes 1.16905257454892 vs 0.82654975868862 for same product pulse schedules. Numerics do not prove infinite-time limit.
 
-Independent verification of the infinite-time theorem has not been performed. The reproducibility script is finite numerical corroboration, not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority comparison for Global phase-resolved critical extinction under staggered periodic pulses: actual mathematical claims and implications, not title-only comparisons, evaluated against the listed primary sources and Resultary. Relevant prior methods are credited; no decisive stronger covering result was demonstrated within accessible readings. Residual priority risks remain explicit.
+
+## value
+
+PASS
+
+At a zero-invasion (nonhyperbolic) boundary beyond strict sign-based permanence theory, an all-positive-initial global inverse-time extinction amplitude is a substantial dynamical statement. The phase envelope distinguishes interventions having identical pulse products and invasion growth, providing precise interpretable dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

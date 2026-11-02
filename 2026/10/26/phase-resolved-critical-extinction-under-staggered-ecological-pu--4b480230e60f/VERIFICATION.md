@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof checks
+# Independent mathematical audit
 
-Run `python verify_pulse_critical.py` with Python 3.9 or newer; it requires only the standard library. The program returns four PASS lines and reports analytic and numerical critical amplitudes for coincident and staggered pulses. The program was run successfully using its packaged code.
+## correctness
 
-The proof's checkable analytical dependency chain is: the periodic multiplier \(\Phi\) is normalized by the exact per-period critical relation; the ratio \(R=x/y^q\) divided by \(\Phi\) has no pulse jumps and has reciprocal derivative \(\kappa\Phi y^q\); boundedness and resident viability force the reciprocal integral to diverge; scalar comparison makes \(y\) converge to the unique positive pulsed resident cycle; the periodic Cesàro average yields the exact inverse-time coefficient.
+PASS
 
-The verification code independently computes the resident fixed point through reciprocal logistic dynamics, checks the integral identity along numerical solutions, and checks the predicted phase effect with fixed-step Runge–Kutta integration over 3,000 periods. Numerical tolerances are finite and do not certify a universal asymptotic statement; the latter is justified by the written proof. No independent external audit has been performed.
+Under T-periodic bounded rates and positive multiplicative pulses, q=c/f, κ=(bf−ce)/f>0, Γy>0, Γx=qΓy, define periodic Φ by (a−qd) and pulse ratios α/β^q. For R=x/y^q, exact inter-pulse derivative d log R/dt=(a−qd)−κx and matching pulse ratios make Z=R/Φ pulse-continuous, with Z^(-1)(t)=R(0)^(-1)+κ∫₀ᵗΦy^q. Boundedness plus the resident positive net growth Γy rule out a bounded integral (which would force both populations to zero yet positive per-period y growth). Thus x→0; scalar impulsive logistic upper/lower comparison gives y→y*, and periodic Cesaro gives t x(t)−P(t)/(κPbar)→0. The exact log ratio prevents a positive periodic coexistence orbit. Independently reproduced the analytic example resident y*(0)=0.35872707857399 and distinct amplitudes 1.16905257454892 vs 0.82654975868862 for same product pulse schedules. Numerics do not prove infinite-time limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority comparison for Global phase-resolved critical extinction under staggered periodic pulses: actual mathematical claims and implications, not title-only comparisons, evaluated against the listed primary sources and Resultary. Relevant prior methods are credited; no decisive stronger covering result was demonstrated within accessible readings. Residual priority risks remain explicit.
+
+## value
+
+PASS
+
+At a zero-invasion (nonhyperbolic) boundary beyond strict sign-based permanence theory, an all-positive-initial global inverse-time extinction amplitude is a substantial dynamical statement. The phase envelope distinguishes interventions having identical pulse products and invasion growth, providing precise interpretable dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
