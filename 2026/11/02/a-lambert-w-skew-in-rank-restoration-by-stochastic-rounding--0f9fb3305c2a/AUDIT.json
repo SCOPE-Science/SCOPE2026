@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof, Steps 1–5",
+      "verify.py: exact rational enumeration and finite hyperplane checks",
+      "VERIFICATION.md"
+    ],
+    "rationale": "For two columns, rank deficiency is precisely the union of a zero first column, a zero second column, and two equal columns; inclusion–exclusion gives the closed polynomial. For fixed width, a Boolean cube hyperplane has at most half the vertices; the equality cases are exactly coordinate-zero and coordinate-equality hyperplanes. The remaining hyperplane events and all pairwise dominant intersections decay at a strictly smaller exponential rate uniformly near p=1/2, including the first two derivatives. These estimates localize the global minimizer, prove eventual strict convexity, and yield an exact stationary condition; controlled Lambert-W inversion gives the claimed unique optimizer and ratio. Standard-library verifier passed 4054 finite tests including exact rational matrix-rank enumeration; experiments do not replace the infinite-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jain–Sah–Sawhney treat square n-by-n matrices with fixed Bernoulli entry parameter; the new question fixes d and allows p=1/2+O(log n/n).",
+        "Kahn–Komlós–Szemerédi address fair ±1 matrices; fair-sign fixed-width coverage is contextually relevant but does not imply non-symmetric zero-column optimization."
+      ],
+      "reasoning": "Square-matrix asymptotics with dimension growing along both axes do not supply uniform estimates needed for an n-dependent p at fixed d, nor a unique optimizer; constant-p statements cannot be differentiated with respect to an n-dependent drift. The older ±1 model is different, but the inaccessible original text remains a priority risk.",
+      "searches": [
+        "Bernoulli n by fixed d tall matrix full column rank probability zero column duplicate column asymptotic",
+        "n by m Bernoulli matrix fixed number columns singularity probability asymptotic half cube hyperplanes",
+        "arxiv:2010.06554; square discrete random matrices",
+        "arxiv:2010.06553; Bernoulli invertibility",
+        "doi:10.1090/S0894-0347-1995-1260107-2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2403.12278",
+      "https://arxiv.org/abs/2010.06554",
+      "https://arxiv.org/abs/2010.06553",
+      "https://doi.org/10.1090/S0894-0347-1995-1260107-2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2403.12278: high-probability singular-value regularization of tall-and-thin stochastically rounded inputs, not an all-p exact deficiency minimization.",
+        "arxiv:2010.06554: fixed-p square matrix singularity with zero-row/column and duplicate-event leading terms, not fixed-width simultaneous optimizing p.",
+        "The current proof identifies all half-cube hyperplanes and bounds remaining hyperplanes by a strictly smaller exponential base, then differentiates those bounds for the optimizer."
+      ],
+      "reasoning": "Known general rank-restoration guarantees are not sufficiently sharp for an all-p minimization. Square singularity asymptotics cannot simply be specialized to rectangular fixed d, and fair-sign fixed-width singularity does not include a zero-column mechanism. This is a scientific non-implication argument, not a claim that no related work exists.",
+      "searches": [
+        "Dexter Boutsikas Ma Ipsen Drineas 2024 stochastic rounding smallest singular value rank deficiency",
+        "Jain Sah Sawhney 2020 equality zero column causes singularity Bernoulli random matrices",
+        "stochastic nearness Bernoulli rank restoration fixed width optimal probability p n Lambert W zero and equal columns"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2403.12278 treats stochastic-nearness rank restoration and the rank-one two-column fair-rounding example at p=1/2.",
+        "The exact d=2 law here includes the all-zero-column term, and optimization lets p vary with n; that question is separate from smallest-singular-value lower bounds."
+      ],
+      "reasoning": "Equivalent expressions of the proposed theorem would optimize the failure probability for iid Bernoulli(p) n-by-d matrices, or minimize rank deficiency of stochastically rounded constant rank-one matrices. The inspected closest article studies rank regularization and a fixed midpoint example, not this p-dependent minimizer or Lambert-W drift.",
+      "searches": [
+        "independent stochastic rounding rank deficient two identical columns Bernoulli full column rank probability optimal rounding probability",
+        "stochastic nearness rounding tall thin rank one matrix rank restoration exact probability",
+        "stochastic rounding rank deficient equal columns optimal fractional part maximize rank probability Lambert W",
+        "stochastic nearness Bernoulli rank restoration fixed width optimal probability p n Lambert W zero and equal columns",
+        "arxiv:2403.12278; Section 4.1 and Appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected source Section 4.1 describes a related two-column midpoint construction, without a tabulation or statement of the all-p probability optimizer.",
+        "The exact two-column polynomial is reproduced from explicit three-event inclusion–exclusion; the fixed-d limit is proved analytically, not inferred from a computed table."
+      ],
+      "reasoning": "No identified exact database, tabulation or theorem from materially inspected sources gives the variable-p fixed-width optimizer. A negative search alone is insufficient for novelty, so the stronger statement comparisons and priority limitations are retained.",
+      "searches": [
+        "stochastic nearness rounding tall thin rank one matrix rank restoration exact probability",
+        "Gaussian random sketch rank one two column rounding optimal quantization",
+        "stochastic nearness Bernoulli rank restoration fixed width optimal probability p n Lambert W zero and equal columns",
+        "arxiv:2403.12278 rank restoration two-column",
+        "random Bernoulli rectangular full column rank fixed width asymptotic"
+      ]
+    },
+    "rationale": "The specific optimization over the common fractional input p of a rank-one constant matrix, including its Lambert-W drift and limiting deficiency reduction at fixed number of columns, was not implied by the materially inspected prior statements. Known mechanisms of zero and duplicate columns are explicitly attributed to previous random-matrix literature, not claimed as inventions. The 1995 fair-sign result was only accessible through a secondary mathematical discussion; remaining priority risk is recorded.",
+    "residual_risks": [
+      "The 1995 full technical article was not accessible for close comparison; only a secondary mathematical discussion was available.",
+      "Specialized combinatorial or probability literature on optimizing fixed-width Bernoulli matrix rank may establish equivalent results under another formulation.",
+      "Search rankings or negative matches cannot establish absolute originality; independent publication-priority review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related object and mechanism but no exact variable-fraction fixed-d global optimizer or Lambert-W law identified",
+        "evidence": [
+          "Section 4.1 uses a constant half-valued rank-one matrix; Appendix A derives a high-probability singular-value bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.12278",
+        "material_read": "Open-access full technical article, particularly Section 4.1 and Appendix A",
+        "method": "Read full-text HTML technical sections, including the illustrative two-column construction and the smallest-singular-value argument",
+        "title": "Stochastic Rounding Implicitly Regularizes Tall-and-Thin Matrices",
+        "trigger": "Same stochastic-nearness rounding operation and specifically a rank-one two-column construction"
+      },
+      {
+        "assessment": "Its growing square matrix at fixed parameter is not a stronger theorem for fixed d with jointly varying p near 1/2",
+        "evidence": [
+          "Square n-by-n fixed-p singularity is governed by zero rows or columns and equal rows or columns; fixed-d p optimization is not asserted."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.06554",
+        "material_read": "Open-access technical HTML, introduction and the discussion of two-column dependence including Section 5.1",
+        "method": "Compared growth regime, entry distribution, claim quantifiers and leading mechanisms",
+        "title": "Singularity of discrete random matrices",
+        "trigger": "Possible stronger singularity asymptotics from zero columns and duplicate columns"
+      },
+      {
+        "assessment": "No assertion of NOT_COVERING from unread technical text; fair-sign model lacks the p-dependent zero-atom asymmetry, but publication-priority residual risk remains",
+        "evidence": [
+          "The accessible discussion attributes fixed-width, fair-sign asymptotics to the work; a full-document technical comparison was not possible."
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0894-0347-1995-1260107-2",
+        "material_read": "Bibliographic summary and mathematical secondary discussion only; original technical PDF not obtained",
+        "method": "Public open-access and preprint availability attempts, secondary result comparison; institutional full-text request was unavailable",
+        "title": "On the probability that a random ±1-matrix is singular",
+        "trigger": "Historical fixed-width fair-sign singularity bounds might overlap half-cube counting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0f9fb330-5c2a-4c7f-9561-5026040dbdd5",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "arxiv:2403.12278 identifies rank restoration as a numerical-analysis objective",
+      "RESULT.md provides a nontrivial exact distribution and asymptotic optimizer",
+      "REVIEW.md states scope and limitations"
+    ],
+    "rationale": "The smallest-singular-value regularization phenomenon raises a concrete reliability question: how should independent one-bit rounding position a constant rank-one input within a quantization cell to minimize full-rank failure? The sharp answer is not the intuitively most random p=1/2. It identifies a logarithmic-over-n interior shift and a nonvanishing, dimension-dependent relative failure improvement, with a complete finite-n two-column answer. This supplies a structural benchmark for random quantization and rectangular matrix regularization, without suggesting a universal practical algorithm or conflating full rank with conditioning.",
+    "status": "PASS"
+  }
+}
