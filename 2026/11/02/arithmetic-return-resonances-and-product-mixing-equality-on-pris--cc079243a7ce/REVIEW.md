@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Vertex transitivity makes each diagonal spectral-projector entry equal to multiplicity divided by \(2n\), giving an exact return formula. The key nonstandard ingredient, the complete solution of the cosine-difference resonance equation for roots of unity, is proved by bounding all Galois conjugates and comparing the cyclotomic trace \(\mu(m)\) with the positive integral norm. All surviving interbranch collisions have been counted without overlap. The standalone checker independently diagonalizes physical adjacency matrices for 48 lengths and compares 598 spectral instances. This is supplementary finite evidence, not the universal proof.
+
+**Originality — PASS on inspected sources, with residual priority risk.** Godsil's 2011 complete article supplies the universal spectral formula and treats cycles; its stated results do not evaluate prism collision arithmetic. The 2017 commutant article supplies a broader operator framework without the prism family, while the 2019 full text establishes a Cartesian-product lower bound but not its exact equality cases for prisms. The claimed new step is the family-wide \(4\)-and-\(6\)-divisibility resonance classification and resulting exact excess, not the spectral formula, general product bound, or Fourier eigenvalues. Searches included the family names and alternative return/mixing terms. Relevant unindexed or older source coverage cannot be ruled out.
+
+**Value — PASS.** Quantum return/mixing is a natural graph-transport invariant. The result resolves exactly when a general spectral lower bound is attained on an infinite, physically motivated two-channel ring family, and reveals two independent arithmetic degeneracies invisible in the generic product estimate. The precise \(2/n^2\) contributions, while diminishing for large rings, classify a nontrivial spectral selection rule at every finite size rather than a routine numerical update.
+
+**Limitations.** The result concerns coherent adjacency dynamics of unweighted prisms and continuous-time Cesàro average; it does not establish convergence of the unitary walk, nonuniform-hopping results, or independent priority certification.
+
+Self-review: passed. Independent audit: not yet performed.
