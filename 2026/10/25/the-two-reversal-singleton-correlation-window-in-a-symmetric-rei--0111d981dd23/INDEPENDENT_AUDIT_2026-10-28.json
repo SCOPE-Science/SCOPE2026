@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:17:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit-reinforced q-color urn with one initial ball per color induces the uniform distribution on q-part weak compositions of n. Fixing N_1=1 and N_1=N_2=1 gives exact rational stars-bars moments p_1=(q−1)n/((n+q−1)(n+q−2)) and p_11=(q−1)(q−2)n(n−1)/∏_{j=1}^{4}(n+q−j). Exact symbolic common denominators give covariance =−n(q−1)F_q(n)/((n+q−4)(n+q−3)(n+q−2)^2(n+q−1)^2). Cubic F_q has signs F(-∞)<0,F(0)>0,F(q)<0,F(+∞)>0, hence precisely one negative and two simple positive roots. F_q(2) classifies initial q=3,4 vs q≥5 sign. Expansion at n=q+δ proves roots q±√q−3/4+O(q⁻¹ᐟ²); denominator asymptotics prove q² C→(1−s²)/32 in n=q+floor(s√q) and negative fixed-density qC limit. Independently compared exact weak-composition probabilities in multiple finite (q,n) and symbolic polynomial identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen model includes Polya/BE urns but its accessible abstract only reports CLT and local limit theorems; cannot rule out full-text moment statement. Keener–Wu asymptotic error O(q⁻²) is of exactly the scale whose sign is being resolved; independent iid occupancy results do not apply to reinforced urn."
+        ],
+        "reasoning": "A broad central-limit theorem does not determine the exact finite-n sign or second-order critical window; any exact covariance prior formula that readily implies cubic signs would be material, so cannot assert definitive priority.",
+        "searches": [
+          "Chen 1981 journal article DOI 10.1017/S0021900200097680",
+          "Keener–Wu 2006 DOI 10.1142/9789812772558_0008",
+          "Eaton–Godbole–Sinclair arXiv:0806.1007"
+        ]
+      },
+      "checked_sources": [
+        "Git tree e646edf18b943eabf9abdb1b1184d02b2b891a8d; RESULT.md; verify.py",
+        "Independent exact rational weak-composition enumeration and symbolic q,n identity",
+        "Keener–Wu 2006 full PDF; Chen 1981 publisher abstract and authorized institutional failure",
+        "Resultary comparison to iid occupancy dependence literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic Dirichlet–multinomial moments imply covariance can be algebraically derived; published occupancy CLT does not state or imply the two-reversal window at order q⁻² from its error bound alone."
+        ],
+        "reasoning": "Mathematical derivability from classical distribution does not mean the highly structured sign-root and critical-scale theorem was previously published; full Chen article remains an unresolved priority risk, not a mathematical C failure.",
+        "searches": [
+          "Keener–Wu 2006 Theorem1 and local-coordinate approximation",
+          "Chen 1981 publisher abstract",
+          "Direct stars-bars exact expressions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen abstract concerns general occupancy-count CLT/local limits; Keener–Wu full paper studies aggregate counts and first-order finite-coordinate approximation. No exact sign-reversal roots or q±√q−3/4 appearing in inspected parts."
+        ],
+        "reasoning": "Same uniform-composition distribution is not the same as previously published covariance-sign phase diagram; there is a potential older equivalent under Bose–Einstein terminology, retained as risk.",
+        "searches": [
+          "Resultary: Polya urn symmetric Dirichlet multinomial singleton color indicator covariance sign critical density",
+          "W.C. Chen 1981 Limit theorems for general size distributions",
+          "Keener–Wu 2006 On Dirichlet Multinomial Distributions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest iid occupied-box precision result concerns independent balls/boxes, not exchangeable reinforced draws. No named exact covariance table matching cubic F_q was found."
+        ],
+        "reasoning": "Not a recomputation of an identified table, though historical literature may contain a hidden equivalent formula.",
+        "searches": [
+          "Resultary reinforced urn singleton covariance two reversals",
+          "Historical Bose–Einstein occupancy covariance q≈n",
+          "Source exact fractional weak-composition verification"
+        ]
+      },
+      "rationale": "Qualified PASS: uniform Dirichlet–multinomial composition law, occupancy moments, CLTs and finite-coordinate approximations are classical. Keener–Wu 2006 work on aggregate occupancy and order-q⁻² approximation does not determine the sign of the critical order-q⁻² singleton pair covariance. The exact three-root phase diagram and root-center shift −3/4 were not located as prior theorem. Relevant 1981 Chen source full article inaccessible; substantive historical priority risk retained.",
+      "residual_risks": [
+        "Full Chen (1981) and especially cited 1979 report might contain a derivation of the same finite-coordinate covariance or equivalent root theorem; not directly read.",
+        "The asymptotic window at s=±1 has zero leading limit and the finite cubic is required to determine exact signs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND OCCUPANCY ASYMPTOTICS, NOT CRITICAL SIGN",
+          "evidence": "Theorem1 targets aggregate occupancy counts; finite-coordinate approximation has errors of order q⁻², same as critical covariance, and cannot determine its sign.",
+          "identifier_or_url": "https://www.stat.uchicago.edu/~wbwu/papers/keener.pdf",
+          "material_read": "Complete 14-page PDF accessible; materially inspected theorem on occupancy count CLT and sections on finite-coordinate approximation",
+          "method": "lawful author-hosted PDF, text and screenshot",
+          "title": "On Dirichlet Multinomial Distributions",
+          "trigger": "Primary related symmetric Dirichlet–multinomial asymptotics"
+        },
+        {
+          "assessment": "POSSIBLE UNINSPECTED PRIORITY OVERLAP",
+          "evidence": "Abstract describes conditional iid occupancy, general size distributions and central/local limit theorems; no exact singleton sign formula visible, but unseen full paper could contain related moments.",
+          "identifier_or_url": "https://doi.org/10.1017/S0021900200097680",
+          "material_read": "Publisher abstract, bibliographic details and reference list; FULL article not accessible; authorized institutional PDF request returned download storage-limit error",
+          "method": "publisher abstract and protected institutional attempt; full text unread",
+          "title": "Limit theorems for general size distributions",
+          "trigger": "1981 primary model includes Polya urn, plausible older covariance formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the model is canonical and the exact two-sign-reversal phenomenon is a substantive finite-size dependence effect with a sharp √q critical window, resolving precisely when pairwise dependence changes sign. This is a structural occupancy statement rather than a routine sign check on a random example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree e646edf18b943eabf9abdb1b1184d02b2b891a8d; RESULT.md; verify.py",
+    "Independent exact rational weak-composition enumeration and symbolic q,n identity",
+    "Keener–Wu 2006 full PDF; Chen 1981 publisher abstract and authorized institutional failure",
+    "Resultary comparison to iid occupancy dependence literature"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full Chen (1981) and especially cited 1979 report might contain a derivation of the same finite-coordinate covariance or equivalent root theorem; not directly read.",
+    "The asymptotic window at s=±1 has zero leading limit and the finite cubic is required to determine exact signs.",
+    "Best-of-knowledge originality is not independent external priority certification.",
+    "Publication not_ready is a confidentiality/metadata staging limitation, not scientific rejection."
+  ],
+  "schema_version": 1
+}
