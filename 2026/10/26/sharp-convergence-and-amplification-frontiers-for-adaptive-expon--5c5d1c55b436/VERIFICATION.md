@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Numerical and analytic verification notes
+# Independent mathematical audit
 
-The reference calculation is the scalar recurrence for normalized covariance \(s_n>0\) and normalized mean error \(v_n\), with \(h_n=\min\{H,\beta/|s_n-1|\}\) when \(s_n\ne1\), and \(h_n=H\) when \(s_n=1\). To avoid premature floating-point underflow, the standalone checker carries the log covariance \(u_n=\log s_n\) and uses `math.expm1` in the transition.
+## correctness
 
-Running `python verify.py` in a Python 3 environment completed with `VERIFICATION_OK checks= 1152`. It examined parameter grids with \(0<H\le2\), a range of caps including \(\beta>1\), a broad range of initial log covariances, the gain maximizer \(s=1+\beta/H\), critical \(H=2\) convergence-rate comparisons, finite-time capture \(s_0=e^\beta\mapsto1\), and mean divergence for \(H>2\) starting at \(s=1\). The critical algebra was independently expanded symbolically: \(g(g(u))=u-4u^3/3+O(u^4)\) and the two-step mean multiplier is \(1-4u^2+O(u^3)\).
+PASS
 
-These calculations do not establish the universal claims by enumeration. The proof uses the exact logarithmic transition, Coppel's interval-iteration theorem, the cross-zero two-cycle contradiction, explicit piecewise minimization, and a local critical normal form. The numerical checker is not a formal proof system, and no independent audit has been performed. The theorem excludes Monte Carlo perturbations, multidimensional covariances, and finite-precision overflow or underflow.
+For scalar s>0 and v with h=min(H,β/|s−1|), the log covariance u=log s obeys continuous clipped-Ricker map g(u)=u−clip(H(e^u−1),−β,β), bounded on a forward interval. Every nontrivial 2-cycle would have u>0>v and δ=u−v with δ≥log((1+δ/H)/(1−δ/H))>2δ/H≥δ for H≤2; impossible. Coppel's interval-iteration theorem therefore forces s→1. Mean multiplier 1−hs tends to 1−H, giving exact joint frontier H<2; at s0=1 it oscillates for H=2 and grows for H>2. Gain r=hs∈(0,H+β], maximum at s=1+β/H, so uniform one-step |1−r|≤1 iff H+β≤2. At H=2, g∘g(u)=u−(4/3)u³+O(u⁴), hence √n|u_n|→√3/2 absent finite capture; two-step mean multiplier 1−4u²+O(u³) yields generic |v_n|~C n^(−3/2), while s0=e^β captures s=1 after one step. Independent SymPy expansions and 119 gain/frontier cases agree; they do not prove Coppel's universal implication.
+
+## originality
+
+PASS
+
+Che et al. full accessible preprint Theorem 1 restricts H≤1 and β≤1 for Gaussian convergence, while the new sharp H<2 arbitrary cap and H+β exact one-step frontier lie outside their proved domain. Coppel theory and classical Ricker constant-parameter attraction are prior lemmas; the cap and separate mean recursion require additional arguments. Resultary capped optimization examples use distinct step schemes.
+
+## value
+
+PASS
+
+Identifies the maximal stable step-size regime for a motivated Gaussian variational integrator and separates transient mean amplification from ultimate convergence. At critical H=2 the covariance can settle while the mean fails, a concrete structurally relevant distinction. Sharp √n and n^(−3/2) rates quantify its flip boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
