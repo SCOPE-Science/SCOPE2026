@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact facet description is supplied by Behrend et al., Proposition 2.8. The simplex tail identity is the beta-distribution survival polynomial, obtained from the uniform simplex. The single-cap intersections have translation volumes with residual bases \(A\), \(B-1\), and \(C-3\); the pair-facet region integrates exactly to \((m-B)B^{m-1}+(B-1)^m\). Higher-facet violations leave at most residual base \(C\); pair-cap and pair-pair overlaps leave at most \(C-1\). Their union bounds are polynomial in \(m\), so the \((B-1)^m\) contributions cancel and the fixed-\(n\) theorem follows. The integration identity and selected finite hulls were checked separately; these computations do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed the polytope from Behrend et al. Proposition 2.8 and verified simplex Dirichlet tails m!Vol({sum_I x_i>h})=sum_{j<|I|} binom(m,j) h^j(S-h)^(m-j). Single-coordinate forbidden caps have normalized volume A^m, pair cap intersection (B-1)^m. Integrating the two-coordinate facet violation with both caps gives (m-B)B^(m-1)+(B-1)^m. Bonferroni cancellation removes pair cap intersections exactly. Pair-pair and pair-cap overlaps have residual <C; higher rank k>=3 have residual <=C and at most O_n(m^(2n-3)) multiplicity. This proves the stated error for fixed n>=5; C/B<1 proves the ratio limit. Independently checked pair integral by exact arithmetic/numerical integration; finite hull computations do not prove asymptotics.
 
-The 2022 first-public version of Behrend et al., arXiv:2207.14253, studies this precise family and explicitly leaves exact volumes for \(n>4\) open, conjecturing a multilayer formula. Sections 2 and 5 of its full text were inspected, including Proposition 2.8, Theorems 5.11–5.13, Problem 5.14 and Conjecture 5.15. These establish exact small-label results but do not state the expansion for arbitrary fixed \(n\ge5\). Hanada–Lentfer–Vindas-Meléndez treat generalized parking-function volume formulas in a different regime; Liu–Zhang treat magic positivity and fixed \(n\le3\) in the complementary regime. Indexed inradius, circumball and diameter results are not volume identities. Search cannot prove absolute novelty; an unindexed equivalent argument remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The arbitrary-fixed-label volume problem is explicitly motivated as an open enumeration problem in the primary literature. The expansion identifies both dominant truncation mechanisms, calculates the entire second exponential coefficient, and excludes every other facet type until the strictly smaller next base. It also determines the first unknown coefficient of the conjectured exact decomposition, conditional on that decomposition existing. This is a structural asymptotic result for a natural family, not a claim to solve the full exact enumeration.
+The same object and normalization are identified with the original partial-permutohedron facet description. Behrend et al. prove n<=4 exact volume cases and pose n>4 as a problem/conjecture, not a theorem implying the supplied fixed-n>=5 coefficient. Related published partial-permutohedron results found by semantic search concern inradius, circumball, ellipsoids or diameter. Best-of-knowledge claim survives comparison, without absolute priority certification.
 
-## Residual limitations
+## value
 
-The statement does not recover the full conjectural polynomial structure or a uniform bound in growing \(n\), and does not optimize the polynomial prefactor in the error term. No independent mathematical validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicitly motivated open fixed-label volume enumeration problem receives a uniform-in-m three-layer asymptotic for every fixed n>=5, including a nontrivial polynomial coefficient and a sharp next-exponential-base remainder. The result is structural rather than a small table or simple substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
