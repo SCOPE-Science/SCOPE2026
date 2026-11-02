@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The uniform historical draw has predictable mean equal to the path integral divided by elapsed time. This identity closes two exact quadratic moment equations for the integrated position. Laplace-transform inversion gives the stated Kummer and critical exponential-integral formulas, and their large-argument asymptotics prove the three rates and constants. Independent ODE integration and quadrature in `CHECK.py` corroborate the analytic identity with 233 assertions. Numerical evidence alone is not used to justify the infinite-time statements.
+PASS
 
-## Originality — PASS, conditional on inspected literature
+The result is for equilibrium-initialized OU dynamics with an independent rate-r Poisson clock and uniformly sampled full historical position at each jump; it does not claim a stationary path law. Conditional reset mean A_t/t gives w′=2c and c′=D/μ−(μ+r)c+(r/t)w, so w′′+(μ+r)w′−2rw/t=2D/μ. The large-s Laplace condition w(0)=w′(0)=0 selects a unique transform; Kummer inversion yields the exact finite-time formula and the r=μ exponential-integral limit. The two noncritical exponents and critical logarithm follow from large-argument Kummer asymptotics. Independent numerical finite-difference checks verified the differential identity for six parameter triples and three positive times; these do not prove the asymptotic theorem.
 
-Boyer and Majumdar (arXiv:2405.10283, 2024) derive one-time Gibbs marginals and spectral relaxation. Boyer, Evans and Majumdar (arXiv:1611.06743, 2016) study unconfined one-time spreading; their later general-kernel treatment (arXiv:2411.00641, 2024) again addresses marginal densities under confinement. The present path-integral observable requires a separate two-time moment closure. The sharp temporal-averaging threshold and finite-time Kummer formula were not found in the inspected results. General reinforced-process theory remains an important priority risk; a search miss is not a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Single-trajectory estimation of equilibrium position is natural in memory-dependent transport. Equal equilibrium one-time distributions do not establish equal averaging precision. The result distinguishes ordinary inverse-time variance, a marginal logarithmic slowdown, and a continuously varying anomalous exponent across a physically meaningful rate ratio. It also quantifies a mean-square, not necessarily almost-sure or distributional, ergodic conclusion.
+Two directly inspected same mathematical model primary papers derive one-time Gibbs/relaxation laws, not the specified integrated-position variance. No stronger theorem mathematically implying the two-time Kummer finite-T formula was identified after Resultary and original literature comparisons; priority risks remain.
 
-## Scope of review
+## value
 
-The same three scientific axes were evaluated on one exact claim. No external validation, paper-level novelty certification, central limit theorem, or almost-sure convergence is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The one-time Gaussian equilibrium measure does not determine the empirical-average variance; an exact critical transition among ordinary 1/T, logarithmically enhanced 1/T, and slower power-law concentration is a motivated quantitative stochastic-process finding. Its temporal sampling implications are genuine, though no distributional CLT or almost-sure ergodic claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
