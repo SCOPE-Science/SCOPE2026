@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Independent random priorities for uniformly refined top ties give conditional independent blocking events and the exact integral. Polynomial messages on rooted forests correctly integrate out every subtree; polynomial factors admit exact rational integration with polynomial bit complexity. A rank-two integral kernel proves the path recurrence and cycle eigenvalue formula. The standalone checker passes 9,016 finite graph cases, 3,110 forest cases, 21 path lengths and 19 cycle lengths, including a directly realizable market with 46,656 refinements. Finite checks support but do not replace the proof.
+
+**Originality — PASS, subject to access limitations.** The classical Knuth/Pittel integral already handles independent uniform full preferences, so the product-kernel idea is not claimed as novel. The 2019 open-access paper by Aziz and coauthors gives an exact procedure if one side is certain, not the reciprocal-top-tie forest rule or the explicit degree-two spectral laws. Chen's 2026 preprint proves #P-completeness even with top ties; its available abstract does not state the forest procedure or path/cycle formulas. Searches for equivalent random-tie stability calculations, blocking-graph factorizations, and the exact spectral constants found no applicable implication in inspected materials. The preprint's PDF was inaccessible, creating a real residual priority risk; no claim of exhaustive literature coverage or independent originality validation is made.
+
+**Value — PASS.** This identifies a natural tractable structural subclass within a newly proved #P-complete probability problem, allowing uncertainty on both sides and giving closed probabilities and exponential rates when reciprocal tie competition is sparse. It is an exact probability characterization of a motivated observable market property rather than an arbitrary finite enumeration.
+
+The result is limited to uniform independent tie-breaking, a fixed perfect matching, and top indifference classes containing matched partners. The result does not settle unrestricted counting complexity or optimal matching selection.
+
+Self-review: passed. Independent audit: not yet performed.
