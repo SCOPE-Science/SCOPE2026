@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is for every \(r\ge1\) over \(\mathbb C\). The apolar incidence is a smooth complete intersection of \(2r-s+1\) bilinear equations, and the secant-resolution fiber over border-rank \(\ell\) is \(\mathbb P^{s-\ell}\). The fiber Euler characteristics give an exact constructible-function identity, and MacPherson proper functoriality gives formula (1) in RESULT.md. All formal coefficient and residue identities in Steps 2–4 are valid over \(\mathbb Q(H)\), and the final identity lies in \(\mathbb Z[H]\). The polar-map polynomiality follows by triangular inversion of Aluffi's identity. An exact integer program checks two different formulas for ranks \(1\) through \(12\); the proof, not this finite test, establishes the universal statement. Source support: Brogan, Proposition 2.3; Nogueira, Chapter 4, for the classical transformations.
+## correctness
 
-## Originality
-PASS, subject to a residual wider-literature risk. Nogueira explicitly marks the coefficient polynomiality as Conjecture 4.1, and Theorem 4.11 is conditional on it. The present proof evaluates the predicted coefficients uniformly using incidence pushforwards and formal residues. Brogan's secant bundle and intersection-cohomology analysis gives the needed classical fiber structure but not this CSM evaluation. Accessible prior claims and semantic mathematical-record queries about the exact binomial, determinant complement and apolar incidence did not identify the result. General characteristic-class theorems supply tools, not a verified identical all-rank statement. Older works on special low-rank examples cannot imply the universal result by mere interpolation. Residual risk: unpublished work, unindexed results, or an equivalent closed formula in broader determinantal CSM literature.
+PASS
 
-## Value
-PASS. The formula proves both clauses of a specifically published conjecture for every degree, gives a closed and positive integer expression for the full CSM class of a natural infinite family of singular hypersurface complements, and determines the polynomiality of their polar degrees. The geometric cancellation between two smooth incidence bundles is the structural reason, not a routine fixed-rank calculation. The result has direct bearing on singular characteristic classes and enumerative polar geometry.
+Let n=2r and let S_s be the binary-form border-rank <=s locus. For each s<=r, the apolar contraction map from degree-n forms to degree-(n-s) forms twisted by the degree-s operator line is surjective because multiplication by a nonzero binary form is injective on the dual side. Its rank-s kernel E_s defines a smooth projective incidence B_s=P(E_s), dimension 2s-1, cut out by n-s+1 regular bilinear equations. The standard apolar ideal of a binary form in T_l=S_l\S_(l-1) has least generator degree l and its second generator degree n+2-l, so for s<=r the degree-s annihilators form P^(s-l). Their Euler characteristic s-l+1 gives pi_s*1_B_s=sum_(l<=s)1_S_l. Thus 1_S_r=pi_r*1_B_r-pi_(r-1)*1_B_(r-1). Proper CSM pushforward and regular-section adjunction give the exact coefficient [h^s](1+h)^(s+1)(1+H)^(2r+1)((h+H)/(1+h+H))^(2r-s+1). Algebraically summing the two adjacent incidence terms using formal diagonal/Lagrange extraction yields the stated square-root generating function. An independent constant-term derivation yields the same series and binomial coefficients binom(r,floor i/2)binom(r,ceil i/2) for every r, i. The Aluffi triangular class/gradient-degree relation then proves polynomiality in r with degree<=i, so both parts of Nogueira Conjecture 4.1 follow. Independently expanded the complete truncated bivariate incidence class in exact integer arithmetic for r=1..7, reproducing all 63 coefficient patterns, but this bounded test cannot replace the formal all-r proof. The r=1 conic complement and Euler characteristic are consistent.
 
-## Closest prior literature and limitations
-Nogueira, *Classes características e secantes de curvas racionais normais* (arXiv:2309.09254, Chapter 4) is the central comparison: Conjecture 4.1 remains conditional in the inspected document. Brogan, *Invariants of the singularities of secant varieties of curves* (arXiv:2408.16736, Proposition 2.3) treats intersection cohomology/vanishing cycles, not the claimed closed CSM class. The theorem does not cover arbitrary curves or positive characteristic. Its novelty has not been independently reviewed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nogueira 2020 thesis / arXiv:2309.09254 Section 4 Conjecture 4.1 and Theorem 4.11 expressly CONJECTURE the identical binomial CSM formula as an equivalent statement; the thesis gives finite evidence but not the all-r proof. Brogan arXiv:2408.16736 provides general secant incidence fiber geometry for positive embeddings but works on intersection cohomology and vanishing cycles; the necessary fiber geometry is PRIOR, not new. Aluffi CSM functoriality/polar transformations are established inputs. A more general CSM determinantal formula potentially implies this specialization and is retained as an originality risk. Best-of-knowledge novelty assessment of the surviving precise mathematical contribution; unsuccessful database search is not proof of absolute priority.
+
+## value
+
+PASS
+
+The theorem resolves the explicitly formulated all-r polynomiality conjecture for maximal secant hypersurface complements of even-degree rational normal curves, giving a compact closed CSM class and the associated full polar-degree consequences. The incidence-fiber calculation and generating-function evaluation are mathematically substantive and useful far beyond the verified finite r cases, without claiming all arbitrary secant varieties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
