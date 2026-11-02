@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:57:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the parallel open-neighborhood rule: each of the s vertices in part i sees T−t_i ones and either becomes uniform or retains its word on equality with h=(r−1)s/2. A periodic mixed part must tie at each update, so all mixed parts have a common occupancy t; equal numbers α=β of full/empty switching parts and total-ones balance give (k−1)(2t−s)=0. Thus the coefficient [z^0](C_s+z+z^(−1))^r counts balanced uniform/half-filled parts, with precisely r*binom(r−1,(r−1)/2)*(D_s−C_s) extra one-mixed cases for odd r. The sole fixed states are two unanimous plus C_s^r all-half-filled configurations. A separate tied/not-tied transient argument gives F^5=F^3; part counts (0,3,3,3,4) for r=s=5 attain entry time 3. Stirling/local Laplace on the central coefficient establishes the parity asymptotics. Independent vertex-bit iteration checked Q,P and F^5=F^3 for (r,s)=(2,1),(2,2),(3,2),(4,2),(3,3),(5,2),(4,3), matching respective (Q,P)=(2,4),(6,8),(10,22),(18,72),(2,38),(34,254),(2,8). The finite checks corroborate, not prove, the all-parameter result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic symmetric finite threshold systems have periods ≤2.",
+          "Turau treats recurrent configurations in trees; complete multipartite graphs with r≥2 and s≥2 have cycles."
+        ],
+        "reasoning": "Neither theorem provides the part-mixed tie-balance equation, all-r coefficient count, or three-update entry. r=3 special case has acknowledged earlier coverage, not dominating r≥4.",
+        "searches": [
+          "arXiv:1405.2486v1 Theorem 1.1",
+          "arXiv:2202.01580 Turau fixed points cycles trees",
+          "Goles Olivos 1980 DOI 10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "checked_sources": [
+        "GitHub assigned RESULT.md/verify.py and source-tree at commit 7114b2e9",
+        "arXiv:1405.2486v1",
+        "arXiv:2202.01580",
+        "Goles–Olivos DOI:10.1016/0012-365X(80)90121-1",
+        "Resultary hit 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+        "Resultary hit 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For s=3, r=4 or5 the asserted P values are 8 and182 respectively; a tripartite r=3 identity or finite period-two bound cannot give those counts.",
+          "Parity update can have period 4 while this majority system cannot."
+        ],
+        "reasoning": "These predecessors do not logically imply the periodic census on new parameter ranges; they provide context and a prior component only.",
+        "searches": [
+          "arXiv:1405.2486 finite period-two theorem",
+          "arXiv:2202.01580 trees",
+          "Resultary: 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary parity-automaton record counts XOR recurrence with possible primitive period four, not strict-majority threshold recurrence.",
+          "Benjamini et al. give finite eventual period <=2 and random/unimodular convergence, not labelled K_{s,...,s} counts."
+        ],
+        "reasoning": "Neither state complement nor part permutation turns XOR parity into monotone-majority with tie-retention; period-two alone leaves periodic multiplicities undetermined.",
+        "searches": [
+          "Resultary: balanced complete multipartite synchronous majority recurrent two-cycles tie retention",
+          "Resultary: 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+          "arXiv:1405.2486"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Static majority C-colourings identify half-filled split states, which match only the C_s^r fixed subset.",
+          "Prior complete-tripartite count is a known r=3 slice."
+        ],
+        "reasoning": "Neither checked table describes the r≥4 period-two balanced homogeneity term or odd-r one-mixed correction. No claim that lack of a hit proves novelty.",
+        "searches": [
+          "Resultary: majority C-colorings of complete multipartite graphs 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+          "Resultary: balanced complete multipartite majority recurrence",
+          "majority dynamics labelled attractor counts K_{s,...,s}"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact all-r labelled periodic-state census, parity-sensitive asymptotics and sharp uniform entry bound on equal-size complete multipartite graphs. Classical finite threshold period-two theory is a premise, not the enumeration; prior exact tripartite special case is acknowledged. Indexed parity automata and static C-colourings measure non-equivalent objects.",
+      "residual_risks": [
+        "Generic Goles–Olivos paper was not read in full; its advertised period bound does not itself enumerate states.",
+        "Historical exact complete-tripartite recurrence is already known and is excluded from novelty.",
+        "Unindexed multipartite attractor enumeration could duplicate the all-r formula; absence of search hits is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General eventual-period result, not a balanced complete multipartite labelled recurrent-state enumeration.",
+          "evidence": [
+            "Abstract and introduction characterize finite period two and study unimodular and random graph models."
+          ],
+          "identifier_or_url": "arXiv:1405.2486v1; https://arxiv.org/pdf/1405.2486",
+          "material_read": "Read primary PDF abstract, contents, finite-period-two introduction and relevant convergence theorem descriptions; 19-page source available, not claiming an exhaustive line-by-line reading.",
+          "method": "Primary PDF page-image and text inspection",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "same synchronous binary majority update and period-two background"
+        },
+        {
+          "assessment": "Tree-specific structures do not entail a complete multipartite formula.",
+          "evidence": [
+            "Model and results restricted to trees."
+          ],
+          "identifier_or_url": "arXiv:2202.01580",
+          "material_read": "Read accessible primary abstract, theorem descriptions and tree-specific scope.",
+          "method": "Primary arXiv source retrieval",
+          "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+          "trigger": "same recurrent-state language under synchronous majority"
+        },
+        {
+          "assessment": "Period bound is prior; full text noncoverage is not asserted.",
+          "evidence": [
+            "Published 1980 finite symmetric threshold system period bound."
+          ],
+          "identifier_or_url": "DOI:10.1016/0012-365X(80)90121-1",
+          "material_read": "Bibliographic and theorem summary; full primary text not inspected in this run.",
+          "method": "Publication metadata/secondary description",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "historical finite period-two theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact structural classification of all recurrent labelled configurations and uniform transient depth in a natural highly symmetric majority dynamical system; the odd/even part-size and number-of-parts transitions are not a routine restatement of period-two convergence. The result describes a reusable testbed for synchronous consensus and recurrent-state counting without asserting unrelated graph families.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub assigned RESULT.md/verify.py and source-tree at commit 7114b2e9",
+    "arXiv:1405.2486v1",
+    "arXiv:2202.01580",
+    "Goles–Olivos DOI:10.1016/0012-365X(80)90121-1",
+    "Resultary hit 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+    "Resultary hit 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Reviewed frozen assigned tree, source proof, critical verification artifacts and relevant literature; best-of-knowledge originality, not a priority guarantee.",
+    "The finite independent checks corroborate but never replace proofs for infinite parameter ranges.",
+    "Publication is withheld pending complete confidentiality-neutral replacements of public administrative metadata."
+  ],
+  "residual_risks": [
+    "Generic Goles–Olivos paper was not read in full; its advertised period bound does not itself enumerate states.",
+    "Historical exact complete-tripartite recurrence is already known and is excluded from novelty.",
+    "Unindexed multipartite attractor enumeration could duplicate the all-r formula; absence of search hits is not proof of priority."
+  ],
+  "schema_version": 1
+}
