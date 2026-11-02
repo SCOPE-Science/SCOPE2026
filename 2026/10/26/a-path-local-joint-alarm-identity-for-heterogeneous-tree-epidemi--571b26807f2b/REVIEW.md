@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event \(\{B_a\cap B_b\}\) conditioned on source \(s\) requires exactly the union of three tree paths; this union is the monitor path and the attachment branch. The proof constructs and independently verifies the product-path kernel inverse \(Q\), checks its action on the source-to-path profile separately on and off the monitor path, and uses \(b=K\pi\). The endpoint and interior coefficients are strictly positive because a simple path has at most two incident path edges at each vertex. An exact-rational exhaustive checker independently compared the joint event to the identity over 2,712 tree–pair instances. No finite enumeration is used as an infinite proof.
+PASS
 
-## Originality — PASS, with risk
+Define K_{vs}=∏_{edges on tree path v↔s}t_e and b=Kπ. For a source s, the event that both monitors are reached requires the union of two source-to-monitor paths, giving exactly ρ_ab f_s, where f_s is the product of transmissions on the source-to-monitor-path attachment. Direct neighbor cancellation proves K^{-1}=Q with Q_vv=1+∑_{e∋v}t_e²/(1−t_e²), Q_uv=−t_e/(1−t_e²) on adjacent vertices, zero otherwise; this weighted tree product-distance inverse is prior work. Applying Q to f gives zero off P_ab and c_v=1−∑_{e∈P_ab,e∋v}t_e/(1+t_e) on the path, since branches cancel. Thus Pr(Ba∩Bb)=ρπ^Tf=ρb^TQf=ρ∑_{v∈P}c_v b_v. Interior vertices have two summands each <1/2, endpoints one, hence strict coefficient positivity for 0<t_e<1. The homogeneous and adjacent formulas follow exactly. Fresh independent checker enumerated all 2–5-vertex labelled trees with two heterogeneous rational transmission families and nonuniform source priors, verifying 2712 exact monitor pairs by all source×edge configurations.
 
-The weighted product-distance matrix inverse is known from Bapat–Sivasubramanian (2012), Theorem 2.2, and is expressly excluded from the new contribution; Bapat–Lal–Pati (2006) supplies the homogeneous precursor. The finding instead identifies the probabilistic joint-infection kernel, proves its path-supported inverse image, and eliminates the arbitrary outbreak-source prior. Antulov-Fantulin et al. (2013) infer a source from a partially observed single realization; Sharkey et al. (2013) study pair-time evolution in continuous-time SIR. Searches and inspected primary content did not establish the stated joint-ever-infected/marginal-ever-infected path identity. Equivalent identities in tree reliability or epidemic-observation literature cannot be definitively excluded.
+## originality
 
-## Value — PASS
+PASS
 
-Joint infection monitoring is normally a separate pairwise statistic; this result determines all \(\binom{|V|}{2}\) pairwise detection probabilities from only \(|V|\) individual probabilities, even for heterogeneous transmission rates and a completely unknown initial-source distribution. It also gives exact model-consistency checks, a simple neighboring-monitor formula, and an interpretable no-off-path-data principle. This is a concrete structural fact, not a substituted instance of a graph inverse: the latter does not by itself identify the joint-event kernel and localized observable.
+The inverse of the weighted product-distance matrix of a tree is established by Bapat–Sivasubramanian (Theorem 2.2) and earlier Bapat–Lal–Pati homogeneous versions, so Q is not new. The specific event kernel for two ever-infected monitors and its exact path-supported inverse action yield reconstruction of all joint alarms solely from the on-path marginals and transmission parameters, regardless of the unknown source law. Sharkey et al. examine time-dependent pair epidemic equations under Markovian SIR dynamics, not this exact static bond-percolation one-source source-eliminating identity. Equivalent formulations from Gaussian Markov trees or network reliability remain a priority risk; none inspected directly implies the stochastic event identity.
 
-## Boundaries and independent assessment
+## value
 
-Exact population probabilities and the independent single-source bond model are essential. The result is not a general epidemic SIR closure, multi-source theorem, or finite-sample estimator. The proof is internally checked, not independently validated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural, source-prior-independent inverse-problem identity: |V| observable one-monitor probabilities determine all |V| choose2 pairwise co-detection probabilities on a known weighted tree. Its positive coefficients and path locality give structural constraints useful to epidemic sensor inference, and exactly distinguish what fails for cycles or multiple sources. More than routine inversion: identifying the joint infection kernel and showing Qf supported exactly on the monitor path is the key nontrivial step.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

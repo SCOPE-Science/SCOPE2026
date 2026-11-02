@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T11:47:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Define K_{vs}=∏_{edges on tree path v↔s}t_e and b=Kπ. For a source s, the event that both monitors are reached requires the union of two source-to-monitor paths, giving exactly ρ_ab f_s, where f_s is the product of transmissions on the source-to-monitor-path attachment. Direct neighbor cancellation proves K^{-1}=Q with Q_vv=1+∑_{e∋v}t_e²/(1−t_e²), Q_uv=−t_e/(1−t_e²) on adjacent vertices, zero otherwise; this weighted tree product-distance inverse is prior work. Applying Q to f gives zero off P_ab and c_v=1−∑_{e∈P_ab,e∋v}t_e/(1+t_e) on the path, since branches cancel. Thus Pr(Ba∩Bb)=ρπ^Tf=ρb^TQf=ρ∑_{v∈P}c_v b_v. Interior vertices have two summands each <1/2, endpoints one, hence strict coefficient positivity for 0<t_e<1. The homogeneous and adjacent formulas follow exactly. Fresh independent checker enumerated all 2–5-vertex labelled trees with two heterogeneous rational transmission families and nonuniform source priors, verifying 2712 exact monitor pairs by all source×edge configurations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Product-distance inverse formula applies to every weighted tree",
+          "Antulov-Fantulin source detection models incomplete outbreak observations"
+        ],
+        "reasoning": "General matrix inversion alone lacks the two-source-to-path event kernel and the consequent source-free joint identity; source inference frameworks do not state this simple weighted path-local pair reconstruction.",
+        "searches": [
+          "Resultary semantic: tree independent bond percolation arbitrary source pair infection joint probability reconstruction marginal path product distance inverse",
+          "Bapat–Sivasubramanian 2012",
+          "arXiv:1304.0018"
+        ]
+      },
+      "checked_sources": [
+        "https://journals.uwyo.edu/index.php/ela/article/download/1041/1041/1041",
+        "https://doi.org/10.1016/j.laa.2005.12.023",
+        "https://doi.org/10.1007/s11538-013-9923-5",
+        "https://arxiv.org/abs/1304.0018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bapat–Sivasubramanian Theorem 2.2 implies Q=K^−1, a used lemma",
+          "The joint event kernel f_s=∏_{source to P_ab}t_e and Qf=c(P_ab) supported on the path are separately required"
+        ],
+        "reasoning": "The old inverse statement is not equivalent to a theorem about source-conditioned joint infection; it becomes sufficient only after the nontrivial event-kernel identification and localization calculation.",
+        "searches": [
+          "Resultary semantic: tree independent bond percolation arbitrary source pair infection joint probability reconstruction marginal path product distance inverse",
+          "Bapat–Sivasubramanian Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bapat–Sivasubramanian Theorem 2.2 gives the weighted K inverse",
+          "Sharkey et al. paper studies Markovian SIR pair dynamics"
+        ],
+        "reasoning": "Same tree covariance/product-distance matrix tools are present, but static random-source ever-infected co-detection is a different stochastic observable from matrix inversion and dynamic SIR pair marginals.",
+        "searches": [
+          "Resultary semantic: tree independent bond percolation arbitrary source pair infection joint probability reconstruction marginal path product distance inverse",
+          "Bapat Sivasubramanian 2012 Theorem 2.2",
+          "Sharkey et al. DOI:10.1007/s11538-013-9923-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned unrelated percolation connectivity and rooted-tree facts, not the exact pair-alarm law",
+          "No exact database/table parameterization applies to arbitrary real t_e and arbitrary source prior"
+        ],
+        "reasoning": "The problem is a universal symbolic identity rather than a finite tabulated number. Search absence has no standalone novelty force.",
+        "searches": [
+          "Resultary semantic: tree independent bond percolation arbitrary source pair infection joint probability reconstruction marginal path product distance inverse"
+        ]
+      },
+      "rationale": "The inverse of the weighted product-distance matrix of a tree is established by Bapat–Sivasubramanian (Theorem 2.2) and earlier Bapat–Lal–Pati homogeneous versions, so Q is not new. The specific event kernel for two ever-infected monitors and its exact path-supported inverse action yield reconstruction of all joint alarms solely from the on-path marginals and transmission parameters, regardless of the unknown source law. Sharkey et al. examine time-dependent pair epidemic equations under Markovian SIR dynamics, not this exact static bond-percolation one-source source-eliminating identity. Equivalent formulations from Gaussian Markov trees or network reliability remain a priority risk; none inspected directly implies the stochastic event identity.",
+      "residual_risks": [
+        "An unindexed or uninspected reliability/phylogenetic-tree paper may already state a path-supported joint-event linear identity.",
+        "Prior tree product-distance inverse is explicitly not new; the novelty is its application to the two-alarm kernel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS Q inverse lemma; NOT_COVERING joint epidemic stochastic event identity",
+          "evidence": "Theorem 2.2 gives determinant/inverse for product-distance matrix, not Pr(Ba∩Bb) for random source.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1041/1041/1041",
+          "material_read": "Complete 12-page OA primary PDF, especially product matrix definition and Theorem 2.2 on pp3–5",
+          "method": "read full-paper relevant mathematical text and inspected theorem screenshot",
+          "title": "The product distance matrix of a tree and a bivariate zeta function of a graph",
+          "trigger": "Exact inverse formula for product-over-path matrix K"
+        },
+        {
+          "assessment": "BACKGROUND/PARTIAL, no whole-text exclusion",
+          "evidence": "Earlier homogeneous matrix inverse, not stochastic joint alarms as far as checked material shows.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2005.12.023",
+          "material_read": "Abstract/bibliography only",
+          "method": "bibliographic evidence",
+          "title": "A q-analogue of the distance matrix of a tree",
+          "trigger": "Historical homogeneous exponential-distance inverse"
+        },
+        {
+          "assessment": "PRIORITY_RISK/DIFFERENT_MODEL; full noncoverage cannot be claimed",
+          "evidence": "Time-dependent Markovian SIR pair closure, versus static independent-bond one-source ever-infected events.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-013-9923-5",
+          "material_read": "Abstract and model description, not full proof/appendices",
+          "method": "abstract/metadata inspection",
+          "title": "Exact Equations for SIR Epidemics on Tree Graphs",
+          "trigger": "Possible pair epidemic identities on trees"
+        },
+        {
+          "assessment": "BACKGROUND/PARTIAL",
+          "evidence": "Source detection from partial outbreak realizations; mathematical implication to marginal→joint identity not established.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.0018",
+          "material_read": "Abstract and core problem description, no complete manuscript inspection",
+          "method": "abstract/metadata inspection",
+          "title": "Statistical inference framework for source detection of contagion processes on arbitrary network structures",
+          "trigger": "Unknown-source epidemic observer inference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural, source-prior-independent inverse-problem identity: |V| observable one-monitor probabilities determine all |V| choose2 pairwise co-detection probabilities on a known weighted tree. Its positive coefficients and path locality give structural constraints useful to epidemic sensor inference, and exactly distinguish what fails for cycles or multiple sources. More than routine inversion: identifying the joint infection kernel and showing Qf supported exactly on the monitor path is the key nontrivial step.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any finite tree with independent edge-open probabilities in (0,1), arbitrary independent one-source prior π and distinct monitors a,b, the joint ever-infected probability equals ρ_ab times a strictly positive weighted linear combination of single-monitor marginals on P_ab, with coefficients 1−∑_{incident path edges}t_e/(1+t_e).",
+  "limitations": [
+    "Requires independent edge bonds and one source independent of edges on an acyclic known connected graph; not time-dependent infection-state alarms.",
+    "t_e=1 excluded for strict positivity and invertibility formulas; no claims for cyclic graphs or correlated bonds.",
+    "An unindexed or uninspected reliability/phylogenetic-tree paper may already state a path-supported joint-event linear identity.",
+    "Prior tree product-distance inverse is explicitly not new; the novelty is its application to the two-alarm kernel."
+  ],
+  "schema_version": 1
+}
