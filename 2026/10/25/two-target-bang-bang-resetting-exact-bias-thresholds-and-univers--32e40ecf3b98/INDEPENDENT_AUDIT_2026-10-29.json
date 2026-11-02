@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:45:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For D,r>0, 0<a<L, p∈[0,1], fixed hidden target B=±L drawn once and initial and every Poisson-reset launch iid from arbitrary Borel μ on [-a,a], Brownian hitting identity E_x exp(-u τ_b)=exp(-|x-b|√(u/D)) and renewal give mean (e^{cL}[p/M_+(r)+(1-p)/M_-(r)]-1)/r and discounted g_s(f)=(r+s)f/(s+rf). The convex chord of exp(±λx) lies below endpoint interpolation strictly at all interior x. Replacing interior μ by the induced endpoint measure strictly increases both exponential moments; because the mean decreases in them and every g_s increases, no optimal μ charges interior. Endpoint mass θ gives M_+=w+(v-w)θ, M_-=v-(v-w)θ, strict mean convexity and unique clipped θ*=clip((Sh-w)/(v-w)), h=√p/(√p+√(1-p)); thresholds p±=1/(1+e^{±4ca}) with p+=1-p-. The discounted objective is strictly concave in θ, yielding exactly θ_s=clip((((2s+rq(v_s+w_s))h-s)/(rq)-w_s)/(v_s-w_s)), where q=e^{-λL}. At p=1/2, θ_s=1/2 for all s>0; the cosh inequality proves unique worst-target minimax. Boundary p=0,1 and transition equality retain uniqueness. The result concerns Laplace order, not ordinary stochastic dominance. Independent 250 settings tested optimizer against independent bounded scalar optimization and strict endpoint domination; six discounts verified the symmetric identity. This is corroboration; proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans–Majumdar obtain general mean-time functional and unconstrained optimal reset distribution techniques; their result could form the starting point for a new constrained calculation but does not display two exact prior transition values or all-discount optimum.",
+          "Other inspected papers optimize reset rate, support interval width or spatial rate distribution, rather than arbitrary compactly supported iid reset locations with hidden fixed binary target."
+        ],
+        "reasoning": "A prior variational formula only mechanically dominates the exact thresholds if its admissible set and target law are identical and a closed-form minimizer or proof entails the endpoints; the inspected prior optimization does not do that. General convexity of exponential functions is used, not independently novel.",
+        "searches": [
+          "Evans–Majumdar 2011 full manuscript Section 5, equation-level arbitrary reset law and target averaging",
+          "Méndez–Flaquer-Galmés–Campos 2024 full manuscript",
+          "García-Valladares et al 2023 full manuscript"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "COVERS generic renewal and arbitrary reset-position mean first passage; does not in inspected full text determine this constrained hidden binary-target all-discount phase diagram.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.4225",
+          "title": "Diffusion with Optimal Resetting"
+        },
+        {
+          "assessment": "NOT_COVERING the hidden fixed target/binary-prior all-distribution optimum: one known target and different optimized variables.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions"
+        },
+        {
+          "assessment": "NOT_COVERING the law optimization for a fixed hidden two-target prior: two prescribed reset points with known target, typically optimize resetting rate.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.11897",
+          "title": "Diffusion with two resetting points"
+        },
+        {
+          "assessment": "NOT_COVERING this feasible class: optimizes spatial reset-rate profile rather than iid spatial resampling law.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.14245",
+          "title": "Optimal resetting strategies for search processes in heterogeneous environments"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior works cover standard renewal calculation, but no inspected statement gives unique endpoint distributions for all Borel measures and every hidden-target prior.",
+          "Single target or variable resetting clock is not the same optimization problem as two hidden targets and fixed reset rate."
+        ],
+        "reasoning": "The renewed mean expression follows from prior general formulas; the nontrivial contribution is strict simultaneous endpoint dominance and exact constrained solution, plus all-positive-discount and minimax criteria. These require an additional argument not contained in the inspected theorem statements.",
+        "searches": [
+          "Evans–Majumdar 2011 equations for arbitrary reset density",
+          "Méndez et al 2024 exact single-target transforms and rate optimization",
+          "Julián-Salgado et al 2023 two resetting points",
+          "García-Valladares et al 2023 optimal rate profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General reset-location randomization appears in Evans–Majumdar mean first-passage resolvent and variations.",
+          "Two-site resetting for a single known absorbing target is not a fixed hidden-target mixture and does not optimize the entire reset-position distribution."
+        ],
+        "reasoning": "Compare hidden target drawn once and kept fixed, not re-sampled every reset or two simultaneous absorbing boundaries. The objective p/F_++(1-p)/F_- is different from pooled hitting probability, and strict endpoint optimum is derived for the specified compact-support feasible set.",
+        "searches": [
+          "Resultary query: Brownian stochastic resetting to arbitrary random reset location with hidden binary target; endpoint optimal distribution Laplace transform order",
+          "Evans–Majumdar arXiv:1107.4225 §§4–5",
+          "Méndez et al arXiv:2401.01125",
+          "Julián-Salgado et al arXiv:2311.11897"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact thresholds p±=1/(1+e^{4ca}),1-p- are analytic endpoints of a unique measure optimizer, not a pre-existing numerical data table.",
+          "Numerical checks show sample behavior but do not certify an all-measure optimum."
+        ],
+        "reasoning": "No applicable static database of continuum probability measures/discount-optimal laws was identified; this requires mathematical convex dominance and full boundary analysis, not table retrieval.",
+        "searches": [
+          "Resultary semantic hidden-target resetting law query",
+          "Original primary papers arXiv:1107.4225, 2401.01125, 2311.11897, 2305.14245",
+          "Independent 250 parameter scalar comparisons"
+        ]
+      },
+      "rationale": "Evans–Majumdar 2011 already derive arbitrary reset-position renewal mean formulas and variational stationary reset densities, including target prior averaging, so neither renewal nor location dependence is original. The claimed finding specializes to a previously unclassified design problem: a single hidden binary fixed target, same iid randomized launch/reset location under compact support, and global optimization over ALL Borel probability laws. Méndez et al optimize a known single target via rate or prescribed interval widths; Julián-Salgado et al allow two reset points with known target but vary resetting rate; García-Valladares et al optimize spatial reset rates instead of relocation law. These inspected full statements do not imply the sharp mixed-to-pure prior thresholds, universal p=1/2 all-discount law, or unique worst-target mean criterion. Resultary semantic search had no directly covering results. Best-of-knowledge PASS with residual possible convex-design equivalence.",
+      "residual_risks": [
+        "A general constrained distribution-design theorem in the resetting literature could yield the endpoint law without using binary hidden-target wording.",
+        "The standard renewal and exponential convexity ingredients are prior tools; value/originality attaches only to exact constrained classification and all-discount result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS generic renewal and arbitrary reset-position mean first passage; does not in inspected full text determine this constrained hidden binary-target all-discount phase diagram.",
+          "evidence": [
+            "§5 computes arbitrary reset law mean and target averaging; variational stationarity requires a separate admissible optimization.",
+            "No globally endpoint-supported compact-interval two-hidden-target threshold or all-discount result in the inspected statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.4225",
+          "material_read": "Entire accessible primary manuscript, with emphasis on Sections 4–5 and variational equations (49)–(54)",
+          "method": "Accessible arXiv full text via public web",
+          "title": "Diffusion with Optimal Resetting",
+          "trigger": "Exact general random reset positions, distributional optimization, target prior; closest broad prior"
+        },
+        {
+          "assessment": "NOT_COVERING the hidden fixed target/binary-prior all-distribution optimum: one known target and different optimized variables.",
+          "evidence": [
+            "Studies random reset location for one target outside reset range and variation in rate/interval widths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+          "material_read": "Full accessible manuscript including analytical expressions and optimization in Sections II–III",
+          "method": "Full arXiv text via web",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Same Brownian random-location resets, source of similar integral formulas"
+        },
+        {
+          "assessment": "NOT_COVERING the law optimization for a fixed hidden two-target prior: two prescribed reset points with known target, typically optimize resetting rate.",
+          "evidence": [
+            "Resetting points are input model elements; the paper varies clocks and known target, not all Borel μ for two unknown target states."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.11897",
+          "material_read": "Full arXiv primary manuscript and optimization examples",
+          "method": "Full arXiv text via web",
+          "title": "Diffusion with two resetting points",
+          "trigger": "Two reset-point support, potential alias to endpoint solution"
+        },
+        {
+          "assessment": "NOT_COVERING this feasible class: optimizes spatial reset-rate profile rather than iid spatial resampling law.",
+          "evidence": [
+            "Control is r(x), not a probability measure μ on launch and reset positions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.14245",
+          "material_read": "Entire accessible primary arXiv manuscript, including spatially varying rate model and principal optimization",
+          "method": "Full arXiv text via web",
+          "title": "Optimal resetting strategies for search processes in heterogeneous environments",
+          "trigger": "Optimization in heterogeneous/unknown target media, plausible stronger statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal reset-location design for a hidden target is a natural infinite-dimensional stochastic-search problem. Exact endpoint support over all measures, unique bias at every prior, two threshold transitions and the much stronger symmetric all-Laplace statement yield actionable analytical design limits, not a trivial fixed-reset-point reparameterization or routine mean-only calculation. Restriction to Brownian fixed Poisson rate and no relocation costs explicitly bounds applications; Laplace order does not imply standard stochastic dominance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Unique endpoint-support optimal launch/reset law for hidden fixed target ±L: exact prior-bias thresholds, unique all-discount Laplace optimizer, and symmetric simultaneous mean/worst-target/Laplace optimum.",
+  "limitations": [
+    "Brownian motion in one dimension, fixed D,r, zero relocation cost, iid launch/reset points from same compactly supported law.",
+    "One absorbing target fixed for entire trajectory, with two-point prior at ±L and a<L; not two simultaneously absorbing points.",
+    "Laplace-transform order for symmetric prior is not ordinary stochastic dominance; optimization does not include reset rate."
+  ],
+  "schema_version": 1
+}
