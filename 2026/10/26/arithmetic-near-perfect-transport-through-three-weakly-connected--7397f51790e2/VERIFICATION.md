@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof diagonalizes the reduced three-vertex mass-weighted Laplacian, uses the positive zero-mode projection to force equal outer masses for near-unit endpoint transfer, and compares endpoint spectral measures to force equal bridge counts. In the symmetric case, elementary trigonometric extremality and Kronecker's density theorem yield the exact arithmetic classification. Pell identities give the explicit balanced-community convergence rate.
+# Independent mathematical audit
 
-`verification_three_bridge.py` is a standalone Python 3 script requiring NumPy. Run `python verification_three_bridge.py` in the directory containing the embedded files. It independently assembles several three-community weighted Grover operators in their original directed-arc Hilbert spaces, tests unitarity, and compares finite-weak-weight transfer with the predicted reduced wave. It also diagonalizes reduced matrices independently, checks asymmetric mass projection bounds at finite times, and verifies Pell witnesses. The recorded run passed 307 finite checks.
+## correctness
 
-The source theorem's weak-edge limit is invoked with each witness time held fixed before the weak-edge weight tends to zero. Neither finite numerical checks nor the source's fixed-time error bound establish a uniform-in-time theorem for the original walk at fixed nonzero weak-edge weight. No claim of exhaustive computational certification is made.
+PASS
+
+The source Theorem 3.1 supplies the fixed-tau O(sqrt(epsilon)) weak-edge reduction. Its zero eigenvector has components sqrt(M_i)/sqrt(sum M_i), so a unit supremum forces M1=M3 by zero-mode projection and positivity. Contraction plus diagonal spectral-measure equality then forces L11=L33 and k1=k2. In that symmetric case the 0, k/M, k/M+2k/m eigenspaces yield C31=M/(2M+m)-(1/2)cos(omega_a tau)+m/(2(2M+m))cos(omega_s tau). Equality requires phases (pi,0) only; Kronecker density gives Q=1 nonattained for irrational rho; a closed rational torus orbit reaches phases iff numerator even/denominator odd. Pell x^2-3q^2=1 with x even q odd gives the explicit <pi^2/(72q^2) deficit. Independently diagonalized examples, asymmetric bounds and Pell arithmetic passed; they do not establish uniform-in-time fixed-epsilon statements.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS for the exact final theorem, not for foundational known ingredients; source and implication comparisons are below, with named residual risks. The rational p-even/q-odd exact-time portion is an instance of a known alternating-parity spectral rule, explicitly credited. Neither covers the weak-epsilon reduced 3-community amplitude supremum with asymmetric obstructions, irrational nonattainment and Pell-rate witnesses under fixed-tau quantifiers. The general cosine formula permits but does not explicitly state this iff classification; asymmetry necessity is a separate spectral argument. The nonattained irrational cases require Kronecker density and are not covered by exact finite-time normal-mode parity theory.
+
+## value
+
+PASS
+
+Determining when a physically defined weak-coupling three-community wave can get arbitrarily close to end-to-end perfect concentration is a natural, nontrivial full parameter classification. The rational parity and incommensurate dichotomy plus explicit Pell-rate witness times answer a question not settled by the source reduced-wave formula. It is not merely renaming a known exact perfect-transfer theorem; the weak Grover path reduction, necessity of bridge symmetry and approximate irrational cases matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
