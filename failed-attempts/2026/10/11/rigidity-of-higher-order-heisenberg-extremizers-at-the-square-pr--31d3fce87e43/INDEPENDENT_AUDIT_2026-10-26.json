@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T20:58:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Hu, Liu & Zou, Sharp higher-order uncertainty principles, arXiv:2610.01561v1, Theorems 1.1-1.2, Sections 3-5 (https://arxiv.org/abs/2610.01561)",
+        "Frozen RESULT.md 7a8199284ea649d5c0aca939bba87c263458bfa6 and VERIFICATION.md b70c331efcadee4ff4b16bf4981a35cf82b74b60 (read in full)",
+        "Fresh independent Fourier-tensor/ground-state expansion and exact SymPy parity/parameter checks"
+      ],
+      "rationale": "Reconstructed the frozen RESULT.md statement for every integer N>=2,m>=3, nondegenerate real equality case A,B,C>0, with smooth v=Delta^(floor(m/2)-1)u in the stated graph-norm closure; the conclusion concerns P_(m-2)u only. With s=sqrt(N^2+4(m-2)(N-1)), the source square coefficients obey c_e^2-N*c_e=(m-2)(N-1), c_o^2+(N-2)*c_o=(m-1)(N-1), 2*c_e-N+2=N+2*c_o=s+2. Even order: A+b^2 B-b(s+2)C = ||Delta v+b x.grad v+b c_e v||_2^2 + b^2 integral(|x|^2|grad v|^2-(x.grad v)^2); equality with b=sqrt(A/B) forces the square and angular defect to vanish, hence smooth radial v. Odd order: A+b^2 B-b(s+2)C=||grad Delta v+b x Delta v+b c_o grad v||_2^2, forcing the vector equation. Set w=Delta v+b c_o v; grad w=-b x Delta v makes w radial, then Delta v and (since c_o>0) v radial. Even radial ODE v\"+((N-1)/r+b*r)v\"prime+b*c_e*v=0; odd write y=v\"prime/r, obtaining y\"+((N+1)/r+b*r)y\"prime+b(N+c_o)y=0. Smooth radial initial-value uniqueness at r=0 makes each regular solution space one-dimensional; Kummer functions give exactly the two claimed hypergeometric P_(m-2) profiles with parameters (N-s)/4 and (N+2-s)/4. Independently rederived the full weighted-tensor Fourier energy identity and checked the c_e,c_o and hypergeometric parameter algebra exactly with SymPy, plus four independent ODE residual samples (N,m)=(2,3),(3,4),(4,5),(5,8), numerically negligible, not a substitute for the all-parameter proof. The graph-domain hypothesis justifies source cutoff extension; no claim of classification for arbitrary abstract seminorm-completion elements or u modulo nullspace is made.",
+      "residual_risks": [
+        "No classification claimed for nonsmooth abstract extremizers or representatives differing by the seminorm nullspace.",
+        "Representative numeric Kummer residual checks are corroborative only; proof uses exact ODE and smooth-origin uniqueness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 original Theorem 1.1 on PDF page 2 gives every sharp A1 CKN optimizer as a radial stretched Gaussian; Remark 2.2 on PDF page 4 says ordinary-gradient CKN minimizers are necessarily radial.",
+          "The 2026 Do-Lam-Lu-Nguyen full original HTML Theorem A explicitly states equality is attained precisely by the weighted Gaussian profiles throughout A1.",
+          "Our derived CKN parameters satisfy sigma=b+1-a=2>0 and b=-gamma<(N-2)/2; all N>=2 and m>=3 are included."
+        ],
+        "reasoning": "The 2021 weighted CKN theorem is stronger in free continuous weights than the discrete m>=3 Heisenberg family and determines every optimizer after an explicit exact Fourier/ground-state conjugation. Distinct fractional-family theorems in the 2026 paper do not cover directly, but its cited general CKN theorem does.",
+        "searches": [
+          "Web: Hu Liu Zou 2610.01561 equality cases all extremizers radial uniqueness",
+          "Web: higher order Heisenberg uncertainty inequality extremal uniqueness generalized hypergeometric sharp Hu Liu Zou",
+          "Web: higher order uncertainty squares equality classification nonradial optimizer hypergeometric sharp 2026",
+          "Web: generalized Heisenberg uncertainty inequality inverse square potential potential norm optimizer r^alpha Gaussian sharp",
+          "Web: Short proofs of refined sharp Caffarelli-Kohn-Nirenberg inequalities 2021 arxiv optimizer",
+          "arXiv:2104.10372v1, Theorem 1.1 and Remark 2.2",
+          "arXiv:2609.31949v1, Theorem A and CKN region A1"
+        ]
+      },
+      "checked_sources": [
+        "Hu, Liu & Zou, Sharp higher-order uncertainty principles, arXiv:2610.01561v1, Theorems 1.1-1.2, Sections 3-5 (https://arxiv.org/abs/2610.01561)",
+        "Cazacu, Flynn & Lam, Short proofs of refined sharp Caffarelli-Kohn-Nirenberg inequalities, arXiv:2104.10372v1, Theorems 1.1 and 2.1, Remark 2.2, Section 3.4 (https://arxiv.org/pdf/2104.10372)",
+        "Do, Lam, Lu & Nguyen, A Fourier approach to the sharp stability of Heisenberg Uncertainty Principles of higher and fractional orders, arXiv:2609.31949v1, Theorem A, Lemma 3.1 (https://arxiv.org/abs/2609.31949)",
+        "Do, Lam, Lu & Zhang, Sharp stability of the Heisenberg Uncertainty Principle: Second-Order and Curl-Free Field Cases, arXiv:2505.02758v1 (https://arxiv.org/abs/2505.02758)",
+        "Resultary triple search IDs and matching same record excluded as independent source; web search exact title/equality aliases; original 2021 CKN PDF page screenshots (pp2,3,4,8)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hu-Liu-Zou Theorem 1.2 states only some radial extremizer exists; by itself that does not imply exhaustive uniqueness, but its square expansions yield equality rigidity.",
+          "Cazacu-Flynn-Lam (2021) Theorem 1.1 and Remark 2.2 state ordinary weighted-CKN optimizer profiles and mandatory radiality for the free (a,b) family.",
+          "The precise conjugation from Hu A,B,C to weighted CKN lies in A1 for every specified m,N and transports all equality cases (not just the constants)."
+        ],
+        "reasoning": "Let k=m-1, f=Fourier(u), and g(xi)=|xi|^k f(xi). The full tensor Frobenius norm and Plancherel give A=int |xi|^2|g|^2, C=int |g|^2, and B=int(|grad g|^2+k(N-1)|xi|^{-2}|g|^2). Set gamma=(2-N+sqrt(N^2+4(m-2)(N-1)))/2>0, so gamma(gamma+N-2)=k(N-1). The standard inverse-square ground-state transform h=|xi|^{-gamma}g and integration by parts yield B=int |xi|^{2gamma}|grad h|^2, A=int |xi|^{2gamma+2}|h|^2, C=int |xi|^{2gamma}|h|^2, initially on the smooth punctured core and then in the square/weighted completion by density. These are exactly the L2 Caffarelli-Kohn-Nirenberg functionals with (a,b)=(-gamma-1,-gamma). The pair lies in the original 2021 A1 region because b+1-a=2>0 and b=-gamma<=(N-2)/2 for N>=2. Cazacu-Flynn-Lam Theorem 1.1 (and 2026 Do-Lam-Lu-Nguyen Theorem A) gives the sharp constant (N-(a+b+1))/2=(N+2gamma)/2=(2+sqrt(N^2+4(m-2)(N-1)))/2 and ALL equality profiles h=D exp(-lambda|xi|^2/2), D nonzero, lambda>0. Thus g=D|xi|^gamma exp(-lambda|xi|^2/2) is necessarily radial and unique up to complex/real scalar and dilation. Hu-Liu-Zou already give the inverse-Fourier Kummer profiles; Kummer transformation matches even (1-gamma)/2=(N-s)/4 and odd (2-gamma)/2=(N+2-s)/4, with spatial b=1/lambda. Therefore both existence AND exhaustion of the assigned profiles are implied by published general weighted CKN optimizer classification, even though the focal paper states only existence.",
+        "searches": [
+          "arXiv:2610.01561v1, Theorems 1.1-1.2; Section 3 squares and Section 4 Kummer solutions",
+          "arXiv:2104.10372v1, Section 1 A1 parameter partition and Theorem 1.1; Remark 2.2; density Section 3.4",
+          "arXiv:2609.31949v1, Section 1.1 Theorem A",
+          "Resultary: sharp higher order Heisenberg uncertainty principle optimizers nonradial extremizers equality classification N dimension m order"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen statement has exact Hu full-tensor A,B,C; 2021 CKN defines weighted (a,b) inequality, with sharp optimizers in A1.",
+          "A=||r g||_2^2,C=||g||_2^2,B=||grad g||_2^2+k(N-1)||r^-1 g||_2^2; h=r^-gamma g maps these to weighted CKN with a=-gamma-1,b=-gamma."
+        ],
+        "reasoning": "Let k=m-1, f=Fourier(u), and g(xi)=|xi|^k f(xi). The full tensor Frobenius norm and Plancherel give A=int |xi|^2|g|^2, C=int |g|^2, and B=int(|grad g|^2+k(N-1)|xi|^{-2}|g|^2). Set gamma=(2-N+sqrt(N^2+4(m-2)(N-1)))/2>0, so gamma(gamma+N-2)=k(N-1). The standard inverse-square ground-state transform h=|xi|^{-gamma}g and integration by parts yield B=int |xi|^{2gamma}|grad h|^2, A=int |xi|^{2gamma+2}|h|^2, C=int |xi|^{2gamma}|h|^2, initially on the smooth punctured core and then in the square/weighted completion by density. These are exactly the L2 Caffarelli-Kohn-Nirenberg functionals with (a,b)=(-gamma-1,-gamma). The pair lies in the original 2021 A1 region because b+1-a=2>0 and b=-gamma<=(N-2)/2 for N>=2. Cazacu-Flynn-Lam Theorem 1.1 (and 2026 Do-Lam-Lu-Nguyen Theorem A) gives the sharp constant (N-(a+b+1))/2=(N+2gamma)/2=(2+sqrt(N^2+4(m-2)(N-1)))/2 and ALL equality profiles h=D exp(-lambda|xi|^2/2), D nonzero, lambda>0. Thus g=D|xi|^gamma exp(-lambda|xi|^2/2) is necessarily radial and unique up to complex/real scalar and dilation. Hu-Liu-Zou already give the inverse-Fourier Kummer profiles; Kummer transformation matches even (1-gamma)/2=(N-s)/4 and odd (2-gamma)/2=(N+2-s)/4, with spatial b=1/lambda. Therefore both existence AND exhaustion of the assigned profiles are implied by published general weighted CKN optimizer classification, even though the focal paper states only existence.",
+        "searches": [
+          "Resultary: higher order Heisenberg inequality Hu Liu Zou m≥3 exact equality extremizers radial hypergeometric rigidity square expansion uniqueness",
+          "Resultary: sharp higher order Heisenberg uncertainty principle optimizers nonradial extremizers equality classification N dimension m order",
+          "Resultary: P_m higher-order Heisenberg sharp inequality equality profile radial extremizer confluent hypergeometric",
+          "arXiv:2610.01561v1, Sections 3-5",
+          "arXiv:2104.10372v1, Eq.(1.1), Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is an all-dimensional, all-order analytic equality classification, not a finite enumerative database or lookup table.",
+          "Search results contained the identical assigned finding (excluded) but no independent same-object database; the decisive coverage is an analytic general theorem rather than a table."
+        ],
+        "reasoning": "A finite exact-result table is specifically inapplicable to an infinite analytic optimizer family. Strong mathematical coverage arises from the published full-parameter CKN classification, not matching a finite list.",
+        "searches": [
+          "Resultary: higher order Heisenberg inequality Hu Liu Zou m≥3 exact equality extremizers radial hypergeometric rigidity square expansion uniqueness",
+          "Resultary: sharp higher order Heisenberg uncertainty principle optimizers nonradial extremizers equality classification N dimension m order",
+          "Resultary: P_m higher-order Heisenberg sharp inequality equality profile radial extremizer confluent hypergeometric",
+          "Resultary exact same-object check: published result at 2026/10/11/SCOPE-rigidity-of-higher-order-heisenberg-extremizers-at-the-square-pr--31d3fce87e43 excluded as SELF"
+        ]
+      },
+      "rationale": "Decisive stronger prior mathematical coverage: the claimed entire regular equality-profile classification is a specific Fourier plus inverse-square ground-state reparametrization of the known complete optimizer classification for sharp L2 Caffarelli-Kohn-Nirenberg inequalities, especially Cazacu-Flynn-Lam (2021) Theorem 1.1/Remark 2.2 and the general Theorem A as stated in Do-Lam-Lu-Nguyen (2026). Let k=m-1, f=Fourier(u), and g(xi)=|xi|^k f(xi). The full tensor Frobenius norm and Plancherel give A=int |xi|^2|g|^2, C=int |g|^2, and B=int(|grad g|^2+k(N-1)|xi|^{-2}|g|^2). Set gamma=(2-N+sqrt(N^2+4(m-2)(N-1)))/2>0, so gamma(gamma+N-2)=k(N-1). The standard inverse-square ground-state transform h=|xi|^{-gamma}g and integration by parts yield B=int |xi|^{2gamma}|grad h|^2, A=int |xi|^{2gamma+2}|h|^2, C=int |xi|^{2gamma}|h|^2, initially on the smooth punctured core and then in the square/weighted completion by density. These are exactly the L2 Caffarelli-Kohn-Nirenberg functionals with (a,b)=(-gamma-1,-gamma). The pair lies in the original 2021 A1 region because b+1-a=2>0 and b=-gamma<=(N-2)/2 for N>=2. Cazacu-Flynn-Lam Theorem 1.1 (and 2026 Do-Lam-Lu-Nguyen Theorem A) gives the sharp constant (N-(a+b+1))/2=(N+2gamma)/2=(2+sqrt(N^2+4(m-2)(N-1)))/2 and ALL equality profiles h=D exp(-lambda|xi|^2/2), D nonzero, lambda>0. Thus g=D|xi|^gamma exp(-lambda|xi|^2/2) is necessarily radial and unique up to complex/real scalar and dilation. Hu-Liu-Zou already give the inverse-Fourier Kummer profiles; Kummer transformation matches even (1-gamma)/2=(N-s)/4 and odd (2-gamma)/2=(N+2-s)/4, with spatial b=1/lambda. Therefore both existence AND exhaustion of the assigned profiles are implied by published general weighted CKN optimizer classification, even though the focal paper states only existence.",
+      "residual_risks": [
+        "No claim that either 2021 source literally states the new high-order P_m formula; rejection is based on an explicit parameter-preserving implication through Fourier/ground-state transforms.",
+        "Extension beyond the declared smooth graph domain or handling arbitrary zero-mode distributions is not assessed; result itself explicitly excludes that extension.",
+        "Historical priority of an identically worded high-order statement is unnecessary because the published broader CKN equality theorem already covers all claimed cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: for a=-gamma-1,b=-gamma the ordinary-gradient CKN all-minimizer theorem forces weighted Gaussian, which under exact transform gives all assigned profiles.",
+          "evidence": "Eq.(1.1); Eq.(1.4) A1; original Theorem 1.1(a); Theorem 2.1, Remark 2.2; pp.7-9 Section 3.3-3.4.",
+          "identifier_or_url": "arXiv:2104.10372v1 | https://arxiv.org/pdf/2104.10372",
+          "material_read": "Original 13-page arXiv PDF: introduction and Eq.(1.1), A1 region Eq.(1.4) on printed pp.1-2; Theorem 1.1 on p.2; Theorem 2.1/Remarks 2.1-2.2 on pp.3-4; equality square PDE in Section 3 and density/cutoffs Section 3.4 on pp.7-9; corresponding actual PDF screenshots of pp.2,3,4,8 were inspected.",
+          "method": "Matched transformed weights exactly, checked A1 inequalities and complete all-optimizer classification, ordinary vs radial derivative distinction, and domain density.",
+          "title": "Short proofs of refined sharp Caffarelli-Kohn-Nirenberg inequalities",
+          "trigger": "Potentially dominating general ordinary weighted CKN inequality and equality-set theorem under an exact Fourier/ground-state transform."
+        },
+        {
+          "assessment": "COVERING via cited general CKN Theorem A, not directly via fractional Heisenberg Theorem 1.2.",
+          "evidence": "Theorem A explicitly states the complete optimizers in region A; lines 32-53 and lines 531-544; Theorem 1.2 Eq.(1.15) has different operator.",
+          "identifier_or_url": "arXiv:2609.31949v1 | https://arxiv.org/abs/2609.31949",
+          "material_read": "Original 921-line accessible HTML: Section 1.1 CKN Eq.(1.1) and Theorem A; Section 1.4 Theorem 1.2 and operator scopes; Section 3 Lemma 3.1 squared-deficit identity, Section 2 A1 density comments.",
+          "method": "Distinguished its fractional Theorem 1.2 (non-identical operators) from its quoted general CKN Theorem A (genuinely dominating after conjugation).",
+          "title": "A Fourier approach to the sharp stability of Heisenberg Uncertainty Principles of higher and fractional orders: a new perspective",
+          "trigger": "Full-parameter CKN optimizer theorem and related higher-order Heisenberg results."
+        },
+        {
+          "assessment": "Original paper does not explicitly state complete equality classification, but source squares and already-published stronger weighted CKN optimizer theorem imply it; its existing explicit profiles identify the inverse Fourier image.",
+          "evidence": "Theorem 1.2 uses existential some radial; Section 3 E_b/O_b expansions; Section 4 hypergeometric solution; Section 5 decay/cutoffs.",
+          "identifier_or_url": "arXiv:2610.01561v1 | https://arxiv.org/abs/2610.01561",
+          "material_read": "Original full accessible HTML: Theorems 1.1-1.2, P_m and domain definitions, Lemmas 2.3-2.4, Section 3 square operators/equality chain, Proposition 4.1 ODE/Kummer profiles and Sections 4-5 asymptotic/cutoff arguments.",
+          "method": "Rebuilt even/odd equality chains, checked source only asserts existence but its squares contain the rigidity step, independently matched CKN transported profiles to its displayed Kummer solutions.",
+          "title": "Sharp higher-order uncertainty principles",
+          "trigger": "Exact focal published sharp inequality, proof identities, and explicit hypergeometric extremizers."
+        },
+        {
+          "assessment": "Not directly covering m>=3 but relevant boundary context; separate 2021 full CKN theorem gives decisive coverage.",
+          "evidence": "Second-order and curl-free-field operator family, Theorems described near introduction.",
+          "identifier_or_url": "arXiv:2505.02758v1 | https://arxiv.org/abs/2505.02758",
+          "material_read": "Original accessible HTML original abstract and Sections 1-2 describing second-order and curl-free stability and extremizer manifold.",
+          "method": "Compared m=2 statement and higher tensor order m>=3; not used as decisive coverage.",
+          "title": "Sharp stability of the Heisenberg Uncertainty Principle: Second-Order and Curl-Free Field Cases",
+          "trigger": "Older sharp equality/stability for lower m=2 benchmark."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Cazacu, Flynn & Lam, Short proofs of refined sharp Caffarelli-Kohn-Nirenberg inequalities, arXiv:2104.10372v1, Theorems 1.1 and 2.1, Remark 2.2, Section 3.4 (https://arxiv.org/pdf/2104.10372)",
+        "Do, Lam, Lu & Nguyen, A Fourier approach to the sharp stability of Heisenberg Uncertainty Principles of higher and fractional orders, arXiv:2609.31949v1, Theorem A, Lemma 3.1 (https://arxiv.org/abs/2609.31949)",
+        "Hu, Liu & Zou, Sharp higher-order uncertainty principles, arXiv:2610.01561v1, Theorems 1.1-1.2, Sections 3-5 (https://arxiv.org/abs/2610.01561)",
+        "Independently reconstructed exact CKN weight embedding for all m>=3 and N>=2"
+      ],
+      "rationale": "The equality manifold of a sharp genuinely higher-order Heisenberg inequality is a natural mathematically motivated object; ruling out nonradial equality profiles would be structurally useful if unknown. Here the actual asserted set is fully determined by the existing 2009/2021 free-parameter weighted CKN optimizer classification after a direct Fourier/tensor norm calculation and inverse-square ground-state substitution, while the precise spatial hypergeometric profiles were already constructed in the focal 2026 source. The proposed work neither identifies a new independent invariant nor proves stability, an unaddressed parameter regime, a new spectral estimate, or a classification outside the known CKN optimizer family. Thus the claimed contribution is a mechanically implied special case of a stronger existing theorem; this value judgment is separate from correctness and not based on paper size or inaccessible literature.",
+      "residual_risks": [
+        "The translation into higher-order tensor language may be convenient pedagogically, but the exact equality fact is not independently undetermined.",
+        "No verdict on possible distinct future quantitative stability theorem or extension beyond the declared graph domain."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Hu, Liu & Zou, Sharp higher-order uncertainty principles, arXiv:2610.01561v1, Theorems 1.1-1.2, Sections 3-5 (https://arxiv.org/abs/2610.01561)",
+    "Cazacu, Flynn & Lam, Short proofs of refined sharp Caffarelli-Kohn-Nirenberg inequalities, arXiv:2104.10372v1, Theorems 1.1 and 2.1, Remark 2.2, Section 3.4 (https://arxiv.org/pdf/2104.10372)",
+    "Do, Lam, Lu & Nguyen, A Fourier approach to the sharp stability of Heisenberg Uncertainty Principles of higher and fractional orders, arXiv:2609.31949v1, Theorem A, Lemma 3.1 (https://arxiv.org/abs/2609.31949)",
+    "Do, Lam, Lu & Zhang, Sharp stability of the Heisenberg Uncertainty Principle: Second-Order and Curl-Free Field Cases, arXiv:2505.02758v1 (https://arxiv.org/abs/2505.02758)"
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Correctness and prior coverage concern N>=2,m>=3, nondegenerate real smooth graph-domain equality profiles only; not arbitrary abstract H^m elements or u mod nullspace.",
+    "The 2021 CKN result is a broader theorem and does not literally spell out Hu P_m indices: the algebraic conjugation is supplied explicitly, not inferred from keyword similarity.",
+    "Fresh numerical special-function checks supplement but do not prove all-dimensional statements.",
+    "The old self-review PASS is retained unchanged as history; this complete independently reasoned FAIL is a separate current scientific decision.",
+    "No GitHub publication, dispatcher closeout, scheduling action, Lean certification or expert attestation."
+  ]
+}
