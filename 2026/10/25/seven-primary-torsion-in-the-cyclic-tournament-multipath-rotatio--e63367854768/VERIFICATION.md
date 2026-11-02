@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Execute `python check.py` with Python 3.10+ and compatible SymPy (checked with 1.14.0). It generates the twenty-one arcs by the stated modular rule, exhaustively tests all arc subsets, validates the full acyclic matching, computes the exact reduced Morse differential, constructs the cellular rotation quotient with signed boundaries, verifies boundary composition, and recomputes all integer Smith factors.
+## correctness
 
-Observed assertions: face counts \((21,168,630,1113,819,175)\), critical reduced Morse counts \((24,54,17)\), Morse \(\partial_4\) Smith rank eleven with all factors units, quotient Smith nonzero lists \((1,1)\), \((1^{21},7)\), \((1^{68})\), \((1^{88},7,7)\), \((1^{20})\) by increasing boundary degree. Direct full-chain modular boundary ranks in degrees one through five were independently \((20,148,482,618,158)\) over both \(\mathbb F_7\) and \(\mathbb F_{101}\). The integer torsion claim relies on the exact Smith calculation, not on those modular tests.
+PASS
 
-The computation proves homology and the rational cyclic module at this one tournament. It does not compute an integral group-ring lattice or a full homotopy classification, and it is not an independent external audit.
+For the seven-vertex regular cyclic tournament arcs i->i+d (d=1,2,3), independently exhaustively enumerated 2^21 arc subsets, tested in/out-degree≤1 and no directed cycles; exactly 2927 faces including empty, nonempty f-vector (21,168,630,1113,819,175). Nonidentity C7 translation cannot stabilize any nonempty face because every arc orbit size seven and a path forest has≤6 arcs. Independently constructed signed quotient cellular boundaries on orbit representatives, confirmed ∂²=0 and all integer Smith factors by degree: d1 1^2; d2 1^21 and 7; d3 1^68; d4 1^88 and 7^2; d5 1^20. Thus quotient H0=Z,H1=Z/7,H3=Z⊕(Z/7)^2,H4=Z^7,H5=Z^5. Independently enumerated complete acyclic reduced Morse matching upstairs (1416 pairs, critical 24/54/17 in d3/4/5), verified d4 has eleven unit Smith factors and d5 zero, giving torsionfree reduced ranks 13/43/17. Transfer over Q yields rational C7 modules H3=1⊕W²,H4=1^7⊕W^6,H5=1^5⊕W² where W=Q(zeta7). All matrices computed from underlying arcs independently, not saved verifier stdout.
+
+## originality
+
+PASS
+
+Caputi–Collari–Di Trani–Smith original multipath-complex theorem computes transitive tournaments; this cyclic strongly connected tournament is nontransitive. General quiver-minor results require acyclicity for their comparison with matching complexes and do not determine this exact quotient torsion. Resultary closest cyclic-tournament path homology refers to different directed path homology rather than the multipath simplicial complex. No inspected prior supplies this integral seven-primary quotient table.
+
+## value
+
+PASS
+
+The smallest natural regular seven-vertex cyclic tournament gives a complete integral orbit-space classification, including two independent order-seven classes in H3 despite torsion-free homology of its covering complex, and the complete rational rotation module. This is a meaningful exact invariant of a natural equivariant topological object, not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

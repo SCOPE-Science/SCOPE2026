@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The face criterion is equivalent to being a union of vertex-disjoint directed paths. Exhaustive enumeration checks every subset of 21 arcs. An acyclic augmented face matching leaves 24, 54 and 17 reduced Morse cells in dimensions 3, 4 and 5; the integer Morse differential has eleven unit factors and no others. The free rotation action follows because a face contains at most six arcs while every nontrivial translation has seven-element edge orbits. The orbit cellular chains are formed with orientation signs, checked to square to zero, and their exact Smith forms yield the stated integral groups. Independent direct finite-field ranks check the rational computation but are not used as a substitute for the integer Smith normal forms. The included `check.py` executes these steps.
+## correctness
 
-## Originality — PASS against inspected evidence
-The primary 2022 multipath-complex paper computes transitive-tournament topology, not the rotation quotient of this seven-vertex cyclic tournament. The 2024 quiver-minor article proves general finiteness and a blow-up comparison requiring absence of oriented cycles; neither implies the claimed finite homology or the two order-seven summands. Searches for cyclic-tournament multipath quotient homology and comparisons against indexed related calculations revealed no covering statement. The nearest related computations use either different homology constructions on cyclic tournaments or different directed graphs. Search incompleteness, including possible unindexed calculations, remains a risk.
+PASS
 
-## Value — PASS
-The natural orientation is the smallest odd-prime regular cyclic tournament beyond the five-vertex example. Its integral equivariant quotient contains two seven-primary degree-three classes despite torsion-free homology upstairs, a distinction not recoverable from nonequivariant Betti numbers. Determining every integral quotient group together with the full rational cyclic representation provides a concrete nontransitive benchmark for the directed-complex literature. The exact torsion classes and multiplicities, rather than only an Euler characteristic or one extra Betti number, constitute the mathematical contribution.
+For the seven-vertex regular cyclic tournament arcs i->i+d (d=1,2,3), independently exhaustively enumerated 2^21 arc subsets, tested in/out-degree≤1 and no directed cycles; exactly 2927 faces including empty, nonempty f-vector (21,168,630,1113,819,175). Nonidentity C7 translation cannot stabilize any nonempty face because every arc orbit size seven and a path forest has≤6 arcs. Independently constructed signed quotient cellular boundaries on orbit representatives, confirmed ∂²=0 and all integer Smith factors by degree: d1 1^2; d2 1^21 and 7; d3 1^68; d4 1^88 and 7^2; d5 1^20. Thus quotient H0=Z,H1=Z/7,H3=Z⊕(Z/7)^2,H4=Z^7,H5=Z^5. Independently enumerated complete acyclic reduced Morse matching upstairs (1416 pairs, critical 24/54/17 in d3/4/5), verified d4 has eleven unit Smith factors and d5 zero, giving torsionfree reduced ranks 13/43/17. Transfer over Q yields rational C7 modules H3=1⊕W²,H4=1^7⊕W^6,H5=1^5⊕W² where W=Q(zeta7). All matrices computed from underlying arcs independently, not saved verifier stdout.
 
-## Closest literature and limitations
-Caputi–Collari–Di Trani–Smith, arXiv:2208.04656, especially Definition 2.2 and Theorem 5.1; Caputi–Collari–Ramos, arXiv:2401.01248, especially §4.1 and Theorem 4.20. The result is restricted to the specified tournament and rotation action, and no independent audit or integral representation-lattice determination is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Caputi–Collari–Di Trani–Smith original multipath-complex theorem computes transitive tournaments; this cyclic strongly connected tournament is nontransitive. General quiver-minor results require acyclicity for their comparison with matching complexes and do not determine this exact quotient torsion. Resultary closest cyclic-tournament path homology refers to different directed path homology rather than the multipath simplicial complex. No inspected prior supplies this integral seven-primary quotient table.
+
+## value
+
+PASS
+
+The smallest natural regular seven-vertex cyclic tournament gives a complete integral orbit-space classification, including two independent order-seven classes in H3 despite torsion-free homology of its covering complex, and the complete rational rotation module. This is a meaningful exact invariant of a natural equivariant topological object, not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
