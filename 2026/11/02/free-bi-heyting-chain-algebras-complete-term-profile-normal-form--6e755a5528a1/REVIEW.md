@@ -1,0 +1,15 @@
+# Scientific review: free chain-generated bi-Heyting algebras
+
+## Correctness — PASS
+The chain definitions of implication and subtraction follow directly from their residual inequalities. Both operations return an input or a distinguished endpoint, so structural induction yields the selection property. The critical nonstandard step, \(D(a,b)=1\setminus(a\to b)\), is checked in both comparison cases: it returns \(1\) exactly for \(a>b\), and \(0\) otherwise. This permits a genuine \(0/1\) characteristic term for **every** endpoint-marked weak order of the variables. Gated joins independently realize every coordinate of the product, while realization of all types in \(C_{k+2}\) proves no two coordinate profiles collapse. The Stirling-number multiplicity formula counts a disjoint, exhaustive partition of types. The checker gives the exact unary closure and two-variable count and tests the sharpness witness, not a substitute for the all-arity proof.
+
+## Originality — PASS within inspected evidence
+Martins (2026), introduction and Section 4, and Bezhanishvili–Martins–Moraschini (2022), Sections 3–4, establish the wider logical/variety setting and qualitative local tabularity, but their inspected statements do not count free \(k\)-generator algebras or provide the arbitrary selector profile decomposition. Carai (2024), introduction and Section 5, addresses free Gödel algebras in the **Heyting** language: the fact that such algebras are also bi-Heyting does not give them the full-signature free universal property. An earlier order-type finite-testing result for ordinary Gödel chains is explicitly not claimed as original here. Published-record comparisons against finite-chain birelational, conditional, and monadic-expansion normal forms returned no implication covering the present exact free-algebra product, but an older equivalent result under discriminator/term-clone terminology remains a genuine priority risk. Web searches for full-signature free chain-generated bi-Heyting counts and the specific two-variable cardinality did not establish coverage.
+
+## Mathematical value — PASS
+This is a complete structural classification for all finite generator ranks, not a parameter substitution or isolated finite count. The coordinate algebra identifies exactly which formula functions exist, gives independent branch selectors, an exact size formula and explicit small ranks, and quantitatively refines the known qualitative local-tabularity statement for the natural logic of linear bi-intuitionistic frames. Its sharp finite chain test is supportive but not needed to confer value or novelty.
+
+## Scope and residual risks
+No claim is made about all bi-Gödel algebras or Heyting-language free Gödel algebras. Historical priority of a possible implicit equivalent general theorem remains unverified. The published sources were inspected via publicly accessible HTML/preprint material; no expert audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
