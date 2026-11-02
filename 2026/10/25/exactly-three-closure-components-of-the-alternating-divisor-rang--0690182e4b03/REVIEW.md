@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Every permitted prime-power exponent is zero or at least two. Odd/even alternating-series bounds force the local factors between their exponent-three and exponent-two values. An exact Euler product gives the sharp global lower bound \(630/\pi^6\). Seven exact finite-prime product checks and Nagura's theorem establish the all-primes prime-cube tail inequality. A greedy subsum lemma then yields a full tail interval, while exact rational inequalities using \(157/50<\pi<22/7\) certify the resulting bands and their two nonempty gaps. The accompanying stdlib script checks the finite steps and samples squarefull integers; it is not treated as an infinite proof.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** Defant's original unrestricted-density theorem and the later unrestricted exact two-component theorem were inspected. The latter uses exponent-one factors to fill its tail; it does not imply the topology of the subset of squarefull arguments. Forcing minimum exponent two calls for prime-cube tail weights and changes the Euler product. A similarly titled generalized-divisor restricted-domain paper studies \(\sigma\), not the alternating \(s\). Semantic searches found no identical squarefull theorem. This is a best-knowledge literature conclusion, not a certificate of unique discovery.
+PASS
 
-**Mathematical value — PASS.** The squarefull condition is a canonical, infinite arithmetic restriction. It changes the number of connected components from two to three, with exact analytic endpoints and explicit newly opened gaps. The result provides a complete natural-domain classification and a reusable prime-cube subsum technique rather than an isolated numerical calculation.
+Reconstructed the permitted-exponent condition a=0 or a>=2 and exact prime-power lower/upper envelopes F_p=s(p^3)<=s(p^a)<=s(p^2). Derived the Euler product prod F_p=zeta(4)/(zeta(2)zeta(8))=630/pi^6 and p>=5 tail product L=612360/(697pi^6). The published proof supplies exact rational finite-prime inequalities for p=5,...,23 and for p>=25 uses Nagura's prime-between-x-and-6x/5 theorem to ensure -log F_p<=sum later -log F_q; greedy subsums and exponentiation yield full [L,1] for cube-supported tail products, not just sample density. Splitting supports at p=2,3 and comparing all exponent2/3 endpoints gives the 4 overlapping bands, of which two merge, leaving exactly three with strict gaps. Independently checked Euler product constants, p2/p3 factors, exact pi-bound endpoint inequalities and all four support bands using rational arithmetic; finite verification is supplementary and does not replace Nagura plus the infinite subsum argument.
 
-Closest literature: Colin Defant, *On Ranges of Variants of the Divisor Functions that are Dense* (arXiv:1507.01128v1, 2015); *Exactly two closure components for the alternating divisor range at parameter two* (public scientific identifier `f19c7ab30430`); Defant, *On the Density of Ranges of Generalized Divisor Functions with Restricted Domains* (arXiv:1507.02663, 2015). The original claim concerns squarefull inputs only, and an equivalent result in unlocated literature remains a residual risk. Imported Nagura's prime-interval theorem is not reproved. No independent review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Defant introduced s_-r and determined unrestricted density criteria; a directly relevant published result computes exactly two components on all N for r=2. The squarefull condition deletes every exponent-one contribution and changes the permissible prime-tail factors and gap pattern. The known two-component result therefore does not determine the restricted three-component closure, and the additional prime-cube tail/gap proof is substantive.
+
+## value
+
+PASS
+
+Connected components of multiplicative-function ranges are an explicit question raised in Defant's work. Restricting to the natural squarefull (powerful) domain is mathematically motivated; the result identifies a genuine topology change from two unrestricted components to three restricted components with all endpoints and no hidden gaps. It does not claim a general r-dependent classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
