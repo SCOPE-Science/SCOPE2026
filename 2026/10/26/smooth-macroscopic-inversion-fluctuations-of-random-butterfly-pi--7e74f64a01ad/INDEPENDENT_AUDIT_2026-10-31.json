@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:12:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The unique lowest common ancestor of two leaves partitions inversion pairs by internal tree node. A swap of node children creates exactly 4^(n-j-1) inversions at depth j, and the independent fair swap bits give the finite polynomial product. Geometric sums produce E I_n=N(N-1)/4 and Var I_n=N^4(1-8^-n)/56. Under an infinite-bit coupling X_n=I_n/N² is a growing partial sum with deterministic tail ≤2^(-n-1), giving almost-sure and Lp convergence to X. The complement of all bits proves X and 1/2-X equidistribution; the weight sequence has each weight <=remaining deeper tail so a greedy subsum argument yields full support [0,1/2]. Its characteristic function equals e^(it/4) times the product of cos(t/(2*4^(j+1)))^(2^j). Choosing level j=floor(log4|t|)-1 gives cos argument in [1/2,2), hence |phi(t)|<=exp[-(-log cos(1/2))/4*sqrt(|t|)] for |t|>=4. All polynomially weighted phi are integrable: Fourier inversion supplies compactly supported C-infinity density. Independent enumeration of every group element for n<=4 reproduces the exact polynomial and moments, and independent Fourier-level numerical checks corroborate, not replace, the analytic bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peca-Medlin–Zhong analyze uniform B_n group, longest increasing subsequences and cycles.",
+          "Gunawan–Peca-Medlin–Zhong analyze GEPP pivot group uniformity.",
+          "Cai et al. assign random labels to tree vertices and count ancestor inversions, not ordered leaf-permutation inversions."
+        ],
+        "reasoning": "The prior group-law results provide a premise but do not in inspected sections calculate the present inversion distribution, smooth Fourier decay or its macroscopic variance.",
+        "searches": [
+          "query Resultary: binary tree automorphism butterfly permutation inversions distribution generating function smooth limiting law",
+          "arXiv:2410.20952 butterfly permutations inversions",
+          "arXiv:2610.10481 random permutations using GEPP",
+          "arXiv:1709.00216 inversions in split trees"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md e0a8d2bd4006579a6c4c91e8eff570f47e80c1a8 and checker.py 37e124710a0303825fae4b03a82c1d970be9c267",
+        "Peca-Medlin–Zhong arXiv:2410.20952 primary PDF §§2.3–4",
+        "Gunawan–Peca-Medlin–Zhong arXiv:2610.10481 mirror §3.3 Theorem 5",
+        "Cai et al. arXiv:1709.00216 §1.1",
+        "Resultary semantic query #5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2024 and 2026 results show the uniform distribution on B_n but focus on different statistics.",
+          "The tree inversion limit counts ancestor-descendant label-order inversions, with independent discrete-uniform contributions rather than fair weighted swap bits."
+        ],
+        "reasoning": "Uniformity on B_n permits deriving the product via a new lowest-common-ancestor count, but does not state it. The smooth limit needs additional Fourier-level argument. Logical premises credited as old; new statistic is distinct.",
+        "searches": [
+          "arXiv:2410.20952 §§2.3,3,4",
+          "arXiv:2610.10481 §3.3 Theorem 5",
+          "arXiv:1709.00216 §1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform tree automorphisms are fair child swaps at each internal vertex, which gives independent inversion increments by lowest common ancestor.",
+          "The butterfly pivot ensemble equals the same group law by the cited uniformity theorem, not an additional new theorem."
+        ],
+        "reasoning": "The reformulation transfers the inversion statement to butterfly pivot matrices; an abstract wreath-product inversion theorem could subsume it but was not identified in the inspected source results.",
+        "searches": [
+          "query Resultary: binary tree automorphism butterfly permutation inversions distribution generating function smooth limiting law",
+          "binary tree automorphism group inversion statistic wreath product",
+          "butterfly permutation pivot inversion count 2-Sylow symmetric group"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite n<=4 histograms are independently reproduced; no indexed full distribution or moment table for this specific uniform leaf action was located."
+        ],
+        "reasoning": "The theorem is all-n and infinite-limit; elementary finite histograms would not establish full support and C-infinity density. The product representation could, however, be classical under a different wreath-product name.",
+        "searches": [
+          "query Resultary: binary tree automorphism butterfly permutation inversions distribution generating function smooth limiting law",
+          "inversions butterfly permutations OEIS binary tree automorphisms inversion generating polynomial"
+        ]
+      },
+      "rationale": "PASS (qualified): Peca-Medlin–Zhong (2024) provide the exact group-law/uniform permutation premise and study longest increasing subsequences and cycle counts. Gunawan–Peca-Medlin–Zhong (2026) restate that uniform law for general scalar butterfly pivot ensembles, without the inversion product or smooth limit in the read sections. Cai–Holmgren–Janson et al. study ancestor/descendant tree inversions for random vertex labels, a different statistic and randomization. Neither published inversion result directly implies the iterated-wreath fair-leaf-swap law, although a general inversion theorem could. Resultary semantic search did not find an equivalent.",
+      "residual_risks": [
+        "An older inversion-statistics result for iterated wreath-product actions may imply the entire finite distribution.",
+        "The uniform butterfly equivalence is an external mathematical premise; no claim of independently deriving its algorithmic pivot uniformity.",
+        "Fourier bound proves C-infinity density and full topological support, not strictly positive density at each interior point."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original uniform B_n law is credited; inspected permutation statistics differ from the inversion polynomial and limiting density.",
+          "evidence": [
+            "§2.3 identifies iterated wreath product B_n; later sections handle LIS and cycle counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.20952",
+          "material_read": "Full 41-page primary PDF accessible; inspected §2.3 binary-tree wreath recursion and §§3–4 analyses of LIS and cycles; rendered §2.3 page.",
+          "method": "Opened original PDF with screenshots.",
+          "title": "On the longest increasing subsequence and number of cycles of butterfly permutations",
+          "trigger": "Same exact tree automorphism subgroup and uniform permutation law"
+        },
+        {
+          "assessment": "Uniform pivot law is prior and assumed; no matching inversion product/density in material read.",
+          "evidence": [
+            "Theorem 5 states induced pivot permutation is uniform on B_n for the specified general scalar ensemble."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.10481",
+          "material_read": "Full HTML mirrored text accessible; inspected §3.3 and Theorem 5 on general butterfly GEPP uniformity, plus scope of remaining statistics.",
+          "method": "Read online text mirror (not arXiv PDF); attempted authorized institutional retrieval returned Oxford worker unavailable or request invalid.",
+          "title": "Random permutations using GEPP",
+          "trigger": "Same ensemble and potentially stronger modern distributional results"
+        },
+        {
+          "assessment": "Uses a different inversion definition; cannot directly identify leaf-action inversion law.",
+          "evidence": [
+            "Tree vertex-label inversion pairs are ancestor-descendant, not permutation pairs of ordered leaves."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.00216",
+          "material_read": "Article §1.1, independent discrete uniform contributions from randomly assigned vertex labels; complete paper not required for elementary statistic distinction.",
+          "method": "Opened accessible original text.",
+          "title": "Inversions in split trees and conditional Galton–Watson trees",
+          "trigger": "Potential generic tree inversion theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact inversion law, macroscopic nonconcentration, full support and a smooth compactly supported non-Gaussian limit characterize a natural random permutation ensemble whose distribution contrasts sharply with uniform S_N. The Fourier decay and exact variance quantify a nontrivial limiting distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform fair internal tree swaps / general nonsimple scalar uniform-angle butterfly ensemble only; not simple/Kronecker butterflies.",
+    "Finite experiments do not prove smooth limit; Fourier proof does.",
+    "Publication withheld because public operational provenance not sanitized."
+  ],
+  "schema_version": 1
+}
