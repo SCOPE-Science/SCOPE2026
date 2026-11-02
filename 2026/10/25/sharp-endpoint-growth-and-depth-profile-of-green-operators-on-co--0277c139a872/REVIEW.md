@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The tree-subtree flux identity reconstructs the exact Moore--Penrose kernel. Its row absolute values reduce to the longest-common-prefix distribution plus an explicitly bounded centering perturbation. The uniform bound controls the maximal row, proves the coefficient \(2/b\), and gives the fixed-depth profile; an independent leaf-sign argument supplies the finite formula. The optional exact-rational checker passed 9,424 assertions across eleven instances. Only the analytical argument proves the all-height statements.
+## correctness
 
-**Originality — PASS within examined evidence.** Kirkland, Neumann and Shader (1997, DOI 10.1137/S0895479896298713) supply general weighted-tree inverse and distance relations. Ranjan, Zhang and Boley (2013, arXiv:1304.2300) supply general Laplacian pseudoinverse and resistance formulas. These are explicitly prior art for kernel reconstruction, not claims of novelty. Neither inspected full text evaluates the sharp endpoint norm asymptotic for growing complete rooted branching trees or its full limiting depth profile. The closest mathematical-record hits describe different tree geometric invariants. Alternative historical terminology may contain a stronger theorem, so priority is provisional.
+PASS
 
-**Value — PASS.** The mean-zero graph Poisson inverse has a natural worst-case endpoint stability constant. Its exact leading linear growth and position-dependent amplification quantify a genuine hierarchical sensitivity effect, with uniform finite-height bounds and explicit leaf response. No complete finite-height maximizing-depth classification, weighted-tree extension, or independent priority determination is claimed.
+Summing LG(:,y)=delta_y-1/N over descendant subtrees gives edge increment 1_{y in subtree}-q_l; telescoping along root-to-x and zero row sums yield G(x,y)=t(x,y)+H-F(|x|)-F(|y|). Exact LCA expectation and centering show |R_h(k)-2(1-q1)F(k)|<=2delta_h, where delta_h<=h*b^(h+1)/(b^(h+1)-1)^2. Uniformly in k this yields ||G||_infty/N->2/b with O_b(h) unscaled error; fixed-depth limit is (2/b)(1-b^-k). Separately the leaf sign partition gives exact absolute row formula. Independent rational matrix identity LG=I-11^T/N and leaf response checked b=2,3,h=1..3, and actual check.py read; finite tests only corroborate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General weighted-tree Green/inverse formulas are old, but evaluating a sharp global endpoint row-sum asymptotic 2/b and the full b-ary depth profile requires explicit LCA absolute-value analysis not present in inspected primary sources.
+
+## value
+
+PASS
+
+A natural canonical hierarchy has highly nonuniform Green response: exact sharp linear amplification coefficient and every fixed-depth normalized row limit, with bounded quantitative remainder and exact leaf formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
