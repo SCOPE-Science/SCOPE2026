@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:53:17.882979Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md and check.py, tree SHA 0c2cb03bf2235a64125e042cd6b48d82a0755dba",
+        "Independent exact conditional distribution/entropy microstate checks",
+        "Mercado et al., arxiv:2212.12286 stationary sectors"
+      ],
+      "rationale": "Starting empty at d=0, the complement-even-sites transformation maps pair 00↔11 updates to exclusion exchanges and proves irreducibility in equal U/V count class; for d>0 physical exchanges and pair removal make all even-total parity configurations accessible. Detailed balance yields Bernoulli(p) conditioned on the relevant class. U and V are conditionally independent given shared count K at d=0, so I=H(K), with probability proportional to binom(m,j)^2 z^(2j). With d>0 they are conditionally independent given shared parity and I=h(q_m), q_m=(1+t^m)^2/(2(1+t^(2m))). Standard local CLT yields H(K)=0.5 log(pi e m p(1-p))+o(1) at fixed p, versus log2 as m→∞ for d>0; mp→λ gives the Bessel count limit. Independently enumerated m=2..4 microstate distributions and computed MI at three densities.",
+      "residual_risks": [
+        "Asymptotic local-CLT proof requires uniform tail entropy control supplied by factorial/binomial estimates; finite tests alone do not prove these limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mercado, Jung, Kim, Garcia, Nonaka and Bell, Surface Coverage Dynamics for Reversible Dissociative Adsorption on Finite Linear Lattices, arXiv:2212.12286v1 gives mean coverage and nearest-neighbor correlations, not global interlaced-half mutual information.",
+          "Wilms, Troyer and Verstraete, Mutual information in classical spin models, arXiv:1011.4421 treats information in different spin-model geometries; Mobilia, Exact multipoint and multitime correlation functions of a one-dimensional model of adsorption and evaporation of dimers, arXiv:cond-mat/0204148 time-dependent multipoint functions."
+        ],
+        "reasoning": "Local two-point correlations or generic spin-model entropy do not compute the global mutual information H(K) or parity entropy for these exact dynamics without the new charge-conditioning step. Broader conditional-Bernoulli literature might contain an equivalent theorem and remains a risk.",
+        "searches": [
+          "mutual information odd even sublattice occupancies reversible dimer adsorption desorption diffusion equilibrium equal counts parity logarithmic size vs one bit",
+          "reversible adsorption equilibrium parity mutual information information of conserved charges Bessel crossover"
+        ]
+      },
+      "checked_sources": [
+        "Mercado, Jung, Kim, Garcia, Nonaka and Bell, Surface Coverage Dynamics for Reversible Dissociative Adsorption on Finite Linear Lattices, arXiv:2212.12286v1",
+        "Wilms, Troyer and Verstraete, Mutual information in classical spin models, arXiv:1011.4421",
+        "Mobilia, Exact multipoint and multitime correlation functions of a one-dimensional model of adsorption and evaporation of dimers, arXiv:cond-mat/0204148",
+        "Resultary query: mutual information odd even sublattice occupancies reversible dimer adsorption desorption diffusion equilibrium equal counts parity logarithmic size vs one bit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mercado, Jung, Kim, Garcia, Nonaka and Bell, Surface Coverage Dynamics for Reversible Dissociative Adsorption on Finite Linear Lattices, arXiv:2212.12286v1 Sections III-IV and appendices: equal sublattice occupancy at zero diffusion, even-parity accessible class with diffusion, and detailed balance.",
+          "Full-text search of the primary PDF found no mutual-information discussion."
+        ],
+        "reasoning": "The stationary class formulas plus generic entropy identities permit derivation, so claim is a corollary of known stationary law. But the explicit full-block MI transition, fixed-density asymptotic, dilute Bessel crossover, and proper-subset independence are new statements as far as inspected sources show; conclusions are not presented in the source.",
+        "searches": [
+          "mutual information odd even sublattice occupancies reversible dimer adsorption desorption diffusion equilibrium equal counts parity logarithmic size vs one bit",
+          "arxiv:2212.12286 section IV surface diffusion accessible configurations equilibrium weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mercado, Jung, Kim, Garcia, Nonaka and Bell, Surface Coverage Dynamics for Reversible Dissociative Adsorption on Finite Linear Lattices, arXiv:2212.12286v1 equation (5) counts non-diffusive equal-count microstates via binom(m,j)^2; Section IV diffusion changes accessible configurations.",
+          "Wilms, Troyer and Verstraete, Mutual information in classical spin models, arXiv:1011.4421 defines mutual information for classical spin blocks of different Gibbs models."
+        ],
+        "reasoning": "Same stationary Bernoulli law conditional on a conserved charge can be described as an entropy of the charge; the new statistic is a direct but nontrivial full-block information consequence of known sector weights, not an independent stationary ensemble discovery.",
+        "searches": [
+          "mutual information odd even sublattice occupancies reversible dimer adsorption desorption diffusion equilibrium equal counts parity logarithmic size vs one bit",
+          "arxiv:2212.12286 reversible dimer adsorption diffusion even ring sublattice occupancy combinatorial stationary distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mercado, Jung, Kim, Garcia, Nonaka and Bell, Surface Coverage Dynamics for Reversible Dissociative Adsorption on Finite Linear Lattices, arXiv:2212.12286v1 exact class-size formula binom(m,j)^2 and diffusion-accessible even-total counts.",
+          "Independent enumeration of full 2m-bit stationary distributions for m=2,3,4 and p=1/5,1/2,3/4 matches both new I(U;V) formulas."
+        ],
+        "reasoning": "Prior exact stationary configuration tables imply that global information can in principle be calculated, but do not themselves present its information-theoretic evaluation or log-m/one-bit limit. Small enumeration checks are corroboration, not novelty proof.",
+        "searches": [
+          "mutual information odd even sublattice occupancies reversible dimer adsorption desorption diffusion equilibrium equal counts parity logarithmic size vs one bit",
+          "finite ring adsorption number configurations diffusion H(K) parity entropy"
+        ]
+      },
+      "rationale": "Mercado et al. establish and enumerate the relevant stationary configuration classes and hopping singularity, so the ensemble is not new. The assessed information-theoretic consequence is the exact mutual-information reduction to a count or a parity bit, its growing-vs-one-bit scaling and Bessel dilute crossover. These statements are absent from the inspected model results; the logical derivation from published ensemble weights is explicitly acknowledged.",
+      "residual_risks": [
+        "Information of shared conserved charges is a standard entropy mechanism and a specialized exact conditioned-ensemble result may already include these identities.",
+        "Stationary limit as d↓0 is singular, not a claim of instantaneous or mixing-time discontinuity; fixed-density log law fails in sparse regimes, which are treated separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stationary states and their enumeration are prior; no assessed global MI or Bessel entropy theorem stated.",
+          "evidence": [
+            "Mercado, Jung, Kim, Garcia, Nonaka and Bell, Surface Coverage Dynamics for Reversible Dissociative Adsorption on Finite Linear Lattices, arXiv:2212.12286v1",
+            "p9 Eq.(5), p15 Eq.(19), Section IV diffusion"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.12286",
+          "material_read": "Complete 28-page primary PDF; Sections III-IV, eq.(5) equal sublattice count, eq.(11) coverage, eq.(19)-(20) local correlations, section on diffusion and appendices; inspected p9 image",
+          "method": "Read full searchable PDF in relevant sections and compared conditional stationary measures and observables",
+          "title": "Surface Coverage Dynamics for Reversible Dissociative Adsorption on Finite Linear Lattices",
+          "trigger": "Identical finite-ring physical process and hopping singularity"
+        },
+        {
+          "assessment": "Different Gibbs ensembles; no direct implication for reversible pair-adsorption conditional sectors.",
+          "evidence": [
+            "Wilms, Troyer and Verstraete, Mutual information in classical spin models, arXiv:1011.4421"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1011.4421",
+          "material_read": "Abstract and available main results on classical lattice spin-model MI",
+          "method": "Compared probability measures, spatial partitions and global parity charge",
+          "title": "Mutual information in classical spin models",
+          "trigger": "Broad MI methods potentially dominating model-specific exact formulas"
+        },
+        {
+          "assessment": "Correlation evolution does not directly state the zero-/positive-diffusion global MI transition.",
+          "evidence": [
+            "Mobilia, Exact multipoint and multitime correlation functions of a one-dimensional model of adsorption and evaporation of dimers, arXiv:cond-mat/0204148"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0204148",
+          "material_read": "Primary article abstract, model setup, time-dependent correlation-function statements",
+          "method": "Compared observables and model hypotheses against stationary reversible diffusion-dependent split",
+          "title": "Exact multipoint and multitime correlation functions of a one-dimensional model of adsorption and evaporation of dimers",
+          "trigger": "Older similar stochastic dimer process and higher-point correlations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mercado, Jung, Kim, Garcia, Nonaka and Bell, Surface Coverage Dynamics for Reversible Dissociative Adsorption on Finite Linear Lattices, arXiv:2212.12286v1",
+        "Wilms, Troyer and Verstraete, Mutual information in classical spin models, arXiv:1011.4421",
+        "Exact MI formulas in source RESULT.md"
+      ],
+      "rationale": "Reveals that arbitrarily weak diffusion opens an accessible configuration class that collapses global information between interlaced physical halves from order log m to one parity bit; the exact sparse-density Bessel crossover and proper-subset independence show local diagnostics cannot see this global structure. It is a natural invariant of a previously studied solvable stochastic adsorption model, despite reusing known equilibrium weights.",
+      "residual_risks": [
+        "No temporal MI or mixing-time estimate is derived; information novelty is explicitly a consequence of known stationary ensembles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md and check.py, tree SHA 0c2cb03bf2235a64125e042cd6b48d82a0755dba",
+    "Independent exact conditional distribution/entropy microstate checks",
+    "Mercado et al., arxiv:2212.12286 stationary sectors",
+    "Mercado, Jung, Kim, Garcia, Nonaka and Bell, Surface Coverage Dynamics for Reversible Dissociative Adsorption on Finite Linear Lattices, arXiv:2212.12286v1",
+    "Wilms, Troyer and Verstraete, Mutual information in classical spin models, arXiv:1011.4421",
+    "Mobilia, Exact multipoint and multitime correlation functions of a one-dimensional model of adsorption and evaporation of dimers, arXiv:cond-mat/0204148",
+    "Resultary query: mutual information odd even sublattice occupancies reversible dimer adsorption desorption diffusion equilibrium equal counts parity logarithmic size vs one bit",
+    "Exact MI formulas in source RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific conclusion is best-of-knowledge and not an external certificate. Independent finite checks only establish the explicitly described finite instances; analytically proved bounds apply to the quantified scope. Publication remains withheld for unsanitized provenance.",
+  "residual_risks": [
+    "Asymptotic local-CLT proof requires uniform tail entropy control supplied by factorial/binomial estimates; finite tests alone do not prove these limits.",
+    "Information of shared conserved charges is a standard entropy mechanism and a specialized exact conditioned-ensemble result may already include these identities.",
+    "Stationary limit as d↓0 is singular, not a claim of instantaneous or mixing-time discontinuity; fixed-density log law fails in sparse regimes, which are treated separately.",
+    "No temporal MI or mixing-time estimate is derived; information novelty is explicitly a consequence of known stationary ensembles."
+  ],
+  "schema_version": 1
+}

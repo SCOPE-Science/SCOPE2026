@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification record
-The included independent script \(\texttt{check.py}\) builds transition-rate generators by enumerating all physical microstates in the relevant class. It compares a numerical stationary solution of the complete generator with the equilibrium detailed-balance distribution, checks generator residuals, and computes two-block mutual information from the joint microstate table. It tests 30 combinations of \(N\in\{4,5,6,7,8\}\), \(p\in\{0.18,0.5,0.76\}\), and absent/present diffusion; the odd sizes are auxiliary controls for the parity formula, while the theorem itself concerns even sizes. All comparisons pass with absolute discrepancy below \(2\times 10^{-10}\).
+# Independent mathematical audit
 
-The script additionally evaluates \(H(K)-\tfrac12\log(\pi e m p(1-p))\) for \(p\in\{0.2,0.5,0.8\}\), \(m\in\{100,1000,10000\}\), tests convergence to \(\log 2\) for positive diffusion at fixed \(p\), and checks Bessel entropy limits with \(\lambda\in\{0.2,1,2.5,5\}\), \(m\in\{300,3000\}\). These are numerical validations of finite projections and asymptotic formulas. Their observed agreement does not itself establish infinite asymptotics or literature priority.
+## correctness
 
-Independent audit has not been performed. The main mathematical proof is self-contained in \(\texttt{RESULT.md}\), with irreducibility, conditional independence, local Gaussian asymptotics and dominated-convergence arguments stated explicitly. Requires Python 3 with NumPy and SciPy; run \(\texttt{python check.py}\).
+PASS
+
+Starting empty at d=0, the complement-even-sites transformation maps pair 00↔11 updates to exclusion exchanges and proves irreducibility in equal U/V count class; for d>0 physical exchanges and pair removal make all even-total parity configurations accessible. Detailed balance yields Bernoulli(p) conditioned on the relevant class. U and V are conditionally independent given shared count K at d=0, so I=H(K), with probability proportional to binom(m,j)^2 z^(2j). With d>0 they are conditionally independent given shared parity and I=h(q_m), q_m=(1+t^m)^2/(2(1+t^(2m))). Standard local CLT yields H(K)=0.5 log(pi e m p(1-p))+o(1) at fixed p, versus log2 as m→∞ for d>0; mp→λ gives the Bessel count limit. Independently enumerated m=2..4 microstate distributions and computed MI at three densities.
+
+## originality
+
+PASS
+
+Mercado et al. establish and enumerate the relevant stationary configuration classes and hopping singularity, so the ensemble is not new. The assessed information-theoretic consequence is the exact mutual-information reduction to a count or a parity bit, its growing-vs-one-bit scaling and Bessel dilute crossover. These statements are absent from the inspected model results; the logical derivation from published ensemble weights is explicitly acknowledged.
+
+## value
+
+PASS
+
+Reveals that arbitrarily weak diffusion opens an accessible configuration class that collapses global information between interlaced physical halves from order log m to one parity bit; the exact sparse-density Bessel crossover and proper-subset independence show local diagnostics cannot see this global structure. It is a natural invariant of a previously studied solvable stochastic adsorption model, despite reusing known equilibrium weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

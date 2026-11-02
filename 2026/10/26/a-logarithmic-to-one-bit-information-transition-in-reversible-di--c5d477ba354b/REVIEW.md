@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-chain stationary measures follow detailed balance and a verified communicating-class classification: a bit complement on one bipartition converts no-diffusion pair updates into irreducible simple exclusion exchanges, whereas positive nearest-neighbor swaps connect the even-total-parity class. Conditional independence on the shared count or shared parity gives the exact mutual-information identities. Squaring a binomial mass function and applying a local central limit theorem gives the Gaussian entropy constant; factorial domination proves the Bessel crossover. The full finite-state generator, stationary probabilities and direct mutual information were independently computed for 30 small-system cases. Numerical checks at larger sizes agree with both asymptotic regimes; finite computations are not substituted for the proofs.
+## correctness
 
-## Originality — PASS, subject to documented priority risk
-Mercado et al. already characterize communicating classes, detailed balance, stationary coverage and nearest-neighbor correlations. Those are prerequisites, not new results here. Full Sections III–IV, Appendix A and the conclusions were inspected, and no mutual-information theorem, logarithmic checkerboard law or Bessel entropy crossover was identified. Wilms et al.'s full classical-spin mutual-information analysis concerns Ising/Potts ensembles, while Mobilia's full dimer adsorption analysis concerns time correlations, rather than the present stationary information distinction. Comparisons with available earlier research claims did not identify equivalent statements. Because the original configuration law directly implies this derived result, an unlocated existing conditional-Bernoulli or conserved-charge mutual-information formula is a genuine residual priority risk; novelty is not certified by unsuccessful searches.
+PASS
 
-## Mathematical value — PASS
-The theorem resolves a natural finite-size information question arising from the pre-existing kinetic accessibility transition. It demonstrates an unbounded checkerboard dependence law that collapses to at most one parity bit when any symmetric surface diffusion is present, even when local measurements become exactly uninformative. The dilute-activity Bessel limit isolates the boundary where the logarithmic law ceases to apply. Its value rests on global correlation structure and a singular kinetic perturbation, not on numerical novelty alone.
+Starting empty at d=0, the complement-even-sites transformation maps pair 00↔11 updates to exclusion exchanges and proves irreducibility in equal U/V count class; for d>0 physical exchanges and pair removal make all even-total parity configurations accessible. Detailed balance yields Bernoulli(p) conditioned on the relevant class. U and V are conditionally independent given shared count K at d=0, so I=H(K), with probability proportional to binom(m,j)^2 z^(2j). With d>0 they are conditionally independent given shared parity and I=h(q_m), q_m=(1+t^m)^2/(2(1+t^(2m))). Standard local CLT yields H(K)=0.5 log(pi e m p(1-p))+o(1) at fixed p, versus log2 as m→∞ for d>0; mp→λ gives the Bessel count limit. Independently enumerated m=2..4 microstate distributions and computed MI at three densities.
 
-The statements concern stationary finite even rings from the empty initial state, positive adsorption/desorption rates, and equal bidirectional hopping; they do not claim dynamical mixing rates or uniqueness across all disconnected zero-hopping sectors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mercado et al. establish and enumerate the relevant stationary configuration classes and hopping singularity, so the ensemble is not new. The assessed information-theoretic consequence is the exact mutual-information reduction to a count or a parity bit, its growing-vs-one-bit scaling and Bessel dilute crossover. These statements are absent from the inspected model results; the logical derivation from published ensemble weights is explicitly acknowledged.
+
+## value
+
+PASS
+
+Reveals that arbitrarily weak diffusion opens an accessible configuration class that collapses global information between interlaced physical halves from order log m to one parity bit; the exact sparse-density Bessel crossover and proper-subset independence show local diagnostics cannot see this global structure. It is a natural invariant of a previously studied solvable stochastic adsorption model, despite reusing known equilibrium weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
