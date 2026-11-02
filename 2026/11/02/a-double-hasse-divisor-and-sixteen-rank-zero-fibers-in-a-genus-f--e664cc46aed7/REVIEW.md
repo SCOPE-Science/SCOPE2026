@@ -1,0 +1,12 @@
+# Scientific review: rank stratification of a genus-four trigonal family
+
+## Correctness — PASS
+The exact smooth domain is \(\Delta(u,v)\ne0\). The genus follows from coprime covering degree \(3\) and branch polynomial degree \(5\). A complete four-differential basis and the Cartier coefficient recipe produce a scalar block and a three-dimensional block. Their determinant identity \(\det(\operatorname{Cartier})^7=H^2\Delta\), the restricted rank-two block, the polynomial gcd of twisted-product minors, and a third-iterate zero congruence modulo the squarefree polynomial \(S\) establish the entire rank classification over the algebraic closure. `verify_symbolic.py` replays the identities. The separately implemented point counter checks four prime-field cases through extension degree four. The finite counts are corroboration, not the global proof.
+
+## Originality — PASS, with priority qualifications
+Achter–Howe establish the semilinear conventions, and Sutherland gives the general superelliptic Cartier–Manin coefficient algorithm (including genus four). Neither inspected work supplies the present two-parameter discriminant factorization, double nonordinary divisor, or sixteen-point geometric stable-rank-zero locus. Kudo–Harashita–Senda establish supersingular Howe curves of genus four through a distinct double-cover construction; that result does not classify this cyclic trigonal family. Accessible mathematical-record results and prior specialized arithmetic-curve findings did not state or imply this full classification. One possibly relevant later article by Sohn on genus-four superelliptic \(a\)-numbers could not be read in full; possible overlap with the \(a\)-number component remains. Absence from searches is not proof of unique priority.
+
+## Mathematical value — PASS
+The arithmetic stratification has a geometric explanation: the Hasse divisor is **nonreduced of multiplicity two**, while the smaller stable-rank-zero locus is exactly the reduced degree-sixteen scheme \(v=3u^2\), \(u(u^5+1)(u^{10}+1)=0\). It distinguishes the constant Cartier rank two on a genuine parameter divisor from both rank-zero and rank-two stable Frobenius behavior, and gives a natural finite-field orbit census. The assertion covers a complete two-parameter marked family, rather than an arbitrary isolated computation. It does not determine Newton polygons or geometric isomorphism classes.
+
+Self-review: passed. Independent audit: not yet performed.
