@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The alternating vector is the unique eigenvector of the even-cycle Laplacian at eigenvalue 4; the exact scalar invariant map is x->x-4h sin x. H(a)=a/(2 sin a) increases bijectively from 1/2 to infinity. Both cycle points have the same derivative I-h cos(a)L on the mean-zero quotient, proving every Floquet factor and the stability boundary at pi/4. The convex endpoint spectral minimax gives the unique optimizer and closed finite-size rate. Lyapunov–Schmidt/implicit-function reduction is valid because at h=1/2 the only nontrivial -1 eigenspace is the alternating line, while every complementary squared eigenvalue differs from 1; the scalar two-return expansion gives a unique nearby squared amplitude y=12(h-1/2)+O((h-1/2)^2). Taylor expansions yield the n^-2 optimal step and gap. The embedded reproducible checker verifies finite return and spectral identities but not the universal claims; those follow from the displayed proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.10993v1 Theorem 4.1 assumes h<1/lambda_max; it concerns diffeomorphic Morse–Smale dynamics and in applications paths and stars, not the h>1/2 ring cycle.",
+        "Zhai et al. 2023 discuss qualitative period doubling of collective network and mean-field states; their inspected analysis does not give a complete Fourier-mode two-step spectrum or an all-even-ring optimum."
+      ],
+      "reasoning": "General discrete-time period-doubling methods imply existence near a generic simple -1 collision, not the exact global-in-parameter branch stability window, its full transverse spectrum, or the closed finite-size minimax rate in this specific system.",
+      "searches": [
+        "\"Morse–Smale dynamics in discrete Huygens networks\" \"period-two\" 2026",
+        "\"Synchronization–desynchronization transitions in networks of circle maps with sinusoidal coupling\" period doubling",
+        "arXiv:2610.10993v1, Theorem 4.1 and applications",
+        "doi:10.1088/1674-1056/acc062, Sections 3 and 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.19953v1",
+      "arXiv:2610.10993v1",
+      "doi:10.1088/1674-1056/acc062",
+      "Published related study of critical relaxation in a discrete repulsive oscillator triangle (different network topology)",
+      "Published related study of a two-color traveling wave in a Chebyshev lattice (different local map)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Buescu–Oliveira 2026: for even n the Lyapunov interval is 0<h<1/2; Section 7 says larger-strength bifurcations are not treated.",
+        "Buescu–D’Aniello–Oliveira 2026: Morse–Smale criterion is confined to h<1/lambda_max, not the claimed h>1/2.",
+        "Zhai–Xiao–Zheng 2023: mean-field period-doubling is analyzed qualitatively, with no stated all-n transverse optimizer."
+      ],
+      "reasoning": "A theorem confined to h<1/2 cannot imply existence of a new periodic attractor for h>1/2. A qualitative report of mean-field period doubling does not imply the exact n-dependent Floquet-minimax formula. The novelty assessment is the combined exact theorem, not the isolated observation that a period doubling can occur.",
+      "searches": [
+        "arXiv:2610.19953v1, Theorem 5.6, Proposition 4.1, Section 7",
+        "arXiv:2610.10993v1, Theorem 4.1",
+        "doi:10.1088/1674-1056/acc062, Section 5.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The alternating subspace is conjugate to the scalar sine-circle update, a standard type of map; its symmetric two-cycle existence by itself is not asserted to be novel.",
+        "The exact full quotient multipliers require all nonzero eigenvalues of the ring Laplacian, and the optimizer depends on the smallest one; the motivating primary source explicitly leaves h>=1/2 bifurcations outside its results."
+      ],
+      "reasoning": "Generic period-doubling on circle maps is equivalent to the local scalar mechanism, so that component is prior technique. Neither the inspected scalar-network accounts nor the stated 2026 ring results determine the all-even-ring transverse stability interval together with a unique finite-size optimal damping constant.",
+      "searches": [
+        "even cycle discrete repulsive Huygens phase map h>1/2 period doubling amplitude a=2h sin a transverse Floquet Laplacian spectrum optimized step",
+        "sine circle map x maps to x + K sin x period doubling symmetric 2-cycle exact stability at K pi",
+        "\"x + K sin x\" two cycle stability",
+        "arXiv:2610.19953v1, Sections 2.1, 4, 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest located published related record treats critical relaxation of a repulsive oscillator triangle, not an even nearest-neighbor ring.",
+        "Another related record gives a sharp traveling-wave multiplier in a different coupled quadratic Chebyshev lattice, not the present sinusoidal Huygens equation.",
+        "No inspected table contained the closed rate ((1-b)/(1+b))^2 for even Huygens rings."
+      ],
+      "reasoning": "The calculation does not merely reproduce a tabulated coefficient: it solves an exact interaction-strength minimax over all n-1 transverse Fourier modes. Lack of a returned exact entry is evidence only of bounded search coverage, not a proof of priority.",
+      "searches": [
+        "Buescu Oliveira 2610.19953 period doubling beyond Lyapunov interval phase opposition",
+        "discrete Huygens ring anti-phase two-cluster alternating 2-cycle period doubling pi/4 h 1/2 even cycles",
+        "\"oscillator ring\" \"a cot a\" 2-cycle spectral rate"
+      ]
+    },
+    "rationale": "The precise new scope starts above the end of the established ring descent interval, h=1/2, where the source identifies a -1 multiplier but leaves the resulting bifurcations untreated. The searched and inspected literature includes generic sine-circle-map period doubling, and such generic existence is not claimed as the novelty. The combined exact supercritical all-even-ring orbit classification, complete transverse return spectrum, sharp stability endpoint and ring-size-dependent optimal two-step convergence were not implied by the closest compared primary results; priority beyond inspected literature remains a residual risk.",
+    "residual_risks": [
+      "The scalar symmetric sine-circle two-cycle is part of general period-doubling theory; earlier sources not returned by the bounded search might derive some of its formulas.",
+      "A broader normal-form or coupled-map-lattice publication might already imply the explicit Fourier-mode optimization without naming the ring model.",
+      "Only inspected relevant portions of long sources; exhaustive historical priority and independent mathematics checks remain unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 5.6 covers h<2/Lambda_n=1/2 for even n. Proposition 4.1 identifies a -1 linear multiplier at 1/2. Section 7 explicitly does not address subsequent bifurcations. The supercritical two-cycle and optimal return spectral factor are not covered by these statements.",
+        "evidence": [
+          "Section 2.1 map formula (1)",
+          "Section 4 Proposition 4.1 and discussion after Corollary 4.4",
+          "Section 7 final paragraph on larger-strength bifurcations"
+        ],
+        "identifier_or_url": "arXiv:2610.19953v1 | https://arxiv.org/html/2610.19953",
+        "material_read": "Full displayed mathematical statements and proofs in Sections 2 and 4; relevant critical-set and small-ring passages in Sections 3 and 6; abstract, Introduction, Conclusion and References.",
+        "method": "Primary full-text HTML sections, equations, theorems and cited bibliography.",
+        "title": "Almost-global convergence to twisted states in discrete Huygens rings",
+        "trigger": "Exactly the same discrete repulsive n-cycle map and phase-opposition state."
+      },
+      {
+        "assessment": "Its principal exact criterion applies to h<1/lambda_max in a diffeomorphic regime, with main explicit network applications to paths and stars. It does not imply an attracting h>1/2 period-two orbit on even unweighted cycles.",
+        "evidence": [
+          "PDF page 1 abstract and MSC",
+          "PDF page 8 Theorem 4.1",
+          "PDF pages 15-17 network applications",
+          "PDF page 22 conclusion"
+        ],
+        "identifier_or_url": "arXiv:2610.10993v1 | https://arxiv.org/pdf/2610.10993",
+        "material_read": "PDF abstract and introduction, Theorem 4.1 and hypotheses, network applications in Section 5, Conclusions; visual inspection of the title/abstract page.",
+        "method": "Open-access primary PDF textual sections, math statements and page screenshot.",
+        "title": "Morse–Smale dynamics in discrete Huygens networks",
+        "trigger": "Same interaction type and network gradient method, plausible broader dynamical coverage."
+      },
+      {
+        "assessment": "General coupled circle-map models and numerical/mean-field collective period doubling are prior art, but do not provide this exact even-cycle branch, all-transverse Floquet spectrum, or optimal size-dependent damping law.",
+        "evidence": [
+          "Section 3 scalar sine circle map",
+          "Section 5.2 qualitative period-doubling observations and threshold discussion"
+        ],
+        "identifier_or_url": "doi:10.1088/1674-1056/acc062 | https://www.cpsjournals.cn/en/article/doi/10.1088/1674-1056/acc062",
+        "material_read": "Abstract, model construction in Section 2, two-map sine-circle reduction in Section 3, network discussion in Section 4, period-doubling mechanism in Section 5.2 and Conclusions.",
+        "method": "Primary open full-text article HTML including period-doubling discussion.",
+        "title": "Synchronization–desynchronization transitions in networks of circle maps with sinusoidal coupling",
+        "trigger": "Previous explicit discussion of discrete network period doubling and sine-circle-map reductions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a9c5e737-35a6-4eb3-a6f5-1b21c441f71a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 ring source terminates its almost-global convergence analysis exactly at the loss of stability of the physically distinguished phase-opposition state and leaves larger-strength bifurcations untreated. The new theorem identifies what coherent periodic attractor actually emerges, establishes sharp persistence in all transverse Fourier modes despite possible additional instabilities of the parent fixed point, and gives an exact finite-size optimal interaction step and n^-2 damping gap. This is a natural, structural, parameter-wide solution to the first supercritical regime rather than an arbitrary sample or merely a renamed generic flip normal form. It makes no inflated global-basin claim.",
+    "status": "PASS"
+  }
+}
