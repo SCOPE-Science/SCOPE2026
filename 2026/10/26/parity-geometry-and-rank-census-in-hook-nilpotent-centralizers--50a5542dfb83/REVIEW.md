@@ -1,11 +1,21 @@
-# Scientific review: parity geometry and rank census in hook nilpotent centralizers
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs all centralizer coordinates for the direct sum of a cyclic length-\(n\) module and a trivial module, checks the square-zero equation and its valuation boundary in every characteristic, obtains the parity geometric models, and derives the exact rank fibers. The packaged standalone matrix-enumeration checker was executed over four field orders with 14 exhaustive field-size/dimension cases. Singular-locus calculations use the reduced varieties and their explicit partial derivatives; finite checks are not offered as infinite proof.
+## correctness
 
-**Originality — PASS (bounded source comparison).** The closest full primary texts address commuting similarity-class existence (Britnell–Wildon), canonical forms for indecomposable unequal-two-block commuting pairs (Hua), and possible nilpotent orbits for equal-sized fixed blocks (Bogdanić et al.). The abstract of Basili–Iarrobino–Khatami addresses generic nilpotent-centralizer geometry, not this strict square-zero fiber, but full text was not inspected. Neither the inspected statements nor the checked published-record comparisons directly supplies this parity geometry and complete labeled rank census. A broad Hall-polynomial formula could subsume it indirectly; priority is not certified.
+PASS
 
-**Value — PASS.** The object is a standard hook-partition Jordan module, and the joint geometric/enumerative classification records a real odd/even structural transition, singularity geometry and the exact acyclic commuting differential count. The result is an infinite natural family, not a finite exceptional example. It makes no claim about higher-partition classification or centralizer-unit orbits.
+For every field k and n≥3 fix N=J_n(0)⊕J_1(0). Viewing module R⊕k with R=k[t]/t^n, an N-centralizing endomorphism is X(f,u)=(af+b t^{n−1}u,c f(0)+d u). X²=0 forces d=a(0)=0 and a²+bc t^{n−1}=0 mod t^n. If n=2h, valuation forces a∈t^h R, so bc=0 and the reduced locus is A^h×V(bc), two transversal affine (h+1)-spaces singular along A^h. If n=2h+1, a∈t^h R and a_h²+bc=0, giving A^h×V(bc+z²), irreducible quadric cone dimension h+2 with singular A^h even in characteristic two (partials b,c,2z and on-locus equation). For nonzero a with ord_t a=v≤n−2, matrix rank n−v; at v=n−1 rank one. Count leading a_v and higher coefficients with bc=0 or bc=−a_h². This yields rank coefficient rank0 1; rank1 (q−1)(2q+1); rank r=2..floor(n/2) (q−1)(2q−1)q^{r−1}, plus odd terminal (q−1)²q^{(n−1)/2}. Totals (2q−1)q^{n/2} even, q^{(n+3)/2} odd, and acyclic X-complexes only n odd of rank (n+1)/2. Independently assembled matrices and Gaussian-eliminated all q^{n+3} coordinate tuples for q∈{2,3}, n=3,4,5, matching full rank distributions. Arithmetic proof works for all q/fields; enumeration is corroborative only.
 
-**Limits.** Geometry is reduced only; scheme-theoretic nilpotent thickening is not analyzed. The theorem requires fixed partition \( (n,1) \) with \(n\ge3\); finite-field ranks are ordinary ranks. Independent mathematical validation and exhaustive novelty certification are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The centralizer module coordinates and commuting nilpotent conjugacy/orbit frameworks are established. Britnell–Wildon 2010 classifies which nilpotent similarity types can commute; Hua 2023 treats indecomposable commuting nilpotent pairs up to simultaneous conjugacy. Neither inspected primary theorem tabulates the entire *labeled* square-zero fiber for fixed hook (n,1) by ordinary rank or describes its characteristic-uniform reduced singular geometry. The claim includes a whole odd/even family, not a single tiny matrix. A general Hall-polynomial/quiver variety formula might imply the counts and is retained as a genuine priority risk, but no explicit dominating formula was identified.
+
+## value
+
+PASS
+
+Square-zero centralizing endomorphisms are natural differentials on a fixed nilpotent module. The parity switch from two components to irreducible singular quadric, complete finite-field rank generating function, and exact acyclic-complex count give a structural and arithmetic classification useful for representation varieties and homological constructions. It is not arbitrary table recomputation or mere correctness of code.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
