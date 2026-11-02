@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The threefold smoothness follows from five explicit gradients and a cyclic-product obstruction. For fixed points the projective eigenline equation reduces exactly to the fifth cyclotomic polynomial. For fixed lines six explicit defining equations yield the rational quadratic ideal and the special characteristic-five double point; their inclusion in the integral quadratic algebra is verified by exact symbolic reductions. Properness, finite fibers and Nakayama identify the whole integral fixed Fano scheme. Both tangent Jordan forms follow from the ambient five-cycle and the one-dimensional tangent to the fixed Fano scheme. The standalone exact script was extracted and executed, returning `VERIFY_OK`.
+## correctness
 
-**Originality: PASS, with residual risk.** Roulleau (arXiv:1001.4853, Section 3) already gives the cyclic automorphism and the complex Fano-surface geometry. Neither the inspected full preprint nor the targeted published and mathematical-record searches supplied the two integral scheme presentations or the characteristic-five local lengths. The prior statements about automorphisms and smooth Fano surfaces do not imply the precise scheme structures without additional computations. An equivalent calculation in finite-characteristic equivariant geometry may exist; this is an acknowledged search limitation.
+PASS
 
-**Value: PASS.** This is a naturally motivated, complete scheme-theoretic description of how a distinguished cyclic symmetry specializes on both a classical cubic threefold and the parameter surface of its lines. The simultaneous length-four and length-two fixed collisions recover the cyclotomic extension and its quadratic subfield, quantifying two distinct degenerations that a reduced fixed-point count misses. The tangent Jordan blocks establish that the behavior is genuinely modular and not simply four/two distinct points relabeled.
+For X=V(sum x_i^2 x_{i+1}) over Z_(5), nonzero common partial derivatives force (-2)^5=1, false in Q and F5. Fixed projective eigenlines of the cyclic 5-permutation give t^5=1 and cubic restriction t Phi_5(t), hence precisely Phi_5=0. In the invariant-line Grassmann chart, independently built recurrence x_{i+2}=-a x_{i+1}-b x_i, four cubic coefficients and two T^5-1 remainder coefficients yield Groebner basis (b-1,a^2-a-1) over Q and in F5. Every geometric invariant 2-plane lies on this chart, with unique special-fiber 2-plane; finiteness, flat quadratic subscheme and Nakayama rule out extra torsion. Eisenstein shifts and discriminants 125/5 give lengths 4/2. The tangent representations follow from quotienting the regular unipotent Jordan 5-block; n=3 and 2 blocks. Independent symbolic computations corroborated all finite algebraic identities, not projective finiteness.
 
-The result is limited to the specified order-five subgroup and integral Klein model. The general complex automorphism computation is not claimed as new. An independent literature and mathematical audit would be useful before publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Roulleau describes the same Klein cubic and an order-five coordinate symmetry, its Fano surface and period lattice. The materially inspected primary preprint does not state the integral scheme-theoretic equalizers, F5 collision lengths or tangent Jordan sizes. The classical Altman-Kleiman Fano scheme framework does not by itself evaluate these two fixed schemes. Similar calculations in unindexed arithmetic geometry remain possible.
+
+## value
+
+PASS
+
+Order-five automorphisms of the Klein cubic and induced Fano surface are classical natural objects; simultaneous ramification of two intrinsic fixed schemes over the residue characteristic is a motivated exact geometric classification, and the 4 versus 2 nilpotent lengths distinguish the threefold from its Fano surface.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
