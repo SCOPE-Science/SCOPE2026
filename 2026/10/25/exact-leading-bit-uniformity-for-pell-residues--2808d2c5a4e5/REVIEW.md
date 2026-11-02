@@ -1,19 +1,21 @@
-# Scientific review: exact leading-bit uniformity for Pell residues
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The recurrence matrix is explicit. The base congruence at exponent four is checked directly, and the squaring induction uses the exact fact that the fixed matrix \(B\) has even square. This yields \(\nu_2(P_{n+d}-P_n)=\nu_2(d)\) whenever \(4\mid d\). Within each index class modulo \(2^{k-r}\), this valuation identity makes the \(2^r\) values pairwise distinct modulo \(2^k\); all share the same residue modulo \(2^{k-r}\), so they exhaust that residue class. Counting classes proves the stated exact interval multiplicities for every permitted \(k,r\). Finite checks are supplementary only.
+PASS
 
-## Originality — PASS, with a named literature risk
+For k>=3 and 1<=r<=k-2 the proof establishes the valuation identity nu_2(P_{n+d}-P_n)=nu_2(d) whenever d is a positive multiple of 4. A=[[2,1],[1,0]] satisfies A^4=I+4B modulo 16 with B=[[3,3],[3,1]], B² even; lifting gives A^{2^s}=I+2^s B modulo 2^{s+2} for all s>=2. For index classes n=a+j2^{k-r}, pairwise residue differences have exactly valuation k-r+nu_2(j-j'), so the 2^r residues exhaust their shared class modulo 2^{k-r}; each top-r-bit bin receives one hit for each a. Independent iteration checked all 45 admissible (k,r) pairs k=3..11. The top-(k-1)-bit boundary k=4 is not uniform. This finite verification is not the all-k proof.
 
-The accessible primary literature inspected treats Pell sums, recurrence periods, and modular-period relations, not the full leading-bit distribution. The later Pell-prefix discussion states a one-bit toggle, while the present statement covers every \(r\le k-2\). The prior all-state cycle census concerns cycles of pairs, a distinct invariant. The 2015 Pell-period article was not fully inspected through a verified lawful OA/official route, and a broader 2-adic recurrence theorem could imply this result; those remain explicit risks rather than a claim of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-Exact uniformity of every allowed leading-bit prefix is a natural and stronger statistic than the one-bit balance alone. The boundary \(r=k-1\) can fail, already at modulus \(16\), so the proven range has mathematical content. The result gives a concise structural explanation for a full-block digital distribution property of a classical recurrence and does not overclaim short-prefix equidistribution.
+The related Pell papers and recurrence database record periods and terms, not this exact first-coordinate top-bit frequency over the specific 2^k index block; a MathOverflow discussion contains the one-bit special case only. More general 2-adic isometry results could imply the claim and remain a priority risk; passing originality is qualified.
 
-## Closest literature and limitations
+## value
 
-The relevant comparison sources are the 2016 Pell-sum preprint, the 2016 open-access Pell-polynomial period paper, the 2015 Pell-period article record, the Pell sequence entry A000129, and a later discussion of Pell-prefix distribution. The 2015 article's full text remains an access limitation. The theorem is confined to \(0\le n<2^k\) and \(1\le r\le k-2\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the exact finite full-block leading-bit frequencies of the natural classical Pell recurrence for every permitted dyadic resolution; not merely periods or an asymptotic equidistribution assertion. Provides an explicit 2-adic isometry mechanism that future modular recurrence questions can reuse, with a sharp excluded boundary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
