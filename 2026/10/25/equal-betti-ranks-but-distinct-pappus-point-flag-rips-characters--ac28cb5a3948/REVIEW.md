@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Full finite simplex enumerations give point and flag face vectors `(18,81,108,18)` and `(27,162,270,135,27)`. Exact mod-two boundary ranks `(17,64,18)` and `(26,136,108,27)` imply reduced rational homology only in degree two, of rank 26 by Euler characteristic and connectedness. All 216 automorphisms were enumerated, and the complete signed simplicial Lefschetz sums were recomputed by the packaged verifier. Distinct traces at 27 automorphisms rigorously establish inequivalence of representations.
+## correctness
 
-## Originality
-PASS with bounded-library residual risk. Two accessible full published Pappus vertex-Rips classifications were inspected: both cover the known point-space homotopy type but neither the edge/flag Rips complex or its automorphism character. Adamaszek's line-graph theorem concerns a different radius-one construction; the radius-two line-graph claim is not a special case of that theorem. Targeted published-record searches for Pappus flags, line graph Rips, automorphism actions, and equivalent character formulations yielded no implication of the stated character table. Differently indexed results remain possible.
+PASS
 
-## Mathematical value
-PASS. Pappus is a distinguished finite point–line incidence configuration with a nontrivial order-216 automorphism group. Identical 26-dimensional second rational homology for point and flag samples cannot detect the 27 involutions separating their representations. The complete character table is a natural, precise invariant of a canonical construction rather than an arbitrary parameter slice. This may inform equivariant topological data analysis of incidence graph samplings; that potential application is not claimed as a theorem.
+For the explicitly specified unweighted 18-vertex cubic bipartite Pappus graph and its 27-vertex line graph, independently generated all graph-distance<=2 cliques. Complete finite face vectors: (18,81,108,18) and (27,162,270,135,27); independent F2 simplicial differential ranks (17,64,18) and (26,136,108,27). Reduction mod 2 bounds Q ranks from below, and connectedness plus Euler characteristic 27 yields rational H2 dimension 26 and no other reduced rational homology. Independently enumerated all 216 Pappus automorphisms and signed fixed-simplex Lefschetz sums; full 12 character classes agree with submitted table, exactly 9 side-preserving involutions with (-10,2) and 18 side-exchanging with (2,-4) distinguish the actions. A finite exact exhaustive computation is appropriate for this one graph; no integral torsion or homotopy equivalence of Y is concluded.
 
-## Residual limitations
-No integral equivalence or torsion statement is proved for the flag Rips complex. Searches and full-text inspections cannot establish universal priority. No independent external audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novel fact is an exact 216-element point-versus-edge Rips character comparison at inclusive distance two, not the previously known ordinary 26-sphere point-complex homotopy or standard Lefschetz identity. No searched earlier full-group character table implies it.
+
+## value
+
+PASS
+
+The Pappus configuration is a canonical symmetric finite incidence geometry. Matching ordinary Betti ranks may conceal a genuine representation obstruction: the explicit complete 216-automorphism rational trace fingerprint identifies precisely which involutions distinguish point from incident-flag metric sampling. This is a natural exact equivariant invariant rather than an arbitrary small-case determinant. Finite scope is explicit and self-contained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
