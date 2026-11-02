@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:12:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For a fixed configuration a disagreement across a rung forces both horizontal neighbors to match each endpoint, propagating an oriented mismatch across every rung, impossible across the swapped Möbius seam; fixed points are cyclic binary words without isolated bits. Their four-state adjacent-pair transfer gives the Lucas-plus-period-six trace Q_n. For recurrence, the standard symmetric-graph parallel-majority theorem bounds periods by two. The paired-time four-bit-column local rule is encoded as a 256-state transfer with row-swap S at the seam, hence P_n=tr(T^n S). Independently regenerated all allowable 256-state transitions, computed cyclic SCC sizes 16,8,8,2,1,1 and the invariant component characteristic polynomial; the swap excludes the exchanged components. The characteristic factors and sign twist imply the displayed all-n formulas. Independently applied majority directly to every labelled configuration for 3<=n<=9 and confirmed all Q_n,P_n, including n=4 Q=6,P=48 and n=9 Q=74,P=5476. Exact finite-matrix algebra and the period-two theorem—not finite width extrapolation—support the unbounded n classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general period-two theorem applies to majority dynamics on undirected graphs but supplies no exact periodic-state counts.",
+          "Turau 2022 gives fixed/two-cycle structures for trees, which lack the Möbius ladder cycle and twist."
+        ],
+        "reasoning": "General dynamical-period coverage is not broader enumerative coverage; the particular all-n transfer trace is not an automatic corollary of absence of periods >2.",
+        "searches": [
+          "arxiv:1405.2486",
+          "arxiv:2202.01580",
+          "Goles Olivos 1980 periodic behaviour generalized threshold functions"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1405.2486",
+        "arxiv:2202.01580",
+        "doi:10.1016/0012-365X(88)90005-2",
+        "doi:10.1016/S0012-365X(97)00086-1",
+        "Resultary semantic search: synchronous majority dynamics Mobius ladder recurrent states fixed points two cycles parity Lucas"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The no-isolated-symbol formula gives only fixed configurations Q_n.",
+          "The sum of twisted traces of swap-invariant SCCs gives the claimed P_n formula, a different dynamical counting problem."
+        ],
+        "reasoning": "Neither fixed words nor the existence of two-cycles determines exact labelled two-cycle totals. No inspected primary theorem implies P_n=Q_n² in the odd regime.",
+        "searches": [
+          "doi:10.1016/0012-365X(88)90005-2",
+          "arxiv:2202.01580",
+          "doi:10.1016/S0012-365X(97)00086-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known no-isolated-symbol cyclic-word counts reproduce Q_n but not P_n.",
+          "General period-two theorem restricts orbit lengths but does not count recurrent states."
+        ],
+        "reasoning": "Equivalent fixed-point word formulations are credited; the pair-time twisted trace is additional information, with a parity-sensitive squared relation specific to crossed seam.",
+        "searches": [
+          "synchronous majority dynamics Mobius ladder recurrent states fixed points two cycles parity Lucas",
+          "Agur Fraenkel Klein number fixed points majority rule 1988",
+          "Mobius ladder synchronous majority automata period 2 trace"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary Möbius ladder hit counts perfect-matching-complex homology, not majority recurrence.",
+          "A comparable untwisted four-rung prism has 64 period-dividing-two states whereas the twisted Möbius ladder has 48."
+        ],
+        "reasoning": "Known graph-structure counts or untwisted tables cannot substitute for a row-swap-dynamics exact census; McSorley full catalogue remains uninspected.",
+        "searches": [
+          "synchronous majority dynamics Mobius ladder recurrent states fixed points two cycles parity Lucas",
+          "Resultary:2026/10/11/SCOPE-rotation-has-order-two-or-four-on-m-bius-ladder-perfect-matching--3551187dd347",
+          "McSorley 1998 Counting structures in Mobius ladder"
+        ]
+      },
+      "rationale": "PASS, qualified: Goles–Olivos establish the general synchronous majority period-at-most-two theorem and Agur–Fraenkel–Klein the cyclic no-isolated-bit fixed-point count in a related local model. Neither constitutes the row-swap twisted 256-state recurrent-state census for Möbius ladders. Turau treats chiefly trees and Benjamini et al broad asymptotic questions; untwisted circular prisms differ already at four rungs. The plausible 1998 McSorley Möbius-ladder structure paper was read only at abstract/bibliographic level and remains a priority risk.",
+      "residual_risks": [
+        "McSorley 1998 full text and unindexed Möbius-ladder cellular automata tables may contain the same or dominating count.",
+        "The period-two dynamical theorem is assumed under symmetric strict-majority update and does not extend to arbitrary directed/non-symmetric rules."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Tree-specific characterizations do not apply directly to cyclic Möbius ladders",
+          "evidence": [
+            "Main tree fixed-point and 2-cycle theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.01580",
+          "material_read": "Primary PDF model, main results and relevant tree restrictions",
+          "method": "Read arXiv PDF text and inspected page image",
+          "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+          "trigger": "Closest exact recurrent-state graph dynamics literature"
+        },
+        {
+          "assessment": "Provides antecedent for Q_n, no confirmed Möbius-ladder P_n classification",
+          "evidence": [
+            "Fixed-point count connection to binary no-isolated-symbol words"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(88)90005-2",
+          "material_read": "Bibliographic data and accessible portions describing cyclic majority fixed-word count",
+          "method": "Compared specific fixed-state statistic, not a full-primary noncoverage claim",
+          "title": "The number of fixed points of the majority rule",
+          "trigger": "Previously known fixed-word formula"
+        },
+        {
+          "assessment": "Historical overlap risk retained; no whole-paper not-covering assertion",
+          "evidence": [
+            "Title and general graph-structure census scope"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(97)00086-1",
+          "material_read": "Title and accessible abstract, not complete paper",
+          "method": "Bibliographic search only; full text unavailable",
+          "title": "Counting structures in the Möbius ladder",
+          "trigger": "Same exact graph family and possible hidden enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Recurrent-state counts in an infinite natural family of cubic vertex-transitive graphs are motivated dynamical invariants. The odd n identity P_n=Q_n² and even Lucas corrections expose a nontrivial topological boundary-twist parity effect that the general period-two theorem misses, giving complete primitive two-cycle counts for each n, not an arbitrary finite test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only open-neighbourhood synchronous strict majority and labelled Möbius ladder M_{2n}, n>=3.",
+    "No transient depth or attraction basin sizes.",
+    "Historical priority caveat from inaccessible graph-enumeration paper."
+  ],
+  "schema_version": 1
+}

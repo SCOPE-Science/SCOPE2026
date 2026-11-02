@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed counts are proved by the finite-graph period-two theorem together with a bijective two-time transfer encoding with a row-swapped seam. The transfer graph and its invariant/anti-invariant characteristic polynomials were reconstructed in exact symbolic arithmetic by the included script. In particular the swapped size-eight components contribute nothing: a twisted path must stay in a swap-invariant strongly connected component. The fixed-point reduction to no-isolated-bit cyclic words is independently justified by propagation of a rung disagreement. Direct vertex-level enumeration of all states for \(3\le n\le11\) corroborates the formulas; these finite tests alone are not the infinite proof.
+## correctness
 
-## Originality — PASS, bounded comparison
-Goles–Olivos established eventual period at most two, and Agur–Fraenkel–Klein explicitly enumerated no-isolated-symbol cyclic words; neither result yields the exact recurrent-state census for Möbius ladders. The general majority studies of Benjamini et al. and the tree classifications of Turau are not statements about this graph family. An accessible prior census for untwisted circular prisms is not applicable at the crossed seam: with four rungs the two recurrent-state totals are \(64\) and \(48\). McSorley's 1998 Möbius-ladder graph-enumeration paper is a residual overlap risk because the available abstract alone cannot establish which structures its full text counts. No independent novelty certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The principal result is an exact attractor census for an infinite, natural family of cubic vertex-transitive graphs, not just a small graph calculation. The exact parity law \(P_n=Q_n^2\) for odd widths versus \(P_n=L_n^2-1\) or \(L_n^2+2\) for even widths reveals a boundary-twist phenomenon invisible from the known period-two existence theorem or from the one-dimensional fixed-word count. It provides exact primitive two-cycle counts at every system size, relevant to recurrent-state capacity in Boolean network dynamics. No basin-size or transient claim is made.
+PASS: For a fixed configuration a disagreement across a rung forces both horizontal neighbors to match each endpoint, propagating an oriented mismatch across every rung, impossible across the swapped Möbius seam; fixed points are cyclic binary words without isolated bits. Their four-state adjacent-pair transfer gives the Lucas-plus-period-six trace Q_n. For recurrence, the standard symmetric-graph parallel-majority theorem bounds periods by two. The paired-time four-bit-column local rule is encoded as a 256-state transfer with row-swap S at the seam, hence P_n=tr(T^n S). Independently regenerated all allowable 256-state transitions, computed cyclic SCC sizes 16,8,8,2,1,1 and the invariant component characteristic polynomial; the swap excludes the exchanged components. The characteristic factors and sign twist imply the displayed all-n formulas. Independently applied majority directly to every labelled configuration for 3<=n<=9 and confirmed all Q_n,P_n, including n=4 Q=6,P=48 and n=9 Q=74,P=5476. Exact finite-matrix algebra and the period-two theorem—not finite width extrapolation—support the unbounded n classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified: Goles–Olivos establish the general synchronous majority period-at-most-two theorem and Agur–Fraenkel–Klein the cyclic no-isolated-bit fixed-point count in a related local model. Neither constitutes the row-swap twisted 256-state recurrent-state census for Möbius ladders. Turau treats chiefly trees and Benjamini et al broad asymptotic questions; untwisted circular prisms differ already at four rungs. The plausible 1998 McSorley Möbius-ladder structure paper was read only at abstract/bibliographic level and remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Recurrent-state counts in an infinite natural family of cubic vertex-transitive graphs are motivated dynamical invariants. The odd n identity P_n=Q_n² and even Lucas corrections expose a nontrivial topological boundary-twist parity effect that the general period-two theorem misses, giving complete primitive two-cycle counts for each n, not an arbitrary finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
