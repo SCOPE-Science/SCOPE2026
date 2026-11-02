@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs the exact one-sided finite-difference perturbation, computes its Haar covariance from 15 sixth-moment pairings, applies Cauchy--Schwarz to each spectral two-step noise, constructs a simultaneously attaining spectral orthogonal reflection, and sums independent centered blocks at all finite even horizons. Strict spectral stability gives unique even-chain stationary law. All rational identities and supplementary Haar simulations passed the shipped Python checker. The result makes no finite-testing-to-infinite-proof leap; cross-block dependence and noisy functions are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rando et al. arXiv:2206.05124 gives convergence analysis for stochastic zeroth-order descent with structured directions, not an exact all-Haar-couplings spectral lower bound.",
+        "Kühn and Rosenow arXiv:2306.05300 studies epoch-generated temporal anticorrelation for stochastic gradient noise; only abstract inspected and specialist equivalence cannot be excluded."
+      ],
+      "reasoning": "General stochastic-gradient temporal correlation results need not imply a constrained optimal coupling of one-sided Haar full-frame estimator noise. No stronger all-coupling theorem was located; the incompletely accessed SGD paper remains a residual priority risk.",
+      "searches": [
+        "Optimal coupling of orthogonal Haar frames in consecutive forward finite-difference gradient descent steps on SPD quadratic; spectral reflection sign I-stepsize Hessian minimizes stationary variance",
+        "Correlated randomized gradient direction per-step marginals preserving variance optimal deterministic spectral reflection coupling diagonal Hessian",
+        "stationary error floor full orthonormal finite difference gradient method quadratic objective Haar random basis stepsize",
+        "arXiv:2206.05124 full text",
+        "arXiv:2306.05300 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2107.03941, article HTML and first-submission date 2021-07-08",
+      "arXiv:2205.14737, public article text and first-submission date 2022-05-29",
+      "arXiv:2206.05124, public article text and first-submission date 2022-06-10",
+      "arXiv:2306.05300, abstract and first-submission date 2023-06-08",
+      "Published mathematical research similarity search: record Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent",
+      "Published mathematical research similarity search: record Exact stationary covariance and stability factorization for constant-template STORM"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kozak et al. use independent frames: their risk bounds allow correlated-frame effects but do not yield the sharp pairwise lower bound and construction.",
+        "Feng and Wang obtain moment/variance control from directions sampled within an estimator; exact central differencing of a quadratic removes this forward-difference noise.",
+        "The six-index Haar moment and Cauchy--Schwarz are classical, so these ingredients alone are not claimed as original."
+      ],
+      "reasoning": "A one-step marginal covariance formula alone cannot determine the two-step risk: its missing parameter is the cross-covariance. This claim quantifies all feasible cross-covariances through a lower bound attained simultaneously by a Hessian-spectral orthogonal left action. The conclusion is not a numerical corollary of the cited independent-frame studies.",
+      "searches": [
+        "stochastic two-point gradient estimation orthogonal directions isotropic Hessian exact error formula",
+        "2205.14737 Feng Wang stochastic zeroth order gradient Hessian variance orthogonal Stiefel",
+        "paired random frames derivative-free descent covariance coupling optimal reflected steps",
+        "arXiv:2107.03941, arXiv:2205.14737, arXiv:2206.05124"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kozak et al. arXiv:2107.03941, Algorithm 1 uses independently sampled P_k and Section 4.2 explicitly defers quadratic tailored analysis.",
+        "Feng and Wang arXiv:2205.14737 centers perturbations; quadratic centered differences have a different error law."
+      ],
+      "reasoning": "The present theorem preserves a Haar marginal at each time but optimizes its cross-time coupling. In contrast, the one-step covariance literature does not assert the all-coupling lower bound for the two-step recurrence. Central-difference and independent-frame formulations are not equivalent without changing the estimator or its dependence.",
+      "searches": [
+        "orthogonal random directions derivative-free gradient finite difference noisy oracle mean square error exact cubic bias independent directions",
+        "Haar frame coupling across iterations coordinate sign reflection derivative-free optimization quadratic stationary variance",
+        "one-sided finite difference random orthogonal basis consecutive iterations antithetic gradient noise quadratic coupling spectral",
+        "arXiv:2107.03941 Sections 2, 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available Haar sparse-SSD record gives second-moment contraction for projected exact directional derivatives, not the sixth-moment forward-difference additive noise.",
+        "The constant-template STORM record calculates a scalar additive-noise stationary covariance but does not constrain Haar full-frame marginals or optimize pairwise coupling."
+      ],
+      "reasoning": "No exact matching table, database row, or equivalent implication was located in the actual searches. This is evidence of comparison rather than a uniqueness proof.",
+      "searches": [
+        "One-sided zeroth order orthogonal random directions finite difference stochastic gradient with dependent antithetic consecutive frames and optimal mean square noise floor",
+        "2107.03941 Kozak Molinari Rosasco Tenorio Villa quadratic finite difference random orthogonal direction convergence",
+        "Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent",
+        "Exact stationary covariance and stability factorization for constant-template STORM"
+      ]
+    },
+    "rationale": "The exact fixed-marginal all-coupling two-step spectral minimax property is not implied by the independently sampled orthogonal-direction estimates in the inspected literature, nor by existing related mathematical records; the source explicitly defers specialized quadratic analysis. A prior equivalent specialized theorem remains possible. This is a qualified same mathematical model literature judgement, not certification of priority.",
+    "residual_risks": [
+      "Only the abstract of arXiv:2306.05300 was accessible; no full-text noncoverage assertion is made.",
+      "Earlier specialized coupled-perturbation or antithetic-gradient work could contain an equivalent theorem despite distinct titles.",
+      "Full-frame source formulations were read only in available lawful text and external searches are not exhaustive.",
+      "No independent scientific or priority validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly motivating, not covering pairwise fixed-marginal optimality",
+        "evidence": "Independent sampling in Algorithm 1; Section 4.2 explicitly leaves tailored convergence of quadratics for future analysis.",
+        "identifier_or_url": "https://arxiv.org/html/2107.03941v2",
+        "material_read": "Algorithm and proof assumptions, Sections 2 and 4.2 including specific future-work paragraph, accompanying full HTML search",
+        "method": "Read public full HTML and locate sampling dependence, quadratic discussion and variance results",
+        "title": "Zeroth order optimization with orthogonal random directions",
+        "trigger": "Exact one-sided orthogonal-direction algorithm and explicit quadratic-analysis gap"
+      },
+      {
+        "assessment": "Different centered estimators and one-time variance; no covering two-step optimality identified",
+        "evidence": "Central symmetric evaluations and Stiefel directions, not the full-frame one-sided additive-noise recurrence.",
+        "identifier_or_url": "https://arxiv.org/abs/2205.14737",
+        "material_read": "Accessible text/sections detailing estimator definitions, results, centered finite differences and variance",
+        "method": "Read returned public full text and search for temporal coupling, independent sampling, antithetic and covariance",
+        "title": "Stochastic Zeroth Order Gradient and Hessian Estimators: Variance Reduction and Refined Bias Bounds",
+        "trigger": "Orthogonal-frame zeroth-order gradient/Hessian variance may dominate exact Haar moment computation"
+      },
+      {
+        "assessment": "Rates for stochastic structured directions do not imply full fixed-marginal temporal-coupling optimum",
+        "evidence": "Convergence analysis for stochastic directions rather than all-coupling two-step spectral variance exactness.",
+        "identifier_or_url": "https://arxiv.org/abs/2206.05124",
+        "material_read": "Public returned article text, definitions and convergence statements",
+        "method": "Read and compare sampling, iteration update, and rate coverage",
+        "title": "Stochastic Zeroth order Descent with Structured Directions",
+        "trigger": "Possible stronger structured stochastic zeroth-order descent theorem"
+      },
+      {
+        "assessment": "Related mechanism; coverage of specific Haar estimator not verified; residual priority risk recorded",
+        "evidence": "Study of epoch-induced correlated SGD noises and parameter variances, not a demonstrated full Haar-frame fixed-marginal optimization theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.05300",
+        "material_read": "Abstract only; complete paper unavailable in the bounded public access attempt",
+        "method": "Inspect source abstract and compare object, randomization mechanism, and claimed conclusion",
+        "title": "Correlated Noise in Epoch-Based Stochastic Gradient Descent: Implications for Weight Variances",
+        "trigger": "Temporal anticorrelation in SGD might cover a stronger related result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "654d1d9d-1500-4e7b-b369-8574a1e6fb55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating structured zeroth-order algorithm leaves tailored quadratic analysis open, and persistent forward-difference noise matters even for a full orthogonal frame. The theorem completely determines the exact best stationary risk against every Haar-marginal within-block coupling, modewise and simultaneously, with a nontrivial sign-change frontier and mixed-sign counterexample to uniform-frame pairing. This is a mathematical coupling benchmark even though Hessian spectral information may make the attaining design costly in practice.",
+    "status": "PASS"
+  }
+}
