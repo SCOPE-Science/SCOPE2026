@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:12:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob fcdc893fa2c0a604fae69a3a27e687ac614bc371 Fourier-asymptotic argument and uniform error",
+        "Frozen verify.py blob 6cab3644bb4a04bffe1a412fcce6cd995df6ac98 read and checked normalization/tolerances",
+        "Independent mpmath oscillatory cosine quadrature at 40-45-digit working precision"
+      ],
+      "rationale": "PASS: Fourier normalization gives psi_2(t,x)=exp[-x²/(4(1+it))]/sqrt[2(1+it)]. For epsilon=2-alpha>0 the first-order variation of exp[-it|p|^alpha] is +it epsilon |p|² log|p|; the even Fourier transform has algebraic coefficient it sqrt(2pi) epsilon x^-3. The full proof controls the second-order difference uniformly at x comparable to sqrt(L), L=log(1/epsilon), using differentiation under the Gaussian integral, a near-zero dyadic partition and repeated integrations by parts; the remainder is lower than the leading wing by the necessary logarithmic factor. Defining y-3/2 log y=L+log[4(1+t²)^(5/4)/(sqrt(pi)t)]+s balances Gaussian modulus with the algebraic wing. The complex Gaussian phase gives theta=pi/2+atan(t)/2, and as y runs continuously to infinity the phase -ty covers infinitely many turns. Hence normalized intensity has the stated envelopes. An independent 40-digit cosine quadrature at t=.7,epsilon=10^-4 gave observed difference/Gaussian about -.65524-.94590i versus leading prediction -.66264-.74894i (absolute error .1971); separate logarithmic-Fourier derivative quadratures at x=14,17 gave respective leading-coefficient ratios 1.0633+.0503i and 1.0400+.0552i. These checks corroborate, not prove, uniform limits.",
+      "residual_risks": [
+        "The uniform second-order remainder is the nonstandard analytic step; dyadic integration by parts requires maintaining integrability and uniformity as alpha approaches 2.",
+        "A finite epsilon value cannot establish the sharp limsup/liminf of continuously rotating phase."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Antar–Bakirtas–Horikis (2026), full-text Section 5, analyze nonlinear amplified similariton near and far tails, with numerical alpha=1.8 profiles.",
+          "Zhang et al. (2016), full PDF Sections II-III, give Gaussian beam propagation in the free fractional model, mostly at alpha=1."
+        ],
+        "reasoning": "Broader physical wave classes do not dominate a sharp free Gaussian epsilon-to-zero theorem merely because they share alpha or tail terminology. No examined theorem has the exact logarithmic centering, time-dependent winding phase or sharp two-sided envelopes.",
+        "searches": [
+          "doi:10.1017/jnw.2026.10049",
+          "arxiv:1512.08671",
+          "fractional Schrödinger Gaussian momentum packet alpha approaches two algebraic tail Gaussian crossover interference oscillations logarithmic scale"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1512.08671v3 free Gaussian diffraction paper, PDF Sections I-II",
+        "doi:10.1017/jnw.2026.10049 full nonlinear tail sections",
+        "arxiv:1802.00612 stable tails abstract only",
+        "Resultary query: fractional Schrödinger Gaussian momentum packet alpha approaches two algebraic tail Gaussian crossover interference oscillations logarithmic scale"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2016 free order-one approximation predicts split packets, while the 2026 nonlinear article reports oscillations of the near-tail and polynomial far-tail fits.",
+          "The audited result resolves a different fixed-time limit alpha up to 2 and establishes the limit-sup/limit-inf intensity ratio analytically."
+        ],
+        "reasoning": "Qualitative oscillations and known algebraic tails do not imply the specific moving window or e^s phase-amplitude formula. No located stronger theorem explicitly covers both the limiting order and spatial scale.",
+        "searches": [
+          "doi:10.1017/jnw.2026.10049",
+          "doi:10.1038/srep23645",
+          "fractional Schrödinger Gaussian momentum packet alpha approaches two algebraic tail Gaussian crossover interference oscillations logarithmic scale"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A fractional propagator on a Gaussian packet is equivalent to an oscillatory Fourier integral with multiplier exp(-it|p|^alpha).",
+          "Zhang et al. (2016) treat free Gaussian beams but derive approximate splitting at alpha=1, not the alpha-up-to-2 and x~sqrt(log(1/epsilon)) regime."
+        ],
+        "reasoning": "Equivalent beam or quantum notation does not imply the matched near-classical tail phase result; the long-distance and small-order-defect limits must be taken jointly, and ordinary fixed-alpha tails do not determine their crossover.",
+        "searches": [
+          "fractional Schrödinger Gaussian momentum packet alpha approaches two algebraic tail Gaussian crossover interference oscillations logarithmic scale",
+          "fractional Schrödinger Gaussian packet alpha near 2 algebraic tail interference phase double scaling",
+          "arxiv:1512.08671"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 nonlinear similariton article provides illustrative plots and fitted algebraic tails, not a uniform analytic scaling formula.",
+          "Resultary search returned other logarithmic crossover or Gaussian problems, not the same wave-packet double limit."
+        ],
+        "reasoning": "Finite plots and fitted exponents cannot certify a universal joint asymptotic interference law or identify the O(1) centering constant; no exact database or table was found that yields this claim.",
+        "searches": [
+          "fractional Schrödinger Gaussian momentum packet alpha approaches two algebraic tail Gaussian crossover interference oscillations logarithmic scale",
+          "fractional quantum Gaussian alpha to 2 transition profile numerical table near-tail 2026"
+        ]
+      },
+      "rationale": "PASS qualified: the closest 2026 primary treatment examines fractional nonlinear amplified similaritons, near-tail oscillations and power-law fitting; it includes a free-packet illustration but not a rigorous moving double limit of the free Gaussian Fourier integral with exact logarithmic centering and complex phase. The 2016 free Gaussian-beam paper focuses on order-one dispersion and diffraction-free propagation, also not this alpha-up-to-two asymptotic. General Fourier boundary-layer results could cover the structure under different notation; this is an identified residual risk.",
+      "residual_risks": [
+        "A general oscillatory-integral asymptotic theorem may entail the exact double-scaling profile implicitly.",
+        "The 2026 physical near-tail plots are qualitatively related, and special cases must not be overstated as independent discoveries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_PHYSICS_NOT_COVERING_EXACT_FREE_LIMIT",
+          "evidence": "Contains near-tail oscillations and algebraic far-field fitting but uses nonlinear/gain evolution; no alpha-to-two moving Gaussian/wing phase theorem in inspected sections.",
+          "identifier_or_url": "https://doi.org/10.1017/jnw.2026.10049",
+          "material_read": "Full Cambridge HTML, sections on model and Section 5 near tails, Fig. 17 and alpha=1.8 fitting",
+          "method": "Publisher full-text HTML",
+          "title": "Similaritons and tail formation in the fractional non-linear Schrödinger equation",
+          "trigger": "Closest named nonlinear fractional similariton and tail formation"
+        },
+        {
+          "assessment": "RELATED_ORDER_ONE_ENDPOINT",
+          "evidence": "Uses free Gaussian propagation with alpha=1 approximations and linear beam splitting; does not derive alpha approaching two matched interference.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.08671",
+          "material_read": "Full accessible PDF, abstract, Sections I-II and equations (1)-(6), plus page-3 screenshot",
+          "method": "OA PDF text and visual page inspection",
+          "title": "Diffraction-free beams in fractional Schrödinger equation",
+          "trigger": "Free fractional propagation of Gaussian packets could dominate the claimed crossover"
+        },
+        {
+          "assessment": "NOT_DECISIVE_FULL_TEXT_UNREAD",
+          "evidence": "Asymptotic tails of positive stable densities are conceptually related, but the complex Schrödinger phase and normalized Gaussian interference were not established by the material read.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.00612",
+          "material_read": "Accessible abstract and bibliographic description only",
+          "method": "OA abstract comparison",
+          "title": "Stable-distribution tail comparisons",
+          "trigger": "Potential general power-law tails of stable kernels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Free fractional Gaussian wave integral in frozen RESULT.md",
+        "2016 free Gaussian beam primary paper",
+        "2026 nonlinear similariton near-tail primary paper"
+      ],
+      "rationale": "PASS: Fractional dispersion produces a spatial algebraic wing that cannot be detected by taking alpha up to 2 at fixed x. Locating where it overtakes the classical Gaussian and giving an exact second-order logarithmic center and coherent interference envelopes answers a motivated noncommuting-limits question. The phase winding and sharp intensity oscillation are qualitative predictions beyond rederiving a stable-tail exponent.",
+      "residual_risks": [
+        "Only the free linear model, fixed t>0 and a chosen Gaussian packet; no assertion about nonlinear waves, all times, or spatial dimensions beyond one."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A finite set of quadratures is not an analytic proof of the O(1/log epsilon) estimate or infinite oscillations.",
+    "No claim of novelty for standard Fourier-tail formulas, scalar stable-density exponents or nonlinear similarly named papers."
+  ],
+  "schema_version": 1
+}

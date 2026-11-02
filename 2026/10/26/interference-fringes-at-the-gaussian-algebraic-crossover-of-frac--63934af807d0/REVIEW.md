@@ -1,15 +1,21 @@
-# Scientific review: Gaussian–algebraic fractional packet crossover
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim refers to a normalized Gaussian momentum envelope and the self-adjoint multiplier \(|P|^\alpha\), with fixed positive time, explicitly centered spatial positions and uniform compact-parameter error. The proof obtains the first parameter variation with a Fourier power/logarithm identity and bounds the second variation by a uniform dyadic integration-by-parts estimate. The implicit centering cancels the nontrivial amplitude exactly; the Gaussian complex phase then yields interference and its sharp limit superior and inferior. Thirty-eight numerical assertions from the packaged verification program corroborate the Fourier normalization, order derivative, crossover error decrease, and algebraic tail coefficient. Numerical checks are not the proof of any infinite limit.
+## correctness
 
-## Originality
-**PASS on currently inspected evidence, not independently certified.** Antar–Bakırtaş–Horikis, DOI 10.1017/jnw.2026.10049, demonstrate an algebraic exponent and a qualitative near-classical crossover for *nonlinear amplified similaritons*, and contain a free-packet illustration, but no exact moving Gaussian/wing amplitude or phase law. Solaimani (2025), DOI 10.1038/s41598-025-87001-y, studies scattering and wave-packet splitting; Zhang et al. (2016), DOI 10.1038/srep23645, concentrate on the order-one dispersion endpoint. Bednorz–Łochowski–Martynek, arXiv:1802.00612, provide stable-distribution tail comparisons up to constants, not an oscillatory Schrödinger probability ratio. Index and literature queries did not identify equivalent or logically dominating formulations. Possible coverage by a general complex Fourier boundary-layer theorem is the main outstanding originality risk.
+PASS
 
-## Value
-**PASS.** A fractional wave packet has an algebraic remote wing at each nonintegral order, while its Gaussian classical-limit packet does not. An order limit at fixed position therefore hides a noncommuting spatial limit. The theorem resolves where these contributions become comparable, including the logarithmic secondary term, an explicit centering constant and the observable constructive/destructive interference envelopes. The infinite-contrast oscillation of the normalized density is physically more informative than an exponent-only tail statement and can guide the spatial extent needed to resolve fractional dispersion. The result is restricted to the free linear model and is not advertised as a nonlinear scattering theorem.
+PASS: Fourier normalization gives psi_2(t,x)=exp[-x²/(4(1+it))]/sqrt[2(1+it)]. For epsilon=2-alpha>0 the first-order variation of exp[-it|p|^alpha] is +it epsilon |p|² log|p|; the even Fourier transform has algebraic coefficient it sqrt(2pi) epsilon x^-3. The full proof controls the second-order difference uniformly at x comparable to sqrt(L), L=log(1/epsilon), using differentiation under the Gaussian integral, a near-zero dyadic partition and repeated integrations by parts; the remainder is lower than the leading wing by the necessary logarithmic factor. Defining y-3/2 log y=L+log[4(1+t²)^(5/4)/(sqrt(pi)t)]+s balances Gaussian modulus with the algebraic wing. The complex Gaussian phase gives theta=pi/2+atan(t)/2, and as y runs continuously to infinity the phase -ty covers infinitely many turns. Hence normalized intensity has the stated envelopes. An independent 40-digit cosine quadrature at t=.7,epsilon=10^-4 gave observed difference/Gaussian about -.65524-.94590i versus leading prediction -.66264-.74894i (absolute error .1971); separate logarithmic-Fourier derivative quadratures at x=14,17 gave respective leading-coefficient ratios 1.0633+.0503i and 1.0400+.0552i. These checks corroborate, not prove, uniform limits.
 
-## Sources and limitations
-Primary motivating full text: Antar–Bakırtaş–Horikis (online 2026-10-14), DOI 10.1017/jnw.2026.10049. Compared full-text sources: Solaimani (2025), DOI 10.1038/s41598-025-87001-y; Zhang et al. (2016), DOI 10.1038/srep23645; Bednorz–Łochowski–Martynek (2018), arXiv:1802.00612. Work at zero propagation time, growing time, higher dimensions, general input envelopes and nonlinear gain remains unproved. A broader unlocated asymptotic result remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: the closest 2026 primary treatment examines fractional nonlinear amplified similaritons, near-tail oscillations and power-law fitting; it includes a free-packet illustration but not a rigorous moving double limit of the free Gaussian Fourier integral with exact logarithmic centering and complex phase. The 2016 free Gaussian-beam paper focuses on order-one dispersion and diffraction-free propagation, also not this alpha-up-to-two asymptotic. General Fourier boundary-layer results could cover the structure under different notation; this is an identified residual risk.
+
+## value
+
+PASS
+
+PASS: Fractional dispersion produces a spatial algebraic wing that cannot be detected by taking alpha up to 2 at fixed x. Locating where it overtakes the classical Gaussian and giving an exact second-order logarithmic center and coherent interference envelopes answers a motivated noncommuting-limits question. The phase winding and sharp intensity oscillation are qualitative predictions beyond rederiving a stable-tail exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
