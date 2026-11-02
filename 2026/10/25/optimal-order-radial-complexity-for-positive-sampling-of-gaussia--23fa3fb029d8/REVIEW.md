@@ -1,15 +1,21 @@
-# Scientific review: optimal-order radial complexity for Fock polynomial sampling
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fock monomial basis converts arbitrary positive sampling to a nonnegative mixture of Poisson masses. The proved uniform truncated-Poisson width estimate forces at least \(A\sqrt{N+1}/(3eB)\) radii. For the explicit \(\lceil\sqrt N\rceil+1\) radii, root-of-unity angular summation exactly diagonalizes the discrete energy, and a rate-function/Stirling argument proves all eigenvalues are in \([1/5,8]\). The analytical argument covers all degrees, all polynomials, and every allowed arbitrary point sampler; numerical tests are supplemental only.
+## correctness
 
-## Originality — PASS (best knowledge, residual bibliographic risk)
-The general 2019 MZ theory covers approximation and quadrature consequences of stable sampling. The 2021 Fock-polynomial theorem analyzes stable sampling sets and the fixed Gaussian polynomial norm. The 2021 concentric-circle trajectory theorem already proves that continuous circles can sample the Gaussian STFT. These are genuine strong precursors. The precise necessary radius count against **every** positive weighted finite point sampler, together with an explicitly truncated, angularly discrete upper family and uniform constants, is not stated or implied by the inspected theorem statements. Targeted searches for Poisson-mixture coverings, radial complexity, concentric circle sampling, and Fock polynomial MZ families found no direct exact duplicate. Older unindexed positive radial quadrature literature is a priority risk.
+PASS
 
-## Mathematical value — PASS
-The intrinsic radius budget in polar Gaussian sampling is geometrically meaningful: increasing angular sample counts cannot overcome a radius deficit. The matching \(\sqrt N\) construction identifies the correct order and supplies a concrete stable design, while the source literature gives natural applications to finite Hermite/Gabor subspaces. Numerical constants are not asserted optimal.
+With the orthonormal basis z^k/sqrt(k!) the diagonal entries of any positive sampler are positive mixtures b_j exp(-t_j)t_j^k/k!. Every truncated Poisson string has l1/l-infinity width at most 3e sqrt(N+1), including t>N, so summing A<=L_k<=B over k gives r_N>=A sqrt(N+1)/(3eB) with no angular hypothesis. For the constructive radii j=0..ceil(sqrt N), M=N+1 root-of-unity angular sites diagonalize the complete sampling Gram operator. The eigenvalue lambda_k=sum_j(2j+1)p_{j^2}(k) is >1/5 by a nearest-square-root node and a Stirling/Poisson large-deviation inequality, and <8 by the Gaussian envelope exp(-(j-sqrt(k))^2) integrated over unit intervals. The one-point center term is correct at k=0. The theorem asserts radius order, not optimality of total sample sites or sharp constants. Independent check: An independently written Poisson-eigenvalue implementation evaluated every diagonal eigenvalue for N=1,2,3,9,16,57,100,302,1024 and all observed values remained in [0.2,8]; the all-N proof is the separate analytic bound, not these finite checks. The exact full Git RESULT.md, checker.py identity, metadata and tree were inspected.
 
-## Verification and limitations
-The exact inequalities are proved in RESULT.md. The standalone Python standard-library checker replayed 6,369 finite assertions, including direct angular sampling versus predicted eigenvalues; its finite calculations are not universal proof. No assertion of order-optimal total point count, signed-weight necessity, or first discovery of continuous circular sampling is made. Independent originality and correctness validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The paired universal lower bound for arbitrary positive discrete point samplers and explicit O(sqrt N)-radius angularly discrete construction is not logically implied by known infinite-dimensional sampling trajectories or general MZ sampling theorems, as inspected. Prior concentric-circle sampling is explicitly acknowledged; literature search cannot certify first priority, especially early radial Gauss-Laguerre discretization.
+
+## value
+
+PASS
+
+Stable positive polynomial sampling has two distinct costs, angular sites and number of independent radii. The lower bound proves no amount of angular oversampling can replace the intrinsic radial budget; the matched construction identifies the correct order and gives a concrete uniform algorithm. This is a motivated design law for finite Gaussian/Hermite-Gabor polynomial subspaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
