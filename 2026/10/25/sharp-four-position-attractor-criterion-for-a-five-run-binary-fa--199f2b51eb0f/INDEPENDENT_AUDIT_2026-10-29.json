@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:56:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W=0 1^b 0^c 1 0^e, check zero-indexed markers (0,b,b+c,b+c+2) provide a four-position attractor: all gaps are monochromatic except a lone one; all missing factors can shift to a marked run. Explicit three-marker constructions apply respectively to e≤c, e>c with b≤3, and e>c,b≥4,c≤2. In the complementary b≥4,c≥3,e>c regime, 011,110,001,0^e each occur uniquely in pairwise disjoint intervals, forcing four markers. Substitution b=4+k,c=3+i,e=c+1+j yields n=13+k+2i+j and generating function z^13/[(1−z)^2(1−z²)]. Independently exhaustively computed smallest attractors for all 125 triples 1≤b,c,e≤5, matching theorem. No finite check is used to infer all triples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bannai et al. arXiv:2207.02571 give general exact MAX-SAT optimization for a given finite word.",
+          "Gheeraert–Romana–Stipulanti arXiv:2302.13647 treat morphic automatic prefixes, not arbitrary three-parameter five-run words."
+        ],
+        "reasoning": "A general exact optimization algorithm does not state or directly imply the closed all-parameter iff and rational enumerator; different morphic subfamilies are not dominating coverage.",
+        "searches": [
+          "binary five-run word 0 1^b 0^c 1 0^e minimum string attractor size 4 iff b>=4 c>=3 e>c",
+          "binary run length string attractor general MAX-SAT exact criterion"
+        ]
+      },
+      "checked_sources": [
+        "Mantaci et al. arXiv:1907.04660 lawful OA PDF",
+        "Bannai et al. arXiv:2207.02571",
+        "Gheeraert et al. arXiv:2302.13647",
+        "Resultary length-12 complete binary string attractor census, 2026-10-04",
+        "Resultary query binary five-run word 0 1^b 0^c 1 0^e minimum string attractor size 4 iff b>=4 c>=3 e>c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four disjoint 011, 110, 001 and 0^e unique factors are forced by b≥4,c≥3,e>c; the other parameter cases have explicit three-position attractors.",
+          "The previous sources provide no stated theorem whose hypotheses cover this arbitrary five-run motif and imply both directions."
+        ],
+        "reasoning": "The model-specific constructive and unique-interval cases are needed; the prior general definition/algorithms alone do not resolve them.",
+        "searches": [
+          "binary five-run word 0 1^b 0^c 1 0^e minimum string attractor size 4 iff b>=4 c>=3 e>c",
+          "arXiv:1907.04660 Section 5",
+          "arXiv:2207.02571 algorithmic MAX-SAT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mantaci et al. arXiv:1907.04660 use identical contiguous-factor-crossing attractor invariant for Sturmian, de Bruijn and other structured words.",
+          "Generic disjoint unique-occurrence lower bounds are inherited, not new."
+        ],
+        "reasoning": "Same definition, but their structured word classes and parameter constraints do not match independently varying positive runs (1,b,c,1,e).",
+        "searches": [
+          "binary five-run word 0 1^b 0^c 1 0^e minimum string attractor size 4 iff b>=4 c>=3 e>c",
+          "five-run substring factor attractor four disjoint uniquely occurring occurrences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finding 2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925 counts all length-12 words with gamma 4; the submitted family has no gamma-4 word before length 13.",
+          "Finite tables cannot establish a three-parameter infinite classification and generating function."
+        ],
+        "reasoning": "The known exact length-12 census is disjoint from the positive side of the submitted sharp threshold and gives no all-n equivalence.",
+        "searches": [
+          "binary five-run word 0 1^b 0^c 1 0^e minimum string attractor size 4 iff b>=4 c>=3 e>c",
+          "Resultary 2026 complete length-12 binary string attractor census 28 size-four words",
+          "binary attractor length 13 three-parameter run family"
+        ]
+      },
+      "rationale": "The exact gamma=4 iff and rational length enumerator for the specified free run-family are not directly included or implied by the inspected generic algorithmic and other fixed-family attractor results; originality is best-of-knowledge.",
+      "residual_risks": [
+        "An unindexed classification of five-run words or a specialization in a broader compression theorem might coincide.",
+        "The exact split between gamma=2 and gamma=3 outside the positive regime is not obtained."
+      ],
+      "resultary_searches": [
+        "binary five-run word 0 1^b 0^c 1 0^e minimum string attractor size 4 iff b>=4 c>=3 e>c"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No direct all-positive-triple five-run iff found in inspected sections, though general attractor principles are prior",
+          "evidence": [
+            "Definition 1 and family sections; lawful OA PDF inspected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.04660",
+          "material_read": "Accessible lawful OA full PDF, definition and sections on Sturmian, de Bruijn, other structured words and examples; examined PDF page image",
+          "method": "Compared the source family restrictions and factor-cover definitions",
+          "title": "A combinatorial view on string attractors (Mantaci et al.)",
+          "trigger": "closest foundational family-wide attractor classifications"
+        },
+        {
+          "assessment": "General instance solver not an explicit infinite-family formula",
+          "evidence": [
+            "arXiv:2207.02571 abstract/method scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.02571",
+          "material_read": "Abstract and method description with scope of MAX-SAT reductions; complete paper not freshly read in this run",
+          "method": "Claim implication comparison from available method description",
+          "title": "Computing NP-hard Repetitiveness Measures via MAX-SAT",
+          "trigger": "generic exact optimization might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimal contiguous-factor attractor is a standard compression-related invariant. This natural three-parameter two-singleton five-run motif gives a sharp structural transition from three to four markers and an exact nontrivial density 1/2. The family restriction isolates competition of central and terminal zero runs, rather than an unmotivated numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite checks corroborate but do not replace infinite proofs or originality comparison.",
+    "Independent originality judgment is best-of-knowledge with documented primary-reading limits."
+  ],
+  "schema_version": 1
+}
