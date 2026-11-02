@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone program `verify_fano_flag_rips.py` reconstructs every object used in the finite proof from the cyclic Fano-plane incidence relation, without third-party packages. Invoke `python verify_fano_flag_rips.py` beside `fano_matching_certificate.json`.
+# Independent mathematical audit
 
-Checks executed successfully: seven lines and unique two-point incidence; 21 flags and 42 line-graph edges; 126 squared edges and cross-incidence equivalence; all 511 nonempty cliques with face vector \((21,126,238,105,21)\); 77 facets; 231 pairings covering all but one zero-face and 48 two-faces; acyclic orientation of every Hasse cover; binary chain-boundary ranks \((20,106,84,21)\); all 168 point-preserving automorphisms, an explicit incidence polarity and 168 duality-composed automorphisms; exact signed Lefschetz traces for all 336 group elements; both character-averaging consequences. Actual console output is stored as `verification_output.txt`.
+## correctness
 
-The acyclic perfect matching, rather than the finite-field ranks, certifies the **integral homotopy type**. Group-character computation is a finite, exhaustive rational calculation. No statement about untested projective planes, other graph metrics or later Rips radii is established. Independent audit has not been performed.
+PASS
+
+The 21 flags are edges of the point-line Heawood graph; distance <=2 in the flag line graph is exactly cross-incidence. Independently rebuilt all 511 faces (21,126,238,105,21); read the actual JSON certificate, verified 231 disjoint codimension-one pairs, one critical vertex, 48 critical triangles, and topological sorting of all 511 oriented Hasse vertices. This proves the integral wedge via Forman rather than just Betti numbers. Separately enumerated 168 point automorphisms and a polarity, all 336 induced permutations, and signed Lefschetz sums over the 511 faces. Exactly reproduced all eight order/swap/trace/count classes (1/0:48x1; 2/0:0x21; 2/1:-4x28; 3/0:3x56; 4/0:0x42; 6/1:-1x56; 7/0:-1x48; 8/1:0x84), with W+ invariant dimension 1 and W invariant 0. Only Fano order-two case and rational character are asserted.
+
+## originality
+
+PASS
+
+Against materially inspected primary literature and indexed mathematical findings, the precise claim is not implied by the closest related theorems, as detailed by the four comparisons. Best-of-knowledge, not global proof of priority.
+
+## value
+
+PASS
+
+The squared line graph of the Heawood incidence graph is a canonical 21-flag distance complex. The integral 48-sphere homotopy and full 336-symmetry homology character are natural, precisely reproducible invariants not merely routine conversions of radius-one graph homology. The character distinguishes dualities from incidence-preserving automorphisms; no higher plane generalization is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
