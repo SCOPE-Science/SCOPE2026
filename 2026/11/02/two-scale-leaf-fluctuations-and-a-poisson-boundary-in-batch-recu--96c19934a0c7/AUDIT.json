@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The three-outcome two-coordinate Markov kernel is exact; the expected-value and second-moment identities follow from conditioning. Bounded martingale differences with explicit product weights prove fixed-batch Gaussian covariance and triangular independent scale separation; a monotone Bernoulli coupling with Le Cam inequality proves total-variation Poisson convergence. An independently implemented exhaustive rational-state verifier agrees with all asserted finite formulas (1,955 checks); no infinite assertion depends on a finite numerical test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhutani et al., arXiv:2609.33636: model is simultaneous groups of m children; reported theorems concern distances, height, Wiener index and path length. Desmarais–Holmgren, DOI:10.37236/9139: fixed-block degree-count CLTs rather than all-leaf sibling-cohort counts and growing-m Poisson crossover. Gopaladesikan–Mahmoud–Ward, DOI:10.1017/S0269964813000338: fixed-size rooted block attachment and marginal leaves. Holmgren–Janson–Sileikis, DOI:10.37236/6374: fringe-subtree counts in m-ary search and preferential attachment trees; intact cohorts need not form a fringe subtree.",
+        "DOI:10.37236/9139 studies fixed-block general degree counts; general martingale or urn CLT tools apply but do not specify the two-coordinate covariance or growing-batch crossover.",
+        "arXiv:2308.03857 uses a degree-capacity parameter m, not simultaneous batch size."
+      ],
+      "reasoning": "The fixed-m leaf marginal is covered by general published CLT frameworks; it is expressly not claimed independently novel. The combined intact-cohort Markov statistic, correlation matrix, independent growing-batch scale separation and internal-recruiter Poisson transition are not directly implied by published statements that only count degrees/fringe subtrees at fixed building-block size. A broader uninspected generalized marked urn theorem remains residual priority risk.",
+      "searches": [
+        "\"Normal limit laws for vertex degrees in randomly grown hooking networks and bipolar networks\" Desmarais Holmgren 2020",
+        "\"Building Random Trees from Blocks\" Gopaladesikan Mahmoud Ward leaf central limit 2014",
+        "\"Multivariate normal limit laws for the numbers of fringe subtrees\" Sileikis 2017",
+        "joint central limit theorem correlation between vertex leaves and untouched batch cohorts for uniform m-star hooking network tree, explicit rho sqrt(3(m+2))/(2m+1)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.33636",
+      "https://doi.org/10.37236/9139",
+      "https://doi.org/10.1017/S0269964813000338",
+      "https://arxiv.org/abs/2308.03857",
+      "https://doi.org/10.37236/6374"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bhutani et al., arXiv:2609.33636: model is simultaneous groups of m children; reported theorems concern distances, height, Wiener index and path length. Desmarais–Holmgren, DOI:10.37236/9139: fixed-block degree-count CLTs rather than all-leaf sibling-cohort counts and growing-m Poisson crossover. Gopaladesikan–Mahmoud–Ward, DOI:10.1017/S0269964813000338: fixed-size rooted block attachment and marginal leaves. Holmgren–Janson–Sileikis, DOI:10.37236/6374: fringe-subtree counts in m-ary search and preferential attachment trees; intact cohorts need not form a fringe subtree.",
+        "The new state transition C_{t+1}=C_t+1-J_t differs from degree-only evolution, and R_{t+1}-R_t has exact rare probability (t-R_t)/(mt+1)."
+      ],
+      "reasoning": "Existing fixed-block marginals do imply a Gaussian leaf count at fixed m, so that element is acknowledged as covered. They do not determine survival of a tagged complete sibling birth cohort, the explicit two-variable covariance, or the scaling transition with m=m_n varying between rows. The stated theorem uses precisely those additional features; no novelty is claimed for the general CLT technique.",
+      "searches": [
+        "arXiv:2609.33636 Distances in m-ary recursive trees leaf count cohort",
+        "DOI:10.37236/9139 normal limit degree counts general hooking",
+        "DOI:10.1017/S0269964813000338 building random trees blocks leaf theorem",
+        "uniform recursive tree cohorts born simultaneously leaves intact untouched sibling groups number birth batches first hit gaussian joint central limit Poisson crossover batch size growing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bhutani et al., arXiv:2609.33636: model is simultaneous groups of m children; reported theorems concern distances, height, Wiener index and path length. Desmarais–Holmgren, DOI:10.37236/9139: fixed-block degree-count CLTs rather than all-leaf sibling-cohort counts and growing-m Poisson crossover. Gopaladesikan–Mahmoud–Ward, DOI:10.1017/S0269964813000338: fixed-size rooted block attachment and marginal leaves. Holmgren–Janson–Sileikis, DOI:10.37236/6374: fringe-subtree counts in m-ary search and preferential attachment trees; intact cohorts need not form a fringe subtree.",
+        "published-finding corpus ID 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f concerns covariance of root degree and leaves in the single-child recursive tree, not birth-cohort survival."
+      ],
+      "reasoning": "The intact-cohort count counts simultaneous sibling batches all of whose own vertices are still childless, even when their parent has other children. It is neither an ordinary leaf count nor the number of fringe-star subtrees. The exact Markov transition J subset I identifies the distinction. No equivalent count or limiting law was identified in the examined works.",
+      "searches": [
+        "m-ary recursive tree random batch attachment leaf sibling clusters intact star fringe offspring central limit covariance",
+        "hooking network parent with all m leaf children untouched sibling batch asymptotic normal",
+        "joint central limit theorem correlation between vertex leaves and untouched batch cohorts for uniform m-star hooking network tree, explicit rho sqrt(3(m+2))/(2m+1)",
+        "uniform recursive tree cohorts born simultaneously leaves intact untouched sibling groups number birth batches first hit gaussian joint central limit Poisson crossover batch size growing",
+        "\"m-ary recursive tree\" \"intact\" cohort leaf",
+        "\"hooking networks\" \"sibling groups\" \"number of leaves\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The assertion is an infinite family of joint stochastic limit laws, not a finite database coefficient or graph table.",
+        "published-finding corpus 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba studies root-attachment/path-length covariance, without tagged birth cohorts."
+      ],
+      "reasoning": "No exact table can contain the joint triangular limits and finite-size Poisson total-variation statement without an encompassing theorem. The finite moment checks in CHECK.py are verification, not novelty evidence. Searched mathematical records did not identify a covering table or theorem.",
+      "searches": [
+        "m-ary recursive tree random batch attachment leaf sibling clusters intact star fringe offspring central limit covariance",
+        "uniform recursive tree cohorts born simultaneously leaves intact untouched sibling groups number birth batches first hit gaussian joint central limit Poisson crossover batch size growing",
+        "\"batch recursive tree\" \"Poisson\" \"leaves\" Gaussian",
+        "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "published-finding corpus 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+      ]
+    },
+    "rationale": "The assessed contribution is the birth-cohort joint covariance and the growing-batch Gaussian/Poisson crossover, not the known fixed-block leaf CLT. Model and theorem statements were compared with the 2026 paper and classical random-block/degree/fringe-tree results. The nearest records concern ordinary leaves, root degree or path length and do not imply the new tagged-cohort count or m/n crossover. Residual historical risks are explicitly disclosed.",
+    "residual_risks": [
+      "Potential implicit corollary of an uninspected general marked generalized-urn or block-growth theorem; a global priority proof is impossible from bounded search alone.",
+      "Not every page of each related lengthy publication was read; conclusions are limited to inspected theorem sections and model definitions.",
+      "Model is uniform recruitment with equal-size cohorts; other tree growth mechanisms are not addressed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers model and distance statistics; no explicit tagged-cohort or growing-m leaf crossover theorem found in inspected material",
+        "evidence": [
+          "arXiv:2609.33636; 2026-09-27 original submission",
+          "The authors describe depth, height, Wiener index and path length as main outcomes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.33636",
+        "material_read": "arXiv abstract, model construction, and manuscript result statements/sections on depth, Wiener index and height",
+        "method": "Primary paper model and theorem comparison (arXiv lawful open-access representation)",
+        "title": "Distances in m-ary recursive trees",
+        "trigger": "Exact same stochastic tree with groups of m children"
+      },
+      {
+        "assessment": "Strong prior coverage of fixed-block leaf marginal, but neither intact-cohort survival marked by birth group nor m/n Poisson scaling stated in inspected sections",
+        "evidence": [
+          "Desmarais and Holmgren (2020), Electronic Journal of Combinatorics 27(2) P2.45",
+          "arXiv:1910.13881"
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/9139",
+        "material_read": "Public full PDF, model definition, introduction, main theorem statements and relevant degree-count discussion",
+        "method": "Statement-level comparison to a fixed-star hooking network",
+        "title": "Normal Limit Laws for Vertex Degrees in Randomly Grown Hooking Networks and Bipolar Networks",
+        "trigger": "General fixed-block degree-count Gaussian laws may dominate a leaf marginal"
+      },
+      {
+        "assessment": "Marginal leaf CLT for attaching rooted blocks via an edge; no intact sibling-cohort statistic or row-wise growing-block crossover in the inspected material",
+        "evidence": [
+          "Gopaladesikan, Mahmoud and Ward (2014), pp. 67–81; Section 3 Theorem 1",
+          "Block tree adds a rooted existing block through one new edge"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0269964813000338",
+        "material_read": "Pages 1–12 of 15-page full text, including exact model and Section 3 leaf theorem, formulas and proof",
+        "method": "Read authorized publisher pages and compared model operations and Theorem 1",
+        "title": "Building Random Trees from Blocks",
+        "trigger": "Fixed-block leaf CLT directly relevant"
+      },
+      {
+        "assessment": "Uses m for limited hook capacity rather than number of simultaneously born leaves, so does not directly cover the stated model or cohort count",
+        "evidence": [
+          "Bhutani, Kalpathy and Mahmoud, arXiv:2308.03857"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.03857",
+        "material_read": "Open PDF model definitions and results summary",
+        "method": "Compared parameter meaning, hook/recruitment rule, and degree statistics",
+        "title": "Degrees in random m-ary hooking networks",
+        "trigger": "Same m-ary terminology could conceal equivalence"
+      },
+      {
+        "assessment": "Different random-tree growth models and literal fringe subtrees; no covering statement in inspected material. Full proof remains a residual priority risk.",
+        "evidence": [
+          "Holmgren, Janson and Sileikis (2017), EJC 24(2), P2.51"
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/6374",
+        "material_read": "Journal abstract, model and theorem scope; complete theorem proof not inspected",
+        "method": "Compared definition of fringe subtree with non-fringe tagged birth cohorts",
+        "title": "Multivariate normal limit laws for the numbers of fringe subtrees in m-ary search trees and preferential attachment trees",
+        "trigger": "Possible generalized fringe-subtree counting dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96c19934-a0c7-4784-8d08-7a43457108a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Survival of a complete birth cohort is a natural group-persistence statistic for simultaneous recruitment that cannot be recovered from leaf counts alone. Its sqrt(n) fluctuations persist while individual leaf variance shrinks to n/m, and the rare internal-recruitment count becomes Poisson exactly at batch size comparable to the number of rounds. The statement gives motivated structural dependence, explicit constants and a sharp regime boundary, rather than routine parameter substitution.",
+    "status": "PASS"
+  }
+}
