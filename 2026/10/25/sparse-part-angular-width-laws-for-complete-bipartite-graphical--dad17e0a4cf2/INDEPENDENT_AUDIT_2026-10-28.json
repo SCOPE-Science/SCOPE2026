@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:44:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "C: The source proof starts from exact zonotope support sum W(U)=sum_{ij}|U_i-U_j|, couples intrinsic U to centered independent Gaussians X,Y via chi radius, and decomposes the two-sample Gini kernel into independent h(X)/p and h(Y)/q projections plus an L2-small degenerate remainder. The key covariance Cov(h(X),X²−1)=mu/2 yields the -2/pi normalization term, avoiding a false unnormalized Gaussian variance. For fixed p the conditional LLN gives (1/p)sum f(G_i); f(x)=b+bx²/2+O(x⁴) gives the exact chi-square small-ball boundary constant (pt/b)^{p/2}/Gamma(p/2+1). The subsequence argument handles arbitrarily oscillating growing aspects. Independent mpmath/SymPy evaluation reproduced mu=1.128379167096, b=0.797884560803, v=0.162751579442 and the positive 0.014386545399 balanced variance. No rate is claimed for all p,q. Full Git tree SHA recomputed from seven retrieved entries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published RESULT.md gives exact E W_G and E W_G² for every connected graphical zonotope.",
+          "That implies finite-dimensional means, second moments and corresponding limits, but no full distributional CLT or lower-edge t^{p/2} law."
+        ],
+        "reasoning": "Broader graph class only covers two moments, not the target distributional invariant; no mathematical implication of the full theorem follows.",
+        "searches": [
+          "complete bipartite graphical zonotope K_{p,q} Gaussian directional width Gini mean absolute difference sparse part limit lower-tail law",
+          "Resultary:2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2111.12422v2",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269/RESULT.md",
+        "https://arxiv.org/abs/1405.5027",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sparse-part-angular-width-laws-for-complete-bipartite-graphical--dad17e0a4cf2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise absolute-Gaussian moment and standard Hoeffding CLT are known ingredients.",
+          "Distributional convergence of W/chi-radius and the fixed-p tail constant require the additional explicit kernel and radial analysis."
+        ],
+        "reasoning": "Prior first/second moments imply neither full non-Gaussian distribution nor sharp small-t coefficient. Standard general theorems can give Gaussian limits once this problem-specific normalization is verified, so the value is in that precise bridge.",
+        "searches": [
+          "complete bipartite graphical zonotope K_{p,q} Gaussian directional width Gini mean absolute difference sparse part limit lower-tail law",
+          "arxiv:2111.12422v2",
+          "arxiv:1405.5027"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (2) of assessed RESULT.md is a normalized two-sample Gaussian Gini mean difference divided by a chi radius.",
+          "Padrol et al. analyze zonotope deformation cones and normal arrangements, not this Gaussian pair-difference law."
+        ],
+        "reasoning": "The exact geometric statement is equivalent to a self-normalized Gaussian two-sample U/V-statistic law; classical Hoeffding decomposition is the method, not a full coverage claim. No checked alternative expressly states the joint fixed-p angular tail and intrinsic radial correction.",
+        "searches": [
+          "complete bipartite graphical zonotope K_{p,q} Gaussian directional width Gini mean absolute difference sparse part limit lower-tail law",
+          "arxiv:1405.5027",
+          "arxiv:2111.12422v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact complete-graphical-zonotope width-moment expressions were inspected; the target boundary and weak-limit coefficients were independently computed from the proof."
+        ],
+        "reasoning": "No exact distributional table or p-dependent lower-edge exponent was recovered in the queried catalogue; a negative search is not priority certification.",
+        "searches": [
+          "complete bipartite graphical zonotope K_{p,q} Gaussian directional width Gini mean absolute difference sparse part limit lower-tail law",
+          "Resultary:2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269"
+        ]
+      },
+      "rationale": "O: The earlier all-graph exact spherical mean/second moment result is expressly prior: it implies formula (6) but not a full weak limit or sharp lower-tail exponent. Padrol–Pilaud–Poullot develop deformations and normal arrangements, and general Gini mean-difference asymptotics supply the statistical method. The proposed combination of finite-side boundary law, all-aspect Gaussian crossover, and intrinsic chi-normalization has a best-of-knowledge gap; a generic normalized Gini-statistic theorem remains a bibliographic risk, not proof of novelty.",
+      "residual_risks": [
+        "A generic theorem on normalized two-sample Gaussian Gini means may subsume some growing-part CLTs under a translated normalization.",
+        "Not all historical global width-distribution papers are indexable via the searched corpus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS first two moments and balanced finite variance, not a full law or p/2 edge exponent",
+          "evidence": "E W_G²=[2m+(8/pi)binom(m,2)+2delta q(G)]/d; no weak limit or tail classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269/RESULT.md",
+          "material_read": "Full published RESULT.md finding, all proof subsections and stated formulas (1)–(3).",
+          "method": "GitHub connected read of the original published record",
+          "title": "Sharp width-variance extremizers among tree graphical zonotopes",
+          "trigger": "exact same width moment observable and stronger all-graph coverage"
+        },
+        {
+          "assessment": "NOT_FOUND in read material: width law; no whole-document novelty guarantee",
+          "evidence": "Deformation cone inequalities and simplicial criterion for triangle-free graphs, unlike random-direction width.",
+          "identifier_or_url": "https://arxiv.org/html/2111.12422v2",
+          "material_read": "Article introduction and sections on graphical zonotope realization/deformation and deformation-cone theorems, with published OA article context.",
+          "method": "Open lawful arXiv HTML and open-access article",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "same polytopes, plausible general geometric coverage"
+        },
+        {
+          "assessment": "PLAUSIBLE_ALTERNATE_METHOD: statistical kernels may imply asymptotic pieces, priority risk retained",
+          "evidence": "Gini mean difference has two-sample Gaussian Hoeffding projection; no full geometry comparison made.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.5027",
+          "material_read": "Available bibliographic/abstract and connection to Gini statistical methodology, not a complete full-text coverage audit.",
+          "method": "Open bibliographic search/abstract",
+          "title": "On the efficiency of Gini’s mean difference",
+          "trigger": "same two-sample absolute-difference kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "V: The width distribution of a canonical family of centrally symmetric polytopes is geometrically natural; the finite-side p/2 angular-edge signature distinguishes discrete combinatorial size through rotation-invariant data. At balance the radial correction changes the limiting variance by a quantitatively large amount, and the unlimited aspect-ratio dichotomy goes beyond the known first two moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2111.12422v2",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269/RESULT.md",
+    "https://arxiv.org/abs/1405.5027",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sparse-part-angular-width-laws-for-complete-bipartite-graphical--dad17e0a4cf2"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the ordinary intrinsic Euclidean width of K_{p,q} graphical zonotopes, the fixed-small-part non-Gaussian f(G) law has lower-edge exponent p/2; when min(p,q) grows, a centered, radial-corrected Gaussian CLT holds at any aspect ratio, with positive balanced variance 4v-2/pi.",
+  "limitations": [
+    "Only standard unweighted root-vector zonotope; fixed p or growing min(p,q), not arbitrary weighted graphs.",
+    "Historical priority is qualified, independent numerical tests cannot prove limiting theorems."
+  ],
+  "residual_risks": [
+    "A generic theorem on normalized two-sample Gaussian Gini means may subsume some growing-part CLTs under a translated normalization.",
+    "Not all historical global width-distribution papers are indexable via the searched corpus."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS first two moments and balanced finite variance, not a full law or p/2 edge exponent",
+      "evidence": "E W_G²=[2m+(8/pi)binom(m,2)+2delta q(G)]/d; no weak limit or tail classification.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269/RESULT.md",
+      "material_read": "Full published RESULT.md finding, all proof subsections and stated formulas (1)–(3).",
+      "method": "GitHub connected read of the original published record",
+      "title": "Sharp width-variance extremizers among tree graphical zonotopes",
+      "trigger": "exact same width moment observable and stronger all-graph coverage"
+    },
+    {
+      "assessment": "NOT_FOUND in read material: width law; no whole-document novelty guarantee",
+      "evidence": "Deformation cone inequalities and simplicial criterion for triangle-free graphs, unlike random-direction width.",
+      "identifier_or_url": "https://arxiv.org/html/2111.12422v2",
+      "material_read": "Article introduction and sections on graphical zonotope realization/deformation and deformation-cone theorems, with published OA article context.",
+      "method": "Open lawful arXiv HTML and open-access article",
+      "title": "Deformed Graphical Zonotopes",
+      "trigger": "same polytopes, plausible general geometric coverage"
+    },
+    {
+      "assessment": "PLAUSIBLE_ALTERNATE_METHOD: statistical kernels may imply asymptotic pieces, priority risk retained",
+      "evidence": "Gini mean difference has two-sample Gaussian Hoeffding projection; no full geometry comparison made.",
+      "identifier_or_url": "https://arxiv.org/abs/1405.5027",
+      "material_read": "Available bibliographic/abstract and connection to Gini statistical methodology, not a complete full-text coverage audit.",
+      "method": "Open bibliographic search/abstract",
+      "title": "On the efficiency of Gini’s mean difference",
+      "trigger": "same two-sample absolute-difference kernel"
+    }
+  ]
+}

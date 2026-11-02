@@ -1,15 +1,21 @@
-# Review of angular-width asymptotics
+# Independent mathematical audit
 
-## Correctness — PASS
-The zonotope support identity is exact. Gaussian centering and radial projection give the stated joint realization; the Hoeffding decomposition and an explicitly computed Gaussian radial covariance yield the positive proportional-limit variance. The fixed-part conditional law and Gaussian small-ball expansion yield both the non-Gaussian limit and its sharp lower-edge coefficient. The positive balanced variance makes the aspect-ratio-uniform normalization well-defined, and a subsequence argument covers oscillating ratios. A standalone checker reproduced forty exhaustive support comparisons, three numerical Gaussian contractions, three spherical moment simulations, three finite-size variance ratios, and three one-dimensional edge-probability comparisons. Finite diagnostics are not the proof.
+## correctness
 
-## Originality — PASS, qualified
-The deformed-graphical-zonotope and shuffle primary works establish the geometric family, not these stochastic limit regimes. A published exact all-graphs width-moment formula already implies the finite mean and variance, so that formula is explicitly credited, not accepted as an original claim. Gerstenberger and Vogel give the Gaussian Gini-difference influence-function framework and near-normal relative efficiency for the one-sample estimator; the balanced variance is therefore compatible with, and partly inferable from, established one-sample asymptotics. The distinctive claim concerns the complete-bipartite *intrinsic spherical* finite-small-part distribution with its sharp lower-edge exponent, the proportional/unbalanced/uniform crossover, and their joint geometric interpretation. No directly subsuming statement appeared in the inspected relevant mathematical documents or published mathematical searches; a general unindexed, studentized two-sample Gaussian U-statistic theorem may cover some distributional assertions and remains a real residual risk.
+PASS
 
-## Value — PASS
-The finite-versus-growing bipartition transition concerns the actual angular width distribution of a natural infinite-dimensional graph-polytope family, rather than an arbitrary computed parameter. The exact small-end exponent records the finite graph part size and the spherical radial correction explains an unusually small positive balanced fluctuation constant. The unified theorem covers all growth rates without forcing convergence of the aspect ratio. These data are structurally meaningful geometric refinements beyond already-known first/second moments; it is not claimed that applying Hoeffding's theorem itself is new.
+C: The source proof starts from exact zonotope support sum W(U)=sum_{ij}|U_i-U_j|, couples intrinsic U to centered independent Gaussians X,Y via chi radius, and decomposes the two-sample Gini kernel into independent h(X)/p and h(Y)/q projections plus an L2-small degenerate remainder. The key covariance Cov(h(X),X²−1)=mu/2 yields the -2/pi normalization term, avoiding a false unnormalized Gaussian variance. For fixed p the conditional LLN gives (1/p)sum f(G_i); f(x)=b+bx²/2+O(x⁴) gives the exact chi-square small-ball boundary constant (pt/b)^{p/2}/Gamma(p/2+1). The subsequence argument handles arbitrarily oscillating growing aspects. Independent mpmath/SymPy evaluation reproduced mu=1.128379167096, b=0.797884560803, v=0.162751579442 and the positive 0.014386545399 balanced variance. No rate is claimed for all p,q. Full Git tree SHA recomputed from seven retrieved entries.
 
-## Limitations
-The conclusions are about the fixed unweighted root-vector realization, one random direction, distributional limits and a fixed-side lower-tail expansion. No arbitrary graph sequence, weighted family, all-angle process, or full finite-size width-density classification is asserted. Bibliographic coverage is not an independence certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O: The earlier all-graph exact spherical mean/second moment result is expressly prior: it implies formula (6) but not a full weak limit or sharp lower-tail exponent. Padrol–Pilaud–Poullot develop deformations and normal arrangements, and general Gini mean-difference asymptotics supply the statistical method. The proposed combination of finite-side boundary law, all-aspect Gaussian crossover, and intrinsic chi-normalization has a best-of-knowledge gap; a generic normalized Gini-statistic theorem remains a bibliographic risk, not proof of novelty.
+
+## value
+
+PASS
+
+V: The width distribution of a canonical family of centrally symmetric polytopes is geometrically natural; the finite-side p/2 angular-edge signature distinguishes discrete combinatorial size through rotation-invariant data. At balance the radial correction changes the limiting variance by a quantitatively large amount, and the unlimited aspect-ratio dichotomy goes beyond the known first two moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
