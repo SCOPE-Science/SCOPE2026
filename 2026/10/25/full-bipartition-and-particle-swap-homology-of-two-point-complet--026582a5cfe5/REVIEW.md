@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Farber–Hanbury maturity for all \(p,q\ge3\) identifies first homology equivariantly with two copies of the graph cycle module \(A_p\boxtimes A_q\), exchanged by the particles. For the standard deleted-product cubical model, each of the degree-zero, degree-one, and degree-two signed character formulas was derived directly from fixed cells, including the negative orientation when two edge factors swap. Euler–Poincaré determines the complete degree-two character because first homology and connectedness are already established. The identities for the two Specht characters then yield each particle-exchange eigenspace, with no missing constituents by semisimplicity. The model is two-dimensional and the argument covers all integers \(p,q\ge3\). Independently enumerated mod-two boundary ranks and signed traces match all 880 finite checks; these do not replace the general argument. The external maturity lemma is expressly attributed to the published source.
+PASS
 
-## Originality — PASS, with residual risk
+For p,q>=3, Farber-Hanbury maturity yields the natural equivariant H1(F2)->H1(K_p,q squared) isomorphism and A_p tensor A_q in two particle positions, splitting equally in swap signs. The cubical deleted-product model has chains only in degrees 0,1,2; explicit fixed-cell traces under (sigma,pi) and particle exchange, including negative orientation of swapped edge×edge cells, give chi2_unswapped=(f_p^2-3f_p+1)(f_q^2-3f_q+1) and chi2_swapped=-(2t_p-1)(2t_q-1). Standard Sym²A=1+A+T, wedge²A=W character identities split H2 into (Wp⊠Tq)^+ +(Tp⊠Wq)^+ +(Wp⊠Wq)^- +(Tp⊠Tq)^- (T3=0). Independence of the part permutation groups makes the four external-tensor irreducibles distinct. H0 trivial and H_i=0 for i>2. Independent finite parameter and character-identity tests passed; general theorem follows from exact equivariant Euler–Poincare and mature-graph theorem.
 
-The closest direct literature is Ramos–He Yun, *Computing stable homology representations of graph configuration spaces*, arXiv:2606.13813, Section 3.3, Theorem 3.16 and Table 3: it determines the diagonal \(S_n\times S_2\)-action on \(K_{n,n}\), including explicitly tabulated small balanced cases. The present theorem agrees on that restriction and does not claim it anew; it determines the more informative full \(S_p\times S_q\times C_2\)-module and includes all unequal \(p,q\ge3\). Restricting a representation to diagonal \(S_n\) does not generally determine its distinct two-factor constituents. Farber–Hanbury, arXiv:1005.2300, supplies nonequivariant Betti numbers and maturity; Maciążek–Sawicki, arXiv:1806.02846, concerns graph-particle homology and specific bipartite examples. Sink configuration representations are on spaces that permit collisions at vertices, not the present configuration space. Searches included complete-bipartite external Specht decompositions and particle-exchange characters; no full covering classification was identified. This is a best-knowledge originality judgment, not an assertion of proof that no equivalent unindexed literature exists.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification supplies the natural full bipartition-preserving symmetry module of a classical two-point configuration family in every parameter range rather than only its Betti numbers or diagonal restriction. Four explicitly distinguished second-homology irreducibles (with the correct low-rank omissions) reveal how two independent vertex classes separately act. The particle-interchange signed splitting is explicit and uniform. Such independent actions are lost under the published diagonal restriction and are relevant for extracting subgroup invariants and studying the additional equal-partition symmetry in later work. The theorem is a uniform exact representation classification, not a routine numeric recomputation.
+Best-of-knowledge PASS: Farber–Hanbury determined ordinary Betti ranks and maturity, while Ramos–He Yun arxiv2606.13813 Theorem3.16 and Table3 compute balanced diagonal S_n×S2 representations, not independent S_p×S_q even for p=q. Restriction to the diagonal loses tensor-factor data and cannot recover this theorem; unequal p≠q not in their family. Resultary sink-configurations allow vertex collisions and hence are non-equivalent spaces.
 
-## Sources and boundaries
+## value
 
-Primary sources read: Farber and Hanbury, arXiv:1005.2300, Sections 1–2 and the bipartite maturity statement; Ramos and He Yun, arXiv:2606.13813, Section 3.3, Theorems 3.13–3.17 and Table 3; Maciążek and Sawicki, arXiv:1806.02846, especially Section 5.5 on \(K_{3,3}\); and Ramos, arXiv:1703.05535, on sink configurations. The new theorem assumes the published maturity result; the proof does not rederive its full graph-topological construction. The full integral symmetry lattice and non-bipartition-preserving automorphisms remain outside the claim. No independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural complete group-representation refinement of two-point complete-bipartite configuration homology, simultaneously handling all unequal bipartition sizes and a separate particle-exchange involution. Exact irreducible multiplicity-free decomposition and character formulas can be used for restriction, transfer and equivariant topology; not just known Betti-number recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and computational checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and its standard library. The program constructs the collision-free two-particle cubical deleted-product model directly from \(K_{p,q}\), for ten displayed parameter pairs between \((3,3)\) and \((6,6)\). It calculates the chain counts and mod-two boundary ranks, compares the resulting Betti numbers with the theorem, and independently enumerates all conjugacy-class pairs of part permutations to test the signed fixed-cell traces both with and without particle exchange. Small cases also check dimensions of the particle-exchange eigenspaces in second homology by exact modular arithmetic. All 880 character checks pass.
+## correctness
 
-An expected final output line is:
+PASS
 
-`COMPLETE_BIPARTITE_TWO_POINT_CHARACTERS_VERIFIED 880`
+For p,q>=3, Farber-Hanbury maturity yields the natural equivariant H1(F2)->H1(K_p,q squared) isomorphism and A_p tensor A_q in two particle positions, splitting equally in swap signs. The cubical deleted-product model has chains only in degrees 0,1,2; explicit fixed-cell traces under (sigma,pi) and particle exchange, including negative orientation of swapped edge×edge cells, give chi2_unswapped=(f_p^2-3f_p+1)(f_q^2-3f_q+1) and chi2_swapped=-(2t_p-1)(2t_q-1). Standard Sym²A=1+A+T, wedge²A=W character identities split H2 into (Wp⊠Tq)^+ +(Tp⊠Wq)^+ +(Wp⊠Wq)^- +(Tp⊠Tq)^- (T3=0). Independence of the part permutation groups makes the four external-tensor irreducibles distinct. H0 trivial and H_i=0 for i>2. Independent finite parameter and character-identity tests passed; general theorem follows from exact equivariant Euler–Poincare and mature-graph theorem.
 
-For example, \((p,q)=(3,3)\) gives \((b_1,b_2)=(8,1)\) with degree-two exchange eigenspace ranks \((0,1)\); \((4,4)\) gives \((18,25)\) with ranks \((12,13)\); \((5,5)\) gives \((32,121)\) with ranks \((60,61)\).
+## originality
 
-These finite calculations are independent computational spot checks, *not* a proof for unbounded parameters. The mathematical argument uses the published mature-graph theorem, a natural first-homology identification, an exact equivariant Euler–Poincaré calculation valid for all \(p,q\ge3\), and rational symmetric-group character identities. No external proof assistant or independent audit has been used.
+PASS
+
+Best-of-knowledge PASS: Farber–Hanbury determined ordinary Betti ranks and maturity, while Ramos–He Yun arxiv2606.13813 Theorem3.16 and Table3 compute balanced diagonal S_n×S2 representations, not independent S_p×S_q even for p=q. Restriction to the diagonal loses tensor-factor data and cannot recover this theorem; unequal p≠q not in their family. Resultary sink-configurations allow vertex collisions and hence are non-equivalent spaces.
+
+## value
+
+PASS
+
+A natural complete group-representation refinement of two-point complete-bipartite configuration homology, simultaneously handling all unequal bipartition sizes and a separate particle-exchange involution. Exact irreducible multiplicity-free decomposition and character formulas can be used for restriction, transfer and equivariant topology; not just known Betti-number recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
