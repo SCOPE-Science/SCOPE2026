@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The moment-cone separator gives a sharp inequality for every admissible nonnegative lattice direction. Boundary neighbor vectors give a constructive attainment at the same threshold; axis vectors add all larger isotropic regularizations. Farey-neighbor arithmetic proves every Fibonacci plateau and Binet asymptotics prove both distinct scaled limits. `CHECK.py` supplies exact reproducible diagnostics, not a substitute for the infinite proof.
+## correctness
 
-**Originality — PASS with a material priority risk.** The accessible Xu--Li--Yue (2026) manuscript uses noncompact probabilistic interpolation and does not state this grid-aligned radius threshold. Ngo--Huang (2015) gives splitting and upper bounds, not the exact Fibonacci oscillation. Earlier general optimal-compactness and lattice-reduction work (Bonnans--Bonnet--Mirebeau 2021, 2025; Fehrenbach--Mirebeau 2013) may imply portions of the condition; their full texts were not all available for decisive comparison. The claim of originality is restricted to the explicitly quantified Fibonacci plateau formula with distinct sharp fourth-power asymptotic endpoints, not general positivity or stencil optimality.
+PASS
 
-**Mathematical value — PASS.** Exact positive stencil feasibility for nearly singular anisotropic diffusion is a natural numerical-analysis gap. The irrational direction creates unexpected constant-radius intervals and different upper/lower scaled asymptotics, giving a precise fourth-root obstruction not apparent from generic stencil-size sufficiency theorems.
+PASS — For consecutive rational slope approximants ℓ_R<s<r_R, (b−ℓ_R a)(b−r_R a)≥0 on all permitted integer offsets gives a sharp separating hyperplane and infeasibility below ε_R. The two primitive Farey neighbor vectors supply strictly positive weights attaining equality, and axis corrections attain every greater ε. Farey adjacency proves Fibonacci plateaux and Binet asymptotics give both sharp constants; independent fresh radius-by-radius rational Farey computations and reconstructed 2×2 moments passed R=1..89.
 
-The model is homogeneous, two dimensional, symmetric, lattice-aligned, and exactly moment matched; no general PDE boundary convergence is claimed. The scientific-priority assessment is not independently confirmed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the explicit golden-slope Fibonacci plateau threshold under a strict l∞ grid-radius constraint and two distinct fourth-power limit constants. The generic 2D optimal compactness and anisotropic lattice decomposition technology is prior work; close Bonnans–Bonnet–Mirebeau papers were not read in full despite arXiv/OA/institutional attempts, leaving a material implicit-coverage risk.
+
+## value
+
+PASS
+
+PASS — Positivity and lattice compactness are central for monotone elliptic discretization. This exact necessary-and-sufficient arithmetic radius threshold and oscillatory fourth-root asymptotics quantify a badly approximable irrational direction more sharply than generic wide-stencil existence or qualitative condition-number estimates. No boundary/PDE convergence claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

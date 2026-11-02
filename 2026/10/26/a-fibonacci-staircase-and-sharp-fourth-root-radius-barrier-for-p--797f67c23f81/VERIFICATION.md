@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-`CHECK.py` tests the exact Farey enclosure, threshold formula, convex-cone separating functional and explicit positive coefficients for all integral widths from \(1\) to \(89\). It enumerates every lattice vector in the prescribed square and computes with integers, rationals and exact quadratic algebraic numbers using SymPy. The included `CHECK_OUTPUT.txt` is the actual run's output. Assertions cover 972,414 independently evaluated algebraic or integer conditions. The program uses no random input or external network calls.
+## correctness
 
-The infinite statements are proved in the result: Farey adjacency excludes all new rational slopes until the next Fibonacci width, exact cone separation rules out any smaller regularization, a two-direction stencil attains equality, and Binet's formula yields sharp upper and lower asymptotic constants. The finite computation cannot establish those universal statements on its own.
+PASS
 
-The strongest literature priority uncertainty comes from earlier optimally compact two-dimensional stencil results and Voronoi lattice-reduction constructions that could contain an equivalent derived special case. No independent validation or external certification is asserted.
+PASS — For consecutive rational slope approximants ℓ_R<s<r_R, (b−ℓ_R a)(b−r_R a)≥0 on all permitted integer offsets gives a sharp separating hyperplane and infeasibility below ε_R. The two primitive Farey neighbor vectors supply strictly positive weights attaining equality, and axis corrections attain every greater ε. Farey adjacency proves Fibonacci plateaux and Binet asymptotics give both sharp constants; independent fresh radius-by-radius rational Farey computations and reconstructed 2×2 moments passed R=1..89.
+
+## originality
+
+PASS
+
+Qualified PASS for the explicit golden-slope Fibonacci plateau threshold under a strict l∞ grid-radius constraint and two distinct fourth-power limit constants. The generic 2D optimal compactness and anisotropic lattice decomposition technology is prior work; close Bonnans–Bonnet–Mirebeau papers were not read in full despite arXiv/OA/institutional attempts, leaving a material implicit-coverage risk.
+
+## value
+
+PASS
+
+PASS — Positivity and lattice compactness are central for monotone elliptic discretization. This exact necessary-and-sufficient arithmetic radius threshold and oscillatory fourth-root asymptotics quantify a badly approximable irrational direction more sharply than generic wide-stencil existence or qualitative condition-number estimates. No boundary/PDE convergence claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
