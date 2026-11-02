@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Surjective restrictions between finite blocks are counted by \(|B|!S(b,|B|)\). Every lower block is unable to hit an upper block, and an upper-to-upper surjection is a bijection. The equal-size witness criterion is proved directly, including construction of a generalized inverse, so regularity is equivalent to regularity of the lower restriction plus avoidance of unwitnessed lower targets. Independent choices for upper source blocks produce the exact multinomial law. Bernoulli–Poisson coupling, Poisson marking and a telescoped conditioning estimate give the explicit bounds. Exhaustive finite checks cover \(19{,}954\) maps, with direct inverse searches for four small cases and multinomial profile checks for two cases. Finite testing is not used to justify asymptotic convergence.
+PASS
 
-## Originality — PASS within investigated coverage
+Every lower source chooses a lower target, independently of all upper sources; an upper b-block has d=b! bijective maps to each large target and w_B=|B|!S(b,|B|) surjections to a lower B, giving the multinomial probabilities. Marked Bernoulli-to-Poisson coupling and a Poisson increment bound total variation by 2C²/(Md²). Sarkar–Singh’s regularity criterion follows from the existence of an equal-size source for each image target. The upper size class is automatically witnessed; for a lower target B hit by upper sources, regularity requires a lower equal-size source. This yields the exact conditional avoidance factor and R_M. Conditioning the limiting Poisson vector gives forced zeros in missing-witness coordinates, unchanged independent Poisson coordinates elsewhere, and tilt exp(−Σ_missing w/d). The bound 4C²/(Md²R∞) follows from elementary conditioning. Fresh independent complete finite map enumeration for three mixed block patterns matched exact regular counts; not used as proof of convergence.
 
-Sarkar--Singh, arXiv:2010.14033, Theorem 5.5 and Section 6, already give the witness criterion and exact total counts of regular block-surjective transformations. The exact scalar finite regularity formula is therefore a consequence of known work and is not claimed as the new result. The investigated contribution is the full marked-Poisson limit with a quantitative total-variation estimate, and the witness-tilted conditional law, including arbitrary mixed lower sizes and exact limiting regular fractions. Dolinka--East, arXiv:1407.3312, address idempotent generation for the broader block-preserving monoid. Certain two-size subcases agree with known equivariant occupancy formulas and are expressly excluded from novelty claims. The main accessible primary paper was inspected through its regularity characterization and total-count theorem. Unindexed equivalences remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Random-element regularity is not determined by the large blocks alone: lower blocks with no same-size incoming map act as persistent obstructions. The result identifies their complete law under a natural growth regime and explains how conditioning on regularity changes the *entire* lower-map distribution, not only one total. A fixed mixed background of block sizes \(1,1,2\) with growing blocks of size \(3\) yields the nontrivial limiting regular density \((4+4e^{-1}+4e^{-1/6}+2e^{-7/6})/16\). Such mixed-size witness defects are absent from the uniform-block case and are not exposed by cardinality formulas alone.
+Sarkar and Singh already prove the equal-block-size witness criterion and enumerate regular transformations for arbitrary fixed partitions, so neither regularity characterization nor mere R_M finite count is newly asserted. The distinctive assessed claim is the marked joint independent-Poisson limit and fully conditioned background-map distribution as M→∞ with fixed lower sizes and b, plus explicit rate. Dolinka–East address the larger partition-preserving into-block monoid and a different property. A generalized occupancy/Poisson thinning result might make the probabilistic component standard; a published assembly specialization to this regularity event remains possible.
 
-## Residual limitations
+## value
 
-The theorem holds for fixed block-size profile below \(b\) and cannot be extrapolated to simultaneous growth of the smaller classes. Prior results on arbitrary finite cardinalities offer a strong starting point for deriving this result; the novelty judgment is about the marked joint/conditioned limiting law, not finite enumeration. The evaluated material cannot exclude equivalent formulations in unindexed literature. Independent assessment has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The conditional law captures which lower blocks are hit by many large source blocks and explains the asymptotic population of regular elements in a natural transformation semigroup. It distinguishes random unconditioned surjections from those satisfying a semigroup-theoretic generalized inverse, providing a usable finite-background limit law and rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
