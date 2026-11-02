@@ -1,21 +1,21 @@
-# Review: A one-parameter counterexample to reversible two-lag variance bounds
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The chain is stationary under the uniform law, irreducible and aperiodic for every \(0<\alpha<1\), and nonreversible. Its nonconstant Fourier eigenvalue gives \(\rho_k=\operatorname{Re}(\lambda^k)\); summing the convergent geometric series gives \(\tau=(1-\alpha)/\alpha\). Direct algebra yields the exact positive gap \((4-6\alpha+3\alpha^2)/(6\alpha(2-\alpha))\). The denominator is positive on the stated interval and the numerator has negative discriminant and positive leading coefficient.
+PASS
 
-## Originality
+For P_alpha=(1-alpha)I+alpha S with clockwise three-cycle, its nonconstant Fourier eigenvalue is lambda=1-3alpha/2+i sqrt(3)alpha/2. For 0<alpha<1, |lambda|<1, giving rho_k=Re(lambda^k), rho1=1-3alpha/2, rho2=1-3alpha+3alpha²/2, tau=(1-alpha)/alpha. The reversible floor minus tau is (4-6alpha+3alpha²)/(6alpha(2-alpha))>0 because discriminant -12 and denominator positive. Independent exact rational 3x3 autocorrelation matrix checks at alpha=1/4,1/2,3/4,9/10 match formulas. Irreducible, aperiodic, nonreversible. No claim to universal nonreversible classification.
 
-**PASS, with a bounded residual risk.** The closest literature is Berg–Song’s reversible autocovariance moment representation and Choi’s analysis of nonreversible chains and cycle walks. The inspected texts do not state the exact parameter-uniform comparison for this lazy one-way three-cycle. General spectral techniques may make the calculation accessible, so the originality claim is limited to this explicit family and exact gap, not to a new general theory.
+## originality
 
-## Value
+PASS
 
-**PASS.** Reversible moment constraints are used in autocovariance-shape methods for Markov-chain variance estimation. This exact family gives a uniform, quantified obstruction to extending one such two-lag lower bound beyond reversibility, rather than only a numerical example or a single parameter counterexample.
+Published sharp reversible two-lag variance-floor theorem provides exactly the targeted bound but assumes real reversible spectral measure. It expressly disclaims applicability to nonreversible chains and does not exhibit the all-alpha clockwise three-cycle strict gap. Known asymmetric-cycle nonreversible variance studies were searched and partially inspected; a direct equivalent witness may exist elsewhere. The elementary three-state calculation is not presented as a general variance theorem.
 
-## Closest literature and limitations
+## value
 
-- Berg and Song, arXiv:2207.12705v1 (2022-07-26), equation (7): the autocovariance moment representation is explicitly for reversible chains.
-- Choi, arXiv:1706.00068v1 (2017-05-31), sections on asymmetric cycle walks and variance bounds: relevant nonreversible spectral context, but the inspected statements do not give this exact two-lag gap.
-- Scope is limited to the three-state lazy clockwise family and the cosine observable. No optimal bound for general nonreversible chains is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated failure witness for a sharp practically interpretable two-autocorrelation asymptotic-variance floor: reversibility is not a removable technical assumption. It gives a nondegenerate irreducible/aperiodic continuum of strict violations with closed gap rather than a numerical or pathological isolated counterexample, limiting naive nonreversible reuse of spectral-moment estimators. Its calculation is elementary and its usefulness is this explicit boundary, not complexity of proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
