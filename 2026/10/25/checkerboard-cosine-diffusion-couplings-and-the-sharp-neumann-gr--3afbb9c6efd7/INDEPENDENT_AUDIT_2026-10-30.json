@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:51:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all N>=1 the DCT-II modes are orthogonal, and for i<j the p^2 cosine second-moment identity follows by differentiating the Dirichlet kernel. Since d=j-i and s=i+j-1 have opposite parity, the N-1 terms cancel; cot^2(dπ/2N)-cot^2(sπ/2N)>0 follows by product of positive sines sin((i-1/2)π/N)sin((j-1/2)π/N). Thus Q_{ij} has sign (-1)^(j-i+1), giving floor((N-1)^2/4) negative unordered entries; analyticity implies N>=3 fails at small t; N<=2 explicit semigroup positive. Cauchy-Schwarz gives sufficient late positivity tπ²/L²>ln(N-1); direct spectral projectors for N=3 yield the exact unique cubic transition. Independently recomputed all 2925 offdiagonal entries for N=2..26, maximum abs difference 1.13e-12.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li concerns effective maximum principles for other spectral setups; Strang uses DCT and finite-difference eigenvalues, not the exact p-squared Neumann spectral generator."
+        ],
+        "reasoning": "Qualitative stability estimates and distinct finite-difference matrices do not imply the sharp all-N spectral-generator checkerboard signs.",
+        "searches": [
+          "Resultary: cell-centered discrete cosine spectral Neumann heat semigroup positivity checkerboard off diagonal signs nodal maximum principle",
+          "Dong Li 2021 Effective Maximum Principles for Spectral Methods arxiv:2107.09438",
+          "Strang 1999 discrete cosine transform"
+        ]
+      },
+      "checked_sources": [
+        "https://aimspress.com/aimspress-data/era/2023/9/PDF/era-31-09-273.pdf",
+        "https://arxiv.org/abs/2107.09438",
+        "Resultary semantic search: cell-centered discrete cosine spectral Neumann heat semigroup positivity checkerboard off diagonal signs nodal maximum principle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior displays DCT mode basis and heat step, and computational counterexamples. Differentiating F_N supplies cot^2 difference and sign from sin((i-1/2)pi/N) sin((j-1/2)pi/N)>0."
+        ],
+        "reasoning": "The inspected older results imply the matrix by computation but do not state the decisive sign simplification; more specialized pre-existing spectral differentiation weights remain a significant exact-implication risk.",
+        "searches": [
+          "https://aimspress.com/aimspress-data/era/2023/9/PDF/era-31-09-273.pdf",
+          "DCT matrix exact offdiagonal signs",
+          "Dirichlet kernel second derivative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim et al., Equations (2.1)-(2.6) define precisely the same mode-diagonal evolution; Section 3 uses numerical counterexamples rather than a sign-law theorem."
+        ],
+        "reasoning": "The prior method is equivalent as an operator but its inspected results do not give the complete sign census or the N<=2 iff for every positive time. A standard DCT differentiation-weight identity may be an equivalent unpublished/relabelled derivation.",
+        "searches": [
+          "Resultary: cell-centered discrete cosine spectral Neumann heat semigroup positivity checkerboard off diagonal signs nodal maximum principle",
+          "DCT-II cosine spectral differentiation matrix cotangent-square Neumann generator sign",
+          "Kim et al. 2023 DOI:10.3934/era.2023273"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact all-index cotangent-square formula or parity negative-pair count found in the inspected primary numerical examples; closest Resultary positives use other lattice discretizations."
+        ],
+        "reasoning": "Finite examples are not an exact full-grid all-time classification; unsuccessful database searches are not a priority proof.",
+        "searches": [
+          "Resultary: cell-centered discrete cosine spectral Neumann heat semigroup positivity checkerboard off diagonal signs nodal maximum principle",
+          "Kim et al 2023 numerical data N=6 maximum principle"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS concerns the all-N alternating off-diagonal sign formula and sharp unconditional nodal positivity boundary for the DCT-II Neumann spectral generator, not the prior known DCT numerical method or qualitative counterexamples.",
+      "residual_risks": [
+        "Classical offdiagonal cosine spectral differentiation matrices can encode the same identity under different normalization; publication priority remains qualified.",
+        "The global eventual-positive time ln(N-1) is only a sufficient nonsharp bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operator and prior qualitative violation evidence; no all-N generator sign law or exact N=3 threshold in examined sections",
+          "evidence": "p.3-6, modes -pi^2 p^2/L^2 and numerical N=6 counterexample.",
+          "identifier_or_url": "https://aimspress.com/aimspress-data/era/2023/9/PDF/era-31-09-273.pdf",
+          "material_read": "Abstract, Section 2 equations (2.1)-(2.6), Section 3 numerical grid examples and conclusions (10-page primary PDF)",
+          "method": "Primary PDF equations/text and page images",
+          "title": "A maximum principle of the Fourier spectral method for diffusion equations",
+          "trigger": "Exact same cell-centered cosine Neumann diffusion scheme"
+        },
+        {
+          "assessment": "Broader method context only; insufficient to exclude all related cosine weights",
+          "evidence": "Different Fourier spectral and nonlinear/time-discrete setting noted as risk",
+          "identifier_or_url": "https://arxiv.org/abs/2107.09438",
+          "material_read": "Title and abstract/source description; no whole-paper noncoverage assertion",
+          "method": "Public preprint landing and cited characterization",
+          "title": "Effective Maximum Principles for Spectral Methods",
+          "trigger": "Potential broader spectral positivity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete all-N sign classification for an exact widely used Neumann spectral discretization is meaningful because a full nodal maximum principle is a structural property for ALL initial nodal vectors. The exact first forbidden N and negativity census refine previously numerical violations and support method-selection/certification; the sharp N=3 recovery is secondary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Cell-centered Neumann DCT-II spectral generator has exact checkerboard offdiagonal sign law, negative-pair census floor((N−1)^2/4), all-time nodal heat positivity iff N<=2, eventual positivity and exact N=3 crossing time.",
+  "limitations": [
+    "Finite checker N<=26 is corroboration only. Neumann cell-centred DCT spectrum excludes finite-difference, variable coefficients and time discretization; late-time logarithmic bound nonsharp for N>3.",
+    "Classical offdiagonal cosine spectral differentiation matrices can encode the same identity under different normalization; publication priority remains qualified.",
+    "The global eventual-positive time ln(N-1) is only a sufficient nonsharp bound."
+  ],
+  "schema_version": 1
+}
