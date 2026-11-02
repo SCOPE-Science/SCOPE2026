@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The forest obstruction is derived directly: a hypothetical periodic orbit yields a voluntary breakup x leaving y; restoring the worse partner y forces an earlier involuntary loss of a partner z ranked above y, so z must voluntarily leave x. Iterating yields an infinite nonbacktracking walk in a finite forest, contradiction. A mutual-first-choice pair cannot be dissolved; a feedback set of such pairs allows at most f new-edge events interspersed with forest-only stages. Each stage obeys the verified Fanelli–Moscardelli Theorem 4 bound floor(n^3/8). For a simple cycle, a nonuniform binary local preference orientation contains a +-to-- edge, which is mutual first-choice, while each of the two uniform orientations admits a concrete n-step rotating single-edge improvement cycle. This proves exact counting and the stated odd/even stable-existence corollary. Full finite transition enumerator tested all 2040 strict profiles on C3..C10 and 824616 directed moves; this is corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.3233/FAIA251234: Theorem 4 bounds forest dynamics and Section 5 calls for structural intermediates between trees and complete graphs",
+        "doi:10.1016/j.geb.2003.05.003: some improvement paths to stable matches, not universal termination",
+        "doi:10.1007/s10458-020-09470-x: restricted static preference classes"
+      ],
+      "reasoning": "Theorem 4 is unconditional on forests and is used, not rediscovered; forests do not include cycles. The feedback criterion handles particular cyclic topologies without asserting all unicyclic graphs converge. Random-path existence of a path under stable existence is logically weaker than every-path termination. No searched stronger universal result had assumptions covering the presented criterion.",
+      "searches": [
+        "Mutual first choice pair on feedback edge in unicyclic stable roommates implies all blocking-pair improvement paths terminate",
+        "stable roommates cycle preference graph stable matching convergence dynamics mutual first choice edge theorem",
+        "blocking pair matching dynamics unicyclic graphs mutually preferred edge termination",
+        "Fanelli Moscardelli Approximately Stable Matching forest theorem 4 n^3/8 pair dynamics 2025"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3233/FAIA251234",
+      "doi:10.1007/s10458-020-09470-x",
+      "doi:10.1016/j.geb.2003.05.003",
+      "doi:10.1016/j.disopt.2016.03.002",
+      "2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63",
+      "2026/10/4/SCOPE-sharp-four-agent-conflict-between-rank-maximal-and-minimum-regre--1c7fda111285"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fanelli–Moscardelli, Theorem 4: forest acyclicity; Figure 1: specific 4-cycle with improvement orbit",
+        "Bredereck et al., Proposition 9: static odd top-choice cyclic obstruction; separate from universal dynamic convergence",
+        "Diamantoudi et al. 2004: path existence in solvable roommate cases"
+      ],
+      "reasoning": "Published forest result plus one cyclic counterexample establish neither necessary nor sufficient orientation conditions for arbitrary cycles; the new proof supplies both directions and feedback-set extension. Odd coherent static nonexistence is a known obstruction and included as secondary consequence only. Path-existence and full convergence differ in quantifier order; comparison uses actual scientific implications, not matching titles.",
+      "searches": [
+        "doi:10.3233/FAIA251234 Theorem 4 Figure 1",
+        "doi:10.1007/s10458-020-09470-x Proposition 9",
+        "For every strict preference assignment on a simple cycle acceptability graph, the asynchronous blocking-pair matching dynamics converge from every matching except the two cyclic uniform orientations; a feedback edge set consisting of mutual first-choice pairs freezes and forces convergence of all blocking-pair trajectories"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.3233/FAIA251234: sections 2,4,5 and Figure 1",
+        "published-finding corpus search: closest 2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63"
+      ],
+      "reasoning": "Checked the improvement-digraph acyclicity formulation, local two-way top-neighbor orientations, and feedback-edge deletion criterion. The complete four-person stable-roommates census enumerates static stable matchings under full preference lists; it does not imply absence of blocking-pair improvement cycles for all larger undirected cycle graphs. The primary source presents one nonconvergent four-cycle and the forest theorem but not the two-orientation iff statement.",
+      "searches": [
+        "For every strict preference assignment on a simple cycle acceptability graph, the asynchronous blocking-pair matching dynamics converge from every matching except the two cyclic uniform orientations; a feedback edge set consisting of mutual first-choice pairs freezes and forces convergence of all blocking-pair trajectories",
+        "stable roommate pairwise-blocking dynamics on cycle graph orientation of every player's preferred neighbor; exact characterization only two all-clockwise orientations produce dynamic cycles; removal of mutual first-choice feedback edges gives a forest",
+        "stable roommates on cycle graph blocking pair dynamics convergence mutual first choice edge cycle preference clockwise counterclockwise"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ID 2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63: 60 static 4-person preference classes",
+        "Distinct previously published claims in matching and topological stability were checked for implication overlap",
+        "Current deterministic enumeration C3..C10: 2 cyclic preference profiles at every size"
+      ],
+      "reasoning": "No prior exact table of the 2-of-2^n all-horizon dynamic dichotomy was found. The 60-class census is a finite complete-ranking stable-existence table and cannot settle blocking-pair dynamics on cycle graphs of arbitrary order. Our finite enumerator was freshly run and does not purport to establish priority or the arbitrary-n statement.",
+      "searches": [
+        "2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63",
+        "published-finding corpus: exact cycle convergence two coherent local preference profiles",
+        "pairwise stable matching dynamics cycle graphs all clockwise orientations improve cycle"
+      ]
+    },
+    "rationale": "Claim-level search found no equivalently broad dynamics criterion: the motivating ECAI article proves forest convergence, and gives a single 4-cycle failing trajectory, not an exact all-cycle all-preference classification. The local mutual-top feedback sufficient condition and quantified cycle dichotomy are not logical consequences of the reported forest-only theorem without the new freezing and orientation arguments. Earlier odd-cycle static nonexistence is explicitly excluded as a new contribution. Database closest results concern complete-preference small markets or static matchings, not global improvement dynamics on arbitrary simple cycles. Unindexed equivalences remain a genuine residual risk.",
+    "residual_risks": [
+      "Different naming (pairwise better-response dynamics, stable-roommates rotation) or an unindexed full-text result may already characterize every orientation on a cycle.",
+      "Full text of Diamantoudi–Miyagawa–Xue (2004) was not materially checked; available abstract states a weaker existence quantifier.",
+      "Some older conference dissemination of the ECAI 2025 proceedings could predate the publisher's verified 2026-08-25 posting; source dating is grounded in that verified publisher date.",
+      "No independent scholarly priority verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains complete forest convergence theorem and one 4-agent cycle nonconvergence, not an all-cycle local preference characterization or frozen feedback edge sufficient condition",
+        "evidence": "Theorem 4 gives per-agent n^2/4 bound; Section 4 says forests at most n^3/8 moves; Figure 1 illustrates only one 4-agent cyclic dynamics; Section 5 calls for topology between trees and complete graphs.",
+        "identifier_or_url": "https://journals.sagepub.com/doi/10.3233/FAIA251234",
+        "material_read": "Full accessible HTML article: abstract, introduction, model definitions, Theorems 1–5, proof of forest Theorem 4, Figure 1 dynamics, Section 5 open directions",
+        "method": "Direct readable full-document HTML inspection and targeted section searches",
+        "title": "Approximately Stable Matching",
+        "trigger": "Exact match of model and explicit cyclic counterexample; most likely overlapping result"
+      },
+      {
+        "assessment": "Odd top-choice directed cycle static existence obstruction already known; no matching-improvement graph termination theorem identified in inspected content",
+        "evidence": "Proposition 9 uses a cyclic first-choice configuration to prevent a stable matching.",
+        "identifier_or_url": "https://doi.org/10.1007/s10458-020-09470-x",
+        "material_read": "Accessible full-text HTML with particular attention to Proposition 9 and its cyclic preference argument",
+        "method": "Open accessible primary full text and inspect the cyclic-preference proposition",
+        "title": "Stable roommates with narcissistic, single-peaked, and single-crossing preferences",
+        "trigger": "Possible covering static cyclic preference obstruction"
+      },
+      {
+        "assessment": "States existence/positive-probability reachability in soluble settings, does not establish every-path universal termination; inaccessible full discussion remains residual risk",
+        "evidence": "2004 Games and Economic Behavior abstract describes random paths to stability for solvable roommate problems.",
+        "identifier_or_url": "https://doi.org/10.1016/j.geb.2003.05.003",
+        "material_read": "Accessible bibliographic abstract only; full article not verified read",
+        "method": "Read abstract and its quantified convergence statement",
+        "title": "Random paths to stability in the roommate problem",
+        "trigger": "Potentially stronger statement about blocking dynamics on roommate instances"
+      },
+      {
+        "assessment": "Studies forced/forbidden edges and associated computational complexity, not an all-trajectory improvement convergence criterion",
+        "evidence": "Cseh and Manlove (2016), Discrete Optimization 20, 62–89, DOI 10.1016/j.disopt.2016.03.002.",
+        "identifier_or_url": "https://eprints.gla.ac.uk/118502/",
+        "material_read": "Accessible abstract and bibliographic description; full PDF not opened",
+        "method": "Targeted published abstract inspection",
+        "title": "Stable marriage and roommates problems with restricted edges: complexity and approximability",
+        "trigger": "Matching restriction literature with a possible graph-cycle terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "767fdc75-1cdd-4360-8aa5-2ed218ac27b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Graph topology between forests and complete acceptability graphs is an explicit open direction in the motivating paper. The first fundamental cyclic topology receives a natural complete classification over every vertex count and every strict local preference profile, with exactly two failure profiles and exponentially small failure probability under an explicit uniform model. The feedback-set mechanism extends insight to multiple-cycle graphs when preferences freeze a cycle-hitting set. The result distinguishes static stable existence from universal adversarial-order convergence and is structurally motivated rather than a small finite re-enumeration.",
+    "status": "PASS"
+  }
+}
