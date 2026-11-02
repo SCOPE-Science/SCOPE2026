@@ -1,19 +1,21 @@
-# Review of the joint rank census for commuting regressive idempotents
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof gives a bijection between commuting pairs and labeled partitions of the common product into fibers, each equipped with two disjoint species of noncommon fixed points and independent earlier-point image choices. It verifies both necessity and sufficiency and derives the stated two-variable differential recurrence and three-rank exponential generating function. The packaged independent exhaustive checker verifies every coefficient in the rank-triple polynomial for degrees one through seven. These finite computations are not the general proof.
+PASS
 
-## Originality
+For commuting idempotents e,f the product g=ef=fe is itself idempotent; eg=ge=fg=gf=g and both preserve each g-fiber. Each fiber B has a unique fixed root c=g(x)=min B because g is regressive. Non-root e-fixed set E and f-fixed set F are disjoint. Every point in E is f-sent to c, every point in F e-sent to c, and every other point chooses e-image independently from earlier E∪{c} and f-image from earlier F∪{c}; these are both necessary and sufficient to make ef=fe=c on that block. Building an ordered fiber induces u+v+(1+u∂u)(1+v∂v) on its fixed-point rank polynomial. Labeled set partitions of the product fibers then give the exponential formula, including n=0 identity. Independently enumerated every regressive idempotent and all ordered commuting pairs at n=1..6, comparing every three-rank coefficient with the independent weighted partition recurrence, yielding totals 1,4,21,139,1114,10465. The finite check does not establish the all-n EGF; the bijection does.
 
-PASS against checked evidence, with limitations. The nearest 2024 work on the identical regressive full-transformation monoid establishes maximal-subsemigroup and abundance results, according to its accessible abstract. The complete 2025 follow-up on partial regressive transformations gives the minimum-kernel-block property, maximal-subsemigroup classifications and abundance, but no two-idempotent commuting-rank census in its inspected text. The 2024 full-text account of the smaller interval-image order-preserving monoid gives generators, cardinality and presentation, not the present census. Previously known unrestricted-full and order-preserving commuting-pair counts do not logically determine the position-sensitive regressive refinement. A 2024 plausible same-object paper was inaccessible in full, which is an explicit remaining priority risk; search failure is not treated as novelty proof.
+## originality
 
-## Value
+PASS
 
-PASS. The ordered commuting idempotents constitute a canonical semigroup invariant measuring how a monoid's projections interact. For full regressive maps, every idempotent encodes a partition with its least block elements fixed; the new fiber-bijection resolves commutation *and simultaneously* all three image ranks for every chain size. The differential local polynomial captures the genuinely order-sensitive restrictions that vanish in the unrestricted full-transformation model. Thus it is a motivated full-family classification, not an arbitrary finite count.
+PASS, qualified by same-object inaccessible primary literature. Zhao–Hu (2024) study exactly D_n, but their publisher abstract identifies maximal/idempotent-generated subsemigroups and abundance, not the joint commuting-rank census; the complete text was not obtained via OA/arXiv or authorized Oxford (VPN disconnected), so no definitive NOT_COVERING claim is made. Zhao–Hu (2025) treat partial regressive monoids; Fernandes (2024) covers the narrower order-preserving interval-image case. General full-transformation or monotone commuting-pair enumerations do not immediately yield the position-sensitive regressive three-rank distribution. The full natural family and all rank triples appear new on inspected evidence, with a clearly stated historical priority risk.
 
-## Scope and literature limitations
+## value
 
-No general distribution of commuting families of three or more idempotents, no partial-map analogue, and no asymptotic law are claimed. Publication priority is not exhaustively established. References and residual risks are documented in RESULT.md and AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Commuting idempotent pairs are a canonical invariant of the entire regressive transformation monoid, with each image rank and product rank motivated by projection structure. The complete all-n joint enumeration and differential fiber recurrence solve the natural classification rather than computing a tiny unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
