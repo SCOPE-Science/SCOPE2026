@@ -1,15 +1,21 @@
-# Scientific review: logit feedback Hopf criticality
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns exactly the nonlinear flow, payoff restrictions, and canonical-coordinate coefficient specified in `RESULT.md`. Direct computation gives the unique interior branch, a positive-determinant transverse Hopf crossing, and the displayed cubic vector field. A standard planar first-Lyapunov formula reduces exactly to the claimed rational expression in \(q,\chi,\omega^2\). The sign analysis uses \(\chi>-2\), proven for all permitted payoffs. The two-speed example is certified using a rational bound on \(\log 10\); numerical trajectories are only supporting checks. Risk: the degenerate zero-coefficient boundary requires a higher-order calculation and is expressly excluded from the Hopf-direction claims.
+## correctness
 
-## Originality — PASS with residual bibliographic risk
-Paarporn's original 2023 study derives the equilibrium and rationality threshold, but its Section IV-A explicitly leaves first-Lyapunov stability conditions open. Its positive-cycle simulations do not imply a universal sign. Here the general closed coefficient depends on environmental speed and yields both supercritical and subcritical instances. Replicator–mutator feedback of Gong et al. (2022) and static logit equilibria of Gavin et al. (2024) do not give an identical or dominating theorem because their state equations and dependent quantities differ. The normalization does not manufacture novelty: the sign boundary and witnessed reversal persist under smooth positive scalings of the normal-form coefficient. Residual risk: a mathematically equivalent logit-environment Hopf calculation could be published under a different notation; no claim of exhaustive uniqueness is made.
+PASS
 
-## Mathematical value — PASS
-The original paper explicitly asks for the cycle-stability calculation. The new coefficient converts a simulation-based statement into a sharp, all-payoff local criterion, demonstrates a parameter mechanism that reverses the local cycle's stability without changing the Hopf rationality, and identifies a restriction excluding reversal when \(\theta\ge1/3\). This is a nontrivial nonlinear stability classification rather than a renaming or a generic Hopf existence statement. It does not assert a global phase portrait.
+Reconstructed interior branch x*=1/(1+theta), n_beta=n0-m log(1/theta)/(beta D), trace q beta H -q a m log(1/theta)/D-1 with positive crossing derivative qH and positive determinant. In canonical physical-time coordinates u=x-x*, v=-P(n-n_h)/omega, direct cubic sigmoid derivatives give f_uu=k/q, f_uv=tau-k*omega/q, f_vv=k*omega^2/q, f_uuu=(1-6q)/q^2, f_uvv=(1-6q)*omega^2/q^2-2k tau omega/q; g_uu=g_vv=g_uuv=g_vvv=0. Independently substituted into planar Hopf l1 formula; identity reduces to zero using k^2=1-4q and k*tau/omega=-chi. Exact witness theta=1/10,(r,s,p,t)=(2,1,31,1) gives chi=81/20, beta_h=(22+9 log 10)/21, epsilon*=30.0811031274275; computed l1=-4.4232132741 at epsilon=1 and +1.5086565361 at epsilon=40. The standard Hopf theorem supplies local cycle side/stability only when l1!=0; no global or generalized-Hopf claim.
 
-## Material read and scope
-The initiating paper's freely available arXiv HTML was examined through its model equations, equilibrium classification, Jacobian, full Hopf section and stated remaining question. The 2022 replicator–mutator paper and 2024 static-logit paper were assessed from their accessible abstracts and bibliographic descriptions, not misrepresented as fully inspected text; this residual access limitation does not obscure their different model definitions. The included checks execute from the named package paths.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact original model and Hopf location were published by Paarporn (2023). Its own conclusion says a complete Lyapunov-coefficient analysis is needed to establish observed stable cycles. Thus calculating the exact speed-dependent l1 and bifurcation criticality supplies a new non-implied invariant; previous replicator-mutator/static-logit models do not imply it. Priority remains qualified by possible later full analyses.
+
+## value
+
+PASS
+
+Determines whether and on which side local cycles attract or repel for an established game-environment model, including an explicit response-speed-only reversal at fixed payoffs and beta threshold. This is a structural bifurcation threshold, not a numerical simulation observation or routine equilibrium restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
