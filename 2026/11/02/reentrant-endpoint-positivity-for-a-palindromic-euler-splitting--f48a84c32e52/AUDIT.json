@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Exact matrix product EFE symbolically verified. Necessity of x<=1 follows from y(1-x); sufficiency follows from upper-right >=x(1-x) when bottom-right >=0. Concavity gives the sharp interval classification and all equality cases. Standalone verifier tests 6006 additional cases; analytic proof covers all rates and nonnegative steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanes–Casas–Murua section 9.2.1, https://arxiv.org/html/2401.01722v3, uses exponential subflows with automatic positivity, unlike forward Euler substeps.",
+        "Published SSP-SDIRK two-state immunity concerns a different implicit map."
+      ],
+      "reasoning": "Unconditional positivity for products of nonnegative exact subflows does not imply positivity of products of signed forward-Euler matrices; neither yields the nonmonotone exact endpoint set. The SSP-SDIRK result is method-specific and cannot dominate the current formula.",
+      "searches": [
+        "Markov positivity of Euler splitting product with negative intermediate matrices re-entrant positivity stiffness ratio larger than two",
+        "positivity preserving splitting methods Markov chain forward Euler Lie Trotter 2022 arxiv",
+        "https://arxiv.org/html/2401.01722v3 section 9.2.1",
+        "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2304.11064",
+      "https://arxiv.org/abs/2401.01722",
+      "https://arxiv.org/html/2304.11064v1",
+      "https://arxiv.org/html/2401.01722v3",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bréhier–Cohen–Ulander (2023), arXiv:2304.11064v1, section 3, uses a stochastic exponential factor and a positive heat semigroup; no signed three-factor explicit Euler expression.",
+        "Blanes–Casas–Murua survey section 9.2.1 describes positive matrix exponentials for splitting, not the claimed reentrant forward Euler product.",
+        "Eight-state Padé finding shows reentrance for another integrator, but neither its thresholds nor its eight-state counterexample imply the 2-state Euler-composition result."
+      ],
+      "reasoning": "Positivity of exact subflows or of other rational map families is not a theorem about this polynomial matrix product. The present exact conditions follow from its distinct off-diagonal entry y(1-x) and depend on two rates. Generic product and concavity identities are routine ingredients, but the globally classified admissible step set and upper-window restoration are not asserted or entailed by the inspected claims.",
+      "searches": [
+        "https://arxiv.org/abs/2304.11064",
+        "https://arxiv.org/html/2304.11064v1",
+        "https://arxiv.org/abs/2401.01722",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact endpoint positivity is equivalent to entrywise nonnegativity of EFE because all row sums equal one. Comparable published-finding corpus results include 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab and 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7."
+      ],
+      "reasoning": "The queried prior examples use rational Padé and implicit Runge–Kutta one-step maps, respectively, not the palindromic three-factor forward-Euler map. General entrywise positivity of stochastic matrices is a definition and does not provide its exact two-parameter disjoint interval classification.",
+      "searches": [
+        "positive two-by-two Markov generator palindromic forward Euler composition restoring positivity for large time steps disjoint positive intervals reentrant CFL",
+        "two-state unidirectional A=[[-a,a],[0,0]], B=[[0,0],[b,-b]] explicit half-step Euler A full-step B half-step A Markov nonnegativity exactly",
+        "explicit Euler composition positivity preservation splitting Markov generators reentrant timestep interval two state"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest published Markov sign classification: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab (eight-state [2/2] Padé); 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a (Crank–Nicolson)."
+      ],
+      "reasoning": "The closest visible classifications use different rational approximants to one generator rather than this explicit ordered product of two components. No matching numerical positivity table or exact threshold was located; incomplete indexing is a remaining priority risk.",
+      "searches": [
+        "two-state unidirectional A=[[-a,a],[0,0]], B=[[0,0],[b,-b]] explicit half-step Euler A full-step B half-step A Markov nonnegativity exactly",
+        "nonmonotone positivity intervals time step Markov transition splitting forward Euler stages",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ]
+    },
+    "rationale": "Searched the exact 2-state ordered product, reentrant CFL synonyms and positivity splitting literature; inspected motivating arXiv paper and broad primary survey in relevant sections. Compared against published [2/2] Padé and SSP-SDIRK positivity findings, which are method- and dimension-distinct, without assuming partition uniqueness. Could remain equivalent unpublished or unindexed specialized case; independent priority remains unverified.",
+    "residual_risks": [
+      "A specialized exact computation of the same two-state palindromic Euler product may exist outside the searched/indexed literature.",
+      "Very broad algebraic theories of positivity of products could imply the formula if specialized, though no such decisive covering result was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NONCOVERING for stated ordered forward-Euler product; positivity comes from exact exponentials rather than endpoint cancellation among signed factors",
+        "evidence": [
+          "arXiv 2304.11064v1 lines 24–55 and 78–155, especially equation (5), section 3 explanation that exact subflows preserve positivity"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.11064v1",
+        "material_read": "full HTML article sections 1–4, especially sections 1 and 3, equations (5)–(13), scheme and comparisons",
+        "method": "Read primary arXiv HTML sections, exact update and numerical section",
+        "title": "Positivity-preserving schemes for some nonlinear stochastic PDEs",
+        "trigger": "2023 motivating literature in admissible time cohort; positivity via splitting"
+      },
+      {
+        "assessment": "NONCOVERING for exact signed forward-Euler three-factor map; listed positivity proof relies on matrix exponentials",
+        "evidence": [
+          "Section 9.2.1, lines 3176–3203, explicitly derives nonnegativity from exponentials of Metzler matrices"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.01722v3",
+        "material_read": "table of contents and introduction, sections 6 and 9.2.1, lines 3176–3203",
+        "method": "Read primary arXiv HTML survey around positivity-preserving splitting section",
+        "title": "Splitting methods for differential equations",
+        "trigger": "general splitting framework potentially stronger positivity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f48a84c3-2e52-4dd0-807e-e6136edd7469",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The naturally split bidirectional two-state Markov generator gives an exact all-positive-rates classification of a physical property of an explicit time integrator. The sharp b=2a reentrance transition shows nonmonotonic endpoint positivity even in two states and quantitatively separates endpoint sign tests from stage positivity and physical accuracy. This is a structural and reusable caution about monotone-CFL reasoning, not an arbitrary isolated parameter slice.",
+    "status": "PASS"
+  }
+}
