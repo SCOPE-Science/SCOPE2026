@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:08:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From actual RESULT.md at the verified frozen Git tree, the projection onto a_i^T e=0 maps any nonzero current error to alpha n_i. The next residual magnitudes are |alpha|s_ij; for p>0 the repeated row has exactly zero probability. Thus index transition P_ij=s_ij^p/d_i and stationary detailed balance d_i/(2Zp) are exact. Multipliers are c_ij, so the irreducible finite-chain additive strong law gives the a.s. exponent ell(p). Differentiating is covariance of log s with the strictly decreasing log sqrt(1-s²), proving strict monotonicity except constant angles. Pairwise edge weights concentrate at maximal s as p grows. At p=0 independently uniform sampling DOES allow repeats; stationarity produces 2/m² sum log c, while p->0+ produces 2/[m(m-1)] sum log c. Check m=2 periodicity allowed, nonzero error from generic e0, no orthogonal rows. Independent exact geometry and numerical exponent checks at 6 p values match, including factor 3/2 for m=3. Finite checks corroborate; full a.s. quantifier rests on Markov ergodic theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General sketch-and-project and weighted sparse Bregman methods.",
+          "Actual primary-source comparison: arXiv:2007.02910: Steinerberger proves monotonicity of expected error estimates, not the stationary edge measure sum_{i<j}s_ij^p log c_ij/Zp or exact a.s. zero-power discontinuity. ; arXiv:1909.03604v1: Theorem 11 bounds E(||x^{k+1}-x*||_B^2 | x^k) and E||x^k-x*||_B^2 under sampling proportional to sketched loss; not an equality for (1/k)log||e_k|| or p->0 stationary chain."
+        ],
+        "reasoning": "Their bounds for expected squared or Bregman error do not imply equality for pathwise normalized log norm. Sparsity/soft-thresholded projection also changes the dynamics; general upper bounds do not give the zero-power jump.",
+        "searches": [
+          "https://arxiv.org/html/1909.03604v1",
+          "https://arxiv.org/abs/2306.06813"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.02910",
+        "arXiv:1909.03604v1",
+        "arXiv:2306.06813",
+        "Resultary semantic search: weighted randomized Kaczmarz 2D planar exact almost sure Lyapunov exponent residual-power p zero discontinuity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Steinerberger + Gower prove expected-error estimates, not the equality of a.s. exponents.",
+          "Actual primary-source comparison: arXiv:2007.02910: Steinerberger proves monotonicity of expected error estimates, not the stationary edge measure sum_{i<j}s_ij^p log c_ij/Zp or exact a.s. zero-power discontinuity. ; arXiv:1909.03604v1: Theorem 11 bounds E(||x^{k+1}-x*||_B^2 | x^k) and E||x^k-x*||_B^2 under sampling proportional to sketched loss; not an equality for (1/k)log||e_k|| or p->0 stationary chain."
+        ],
+        "reasoning": "Theorem 11 of Gower concerns conditional expected squared norm while the new statement is the long-run log norm almost surely. Neither entails the exact m/(m-1) ratio. The p=0 algorithm differs at all k because repeats are allowed.",
+        "searches": [
+          "https://arxiv.org/html/2007.02910",
+          "https://arxiv.org/html/1909.03604v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reversible weighted walk on row lines; logarithmic Markov additive functional; angular product of sequential projections.",
+          "Actual primary-source comparison: arXiv:2007.02910: Steinerberger proves monotonicity of expected error estimates, not the stationary edge measure sum_{i<j}s_ij^p log c_ij/Zp or exact a.s. zero-power discontinuity. ; arXiv:1909.03604v1: Theorem 11 bounds E(||x^{k+1}-x*||_B^2 | x^k) and E||x^k-x*||_B^2 under sampling proportional to sketched loss; not an equality for (1/k)log||e_k|| or p->0 stationary chain."
+        ],
+        "reasoning": "Row residuals after each projection equal sine(edge)*common_amplitude, hence reversible edge measure and exact pathwise log-cosine rate. The searched adaptive Kaczmarz work formulates average progress rather than this precise stationary Markov functional.",
+        "searches": [
+          "https://arxiv.org/html/2007.02910",
+          "https://arxiv.org/html/1909.03604v1",
+          "Resultary semantic query: weighted randomized Kaczmarz 2D planar exact almost sure Lyapunov exponent residual-power p zero discontinuity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search exact planar rate and p->0 difference; no identified exact-table coverage.",
+          "Actual primary-source comparison: arXiv:2007.02910: Steinerberger proves monotonicity of expected error estimates, not the stationary edge measure sum_{i<j}s_ij^p log c_ij/Zp or exact a.s. zero-power discontinuity. ; arXiv:1909.03604v1: Theorem 11 bounds E(||x^{k+1}-x*||_B^2 | x^k) and E||x^k-x*||_B^2 under sampling proportional to sketched loss; not an equality for (1/k)log||e_k|| or p->0 stationary chain."
+        ],
+        "reasoning": "Named Resultary search and external keyword search returned no matching exact eigenvalue/rate table; this is limited search evidence, not novelty proof.",
+        "searches": [
+          "weighted randomized Kaczmarz 2D planar exact almost sure Lyapunov exponent residual-power p zero discontinuity",
+          "web: residual weighted randomized Kaczmarz almost sure convergence exponent planar p zero sampling Markov limit"
+        ]
+      },
+      "rationale": "Original residual-power algorithm, expected error bounds and the zero residual observation are known. However, the source results compare expected squared/Bregman error or per-step selection, whereas the assessed theorem computes the exact almost-sure planar logarithmic contraction via reversible pairwise Markov edge measure and proves the noncommuting long-time/p->0 limit. Search did not find an explicit stronger theorem; qualification remains for unindexed specialized Markov/Kaczmarz work.",
+      "residual_risks": [
+        "Unindexed exact planar residual Markov-process calculation or a specialized deterministic-angle/randomized Kaczmarz analysis might already give ell(p).",
+        "The p->0+ vs p=0 discontinuity depends on exact zero residual and exact arithmetic; finite precision/regularization changes the algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_SAMPLING_AND_BOUNDS; no inspected planar exact pathwise rate",
+          "evidence": "Steinerberger proves monotonicity of expected error estimates, not the stationary edge measure sum_{i<j}s_ij^p log c_ij/Zp or exact a.s. zero-power discontinuity.",
+          "identifier_or_url": "arXiv:2007.02910",
+          "material_read": "Full accessible arXiv extracted article, introduction and convergence results, including all-power expected-convergence bounds and p->0 sampling discussion.",
+          "method": "Public arXiv full article HTML; inspected mathematical results and sampling definitions",
+          "title": "A Weighted Randomized Kaczmarz Method for Solving Linear Systems",
+          "trigger": "Same residual-power row selection in ordinary Kaczmarz"
+        },
+        {
+          "assessment": "EXPECTED_ERROR_BOUNDS_NOT_THE_EXACT_PATHWISE_RATE",
+          "evidence": "Theorem 11 bounds E(||x^{k+1}-x*||_B^2 | x^k) and E||x^k-x*||_B^2 under sampling proportional to sketched loss; not an equality for (1/k)log||e_k|| or p->0 stationary chain.",
+          "identifier_or_url": "arXiv:1909.03604v1",
+          "material_read": "Full public arXiv HTML, especially Sections 1.4, 2.4, 7.2-7.4, 9.1 and Theorems 7 and 11.",
+          "method": "Public arXiv HTML textual sections and precise theorem statements",
+          "title": "Adaptive Sketch-and-Project Methods for Solving Linear Systems",
+          "trigger": "Potential stronger general adaptive-sampling convergence theory"
+        },
+        {
+          "assessment": "DIFFERENT_SPARSE_PROJECTION_METRIC",
+          "evidence": "Sparse/soft-threshold Bregman iteration yields convergence in expectation, not an exact ordinary planar projection Lyapunov rate.",
+          "identifier_or_url": "arXiv:2306.06813",
+          "material_read": "Public full arXiv extracted HTML including introduction, the sparse Bregman updates and expected Bregman-distance estimates.",
+          "method": "Public arXiv full-text HTML",
+          "title": "A Weighted Randomized Sparse Kaczmarz Method for Solving Linear Systems",
+          "trigger": "Same residual-power exponent p and potentially dominating generalized method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact a.s. Lyapunov exponent and strict all-power ordering solve a natural algorithm-selection problem for consistent planar Kaczmarz, identifying a genuine singular contrast between arbitrarily small positive residual power and iid uniform sampling. The m/(m-1) jump matters to long-run pathwise convergence, not just finite-step implementation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed exact planar residual Markov-process calculation or a specialized deterministic-angle/randomized Kaczmarz analysis might already give ell(p).",
+    "The p->0+ vs p=0 discontinuity depends on exact zero residual and exact arithmetic; finite precision/regularization changes the algorithm.",
+    "The independent crosschecks are finite where enumerative; all unbounded quantifiers rely on the reconstructed deductive proof.",
+    "Publication not staged; no external attestation and no alteration of proof text."
+  ],
+  "schema_version": 1
+}
