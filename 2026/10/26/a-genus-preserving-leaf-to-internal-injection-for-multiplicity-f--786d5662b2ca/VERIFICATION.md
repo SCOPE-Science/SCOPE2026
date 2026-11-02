@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `VERIFY.py` uses an independent semigroup-membership predicate from Apéry residues to compute minimal generators and compare the actual leaf condition against the four algebraic classes. It also checks target Kunz admissibility, genus preservation, internality, absence of collisions, and the closed counts for every genus \(3\) through \(80\). It produced `VERIFY_OK` when executed against the delivered package.
+## correctness
 
-Proof-based checks: the four Kunz inequalities, exhaustive residue-compatible Apéry decompositions, six pairwise-disjoint image-region comparisons, and the four integer interval counts are presented in `RESULT.md`. The asymptotic denominator uses the cited 2018 partition formula. Finite exhaustive tests are not a substitute for the general proof.
+PASS
 
-Limitations: no formal proof assistant or independent audit has been used. The complete text of the 2026 motivating paper was inaccessible; originality retains the resulting residual risk.
+PASS — The four Kunz inequalities characterize all Apéry triples (a,b,c); a minimal generator above Frobenius occurs only among the three nonzero Apéry elements. Their residue-compatible decompositions yield four disjoint leaf cases A,B,C,D. The specified translations preserve genus, Kunz admissibility and map into internal nodes, with image-conditions excluding overlap. Counting integer intervals gives all four formulas and the known total semigroup enumeration gives the asymptotic proportion. A fresh independent minimal-generator/membership enumeration through genus 80 verified all family tests, images and counts.
+
+## originality
+
+PASS
+
+Qualified PASS for an explicit all-genus multiplicity-four leaf-to-internal injection, four disjoint Kunz leaf families and exact leaf count; neither the known total-count theorem nor the indexed 2026 broader conjecture directly implies the injection. The full 2026 motivating paper remained inaccessible and is named as a priority risk.
+
+## value
+
+PASS
+
+PASS — The result gives a structural injection for every genus in the natural first nontrivial fixed-multiplicity case of a recently stated leaf/internal dominance conjecture, with a complete leaf census rather than recomputing the known total count. The map may inform other multiplicities; no broader conjecture claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

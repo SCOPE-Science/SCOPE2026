@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four Kunz inequalities completely characterize multiplicity-four semigroups; the effective-generator test proves the four disjoint leaf families. Four genus-preserving translations map the leaves to admissible non-leaves, with six explicit pairwise-image-disjointness arguments. Counting each one-dimensional family gives the stated quasi-linear census, and the known partition count yields the asymptotic ratio. A standalone checker reconstructs minimal generators from semigroup membership and verifies the classification, injection, formulas, and noncollision for all genera \(3\) through \(80\). The latter is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with literature-access risk
+PASS — The four Kunz inequalities characterize all Apéry triples (a,b,c); a minimal generator above Frobenius occurs only among the three nonzero Apéry elements. Their residue-compatible decompositions yield four disjoint leaf cases A,B,C,D. The specified translations preserve genus, Kunz admissibility and map into internal nodes, with image-conditions excluding overlap. Counting integer intervals gives all four formulas and the known total semigroup enumeration gives the asymptotic proportion. A fresh independent minimal-generator/membership enumeration through genus 80 verified all family tests, images and counts.
 
-The 2026 motivating work states internal dominance over leaves at fixed multiplicity and genus as a conjecture. The primary 2018 multiplicity-four paper counts all semigroups but expressly does not supply the needed leaf-to-internal map or an exact leaf census. The 2026 multiparameter-counting work addresses other enumerations. Actual mathematical-record queries did not reveal equivalent direct coverage. The complete 2026 motivating primary text was not available, so an implicit theorem there or in unindexed work remains an explicit risk; no uniqueness is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The result proves the full genus range of a naturally singled-out multiplicity in an explicitly stated recent conjecture, replaces a finite census with a structural injection, and extracts exact and asymptotic leaf counts. This is more than a routine recomputation of known total semigroup counts.
+Qualified PASS for an explicit all-genus multiplicity-four leaf-to-internal injection, four disjoint Kunz leaf families and exact leaf count; neither the known total-count theorem nor the indexed 2026 broader conjecture directly implies the injection. The full 2026 motivating paper remained inaccessible and is named as a priority risk.
 
-## Limitations
+## value
 
-Only multiplicity \(4\) is proved. Independent mathematical review remains outstanding, and the motivating 2026 paper's complete text was unavailable for a definitive line-by-line comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — The result gives a structural injection for every genus in the natural first nontrivial fixed-multiplicity case of a recently stated leaf/internal dominance conjecture, with a complete leaf census rather than recomputing the known total count. The map may inform other multiplicities; no broader conjecture claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
