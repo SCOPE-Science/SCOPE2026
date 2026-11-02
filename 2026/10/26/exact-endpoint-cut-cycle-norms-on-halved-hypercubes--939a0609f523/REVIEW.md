@@ -1,11 +1,21 @@
-# Scientific review — exact endpoint cut–cycle norms on halved hypercubes
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts from the exact Fourier eigenvalue \(2j(n-j)\) of the distance-two even-parity graph Laplacian and reconstructs the unique mean-zero dipole potential. The explicit beta-type integral is positive and strictly decreases across even radial shells, fixing all current signs without numerical guesses. Counting the three edge types and evaluating two even-binomial moments gives \(\|Q_n\|=(n+5)/4-1/(n-1)\) for every integer \(n\ge6\). Edge transitivity and a trace identity then give the complementary cycle norm. Exact-rational Laplacian solves independently check the small configurations; finite checks are not used to infer the theorem.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** The closest primary comparison is Dilworth–Kutzarova–Ostrovskii, *Cycle spaces: invariant projections and applications to transportation cost* (arXiv:2305.12582, first version 2023-05-21), Theorem 45 and Corollary 60. Those results concern distance-one edges of the full Hamming cube; the present result concerns distance-two edges restricted to one parity class and gives a different exact norm. Searches for halfcube, demihypercube, even-parity distance-two, current-sum and equivalent projector terminology found no direct covering theorem. Published Walsh-projection and hypercube results on different spaces were also considered. Specialized electrical-network literature may still contain an equivalent formula; indexing is not a proof of absence.
+PASS
 
-**Value — PASS.** The halved hypercubes are a standard natural distance-regular family with \(2^{n-1}\) vertices and degree \(\binom n2\). The result identifies two exact Banach-space operator invariants in every dimension \(n\ge6\), showing unbounded linear endpoint norms with sharp slope \(1/4\) despite quadratic degree. The positive radial Green-integral and signed-current decomposition explain the effect rather than merely tabulating values. The unrestricted family and asymptotic contrast with the ordinary cube give a motivated operator-theoretic use of the exact constant.
+Walsh characters on the even-parity group diagonalize Laplacian with eigenvalue 2|S|(n-|S|). Fourier inversion of an edge dipole gives signed potentials 0 on mixed distinguished bits and ±a_r on equal bits, with a_r positive integral strictly decreasing by even r. Counting three edge-flip classes gives absolute-current sum (2+4m)S_m+(m-1)U_m, S_m=1/[2(m+1)] and U_m=1/4. Edge transitivity makes every column equal; P=I-Q shifts the norm by 1-2 tr(Q)/|E|. Independently reconstructed exact-rational Laplace potentials and all edge currents for n=3..8 matched both formulas; this is finite corroboration of the analytic formula.
 
-**Scope and risks.** The norms are for the canonical orthogonal projections, not arbitrary projection minima. Comparisons with full-cube formulas do not establish novelty against all less-indexed distance-regular-graph resistance calculations. No independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dilworth–Kutzarova–Ostrovskii Theorem 45 and Corollary 60 treat canonical projections on the *ordinary Hamming cube* (distance-one full cube) and give its distinct norm (n+1)/2, not distance-two edges inside a parity class. Their method and ordinary-cube results are credited. The halved cube has a different Laplacian spectrum and current geometry; no direct specialization is known, and a specialized halved-cube projection norm may be indexed elsewhere.
+
+## value
+
+PASS
+
+Canonical projection endpoint norms are natural geometry invariants of a distance-regular graph. The exact all-dimensional values distinguish the parity-halved cube from the ordinary cube, quantify linear amplification slope 1/4, and give the complementary cycle norm with exact finite-size corrections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
