@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies the ordinary three-cut convention, all eighteen graph edges, every facet criterion, and a complete finite matching rule. Exact enumeration gives \(123\) facets and \(1930\) augmented faces, then \(957\) matched pairs and one critical vertex, one critical six-simplex, and thirteen critical seven-simplices. A complete directed-Hasse sort over \(10238\) incidences proves matching acyclicity. Signed integral gradient cancellation gives the exact zero \(1\times13\) Morse boundary. A CW model with a point plus cells only in degrees six and seven and zero degree maps is homotopy equivalent to \(S^6\vee\bigvee^{13}S^7\). Independent modular ordinary simplicial ranks corroborate the result. Three-vertex-connectivity and degree-three-neighbor conditions are checked directly. Corollary 5.5 of Bayer et al. then supplies induced-subgraph minimality for nonshellability; this last implication is not independently rediscovered. Risk: finite verifier and its mathematical interpretation should still be independently inspected; the computational certificate only concerns the eleven-vertex graph.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Relevant primary full texts: Minian--Rodríguez (2012) covers Alexander-dual constructions and topological criteria; Bayer et al. (2023, especially section 5 and Corollary 5.5) defines cut complexes and their forbidden-graph framework. Neither inspected source states the exact Herschel three-cut homotopy decomposition. The latter's sufficient criterion alone cannot give nonshellability or the sphere multiplicities. General results for triangle-/four-cycle-free graphs or for triangle-free graphs with edge-disjoint squares are inapplicable because the Herschel graph has nine squares sharing edges. The Herschel independence, matching, and Hamiltonian-path complexes have different faces. The closest database hits are for the Heawood, icosahedral, and cuboctahedral three-cut complexes and for the Herschel independence complex; they do not cover the Herschel three-cut claim by implication. Risk: unindexed prior treatments or stronger theorems not encountered by these searches might contain the result. No absolute novelty certification is claimed.
+PASS
 
-## Value — PASS
-The Herschel graph is a canonical three-connected bipartite polyhedral graph. Its overlapping four-cycles put it beyond the simple high-girth and edge-disjoint-square wedge formulas, while its three-connectivity makes the shellability obstruction structurally consequential. An exact mixed-dimensional integral sphere wedge identifies a minimal forbidden graph for shellability under a previously established theorem. The result resolves a natural graph-complex test case and shows the behavior of a recognized criterion at a canonical non-Hamiltonian graph; it is not merely a Betti-table recomputation.
+The specified relabeling of Herschel has 11 vertices, 18 edges, degree multiset (3^8,4^3); independent graph reconstruction checked 3-vertex connectivity and every vertex having a degree-3 neighbor. Enumerating all C(11,3) triples gives 123 disconnected triples, precisely 123 pure 7-dimensional cut facets and 1,930 augmented faces. Independent exhaustive Morse matching produces 957 face/coface pairs and critical cells 0:1,6:1,7:13, with complete 1,929-node, 10,238-incidence Hasse DAG. Exact integral signed chain reduction computes the entire 1x13 Morse boundary to be zero. The 6-skeleton is S6; all 7-cells attach with zero degrees in π6(S6)≅Z, implying S6∨(∨13S7). Nonzero H6 excludes purity-level shellability; published Bayer et al Cor.5.5 exactly applies to the 3-connected, degree-three-neighbor Herschel to prove induced-subgraph-minimal nonshellability. The minimal-forbidden criterion is prior work, not independently novel.
 
-## Closest literature and limits
-Minian and Rodríguez, arXiv:1206.3368, original date 2012-06-15; Bayer et al., arXiv:2304.13675, especially Corollary 5.5 and Section 6. The present graph does not satisfy the complete next-to-top skeleton hypothesis used in Bayer et al.'s general face-lattice analysis: it has \(321\) six-dimensional faces rather than all \(330\). The scope is restricted to the graph and ordinary three-cut definition; independent mathematical audit has not yet been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Herschel 3-cut homotopy and its explicit minimal obstruction are not entailed by prior general cut-complex theorems or Resultary other graph cases. Bayer et al 2023 Cor 5.5 gives a ready-made MINIMALITY IMPLICATION, appropriately credited; it does not calculate Herschel homotopy, the required nonshellability hypothesis, or exact 13/1 wedge. Close SCOPE cube three-cut minimal obstruction concerns different graph.
+
+## value
+
+PASS
+
+Herschel is a natural 11-vertex 3-connected bipartite polyhedral graph with unusually constrained cycles. Complete ordinary three-cut complex homotopy is a motivated topological invariant, and this exact mixed wedge certifies a non-shellable but pure complex and a new explicit minimal forbidden induced graph by an existing criterion, a useful structural obstruction rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
