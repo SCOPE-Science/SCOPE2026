@@ -1,0 +1,19 @@
+# Review of the weighted-shadow five-symbol alphabet obstruction
+
+## Correctness (C): PASS
+
+The claim concerns exactly two arbitrary deletions from a length-five word, with every ordered information prefix transmitted unchanged. The exact deletion shadow is defined as the set of distinct length-three subsequences, so correct decoding is equivalent to pairwise shadow disjointness. The only nonstandard lemma is the pair of integer lower bounds on the weighted shadows: at least \(22\) for equal leading symbols and at least \(30\) for unequal leading symbols. All equality patterns of five positions are exactly the \(52\) restricted-growth words. The included source code reconstructs their three-subsequence sets from all ten position triples and verifies the grouped complete certificate. A second enumeration over all actual words for \(2\le q\le7\) agrees. Counting the five equality types in the complete ambient shadow gives \(q(3q^2+7q+12)\). Disjointness and the \(q\) equal-prefix plus \(q(q-1)\) unequal-prefix codewords yield \(q(q-1)(20-3q)\le0\), so \(q\ge7\). All operations are exact integers. No search timeout or partial enumeration is used as impossibility evidence.
+
+## Originality (O): PASS, qualified by residual priority risk
+
+The closest same-model primary paper is Grishin–Zabokritskiy, arXiv:2609.38259 (first posted 2026-09-29). The primary full text was inspected at its exact deletion-shadow and systematic definition in Section 2.1, the insertion-ball alphabet converse of Section 2.5, endpoint-related remarks, and Section 11. Its general condition specializes to \(q^3\ge q^2\) at \(n=k=2\), which does not imply the proposed \(q\ge7\) inequality. Existence over sufficiently large alphabets also does not settle the finite lower bound. Song–Cai, arXiv:2210.14006, was checked in the primary PDF, including its model, construction and Theorem 2 in Sections II–III and its conclusion. Its code uses asymptotic bit redundancy and a concatenated regular-word construction; it does not state a five-symbol, literal-prefix, three-trailer alphabet converse. Semantic searches of published mathematical records for the exact parameters, weighted equality patterns and alternative formulations found the closest related records in single-deletion codes, two-list decoding, and asymptotic \(q\)-ary bounds, not a statement implying this converse. Such searches are not a proof of novelty. An earlier unindexed equivalent weighted obstruction remains a priority risk.
+
+## Value (V): PASS
+
+The first nontrivial literal-prefix case has \(q^2\) required messages and an information prefix of length two. The published alphabet converse rules out no alphabets there. The new inequality excludes five consecutive alphabet sizes, as a uniform exact theorem rather than an isolated computer-generated failure, and supplies a fully reusable finite-subsequence packing certificate. It is a meaningful endpoint obstruction for the optimal-three-check design problem, not a claim about asymptotic rates or about the existence threshold. The value is limited to this finite blocklength, and further work is needed to decide whether seven letters suffice.
+
+## Scientific limitations and literature comparisons
+
+The object is a five-symbol code, not a general nonlinear long-block code or an adjacent-burst-only channel. The proof makes no claim of a construction at \(q=7\) or classification of all extremal prefix encoders. The equality-pattern certificate is exhaustive at length five; other blocklengths require separate arguments. Both the closest exact-model source and the older Song–Cai construction were inspected in relevant primary full-text sections. The lack of identified prior implication is assessed with those residual limits.
+
+Self-review: passed. Independent audit: not yet performed.
