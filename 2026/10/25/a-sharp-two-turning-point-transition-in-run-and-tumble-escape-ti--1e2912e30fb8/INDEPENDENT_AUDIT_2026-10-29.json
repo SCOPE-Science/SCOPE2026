@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T01:02:29.195665Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rebuilt the incoming-state Laplace backward system with generator matrix [[s+a,-a],[a,-(s+a)]], right absorbing u_+(1,s)=1 and sticky wall u_-(0,s)=(a+g)u_+(0,s)/(a+g+s). Matrix square s(s+2a)I yields exact initial transform F(s)=1/[cosh(z)+s(s+2a+g)/(s+a+g) sinh(z)/z]. Comparing the transform low-order expansion and independent backward moment ODEs in the inspected verifier recovers EY=1+a+a/(a+g) and the displayed rational variance. Independently differentiated the variance: V_a=2Q/[3(a+g)^3], Q_aa=24a²+(36g+24)a+12g²+24g>0, Q_g>=3 for a>=0,g>=0. For h(g)=min_{a>=0}Q(a,g), h(0)<0 by a=1/4, h(1)>0 by positive coefficients, and h strictly increases, establishing a unique positive double root and the exact stationary point count. At that nondegenerate root Q_g,Q_aa>0, Taylor with sqrt(g_c-g) yields the claimed coefficient; mean derivative 1+g/(a+g)^2>0. Numerical nondegenerate roots and moment identities checked symbolically, but are not substitutes for the global convexity proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General first-passage transform is broader at the distribution level, and may algebraically generate variance, but inspected results do not classify extrema or coalescence for the specified initial state.",
+          "The 2024 optimum concerns mean escape with central/symmetric injection, which has different parameter dependence."
+        ],
+        "reasoning": "A broader formula for transforms is not necessarily a published implication of the sharp derivative phase theorem; a specialized earlier optimization could nevertheless cover it.",
+        "searches": [
+          "Angelani 2023 J Phys A 56 455003 generic-boundary full PDF",
+          "Angelani 2024 Optimal escapes in active matter primary article",
+          "Angelani–Di Leonardo–Paoluzzi 2014 first-passage work"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md 9509b2809a2b68116ccd04dc5de91f14f9798bc7",
+        "Frozen verify.py 7b6149d1e2fdbaf165c500ea71301cddbf91fd15",
+        "Angelani 2023 generic-boundary J Phys A full open PDF",
+        "Angelani 2024 optimal escapes full Springer HTML",
+        "Angelani–Di Leonardo–Paoluzzi 2014/2015 arXiv copy",
+        "Mercado-Vásquez–Boyer 2021 gated-target paper",
+        "Independent symbolic quartic derivative and positive critical root checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Angelani 2023 forward transform can in principle generate all cumulants; new work proves strict convexity and global zero-count for a specialized derivative rather than claiming a new transform.",
+          "A critical mean optimum for centrally injected particles and nonmonotone coefficient of variation under gated targets do not determine variance stationary points in the stated entrance-wall geometry."
+        ],
+        "reasoning": "The asserted mathematical novelty is conditional on distinguishing these parameters/observables; prior stronger transform is fully acknowledged as antecedent.",
+        "searches": [
+          "Angelani 2023 generic-boundary forward law",
+          "Angelani 2024 optimal escape means",
+          "Mercado-Vásquez–Boyer 2021 gated target relative variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Current stationary-point equation Q(a,g)=0 is a derivative of the actual variance for right-facing left-wall injection, with wall release a+g.",
+          "Generic first-passage transforms or coefficient-of-variation extrema do not automatically imply this exact variance optimizer for this start and boundary rule."
+        ],
+        "reasoning": "Checked related telegraph/process, first-passage, gated-target and boundary detachment aliases, separating same observable from general transform machinery.",
+        "searches": [
+          "Resultary search: run and tumble first passage variance sticky reflecting boundary wall detachment two stationary points critical turning points",
+          "Angelani 2023 generic-boundary first-passage Laplace transform",
+          "Mercado-Vásquez and Boyer arXiv:2102.11787"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No parameter-complete (a_c,g_c) threshold table identified in inspected sources.",
+          "Independent numerical roots corroborate, but no global priority is inferred from missing search."
+        ],
+        "reasoning": "The theorem identifies the unique all-positive-domain root collision, not just an isolated numerical optimum.",
+        "searches": [
+          "Resultary search: run and tumble first passage variance sticky reflecting boundary wall detachment two stationary points critical turning points",
+          "Angelani 2023 PDF variance keyword and sections",
+          "Independent root solve g_c≈0.1138909239202156"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the exact global variance-extrema phase classification for directed left-end initial injection and enhanced sticky-wall release, not for the general first-passage transform or computable moments. Angelani 2023 generic-boundary theory includes a Laplace-exit-time framework that in principle determines all moments, so this mathematical antecedent is credited. Earlier run-and-tumble first-passage work treats mean exits; Angelani 2024 mean-optimal rates use central/symmetric starts, not this variance observable. Mercado-Vásquez–Boyer examines variance-related fluctuations for a stochastically gated target, a different boundary mechanism and optimization parameter. No inspected primary result identified the unique (a_c,g_c) double root and all-g variance count; possible implicit derivation remains residual risk.",
+      "residual_risks": [
+        "A more general prior first-passage transform theorem may already encode this variance result and possibly an unlocated global optimizer result.",
+        "Physical reversal convention, exact release rate and initial orientation are essential; different models need separate checks.",
+        "Critical decimals are approximate; exact root exists by convexity and monotonicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers generic transform principle but does not identify variance-extrema fold classification in inspected statements",
+          "evidence": [
+            "Laplace first-passage distribution framework; mean-first-passage sections, boundary conditions"
+          ],
+          "identifier_or_url": "https://iris.cnr.it/retrieve/e1d78abe-8685-4eff-936b-9bcad8ad4c0f/prod_489129-doc_203607.pdf",
+          "material_read": "Full accessible primary PDF and selected boundary-condition/transform sections, including relevant page screenshot",
+          "method": "Read full PDF text; inspected representative page screenshot",
+          "title": "One-dimensional run-and-tumble motions with generic boundary conditions",
+          "trigger": "Same generic first-passage transform and sticky wall boundary conditions"
+        },
+        {
+          "assessment": "Different injection and mean objective; not a direct implication of the present variance transition",
+          "evidence": [
+            "Central injection and mean-optimal tumbling threshold"
+          ],
+          "identifier_or_url": "https://doi.org/10.1140/epje/s10189-023-00402-7",
+          "material_read": "Accessible full primary Springer article, introduction, model definitions and mean-optimization statements",
+          "method": "Read full open primary article HTML",
+          "title": "Optimal escapes in active matter",
+          "trigger": "Closest tunable wall release and sharp optimization paper"
+        },
+        {
+          "assessment": "Reflective-left mean first-passage, not sharp entrance-wall variance phase for release excess g",
+          "evidence": [
+            "Original mean exit geometry and run-tumble reversal convention"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.08046",
+          "material_read": "Accessible primary paper abstract and source descriptions of mean first-passage; full exclusion not claimed",
+          "method": "Source/primary-paper scope comparison",
+          "title": "First-passage time of run-and-tumble particles",
+          "trigger": "Earlier reflected/absorbed run-and-tumble geometry"
+        },
+        {
+          "assessment": "Gated target with different boundaries and relative fluctuations, not the same variance function",
+          "evidence": [
+            "Target switching and coefficient-of-variation observable"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.11787",
+          "material_read": "Primary article abstract and bibliography description; no assertion entire paper read",
+          "method": "Primary bibliographic/abstract inspection",
+          "title": "First hitting times between a run-and-tumble particle and a stochastically-gated target",
+          "trigger": "Earlier nonmonotonic first-passage fluctuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold changes the qualitative variance-versus-bulk-tumbling response from a maximum/minimum pair to monotonic growth while the mean remains strictly increasing in the same experiment. This natural stochastic transport observable, exact boundary-rate tuning transition and square-root collision are concrete physically interpretable quantities not implied merely by a transform formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md 9509b2809a2b68116ccd04dc5de91f14f9798bc7",
+    "Frozen verify.py 7b6149d1e2fdbaf165c500ea71301cddbf91fd15",
+    "Angelani 2023 generic-boundary J Phys A full open PDF",
+    "Angelani 2024 optimal escapes full Springer HTML",
+    "Angelani–Di Leonardo–Paoluzzi 2014/2015 arXiv copy",
+    "Mercado-Vásquez–Boyer 2021 gated-target paper",
+    "Independent symbolic quartic derivative and positive critical root checks"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only dimensionless exit-time variance for directed left-wall injection, enhanced wall-release rate a+g>0, no thermal diffusion.",
+    "Does not cover coefficient of variation, other starts, boundary absorbing channels or higher cumulants."
+  ],
+  "residual_risks": [
+    "A more general prior first-passage transform theorem may already encode this variance result and possibly an unlocated global optimizer result.",
+    "Physical reversal convention, exact release rate and initial orientation are essential; different models need separate checks.",
+    "Critical decimals are approximate; exact root exists by convexity and monotonicity."
+  ],
+  "schema_version": 1
+}

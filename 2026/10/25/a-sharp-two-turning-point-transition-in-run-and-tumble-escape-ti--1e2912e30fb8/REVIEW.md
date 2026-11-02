@@ -1,19 +1,21 @@
-# Review of the sharp sticky-wall variance transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. An incoming-state backward two-component boundary problem gives the exact exit-time Laplace transform. Its Taylor derivatives and a separately derived pair of backward-moment ODEs agree identically on the displayed first two moments; the included SymPy checker replays both routes. The variance derivative has a quartic numerator with strictly positive second derivative in the bulk rate and strictly positive derivative in wall detachment, with exact sign witnesses at the parameter endpoints. This establishes a unique collision parameter and the complete zero count without numerical extrapolation. The nondegenerate tangency establishes the square-root merger. The physically singular zero-excess corner is excluded.
+PASS
 
-## Originality
+Rebuilt the incoming-state Laplace backward system with generator matrix [[s+a,-a],[a,-(s+a)]], right absorbing u_+(1,s)=1 and sticky wall u_-(0,s)=(a+g)u_+(0,s)/(a+g+s). Matrix square s(s+2a)I yields exact initial transform F(s)=1/[cosh(z)+s(s+2a+g)/(s+a+g) sinh(z)/z]. Comparing the transform low-order expansion and independent backward moment ODEs in the inspected verifier recovers EY=1+a+a/(a+g) and the displayed rational variance. Independently differentiated the variance: V_a=2Q/[3(a+g)^3], Q_aa=24a²+(36g+24)a+12g²+24g>0, Q_g>=3 for a>=0,g>=0. For h(g)=min_{a>=0}Q(a,g), h(0)<0 by a=1/4, h(1)>0 by positive coefficients, and h strictly increases, establishing a unique positive double root and the exact stationary point count. At that nondegenerate root Q_g,Q_aa>0, Taylor with sqrt(g_c-g) yields the claimed coefficient; mean derivative 1+g/(a+g)^2>0. Numerical nondegenerate roots and moment identities checked symbolically, but are not substitutes for the global convexity proof.
 
-PASS with residual priority uncertainty. The primary 2014 first-passage work supplies a mean-only reflection calculation. The 2023 generic-boundary work includes a general first-passage Laplace law, which implicitly covers all computable moments; that existing forward law is acknowledged as prior coverage. The 2024 sharp optimum concerns the mean from central/symmetric injection, not the variance from directed entrance-wall injection. The 2021 gated-target study explicitly examines relative-variance nonmonotonicity but has a different target mechanism and geometry. Claim-level comparison isolates the newly derived all-parameter variance-extrema count, its unique disappearance threshold and its square-root merger. Semantic searches of accessible mathematical records did not locate an equivalent statement, but absence from search results does not establish priority over unlocated sources.
+## originality
 
-## Value
+PASS
 
-PASS. Enhancing wall release is an intrinsic tuning parameter in persistent transport, and the transition changes the fluctuation response qualitatively, from a local maximum followed by a local minimum to monotonic growth. Unlike in prior mean-optimality scenarios, the mean in this defined experiment is strictly monotone, so mean-only optimization cannot reveal the variance bifurcation. The exact threshold and fold scaling turn a general forward-transform calculation into a sharp experimentally interpretable classification with nontrivial parameter boundaries.
+Best-knowledge PASS for the exact global variance-extrema phase classification for directed left-end initial injection and enhanced sticky-wall release, not for the general first-passage transform or computable moments. Angelani 2023 generic-boundary theory includes a Laplace-exit-time framework that in principle determines all moments, so this mathematical antecedent is credited. Earlier run-and-tumble first-passage work treats mean exits; Angelani 2024 mean-optimal rates use central/symmetric starts, not this variance observable. Mercado-Vásquez–Boyer examines variance-related fluctuations for a stochastically gated target, a different boundary mechanism and optimization parameter. No inspected primary result identified the unique (a_c,g_c) double root and all-g variance count; possible implicit derivation remains residual risk.
 
-## Remaining limitations
+## value
 
-No independent audit has been performed; the analysis depends on exactly the stated velocity-reversal convention, initial orientation, wall-release rule and observable. Generic-boundary first-passage transforms in the literature raise residual risk that a mathematically equivalent optimization may be obtainable or previously recorded elsewhere, even though inspected primary statements do not assert this parameter-complete result. No claim of a new general transform or new variance-moment method is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The threshold changes the qualitative variance-versus-bulk-tumbling response from a maximum/minimum pair to monotonic growth while the mean remains strictly increasing in the same experiment. This natural stochastic transport observable, exact boundary-rate tuning transition and square-root collision are concrete physically interpretable quantities not implied merely by a transform formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
