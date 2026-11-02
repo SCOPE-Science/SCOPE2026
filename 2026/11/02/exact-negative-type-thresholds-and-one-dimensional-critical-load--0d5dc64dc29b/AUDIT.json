@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For every k>=2 and m>=1, the exact root-anchored distance-power Gram matrix decomposes into k(m-1) positive leaf-difference eigenvalues, k-1 copies of a two-dimensional antisymmetric block, and one two-dimensional symmetric block. The cross-branch kernel is negative semidefinite for 1<=p<=2 by the convergent Laplace-Gamma representation, strictly negative on the two distinct root-depth features when 1<p<2. Thus the symmetric 2x2 principal-minor and determinant test is necessary and sufficient. At p=1 the determinant is 1; for k>=3 the determinant is negative at h_k<2; for k=2,m>1 it is negative just below 2. Strictness below any later admissible exponent rules out two interior roots and proves the sharp phase. The endpoint kernel is one-dimensional because the other blocks are positive definite; Schoenberg supplies exact affine embedding rank. The sole exception (k,m)=(2,1) is the Euclidean five-vertex path. Direct differentiation and an implicit-function argument give the fixed-k large-m coefficient c_k=k log(32/27)+log(27/16)>0. An independent BFS distance-and-spectrum checker passed 448 eigenvalue comparisons, 64 endpoint multiplicity checks, 448 phase checks and 21 large-m checks. Finite checks alone do not establish the all-parameter conclusion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caffarelli-Doust-Weston arxiv:1008.3418 Theorem 2.1 explicitly assumes radius >=3; radius-two drawing is not an exact classification, and Section 5 reports numeric B2=1.5272.",
+        "Sánchez arxiv:1108.0451 Corollary 2.4 gives a universal determinant/inverse finite-metric test and an example complete bipartite graph, without the family-specific symmetry reduction or critical multiplicity.",
+        "Li-Weston arxiv:0901.0695 strictness theorem is used in the root uniqueness proof, rather than asserted as new."
+      ],
+      "reasoning": "Universal finite-metric criteria in principle allow computing any given instance; they do not provide the closed two-parameter scalar threshold, sharp fixed-k m-asymptotic, or full equality-load structure directly. The published finite-tree bound has inapplicable radius hypothesis. Thus no inspected broader theorem was found that already states or immediately settles the full claimed package.",
+      "searches": [
+        "generalized roundness p negative type subdivided star trees exact exponent depth two",
+        "finite spherically symmetric metric tree downward degree (k,m) supremal p negative type exact",
+        "arxiv:1008.3418 Theorem 2.1 and Section 5",
+        "arxiv:1108.0451 Corollary 2.4 finite metric distance matrices"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2404.06658v1 (full 7-page text and page images, first public 2024-04-09)",
+      "arxiv:1008.3418 (Theorem 2.1, Fig. 1, Section 5 table and remarks)",
+      "arxiv:1108.0451 (finite metric determinant criterion and examples)",
+      "arxiv:0901.0695 (strictness interval theorem)",
+      "arxiv:1608.03699 (metric-tree embedding comparison)",
+      "Semantic research-record searches for height-two rooted tree negative type, generalized roundness, polygonal equality, depth-two branching and related exact claims; closest records concerned distinct invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 source shows the endpoint is the first polygonal equality in any finite metric; it does not identify the endpoint.",
+        "The 2010/2011 source computes only a binary-depth-two numerical approximation and estimates deeper symmetric trees.",
+        "The earlier exact negative-type classification for diameter-three two-hub trees concerns a nonisomorphic metric: the present nonexceptional trees have diameter four."
+      ],
+      "reasoning": "The current result implies a specific p-polygonal-equality onset for every T_{k,m}; conversely the generic polygonal-equality interval theorem cannot imply a numeric onset without the new Gram analysis. A diameter-three double-star metric does not contain the full diameter-four branch geometry, and no implication between their sharp p-threshold formulas was identified. Generic determinant computation is a method, not a directly stated all-parameter conclusion.",
+      "searches": [
+        "arxiv:2404.06658 polygonal equalities negative type Theorem 1.3 Corollary 3.2",
+        "arxiv:1008.3418 radius two downward degree (3,2) Theorem 2.1 numerical B2",
+        "arxiv:1108.0451 finite metric distance matrix determinant criterion",
+        "Exact generalized roundness supremal p-negative type for spherically symmetric finite radius-two rooted trees (downward degrees k,m), Hilbert snowflake embedding, critical kernel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Doust and Weston arxiv:2404.06658v1 pp. 1-5: finite-metric p-polygonal equality exponents are a closed interval beginning at supremal negative type, not a formula for its left endpoint or kernel on this graph family.",
+        "Caffarelli, Doust and Weston arxiv:1008.3418 p. 3 Fig. 1 includes the (3,2) radius-two tree; pp. 4,12-13 provide only general upper bounds and numerical tables."
+      ],
+      "reasoning": "The theorem is equivalent to determining the first nontrivial polygonal equality and the Hilbert snowflake embedding rank. The 2024 theorem supplies only an abstract equivalence/interval, whereas the explicit U,V,W scalar equation, exactly one equality ray, exceptional path and asymptotic are additional calculations. No exactly equivalent all-(k,m) statement was found; failure to locate one is not a proof of novelty.",
+      "searches": [
+        "Exact generalized roundness supremal p-negative type for spherically symmetric finite radius-two rooted trees (downward degrees k,m), Hilbert snowflake embedding, critical kernel",
+        "depth-two tree negative type p-powered distances, k branches m leaves, Schur complement all-branch symmetric threshold",
+        "generalized roundness p negative type subdivided star trees exact exponent depth two",
+        "arxiv:2404.06658 (Theorem 3.1; source directly inspected)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Caffarelli-Doust-Weston arxiv:1008.3418 section 5 explicitly tabulates the numerical binary-depth-two value 1.5272; the present (k,m)=(2,2) calculation reproduces it.",
+        "No inspected table enumerates a symbolic exact root, critical nullspace multiplicity and all (k,m) cases."
+      ],
+      "reasoning": "The known single numerical value is covered and excluded from novelty. Search results and inspected material do not establish a universal exact two-integer parameter table or stronger symbolic formula; undiscovered older tables remain a priority risk.",
+      "searches": [
+        "generalized roundness p negative type subdivided star trees exact exponent depth two",
+        "finite spherically symmetric metric tree downward degree (k,m) supremal p negative type exact",
+        "arxiv:1008.3418 (Section 5 table; source directly inspected)",
+        "negative type p-negative type trees complete rooted tree degree sequence (3,2) radius 2"
+      ]
+    },
+    "rationale": "The 2024 polygonal-equality characterization identifies the general interval for finite metrics but not the threshold, direction or asymptotic for rooted height-two trees. The directly relevant older symmetric-tree paper illustrates downward degree (3,2), gives finite-tree bounds only at radius at least three and a numerical depth-two binary-tree value 1.5272; this known numerical specialization is acknowledged. The general 2011 distance-matrix criterion does not explicitly compute the two-parameter family, its one-dimensional endpoint equality or its rate to 1. Several direct semantic and external literature searches for equivalent names and the exact invariant located no covering claim. Novelty is the complete exact two-parameter structural classification, not finite-negative-type theory, a known binary-tree table value, or generic determinant machinery.",
+    "residual_risks": [
+      "Earlier literature on two-level tree embeddings might contain an equivalent closed formula hidden in a different spectral convention; no exhaustive historical priority claim is made.",
+      "The (k,m)=(2,2) numerical value is already tabulated and excluded from novelty. The general finite-metric criterion applies algorithmically to every finite tree; novelty is limited to the explicit all-parameter reduction, critical load classification, and asymptotic.",
+      "Independent mathematical validation and complete bibliographic coverage have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers abstract equivalence and intervals; no two-level tree threshold formula or sharp asymptotic",
+        "evidence": [
+          "arxiv:2404.06658v1 dated 2024-04-09, Theorem 2.3 and Corollary 3.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.06658",
+        "material_read": "entire 7-page preprint, especially introduction, Theorem 2.3, Theorem 3.1, Corollary 3.2 and finite Hilbert embedding discussion",
+        "method": "lawful arXiv PDF parsed text, page images inspected for pp. 1 and 4",
+        "title": "Polygonal equalities and p-negative type",
+        "trigger": "2024 eligible primary motivating theorem about onset and equality directions in finite metrics"
+      },
+      {
+        "assessment": "Very close prior object: known (2,2) numerical 1.5272, but no all-(k,m) exact formula; principal upper bound assumes radius >=3",
+        "evidence": [
+          "arxiv:1008.3418 Figure 1 p.3; Theorem 2.1 p.4; numerical table and Remark 5.1 p.13"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.3418",
+        "material_read": "full introduction, section 2 including Theorem 2.1, section 5 including binary-tree numerical table, conclusions and discussion",
+        "method": "lawful arXiv PDF parsed text plus page images of pp. 3, 13",
+        "title": "Metric trees of generalized roundness one",
+        "trigger": "Exact same spherically symmetric tree object and a drawn (3,2) radius-two example"
+      },
+      {
+        "assessment": "General algorithm and another graph family, not explicit rooted height-two family, kernel structure or rate",
+        "evidence": [
+          "arxiv:1108.0451, Corollary 2.4 and application to complete bipartite graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1108.0451",
+        "material_read": "introduction and definitions, finite-metric criterion Theorem 2.3 / Corollary 2.4, complete bipartite application",
+        "method": "lawful arXiv PDF parsed text and first-page image",
+        "title": "On the supremal p-negative type of a finite metric space",
+        "trigger": "Potential stronger generic determinant classification of all finite metric spaces"
+      },
+      {
+        "assessment": "Strictness theorem is necessary support but does not provide the specialized scalar determinant or its root",
+        "evidence": [
+          "arxiv:0901.0695, strict q<p negative type result"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0901.0695",
+        "material_read": "introduction and strictness theorem and corollaries relating finite p-negative type to all smaller strict q-negative types",
+        "method": "lawful arXiv PDF parsed text and first-page image",
+        "title": "Strict p-negative type of a metric space",
+        "trigger": "Critical uniqueness and strictness below endpoint"
+      },
+      {
+        "assessment": "General metric-tree comparison and examples of roundness one, not exact finite height-two threshold",
+        "evidence": [
+          "arxiv:1608.03699v1 first public 2016-08-12; journal first published 2016-11-02; not used as motivating date"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1608.03699",
+        "material_read": "introduction and metric-tree finite representability results, as crosschecked against journal PDF abstract and source date",
+        "method": "lawful arXiv/OA PDF textual reading; publisher page dates cross-checked",
+        "title": "Comparing the generalised roundness of metric spaces",
+        "trigger": "Additional metric-tree comparisons and potential stronger finite-tree theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scientific_limits": "Claims are finite unweighted two-level trees only; no exact elementary expression for the implicit scalar root; numerical checks are finite; historical-priority search is not exhaustive; no independent validation performed.",
+  "scope_run_id": "0d5dc64d-c29b-4ae3-8881-6e0fba5b4366",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the natural two-generation spherically symmetric tree with prescribed two levels of branching. Its supremal p-negative type is an intrinsic invariant controlling isometric Hilbert embeddings of metric snowflakes, and its endpoint equality-support dimension is a structural geometry quantity. In the prior literature, even the binary depth-two case was calculated numerically, while generic finite-metric formulae require large nonlinear determinants. A two-by-two sharp formula for every k and m, an exact one-dimensional critical equality ray (except the precisely identified path), and a sharp 1/m approach to the tree lower limit give a complete motivated family result and a useful branch-kernel structural lemma. This is substantially more than a small-case recomputation or mere software validation.",
+    "status": "PASS"
+  }
+}
