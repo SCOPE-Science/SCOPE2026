@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The theorem is restricted to unweighted fan graphs and their Euclidean orthogonal edge projections. The grounded Laplacian inverse is verified from a Fibonacci continuant, including endpoint conditions. Both source-edge current profiles have a proved sign and monotonicity pattern. Summing all absolute currents yields separate exact spoke/path-column formulas, and the complementary diagonal identity is applied explicitly. Fibonacci monotonicity and two central-edge comparisons cover every parameter and all equality cases. A separately reconstructed exact-rational incidence-matrix calculation passed all 483 columns in 21 fan sizes. Finite checks are evidence, not the infinite proof.
+PASS
 
-## Originality
+The canonical cut projector is B (B^T B)^{-1} B^T for the grounded incidence matrix of the unit fan K_1 join P_n. Re-derive the inverse Green kernel G_ij=F_(2 min(i,j)-1)F_(2(n-max(i,j))+1)/F_(2n) by the continuant and endpoint conditions. For a spoke source, the potential is positive and single-peaked, so the spoke currents sum to one and path current variations telescope; for a path-edge source the Green difference has opposite signs on the two sides. This yields separately the four absolute-column formulas (1)-(2) in RESULT.md. Their Fibonacci differences locate the maxima centrally; the explicit central path-vs-spoke comparisons are strictly positive except n=3 cut ties. Thus Q and I-Q exchange 2-2/L_n and 2-1/F_n with n parity; n=2 gives Q=4/3,C=1, n=3 both 3/2. As real symmetric operators their l1 and linfinity norms equal. Auditor-written exact rational incidence inversions separately reproduced every whole-column absolute sum and maximizer for n=2..9, including (-1)^n(Q-C)=F_(n-3)/F_(2n), not a proof beyond n=9.
 
-PASS with risk. Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582) develop the general cycle-projection framework and give explicit torus/Hamming families, not the fan parity law. Bapat–Gupta (DOI:10.1007/s13226-010-0004-2) and Sedlák–Slavík (DOI:10.1088/1751-8121/ae2997) establish the earlier fan resistance/Green formulas. Those ingredients make projection matrix entries recoverable but do not themselves state the two sharp total-absolute-current norms, central edge-type extremizers, or parity alternation. Młotkowski–Obata (arXiv:2403.16348) studies a distinct distance-matrix quadratic embedding constant. The earlier 2010 full paper and unindexed equivalent formulations remain bibliographic risks.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. On a canonical graph family with triangles at every edge of a base path, the two complementary edge-space projectors exchange their exact Fibonacci–Lucas endpoint norms with parity. The norm maximizers occur on geometrically different edge classes and the strict dominance changes for arbitrarily large sizes, while its gap decays exponentially. This is an infinite structural classification rather than an isolated resistance computation.
+The claim concerns the sharp l1/linfinity absolute edge-current totals of the two canonical orthogonal projectors on fan graphs, not optimal projection constants over all projectors or ordinary pairwise resistance. Full HTML of Dilworth–Kutzarova–Ostrovskii addresses invariant/minimal cycle-space projections for tori and Hamming graphs. The independent full-text reading of Sedlak–Slavik concerns fan Green entries, effective resistance and Kirchhoff indices, not maximal absolute current columns; this prior Green kernel is explicitly credited. The precise central edge-class and Fibonacci–Lucas parity interchange survived the inspected comparisons, with possible unindexed electrical-current formulations retained as risk.
 
-## Limits
+## value
 
-The result is not an optimal projection constant over arbitrary nonorthogonal projections, not a new Green-kernel or resistance formula, and not independently mathematically certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A family-wide exact classification of two complementary, canonical edge-space projectors displays alternating dominance, an exponentially small exact gap, and distinct unique central maximizing edge classes on a natural triangular graph family. This requires absolute electrical-current and global extremizer analysis beyond the known Green kernel and is independently useful in graph Hodge/transport geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
