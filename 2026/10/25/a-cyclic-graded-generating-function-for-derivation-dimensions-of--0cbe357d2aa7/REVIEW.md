@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The derivation identity on unequal basis elements forces the derivation matrix to be diagonal because the squaring vectors form a basis. The diagonal Leibniz equations are exactly the directed gain relations. On each weakly connected support component, their solution space is either zero or one-dimensional; existence is equivalent to cyclic coloring modulo the order of \(2\). A valid coloring forces equal class sizes in an invertible cyclic-block matrix, and the labelled connected-component exponential formula yields the stated series. The sharp cutoff and first-nonzero stratum follow by component sizes. Exact finite checks use the full Leibniz system, not the graph shortcut.
+## correctness
 
-**Originality — PASS within the examined literature, with a priority risk.** Elduque--Labra (2019) already provide the componentwise derivation criterion, including positive-characteristic resonance; no priority is claimed for it. The mathematical difference is the all-degree, all-multiplicity finite-field enumeration over marked invertible structure matrices, with its cyclic-block factor and first-degree threshold. Inspected related texts study structural derivation conditions, not the complete distribution. A broader matrix-counting identity or previously unseen enumerative consequence could cover the result; searches are evidence of investigated coverage rather than proof of universal novelty.
+PASS
 
-**Mathematical value — PASS.** The rank of the derivation Lie algebra detects infinitesimal symmetry in perfect evolution algebras. Its full distribution in a natural finite-field model separates a rare characteristic-dependent phenomenon from the generic zero-derivation case, and the sharp dimension threshold pinpoints the first possible resonance. The result is exact for all finite dimensions and all finite fields, not a small-parameter count.
+From invertibility the square vectors e_i^2 form a basis, so off-diagonal Leibniz coefficients vanish. Diagonal derivations obey lambda_j=2 lambda_i on every nonzero matrix entry. In odd characteristic every weakly connected support component has solution dimension 0 or 1, the latter exactly for a Z/r cyclic edge grading, r=ord_p(2); each such component has r colorings. For invertible compatible-coloring matrices all r color blocks are square of equal size m, giving g_m(q)^r. Labelled connected-component exponential formula gives G_q(x)F_{q,r}(x^r)^((u-1)/r); p=2 all derivations vanish. Good components have at least r vertices. Weighted r-cycles and diagonal leftovers realize all d<=floor(n/r); first-stratum counts use cycles and GL_{n-r}. Exact independent rational formal-series coefficients for p=q=3,5,7 reproduce 3-adic n=4 vector [24253200,7872,48]. Finite arithmetic does not prove all dimensions or prime powers; the given combinatorial proof does.
 
-**Closest literature and limits.** A. Elduque and A. Labra, arXiv:1902.02191v1, Theorem 4.1 and Corollary 4.3; Y. Cabrera Casado, P. Cadavid, and T. Reis (2023), DOI:10.1007/s13398-023-01446-2; and Cabrera Casado et al., arXiv:1912.06925. The last source was available as abstract but not as full text in this inspection; it is a residual priority risk. The count concerns marked algebras, not their isomorphism classes. All series are formal; finite experiments do not replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Elduque-Labra derivation-component resonance criterion is not new. Distinct substantive claim is full marked-matrix finite-field count as a multivariate EGF and sharp first appearance. No inspected primary study or Resultary record states a covering GL_n(q) enumeration; best-of-knowledge only.
+
+## value
+
+PASS
+
+A complete characteristic-dependent distribution of infinitesimal symmetry dimensions across the canonical model GL_n(F_q), with sharp dimension resonance onset, supplies a natural exact invariant independent of small-case brute force. It is more than rephrasing the published component criterion because weighted invertible colored matrices must be enumerated for all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
