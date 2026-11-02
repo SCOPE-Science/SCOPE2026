@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The graph class, degree normalizations and RK4 endpoint polynomial are explicit. Bipartite-block multiplication gives the full cross-class and same-class transition polynomials. Exact discriminant and sum-of-squares identities certify sufficiency; a distance-three opposite-class nonedge supplies a negative witness above the exact incomplete-graph cutoff. The complete graph has a strictly decreasing cross-class cubic, and the maximum Laplacian eigenvalue equals the sum of the two degrees, proving the spectral cutoff. The symbolic identities and independent exact matrix calculations in `verify.py` replay these calculations; finite testing is corroboration, not the infinite proof.
+PASS
 
-## Originality
+Re-multiplied L=[[aI,-B],[-B^T,bI]] to obtain cross-class T_UV=h F(h)B+(h³/6)(1-(a+b)h/2)BB^T B and same-part blocks with strictly positive quadratic coefficient discriminant −16(5a²+2ab+2b²) plus nonnegative higher walks. For h<=2/(a+b), both cross-block coefficient terms are nonnegative and all diagonals positive because 24R4(-x)=(x²-2x+2)²+4((x-2)²+1)>0. In any incomplete connected bipartite graph some cross-part nonedge has distance exactly 3, so its B entry is 0 while (BB^TB)>0, forcing a strictly negative entry for every h>2/(a+b). For complete bicliques BB^TB=abB, giving cross entries h Q((a+b)h)/24 with Q strictly decreasing and unique root rho. λmax(L)=a+b (opposite-sign vector) and R4(-x)<=1 exactly up to x=rho. Independent sympy exact C6 nonedge T[0,3]=−h³(2h−1)/3 and K_2,3 edge factor hQ(5h)/24 agree. This covers every graph through a structural proof, not enumeration.
 
-PASS, with residual literature risk. Horváth's inspected full 1998 treatment (Theorem 5 and Example 1) concerns method-wide absolute monotonicity and identifies RK4's zero universal positivity radius; his 2005 paper (Theorems 4 and 17) provides general problem-class thresholds and positivity of certain smaller cones. Neither derives the full endpoint interval for all connected biregular bipartite Laplacians. Hadjimichael and collaborators' inspected 2012 work treats SSP order and coefficients. Earlier graph-specific complete multipartite, crown, cycle and regular-edge-subdivision results are fully acknowledged as covered subfamilies; none states the exact completion dichotomy or applies to arbitrary biregular bipartite graphs. Searches of mathematical records and the related primary literature found no stronger covering statement, but non-indexed specialized work remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. The result classifies a natural entire class of two-population diffusion networks by a single graph-theoretic property: completeness. Every incomplete connected biregular graph, regardless of size, degree imbalance, girth or incidence structure, has the same exact spectral-stability-to-positivity gap \(\rho/2\), and the distance-three nonedge supplies a universal mechanism for sign failure. This unifies several special cases and gives a sharp usable timestep criterion, rather than an arbitrary numerical instance or routine known-table recomputation.
+Best-of-knowledge graph-specific exact universal classification, beyond general RK absolute-monotonicity theory or earlier narrow bipartite graph subfamilies.
 
-## Closest literature and scientific limits
+## value
 
-The three references in `RESULT.md` give the principal SSP and RK positivity context. Related prior special cases concern complete multipartite graphs, crown graphs, degree-two networks and subdivisions of regular graphs. The theorem is limited to finished-step RK4 on connected unweighted biregular bipartite graphs. Weighted, disconnected and non-biregular extensions are unproved. Possible unindexed equivalences remain a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural sharp positivity timestep criterion for every connected biregular bipartite network. It unifies prior restricted graph calculations, distinguishes graph completeness as sole structural exception, and proves the surprising invariant ratio rho/2 for all incomplete cases with a universal distance-three witness. This is not a routine Taylor expansion because a necessity/sufficiency dichotomy and global non-return of positivity are proved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
