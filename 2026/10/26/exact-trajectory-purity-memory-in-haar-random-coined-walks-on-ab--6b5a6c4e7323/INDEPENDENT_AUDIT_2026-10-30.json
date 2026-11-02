@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:50:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An Abelian Cayley shift diagonalizes in the Fourier basis, preserving the two selected mode labels and evolving the corresponding coin vectors by D_f V_t and D_g V_t with the same independent Haar V_t. Their overlap undergoes conjugation by A=D_g^*D_f. For any fixed unit vectors x,y and unitary A of mean trace lambda, Haar invariance yields E<y,V†AV x>=lambda<y,x> and E|<y,V†AV x>|²=d(1-|lambda|²)/(d²-1)+[(d²|lambda|²-1)/(d²-1)]|<y,x>|², using orthogonality of the scalar representation and the traceless adjoint projector of dimension d²-1. Iterating gives the exact stated first and second moments, including gamma<0, t=0 and |lambda|=1. The reduced two-by-two vertex density matrix has off-diagonal coherence Z_t/2, yielding per-realization purity (1+|Z_t|²)/2. Averaging density first gives a different nonlinear expression. Independent rational recurrence checks for dimensions 2–5, 10 steps and trace-zero d=2 verify algebra only; the analytic Haar projector computation proves generality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Quillen fully treats averaged one-copy channel and position measurement variance, without a formula for expected trajectory vertex purity; she calls exact second moments difficult around Eq. 95.",
+          "Other random-coin/disorder settings use quenched or finite-support distributions and do not force the same global Haar twirl coefficient for two sectors."
+        ],
+        "reasoning": "General unitary random-walk analyses or first moments do not imply the nonlinear per-trajectory purity without a two-copy calculation; residual risk is an alternate 2-design fidelity identity specialisation.",
+        "searches": [
+          "Quillen Quantum random walks on d-regular graphs with Haar-random coin operators Phys Rev A 114 042410 October 2026",
+          "Ahlbrecht Vogts Werner Werner random coin quantum walks arXiv:1009.2019",
+          "Yao Wald coined quantum walks disorder Phys Rev E 108 024139 2023"
+        ]
+      },
+      "checked_sources": [
+        "Quillen, Phys. Rev. A 114 042410 (2026) full 15-page PDF, Eq.95",
+        "Maloyer–Kendon NJP 9 87 (2007) abstract/institutional record",
+        "Ahlbrecht et al. arXiv:1009.2019 bibliographic/model context",
+        "Resultary semantic Haar-coin search",
+        "actual RESULT.md, REVIEW.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior averaged channel dephasing factor lambda^t determines E Z_t but not E|Z_t|².",
+          "The Haar two-copy projector yields gamma=(d²|lambda|²-1)/(d²-1), different from |lambda|² and possibly negative."
+        ],
+        "reasoning": "Because purity is nonlinear, its expectation is not implied by one-copy dephasing. The all-time formula requires both shared-coin geometry and a two-copy twirl, even though the latter is standard prior mathematics.",
+        "searches": [
+          "Quillen 2026 Eq.95 variance difference and Sec V",
+          "standard Haar U(d) conjugation twirl second moments",
+          "Abelian Cayley Fourier sector conditional overlap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is equivalent to a shared-random-coin two-Fourier-sector fidelity second moment and a vertex Rényi-2/purity expectation.",
+          "The primary paper explicitly distinguishes E[(tr B rho)^2] and (tr B E rho)^2 but does not evaluate the needed two-mode fidelity."
+        ],
+        "reasoning": "Compared general Haar-twirl matrix-element identities with the complete two-mode walk observable; the former supplies algebra, not the graph/phase-specific value or universal 1/(2d) gap by an already stated theorem.",
+        "searches": [
+          "Haar random coin quantum walk Fourier modes purity second moment reduced vertex [Resultary_Search]",
+          "Quillen random walks Haar U(d) Abelian group averaged dephasing versus realized entanglement",
+          "Haar second moment |<x,U†AUy>|² unitary twirl"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned quantum-walk Riccati burn-in, distinct Fourier aperture moments and other models, no direct d,lambda,gamma formula.",
+          "Search within 15-page Quillen source found no purity formula; variance Section V distinguishes two averages and avoids exact 2-copy evaluation."
+        ],
+        "reasoning": "No indexed exact per-trajectory purity table located; nonmatches do not establish novelty, but complete primary source was inspected at its precise two-moment discussion.",
+        "searches": [
+          "Resultary_Search: Haar random coin quantum walk Fourier modes purity second moment reduced vertex",
+          "Quillen 2026 PDF search purity and linear entropy and variance",
+          "related coin-entanglement work 2007 Maloyer Kendon"
+        ]
+      },
+      "rationale": "Quillen’s October 7 2026 primary paper introduces this globally resampled Haar-coin quantum-walk family, characterizes the averaged channel and its Abelian Fourier dephasing, and explicitly notes that nonlinear variance requires second moments not obtained by the averaged channel (its Eq. 95 and discussion). The all-step conditional pair overlap/purity and nonzero trajectory-versus-average gap are not in the materially read complete primary paper. Generic Haar 2-design identities and random-coin entanglement work are acknowledged ingredients, and a general matrix-element fidelity theorem might implicitly cover the algebra. Best-of-knowledge original as a model-specific exact observable.",
+      "residual_risks": [
+        "A preexisting general two-copy Haar channel or random-unitary fidelity theorem could imply the stated pair-mode formula after substitution.",
+        "The source establishes only a two-mode pure initial state with a common globally resampled coin; general multi-mode averages may be different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact two-mode trajectory purity; supplies primary model",
+          "evidence": "Section V explicitly says the ensemble second moment differs from square of averaged measurement and is difficult, and computes only linearized position variance.",
+          "identifier_or_url": "Phys. Rev. A 114, 042410 (2026), DOI:10.1103/rmmp-xdqy",
+          "material_read": "complete 15-page open-access paper, Sections II–V including Eq. 95 and concluding discussion",
+          "method": "read and searched entire PDF; inspected relevant page images",
+          "title": "Quantum random walks on d-regular graphs with Haar-random coin operators",
+          "trigger": "same stochastic walk, Abelian Fourier modes, and specific nonlinear averaging question"
+        },
+        {
+          "assessment": "DIFFERENT noise setting and numerical entanglement evidence, not enough material to rule out hidden equivalence",
+          "evidence": "Treats decoherence rates on line/cycle and numerical coin-position entanglement.",
+          "identifier_or_url": "Maloyer and Kendon, New J. Phys. 9 (2007) 87; https://strathprints.strath.ac.uk/78877/",
+          "material_read": "institutional abstract and accessible record; full PDF not inspected",
+          "method": "bibliographic/abstract comparison",
+          "title": "Decoherence versus entanglement in coined quantum walks",
+          "trigger": "adjacent coined-walk entanglement/purity observables"
+        },
+        {
+          "assessment": "KNOWN_INGREDIENT not claimed as new",
+          "evidence": "Covariance coefficient is the inverse adjoint dimension d²-1; novelty is specialised observable and averaging gap, not Haar orthogonality.",
+          "identifier_or_url": "standard U(d) Haar two-design/conjugation orthogonality; no single unique priority source",
+          "material_read": "analytically reconstructed conditional moment via traceless projector; source paper discusses Haar moments generally",
+          "method": "direct mathematical comparison against published model formula",
+          "title": "Koopman and Haar second-moment algebra in random quantum channels",
+          "trigger": "the algebraic lemma itself is well-known and might render derivation immediate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An averaged quantum channel cannot characterize a typical trajectory’s nonlinear entanglement/purity; the exact t-dependent two-mode formula and 1/(2d) residual quantify that physical distinction with no vertex-count dependence. It is a natural new observable for the same random-walk model, and the negative-gamma transient is a meaningful boundary, although the calculation uses standard Haar moments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For an Abelian Cayley coined quantum walk with a fresh common Haar U(d) coin at each step, d>=2, initialized in an equal-amplitude pure superposition of two Fourier vertex modes f,g with unit coin vector, define A=D_g^*D_f, lambda=tr(A)/d and gamma=(d²|lambda|²-1)/(d²-1). For all integers t>=0 the coin-mode overlap Z_t obeys E Z_t=lambda^t and E|Z_t|²=1/d+(1-1/d)gamma^t; hence E Tr(rho_vertex,t²)=(1+1/d)/2+(1-1/d)gamma^t/2 while Tr[(E rho_vertex,t)^2]=(1+|lambda|^{2t})/2. If |lambda|<1 their limiting difference is 1/(2d), independent of vertex count. For |lambda|=1 the sectors remain synchronized and purity is 1. No statement about arbitrary multi-mode initial states or almost-sure convergence.",
+  "limitations": [
+    "Assumes two equal-weight distinct Abelian Fourier modes, common independently resampled Haar coin and unit coin input, d>=2.",
+    "No unrestricted localized wavepacket, multimode purity, finite-support coin distribution or almost-sure concentration claimed."
+  ],
+  "schema_version": 1
+}

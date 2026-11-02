@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact conditional Haar covariance follows from the traceless conjugation representation, with the factor \(1/(d^2-1)\) fixed by Hilbert–Schmidt trace. It yields a scalar conditional recurrence whose solution starts from \(|Z_0|^2=1\). The partial trace gives the purity identity without approximations. Negative \(\gamma\), synchronous phases \(|\lambda|=1\), and the restriction \(d\ge2\) are explicitly addressed. A finite-sample simulation checks only arithmetic, not the proof.
+## correctness
 
-**Originality — PASS (best knowledge).** The primary 2026 source analyzes the averaged first-moment channel and identifies a need for nonlinear/fluctuation analysis; its reported Fourier dephasing factor does not determine per-trajectory second moments. Generic Haar two-copy identities are well-known ingredients, but the resulting exact two-mode random-walk purity recurrence and universal \(1/(2d)\) long-time separation were not found in the checked primary source, related coin-disorder papers or actual semantic research-record searches. A generally phrased fidelity-moment theorem might imply the algebraic identity; this residual priority risk is not ruled out.
+PASS
 
-**Value — PASS.** The formula distinguishes two operationally different averages of an entanglement-sensitive observable under exactly the common-random-coin dynamics introduced in the motivating literature. Its nonzero, graph-size-independent limiting gap identifies a concrete limitation of first-moment dephasing as a proxy for typical trajectory purity. The complete closed form handles every step, coin dimension and pair of Abelian Fourier sectors without relying on case-by-case experiments.
+An Abelian Cayley shift diagonalizes in the Fourier basis, preserving the two selected mode labels and evolving the corresponding coin vectors by D_f V_t and D_g V_t with the same independent Haar V_t. Their overlap undergoes conjugation by A=D_g^*D_f. For any fixed unit vectors x,y and unitary A of mean trace lambda, Haar invariance yields E<y,V†AV x>=lambda<y,x> and E|<y,V†AV x>|²=d(1-|lambda|²)/(d²-1)+[(d²|lambda|²-1)/(d²-1)]|<y,x>|², using orthogonality of the scalar representation and the traceless adjoint projector of dimension d²-1. Iterating gives the exact stated first and second moments, including gamma<0, t=0 and |lambda|=1. The reduced two-by-two vertex density matrix has off-diagonal coherence Z_t/2, yielding per-realization purity (1+|Z_t|²)/2. Averaging density first gives a different nonlinear expression. Independent rational recurrence checks for dimensions 2–5, 10 steps and trace-zero d=2 verify algebra only; the analytic Haar projector computation proves generality.
 
-**Closest sources and limits.** Quillen, arXiv:2607.04584v1 (first and foremost); Vieira–Amorim–Rigolin, arXiv:1402.5092; Panda–Benjamin, arXiv:2410.12710; Ahlbrecht–Vogts–Werner–Werner, arXiv:1009.2019; Yao–Wald, Phys. Rev. E 108, 024139 (2023). The theorem does not extend automatically to arbitrary vertex wavepackets, multi-mode purity or almost-sure convergence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Quillen’s October 7 2026 primary paper introduces this globally resampled Haar-coin quantum-walk family, characterizes the averaged channel and its Abelian Fourier dephasing, and explicitly notes that nonlinear variance requires second moments not obtained by the averaged channel (its Eq. 95 and discussion). The all-step conditional pair overlap/purity and nonzero trajectory-versus-average gap are not in the materially read complete primary paper. Generic Haar 2-design identities and random-coin entanglement work are acknowledged ingredients, and a general matrix-element fidelity theorem might implicitly cover the algebra. Best-of-knowledge original as a model-specific exact observable.
+
+## value
+
+PASS
+
+An averaged quantum channel cannot characterize a typical trajectory’s nonlinear entanglement/purity; the exact t-dependent two-mode formula and 1/(2d) residual quantify that physical distinction with no vertex-count dependence. It is a natural new observable for the same random-walk model, and the negative-gamma transient is a meaningful boundary, although the calculation uses standard Haar moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
