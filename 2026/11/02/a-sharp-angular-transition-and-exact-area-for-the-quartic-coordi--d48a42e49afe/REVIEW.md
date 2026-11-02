@@ -1,0 +1,11 @@
+# Review of the quartic coordinate-flip numerical range
+
+**Correctness — PASS.** The normalized duality pairing is fixed explicitly. The exact two-coordinate phase calculation gives a centered ellipse family with correct endpoint degeneracies. The support derivative yields the sharp threshold \(\sin^2\phi=3/4\); the vertical-section maximization proves that the body itself (not merely its convex hull) has the parametrized boundary, whose decreasing slope gives convexity. Direct integration gives the closed area formula. 821 finite checks independently test support, boundary, area, and inradius; these are not substitutes for the symbolic proof.
+
+**Originality — PASS (best-knowledge; priority risk).** The closest source, Müller–Tomilov (2026), Proposition 2.1, supplies the general ellipse union but does not present the computed quartic-flip support transition, optimized convex boundary, or area. Mandal–Bhanja–Bag–Paul (2020) treat triangular numerical ranges and a nonconvex equal-off-diagonal class with nonzero opposite diagonal entries, not this zero-diagonal symmetric flip's exact geometry. Claim-level published-finding corpus and published-source searches did not locate an equivalent exact formula. Because a general parametrization already exists, the risk of an unrecognized older explicit specialization is material.
+
+**Mathematical value — PASS.** The non-Hilbertian convexity question is a motivating theme of the 2026 literature. The first even non-Hilbert exponent affords a natural, fully resolved nontriangular example: a sharp supporting-direction transition, an exact curved convex body (as opposed to the Hilbert interval), and an exact area quantifying the numerical-range inflation. These are specific geometric invariants needed to calibrate the general finite-dimensional theory rather than arbitrary test parameters.
+
+**Closest literature and limitations.** arXiv:2606.22693v1 supplies the general parametrization and examples; arXiv:2005.01288v1 establishes neighboring convex/nonconvex classes. The result neither classifies all \(2\times2\) operators nor proves a general-exponent version. Independent validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
