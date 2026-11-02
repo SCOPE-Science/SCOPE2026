@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The normalized Pell identities, cubic decoupling, reversible order-four recurrence, and exact shifted-difference divisibilities establish the complete upper bound. The initial-window formula controls every prime-power divisor; residue calculations at \(2\), \(3\), and \(7\) are essential and included in the proof. The standalone exact verifier confirms the symbolic identities and GCDs in a finite range. It is not an infinite proof.
+## correctness
 
-**Originality: PASS within inspected evidence.** Mbirika–Schrader–Spilker, arXiv:2301.05758, Section 4–5 classifies first-power Pell-related windows, and Section 6 studies square-power cases; it does not state the cubic Pell even-window formula. Mbirika–Spilker, arXiv:2204.12626, concerns squares of generalized Fibonacci numbers. Searches against mathematical records and semantically indexed published results found no logically equivalent formula or dominating theorem; the most similar indexed Lucas/Pell items instead address recurrence periods, Pell Diophantine identities, or other kinds of GCD. An unindexed or more general implicit theorem remains a risk.
+PASS
 
-**Mathematical value: PASS.** The source's natural higher-power GCD problem is solved uniformly for every even Pell cubic window length, and the complete answer exhibits arithmetically nonobvious corrections at \(3\) and \(7\). This is a structural exact classification, not a sampled table or a routine numerical instance.
+The recurrence P_{n+2}=2P_{n+1}+P_n and identity 8P_r^3=P_{3r}-3(-1)^rP_r give an integer reversible order-four recurrence for all cubic window sums: t^4-12t^3-30t^2+12t+1. Its unit constant coefficient makes four successive windows sufficient to compute the full infinite gcd, and permits using S_{-1}. Pell addition formulas yield common factors q=Q_m for odd m or p=P_m for even m in every shifted difference. The exact initial identity 56 S_0=q[(4q²+3)(P_{3m+3}+P_{3m})-21q] or p[(4q²-1)(Q_{3m+3}+Q_{3m})-42p] then distinguishes the 7-adic loss, the 3-adic gain for 4|m, and the 2-adic bound using mod8/mod16 periodicity. Combining the upper bounds from differences and lower divisibility gives equality for all m, with no extrapolation from finite m. Independently computed the exact four-window gcd for 499 distinct m=1..499, all matching, and checked the recurrence-derived reduction.
 
-**Limitations.** Only standard Pell cubic sums with even window length are classified. Literature searches do not guarantee priority. Independent mathematical verification remains pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Novelty is a qualified best-of-knowledge mathematical comparison, not a guarantee of priority; exact original claim was searched against equivalent formulations, general theorems and data tables.
+
+## value
+
+PASS
+
+The simultaneous 2-, 3- and 7-adic cancellations make this an exact nontrivial all-length arithmetic invariant of a classical recurrence, rather than a cosmetic index substitution. The infinite two-parity classification is naturally useful for divisibility, higher-power recurrence sums and Pell/Lucas congruence comparisons; it does not assert odd window lengths or arbitrary powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:06:02.710683Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recurrence P_{n+2}=2P_{n+1}+P_n and identity 8P_r^3=P_{3r}-3(-1)^rP_r give an integer reversible order-four recurrence for all cubic window sums: t^4-12t^3-30t^2+12t+1. Its unit constant coefficient makes four successive windows sufficient to compute the full infinite gcd, and permits using S_{-1}. Pell addition formulas yield common factors q=Q_m for odd m or p=P_m for even m in every shifted difference. The exact initial identity 56 S_0=q[(4q²+3)(P_{3m+3}+P_{3m})-21q] or p[(4q²-1)(Q_{3m+3}+Q_{3m})-42p] then distinguishes the 7-adic loss, the 3-adic gain for 4|m, and the 2-adic bound using mod8/mod16 periodicity. Combining the upper bounds from differences and lower divisibility gives equality for all m, with no extrapolation from finite m. Independently computed the exact four-window gcd for 499 distinct m=1..499, all matching, and checked the recurrence-derived reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mbirika & Spilker (2022), arXiv:2204.12626, handles squares of generalized Fibonacci numbers.",
+          "The 2023 JIS introduction explicitly identifies first-power and partial square-power coverage, and does not assert an all-power theorem."
+        ],
+        "reasoning": "A theorem covering all powers of generalized Lucas recurrences would imply this Pell specialization; none was identified in inspected primary results. Search failure remains a historical-priority limitation, not novelty proof.",
+        "searches": [
+          "Pell number cubic sum consecutive terms gcd even length Pell and associated Pell arithmetic",
+          "gcd sums of k consecutive powers generalized Fibonacci Lucas sequences m 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_pell_cubic.py blobs",
+        "Mbirika–Schrader–Spilker 2023 JIS 26 article 23.6.4 full PDF intro",
+        "Mbirika–Spilker arXiv:2204.12626 abstract",
+        "Resultary semantic search: Pell number cubic sum consecutive terms gcd even length Pell and associated Pell arithmetic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary 2023 paper introduction explicitly states all six sequences m=1 and only partial m=2; its cubic case m=3 is outside that advertised theorem.",
+          "Present exact 7-adic decrement and exceptional 3-adic increment require distinct valuation reasoning."
+        ],
+        "reasoning": "Published sum-of-consecutive-Pell and square-window results do not logically entail cubic-window gcd; the present bound covers every even length with exceptional prime corrections. No claim of priority for underlying Pell identities.",
+        "searches": [
+          "arXiv:2301.05758",
+          "arXiv:2204.12626",
+          "Pell number cubic sum consecutive terms gcd even length Pell and associated Pell arithmetic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "G(2m) is an ideal generator of the cubic window sums and can be expressed using four windows by reversible recurrence; alternative Lucas U/V naming is mathematically the same object.",
+          "Mbirika–Schrader–Spilker, JIS 26 (2023), article 23.6.4, abstract and introduction, discusses m=1 and partial m=2; no m=3 formula in inspected sections."
+        ],
+        "reasoning": "Checked the nearest Pell/Lucas and recurrence aliases rather than literal title only. Known square-window formulas do not transfer to cubes without new valuations at 3 and 7.",
+        "searches": [
+          "Pell number cubic sum consecutive terms gcd even length Pell and associated Pell arithmetic",
+          "Pell cubic window gcd gcd of sums of k consecutive cubes Pell associated Pell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An explicit 499-case independent gcd comparison agrees with G(2m), including m=3 and 4 divisibility anomalies; no exact table was found in reviewed source material."
+        ],
+        "reasoning": "Numerical agreement only checks correctness, not priority. No checked table can be asserted to cover all m; plausible uncatalogued sequences remain a risk.",
+        "searches": [
+          "Pell number cubic sum consecutive terms gcd even length Pell and associated Pell arithmetic",
+          "OEIS cubic Pell sums consecutive gcd 7 3"
+        ]
+      },
+      "rationale": "Novelty is a qualified best-of-knowledge mathematical comparison, not a guarantee of priority; exact original claim was searched against equivalent formulations, general theorems and data tables.",
+      "residual_risks": [
+        "A general higher-power Lucas-sequence gcd theorem or unindexed cubic Pell entry might imply the result.",
+        "Independently checked m<=499 only; all-m conclusion rests on the algebraic recurrence/valuation proof, not enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING in inspected theorem scope for cubic m=3; detailed entire 24-page theorem-by-theorem exclusion not asserted.",
+          "evidence": "Introduction: paper gives m=1 formulas for six sequences and partial m=2 results; present work is m=3 over even Pell windows.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+          "material_read": "Full-text PDF abstract and Introduction pp.1-2, numbered section scope (Sections 4-6) and power generalization statements.",
+          "method": "Publisher lawful OA PDF, parsed text plus inspected page-2 screenshot.",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Same sequences, window gcd and power parameter."
+        },
+        {
+          "assessment": "DIFFERENT_POWER, hence not a proof of cubic case.",
+          "evidence": "Squared U-sequence gcd is m=2, while claimed invariant is m=3 with new exceptional-prime structure.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "Title, abstract and reported square-window specialization.",
+          "method": "ArXiv bibliographic/abstract comparison (not full proof read).",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Broader generalized Fibonacci family, but square power."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simultaneous 2-, 3- and 7-adic cancellations make this an exact nontrivial all-length arithmetic invariant of a classical recurrence, rather than a cosmetic index substitution. The infinite two-parity classification is naturally useful for divisibility, higher-power recurrence sums and Pell/Lucas congruence comparisons; it does not assert odd window lengths or arbitrary powers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only even-length windows with Pell cubes under P0=0,P1=1 and Q0=Q1=1.",
+    "499 finite comparisons are not a proof for all m; the all-m argument uses integer recurrence and p-adic valuation identities.",
+    "Potential unindexed cubic/recurrence coverage remains."
+  ],
+  "schema_version": 1
+}
