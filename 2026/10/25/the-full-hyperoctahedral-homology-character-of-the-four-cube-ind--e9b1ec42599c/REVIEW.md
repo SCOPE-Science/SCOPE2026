@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is rational and finite. The proof fully enumerates the \(742\) nonempty independent-set simplices of \(Q_4\). Exact characteristic-two boundary ranks and reduced Euler characteristic determine that rational reduced homology is seven-dimensional in degree three alone. The signed simplicial Hopf trace formula computes the degree-three character from fixed faces. Its proposed closed formula is compared for all \(384\) graph automorphisms in a standalone standard-library checker. The three-dimensional standard representation plus the four-dimensional weight-three monomial representation reproduces the entire character, so finite-group rational character uniqueness yields the module isomorphism. Rational transfer establishes orbit-space consequences. The conclusion does not assert an integral equivariant lattice.
+PASS
 
-## Originality — PASS
+Exact enumeration of all 742 independent nonempty faces yields f=(16,88,208,228,128,56,16,2); mod2 boundary ranks 15,73,135,86,42,14,2 bound rational ranks and reduced Euler -7 forces only H3 of dimension 7. Independently enumerated all 384 signed fixed-face Lefschetz traces and verified the formula pointwise, then Fourier inverted all sixteen translations: trivial multiplicity 3, each of four weight-three characters multiplicity 1. Rational character uniqueness identifies full module and invariant transfer applies after subdivision. No integral module claim.
 
-The closest known result, *The four-cube independence complex is a wedge of seven three-spheres*, establishes exactly the nonequivariant homotopy type of the same graph. Its full primary text was examined, including its explicit limitation that an equivariant decomposition was not obtained. Related results on hypercube Čech and Vietoris–Rips complexes have different simplex definitions. Primary lattice-fermion sources were compared for periodicity hypotheses and invariant claimed. Indexed searches under hypercube, 4-by-4 torus, signed-permutation and momentum-sector terminology found no statement that implies the complete character. Residual bibliographic risk includes unindexed physical momentum calculations and the unavailable full Jonsson cross-cycle preprint.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Automorphism-refined homology measures information strictly beyond the seven-sphere homotopy type: the complete natural group action, its three trivial translation components, four separate weight-three modes and an acyclic full-symmetry rational quotient. The graph is a canonical four-dimensional cube and a sixteen-site periodic hard-square lattice, making this equivariant invariant natural rather than an arbitrary parameter slice. No further general theorem is claimed.
+Published exact Q4 wedge of seven three-spheres covers Betti and homotopy; entire full text says nothing about canonical equivariant action. Grid, toroidal, Čech, metric-Rips and cut-complex results do not establish the 384-element character of this independence complex.
 
-## Limits
+## value
 
-Only this finite example and rational coefficients are proved. The checker is complete for the stated finite character comparison, but this is not independent validation and cannot exclude equivalent unpublished results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical small hypercube and its full natural automorphism group the complete homology representation, translation spectrum and quotient invariants are meaningful exact equivariant refinements not obtainable from dimensions alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

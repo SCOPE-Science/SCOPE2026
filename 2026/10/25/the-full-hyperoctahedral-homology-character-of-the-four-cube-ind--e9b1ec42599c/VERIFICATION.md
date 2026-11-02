@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-The file `verify.py` requires Python 3.10+ and the standard library only. Run `python3 verify.py` in the same directory. Its exact terminal output appears in `verification_output.txt`.
+## correctness
 
-Checks actually executed: construction of all independent subsets of the sixteen-vertex hypercube, all seven simplicial boundary ranks over \(\mathbb F_2\), reduced Euler characteristic, exact orientation signs of all fixed simplices for each of the \(384\) graph automorphisms, the equality of the signed Lefschetz character with the stated closed formula, translation Fourier multiplicities, and the invariant-space average. The calculation checks every element of the specified finite graph automorphism group.
+PASS
 
-The verifier is an exact finite calculation, not a formal machine-checked proof assistant. Rational homology concentration follows from the boundary-rank bounds and Euler characteristic; the representation identification and quotient statements additionally use standard finite-group character theory and rational transfer. Integral representations, all higher hypercubes, and independent scientific audit are not evaluated.
+Exact enumeration of all 742 independent nonempty faces yields f=(16,88,208,228,128,56,16,2); mod2 boundary ranks 15,73,135,86,42,14,2 bound rational ranks and reduced Euler -7 forces only H3 of dimension 7. Independently enumerated all 384 signed fixed-face Lefschetz traces and verified the formula pointwise, then Fourier inverted all sixteen translations: trivial multiplicity 3, each of four weight-three characters multiplicity 1. Rational character uniqueness identifies full module and invariant transfer applies after subdivision. No integral module claim.
+
+## originality
+
+PASS
+
+Published exact Q4 wedge of seven three-spheres covers Betti and homotopy; entire full text says nothing about canonical equivariant action. Grid, toroidal, Čech, metric-Rips and cut-complex results do not establish the 384-element character of this independence complex.
+
+## value
+
+PASS
+
+For a canonical small hypercube and its full natural automorphism group the complete homology representation, translation spectrum and quotient invariants are meaningful exact equivariant refinements not obtainable from dimensions alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
