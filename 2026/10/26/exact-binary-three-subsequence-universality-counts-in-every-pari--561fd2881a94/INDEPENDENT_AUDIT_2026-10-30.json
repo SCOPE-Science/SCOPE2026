@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:10:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact six nonconstant forbidden length-three patterns 001,011,100,110,010,101; for a,b>=3, 000 and 111 necessarily appear. Each avoidance class is a unique word at its permitted c: low/high c intervals for four patterns and divisibility a|c,b|c for the two single-contiguous-block patterns. Two endpoint words have multiplicity four, accounting for subtracting three each, and six further pairwise junction coincidences have to be subtracted once each (including when c labels coincide for a=b); no other run forms overlap. The Gaussian binomial counts every (a,b,c) fiber. The collision classification gives bound R<=2 and total 3(a+b)-6 by counting six families and subtracting 12 duplicates. New independent source-code-independent enumeration selected all b-one position subsets, counted scattered 01 directly and generated length-three subsequences via all triples of indices for 22,460 words across 33 (a,b) cases with 3<=a,b<=8, a+b<=14: every R and bound matched. Finite checks do not prove all a,b; run-form classification does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published global rational generating function (1+z)/(1-z-2uz^2) indexes word length and universality index, without 01 count c or fixed a,b.",
+          "The primary paper gives an additive approximation scheme for pattern containment, not a closed per-fiber all-pattern count."
+        ],
+        "reasoning": "Marginalizing conditional counts loses c and symbol multiplicities; the global law cannot be inverted to get U_{a,b}(c), and approximation is not the explicit integer formula.",
+        "searches": [
+          "Resultary: number of length 3 universal binary subsequence words by Parikh matrix class a zeros b ones 01 count",
+          "Resultary published Closed-form law for binary subsequence universality complete RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.06717, entire 15-page primary PDF, especially Lemma 4.3 and Theorem 4.4",
+        "Resultary published Closed-form law for binary subsequence universality, full RESULT.md",
+        "Resultary related binary subsequence semantic results",
+        "Exact source RESULT.md, AUDIT.json, verify.py, VERIFICATION.md, METADATA.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.4 3-forall criterion is equivalent to R=0 but does not distinguish R=1 from R=2.",
+          "An unconditioned N_{n,j} count aggregates over all a,b,c and lacks necessary inverse information."
+        ],
+        "reasoning": "The new result recovers the prior yes/no forall criterion as the zero-correction case and refines it to exact counts; neither previous statement implies the finer data.",
+        "searches": [
+          "arxiv:2610.06717 Section 4 Lemma 4.3 Theorem 4.4",
+          "Resultary Closed-form law for binary subsequence universality full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.06717 Lemma 4.3 and Theorem 4.4 describe exactly the same Parikh-matrix parameters but give existence/forall universality criteria using six inequalities.",
+          "The current claim counts exactly how many members of each class violate three-universality."
+        ],
+        "reasoning": "Forall-/exists-universality is a Boolean property of a fiber, not a multiplicity count; no statement in the inspected theorem yields every nonzero R value.",
+        "searches": [
+          "web: Fazekas Huang Mercas Subsequence Analysis Problems for Binary Parikh Matrices arxiv 2610.06717 pdf",
+          "Resultary: number of length 3 universal binary subsequence words by Parikh matrix class a zeros b ones 01 count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the length-only generating-function record rather than an (a,b,c) coefficient table.",
+          "arXiv:2610.06717 Section 5 discusses Gaussian binomial class sizes and approximate containment probabilities, not a full three-universal class-size table."
+        ],
+        "reasoning": "Known P_{a,b}(c) table is just total fiber size. The explicit correction R is not a mechanically available entry of that table. Negative search is not proof of exclusive priority.",
+        "searches": [
+          "Resultary: number of length 3 universal binary subsequence words by Parikh matrix class a zeros b ones 01 count",
+          "web: exact binary Parikh matrix class 3 universal count Gaussian binomial 01"
+        ]
+      },
+      "rationale": "Fazekas–Huang–Mercaş (2026) characterize whether every member of a fixed Parikh-matrix language is three-universal, via the same six avoidance CONDITIONS. Their criterion does not count all failing words per fixed fiber or give the 0/1/2 correction, overlap multiplicities or total. The published full length-only universality-index law likewise cannot recover the conditional three-parameter distribution. An implicit enumeration from older run-classification literature remains a priority risk.",
+      "residual_risks": [
+        "An older unindexed avoidance-class enumeration may imply the same overlap correction without using Parikh-matrix wording.",
+        "Fazekas–Huang–Mercaş identify the six avoidance feasibility families; the new contribution is their exact per-fiber overlap/multiplicity, not rediscovery of those conditions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The previous theorem gives six avoidance feasibility conditions and a zero/nonzero criterion, not exact number 0/1/2 of exceptional words or total.",
+          "evidence": [
+            "Theorem 4.4: 3-forall iff min(C,AB-C)>max(A,B) and A,B do not divide C; Section 5 is additive approximation."
+          ],
+          "identifier_or_url": "arXiv:2610.06717; DOI:10.4204/EPTCS.451.10; https://arxiv.org/pdf/2610.06717",
+          "material_read": "Entire 15-page open-access paper surveyed, especially Sections 3–5, Lemma 4.3, Theorems 4.4–4.5, Gaussian binomial and pattern probability, with image of page 7.",
+          "method": "Read full primary arXiv PDF and page screenshot.",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Exact same binary Parikh-matrix fiber and three-subsequence universality object."
+        },
+        {
+          "assessment": "Counts by total length and universality index, not fixed Parikh matrix and 01 statistic.",
+          "evidence": [
+            "F(z,u)=(1+z)/(1-z-2uz²) has no variables tracking a,b,c."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Complete published RESULT.md including generating function, exact N_{n,j}, arch factorization, cumulative k-universal count, mean and variance, verification and scope.",
+          "method": "Read full published repository mathematical result.",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Possible stronger universal enumeration of binary words."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives an exact, uniform conditional distribution on the natural binary Parikh-matrix equivalence fibers and a sharp at-most-two exception theorem. It solves a finer natural enumerative invariant than either existential feasibility or total-length count, with a complete general formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.06717, entire 15-page primary PDF, especially Lemma 4.3 and Theorem 4.4",
+    "Resultary published Closed-form law for binary subsequence universality, full RESULT.md",
+    "Resultary related binary subsequence semantic results",
+    "Exact source RESULT.md, AUDIT.json, verify.py, VERIFICATION.md, METADATA.json"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a,b>=3 and 0<=c<=ab, binary words having a zeros, b ones and c scattered 01 occurrences have U_{a,b}(c)=P_{a,b}(c)-R_{a,b}(c) three-subsequence-universal members, with P the c-th coefficient of the Gaussian binomial (a+b choose a)_t and R the explicit six-avoidance-family indicator/inclusion-exclusion correction in RESULT.md. Every R is 0,1,2 and sum_{c=0}^{ab}R=3(a+b)-6.",
+  "limitations": [
+    "An older unindexed avoidance-class enumeration may imply the same overlap correction without using Parikh-matrix wording.",
+    "Fazekas–Huang–Mercaş identify the six avoidance feasibility families; the new contribution is their exact per-fiber overlap/multiplicity, not rediscovery of those conditions.",
+    "All computational checks are finite corroboration, not proofs for unrestricted parameters.",
+    "No external Lean proof or expert attestation is asserted.",
+    "Publication is operationally not_ready independently of completed scientific assessments."
+  ],
+  "schema_version": 1
+}

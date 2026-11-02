@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof classifies exactly six forbidden length-three patterns, lists each avoidance family as a one-per-parameter run form, and enumerates all overlaps. Their inclusion–exclusion yields the exact fiber census. A separate case analysis proves there are at most two exceptions per fiber, and summing the six families gives exactly \(3(a+b)-6\) exceptions. The standalone program checks every binary word for multiplicities at least three and combined length at most fifteen. Finite testing is only corroboration.
+## correctness
 
-**Originality — PASS within examined literature.** The closest accessible primary paper is Fazekas, Huang, and Mercaş, arXiv:2610.06717, especially Section 4 on length-three avoidance and Section 5 on class-size Gaussian polynomials. It does not supply the exact conditional universality enumeration. The known unconditioned length-only universality generating function cannot recover fixed Parikh-matrix class counts. Searches for scattered-subword, inversion, Parikh-matrix, and Gaussian-binomial formulations did not identify a covering statement. A hidden or implicit equivalent result remains possible; this review does not establish historical priority.
+PASS
 
-**Mathematical value — PASS.** The theorem determines a full natural three-parameter conditional distribution, strengthens yes/no universality criteria to exact counts, and exposes a surprising sharp bound of two nonuniversal words per class. It concerns a motivated invariant, not an arbitrary finite census.
+Reconstructed the exact six nonconstant forbidden length-three patterns 001,011,100,110,010,101; for a,b>=3, 000 and 111 necessarily appear. Each avoidance class is a unique word at its permitted c: low/high c intervals for four patterns and divisibility a|c,b|c for the two single-contiguous-block patterns. Two endpoint words have multiplicity four, accounting for subtracting three each, and six further pairwise junction coincidences have to be subtracted once each (including when c labels coincide for a=b); no other run forms overlap. The Gaussian binomial counts every (a,b,c) fiber. The collision classification gives bound R<=2 and total 3(a+b)-6 by counting six families and subtracting 12 duplicates. New independent source-code-independent enumeration selected all b-one position subsets, counted scattered 01 directly and generated length-three subsequences via all triples of indices for 22,460 words across 33 (a,b) cases with 3<=a,b<=8, a+b<=14: every R and bound matched. Finite checks do not prove all a,b; run-form classification does.
 
-**Limitations.** Both letter counts must be at least three; no result about longer patterns or larger alphabets is claimed. The proof and computational checker are supplied, but independent validation is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fazekas–Huang–Mercaş (2026) characterize whether every member of a fixed Parikh-matrix language is three-universal, via the same six avoidance CONDITIONS. Their criterion does not count all failing words per fixed fiber or give the 0/1/2 correction, overlap multiplicities or total. The published full length-only universality-index law likewise cannot recover the conditional three-parameter distribution. An implicit enumeration from older run-classification literature remains a priority risk.
+
+## value
+
+PASS
+
+Gives an exact, uniform conditional distribution on the natural binary Parikh-matrix equivalence fibers and a sharp at-most-two exception theorem. It solves a finer natural enumerative invariant than either existential feasibility or total-length count, with a complete general formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
