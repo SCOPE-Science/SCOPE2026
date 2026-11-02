@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Exact monomial diagonalization and a Poisson tail identity establish every singular value and the exact trace norm. An explicitly decreasing tail-ratio controls every mode transition. Fixed-parameter Poisson large deviations and local Gaussian estimates prove all Schatten asymptotics, including constants, without extrapolating finite tests. An independent elementary radial-integral checker passed 2,442 finite assertions. The compactness and endpoint Bessel identities follow from explicit convergent sums.
+
+**Originality (PASS, subject to historical priority).** Kisil's cross-Toeplitz study (arXiv:2108.13710, sections 1, 5, 6) develops mixed Gaussian symbolic calculus and convolution identities but not disk-transfer singular-value asymptotics. Dewage and Ólafsson (arXiv:2107.01465, sections 1 and 2) establish same-weight radial eigenvalue integrals; their result explains the Poisson-tail ingredient without giving the cross-weight mode and Schatten laws. Searches using operator aliases, incomplete gamma, Poisson survival, Gaussian localization and cross-Toeplitz terminology found no dominating published formulation. Older treatments of Gaussian embedding/sampling remain a residual priority risk. The elementary Poisson identities and Stirling theorem are not separately claimed as inventions.
+
+**Value (PASS).** Mismatched Gaussian widths are a natural source-to-target transfer problem for analytic Fock norms. The complete three-regime profile distinguishes stable inclusion, linearly growing critical effective rank, and exponentially amplified supercritical modes. Unique mode-threshold ordering plus exact nuclear norms and sharp constants for every Schatten exponent provide quantitative operator-conditioning information not contained in generic compactness or diagonalization results. The Gaussian window identifies the degrees responsible for amplification.
+
+**Limits.** Fixed Gaussian weights, circular truncation, one complex variable, pointwise rather than uniform parameter asymptotics; source conventions must not be conflated with all squeezed-window cross-Toeplitz definitions. The theoretical priority assessment is provisional.
+
+Self-review: passed. Independent audit: not yet performed.
