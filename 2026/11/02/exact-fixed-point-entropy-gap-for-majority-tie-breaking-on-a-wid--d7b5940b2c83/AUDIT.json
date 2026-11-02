@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For n>=3, every 3-bit column is encoded and the all-vertex MM stability condition is precisely at least two agreeing neighbors among four. The 64x64 transfer trace counts each labeled cyclic configuration once. The fully specified integer matrix yields the stated factorization from a successful exact SymPy characteristic-polynomial computation; Rouché inequalities isolate the unique simple eigenvalue 3. For RMM, a minority bit in a mixed three-bit column can have at most two matching neighbors, hence every absorbing singleton has monochromatic columns; the 4x4 no-isolated-bit transfer matrix has characteristic (z^2-z-1)(z^2-z+1). Independent vertex-neighbor brute force for n=3,4,5,6 agrees. Exact algebra plus bijections, not the finite tests, cover all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zehmakan establishes MM/RMM cycle behavior and general qualitative effects, but the width-three torus fixed-point spectrum and strict RMM singleton entropy are not consequences of the cycle theorem.",
+        "Generic transfer-matrix/Ising theory gives an enumeration method, not the actual width-three characteristic polynomial, unique dominant eigenvalue and contrasting exact RMM count."
+      ],
+      "reasoning": "The cycle result concerns a degree-two network, where random ties play a fundamentally different role. No examined general theorem gives the counts merely from graph degree or size, so neither displayed asymptotic follows from these references alone.",
+      "searches": [
+        "arXiv:2302.06760v1 full text relevant sections fixed point counts general graphs cycles",
+        "doi:10.1007/s10458-024-09651-y journal article sections on absorbing colorings",
+        "published-record query: Binary majority threshold fixed configurations on width-three triangular-cylinder graphs C3 cartesian Cn; exact transfer matrix eigenvalue three, 3^n asymptotic and random tie-breaking comparison",
+        "web: C_3 C_n majority fixed points colorings"
+      ]
+    },
+    "checked_sources": [
+      "Ahad N. Zehmakan, arXiv:2302.06760v1 (2023-02-14), full available original relevant sections on definitions, cycle fixed points and examples.",
+      "Ahad N. Zehmakan, Majority Opinion Diffusion: When Tie-Breaking Rule Matters (2024 journal), publicly accessible HTML treatment of stable configurations.",
+      "Z. Agur, A. S. Fraenkel, S. T. Klein, Discrete Mathematics 70 (1988), pp.295–302; PDF eight-page full text read, especially circular-string counts.",
+      "OEIS A395029, recorded open-ladder related enumeration with different convention; context only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agur–Fraenkel–Klein (1988) counts no-isolated-bit circular words; its formula directly implies B_n once the new column-structure lemma is proved, so that older formula is expressly credited.",
+        "Zehmakan demonstrates on the degree-two cycle that the random-tie singleton count is 2, but on C3 Cartesian Cn the new reduction yields B_n approximately phi^n.",
+        "The nearest identified published mathematical-record summaries concerned distinct objects, including toral cat-map order and social-choice majority tournaments."
+      ],
+      "reasoning": "The proposed new claim is the joint width-three fixed-point classification, polynomial and entropy comparison. An older one-dimensional string count covers only the final B_n algebra after a nontrivial graph reduction, while the 64-state MM spectrum and 3^n leading term require new exact finite arithmetic. A failure to locate an equivalent source is not definitive novelty evidence.",
+      "searches": [
+        "Agur Fraenkel Klein The number of fixed points of the majority rule 1988 full paper",
+        "Zehmakan arXiv:2302.06760 fixed points and RMM cycle",
+        "published-record query: Stable majority opinion configurations on Cartesian cycle product C3 x Cn 2024 Zehmakan",
+        "published-record query: Exact enumeration and transfer-matrix formula for stable fixed point binary majority dynamics on cylindrical ladder graphs C_n Cartesian K_2, synchronous majority model with tie retaining incumbent color"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Local stability under single-site ferromagnetic flips on degree-four graphs is equivalent to MM fixed states with incumbent tie retention; RMM singletons require strict local spin majority. The targeted published search and published-record search gave no matching width-three count.",
+        "Closest generic internal-partition study concerns existence of internal partitions, not explicit counts for this graph family."
+      ],
+      "reasoning": "The Ising metastability/local-energy-minimum terminology is a genuine equivalent formulation; failure to find a matching exact width-three spectrum does not establish priority. No inspected statement implied the displayed polynomial or the two entropies.",
+      "searches": [
+        "published-record query: Metastable ferromagnetic Ising spin configurations on the three-row cylindrical triangular prism graph, count local minima ground state vs zero temperature Glauber absorbing, C3 square Cn",
+        "web: ferromagnetic Ising metastable configurations 3 by N periodic strip stack of triangles number",
+        "web: zero temperature Glauber three-leg cylindrical strip metastable states count",
+        "web: internal partitions 3 x n torus count graph spins degree 4 majority"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A395029 documents a related open 2-by-n ladder/self-inclusive voting convention, with different adjacency and boundary conditions.",
+        "No exact database/table match for the width-three sequence or spectrum was established by the inspected results."
+      ],
+      "reasoning": "Comparison is of underlying graph, tie rule and enumerated objects, not titles or numerical coincidences. The documented open ladder does not contain this toroidal 3-by-n count; absence from a search index remains a residual risk.",
+      "searches": [
+        "web: 32 94 218 712 majority torus",
+        "web: 3 by n torus width three majority fixed points count",
+        "OEIS A395029 majority stable ladder open boundaries",
+        "published-record query: On 3 by n periodic torus C_3 Cartesian C_n, count exact stable configurations under synchronous binary majority of four neighbors with ties preserving own state; transfer matrix rank and characteristic polynomial, fixed point entropy log 3"
+      ]
+    },
+    "rationale": "The closest paper states the cycle MM/RMM comparison but no inspected exact C3 Cartesian Cn theorem. Agur-Fraenkel-Klein 1988 covers only the known circular-word count, explicitly credited, after the novel reduction. Semantically related published findings, Ising metastability aliases, internal-partition literature and open ladder sequence records were checked; no implication giving the 64-state factorization and the two entropy constants was identified. Equivalent unindexed literature remains possible.",
+    "residual_risks": [
+      "Unindexed specialized Ising zero-temperature metastability results on periodic three-leg triangular-prism strips may contain an equivalent polynomial or recurrence.",
+      "General transfer-matrix methods are standard; novelty is claimed only for the particular sharp count and joint contrast, not for transfer matrices as a technique.",
+      "Search and inspection coverage is finite, so no assertion of global uniqueness or independent confirmation is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives cycle asymptotics and general qualitative results; not the exact C3 Cartesian Cn transfer matrix, factorization or RMM singleton count.",
+        "evidence": "arXiv v1 submitted 2023-02-14; abstract states MM stable-coloring growth Theta(phi^n) and RMM count 2 on cycles.",
+        "identifier_or_url": "https://arxiv.org/abs/2302.06760",
+        "material_read": "Available original full-text HTML, especially model definitions, stable configurations, cycle results and concluding directions.",
+        "method": "Read mathematical statements and compare graph, tie rules and counted objects.",
+        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+        "trigger": "Same MM and RMM definitions; source of the motivating cycle contrast."
+      },
+      {
+        "assessment": "No exact width-three Cartesian torus enumeration identified in inspected material.",
+        "evidence": "The focus on cycle behavior and broader stochastic convergence does not imply the new characteristic polynomial.",
+        "identifier_or_url": "https://doi.org/10.1007/s10458-024-09651-y",
+        "material_read": "Public HTML model descriptions and relevant results on stable states.",
+        "method": "Compared resulting cycle/general claims rather than title only.",
+        "title": "Majority Opinion Diffusion: When Tie-Breaking Rule Matters",
+        "trigger": "Later journal form of directly relevant paper."
+      },
+      {
+        "assessment": "Covers one-dimensional cyclic binary strings, acknowledged and used for B_n after reducing the three-row graph; does not include the width-three MM spectrum.",
+        "evidence": "Discrete Mathematics 70 (1988), 295–302; abstract specifies cyclic binary strings and no isolated symbols.",
+        "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
+        "material_read": "All eight pages of original 1988 paper (PDF pages 1–8).",
+        "method": "Read derivations of cyclic word formulas and graph scope.",
+        "title": "The number of fixed points of the majority rule",
+        "trigger": "Potential exact prior count for cyclic no-isolated-symbol words used in B_n."
+      },
+      {
+        "assessment": "Recorded problem concerns a different graph/update convention; no direct implication of new results.",
+        "evidence": "Different open ladder setup and majority counting convention.",
+        "identifier_or_url": "https://oeis.org/A395029",
+        "material_read": "Available sequence description and context, not the complete cited literature.",
+        "method": "Compared graph width, periodic versus open boundary, and self-inclusive versus neighbor-only thresholds.",
+        "title": "OEIS A395029",
+        "trigger": "Possible near-match to transfer counts for majority configurations on strips."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7b5940b-2c83-4ea0-b66e-5b837c946d7e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The width-three torus is the smallest graph in the natural 4-regular two-dimensional torus family, and counting stable colorings under two standard tie conventions measures precisely how the 1D cycle dichotomy changes under transverse coupling. The new 3 versus golden-ratio exponential rates give exact asymptotic fixed-point entropies and testable finite benchmarks, not a merely routine single-configuration example. Exact characterization of all widths remains unproved.",
+    "status": "PASS"
+  }
+}
