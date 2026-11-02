@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof derives the exact two error functionals from ordered circular gaps, uses their Dirichlet–exponential representation with explicit Taylor bounds, reconstructs the Gaussian and Gumbel normalizations, proves their independence by conditioning on a truncated exponential sample, and obtains the leading covariance from the exact conditional maximum formula. The exponential influence polynomial has mean zero and variance \(360\), independently checked by factorial moments. Weighted moment remainder bounds distinguish the tiny covariance from its much larger marginal error levels; deterministic quadrature is ancillary and not treated as an infinite proof.
+## correctness
 
-**Originality (PASS, with priority risks).** Published general random-polytope CLTs and circular area–perimeter extrapolation CLTs do not give the calculated sharp Hausdorff–perimeter mixed covariance. In particular, the existing area/semiperimeter cancellations of Wang–Xu–Liu are acknowledged and are not part of the novelty claim. The closest indexed geometric extreme-value result uses sampling on a finite regular polygon, rather than the unit circle and this mixed covariance. Searches of maximum-spacing/linear-spacing-statistic aliases and joint Gaussian/Gumbel formulations returned no matching coefficient. The full text of Schneider (1988) and Bélisle (2011) could not be inspected during this review; absolute priority remains unverified.
+PASS
 
-**Value (PASS).** A Hausdorff error depends on the single largest gap, while perimeter error averages cubic powers of all gaps. The theorem quantitatively separates these local/global uncertainties and determines their first surviving interaction: a positive \((\log n)^4/n^5\) covariance with an exact constant, despite independent limit laws. This is a natural benchmark for comparing geometric shape recovery and intrinsic-volume estimation; it is not a renamed marginal CLT or an arbitrary finite enumeration.
+For iid uniform unit-circle points the ordered Dirichlet gaps equal iid Exp(1) variables divided by their sum. Convex support yields exactly H=1-cos(pi max gap), while perimeter gives D=2 sum(pi gap-sin(pi gap)), even when a gap exceeds pi radians. Taylor/Dirichlet moment control reduces covariance to pi^5/(6 n^4) Cov(M^2 U^-2,F3). The influence polynomial psi(x)=x^3-18x+12 has exponential mean zero, variance 360; the CLT yields normal perimeter variance 40 pi^6. Conditioning on the maximum at L+z gives truncated independent exponentials and an unchanged centered CLT, proving joint Gumbel-normal independence. Exact conditional E[sum psi(Ei)|M=m] = m^3-18m+12 -(n-1) exp(-m)/(1-exp(-m)) (m^3+3m^2-12m); its leading contribution gives Cov(M^2,sum psi)~2(log n)^4 and covariance constant pi^5/3. The ratio limit follows by Slutsky. Bounded independent quadrature and exact factorial-moment checks corroborate but do not prove the asymptotics.
 
-**Scientific boundaries.** No extension to nonuniform boundary samples, other curves, higher dimensions, or finite-sample covariance signs is asserted. The proof is self-contained conditional on classical exponential/Dirichlet spacing facts and standard CLTs. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The first nonzero mixed Hausdorff/perimeter covariance of order (log n)^4/n^5 and its sharp pi^5/3 coefficient is not an implication of marginal perimeter CLTs, Hausdorff-rate theorems, or area/semiperimeter extrapolation; those lack an exact maximum-conditioned mixed moment. The independent Gumbel/Gaussian joint statement follows from a separate conditional-truncation argument. Best-of-knowledge PASS with inaccessible same mathematical model literature explicitly retained as risk.
+
+## value
+
+PASS
+
+The maximum gap governs worst-case boundary approximation while all gaps govern perimeter. A sharp positive covariance invisible after the separate Gumbel and Gaussian fluctuation normalizations quantifies coupling between a natural local extreme and global geometric estimation error. The exact coefficient is an independently useful benchmark in random convex approximation, not a marginal CLT repeated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
