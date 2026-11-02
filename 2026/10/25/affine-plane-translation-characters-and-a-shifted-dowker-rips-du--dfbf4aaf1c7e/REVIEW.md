@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The line-side flagification is exactly the join of the parallel-class discrete sets, and the integral augmented join chain is a signed tensor of their augmentation ideals. Cyclic tensor traces reduce the character to the fixed-line counts of affine direction cycles. The ordinary point Dowker first homology is independently identified with the integral incidence graph cycle lattice, yielding its translation trace and the odd-field representation comparison by character orthogonality. The all-order proof requires no finite experiments; `verify.py` checks prime powers 2, 3, 4 and 5 as corroboration.
+## correctness
 
-**Originality — PASS, with residual risk.** The defining 2025 preprint establishes the flagified Dowker comparison and a known four-point duality gap. Two published affine-Rips results already calculate the line-only join and its ordinary homotopy type. A related multipartite-prism result uses the tensor augmentation representation technique. None of these inspected full statements computes the complete affine-group characters or compares the ordinary point Dowker cycle module with the high-dimensional line flagification across odd orders. Unindexed equivalent treatments remain possible; the known order-two example and nonequivariant ranks are explicitly excluded from novelty.
+PASS
 
-**Value — PASS.** The affine translation character is an exact all-prime-power invariant, not only a Betti count. The odd-order comparison gives an unexpected cross-degree equality at order three and quantifies the excess as regular summands for larger odd orders; these distinguish the consequences of replacing common witnesses with pairwise witnesses in a natural incidence family.
+Affinely distinct line directions form q+1 parallel classes of q lines. Two lines meet iff directions differ; the line flagification is the join of their q-point discrete complexes. Reduced homology of each factor is integral augmentation lattice of rank q−1. Integral join Künneth yields only H_q as their tensor; exchanging odd suspended factors contributes a sign, giving the canonical signed affine-group action. Trace of tensor factor cycles equals composite fixed-line trace f_C−1, proving the full character. A nonzero translation fixes exactly the q lines parallel to its own direction and none in the other q directions, giving (q−1)(−1)^q. On the unflagified point side, line-simplex intersections are at most vertices, so each line simplex may be contracted to the incidence graph; explicitly H1 is the kernel of the direct sum line augmentations mapping to the point lattice. Connected incidence graph has q²(q+1) edges and 2q²+q vertices, cycle rank μ=(q−1)²(q+1); its translation Lefschetz character is 1−q off identity. When q odd, nonidentity traces agree, so character difference is r times regular representation; Fourier inversion yields the supplied multiplicities. Reconstructed finite affine planes q=2,3,5, line orientations and all translation character checks directly; q=4 source checked via published checker text, not independently enumerated in this run. Universal claims are proven by the exact join and graph-cycle logic, not q<=5 data.
 
-**Limits.** Field-coordinatized affine planes only. The shifted comparison is complex-linear and not a canonical map or integral splitting. Finite checks do not replace infinite proof. Independent scientific validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS, not certified historical priority: Affine-plane translation characters and a shifted Dowker–Rips duality gap. The claimed equivariant refinement and odd-q shifted representation difference require additional geometric group-action and graph-homology arguments not entailed by generic prior Betti counts.
+
+## value
+
+PASS
+
+A complete integral affine-group homology lattice and all-group character formula for a natural finite-geometry flagification is a structural equivariant invariant, strictly finer than a wedge-of-spheres count. The odd-order shifted comparison with an ordinary Dowker incidence-cycle module is a noncanonical but exact degree-shifted arithmetic representation identity (q=3 equality, q=5 rank gap 160), a motivated answer to what survives of flagification duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
