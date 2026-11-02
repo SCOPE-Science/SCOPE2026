@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:03:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H_{bar psi} with psi(z)=az+bz² and a,b complex, the Hankel matrix on span{1,z} is [[bar a,bar b],[bar b,0]], giving ||H||=(|a|+sqrt(|a|²+4|b|²))/2. Direct Szego-kernel action gives K(H)²=max_{0<=r<=1}(1-r²)((|a|+|b|r)²+|b|²) with angular alignment. For both coefficients nonzero set t=|a|/|b| and x=(t+sqrt(t²+4))/2; radial derivative t-t²r-3tr²-2r³ is strictly decreasing and has exactly one interior zero. Differentiating the optimized squared ratio yields two branches s=t+r=x or 1/x. Substituting into the radial equation excludes s=x and forces x²=3/2, t=r=1/sqrt6 on s=1/x. Since ratio tends to 1 as t->0 and t->infty, the unique stationary point is global minimum squared 25/27, i.e. 5/(3sqrt3); monomial cases have ratio 1. Equality phases follow triangle equality. Independent symbolic check verified both branch factorizations; numerical one-dimensional search and 301-point logarithmic grid corroborated norm ratio about 0.96225044865, not a continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published finite-rank theorem classifies exactly when kernel norm equals operator norm using shifted finite Blaschke products; it gives no lower bound among quadratic non-SRKT symbols.",
+          "Dyakonov highlights nonmonomial examples where equality fails but does not in material available to this audit state a global minimum ratio."
+        ],
+        "reasoning": "Exact qualitative equality locus does not imply the sharp deficit or minimax optimizer. Because full Dyakonov v3 was inaccessible, this is a qualified implication comparison, not a full-document NOT_COVERING claim.",
+        "searches": [
+          "Hankel operator Szego kernel testing norm ratio quadratic symbol az+bz² Garsia sharp constant",
+          "Resultary/2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f full RESULT.md",
+          "Dyakonov 2026 arXiv:2609.33242 available abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33242 abstract/limited excerpts; full text inaccessible",
+        "Resultary shifted-Blaschke full RESULT.md",
+        "Resultary exact sqrt-two logarithmic Hankel hit",
+        "Dyakonov 2024 Garsia norm article cited background",
+        "Frozen RESULT.md, CHECKER.py and independent symbolic stationary branch verification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp value requires optimizing F(t,r) globally and isolating the stationary equations x²=3/2 and t=r=1/sqrt6.",
+          "The prior theorem that only monomial polynomials satisfy equality merely proves kappa<1 for nonmonomials, not kappa>=0.96225 for every ratio."
+        ],
+        "reasoning": "The quantitative minimax does not follow from the qualitative equality classification alone. Its proof is self-contained for two coefficients, but historical unindexed exact calculations remain possible.",
+        "searches": [
+          "arXiv:2609.33242 Dyakonov",
+          "Resultary finite-rank SRKT classification full RESULT.md",
+          "Hankel operator Szego kernel testing norm ratio quadratic symbol az+bz² Garsia sharp constant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quantity K(H)/||H|| is the Szego reproducing-kernel testing/Garsia-to-Nehari ratio for a two-coefficient degree-two analytic polynomial.",
+          "Dyakonov uses the qualitative strict-counterexample cz+z²; the same family normalization is recognized explicitly."
+        ],
+        "reasoning": "The coefficients are not new objects. The claimed novelty is the optimized quantitative lower fraction and full extremizer solution, not the existence of any gap.",
+        "searches": [
+          "Hankel operator Szego kernel testing norm ratio quadratic symbol az+bz² Garsia sharp constant",
+          "Dyakonov arXiv:2609.33242 (abstract/metadata and accessible excerpts)",
+          "Resultary 2026-10-11 finite rank SRKT full RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published logarithmic Hilbert Hankel symbol has ratio 1/sqrt2 but lies outside the quadratic polynomial class.",
+          "Published finite-rank classification is a yes/no equality table, not a numerical sharp lower bound for quadratic ratios."
+        ],
+        "reasoning": "No known exact database determines the continuum coefficient minimizer. Different nonpolynomial sharp gaps do not cover this restricted family.",
+        "searches": [
+          "Hankel operator Szego kernel testing norm ratio quadratic symbol az+bz² Garsia sharp constant",
+          "Resultary search for quadratic Hankel SRKT quantitative fraction",
+          "Resultary 2026-10-11 exact sqrt-two Hilbert Hankel gap"
+        ]
+      },
+      "rationale": "Qualitative strict inequality for the SAME quadratic family is already known in Dyakonov 2026, and finite-rank SRKT equality is classified in a published stronger qualitative theorem. The newly assessed piece is the global quantitative minimum 5/(3sqrt3) and its unique magnitude and phase equality conditions. Dyakonov full text and the archival Bonsall source were not independently accessible in this run; only material actually read is characterized as such.",
+      "residual_risks": [
+        "Unread full Dyakonov 2026 version may have an appendix or addendum with the exact optimized coefficient.",
+        "Bonsall 1984 archival full text unavailable; unindexed sharp two-parameter matrix norm inequality could imply constant.",
+        "The formula only claims the quadratic family; stronger unrestricted claims are not being made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only available material compared; no entire-paper noncoverage conclusion",
+          "evidence": [
+            "Known paper features cz+z² strict kernel-testing inequality and quantitative question; exact constant not verified in full primary text."
+          ],
+          "identifier_or_url": "arXiv:2609.33242",
+          "material_read": "Abstract and limited excerpts only; complete primary text not available during this run",
+          "method": "ArXiv and lawful OA attempts; authorized Oxford returned vpn_disconnected",
+          "title": "The Strong Reproducing Kernel Thesis for Hankel Operators and the Garsia Norm",
+          "trigger": "Exact same quadratic example and motivation"
+        },
+        {
+          "assessment": "Strong qualitative classification of ratio one; not present uniform quantitative quadratic minimax",
+          "evidence": [
+            "Symbols C(B-B(0)) are exactly finite-rank SRKT symbols; the theorem asserts equality not the sharp lower fraction."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f/RESULT.md",
+          "material_read": "Entire published RESULT.md, classification, proof via Möbius normalization, norming kernels, and limitations",
+          "method": "Read GitHub published source",
+          "title": "Shifted-Blaschke classification of finite-rank SRKT Hankel operators",
+          "trigger": "Potential stronger finite-rank theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nonmonomial polynomial Hankel family is explicitly natural in the reproducing-kernel-thesis literature. A known qualitative strict inequality does not reveal how badly kernels underestimate norm. The sharp global fraction and full coefficient/kernel extremizer classification provide an exact quantitative diagnostic benchmark for finite-rank Hankel kernels.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.33242 abstract/limited excerpts; full text inaccessible",
+    "Resultary shifted-Blaschke full RESULT.md",
+    "Resultary exact sqrt-two logarithmic Hankel hit",
+    "Dyakonov 2024 Garsia norm article cited background",
+    "Frozen RESULT.md, CHECKER.py and independent symbolic stationary branch verification"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unread full Dyakonov 2026 version may have an appendix or addendum with the exact optimized coefficient.",
+    "Bonsall 1984 archival full text unavailable; unindexed sharp two-parameter matrix norm inequality could imply constant.",
+    "The formula only claims the quadratic family; stronger unrestricted claims are not being made.",
+    "Publication metadata contain operational provenance requiring guarded sanitization before public release."
+  ],
+  "schema_version": 1
+}
