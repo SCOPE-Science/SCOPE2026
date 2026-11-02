@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier inversion gives an exact four-coordinate expression with no approximate steps, and the \(\max\) identity converts it to an exact total-variation norm. The modulus bound is sharp only at the center for even horizons. For odd horizons a Taylor expansion has a strict negative quadratic coefficient \(-2h(h-1)\) and the phase-aligning constructive witness plus universal lower bound determines the sharp ratio. Endpoints and the possibility of nonunique odd off-center minimizers are explicitly accounted for. Exact rational transition-matrix tests cover 1,830 finite cases, without claiming they prove the infinite-horizon theorem.
+## correctness
 
-**Originality — PASS under the searches reported, with residual priority risk.** The published hypercube mixing and geometric fastest-chain references study different kernels/objectives; their results do not imply an odd/even four-cycle total-variation optimizer phase transition. A closely related indexed note on four-state cyclic \(\ell^4\) operator norms concerns another norm and cannot alone settle parameter-dependent total variation. The exact one-parameter four-cycle claim was searched by group name, binomial-mod-four alias, spectral/total-variation contrast and finite-horizon wording. A specialized prior theorem could exist and would require external priority verification.
+PASS
 
-**Value — PASS.** A natural smallest even directed cycle exposes a genuine difference between spectral proxy optimization and exact finite-time total-variation performance, including an exact full classification for every even horizon, an odd-horizon local/global exclusion, and a nonvanishing approximately 29.3% improvement. The parity contrast is structurally informative and not a rote application of a known three-vertex formula.
+PASS: Exact Fourier eigenvalues 1, B=(1−2p)^h, λ^h, conjugate; Fourier inversion gives deviations (B+2Reλ^h, −B+2Imλ^h, B−2Reλ^h,−B−2Imλ^h)/4 and TV d=[max(|B|,2|Reλ^h|)+max(|B|,2|Imλ^h|)]/4. Hence d>=|λ|^h/2>=2^{-h/2-1}, strict for p !=1/2. For even h the center reaches equality, proving unique minimum. For odd h the center has |cos|+|sin|=sqrt2 and expansion d(p)/d(1/2)=1−2h(h−1)(p−1/2)^2+O_h((p−1/2)^4), strict local maximum. Endpoint d=3/4 excludes endpoints, symmetry gives reflected off-center minima. Phase aligned p=(1+tan(pi/(4h)))/2 yields upper 2^{-h/2-1}sec^h(pi/(4h))+(1/4)tan^h(pi/(4h)); lower bound yields ratio 1/sqrt2+O(1/h). Independently checked 20 horizons with exact rational binomial modulo 4 convolution, sample grid; no assertion of unique odd minimizer.
 
-**Scientific limitations.** The exact optimal parameters for odd finite horizons are not identified. Search results cannot certify historical uniqueness or independent validation; this review assesses the mathematical statement within the examined literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with residual priority risk: General hypercube and fastest-mixing works concern distinct chain families and optimization objectives; a published four-state cyclic ℓ4-contraction result concerns a norm other than finite-time TV from a point mass. No equivalent binomial-mod-four optimization theorem was located in searches. The new precise parity law is distinct from standard Fourier diagonalization.
+
+## value
+
+PASS
+
+PASS: A smallest nontrivial nonreversible cyclic chain exhibits a genuine parity reversal between spectral-rate optimization and finite-horizon total-variation optimization. Uniform exact even-h minima, strict odd-h central maxima and sharp ~29.3% asymptotic improvement provide a useful counterexample/boundary, not a rote numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

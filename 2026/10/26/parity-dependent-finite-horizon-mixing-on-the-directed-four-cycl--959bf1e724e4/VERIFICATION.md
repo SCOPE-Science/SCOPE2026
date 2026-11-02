@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Running `python verify.py` with Python 3 performs 1,830 exact rational comparisons of direct cyclic transition distributions with the Fourier-inverted formula for horizons 1 through 30 and parameters \(p=j/60\), \(0\le j\le60\). Additional assertions check exact even-horizon center values, sample odd-horizon local improvement and the phase-aligned witness for odd \(h<100\). Expected ending: `PASSED 1830 exact rational Fourier/convolution comparisons, parity bounds, odd improvement and asymptotic witness checks`.
+## correctness
 
-The all-horizon and asymptotic arguments are analytic, not computer-assisted. No independent audit or external validation has been performed. Exact odd-horizon global minimizing parameters remain open within the statement.
+PASS
+
+PASS: Exact Fourier eigenvalues 1, B=(1−2p)^h, λ^h, conjugate; Fourier inversion gives deviations (B+2Reλ^h, −B+2Imλ^h, B−2Reλ^h,−B−2Imλ^h)/4 and TV d=[max(|B|,2|Reλ^h|)+max(|B|,2|Imλ^h|)]/4. Hence d>=|λ|^h/2>=2^{-h/2-1}, strict for p !=1/2. For even h the center reaches equality, proving unique minimum. For odd h the center has |cos|+|sin|=sqrt2 and expansion d(p)/d(1/2)=1−2h(h−1)(p−1/2)^2+O_h((p−1/2)^4), strict local maximum. Endpoint d=3/4 excludes endpoints, symmetry gives reflected off-center minima. Phase aligned p=(1+tan(pi/(4h)))/2 yields upper 2^{-h/2-1}sec^h(pi/(4h))+(1/4)tan^h(pi/(4h)); lower bound yields ratio 1/sqrt2+O(1/h). Independently checked 20 horizons with exact rational binomial modulo 4 convolution, sample grid; no assertion of unique odd minimizer.
+
+## originality
+
+PASS
+
+PASS with residual priority risk: General hypercube and fastest-mixing works concern distinct chain families and optimization objectives; a published four-state cyclic ℓ4-contraction result concerns a norm other than finite-time TV from a point mass. No equivalent binomial-mod-four optimization theorem was located in searches. The new precise parity law is distinct from standard Fourier diagonalization.
+
+## value
+
+PASS
+
+PASS: A smallest nontrivial nonreversible cyclic chain exhibits a genuine parity reversal between spectral-rate optimization and finite-horizon total-variation optimization. Uniform exact even-h minima, strict odd-h central maxima and sharp ~29.3% asymptotic improvement provide a useful counterexample/boundary, not a rote numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
