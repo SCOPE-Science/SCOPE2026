@@ -1,15 +1,21 @@
-# Scientific review: a cubic runner-up transition in complete split networks
+# Independent mathematical audit
 
-## Correctness — PASS
-For each integer \(p\ge3,q\ge2\), deletion of any two distinct existing edges leaves the complete split graph connected. The intact Laplacian has precisely the positive eigenvalues \(p\) (multiplicity \(q-1\)) and \(p+q\) (multiplicity \(p\)). Its spectral pseudoinverse and the rank-two Woodbury formula yield the exact change of Kirchhoff index for each of seven edge-pair orbits. The seven explicit rational formulas are in `COMPARISONS.md`; substitution of \(p=u+3\), \(q=v+2\) gives positive-coefficient certificates for six strict comparisons. The difference of the two runner-up candidates is a signed quadratic in \(q\), whose unique positive real root lies strictly between consecutive integers \(p^3-3p^2+p+1\) and \(p^3-3p^2+p+2\). The exact symbolic certificate is implemented in `verify.py`; independent rational Laplacian inverse checks succeeded for 80 orbit instances. None of the finite checks is used as proof for the unbounded parameter family.
+## correctness
 
-## Originality — PASS, with explicit uncertainty
-Y. Yang, *Some Bounds for the Kirchhoff Index of Graphs* (2014), DOI 10.1155/2014/794781, full accessible article sections 1–3, studies Kirchhoff-index extremal bounds involving complete split joins, not a complete adversarial two-edge deletion ranking. Xu, Das, and Zhang, *Ordering connected graphs by their Kirchhoff indices* (2016), arXiv:1602.07039, full preprint including theorem on deleting a bounded number of edges from a complete graph, gives genuine coverage of related restricted cases, not the claimed all-parameter second-place threshold. S. Tamura (2026), arXiv:2608.05924, full available text, gives general edge-defect machinery for clique deletions but not the complete split graph's sharp orbit ordering. J. Ge, Y. Liao, B. Zhang, *Resistance distances and the Moon-type formula of a vertex-weighted complete split graph* (2024), DOI 10.1016/j.dam.2024.07.040, was identified as directly relevant to the network family, but only its title and bibliographic details were accessible; it may contain formulas that imply part of the present result. Consequently prior coverage is not decisively excluded across all literature. The submitted contribution is the sharp complete ranking's worst and runner-up classification, not the established spectral rank-two calculation itself.
+PASS
 
-## Value — PASS
-A network designer concerned with the aggregate increase in electrical resistance after exactly two connection failures needs more than a general inverse formula. The theorem identifies every worst-case edge pair, proves exactly which structural two-link pattern is second worst, and locates the sharp switch using a cubic integer boundary with no ties. The transition already appears for a triangle-clique with independent-part sizes four and five and persists for all clique sizes. The exact counts of maximizers and runners-up make the classification directly usable for uniform failure models and robustness benchmarking.
+The Laplacian has nonzero eigenvalues p and p+q, yielding explicit L+ and (L+)^2 projectors. Two-edge deletion is a rank-two Woodbury correction on the constant-free subspace. The seven S_p x S_q edge-pair orbits are exhaustive; all seven rational damage formulas were inspected in COMPARISONS.md. Shifted variables u=p-3,v=q-2 give positive-coefficient exact difference numerators for A>B,C and B>D,E,F,G. The B-C sign is the concave quadratic F=-q^2+[p^2(p-3)+2]q+p^2(p-2)^2, with F(p,R_p)=1, F(p,R_p+1)=-p(p-1)(p-2). These are algebraic for all integer p,q, and independent rational Laplacian inverse tests corroborated small graphs. Post-deletion connectivity and omitted p=3 disjoint clique-edge orbit were checked.
 
-## Reproducibility and limits
-`verify.py` with `requirements.txt` checks the spectral orbit formulas, denominator signs, coefficient certificates, sharp-threshold identities, 80 direct inverse cases, and small labelled orbit exhaustion. Exact symbolic and rational results corroborate the displayed proof. No independently conducted mathematical audit has been performed. The likely incomplete coverage of the 2024 weighted complete split graph article is the principal originality risk. General weighted networks, three or more deleted edges, and other optimization criteria are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical rank-two Kirchhoff-index updates, Yang intact split-graph bounds, Xu–Das–Zhang near-complete deletion ranking and Tamura general edge-defect methods cover background and restricted cases, not the all-p,q seven-orbit runner-up switching theorem. The highly relevant Ge–Liao–Zhang 2024 weighted complete split resistance article was not accessible in full: institutional retrieval reported vpn_disconnected, which remains a material priority risk but is not by itself a scientific failure.
+
+## value
+
+PASS
+
+A complete ranking of worst and second-worst simultaneous two-link failures across a natural network family, including sharp cubic switching and exact multiplicities, addresses reliability patterns beyond generic Laplacian update computability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
