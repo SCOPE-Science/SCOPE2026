@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:06:30.281868Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/27/two-distance-visibility-in-three-factor-hamming-graphs-the-sharp--d3ac59c01435/RESULT.md",
+        "/mnt/data/scope_worker04_audit_20261031T1046Z/independent_checks_batch4959.py"
+      ],
+      "rationale": "Every selected pair must have Hamming distance <=2. For a non-planar diameter-2 anticode, choose (0,0,0),(1,1,0): all off-plane points have crossed types (0,1,t) or (1,0,t); one type forces containment in a radius-one ball, both force a four-point parity tetrahedron. Inside a plane, geodesic visibility is exactly C4-freeness of its selected zero-one matrix; balls and tetrahedra satisfy visibility. Thus maxima are max{a+b+c-2,Z(a,b),Z(a,c),Z(b,c)}; disjoint carrier counts give the displayed multiplicity. Row-pair counting proves Z(q,q)=3,6,9,12,16 for q=2..6. The circulant difference set {0,1,3} proves Z(q,q)>=3q for q>=7. Independent direct geodesic search over all subsets of (2,2,2),(2,2,3),(2,3,3) reproduces (max,count)=(4,10),(5,12),(6,30). General q uses the structural argument.",
+      "residual_risks": [
+        "Unrestricted exact Z(q,q) is open and not claimed; planar optimum count N_{q,q} is left symbolic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The k-Distance Mutual-Visibility Problem in Graphs: Definitions and Proposition 2.2; reference to total Hamming visibility",
+          "Total mutual-visibility in Hamming graphs: Abstract gives exact total visibility in three-factor Hamming products"
+        ],
+        "reasoning": "General k-distance bounds and total-visibility theorems use distinct quantifiers or give inequalities, not the three-carrier equality and multiplicities.",
+        "searches": [
+          "two-distance mutual visibility Cartesian product three complete graphs Hamming graphs diameter two anticode Zarankiewicz",
+          "two distance mutual visibility Hamming graphs K_a square K_b square K_c Zarankiewicz"
+        ]
+      },
+      "checked_sources": [
+        "Cera López et al., k-Distance Mutual-Visibility Problem in Graphs, 2024, DOI:10.1007/s40840-024-01811-3",
+        "Cicerone–Di Stefano–Klavžar, mutual visibility for Cartesian products of complete graphs, arXiv:2112.13024 (bibliographic identification)",
+        "Bujtás–Klavžar–Tian, Total mutual-visibility in Hamming graphs, arXiv:2307.05168 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The k-Distance Mutual-Visibility Problem in Graphs: Definitions and Proposition 2.2; reference to total Hamming visibility",
+          "Total mutual-visibility in Hamming graphs: Abstract gives exact total visibility in three-factor Hamming products"
+        ],
+        "reasoning": "Two-factor Z(r,s) supplies only the planar lower bound. New non-planar anticode classification supplies the missing global upper bound, all maximizer carriers and q=6 transition.",
+        "searches": [
+          "two-distance mutual visibility Cartesian product three complete graphs Hamming graphs diameter two anticode Zarankiewicz",
+          "two distance mutual visibility Hamming graphs K_a square K_b square K_c Zarankiewicz"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The k-Distance Mutual-Visibility Problem in Graphs: Definitions and Proposition 2.2; reference to total Hamming visibility",
+          "Total mutual-visibility in Hamming graphs: Abstract gives exact total visibility in three-factor Hamming products"
+        ],
+        "reasoning": "A coordinate plane is a bipartite incidence matrix with no 4-cycle. A radius-one ball and a parity tetrahedron are the two remaining canonical diameter-two Hamming anticodes; these are not covered by the two-factor matrix equivalence alone.",
+        "searches": [
+          "two-distance mutual visibility Cartesian product three complete graphs Hamming graphs diameter two anticode Zarankiewicz",
+          "two distance mutual visibility Hamming graphs K_a square K_b square K_c Zarankiewicz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The k-Distance Mutual-Visibility Problem in Graphs: Definitions and Proposition 2.2; reference to total Hamming visibility",
+          "Total mutual-visibility in Hamming graphs: Abstract gives exact total visibility in three-factor Hamming products"
+        ],
+        "reasoning": "Known Z(2..6) values and the binary q=2 case are credited, not claimed as novel. The exact q=6 tie and q>=7 visibility-carrier census are assessed as new.",
+        "searches": [
+          "two-distance mutual visibility Cartesian product three complete graphs Hamming graphs diameter two anticode Zarankiewicz",
+          "two distance mutual visibility Hamming graphs K_a square K_b square K_c Zarankiewicz"
+        ]
+      },
+      "rationale": "The published k-distance mutual-visibility introduction gives definitions and bounds, and ordinary two-factor Hamming visibility is equivalent to C4-free bipartite packing, yielding Z(r,s). Previously studied total mutual visibility of three-factor Hamming products has a different universal quantifier over all ambient vertex pairs. The new diameter-2 three-carrier upper bound, exact multiplicity, and threshold q=6 are not supplied by these primary results.",
+      "residual_risks": [
+        "A general diameter-two anticode classification plus visibility obstruction might exist in older coding/graph theory literature.",
+        "Unrestricted exact Z(q,q) is open and not claimed; planar optimum count N_{q,q} is left symbolic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces k-distance visibility and general bounds, not the three-factor exact structure",
+          "evidence": [
+            "Definitions and Proposition 2.2; reference to total Hamming visibility"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40840-024-01811-3",
+          "material_read": "Full open-access HTML searched and read in introduction, foundational bounds and Section 3; checked Hamming references",
+          "method": "Publisher HTML",
+          "title": "The k-Distance Mutual-Visibility Problem in Graphs",
+          "trigger": "Same invariant and graph-theoretic definitions"
+        },
+        {
+          "assessment": "All-ambient-pairs total visibility is a stronger and different requirement",
+          "evidence": [
+            "Abstract gives exact total visibility in three-factor Hamming products"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.05168",
+          "material_read": "Abstract with main theorem scope only; no full-text noncoverage claim",
+          "method": "arXiv abstract",
+          "title": "Total mutual-visibility in Hamming graphs",
+          "trigger": "Same underlying Cartesian product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite-graph visibility invariant for the canonical three-factor Hamming product reduces exactly to a classical difficult extremal problem. The sharp q=6 transition explains which geometry governs the maximum, and multiplicity enumerates all maximizers while leaving larger Zarankiewicz values explicitly open.",
+      "residual_risks": [
+        "A general diameter-two anticode classification plus visibility obstruction might exist in older coding/graph theory literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Cera López et al., k-Distance Mutual-Visibility Problem in Graphs, 2024, DOI:10.1007/s40840-024-01811-3",
+    "Cicerone–Di Stefano–Klavžar, mutual visibility for Cartesian products of complete graphs, arXiv:2112.13024 (bibliographic identification)",
+    "Bujtás–Klavžar–Tian, Total mutual-visibility in Hamming graphs, arXiv:2307.05168 (abstract)"
+  ],
+  "disposition": "passed",
+  "limitations": "Unrestricted exact Z(q,q) is open and not claimed; planar optimum count N_{q,q} is left symbolic. Publication not_ready reflects the private provenance metadata transport requirement, not a scientific failure.",
+  "residual_risks": [
+    "A general diameter-two anticode classification plus visibility obstruction might exist in older coding/graph theory literature.",
+    "Unrestricted exact Z(q,q) is open and not claimed; planar optimum count N_{q,q} is left symbolic."
+  ],
+  "schema_version": 1
+}
