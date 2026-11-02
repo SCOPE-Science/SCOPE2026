@@ -1,11 +1,21 @@
-# Self-review of the Hamming-product geodesic theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** Every geodesic changes each coordinate at most once, so decomposition into unchanged positions, two-endpoint positions, and third-symbol positions is exhaustive and disjoint. A reflection-principle argument counts binary words at each distance from a monotone chain, yielding the ballot polynomial. Coordinatewise multiplication and summation produce every coefficient without unproved infinite extrapolation. The polynomial has \(L+1\) zero-distance vertices and total mass \(\prod_iq_i\). Sharp eccentricity follows by constructing a vertex maximizing each constant distance contribution and a binary-chain maximizer; all optimizer cases follow from \(\lceil s/2\rceil\). Reversal-paired path enumeration establishes the path-count formulas. A self-contained program independently confirms binary, mixed, and enumerated optimizer instances. Risk: human verification of the general reflection step and path-count conventions remains valuable.
+## correctness
 
-**Originality (PASS, subject to historical priority).** The recent 2026 structural-parameter preprint addresses algorithmic complexity of eccentricity shortest paths, not all-distance ballot-polynomial formulas on Cartesian products of cliques. Earlier MESP papers give complexity and algorithms; analogous Hamming-scheme and hypercube records concern different invariants. An accessible local claim index and semantic research search were compared at the level of implications, not simply matching titles. No equivalent explicit mixed-product formula or optimization classification was identified, but historical priority under Boolean-chain neighborhoods remains a risk. The reflection principle itself is classical and credited as a standard tool.
+PASS
 
-**Mathematical value (PASS).** The problem of finding geodesic routes within a small distance of all vertices is directly motivated by ongoing MESP research. Instead of a standalone one-parameter number, the result gives every distance layer from every geodesic for arbitrary independent alphabet sizes, proves order invariance, identifies the sharp MESP radius, and classifies and enumerates all attaining paths. The sensitivity solely to the number of changed binary factors is a structural dichotomy absent from generic algorithms. The full polynomial can be used to quantify average as well as worst-case route accessibility.
+PASS. In the Cartesian product of cliques every geodesic changes each coordinate at most once. Its active binary endpoint words form a monotone prefix chain; the distance of binary word a to the path equals number of ones minus the maximum of prefix walk sums. A reflection-principle count by maximum m and number of ones gives B_L(z)=sum_j (L-2j+1)[C(L,j)-C(L,j-1)]z^j including L=0. Every unchanged coordinate contributes 1+(q_i-1)z and every active coordinate taking a third symbol contributes the constant distance 1, giving the complete product/subset polynomial. Degree and explicit farthest vertices yield ecc=d-ceil(s/2) for s active binary coordinates; minimization over s and reversal-paired path counting prove the stated optimizer sets and exact numbers, separately counting singleton geodesics at b=0. A new independent direct vertex-geodesic distance enumerator matched 216 mixed binary/nonbinary cases, including order invariance. These checks corroborate rather than replace the all-product proof.
 
-No independent mathematical assessment or global historical-priority certificate has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. The reflection-principle ballot enumerator is classical and general MESP parameter complexity and approximation are published. The new assembled claim is the all-distance polynomial for every geodesic of an arbitrary mixed-alphabet Hamming product, its order independence, exact eccentricity, all minimizing changed-coordinate sets and full unoriented optimizer count. The accessible compared primary statements concern decision complexity and broad structured graphs, not these closed enumerators. Priority under Boolean-chain neighborhood or coding-theory language remains open.
+
+## value
+
+PASS
+
+PASS. A full layer-by-layer generating function rather than only the eccentricity, together with optimal geodesic classification and exact counts, is a natural and independently reusable invariant of Hamming/Cartesian product metric geometry. It is not simply the classical ballot polynomial rebranded: the mixed-alphabet decomposition and optimizer enumerator are additional all-parameter statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
