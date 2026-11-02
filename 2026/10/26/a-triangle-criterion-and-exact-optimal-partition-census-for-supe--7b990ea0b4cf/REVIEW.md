@@ -1,15 +1,21 @@
-# Review of the triangle criterion for super coalitions
+# Independent mathematical audit
 
-## Correctness
-**PASS.** With no isolates, every one-vertex deletion is super dominating. The hypothesis that super domination number is at least \(n-2\) rules out all complements with three or more vertices. A four-block coalition therefore has exactly one nonsingleton class and three singleton classes; the three required private-witness remainders encode a triangle in the two-deletion graph. The reverse construction gives a coalition partition. For three blocks, a coalition is possible exactly when its opposite block is an eligible singleton or two-deletion edge, and all classes must have a partner. Counting the three choices of small pairs yields the stated binomial/edge/matching formula with correction for small tripartitions at orders five and six. The exhaustive verifier independently tests 2,388 qualifying graphs at orders five through seven. Finite testing is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, subject to bibliographic uncertainty.** The founding full text, Alikhani and Ghanbari's *Super Coalition Number in Graphs* (arXiv:2607.22686, submitted July 15, 2026), proves \(C_s(G)\le n+2-\gamma_{sp}(G)\) in Theorem 3.2 and asks for equality cases in Problem 7.1. It does not state the triangle criterion or exact partition census. The public indexed record *All super dominating sets of complete multipartite graphs* provides and owns the exact eligible-pair rule for that special family, which is credited rather than claimed new. Targeted published-record and literature comparisons found no equivalent general theorem. The full text of the separate multipartite record was not available, and unindexed overlaps remain possible.
+PASS
 
-## Mathematical value
-**PASS.** Sharp attainment, exact multiplicities of maximal partitions and the universal three-class census answer natural structural enumeration questions for all graphs at the high super-domination boundary. The reduction to triangles and matching numbers of an auxiliary graph is stable under graph size and supplies concrete infinite-family consequences such as complete multipartite formulas.
+The complement of any super-dominating union omits at most two vertices; one-vertex deletions always qualify and two-vertex deletions qualify exactly at B-edges. In a four-block partition, choosing a largest block L of size>1 forces other three blocks singleton; each singleton requires a union with L and hence its opposite pair to be a B-edge, giving precisely a triangle. A nonedge yields an admissible three-block partition; when B complete, two disjoint two-sets and a remainder work because each part has at least one partner (not because every union must qualify). For three blocks, admissibility is equivalent to at least two singleton-or-B-edge small blocks and a nonsuper remaining block; counting pair types yields C(n,2)+(n-3)e+m2-2*[n=5]m2-2*[n=6]m3. Complete-multipartite case reduces B to edges between distinct qualifying non-singleton parts. Independent direct graph/set-partition enumeration checks the counting at small n.
 
-## Remaining limitations
-The theorem assumes \(n\ge5\), no isolates and \(\gamma_{sp}(G)\ge n-2\); an efficient general method for finding qualifying graphs is not claimed. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge source/implication comparison: The sharp-bound saturation theorem has more information than the general inequality, so it is not equivalent to the earlier bound. The multipartite deletion characterization is credited as prior, but neither cited theorem covers the B-triangle and matching enumeration on every isolate-free gamma_sp>=n-2 graph. All specific risks are retained; inaccessible literature alone did not determine the outcome.
+
+## value
+
+PASS
+
+Sharp attainment criterion and exact extremizer/census formulas for a natural near-maximal domination regime on every finite graph, plus infinite-family multipartite specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

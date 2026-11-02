@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:40:53.466886Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complement of any super-dominating union omits at most two vertices; one-vertex deletions always qualify and two-vertex deletions qualify exactly at B-edges. In a four-block partition, choosing a largest block L of size>1 forces other three blocks singleton; each singleton requires a union with L and hence its opposite pair to be a B-edge, giving precisely a triangle. A nonedge yields an admissible three-block partition; when B complete, two disjoint two-sets and a remainder work because each part has at least one partner (not because every union must qualify). For three blocks, admissibility is equivalent to at least two singleton-or-B-edge small blocks and a nonsuper remaining block; counting pair types yields C(n,2)+(n-3)e+m2-2*[n=5]m2-2*[n=6]m3. Complete-multipartite case reduces B to edges between distinct qualifying non-singleton parts. Independent direct graph/set-partition enumeration checks the counting at small n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published multipartite result characterizes all eligible two-vertex deletions for that one graph family.",
+          "The motivating paper treats clique/path/cycle/star/wheel/friendship cases and generic C_s bounds."
+        ],
+        "reasoning": "The multipartite deletion characterization is credited as prior, but neither cited theorem covers the B-triangle and matching enumeration on every isolate-free gamma_sp>=n-2 graph.",
+        "searches": [
+          "Resultary SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "arXiv:2607.22686"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.22686",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/69e5cd3aa14bc846bbbd0f413f48a6f330f1273c/2026/10/26/a-triangle-criterion-and-exact-optimal-partition-census-for-supe--7b990ea0b4cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.2 gives only c_sp<=4 under gamma_sp>=n-2.",
+          "Knowledge of eligible edges alone gives the exact partition census only after the new complement/coalition counting argument."
+        ],
+        "reasoning": "Sharp bound plus a deletion set enumeration does not assert the general iff-triangle criterion or the matching-size corrections; these are proved here.",
+        "searches": [
+          "Alikhani–Ghanbari Theorem 3.2 and Problem 7.1",
+          "Resultary complete multipartite superdominating-set classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alikhani–Ghanbari introduce coalitions and give the general upper bound c_sp<=n+2-gamma_sp, not the exact equality criterion.",
+          "The B-graph criterion resolves equality at the four-class ceiling via triangles and counts partitions."
+        ],
+        "reasoning": "The sharp-bound saturation theorem has more information than the general inequality, so it is not equivalent to the earlier bound.",
+        "searches": [
+          "arXiv:2607.22686 Super Coalition Number in Graphs",
+          "Resultary: super coalition partition graphs super domination n-2 triangle two deletion graph matching census complete multipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact enumerators cover superdominating sets in complete multipartite graphs, not super-coalition partitions of arbitrary high-gamma_sp graphs."
+        ],
+        "reasoning": "The exact graph-general partition census is not identical to a table of superdominating sets. Unindexed equivalent results remain possible.",
+        "searches": [
+          "Resultary SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "arXiv:2607.22686 super coalition"
+        ]
+      },
+      "rationale": "Best-of-knowledge source/implication comparison: The sharp-bound saturation theorem has more information than the general inequality, so it is not equivalent to the earlier bound. The multipartite deletion characterization is credited as prior, but neither cited theorem covers the B-triangle and matching enumeration on every isolate-free gamma_sp>=n-2 graph. All specific risks are retained; inaccessible literature alone did not determine the outcome.",
+      "residual_risks": [
+        "Full motivating arXiv primary text and hosted multipartite record remained inaccessible; potential stronger hidden section/formulation not ruled out.",
+        "Oxford authorized attempt reported vpn_disconnected; no false full-text inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying definition and scope are established; cannot claim whole-document noncoverage.",
+          "evidence": "Abstract describes general bounds and standard graph families, not a graph-general B-triangle transfer census.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.22686",
+          "material_read": "Bibliographic record and public abstract; complete arXiv PDF not retrievable this run",
+          "method": "public abstract plus attempted OA/institutional access",
+          "title": "Super Coalition Number in Graphs",
+          "trigger": "Introduces exact invariant and general upper bounds"
+        },
+        {
+          "assessment": "Specialization of B_G to multipartite deletion pairs is prior and explicitly credited.",
+          "evidence": "The published S_G(x) polynomial counts superdominating sets rather than coalition partitions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "material_read": "Published indexed record summary; full hosted record not read",
+          "method": "semantic search of published mathematical findings",
+          "title": "All super dominating sets of complete multipartite graphs",
+          "trigger": "Same two-deletion relation on multipartite graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp attainment criterion and exact extremizer/census formulas for a natural near-maximal domination regime on every finite graph, plus infinite-family multipartite specialization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For isolate-free graphs of order n>=5 with gamma_sp>=n-2, c_sp=4 iff the graph of eligible two-vertex deletions contains a triangle; otherwise c_sp=3. Four-block partitions are in bijection with such triangles; all three-block coalitions have a specified binomial/edge/matching enumeration, including n=5,6 corrections.",
+  "limitations": [
+    "n>=5, no isolates, gamma_sp>=n-2; no claim for unrestricted graphs.",
+    "The proof text says every pairwise union in one B-complete three-block construction works; its actual admissibility argument only requires at least one partner per block, which is correctly satisfied."
+  ],
+  "schema_version": 1
+}

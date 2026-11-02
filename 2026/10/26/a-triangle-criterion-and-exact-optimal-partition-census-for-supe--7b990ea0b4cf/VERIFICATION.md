@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification evidence
 
-The proof in `RESULT.md` is an unrestricted finite-combinatorial argument. Executing `python3 verify.py` independently constructs each graph's super-dominating sets from private external neighbors, forms the two-deletion graph, enumerates admissible unlabelled partitions, and checks all claimed values. All qualifying isolate-free graphs of order five and deterministic samples of larger graphs at orders six and seven are tested, a total of 2,388 qualifying graphs. The preserved output is in `verify_output.txt`.
+# Independent mathematical audit
 
-These finite experiments do not prove the all-order theorem; its proof is the four-lemma deduction in `RESULT.md`. No outside mathematical certification or independent audit was performed. Originality was compared with the primary arXiv full-text bounds and exact graph-family results; the separate indexed multipartite result's full text was not read, limiting publication-priority assurance for that credited subcase.
+## correctness
+
+PASS
+
+The complement of any super-dominating union omits at most two vertices; one-vertex deletions always qualify and two-vertex deletions qualify exactly at B-edges. In a four-block partition, choosing a largest block L of size>1 forces other three blocks singleton; each singleton requires a union with L and hence its opposite pair to be a B-edge, giving precisely a triangle. A nonedge yields an admissible three-block partition; when B complete, two disjoint two-sets and a remainder work because each part has at least one partner (not because every union must qualify). For three blocks, admissibility is equivalent to at least two singleton-or-B-edge small blocks and a nonsuper remaining block; counting pair types yields C(n,2)+(n-3)e+m2-2*[n=5]m2-2*[n=6]m3. Complete-multipartite case reduces B to edges between distinct qualifying non-singleton parts. Independent direct graph/set-partition enumeration checks the counting at small n.
+
+## originality
+
+PASS
+
+Best-of-knowledge source/implication comparison: The sharp-bound saturation theorem has more information than the general inequality, so it is not equivalent to the earlier bound. The multipartite deletion characterization is credited as prior, but neither cited theorem covers the B-triangle and matching enumeration on every isolate-free gamma_sp>=n-2 graph. All specific risks are retained; inaccessible literature alone did not determine the outcome.
+
+## value
+
+PASS
+
+Sharp attainment criterion and exact extremizer/census formulas for a natural near-maximal domination regime on every finite graph, plus infinite-family multipartite specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
