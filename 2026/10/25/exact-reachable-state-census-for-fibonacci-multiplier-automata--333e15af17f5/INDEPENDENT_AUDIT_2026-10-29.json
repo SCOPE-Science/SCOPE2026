@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T17:12:42.838636Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the source transition (a,b,d,e)->(s,t,d+e+b−ma+t−ms,d), the no-adjacent-one constraints, and the [-m,2m−1] window. Zeckendorf last-digit deletion g(z)=floor((z+2)/phi)−1 and irrational rotation delta={(X+2)/phi} produce an exact current difference/preceding-difference formula; density of irrational rotation and breakpoint coincidence counts give each r_m(d), with four endpoint adjustments counted even for m=1. Backward closure under deleting prefix last digits means no admissible pair is silently lost to window rejection, and out-of-window prefixes cannot reach an accepting difference c. Independently BFS-enumerated the entire exact integer state graph and per-d profile for m=1..25, all matched. Source verify_reachable.py independently counts m=1..60 plus numeral samples; its saved log is corroborative, not an infinite proof. Finite tests alone cannot establish the all-m formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moradi et al construct this four-coordinate machine and bound it at 36m²; Remark12 discusses reduction and exact counts but not 6m²+6m−4.",
+          "Charlier et al concern single-track divisibility, which has different input alphabets and state language."
+        ],
+        "reasoning": "Published ambient construction is a strict, non-sharp superset; no general minimization theorem was found implying every individual reachable state and d-profile.",
+        "searches": [
+          "arxiv:2603.21645v1 Theorem7 and Remark12",
+          "Moradi 2026 thesis abstract metadata",
+          "arxiv:1008.1668"
+        ]
+      },
+      "checked_sources": [
+        "Fibonacci Zeckendorf numeration two-track multiplier relation bounded-difference automaton reachable states 6m^2+6m-4 versus minimal states",
+        "https://arxiv.org/html/2603.21645v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 36m² ambient automaton does not force 6m²+6m−4 reachability or its four boundary defects.",
+          "The 2m² trim minimal single-track divisibility result is neither a bound nor an equality for two-track Y=mX+c."
+        ],
+        "reasoning": "The new irrational-rotation breakpoint count is necessary; it is not a corollary of existence of a Fibonacci arithmetic automaton.",
+        "searches": [
+          "arxiv:2603.21645v1 Remark12 and construction",
+          "arxiv:1008.1668v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The established 36m² bound concerns all formal ambient states; OEIS A372846 gives minimized two-track c=0 state counts, not reachable states of this particular machine."
+        ],
+        "reasoning": "Trim/unminimized bounded-difference automata, prefix reachability and Zeckendorf multiplier transducers are relevant aliases; counts are invariant-specific and cannot be interchanged.",
+        "searches": [
+          "Fibonacci Zeckendorf numeration two-track multiplier relation bounded-difference automaton reachable states 6m^2+6m-4 versus minimal states",
+          "arxiv:2603.21645v1 §3.2",
+          "OEIS A372846"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A372846 concerns minimal two-track state complexity; examples of minimized counts are not the claimed reachable-state profile.",
+          "Resultary returned unrelated synchronizing automata findings."
+        ],
+        "reasoning": "Checked a plausible exact sequence database but it describes a different invariant; no matching table seen.",
+        "searches": [
+          "Fibonacci Zeckendorf numeration two-track multiplier relation bounded-difference automaton reachable states 6m^2+6m-4 versus minimal states",
+          "OEIS A372846",
+          "Resultary semantic search: Fibonacci multiplier relation reachable state census"
+        ]
+      },
+      "rationale": "Best of knowledge after current primary-source reading and searches: A 36m² ambient automaton does not force 6m²+6m−4 reachability or its four boundary defects. The 2m² trim minimal single-track divisibility result is neither a bound nor an equality for two-track Y=mX+c.",
+      "residual_risks": [
+        "A thesis appendix or unindexed arithmetic-transducer optimization may already give the exact reachable-state profile; Moradi thesis chapter not reread fully in this execution.",
+        "Counts apply to a specified nonminimal recognizer and can differ with alternate implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original construction and 36m² ambient upper bound, not exact reachable 6m²+6m−4",
+          "evidence": "Remark 12 identifies further minimization/reachability issues and examples, not all-m profile.",
+          "identifier_or_url": "https://arxiv.org/html/2603.21645v1",
+          "material_read": "Full primary HTML §3.2, Theorem7 and Remark12 plus comparison of transition and state definition",
+          "method": "Read exact automaton definition, ambient bound and discussion of reachability versus minimality",
+          "title": "Complexity of Linear Subsequences of Fibonacci-Automatic Sequences",
+          "trigger": "Same Zeckendorf two-track multiplier construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines exact accessible size of an explicitly standard Zeckendorf multiplier automaton, replacing loose 36m² ambient size with a complete 6m²+6m−4 profile. The nearest published source specifically calls better understanding reachable states an open need; separating reachability from minimization makes the exact invariant meaningful for resource analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fibonacci Zeckendorf numeration two-track multiplier relation bounded-difference automaton reachable states 6m^2+6m-4 versus minimal states",
+    "https://arxiv.org/html/2603.21645v1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No exact minimal Myhill–Nerode state count is proved.",
+    "Requires valid padded Zeckendorf representations, synchronous MSB-first input, and exactly the stated difference window."
+  ],
+  "residual_risks": [
+    "A thesis appendix or unindexed arithmetic-transducer optimization may already give the exact reachable-state profile; Moradi thesis chapter not reread fully in this execution.",
+    "Counts apply to a specified nonminimal recognizer and can differ with alternate implementation."
+  ],
+  "schema_version": 1
+}

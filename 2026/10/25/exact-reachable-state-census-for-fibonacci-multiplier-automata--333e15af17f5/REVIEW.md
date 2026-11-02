@@ -1,9 +1,21 @@
-# Review of the exact reachable-state census
+# Independent mathematical audit
 
-**Correctness — PASS.** All quantities and valid numeration inputs are defined. The shift-error inequalities and truncated-value map are proved from the Fibonacci recurrence. The backward-closure lemma shows there is no unexamined path loss from the chosen difference window, and the irrational-rotation cell count proves a separate exact formula for each possible current difference. The four exceptional breakpoint coincidences sum to four. Integer transition-graph enumeration agrees for multipliers 1–60; numeral-based independent enumeration agrees for 1–12. The proof is infinite and does not extrapolate from the tests.
+## correctness
 
-**Originality — PASS within the inspected literature.** The closest paper, Moradi–Rampersad–Shallit (arXiv:2603.21645v1, Section 3.2), supplies this automaton with the full ambient \(36m^2\)-state set and asks for better understanding of its reachable states; it does not give the exact count \(6m^2+6m-4\) or the per-difference profile. The older Charlier–Rampersad–Rigo–Waxweiler result counts minimum states of a single-track divisibility automaton, not reachable states of the present two-track automaton. OEIS A372846 concerns the minimum two-track quotient, again a different invariant. Searches for algebraically equivalent state counts revealed no covering result. The 2026 Waterloo thesis (Chapter 3, pp. 54–57) was additionally inspected and likewise states only the ambient bound, explicitly identifying a better understanding of reachable states as useful future work. The residual historical-priority risk is an equivalent statement in unindexed work.
+PASS
 
-**Value — PASS.** This is a complete, all-multiplier structural census of the transition system used for Fibonacci linear arithmetic. It replaces a quadratic ambient count by an exactly quantified reachable subsystem smaller by an asymptotic factor of six, supplies every current-difference fiber count, and explains why the correction is exactly four through boundary coincidences. The result is a constructive automaton-size refinement, not a minimal-state-complexity theorem; that distinction is essential.
+Checked the source transition (a,b,d,e)->(s,t,d+e+b−ma+t−ms,d), the no-adjacent-one constraints, and the [-m,2m−1] window. Zeckendorf last-digit deletion g(z)=floor((z+2)/phi)−1 and irrational rotation delta={(X+2)/phi} produce an exact current difference/preceding-difference formula; density of irrational rotation and breakpoint coincidence counts give each r_m(d), with four endpoint adjustments counted even for m=1. Backward closure under deleting prefix last digits means no admissible pair is silently lost to window rejection, and out-of-window prefixes cannot reach an accepting difference c. Independently BFS-enumerated the entire exact integer state graph and per-d profile for m=1..25, all matched. Source verify_reachable.py independently counts m=1..60 plus numeral samples; its saved log is corroborative, not an infinite proof. Finite tests alone cannot establish the all-m formula.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best of knowledge after current primary-source reading and searches: A 36m² ambient automaton does not force 6m²+6m−4 reachability or its four boundary defects. The 2m² trim minimal single-track divisibility result is neither a bound nor an equality for two-track Y=mX+c.
+
+## value
+
+PASS
+
+Determines exact accessible size of an explicitly standard Zeckendorf multiplier automaton, replacing loose 36m² ambient size with a complete 6m²+6m−4 profile. The nearest published source specifically calls better understanding reachable states an open need; separating reachability from minimization makes the exact invariant meaningful for resource analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
