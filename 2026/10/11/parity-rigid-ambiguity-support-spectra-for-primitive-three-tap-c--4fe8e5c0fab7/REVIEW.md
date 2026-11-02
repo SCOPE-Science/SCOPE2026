@@ -1,15 +1,21 @@
-# Scientific review: primitive three-tap self-ambiguity spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The five possible time-delay rows are disjoint for every cyclic order at least five, and a unit-step change of coordinates permutes sampled frequencies. The two outer rows cannot vanish, the two two-term rows have conjugate root parameters and therefore synchronized zero counts, and the positive real quadratic in the central row has exactly the stated sampled-root trichotomy. The proof handles the repeated root at \(-1\) as one distinct zero, proves the all-orders formula, and supplies explicit witnesses for every asserted parity-dependent support size. The extracted standalone checker corroborates 560 examples, not a universal theorem.
+## correctness
 
-## Originality — PASS, with limitations
-Nicola's 2022 paper gives the global support bound and equality characterization, not the five coupled Fourier-row spectrum for primitive three-tap self-windows. Krahmer–Pfander–Rashkov, Proposition 4.4, already implies the prime-order lower bound \(5p-4\) for support-three pairs, and that known numerical consequence is explicitly excluded from the novelty claim. Their Table/Figure data do not classify self-ambiguity coefficient strata or parity gaps across all orders. The inspected public two-sparse STFT trichotomy is restricted to two-point signal/window supports. No indexed equivalent of the full three-tap self-spectrum was found; an unindexed treatment remains possible.
+PASS
 
-## Value — PASS
-The result is a complete natural first three-tap ambiguity-support classification (rather than a single artificial coefficient evaluation): it gives the full spectrum and every minimum-attaining coefficient triple across infinitely many cyclic orders, identifies phase-sensitive paired row cancellations, and exhibits two parity-forbidden levels despite an identical sharp minimum. Such exact support information distinguishes attainable localization patterns and makes the prime/composite and odd/even sampling boundaries explicit; it is not merely a restatement of the already known prime-order lower bound.
+For every N>=5, a unit-step progression reindexes exactly to {0,1,2}; its ordered differences are the five distinct residues -2,-1,0,1,2. Direct substitution into V_ff(x,k) gives two outer monomial rows with N nonzeros, two adjacent two-term rows with synchronized conjugate roots (each loses one grid frequency iff R=-(B conjugate(A))/(C conjugate(B)) lies in mu_N), and the central positive-coefficient quadratic P(z)=|A|^2+|B|^2 z+|C|^2 z^2. Thus S=5N-2e-h. For a unit root z=e^{i theta}, z^{-1}P(z)=r1+(r0+r2)cos(theta)+i(r2-r0)sin(theta). If sin(theta) is nonzero, equality requires r0=r2 and r1=-2r0 cos(theta)>0; conjugacy gives exactly two sampled nonreal roots iff N/4<j<N/2 and r1/r0=-2cos(2pi j/N). At a real sampled root P(1)>0; only z=-1 can vanish, exactly when N is even and r1=r0+r2, counting a repeated root once. This exhausts h=0,1,2. The explicit five/even or three/odd coefficient triples attain every listed size and simultaneously e=1,h=2 for the minimum 5N-4, which characterizes all minimizing triples. No finite verification is used as an infinite proof; direct independent transforms at 90-digit precision check N=5..20 only.
 
-## Closest literature and limits
-F. Nicola, arXiv:2204.14176, §§1–4; F. Krahmer, G. Pfander, P. Rashkov, arXiv:math/0611493, Proposition 4.4 and Figure 6; public result `2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c`, RESULT.md. The exact claim is restricted to three consecutive sites up to primitive affine change, and has only same-model scientific review. No independent audit or universal computer certificate has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the precise full coefficient-dependent support law, all-order parity spectrum and complete minimizing phase/amplitude criterion. The earlier prime-order numerical lower bound S>=5p-4 is already covered by Krahmer–Pfander–Rashkov Proposition 4.4 and is not counted as new. Nicola classifies only global support=N extremals; three materially read Resultary full results concern two-tap cross-STFT or a single three-point Fourier polynomial. The current assertion is not mathematically implied by those prior results. The closely titled 2007 technical report could not be read because authorized institutional access was disconnected; priority is not certified absolutely.
+
+## value
+
+PASS
+
+The exactly three-tap self-window progression is a natural first phase-sensitive auto-ambiguity model beyond two-point STFT calculations. Its exact all-order profile classifies every attainable cardinality, identifies the parity-forbidden levels 5N-1 and 5N-3 in odd order, and characterizes all minimizing amplitudes and phases rather than reporting a known lower bound alone. The distinction between a synchronized pair of phase-dependent row zeros and the conjugate central roots is mathematically structural and useful for precise finite time-frequency localization benchmarks. It is a motivated complete family classification, albeit algebraically elementary and intentionally not a theorem for arbitrary three-point supports or different windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
