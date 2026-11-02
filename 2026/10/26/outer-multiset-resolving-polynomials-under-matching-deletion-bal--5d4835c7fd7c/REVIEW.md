@@ -1,19 +1,21 @@
-# Review of matching-deletion outer multiset resolving polynomials
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(3\le p\le q\) and \(0\le t\le p\), the proof first derives all graph distances, then represents each omitted vertex's multiset of distances by two integers: number of selected vertices on its own bipartition side and whether its deleted partner remains a landmark. Because the latter is binary, no side can contain three omitted vertices. Counting the remaining omission patterns \((2,0),(0,2),(1,1),(2,1),(1,2),(2,2)\) yields the four exact coefficients and rules out all higher terms. Boundary \(q=p+1\) is explicitly accounted for. The minimum values and missing crown layer then follow from positivity. A separate BFS-based enumeration tests all \(31{,}936\) subsets in 46 parameter trials, including balanced and unbalanced boundaries. This is a check, not proof of all cases.
+PASS
 
-## Originality — PASS, with residual priority risk
+For each unselected vertex its multiset of distances to the selected landmarks is determined exactly by (number of selected same-part vertices, indicator that its one deleted partner is selected), since all ordinary cross distances are one, same-part distances two, deleted cross distances three for p>=3. A side may therefore have at most two unselected vertices, and two on the same side require opposite deleted-partner indicators. For three or four outside vertices the two-part same-side-distance count creates the boundary q=p+1 and prohibits four omissions when p=q; complete combinatorial case analysis gives A2=t(p+q-2t)+(pq if p<q else 2t(p-t)), A3=t(t-1)+t(p-t)(q-1)+1_(q!=p+1)[t(t-1)+t(q-t)(p-1)], A4=1_(p<q)t(t-1)[t-2+(p-t)(q-t)]. The crown p=q=t=n coefficients A2=A4=0 and A3=2n(n-1) prove the missing cardinality layer. Independently enumerated all subsets by BFS over 43 distinct parameter triples (3<=p<=5,p<=q<=6,0<=t<=p), reproducing the entire polynomial; finite tests only corroborate the all-parameter combinatorial argument.
 
-The 2019 Gil-Pons et al. foundation and full 2022/2023 Klavžar–Kuziak–Yero source establish the invariant and known complete-multipartite/diameter-two results; those cover the undeleted case but not the distance-three signatures of nonzero matching deletion. The 2026 Araujo-Pardo et al. paper on circulant classes and diameter bounds was also compared at its accessible full text. A record of an exact result for arbitrary complete multipartite graphs covers the \(t=0\) boundary, not any \(t>0\) graph here. Searches of scientific records for matching-deleted bipartite graphs found different parameters (CIS, edge metric dimension), neither implying the new polynomial. The novelty assessment is best-knowledge, not a guarantee against unindexed literature or the unread full text of a 2026 survey.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact full cardinality enumerator for a natural infinite near-complete bipartite family resolves both a robustness perturbation question and an unexpected non-upward-closed landmark property. The balanced crown-graph case has a whole impossible cardinality layer immediately above its minimum bases, whereas the unbalanced side of the aspect-ratio boundary admits four-omission sets. These transitions and exact optimum census are structural, not a trivial relabeling of the old \(t=0\) case.
+The 2019 foundational outer-multiset paper and the 2022/2023 primary follow-up do not state the deleted-matching all-cardinality enumerator. Published complete-multipartite results cover only t=0, where no distance-three marker exists. The balance-dependent missing cardinality layer for t>0 is additional and not a corollary of known scalar results. The October 2026 circulant/diameter paper is a residual abstract-level comparator.
 
-## Limits and literature
+## value
 
-The proof needs the smaller class of size at least three; for two-vertex classes deleted-edge distances can differ. For historical baselines see Gil-Pons et al., arXiv:1902.03017; Klavžar et al., DOI 10.1007/s00025-022-01829-8; Araujo-Pardo et al., DOI 10.1007/s40590-026-00973-3; and the published scientific record on complete multipartite outer multiset dimension. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete polynomial of resolving landmark sets for a canonical infinite near-complete bipartite family is a natural robustness invariant, and the unexpected crown endpoint skips the entire cardinality layer just above its minimum, exhibiting nonmonotonicity of outer multiset resolving property. Exact balance transitions p=q and q=p+1 are structural, not arbitrary slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
