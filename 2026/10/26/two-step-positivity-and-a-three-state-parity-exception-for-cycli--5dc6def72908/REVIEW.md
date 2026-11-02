@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definitions and quantifiers are unambiguous: \(n\ge2\), unit-rate directed cycle \(Q=P-I\), unmodified Crank–Nicolson, uniform equal step \(h>0\), fixed integer power \(k\ge1\). A geometric polynomial identity gives the resolvent exactly. Differentiating it gives all signs of the square, with a positive diagonal and off-diagonals controlled by one explicit polynomial. The sharp threshold follows from strict monotonicity and endpoint signs. The large-step limit rules out odd powers, while the first resolvent-circulant coefficient's high-step derivative rules out every fixed even power for \(n\ge4\). Independently implemented direct rational inverses and products passed 4,496 assertions. No finite check is used as an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge, not independently certified)
-Targeted searches for cyclic Markov generators, powers of the Crank–Nicolson Cayley transform, double-step positivity, directed-cycle implicit midpoint, and relevant parameter/alias formulations found no implication-equivalent result. The Higueras–Roldán full text treats one step on *symmetric Dirichlet heat grids*; Fallat–Tsatsomeros treats Cayley transforms and matrix classes but not oriented-cycle power signs. Two closely ranked published mathematical records were read in full: the reversible-chain resolvent-return result addresses the first power, while the periodic-heat lattice theorem requires backward-Euler smoothing. Neither implies unfiltered, two-step positivity on a one-way three-state cycle or the full-parity theorem. An equivalent result in specialist eventual-positivity or nonreversible Markov literature cannot be excluded.
+PASS
 
-## Value — PASS
-Positivity of a Markov propagator matters because loss of entrywise nonnegativity creates inadmissible negative probabilities. A negative individual time step need not be fatal when observations occur after two steps: the exact three-state example demonstrates complete recovery with no time-step restriction, whereas dimension four rules out this structural protection. The exact thresholds on longer cycles and complete classification across all fixed powers show precisely when grouping steps can and cannot restore unconditional positivity. This is a motivated operator-level cutoff and parity law, not a gratuitous numerical parameter case. The method remains second order, and no novel accuracy or general-graph guarantee is claimed.
+PASS: Rebuilt R_s=(I-sQ)^(-1) as the cyclic geometric resolvent with r=s/(1+s), C=2R_s-I. Differentiating R_s gives C^2=I+4sR_s prime and every off-diagonal coefficient has sign of jS_n-rS_n prime; j=1 is the sharp one, F_n. The diagonal of C^2 is strictly positive from the circulant product. F_n decreases with the unique n>=4 root and limiting r=1/2. For fixed odd k, s->infinity gives C^k->2J/n-I, with negative diagonal for n>=3. For even k=2m>=2 and n>=4, its adjacent coefficient is -2m(n-3)/(ns)+O(s^(-2)), hence negative for large s. Direct independent sympy inversions/matrix powers tested 84 small n/r and high-s k cases; exact h=4 n=3 and n=4 witnesses reproduced. The analytical asymptotic, not finite experiments, handles unbounded h and all k.
 
-## Relevant prior work and risks
-Higueras–Roldán (arXiv:2301.01066, entire HTML full text inspected); Fallat–Tsatsomeros (Electronic Journal of Linear Algebra 9, 2002, seven-page PDF inspected); *A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains* (published RESULT.md read); *Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson* (published RESULT.md read). Horváth (1998) is a broad positivity-radius source, compared by available abstract and citation. The remaining originality risk is a specialized equivalent theorem in underindexed work on power positivity for rational functions of directed generators.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original classification of entrywise nonnegative fixed powers of the unfiltered Crank–Nicolson Cayley map on a unit-rate directed finite cycle. The generic M-matrix/Cayley identity and the one-step resolvent return test are prior work. The new point is that the *square* is positive at every step on the oriented three-cycle, every even power shares that exception, and for n>=4 the exact two-step boundary is a unique cyclic polynomial zero while every fixed power fails at sufficiently large step. No broader result inspected implies this parity classification.
+
+## value
+
+PASS
+
+PASS: Entrywise positivity is mandatory for a Markov transition approximation to avoid negative probabilities. A negative Crank–Nicolson single step followed by a second equal step is genuinely recoverable for the directed three-cycle at every step size, while the exact dimension-four and higher cutoff proves the boundary of this mechanism. This gives a motivated parity/dimension classification and sharp step-size frontier rather than routine verification of a named small matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

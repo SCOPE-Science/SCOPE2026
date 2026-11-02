@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:51:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Rebuilt R_s=(I-sQ)^(-1) as the cyclic geometric resolvent with r=s/(1+s), C=2R_s-I. Differentiating R_s gives C^2=I+4sR_s prime and every off-diagonal coefficient has sign of jS_n-rS_n prime; j=1 is the sharp one, F_n. The diagonal of C^2 is strictly positive from the circulant product. F_n decreases with the unique n>=4 root and limiting r=1/2. For fixed odd k, s->infinity gives C^k->2J/n-I, with negative diagonal for n>=3. For even k=2m>=2 and n>=4, its adjacent coefficient is -2m(n-3)/(ns)+O(s^(-2)), hence negative for large s. Direct independent sympy inversions/matrix powers tested 84 small n/r and high-s k cases; exact h=4 n=3 and n=4 witnesses reproduced. The analytical asymptotic, not finite experiments, handles unbounded h and all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Read full published result on reversible-chain resolvent-return law: C=2R-I and exact one-step positivity iff R_ii>=1/2; its higher-power behavior is not classified.",
+          "Read full published filtered lattice positivity result: C_s^k R_s^m>=0 for m>=k on symmetric nearest-neighbor heat lattice; built-in backward-Euler factor differs from unfiltered C_h^k for a one-way cycle.",
+          "Generic Runge–Kutta absolute-monotonicity radius applies uniformly over generator classes, not a special directed three-state exception."
+        ],
+        "reasoning": "A stronger theorem would have to establish the same unfiltered powers on a nonreversible cycle; these sources change either number of steps, graph symmetry, or composition with resolvent smoothing.",
+        "searches": [
+          "Crank Nicolson Cayley transform directed cyclic Markov chain nonnegative powers two steps parity three states positivity threshold",
+          "Resultary semantic query: Crank Nicolson Cayley transform directed cyclic Markov chain nonnegative powers two steps parity three states positivity threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2301.01066",
+        "https://doi.org/10.13001/1081-3810.1086",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "https://doi.org/10.1016/S0168-9274(98)00050-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published resolvent-return law: C>=0 iff R_ii>=1/2; n>=3 cannot have unconditional *one-step* positivity. The three-state C^2 example has C diagonal -1/19 yet positive square, so the first-step obstruction does not imply its negation.",
+          "Filtered lattice claim: C^kR^m>=0 when m>=k; setting m=0 to recover C^k violates its hypothesis for k>0.",
+          "Higueras–Roldán heat generator is symmetric tridiagonal Dirichlet; the submitted Q is oriented cyclic."
+        ],
+        "reasoning": "Known general identities are premises but do not dominate the quantified result. The nonreversible two-step positivity exception and unique F_n cutoff require the separately checked circulant derivation.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "arxiv:2301.01066",
+          "doi:10.13001/1081-3810.1086"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent matrix question is nonnegativity of (2(I-sQ)^(-1)-I)^k for all s>0, on P^n=I with Q=P-I.",
+          "Higueras–Roldán examines one Crank–Nicolson step for symmetric Dirichlet second differences; Fallat–Tsatsomeros supplies Cayley/resolvent identities but not oriented-cycle power signs."
+        ],
+        "reasoning": "The equivalent Cayley-power, implicit-midpoint and stochastic-matrix formulations were compared. Neither the cited single-step positivity analysis nor the general matrix identity yields the n=3 even-power exception or the sharp F_n two-step sign criterion.",
+        "searches": [
+          "Crank Nicolson Cayley transform directed cyclic Markov chain nonnegative powers two steps parity three states positivity threshold",
+          "Crank Nicolson positivity two-step iterates directed Markov cycle Cayley transform powers",
+          "Higueras Roldán arxiv:2301.01066; Fallat Tsatsomeros DOI:10.13001/1081-3810.1086"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest ranked published records concern reversible-chain one-step return entries and a separately filtered lattice construction, not a tabulated all-n all-k cycle threshold.",
+          "The n=3 and n=4 exact h=4 matrices were rechecked by direct symbolic inversion and multiplication."
+        ],
+        "reasoning": "No located numerical table or record contains the complete statement; the algebraic high-step obstruction, not a finite table, proves the all-power result. Negative searches cannot establish novelty by themselves.",
+        "searches": [
+          "Resultary semantic query: Crank Nicolson Cayley transform directed cyclic Markov chain nonnegative powers two steps parity three states positivity threshold",
+          "search Crank Nicolson cyclic generator powers positivity parity three states"
+        ]
+      },
+      "rationale": "Best-of-knowledge original classification of entrywise nonnegative fixed powers of the unfiltered Crank–Nicolson Cayley map on a unit-rate directed finite cycle. The generic M-matrix/Cayley identity and the one-step resolvent return test are prior work. The new point is that the *square* is positive at every step on the oriented three-cycle, every even power shares that exception, and for n>=4 the exact two-step boundary is a unique cyclic polynomial zero while every fixed power fails at sufficiently large step. No broader result inspected implies this parity classification.",
+      "residual_risks": [
+        "An underindexed theorem about eventual nonnegativity, positive powers of Cayley transforms, or nonreversible Markov matrices might contain this special classification.",
+        "Horváth 1998 was used as broad Runge–Kutta-positivity context rather than compared in full detail."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the oriented-cycle iterated-power claim",
+          "evidence": "The generator is a symmetric homogeneous-Dirichlet second-difference operator and the test concerns one step.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+          "material_read": "Heat difference matrix, one-step positivity thresholds and proofs; relevant PDF pages inspected visually",
+          "method": "Lawful arXiv full-text/PDF and page screenshots",
+          "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+          "trigger": "Identical method and positivity question"
+        },
+        {
+          "assessment": "GENERAL_PREMISE_ONLY",
+          "evidence": "The paper proves Cayley algebra and positivity classes, not exact powers on one-way cycles.",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1086",
+          "material_read": "Lemma 2.2 Cayley/resolvent identity and positivity-class sections of short article",
+          "method": "Open-access journal paper/PDF",
+          "title": "On the Cayley transform of positivity classes of matrices",
+          "trigger": "Cayley transform of M-matrices could subsume the result"
+        },
+        {
+          "assessment": "NOT_COVERING iterated oriented-cycle power signs",
+          "evidence": "Shows first-step R_ii>=1/2 criterion and reversible threshold; nonreversible power signs not derived.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Entire RESULT.md including finding, proof and scope",
+          "method": "GitHub read-only primary source at published record",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Nearest ranked published positivity theorem"
+        },
+        {
+          "assessment": "NOT_COVERING unfiltered directed cycle",
+          "evidence": "Its positivity requires m>=k and symmetric heat lattice; for k>=1 m=0 is excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "material_read": "Entire RESULT.md including explicit kernel and C^k R^m theorem",
+          "method": "GitHub read-only published RESULT.md",
+          "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+          "trigger": "Looks like an unconditional positivity result with powers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Entrywise positivity is mandatory for a Markov transition approximation to avoid negative probabilities. A negative Crank–Nicolson single step followed by a second equal step is genuinely recoverable for the directed three-cycle at every step size, while the exact dimension-four and higher cutoff proves the boundary of this mechanism. This gives a motivated parity/dimension classification and sharp step-size frontier rather than routine verification of a named small matrix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=2 unit-rate oriented cycle Q=P-I and integer k>=1, (I-hQ/2)^(-1)(I+hQ/2) to power k is nonnegative for every h>0 precisely if n=2 or n=3 with k even. For n>=4, the nonnegative second-power interval ends at H_n=2rho_n/(1-rho_n) where F_n(rho_n)=1-sum_{j=2}^{n-1}(j-1)rho_n^j=0, with H_n decreasing to 2.",
+  "limitations": [
+    "Unit-rate single oriented finite cycle, fixed equal time step and fixed exponent k. No claim for general Markov generators, variable rates/steps or stage positivity.",
+    "Results on finite n and s grid independently corroborate but cannot certify all real step sizes or powers.",
+    "Equivalent underindexed Cayley power positivity literature remains possible."
+  ],
+  "schema_version": 1
+}
