@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:08:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen GitHub RESULT.md blob 6cdea462fa2406c60f4d39a48de627fef73ca735",
+        "Frozen GitHub verify_reset_site.py blob d9f36a84ff8b576f542a89ceef8f39b9bfe52d57"
+      ],
+      "rationale": "Linn--Lawley's exact asymmetric cover-time formula is explicitly credited and can also be recovered by inclusion-exclusion over endpoint hitting times, each solving D phi''=r phi. Setting c=cosh(kappa/2), t=cosh(kappa(a-1/2)) reduces rM to F_c(t)=2c(2c^2-1)t/(t^2+c^2-1)-c/t-1. The derivative has sign P_c(t^2) with leading coefficient 3-4c^2<0 and positive constant (c^2-1)^2, yielding one positive zero and no interior local minimum. The edge-minus-midpoint difference is (c-1)(2c^2-c-2)/c; unique crossing c* gives complete argmin including three sites at equality. The local sign at t=1 is P_c(1)=5(c^2-1)^2-1, giving c_loc=sqrt(1+1/sqrt(5))<c*. Endpoint r=0 is a limit only.",
+      "residual_risks": [
+        "The exact mean formula was already proved by Linn--Lawley, so only the site optimization and local/global thresholds are assessed as new.",
+        "All conclusions require same deterministic starting/reset site, reflected endpoints, unchanged visited-set memory and strictly positive reset rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General cover-time resetting formulas cover all asymmetric locations but do not derive global minimizer sets in the material inspected."
+        ],
+        "reasoning": "A broad formula can mechanically imply a minimization theorem only after a nontrivial uniform derivative-shape analysis. That analysis is specifically reconstructed here; no broader published minimax theorem was identified.",
+        "searches": [
+          "arXiv:2406.12154",
+          "arXiv:2605.31207",
+          "Brownian reflected interval cover time reset position global optimum endpoint midpoint threshold"
+        ]
+      },
+      "checked_sources": [
+        "Frozen GitHub RESULT.md blob 6cdea462fa2406c60f4d39a48de627fef73ca735",
+        "arXiv:2406.12154v2",
+        "arXiv:2605.31207v1",
+        "Resultary semantic search: Brownian reflected interval cover time reset position global optimum endpoint midpoint threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linn--Lawley equation (38) algebraically implies the cover-time objective.",
+          "Differentiating this objective gives a sign-changing quadratic in cosh^2 with only one positive root and an interior maximum."
+        ],
+        "reasoning": "The new argmin theorem is a rigorous nontrivial consequence of earlier formulas, explicitly credited; prior result did not itself state the threshold or its local-vs-global bifurcation.",
+        "searches": [
+          "arXiv:2406.12154",
+          "arXiv:2605.31207"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linn--Lawley Section 4.1 formula (38) agrees algebraically with the present M_r(x); this part is NOT original.",
+          "Ghosh--Sabhapandit optimize a rate at fixed center rather than location at fixed rate."
+        ],
+        "reasoning": "An already known objective function is not the same result as its all-site global minimizer classification; nevertheless any prior theorem optimizing formula (38) would dominate the claimed addition.",
+        "searches": [
+          "Brownian reflected interval cover time reset position global optimum endpoint midpoint threshold",
+          "arXiv:2406.12154",
+          "arXiv:2605.31207"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The optimizing sites depend on a continuum of rates; the exact threshold is c*=(1+sqrt(17))/4 and a second local threshold."
+        ],
+        "reasoning": "No finite numerical table can determine the exact all-rate phase diagram or exclude off-center global minimizers; direct algebra gives the complete classification.",
+        "searches": [
+          "Brownian reflected interval cover time reset position global optimum endpoint midpoint threshold",
+          "arXiv:2406.12154"
+        ]
+      },
+      "rationale": "The asymmetric mean formula is prior art, not new. In the full inspected prior Brownian paper, results emphasize exact cover-time expressions, frequent resets, and reset-rate control; the exact *reset-site* discontinuity and local/global threshold ordering are not stated there.",
+      "residual_risks": [
+        "A separate optimization-of-reset-location paper, possibly based on Linn--Lawley equation (38), may derive the same phase diagram; no novelty guarantee follows from unsuccessful search.",
+        "The other 2026 paper is only abstract-inspected, not wholly excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FORMULA_COVERED_OPTIMIZATION_NOT_STATED",
+          "evidence": [
+            "Equation (38) provides the asymmetric expected cover-time formula; the inspected section does not give the exact all-site minimizer classification."
+          ],
+          "identifier_or_url": "arXiv:2406.12154v2",
+          "material_read": "Full lawful PDF, especially Section 4.1 and formula (38), its assumptions and discussion of resetting and optimization",
+          "method": "arXiv PDF text and page screenshot inspection",
+          "title": "Cover times with stochastic resetting",
+          "trigger": "same reflected one-dimensional cover-time model"
+        },
+        {
+          "assessment": "RELATED_ABSTRACT_ONLY",
+          "evidence": [
+            "The cited paper fixes the midpoint to optimize reset rate, as opposed to all-site optimization at fixed rate."
+          ],
+          "identifier_or_url": "arXiv:2605.31207v1",
+          "material_read": "Abstract and bibliographic description; full text not established as read",
+          "method": "indexed scholarly abstract",
+          "title": "Cover time statistics of one-dimensional Brownian motion under stochastic resetting",
+          "trigger": "same reflected Brownian cover time with center reset"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen GitHub RESULT.md blob 6cdea462fa2406c60f4d39a48de627fef73ca735",
+        "arXiv:2406.12154v2",
+        "arXiv:2605.31207v1"
+      ],
+      "rationale": "A discontinuous optimizer and separate local versus global threshold are exact natural design phenomena in an established stochastic cover-time model; the analysis excludes all competing sites and quantifies the bifurcation.",
+      "residual_risks": [
+        "No simultaneous optimization over rate and location or distributed reset positions is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact mean formula was already proved by Linn--Lawley, so only the site optimization and local/global thresholds are assessed as new.",
+    "All conclusions require same deterministic starting/reset site, reflected endpoints, unchanged visited-set memory and strictly positive reset rate.",
+    "A separate optimization-of-reset-location paper, possibly based on Linn--Lawley equation (38), may derive the same phase diagram; no novelty guarantee follows from unsuccessful search.",
+    "The other 2026 paper is only abstract-inspected, not wholly excluded.",
+    "No simultaneous optimization over rate and location or distributed reset positions is asserted."
+  ],
+  "schema_version": 1
+}
