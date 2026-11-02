@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For m>=3, strict trace-inverse convexity and strict logdet concavity over the edge-injective weighted Laplacian prove uniqueness on the whole unconstrained edge allocation domain. Full class-group symmetry then proves x and y uniformity. The stated spectrum is derived exactly; boundary first derivatives give r_A and r_D and the positive rational difference. The critical-window limits follow from uniform-on-compact derivative expansions and derivative sign bracketing. Seven symbolic identity checks, 63 full matrix spectra, 63 support/budget checks, 1,890 asymmetric comparisons and 12 edgewise optimizations independently cross-check finite instances; the infinite proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi (MTNS 2006) develops a general convex-conductance method and treats specific network families including the barbell, not a priced distinguished matching in K_{m,m}.",
+        "Khosoussi et al. (arXiv:1604.01116) analyze weighted spanning-tree maximization and graph-edge selection, not minimization of resistance under matching-specific continuous prices."
+      ],
+      "reasoning": "Broader convex-design methods can be applied to the candidate but are not a published closed classification of the A support boundary, its exact difference from the D boundary, or the asymptotic factor-two scaling. The earlier D-specific matched-edge analysis is not a theorem for trace-inverse A-optimality.",
+      "searches": [
+        "minimize sum of effective resistances Kirchhoff index complete balanced bipartite graph K_{m,m} with perfect matching higher price than others optimal conductance deletion threshold",
+        "conductance budget A-optimal versus D-optimal perfect matching deletion K_{m,m} support transition",
+        "Ghosh Boyd Saberi minimizing effective resistance 2006 optimal conductance graph",
+        "Khosoussi Sukhatme Huang Dellaert maximizing weighted spanning trees 2016"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh, Boyd, Saberi, MTNS 2006 full PDF",
+      "Ghosh, Boyd, Saberi, SIAM Review 2008 full PDF",
+      "Yang 2012 publisher article",
+      "Klee and Stamps arXiv:2008.01669 full PDF Section 3.3",
+      "Khosoussi et al arXiv:1604.01116 full PDF sections 4.3–4.4",
+      "Published mathematical finding search for priced matching, A-optimal effective resistance, D-optimal tree determinant, Kirchhoff index and crown graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier accessible result: D-optimal matching is deleted for P/Q >= m(2m-3)/((m-2)(2m-1)), and does not assert an A-optimal Kirchhoff-index threshold.",
+        "New A-threshold is m^2(4m^2-11m+8)/((m-2)(4m^3-11m^2+10m-4)), strictly exceeding the D-threshold by an explicitly positive rational amount.",
+        "The nearby published mathematical finding records concern geodesic subpath numbers or discounted hitting domination rather than resistance allocation."
+      ],
+      "reasoning": "Neither the earlier D-threshold alone nor a general convexity theorem logically implies the A-threshold or the nonempty disagreement interval; the objectives are distinct trace-inverse and log-determinant functionals, so the new claim requires and supplies a separate spectral derivative calculation.",
+      "searches": [
+        "conductance budget A-optimal versus D-optimal perfect matching deletion K_{m,m} support transition",
+        "weighted bipartite perfect matching expense A-optimal Kirchhoff total effective resistance unique optimizer",
+        "prior weighted spanning-tree determinant perfect matching K_{m,m} price threshold",
+        "Khosoussi et al arXiv:1604.01116 introduction and convex relaxation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Crown-graph Laplacian spectrum at x=0: 0, m-2 (m-1 times), m (m-1 times), 2m-2; Klee–Stamps Section 3.3.",
+        "Ghosh–Boyd–Saberi 2006 relates pairwise total effective resistance to the Laplacian pseudoinverse trace.",
+        "Yang (2012) bounds the Kirchhoff index for unweighted bipartite graphs, with no independent-priced-matching allocation."
+      ],
+      "reasoning": "The candidate is equivalently a two-class A-optimal approximate-design problem for a balanced biclique with singled-out matching, compared directly to the D-optimal support threshold. Neither unweighted crown spectrum nor generic pseudoinverse convexity yields its price cutoff or A-versus-D gap without the explicit new computation.",
+      "searches": [
+        "minimize sum of effective resistances Kirchhoff index complete balanced bipartite graph K_{m,m} with perfect matching higher price than others optimal conductance deletion threshold",
+        "weighted bipartite perfect matching expense A-optimal Kirchhoff total effective resistance unique optimizer",
+        "Kirchhoff index crown graph complete bipartite minus perfect matching Laplacian eigenvalues",
+        "Klee Stamps arXiv:2008.01669 Section 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record search found an exact unweighted crown/bipartite deletion graph geodesic-subpath result, which concerns a different invariant.",
+        "Klee–Stamps supplies the spectral table only for the unweighted crown graph x=0; no price table for positive x or two competing optimization objectives was identified."
+      ],
+      "reasoning": "The candidate is not a recomputation of the fixed-graph Kirchhoff index at one weight choice; it quantifies the unique minimizer across all individual continuous weights and exposes a support disagreement on an open price interval.",
+      "searches": [
+        "total effective resistance minimization weighted complete bipartite network with a special matching edge prices",
+        "minimize sum of effective resistances Kirchhoff index complete balanced bipartite graph K_{m,m} with perfect matching higher price than others optimal conductance deletion threshold",
+        "weighted bipartite perfect matching expense A-optimal Kirchhoff total effective resistance unique optimizer",
+        "Kirchhoff index crown graph weighted matching conductance eigenvalue table"
+      ]
+    },
+    "rationale": "No inspected primary theorem or published search record implies the all-size A-optimal cutoff and open price interval separating A and D support. Prior D matching-result covers a different objective; generic 2006 effective-resistance convexity and the unweighted 2020 crown spectrum do not compute the new cutoff. Specialized historical coverage remains an explicit risk.",
+    "residual_risks": [
+      "A specialized older work may contain an equivalent priced-matching A-criterion outside the sources identified.",
+      "General effective-resistance convex design tools are pre-existing and are not claimed as original.",
+      "The unweighted crown case is previously tabulated; the new assertion is the continuous-price optimality threshold and its A-versus-D implication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General optimization foundation, not an exact matching-priced biclique A-versus-D price threshold",
+        "evidence": [
+          "MTNS 2006 Kyoto conference dated July 24–28, 2006 in paper heading",
+          "Uses trace-inverse for total effective resistance and solves selected graph examples"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Full-text introduction, objective/convexity formulation, analytic special-graph examples including barbell, and publication heading",
+        "method": "Opened lawful full PDF; inspected actual page images and mathematical text",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Earliest foundational primary work on continuous conductance allocation and effective resistance"
+      },
+      {
+        "assessment": "Stronger exposition of the general method; no equivalent matching-price biclique theorem in inspected relevant sections",
+        "evidence": [
+          "2008 SIAM Review paper expands the earlier method and selected graph-family optimizations"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Original PDF beginning, design framework, and later examples on trees, wheels and barbell networks",
+        "method": "Opened full PDF, inspected page images and text including graph examples",
+        "title": "Minimizing Effective Resistance of a Graph (expanded SIAM Review version)",
+        "trigger": "Potential stronger coverage of graph-family classifications in the expanded journal exposition"
+      },
+      {
+        "assessment": "Unweighted bounds over bipartite graphs; no continuously priced matched edge class",
+        "evidence": [
+          "Studies extremal Kirchhoff indices for unweighted bipartite graphs, not network-conductance budget optimization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2012/195242",
+        "material_read": "Full-text abstract, background and main unweighted bipartite index bounds",
+        "method": "Opened publisher full text and inspected theorem statements",
+        "title": "Bounds for the Kirchhoff Index of Bipartite Graphs",
+        "trigger": "Same pairwise-resistance objective on bipartite graphs"
+      },
+      {
+        "assessment": "Covers only fixed unweighted x=0 spectral endpoint, not optimized continuous matching weights",
+        "evidence": [
+          "Crown spectrum with eigenvalues 0, m-2, m, 2m-2 and respective multiplicities"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.01669",
+        "material_read": "Full-text section 3.3 (crown graph) and Proposition 8",
+        "method": "Opened lawful arXiv PDF, read relevant proposition and page image",
+        "title": "Eigenvalues of Graph Laplacians via Rank-One Perturbations",
+        "trigger": "Exact eigenvalue formulas for the deletion-boundary crown graph"
+      },
+      {
+        "assessment": "Useful D-optimal background; not A-optimal priced matching allocation or A-vs-D threshold comparison",
+        "evidence": [
+          "Weighted tree determinant optimization framework emphasizes selection/relaxation; no exact two-objective matching price cutoff in examined material"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1604.01116",
+        "material_read": "Full-text abstract, introduction, sections 4.3–4.4 on edge selection and convex relaxations",
+        "method": "Opened lawful arXiv PDF; inspected text and page image",
+        "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+        "trigger": "Potential D-optimal dominating result for price and support deletion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b65b2ff4-0797-4068-8a88-d9ef21bbd9bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact nonempty surcharge interval for every m>=3 separates the optimal supports of two standard mathematical network criteria. The asymptotically distinct m^{-1} deletion laws, with coefficients one and two, provide a structurally motivated design trade-off on a natural graph family rather than an isolated symbolic identity. The result specifies globally unique unrestricted conductance allocations and a reproducible implicit interior A prescription.",
+    "status": "PASS"
+  }
+}
