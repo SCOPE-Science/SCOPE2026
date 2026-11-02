@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The minimum-insertion recurrence is derived by exact gap counting, with independent Bernoulli record increments. Conditional Bernoulli-vector monotone coupling follows by induction and Newton inequalities. Descent evolution is monotone in the old descent count and antitone in the insertion-at-front indicator; strictness follows from a positive-probability change at the final insertion. The covariance recurrence is algebraic, starting from the zero-size boundary. The standalone test checks 36,848 rational tail inequalities and independent brute-force enumeration through size eight. Those tests supplement the all-size analytic proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Carlitz–Scoville's known bivariate enumerator, Jin's full Euler–Stirling generating functions and Ji's \((α,β)\)-Eulerian formulations explicitly cover the *joint distribution*. They do not, in the inspected main results, give a monotone Bernoulli-conditioning coupling or assert strict first-order stochastic regression. Gnedin (2006) studies record-conditioned laws without the descent ordering. Thus the proposed result is not a new enumerator; it is a structural inequality for those already-known counts. An older implication from q-Eulerian total positivity or other conditional-dependence theory remains a material residual risk.
+PASS
 
-## Value — PASS
-Conditional stochastic order is substantially stronger than a covariance sign and applies simultaneously to every increasing test of a natural statistic. It connects two standard permutation statistics through a coupling that clarifies why record conditioning reduces descents, something not apparent from the marginal Eulerian or Stirling laws. The exact covariance supplies a compact global consequence.
+Rebuilt the independent smallest-letter insertion process: B_j are independent Bernoulli(1/j) indicators of a new initial record, and D_j=D_{j-1}+(1-B_j)1{U_j>D_{j-1}/(j-1)}. Conditioning the B-vector on its total admits a coordinatewise monotone coupling by induction and Newton log-concavity; the update is antitone in B and monotone in integer D, proving every tail inequality. Strictness follows from positive probability of the final B_n changing and a positive last descent increment. Independent covariance recursion gives C_j=(1-1/j)C_{j-1}-1/(2j), hence the asserted value. Independent exact joint recurrence and tail checks through n=9, direct permutation enumeration through n=7 corroborate but do not prove the infinite statement.
 
-## Scope and limits
-Only first-order stochastic comparison of total descent counts is proved; no likelihood-ratio order, descent-set domination, general nonuniform permutation law, or historical uniqueness claim is made. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical bivariate Eulerian–Stirling enumerators give exact joint distributions but their inspected main theorems do not state the all-r conditional stochastic order or a monotone Bernoulli coupling; an implication from older total-positivity theory remains a real priority risk.
+
+## value
+
+PASS
+
+A complete stochastic regression order between two fundamental permutation statistics is materially stronger than a single negative covariance, applies to every increasing function of total descent count, and has an explicit explanatory coupling; it is a natural all-n structural dependence theorem, not a restated joint enumerator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
