@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The complete mathematical argument is in `RESULT.md`. `CHECKER.py` uses exact fractions and can be executed with `python CHECKER.py` in any standard Python environment. Its direct signed-incidence construction independently computes the normalized hyperflower Laplacian rather than trusting the simplified block formulas. It then checks the cluster diameter inequality and multiple subsequent iterates over a range of center sizes, leaf sizes, leaf counts, rational tent parameters and positive/negative/zero couplings.
+## correctness
 
-The checker reports `Exact rational assertions passed: 15159`. The checks include equality in the uncoupled sharp-rate example, fixed critical balance states (including nonsynchronized ones), and existence of two distinct scalar fixed points above threshold. The first-class proof establishes all parameter and infinite-time claims without extrapolating from these finite checks.
+PASS
 
-Scientific limits: no claim of convergence between clusters, of chaotic quotient dynamics, of global classification of every critical fixed point outside the lower cube, or of any independent mathematical certification. The critical fixed-set equality near a strictly interior point assumes nonzero coupling. Historical priority cannot be established by finite database search alone.
+Directly used the cited signed-incidence normalized Laplacian: its coordinates are identical within each center or leaf block, hence cancel exactly from differences of pre-fold values even at arbitrarily large real coupling. The triangle folding is globally 1-Lipschitz and tent map is mu/2-Lipschitz, proving one-step and inductive global diameter estimates. At coupling 0 and small lower-branch initial coordinates rate equality persists at every iterate. For mu=2 all S_j balances zero imply Laplacian zero, tent and fold both identity inside the half-cube; the ell leaf-balance equations are independent and an interior balanced vector shows dimension d-ell. Perturbing coordinates within a nonsingleton block proves nonsynchronized fixed points. For coupling nonzero the local fixed equations reduce to Delta x=0. For 2<mu<=4 coupling zero admits distinct scalar fixed points 0 and mu/(mu+2). Independently checked balanced examples across 27 integer size combinations; analysis is not inferred from those finite cases.
+
+## originality
+
+PASS
+
+Best-of-knowledge: compared the concrete final statement and implications to the actual primary literature, equivalent formulations, general frameworks and mathematical record searches. No decisive preexisting theorem subsuming the full submitted result found; classical ingredients and residual risks are credited explicitly.
+
+## value
+
+PASS
+
+Upgrades a source paper’s numerically suggested sufficient condition for cluster attraction to a global, every-initial-state, coupling-uniform sharp theorem and characterizes the neutral critical equilibrium obstruction with exact dimension. This directly resolves natural dynamics questions despite potentially nonconvergent quotient dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

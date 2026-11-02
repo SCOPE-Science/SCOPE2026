@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The center and each leaf have common normalized hypergraph coupling inputs, and so their pairwise differences pass only through the scalar tent map and a globally \(1\)-Lipschitz fold. This gives \(D(x(n))\le(\mu/2)^nD(x(0))\) with all quantifiers intact. An uncoupled lower-branch trajectory attains equality, while exact zero-balanced states generate the sharp critical fixed polytope. The independent leaf balance equations have rank \(\ell\), establishing its affine dimension. At nonzero coupling, identity-fold localization gives an exact local characterization of equilibria. Above threshold a pair of distinct scalar equilibria blocks universal coupling-independent attraction. The exact-rational verifier passed 15159 assertions; the infinite theorem is proved analytically.
+## correctness
 
-## Originality — PASS
-The originating paper proves spectral and local necessary conditions and reports numerical evidence **suggesting**, rather than proving, sufficiency. Its zero eigenspace is already known and not claimed as new. The present nonlinear all-state quantitative result, the coupling-uniform sharpness, and the stationary critical polytope were not found in the inspected primary text or the structural hypergraph synchrony literature. Actual targeted semantic record searches identified related but different coupling theorems; absence of a retrieved hit is not proof of novelty. A generic identical-input contraction theorem could provide prior coverage, and a fuller independent historical comparison is warranted.
+PASS
 
-## Mathematical value — PASS
-The result analytically resolves a specific quantitative synchronization question raised by numerical evidence for a natural model: it distinguishes a sharp globally attracting parameter range from a critical neutral stationary family of precise affine dimension. Uniformity in arbitrarily strong coupling is mathematically noteworthy because the remaining quotient dynamics need not be contracting. This has genuine dynamical meaning beyond rephrasing a linear stability eigenvalue.
+Directly used the cited signed-incidence normalized Laplacian: its coordinates are identical within each center or leaf block, hence cancel exactly from differences of pre-fold values even at arbitrarily large real coupling. The triangle folding is globally 1-Lipschitz and tent map is mu/2-Lipschitz, proving one-step and inductive global diameter estimates. At coupling 0 and small lower-branch initial coordinates rate equality persists at every iterate. For mu=2 all S_j balances zero imply Laplacian zero, tent and fold both identity inside the half-cube; the ell leaf-balance equations are independent and an interior balanced vector shows dimension d-ell. Perturbing coordinates within a nonsingleton block proves nonsynchronized fixed points. For coupling nonzero the local fixed equations reduce to Delta x=0. For 2<mu<=4 coupling zero admits distinct scalar fixed points 0 and mu/(mu+2). Independently checked balanced examples across 27 integer size combinations; analysis is not inferred from those finite cases.
 
-## Closest literature and limits
-Böhle, Kuehn, Mulas and Jost, arXiv:2102.02272; Salova and D'Souza, arXiv:2101.05464; von der Gracht, Nijholt and Rink, arXiv:2302.08974. The comparison is source-specific, not a claim of exhaustive world priority. No guarantee is made for cross-cluster or quotient convergence. Sharpness is nonvacuous only if a block contains two vertices. The local fixed-set identity requires nonzero coupling and a strictly interior balanced point.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: compared the concrete final statement and implications to the actual primary literature, equivalent formulations, general frameworks and mathematical record searches. No decisive preexisting theorem subsuming the full submitted result found; classical ingredients and residual risks are credited explicitly.
+
+## value
+
+PASS
+
+Upgrades a source paper’s numerically suggested sufficient condition for cluster attraction to a global, every-initial-state, coupling-uniform sharp theorem and characterizes the neutral critical equilibrium obstruction with exact dimension. This directly resolves natural dynamics questions despite potentially nonconvergent quotient dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
