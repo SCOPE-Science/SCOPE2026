@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:53:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root-of-unity orthogonality yields F_N=(-1)^N N P_N(z^N)/(1-z^N)^N, with P_N coefficients [t^(jN)](1+...+t^(N-1))^N. Reciprocal symmetry follows by exponent complementation. The derivative recurrence mP_(N,m+1)=((N-m)(1-w)+mNw)P_(N,m)+Nw(1-w)P'_(N,m) has alternating signs on the negative simple roots, and endpoint signs insert the left and right roots; induction gives N-1 distinct negative roots at m=N. Even N yields a unique w=-1 root by reciprocal parity; odd N has none. For fixed j, binomial/Stirling dominance yields a_(N,j)~beta_j^N/sqrt(2pi j(j+1)N) for j>=1; the j=0 exception produces the sqrt(N) prefactor. Strict logarithmic concavity of beta_j establishes separated exponential monomial rates; a uniform geometric entropy tail justifies Rouche, then Hurwitz isolates kth negative root near -a_(k-1)/a_k. This proves the fixed-k asymptotic but NOT uniformity for k growing with N. Our independent exact coefficient and negative-root isolation checks covered N=3..10 (60 checks). Minor expository slip: x log x is convex, not concave; the required concavity of its successive increments/log beta_j follows instead from decreasing second difference or a direct monotonicity proof; this does not invalidate the separation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brenti–Welker prove large-dilation root convergence when dimension remains fixed.",
+          "Jochemko Theorem 1.1 proves nonpositive roots for r>=s-i and §3.1 treats fixed-dimension limiting Eulerian roots.",
+          "Duran addresses ordinary Eulerian rightmost zeros, a different two-parameter regime."
+        ],
+        "reasoning": "The quantified rank k remains fixed as dimension/order N diverges and the coefficient exponent is itself N; neither fixed-degree limiting Eulerian result supplies the exponential c_k^N and sharp sqrt-prefactors.",
+        "searches": [
+          "arxiv:0712.2645 §§1–3",
+          "arxiv:1602.09139 Theorem 1.1 and §3.1",
+          "arxiv:2404.03249",
+          "critical order Cauchy jets roots of unity Nth derivative zeros roots Veronese Euler Frobenius polynomial asymptotic fixed rank ratio"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/0712.2645v1",
+        "https://arxiv.org/html/1602.09139v2",
+        "https://arxiv.org/abs/2404.03249"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Veronese negative-root theorem explains all-real-negative roots of P_N.",
+          "The inspected limiting theorems keep dimension fixed, whereas this result studies N dimension/order/dilation jointly and requires Stirling plus uniform high-index tail separation."
+        ],
+        "reasoning": "The geometric zero-ray and simple-root assertions are substantially covered by prior real-rootedness; originality attaches to the new fixed-k exponential radii and first-rank sqrt(N) prefactor. A stronger uniform theorem, if found, would subsume this claim.",
+        "searches": [
+          "Brenti Welker Veronese Construction 2007",
+          "Jochemko On the real rootedness of the Veronese construction 2016",
+          "Duran rightmost zeros of Bell and Eulerian 2024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same P_N is an Ehrhart/Veronese numerator for the N-dilated simplex, with reciprocal negative roots.",
+          "Arxiv 1602.09139 Theorem 1.1 gives real rootedness and distinctness but not a moving-dimension N-dependent fixed-rank exponential zero law."
+        ],
+        "reasoning": "Equivalences with Veronese polynomials and lattice-spline Euler–Frobenius polynomials were explicitly checked; geometry of N zero rays follows from negative w roots and is not itself the new asymptotic.",
+        "searches": [
+          "critical order Cauchy jets roots of unity Nth derivative zeros roots Veronese Euler Frobenius polynomial asymptotic fixed rank ratio",
+          "Veronese numerator [t^(Nj)](1+t+...+t^(N-1))^N zero root asymptotic",
+          "Euler Frobenius spline polynomial roots of unity Cauchy transform Nth derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary entries cover different jet kernels and roots-of-unity lemniscate inradius, not F_N with pole order N and fixed-rank c_k.",
+          "The coefficients can be recomputed at finite N; finite root tables do not imply a coupled N→∞ theorem."
+        ],
+        "reasoning": "No identified exact database/table states the infinite fixed-rank limits; check against specialist root-asymptotic databases remains a genuine residual risk.",
+        "searches": [
+          "Euler Frobenius root tables coefficient N polytope Ehrhart asymptotic fixed k",
+          "critical order Cauchy jets roots of unity Nth derivative zeros roots Veronese Euler Frobenius polynomial asymptotic fixed rank ratio",
+          "Resultary 2026 Bergman jet zero fibres and N roots lemniscates"
+        ]
+      },
+      "rationale": "Qualified PASS for coupled diagonal N increasing simultaneously with Cauchy-jet order and Veronese dilation, with sharp fixed-rank exponential root prefactors. Classical real-rootedness, interlacing and reciprocal symmetry of Veronese/Ehrhart numerators are expressly prior art; Brenti–Welker and Jochemko primarily fix polynomial dimension before dilation tends to infinity. Duran treats ordinary Eulerian/Bell zeros. An older uniform Euler–Frobenius or log-concave polynomial root estimate at coupled degree/rank could dominate; explicitly retained as residual risk.",
+      "residual_risks": [
+        "A historical diagonal-scaled Veronese or Euler–Frobenius uniform root theorem might already imply the constants and prefactors under an alias.",
+        "The source explanation mistakenly calls x log x concave; convexity must be stated correctly when presenting the true strict concavity of log beta_j.",
+        "Uniformity for rank k growing with N or the outermost ring is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE: fixed-dimensional convergence and negative roots, not the claimed moving-degree limits.",
+          "evidence": "2007 Brenti–Welker, transformation and large dilation with fixed power-series denominator degree.",
+          "identifier_or_url": "https://arxiv.org/html/0712.2645v1",
+          "material_read": "Accessible HTML abstract, main theorems and asymptotic scope",
+          "method": "Read arXiv full HTML sections relevant to root convergence",
+          "title": "The Veronese Construction for Formal Power Series and Graded Algebras",
+          "trigger": "Same numerator transformation and root-limits"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE: distinct negative roots and fixed-dimensional limiting zeros; not c_k(N) diagonal.",
+          "evidence": "Theorem 1.1 states real-rootedness when r>=s-i and discusses Eulerian limits in fixed dimension.",
+          "identifier_or_url": "https://arxiv.org/html/1602.09139v2",
+          "material_read": "Full HTML introduction, Theorem 1.1, §3.1 limiting behavior",
+          "method": "Read the relevant arXiv primary theorem and limiting section",
+          "title": "On the real-rootedness of the Veronese construction for rational formal power series",
+          "trigger": "Identical Veronese numerator class"
+        },
+        {
+          "assessment": "RELATED_BUT_DIFFERENT_OBJECT; full stronger implication not excluded",
+          "evidence": "Duran studies ordinary Eulerian/Bell polynomial extremal roots, not explicitly coupled Veronese numerator of degree N.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.03249",
+          "material_read": "Title, abstract and accessible description; complete main proof not read",
+          "method": "ArXiv search/abstract",
+          "title": "Asymptotic for the rightmost zeros of Bell and Eulerian polynomials",
+          "trigger": "Potential stronger root asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: locating the first persistent rings of zeros of a natural high-order Cauchy transform gives a nontrivial transition in a coupled scaling where both number of poles and jet order diverge. Exact limits 1/4,16/27,729/1024 and nonuniform prefactors distinguish ranks and are not consequences of simple negative real-rootedness. The normalisation and low-ring boundary are mathematically motivated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For F_N(z)=sum_{zeta^N=1}(z-zeta)^(-N), N>=3, all N(N-1) zeros are simple on N-1 negative-product regular N-gons. For fixed inner ring k, the radius tends to c_k=beta_(k-1)/beta_k with exact kth-power prefactor 2sqrt(pi N)4^-N at k=1 or sqrt((k+1)/(k-1))c_k^N at k>=2.",
+  "limitations": [
+    "No fixed-rank result uniform over k growing with N; proof explicitly requires N>=2k+1.",
+    "The high-index monomial tail must be estimated uniformly; log-concavity of beta_j alone without the tail bound would not prove Rouche."
+  ],
+  "schema_version": 1
+}
