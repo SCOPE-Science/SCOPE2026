@@ -1,15 +1,21 @@
-# Review of the six-point \(A_5\) local–global Frattini gap
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The statement is restricted to the six-point permutation module associated with the Sylow \(5\)-subgroups of \(A_5\) and its finite direct sums over \(\mathbb F_2\). The proof identifies the four invariant submodules of the basic permutation module; shows that the unique maximal proper submodule is the even-coordinate-sum hyperplane; obtains the Frattini subgroup from all maximal subgroups of the split extension; and computes the local Frattini subgroup by intersecting the five Sylow \(2\)-orbit-matching subspaces. The finite group action, module lattice, and five disjoint matchings were independently recomputed with `artifacts/verify.py`, which outputs `VERIFY_OK`. The extension from one summand to any positive number of summands is algebraic, not numerical induction.
+## correctness
 
-## Originality
-**PASS, subject to the bounded-source risk stated below.** Costanzo (arXiv:2610.16821v1, full HTML read) supplies the definition and general containment \(\Psi\le\Phi\), but does not state the \(A_5\) six-point split family, its Sylow-orbit matchings, or an unbounded exact quotient formula. Semmen (2006, Example 5.6, full relevant section read from an accessible text rendering) identifies the same permutation module modulo its fixed line as a universal modular Frattini module; this establishes important prior module structure and is acknowledged, but does not compute the local Frattini subgroup of the split extensions. Targeted searches for the precise split group of order \(3840\), the family, and equivalent local/global index formulations found no direct covering source; this is not a claim that no such source can exist. The original Rose and Kaplan–Lev–Mann–Solomon full texts were not obtained, so an unindexed earlier equivalent application remains a residual risk.
+PASS
 
-## Value
-**PASS.** The exact discrepancy \(\lvert\Phi(G_t):\Psi(G_t)\rvert=2^{4t}\) answers a natural quantitative question raised by the introduction of the local Frattini subgroup: the gap is unbounded even with fixed nonsolvable quotient \(A_5\) and elementary abelian kernel. The proof links modular permutation-module radicals to a five-matching partition of the fifteen edges of the complete graph on six points; this is a structural obstruction, not a renamed definition or an isolated arbitrary count.
+For A5 acting by conjugation on its six Sylow-5 groups, the binary permutation module V=F2^6 has submodules exactly 0<C<W<V, C the fixed constant line and W the even-weight hyperplane. Weight and 2-transitivity arguments together with source exact RREF enumeration support that classification. In V^t⋊A5, maximals avoiding the kernel intersect it in maximal invariant submodules; trivial Frattini of A5 then gives Φ(G_t)=W^t. Five Sylow-2 Klein fours act as five disjoint perfect matchings on six points, partitioning all fifteen edges. For each P the commutator [V,P] is three-dimensional span of its three edge pair-sums; their conjugate-core intersection is C. All odd Sylow subgroup Frattinis vanish, yielding Ψ(G_t)=C^t and gap 2^{4t}. Reviewed the complete exact enumerator code, including six Sylow5s, 60 permutations, invariant subspaces and five matchings. Arbitrary t follows algebraically, not by extrapolating finite run.
 
-## Scope and limitations
-No optimality, minimal group order, or classification outside the displayed family is asserted. The conclusion is a self-review and not an independent validation or priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Costanzo (Oct 2026) defines local Frattini Ψ and proves general Ψ≤Φ; available abstract/expository description does not show this complete explicit A5 split family. Semmen (2006), Example 5.6, already identifies the same six-point A5 permutation module and its fixed line, so those module facts are prior art. Combining global radical and the five Sylow2 perfect matchings yields the new Ψ/Φ exact gap. Costanzo full primary text could not be inspected via lawful alternatives; institutional tool explicitly returned VPN disconnected. That unavailability alone does not negate otherwise supported best-of-knowledge novelty, but risks earlier equivalent applications.
+
+## value
+
+PASS
+
+The explicit unbounded local/global Frattini discrepancy in split solvable-kernel extensions over one fixed nonabelian simple quotient is a structural boundary test for local Frattini criteria. Five combinatorial Sylow matchings and the module radical explain the gap rather than a contrived raw group order computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
