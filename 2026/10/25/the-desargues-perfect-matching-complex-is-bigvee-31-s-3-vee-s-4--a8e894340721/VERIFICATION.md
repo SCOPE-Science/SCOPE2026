@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact reproduction
+# Independent mathematical audit
 
-Run `python3 verify_desargues.py --certificate CERTIFICATE.json` in the directory containing both files. This is standard-library-only Python and performs a fresh complete construction from the stated graph. The program reconstructs the 30 graph edges and all 60 perfect matchings, independently verifies the perfect-matching count by subset dynamic programming, and enumerates all 44,281 nonempty faces.
+## correctness
 
-The deterministic element matching gives 22,113 pairs, leaving critical cells \((1,42,12)\) in dimensions \((0,3,4)\). The Hasse graph has 244,830 nonempty face incidences; a complete directed topological sort verifies acyclicity. Exact signed Morse-boundary propagation gives 64 nonzero matrix entries in a \(42\)-by-\(12\) integer matrix. Eleven successive unimodular unit pivots leave the zero matrix, so every nonzero Smith factor equals one. The certificate is checked field-by-field against a fresh reconstruction.
+PASS
 
-The independent matching-extension enumeration gives 113,192 unrestricted matchings including the empty one, 68,910 nonextendible matchings, and exactly 220 cardinality-three and 180 cardinality-four inclusion-minimal obstructions. The calculated Euler characteristic is \(-29\), agreeing with the claimed wedge.
+Independent generalized Petersen reconstruction yielded exactly 60 perfect matchings and complete face counts for 44281 nonempty simplices. Acyclic greedy Morse matching produced 22113 pairs, critical cells one 0-cell, 42 3-cells and 12 4-cells, with an exhaustive Hasse DAG test on all 44281 nonempty faces. Fresh signed gradient-path boundary calculation gave a 42x12 integer matrix with 64 nonzero entries, eleven unit Smith factors and zero residual. The 3-skeleton is wedge^42 S3 and pi_3=Z^42; eleven unit four-cell attachments cancel, leaving wedge^31 S3 vee S4. Finite integral homotopy conclusion follows without relying on only Betti numbers or logs.
 
-Verification covers the exact finite graph and the supplied algorithm. It does not independently establish bibliographic completeness, a general theorem about all graphs, or any external audit/certification status.
+## originality
+
+PASS
+
+The public Desargues ordinary matching complex is wedge^5 S5 vee wedge^45 S6 with 113191 nonempty faces. The *perfect*-matching subcomplex has 44281 nonempty faces and different homotopy; no inclusion-induced identification. Bayer et al develop perfect-matching complexes of honeycombs but do not include this nonplanar bipartite GP(10,3). Neither their general construction nor the ordinary computation implies the submitted integral Morse attachment matrix.
+
+## value
+
+PASS
+
+Fully computes a natural extendible matching complex of the canonical Desargues incidence graph, with a nonpure resulting homotopy wedge and exact minimal obstructions to extending ordinary matchings. An exact finite instance helps map topology of perfect-matching complexes outside honeycombs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

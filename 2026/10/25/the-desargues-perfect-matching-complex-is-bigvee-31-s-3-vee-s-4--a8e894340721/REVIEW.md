@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** All 60 perfect matchings, 44,281 nonempty simplices and 244,830 codimension-one incidences are generated directly from the twenty-vertex graph. A deterministic 22,113-pair acyclic matching leaves a zero-cell, 42 three-cells and 12 four-cells. Exact signed gradient-path reduction yields a 42-by-12 integer boundary whose eleven Smith invariant factors are all units. Since the lower Morse skeleton is a wedge of three-spheres, this determines the attaching maps and proves the stated wedge homotopy type. The separately reconstructed certificate and an independent Smith-normal-form calculation confirm the critical matrix data. Reproducibility risk: the finite proof relies on the supplied exhaustive Python checker and its correctness, not on a short handwritten list of 44,281 faces.
+## correctness
 
-**Originality — PASS, with residual risk.** Direct searches for the Desargues perfect-matching complex under generalized Petersen, bipartite Kneser, Levi/incidence and extendible matching terminology found no equal or stronger classification. Taylan's full-text work supplies general Morse technique and different graph objects. Bayer–Jelić Milutinović–Vega classify specific honeycomb graphs and explicitly ask about other bipartite graph families. The published ordinary Desargues matching-complex result treats all 113,191 nonempty matching faces rather than the 44,281-face perfect-matching subcomplex. The Heawood perfect-matching result concerns a different graph. Neither implies the present homotopy classification. Residual risk: an unindexed earlier calculation or indirect equivalence could have been missed; finite search cannot establish absolute priority.
+PASS
 
-**Value — PASS.** The Desargues graph is the classical nonplanar Levi graph of a symmetric \((10_3)\) incidence structure. Perfect-matching complexes were motivated in the literature as a way to understand the distinction between extendible and unrestricted matchings, particularly for bipartite graphs. This exact integral homotopy type answers a natural single-object problem not settled by known ordinary-complex Betti numbers. Its mixed-dimensional sphere wedge and 400 minimal extension obstructions offer substantive structural information beyond a vertex or face count. Limits: the result does not classify a graph family or an equivariant decomposition.
+Independent generalized Petersen reconstruction yielded exactly 60 perfect matchings and complete face counts for 44281 nonempty simplices. Acyclic greedy Morse matching produced 22113 pairs, critical cells one 0-cell, 42 3-cells and 12 4-cells, with an exhaustive Hasse DAG test on all 44281 nonempty faces. Fresh signed gradient-path boundary calculation gave a 42x12 integer matrix with 64 nonzero entries, eleven unit Smith factors and zero residual. The 3-skeleton is wedge^42 S3 and pi_3=Z^42; eleven unit four-cell attachments cancel, leaving wedge^31 S3 vee S4. Finite integral homotopy conclusion follows without relying on only Betti numbers or logs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The public Desargues ordinary matching complex is wedge^5 S5 vee wedge^45 S6 with 113191 nonempty faces. The *perfect*-matching subcomplex has 44281 nonempty faces and different homotopy; no inclusion-induced identification. Bayer et al develop perfect-matching complexes of honeycombs but do not include this nonplanar bipartite GP(10,3). Neither their general construction nor the ordinary computation implies the submitted integral Morse attachment matrix.
+
+## value
+
+PASS
+
+Fully computes a natural extendible matching complex of the canonical Desargues incidence graph, with a nonpure resulting homotopy wedge and exact minimal obstructions to extending ordinary matchings. An exact finite instance helps map topology of perfect-matching complexes outside honeycombs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
