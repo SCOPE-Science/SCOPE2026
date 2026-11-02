@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The previously published maximal-code block characterization applies to every integer \(n\ge2\). The endpoint/interior weighted sequence produces an exact rational generating function, while two independently derived coefficient-extraction formulas give strict valleys for all odd \(n\ge11\) and all even \(n\ge14\). The finitely many remaining lengths are explicitly enumerated, including the recovery of unimodality at \(n=12\). The accompanying verifier compares the combinatorial recurrence to a direct block enumeration, a coefficient formula, and literal permutation-poset maxima at smaller orders. No finite sample is used to prove an infinite statement.
+
+**Originality — PASS, with residual priority risk.** The primary structural and minimum-defect results of Beveridge--Hu--Liu (arXiv:2609.33137v1, Section 4) are fully credited. Its Theorems 1.4--1.5 count maximal codes and identify greatest inversion weights; they do not determine the coefficient-shape threshold. The generating function is a consequence of that source and is not independently claimed as a classification. Searches for equivalent inversion spectra, maximal-independent-set/path formulations, and weighted Padovan polynomials did not locate the sharp all-length valley theorem. Related inversion-refined enumeration for different avoidance classes does not imply it. Historical priority cannot be certified from search results alone.
+
+**Mathematical value — PASS.** The result answers a natural distributional shape question left by a recent exact structural enumeration. The all-length failure of unimodality, with a lone rebound at \(n=12\), is a sharp and somewhat unexpected boundary rather than an arbitrary numerical cutoff or a restatement of the Padovan total. Explicit coefficient inequalities prove persistent local valleys independently of any large-order computation.
+
+**Limitations and risk.** The result relies on the established composition theorem for the relevant induced Lehmer-code poset and concerns only maximal elements and the consecutive pattern. Equivalent results could exist in literature indexed as maximal independent-set defect polynomials; the searches performed cannot rule this out. No external validation has been claimed.
+
+Self-review: passed. Independent audit: not yet performed.
