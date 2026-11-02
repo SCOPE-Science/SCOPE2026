@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The overlap graph has exactly the stated edge set, is balanced and strongly connected. Rooting each cyclic Euler tour by the unique all-zero labeled edge removes all rotation multiplicities. The fixed-first-edge last-exit/BEST bijection has unit local factorials. Each weight-two vertex has its unique zero outgoing edge, forcing a finite route to weight-one or zero. Contracted branches are exactly \\(j\\mapsto j-1\\) (zero) and \\(j\\mapsto m-1-j\\) (one). A low-index one-choice traps an invariant interval disjoint from the root; with all low choices zero, every chosen branch strictly decreases, so every high choice is independent. This proves the exact formula for all \\(k\\ge2\\). Full original-graph integer cofactors through k=11, independent low-branch exhaustive checks through k=15, and circular factor brute enumerations through k=7 reproduce it, but finite testing is not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2018 weight-at-most-w successors establish existence for arbitrary weight caps, but not how many distinct cycles there are",
+        "2025 general randomized sampling algorithm is not a closed-form enumeration even in this special family"
+      ],
+      "reasoning": "A broader construction/sampling algorithm does not imply the value of its unknown in-tree population or an explicit unique Boolean-cube parametrization. Standard BEST+matrix-tree machinery is acknowledged, and our work evaluates the nontrivial graph-specific count.",
+      "searches": [
+        "https://socs.uoguelph.ca/~dgabric/papers/kary-successor.pdf",
+        "https://arxiv.org/pdf/2510.16545",
+        "Weight-range de Bruijn graph binary weight zero one two exact count Euler tours spanning in-arborescences Boolean choices"
+      ]
+    },
+    "checked_sources": [
+      "https://socs.uoguelph.ca/~dgabric/papers/kary-successor.pdf",
+      "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+      "https://arxiv.org/abs/2510.16545",
+      "https://debruijnsequence.org/db/random",
+      "https://arxiv.org/pdf/2510.16545"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 existence theorem establishes U_k>=1 but not U_k=2^{floor((k-1)/2)}",
+        "The 2018 successor rules supply explicit cycles without exhausting Euler circuits",
+        "The 2025 arborescence algorithm can in principle enumerate trees but does not provide their count or reflection-interval description"
+      ],
+      "reasoning": "Prior statements do not imply this exact evaluated enumeration without the new low-index trap/high-index monotonicity argument. The general last-exit lemma is a tool, not itself a specialized count.",
+      "searches": [
+        "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "https://socs.uoguelph.ca/~dgabric/papers/kary-successor.pdf",
+        "https://arxiv.org/pdf/2510.16545"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The factor-family formulation is exactly binary weight range [0,2] in Sawada–Williams–Wong 2013",
+        "Euler circuits in the restricted de Bruijn digraph and tours of its overlap graph are equivalent",
+        "Sawada–Gabrić 2025 Section 2 gives the general spanning-tree relationship"
+      ],
+      "reasoning": "Examined both universal cycles and root-directed in-arborescence formulations, including orientation/rotation normalization; the literature states the general equivalence but not this specialized count.",
+      "searches": [
+        "Number of universal cycles for binary length k words of weight at most two equals 2 to floor((k-1)/2) via BEST Euler arborescences",
+        "Weight-range de Bruijn graph binary weight zero one two exact count Euler tours spanning in-arborescences Boolean choices",
+        "Enumeration of all universal cycles for fixed Hamming weight range 0 to 2 in binary words; arbitrary n",
+        "https://debruijnsequence.org/db/random"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The de Bruijn reference index contains construction/random generation data but no exact sequence of all-cycle counts for this family",
+        "prior research records contain an adjacent-double four-letter universal-cycle count, a different family"
+      ],
+      "reasoning": "No matching table or exact known value for arbitrary k was located; this is not a claim that all databases were exhaustively searched.",
+      "searches": [
+        "Number of universal cycles for binary length k words of weight at most two equals 2 to floor((k-1)/2) via BEST Euler arborescences",
+        "enumerating binary universal cycles whose length k factors have weight at most two count spanning arborescences",
+        "https://debruijnsequence.org/db/random"
+      ]
+    },
+    "rationale": "The original 2013 paper treats the exact family but proves existence and constructs some cycles, not total enumeration. The 2018 manuscript derives eight successor rules for bounded-weight classes without evaluating all in-trees. A 2025 paper explicitly uses general in-tree sampling and describes the arbitrary-Eulerian mechanism, but not the special reflection-interval classification or 2-power evaluation. Searches of relevant records and web for aliases, exact formula and the higher/lower generality did not locate a dominating or equal theorem. Residual risk of unindexed equivalent tree-count is acknowledged.",
+    "residual_risks": [
+      "An unindexed or non-English source may have the same closed-form tree count",
+      "One could specialize a generic determinant of an arbitrary graph to this family, but that unevaluated representation is not the asserted exact 2-power formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes universal-cycle existence and constructions for all weight intervals, not an all-cycles count or structural classification of arborescences",
+        "evidence": [
+          "Theorem 1 proves the restricted graph Eulerian",
+          "Sections 3–5 construct cycles by gluing rather than enumerate Euler circuits"
+        ],
+        "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "material_read": "Full 15-page author-hosted paper: abstract, introduction, existence graph proof, cycle-gluing and construction sections, concluding material",
+        "method": "Read PDF text and inspected graph/existence page visually; searched enumeration terminology",
+        "title": "Universal cycles for weight-range binary strings",
+        "trigger": "Exactly the same weight-range factor family, including the interval from zero through two"
+      },
+      {
+        "assessment": "Gives eight successor constructions, including weight at most a bound; does not calculate the cardinality of all distinct cycles for binary bound two",
+        "evidence": [
+          "Page 1 describes eight bounded-weight successors",
+          "Section 3 proves successor rules, not root-tree enumeration"
+        ],
+        "identifier_or_url": "https://socs.uoguelph.ca/~dgabric/papers/kary-successor.pdf",
+        "material_read": "19-page author-hosted manuscript, dated July 24, 2018: intro, spanning-sequence mechanism, Section 3 bounded-weight cases, subsequent sections and conclusions",
+        "method": "PDF text reading, relevant page screenshots, and targeted terminology searches",
+        "title": "A successor rule framework for constructing k-ary de Bruijn sequences and universal cycles",
+        "trigger": "Guiding 2018 bounded-weight successor-rule paper; Section 3 treats exactly the relevant type of constraint"
+      },
+      {
+        "assessment": "General algorithm for sampling random Euler tours and in-arborescences; does not evaluate the exact tree count for weight range zero through two; warns that fixing root alone can overcount rotating circuits",
+        "evidence": [
+          "Section 2 describes all Euler tours from trees and edge orders",
+          "Section 4 covers weight-range sampling, not closed-form cycle enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2510.16545",
+        "material_read": "16-page arXiv PDF: Section 2 tree/Euler correspondence and its starting-edge multiplicity warning; Section 3 random generation and weight-range scope",
+        "method": "Read PDF extracted text and inspected page 3 visually",
+        "title": "Las Vegas algorithms to generate universal cycles and de Bruijn sequences uniformly at random",
+        "trigger": "Later paper explicitly enumerates in-trees conceptually and samples weight-range universal cycles"
+      },
+      {
+        "assessment": "States general arborescence mechanism and existence/construction references but no count of all bound-two universal cycles",
+        "evidence": [
+          "Weight-range subsection notes SWW13 and GSWW20",
+          "General random tree generation described without evaluation"
+        ],
+        "identifier_or_url": "https://debruijnsequence.org/db/random",
+        "material_read": "Complete random-generation overview, including weight-range subsection and references",
+        "method": "HTML source reading and comparison with exact claimed formula",
+        "title": "De Bruijn Sequence and Universal Cycle Constructions: random generation",
+        "trigger": "Field reference index with weight-range and random-tree methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6349247-ec63-4851-a3cf-c5bf77779e05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The weight-at-most-two family is an established natural weight-range universal-cycle object, and the exact number of globally distinct cyclic solutions was not determined by the cited constructions. The all-order 2-power count and explicit free-choice classification give both finite-block structure and efficient uniform sampling without general spanning-tree sampling. These are motivated graph-specific invariants, not an arbitrary numerical slice, a known-table recomputation, or merely an implementation of the BEST theorem.",
+    "status": "PASS"
+  }
+}
