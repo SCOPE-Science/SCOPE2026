@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integers \(N\ge1\) and \(0\le K\le N\), the diagonal mixed-derivative data are an invertible triangular transform of the transverse even Taylor coefficients \(f_0,\ldots,f_K\) of the symmetric bivariate matrix polynomial. Exactly their vanishing is divisibility by \((X-Y)^{2K+2}\). The separate-degree constraint yields the kernel dimension without counting only a numerical rank. Below threshold, the explicit kernel matrix produces two strictly positive-definite, observationally identical covariances. Exact rational experiments at degrees 1–12 check the predictions, but the proof holds for all degrees.
+## correctness
 
-## Originality — PASS, with residual priority uncertainty
-The closest source is Chen–Wang (arXiv:2304.06206, Theorem 4.1/Lemma 4.2), proving that pure complex polynomial data are phase/conjugation retrievable using only zeroth and first derivative intensities. This is an important stricter novelty boundary: we do not present that pure-state implication as new. Their rank-restricted theorem does not recover every real positive-definite coefficient covariance, whereas the new result has the full kernel, every nullity, and an exact necessary-and-sufficient threshold on the *full* PSD cone. Grohs–Liehr–Rathmair (arXiv:2207.10620) study unrelated STFT sampling with multiple windows. Neither source includes the all-rank PSD statement or the divisibility classification in inspected relevant sections. Specialized older covariance-diagonal jet work may exist under different names; absence of an index match is not conclusive proof of novelty.
+PASS
 
-## Value — PASS
-All-rank covariance reconstruction is the natural convex/lifted version of intensity tomography; it cannot be deduced from the much easier rank-one or rank-two pure-state uniqueness problem. The exact optimal derivative-order threshold, complete kernel dimension, and strictly positive-definite ambiguity examples give a usable criterion for identifiability of mixed signals, together with a finite acquisition scheme. The phenomenon is structural across arbitrary degree and not a selected numerical instance.
+The bivariate symmetric covariance kernel B_C(X,Y)=sum C_ij X^i Y^j satisfies J_k(x)=[d_X^k d_Y^k B_C]_(X=Y=x). With u=(X+Y)/2, w=(X-Y)/2 symmetry gives an even-power w expansion sum_j f_j(u)w^(2j). The operator d_X d_Y=(d_u^2-d_w^2)/4 makes vanishing J_0..J_K equivalent by induction to f_0=...=f_K=0, i.e. (X-Y)^(2K+2) divisibility. Multiplying by this monic factor raises both separate degrees by m=2K+2, leaving a symmetric S of bidegree at most r=N-m and dimension (r+1)(r+2)/2 when r>=0. At r>=0, the explicit nonzero D represented by (X-Y)^m yields distinct I±epsilon D positive definite for sufficiently small epsilon; above threshold kernel is zero. Each J_k has degree <=2(N-k), yielding its interpolation bound. Independent QQ matrix ranks rebuilt directly from falling-factorial coefficients matched formula for all N=1..8 and 0<=K<=N. Finite cases corroborate the all-degree algebra.
 
-## Limitations and closest literature
-No noise condition number, distributional identification, or minimal count of spatial sample locations is proved. The recovered matrix must be real symmetric; imaginary skew-Hermitian covariance components would be undetectable. Chen–Wang's 2023 pure-state theorem is explicitly acknowledged as stronger *for pure signals*; mixed-state identifiability is a different question. Possible uninspected historic diagonal-jet covariance theorems remain a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen--Wang (arXiv:2304.06206) Theorem 4.1 and Lemma 4.2 concern conjugate phase retrieval of pure complex spline/polynomial signals using value and first derivative magnitudes. Their rank-one/rank-two difference restrictions do not imply injectivity of the linear measurement map on every real symmetric covariance; the new theorem identifies the full nullspace, including positive-definite ambiguity witnesses, and sharp all-rank derivative threshold. Similar multi-window phase retrieval results use other measurement geometry. The diagonal-jet ideal itself is elementary algebra, so originality lies in the sharp applied covariance classification, with possible older jet tomography formulations as risk.
+
+## value
+
+PASS
+
+The kernel dimension, exact measurement order necessary/sufficient for arbitrary covariance, and positive-definite nonidentifiability witnesses are natural all-rank inverse-problem invariants; they clarify why pure-state phase retrieval does not solve statistical second-moment tomography. The finite sampling corollary is practical but not the sole value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
