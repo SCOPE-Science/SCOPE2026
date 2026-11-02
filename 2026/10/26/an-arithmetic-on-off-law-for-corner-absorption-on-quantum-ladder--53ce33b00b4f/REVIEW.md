@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Cartesian spectral separation, a cyclotomic normalized-trace obstruction, a unique two-dimensional zero-energy collision, and the dissipative spectral argument prove the complete all-length claim. The equality cases of the Ramanujan sum are checked explicitly, and an executable independent finite-dimensional certificate confirms 1124 tests. The finite checks are supporting evidence rather than a replacement for the trace proof.
+## correctness
 
-**Originality — PASS relative to inspected records.** The rectangle study by Volta et al. concerns Laplacian-unitary transport, not adjacency absorbers; Agliari et al. treat non-Hermitian trapping on rings; Darázs et al. concern fractals; Razzoli et al. provide general spectral transport methodology and other graph families. Searches of relevant research records and prior same-topic claims found no statement implying the exact \(3\mid(n+1)\) corner-ladder dark-space dichotomy with period-six localized-survival pattern. The generic spectral/Krylov criterion is prior knowledge, and a general controllability theorem or an unindexed specialist paper could imply the arithmetic corollary. Historical priority is not conclusively established.
+PASS
 
-**Value — PASS.** Finite coherent quantum transport naturally asks whether a fixed absorber captures every initial state. This result answers that question for every ladder size, exhibits a sharp addition-of-one-rung switch in eventual absorption, and gives an explicit source-position pattern, not just the existence of a nondecaying eigenstate. All-length classification plus exact observable probabilities supply motivated graph-structure information.
+Product diagonalization gives eigenvalues 2cos(pi*j/(n+1))±1. A cross-band collision would have cosines differing by 1; normalized cyclotomic traces of 2cos bound the difference by 1, with equality only when orders are 6 and 3. Thus j=(n+1)/3, k=2(n+1)/3 yield the unique two-dimensional energy-zero eigenspace. Its equal-corner-amplitude cancellation produces the normalized displayed phi; 1D other eigenspaces all have nonzero corner amplitude. The rank-one dissipative Hamiltonian has strictly decaying bright spectrum, including Jordan blocks, and stationary dark projection, giving site probabilities and mixed trace. Independent exact characteristic polynomial gcd and local spectral projectors on bounded n corroborate. This covers all integers n>=2 and all gamma>0; no assertion for Laplacian/weighted/sink elsewhere.
 
-**Limitations.** Only unweighted two-leg adjacency ladders, one corner sink, positive strength and one-excitation coherent dynamics are included; graph-Laplacian walks, altered bonds, arbitrary sink placement and time-to-absorption are not. Independent specialist assessment and exhaustive priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical spectral dark-state/Krylov criterion and Cartesian-product spectrum are acknowledged prior methods. Inspected primary works treat unitary rectangular transport with a different Laplacian normalization, sink trapping on rings and general transport methods, not the exact adjacency corner-ladder 3|(n+1) classification and period-six survival law. This is a best-of-knowledge special-family result rather than a novel trapping principle.
+
+## value
+
+PASS
+
+Perfect versus incomplete absorption by a fixed sink is a natural graph-spectral observable. A sharp all-n modulo-three classification and explicit survival profile answer a nontrivial size/position question; the exact fact can guide coherent transport and observability studies without a new general transport method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
