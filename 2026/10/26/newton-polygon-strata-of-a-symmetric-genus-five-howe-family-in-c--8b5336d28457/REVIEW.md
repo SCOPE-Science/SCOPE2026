@@ -1,19 +1,21 @@
-# Scientific review: symmetric genus-five Howe family in characteristic three
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The branch conditions in `RESULT.md` are equivalent to separability and geometric disjointness; their eight branch points yield genus five by Riemann–Hurwitz. The Klein-four quotient gives an isogeny of degree a power of two to two elliptic Jacobians and one genus-three Jacobian, which preserves their characteristic-three invariants. Direct coefficient extraction yields the genus-three Hasse block with determinant \(b^2-c\) invertible across the smooth domain. Consequently its Frobenius-stable rank is exactly three or two, not merely the rank of a one-step matrix. The addition of ranks and \(a\)-numbers, the Newton slopes, and finite-field inclusion–exclusion have no missing boundary case. A separate exact gcd/matrix program checked all parameters over four fields, returning `VERIFY_OK`; these calculations are checks, not proof of the infinite statement.
+PASS
 
-## Originality — PASS
+Over algebraically closed characteristic 3, the smooth marked family has parameters c!=0, c!=b² and (c-1)²+b²!=0. The first two quartics are separable and have disjoint geometric branch loci exactly on U; the independent (Z/2)^2 covers have eight branch points and genus 5 by Riemann–Hurwitz. The three quotient Jacobians are E_0 supersingular, E_(b,c) ordinary iff b!=0, and genus-3 G with Hasse matrix [[b,0,c],[0,c+1,0],[1,0,b]]. Its 2x2 block determinant b²-c is nonzero on U and its middle block vanishes iff c=-1. Thus stable 3-ranks and a-numbers of G are 3,0 or 2,1, respectively. The degree-power-of-two isogeny identifies 3-divisible groups, so H has 3-ranks 4,3,2, a-numbers 1,2,3 and the claimed supersingular/ordinary slope multiplicities. Inclusion–exclusion on c=0,c=b²,(c-1)²+b²=0 over F_{3^m} yields total q²-2q odd m or q²-4q+6 even m; the intersection of rank-drop lines (b=0,c=-1) is exactly one smooth parameter, yielding ranks count (1,2q-epsilon-4,(q-1)(q-3) odd or q²-6q+11 even), epsilon=0 or2. Inspected exact GF(3^m) checker construction for m=1..4 and independently confirmed characteristic-three quartic/Hasse special cases; finite tests not proof for all m.
 
-The closest mathematical texts are Moriya–Kudo (2023), Kudo (2024), Kawakita (2024), and Ohashi (2026). The first two construct plane sextic models and analyze their singularities, with the second treating the disjoint elliptic quotient type but excluding characteristic three. The later arithmetic papers consider Serre-bound examples and superspecial constructions in different characteristics, without the displayed complete rank-locus and counting formulas. A prior reciprocal-quartic genus-three calculation only covers a restricted quotient slice, not the genus-five fiber-product census. Standard quotient decomposition and Cartier extraction are expressly acknowledged as prior tools. Exact unindexed calculations remain a possible overlap risk; search non-detection is not a mathematical uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The symmetric two-parameter family comes from a fixed supersingular elliptic quotient and a shared involution of the base, a motivated geometric sublocus of genus-five Howe covers. The result gives the complete Newton polygon stratification: a normal-crossings union of two rank-drop divisors with one deeper point. It also determines precise marked-parameter counts over every ternary field, with a nontrivial parity transition arising from the split versus nonsplit discriminant boundary. This precise arithmetic classification is the value claim, not the already-standard Jacobian decomposition.
+Best-of-knowledge PASS after comparison of theorem statements, hypotheses, reductions and implications. The inspected sources do not establish the complete final claim for this record; known components are acknowledged. Newton-polygon strata of a symmetric genus-five Howe family in characteristic three retains explicit residual priority risks. An inaccessible plausible source alone is not treated as failure or as a whole-document NOT_COVERING finding.
 
-## Limits
+## value
 
-Only coordinate-marked smooth parameters of the displayed two-dimensional family are counted, not isomorphism classes. Individual Weil polynomials and full Ekedahl–Oort invariants are not computed. Older unindexed literature may contain an equivalent calculation; independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A two-parameter coordinate-marked family arises naturally from a fixed supersingular elliptic quotient and shared x->-x involution. Complete genus-five Newton stratification, normal-crossing rank-drop divisors and parity-dependent exact F_{3^m} counts give a useful geometric/arithmetic classification beyond the standard Klein-four decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
