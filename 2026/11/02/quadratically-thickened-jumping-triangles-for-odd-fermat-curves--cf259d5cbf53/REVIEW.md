@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The logarithmic-gradient exact sequence holds because the Fermat partial derivatives have no common projective zero. The two equal-dimensional restriction spaces give a legitimate determinant jumping divisor. After binary substitution, the residual binomial matrix is \(PP^{\mathsf T}\) up to diagonal monomial factors, and a unit triangular submatrix makes \(P\) full row rank. This proves the nonzero determinant constant for every integer \(r\ge2\) and the exact Cartier multiplicities. Elementary syzygies on coordinate lines prove their maximal splitting; a nonzero determinant elsewhere proves balance. All hypotheses and boundary cases were checked, and the exact verifier independently reproduced 23 finite instances.
+
+**Originality — PASS, with explicit residual priority risk.** The exact all-odd-degree divisor \(V((abc)^{r^2})\), including component multiplicities and the absence of intermediate jumping types, is not stated in the inspected full text of the 2026 finite-point interpolation paper or in the inspected 2018 plane-curve study. The 2018 paper already treats the Fermat cubic jumping triangle and a Fermat-quartic jumping divisor; those examples are antecedents, not independent discoveries here. The 2010 work provides related general syzygy/weak Lefschetz theory but not this scheme classification. An older unlocated specialized determinant calculation or general formula may imply the result, so independent historical priority is not certified.
+
+**Value — PASS.** The jumping divisor is a geometric invariant of a stable vector bundle, and component multiplicity is information that the reduced jumping-line set and the generic splitting cannot detect. The result gives an exact Cartier-level classification of an infinite, naturally graded family of smooth curves, with sharp quadratic thickening and complete splitting behavior for every line. This is more than an isolated example or a renaming of a known degree formula.
+
+**Limits.** Characteristic zero and odd smooth Fermat degrees only. Only the first determinant jumping divisor is asserted. Symbolic checks are finite and do not replace the Gram proof. Historical novelty and independent proof checking are not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
