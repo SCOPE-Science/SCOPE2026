@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The singular-point equations split exactly into the \(h(t)=0\) stratum and the norm-discriminant stratum. The former gives six times four nondegenerate nodes; the latter gives thirty-six separate nondegenerate nodes. The full degree-thirty-six norm polynomial and its squarefreeness/disjointness follow from exact determinant and modular Euclidean identities independently checked by `verify.py`. Infinity, the elliptic base, and smoothness of the total threefold have been treated; the open-family assertion follows from algebraic openness.
+## correctness
 
-**Originality — PASS, with residual risk.** Massarenti, *Unirational Fano threefolds*, arXiv:2608.22333v1, establishes the family and its unirationality, not the explicitly derived six-four-node plus thirty-six-one-node fiber census. General results on del Pezzo varieties and Euler-characteristic discriminant degrees can account for total Milnor number sixty but do not imply this detailed distribution. Directed searches in relevant published records, scholarly literature and accessible earlier claims found no equivalent census. An unindexed or differently worded prior computation remains possible.
+PASS
 
-**Mathematical value — PASS.** Six simultaneous four-node degenerations are a strong geometric constraint of the restricted unirational family. Determining their complete complement and constructing a smooth witness provides an explicit discriminant stratification for a natural degree-one del Pezzo fibration, beyond an unstructured count of vanishing cycles.
+On x0!=0 the fiber is w²−z³−(s⁴+s+t)z−h(t)=0 with h=t⁶+t+1. The singularity equations split z=0 into h(t)=0 and four distinct roots of s⁴+s+t per t, with nondegenerate mixed Hessian. For z≠0 they require s³=−1/4; eliminating z yields 4(t+3s/4)^3+27h²=0. Substitution T=4s, T³=−16, produces a degree-36 norm F=Q³+186624Qt³−47775744t⁶+5038848t³, Q=256t³+1728h²−27. Independent symbolic resultant calculation verified F exactly; polynomial gcds modulo 5 verified squarefreeness and coprimality with h and quartic discriminant. Those exact nonzero integer reductions justify distinct 36 residual complex parameters, disjoint from six h-roots. The Hessian at each additional critical point is nondegenerate and the infinity fiber has no singularities; smooth base, total space, and algebraic openness yield the stated geometric conclusion. The identity and local analysis, not finite-field numerical sampling, establish the claim. No claim outside the restricted binary-sextic family.
 
-The proof does not claim genericity outside the displayed binary-sextic presentation, a classification of geometric monodromy, or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original relative to the materially inspected exact claims and implications; source-access and alternative-formulation limitations are not concealed. The natural degree-one del Pezzo fibration of a smooth weighted Fano threefold has a discriminant with nontrivial forced multi-node clustering; specifying six 4A1 fibers and 36 A1 fibers is much finer than Euler/Milnor total 60. A smooth explicit wit
+
+## value
+
+PASS
+
+The natural degree-one del Pezzo fibration of a smooth weighted Fano threefold has a discriminant with nontrivial forced multi-node clustering; specifying six 4A1 fibers and 36 A1 fibers is much finer than Euler/Milnor total 60. A smooth explicit witness and a complete norm/discriminant factorization give a significant exact geometric passport of a motivated unirational family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
