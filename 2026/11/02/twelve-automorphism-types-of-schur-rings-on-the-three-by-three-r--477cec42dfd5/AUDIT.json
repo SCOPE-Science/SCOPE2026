@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For any classes C,D, the coefficient of (i,j) in the class-sum product is r_C(i)c_D(j). Summation over all second (respectively first) classes proves necessity of identical row (respectively column) profiles inside each block, and equality of profiles is sufficient. Each of the Bell(9)=21147 set partitions is visited exactly once via canonical restricted-growth strings. Both included independently implemented checkers exhaust all of them and obtain 42 qualifying partitions with class-count multiplicities 1,12,4,9,9,6,1; the direct checker enumerates all 60 subgroups of S3xS3 and proves that their distinct orbit partitions exhaust the 42. The profile checker independently verifies full stabilizer transitivity. Each yields 12 automorphism-equivalence classes with the listed orbit sizes, and the direct checker proves exactly 25 direct-product partitions. Both programs were run from actual included files and printed VERIFY_OK; outputs matched recorded files.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2601.09940, abstract and Section 5: full enumeration covers all semigroups of orders 0 through 7, not nine.",
+        "arxiv:2601.09940, Section 2.2: rectangular-band direct products yield Bell(n)Bell(m) examples; no converse.",
+        "A separate accessible two-row classification applies only when at least one dimension is two and therefore does not cover 3x3."
+      ],
+      "reasoning": "The available general construction supplies 25 examples, strictly fewer than 42. The referenced all-small-semigroup census ends at order 7, so does not imply the order-9 count or 12 types. Inaccessible or unindexed general classifications remain a genuine residual risk.",
+      "searches": [
+        "On Schur Rings Over Semigroups arxiv 2601.09940 Marrow Misseldine rectangular band 3x3 Schur partitions",
+        "\"Schur rings\" rectangular band 3 3 enumeration",
+        "\"rectangular band\" \"Schur rings\" \"order 9\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2601.09940",
+      "https://arxiv.org/html/2601.09940v1",
+      "https://arxiv.org/abs/2112.03422"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source establishes that automorphism subgroup orbit partitions are Schur partitions, but does not establish the converse for 3x3 or count all such partitions.",
+        "Its direct-product lower bound specializes to 25 for 3x3, whereas the direct product-plus-all-Schur distinction gives 17 new non-product examples.",
+        "The separate two-row result does not constrain the three-row square."
+      ],
+      "reasoning": "The proposed theorem logically strengthens the known construction in this particular first square case: all 42 passing partitions are automorphism orbits, and there are precisely 12 natural types. Neither the known subgroup-orbit sufficiency nor the lower bound implies these finite completeness statements.",
+      "searches": [
+        "arxiv:2601.09940 Sections 2.1,2.2,5.4-5.7",
+        "Schur rings over the 3 by 3 rectangular band; exactly 42 partitions closed under class-sum multiplication; every partition automorphic under S3 times S3",
+        "On Schur Rings Over Semigroups arxiv 2601.09940 Marrow Misseldine rectangular band 3x3 Schur partitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In a rectangular band the Schur-ring problem is exactly the complete classification of set partitions with constant class-sum structure coefficients; the equivalent row/column-profile criterion is proved here.",
+        "The source arxiv:2601.09940 defines Schur partitions by class-sum closure, Section 1, and recognizes automorphic orbit partitions, Section 2.1."
+      ],
+      "reasoning": "Aliases examined include algebraic partitions, row-column profile partitions, automorphism-orbit partitions, and LO3 x RO3. Searches returned no exact 3x3 enumeration. A generic existence theorem for automorphic Schur rings does not imply every Schur ring is automorphic.",
+      "searches": [
+        "Schur rings over the 3 by 3 rectangular band; exactly 42 partitions closed under class-sum multiplication; every partition automorphic under S3 times S3",
+        "Schur ring rectangular band three rows three columns all automorphic, orbit partitions subgroups of S3xS3, classification",
+        "Schur rings over semigroups nine-element rectangular band 3x3 multiplication profile enumeration",
+        "\"automorphic\" \"Schur rings\" \"rectangular band\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The tabulations in arxiv:2601.09940 cover semigroups of order at most seven; its 2x2 rectangular band is listed with five Schur rings.",
+        "The independent full 3x3 census is 42, with 12 symmetry types; direct-product lower bound is 25."
+      ],
+      "reasoning": "Queries targeting the exact count, nine-element rectangular band, 3x3 symmetry types, and direct-product deficit found no matching published table. This is best-knowledge evidence, not a proof of uniqueness or historical priority.",
+      "searches": [
+        "42 Schur rings on LO3 x RO3, 12 isomorphism classes, 17 non-product partitions",
+        "\"Schur rings\" \"3 x 3\" \"rectangular band\" 42",
+        "\"Schur rings\" rectangular band 3 3 enumeration",
+        "\"3x3\" \"Schur rings\" semigroup"
+      ]
+    },
+    "rationale": "The motivating primary source defines semigroup Schur rings, supplies automorphic constructions and Bell(3)^2=25 direct-product examples, and enumerates semigroups only through size seven. Its Section 2.2 explicitly notes existence of non-product Schur rings in rectangular bands, but does not give a complete order-nine 3x3 band classification. Related accessible two-row rectangular-band coverage does not include this 3x3 case. Statement/implication comparison and focused public mathematical record searches found no equivalent 42-object, 12-type, all-automorphic classification. Unindexed sources remain a residual historical risk.",
+    "residual_risks": [
+      "An undiscovered earlier exact enumeration or stronger general theorem may imply the 3x3 count and automorphic converse.",
+      "The 3x3 classification relies on two transparently exhaustive finite programs; it is not an all-orders structural theorem.",
+      "No independent external mathematical validation has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTEXT AND PARTIAL PRIOR COVERAGE: proves automorphic construction and direct-product lower bound, tabulates order <=7; does not state complete order-nine three-by-three band classification.",
+        "evidence": [
+          "ArXiv initial posting 2026-01-14; primary MSC 20M25.",
+          "Section 1: subring of semigroup algebra, multiplication-only.",
+          "Sections 2.1-2.2: automorphic construction, direct-product bound Bell(n)Bell(m).",
+          "Section 5: 2x2 band has five Schur rings; tabulations are limited to semigroups through order seven."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.09940v1",
+        "material_read": "Relevant full-text passages from the abstract, Section 1 definition, Sections 2.1 and 2.2 constructions, Section 5 small semigroup tables and rectangular-band discussion, and concluding remarks.",
+        "method": "Read accessible full arXiv HTML body at relevant passages rather than relying on abstracts or search snippets.",
+        "title": "On Schur Rings Over Semigroups",
+        "trigger": "Primary motivating work with the same semigroup Schur-ring definition and explicit rectangular-band discussion."
+      },
+      {
+        "assessment": "INAPPLICABLE: addresses cyclic groups, not nonunital rectangular-band semigroup Schur rings.",
+        "evidence": [
+          "Abstract explicitly confines the construction to cyclic groups and their Schur rings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.03422",
+        "material_read": "Title, abstract, subject scope, and bibliographic metadata.",
+        "method": "Public bibliographic/abstract inspection only; full text not claimed read.",
+        "title": "Enumeration Techniques on Cyclic Schur Rings",
+        "trigger": "Searches for potentially dominating Schur-ring enumeration techniques."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "477cec42-dfd5-447e-aa2f-d0c22be33760",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The three-by-three rectangular band is the first square nontrivial case beyond published semigroup-size-seven tables and a separate two-row family. Its complete labeled and isomorphism classification fills a concrete natural gap: 42 Schur partitions (12 automorphism types), exactly 17 not obtainable as direct product partitions, yet all 42 are automorphic. This addresses the precise distinction between automorphic and direct-product constructions highlighted in the motivating paper, with a reproducible finite certificate and explicit list of natural equivalence-class representatives. The contribution is a complete natural finite classification rather than a routine single-table recomputation.",
+    "status": "PASS"
+  }
+}
