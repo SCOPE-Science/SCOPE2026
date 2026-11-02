@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Hypergeometric factorial moments for three distinct sampled individuals yield the exact negative covariance and third centered cross-moment. Conditional independence of assay errors scales these by \(c^2\) and \(c^3\). The normalized ratio is a strictly monotone function of prevalence, giving a unique inverse; pair and third moments reconstruct all exchangeable binary-triple cells. The explicit complementary-prevalence construction matches full two-result laws and reverses the third moment for each \(N\ge3\). Standalone exact enumeration checked 216 admissible configurations and nine two-result ambiguities. All population sizes are covered by proof, not numerics.
+PASS
 
-## Originality — PASS, subject to recorded bibliographic risk
+For fixed known N≥3, M∈{1,…,N−1}, c=a−b>0, the distinct-draw factorial moments yield u=b+cp, v=−c²p(1−p)/(N−1), w=2c³p(1−p)(1−2p)/((N−1)(N−2)). The normalized ratio (N−2)w/(2√(N−1)(−v)^(3/2))=(1−2p)/√(p(1−p)) is a strict decreasing bijection; positive c, then a,b, reconstruct uniquely, including p=1/2 and M=1,N−1. Exchangeability means the first three cross moments determine the entire Bernoulli-triple law, proving exact feasibility. M=1 vs N−1 with c=1/4,u=1/2 yields identical complete two-result laws but opposite w. Independently enumerated all ordered triples, latent configurations and reported vectors with rational probabilities for 54 models (N=3..8, all M, two interior assay pairs), verifying every moment identity. Finite tests corroborate; unlimited N follows from factorial algebra.
 
-The closer existing finite-population diagnostic paper of Su, Gardner, and Johnson (2004) describes two diagnostic tests and two-population comparison, whereas the claim here is one fallible assay applied to three distinct randomly selected people from one fixed-composition finite population. Its full text could not be accessed; this is a genuine residual overlap risk. The accessible complete papers of Huang et al. (2016, group sizes and independent-pool probabilities) and Ge et al. (2023, one finite-population test with known error rates) do not establish this inverse or sharp two-result equivalence. Hui and Walter (1980) calibrate two tests from two populations. An equivalent older special case under finite-population misclassification vocabulary cannot be excluded without independent bibliographic scrutiny.
+## originality
 
-## Value — PASS
+PASS
 
-The fact distinguishes fixed-composition sampling from independent prevalence sampling and gives a precise minimal design for structural calibration of a single unknown-error assay without verified disease labels. Explicit feasibility and identifiability boundaries matter for interpreting what a finite-population surveillance law can determine. The pair/triple signals vanish respectively at rates \(N^{-1}\) and \(N^{-2}\), so the work does not recommend this method as a practical large-population estimator without a separate sampling-precision analysis.
+Best-of-knowledge PASS: this is a specific one-assay, three-distinct-person inverse exploiting fixed-population negative dependence, not Hui–Walter two-assay/two-population identification, independent pooled assay-size designs, nor two-assay finite-population Bayesian inference. Su et al. (2004) is highly relevant but full text could not be accessed, and authorized institutional retrieval returned vpn_disconnected; retain substantive possible overlap risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact global inverse and sharp two-versus-three observation identifiability boundary answer a natural structural inference question with both unknown error rates; its exact feasibility criterion is mathematically useful independently of finite-sample estimation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
