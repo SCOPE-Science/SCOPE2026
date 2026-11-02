@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Both estimators and the oracle budget are explicitly defined. Conditional Gaussian quadratic-form variance gives 2 E tr(B^2), and three ordinary probes give 2/3 tr(A^2). The projector trace identity gives B^2 trace=3+2(lambda-1)u+(lambda-1)^2u^2 exactly. Chi-square angular density gives rational E u and E u^2 by differentiating a known rational integral. Algebra yields explicit variances, variance-difference quintic, one positive root by Descartes and strict ratio derivative. The package verifier reproduced symbolic integral, characteristic polynomial sign, 25 exact projector cases, 10 independent quadrature checks and 5 simulations. Random experiments only corroborate, not prove, the all-lambda formula. Boundary lambda=1 and scaling s>0 are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Persson--Cortinovis--Kressner Section 1 states qualitatively flat spectra favor ordinary Monte Carlo and dominant spectra favor Hutch++; it proposes adaptive budget allocation.",
+        "Jiang et al. prove high-probability nonadaptive query complexity; XTrace analyzes exchangeable estimators and a general Hutch++ variance bound."
+      ],
+      "reasoning": "The literature contains stronger algorithms and general probabilistic guarantees, but the stated bounds do not give the exact three-query Gaussian comparison or root 4.568427. The claim does not assert superiority over adaptive methods, XTrace, or all probe laws.",
+      "searches": [
+        "randomized trace estimation Hutch++ exact variance formulas scalar rank two matrices",
+        "Gaussian Hutch++ relative variance ratio Hutchinson 3 queries isotropic bulk anisotropic eigenvalue transition",
+        "arxiv:2109.10659 Sections 1 and adaptive allocation",
+        "arxiv:2111.00664 Section 1",
+        "arxiv:2301.07825 Proposition 5.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2010.09649",
+      "arxiv:2109.10659",
+      "arxiv:2111.00664",
+      "arxiv:2301.07825",
+      "arxiv:1605.04893",
+      "2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c",
+      "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meyer et al. show query-order guarantees for positive-semidefinite matrices, rather than exact fixed-budget equality thresholds.",
+        "Persson et al. explain the budget tradeoff but do not prescribe a spectral crossing; XTrace Section 5.2 gives general conditional bounds without evaluating the four-dimensional spike integral.",
+        "Saibaba et al. study a (biased) pure subspace projection estimator, not this unbiased Hutch++ plus residual probe."
+      ],
+      "reasoning": "Neither asymptotic query-complexity results nor general residual-variance bounds directly imply the explicit rational variance or unique quintic root without new specialization, angular integration and comparison. The new conclusion is compatible with, but more specific quantitatively than, the cited qualitative tradeoffs.",
+      "searches": [
+        "Hutch++ exact three matrix vector products sharp 4 by 4 rank one spike Gaussian variance crossover at spectral ratio 4.568",
+        "trace estimators Gaussian Hutchinson Hutch++ deflation variance rank-one perturbation identity matrix",
+        "arxiv:2010.09649 Theorem 1 / Section 3",
+        "arxiv:2109.10659 Algorithm 1 / Section 1",
+        "arxiv:2301.07825 Sections 1.1 and 5.2",
+        "arxiv:1605.04893 Sections 1 and 2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meyer et al. Algorithm 1 defines Gaussian-allowed three-stage deflation; Epperly et al. Proposition 5.3 conditions on the Gaussian sketch and bounds residual error.",
+        "The exact identity Var=2 E tr([(I-P)A(I-P)]^2) is a standard equivalent description of the starting quantity."
+      ],
+      "reasoning": "The generic conditional variance decomposition covers an intermediate lemma, not the evaluated expectation on spectrum (lambda,1,1,1), the monotonicity factorization, or the unique algebraic crossing. Those specific consequences require independent angular integration and polynomial analysis.",
+      "searches": [
+        "Hutch++ Gaussian trace estimator comparing three matrix-vector products with three Hutchinson Gaussian probes exact two-by-two positive definite spectral anisotropy crossover",
+        "Hutch++ exact three matrix vector products sharp 4 by 4 rank one spike Gaussian variance crossover at spectral ratio 4.568",
+        "arxiv:2010.09649 Algorithm 1",
+        "arxiv:2301.07825 Section 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest semantically retrieved record 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c concerns Gaussian Hutchinson *diagonal-Hessian* RMS leakage, not trace deflation.",
+        "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 concerns Haar subspace descent; 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 concerns Rayleigh residual filtering.",
+        "Targeted literature searches found the original Hutch++ work and later trace-estimator studies, but no exact published four-dimensional spectral-crossover tabulation."
+      ],
+      "reasoning": "The retrieved research-record summaries and accessible prior claim titles contain no same estimator-plus-spectrum-plus-budget statement. Search omission alone is not proof of novelty; originality is supported by inspected primary result statements and scientific nonimplication, with residual risk listed below.",
+      "searches": [
+        "Hutch++ Gaussian trace estimator comparing three matrix-vector products with three Hutchinson Gaussian probes exact two-by-two positive definite spectral anisotropy crossover",
+        "rank-one randomized range sketch trace estimation residual variance exact covariance 2x2 Gaussian projector spectral ratio",
+        "randomized trace estimation Hutch++ exact variance formulas scalar rank two matrices",
+        "Hutch++ exact three matrix vector products sharp 4 by 4 rank one spike Gaussian variance crossover at spectral ratio 4.568",
+        "Gaussian Hutch++ relative variance ratio Hutchinson 3 queries isotropic bulk anisotropic eigenvalue transition",
+        "trace estimators Gaussian Hutchinson Hutch++ deflation variance rank-one perturbation identity matrix",
+        "Hutch++ exact variance 4x4 spiked diagonal L 1 1 1 Gaussian rank 1 sketch",
+        "Hutch++ sharp finite budget when Hutchinson outperforms on flat spectra comparison",
+        "Hutch++ four dimensional rank one spike exact variance transition 4.56"
+      ]
+    },
+    "rationale": "The novelty candidate is only the exact dimension-four, three-query Gaussian Hutch++ variance law, its ratio versus three Gaussian Girard--Hutchinson probes, and the unique algebraic crossover. The prior qualitative flat-versus-spiked spectrum tradeoff and conditional variance formula are explicitly acknowledged. Relevant full-text sections of Meyer et al., Persson et al., Jiang et al., Epperly et al., and Saibaba et al. were inspected and did not state or directly evaluate the integral into the closed crossover. Public mathematical-record searches returned nearby randomized projection and Hutchinson-diagonal claims, none implying this trace-estimator comparison. This is a qualified self-review originality assessment, not an assertion of exhaustive priority.",
+    "residual_risks": [
+      "A prior exact small-spectrum integration may be hidden in a table, appendix or alternate trace-estimation terminology not returned by searches.",
+      "Generic conditional-variance identities in XTrace/Hutch++ are prior and are not claimed original; only their explicit 4x4 evaluation and crossover are new here.",
+      "Other probe distributions can reverse the method ordering; the result deliberately compares standard Gaussians only.",
+      "Independent literature-priority evaluation remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines Gaussian-compatible Hutch++, guarantees high-probability accuracy, no four-dimensional exact crossover identified in inspected material.",
+        "evidence": [
+          "Algorithm 1 uses one third sketch, one third projected-trace, one third residual probes; theorem asymptotic.",
+          "Sections 1 and 5 emphasize variance reduction and empirical spectral decay."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553228/",
+        "material_read": "Full accessible HTML relevant sections: Abstract, Sections 1.1--1.3, Algorithm 1, Section 3 theorem/proof and Section 5 experimental/spectral discussion",
+        "method": "Read accessible full-text HTML sections and compare mathematical claims",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Original estimator and possible exact variance coverage"
+      },
+      {
+        "assessment": "Contains explicit qualitative flat-spectrum tradeoff and adaptive allocation, but not claimed exact fixed three-query Gaussian spectral boundary.",
+        "evidence": [
+          "Section 1.1 states flat spectra favor ordinary stochastic trace probing and pronounced decay favors deflation.",
+          "Algorithm 1 is the same fixed-bucket estimator."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.10659",
+        "material_read": "Full accessible text, introduction and Algorithm 1, Sections 1.1 and adaptive-budget framing",
+        "method": "Inspect direct arXiv full-text rendering",
+        "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+        "trigger": "Potential exact budget-split threshold"
+      },
+      {
+        "assessment": "High-probability query complexity and nonadaptive algorithm; does not state the target three-query spike crossover.",
+        "evidence": [
+          "Algorithm 1 reproduces Gaussian Hutch++; Theorem 1.1 concerns nonadaptive sample complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.00664",
+        "material_read": "Full accessible text introduction, algorithm definitions, stated main theorems and error guarantees",
+        "method": "Inspect direct arXiv full-text rendering",
+        "title": "Optimal Sketching for Trace Estimation",
+        "trigger": "Potential dominating general exact variance theorem"
+      },
+      {
+        "assessment": "Acknowledges generic Hutch++ variance decomposition and bounds, proposes a distinct exchangeable estimator. No target exact 4x4 spike threshold identified.",
+        "evidence": [
+          "Section 5.2 Proposition 5.3 gives Hutch++ variance bound and proof by conditioning; Section 1.2 introduces exchangeable XTrace."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+        "material_read": "Full accessible text, Sections 1.1, 1.2, 5.2, 5.4--5.5 and supplementary adaptive comparison descriptions",
+        "method": "Inspect direct arXiv full-text rendering",
+        "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+        "trigger": "Closest detailed generic variance analysis of Hutch++"
+      },
+      {
+        "assessment": "Studies (generally biased) subspace-projection trace estimate and error bounds, not a residual-corrected three-query Hutch++ comparison.",
+        "evidence": [
+          "Section 1.2 defines trace(Q*AQ) estimator; Section 2.3 discusses Gaussian probe variance 2||A||_F^2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.04893",
+        "material_read": "Full accessible text introduction, algorithm overview and Section 2.3 Monte Carlo comparison",
+        "method": "Inspect direct arXiv full-text rendering",
+        "title": "Randomized Matrix-free Trace and Log-Determinant Estimators",
+        "trigger": "Earlier Gaussian range sketch estimator with low-dimensional accuracy bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85121541-9904-4e4f-984e-fcff6299fec3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed three-product comparison is the smallest dimension (4) in which exactly computing an unrestricted trace by coordinate basis exceeds the budget. Whether to spend scarce products on a deflation sketch or on more independent probes is a central algorithmic choice; the literature identifies the tradeoff qualitatively but not its sharp finite-budget threshold. The exact crossover is a natural complete parameter classification and a reproducible benchmark for spectral adaptivity. It does not claim a new algorithm, universal advantage, or global optimal query count.",
+    "status": "PASS"
+  }
+}
