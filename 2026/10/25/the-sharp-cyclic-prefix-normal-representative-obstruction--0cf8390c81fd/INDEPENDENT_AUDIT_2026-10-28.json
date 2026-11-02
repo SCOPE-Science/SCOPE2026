@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:08:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source uses exactly the defining equality between prefix one-counts and maximal linear-factor counts for every length and every cut. My independently written enumerator tested all 2^n rooted words and all rotations for each n=1..11, with 0 bad necklaces through n=10 and precisely the stated three at n=11; 33 rooted words. Read the source gap-composition proof: a shortest span of k+1 consecutive ones is determined by k adjacent gaps and its prefix competitor; the last circular gap is excluded after the cut. The included witness CSV contains 33 explicit prefix/factor comparisons. The all-n witness is proved separately: zero-start cuts fail at length 1, starts at positions 3,5,7 fail due to later 11, start 9 fails by 10101 against 11000, and start 10 fails by 101 against 100. Extra n=1000 check is corroborative, not an unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published gap inequalities characterize linear prefix-normality; the known pre-necklace containment is a one-way necessary property, not cyclic-cut existence or an exact first failure."
+        ],
+        "reasoning": "General theory supplies a testing criterion but no inspected implication classifying all necklaces through n=11 or excluding all larger n.",
+        "searches": [
+          "Burcsi–Fici–Lipták–Ruskey–Sawada arxiv:1404.2824 Lemma 2 and sections 4,7",
+          "Fici–Lipták arxiv:1805.12405 Theorem 4 and pre-necklace result"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1805.12405",
+        "arxiv:1404.2824",
+        "arxiv:1401.6346",
+        "Resultary semantic search on cyclic prefix-normal necklace rotations",
+        "Assigned package RESULT.md, REVIEW.md, verify.py and witnesses.csv"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A linear prefix-normal form can be a different word, while a circular cut may only rotate the same word. The gap inequalities enable but do not state the exact minimal counterexample."
+        ],
+        "reasoning": "Neither previously stated theorem entails the claimed first failing n=11 or all-n extension without the new cyclic orbit case analysis.",
+        "searches": [
+          "Fici–Lipták arxiv:1805.12405 Theorem 1 (canonical form)",
+          "Burcsi et al. arxiv:1404.2824 Lemma 2 (consecutive-one gaps)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1 constructs a unique prefix-normal form with the same factor maxima, but does not require it to be a cyclic rotation. A form outside a rotation class does not imply the absence of another prefix-normal cut."
+        ],
+        "reasoning": "The statement concerns the orbit under cyclic rotations, not Parikh equivalence or reversal; the equivalence classes differ.",
+        "searches": [
+          "Fici–Lipták On Prefix Normal Words (2011) arxiv:1805.12405 Theorem 1; search: prefix normal word cyclic rotations necklaces cut always exists counterexamples 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant published counts enumerate linear prefix-normal words; the searched related Resultary hits concern different binary-code/string invariants, not the three bad 11-bit necklace classes."
+        ],
+        "reasoning": "An exact linear-word count or a finite generic algorithm does not itself give this cyclic negative-class table; the new enumeration independently supplies it.",
+        "searches": [
+          "Resultary search: cyclic binary word prefix normal rotation representative necklace minimal length eleven",
+          "Burcsi et al. arxiv:1401.6346 linear generation tables"
+        ]
+      },
+      "rationale": "The exact boundary at n=11 and the three first-exception rotation classes concern existence of a prefix-normal rotation of the original necklace, not uniqueness or existence of a canonical prefix-normal form in the larger jumbled-equivalence class. Author-version Fici–Lipták Theorem 1 and Burcsi et al. gap Lemma 2 provide existing linear theory and method, not this cyclic threshold; targeted Resultary search found no direct covering record. Best-of-knowledge only.",
+      "residual_risks": [
+        "An unpublished or unindexed necklace enumeration may have counted the same first failing rotation classes.",
+        "The exact n=11 census is exhaustive only by finite computation; no formula is claimed for larger n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_CYCLIC_THRESHOLD",
+          "evidence": [
+            "Theorem 1 constructs PNF for factor-count equivalence, not a rotation representative."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.12405",
+          "material_read": "Sections 1–3 including Theorem 1 and Theorem 4 statement, examples and definitions (author-version PDF)",
+          "method": "primary full-text PDF reading with page inspection",
+          "title": "On Prefix Normal Words",
+          "trigger": "foundational primary result on prefix-normal form"
+        },
+        {
+          "assessment": "METHOD_ONLY",
+          "evidence": [
+            "Lemma 2 states r1+...+rk <= rj+...+r(j+k-1) for a given linear word; no circular necklace n=11 classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1404.2824",
+          "material_read": "Section 4 Lemma 2 at PDF page 5 and sections 5 and 7 on linear word enumeration/testing",
+          "method": "primary PDF text and screenshot reading",
+          "title": "Normal, Abby Normal, Prefix Normal",
+          "trigger": "exact consecutive-one-gap characterization"
+        },
+        {
+          "assessment": "LINEAR_GENERATION_NOT_CYCLIC_THRESHOLD",
+          "evidence": [
+            "Counts generated linear prefix-normal words; does not state this property of cyclic conjugacy classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1401.6346",
+          "material_read": "Introduction and generation definitions / results through the primary paper",
+          "method": "primary arXiv PDF text",
+          "title": "On Combinatorial Generation of Prefix Normal Words",
+          "trigger": "plausible exhaustive-generation source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question is naturally forced by prefix-normal canonicalization of strings without a designated starting point. Exact smallest failure, complete three-necklace obstruction census and an explicit obstruction at all longer lengths establish a sharp genuine transition with reusable counterexamples, rather than an arbitrary fixed-size bit-string count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unpublished or unindexed necklace enumeration may have counted the same first failing rotation classes.",
+    "The exact n=11 census is exhaustive only by finite computation; no formula is claimed for larger n."
+  ],
+  "schema_version": 1
+}
