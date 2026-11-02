@@ -1,9 +1,21 @@
-# Review of the odd-order cyclic Latin-square clique-complex theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** Every graph edge belongs to a unique line direction; non-line triangles have exactly one row-column corner, and odd order forbids an additional adjacent fourth vertex. The line core is homotopy equivalent to the three-line cover nerve, whose \(n^2\) two-simplices collapse along separate free row-column edges. The periodic unit-triangulated torus maps its fundamental-group generators to line-simplex boundaries and surjects onto the full complex's fundamental group; both generators vanish, so the entire complex is simply connected. Inclusion-exclusion yields Euler characteristic \(1+(n-1)^3\). Two-dimensional CW structure, Hurewicz and homology Whitehead rigorously give the integral wedge. Finite clique and homology code checked \(n=3,5,7,9\) from actual embedded file contents; no finite extrapolation is required.
+## correctness
 
-**Originality (PASS, with residual indexing risk).** Cioabă–Mim (arXiv:2606.27328, June 25, 2026), examined in full accessible HTML including the Latin-square theorems, determines field homology and the Betti formula, but does not prove the cyclic Latin-square complexes are simply connected or establish their homotopy types. A previously documented general finite-abelian-group translation-character computation encompasses this graph's rational characters, and the present theorem does not re-claim that. Neither homology ranks nor a character decomposition determines the integral fundamental group or sphere-wedge homotopy type. Searches for cyclic Latin-square clique-complex homotopy, equivalences, wedge decompositions, and topology found no stated dominating theorem. An unindexed equivalent prior theorem remains possible.
+PASS
 
-**Mathematical value (PASS).** Field homology can conceal nontrivial perfect fundamental groups, torsion and two-dimensional attaching-map obstructions. The new uniform torus-surjection argument resolves these issues for a nontrivial natural infinite family, strengthening field homology to integral homotopy and explicitly determining every integral homotopy group up to equivalence. This is not a restatement of previously known Betti numbers or translation symmetries. The restriction to odd cyclic orders and no claim for even orders are material boundaries.
+For every odd integer n>=3, maximal cliques of row, column or diagonal lines x=a,y=b,x+y=c are full n-vertex line simplices; any other clique is a mixed triangle indexed by (x,y,a≠0), total n²(n−1), because a fourth adjacent vertex forces 2a=0 and odd n excludes it. The line-core nerve has 3n line vertices, n² triangles each with free row-column edge, so collapses to a graph. Standard periodic triangular torus T_n embeds its 1-skeleton; every clique edge lies in a contractible line simplex and is endpoint-homotopic to torus unit edges, yielding π1(T_n) ->> π1(X_n). The two torus generators bound horizontal and vertical line-simplex disks; hence π1(X_n)=0. Counting Euler of line cover by inclusion-exclusion gives χ(Y)=3n−2n²; mixed triangles contribute n²(n−1), so χ(X)=1+(n−1)^3. The two-dimensional CW model and simple connectivity yield free H2 of that rank, then Hurewicz/Whitehead gives wedge of (n−1)^3 S². Independent maximal-clique enumeration for n=3,5,7 verified line/mixed decomposition and Euler; no extrapolation from these finite values is used.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (qualified). Cioabă–Mim arXiv:2606.27328 gives clique homology over all fields for Latin-square graphs and, when cyclic odd, Betti H2=(n−1)^3. Field-homology concentration alone does not imply π1=0 or a wedge homotopy type: a perfect fundamental group could survive H1=0. The additional torus-surjectivity and 2D CW reduction provide an integral homotopy strengthening. The complete 39-page 2026 article remained inaccessible via lawful full-text/Open Access and authorized VPN route, so its actual complete proofs might contain unstated stronger homotopy assertions; do not assert full-text noncoverage.
+
+## value
+
+PASS
+
+For the natural graph of three parallel classes of cyclic Latin square lines, the full homotopy type for all odd (including composite) n is meaningful, stronger than known field Betti numbers, and exactly classifies fundamental group and integral homology. Excludes even n where 2a=0 produces new cliques; does not claim arbitrary Latin squares. An all-odd-order homotopy equivalence that kills π1 is strictly stronger than the published arbitrary-field Betti formula and naturally classifies cyclic Latin square flag complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
