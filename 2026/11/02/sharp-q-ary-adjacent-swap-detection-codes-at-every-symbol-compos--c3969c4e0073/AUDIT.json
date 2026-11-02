@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Literal edge definition swaps unequal neighbours, which changes inversion parity by one. Swapping first mismatched coordinate pair partitions all words outside E into disjoint edges, even within fixed compositions, while all E words have even inversion parity. Hence both matching upper bound and parity lower bound equal (N+U)/2. Multinomial counting supplies U and summation q^ceil(n/2). Finite Hopcroft-Karp verification covered 22 cases/6689 words/309 compositions; proof covers all integers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "de Alba et al. Theorem 3.10 is a bipartite-graph matching result, specialized to 2-colour token configurations for its Corollary 3.11.",
+        "Adamson et al. swap any pair of positions; Gregor et al. swap first and arbitrary other position.",
+        "Abdel-Ghaffar considers codes detecting substitutions AND adjacent transpositions; requiring substitutions strictly adds forbidden pairs."
+      ],
+      "reasoning": "No cited theorem asserts the q>=3 adjacent-only swap-detection optimum in every Parikh class. A more general unlocated matching theorem could nevertheless subsume the exact formula and is a residual risk.",
+      "searches": [
+        "arXiv:1606.06370 Theorem 3.10, Corollary 3.11",
+        "arXiv:2307.01648 full-text 2-swap graph independence matching",
+        "Gregor Merino Mütze star transposition Gray codes adjacent swaps",
+        "Abdel-Ghaffar 1998 detecting substitutions and transpositions optimal code"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1606.06370",
+      "https://arxiv.org/abs/2307.01648",
+      "https://arxiv.org/abs/2301.11680",
+      "https://doi.org/10.1002/jgt.22915",
+      "https://doi.org/10.1093/comjnl/41.4.270"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 corollary determines exact binary fixed-composition independence (already prior).",
+        "The 2023 2-swap configuration graph allows nonadjacent swaps and is not the graph studied here.",
+        "Asymmetric swap/deletion correction and simultaneous substitution/swap detection are different, stricter error requirements."
+      ],
+      "reasoning": "Only the binary q=2 instance directly follows from located cited literature and has been excluded as a new result. The q>=3 fixed-composition count is not obtained by substituting a parameter into the binary k-token theorem. Published matching principles are acknowledged; a universal principle yielding this as an automatic corollary remains a potential coverage risk.",
+      "searches": [
+        "arXiv:1606.06370 Corollary 3.11 independence number F_k(P_n)",
+        "arXiv:2307.01648 word permutation graph adjacency definition",
+        "arXiv:2301.11680 asymmetrical adjacent transposition correction plus deletion",
+        "DOI:10.1093/comjnl/41.4.270 abstract simultaneous detection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fixed-weight binary adjacent-swap graph is F_k(P_n) from de Alba et al., Corollary 3.11; only two colours.",
+        "The present q>=3 multi-colour fixed-composition graph is not the binary k-token graph; arXiv:2307.01648 swaps arbitrary positions."
+      ],
+      "reasoning": "The inversion-even matching technique extends to q>=3 and the new nonbinary parity vector formula. The known binary specialization is excluded from the novelty claim.",
+      "searches": [
+        "maximum size binary single adjacent transposition detecting code independence number 2^(n-1)+2^floor((n-1)/2) exact",
+        "adjacent swap graph exclusion process independent set binary words parity of inversion and matching",
+        "binary word transposition detection one adjacent swap odd even weight sum coordinate checksum optimal",
+        "q-ary words fixed symbol multiplicities adjacent unequal transposition graph maximum independent set single swap detection multiset permutations inversion parity matching q^ceil(n/2)",
+        "arXiv:1606.06370 Corollary 3.11",
+        "arXiv:2307.01648 §1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned mathematical records concerned mixed deletion-and-swap codes, adjacent-pair read multispectra, and duplication channels; no matching q-ary independent-set entry in the queried results.",
+        "Finite literal graph checks span 22 instances, not a substitute for an external database search."
+      ],
+      "reasoning": "No exact existing q-ary table or formula was located in the consulted records; this negative search result is limited and is not itself proof of originality.",
+      "searches": [
+        "maximum size binary single adjacent transposition detecting code independence number 2^(n-1)+2^floor((n-1)/2) exact",
+        "q-ary words fixed symbol multiplicities adjacent unequal transposition graph maximum independent set single swap detection multiset permutations inversion parity matching q^ceil(n/2)",
+        "q ary strings adjacent transposition detecting codes optimal size inversion parity",
+        "multi-colour path token graph matching independence count fixed multiset compositions"
+      ]
+    },
+    "rationale": "The binary fixed-weight result of de Alba et al. Corollary 3.11 is explicitly excluded as known. Inspected 2023 primary results cover unrestricted-position swaps or correcting mixed errors, not q>=3 adjacent-only detection independent sets. A fixed-composition multi-symbol formula with exact parity exceptional count was not located. Residual unindexed/general matching theorem risk acknowledged.",
+    "residual_risks": [
+      "Unlocated equivalent q-ary adjacent-swap independence formula or general matching theorem could subsume claim.",
+      "The 1998 paper full text could not be inspected, although its stated channel includes substitution errors in addition to swaps.",
+      "Binary fixed-weight case is known and not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS binary fixed-composition result; does not state q>=3 multi-colour count; binary not newly claimed",
+        "evidence": [
+          "Corollary 3.11: k-token graph of a path independence number determined by its bipartition sizes",
+          "Theorem 3.10: matching argument using perfect or almost-perfect graph matchings"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.06370",
+        "material_read": "PDF theorem statements and relevant proofs of Theorem 3.10 and Corollary 3.11; abstract and graph definition",
+        "method": "Open-access arXiv PDF full-text relevant sections",
+        "title": "Independence and matching numbers of some token graphs",
+        "trigger": "Binary fixed-weight adjacent-swap graph is a path token graph, possible exact prior"
+      },
+      {
+        "assessment": "Does not cover the present adjacent-only independent-set formula: its 2-swap permits exchanging any pair of positions",
+        "evidence": [
+          "Abstract defines 2-swap positions i,j without adjacency constraint and lists diameter, clique, graph substructure, Hamilton paths"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.01648",
+        "material_read": "Open-access PDF abstract, definitions, introductory claims, diameter/clique/Hamilton-path sections and graph operation specification",
+        "method": "arXiv full-text PDF targeted reading",
+        "title": "Structural and Combinatorial Properties of 2-swap Word Permutation Graphs",
+        "trigger": "Same fixed-composition words and swaps, likely broader graph result"
+      },
+      {
+        "assessment": "Correction of shifts together with deletions is not the same as detecting only one adjacent unequal swap",
+        "evidence": [
+          "Abstract describes right- and left-shift errors and deletion-correcting code construction with logarithmic redundancy"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.11680",
+        "material_read": "arXiv abstract and relevant full-text introduction/model of asymmetric shifts and deletions",
+        "method": "Open-access arXiv HTML and paper sections",
+        "title": "Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+        "trigger": "Potential stronger coverage by error-correcting codes"
+      },
+      {
+        "assessment": "Star swap graph differs from adjacent swap graph; adjacent Gray-code Hamiltonicity results provide context, not the q-ary independence formula",
+        "evidence": [
+          "Intro defines star swap as exchange of first and any other position and attributes adjacent Gray-code existence to Stachowiak"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.22915",
+        "material_read": "Open-access article abstract, introduction, definition of star swaps, and comparison to adjacent transposition Gray codes",
+        "method": "Open-access publisher full-text relevant sections",
+        "title": "Star transposition Gray codes for multiset permutations",
+        "trigger": "Fixed-composition permutation graphs and transposition-related Hamiltonicity"
+      },
+      {
+        "assessment": "Simultaneous substitution and transposition detection imposes an additional constraint; its optimum does not determine adjacent-swap-only optimum. Full text not inspected, residual risk noted.",
+        "evidence": [
+          "Abstract expressly states codes detect one substitution OR one consecutive transposition; gives different cardinality bounds"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/comjnl/41.4.270",
+        "material_read": "Publisher abstract; full text source at public mirror gave 403 during inspection",
+        "method": "Publisher abstract and alternative lawful full-text search, limited access",
+        "title": "Detecting Substitutions and Transpositions of Characters",
+        "trigger": "Direct detector-code nomenclature and potential overlapping optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3969c4e-0073-458d-a59b-0fa59c23b3ff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact code capacity for detecting one adjacent swap over q>=3 alphabets is a natural coding invariant. The stronger all-composition formula describes optimal codes with fixed symbol inventories and a precise zero/one odd-multiplicity boundary. The matching supplies a constructive, all-parameter optimality certificate, beyond finite computation or known binary specialization.",
+    "status": "PASS"
+  }
+}
