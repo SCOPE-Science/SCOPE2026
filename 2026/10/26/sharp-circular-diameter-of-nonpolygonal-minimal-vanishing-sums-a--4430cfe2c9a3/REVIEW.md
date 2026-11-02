@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A rational tensor-kernel argument forces every nonpolygonal minimal zero-one root relation of order \(2pq\) to have the signed rectangular checkerboard form. The argument checks that every such checkerboard is itself minimal. The gap bound uses both parity-opposed appearances of every nonzero row residue, closing all but one edge of a prime cycle; a two-edge deletion supplies matching extremizers. The exact-integer verifier independently confirms \(16{,}992\) finite checkerboard instances, but no infinite claim is inferred from enumeration.
+## correctness
 
-## Originality — PASS, with stated uncertainty
-A complete implication comparison was made with Tan–Zhang's general cyclotomic diameter bound, Lam–Leung's minimal relation and weight bounds, and Christie–Dykema–Klep's classification by weight/type. Those checked results do not state, or directly imply, the exact nonpolygonal circular diameter \((2p-1)(q-1)\) for all pairs, nor its sharp construction. Semantic mathematical-record searches for circular gaps, root-of-unity zero-one relations, and cyclotomic diameters found no equivalent; the absence of a result is not conclusive. Lam–Leung's entire original proof and all older literature were not exhaustively rechecked, leaving a genuine implicit-coverage risk.
+PASS
 
-## Mathematical value — PASS
-Sharp nonpolygonal extremal thresholds are the next natural boundary after polygonal equality in cyclotomic diameter inequalities. The theorem distinguishes atomic support geometry from general nonnegative divisibility, gives a closed formula for an infinite two-prime family, and identifies a structural checkerboard mechanism that may guide more complicated three-prime relations.
+Antipodal pairs vanish individually, hence a nonpolygonal minimal subset contains at most one element from each such pair. The signed p×q coefficient matrix lies in the rational cyclotomic tensor kernel c_ij=u_i+v_j. Nonconstant row and column potential ranges must each equal one because every c_ij is -1,0,1 and both extremal signs occur; this forces exactly the opposite-sign diagonal rectangles A×B and Ac×Bc, with mixed zero. Kernel additivity on all submatrices supported there proves minimality. If q+2p-1 consecutive cyclic positions were missing, pair e,e+q for 1<=e<=2p-1 imposes opposite weak inequalities on a_r vs a_{r+q}, forcing equality for all nonzero residues and then globally (q invertible mod p), impossible for proper nonconstant A. Conversely remove two prescribed q-step directed-cycle edges, assign indicator A along the resulting two paths, then consistently color each q-column B to omit 1..q+2p-2; nontriviality follows forced even/odd columns. Independent enumeration of all 16,992 nonempty-proper (A,B) in four prime pairs finds exactly q+2p-1 for every maximum; finite test corroborates full general construction, not a proof of it.
 
-## Limitations
-No claims for general nonnegative multiples, higher multiplicities, or four-prime orders. The result remains without independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the sharp circular gap and universal attaining extremizers, not for merely the known existence of three-prime asymmetric minimal sums. Primary broader diameter results are strictly weaker on this restricted class.
+
+## value
+
+PASS
+
+Sharp extremal geometric support concentration among irreducible zero-one cyclotomic relations is natural in Fourier cancellation, minimal designs and vanishing-root theory; the exact bound complements qualitative weight classifications and universal but weaker nonnegative support-diameter inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
