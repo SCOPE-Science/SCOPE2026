@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification
 
-The graph is the Cayley graph on the sixteen four-bit words with XOR generators `1, 2, 4, 8, 15`; its 40 edges are independently reconstructed. The complete proof computes the finite 705-state reconfiguration graph using all eligible matchings and all valid alternating quadrilaterals, not sampling or a randomized test.
+# Independent mathematical audit
 
-Run `python3 verify.py`; expected final line: `ALL_VERIFY_OK`. This enumerates matchings using a first-uncovered-vertex recursion, independently counts them by a subset recurrence, constructs all flips by cross-pairings, checks the complete adjacency relation against all unordered matching pairs, runs 705 exhaustive breadth-first searches, verifies the 2160 edges and the full distance spectrum, and applies 1920 explicitly constructed graph automorphisms to recover the seven symmetry types and all direction profiles.
+## correctness
 
-Compile `c++ -std=c++17 -O2 -Wall -Wextra verify_alt.cpp -o verify_alt` and run `./verify_alt`; expected final line: `ALL_VERIFY_OK`. This separately enumerates all matchings as 40-bit edge masks, constructs the switch graph solely by symmetric differences, and recomputes all breadth-first distances. Its independent outputs include 705 states, 2160 undirected edges, radius 7, and diameter 8.
+PASS
 
-The unordered-pair shortest-path histogram is `1:2160, 2:8040, 3:22360, 4:45160, 5:64800, 6:61920, 7:34880, 8:8840`. The sum of those eight counts is 248160, the exact number of unordered pairs of distinct matchings. The five radius-seven centers are the five matchings consisting entirely of edges of one generator direction.
+Reconstructed graph from F2^4 and five XOR generators; proved strongly regular parameters (16,5,0,2) and absence of 4-edge distinct-generator relations, so all 4-cycles use two generators twice. First-uncovered-vertex recursion exhausts each 8-edge perfect matching uniquely; independent count=705. One 4-cycle flip corresponds exactly to symmetric difference of four graph edges between two perfect matchings; independent all-pairs computation gives 2160 undirected edges and degree counts {4:200,6:360,8:60,10:80,16:5}. Exhaustive BFS from every one of 705 states gives connectedness, radius7/diameter8 and complete pair histogram including 8840 at distance8. The 16 translations and all 120 permutations of the five generators yield 1920 automorphisms; any vertex-fixing automorphism is determined by its five neighbors (every other vertex the unique nonzero common neighbor of a pair), giving full group. Explicit orbit action yields 7 orbits and confirms the 5 centers exactly coincide with the 5 parallel direction matchings. Independent newly written combinatorial verifier with alternate matching representation, all-pairs BFS and group action reproduced the result. This is exhaustive finite proof, not a sample or merely a successful verifier log.
 
-These programs establish a finite exhaustive certificate for this graph only. The previously known count of 705 is included solely as a coverage and correctness check. No independent audit has been performed.
+## originality
+
+PASS
+
+The number 705 and complete prescribed-difference matching multiplicity tables are already available in published Resultary findings; they have been explicitly excluded from new claims. The inspected 2019 Bonamy et al perfect-matching reconfiguration primary studies 4-cycle flips, reachability, and complexity across graph classes; it does not give Clebsch specific flip-graph diameter/orbits. Dyer–Müller switch-chain general theory also lacks these precise finite metrics. Exactly seven full automorphism orbits, sharp diameter8, five geodesic centers and complete distance distribution remain an independently motivated exact classification with no covering antecedent identified in checked sources.
+
+## value
+
+PASS
+
+The 5-regular Clebsch graph is a canonical highly symmetric small graph; its perfect-matching local flip dynamics are natural in combinatorial reconfiguration. The exact radius, diameter, geodesic centers, complete distance histogram and seven orbits are a coherent natural full finite classification useful as a benchmark for switch-chain algorithms and future folded-cube questions. The five central parallel matchings and orbit splits supply nontrivial structural information beyond 705 matchings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
