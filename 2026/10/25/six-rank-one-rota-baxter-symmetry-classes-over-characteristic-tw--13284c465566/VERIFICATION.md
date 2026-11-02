@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run the standard-library-only programs `python artifacts/verify.py` and `python artifacts/verify_f4.py` from this package's root directory. Both use exact finite arithmetic and the defining Rota–Baxter equation, rather than a database of precomputed valid operators.
+## correctness
 
-The first program enumerates normalized image lines and nonzero covectors over the prime fields \(\mathbb F_2\) and \(\mathbb F_3\), tests all sixteen ordered basis pairs, computes full algebra-automorphism groups, and checks each predicted orbit is exactly the corresponding invariant stratum. Actual output:
+PASS
 
-```text
-q= 2 rank1= 25 orbit_sizes= [1, 3, 3, 6, 6, 6] automorphisms= 24
-q= 3 rank1= 122 orbit_sizes= [2, 8, 16, 24, 24, 48] automorphisms= 432
-VERIFY_OK
-```
+For R(a)=phi(a)v, the identity forces v in the radical and phi(vE+Ev)=0. For projective image in J^2, the annihilator has dimension three; off J^2 it has dimension two, yielding (q^3-1)+(q^2+q)(q^2-1). All algebra automorphisms come from GL2(q) and two socle shifts, and their actions are transitive on the three nonzero (phi(1),phi(J)) support types within each image stratum. Independently recalculated exact six orbit-size polynomials and their totals at q=4,8,16; q=4 total 363 and sizes [3,15,45,60,60,180].
 
-The second program uses independent \(\mathbb F_4\) arithmetic with reduction modulo the irreducible binary polynomial \(t^2+t+1\); it enumerates rank-one operators, tests the equation and constructs every conjugacy orbit under all \(2880\) algebra automorphisms. Actual output:
+## originality
 
-```text
-q= 4 rank1= 363 orbit_sizes= [3, 15, 45, 60, 60, 180] automorphisms= 2880
-VERIFY_F4_OK
-```
+PASS
 
-An additional direct image/covector count at prime fields of sizes \(2,3,5,7\) returned \(25,122,844,3030\). These checks are finite and cannot certify the theorem for all finite fields; the full proof in `RESULT.md` establishes the quantified statement. The published \(\mathbb F_2\) enumeration is prior literature rather than a claimed discovery here. Independent mathematical audit status remains not performed.
+Full real coefficient classification in Shakoor–Noor-ul-Ain and F2 orbit census predate the submission. Neither alone states the extension-field automorphism-orbit sizes. Hua–Liu 2013 is a close antecedent but indexed description is characteristic not-two, with complete text inaccessible.
+
+## value
+
+PASS
+
+The finite-field rank-one variety and action of the full unital automorphism group form a canonical algebraic classification problem; exact six orbits uniform in all extensions of F2 and their polynomial sizes are complete motivated structural invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
