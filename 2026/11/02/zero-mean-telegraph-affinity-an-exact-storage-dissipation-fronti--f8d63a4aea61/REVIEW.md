@@ -1,0 +1,23 @@
+# Scientific review
+
+## Correctness (PASS)
+
+The stated finite four-state irreducible Markov generator is fully specified with strictly positive rates. Solving the two stationary charged-subpopulation equations yields the excess marginal charge in the claimed hyperbolic closed form. All four oriented edge currents coincide; the unique rectangular cycle has affinity \(2\alpha\), giving the full-chain path entropy-production rate \(2\alpha J\). The normalized charge/dissipation identity follows by common-denominator algebra, and positive denominator factors prove strict response monotonicity. The Bernoulli-KL first and second derivative identities give the strict free-energy frontier. The open endpoints are described as limits, not stationary uniqueness at zero switching. The standalone checker establishes 339 symbolic/exact-rational assertions independently from the original analytic elimination, including full generator stationarity, direct rational linear-system solves, currents, strict charge inequalities and derivative identities. Risk: the stochastic thermodynamic implementation of the source-flip mechanism need not have exactly the abstract chain's path entropy as its full physical fuel expense; this is explicitly excluded by scope.
+
+## Originality (PASS under the inspected evidence, qualified)
+
+The first source derives a *constant*-affinity two-state battery and motivates a stored-work functional but has no independent switching variable or stationary four-state entropy–charge relation. The second source predates it and explicitly uses a four-state telegraph-driven two-well master equation; that shared architecture, the stationary linear inversion method, and general noise-induced response are **prior art**. Its displayed conclusion is a mean switching rate in a symmetric two-well model, not the asymmetric-storage population together with the full thermodynamic cycle current and exact affine storage–dissipation law. The third source supplies standard cycle-current/affinity and hidden-pump thermodynamics, but its protocols and comparisons do not specify this exact zero-mean telegraph storage frontier. Claim-level searches of related two-state batteries, telegraph modulation, stationary populations, currents, entropy production and normalized frontiers found no exact stated counterpart among inspected sources; failure to locate one is not proof of publication priority. Relevant existing mathematical claims were compared by implication, with no identified assertion of this particular theorem. Remaining risk: a broader finite-state switching theorem could imply the formulas as a simple corollary; specialist independent literature review is needed before any priority claim.
+
+## Value (PASS)
+
+The source's central physical gap is storing a nonequilibrium resource for later release, rather than only creating contemporaneous current. Replacing an ideal constant active affinity with a symmetric zero-mean fluctuating supply probes whether fluctuations alone can charge a biased two-level store and quantifies the unavoidable microscopic circulation. The theorem delivers a complete, nonperturbative switching-rate response: strictly positive but uninverted charge, increasing dissipation as storage decreases, an exact normalized affine relation, and a strictly convex work–dissipation frontier; critically, rapid modulation hides a positive dissipation rate behind a thermal-looking battery marginal. These are motivated, exact model-specific design and interpretation facts, not a claim about all active matter or a general stochastic thermodynamic theorem. The result is modest in system size and derives from explicit linear algebra, but its precise resource–cost classification and singular fast-switch interpretation provide substantive information beyond restating the generator.
+
+## Closest published literature and limits
+
+- Lin, Liu and Ma, *Active-Matter Battery* (2026), arXiv:2610.00428v1, especially model equations (1)–(4): constant-affinity battery and stored free energy.
+- Bena, *Dichotomous Markov Noise* (2006), arXiv:cond-mat/0606116v3, Section VII equations (116)–(118): a closely related four-state switching model; strong methodological overlap acknowledged.
+- Esposito and Parrondo, *Stochastic thermodynamics of hidden pumps* (2013/2015), arXiv:1310.2987v3, Sections II–IV: standard edge-current/affinity and hidden-source thermodynamics.
+
+The model does not include manufacturing, chemical fuel or switching-control costs; it does not show all physical efficiencies or any generic universal fluctuation benefit. Broader result subsumption remains an originality risk. Only the stated joint theorem was assessed.
+
+Self-review: passed. Independent audit: not yet performed.
