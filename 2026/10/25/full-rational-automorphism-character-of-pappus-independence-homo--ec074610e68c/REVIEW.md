@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact public checker independently enumerates all 2,598 augmented independent faces and computes all nine augmented boundary ranks over \(\mathbb F_2\). The reduced homology concentration and Euler characteristic determine rational degree-four rank ten. Two independent methods agree on signed Lefschetz traces for all 216 graph automorphisms; the full conjugacy-class algebra checks all 169 products for each degree-four and degree-six character candidate. Semisimplicity, multiplicity one in the rational homology module, and rational-valued characters establish the claimed rational splitting. The quotient conclusion follows by averaging rational chains.
+## correctness
 
-## Originality — PASS, with residual indexing risk
-The exact prior Pappus homotopy record proves only ten four-spheres, which does not determine group actions. The closest Pappus order-three symmetry record explicitly confines itself to the three-element cyclic subgroup and determines its ten-dimensional restriction; different full-group characters can restrict identically. This record's 13-class character and distinct irreducible degrees are strictly finer. Tsukuda's incidence-graph Alexander duality theorem and Berghoff's homology spectral sequence give broader topology methods, but the inspected material does not provide the exact automorphism representation. Equivalent results may exist outside indexed or accessible sources; negative searches are not novelty proofs.
+PASS
 
-## Mathematical value — PASS
-The Pappus graph is a canonical vertex- and edge-transitive Levi graph with 216 automorphisms. Its homology rank ten previously obscured the distinct irreducible four- and six-dimensional geometric symmetry types. Determining every automorphism trace and proving rational acyclicity of the full orbit-space resolves meaningful intrinsic invariants of this natural symmetric complex, rather than an arbitrary numerical slice.
+Reconstructed Pappus adjacency independently from the LCF [5,7,-7,7,-7,-5]^3: 18 vertices, 27 edges, all 2598 augmented independent faces, GF2 boundary ranks (1,17,109,329,472,274,74,16,2) and rational homology concentrated in degree four of dimension 10 by UCT and Euler. NetworkX graph isomorphism search independently found exactly 216 automorphisms and 13 conjugacy classes. For each of the 216 permutations, directly enumerated setwise fixed independent faces with orientation signs and recovered the source 13-class Lefschetz table, total invariant average zero. Inspected source’s full rational class-algebra multiplication certificate construction and character splitting into degree 4 and degree 6: squared character norm 1 and 169 class-algebra products, multiplicity-one rational descent. In rational characteristic zero the transfer relation identifies quotient rational homology with invariants. The result is finite but exhaustive for the one fixed graph.
 
-## Limitations
-The proof is an exhaustive finite computation plus exact character-theoretic argument; it supplies no general theorem for other Levi graphs. Integral module and quotient torsion remain undetermined. Some relevant broader published accounts were consulted only to stated accessible portions; obscure equivalent work remains possible. No independent external mathematical audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full 216-element 13-conjugacy-class character and rational 4+6 irreducible splitting are not implied by the published single order-three character, nonequivariant 10-sphere wedge, or general independence-homology spectral sequence.
+
+## value
+
+PASS
+
+The complete 13-class automorphism character and rational irreducible decomposition of a natural 18-vertex incidence graph’s homology are mathematically motivated symmetry invariants not determined by its known wedge of ten S4 or single C3 trace; the rationally acyclic quotient is a concrete structural consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Exact verification
-Run `python3 verify_pappus_full_aut.py` using Python 3.10+ standard library. The complete reconstruction was executed successfully before final packaging.
+# Independent mathematical audit
 
-* The graph has 18 vertices, 27 edges and 216 automorphisms; its group has 13 conjugacy classes.
-* The independence complex has 2,598 augmented faces; its nine augmented binary boundary ranks are \((1,17,109,329,472,274,74,16,2)\).
-* It has mod-two reduced homology concentrated in degree four, of dimension ten. Rational concentration follows by the universal coefficient theorem and rational rank by the Euler characteristic.
-* The full 216-element signed simplicial fixed-face traces agree with the independent signed permutation-cycle and quotient-independence-polynomial method.
-* Both proposed irreducible characters satisfy exact orthogonality and all 169 class-algebra multiplication checks using rational arithmetic, and sum to the full homological Lefschetz character.
-* The trace average is zero, yielding rationally acyclic full symmetry quotient.
+## correctness
 
-Completion strings: `PAPPUS_FULL_216_AUTOMORPHISM_CHARACTER_VERIFIED` and `PAPPUS_DIRECT_SIGNED_TRACE_ALL_216_VERIFIED`.
+PASS
 
-The finite script proves this exact graph-level character assertion, not a general family theorem. The representation is rational but its integral equivariant lattice is not determined. Independent mathematical validation has not been performed.
+Reconstructed Pappus adjacency independently from the LCF [5,7,-7,7,-7,-5]^3: 18 vertices, 27 edges, all 2598 augmented independent faces, GF2 boundary ranks (1,17,109,329,472,274,74,16,2) and rational homology concentrated in degree four of dimension 10 by UCT and Euler. NetworkX graph isomorphism search independently found exactly 216 automorphisms and 13 conjugacy classes. For each of the 216 permutations, directly enumerated setwise fixed independent faces with orientation signs and recovered the source 13-class Lefschetz table, total invariant average zero. Inspected source’s full rational class-algebra multiplication certificate construction and character splitting into degree 4 and degree 6: squared character norm 1 and 169 class-algebra products, multiplicity-one rational descent. In rational characteristic zero the transfer relation identifies quotient rational homology with invariants. The result is finite but exhaustive for the one fixed graph.
+
+## originality
+
+PASS
+
+Full 216-element 13-conjugacy-class character and rational 4+6 irreducible splitting are not implied by the published single order-three character, nonequivariant 10-sphere wedge, or general independence-homology spectral sequence.
+
+## value
+
+PASS
+
+The complete 13-class automorphism character and rational irreducible decomposition of a natural 18-vertex incidence graph’s homology are mathematically motivated symmetry invariants not determined by its known wedge of ten S4 or single C3 trace; the rationally acyclic quotient is a concrete structural consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
