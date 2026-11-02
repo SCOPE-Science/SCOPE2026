@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The renewal equation for the number of steps after the latest reset yields the exact transform \(F(s+\lambda(1-z))/(sF(s))\). A genuine iid-wait CTRW must instead have a geometric Montroll–Weiss factor; their equality forces \(1/F\) to be affine on overlapping intervals and hence \(F(s)=1/(s+r)\). The unique inverse waiting law has finite density \(\lambda e^{-(\lambda+r)t}\) and mass \(r/(\lambda+r)\) at infinity. An independent matrix-generator implementation checks the one-time and two-time identities. The covariance and time-average proofs explicitly distinguish stopped and regenerative paths. The evidence is analytic, not an inference from finite tests.
+PASS
 
-## Originality — PASS (best-knowledge)
+Renewal equation for since-last-reset count gives F(s+lambda(1−z))/(sF(s)); an iid-wait count would give (1−w(s))/(s(1−zw(s))). Equality for all spatial characteristic functions forces equality of count generating functions, so 1/F is affine on each overlapping interval [s,s+lambda], hence globally s+r (r>=0). Laplace uniqueness and normalization imply Phi=e^(−rt) and unique defective w(s)=lambda/(s+lambda+r). Conversely transform identity yields all-time marginal equality. Two-time covariance follows reset erasure vs killed martingale; regenerative ergodic theorem gives time-average separation r>0. Independently checked 135 exponential-transform parameter tuples and three deterministic-reset nonaffinity examples. Scope excludes delayed/nonrenewal surrogates.
 
-Colantoni–Pagnini's general reset-count representation and index-dependent coefficients, Godrèche–Luck's cumulative dressed event count, Bodrova–Sokolov's power-law displacement laws, and Stojkoski et al.'s two-time correlation calculations are all acknowledged and compared at the statement level. The new conjunction is an if-and-only-if criterion for *ordinary iid-renewal spatial-marginal surrogates*, uniqueness of its necessarily defective law, and a sharp trajectory distinction. Relevant public research records and accessible antecedent claims were searched; this does not certify worldwide priority. A general renewal factorization or transform-rigidity theorem not examined could subsume the criterion.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers when a widely used marginal CTRW representation may legitimately be promoted to a genuine iid-wait renewal model, and shows that doing so at positive Poisson-reset rate sacrifices long-time transport along individual trajectories. It is a structural limit and identifiability boundary, not a small numerical gain or a restatement of the reset renewal equation. The no-reset endpoint and the requirement that infinite waits be admitted are explicit.
+Best-of-knowledge distinct mathematical contribution established by comparison of actual statements, not titles. To imply claim, prior law must enforce affine 1/F(s) on all overlapping λ-intervals and identify unique mass r/(λ+r) at infinite wait. The inspected equations neither impose the ordinary factorization nor state this rigidity. Path covariance is credited as known background. General ingredients and established results explicitly credited; no priority guarantee.
 
-## Scope and risk
+## value
 
-Only symmetric nearest-neighbor jumps with a Poisson underlying clock, ordinary nondelayed wait-first renewal surrogates, and all-time spatial-marginal equality are classified. The general result for non-Poisson underlying clocks remains open here. The earlier two-time resetting-covariance mechanism is not independently novel; it provides an explicit consequence. Literature-wide priority is unverified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ordinary renewal representability of reset marginal laws is a natural identifiability/structural question. The iff exponential characterization, uniqueness of the necessarily defective waiting distribution, and exact pathwise covariance separation expose a non-obvious representational obstruction beyond a routine renewal equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical checks
+# Independent mathematical audit
 
-The analytic claim uses the reset-count renewal identity, the standard iid-wait renewal-count transform, and an overlapping-interval affine-rigidity argument. Their assumptions and endpoint normalizations appear in `RESULT.md`.
+## correctness
 
-Run `python verification.py` with Python 3, NumPy, and SciPy. The program reports 207 finite checks. It compares the transformed generating functions for positive and zero exponential reset rates, detects the failed iid-renewal factorization under deterministic resetting, and separately constructs a reset-walk generator and a permanently stopped-walk generator on finite lattice windows. It checks their one-time position distributions and distinct two-time covariance values.
+PASS
 
-The generator computations use bounded lattice windows and thus have a truncation error. Numerical agreement checks only the selected finite cases. The full if-and-only-if claim follows from transform uniqueness and does not rely on any finite enumeration or simulation. Time-averaged limits follow from a stationary Poisson-regeneration construction, integrability and the ergodic theorem; those infinite-horizon claims are not certified by the finite diagnostic program.
+Renewal equation for since-last-reset count gives F(s+lambda(1−z))/(sF(s)); an iid-wait count would give (1−w(s))/(s(1−zw(s))). Equality for all spatial characteristic functions forces equality of count generating functions, so 1/F is affine on each overlapping interval [s,s+lambda], hence globally s+r (r>=0). Laplace uniqueness and normalization imply Phi=e^(−rt) and unique defective w(s)=lambda/(s+lambda+r). Conversely transform identity yields all-time marginal equality. Two-time covariance follows reset erasure vs killed martingale; regenerative ergodic theorem gives time-average separation r>0. Independently checked 135 exponential-transform parameter tuples and three deterministic-reset nonaffinity examples. Scope excludes delayed/nonrenewal surrogates.
 
-The self-review is passed; no independent validation has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical contribution established by comparison of actual statements, not titles. To imply claim, prior law must enforce affine 1/F(s) on all overlapping λ-intervals and identify unique mass r/(λ+r) at infinite wait. The inspected equations neither impose the ordinary factorization nor state this rigidity. Path covariance is credited as known background. General ingredients and established results explicitly credited; no priority guarantee.
+
+## value
+
+PASS
+
+Ordinary renewal representability of reset marginal laws is a natural identifiability/structural question. The iff exponential characterization, uniqueness of the necessarily defective waiting distribution, and exact pathwise covariance separation expose a non-obvious representational obstruction beyond a routine renewal equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
