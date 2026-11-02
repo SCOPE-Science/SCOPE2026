@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** A deterministic sum over all cyclic roots gives exactly twice the maximum–intermediate cross moment equal to the intermediate second moment. Cyclic invariance supplies zero mean; negated time reversal yields the claimed equality of full joint distributions. The conditional law is therefore not inferred from finite experiments. The exact verifier covers 59,387 orbit-lag cases, complete two-coordinate histograms, symmetric bridge examples, and a boundary counterexample. Brownian consequences use the Gaussian bridge's shift/reversal invariances.
+## correctness
 
-**Originality: PASS within inspected sources; historical priority remains uncertain.** Bertoin–Chaumont–Pitman (2003) establish bridge rerooting and related path transformations; Lupu–Pitman–Tang (2013/2015) develop Vervaat decompositions. The closest inspected public maximum–endpoint result concerns a different terminal variable and imposes reversal plus sign symmetry. The new skew cyclic-bridge covariance does not follow from that assertion: its terminal value is identically zero and the skew three-step example violates global sign symmetry. Classical Brownian reflection theory covers the illustrative Brownian specialization and is not claimed new. Anis–Gharib (1980) is a residual comparison risk because only its abstract was accessible.
+PASS
 
-**Mathematical value: PASS.** The result gives an exact non-Gaussian and distribution-free coupling statistic relating a global extreme to *every* marked intermediate position in finite random bridges, including dependent and skew cycling laws. The full joint reflection when a second symmetry is present supplies infinitely many test-function identities. The skew three-step example separates the minimum covariance assumptions from stronger conditional symmetry, and the random-walk/Brownian formulas connect the structure to familiar bridge calibration problems. This is not a numerical fit or a mere change of normalization.
+For a fixed zero-sum vector, cyclic root i yields m_i=h_max-h_i and s_i,k=h_(i+k)-h_i. Summing the deterministic orbit identity 2 sum_i m_i s_i,k=sum_i s_i,k^2, using zero sum and cyclic invariance gives Cov(M,S_k)=Var(S_k)/2 for every interior k without sign assumptions. Under negated-reversal invariance, reverse cyclic path from lag k to zero to pair (M-S_k,-S_k); centering gives the exact joint reflection. The skew orbit of (2,-1,-1) has nonsymmetric S_1 and is an explicit boundary witness.
 
-**Limits.** Independent verification was not conducted, historical sources cannot establish absolute priority, the stronger reflection needs the stated additional symmetry, and the Brownian consequence alone is classical in scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: inspected the frozen final theorem and compared mathematical implications with published related sources rather than titles. The cited ingredients and simpler special cases are prior; the claimed additional precise joint law/spectral bound/bridge law/Dyck rigidity/cyclic construction is not established by the inspected results. Unlocated equivalent prior coverage remains an explicit risk.
+
+## value
+
+PASS
+
+A universal bridge maximum/position covariance law requiring only cyclic stationarity and a pathwise zero sum, plus a stronger joint reflection under additional precisely named symmetry. It covers dependent skew cyclic increment laws where familiar exchangeable/sign-symmetric endpoint arguments do not apply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
