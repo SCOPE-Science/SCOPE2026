@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact group averaging, spectral decomposition into three fiber blocks and 3x3 class quotient, fixed-y minimax inequality, and exhaustive monotone scalar crossing argument establish the four regimes for every real 0<a<1/2. Exact nonnegative averaging proves the all-optimizer support implications. Standard-library Fraction verifier checks constructions and eigenpairs across many cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Diaconis and Xiao 2004, Section 6, states the general fixed-pi SDP; Section 7.1 solves complete bipartite uniform-pi. Boyd et al. 2009 Section 5.4.2 gives multipartite block matrices but solves only biclique explicitly.",
+        "Jafarizadeh, Sections 3.1–3.2, covers clique lifts with fully connected fibers, not independent fibers of K_(m,m,r), and Section 6 develops path-derived examples."
+      ],
+      "reasoning": "The general SDP covers computational formulation, not the exact answer. The low-a optimum is a bipartite support-reduction case, and is not claimed as independently new. The other three mass regimes and optional-versus-forced edge threshold require solving additional eigenvalue inequalities. The later clique-lift theorem requires intra-fiber edges absent from the present graph, and does not automatically imply the candidate.",
+      "searches": [
+        "fastest mixing reversible Markov chain complete bipartite graph uniform within parts sharp one-third mass threshold self-loops",
+        "fastest mixing reversible Markov chain complete multipartite arbitrary stationary distribution explicit 2022",
+        "Boyd Diaconis Parrilo Xiao complete multipartite block diagonalization formula 2009 tripod stationary distribution optimization"
+      ]
+    },
+    "checked_sources": [
+      "Boyd–Diaconis–Xiao 2004: https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "Boyd–Diaconis–Parrilo–Xiao 2009 / arXiv:0709.0955: https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "Public mathematical records: target searches with four-phase tripartite and optimal stationary masses; closest hits did not assert the claim",
+      "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs, https://arxiv.org/html/2501.02421v1, relevant sections directly inspected"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2004 explicit K_(m,n) solution: p*=min(1/n,2/(n+2m)); 2009 complete k-partite subsection: matrix block decomposition and suggestion to substitute into the SDP."
+      ],
+      "reasoning": "The complete-bipartite formula alone cannot imply the nonzero A-B-flow phases of the tripartite graph. The complete multipartite block decomposition implies an algorithmic reformulation, but does not itself evaluate the minimax, the three crossings, or optimizer-set support statements. Those new steps are proved separately. The earlier general methods remain credited.",
+      "searches": [
+        "fastest mixing complete tripartite stationary probabilities closed form",
+        "complete multipartite Markov chains fastest mixing explicit solution",
+        "fastest mixing Markov chain complete bipartite graph arbitrary stationary distribution mass holding probability optimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al. 2009 Section 5.4.2 (pages 812–813) decomposes the k-partite eigenblocks without evaluating the present three-mass optimum."
+      ],
+      "reasoning": "The current problem is equivalent to a reversible spectral-norm minimization with the 3-class quotient and three fiber eigenvalues. The 2009 blocks permit setting up an SDP but do not provide the four exact mass thresholds or optimizer interval.",
+      "searches": [
+        "fastest mixing Markov chain complete tripartite graph stationary distribution symmetry optimal formula",
+        "fastest mixing complete tripartite stationary probabilities closed form",
+        "complete multipartite Markov chains fastest mixing explicit solution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact tabulated formula was returned among the actual ranked mathematical-record matches; the closest generally relevant archival texts are the two Boyd papers cited above."
+      ],
+      "reasoning": "No known exact database/table entry for the mass-dependent four-regime values was identified. This is limited negative evidence, not a uniqueness proof.",
+      "searches": [
+        "complete tripartite fastest mixing reversible Markov chain two equal community stationary masses phase boundaries one sixth one third two fifths",
+        "optimal spectral radius three cluster reversible transition with lumped masses alpha alpha 1 minus 2alpha and self loop probabilities"
+      ]
+    },
+    "rationale": "Public 2004 FMRMC and complete-bipartite solution plus 2009 general complete-multipartite block reduction are treated as established. Neither inspected section states the present exact four-phase (a,a,1-2a) result, full symmetric optimizer interval, or optional-versus-forced AB support threshold. Best-knowledge qualified originality, subject to specialized unindexed literature.",
+    "residual_risks": [
+      "A later specialized FMRMC treatment may give equivalent or stronger complete-tripartite class-mass formulas not indexed in the searches.",
+      "The 2009 general multipartite spectral decomposition reduces the algebraic work; novelty is confined to the solved minimax and support phase diagram, not the spectral reduction.",
+      "Other specialized articles or equivalent k-partite SDP solutions may still dominate the exact phase classification despite the inspected closest sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_SDP_AND_BICLIQUE_COVERED; NOT_THE_FOUR_PHASE_TRIPARTITE_ANSWER",
+        "evidence": [
+          "Section 6, pp. 683–684: fixed-pi reversible SDP",
+          "Section 7.1, p. 685: K_(m,n) explicit p* and SLEM",
+          "Cover: electronically published 2004-10-29"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Sections 6 and 7.1, PDF pages 16–18; cover date evidence",
+        "method": "Read full sections and equation (19); inspected pages and exact biclique formula",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Source gives reversible fixed-stationary spectral-norm SDP and biclique solution, both directly relevant"
+      },
+      {
+        "assessment": "GENERAL_BLOCK_REDUCTION_COVERED; EXACT_TRIPARTITE_MASS_PHASES_NOT_PRESENT",
+        "evidence": [
+          "Section 5.4.2 pp. 812–813: general k-partite blocks and SDP substitution",
+          "Same subsection explicitly solves bipartite but no higher-k closed form",
+          "arXiv:0709.0955 v1 first public 2007-09-06"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Introduction and Section 5.4.2, PDF pages 0 and 20–21, with inspected page images",
+        "method": "Read block decomposition and exact bipartite formulas in full relevant subsection",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Section 5.4.2 explicitly studies complete k-partite graphs"
+      },
+      {
+        "assessment": "DIFFERENT_ADJACENCY_PREMISE_AND_TOPOLOGIES; NO_EXACT_TRIPARTITE_INDEPENDENT_CLASS_FORMULA_IN_INSPECTED_SECTIONS",
+        "evidence": [
+          "Section 3.1, Eq. (7a), requires every lifted fiber to be a complete clique, whereas the three classes here have no intra-class edges",
+          "Section 6.1 treats paths with prescribed equilibrium, Section 6.2 treats extended ladders and uses clique lifts",
+          "The theorem here concerns K_(m,m,r), so the clique-lifting reduction does not directly apply as a corollary"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.02421v1",
+        "material_read": "Full accessible HTML: abstract and contributions, Sections 3.1–3.2 definitions and Theorem 1, Sections 6.1–6.2 and table of contents for other topologies",
+        "method": "Direct full-text section and mathematical formula comparison, including graph edge support and clique-lift definition",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+        "trigger": "Later reversible fixed-stationary work that could conceivably dominate class-based mixing formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c991250f-dec2-4021-be94-c57f7cfe4502",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural reversible fastest-mixing design with prescribed mass reveals four sharp analytic regimes, two separate direct-edge onset/necessity thresholds (1/6 and 1/4), class-size independence, and explicitly nonunique optimizer windows, replacing a numerical SDP by complete structural formulas.",
+    "status": "PASS"
+  }
+}
