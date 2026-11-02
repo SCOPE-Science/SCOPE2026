@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "All feasible moves either stay in one part (zero utility and potential changes) or cross parts. In the cross-class case both increments are \\(x/(a-1)-(y-1)/(b-1)\\) by the binomial pair-count difference; the mirror case is symmetric. Therefore the potential is exact. The bounds \\(0\\leq\\Phi\\leq(a+b-2)/2\\) and lattice spacing \\(1/\\operatorname{lcm}(a-1,b-1)\\) give the step bound for every finite graph and every strict improvement sequence. Extracted standalone code checked 658,040 exact rational transition identities in six small instance families. Requiring \\(a,b\\geq2\\) avoids zero denominators.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.14428, Theorems 3.1 and 3.3: ordinal potential for type-composition games.",
+        "arXiv:2305.17757 Theorem 5.1: one-vacancy regular graphs."
+      ],
+      "reasoning": "The regular-graph sufficient condition covers \\(K_{a,a}\\) but not \\(K_{a,b}\\) with unequal sides; the spider condition covers stars but not \\(K_{a,b}\\) for \\(a,b\\geq2\\). The broad 2026 type-composition theorem uses same-action proportions rather than opposite-class exposure, and no reduction giving the exact pair potential was verified. A latent general-framework reduction is residual risk, not an established implication.",
+      "searches": [
+        "Exact potential and polynomial convergence for diversity-seeking Schelling jump games on non-regular complete bipartite graphs with one empty vertex",
+        "\"complete bipartite\" \"Schelling\" \"potential game\" jump",
+        "An Entropy Potential for Type-Composition Games 2026 Deligkas Eiben Goldsmith arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.17757 (full text relevant sections)",
+      "DOI:10.1007/s10458-025-09714-8 (publisher full-text relevant sections)",
+      "DOI:10.24963/ijcai.2025/446 (publisher abstract)",
+      "arXiv:2606.14428 (material text sections 2.1,3,4.1)",
+      "arXiv:2502.13375 (abstract and publisher summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Narayanan et al. 2023/2025: regular with one vacancy, spider with one vacancy, paths with any vacancies.",
+        "Our nonregular \\(K_{a,b}\\) with \\(a,b\\geq2\\) contains cycles and has distinct vertex degrees on the two sides.",
+        "The potential increment is proved equal to the mover’s exact payoff increment for every jump."
+      ],
+      "reasoning": "The genuinely unaccounted-for range is \\(a\\ne b\\) and \\(a,b\\geq2\\). No regularity, spider, or path theorem implies it. The new exact identity additionally bounds improvement length by \\(\\lfloor (a+b-2)\\operatorname{lcm}(a-1,b-1)/2\\rfloor\\). The balanced and star subclasses are acknowledged rather than presented as new.",
+      "searches": [
+        "arXiv:2305.17757 theorem regular spider complete bipartite",
+        "Exact potential and polynomial convergence for diversity-seeking Schelling jump games on non-regular complete bipartite graphs with one empty vertex",
+        "\"single empty node\" \"bipartite\" \"diversity-seeking\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.17757 Section 2 defines exact target payoff; Theorems 5.1 and 4.8 concern regular/spider graph subclasses.",
+        "DOI:10.24963/ijcai.2025/446 uses different variety utility."
+      ],
+      "reasoning": "A same-worded theorem for variety-seeking, swap, or own-group type composition is not equivalent to the exact fraction-of-unlike-occupied-neighbors jump identity. No equivalent-formulation result found.",
+      "searches": [
+        "diversity seeking jump games complete bipartite graphs one empty vacancy exact potential normalized same type pairs",
+        "Schelling diversity-seeking jump games complete bipartite unbalanced graph exact potential K_{a,b} 2023",
+        "fraction of unlike neighbors jump game complete bipartite one empty node improvement dynamics convergence",
+        "\"diversity-seeking\" \"complete bipartite\" \"potential\"",
+        "\"diversity seeking\" \"bipartite\" \"jump\" potential game"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic result records for dissociation polynomials of complete multipartite graphs, exact discounted hitting domination of complete bipartite graphs, and graph-game voting classifiers concern different objects.",
+        "The original game paper Section 7 proposes bipartite cases as further questions, rather than giving an exact table."
+      ],
+      "reasoning": "The all-size potential identity is not a finite graph-invariant lookup or a table recomputation. Targeted indexed records and public scholarly searches produced no game-and-payoff-specific exact potential table.",
+      "searches": [
+        "diversity seeking jump games complete bipartite graphs one empty vacancy exact potential normalized same type pairs",
+        "Schelling diversity-seeking jump games complete bipartite unbalanced graph exact potential K_{a,b} 2023",
+        "Exact potential and polynomial convergence for diversity-seeking Schelling jump games on non-regular complete bipartite graphs with one empty vertex",
+        "Two neighborhoods opposite fraction colorful neighbors K_{a,b} exact binomial pair count potential arbitrary types",
+        "On complete bipartite social networks with a single vacant position diversity seeking agents finite improvement property",
+        "\"diversity-seeking\" \"complete bipartite\" \"potential\""
+      ]
+    },
+    "rationale": "Verified same-object full-text paper treats regular graphs and spiders, not unequal-side complete bipartite graphs; structurally different later potential theorems do not explicitly imply the same cross-neighborhood exact identity. Targeted public literature and semantic research-record comparisons identified no covering result. Remaining source and reduction risks are recorded.",
+    "residual_risks": [
+      "Bibliographic completeness cannot be proved from negative semantic search results; another presentation of this exact potential may exist.",
+      "The full 2025 variety-seeking and swap-game papers were not materially inspected beyond their abstracts/main-results summaries; their described payoffs and moves differ.",
+      "A sophisticated reduction to a broader 2026 game framework might yield part of the consequence even though no direct statement or reduction was verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING the nonregular cyclic \\(K_{a,b}\\) family; the balanced family \\(K_{a,a}\\) is already covered and is expressly excluded from priority claims.",
+        "evidence": [
+          "Theorem 5.1: regular graph with one empty node.",
+          "Theorem 4.8: spider graph with one empty node.",
+          "Section 7 asks about other graph classes including bipartite."
+        ],
+        "identifier_or_url": "arXiv:2305.17757; DOI:10.1007/s10458-025-09714-8",
+        "material_read": "Available complete-text HTML: model and utility in Section 2, equilibrium/potential definitions, tree/spider results in Section 4, Theorems 5.1 and 5.3 and associated scope in Section 5, and open problems Section 7; searched within text for complete bipartite coverage.",
+        "method": "Public full-text HTML (arXiv and publisher).",
+        "title": "Diversity-Seeking Jump Games in Networks",
+        "trigger": "Identical utility and move rule; regular-graph one-vacancy theorem and other topology theorems could cover candidate."
+      },
+      {
+        "assessment": "Different utility: number of distinct other types among neighbors, rather than occupied-unlike-neighbor fraction. Thus the advertised all-graph result does not imply this payoff-specific exact identity.",
+        "evidence": [
+          "The described utility is the number of types different from the agent’s own in its neighborhood."
+        ],
+        "identifier_or_url": "DOI:10.24963/ijcai.2025/446",
+        "material_read": "Publisher abstract and main-results summary; the full article was not read.",
+        "method": "IJCAI publisher summary.",
+        "title": "Variety-Seeking Jump Games on Graphs",
+        "trigger": "The abstract advertises a potential theorem with one empty vertex for all graph topologies."
+      },
+      {
+        "assessment": "No direct covering implication established: their payoff is based on the type mix of players choosing the same action, whereas an agent here evaluates the occupied neighbors in the opposite bipartition class, subject to a capacity-changing vacancy. The present exact quadratic identity and coefficients are not asserted there.",
+        "evidence": [
+          "The authors define type-composition payoff as the ratio of same/other types choosing the same action.",
+          "Theorem 3.1 supplies a log-multinomial ordinal potential for that action-composition game, not this vacancy-constrained cross-neighborhood exact potential."
+        ],
+        "identifier_or_url": "arXiv:2606.14428",
+        "material_read": "Available full-text material on the type-composition definition (Section 2.1), entropy potential (Theorems 3.1 and 3.3), and application to Bakers and Millers games (Section 4.1).",
+        "method": "Accessible scholarly full-text rendering and arXiv abstract.",
+        "title": "An Entropy Potential for Type-Composition Games",
+        "trigger": "Broad 2026 potential theorem for games with type fractions could subsume the result."
+      },
+      {
+        "assessment": "Different move rule (two occupied agents swap), and different listed utility functions (binary, difference-count and variety); no conclusion about single-vacancy fraction-payoff exact potential.",
+        "evidence": [
+          "Its abstract explicitly defines swap rather than one-participant jump games."
+        ],
+        "identifier_or_url": "arXiv:2502.13375",
+        "material_read": "arXiv abstract and publisher extended-abstract summary; complete manuscript was not read.",
+        "method": "arXiv abstract and publisher summary.",
+        "title": "Diversity-seeking Swap Games in Networks",
+        "trigger": "Close title and diversity-seeking strategic relocation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbd1a811-fcf4-4fcc-afad-12685c7505d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closes a natural nonregular, cyclic complete-bipartite subfamily under an explicit bipartite-topology question in the originating paper. The exact cardinality-normalized potential and all-schedules \\(O(N^3)\\) improvement bound are structural rather than a narrow numerically chosen example. It covers arbitrary type counts and immobile subsets. It neither purports to solve all bipartite topologies nor multiple vacancies.",
+    "status": "PASS"
+  }
+}
