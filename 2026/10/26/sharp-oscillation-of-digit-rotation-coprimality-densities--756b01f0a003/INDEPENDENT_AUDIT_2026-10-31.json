@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:51:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For base b>=2, m>=1, rotation satisfies N_{j+1}=bN_j-(b^m-1)a_j. From both divisibilities, G=gcd(all rotations)=gcd(N,(b^m-1)D), D=gcd(digits), so G=1 iff gcd(N,b^m-1)=1 and D=1. Mobius inversion on the m-digit interval bounds the totient approximation error by 2^omega(M)<=2sqrt(M); exceptional D>1 digit strings lie in at most pi(b-1) ceil(b/2)^m configurations. For m=d ell with ell prime>B-1 and B=b^d, every prime divisor of S_ell=(B^ell-1)/(B-1) has order ell and size>=ell+1, making sum reciprocal prime factors o(1). Thus each phi(b^d-1)/(b^d-1) is a subsequential limit, with limsup phi(b-1)/(b-1); taking m multiples of orders modulo all small primes forces liminf zero. The positive subsequential values approach zero, so infinitely many distinct. Independent direct digit-rotation tests checked all tested strings for bases 2..9 and lengths b^m<=100000.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "OEIS A287513 imposes pairwise coprimality, a strictly stronger property that does not count every G=1 string.",
+          "Cyclic error-correcting code searches are unrelated to gcd of positional digit rotations."
+        ],
+        "reasoning": "No inspected theorem on a broader class of base-digit cycles supplies the all-length common-gcd totient law.",
+        "searches": [
+          "OEIS:A287513",
+          "MathPages:kmath081",
+          "Resultary cyclic code and digit reversal searches"
+        ]
+      },
+      "checked_sources": [
+        "OEIS:A084433 (primary sequence)",
+        "OEIS:A387356 (primary complement)",
+        "OEIS:A287513 (stronger pairwise property)",
+        "MathPages:kmath081 (full article)",
+        "Resultary cyclic digit gcd published search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gcd(N,b^m-1) divisor is not always the full common gcd: base 10, N=22, rotations 22/22 give G=22 vs gcd(22,99)=11.",
+          "The known Euler totient function alone does not give F_b(m) without excluding nonprimitive digit gcd and quantifying errors."
+        ],
+        "reasoning": "The exact rotation identity, digit-D correction, and prime-length cyclotomic subsequences are substantive noncovered implications.",
+        "searches": [
+          "MathPages:kmath081",
+          "OEIS:A084433",
+          "Euler totient classical product formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS records digit-rotation gcd-one property and complement, but without the displayed all-base asymptotic.",
+          "MathPages rotation congruence yields one common divisor but N=22 in decimal illustrates need for digit gcd factor."
+        ],
+        "reasoning": "The single-gcd and base-modulus formulations are compared; the new exact formula and count require the additional D factor.",
+        "searches": [
+          "Resultary: Greatest common divisor of all cyclic digit rotations base b exact gcd formula totient density oscillation liminf limsup",
+          "OEIS:A084433",
+          "OEIS:A387356",
+          "MathPages:kmath081"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A084433 and A387356 list actual decimal examples; they are not complete all-base density tables.",
+          "Pairwise-coprime A287513 is mathematically stricter than common-gcd-one enumeration."
+        ],
+        "reasoning": "Finite integer sequences cannot imply sharp accumulation values or errors valid for unbounded digit lengths without the multiplicative-order proof.",
+        "searches": [
+          "OEIS:A084433",
+          "OEIS:A387356",
+          "OEIS:A287513"
+        ]
+      },
+      "rationale": "OEIS A084433 and A387356 provide direct finite sequences; A287513 asks the strictly stronger pairwise-coprime question. MathPages establishes gcd(N,b^m-1) as one common divisor, not the full gcd with digit-gcd correction nor the asymptotic densities. Published circular-code and digit-reversal results are different objects. The all-base oscillation and error bound were not implied by inspected primary statements.",
+      "residual_risks": [
+        "Unindexed number-theoretic word-rotation literature may already prove an equivalent general density statement.",
+        "The theorem proves infinitely many accumulation values but not a complete accumulation set classification.",
+        "Finite brute-force rotation checks are only confirmations, not proof of analytic prime subsequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct background for the object, no stated all-base density limit",
+          "evidence": "Example 148,481,814 has gcd 37; lists finite values.",
+          "identifier_or_url": "https://oeis.org/A084433",
+          "material_read": "Public OEIS definition, terms, examples and entry metadata",
+          "method": "Read original sequence entry and compared property",
+          "title": "Numbers whose cyclic permutations have GCD > 1",
+          "trigger": "Original sequence directly on common rotation gcd"
+        },
+        {
+          "assessment": "Lists data, not m-length sharp totient asymptotics",
+          "evidence": "A387356 directly defines common gcd one.",
+          "identifier_or_url": "https://oeis.org/A387356",
+          "material_read": "Public OEIS definition, initial terms and references",
+          "method": "Read entry and compared with F_10(m)",
+          "title": "Numbers whose set of cyclic permutations has GCD = 1",
+          "trigger": "Exact complement property"
+        },
+        {
+          "assessment": "Gives gcd(N,b^m-1) common divisor, not the digit-gcd corrected equality",
+          "evidence": "N=22 illustrates strict difference.",
+          "identifier_or_url": "https://www.mathpages.com/home/kmath081/kmath081.htm",
+          "material_read": "Complete accessible MathPages article on rotation congruences",
+          "method": "Read main derivation and checked exact implication",
+          "title": "Cyclic and Reverse Divisibility",
+          "trigger": "Older positional rotation algebra potentially gives full gcd"
+        },
+        {
+          "assessment": "Pairwise coprimality stronger than common-gcd-one",
+          "evidence": "Not the same counted property.",
+          "identifier_or_url": "https://oeis.org/A287513",
+          "material_read": "OEIS definition, initial terms and comments",
+          "method": "Read entry and compare logical quantifiers",
+          "title": "Numbers whose cyclic permutations are pairwise coprime",
+          "trigger": "Potential synonymous condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common-gcd-one sequence of all digit rotations is a documented and natural arithmetic object. An explicit all-base quantitative totient density law and sharp nonconvergent extremes (decimal upper 2/3, binary upper 1), plus infinitely many distinct accumulation values, convert a finite digit-sequence curiosity into a precise structural distribution theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "OEIS:A084433 (primary sequence)",
+    "OEIS:A387356 (primary complement)",
+    "OEIS:A287513 (stronger pairwise property)",
+    "MathPages:kmath081 (full article)",
+    "Resultary cyclic digit gcd published search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed number-theoretic word-rotation literature may already prove an equivalent general density statement.",
+    "The theorem proves infinitely many accumulation values but not a complete accumulation set classification.",
+    "Finite brute-force rotation checks are only confirmations, not proof of analytic prime subsequences."
+  ],
+  "residual_risks": [
+    "Unindexed number-theoretic word-rotation literature may already prove an equivalent general density statement.",
+    "The theorem proves infinitely many accumulation values but not a complete accumulation set classification.",
+    "Finite brute-force rotation checks are only confirmations, not proof of analytic prime subsequences."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer base \(b\ge2\) and every length \(m\ge1\), rotating digits gives the exact recurrence \(N_{j+1}=bN_j-(b^m-1)a_j\). Both divisibilities prove \(G=\gcd(N,(b^m-1)D)\), where \(D\) is the digit gcd. Möbius inversion across the full \(m\)-digit interval differs from the totient main term by at most \(2^{\omega(b^m-1)}\le2\sqrt{b^m-1}\). Excluding strings with digit gcd above one costs at most \(\pi(b-1)\lceil b/2\rceil^m\). For prime-length multiples, the cyclotomic quotient has prime factors of order \(\ell\) and size at least \(\ell+1\), whose reciprocal contributions vanish. Multiplicative-order constructions and Euler's reciprocal-prime divergence give the lower endpoint; prime-step subsequences give the upper endpoint. The domain, leading-zero convention, and small cases are explicitly stated. The standalone verifier checked 235455 actual strings, but no asymptotic statement is inferred from finite tests.
+## correctness
 
-## Originality — PASS under accessible evidence
-The first documented question about the common gcd of cyclic rotations is OEIS A084433, dated June 2, 2003; OEIS A387356 supplies the complementary gcd-one list but not length-asymptotic counts. OEIS A287513 counts the stronger pairwise-coprime property. The original MathPages treatment proves one common gcd divisor, not the full formula or a density theorem. Transposable-integer sources give a rotation congruence rather than the counting asymptotic, while Basta's 2026 preprint addresses prime-denominator repetends. Multiple actual semantic-search queries on published-finding corpus returned nearby cyclic and gcd themes but no claim implying the quantitative totient approximation, all positive subsequential limits, or the sharp liminf/limsup. A previously recorded digit-reversal gcd distribution concerns a different involution, and no inspected claim entails this result. Lack of a found equivalent is not a proof of priority; stronger or unindexed literature remains a residual risk.
+PASS
 
-## Value — PASS
-The OEIS gcd-of-cyclic-permutations question is a natural digit-arithmetic invariant. The theorem gives a uniform quantitative answer for every base and digit length, identifies exactly the radical's totient law governing the proportion, and proves that the proportions have striking nonconvergent extremal behavior in every base, including the explicit decimal interval from zero to two-thirds. Infinitely many distinct positive accumulation values distinguish this from a routine single congruence or finite table extension. The theorem does not claim to enumerate every accumulation value.
+For base b>=2, m>=1, rotation satisfies N_{j+1}=bN_j-(b^m-1)a_j. From both divisibilities, G=gcd(all rotations)=gcd(N,(b^m-1)D), D=gcd(digits), so G=1 iff gcd(N,b^m-1)=1 and D=1. Mobius inversion on the m-digit interval bounds the totient approximation error by 2^omega(M)<=2sqrt(M); exceptional D>1 digit strings lie in at most pi(b-1) ceil(b/2)^m configurations. For m=d ell with ell prime>B-1 and B=b^d, every prime divisor of S_ell=(B^ell-1)/(B-1) has order ell and size>=ell+1, making sum reciprocal prime factors o(1). Thus each phi(b^d-1)/(b^d-1) is a subsequential limit, with limsup phi(b-1)/(b-1); taking m multiples of orders modulo all small primes forces liminf zero. The positive subsequential values approach zero, so infinitely many distinct. Independent direct digit-rotation tests checked all tested strings for bases 2..9 and lengths b^m<=100000.
 
-## Closest prior literature and limitations
-OEIS A084433 (2003) and A387356 (2025) contain decimal sequence data. MathPages *Cyclic and Reverse Divisibility* contains the rotation congruence and a common divisor. OEIS A287513 considers pairwise rather than common coprimality. The all-base quantitative density law, accumulation values, and sharp extremes were not observed in inspected sources. An exhaustive historical priority certification has not been performed, and no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+OEIS A084433 and A387356 provide direct finite sequences; A287513 asks the strictly stronger pairwise-coprime question. MathPages establishes gcd(N,b^m-1) as one common divisor, not the full gcd with digit-gcd correction nor the asymptotic densities. Published circular-code and digit-reversal results are different objects. The all-base oscillation and error bound were not implied by inspected primary statements.
+
+## value
+
+PASS
+
+The common-gcd-one sequence of all digit rotations is a documented and natural arithmetic object. An explicit all-base quantitative totient density law and sharp nonconvergent extremes (decimal upper 2/3, binary upper 1), plus infinitely many distinct accumulation values, convert a finite digit-sequence curiosity into a precise structural distribution theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
