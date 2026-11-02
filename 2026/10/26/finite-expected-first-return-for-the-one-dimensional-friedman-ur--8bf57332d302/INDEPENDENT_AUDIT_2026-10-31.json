@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:02:26.890027Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 490c95aabe5479e9742d83c63d5502b0acad0f41",
+        "Independent 70-step killed distribution with fractions.Fraction",
+        "Balaji–Mahmoud arXiv:2504.14813 full primary paper section 5"
+      ],
+      "rationale": "After n steps at x, white count 1+(n-x)/2, blue count (n+x)/2, hence P(next x+1)=(n+2-x)/(2(n+1)); on survival x>=1 this is <=1/2. The killed first moment A_n=nE[X_n 1_{tau>n}] satisfies the EXACT identity A_{n+1}=A_n+u_n with u_n=P(tau>n), because a move from x=1 to zero carries zero weighted mass. Coupling surviving paths to a fair simple random walk above them, and reflection principle, gives u_{2n}<=2A_n/[n sqrt(n+1)]. Since u_n decreases, u_j<=b_j A_floor(j/2), b_j=O(j^-3/2) summable. Choose J with sum_{j>=J}b_j<=1/2: A_{N+1}<=A_J+(1/2)A_{N+1}, so A_n bounded; hence u_n=O(n^-3/2) and E tau<infinity. Independent exact rational killed-chain DP verified recurrence, mass, monotonicity to 70 steps (u70~0.01655614). Finite DP does not prove infinite tail.",
+      "residual_risks": [
+        "The exponent 3/2 is only an upper decay rate, not a matching asymptotic; no result for arbitrary urn inventories or 2D."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balaji and Mahmoud pose finiteness rather than prove it. Menshikov–Volkov leading drift classification concerns positive rho and regimes not this negative linear balancing drift; Bertoin first-return properties are sensitive to elephant initial conditions."
+        ],
+        "reasoning": "No read primary theorem demonstrates the finite expectation for the one-white, zero-blue, opposite-addition urn initialization; general recurrence alone does not imply integrable return.",
+        "searches": [
+          "Balaji and Mahmoud Urn-driven random walks arXiv:2504.14813 Section 5",
+          "Menshikov and Volkov Urn-related random walk with drift rho x^alpha/t^beta (2008) source PDF",
+          "Bertoin Counting the zeros of an elephant random walk (2022) abstract and DOI"
+        ]
+      },
+      "checked_sources": [
+        "Balaji and Mahmoud arXiv:2504.14813v2 full article",
+        "Menshikov and Volkov (2008) urn-related walk original PDF selected complete relevant sections",
+        "Bertoin 2022 DOI:10.1090/tran/8622 abstract and lawful full-access attempt",
+        "Resultary query on Friedman urn expected first return and elephant-return models"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Balaji–Mahmoud explicitly state question as a conjecture. Previously known one-time Eulerian marginals and recurrence do not determine the first-return expectation; Bertoin works in differently initialized elephant setting."
+        ],
+        "reasoning": "The killed-moment recursion plus fair-walk coupling and summable bootstrap genuinely add information not entailed by stated earlier recurrence or marginal laws.",
+        "searches": [
+          "Balaji Mahmoud original full arXiv:2504.14813",
+          "Menshikov Volkov urn-related random walk PDF 2008",
+          "Bertoin 2022 AMS article metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Opposite-addition Friedman urn is related to negative-memory elephant models but has a virtual initial white ball: P(X2=2)=1/2, unlike the standard p=0 elephant with deterministic cancellation at step 2."
+        ],
+        "reasoning": "Related elephant-walk first-return formulas cannot be transplanted without initial urn and time normalization; the given model is explicitly different.",
+        "searches": [
+          "Resultary search: one-dimensional Friedman urn driven random walk first return origin finite expectation n to minus three halves",
+          "Balaji Mahmoud 2026 Friedman urn walk initial one white zero blue",
+          "Bertoin elephant random walk p=0 first-return initialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original numerical simulation motivated conjecture but gives no rigorous tail bound or finite expectation; query hits other elephant and random-walk regimes, no indexed exact survival distribution."
+        ],
+        "reasoning": "A sample of return times or a finite recurrence table cannot certify the infinite mean; analytic bootstrap is a new mathematical conclusion.",
+        "searches": [
+          "Balaji and Mahmoud Section 5 simulation of return times",
+          "Resultary Friedman urn return time search"
+        ]
+      },
+      "rationale": "Best-of-knowledge solves Balaji–Mahmoud stated finite-mean first-return conjecture in their precise initialized opposite-addition model, with additional O(n^-3/2) survival upper bound. Closest elephant and urn drift papers address different initializations/positive drift recurrence classifications, not this killed-moment mean theorem; inaccessible entire Bertoin 2022 primary creates acknowledged overlap risk.",
+      "residual_risks": [
+        "Bertoin 2022 original full text unavailable via attempted arXiv and AMS links: only abstract known, so a broad elephant-first-return transfer remains unverified.",
+        "Subsequent time-inhomogeneous return theorems might subsume the summable-tail estimate; no global historical priority guarantee.",
+        "Cannot infer stationary distribution or positive recurrence of a time-homogeneous position chain from finite tau mean."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjectures finite expected first return for specified 1D walk; present proof addresses the same initialization",
+          "evidence": [
+            "Section 5 states finite mean as conjectural, based on simulations."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2504.14813v2",
+          "material_read": "Entire accessible arXiv paper primary text, especially model definition, sections 4 and 5, original conjecture, Eulerian marginal formulas",
+          "method": "Open-access arXiv HTML full text",
+          "title": "Urn-driven random walks",
+          "trigger": "Exact source proposing open Friedman mean return conjecture"
+        },
+        {
+          "assessment": "Addresses drift regimes including positive reinforcing terms but did not establish exact negative-balance initial first-return mean",
+          "evidence": [
+            "The main parameter and initialization hypotheses do not match the one-white opposite-addition return event."
+          ],
+          "identifier_or_url": "Menshikov and Volkov (2008), lawful OA PDF; source",
+          "material_read": "Original accessible PDF introduction, classification assumptions, and Section 6 relating general urns; inspected first PDF page screenshot",
+          "method": "Primary full-text topical read of OA PDF",
+          "title": "Urn-related random walk with drift rho*x^alpha/t^beta",
+          "trigger": "Potential dominating time-inhomogeneous return theorem"
+        },
+        {
+          "assessment": "Cannot rule out a stronger theorem from inaccessible full Bertoin text; explicit residual risk",
+          "evidence": [
+            "Abstract says some elephant parameters have finite expected first returns, without identifying the Friedman virtual-initial-ball model."
+          ],
+          "identifier_or_url": "doi:10.1090/tran/8622; arXiv:2105.09569",
+          "material_read": "Abstract and publisher metadata; original arXiv HTML DisabledError and lawful AMS PDF returned HTTP 403",
+          "method": "Open abstract and attempted OA/publisher PDF",
+          "title": "Counting the zeros of an elephant random walk",
+          "trigger": "Closest first-return distribution in memory-dependent walk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Balaji–Mahmoud published open question, Section 5",
+        "Exact drift/coupling proof"
+      ],
+      "rationale": "Resolves a specifically published finite-mean-first-return conjecture for a canonical negative-reinforcement urn walk, and proves a useful O(n^-3/2) survival upper bound through a structurally motivated killed-moment recurrence and summable renewal bootstrap.",
+      "residual_risks": [
+        "No sharp matching lower tail or constant; not a stationary-chain theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Result applies only to specified one-white zero-blue 1D initialization.",
+    "Bertoin complete primary inaccessible, historical transfer risk recorded.",
+    "No new repository writes or external attestation; public provenance sanitization blocked publication readiness."
+  ],
+  "schema_version": 1
+}

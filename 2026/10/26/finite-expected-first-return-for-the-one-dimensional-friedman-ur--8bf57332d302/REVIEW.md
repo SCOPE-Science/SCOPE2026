@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The urn transition is computed from the full initial inventory, including its original white ball. The killed first moment satisfies \(A_{n+1}=A_n+u_n\); this in combination with the monotone coupling and the summable-coefficient bootstrap establishes \(u_n=O(n^{-3/2})\) and finite mean. Eighty exact-rational finite checks match the formulas. Finite tests are not used as a substitute for the infinite proof.
+## correctness
 
-**Originality: PASS, with residual risk.** Section 5 of Balaji and Mahmoud explicitly poses the finite expected first return as a conjecture. Bertoin's standard elephant-walk analysis includes related initial-condition and persistence results; his \(p=0\) standard first return is deterministic at time two, so is not the same boundary event. General arbitrary-level elephant hitting theorems could potentially subsume the finding, and this remains an originality risk.
+PASS
 
-**Value: PASS.** The claim resolves a specific published first-return integrability conjecture and supplies a nontrivial survival-tail exponent upper bound using a reusable killed-moment and random-walk-comparison argument.
+After n steps at x, white count 1+(n-x)/2, blue count (n+x)/2, hence P(next x+1)=(n+2-x)/(2(n+1)); on survival x>=1 this is <=1/2. The killed first moment A_n=nE[X_n 1_{tau>n}] satisfies the EXACT identity A_{n+1}=A_n+u_n with u_n=P(tau>n), because a move from x=1 to zero carries zero weighted mass. Coupling surviving paths to a fair simple random walk above them, and reflection principle, gives u_{2n}<=2A_n/[n sqrt(n+1)]. Since u_n decreases, u_j<=b_j A_floor(j/2), b_j=O(j^-3/2) summable. Choose J with sum_{j>=J}b_j<=1/2: A_{N+1}<=A_J+(1/2)A_{N+1}, so A_n bounded; hence u_n=O(n^-3/2) and E tau<infinity. Independent exact rational killed-chain DP verified recurrence, mass, monotonicity to 70 steps (u70~0.01655614). Finite DP does not prove infinite tail.
 
-**Closest literature:** Balaji and Mahmoud, *Urn-driven random walks* (2026), Sections 4–5; Bertoin, *Counting the zeros of an elephant random walk* (2022). The proof does not establish exact asymptotic constants, does not treat two dimensions, and does not construct a stationary distribution of a time-homogeneous position process.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge solves Balaji–Mahmoud stated finite-mean first-return conjecture in their precise initialized opposite-addition model, with additional O(n^-3/2) survival upper bound. Closest elephant and urn drift papers address different initializations/positive drift recurrence classifications, not this killed-moment mean theorem; inaccessible entire Bertoin 2022 primary creates acknowledged overlap risk.
+
+## value
+
+PASS
+
+Resolves a specifically published finite-mean-first-return conjecture for a canonical negative-reinforcement urn walk, and proves a useful O(n^-3/2) survival upper bound through a structurally motivated killed-moment recurrence and summable renewal bootstrap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
