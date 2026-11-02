@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:06:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a two-row ladder every connected vertex subset occupies a column interval; domination forces endpoints at first/second and last/penultimate columns. If an endpoint column is occupied it must begin TT or DD, whereas an omitted endpoint needs adjacent B; analogous right rules. Interior double columns B are indispensable only if neighboring singleton runs lie in opposite rows, so all internal B occur in TBD or DBT, and unseparated singleton columns share a row. Conversely those words dominate, connect, and every deletion destroys domination or connectivity. Connected domination is upward closed, making single-deletion tests equivalent to inclusion-minimality. Decomposing disjoint singleton runs and switching B columns yields bivariate GF 2V+(2BV^2+4xBV+2x^2B^2U)/(1-BU)+x^2B+x^2B^2+2x^2y^2, U=xy/(1-xy), V=x^2y^2/(1-xy), B=xy^2. y=1 gives (4x^2-x^3-x^6)/(1-x-x^2), so a2=4,a3=3,a4=7 and a_n=2F_n for n>=5. Independent vertex-subset enumeration n=2..8 exactly verified counts 4,3,7,10,16,26,42 and corresponding size profiles; this does not replace all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Available primary ESA paper gives general algorithms and extremal output bounds, not ladder-specific rational graded series; other sources relate to enumeration algorithms."
+        ],
+        "reasoning": "General-purpose enumeration methods do not imply a closed all-n word characterization or Fibonacci identity without special derivation.",
+        "searches": [
+          "Abu-Khzam et al arxiv:2205.00086",
+          "Golovach et al bounded chordality 2015",
+          "arxiv:2308.16426"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2205.00086 complete primary PDF",
+        "doi:10.4230/LIPIcs.ESA.2022.1",
+        "arxiv:2308.16426 abstract",
+        "OEIS A291706 and A290379",
+        "Resultary query: ladder graph minimum inclusion-minimal connected dominating sets Fibonacci exact enumeration bivariate polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An algorithm outputting minimal connected sets is compatible with the theorem but cannot imply the rational two-variable generating function or 2F_n exact count just by statement."
+        ],
+        "reasoning": "No stronger all-ladder structural theorem found in material inspected, but complete 2025 journal version not verified.",
+        "searches": [
+          "arxiv:2205.00086 full available primary",
+          "OEIS A291706 description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-row Cartesian grid is the ladder; inclusion-minimal means each deletion destroys domination or connectedness, unlike a minimum-cardinality set."
+        ],
+        "reasoning": "Both graph and invariant aliases covered, including full graded size profile.",
+        "searches": [
+          "ladder graph minimum inclusion-minimal connected dominating sets Fibonacci exact enumeration bivariate polynomial",
+          "P_n square K2 minimal connected domination graph language"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A291706 counts all connected dominating sets; A290379 counts minimal domination without connectivity; GraphData computes individual-graph polynomials."
+        ],
+        "reasoning": "Different predicates and finite tables cannot establish the present all-n graded count; no exact covering Resultary hit returned.",
+        "searches": [
+          "OEIS A291706 all connected dominating ladder sets",
+          "OEIS A290379 minimal ordinary dominating ladder sets",
+          "Resultary query: ladder graph minimum inclusion-minimal connected dominating sets Fibonacci exact enumeration bivariate polynomial"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, qualified: exact inclusion-minimal connected dominating sets and graded Fibonacci generating function not implied by literature enumerating all connected sets, ordinary minimal domination, or generic enumeration algorithms.",
+      "residual_risks": [
+        "Complete 2025 journal version of minimal connected dominating enumeration was not fully accessed.",
+        "An unindexed exact ladder minimal connected dominating table or all-n formula may exist.",
+        "No results for ladders wider than two rows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General enumeration algorithm and bounds; no direct ladder series in inspected text",
+          "evidence": [
+            "Worst-case enumeration algorithms versus complete exact ladder language"
+          ],
+          "identifier_or_url": "arxiv:2205.00086; doi:10.4230/LIPIcs.ESA.2022.1",
+          "material_read": "Full available 28-page primary PDF, principal algorithmic statements and word searches for ladder/grid, opening page visually inspected",
+          "method": "Full primary PDF text reading",
+          "title": "Enumerating Minimal Connected Dominating Sets",
+          "trigger": "Directly the same invariant"
+        },
+        {
+          "assessment": "Counts all connected dominating sets, not inclusion-minimal",
+          "evidence": [
+            "Definition differs"
+          ],
+          "identifier_or_url": "https://oeis.org/A291706",
+          "material_read": "OEIS title/description only",
+          "method": "Direct database description",
+          "title": "OEIS A291706 — number of connected dominating sets in ladder graph",
+          "trigger": "Sequence for same graph family"
+        },
+        {
+          "assessment": "Does not certify absence in full text",
+          "evidence": [
+            "General constrained enumeration"
+          ],
+          "identifier_or_url": "arxiv:2308.16426",
+          "material_read": "Abstract and source description only",
+          "method": "Abstract-level inspection",
+          "title": "Enumerating Minimal Vertex Covers and Dominating Sets with Capacity and/or Connectivity Constraints",
+          "trigger": "Algorithmic related result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural full antichain of minimal connected domination on an infinite bounded-width ladder family has complete structural language and bivariate cardinality profile; a stable twice-Fibonacci total emerges from nontrivial local row-switch constraints.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2205.00086 complete primary PDF",
+    "doi:10.4230/LIPIcs.ESA.2022.1",
+    "arxiv:2308.16426 abstract",
+    "OEIS A291706 and A290379",
+    "Resultary query: ladder graph minimum inclusion-minimal connected dominating sets Fibonacci exact enumeration bivariate polynomial"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete 2025 journal version of minimal connected dominating enumeration was not fully accessed.",
+    "An unindexed exact ladder minimal connected dominating table or all-n formula may exist.",
+    "No results for ladders wider than two rows.",
+    "Computational tests cover only stated bounded domains, not universal proof. No external/human attestation inferred.",
+    "The scientific PASS is not importable or published until full metadata sanitization."
+  ],
+  "residual_risks": [
+    "Complete 2025 journal version of minimal connected dominating enumeration was not fully accessed.",
+    "An unindexed exact ladder minimal connected dominating table or all-n formula may exist.",
+    "No results for ladders wider than two rows."
+  ],
+  "schema_version": 1
+}

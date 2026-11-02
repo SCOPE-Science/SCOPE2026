@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The column-interval argument forces the selected columns to reach both ends of the ladder and rules out empty internal columns. Boundary domination and deletion tests force the endpoint rules. Any strictly internal double-vertex column is essential exactly when its two neighboring singletons have opposite rows, giving a complete characterization. Conversely the same rules guarantee connectivity and domination and make each individual selected vertex indispensable. Connectivity and domination are upward closed together, so one-deletion minimality is full inclusion-minimality. The five disjoint word families yield the bivariate rational expression, whose specialization satisfies the displayed Fibonacci recurrence. The standalone original-definition verifier exhaustively compared every nonempty subset for 2–10 columns (1,398,087 subsets) and matched the first 49 recurrence coefficients. The finite checks corroborate, but do not substitute for, the universal proof.
+PASS
 
-## Originality — PASS (remaining priority uncertainty)
+For a two-row ladder every connected vertex subset occupies a column interval; domination forces endpoints at first/second and last/penultimate columns. If an endpoint column is occupied it must begin TT or DD, whereas an omitted endpoint needs adjacent B; analogous right rules. Interior double columns B are indispensable only if neighboring singleton runs lie in opposite rows, so all internal B occur in TBD or DBT, and unseparated singleton columns share a row. Conversely those words dominate, connect, and every deletion destroys domination or connectivity. Connected domination is upward closed, making single-deletion tests equivalent to inclusion-minimality. Decomposing disjoint singleton runs and switching B columns yields bivariate GF 2V+(2BV^2+4xBV+2x^2B^2U)/(1-BU)+x^2B+x^2B^2+2x^2y^2, U=xy/(1-xy), V=x^2y^2/(1-xy), B=xy^2. y=1 gives (4x^2-x^3-x^6)/(1-x-x^2), so a2=4,a3=3,a4=7 and a_n=2F_n for n>=5. Independent vertex-subset enumeration n=2..8 exactly verified counts 4,3,7,10,16,26,42 and corresponding size profiles; this does not replace all-n proof.
 
-Targeted queries compared inclusion-minimal connected domination of ladder graphs and equivalent two-row Cartesian grid graphs, the complete bivariate cardinality profile, Fibonacci counts, and all-versus-minimal enumerators. Six actual semantic searches were made against published published-finding corpus entries and no covering theorem was returned. The closest published-finding corpus hits concern domination of chain graphs or the homology of ladder cut complexes, and neither implies this enumeration. Full available primary conference/preprint texts were inspected: Abu-Khzam et al. (ESA 2022, arXiv:2205.00086), Golovach et al. (IPEC 2015), and the connectivity-constrained enumerator (arXiv:2308.16426). They do not state the precise ladder language or generating functions. OEIS A291706 enumerates all connected dominating sets, not inclusion-minimal ones. Wolfram GraphData supports finite minimal-connected-domination polynomials, not a published infinite ladder result in the material inspected. The 2025 journal text and unindexed equivalences remain risks; no absolute uniqueness claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-The complete inclusion-minimal obstruction antichain and its graded size distribution are natural and independently useful graph-enumeration targets: they provide more than a minimum cardinality or ungraded count. The surprise that the total reduces to exactly twice the Fibonacci number after three initial cases arises from a structural alternation law with a reproducible rational bivariate enumerator. This is an infinite, fully classified bounded-treewidth family motivated by the established general enumeration problem, not an arbitrary finite parameter selection. No claim is made about complexity improvements in general graphs.
+Best-of-knowledge PASS, qualified: exact inclusion-minimal connected dominating sets and graded Fibonacci generating function not implied by literature enumerating all connected sets, ordinary minimal domination, or generic enumeration algorithms.
 
-## Limitations
+## value
 
-Two-row ladders only. Bibliographic priority review remains incomplete for the complete 2025 journal text and unindexed results, and no independent mathematical audit has taken place. The tests are finite, while the theorem is established by the displayed proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural full antichain of minimal connected domination on an infinite bounded-width ladder family has complete structural language and bivariate cardinality profile; a stable twice-Fibonacci total emerges from nontrivial local row-switch constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
