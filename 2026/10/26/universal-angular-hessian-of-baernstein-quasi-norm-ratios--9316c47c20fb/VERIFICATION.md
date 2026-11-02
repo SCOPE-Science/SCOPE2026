@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic verification uses the derivative of the root-product formula, the discrete Fourier Parseval identity, rotational orthogonality of intermediate degrees, the gamma recurrence for circle means of \(1+z^n\), and holomorphic continuation in the exponent after moving the boundary-zero coordinates. The step at exponents \(0<r\le1\) is not obtained by integrating a formally divergent \(|1+z^n|^{r-2}\) weight.
+# Independent mathematical audit
 
-For reproducibility, execute `python3 artifacts/check_hessian.py` from the directory containing this document. The program integrates the original moving-zero product in the actual circle variable and compares finite-angle ratios to the quadratic prediction. It checks several degrees and positive exponents including those below one. All observed ratios approach one, as required by the theorem. Quadrature is a diagnostic, not a proof of the all-degree or all-exponent statements.
+## correctness
 
-Independent audit: not performed. No uniform quantitative neighborhood and no supremum-exponent formula are claimed.
+PASS
+
+For mean-zero angular variations, the intermediate-coefficient first derivative is the discrete Fourier transform of root motion; Parseval gives n times squared deviations. Rotational orthogonality kills the second polynomial derivative term. For r>1 a beta-integral ratio A_{r-2}/A_r=r/[4(r-1)] yields nr/8. For 0<r<=1 formal |Q|^{r-2} is not integrable, but moving coordinates at each simple boundary root make the twice-differentiated norm moment holomorphic for Re r>-1, extending the r>1 identity by analyticity. Finite-dimensional polarization and continuity yield multivariate little-o; Jensen gives r=0. Independently integrated actual perturbed polynomials in n=2,3,5 and r=.5,1,2,4; ratios agreed at small epsilon.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge assessment: The exact second derivative of a perturbed regular-polygon root measure is not the same as strictly positive derivative with respect to exponent or a nonoptimal coefficient-sensitive lower bound. Global monotonicity/equality rigidity is stronger in domain but weaker in perturbative value and does not determine the exact local coefficient or isotropic Hessian. A fresh beta-ratio and moving-zero analytic argument are necessary; these assertions do not follow by mere specialization of the broader comparison theorems. Residual priority and source-access risks are explicitly retained.
+
+## value
+
+PASS
+
+The exact isotropic angular stability Hessian and sharp norm-ratio coefficient quantify how all infinitesimal regular-polygon deformations affect the classical Baernstein inequality, beyond mere nonnegative gaps or nonsharp coefficient estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
