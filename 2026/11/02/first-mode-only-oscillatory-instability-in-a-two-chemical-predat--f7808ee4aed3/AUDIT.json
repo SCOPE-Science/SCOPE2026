@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The PDE coefficients generate the explicit real 4x4 modal matrix. Exact determinant factorization yields p_q(z)=((z+A)(z+E))^2+(z+E-gq)^2 with A=2+3q/10 and E=1+3q. Imaginary crossings are uniquely determined by the positive root of omega^2+omega=AE and have strictly positive d(Re z)/dg. The resulting exact critical gains are g1=(85+189 sqrt(105))/100 for q=1 and g2=(55+72 sqrt(205))/50 for q=2. For every q>=2, 0<=g<g2, positivity of the first three quartic coefficients, constant term and both Hurwitz minors follows from exact algebra and concavity of H(q,g) between endpoints 0 and g2; the upper endpoint factors as an explicit polynomial in q-2 with nonnegative coefficients and a unique zero at q=2. The square Neumann spectrum has no eigenvalue between 1 and 2, giving the exhaustive count. Verification from the exact package path used SymPy 1.14.0. This proves only linear spectral assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ke Wang, Qi Wang and Feng Yu, arXiv:1508.03909, introduction and model (1.1): three-state two-predator/one-prey system with direct prey taxis, not the four-state two-produced-chemical system.",
+        "Biktashev and Tsyganov (2009), DOI:10.1103/PhysRevE.80.056111, demonstrate traveling waves in two-population pursuit-evasion systems, a distinct equation class.",
+        "A related published mathematical result titled \"An explicit finite-wavenumber wave instability in an IL-2 tumour–immune reaction–diffusion model\" establishes a wave-type spectral example for a different three-field reaction system."
+      ],
+      "reasoning": "General pattern-selection and finite-wavenumber wave-instability theory establishes the *possibility* of oscillatory instabilities, not the exact selective gain interval in this four-field predator-prey chemical system. The model, sign structure, modal determinant and all-mode boundary are necessary for the claimed sharper statement.",
+      "searches": [
+        "Web: four component predator prey two chemical cross diffusion wave instability oscillatory Turing Hopf finite wavenumber same reaction equations",
+        "Web: \"predator-prey\" \"two chemicals\" \"Hopf\" cross diffusion",
+        "published-finding corpus: \"Exact finite-wave-number Hopf instability with no stationary Turing modes in four-component predator-prey cross-diffusion two chemical cues\"",
+        "published-finding corpus: \"finite-wavenumber wave instability positive equilibrium chemical mediated cross diffusion 4x4\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.18129 (original model, equations 2.7 and 6.7, Section 6, Table 1)",
+      "arXiv:1508.03909 (model 1.1 and abstract)",
+      "DOI:10.3934/dcdsb.2013.18.2597 (landing-page abstract only)",
+      "DOI:10.1103/PhysRevE.80.056111 (indexed abstract only)",
+      "Published published-finding corpus mathematical finding: explicit wave-type instability for a three-field IL-2 tumour–immune reaction–diffusion PDE (different system)",
+      "Published published-finding corpus mathematical finding: discrete bounded-domain Neumann Turing mode selection for a different predator–prey PDE"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source sufficient test A4<0 is false for every mode of the present parameter family: A4=(AE)^2+(E-gq)^2>0.",
+        "At g=21 and q=1, the exact third Hurwitz determinant is -15742961/3125 while all other Routh ingredients have the requisite sign, proving a complex positive-growth pair.",
+        "For q>=2 and g below g2, the exact third Hurwitz determinant is positive by endpoint concavity and a nonnegative shifted quartic, certifying infinitely many modes rather than a sampled list."
+      ],
+      "reasoning": "The original stationary sufficient condition cannot cover the new oscillatory parameter regime, including as a corollary, because its antecedent never holds here. Earlier general wave claims do not entail the exact algebraic thresholds or the sharp restriction to q=1. The structural distinction is statement-level, not a mere title difference.",
+      "searches": [
+        "arXiv:2604.18129 Section 6, characteristic polynomial and A4 instability criterion",
+        "Web: \"Pattern formation of the attraction-repulsion Keller-Segel system\" Hopf periodic",
+        "Web: \"Stationary and time periodic patterns of two-predator and one-prey systems with prey-taxis\"",
+        "published-finding corpus: \"positive equilibrium chemical mediated cross diffusion oscillatory finite wavenumber\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present modal characteristic polynomial is the exact sum of two squares: ((z+A)(z+E))^2+(z+E-gq)^2; its first two Neumann gain thresholds are explicit radicals.",
+        "The primary model is arXiv:2604.18129, equations (2.7), (6.5)–(6.7), with four state variables and two distinct produced chemical fields.",
+        "The 2013 attraction-repulsion Keller-Segel publication DOI:10.3934/dcdsb.2013.18.2597 treats a different one-population/two-chemical system and does establish time-dependent patterns."
+      ],
+      "reasoning": "An equivalent stationary Turing formulation based only on the sign of the constant term cannot imply this oscillatory instability, because the constant term is always strictly positive. General chemotaxis wave phenomena are prior art, but the retrieved formulations do not supply the same four-field PDE, exactly the two radicals, or a proof over all Neumann modes. An exhaustive historical equivalence search is not asserted.",
+      "searches": [
+        "published-finding corpus: \"quasipolynomial factorization complex conjugate quadratics predator-prey chemical signals cross diffusion\"",
+        "published-finding corpus: \"four state cross diffusion modal polynomial sum of two squares (lambda+A)(lambda+E) (lambda+E-gk)\"",
+        "Web: \"two chemicals\" \"wave instability\" predator prey cross diffusion",
+        "Web: \"chemical-mediated\" \"oscillatory\" \"wave instability\" predator-prey"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source presents numerical intervals for wave-number squared in its Table 1 and a sufficient stationary-instability condition A4<0, not the radicals of the present theorem.",
+        "The retrieved published-finding corpus findings about discrete Neumann-mode Turing thresholds concern other predator-prey and reaction-diffusion systems and do not tabulate this four-field linearization.",
+        "The exact gain endpoints are (85+189 sqrt(105))/100 and (55+72 sqrt(205))/50; the latter is certified as the first higher-mode crossing by the positive polynomial H(2+h,g2)."
+      ],
+      "reasoning": "Neither the inspected primary numerical table nor the actual database search hits supplied the model-specific two-threshold classification. Different mode tables in other PDEs do not dominate this exact algebraic result; absence of a hit alone is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: \"2604.18129 Shanmugasundaram Saha Makinde Chattopadhyay two chemicals pattern cross diffusion\"",
+        "published-finding corpus: \"only first Neumann mode oscillatory unstable higher modes stable dual chemicals predator prey on square\"",
+        "Web: \"Asymptotic stability and Diffusion-Driven Pattern Formation in a Predator-Prey System with Two Chemicals\" oscillatory wave",
+        "arXiv:2604.18129 Section 6 Table 1 and equation (6.7)"
+      ]
+    },
+    "rationale": "The original 2026 full-text model and dispersion section give a stationary sufficient sign test and numerical windows; here the sign test is provably never satisfied while a complex mode is unstable. Similar wave patterns are established in different model classes, so generic oscillatory instability is not asserted as novel. No retrieved primary or published scientific record directly implied the exact two radical thresholds and infinite-mode first-harmonic window. Priority risk remains because comparison of all historical literature is impossible.",
+    "residual_risks": [
+      "Literature searches cannot certify historical uniqueness; full text of the 2013 Keller–Segel and 2009 cross-diffusion wave papers was not read, although their accessible descriptions concern different dynamical models.",
+      "General theorems on sectorial cross-diffusion operators or equivariant Hopf onset could subsume some qualitative aspects, but no checked source furnished the exact sharp gain thresholds for this coefficient family.",
+      "No independent research review or mathematical certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same PDE class, but the discussed A4<0 stationary criterion cannot imply the all-positive A4 oscillatory window; no identical analytic mode-selection theorem located in the inspected relevant sections.",
+        "evidence": "arXiv:2604.18129, model (2.7), Section 6, Table 1, first submitted 2026-04-20.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.18129",
+        "material_read": "Original full-text HTML sections 2 (equation (2.7), parameter sign assumptions and (2.8)) and 6 (reaction Jacobian (6.6), dispersion (6.7), sufficient A4 criterion, numerical Table 1, illustrations and explanatory conclusions), plus abstract and bibliographic material.",
+        "method": "Direct reading of the open full-text rendering of the original preprint, comparing its modal conditions to the derived determinant.",
+        "title": "Asymptotic stability and diffusion-driven pattern formation in a predator-prey system with two chemicals",
+        "trigger": "Exactly the four-field predator-prey chemical cross-diffusion model in the proposed theorem."
+      },
+      {
+        "assessment": "Three interacting populations with direct prey taxis, versus two populations and two produced chemicals here; a possible methodological precedent, not direct coverage of the specific four-field gain thresholds.",
+        "evidence": "arXiv:1508.03909, abstract and model (1.1).",
+        "identifier_or_url": "https://arxiv.org/abs/1508.03909",
+        "material_read": "Full-text HTML abstract, opening introduction and explicit three-component model (1.1), including variables, signs and explanatory comparison.",
+        "method": "Direct examination of original preprint rendering, comparing dependent variables and modeled chemical-production equations.",
+        "title": "Stationary and time periodic patterns of two-predator and one-prey systems with prey-taxis",
+        "trigger": "Plausible broader Hopf and modal-selection results for prey taxis."
+      },
+      {
+        "assessment": "Documents prior nonstationary two-chemical chemotaxis patterns. The abstract alone does not establish or exclude any specific all-mode theorem; its one-population class does not directly subsume the four-field predator-prey coefficients.",
+        "evidence": "Liu, Shi and Wang (2013), DCDS-B 18, 2597–2625, DOI:10.3934/dcdsb.2013.18.2597.",
+        "identifier_or_url": "https://doi.org/10.3934/dcdsb.2013.18.2597",
+        "material_read": "Journal landing-page abstract, reference information, publication details and claims of stationary/time-periodic patterns; full article body was not obtained.",
+        "method": "Direct reading of publisher landing-page abstract and bibliographic information.",
+        "title": "Pattern formation of the attraction-repulsion Keller-Segel system",
+        "trigger": "Two chemical cues and nonstationary patterns are closely related concepts."
+      },
+      {
+        "assessment": "Qualitative moving waves are known. No basis to claim general wave instability is new; the exact four-variable threshold and mode count require additional calculation.",
+        "evidence": "Biktashev and Tsyganov, Physical Review E 80 (2009), 056111, DOI:10.1103/PhysRevE.80.056111.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.80.056111",
+        "material_read": "PubMed-indexed and search-indexed abstracts with authors, date and two-population pursuit-evasion model description; full journal text not obtained.",
+        "method": "Comparison of bibliographic abstract and model class, not whole-paper certification.",
+        "title": "Spontaneous traveling waves in oscillatory systems with cross diffusion",
+        "trigger": "Older work on oscillatory cross-diffusive predator-prey taxis waves."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7808ee4-aed3-4071-b22c-5a95fb7e12d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A structurally natural balanced two-chemical coupling family has a sharp and complete first-harmonic instability interval, bounded by two computable algebraic gain thresholds. The theorem distinguishes oscillatory wave-type onset from stationary Turing criteria, classifies every spatial Neumann mode without numerical truncation and gives a rigorous target for studying nonlinear mode interactions near the double spatial eigenvalue. The fact is not a routine numeric recomputation of a table; the equal-coupling symmetry yields a new exact sum-of-squares spectral factorization and an all-mode polynomial certificate.",
+    "status": "PASS"
+  }
+}
