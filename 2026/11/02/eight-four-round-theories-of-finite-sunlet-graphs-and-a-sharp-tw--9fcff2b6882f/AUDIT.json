@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3 the sunlet graph is explicitly specified by a simple adjacency formula on C_n times {0,1}. A full FO-type recurrence (atomic equality/adjacency diagram and the SET of all one-point extension types) is proved complete by induction for quantifier rank r. Two independent implementations were run from the actual package paths: full ordered-tuple enumeration through n=12 and dihedral-orbit reduction through n=15, both producing precisely the classes {3},{4},{5},{6},{7},{8},{9},{>=10} over their checked ranges, with exact common stage counts 116,122,46,14,8. The dihedral canon normalization is proved an automorphism orbit representative even with repeated selections. Brown–Hoshino Theorem 4.9 proves C_n equivalent at rank four for n>=11, and the explicit side-preserving coordinate-game lift to C_n corona K1 is a valid partial-isomorphism strategy, establishing all n>=11. The finite n=10~n=11 bridge proves the infinite final class by transitivity; all seven smaller representatives are separated by exact complete finite types. The 20-vertex bound is sharp within the stated family. No finite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brown–Hoshino, Theorem 4.9: undirected C_m equivalent to C_n at rank four iff m=n or both lengths >=11.",
+        "Barik–Pati–Sarma 2007: corona graph spectrum, not FO equivalence.",
+        "Earlier classification for ordinary and Möbius circular ladders concerns C_n Cartesian K_2, a cubic two-rim graph, while sunlets have n leaves of degree 1."
+      ],
+      "reasoning": "The cycle theorem plus a product transfer covers the infinite sunlet region n>=11 but leaves n=10 unresolved; it does not dominate the sharp sunlet claim. The circular-ladder theorem cannot be transferred by isomorphism or mere parameter renaming: its objects have 3-regular degree sequences and distinct adjacency relations. Spectral and safe-number results supply no theorem entailing FO rank-four types.",
+      "searches": [
+        "\"prism graphs\" \"Ehrenfeucht\" \"Fraisse\"",
+        "\"Cartesian product\" \"cycle\" \"Ehrenfeucht\" game",
+        "sunlet graphs corona of cycle pendant leaf each vertex first order quantifier rank four Ehrenfeucht Fraisse exact classification",
+        "Feferman Vaught Cartesian products graphs first order Ehrenfeucht Fraisse"
+      ]
+    },
+    "checked_sources": [
+      "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+      "https://epubs.siam.org/doi/abs/10.1137/050624029",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2021/9483892",
+      "https://mathworld.wolfram.com/SunletGraph.html",
+      "https://jacodesmath.com/index.php/jacodesmath/article/view/140"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.9 in Brown–Hoshino yields C_11 equivalent to C_12 and higher at rank four, hence S_11 equivalent to S_12 and higher by the proved lift.",
+        "The finite-type calculations identify S_10 equivalent to S_11, though C_10 is not equivalent to C_11 at rank four.",
+        "The exact calculations separate S_9 from S_10 and all earlier consecutive cases."
+      ],
+      "reasoning": "The new threshold n=10 is neither a special case nor an immediate consequence of the cycle theorem, which stops at n=11; its n=10,n=11 equivalence requires the complete extension-type evaluation. Spectral and safe-number theorems do not imply bounded-rank equivalence.",
+      "searches": [
+        "Ehrenfeucht Fraisse games finite cycles paths Brown Hoshino 2007 quantifier rank 4 11 cycles",
+        "sunlet graph first order logical depth pointed cycles Ehrenfeucht Fraisse",
+        "sunlet graphs corona of cycle pendant leaf each vertex first order quantifier rank four Ehrenfeucht Fraisse exact classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sunlet is also C_n corona K_1, called sun graph and sometimes crown graph; MathWorld Sunlet Graph https://mathworld.wolfram.com/SunletGraph.html specifies the same object.",
+        "Brown–Hoshino 2007 treats only bare C_n (Theorem 4.9).",
+        "Iqbal et al. 2021 explicitly treat sunlet graphs but via safe-set invariants, section 4."
+      ],
+      "reasoning": "The aliases have been compared at the level of the same labelled graph construction, not just titles. No retrieved alias-based result gave the same rank-four equivalence classes. The term crown graph is ambiguous and therefore residual search risk remains.",
+      "searches": [
+        "sunlet graphs corona of cycle pendant leaf each vertex first order quantifier rank four Ehrenfeucht Fraisse exact classification",
+        "corona graph C_n K_1 cycle leaves finite model theory four round elementary equivalence",
+        "sunlet graph first order logical depth pointed cycles Ehrenfeucht Fraisse",
+        "\"sunlet graphs\" first order logic equivalence",
+        "\"sunlet graph\" \"Ehrenfeucht Fraisse\"",
+        "\"corona of a cycle\" \"first-order logic\" \"quantifier\"",
+        "\"hairy cycle\" \"Ehrenfeucht\" \"Fraisse\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published research-index results closest by object or terminology concerned graph decompositions, corona spectra, connected safe numbers, and other invariants; none was an FO 4-type table.",
+        "Brown–Hoshino original article supplies the cycle threshold 11, not the sunlet table."
+      ],
+      "reasoning": "A rank-four type-table source with the identical sunlet object and parameters would cover the claim even without matching its title, but none was found among checked accessible sources. This negative search has no completeness guarantee.",
+      "searches": [
+        "sunlet graphs corona of cycle pendant leaf each vertex first order quantifier rank four Ehrenfeucht Fraisse exact classification",
+        "corona graph C_n K_1 cycle leaves finite model theory four round elementary equivalence",
+        "\"sunlet graph\" \"quantifier rank\" cycles",
+        "\"sunlet graphs\" first order logic equivalence"
+      ]
+    },
+    "rationale": "The closest fully inspected logic theorem is Brown and Hoshino, 2007, Theorem 4.9, which classifies plain cycles and implies only the sunlet upper cutoff n>=11 via game transfer; it does not imply the key equivalence n=10 and n=11 or the precise smaller classes. Accessible work treating sunlets focuses on connected safe numbers and general corona spectra, not bounded-rank logical classification. Archive deduplication and indexed searches for sunlet, sun graph, hairy cycle, corona of a cycle, quantifier rank and Ehrenfeucht–Fraisse gave no prior statement that covers all eight classes. This is a qualified best-knowledge judgment, not certified historical priority.",
+    "residual_risks": [
+      "The 2007 corona-spectrum source was not inspected in complete full text, although its published abstract describes unrelated spectral theorems.",
+      "Historical graph-logic work with nonstandard names or missing indexing may cover the result; web and research-index absence cannot prove uniqueness.",
+      "Independent human verification of the programs and proof remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers undecorated cycles; transfers n>=11 but not exact sunlet cutoff n>=10",
+        "evidence": "Theorem 4.9 states cycle g(k)=2^(k-1)+3 for k>=3, hence g(4)=11, and article conclusion limits classification to paths and cycles.",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+        "material_read": "Publisher PDF title/abstract and rendered pages 209–211 of section 4, including Lemma 4.4, the upper-bound argument, and Theorem 4.9.",
+        "method": "Inspected the primary PDF page renderings of theorem, upper-bound proof, and final characterization",
+        "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+        "trigger": "Closest primary bounded-rank equivalence theorem and source of the infinite tail"
+      },
+      {
+        "assessment": "Abstract concerns adjacency and Laplacian spectral computation, not bounded-rank first-order graph equivalence; limited full-text inspection disclosed",
+        "evidence": "Publisher summary defines graph corona and claims complete spectral information for connected G and regular H.",
+        "identifier_or_url": "https://epubs.siam.org/doi/abs/10.1137/050624029",
+        "material_read": "Publisher abstract and dated bibliographic metadata, not the complete paper",
+        "method": "Inspected publisher article description and stated theorem topic",
+        "title": "The Spectrum of the Corona of Two Graphs",
+        "trigger": "Directly relevant corona graph operation with possible structural coverage"
+      },
+      {
+        "assessment": "Studies connected safe sets and connected safe numbers, no FO rank equivalence claim",
+        "evidence": "Section 4 is entitled Safe Set of the Sunlet Graph, and the conclusion describes safe numbers rather than logical theories.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2021/9483892",
+        "material_read": "Article abstract and sections 1, 4, 5 with Theorems 5–6 and reference list",
+        "method": "Inspected published full-text HTML relevant portions",
+        "title": "On the Connected Safe Number of Some Classes of Graphs",
+        "trigger": "Explicit sunlet-family primary source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9fcff2b6-882f-40e8-bdc0-2767ab47cb65",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural classification of all finite connected unicyclic graphs obtained by attaching one leaf at every vertex of a cycle is structurally meaningful in bounded-depth model theory. Its sharp length-10 threshold and 20-vertex representative are not covered by the plain-cycle threshold 11: the pendant corona changes exactly where four-round logic stabilizes. The result is a reusable exact example for first-order preservation under graph corona construction, with two independent finite checkers and a separate infinite mathematical argument. No broader theoretical breakthrough is claimed, and significance is the precise natural classification rather than the mere existence of code.",
+    "status": "PASS"
+  }
+}
