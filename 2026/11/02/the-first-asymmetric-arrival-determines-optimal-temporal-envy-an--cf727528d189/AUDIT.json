@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The parity of common goods before the first private good gives an unavoidable integer lower bound on every prefix. Explicit allocation makes the signed common imbalance X in {-1,0} when agent 1 receives the first private good or {0,1} when agent 2 does, so E=max(0,-A-X,X-B) equals the lower bound before that arrival and zero thereafter. The indistinguishable-common-first two-input family has offline optimum 1, costs at least m on the wrong initial assignment regardless of subsequent decisions, and a uniform first coin matches the (m+1)/2 randomized minmax. Exhaustive independent state-based DP for all 87381 valuation profiles through m=8 corroborates but does not prove generality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] Theorem 4.1 solves the general fixed-agent problem by dynamic programming, but does not give its closed-form value or prefixwise optimum for heterogeneous binary two-agent inputs.",
+        "[2] Theorem 3.7 has a larger valuation class with a weaker TEF1 guarantee, not a numerical envy-optimal one.",
+        "[3] studies EF1/MMS and welfare efficiency rather than cumulative maximum envy."
+      ],
+      "reasoning": "Algorithmic computability and existential EF1 are not stronger statements of the displayed per-prefix numerical minimization. The exact online lower bound concerns uncertain future values and is outside the assumptions of a fully informed solver.",
+      "searches": [
+        "cumulative maximum envy temporal fair division fixed arrival sequence two agents exact optimization frontier",
+        "two-agent heterogeneous binary valuations item types common exclusive cumulative maximum envy exact offline opt odd common prefix before first exclusive and unbounded online competitiveness",
+        "online competitive cumulative maximum envy oblivious adversary two binary agents",
+        "arXiv:2610.09843v1 Theorems 3.2 and 4.1",
+        "arXiv:2410.14593v1 Theorem 3.7",
+        "Wang and Wei DOI:10.1609/aaai.v40i20.38778"
+      ]
+    },
+    "checked_sources": [
+      "Goldberg–Robinson–Teh arXiv:2610.09843v1 (full HTML, including Proposition 1 and Appendix 0.B.1)",
+      "Elkind–Lam–Latifian–Neoh–Teh arXiv:2410.14593v1 (full PDF relevant sections and proof)",
+      "Wang–Wei DOI:10.1609/aaai.v40i20.38778 (publisher abstract)",
+      "Cookson–Ebadian–Shah DOI:10.1609/aaai.v39i13.33500 (publisher abstract)",
+      "Semantic searches of published mathematical claims for heterogeneous binary cumulative envy, parity first private good and oblivious online expected ratio"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] explicitly confines its pointwise optimal greedy construction to identical binary values, while its general binary complexity theorem has a variable number of agents.",
+        "[2] establishes TEF1 across generalized binary values; TEF1 allows positive envy.",
+        "[4] gives simultaneous approximate fairness, not optimum cumulative envy."
+      ],
+      "reasoning": "The proof for heterogeneous binary values yields a stronger numerical guarantee than temporal EF1 and a different domain from the identical-value greedy result. Prior online lower bounds for final-round envy and different adversaries do not imply the sharp (m+1)/2 family expected-ratio result for sum of all prefix envies.",
+      "searches": [
+        "cumulative maximum envy temporal fair division fixed arrival sequence two agents exact optimization frontier",
+        "two agents binary heterogeneous valuations cumulative maximum envy prefixwise optimum parity first asymmetric good",
+        "online competitive cumulative maximum envy oblivious adversary two binary agents",
+        "arXiv:2610.09843v1 §1.2, §4, Appendix 0.B.1",
+        "arXiv:2410.14593v1 Theorem 3.7, Appendix B.2",
+        "Cookson et al. DOI:10.1609/aaai.v39i13.33500"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] Proposition 1 and Appendix 0.B.1 prove every-prefix minimal envy when agents have IDENTICAL binary values; Theorem 4.1 only gives an exhaustive dynamic program.",
+        "[2] Theorem 3.7 constructs generalized-binary TEF1, which requires removal of at most one good, not exact zero envy after the first private good."
+      ],
+      "reasoning": "Under heterogeneous (1,0)/(0,1) goods, the identical-value proof has no well-defined single shared bundle-value difference. The nontrivial signed envy identity and first-private-good orientation extend the type domain and yield exact pointwise costs. Neither prior theorem determines the information-gap minimax ratios.",
+      "searches": [
+        "cumulative maximum envy temporal fair division fixed arrival sequence two agents exact optimization frontier",
+        "two agents binary heterogeneous valuations cumulative maximum envy prefixwise optimum parity first asymmetric good",
+        "temporal fair division first private good alternating common goods exact envy zero",
+        "arXiv:2610.09843v1 §4 and Appendix 0.B.1",
+        "arXiv:2410.14593v1 §3.2.2 and Appendix B.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record search hits on these queries included first-rank-maximality serial dictatorship and stochastic-dominance envy of random priority, which concern different objects and no exact numerical envy-time table.",
+        "No numerical tables or statements of a two-agent first-private-good parity rule were found in primary texts [1–2]."
+      ],
+      "reasoning": "No exact-database coverage observed. Absence of hits is not proof of nonexistence and does not exclude unindexed earlier statements.",
+      "searches": [
+        "temporal cumulative envy binary valuations two agents offline optimal cost first single-valued good parity",
+        "two agents binary heterogeneous valuations cumulative maximum envy prefixwise optimum parity first asymmetric good",
+        "temporal fair division first private good alternating common goods exact envy zero",
+        "online competitive cumulative maximum envy oblivious adversary two binary agents",
+        "web: exact cumulative maximum envy two agents binary valuations asymmetry first asymmetric item",
+        "web: temporal fair division binary two agents cumulative envy every prefix optimal heterogeneous"
+      ]
+    },
+    "rationale": "Primary full texts [1] and [2] and additional abstract-level works distinguish qualitative temporal EF1 and identical binary pointwise greediness from the heterogeneous binary exact envy curve plus exact online information gap. Relevant mathematical research-index queries returned non-covering assignment/fairness results. This is a best-knowledge literature comparison, not a priority certificate.",
+    "residual_risks": [
+      "A differently framed balancing argument or unindexed fair-allocation result could already imply the parity formula and its online ratio.",
+      "Only abstracts of Wang–Wei (2026) and Cookson–Ebadian–Shah (2025) were read, leaving limited whole-document priority uncertainty.",
+      "A generic repeated allocation or online vector-balancing bound could conceal an equivalent special-case lower bound; no such implication was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING claimed full theorem: Proposition 1 concerns identical binary valuations; Theorem 4.1 is a generic DP; no heterogeneous two-agent parity formula or sharp online two-input ratio found.",
+        "evidence": [
+          "§4 paragraph before Proposition 1 and Appendix 0.B.1 explicitly assume identical valuations.",
+          "§2 defines exact cumulative maximum envy; §1.2 distinguishes future-informed temporal from online unknown-future allocation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09843v1",
+        "material_read": "Full text: abstract, introduction and prior work, preliminaries, sections 3 and 4, Appendix 0.B.1; 40-page open-access PDF also checked at page 11.",
+        "method": "Read accessible arXiv HTML sections, claims and proof in Appendix 0.B.1; cross-check against original PDF.",
+        "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "trigger": "Same cost, sequence model, binary valuations, and prefixwise optimization benchmark."
+      },
+      {
+        "assessment": "NOT_COVERING exact cost claim: provides TEF1 and Pareto efficiency, does not claim zero envy immediately following first private item nor a time-integrated optimal formula.",
+        "evidence": [
+          "Theorem 3.7 asserts only TEF1 under generalized binary valuations.",
+          "Appendix B.2 Algorithm 3 picks an approving agent with lowest own bundle value, ensuring TEF1, but this online tie-breaking need not minimize cumulative maximum envy."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.14593",
+        "material_read": "Original 42-page PDF: introduction, definitions, Theorem 3.7 and relevant Appendix B.2 algorithm and proof (page 25).",
+        "method": "Read PDF text and inspected screenshots of Theorem 3.7 page and Appendix B.2 algorithm page.",
+        "title": "Temporal Fair Division of Indivisible Items",
+        "trigger": "Generalized binary (covers our valuations) and temporal prefix fairness."
+      },
+      {
+        "assessment": "No equivalent cost or two-input family statement in read material; full-text coverage unconfirmed.",
+        "evidence": [
+          "Publisher abstract focuses on EF1, MMS and utilitarian social welfare for goods/chores."
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/38778",
+        "material_read": "Publisher abstract and bibliographic metadata.",
+        "method": "Read publisher abstract and subject/fairness guarantees; not full paper.",
+        "title": "Online Fair Allocations with Binary Valuations and Beyond",
+        "trigger": "Online binary allocations and unknown future."
+      },
+      {
+        "assessment": "Available material concerns EF1/SD-EF1 per day and cumulatively, not numerical cumulative envy minimization; full text not checked.",
+        "evidence": [
+          "2025 AAAI abstract concerns daily SD-EF1, EF1 at every cumulative prefix, and PROP1."
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/33500",
+        "material_read": "Publisher abstract and bibliographic metadata.",
+        "method": "Read available publisher abstract, not full text.",
+        "title": "Temporal Fair Division",
+        "trigger": "Two-agent online/temporal envy balancing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf727528-d189-431c-8694-c8dafdc841a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first fully specified tractable heterogeneous binary case of the cumulative maximum envy optimization from [1] obtains an explicit exact formula, stronger simultaneous optimization of every prefix, and a striking exact two-instance separation between clairvoyant and no-future-information allocation. The improvement is structural rather than a mere small input case or arbitrary enumeration and directly informs whether lookahead matters in fairness-over-time mechanisms.",
+    "status": "PASS"
+  }
+}
