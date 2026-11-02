@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:53:09Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual frozen package RESULT.md Git blob cb351239dbcfb1c79c59331bfa4b84c609424714: Finding, Assumptions, Proof steps 1-4, Verification, Limitations, and exact formulas.",
+        "Actual frozen package verify.py Git blob 6e489f7e6cf2bda7bf3c29b6c725d6c2d16723eb inspected; verification claims were not assumed to prove the theorem.",
+        "Independent exact-rational script /mnt/data/scope_worker04_independent_check_20261028.py: INDEPENDENT_CHECK_OK, 840 coefficient identities and 48 polygonal integrated sections; SHA-256 b750592cd36ad916e20f2ef8b5ac2d45d17144e2db5e1c526a1d5ef7acba7514.",
+        "Classical Minkowski-polynomial normalization and Alexandrov--Fenchel / Minkowski-first equality: Rolf Schneider (2014), Convex Bodies: The Brunn--Minkowski Theory; corroborating general definitions https://encyclopediaofmath.org/wiki/Mixed-volume_theory."
+      ],
+      "rationale": "For n>=2, d=n-1, 0<=t<=1 and full-dimensional compact convex B, the horizontal section of F_t(B) at height a is (1-(1-t)a)B even if the dilation center lies outside B. For F_t(B)+s(-F_t(B)) at height z, decomposition sections are (1-qa)B+(s+q(z-a))(-B), with q=1-t and max(0,z)<=a<=min(1,z+s). Increasing a reduces BOTH nonnegative coefficients by qh, so the earlier section is the later section plus qh(B-B), and B-B contains 0. Thus the union of sections is exactly the earliest section, not a mere inclusion. On z>=0 the section is (1-qz)B+s(-B); on z<=0 it is B+(s+qz)(-B). Fubini and the normalized degree-d Minkowski polynomial give the s^j coefficient as binom(d,j) M_j Psi_(n-j)/(n-j) + binom(d,j-1) M_(j-1) Psi_j/j = binom(n,j)[M_j Psi_(n-j)+M_(j-1)Psi_j]/n, for 1<=j<=n-1. The endpoint coefficients are Psi_n vol_d(B)/n, and the frustum volume is the same. Alexandrov--Fenchel log concavity of M_0..M_d and equal endpoint volumes force M_j>=vol(B); for d>=2, equality M_1=vol(B) in Minkowski first inequality means B and -B are translates, hence B centrally symmetric. If B is nonsymmetric, M_1>vol(B), so log concavity forces every interior M_j>vol(B); each reflected interior coefficient contains at least one such term with a positive Psi factor. This proves sharpness and rigidity at EVERY interior index, including boundary j=1,n-1, with n=2 automatic interval symmetry. Algebra gives sharp R_(n,j)(t)=1+(1-t^j)(1-t^(n-j))/(1-t^n) for 0<=t<1 and continuous value 1 at t=1; it decreases from 2 to 1, maximizing at central j. Summing the symmetric-base Minkowski polynomial at s=1 gives difference-body lower ratio [2^(n+1)-2(1+t)^n]/(1-t^n), endpoint 2^(n+1)-2 at t=0 and 2^n at t=1. Independent code (not merely the package verifier) performed 840 exact rational symbolic coefficient identities for dimensions 2..15 at 4 t-values and both symmetric/simplex abstract coefficient patterns; 48 further exact rational planar Minkowski-section integrations for 4 concrete convex polygons at four t-values and three s-values all agreed with the formula. The unrestricted statement follows from the symbolic section and classical mixed-volume proof, not from finite checks. The source verified code was inspected rather than executed blindly.",
+      "residual_risks": [
+        "Finite rational checks do not establish all-dimensional geometry; proof uses Fubini, convex Minkowski sums, Alexandrov--Fenchel and Minkowski first equality as classical theorems.",
+        "The formulas are only for common-center homothetic bases; arbitrary skew or rotated frusta are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fryš et al. arXiv:2610.06806v2 Theorem 1.2 gives global upper V_n(K[k],-K[n-k])<=binom(n,k)vol(K), equality simplex; Theorem 1.5 gives higher-order upper inequalities for diagonal/product embeddings (PDF pp. 2-5).",
+          "Kotrbatý (IMRN 2025), Theorem 1.4 gives higher-order Godbersen extension for anti-blocking bodies; its statement is an inequality, not a specialization rule for arbitrary-base homothetic frusta.",
+          "Classical Brunn--Minkowski gives general difference-body lower 2^n, weaker than sharp frustum-specific ratio for t<1 and n>=2."
+        ],
+        "reasoning": "Universal UPPER bounds and equality classification do not imply the exact LOWER coefficient envelope or the arbitrary-base two-term recurrence. A general theorem involving the same mixed volumes is not dominating if its inequality direction and equality class differ. No inspected stronger coverage found.",
+        "searches": [
+          "Read arXiv:2610.06806v2 PDF, introduction and Theorems 1.2/1.5 plus mixed-volume preliminaries; full PDF keyword search for frustum/truncation.",
+          "Read Kotrbatý, On a Generalization of Godbersen’s Conjecture, IMRN 2025 open-access introduction and main theorems, https://academic.oup.com/imrn/article/2025/22/rnaf341/8322708",
+          "Web searches for exact reflected pyramid/frustum mixed volume identities and Godbersen upper/lower bounds."
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md (full RESULT.md, proof read)",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359/RESULT.md (full RESULT.md, proof read)",
+        "https://arxiv.org/pdf/2610.06806v2 (full PDF accessed; relevant theorem/proof sections read; not all technical lemmas)",
+        "https://academic.oup.com/imrn/article/2025/22/rnaf341/8322708 (full accessible HTML; introduction and theorem/proof sections read)",
+        "https://arxiv.org/abs/2607.20387 (abstract only)",
+        "https://arxiv.org/abs/2610.04527 (abstract only)",
+        "https://encyclopediaofmath.org/wiki/Mixed-volume_theory (classical standard normalization and mixed-volume inequalities)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For simplex B, M_j=binom(n-1,j)vol(B), so V_n/vol(F) = binom(n,j)[1-(j/n)t^j-((n-j)/n)t^(n-j)]/(1-t^n); equal to the published simplex-profile theorem after normalization.",
+          "Santaló frustum result computes polar volume around (0,z) and shape-independent Santaló height, not Minkowski sum of F and -F.",
+          "General Godbersen theorem implies an upper inequality with simplex extremizers; restricted frustum lower bound has symmetric-base extremizers and its full coefficient dependence is not implied."
+        ],
+        "reasoning": "The new theorem IMPLIES the previously known one-vertex simplex-truncation coefficient result, not conversely. Neither Santaló polar-volume invariant nor upper Godbersen inequality mathematically determines two arbitrary-base mixed-volume inputs. Possible uninspected alternative derivations under Cayley or pyramid terminology remain priority risk.",
+        "searches": [
+          "Direct substitution of simplex base coefficients into the assessed boxed recursion versus published RESULT.md https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md",
+          "Direct comparison of marked formulas (3)-(7) of Santaló homothetic-frustum RESULT.md https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359/RESULT.md",
+          "Full-text primary Godbersen inequalities and face-lattice characterization https://arxiv.org/pdf/2610.06806v2",
+          "2025 IMRN article anti-blocking higher-order statement https://academic.oup.com/imrn/article/2025/22/rnaf341/8322708"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary published Santaló homothetic-frustum finding, full RESULT.md (four proof sections), https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359/RESULT.md, equations (3)-(7) concern polar sections and volume products, not V_n(F[n-j],-F[j]).",
+          "Resultary published simplex truncation, full RESULT.md https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md, exact mixed coefficients only for a simplex base.",
+          "Original package formula for arbitrary B contains free base mixed coefficients M_j(B), M_(j-1)(B) not fixed by simplex-only or polar-volume results."
+        ],
+        "reasoning": "Compared aliases homothetic prismatoid, truncated cone/pyramid, reflected Cayley body, difference body, opposite-body mixed-volume polynomial, and the associated simplex special case. No inspected equivalent theorem for every convex B; the simplex case is explicitly known and not independently novel.",
+        "searches": [
+          "Resultary query: mixed volumes reflected homothetic frustum pyramid prism convex body horizontal sections recurrence neighboring base mixed volumes difference body",
+          "Resultary query: mixed volume polynomial simplex truncation homothetic frustum exact coefficient formula convex base reflected Minkowski",
+          "Web searches: \"homothetic frustum\" \"mixed volume\" \"difference body\"; \"pyramid\" \"mixed volumes\" \"centrally symmetric\" \"difference body\"; \"prismatoid\" \"mixed volume\" \"reflection\" homothetic."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published simplex-frustum formula V_n(K_t[n-j],-K_t[j])=binom(n,j)/n! [1-(j/n)t^j-((n-j)/n)t^(n-j)] is exactly subsumed under simplex M_j=binom(n-1,j)vol(B).",
+          "Published all-base Santaló/Mahler table is for a distinct functional; no reflected mixed-volume coefficient table appears in its full inspected proof."
+        ],
+        "reasoning": "An exact known formula covers only a proper subclass (simplex B); another exact table treats a distinct polar functional. Neither supplies unknown values for general asymmetric bases, nor the sharp min/rigidity. Database negative search is not itself novelty proof.",
+        "searches": [
+          "Resultary searches for exact Godbersen mixed-volume profile one-vertex simplex truncations; exact homothetic frusta coefficient recursions and tables.",
+          "Exact published-result IDs: 2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949; 2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359."
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical contribution is the exact arbitrary-base dimension-raising reflected mixed-volume recursion, its coefficientwise sharp LOWER envelope and equality iff centrally symmetric base, not the already published simplex-base specialization or classical Minkowski/AF tools. The complete published simplex-truncation proof is contained as the special case M_j=binom(n-1,j)vol(B), yielding exactly its known formula, so no novelty is claimed for that subfamily. The complete published homothetic-frustum Santaló study concerns polar-volume/centroid/Mahler products of the same objects but does not determine their reflected Minkowski-polynomial coefficients. The materially inspected Fryš--Kotrbatý--Mouamine--Wang arXiv v2 PDF proves global upper Godbersen/higher-order inequalities and simplex rigidity, not this restricted-class exact polynomial or sharp lower envelope; Kotrbatý 2025 OA article likewise treats higher-order upper inequalities. Remaining closely related 2026 articles were checked via their original abstracts only because full arXiv/OA access failed and Oxford fallback reported a download-storage limit. Older unindexed cone/Cayley/pyramid mixed-volume identities could express the same result, a material residual priority risk; absence of search hits is not evidence of absolute novelty.",
+      "residual_risks": [
+        "Older Cayley-body, pyramid, truncated-cone or prismatoid mixed-volume texts may contain the same exact recurrence under different naming; available searches do not prove historical novelty.",
+        "Full primary PDFs of arXiv:2607.20387 and 2610.04527 were not accessible through arXiv/authorized OA; authorized Oxford retrieval returned storage-capacity error, not an inspected text. An unexamined specialization or appendix is a priority risk, but abstracts alone do not constitute strong coverage.",
+        "Some technical sections of 2610.06806v2 were not read line-by-line, although full text and relevant statements were accessed. Its all-body upper inequality cannot substitute for an exact restricted-family lower identity.",
+        "Already published simplex-frustum case must not be described as new; only the arbitrary-base generalization and extremality are proposed as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS simplex-base specialization only, not arbitrary convex B or symmetric-base lower envelope.",
+          "evidence": "Its K_t is a truncated simplex and theorem gives C(n,j)/n! [1-(j/n)t^j-((n-j)/n)t^(n-j)].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md",
+          "material_read": "Entire publicly accessible RESULT.md: finding, membership-test proof, orthant beta integrations, coefficient formula, limitations and references.",
+          "method": "Read actual Resultary/2026 Git blob b264f8fbd95bed89d182c9d532371d113870bed9; compared formulas by symbolic binomial identity.",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Already published exact coefficients on a frustum subclass"
+        },
+        {
+          "assessment": "NOT COVERING: polar Santaló and volume products cannot determine reflected mixed volumes in general.",
+          "evidence": "Equations (3)-(7) give polar sections, Santaló height and product; no formula for V_n(F[n-j],-F[j]).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359/RESULT.md",
+          "material_read": "Entire accessible RESULT.md: claims, polar-section calculation, axial Santaló equation, beta-mixture centroid proof, strict Mahler monotonicity, scope/references.",
+          "method": "Read actual Resultary/2026 Git blob 0632ef8de8dc8b9bc4d2f18e22f4d5bc40a12b2b; compared functionals, inputs and implications.",
+          "title": "Universal Santaló and volume-product laws for homothetic frusta",
+          "trigger": "Exactly same convex body family for every base, possible dominating general theorem"
+        },
+        {
+          "assessment": "NOT COVERING in inspected full-text statement and relevant proof framework: global/higher-order UPPER inequalities and simplex characterization; no specialized arbitrary-base exact LOWER recursion.",
+          "evidence": "Theorem 1.2 p.2 bounds V_n(K[k],-K[n-k]) by binom(n,k)vol(K); Theorem 1.5 pp.4-5 upper-bounds product-space mixed volumes with simplex equality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06806v2",
+          "material_read": "Original 25-page arXiv v2 PDF accessible. Examined abstract, introduction, Theorems 1.2 and 1.5 (pp. 1-5), mixed-volume/projection preliminaries (pp. 8-9), further theorem/equality arguments and index-word searches through whole PDF; not every technical lemma read exhaustively.",
+          "method": "Primary PDF opened and screenshot pages 1,4; read relevant theorem statements and mathematical text, searched full PDF for frustum, pyramid, truncation and mixed-volume mentions.",
+          "title": "Higher-order Godbersen inequality and a characterization of simplices via the face lattice",
+          "trigger": "Closest 2026 global mixed-volume result and explicit motivating source"
+        },
+        {
+          "assessment": "NOT COVERING: anti-blocking higher-order inequalities, no coefficient identity for arbitrary homothetic frusta.",
+          "evidence": "Theorem 1.4 applies to anti-blocking bodies and states higher-order inequality, not sharp lower coefficient values for arbitrary B.",
+          "identifier_or_url": "https://academic.oup.com/imrn/article/2025/22/rnaf341/8322708",
+          "material_read": "Full freely available journal HTML accessed; read introduction, Conjectures 1.1-1.5, Theorem 1.4 and relevant proof passages in §4.",
+          "method": "Direct primary journal HTML review, checked theorem statements and hypothesis class.",
+          "title": "On a Generalization of Godbersen’s Conjecture",
+          "trigger": "Potentially stronger universal higher-order mixed-volume theorem"
+        },
+        {
+          "assessment": "Abstract indicates upper theorem and simplex polytope extremizers; full paper not cleared for all possible specialized results.",
+          "evidence": "arXiv abstract states maximization among all convex bodies by simplices, a different direction from the frustum lower envelope.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.20387",
+          "material_read": "Original arXiv abstract and publication details only; arXiv PDF/HTML not retrievable; not full-text inspected.",
+          "method": "Attempted original arXiv HTML/PDF and lawful OA search; authorized Oxford retrieval returned download-storage-limit error.",
+          "title": "Godbersen’s conjecture and the L_p-Rogers–Shephard inequality",
+          "trigger": "General original Godbersen upper bound may dominate claim"
+        },
+        {
+          "assessment": "Abstract indicates upper-equality simplex rigidity; cannot assert whole-document absence of special frustum identities.",
+          "evidence": "Original abstract classifies V_n(K[k],-K[n-k])=binom(n,k)vol(K) equality by simplex, not symmetric-base minima.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04527",
+          "material_read": "Original arXiv abstract plus v2 bibliographic metadata only; PDF/HTML and HAL OA text inaccessible.",
+          "method": "Original arXiv PDF/HTML and HAL OA attempts; authorized Oxford retrieval returned download-storage-limit error.",
+          "title": "Equality case in the Kotrbatý–Mouamine inequality",
+          "trigger": "General upper equality classification and possible appendix formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359/RESULT.md",
+        "https://arxiv.org/pdf/2610.06806v2",
+        "https://academic.oup.com/imrn/article/2025/22/rnaf341/8322708"
+      ],
+      "rationale": "The natural homothetic-frustum family bridges pyramids and prisms for arbitrary nonsymmetric, nonsmooth and nonpolyhedral convex bases. The exact two-neighbor recurrence calculates EVERY reflected mixed coefficient from dimension n-1 data; this is a usable structural reduction rather than a finite numerical slice. It yields a simultaneous sharp coefficientwise lower envelope with a complete symmetry equality classification, an explicit monotone central-index profile, and a sharp interpolation of difference-body ratios from 2^(n+1)-2 at pyramids to 2^n at prisms. The theorem genuinely extends the published simplex-truncation computation to arbitrary base mixed-volume sequences and produces extremal rigidity not implied by classical general upper bounds. Its possible future mathematical use is exact computation and testing of reflected mixed-volume inequalities on general Cayley/homothetic-frustum families, including sharp obstruction examples. The short derivation uses classical tools, but its full all-dimensional quantitative classification is natural and independently meaningful, not a renaming, an arbitrary computation or a trivial tiny gain. It does not give new universal Godbersen upper bounds or cover skew/nonhomothetic frusta.",
+      "residual_risks": [
+        "Uses classical Alexandrov--Fenchel and Minkowski first inequalities; some subcases (prism, simplex truncation, general Brunn--Minkowski lower bound) are already standard or published.",
+        "No conclusion for general arbitrary prismatoids or universal sharp upper inequalities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md (full RESULT.md, proof read)",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359/RESULT.md (full RESULT.md, proof read)",
+    "https://arxiv.org/pdf/2610.06806v2 (full PDF accessed; relevant theorem/proof sections read; not all technical lemmas)",
+    "https://academic.oup.com/imrn/article/2025/22/rnaf341/8322708 (full accessible HTML; introduction and theorem/proof sections read)",
+    "https://arxiv.org/abs/2607.20387 (abstract only)",
+    "https://arxiv.org/abs/2610.04527 (abstract only)",
+    "https://encyclopediaofmath.org/wiki/Mixed-volume_theory (classical standard normalization and mixed-volume inequalities)"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific PASS is qualified by historical priority risks and inaccessible full texts. Proof is all-dimensional from exact Minkowski sections and classical inequalities, with independent finite checks as corroboration only. Publication is withheld for confidentiality, not because of a scientific FAIL.",
+  "residual_risks": [
+    "Older Cayley-body, pyramid, truncated-cone or prismatoid mixed-volume texts may contain the same exact recurrence under different naming; available searches do not prove historical novelty.",
+    "Full primary PDFs of arXiv:2607.20387 and 2610.04527 were not accessible through arXiv/authorized OA; authorized Oxford retrieval returned storage-capacity error, not an inspected text. An unexamined specialization or appendix is a priority risk, but abstracts alone do not constitute strong coverage.",
+    "Some technical sections of 2610.06806v2 were not read line-by-line, although full text and relevant statements were accessed. Its all-body upper inequality cannot substitute for an exact restricted-family lower identity.",
+    "Already published simplex-frustum case must not be described as new; only the arbitrary-base generalization and extremality are proposed as original.",
+    "Finite rational checks do not establish all-dimensional geometry; proof uses Fubini, convex Minkowski sums, Alexandrov--Fenchel and Minkowski first equality as classical theorems.",
+    "The formulas are only for common-center homothetic bases; arbitrary skew or rotated frusta are excluded.",
+    "Uses classical Alexandrov--Fenchel and Minkowski first inequalities; some subcases (prism, simplex truncation, general Brunn--Minkowski lower bound) are already standard or published.",
+    "No conclusion for general arbitrary prismatoids or universal sharp upper inequalities."
+  ],
+  "schema_version": 1
+}
