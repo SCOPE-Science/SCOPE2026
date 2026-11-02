@@ -1,0 +1,15 @@
+# Scientific review: square-subsequence spectra of cyclic permutation powers
+
+## Correctness — PASS
+The greedy matching lemma counts a new period exactly at each weak descent of a target word. Applying it to the two consecutive root copies gives the criterion \(1+2r(u)+s(u)\le k\). The trace expression counts each root exactly once and marks its two internal weak-descent copies plus the join; a nilpotent upper-triangular matrix and a rank-one determinant identity evaluate the trace uniformly in alphabet size. For extremality, symbol multiplicity bounds the root length and cyclic increasing-run decomposition classifies all equality cases. Each proof step covers the quantified ranges \(q\ge2\), \(k,m\ge1\), including \(k=1\) and one-symbol roots. The verifier independently enumerated literal square subsequences in 24 cases and checked 780 coefficient identities. Risk: the independent finite tests are necessarily bounded, but they are not used to justify the infinite theorem.
+
+## Originality — PASS, with residual risk
+Inoue et al. (2018), Inoue–Inenaga–Bannai (2020), and Bannai–I–Köppl (2022) give algorithms for square or periodic subsequences without this exact distinct-root length spectrum. He et al. (2021) enumerate a different shuffle-square predicate. Exact earlier cyclic-permutation counts for palindromes and minimally absent subsequences do not imply square membership or the rational rooted-square enumerator. The mathematical overlap comparison was based on the specific predicates, output invariants, and available primary full-text sections, not on titles alone. Searches did not locate the displayed rational formula or a stronger result implying it. Residual risk: an equivalent special case could appear in unlocated enumeration literature, and the general algorithms can of course compute finite instances.
+
+## Mathematical value — PASS
+The source problem concerns repeated patterns under scattered matching, where an arbitrary host admits many embeddings and duplicate square strings must be removed. This result supplies a complete membership test, the whole infinite length profile, and the parity-rigid set of longest roots for every alphabet size, rather than an isolated instance or only a longest length. The rational transfer identity gives exact reproducible benchmarks for repeated-period string algorithms and separates the count of distinct solutions from the count of embeddings. Its value is the complete classification for a natural host family; no claim of a general-purpose faster algorithm is made.
+
+## Closest literature and limitations
+The main comparisons are doi:10.4230/LIPIcs.CPM.2018.15, arXiv:2006.00216, arXiv:2202.07189, and arXiv:2109.12455. They do not contain the claimed length-refined closed form in the inspected material. The analysis is limited to complete identical permutation periods, distinct concatenated squares, and exact subsequence matching. A possibly unlocated equivalent statement remains a scientific risk.
+
+Self-review: passed. Independent audit: not yet performed.
