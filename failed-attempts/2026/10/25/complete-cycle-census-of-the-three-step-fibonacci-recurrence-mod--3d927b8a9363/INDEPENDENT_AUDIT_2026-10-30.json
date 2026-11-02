@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:51:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact all-ones three-step map A, independent integer arithmetic yields (A^13-I)/3 integral with determinant 106, so A modulo 3 has order 13 and lifts by a unit perturbation at every 3-adic depth. Irreducibility of x³-x²-x−1 in F3 implies all nonzero vectors modulo 3 have period 13. For every valuation stratum k-t, repeated cubing shows primitive period exactly 13·3^(t−1), with 26·3^(3t−3) states and 2·9^(t−1) cycles. Direct independent complete state census modulo 3,9,27 examined 20439 states and matched all orbit counts. This correctness result is nevertheless nonoriginal because of Klaška 2008.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klaška Theorem 1.1 gives lifting of periods, Theorem 3.10 establishes it for ALL nonzero triples in irreducible case, and Lemma 2.2 gives valuation reduction."
+        ],
+        "reasoning": "This covers a stronger prime-family/initial-triple statement and hence strictly dominates the present p=3 all-state period spectrum.",
+        "searches": [
+          "https://www.dml.cz/bitstream/handle/10338.dmlcz/140617/MathBohem_133-2008-3_5.pdf",
+          "Vince 1981 Period of a linear recurrence",
+          "Waddill 1978 generalized Fibonacci modulo m"
+        ]
+      },
+      "checked_sources": [
+        "https://www.dml.cz/bitstream/handle/10338.dmlcz/140617/MathBohem_133-2008-3_5.pdf",
+        "https://oeis.org/A106285",
+        "https://oeis.org/A054879",
+        "Resultary semantic search: tribonacci companion matrix period orbit 3 power modulo 3 cycle counts 13*3^(k-1)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source uses identical companion matrix T, shows det((T^13-I)/3)=106, p=3 char irreducible; 2008 stronger theorem uses same T, same arbitrary triple and same periods."
+        ],
+        "reasoning": "All conditions of Klaška Theorem 3.10 are met: char x^3-x^2-x-1 irreducible over F3; h(3)=13, h(9)=39. For a state of exact 3-adic valuation k-t, Lemma 2.2 reduces its period to t, and division gives precisely the source orbit census.",
+        "searches": [
+          "https://www.dml.cz/bitstream/handle/10338.dmlcz/140617/MathBohem_133-2008-3_5.pdf",
+          "https://oeis.org/A106285",
+          "Thm 3.10 and Lemma 2.2 versus source RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klaška Theorem 3.10, p.274, identifies h(p^t)[a,b,c]=p^(t-1)h(p) in the irreducible mod p case for all primitive triples; p=3 satisfies its hypotheses. Lemma 2.2, p.270, reduces nonprimitive triples to primitive shorter modulus."
+        ],
+        "reasoning": "Specializing p=3 and calculating the order h(3)=13 is exactly the claimed period for every state, not simply a similar title.",
+        "searches": [
+          "Resultary: tribonacci companion matrix period orbit 3 power modulo 3 cycle counts 13*3^(k-1)",
+          "https://www.dml.cz/bitstream/handle/10338.dmlcz/140617/MathBohem_133-2008-3_5.pdf",
+          "Klaška 2008 Tribonacci modulo p^t arbitrary initial triple primitive period"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A106285 explicitly lists the total-cycle coincidence as an observed apparent sequence; its closed form is A054879. Klaška gives all primitive periods, from which period multiplicities and OEIS totals are arithmetic."
+        ],
+        "reasoning": "Even if the exact length-multiplicity table is not printed in Klaška, it follows without new mathematical lemma by counting primitive triples (3^(3t)-3^(3(t-1))) and dividing by 13*3^(t-1).",
+        "searches": [
+          "https://oeis.org/A106285",
+          "https://oeis.org/A054879",
+          "https://www.dml.cz/bitstream/handle/10338.dmlcz/140617/MathBohem_133-2008-3_5.pdf"
+        ]
+      },
+      "rationale": "Prior full-text coverage is decisive: Klaška (2008) Theorem 3.10 establishes the period 3^(t-1)h(3) for EVERY nonzero initial triple mod 3 in the irreducible case; Lemma 2.2 extends to every valuation. h(3)=13 and h(9)=39 follow from the audited small matrix certificate. Dividing the 26*3^(3t-3) states in each valuation stratum by their known common period yields exactly 2*9^(t-1) cycles. The entire claim, including all multiplicities and sum, is thus a direct elementary corollary, not merely an OEIS match.",
+      "residual_risks": [
+        "The paper may not explicitly list the precise length-multiplicity numbers; nevertheless they are immediate corollaries, so missing printed figures cannot establish originality.",
+        "No genuine surviving new subclaim identified in assigned source; a disclaimer or adding finite certificates cannot repair this covered theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY COVERING stronger theorem, not merely a plausible title; all period formulas follow by p=3 specialization and valuation reduction",
+          "evidence": "Theorem 3.10 + Lemma 2.2, Theorem 1.1; p=3 is unexceptional (only p=2,11 excluded).",
+          "identifier_or_url": "https://www.dml.cz/bitstream/handle/10338.dmlcz/140617/MathBohem_133-2008-3_5.pdf",
+          "material_read": "Primary 23-page PDF: introduction (p.267-269), Lemma 2.2 (p.270), irreducibility Lemma 3.6 (p.273), Theorem 3.10 (p.274), lifting Theorem 1.1 and proof (p.268), related period theorems",
+          "method": "Read relevant full theorem statements, hypotheses and proofs, with page screenshots",
+          "title": "Tribonacci modulo p^t (Mathematica Bohemica 133, 2008, 267–288)",
+          "trigger": "Same all-ones three-step recurrence, every arbitrary initial triple modulo p powers"
+        },
+        {
+          "assessment": "Prior total explicitly conjecturally matched; separate stronger 2008 literature settles the period part",
+          "evidence": "A106285 points to total matching (9^k+3)/4 as apparent.",
+          "identifier_or_url": "https://oeis.org/A106285",
+          "material_read": "OEIS sequence page and comparison to A054879",
+          "method": "Primary sequence entry inspection",
+          "title": "A106285 - Number of orbits of the 3-step recursion mod n",
+          "trigger": "Exact prior database table and claim total"
+        },
+        {
+          "assessment": "Background only; strongest direct coverage is Klaška 2008",
+          "evidence": "Discusses matrix recurrence periodicity, not used to assert new claim",
+          "identifier_or_url": "https://www.researchgate.net/publication/242791211_3-Step_Fibonacci_series_modulo_m",
+          "material_read": "Accessible full-text web rendering sections on general recurrence modular periodicity",
+          "method": "Full-text HTML excerpts; not the decisive source",
+          "title": "3-Step Fibonacci series modulo m",
+          "trigger": "Older generic recurrence-period literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full natural all-state period spectrum and orbit multiplicities for Tribonacci modulo 3^k form a mathematically interpretable and reproducible exact invariant, rather than arbitrary initial values. However its mathematical contribution as NEW knowledge is eliminated by the 2008 stronger theorem; independent value is not used as a novelty substitute.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "Every 3-step Fibonacci state modulo 3^k has valuation-controlled least period 13·3^(t−1), with 2·9^(t−1) cycles of that length and (9^k+3)/4 cycles in total.",
+  "limitations": [
+    "Even though C is correct, stronger Klaška 2008 covers every primitive period and Lemma 2.2 handles valuation; exact census is routine division by known period, so reject unchanged original. Finite k<=3 tests only.",
+    "The paper may not explicitly list the precise length-multiplicity numbers; nevertheless they are immediate corollaries, so missing printed figures cannot establish originality.",
+    "No genuine surviving new subclaim identified in assigned source; a disclaimer or adding finite certificates cannot repair this covered theorem."
+  ],
+  "schema_version": 1
+}
