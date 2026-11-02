@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:57:17.039225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/27/exact-nineteen-value-spatial-image-entropy-spectrum-of-elementar--d4f1725c3486/RESULT.md",
+        "2026/10/27/exact-nineteen-value-spatial-image-entropy-spectrum-of-elementar--d4f1725c3486/verify.py",
+        "independent_checks_batch4949.py"
+      ],
+      "rationale": "For each of the 256 Wolfram radius-one binary maps, finite spatial image words are exactly labels of paths in a 4-pair-state de Bruijn transducer. Determinization from all four initial states to reachable nonempty subsets (<=15) counts every output block once, so a(n)=e_initial^T A^n 1. Accessibility and nonnegative Perron–Frobenius theory yield exp(h)=rho(A); all row sums <=2. Independent Python/SymPy exact reconstruction built all 256 matrices and characteristic polynomials, used rational Sturm root counts in 19 pairwise-disjoint intervals and exact factor divisibility to identify every Perron class. The class counts are [30,4,4,8,8,4,8,8,4,4,28,44,16,8,8,32,28,8,2]; highest proper class is rules 22,104,151,233, runner-up 37,91,164,218, zero class 0 and 255. Independent input-block enumeration agreed with deterministic counts at 1536 finite (rule,n) pairs. Actual source CSVs were independently fetched by Git blob and inspected as 20 and 257 rows, including exact rational brackets and characteristic polynomials. The infinite word-length entropy is from the matrix-growth proof, not finite samples.",
+      "residual_risks": [
+        "The exact finite certificate covers 256 rules, not larger radii/alphabet; the asymptotic entropy relies on the automaton/Perron argument. No claim on temporal dynamical entropy or finite-ring Shannon entropy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martínez et al. arxiv:2005.01480 full Rule-22 paper: de Bruijn/subset image methodology and Garden-of-Eden sections, not 256-rule Perron spectrum.",
+          "Schüle–Stoop arxiv:1107.2080: classification of dynamic/chaotic/surjective types; full-image class alone.",
+          "Source entropy_spectrum.csv 19 class data rows and rule_catalog.csv 256 rule rows checked from actual Git files; independent exact SymPy/Sturm classification and 1536 block comparisons match.",
+          "Kari–Taati 2015 surjective entropy theorem"
+        ],
+        "reasoning": "General Garden-of-Eden/surjectivity theorem handles exactly maximal log2 class; it does not evaluate proper-image eigenvalues or global proper-image maximum.",
+        "searches": [
+          "Kari–Taati 2015 surjective entropy theorem",
+          "Schüle–Stoop 2012 surjectivity class"
+        ]
+      },
+      "checked_sources": [
+        "Li–Packard, The Structure of Elementary Cellular Automata Rule Space, Complex Systems 4 (1990)",
+        "Schüle–Stoop, Full Computation-Relevant Topological Dynamics Classification of Elementary Cellular Automata, arXiv:1107.2080 (surjectivity/dynamical categories)",
+        "Kari–Taati, Statistical Mechanics of Surjective Cellular Automata, 2015 (full-entropy versus proper image theorem)",
+        "Martínez et al., On Patterns and Dynamics of Rule 22 Cellular Automaton, arXiv:2005.01480 (full PDF, image subset automaton/Garden-of-Eden section)",
+        "Resultary search: elementary cellular automata one-step spatial image subshift entropy full classification 256 Wolfram rules Perron roots Rule 22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Martínez et al. arxiv:2005.01480 full Rule-22 paper: de Bruijn/subset image methodology and Garden-of-Eden sections, not 256-rule Perron spectrum.",
+          "Schüle–Stoop arxiv:1107.2080: classification of dynamic/chaotic/surjective types; full-image class alone.",
+          "Source entropy_spectrum.csv 19 class data rows and rule_catalog.csv 256 rule rows checked from actual Git files; independent exact SymPy/Sturm classification and 1536 block comparisons match.",
+          "Martínez et al. 2019/2020 Rule22 diagram"
+        ],
+        "reasoning": "Known Rule22 subset graph makes its single entropy computable but does not show it is globally maximal over other 255; known surjective rules supply class 0 only, not the 18 other exact classes.",
+        "searches": [
+          "Martínez et al. 2019/2020 Rule22 diagram",
+          "Kari–Taati 2015 full-entropy theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martínez et al. arxiv:2005.01480 full Rule-22 paper: de Bruijn/subset image methodology and Garden-of-Eden sections, not 256-rule Perron spectrum.",
+          "Schüle–Stoop arxiv:1107.2080: classification of dynamic/chaotic/surjective types; full-image class alone.",
+          "Source entropy_spectrum.csv 19 class data rows and rule_catalog.csv 256 rule rows checked from actual Git files; independent exact SymPy/Sturm classification and 1536 block comparisons match.",
+          "arxiv:2005.01480 Rule 22 image subset diagram"
+        ],
+        "reasoning": "One-step spatial image subshift topological entropy equals Perron growth of accepted image language, distinct from temporal dynamical entropy, time-series Shannon entropy, or limit-set entropy.",
+        "searches": [
+          "arxiv:2005.01480 Rule 22 image subset diagram",
+          "Rule-space entropy rankings using Shannon information",
+          "Resultary one-step image entropy query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Martínez et al. arxiv:2005.01480 full Rule-22 paper: de Bruijn/subset image methodology and Garden-of-Eden sections, not 256-rule Perron spectrum.",
+          "Schüle–Stoop arxiv:1107.2080: classification of dynamic/chaotic/surjective types; full-image class alone.",
+          "Source entropy_spectrum.csv 19 class data rows and rule_catalog.csv 256 rule rows checked from actual Git files; independent exact SymPy/Sturm classification and 1536 block comparisons match.",
+          "Actual Git CSVs at blob 5b3dbecca7402b24312a3ce0819af5cafcf5d7ff and 76c406a92fb3037bcf8a006042fc7f9cd0f81832"
+        ],
+        "reasoning": "Compared exact 19-row entropy_spectrum.csv, 256-row rule_catalog.csv and full source characteristic polynomials against fresh calculation; relevant prior rule-space classifications lack a matching nineteen-root table or exact Rule22 quartet extremum.",
+        "searches": [
+          "Actual Git CSVs at blob 5b3dbecca7402b24312a3ce0819af5cafcf5d7ff and 76c406a92fb3037bcf8a006042fc7f9cd0f81832",
+          "Li–Packard 1990 structural classes",
+          "Resultary all-rule image entropy query"
+        ]
+      },
+      "rationale": "Li–Packard classify ECA structural/mean-field features; Schüle–Stoop provide topological-dynamical/surjectivity classes; Kari–Taati Garden-of-Eden entropy theorem establishes full-image entropy dichotomy; Martínez et al. give Rule 22 de Bruijn/subset diagrams and forbidden patterns. None of the materially inspected results evaluates all 19 one-step spatial-image entropies with exact isolated Perron roots and global Rule-22 four-rule optimum. Older entropy rankings based on Shannon time-series or asynchronous update are different metrics. Resultary queried the all-256 one-step image problem and returned temporal automata and specific-rule dynamics rather than complete spectrum. A prior unindexed 256-rule subset-automata table remains a real novelty risk.",
+      "residual_risks": [
+        "A previous unpublished/unindexed ECA image-entropy table might contain the same full 256-rule roots and ordering.",
+        "Source exact certificate uses SymPy; independent rational Sturm computation establishes class counts but not external expert/formal certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No displayed one-step image Perron-root census among inspected categories",
+          "evidence": [
+            "Complex Systems 4 (1990), structural/mean-field rule space"
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/04-3-3.pdf",
+          "material_read": "Original publication description and classification categories, not asserted full line-by-line reading here",
+          "method": "Accessible published original context/abstract",
+          "title": "The Structure of the Elementary Cellular Automata Rule Space",
+          "trigger": "Early all-rule classification under structural criteria"
+        },
+        {
+          "assessment": "Classifies topological dynamics/surjectivity, not the nineteen image-language Perron values",
+          "evidence": [
+            "2011 preprint; Chaos 22, 043143 (2012)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.2080",
+          "material_read": "Abstract, theorem descriptions and model scope, not full-PDF inspection",
+          "method": "Primary abstracts and published cross-reference",
+          "title": "A Full Computation-Relevant Topological Dynamics Classification of Elementary Cellular Automata",
+          "trigger": "All-rule dynamical and surjectivity classification"
+        },
+        {
+          "assessment": "Explains which rules can have log 2, does not give entropy of proper images",
+          "evidence": [
+            "Surjective CA Garden-of-Eden and maximum entropy theorem"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-015-1281-2",
+          "material_read": "Published entropy-preservation statement and proper-subshift distinction",
+          "method": "Published theoretical overview and original theorem comparison",
+          "title": "Statistical Mechanics of Surjective Cellular Automata",
+          "trigger": "Potential stronger entropy theorem"
+        },
+        {
+          "assessment": "Supplies relevant single-rule automaton methodology but no displayed all-256 exact root spectrum or global maximum",
+          "evidence": [
+            "Sections on de Bruijn and subset diagrams, Rule 22 Garden-of-Eden phenomena"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.01480",
+          "material_read": "Complete accessible 50-page primary PDF, materially inspected Rule 22 subset/Garden-of-Eden sections and page screenshot",
+          "method": "Full primary PDF with screenshot",
+          "title": "On Patterns and Dynamics of Rule 22 Cellular Automaton",
+          "trigger": "Same top proper-image rule, subset automaton and forbidden patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete intrinsic entropy spectrum and exact rule classification for the canonical 256 elementary CA family is a natural finite classification, not an arbitrary slice. It resolves both the number and order of possible image-shift entropies, the proper-image maximizers and strict entropy gap, supplying precise topological-dynamical invariants beyond surjectivity.",
+      "residual_risks": [
+        "The claim is valuable only with its precise invariant and hypotheses; do not extrapolate beyond the domain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Li–Packard, The Structure of Elementary Cellular Automata Rule Space, Complex Systems 4 (1990)",
+    "Schüle–Stoop, Full Computation-Relevant Topological Dynamics Classification of Elementary Cellular Automata, arXiv:1107.2080 (surjectivity/dynamical categories)",
+    "Kari–Taati, Statistical Mechanics of Surjective Cellular Automata, 2015 (full-entropy versus proper image theorem)",
+    "Martínez et al., On Patterns and Dynamics of Rule 22 Cellular Automaton, arXiv:2005.01480 (full PDF, image subset automaton/Garden-of-Eden section)",
+    "Resultary search: elementary cellular automata one-step spatial image subshift entropy full classification 256 Wolfram rules Perron roots Rule 22"
+  ],
+  "disposition": "passed",
+  "limitations": "The exact finite certificate covers 256 rules, not larger radii/alphabet; the asymptotic entropy relies on the automaton/Perron argument. No claim on temporal dynamical entropy or finite-ring Shannon entropy. Publication not_ready is a provenance/privacy transport blocker, NOT scientific failure; no external attestation claimed.",
+  "residual_risks": [
+    "A previous unpublished/unindexed ECA image-entropy table might contain the same full 256-rule roots and ordering.",
+    "Source exact certificate uses SymPy; independent rational Sturm computation establishes class counts but not external expert/formal certification."
+  ],
+  "schema_version": 1
+}
