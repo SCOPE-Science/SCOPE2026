@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binary-operation product becomes composition of maps commuting with coordinate reversal. The three numerical monotones follow from orbit imaging and preservation of the fixed set. The sufficiency argument explicitly allocates intermediate fixed/free image orbits, including the essential requirement that diagonal sources lift through diagonal inputs. This constructs the promised two-sided factorization, proving the Green preorder exactly. Feasible triples are enumerated by the disjoint-image resource constraint, and equivariant sections establish the regularity boundary. The independent, dependency-free verifier exhaustively confirms the full preorder when the underlying set has two elements and verifies representative finite cases at larger sizes. This finite evidence supplements the all-size proof, rather than replacing it.
+PASS
 
-## Originality — PASS, subject to bounded priority risk
+The map T_f(x,y)=(f(x,y),f(y,x)) is an isomorphism from the magma-operation monoid to the endomorphism monoid of a finite set with an involution having n fixed and n(n-1)/2 free orbits. An equivariant factorization requires c(h)<=c(f), a(h)<=a(f), d(h)+a(h)<=d(f)+a(f); the proof allocates separate fixed-point and free-orbit image resources injectively and lifts each input orbit equivariantly, establishing sufficiency. Occurring triples obey 1<=c<=d<=n, 0<=a and d-c+a<=N, giving J(n)=n(n+1)(3n^2-5n+8)/12, and regular iff c=d by existence of an equivariant image section. Independent exhaustive multiplication for n=1 and n=2 agreed with the J-order. All 19683 involution-equivariant maps for n=3 yielded exactly twenty distinct triples; the class-count formula was cross-checked for n=1..7. No finite test substitutes for the orbit-allocation proof.
 
-The closest work, Baiduk and Kozerenko (2026, arXiv:2607.13746), establishes the equivalent pairmorph model and characterizes principal one-sided ideals and regular operations, but the inspected relevant results do not state the two-sided three-rank criterion or closed principal-ideal count. López-Permouth (2026) treats idempotents; Castillo-Ramirez and Ruiz-Medina (2023) treat relative rank in general group-set endomorphism monoids. A 2022 precursor contains relevant earlier ideal theory and was accessible only by abstract; its complete text was not excluded from coverage. This and potentially unindexed broad Green-relation results remain substantive risks; searches alone do not establish global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The complete Green \(\mathcal J\)-poset is a natural structural invariant not determined by image cardinality. Its exact classification supplies all principal two-sided ideals for an exponentially larger finite monoid, together with an explicit polynomial count \(n(n+1)(3n^2-5n+8)/12\). The extra defect rank records the obstruction to regularity and distinguishes nonregular strata, giving mathematical structure beyond routine tabulation.
+Baiduk–Kozerenko (2026) introduce the pairmorph/equivariant representation and study left and right ideals, Green L/R classes and regularity. These ingredients are explicitly prior. On the accessible text, they do not give the exact two-sided J preorder in three rank parameters and its polynomial class count. Earlier general finite G-set transformation semigroup results potentially imply a general orbit-resource characterization, and the full 2022 magma-monoid text was not accessible, so priority is qualified.
 
-## Scope and outstanding validation
+## value
 
-This result is restricted to finite nonempty underlying sets and counts principal two-sided ideals, not all downsets/ideals or minimal generating families. Source-comparison limits are recorded in the structured report. Independent validation is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full J-class partial order, realizable invariant triples, polynomial number of principal two-sided ideals and regular class criterion form a natural structural classification of a canonical finite semigroup family; this distinguishes two-sided order from the separately known left/right ideals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
