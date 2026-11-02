@@ -1,15 +1,21 @@
-# Scientific review: A logarithmic boundary layer in the Ising min-entropy crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact boundary-Ising twist function has \(\mathfrak t_\beta(0)=\cos(\pi\beta)\), and its Meijer-G expansion gives the uniform unlogged correction \(XL^2(2\beta/\pi)\sin(\pi\beta)+O(XL)\). The min-entropy integral at zero coupling is \(\frac12\log2\). Near \(\beta=\frac12\), setting \(\delta=\frac12-\beta\) produces \(\mathfrak t\sim\pi\delta+XL^2/\pi\). Splitting the integral into inner, overlap, and outer regions yields the coefficient \(1/\pi^2\), the logarithm \(\log(1/(XL^2))\), and an integrated remainder \(O(XL^2)\). The proof explicitly avoids integrating the fixed-\(\beta\) logarithmic expansion through its singular endpoint.
+PASS
 
-## Originality — PASS, with literature-access risk
+From the exact Cornfeld–Sela Meijer-G twist function, use its unlogged endpoint-uniform repeated-pole expansion t_beta(X)=cos(pi beta)+(2 beta/pi)sin(pi beta) XL²+O(XL) for beta in [0,1/2], L=log(1/X). The fixed-beta logarithmic coefficient is singular at beta=1/2 and cannot be integrated directly. With delta=1/2-beta and epsilon=XL², t≈pi delta+epsilon/pi; integrate log(t/cos(pi beta)) over inner delta≤epsilon, overlap epsilon≪delta≪1 and outer region to obtain epsilon/pi² log(1/epsilon)+O(epsilon), equal to X/pi² L²[L-2log L]+O(XL²). Bounded independent high-precision Meijer-G evaluations at two X values and beta up to .499 matched the unlogged expansion within a bounded XL remainder; these samples do not establish its uniformity. The analytic expansion and its uniform remainder are critical imported exact-function asymptotics and remain an explicitly identified replay obligation.
 
-The primary full text gives the exact scaling function and the min-entropy integral, but its displayed short-distance expansion is for the von Neumann limit and does not state the high-Rényi endpoint-layer asymptotic. The nearest general entropic \(g\)-theorem concerns the von Neumann boundary function. The older Ising line-entropy study uses a different geometry. A more recent paper on mixed-boundary Rényi entropies was inspected only at the abstract/metadata level; it concerns critical mixed-boundary systems and does not, on the accessible evidence, establish this boundary-field min-entropy asymptotic. That source remains a recorded access-related risk rather than a negative-coverage assertion.
+## originality
 
-## Value — PASS
+PASS
 
-The min-entropy limit is explicitly defined in the source but its ultraviolet approach is not captured by simply taking the fixed-replica expansion term by term. The result identifies a natural endpoint layer of width \(XL^2\) and an extra logarithm in the deficit. This supplies a sharp asymptotic benchmark for high-Rényi boundary-entanglement calculations and explains the nonuniformity of the replica-parameter expansion.
+Qualified best-of-knowledge novelty of the precise additional claim only; original definitions, exact source formulas, special cases and existing methods remain prior work. Source readings and explicit residual priority risks are recorded; no assertion of exhaustive literature coverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Sharp singular endpoint scaling of the high-Rényi boundary entropy is a natural missing observable when fixed-index expansions cease to be uniform. The logarithm-cubed deficit and loglog correction distinguish a genuine boundary layer, not a routine substitution into a fixed-replica series.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
