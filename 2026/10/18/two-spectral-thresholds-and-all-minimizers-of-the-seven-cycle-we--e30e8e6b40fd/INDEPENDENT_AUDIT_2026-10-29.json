@@ -1,0 +1,195 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:54:06.683034Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fourth Schatten trace is phase-independent for length-four words on C7, giving F_q(x)=sum x_j^2+q sum x_j x_(j+1) on the full nonnegative unit simplex and q∈[0,2]. The C7 Fourier spectrum controls global uniform strict convexity until sec(π/7), with exactly its two-dimensional kernel at equality. For larger q, a negative zero-sum mode excludes full support, the alternating sine mode excludes 6-positive paths, and explicit stationary sign obstructions exclude all 5-positive missing-edge patterns except singleton plus four-path. All size-four supports either embed in a surviving five-face (28/35) or form exceptional two disjoint edges (7/35), whose lower bound is strictly worse; size≤3 has F≥1/3. The five-face Hessian changes sign at sec(π/5)=sqrt5−1, yielding a positive five-supported stationary point below threshold, an exact nonnegative 1D segment at threshold, and then a unique four-supported edge-plus-isolates profile. At q=2 the energy is 1/3 with exactly the stated seven boundary segments. Rational symbolic sign factorizations verify all candidate comparisons; phase freedom, norm normalization and endpoint thresholds checked. The independent checker evaluated 396 direct complex-matrix identities, all 127 nonempty supports at each of 15 interior q values using support-wise stationary/KKT/tangent-Hessian tests, all 35 four-support graph patterns, 225 q1 Fourier points, 39 q2 critical points, and 53 q=2 endpoint segment points. Finite tests alone do not prove the all-q theorem; analytical support exhaustion supplies the global argument.",
+      "residual_risks": [
+        "Only the displayed seven-cycle with Schatten exponent four, 0≤t≤1 and Frobenius squared normalization is proved; no all-cycle or other Schatten p extension.",
+        "The separate parametric numerical support scan is finite and not a proof for all real q; global correctness uses support exclusions, Hessian eigenvalue signs and exact stationary formulas."
+      ],
+      "sources": [
+        "Assigned RESULT.md proof steps 1–4",
+        "independent_checks.py; independent_check_results.json",
+        "source_tree_verification.json"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published Resultary nilpotent-shift theorem is for a path shift and proves a sharp upper bound normalized by ∑|a_j|^4, attained by sine-law weights. Its optimization direction, graph and normalization differ from the current lower bound for a seven-cycle.",
+          "Pal–Chandok Theorems 2.1–2.12 compare weighted radii and generalized-Aluthge transforms of arbitrary operators; none of the inspected formulas fixes a cyclic seven-weight constrained minimizer.",
+          "The Frakis–Kittaneh–Soltani accessible abstract describes Aluthge upper bounds, with full-text risk retained."
+        ],
+        "reasoning": "General operator bounds or sharp path maxima would need an equality or reduction theorem applicable to the odd cycle with a fixed sum of squared moduli to imply this piecewise minimum. No such implication occurs in material actually read. An inaccessible broad theorem remains a risk, not automatic O failure.",
+        "searches": [
+          "Resultary semantic search: Weighted Schatten p fourth numerical radius cyclic weighted shifts seven-cycle Frobenius norm exact minimizers",
+          "Resultary/2026: Sharp weighted Schatten-fourth radii of nilpotent shifts RESULT.md",
+          "arXiv:2610.11336v1 main theorems, generalized-Aluthge and operator bounds",
+          "Frakis–Kittaneh–Soltani DOI 10.1080/03081087.2024.2430957"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026, assigned pinned RESULT.md at https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/two-spectral-thresholds-and-all-minimizers-of-the-seven-cycle-we--e30e8e6b40fd",
+        "Independent reconstruction and active-set calculations: independent_check_results.json; independent_checks.py",
+        "Complete published Resultary record, sharp weighted Schatten-fourth radii of nilpotent shifts (2026-10-11), https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-weighted-schatten-fourth-radii-of-nilpotent-shifts--17db4dbf42a4",
+        "K. Pal and S. Chandok, arXiv:2610.11336v1, https://arxiv.org/html/2610.11336v1",
+        "Miri, Emami and Wang, arXiv:2610.01911v1, Theorem 3.1 and Remarks 3.2–3.3, https://arxiv.org/html/2610.01911v1",
+        "Chang and Wang (2012), DOI:10.1016/j.jmaa.2012.04.039 (abstract and problem statement; full publisher text inaccessible)",
+        "Frakis, Kittaneh and Soltani (2025), DOI:10.1080/03081087.2024.2430957 (title and abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chang–Wang maximizes ordinary operator numerical radius over permutations of fixed weight magnitudes; here phases are arbitrary and the magnitudes themselves vary under a Frobenius constraint, and the Schatten exponent is four.",
+          "Published nilpotent-shift result proves a path-graph upper-bound sine-law, not an odd-cycle simplex lower-bound classification.",
+          "Miri–Emami–Wang permits a classical q=2 numerical deduction but its τ<1 hypothesis excludes q<2, where the nontrivial support transitions lie."
+        ],
+        "reasoning": "None of these exact statements entails all three branches or seven critical equality fibres. The difference is not merely a title mismatch: graph, objective direction, feasible normalization and controlling parameter range change the optimization landscape. The source theorem at q=2 is expressly credited.",
+        "searches": [
+          "Chang–Wang 2012 DOI 10.1016/j.jmaa.2012.04.039 publisher abstract and problem statement",
+          "Pal–Chandok 2026 arXiv:2610.11336v1 complete accessible HTML",
+          "Miri–Emami–Wang 2026 arXiv:2610.01911v1 Theorem 3.1 regularized Motzkin–Straus",
+          "Resultary/2026 complete nilpotent-shift RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exactly equivalent problem is min {x^T[I+(q/2)Adj(C7)]x : x≥0, 1^Tx=1}.",
+          "Published Miri–Emami–Wang regularized Motzkin–Straus theorem has diagonal coefficient τ∈(0,1), while the equivalent complementary-graph form here requires τ=2/q≥1 when 0<q≤2.",
+          "At q=2 the classical Motzkin–Straus endpoint indeed fixes value 1/3 through the complement graph, acknowledged as prior."
+        ],
+        "reasoning": "Mapping C7 nonedge adjacency to its complement and scaling q/2 requires diagonal parameter 2/q; the inspected regularized theorem assumes its opposite parameter range and does not provide intermediate complete support families. The classical endpoint value q=2 is prior, not independently new. No matched exact all-q theorem found; absence of search hits is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: Minimum of sum x_i squared plus q sum adjacent products on a 7-cycle simplex; exact support transitions sec(pi/7), sec(pi/5); equality profiles all q",
+          "web literature searches: cycle graph standard quadratic programming simplex C7 minimizers support transitions and q sec(pi/7) sec(pi/5)",
+          "Miri–Emami–Wang arXiv:2610.01911v1 Theorem 3.1 and Remark 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact two-threshold seven-cycle m(q) table or full critical-family enumeration was identified in searched Resultary results.",
+          "The q=2 minimum value 1/3 can be deduced from classical Motzkin–Straus and is therefore not counted as a novel standalone table value.",
+          "The claim includes an entire one-parameter sharp function and explicit continua at both critical q values, not a single numerical constant."
+        ],
+        "reasoning": "The leading contribution is the full phase diagram with five-site intermediate support and sharp equality sets; known endpoint values or generic graph spectra do not automatically tabulate that classification. Negative database search is not a priority certificate.",
+        "searches": [
+          "Resultary semantic search: seven-cycle Schatten-fourth phase threshold and simplex quadratic",
+          "web exact threshold searches: sec(pi/7), sqrt(5)-1, five-support seven-cycle quadratic simplex minimizers",
+          "Resultary/2026 published spectral records and seven-cycle related records"
+        ]
+      },
+      "rationale": "The exact seven-cycle fixed-Frobenius fourth-Schatten global minimum and complete q-dependent equality classification are not mathematically implied by the closest inspected published records. The nilpotent-shift theorem gives a maximum Rayleigh-quotient for a path under ℓ4-normalization; this is a minimum copositive simplex problem for an odd cycle under ℓ2/Frobenius normalization. Pal–Chandok gives generalized-Aluthge operator bounds rather than the seven-entry constrained minimum. Standard quadratic-programming Motzkin–Straus specializations yield at most the q=2 optimum value, not the interior cutoffs and all equality fibres. Publication priority remains qualified: unindexed cycle-specific copositivity theorems and incompletely accessed operator papers remain risks.",
+      "residual_risks": [
+        "A known unpublished or poorly indexed copositive simplex-quadratic classification for C7 or odd cycles with diagonal coefficient τ≥1 could contain this result implicitly; direct theorem text not identified.",
+        "Chang–Wang 2012 full journal article was inaccessible (authorized Oxford lookup returned vpn_disconnected); although accessible abstract is a different optimization, implicit side results cannot be excluded.",
+        "Frakis–Kittaneh–Soltani 2025 full article was not inspected, so do not assert entire-paper noncoverage.",
+        "At q=2 minimum value 1/3 is already implied by classical Motzkin–Straus; originality concerns full all-q classification, not that endpoint numerical value alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete scoped proof reconstructed; independent finite tests corroborated every branch and boundary, with the proof rather than testing establishing continuous global minimization.",
+          "evidence": [
+            "Pivotal proof steps RESULT.md §§1–4, especially path-6 sum-zero negative direction and the four-support exceptional classes; independent_check_results.json."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/two-spectral-thresholds-and-all-minimizers-of-the-seven-cycle-we--e30e8e6b40fd",
+          "material_read": "Complete RESULT.md including definitions, exact trace identity, all seven-variable support exclusions, face stationarity, threshold nullspaces and equality classifications; also SLOGAN.txt, REVIEW.md, VERIFICATION.md, both JSON files and checks/verify.py.",
+          "method": "Read all seven files at designated Git commit and verified their Git blob/tree identities against current main; independently derived critical formulas and enumerated supports.",
+          "title": "Two spectral thresholds and all minimizers of the seven-cycle weighted Schatten-fourth radius",
+          "trigger": "Assigned actual theorem and proof; needed to reconstruct every clause"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: nilpotent one-step path, a maximizing Rayleigh quotient normalized by Schatten fourth; different from the global minimum on seven-cycle with sum of squared weights one.",
+          "evidence": [
+            "Finding formulas (1)–(5); sine-law maximal profile Eq. (3)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-weighted-schatten-fourth-radii-of-nilpotent-shifts--17db4dbf42a4",
+          "material_read": "Complete 10,353-byte RESULT.md, including all five main formulas, proof of exact quartic form, finite path eigenvectors, rigidity and infinite nonattainment.",
+          "method": "Read full published primary RESULT.md through GitHub connector.",
+          "title": "Sharp weighted Schatten-fourth radii of nilpotent shifts",
+          "trigger": "Top Resultary match: same weighted Schatten-fourth invariant and shift-type objects"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: general weighted Schatten radius inequalities and generalized-Aluthge comparisons without exact global seven-cycle fixed-Frobenius minimization.",
+          "evidence": [
+            "arXiv:2610.11336v1, main Section 2 and matrix examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11336",
+          "material_read": "Full accessible arXiv HTML, introduction, definitions, main theorems 2.1–2.12, examples and reference comparisons.",
+          "method": "Primary full HTML inspection through lawful open arXiv article, avoiding Oxford after OA success.",
+          "title": "On weighted Schatten p-numerical radii via generalized Aluthge transformation",
+          "trigger": "Same operator radius invariant and first public source reference"
+        },
+        {
+          "assessment": "The regularized τ∈(0,1) result does not apply to the equivalent C7 problem requiring τ=2/q≥1. Classical endpoint τ=1 at q=2 gives known minimum value but not intermediate branches.",
+          "evidence": [
+            "Theorem 3.1 (τ∈(0,1)) and remarks; graph-complement rescaling shows τ=2/q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01911",
+          "material_read": "Full accessible arXiv HTML, in particular Motzkin–Straus formulation Theorem 3.1 and parameter-range Remarks 3.2–3.3.",
+          "method": "Full-text OA comparison of matrix normalization and domain of the diagonal coefficient.",
+          "title": "Standard Quadratic Formulations of Many NP Problems: A Simplex-Based Compilation Framework for Combinatorial Optimization",
+          "trigger": "Potential dominating theorem for quadratic minimization over the simplex under graph adjacency reduction"
+        },
+        {
+          "assessment": "Abstract addresses a different norm and fixed-multiset permutation maximization. No whole-document noncoverage claim is made; residual risk explicitly retained.",
+          "evidence": [
+            "DOI 10.1016/j.jmaa.2012.04.039, title and abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2012.04.039",
+          "material_read": "Accessible publisher abstract and problem statement only; complete article unavailable.",
+          "method": "Publisher/web abstract read; authorized institutional request returned vpn_disconnected, no bypass.",
+          "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+          "trigger": "Earlier cyclic weighted-shift theorem; potentially related optimizing parameters"
+        },
+        {
+          "assessment": "Described generic Aluthge radii inequalities do not affirmatively imply the exact seven-cycle minimizer classification; full-text access uncertainty retained.",
+          "evidence": [
+            "Journal DOI, title and abstract; general scope differentiated from explicit cycle simplex minimum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2024.2430957",
+          "material_read": "Available metadata/abstract only, not complete publisher full text.",
+          "method": "Bibliographic publisher abstract comparison; no assertion of complete-text inspection.",
+          "title": "p-Numerical radii of operators via the t-Aluthge transform",
+          "trigger": "Prior generic weighted p-radius inequalities and potentially dominating estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result solves a natural complete extremal classification for weighted cyclic shifts of the first odd size with the additional four-path spectral threshold. It proves two distinct sharp support transitions at sec(π/7) and sec(π/5), with a genuinely nontrivial intermediate five-positive-weight phase, exact analytic optimum and all critical equality continua. Under a standard Frobenius energy constraint this is a reusable exact benchmark for Schatten-fourth radius and graph-constrained simplex quadratic optimization, not merely a generic norm inequality, routine renaming, a sampled minimum or known isolated endpoint number.",
+      "residual_risks": [
+        "This is an exact natural finite-dimensional model, not a theorem for arbitrary cycles or Schatten powers. No downstream result or wider classification is claimed."
+      ],
+      "sources": [
+        "Assigned RESULT.md complete sharp formulas and equality classification",
+        "Published Resultary/2026 nilpotent-shift path analogue contrasted mathematically"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026, assigned pinned RESULT.md at https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/two-spectral-thresholds-and-all-minimizers-of-the-seven-cycle-we--e30e8e6b40fd",
+    "Independent reconstruction and active-set calculations: independent_check_results.json; independent_checks.py",
+    "Complete published Resultary record, sharp weighted Schatten-fourth radii of nilpotent shifts (2026-10-11), https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-weighted-schatten-fourth-radii-of-nilpotent-shifts--17db4dbf42a4",
+    "K. Pal and S. Chandok, arXiv:2610.11336v1, https://arxiv.org/html/2610.11336v1",
+    "Miri, Emami and Wang, arXiv:2610.01911v1, Theorem 3.1 and Remarks 3.2–3.3, https://arxiv.org/html/2610.01911v1",
+    "Chang and Wang (2012), DOI:10.1016/j.jmaa.2012.04.039 (abstract and problem statement; full publisher text inaccessible)",
+    "Frakis, Kittaneh and Soltani (2025), DOI:10.1080/03081087.2024.2430957 (title and abstract only)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The scientific assessment is completed but is not a formal proof assistant or third-party expert attestation.",
+    "Some highly related publisher-only articles were not fully available; priority conclusion is best-of-knowledge with explicit accessible-source boundaries."
+  ],
+  "residual_risks": [
+    "A known unpublished or poorly indexed copositive simplex-quadratic classification for C7 or odd cycles with diagonal coefficient τ≥1 could contain this result implicitly; direct theorem text not identified.",
+    "Chang–Wang 2012 full journal article was inaccessible (authorized Oxford lookup returned vpn_disconnected); although accessible abstract is a different optimization, implicit side results cannot be excluded.",
+    "Frakis–Kittaneh–Soltani 2025 full article was not inspected, so do not assert entire-paper noncoverage.",
+    "At q=2 minimum value 1/3 is already implied by classical Motzkin–Straus; originality concerns full all-q classification, not that endpoint numerical value alone.",
+    "Only the displayed seven-cycle with Schatten exponent four, 0≤t≤1 and Frobenius squared normalization is proved; no all-cycle or other Schatten p extension.",
+    "The separate parametric numerical support scan is finite and not a proof for all real q; global correctness uses support exclusions, Hessian eigenvalue signs and exact stationary formulas.",
+    "This is an exact natural finite-dimensional model, not a theorem for arbitrary cycles or Schatten powers. No downstream result or wider classification is claimed."
+  ],
+  "schema_version": 1
+}

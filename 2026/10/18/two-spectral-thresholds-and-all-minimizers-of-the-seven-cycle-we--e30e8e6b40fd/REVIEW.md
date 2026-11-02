@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The weighted fourth trace is phase independent because a seven-cycle has no closed nonzero-winding walk of length four. The resulting quadratic form has a positive-semidefinite full-cycle regime, and for larger parameters every support is reduced by zero-sum negative directions and stationary-point sign obstructions to an isolated vertex plus a four-vertex path or a smaller face. The explicit face minimizers, second eigenvalue threshold, and endpoint equality families have been algebraically reconstructed. The closed-form energy values and critical kernel identities were also checked independently by direct finite calculations. Such finite checks do not prove the global continuous statement; the stated support exhaustion supplies that proof.
+PASS
 
-## Originality
+The fourth Schatten trace is phase-independent for length-four words on C7, giving F_q(x)=sum x_j^2+q sum x_j x_(j+1) on the full nonnegative unit simplex and q∈[0,2]. The C7 Fourier spectrum controls global uniform strict convexity until sec(π/7), with exactly its two-dimensional kernel at equality. For larger q, a negative zero-sum mode excludes full support, the alternating sine mode excludes 6-positive paths, and explicit stationary sign obstructions exclude all 5-positive missing-edge patterns except singleton plus four-path. All size-four supports either embed in a surviving five-face (28/35) or form exceptional two disjoint edges (7/35), whose lower bound is strictly worse; size≤3 has F≥1/3. The five-face Hessian changes sign at sec(π/5)=sqrt5−1, yielding a positive five-supported stationary point below threshold, an exact nonnegative 1D segment at threshold, and then a unique four-supported edge-plus-isolates profile. At q=2 the energy is 1/3 with exactly the stated seven boundary segments. Rational symbolic sign factorizations verify all candidate comparisons; phase freedom, norm normalization and endpoint thresholds checked. The independent checker evaluated 396 direct complex-matrix identities, all 127 nonempty supports at each of 15 interior q values using support-wise stationary/KKT/tangent-Hessian tests, all 35 four-support graph patterns, 225 q1 Fourier points, 39 q2 critical points, and 53 q=2 endpoint segment points. Finite tests alone do not prove the all-q theorem; analytical support exhaustion supplies the global argument.
 
-PASS on the comparisons performed, with residual publication-priority risk. Pal–Chandok's original full paper establishes weighted Schatten-radius inequalities and matrix estimates, not the exact seven-cycle global minimax or its two support-change thresholds. The 2025 Aluthge literature and the 2012 ordinary numerical-radius permutation problem do not imply the sharp fixed-Frobenius fourth-Schatten classification. Exact smaller-cycle calculations do not imply the seven-cycle formula: the surviving four-path and its separate spectral threshold introduce a new support phase. An older equivalent parametrized simplex-quadratic/copotivity theorem cannot be ruled out by search alone.
+## originality
 
-## Value
+PASS
 
-PASS. The seven-cycle is the first larger odd example in this comparison exhibiting an intervening five-support phase and two distinct spectral cutoffs. The exact sharp constants, continuous critical minimizing families, and all endpoint cases give a natural, complete benchmark for fixed-energy Schatten numerical-radius optimization, rather than an arbitrary single-point evaluation.
+The exact seven-cycle fixed-Frobenius fourth-Schatten global minimum and complete q-dependent equality classification are not mathematically implied by the closest inspected published records. The nilpotent-shift theorem gives a maximum Rayleigh-quotient for a path under ℓ4-normalization; this is a minimum copositive simplex problem for an odd cycle under ℓ2/Frobenius normalization. Pal–Chandok gives generalized-Aluthge operator bounds rather than the seven-entry constrained minimum. Standard quadratic-programming Motzkin–Straus specializations yield at most the q=2 optimum value, not the interior cutoffs and all equality fibres. Publication priority remains qualified: unindexed cycle-specific copositivity theorems and incompletely accessed operator papers remain risks.
 
-## Closest literature and limitations
+## value
 
-K. Pal and S. Chandok, arXiv:2610.11336v1 (2026-10-08), Section 2 and matrix examples; A. Frakis, F. Kittaneh, and S. Soltani, Linear Multilinear Algebra (2025); C.-T. Chang and K.-Z. Wang, J. Math. Anal. Appl. (2012). The proof applies to complex weighted seven-cycles and fourth Schatten power only. Independent audit is not performed; priority against equivalent graph quadratic-programming statements remains a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result solves a natural complete extremal classification for weighted cyclic shifts of the first odd size with the additional four-path spectral threshold. It proves two distinct sharp support transitions at sec(π/7) and sec(π/5), with a genuinely nontrivial intermediate five-positive-weight phase, exact analytic optimum and all critical equality continua. Under a standard Frobenius energy constraint this is a reusable exact benchmark for Schatten-fourth radius and graph-constrained simplex quadratic optimization, not merely a generic norm inequality, routine renaming, a sampled minimum or known isolated endpoint number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
