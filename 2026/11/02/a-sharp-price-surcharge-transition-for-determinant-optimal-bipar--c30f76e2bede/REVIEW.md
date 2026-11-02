@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Matrix–Tree and a four-eigenspace Laplacian decomposition give the exact determinant. Strict concavity of the grounded log-determinant on the full simplex proves uniqueness without assuming class symmetry; the graph automorphism group then forces two conductance classes. An explicit quadratic derivative controls all interior and boundary cases, including equality at the deletion threshold. Root expansion gives both the fixed-size boundary law and the large-size critical window. The accompanying `verify.py` passed 8 exact determinants, 175 direct determinant comparisons, 175 budget/root checks, 2,100 asymmetric feasible comparisons, 18 independent unrestricted optimizations and 18 critical-window checks. The finite tests do not prove the theorem; its proof is analytical.
+
+**Originality — PASS (qualified).** The accessible full-text comparison with Khosoussi et al. (arXiv:1604.01116), especially their matrix-tree foundations and fixed-weight edge-selection and convex-relaxation sections, establishes broad background but not the priced perfect-matching support theorem. Boyd's Laplacian optimization overview describes the general convex framework, not the exact two-price crown transition. Searches for crown-graph, matching-deleted biclique, weighted spanning-tree and log-determinant formulations found no equivalent priced result. General Matrix–Tree and symmetry reductions are acknowledged; a specialized overlooked result remains possible.
+
+**Mathematical value — PASS.** A perfect matching can be dropped in full while maintaining a connected crown graph for every \(m\ge3\). The theorem identifies the exact economically justified deletion threshold, gives the unique unrestricted optimal conductances, and shows that a surcharge of order \(1/m\) changes a macroscopically positive matching allocation into zero. This describes a size-sensitive support transition of a natural network design variable, rather than just a determinant evaluation or a small numerical improvement.
+
+The conclusion is confined to positive price classes, no conductance caps, complete balanced bipartite topology and continuous weights. Specialized literature might cover part of the calculation, and external independent validation is still needed.
+
+Self-review: passed. Independent audit: not yet performed.

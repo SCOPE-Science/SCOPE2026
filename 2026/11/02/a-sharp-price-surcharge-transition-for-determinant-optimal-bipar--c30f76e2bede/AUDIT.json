@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For m>=3 the grounded Laplacian is an injective affine function of all individual edge weights and its logdet is strictly concave. Graph automorphisms force the unique unrestricted optimizer to have two edge classes. The exact spectrum is 0, 2d, mb (m-1 times), and 2a+(m-2)b (m-1 times). Matrix–Tree, budget substitution and a differentiated scalar objective give the sign-changing quadratic. Its unique nonnegative maximizer yields the threshold, exact conductances and both asymptotics. The embedded verifier passed 8 rational determinants, 175 direct determinants, 175 root/budget checks, 2100 asymmetric comparisons, 18 independent optimizations, 18 scaling tests; none of these finite checks is substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Convex Optimization of Graph Laplacian Eigenvalues, §3, provides an SDP framework for optimizing algebraic connectivity, but not this determinant and matched-price classification.",
+        "Khosoussi et al., arXiv:1604.01116, §§4.1 and 5.1.2 provide fixed-weight edge-selection and relaxations, not an exact allocation over individually adjustable cross-edge conductances.",
+        "Accessible prior local claim 8319f1e4-bc19-4bb6-99b3-0bf915183d9f optimizes three edge classes of a complete two-community graph; it does not assign two prices within a bipartite cross-edge set."
+      ],
+      "reasoning": "A general convex logdet framework is not a theorem of this exact support transition. The closest specialized complete-two-community result has a different edge partition. Its within-class uniformity cannot represent one exceptional perfect matching amid the cross-community edges. The present analytical spectral factorization and root threshold are additional claims beyond the inspected general statements.",
+      "searches": [
+        "weighted spanning tree maximization crown graph K_n,n minus matching budget positive conductance edge class price transition",
+        "weighted crown graph Laplacian determinant tree count two parameters matching weight",
+        "graph D optimality symmetric complete bipartite one factor priced weighted experimental design"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1604.01116 (full-text material noted)",
+      "Boyd, Convex Optimization of Graph Laplacian Eigenvalues (section and PDF image)",
+      "published-finding corpus semantic searches listed above",
+      "Actual accessible prior research records claims through generation available collection snapshot",
+      "Searches of crown graphs, one-factors, weighted spanning trees and price-specific D-optimality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Khosoussi et al. optimize selection of fixed-weight candidate edges under a cardinality or matroid budget; the result here optimizes every existing conductance continuously under unit-specific prices.",
+        "Boyd describes generic Laplacian spectral optimization, without the orbit-specific quadratic or sharp surcharge.",
+        "Prior local weighted-biclique resistance allocation 8a3533e4-67e4-4ae3-88bd-312557bc653c has a different objective (sum of effective resistances)."
+      ],
+      "reasoning": "Fixed-weight edge-subset results neither imply that all m matching edges disappear simultaneously at this particular price ratio nor provide the scaling t->(1-gamma)_+. The broad framework ensures computational tractability, but the determinant eigenvalue factorization, precise phase boundary and asymptotic window require further derivation. Prior results on a different objective or graph class do not dominate this statement.",
+      "searches": [
+        "arxiv:1604.01116 §4.1 fixed-weight k-edge selection",
+        "arxiv:1604.01116 §5.1.2 convex relaxation",
+        "Boyd Convex Optimization of Graph Laplacian Eigenvalues §3",
+        "D optimal continuous conductance allocation bipartite graph with perfect matching one price and all other edges another price spanning tree determinant deletion threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus nearest: 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f, different invariant (geodesic subpath counts).",
+        "published-finding corpus nearest: 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb, different invariant (CIS-pairs).",
+        "Khosoussi et al., arXiv:1604.01116, accessible text §§2–5 concerns spanning-tree determinants but chiefly fixed-weight discrete edge sets."
+      ],
+      "reasoning": "The same objective may be called D-optimal information determinant, weighted tree-count maximization, grounded-Laplacian logdet, or continuous edge-resource design. Matching-deleted K_{m,m} is also a crown graph. These equivalent formulations were searched; nearest results calculate graph properties or treat discrete edge choice, without a two-price continuous threshold or critical-window law.",
+      "searches": [
+        "D optimal continuous conductance allocation bipartite graph with perfect matching one price and all other edges another price spanning tree determinant deletion threshold",
+        "optimize weighted Laplacian log determinant complete bipartite graph minus perfect matching symmetric orbit conductances",
+        "weighted spanning tree enumerator complete bipartite graph perfect matching two edge weights matching nonmatching",
+        "optimal spanning tree determinant matching priced crown graph log det optimal weight allocation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical Matrix–Tree gives determinant/tree-count equivalence.",
+        "The crown graph is the matching-deleted biclique; extant crown-graph information searched concerns basic topology or combinatorial invariants.",
+        "No exact two-price optimal-conductance table or matching-deletion cutoff appeared in retrieved comparisons."
+      ],
+      "reasoning": "Even a published exact weighted tree polynomial would not alone state an optimization threshold; the result compares the unrestricted feasible optimum across a nontrivial support boundary. Tables of unweighted crown spanning trees would be only the a=0 specialization, not cover the claimed price-response law. Missing results are an acknowledged literature risk.",
+      "searches": [
+        "weighted spanning tree enumerator complete bipartite graph perfect matching two edge weights matching nonmatching",
+        "weighted crown graph Laplacian determinant tree count two parameters matching weight",
+        "spanning tree complete bipartite one-factor weights enumeration",
+        "optimize weighted Laplacian log determinant complete bipartite graph minus perfect matching symmetric orbit conductances"
+      ]
+    },
+    "rationale": "The exact matching-class support-deletion threshold, all-price continuous conductance formula and 1/m window were not found in the accessible graph D-optimality primary-text and research-record comparisons. The objective and generic optimization background are classical and explicitly credited; the novelty assessment is provisional because literature searches are not exhaustive.",
+    "residual_risks": [
+      "A more specialized older weighted crown-graph conductance-design source may state an equivalent cutoff; searches are not exhaustive.",
+      "Published general optimization methods would permit deriving the answer, but the present claimed contribution is the explicit support theorem and critical asymptotics, not inventing logdet optimization.",
+      "No independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: discrete edge-selection objective and generic relaxations do not give continuous two-price matched-cross-edge allocation or threshold.",
+        "evidence": [
+          "arXiv:1604.01116 §§2.2,4.1,4.4,5.1.2",
+          "First arXiv source date 2016-04-05"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+        "material_read": "Accessible full-text HTML portions: introductory formulations, §2 Matrix–Tree, §3 tree-connectivity, §4 fixed-weight edge selection/greedy/relaxation, and §5 matroid extensions/relaxation.",
+        "method": "Read arXiv full-text HTML and inspect sections/formulas and matching-related keywords",
+        "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+        "trigger": "Same spanning-tree determinant objective, closest primary design source"
+      },
+      {
+        "assessment": "Background only: generic eigenvalue SDP, not this explicit weighted spanning-tree determinant matching-price classification.",
+        "evidence": [
+          "Boyd, §3; PDF page 5",
+          "Reference list to Fiedler and graph connectivity literature"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+        "material_read": "Abstract/introduction, full §3 discussion and optimization formulations on PDF page 5, and references.",
+        "method": "PDF text and page-image inspection",
+        "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+        "trigger": "Broader convex Laplacian design coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c30f76e2-bede-44f4-af51-d501e005d3a9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinguished matching is a natural communication/design resource: its complete removal preserves connectivity for m>=3. The exact premium threshold decides whether all matching conductances should be eliminated, and the critical premium tends to 1 with window width order 1/m. The unique full allocation and scalable near-equal-price law supply nontrivial design decisions rather than a tabulated tree count.",
+    "status": "PASS"
+  }
+}
