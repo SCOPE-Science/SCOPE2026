@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For each n>=4 the proof identifies n frozen lower-maximal matchings and a function model for all maximum matchings. Legal rewiring has exactly n(n-3) incident moves. Direct corrections and at most floor(n/3) blocked-cycle detours establish the upper distance bound; reverse orientations of floor(n/3) disjoint cycles give a matching lower bound. The n=3 boundary is separately handled. The included independent brute-force original-graph checker reproduces all full finite case counts at n=3..6, BFS diameters at n=4,5, and the n=6 bound witness. Computation does not replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bousquet et al. (2018) establish general matching reconfiguration complexity, algorithms and a connectivity criterion, not a universal exact distance law under the specialized incidence family.",
+        "Baste et al. (2019) give bounds and approximation results for minimum maximal matching, not all-cardinality reconfiguration structure."
+      ],
+      "reasoning": "The very broad 2018 algorithmic results could potentially yield connectivity by specialization, so connectivity alone is not claimed as a new general principle. Neither paper provides the exact n+floor(n/3) diameter or regular degree and disconnected lower stratum, which require the explicit inverse-cycle obstruction proof.",
+      "searches": [
+        "One-subdivision of complete graph S(K_n) maximal matchings token jumping reconfiguration graph exact diameter n+floor(n/3), n isolated minimal matchings, regular maximum matching component",
+        "Maximum matchings of incidence bipartite graph vertex-edge incidence of K_n, component counts, reconfiguration diameter, maximal matching count A134362",
+        "arXiv:1812.05419 (Theorems and conclusions)",
+        "arXiv:1905.12241 (Theorems and proofs)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1812.05419 full primary HTML",
+      "arXiv:1905.12241 full primary HTML",
+      "OEIS:A134362 full sequence entry",
+      "Targeted public searches for subdivision/maximal matching, no-2-cycle functional digraph reconfiguration and diameter",
+      "Published mathematical-record searches matched under seven actual aliases",
+      "Accessible prior research records (prior claims only; no historical re-audit)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS records the count and function characterization but contains no adjacency notion.",
+        "Bousquet et al. give general connectivity algorithms and show matching distance can be difficult, but no uniform identity specialized to S(K_n).",
+        "Baste et al. is about edge domination and approximation bounds in regular graphs, with no matching exchange metric for the irregular subdivided clique."
+      ],
+      "reasoning": "Proof of the new diameter needs the cycle-by-cycle detour inequality and the reversed disjoint cycles lower witness. Those are not logical consequences of a mere total function count, a general decidability algorithm, or lower upper size bounds. General connectivity coverage is credited where applicable.",
+      "searches": [
+        "arXiv:1812.05419",
+        "arXiv:1905.12241",
+        "OEIS:A134362",
+        "One-subdivision of complete graph S(K_n) maximal matchings token jumping reconfiguration graph exact diameter n+floor(n/3), n isolated minimal matchings, regular maximum matching component",
+        "Combinatorial reconfiguration regular graph degree n(n-3) of 2-cycle-free functions, distance between reversed permutation cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A134362 identifies precisely functions f with f(f(i)) != i; this is an exact equivalence to the maximum matchings in the incidence subdivision. It has no moves or reconfiguration metric.",
+        "arXiv:1812.05419 uses same matching token-jump metric on graph matchings, without the present special graph family diameter."
+      ],
+      "reasoning": "The principal mathematical alternative is the reconfiguration graph of outdegree-one loop-free digraphs without directed 2-cycles, with one legal outgoing-arc rewire per step. The mapping is exact; neither the count-only table nor inspected token-jump paper states or implies the sharp metric identity. The known count is excluded from the new claim.",
+      "searches": [
+        "Zen stare functions on n vertices no loops no 2cycles one coordinate rewiring reconfiguration exact diameter n+floor(n/3)",
+        "Combinatorial reconfiguration regular graph degree n(n-3) of 2-cycle-free functions, distance between reversed permutation cycles",
+        "Maximum matchings of incidence bipartite graph vertex-edge incidence of K_n, component counts, reconfiguration diameter, maximal matching count A134362",
+        "\"Zen stare\" \"reconfiguration\" graph",
+        "\"no mutual pair\" \"reconfiguration\" functions",
+        "\"no 2-cycles\" function \"reconfiguration graph\" diameter",
+        "\"A134362\" \"diameter\" \"graph\"",
+        "\"n+floor(n/3)\" \"reconfiguration\" matching",
+        "OEIS:A134362"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A134362 lists a(3)=2, a(4)=30, a(5)=444, a(6)=7360 and the same inclusion–exclusion expression (2016), which therefore is prior coverage.",
+        "No examined database/table supplies the diameter sequence n+floor(n/3) with the specified graph and moves; The relevant published mathematical-record searches returned general matching polytope and extremal-size records."
+      ],
+      "reasoning": "The exact count is already in a public table and explicitly credited. The novel invariant is an exact graph distance not determined just by this count; no direct distance table was found, though negative search has no uniqueness force.",
+      "searches": [
+        "OEIS:A134362",
+        "One-subdivision of complete graph S(K_n) maximal matchings token jumping reconfiguration graph exact diameter n+floor(n/3), n isolated minimal matchings, regular maximum matching component",
+        "Combinatorial reconfiguration regular graph degree n(n-3) of 2-cycle-free functions, distance between reversed permutation cycles",
+        "published mathematical records for maximal matching reconfiguration of S(K_n)"
+      ]
+    },
+    "rationale": "A full-text implication comparison of the matching-reconfiguration paper arXiv:1812.05419 and minimum-maximal-matching paper arXiv:1905.12241, matched against the exact state-space interpretation in OEIS A134362, does not cover the sharp n+floor(n/3) diameter or component/degree strata. A134362 conclusively covers the enumerative count, which is not claimed new. Semantic mathematical-record searches and accessible prior claims reveal no stronger covering statement; residual unindexed terminology risk is acknowledged.",
+    "residual_risks": [
+      "Specialized functional-digraph reconfiguration literature may express the same exact diameter with different terminology and be absent from the inspected indexes.",
+      "The 2018 general connectivity results may subsume connectivity alone; the new priority assertion depends chiefly on the specific exact diameter law and structural refinement.",
+      "No independent external validation of the proof or the mathematical priority review has been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact sharp family-specific diameter; general algorithmic reachability and connectivity cited as prior context.",
+        "evidence": [
+          "arXiv:1812.05419 submitted 2018-12-13; abstract and full text present approximation and reachability algorithms; full text does not state S(K_n) sharp diameter."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.05419v1",
+        "material_read": "Full arXiv HTML primary text: abstract, setup, principal theorems, matching-distance sections, connectivity results, conclusions and appendices.",
+        "method": "Full-text theorem and assumptions comparison using matching edge-exchange model and specific subdivision/functional representation.",
+        "title": "Shortest Reconfiguration of Matchings",
+        "trigger": "Exact token-jump matching rule and connectivity/diameter results could cover the new claim."
+      },
+      {
+        "assessment": "NOT_COVERING: proves unrelated bounds in regular/nonregular graph classes, not specialized reconfiguration diameter.",
+        "evidence": [
+          "2019-05-29 public version; MSC 05C69 and 05C70 printed at document start; focus minimum maximal matchings and approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1905.12241v1",
+        "material_read": "Full initial arXiv HTML text: definition, Theorems 1-5 and proofs, edge domination and algorithmic consequences.",
+        "method": "Compare maximality definition, restrictions, and stated conclusions against S(K_n) size strata and token-jump distance.",
+        "title": "Bounding and approximating minimum maximal matchings in regular graphs",
+        "trigger": "Direct original source of maximal-matching invariant and eligible 05C69 cohort."
+      },
+      {
+        "assessment": "COVERING cardinality enumeration; that previously known part is explicitly excluded from the scientific novelty assertion. It gives no token-jump graph geometry.",
+        "evidence": [
+          "Entry created 2008, formula dated 2016; terms 2,30,444,7360; map f with no fixed point under f squared."
+        ],
+        "identifier_or_url": "https://oeis.org/A134362",
+        "material_read": "Full public sequence entry: definition, sample terms, comments, formula, references and creation metadata.",
+        "method": "Checked exact equivalence f(f(i)) != i and matched inclusion-exclusion formula and sampled terms to candidate count.",
+        "title": "OEIS A134362",
+        "trigger": "Function counts 2,30,444,7360 exactly match computed matching counts and imply covered enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f04746ff-caa5-4d8f-88a4-73c220eac666",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact worst-case number of local matching exchanges is a natural reconfiguration invariant with direct route construction and sharp obstruction witnesses; it is not inferable from prior counts of matchings or classical minimum edge domination alone. The coexisting n frozen minimum maximal matchings and regular connected maximum stratum demonstrate a meaningful size-stratified dynamical contrast. Novelty is attributed only to the sharp metric/structural picture, not the known function counts or generic reconfiguration frameworks.",
+    "status": "PASS"
+  }
+}
