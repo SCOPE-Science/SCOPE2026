@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "All q≥2: select one chosen occurrence per target to lower-bound cyclic length by target-tour shift costs; distinct targets allow only shifts 1,3,4. Contracted shift-one reverse-square pairs form loops in letter-state walk; unused reverse-square pair states contribute at most s edges and jump shifts contribute z. With q constant-square blocks, connectedness yields 2s+z≥q, proving 2q(q+1). Explicit groups attain every transition count. Finite verifier checked construction q=2..50 and independently optimized q=2,3,4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sawada–Sears–Trautrim–Williams (arxiv:2308.12405) construct de Bruijn sequences and universal cycles, not one-cycle minimum covers for the non-Eulerian square family.",
+        "Cazaux–Juhel–Rivals (SEA 2018) discusses general shortest-superstring algorithms/bounds without a matching all-q exact target-specific minimum."
+      ],
+      "reasoning": "An algorithmic formulation of a covering problem is not an all-parameter exact optimum. A stronger general result would need to imply both the lower bound 2q(q+1) and attainment for the four-letter square family; none was located in the inspected material.",
+      "searches": [
+        "For q symbols shortest cyclic word containing all abab squares length 4 exact L=2q(q+1) and graph connectivity lower bound",
+        "arxiv:2308.12405",
+        "doi:10.4230/LIPIcs.SEA.2018.18"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1908.01116",
+      "https://arxiv.org/abs/1711.07029",
+      "https://arxiv.org/abs/2308.12405",
+      "https://doi.org/10.4230/LIPIcs.SEA.2018.18"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously established exact cyclic-cover theorem treats ordinary palindromes abba: a different motif set.",
+        "The previously established reverse-complement cover theorem treats reverse-complement palindromes ab̄b̄a, not tandem squares abab.",
+        "For q=4 the ordinary-palindrome length is 44, while the tandem-square theorem gives 40; no direct set inclusion or reduction turns either claimed lower bound into the new lower bound."
+      ],
+      "reasoning": "The older named classes are not the same targets: abab is a square, abba a reflection palindrome, and the involutive palindromes depend on complementary symbols. Even the same cardinality q² would not imply equivalent overlap graphs; the decisive shift-one abab↔baba pair structure is different. Published generic UC existence and superstring bounds do not give the sharp formula.",
+      "searches": [
+        "shortest circular word containing all four-letter palindromes abba q alphabet minimum, compare to square motifs abab",
+        "exact cyclic cover result for abba four-letter palindromes",
+        "exact cyclic cover result for reverse-complement four-letter palindromes",
+        "arxiv:1908.01116"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In a directed target-overlap graph, the claim is the exact minimum cost of one Hamiltonian cycle on the q² vertices abab with overlap shifts.",
+        "Chen–Kitaev–Sun (arxiv:1908.01116) treats universal cycles/words of prescribed word sets; Gardner–Godbole (arxiv:1711.07029) treats different restrictions.",
+        "No theorem or numerical capacity for this prescribed family in the inspected primary passages."
+      ],
+      "reasoning": "The target-order and one-cycle shortest-superstring formulations are equivalent by the occurrence-selection lower bound and overlap-spelling construction, and were compared as such, not just by matching names. The general framework does not evaluate the minimum tour. Shortest linear and exact-once universal-cycle variants are not equivalent claims.",
+      "searches": [
+        "shortest circular common superstring containing all two-letter squares abab including constant aaaa, q-letter alphabet, length 2q(q+1), overlap graph",
+        "minimum cyclic word covers tandem-repeat motifs length four x y x y, square factors universal cycles",
+        "overlap graph of square words abab and baba Eulerian shortest universal tandem repeat superstring",
+        "arxiv:1908.01116",
+        "arxiv:1711.07029"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed theorem on the exact confusability edge count for fixed-length tandem duplication concerns channel edges, not cyclic motif-cover minima.",
+        "A separate indexed table of exact length-six non-overlapping code sizes concerns bifix-free codeword sets rather than covering all given factors.",
+        "Independent finite checks produced lengths 12, 24, 40 for alphabet sizes two, three and four."
+      ],
+      "reasoning": "No directly matching published exact table or formula was identified. The numerical checks are new computation for verification, not novelty by themselves. Database non-hits alone do not certify the theorem is unpublished.",
+      "searches": [
+        "shortest cyclic cover all squares with root length two exact optimum q^2 and transitions",
+        "minimum circular superstring every tandem square abab aa aa among q symbols compared with palindrome abba family"
+      ]
+    },
+    "rationale": "Comparisons of equal-object statements, possible general reductions, recent relevant full primary texts and semantic claim-index searches identified no formula implying the exact one-circle minimum for all four-letter tandem squares; ordinary palindrome and reverse-complement target sets studied in earlier results differ. Incompleteness of indexes and unindexed equivalent motifs remains an explicit residual risk.",
+    "residual_risks": [
+      "A mathematically equivalent shortest cyclic cover of tandem squares could appear under different terminology (motif covers, Hamiltonian overlap tours, periodic-word superstrings) in unindexed literature.",
+      "Search snippets and claim indexes are not full-document evidence; negative novelty inference relies only on actually inspected primary materials and known recoverable historical claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact shortest single cyclic cover of all abab factors was located",
+        "evidence": [
+          "arxiv:1908.01116; first public 2019-08-03; addresses existence/probability of universal cycles or words"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.01116",
+        "material_read": "Primary arXiv full text and statements on universal cycle/word existence and deletions of words",
+        "method": "Direct text inspection of open arXiv paper and theorems",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "General prescribed-word-set cycles might subsume tandem-square motifs"
+      },
+      {
+        "assessment": "Its restricted families and exact-once UC construction do not determine the one-circle shortest cover for tandem squares",
+        "evidence": [
+          "arxiv:1711.07029; first public 2017-11-19; restrictions differ from complete abab target family"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1711.07029",
+        "material_read": "Full primary text: abstract, defining restrictions and main construction sections",
+        "method": "Direct full-text inspection",
+        "title": "Universal Cycles of Restricted Words",
+        "trigger": "Restricted-word universal cycles may generalize motif coverings"
+      },
+      {
+        "assessment": "No evaluated minimal cyclic superstring length for all abab squares",
+        "evidence": [
+          "arxiv:2308.12405; first public 2023-08-23; cycle-concatenation methodology"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.12405",
+        "material_read": "Full primary text introduction, framework statements and motif-word searches",
+        "method": "Full-text opening, inspected introduction and key construction descriptions, searched for tandem/square terms",
+        "title": "Concatenation trees: A framework for efficient universal cycle and de Bruijn sequence constructions",
+        "trigger": "General efficient UC constructions potentially imply the new construction"
+      },
+      {
+        "assessment": "Studies general shortest linear superstring bounds; no all-q exact single cyclic tandem-square cover",
+        "evidence": [
+          "SEA 2018; DOI 10.4230/LIPIcs.SEA.2018.18; distinguishes linear superstrings and cyclic-cover variants"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SEA.2018.18",
+        "material_read": "Primary PDF, abstract, background and superstring methods; PDF pages also visually inspected",
+        "method": "PDF text extraction via web with page screenshots and manual comparison of problem definitions",
+        "title": "Practical lower and upper bounds for the Shortest Linear Superstring",
+        "trigger": "A general superstring theorem could dominate motif-cover exactness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "35e46779-014c-4293-876a-ca81cbcdca9e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "All q² two-symbol-root tandem squares comprise a natural complete family of constrained motifs. A shortest single circular test sequence is a well-defined exact reconstruction/cycle-cover benchmark, and a new sharp connected-letter-state obstruction explains why maximally overlapping inverse squares cannot all be assembled without q additional intergroup jumps. The theorem supplies all-q exact length and explicit constructive witnesses, not merely a small computed table.",
+    "status": "PASS"
+  }
+}
