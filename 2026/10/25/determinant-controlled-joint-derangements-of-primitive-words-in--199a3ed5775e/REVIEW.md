@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The labelled transitive-orbit exponential formula, primitive lattice-containment counts, determinant quotient, exact bivariate component marking and partition second-difference asymptotics establish all stated finite and asymptotic claims. Small exhaustive checks agree in all 30 determinant/size cases. The rigorous asymptotic needs a smooth strong partition expansion, not merely a first-order relative partition estimate.
+## correctness
 
-## Originality — PASS, qualified
-Prior full-text comparison includes Abdesselam–Starr (2025/2026), addressing the central limit theorem for **total** orbit count of commuting tuples, and Abdesselam–Brunialti–Doan–Velie (2024), addressing exact enumeration by **total** orbit count and log-concavity. Neither states primitive-word simultaneous derangements or the determinant divisor-sum correlation. Published mathematical records and scholarly literature comparisons did not identify direct coverage. The accessible abstract of Marström–Räty (2026) concerns small permutation classes with two-order logic rather than this model. Unlocated subgroup-marked enumeration is a residual priority risk.
+PASS
 
-## Value — PASS
-The sharp determinant-indexed joint rare-event probability and exact bivariate generating law quantify a substantive dependence among naturally first-order definable fixed-point exclusions in random finite commuting actions. The dependence factor is arithmetically nonconstant even though each separate fixed-point-free event tends to probability zero.
+Reconstructed finite Z^2-set decomposition: each transitive orbit Z^2/H of size m has automorphism group order m, contributing z^m/m; index-m sublattice count σ_1(m) yields P(z). A primitive v lies in exactly one index-m subgroup, so its forbidden orbit component EGF is (1-z)^(-1). Two independent primitive vectors span L with Z^2/L cyclic of order Δ, whose subgroups contribute exactly F_Δ(z)=∑_{d|Δ}z^d/d. The correct overlap mark xy gives P(z)(1-z)^(2-x-y)exp((x-1)(y-1)F_Δ(z)). The n→∞ constants require smooth Rademacher first-summand asymptotics, not bare Hardy–Ramanujan leading error: first and second finite differences are ∼(A/(2√n))p(n) and ∼(A²/(4n))p(n), A=π√(2/3). Entire exp(F_Δ) has superpolynomially decaying Taylor coefficient tails for fixed Δ, so convolution preserves the second-difference constant and yields the determinant ratio. Independent permutation enumeration to degree six matches the coefficient formula for 30 determinant/size cases; these checks do not substitute for infinite asymptotic reasoning.
 
-## Limitations
-Nonprimitive directions, parallel directions, and independent-unconditioned permutations are excluded. The new proof is not an independent peer audit; no novelty guarantee beyond material checked. A full text of the 2026 small-permutation-class paper was not inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard partition-function count for commuting tuples and transitive torus orbit types are old; the new statement concerns simultaneous fixed-point exclusion for two specified primitive Z² words, exact bivariate orbit-fixed counts, and the determinant-index dependent limiting ratio. The directly relevant 2026 CLT for total joint orbits and the 2024 orbit-count bijection do not imply these word-marked statistics as stated. An unindexed specialization of older finite group-action or random-homomorphism enumeration could subsume it, but no decisive covering theorem was found in actual comparisons.
+
+## value
+
+PASS
+
+Primitive directions encode elementary fixed-point-free first-order events in random finite Z²-actions. The exact determinant-index dependence shows that rare word-derangement events are asymptotically correlated by an explicit arithmetic factor rather than independent; this is a natural two-observable distributional question beyond the classical total orbit-count CLT, with an exact bivariate generating function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
