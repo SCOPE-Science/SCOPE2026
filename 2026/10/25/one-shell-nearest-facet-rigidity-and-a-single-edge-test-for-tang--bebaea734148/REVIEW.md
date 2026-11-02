@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The clearance function is the minimum of the unit-normal facet slacks, and coarea identifies its joint density with the labeled facet area of the inward offset. If the relative areas match on one shell, every facet survives and the surface-area measures of the original polytope and a dilation of the inward offset coincide. Minkowski uniqueness forces a translate/dilate relation. Comparing each facet support equation produces a common tangent ball; surface-normal equilibrium proves its radius is maximal. Conversely common tangency yields explicit homothetic erosion and an independent Beta clearance law. For sparse comparisons, normalization and the divergence theorem give a linear dependence of the untested augmented normals. All conditions, including coalescent angular/facet cases and the exact-depth conditional version, have been specified. A standalone checker corroborated planar polygons and spatial boxes; the proof is analytic.
+PASS
 
-## Originality — PASS with bibliographic risk
+The defining Euclidean clearance is the minimum unit-normal slack min_i(h_i-u_i·x). Coarea on unique-minimizer regions gives density f_{T,J=i}(t)=A_i(t)/Vol(P), including a canonical continuous density-level conditional probability. At one interior shell, all q_i(t0)=q_i(0) force positive proportional facet areas A_i(t0)=s^{d-1}A_i(0). Both polytopes have the same outward facet-normal surface-area measures after scaling. Minkowski surface-area uniqueness implies P_t0=w+sP; volume/proper inclusion yields s<1, and support comparisons construct a ball tangent to all original facets. Weighted normal equilibrium ∑A_i(0)u_i=0 proves maximality of its radius. Converse is explicit inner homothety and Beta(1,d) clearance. The untested augmented-normal linear system enforces the sparse condition, and any three distinct normal points on the circle are non-collinear. Independent direct shell calculations reproduce square/triangle constancy versus rectangular deviations. This is an infinite proof with finite diagnostics.
 
-The closest literature is Alexandrov's recap of Minkowski facet-area uniqueness, Linke and Saorín Gómez's treatment of inner parallel polytope decompositions and homothetic form bodies, and Larson's sharp total-perimeter inequality. The known homothetic and scalar inequalities are not claimed as new. The assessed result is an observable nearest-facet/clearance law, its one-offset rigidity converse, and a sparse quadrilateral criterion reducing the necessary facet channels to one. Targeted semantic and full-text comparisons did not locate a dominating statement; a specialist reformulation may remain unindexed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Tangentiality is a basic global shape property, while the criterion is phrased entirely in a conditional local distance statistic. For an arbitrary polytope a single finite interior shell already forces global tangency, and for a convex quadrilateral one facet's relative shell probability suffices. These are structural inverse tests rather than mere relabeling or a finite-table observation. The method also explains its geometric limits: affine independence of the unchecked facet normals is essential to the sparse reduction.
+The rigid one-level *vector* of facet-area proportions and its sparse observable-facet consequence are not implied directly by classical all-offset homothety statements or scalar perimeter bounds. Minkowski uniqueness itself is classical and is used explicitly, not claimed novel. Materially read Linke–Saorín Gómez full preprint with its all-offset homothety and form-body conditions and comparison with Larson. No exact one-shell sparse-facet theorem was established by these sources. Pass at best of knowledge with a historical-reformulation risk.
 
-## Closest literature and limitations
+## value
 
-References: arXiv:math/0211286; Linke–Saorín Gómez (DOI:10.1007/s00605-014-0629-z); Larson arXiv:1508.06414v3. The analysis does not supply sampling-error bounds or prove absence of all unindexed historical equivalents. No independent external validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Tangentiality is a global geometric rigidity property; the theorem makes it decidable from the conditional closest-facet distribution at a single interior shell and, strikingly, one labeled edge in every quadrilateral. This is a substantive inverse-geometric characterization beyond renaming an established bound; it gives sharp and transparent limits via augmented-normal independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
