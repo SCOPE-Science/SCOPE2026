@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness:** PASS. The statement fixes the language, marker count, quantifier rank, and every zero-pattern case. The finite-order game cutoff and concatenation lemma reduce all nonnegative gap parameters to \(8^3=512\) inputs. The checked character recurrence is an exact theorem about three-round games. The standalone script exhaustively confirms injectivity and surjectivity of the proposed canonical form onto the exact rank-three signature classes. It separately checks fourteen boundary comparisons through a direct game recurrence. Counts and sharp minimal size follow; no finite sample is substituted for the unbounded truncation theorem.
+## correctness
 
-**Originality:** PASS with residual priority risk. The 2011 classification gives a computability theorem and recursion; the 2018 study gives rank-two normal forms and general rank-three examples. Neither inspected result states or numerically entails without further exact calculation this two-red rank-three normal form, its \(310\) classes, or the sharp \(19\)-point bound. The separate single-red result concerns a strictly different family and an all-rank formula. Searches for two-marker formulas, aliases, and the exact numbers found no covering published result. The 2009 doctoral thesis remains an uninspected historical-priority risk.
+PASS
 
-**Value:** PASS. The 2018 paper explicitly treats sharp rank-three coloured-order representatives as difficult; exactly two distinguished positions is a natural next nontrivial interval configuration after one distinguished position. This complete classification determines both the exact rank-three logical-profile count and the sharp minimal-model size for a coherent infinite family. The middle-gap threshold \(5\) versus outer-gap threshold \(6\) is a structural distinction not conveyed by a generic computability bound. The theorem intentionally does not extend to arbitrary binary words.
+PASS. Rank-3 equivalence of monochromatic chains has sharp length cap 7; concatenation of EF-equivalent colored orders preserves rank-3 equivalence, reducing every infinite gap triple to 0..7 in all three coordinates. The exact nested-character back-and-forth recurrence is an iff for the 3-round EF game. Independent implementation enumerated each of 512 capped triples and found exactly 310 distinct rank-3 character sets, bijectively matching the proposed zero-pattern canonical triples (no conflicting class). Cardinality 1+3*7+3*6^2+6*5*6=310; unique maximal shortest word 6+1+5+1+6=19. Rank-3 sentences distinguish two vs any other number of red points, so shortest-representative bound holds even against all binary-colored words. All hypotheses (finite, two reds, unary red/blue partition, rank exactly 3) and zero-gap cases checked. This is an exhaustive lemma after a proved finite reduction, not a sample-based infinite argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best-of-knowledge. The 2019 primary Theorem 1.1 supplies a general character equivalence and hard rank-3 representatives of lengths 70/74, but neither its inspected arguments nor its reported classification tables supply the exact 310-class two-red zero-pattern canonical form. The 2011 paper supplies the underlying general EF method. Published one-red all-rank theory is not a stronger two-red result. Missing 2009 thesis is noted as a real priority risk.
+
+## value
+
+PASS
+
+PASS. Fixing exactly two distinguished markers is a natural next rank-three model-theoretic family after one marker. The result completely classifies all rank-three theories, distinguishes the role of interior vs exterior blue gaps, determines precise 310 class and sharp shortest-model bound 19, not merely a routine numerical specialization of a ready formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
