@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the triangle three-jet reconstruction theorem
+# Independent mathematical audit
 
-The proof in `RESULT.md` reconstructs every ingredient analytically; code is corroborative, not an infinite certificate. Run `python3 verify.py` in a standard Python 3 environment. The script reconstructs intersection polygons by successive half-plane clipping, integrates the resulting covariogram for five triangles, checks the exact coefficient formula, evaluates strict curvature-ratio ordering on 5,000 seeded triples, and checks strict monotonicity on five fixed-invariant arcs. The checked execution printed `VERIFY_OK`.
+## correctness
 
-The curvature-ratio derivative is validated symbolically in the mathematical proof, not from floating-point tests: with \(v=(\pi-x)/2\), it is \(4\cos^2v(v\cos v-\sin v)/\sin^5v<0\). Boundary cases are handled by continuity, and the equilateral case by strict Jensen equality. The finite numerical tests do not establish convergence at arbitrary radii or quantitative inverse stability. No external independent audit has been carried out.
+PASS
+
+Uniformly small translated convex-triangle intersections have exactly quadratic covariograms, giving exact F(t)=πt²/A−2Pt³/(3A²)+Qt⁴/(8A²). The quartic law is prior work. The genuinely new injectivity follows since H=∑cot(α_i/2)=P²/(4A), J=∑(π−α_i)cotα_i=Q−3. The analytic curvature ratio g''/f'' increases strictly on (0,π), because tan v>v; weighted secant slopes make Jacobian det ∂(H,J)/∂(a,b)>0. For fixed H, ordered chamber is a connected arc and J increases strictly along it; equilateral and isosceles limits are included. Then P,A reconstruct side lengths via tangent-incircle identity. Independent sympy differentiation and numeric sampling corroborated curvature monotonicity, not used as global proof.
+
+## originality
+
+PASS
+
+The exact quartic short-distance coefficient is already published and not claimed novel. The new theorem is full injectivity of three local scalar coefficients on ALL triangles; published general polygon coefficient inequality and full-profile/chord-moment/directional-covariogram recognition do not logically imply local three-jet rigidity. Gates (1982) and Gasparyan–Ohanyan older primary full texts were inaccessible, leaving bounded risk of an equivalent specialized criterion.
+
+## value
+
+PASS
+
+A sharp inverse theorem reconstructing triangle shape and scale from only an infinitesimal three-number distance jet is structurally stronger as data compression than known full-profile identification. Strict global level-set injectivity is nonroutine and covers all nondegenerate triangle shapes, with precise degeneracy limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
