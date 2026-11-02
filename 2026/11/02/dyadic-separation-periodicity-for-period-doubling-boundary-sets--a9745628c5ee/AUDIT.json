@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The period-doubling fixed point satisfies p[2i]=0, p[2i+1]=1-p[i] and p[i]=v_2(i+1) mod 2. Each factor recurs at infinitely many 2-adically shifted positions. A complete gap-parity analysis determines the one-symbol base spectra. The exact two decimation identities reduce all mixed-window spectra to strictly shorter window lengths; the chosen dyadic shift is divisible by all lower periods. The two-symbol exact table and sharp least period follow by explicit substitution. The standalone script returned VERIFY_OK on 34031 bounded finite assertions; proof, not finite samples, establishes all quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rigo–Stipulanti–Whiteland, arXiv:2206.15319, abstract and Section 3: automatic sequences yield automatic boundary sequences, a strictly weaker property than periodicity.",
+        "Huang–Wen, arXiv:1703.07157, available abstract: return words and their occurrence separations."
+      ],
+      "reasoning": "A stronger general automaticity or Toeplitz theorem could conceivably subsume the result, but the inspected general source proves only automaticity. Automaticity does not force a periodic sequence, nor furnish a period uniform across all window lengths. No cited result states the exact all-distance paired-window law.",
+      "searches": [
+        "period doubling word all extended boundary sequences purely periodic every block length explicit period 2^{ceil log2 length +1}",
+        "All two-block factor correlations of period-doubling substitution fixed point 0->01 1->00 periodic in separation with dyadic period at most twice next power of two of block lengths",
+        "period doubling word boundary sets prefixes suffixes factors periodic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2206.15319",
+      "https://arxiv.org/abs/1703.07157 (abstract only)",
+      "https://oeis.org/A096268",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i1p9",
+      "https://geodesic.mathdoc.fr/articles/10.37236/11728/ (published primary MSC 68R15)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rigo–Stipulanti–Whiteland, arXiv:2206.15319v2, pages 1–4, Section 3 and theorem statements (checked full public PDF): general closure under automaticity.",
+        "Huang–Wen, arXiv:1703.07157, abstract (return-word system), complete text could not be retrieved.",
+        "OEIS A096268, period-doubling fixed point and valuation identity."
+      ],
+      "reasoning": "The exact prior definition contains the same endpoint-pair sets, but its conclusion is membership in an automatic class. That does not imply the periodicity claim. The return-word work addresses decompositions of individual factor occurrences and gives no accessible statement covering simultaneous pairs of arbitrary lengths at all separations; absence of full text is specifically flagged. The present inductive proof is directly from the fixed-point recurrence.",
+      "searches": [
+        "\"period doubling\" \"boundary sequence\" word",
+        "\"Envelope Words and the Reflexivity\" \"spectrum\" \"separated\" \"adjacent\" period doubling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rigo–Stipulanti–Whiteland, arXiv:2206.15319, Definition 1.1 and Section 3 (the same endpoint-pair invariant, but an automaticity rather than pure-periodicity theorem).",
+        "Huang–Wen, arXiv:1703.07157, abstract (return-word occurrence spectra, not an explicit paired-window separation periodicity statement)."
+      ],
+      "reasoning": "The present C_{ell,ell}(d) is exactly the extended ell-boundary set, and mixed windows are a generalization. Full primary-source comparison identifies the same object but no claim of a fixed, pure dyadic period for the period-doubling word. A related inaccessible occurrence-spectrum paper is an unresolved bibliographic risk, not evidence of equivalence.",
+      "searches": [
+        "\"period doubling\" \"boundary sequence\" word",
+        "\"period-doubling\" \"boundary sequences\"",
+        "period doubling word boundary sets prefixes suffixes factors periodic",
+        "morphic period doubling boundary sequence factor pairs arbitrary distance powers of two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A096268 identifies the period-doubling word and its 2-adic valuation formula, but does not tabulate the boundary sets.",
+        "Rigo–Stipulanti–Whiteland, arXiv:2206.15319, Examples 1.2, 2.12, and 2.13 concern other words for concrete higher boundary sequences."
+      ],
+      "reasoning": "The exact length-two sets and their cardinalities were derived from explicit even/odd decimation and checked independently. No source inspected provides an identical triple of period-doubling two-boundary sets. Index incompleteness remains possible.",
+      "searches": [
+        "\"period doubling\" \"boundary sequence\" word",
+        "extended boundary sequence period doubling morphic word 2-boundary periodic mod 4",
+        "period doubling sequence length two boundary sets pairs of adjacent factors at distance n periodic three 2-block correlations"
+      ]
+    },
+    "rationale": "The directly matching primary literature defines the same boundary-set invariant but proves automaticity rather than purely periodic dyadic separation laws. A structured search of equivalent and broader claims, exact tables, research records and recoverable prior claims revealed no covering implication. The related return-word occurrence-spectrum primary source is inaccessible in full and listed as an explicit risk.",
+    "residual_risks": [
+      "The full text of Huang–Wen arXiv:1703.07157 was not retrievable: possibly related spacing results might provide an indirect deduction.",
+      "Unindexed equivalent observations in Toeplitz/automatic-word correlation literature are possible; a failed search is not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME OBJECT, NOT COVERING: general automaticity without a pure-periodicity or explicit dyadic period assertion for period doubling",
+        "evidence": [
+          "Definition 1.1, abstract, pages 1–4, Sections 2–3; no occurrence of period-doubling in searchable text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.15319",
+        "material_read": "32-page primary PDF searched and studied: abstract, Definition 1.1, introduction and contributions, Section 3 theorem text and relevant examples in Sections 1 and 2; PDF page 2 visually inspected",
+        "method": "Public full PDF text with page image for mathematical notation",
+        "title": "On extended boundary sequences of morphic and Sturmian words",
+        "trigger": "Defines the exact same boundary invariant and proves broad automaticity"
+      },
+      {
+        "assessment": "Direct full-text implication comparison remains unresolved; accessible claims concern return-word spectra rather than a pure dyadic boundary law",
+        "evidence": [
+          "2017 abstract describes two substitutive return-word sequences and overlap/separation spectra"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1703.07157",
+        "material_read": "Accessible abstract and bibliographic summary only; full-text retrieval unsuccessful",
+        "method": "Abstract and metadata cross-comparison",
+        "title": "Envelope Words and the Reflexivity of the Return Word Sequences in the Period-doubling Sequence",
+        "trigger": "Same fixed point; occurrence-spectrum and return-word terminology"
+      },
+      {
+        "assessment": "Supports normalization but contains no matching paired-window theorem",
+        "evidence": [
+          "Identifies morphism 0->01, 1->00 and v_2(n+1) mod 2"
+        ],
+        "identifier_or_url": "https://oeis.org/A096268",
+        "material_read": "Sequence definition and valuations in OEIS entry",
+        "method": "Published reference entry",
+        "title": "Period-doubling sequence, OEIS A096268",
+        "trigger": "Fixed-point identity and valuation normalization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a9745628-c5ee-4edf-95f6-36c58188f9c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete all-length, all-separation paired-end factor classification is motivated by an established boundary-sequence invariant in combinatorics on words and paired-end reconstruction. It turns a known automatic sequence of boundary sets into a purely periodic sequence with an explicit uniform period, including unequal window lengths; the exact two-window table demonstrates a nontrivial three-state example and a sharp lower-order period. This is a structural infinite theorem, not a finite or arbitrary cutoff.",
+    "status": "PASS"
+  }
+}
