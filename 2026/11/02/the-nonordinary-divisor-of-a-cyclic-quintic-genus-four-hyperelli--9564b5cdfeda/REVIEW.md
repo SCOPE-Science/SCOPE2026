@@ -1,0 +1,15 @@
+# Scientific review: the cyclic-quintic genus-four nonordinary divisor
+
+## Correctness — PASS
+The smoothness and genus assumptions follow from squarefreeness of the two disjoint quintic factors. The standard hyperelliptic coefficient formula is applied with its exact indices, and the resulting one-cycle support proves the all-or-nothing stable rank without extrapolation. The two displayed characteristic-specific matrices have exact determinants, and their exceptional ranks are exactly two. The discriminant and boundary exclusions make the Hasse-divisor multiplicities unambiguous. The included executable performs independent full determinant expansion and exhaustive parameter checks over the relevant small finite fields. The general proof is algebraic and does not depend upon exhaustive tests.
+
+## Originality — PASS, with historical priority risk
+Hidalgo's source contains this hyperelliptic family as a complex quotient but not its positive-characteristic Cartier matrix or marked nonordinary divisor. Li–Mantovan–Pries–Tang treat certain special cyclic-cover families, but their order-five four-branch inertia pattern differs from this one; their broader moduli results cannot imply these exact coefficient-factorization identities. The genus-four automorphism classification and superspecial search of Kudo–Nakagawa–Takagi concern a different order-six family and do not give the present rank stratification. Kudo–Harashita–Senda already exhibit a characteristic-three supersingular curve \(v^{10}=u(1-u)\) isomorphic over an algebraic closure to the individual special member \(C_{-1}\); its rank-zero existence is credited as known, while the unique parameter locus, double Hasse multiplicity, \(a\)-number and the characteristic-seven full divisor are not supplied there. Searches covering both the factored model and its \(x^{10}+a x^5+1\) normalization found no equivalent statement. There is a residual possibility of a prior unindexed specialization; a negative search alone does not establish absolute priority.
+
+## Mathematical value — PASS
+The family arises naturally from an established generalized-Fermat quotient model and has an order-five automorphism that forces a nontrivial dichotomy of stable Frobenius ranks. The exact zero-divisor calculation distinguishes \(p\)-rank zero from \(a\)-number two, locates every arithmetic exception, and determines scheme-theoretic multiplicities that ordinary point-counting would miss. This is a complete arithmetic stratification of a motivated genus-four family, not an arbitrary finite search or a restatement of the coefficient formula.
+
+## Scope and residual limitations
+The counts refer to marked coefficients, not isomorphism classes; no claim of supersingularity or complete Newton polygons is made. The family boundary is excluded. Possible historical priority from an unindexed treatment of \(C_5\)-symmetric genus-four hyperelliptic curves remains the principal originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
