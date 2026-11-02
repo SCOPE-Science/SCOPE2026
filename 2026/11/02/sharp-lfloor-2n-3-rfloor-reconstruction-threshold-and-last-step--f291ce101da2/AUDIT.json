@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The full proof reconstructs every triple-read spectrum by its three one-positions and the third complementary gap; no-triple spectra are exactly functions of unordered clockwise gaps, with a recoverability lemma when gaps are shorter than the read length. At k=floor(2n/3) all no-triple gaps are short and forced to have repeats, giving uniqueness. At the previous read length there are exactly the listed distinct-gap mirror pairs; all other fibers are singleton by the same gap-count recovery, plus exact finite n=6..10 checks. The standalone verifier was run successfully on separate gap and marked-word enumerations and independent read-frequency identities. Finite tests confirm but are not the proof for all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ota–Manada DOI:10.1587/transfun.2023TAP0015 Theorem 1 gives an algorithmic necessary/sufficient criterion for individual circular strings using a weighted automaton and minimal absent words",
+        "Marcovich–Yaakobi arXiv:1912.11108 Remark 2 mentions cyclic reads only as a possible alteration to the primarily acyclic noisy code constructions"
+      ],
+      "reasoning": "Ota–Manada is genuinely broader in its input class but not a published exact formula for the worst-case three-marker read length or its critical fiber counts. Applying a per-instance decision condition to all positive triple gaps still requires the supplied structural and counting proof. No stronger direct implication covering the explicit all-n law was found.",
+      "searches": [
+        "known sparse DNA circular genome three marked sites shotgun assembly exact k-mer reconstruction threshold",
+        "circular sparse binary strings reconstruction k-mers three ones gaps reverse ambiguity",
+        "Ota and Manada 2024 Condition 2 Theorem 1",
+        "Marcovich and Yaakobi 2019 Remark 2 on cyclic substrings"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1804.04548",
+      "https://arxiv.org/pdf/1912.11108",
+      "https://www.jstage.jst.go.jp/article/transfun/E107.A/3/E107.A_2023TAP0015/_pdf/-char/en"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No prior inspected theorem explicitly supplies a closed three-marker threshold or its boundary fiber count for all lengths",
+        "Ota–Manada reconstructs a particular circular source if and only if a derived automaton satisfies Condition 2; it does not state the fiber multiplicities and exact sharp three-marker threshold"
+      ],
+      "reasoning": "The new proof extracts a closed universal threshold and the exact set and number of final ambiguous mirror pairs. These statements do not follow simply by renaming or substituting parameters into an inspected exact theorem; the partition and no-triple structure are needed. General decision algorithms could check instances but do not subsume the stated explicit theorem in the sense of reporting its parameter law.",
+      "searches": [
+        "Gabrys Milenkovic 2018 Section II and codebook construction framing",
+        "Ota Manada 2024 Theorem 1 and Condition 2",
+        "Marcovich Yaakobi 2019 Section II and Remark 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A separately indexed three-deletion reconstruction result concerns deletion spectra, not the exact cyclic contiguous-read model",
+        "A targeted literature comparison did not identify the proposed exact sharp three-marker threshold or its boundary classification",
+        "Gabrys–Milenkovic (arXiv:1804.04548) defines acyclic multispectra rather than complete wraparound reads"
+      ],
+      "reasoning": "The statement classifies oriented rotational necklaces with exactly three ones; deletion deck, unindexed circular reconstruction, and linear read-spectrum models are not equivalent without additional reductions. No such specific threshold or boundary fiber implication was identified.",
+      "searches": [
+        "minimum k-mer length that distinguishes every cyclic binary necklace with exactly three 1 symbols weight three n, floor 2n/3",
+        "three marker cyclic necklace reconstruction from k-spectrum multiset consecutive substrings circular gap triples reverse orientation",
+        "\"three ones\" \"spectrum\" \"circular\" word reconstruction",
+        "\"weight three\" \"substring\" \"circular\" reconstruction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed numerical table stating the n mod 3 boundary pair counts or gap type list was found"
+      ],
+      "reasoning": "No exact numerical table for the theorem was located in the consulted scientific sources. Published works concern other reconstruction constraints, and literature indexing is incomplete; nonretrieval is not treated as proof of originality.",
+      "searches": [
+        "three marker cyclic necklace reconstruction from k-spectrum multiset consecutive substrings circular gap triples reverse orientation",
+        "two gap-orderings (a,b,c) versus (a,c,b) have identical cyclic k-spectrum if no read contains all three ones",
+        "minimum substring length reconstructing binary necklaces with three ones k spectrum"
+      ]
+    },
+    "rationale": "The exact full-length circular three-marker reconstruction threshold and the classification of every fiber one read below it were not found in the primary studies and published scientific descriptions examined. Ota–Manada supplies a general per-source circular reconstructibility predicate but not the stated uniform closed form or last-step fiber census. General algorithms do not by themselves state this exact sharp invariant. Risk of an unindexed equivalent special case remains.",
+    "residual_risks": [
+      "Other circular-spectrum general criteria may have an unindexed explicit weight-three specialization or table; searches cannot rule this out.",
+      "Ota–Manada 2022 predecessor conference paper was only represented via its citation and the 2024 full-text development, not independently fully inspected.",
+      "Other sequence assembly or gap-geometry literature may imply the sharp result through a non-obvious reduction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general per-string algorithmic reconstructibility; gives no closed all-n three-marker threshold or exact last-step mirror pairs. The general decision criterion may imply instances but does not present the parameter theorem.",
+        "evidence": [
+          "Theorem 1 and Condition 2 in PDF p.412, giving an automaton criterion for a given circular binary source",
+          "Assumption 1 in p.410 concerns primitive circular strings; the present result includes periodic three-marker sources",
+          "No three-marker-specific gap classification appears in inspected abstract, theorem, or main reconstructibility sections"
+        ],
+        "identifier_or_url": "https://doi.org/10.1587/transfun.2023TAP0015",
+        "material_read": "Full open PDF: introduction; definitions and Assumption 1; Sections 3 and 4.1–4.2, Theorem 1 and its proof; portions of Section 4.3, references",
+        "method": "Primary open full text, visually inspected PDF pages 410 and 412, compared the explicit necessary/sufficient condition to the closed-form sparse-family statement",
+        "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+        "trigger": "Exactly matching cyclic binary substring-frequency reconstruction model"
+      },
+      {
+        "assessment": "Uses n-k+1 linear read occurrences, codebook constructions and repeat replacement; not the complete n-read circular weight-three necklace problem.",
+        "evidence": [
+          "arXiv PDF p.2 Section II defines n-L+1 linear substrings, with distinct prefix and suffix",
+          "Opening abstract and introduction establish codebook/repeat-replacement focus"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.04548",
+        "material_read": "Open arXiv PDF abstract, introduction and Section II definitions and stated setup, plus section structure and targeted text checks",
+        "method": "Read open PDF text and visually inspected page 2; compared linear versus circular source models and codebook bounds",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Foundational exact read-spectrum coding problem"
+      },
+      {
+        "assessment": "The cyclic model is noted as a possible modification to simplify boundary conditions; no exact sparse necklace threshold or two-fiber classification stated in inspected portions.",
+        "evidence": [
+          "PDF Section II defines n-L+1 reads of a linear word",
+          "Remark 2 near p.8 explicitly chooses acyclic definitions and mentions cyclic multispectra as a variant"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1912.11108",
+        "material_read": "Open arXiv PDF abstract, introduction, preliminaries, and Section IV Remark 2",
+        "method": "Read open PDF text and visually inspected page 2; compared principal acyclic incomplete/noisy models with the explicitly discussed cyclic variant",
+        "title": "Reconstruction of Strings from their Substrings Spectrum",
+        "trigger": "Could contain stronger general reconstruction criteria, including a cyclic variant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f291ce10-1da2-478b-891f-ce81b7341f2b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first read length ensuring universal reconstruction of a fixed-weight circular source is a natural complete-spectrum assembly invariant. The all-length two-thirds threshold is sharp, and the exact critical-boundary ambiguity count and gap characterization identify the only remaining orientation obstructions, including the residue-class dependence. This precise fact supports worst-case read-length design and distinguishes orientation ambiguity from unobservable marker distances; it is not a routine rename of a known table.",
+    "status": "PASS"
+  }
+}
