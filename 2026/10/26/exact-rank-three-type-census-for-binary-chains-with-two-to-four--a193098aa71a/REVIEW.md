@@ -1,9 +1,21 @@
-# Self-review of sparse-marker rank-three classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The first-move character lemma is proved using a bidirectional Ehrenfeucht–Fraïssé strategy; the pure monochromatic rank-three cutoff of seven and concatenation congruence reduce all unbounded gap choices to 512, 4096 and 32768 exact cases. `verify.py` computes every case twice by structurally different signature implementations and checks the reported 310/1865/11196 class counts, sharp relative minima 19/25/31, and unique extremal classes. The checker was executed on the included code. The fixed-red restriction and the limits of finite testing are explicit.
+## correctness
 
-**Originality — PASS, with residual risk.** The directly inspected 2010 Mwesigye–Truss article (DOI 10.1007/s11083-010-9178-9) provides the character method and computes global rank-one/rank-two bounds, but not these enumerated rank-three sparse-marker values. The closely relevant 2018 Mwesigye–Truss article (DOI 10.1007/s11083-018-9458-3) treats unrestricted two-colour rank-three optimality, including a 74-point example; that general bound does not yield the present exact 310/1865/11196 marker-stratum type counts. The earlier one-red record `eec9053b6af5` covers only one red marker (51 classes at rank three), not multiple markers. The examined published literature did not locate an exact covering result. Historical thesis or unindexed tables might still duplicate the counts.
+PASS
 
-**Value — PASS.** These are natural complete sparse-colour strata of the difficult two-colour three-round finite-order classification. The result gives a decision signature, an exact census of distinct theories, sharp stratum-specific representative lengths, and unique extremal words rather than an arbitrary finite check. It isolates the first interactions of multiple exceptional marks beyond the previously studied one-marker case and offers exact reproducible finite-model benchmarks. It does not pretend to improve the known unrestricted 74-point lower bound.
+Rank-q character signature H_1 as set of colors, H_{q+1}(word)={ (c,H_q(prefix),H_q(suffix)) } is exactly the Ehrenfeucht–Fraïssé q-round equivalence invariant by induction on initial chosen position, as in Mwesigye–Truss Theorem 1.2. Pure blue linear-order lengths are rank-3 equivalent after cap 7; EF equivalence preserved under word concatenation, so each of k+1 blue gaps can be capped independently and the 8^(k+1) finite tuples cover every infinite gap option. Independent character-signature enumeration (separately written from uploaded checker) over 512,4096,32768 tuples reproduced respectively 310/1865/11196 classes, sharp stratum-representative lengths 19/25/31, one extremal each and stated unique gap tuples. Only k=2 case excludes shorter representatives in the full binary language via rank-three control of red count; for k=3,4 claims strictly within same k.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified. Mwesigye–Truss 2011 provides the fundamental character lemma and exact global rank-1/2 bounds; 2019 provides broader unrestricted rank-3 constructions (70/74-point words) but not these exact marker-stratum counts; published one-red result has 51 rank-three classes and maximum 13, not enough to imply k=2..4. Exact new counts follow finite exhaustive cap but are not known tables in read sources.
+
+## value
+
+PASS
+
+The first three nontrivial minority-marker strata beyond the known one-red case give complete exact rank-three theory counts and extremal shortest-word data. Sparse markers are a motivated complexity regime for finite model theory; the cap-plus-signature method makes the values exhaustive and reusable, not random arbitrary strings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
