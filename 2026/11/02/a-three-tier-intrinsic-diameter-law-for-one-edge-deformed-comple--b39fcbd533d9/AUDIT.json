@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The exact shortest vertex distances and four-endpoint geodesic formula yield an exhaustive edge-pair case split. Midpoint witnesses show matching lower bounds for n=4 and n>=5, including the short-edge plateau. n=3 is exactly a metric circle. Derivatives of the exact normalized ratios prove all three optimization regimes with strict equality characterization. An independently implemented stdlib rational affine-envelope enumerator passed 28 full edge-pair configurations and 320 normalized comparisons; none is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ahn et al., arXiv:2608.08716, Theorem 2: for leafless graphs length ≤ (cyclomatic number +1) times continuous diameter; for complete n-vertex graph this only implies D/L ≥1/(m−n+2), weaker than the new family-sharp 2/m for n≥5.",
+        "De Carufel et al., arXiv:1512.02257, explicitly restrict optimization to shortcuts added to paths and cycles."
+      ],
+      "reasoning": "Universal bounds have different quantifiers and do not imply these exact one-defect K_n equations or the n=4-to-5 optimum transition. The higher-level algorithmic papers do not supply the claimed symbolic case classification.",
+      "searches": [
+        "arXiv:2608.08716",
+        "arXiv:1512.02257",
+        "doi:10.4230/LIPIcs.SWAT.2016.27"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1304.1909 (original 2013-04-06)",
+      "arXiv:1512.02257 (original 2015-12-07)",
+      "doi:10.4230/LIPIcs.SWAT.2016.27 (2016 conference PDF)",
+      "arXiv:2608.08716 (original 2026-08-09)",
+      "DOI:10.1002/net.3230120310 (1982 bibliographic record; no full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen and Garfinkel (1982), DOI 10.1002/net.3230120310, is identified as a generic generalized-diameter algorithm but full text was inaccessible; exact detailed comparison remains a residual risk.",
+        "Bose et al. (2013) establish a general farthest-point-diagram representation, not an explicit n/λ formula.",
+        "Published metric-graph distance distributions for equilateral complete multipartite graphs and length-metric theta graphs concern distinct invariants and assumptions; their conclusions do not yield the perturbed-complete-network diameter and normalized optimum."
+      ],
+      "reasoning": "The new claim gives an explicit diameter for every λ>0 and all n≥3 plus sharp constrained minimizers. Generic algorithms may be specialized to recover it but no examined statement directly implies its exact closed formula without an additional family-specific calculation. The unavailable historical article limits priority confidence.",
+      "searches": [
+        "\"The generalized diameter of a graph\" Chen Garfinkel 1982 pdf",
+        "continuous edge-to-edge geodesic diameter of one-edge weighted complete network and length normalized optimization",
+        "arXiv:1304.1909"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bose et al., arXiv:1304.1909, constructs general eccentricity diagrams for continuous weighted networks; no explicit uniform closed formulas for the one-defect complete-graph family appear in materially inspected sections.",
+        "Prior related records concern discrete weighted diameter or other distinct graph-metric parameters."
+      ],
+      "reasoning": "Continuous/farthest-point/network diameter are equivalent names for the invariant; the precise claim also involves a complete one-parameter family and a sharp length-normalized global optimum. The generic algorithm is not the same as the claimed uniform explicit classification.",
+      "searches": [
+        "Exact intrinsic continuous diameter of a complete graph with one perturbed edge of length lambda, other edges length one, K4 versus K5 sharp transition",
+        "metric realization K_n all unit edges except one; metric diameter max(2,(lambda+3)/2), normalized diameter optimal equilateral",
+        "arXiv:1304.1909"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact one-parameter K_n continuous-diameter table found in the checked public primary sources.",
+        "Continuous geodesic distance distributions of unit-edge multipartite networks are a distinct invariant and the equal-edge case does not specify behavior for variable λ."
+      ],
+      "reasoning": "Numerical graph-diameter tables for vertices are not continuous diameter; unit-edge distributions do not supply the deformation parameter. Absence from search results is not proof of absence from all literature.",
+      "searches": [
+        "metric realization K_n all unit edges except one; metric diameter max(2,(lambda+3)/2), normalized diameter optimal equilateral",
+        "\"complete graph\" \"continuous diameter\" edge",
+        "generalized diameter of edge weighted complete graph all edge interior points extremal weighted K4 and K5"
+      ]
+    },
+    "rationale": "Targeted source, alias and implication searches compared the new complete K_n one-edge deformation against continuous farthest-point algorithms and contemporary general length-diameter inequalities; the latter are strictly weaker and neither states the parameter-uniform complete-network threshold. Published geometric metric-graph distributions involve unit-edge laws or different topologies. Historical priority remains limited by inaccessible Chen–Garfinkel 1982 full text; the theorem does not claim a new generic algorithm or that the 1982 result is irrelevant.",
+    "residual_risks": [
+      "Historical 1982 generalized-diameter article could contain a closed special-case formula not visible in available record.",
+      "A general algorithm capable of computing the claimed invariant is earlier work and the new theorem is not represented as an independent algorithmic advance.",
+      "Historical complete-graph-specific literature may be unindexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic algorithm and piecewise affine distance structure, not the stated sharp one-defect K_n phase classification",
+        "evidence": [
+          "arXiv:1304.1909 Sections 1.2, 2.1, 3.2"
+        ],
+        "identifier_or_url": "arXiv:1304.1909",
+        "material_read": "Original arXiv full-text rendering: abstract, introduction, Section 1.2 definitions, Section 2.1 farthest-point distance structure including Lemma 5, and Section 3 discussions of farthest-point diagrams.",
+        "method": "Read primary arXiv text, examine the scope and edge-to-edge distance expressions",
+        "title": "Network Farthest-Point Diagrams",
+        "trigger": "Defines the same continuous network eccentricity and generic farthest point calculation"
+      },
+      {
+        "assessment": "Different objects (paths and cycles), different intervention (adding shortcut edges) and different objective (optimal augmentation) rather than variable weight on an existing K_n edge",
+        "evidence": [
+          "doi:10.4230/LIPIcs.SWAT.2016.27, pp. 1–3, 2016-06-22"
+        ],
+        "identifier_or_url": "arXiv:1512.02257; DOI:10.4230/LIPIcs.SWAT.2016.27",
+        "material_read": "First arXiv abstract, and the available fourteen-page authorial conference PDF: abstract, problem definition, Section 1.3 scope, Section 2 results on paths, and the cited Sections 3–4 scope statements.",
+        "method": "Read and visually inspected open-access proceedings PDF, compared object families and optimization variables",
+        "title": "Minimizing the Continuous Diameter when Augmenting Paths and Cycles with Shortcuts",
+        "trigger": "Continuous diameter and weight variation may be related through augmentation"
+      },
+      {
+        "assessment": "General length/diameter inequality is strictly weaker in this one-parameter family and no explicit deformation formula is given",
+        "evidence": [
+          "arXiv:2608.08716 Theorems 2 and 8, 2026-08-09"
+        ],
+        "identifier_or_url": "arXiv:2608.08716",
+        "material_read": "Primary original arXiv text: Sections 1–3, Theorem 2 universal bound, Section 3 Theorem 8 and Medusa equality characterization",
+        "method": "Read primary arXiv full-text rendering and compared numerical inequality after inserting complete-graph cycle rank",
+        "title": "Diameter and Length of Metric Graphs",
+        "trigger": "Strong contemporary general length-diameter bound could dominate a normalized conclusion"
+      },
+      {
+        "assessment": "Unresolved historical-priority risk, not assumed to omit specific family formulas",
+        "evidence": [
+          "Networks 12 (1982), 335–340; DOI:10.1002/net.3230120310"
+        ],
+        "identifier_or_url": "DOI:10.1002/net.3230120310",
+        "material_read": "Bibliographic record and contextual discussion in arXiv:2608.08716; primary full text not accessible",
+        "method": "Searched for arXiv/open-access copy, then attempted institutional authorized retrieval; institutional VPN unavailable",
+        "title": "The generalized diameter of a graph",
+        "trigger": "Earliest closely related generic algorithm for diameter over all edge-interior points"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b39fcbd5-33d9-427f-ae21-78a95ce86f5b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Intrinsic continuous diameter and its total-length normalization measure worst-case all-point travel distance per unit network length. The theorem completely classifies an entire one-parameter deformation family of a canonical maximally connected network across all orders: n=3 is neutral, n=4 favors degenerating an edge, and n>=5 has a strict equilateral optimum. The sharp four-to-five rigidity change is meaningful for robust network design and cannot be inferred from discrete vertex diameters or the general length-diameter bound.",
+    "status": "PASS"
+  }
+}
