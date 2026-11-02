@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "evidence": [
+      "Identity 24 binom(x,4)+1=((x-3/2)^2-5/4)^2",
+      "Finite field character sum sum_t chi(t(c-t))=-chi(-1), c=5/2",
+      "Two local identities P-c0=(-5/48)u^2(1-2u^2/5) and P-c1=(1/24)(u^2-5/4)^2",
+      "Complete finite test: VERIFY_OK cases=34 fully_enumerated_inputs=337286 complete_set_matches"
+    ],
+    "rationale": "The polynomial identity 24P+1=(u^2-5/4)^2 is exact for p>=7. Reflection-pair counting on quadratic residues yields T_p; only c0 and c1 can be wholly singular, with separate tests chi(10)=-1 and chi(5)=1. Hensel lifting gives all regular balls; local changes of variables give exactly the two scaled-square images. Sorting even valuations counts every prime-power square residue. The Haar formula follows by disjoint measure addition. Independent complete enumeration agrees for 34 cases involving 337286 inputs; the unbounded proof is algebraic, not an extrapolation.",
+    "risks": [
+      "The proof excludes primes 2, 3, and 5; finite verification does not certify untested exponents."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bremser–Gomez-Calderon (1991), DOI 10.1016/0022-314X(91)90087-R, abstract reports estimates for value-set sizes and some preimage counts over Galois rings.",
+        "W. J. Ralph (1995), DOI 10.1112/S0025579300011487, abstract describes a general inequality for value-set cardinalities."
+      ],
+      "reasoning": "The 1991 article directly covers the ambient Dickson/Galois-ring setting but its available abstract does not imply the displayed exact formula for this parameter and every exponent. The unavailable full text could still contain a stronger theorem or a trivial implication, and the historical-priority risk is preserved explicitly.",
+      "searches": [
+        "\"Value sets of Dickson polynomials over Galois rings\" theorem n=4",
+        "\"Bremser\" \"Gomez-Calderon\" \"g_4\" 1991",
+        "Dickson polynomial degree four value set cardinality Z/p^r"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1210.8119v1 (full accessible HTML text)",
+      "DOI:10.1016/0022-314X(88)90006-6 (abstract)",
+      "DOI:10.1016/0022-314X(91)90087-R (abstract)",
+      "DOI:10.1112/S0025579300011487 (abstract)",
+      "OEIS A000332 (sequence identification)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chou et al. (1988) determine |D_d(F_q,a)|, which includes T_p but not an assertion about all p^k.",
+        "Mullen–Wan–Wang (2012), arXiv:1210.8119v1, read in full HTML: finite-field cardinality bounds rather than explicit local p-adic image sets.",
+        "Bremser–Gomez-Calderon (1991): accessible abstract alone does not determine whether its special preimage cases subsume this claim."
+      ],
+      "reasoning": "The claimed formula is strictly stronger in modulus depth and local image shape than a finite-field cardinality alone. General Hensel lifting is used explicitly rather than treated as novelty. The 1991 work is the single strongest unresolved equivalence/coverage comparison.",
+      "searches": [
+        "\"Value sets of Dickson polynomials over finite fields\" Chou Gomez Calderon Mullen 1988 formula",
+        "\"Value sets of polynomial maps over finite fields\" arxiv 1210.8119",
+        "\"Value sets of Dickson polynomials over Galois rings\" \"degree\" \"four\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The pentatope polynomial is an affine translate/rescaling of D_4(u,5/8), and 24P+1=(u^2-5/4)^2.",
+        "Chou–Gomez-Calderon–Mullen (1988), DOI 10.1016/0022-314X(88)90006-6: exact Dickson polynomial values over fields."
+      ],
+      "reasoning": "Equivalences were explicitly transformed before comparison. The original prime-field count is covered, so novelty is confined to lifting the full image through every prime-power level and deriving its p-adic measure.",
+      "searches": [
+        "\"binomial(n,4)\" \"modulo prime powers\" residues",
+        "\"Dickson\" \"values\" \"modulo p^k\" image",
+        "\"x^2-a\" \"square\" polynomial value set finite fields quartic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000332 identifies the natural pentatope sequence, but the accessible listing does not tabulate its all-prime-power image sizes.",
+        "A direct finite enumerator confirms the predicted entire image sets in 34 selected prime powers; those generated values are checks, not evidence of novelty."
+      ],
+      "reasoning": "No matching exact value-set table was encountered in the checked accessible sources. This negative search is not treated as a proof of absence.",
+      "searches": [
+        "\"binomial(n,4)\" \"image\" \"p-adic\"",
+        "\"pentatope numbers\" residues prime powers modulo",
+        "\"binomial(n,4)\" \"modulo prime powers\" residues"
+      ]
+    },
+    "rationale": "Finite-field image cardinalities of degree-four Dickson polynomials are prior art. The assessed statement is the exact set-level lifting classification for all good prime powers and the resulting exact residue counts and Haar measure of the natural pentatope polynomial. Primary literature on finite fields gives bounds or field-level counts, not these displayed all-level formulas. The 1991 work on Dickson polynomials over Galois rings is directly related and is treated as a substantive unresolved priority risk because only its abstract was accessible; no false whole-document noncoverage claim is made.",
+    "residual_risks": [
+      "The inaccessible 1991 Galois-ring Dickson paper may specialize to the exact claimed image/count formula; this comparison has not been resolved by full-text inspection.",
+      "An equivalent formulation in a later Dickson-polynomial table or p-adic image classification could have escaped targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general value-set bounds over finite fields, not the displayed prime-power stratification",
+        "evidence": [
+          "Theorem 2.1 bounds values of polynomial maps over finite fields",
+          "Proposition/Lemma 2.2 improves finite-field cardinality bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1210.8119v1",
+        "material_read": "Full 7-page HTML text, including introduction, main theorem, proof, and references",
+        "method": "Direct primary open-access text inspection",
+        "title": "Value sets of polynomial maps over finite fields",
+        "trigger": "Archived motivating paper on exact finite-field value-set questions"
+      },
+      {
+        "assessment": "The finite-field |V| specialization is expressly prior work; no claim of novelty at k=1",
+        "evidence": [
+          "The institutional abstract states that the cardinality of Dickson value sets over finite fields is determined."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0022-314X(88)90006-6",
+        "material_read": "Publisher/institutional abstract and citation metadata; primary full text not accessible",
+        "method": "Publisher and university bibliographic record",
+        "title": "Value sets of Dickson polynomials over finite fields",
+        "trigger": "Identified affine Dickson-degree-four equivalence"
+      },
+      {
+        "assessment": "Closest potentially covering source; abstract reports estimates and certain preimage counts but does not settle coverage of all exact cases",
+        "evidence": [
+          "Abstract: general estimate of value-set cardinality; preimage cardinality determined in certain cases."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0022-314X(91)90087-R",
+        "material_read": "Publisher abstract and bibliographic metadata; full text inaccessible through available authorized routes",
+        "method": "Publisher abstract; attempted access to complete institutional source required unavailable interactive authorization",
+        "title": "Value sets of Dickson polynomials over Galois rings",
+        "trigger": "Most plausible broad implication for D_4 over prime-power residue rings"
+      },
+      {
+        "assessment": "General inequality only in abstract; cannot be treated as exact all-level image classification",
+        "evidence": [
+          "Abstract states an inequality relating cardinality to additive orders of value differences."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/S0025579300011487",
+        "material_read": "Publisher abstract and references",
+        "method": "Publisher abstract inspection",
+        "title": "The value set of polynomials over Z_m and the combinatorics of sequences",
+        "trigger": "Broader residue-ring polynomial value-set bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c524d9c8-6455-4a67-9c52-bc082e262d6c",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "Classifies the entire set P(Z_p) and each finite residue image for all p>=7 and k>=1",
+      "Gives an exact density formula with three Legendre symbols and the explicit branch square sets"
+    ],
+    "rationale": "Pentatope values are a classical natural figurate sequence. Exact image sets modulo every power of each good prime, distinguished singular square branches, and their limiting Haar measure constitute a complete, motivated arithmetic classification. The two critical prime-adic lifts require genuine structural analysis beyond the already-known finite-field Dickson cardinality. The natural good-prime range p>=7 arises from denominator 24 and critical-point discriminant 5; no arbitrary slice or claim of downstream application is needed.",
+    "risks": [
+      "The excluded bad primes prevent a global all-modulus classification; historical priority needs independent specialist comparison."
+    ],
+    "status": "PASS"
+  }
+}
