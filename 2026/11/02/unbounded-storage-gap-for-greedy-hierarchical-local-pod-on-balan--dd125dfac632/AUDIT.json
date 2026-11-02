@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every r=2^d>=2, the explicitly repeated pair-supported orthogonal rows yield exact squared singular values 4b at the root and 2b in every proper group-aligned node. Positive local NRMSE allocations are strictly below the least retained energy, forcing exact local rank. The first split costs r(n+1) more and is rejected, while a proof by strict cost decrease and homogeneity gives the globally minimum cut of the specified complete dyadic hierarchy. The closed form ratio is asymptotic to r, and both representations exactly reconstruct with storage below mn. A standalone standard-library verifier exercised 3,550 exact checks, including exact small-dimensional Gram matrices and independent tree dynamic programs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shamrai arXiv:2601.11626v2 full mathematical sections and algorithm appendix address matrix concatenation clustering, not local-rank spatial cuts.",
+        "Ehrlacher et al. DOI:10.1137/19M128689X abstract describes broader hierarchical tensor compression; full text inaccessible."
+      ],
+      "reasoning": "A stronger general theorem giving an unbounded cost ratio for all monotone greedy hierarchical low-rank compression might subsume this result without naming its parameters. Accessible relevant sources contain different search spaces or a qualitative caution only. The inaccessible tensor article remains a disclosed, non-decisive comparison risk rather than a made-up exclusion.",
+      "searches": [
+        "hierarchical rank adaptive matrix compression greedy splitting unbounded approximation ratio delayed reward multi-level partitions low-rank POD",
+        "greedy hierarchical partitioning truncated SVD storage immediate non-improving split arbitrarily bad optimal tree rank",
+        "\"hierarchical SVD\" compression \"greedy\" \"unbounded\" partitions",
+        "\"adaptive hierarchical\" low rank partitioning \"unbounded\" \"greedy\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.31375v1",
+      "arxiv:2601.11626v2",
+      "doi:10.1137/19M128689X (abstract only)",
+      "Worst-case sharpness of multistage adaptive randomized pivoting (published mathematical finding, 2026)",
+      "Deflation-history contamination can make weighted-mass ACA arbitrarily suboptimal (published mathematical finding, 2026)",
+      "Sharp one-step Frobenius growth under complete-pivot ACA (published mathematical finding, 2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nuca et al. arXiv:2610.31375v1 Section 4 states: a nonprofitable split may hide valuable descendants and greedy is not globally optimal; no quantitative guarantee or arbitrarily bad example follows as a theorem.",
+        "Shamrai arXiv:2601.11626v2 combines preexisting matrices in horizontal clusters with prescribed target ranks, unlike positive-tolerance local rank selection on a path.",
+        "The theorem here explicitly computes costs and proves global optimum for a fixed balanced hierarchy."
+      ],
+      "reasoning": "Qualitative failure of global optimality does not logically yield an arbitrarily large worst-case ratio under positive NRMSE and genuine compression; a quantitative construction and proof are needed. General truncated SVD optimality at fixed rank also does not imply anything about the combinatorial greedy stopping ratio. Unavailable specialist full text prevents exhaustive priority claims.",
+      "searches": [
+        "adaptive local proper orthogonal decomposition graph partitioning error budget greedy stopping unbounded approximation ratio storage 2026 Nuca Parsani Dalcin",
+        "dyadic row partitioning POD greedy non-improving first split local SVD true rank r vs rank one leaves exact unbounded approximation ratio",
+        "Nuca Parsani Dalcin 2610.31375 and Ehrlacher Grigori Lombardi Song 2021 quantitative unbounded greedy-storage gap",
+        "\"adaptive local POD\" greedy split unbounded approximation ratio low rank storage"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nuca et al. arXiv:2610.31375v1 equations (25)–(26) and Section 4 characterize the identical objective and greedily rejected first splits.",
+        "Published mathematical-record search hits primarily concerned adaptive pivoting error or unrelated spectral and geometric extremal problems."
+      ],
+      "reasoning": "Equivalent statements would assert unbounded approximation ratio for top-down storage-nondecreasing split rejection, possibly described as a delayed-gain barrier in recursive block SVD or hierarchical model-selection. The closest same-object source states possible nonoptimality but gives no quantitative unbounded family; the constructed ratio is not an immediate numerical value or named theorem there.",
+      "searches": [
+        "adaptive local proper orthogonal decomposition graph partitioning error budget greedy stopping unbounded approximation ratio storage 2026 Nuca Parsani Dalcin",
+        "hierarchical rank adaptive matrix compression greedy splitting unbounded approximation ratio delayed reward multi-level partitions low-rank POD",
+        "An arbitrarily large storage suboptimality factor for greedy hierarchical proper orthogonal decomposition under positive NRMSE tolerances with balanced spatial bisections and rank-selected local SVD",
+        "dyadic row partitioning POD greedy non-improving first split local SVD true rank r vs rank one leaves exact unbounded approximation ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original preprint numerical experiments include finite synthetic and flow compression ratios rather than this parameterized exact path-mesh family.",
+        "Published mathematical-record search results returned no exact ranked record for this construction and all-dimension ratio."
+      ],
+      "reasoning": "The result is an infinite parameterized theorem with prescribed Gram spectra and exact optimal tree costs, not a numerical table value. Finite compression benchmarks and other rank-truncation tables do not provide its unbounded implication.",
+      "searches": [
+        "adaptive local proper orthogonal decomposition graph partitioning error budget greedy stopping unbounded approximation ratio storage 2026 Nuca Parsani Dalcin",
+        "An arbitrarily large storage suboptimality factor for greedy hierarchical proper orthogonal decomposition under positive NRMSE tolerances with balanced spatial bisections and rank-selected local SVD",
+        "Nuca Parsani Dalcin 2610.31375 and Ehrlacher Grigori Lombardi Song 2021 quantitative unbounded greedy-storage gap",
+        "Nuca Parsani Dalcin adaptive local POD greedy globally optimal counterexample storage cost"
+      ]
+    },
+    "rationale": "The source already admits qualitative greedy nonoptimality, so that claim is excluded from novelty. The new result is the quantifier-sharp infinite explicit family with unbounded factor-cost approximation ratio despite positive error tolerance, exact reconstruction, balanced path-mesh cuts, and real compression; accessible relevant sources do not imply this parameterized statement. One plausible hierarchical tensor source was inaccessible and remains disclosed as a historical-priority risk.",
+    "residual_risks": [
+      "Full text of Ehrlacher–Grigori–Lombardi–Song 2021 inaccessible after OA attempt and institutional access disconnected. Exact subtheorems of that source therefore could not be ruled out.",
+      "Semantic literature searches are not exhaustive priority proof.",
+      "The finding is for a particular connected balanced binary hierarchy, not any specific graph-partitioner implementation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source already owns qualitative missed-descendant phenomenon; no all-dimension unbounded ratio or described binary path matrix.",
+        "evidence": [
+          "Section 4 states greedy may reject an immediately expensive split concealing profitable descendants; Eq. (25) rank and Eq. (26) factor costs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31375v1",
+        "material_read": "Full HTML mathematical setting, Sections 3 and 4 including equations 25 and 26, greedy method, loss of compression discussion, conclusions and reference connections.",
+        "method": "Primary open-access arXiv HTML full-text inspection.",
+        "title": "Adaptive Local Proper Orthogonal Decomposition via Graph Partitioning and Provable Error-Bounded Lossy Compression for Parametric Series in Finite-Dimensional Function Spaces",
+        "trigger": "Primary source gives identical error-allocation, cost and greedy rule; likely direct coverage."
+      },
+      {
+        "assessment": "Targets arbitrary collections of horizontally concatenated matrices and incremental SVD cluster merging, rather than source-defined local-rank spatial bisection stopping; no direct implication found.",
+        "evidence": [
+          "Problem formulation and Appendix E clustering procedures are different from top-down balanced connected-cut enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.11626v2",
+        "material_read": "Full HTML introduction, problem definition, clustering methodological sections, algorithm appendix and example/worst-case discussion.",
+        "method": "Open-access arXiv HTML full-text inspection.",
+        "title": "Concatenated Matrix SVD: Compression Bounds, Incremental Approximation, and Error-Constrained Clustering",
+        "trigger": "Source names this a close matrix-compression analogue, so reduction or stronger coverage is plausible."
+      },
+      {
+        "assessment": "Potential unresolved historical-priority risk; no claim of full-text exclusion or independent verification.",
+        "evidence": [
+          "Accessible abstract describes hierarchical subtensor compression; insufficient for a decisive theorem-level exclusion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/19M128689X",
+        "material_read": "Abstract/metadata and citing author comparison in the motivating paper; full original body and appendices not available.",
+        "method": "Tried public preprint/repository and scholarly OA before authorized institutional retrieval; public PDF blocked and authorized access was disconnected.",
+        "title": "Adaptive Hierarchical Subtensor Partitioning for Tensor Compression",
+        "trigger": "The motivating paper explicitly names this as a close structural analogue; stronger hidden overlap is possible."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd125dfa-c632-452b-b491-87824dc948ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp qualitative-to-quantitative limitation for a current numerical compression rule: even when the greedy root is already a valid exact factorization using fewer entries than raw data, it can be arbitrarily more expensive than the optimal hierarchy cut. The explicit mechanism pinpoints the need for multi-level lookahead or global tree optimization. This is not a mere rank normalization, trivial negative control or an arbitrary finite table.",
+    "status": "PASS"
+  }
+}
