@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The dimension-four coefficient is reduced by an exact Legendre recurrence to an Abel cosine transform. The two endpoint expansions, gamma constant, and cancellation of the nonoscillatory origin term yield a sign-changing leading term. Positivity in lower dimensions follows from Gneiting's published spherical theorem; positivity for support at least \(\pi\) follows by an explicit nonnegative power series and a Schur product.
+## correctness
 
-**Originality (PASS, bounded literature review).** The 2011 Beatson--zu Castell--Xu conjecture identifies the general exponent threshold but does not prove the present subthreshold classification. Gneiting supplies the low-dimensional sufficiency, not the sharp all-support failure and infinitely many negative coefficients in dimension four. Related 2026 boundary positivity results apply to the higher exponent \(\delta\ge\lambda+1\). published-finding corpus comparisons using truncated-power, Askey, spherical and Gegenbauer formulations located no subsuming exact dimension-four classification. These searches cannot prove global uniqueness.
+PASS
 
-**Value (PASS).** This supplies an exact support/dimension phase boundary for a standard compactly supported spherical covariance family, with an obstruction at every shorter support and a quantified oscillatory mechanism. Both sides matter for choosing kernels on spheres; the result is neither a finite sample nor an arbitrary single-degree exception.
+For c>0, d>=1 and usual geodesic angular distance, positive definite iff d<=3 or c>=pi, with strict PD in the positive cases. C_n^(3/2)=P_(n+1)' and the derivative recurrence reduce the S4 Schoenberg integral to (n+1)(n+2)/(2n+3) times J_n-J_(n+2). Mehler--Dirichlet gives an Abel cosine transform. Its cutoff s^(5/2) term gives n^(-7/2) for each J; adjacent-frequency subtraction gives the claimed n^(-5/2) oscillatory coefficient, while the t^2 log t origin term cancels to n^(-3) after the prefactor. Beta(1/2,3)=16/15 and Gamma(7/2)=15 sqrt(pi)/8 fix the amplitude; geometric Cesaro means of cos and cos^2 force infinitely many negative coefficients. For c>=pi, arcsin(cos(theta)) has positive odd monomial coefficients and Schur positivity of the square gives strictly positive power coefficients; for d<=3 the cited Gneiting theorem gives the low-dimensional claim. A new independent checker verified 36 exact Legendre recurrences and sign changes in three finite cutoff samples. Numeric samples are not the infinite sign proof. Pointwise O_c error not uniform near c=0 or pi.
 
-**Limitations and risk.** The oscillatory estimate is fixed-support rather than uniform as support approaches \(\pi\). No effective first-negative-index bound is given. Potential uncatalogued priority remains. The derivation uses classical Abel endpoint asymptotics; independent review is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The first part is a genuine low-dimensional sufficiency from Gneiting, not a new theorem; the cutoff negative-side necessity at S4 for every c<pi and its explicit infinitely-oscillating leading coefficient are the assessed addition. Beatson--zu Castell--Xu formulate the general delta>=lambda+1 all-support claim as Conjecture 1.4; with lambda=3/2, delta=2, this does not establish negative coefficients. The 2026 odd-dimensional positive preservation theorem does not imply a sharp negative S4 classification. Fresh Resultary similarity search returned related sphere/Gegenbauer results but no logically dominating same-family theorem. Best-of-knowledge positive with unindexed-priority and Abel symbol regularity risks retained.
+
+## value
+
+PASS
+
+Geodesic truncated-power covariance kernels are standard positive-definiteness design objects. The exact dimension/support phase boundary d=3 versus d=4 for every shorter cap and the all-dimensional support c>=pi regime are useful, structurally motivated kernel facts; the explicit signed high-degree obstruction is not a textbook renaming or finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
