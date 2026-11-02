@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Independently reconstructed the clock embedding: rates 1+theta/log n sum to n; first-appearance tail weights sum to kappa e^{-s}; rare interarrival gaps produce Poisson immigration with intensity kappa e^{-c} and exponential residual lifetimes. Bounded θ ensures uniform expansions; with high probability no borderline gaps occur and the aggregate clock error is o(1), so J1 process convergence holds. Integer-valued path hitting continuity and resolvent computation prove the centered first-completion limit and the stated transform/limiting mean. Checker replay passes 60 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2605.14206v1 Theorem 4.10: clumsy-reset rate c/m gives Gumbel plus independent M/M/infinity hitting time.",
+        "2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed: fixed reset probability and nonuniform coupon weights, different mechanism."
+      ],
+      "reasoning": "Clumsy-reset and complete catastrophic-reset models are not deterministic age-M sliding windows; their conclusions do not compare at the statement level. General marked Poisson gap convergence might subsume the proof technique, but no inspected theorem directly gives the present triangular-profile functional and stopping law.",
+      "searches": [
+        "nonuniform coupon collector logarithmic weight perturbation exp tilt empirical distribution critical window Poisson immigration death",
+        "heterogeneous near-uniform expiring coupon collector weak imbalance critical process",
+        "coupon collector sliding window deterministic expiry critical window limit Markov immigration death 2026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.26298v1 (primary PDF, relevant substantive sections)",
+      "arxiv:2605.14206v1 (primary PDF, critical theorem and proof)",
+      "published-finding corpus IDs listed in checks",
+      "accessible own latest ledger available collection snapshot (recoverable claims/source IDs only)",
+      "External literature queries on coupon collection near-uniform logarithmic perturbations and deterministic expiration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Long arXiv:2604.26298v1 §§3 and 8.3: uniform exact stationary flux and occupancy, not nonuniform critical functional convergence.",
+        "Attrill-Garoni arXiv:2605.14206v1 Lemma 4.9 and Theorem 4.10: M/M/infinity queue for different update mechanism.",
+        "prior row 19 gives uniform stationary process and hitting law."
+      ],
+      "reasoning": "Fixed uniform probabilities are the special case theta=0; their process statements alone do not logically imply convergence under arbitrary n-dependent heterogeneous probabilities. The new limiting kappa and strict Jensen penalty require evaluating sums of rare long-gap probabilities; the proof provides this.",
+      "searches": [
+        "expiring coupon collector critical window n log n plus cn immigration death Poisson process missing types first completion hitting time",
+        "nearly uniform coupon probabilities 1+theta/log n critical collection time exp average e minus theta sliding window expiration immigration death",
+        "nonuniform coupon collector logarithmic weight perturbation exp tilt empirical distribution critical window Poisson immigration death"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2604.26298v1 §8.3: homogeneous stationary target mass e^{-exp(-c)} and flux exp(-c)exp(-exp(-c)).",
+        "own:2d571651-65cb-463c-8d39-04dd03c8afae: uniform stationary immigration-death functional law, recovered only as theta=0."
+      ],
+      "reasoning": "After Poisson embedding, the heterogeneous limit is expressible through kappa=lim average exp(-theta). A homogeneous law with changed parameter is an equivalent *limit representation*, but the assertion that every bounded mean-zero triangular probability profile has that limit is absent from the earlier uniform result and requires its own rare-mark convergence argument.",
+      "searches": [
+        "expiring coupon collector critical window n log n plus cn immigration death Poisson process missing types first completion hitting time",
+        "sliding window coupon collector Poisson missing episodes immigration death process Gumbel critical limit",
+        "nearly uniform coupon probabilities 1+theta/log n critical collection time exp average e minus theta sliding window expiration immigration death"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest ranked hit: 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed, not a fixed-window result.",
+        "In the accessible own latest ledger, no prior row has the parameter kappa=lim average exp(-theta) for logarithmic expiration-weight tilts; uniform row 19 is the closest."
+      ],
+      "reasoning": "The theorem is a weak-limit classification, not an entry of a numeric table. No exact matching heterogeneous claim was identified in the accessible record; this is evidence of difference, not proof of global uniqueness.",
+      "searches": [
+        "nearly uniform coupon probabilities 1+theta/log n critical collection time exp average e minus theta sliding window expiration immigration death",
+        "nonuniform coupon collector logarithmic weight perturbation exp tilt empirical distribution critical window Poisson immigration death",
+        "heterogeneous near-uniform expiring coupon collector weak imbalance critical process"
+      ]
+    },
+    "rationale": "The claim concerns the natural logarithmic near-uniform heterogeneity window, with exactly identified effective parameter kappa and strict Jensen delay. Uniform stationary immigration-death dynamics and clumsy critical queue hitting laws already exist; they are acknowledged and not claimed anew. Actual published-finding corpus searches and relevant primary sections reveal no equivalent complete heterogeneous fixed-expiration functional or completion theorem; broader general extreme-process coverage remains possible.",
+    "residual_risks": [
+      "A broad historical scan-statistics or Poisson-marked-renewal theorem might imply the result without using this exact language.",
+      "The underlying Poisson rare-gap method is classical; novelty is the explicit logarithmic profile universality and its strict penalty, not the method.",
+      "No independent priority review was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides homogeneous critical mass/flux but not the nonuniform logarithmic tilt theorem",
+        "evidence": "arXiv:2604.26298v1 pp. 1–4 and 20–21; §8.3 equations for stationary critical mass and flux",
+        "identifier_or_url": "https://arxiv.org/pdf/2604.26298",
+        "material_read": "Title/abstract and introduction, exact flux proof in §3, critical-window subsection §8.3, summary and relevant formulas",
+        "method": "Opened and inspected primary PDF text and rendered page",
+        "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+        "trigger": "Exact same finite-lifetime window model and critical regime"
+      },
+      {
+        "assessment": "Different random-loss mechanism; no implication for near-uniform deterministic expiration window",
+        "evidence": "arXiv:2605.14206v1 pp. 1–2, 14–16: Poisson(c) initial M/M/infinity and Gumbel-plus-hitting law",
+        "identifier_or_url": "https://arxiv.org/pdf/2605.14206",
+        "material_read": "Abstract/introduction, §4 critical shape Lemma 4.9 and Theorem 4.10, proof of different clumsy-update first-completion law",
+        "method": "Opened primary PDF, inspected relevant theorem, formulas, and rendered first page",
+        "title": "The clumsy coupon collector's problem",
+        "trigger": "Plausible broader queue hitting theory with same immigration–death limit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5f7d9ff0-14bb-452a-a565-3eb7d752b931",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The relative 1/log n probability perturbation is exactly the critical scale at which the n^{-1} rare nonappearance factors are multiplied by exp(-theta). A single nontrivial spectral statistic kappa determines a full family of dynamic limit laws; Jensen makes the strict coverage delay explicit (for two groups ±a, kappa=cosh(a)). This addresses sensitivity of finite-lifetime coupon coverage and cannot be inferred by finite-table recomputation.",
+    "status": "PASS"
+  }
+}
