@@ -1,0 +1,15 @@
+# Review of the two leading Fourier levels of the Vicsek cross measure
+
+## Correctness
+PASS. The self-similar digit law gives an exact product of five-term Fourier masks. The first nonzero ternary digit restricts contenders to an axis; the second digit leaves only signed residues of sizes \(1\) and \(2\). At every later level, the first deviation from either residue branch has a mask factor strictly below \(3/5\), forcing its total modulus below \(6/25\). A rational lower certificate establishes that the claimed second level is strictly above this threshold. The product comparison proves distinctness and all equality cases. The convolution-norm assertions are standard Fourier diagonalizations. The packaged finite checker supplies supplementary checks, not the infinite proof.
+
+## Originality
+PASS under bounded comparison, not a claim of global uniqueness. The 1983 Vicsek work introduces the self-similar geometry; Dutkay–Jorgensen's affine-IFS Fourier treatment addresses orthogonal exponential bases and general transform recursions, not ordered integer Fourier moduli. Cherny et al. study three-dimensional generalized Vicsek scattering and angular averages; Anitas et al. study two-scaling-factor Vicsek-like scattering. Jayanthi–Wu's similar-sounding frequency-spectrum paper concerns vibration eigenfrequencies, not measure Fourier coefficients. Earlier work on Cantor and Sierpiński-carpet coefficient extrema has different digit masks and does not imply this result. Detailed searches and source-material comparisons are recorded in `AUDIT.json`. An older exact lattice-diffraction computation could conceivably cover this theorem; no decisive matching statement was found.
+
+## Mathematical value
+PASS. For a canonical five-map planar self-similar measure, the ordered Fourier magnitudes are natural spectral invariants of convolution on \(\mathbb T^2\). The result fixes the sharp first two norms and complete infinite equality families and separates the entire remainder by a universal explicit gap. This is a nontrivial frequency rigidity result, not a general-purpose elementary mask identity or a finite numerical census. It can be used in exact Fourier truncation and spectral-gap analyses of this singular convolution model, although no downstream theorem is asserted.
+
+## Limitations and risks
+The model and integer-lattice scope are precise. The third level is not optimized, and arbitrary real frequencies or other Vicsek measures are not classified. The 1983 original paper and the 1993 vibration paper were available only through abstracts/index metadata; those are residual access risks. The 2006 affine-IFS and 2011 scattering preprints were examined in substantial primary text, and the 2019 article's substantive sections and conclusions were inspected in its lawful open full text. Historical claims in accessible research records were checked for mathematical implication, without re-auditing them. The self-review does not constitute independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
