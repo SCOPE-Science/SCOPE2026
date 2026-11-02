@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "A finite exhaustive proof is encoded in a standard C++17 program whose bound is exactly 2339. It enumerates all 345 odd primes and all 369924 nonzero candidate indices using inverse-factorial and direct-Horner independent formulas, agreeing at every prime and producing the complete 345-row root census. The six Q/p residues are 843,1662,1732,24,685,1079, all nonzero mod 2339. Direct modular evaluation verifies six distinct second-level lifts. Miska 2014 Theorem 1 then supplies unique lifting for every exponent; all classes are accounted for because each projects to a first-level root.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miska 2017 Section 3 defines lambda_h(p) for general h and gives a six-root example for h(X)=X^2-1, different from h(X)=X.",
+        "Miska 2014 Question 4 asks whether lambda(p)>=m occurs, with a table through the first 200 primes and maximum five."
+      ],
+      "reasoning": "A general definition for h does not imply the numerical answer for the fixed h(X)=X. The 2017 six-root example is for a genuinely different polynomial sequence, so it does not dominate the exact first-prime statement or six h=X Hensel branches.",
+      "searches": [
+        "Arithmetic properties of generalizations of Schenker sums Miska 2017 lambda_h(p) tables",
+        "Schenker primes Schenker sum λ(p) number of residues roots m=6 first prime 2339"
+      ]
+    },
+    "checked_sources": [
+      "https://pages.stat.wisc.edu/~callan/papers/truncated_exponential/truncated_exponential.pdf",
+      "https://arxiv.org/html/1401.1717v1",
+      "https://www.researchgate.net/publication/311447024_Arithmetic_properties_of_generalizations_of_Schenker_sums",
+      "https://oeis.org/A219546"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Amdeberhan–Callan–Moll 2013 prove basic periodicity/valuation results and characterize Schenker primes, without a six-root first-occurrence table.",
+        "Miska 2014 establishes conditional Hensel uniqueness; the six nonvanishing differences Q/p at p=2339 and the sharp first-prime bound are new finite premises.",
+        "Miska 2017 examples of multiplicity six are for h=X^2-1."
+      ],
+      "reasoning": "The infinite lifting conclusion invokes an existing implication, but that theorem needs exact root and derivative data at a prime. The new contribution is an independently established first occurrence, an exhaustive exact root set, and the finite nondegeneracy certificate that triggers six disjoint branches.",
+      "searches": [
+        "2013 Amdeberhan Callan Moll Valuations and Combinatorics of Truncated Exponential Sums full text",
+        "Miska arxiv:1401.1717 Theorem 1 Question 4 lambda",
+        "2017 Miska arithmetic properties of generalizations Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Miska 2014 Theorem 1 supplies a conditional lifting test, not the first six-root prime or its six input residues.",
+        "OEIS A219546 records the Schenker-prime property without multiplicities."
+      ],
+      "reasoning": "The condition lambda(p)>=6 is equivalently six distinct roots of a truncated exponential evaluated at its varying truncation index. The full six-root set and first occurrence 2339 are not determined by the published conditional lifting theorem or the binary prime sequence.",
+      "searches": [
+        "Schenker sums lambda(p) six nonzero roots modulo prime p=2339",
+        "least prime with six residues dividing Schenker sums",
+        "doi:10.4064/cm140-1-2; arxiv:1401.1717"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A219546 provides a list of primes with at least one zero; it does not count all zero classes.",
+        "Miska 2014 Table 1 covers the first 200 primes (up to 1223), below 2339.",
+        "The accompanying census gives all 345 odd primes through 2339 and a complete list of their root residues."
+      ],
+      "reasoning": "Neither the binary Schenker-prime table nor the 200-prime multiplicity table contains the first lambda=6 witness, the six roots, or their six second-level lifts.",
+      "searches": [
+        "OEIS A219546 Schenker primes",
+        "Miska 2014 Table 1 lambda(p) 5 593",
+        "Schenker primes 2339 156 470 520 589 1092 2170"
+      ]
+    },
+    "rationale": "The original 2013 work and Miska 2014 give the object, partial census and conditional lifting theorem; Miska explicitly poses the multiplicity-existence problem. The 2017 generalization gives a six-root example only for a different polynomial h. No identified primary result or exact database establishes the least six-root prime 2339 and its six ordinary Schenker branches. Residual risk remains of overlooked unpublished or unindexed computations.",
+    "residual_risks": [
+      "A previously unindexed computational table may already contain lambda(2339) or the first-six milestone.",
+      "The six-branch existence for higher powers is conditional on the previously proved lifting theorem, not a new general Hensel theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes Schenker-prime condition and 2-adic valuations but no first six-root prime, exact 345-prime census, or six-branch certificate.",
+        "evidence": [
+          "Section 4, Example 4.4 lists Schenker primes only through 200; Section 4 conjecture concerns valuations of p=5."
+        ],
+        "identifier_or_url": "https://pages.stat.wisc.edu/~callan/papers/truncated_exponential/truncated_exponential.pdf",
+        "material_read": "Full 16-page PDF, especially introduction, Section 3 (modular recurrence), Section 4 (primes and conjectures), Section 5 and references.",
+        "method": "Read complete searchable PDF with first-page visual inspection.",
+        "title": "Valuations and Combinatorics of Truncated Exponential Sums",
+        "trigger": "Defines Schenker sums and Schenker primes; plausible prior multiplicity analysis."
+      },
+      {
+        "assessment": "Contains the conditional lifting theorem used here and a table only through p=1223; does not state lambda(2339), the least-six prime or six root/digit lists.",
+        "evidence": [
+          "Theorem 1 around Section 1 and proof Section 2; Table 1 and Question 4 in Section 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1401.1717v1",
+        "material_read": "Complete HTML v1, Sections 1–4 including full Theorem 1, proof, Table 1 and all five questions.",
+        "method": "Read full arXiv open text and compared formulas with proposed finite evidence.",
+        "title": "A note on p-adic valuations of the Schenker sums",
+        "trigger": "Introduces lambda(p), first 200-prime table, nondegenerate lifting criterion, Question 4."
+      },
+      {
+        "assessment": "Six-root example occurs for h=X^2-1 at p=1459; this different polynomial does not cover six roots of ordinary h=X at p=2339. Three large tables target h=-X-1,X^2+1,X^2-1.",
+        "evidence": [
+          "Section 3 lines near Question 3.5 and Tables 1–3."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/311447024_Arithmetic_properties_of_generalizations_of_Schenker_sums",
+        "material_read": "Publicly readable full-text transcription, especially introduction, Section 3, Question 3.5 and Tables 1–3.",
+        "method": "Inspected exact polynomial parameters and multiplicity-six example against original h=X.",
+        "title": "Arithmetic properties of generalizations of Schenker sums",
+        "trigger": "Later paper from same author with generalized lambda_h, potentially dominating the h=X result."
+      },
+      {
+        "assessment": "Membership in Schenker-prime set is binary lambda>=1, not count lambda=6; does not supply our minimality classification.",
+        "evidence": [
+          "Entry name, comments and sequence list; original entry dated 2012-11-22."
+        ],
+        "identifier_or_url": "https://oeis.org/A219546",
+        "material_read": "Full public database entry, definitions, list, comments, source references, links.",
+        "method": "Inspected sequence semantics, not only matching numerical terms.",
+        "title": "OEIS A219546 Schenker primes",
+        "trigger": "Existing exact integer database could cover first occurrences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c5c0df34-0b8a-4b41-8607-e109db4b8ac4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Miska 2014 Question 4 asks whether any prime supports m Schenker zeros for each m, and the published table exhibits at most five for its first 200 primes. The new result resolves the first outstanding threshold m=6, identifies the sharp first-prime cutoff, enumerates all six residues, and proves six disjoint nonzero p-adic zero branches at every depth. This is a natural exact invariant and certificate-based finite classification motivated by a published open existence question, not an arbitrary unmotivated modulus slice. It does not claim to resolve m>=7.",
+    "status": "PASS"
+  }
+}
