@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The claim has exact domains \(q\ge2\), \(n\ge2\), with exactly two sequential length-two operations. A universal upper bound follows by exhaustively classifying the \(\binom n2+3n-4\) labeled shapes. Any equal original neighbors merge two shapes. For unequal neighbors, the earliest equality edge identifies the least original start, and a local case split separates every shape within that start, including the subtle \(M\)-versus-separated-original-pair comparison via its additional forced equality edge. The involution extension uses the published, explicitly cited even-length conjugacy. Separate programs enumerate actual outputs and abstract shapes as finite checks, not as replacements for the general proof.
+
+**Originality (O): PASS subject to residual priority uncertainty.** The nearest primary manuscript, arXiv:2609.00779, states the maximum cardinality and provides alternating two-symbol witnesses but does not classify all sources achieving equality. Its general shape count is insufficient for arbitrary-alphabet equality without the injectivity proof supplied here. The older arXiv:1712.09345 treats one error, and arXiv:2602.01151 concerns code constructions. Comparisons to related published mathematical records uncovered finite code-size results rather than the present all-length sphere-maximizer theorem. A previously unindexed derivation remains possible; no external priority certification was performed.
+
+**Value (V): PASS.** Exact classification of equality in a sharp sphere bound is a natural refinement of the established two-error duplication geometry. It reveals an exponentially large family of additional optimizers on nonbinary alphabets, gives its exact labeled cardinality, and transfers the criterion to reverse-complement duplication without requiring a fixed-point-free involution. These properties concern the underlying channel geometry rather than an arbitrary parameter slice.
+
+The result does not solve optimal codebook construction or characterize longer blocks or larger numbers of errors. The scope and these limitations are explicit in `RESULT.md`.
+
+Self-review: passed. Independent audit: not yet performed.
