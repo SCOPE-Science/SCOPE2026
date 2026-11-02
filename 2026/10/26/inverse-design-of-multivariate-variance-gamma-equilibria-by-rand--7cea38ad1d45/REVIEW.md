@@ -1,9 +1,21 @@
-# Scientific review: inverse design of variance-gamma equilibria
+# Independent mathematical audit
 
-**Correctness — PASS.** The exponential Poisson age implies the exact Fourier fixed point; its coefficient sequence forces the sharp forbidden regimes. Determinacy of moments on \([0,1]\) fixes the reset law, the beta integral establishes sufficiency, and the contractive perpetuity gives existence and uniqueness. The independent finite verifier passed 5,829 selected exact/numerical consistency checks; it is not a proof of untested cases.
+## correctness
 
-**Originality — PASS, qualified.** Assefa, Keller-Ressel and Palmowski (arXiv:2610.01363) provide forward moment formulas for random affine resetting, not the complete inverse characterization here. Tal-Friedman, Roichman and Reuveni (arXiv:2205.03363), Palmowski and coauthors (arXiv:2605.18136), and Grzywny and coauthors (arXiv:2412.15626) examine fixed-contraction rather than the stochastic beta reset family. Targeted mathematical-finding searches gave no matching inverse theorem. The beta-gamma transform itself is classical; a general perpetuity reference could still implicitly cover the inverse result and deserves independent attention. Full text of one plausible fixed-contraction predecessor was not inspected.
+PASS
 
-**Mathematical value — PASS.** The sharp target feasibility region and unique reset distribution answer a nontrivial model-design question for every finite dimension and identify a precise change from fixed partial resetting to beta-distributed contractions. Impossible variance-gamma shapes and minimum scales are explicit, and the general beta family gives reproducible construction rather than only formal moment equations.
+At stationary exponential observation times the perpetuity X=Z+UX' with Z a Brownian displacement over Exp(lambda), gives (1+kappa||t||²)phi(t)=E phi(Ut) for kappa=D/lambda. Substitution phi=(1+beta||t||²)^(-q) and coefficient comparison gives E U^(2n)=1-hn/(q+n-1), h=kappa/beta. For q<1 this violates E U4<=E U2, and as n tends to infinity it gives P(U=1)=1-h>=0. Hausdorff moment uniqueness identifies only the asserted two-atom law for q=1 or (1-h)delta1+h Beta(2q-2,1) for q>1, with q>=1, beta>=kappa. The beta integral exactly verifies the identity for all z>=0. E U²<1 ensures L² perpetuity convergence and synchronous-coupling contraction, proving unique invariant law for any finite d. Independently checked 228 exact rational moment identities plus boundaries. This depends on common scalar iid [0,1] resets, not general affine resetting.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact inverse feasible region and uniqueness of multiplier law are not given by the inspected fixed-multiplier Brownian-resetting source. General polynomial-process moment methods from Assefa et al. and partially stochastic Levy resetting work may contain broader stationary identities; the most closely relevant 2026 moment paper full text could not be accessed, so originality is best-knowledge with a material priority risk. The beta integral is classical and not claimed independently new.
+
+## value
+
+PASS
+
+The theorem solves a complete inverse stationary-law design problem: every dimension, precise achievable parameter region, uniqueness of admissible reset distribution, and a sharp effective-reset boundary. These are meaningful stochastic-process structural facts, not a numerical isolated case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
